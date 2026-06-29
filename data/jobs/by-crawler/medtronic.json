@@ -324,12 +324,12 @@
     },
     {
       "id": "medtronic-00447637d12b",
-      "slug": "tirocinante-operational-excellence-medtronic-lausanne",
+      "slug": "eccellenza-operativa-interna-medtronic-lausanne",
       "slugByLocale": {
-        "it": "tirocinante-operational-excellence-medtronic-lausanne",
+        "it": "eccellenza-operativa-interna-medtronic-lausanne",
         "en": "intern-operational-excellence-medtronic-ch",
-        "de": "praktikant-operational-excellence-medtronic-lausanne",
-        "fr": "stagiaire-operational-excellence-medtronic-lausanne"
+        "de": "praktikum-fur-operative-exzellenz-medtronic-lausanne",
+        "fr": "excellence-operationnelle-des-stagiaires-medtronic-lausanne"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -372,17 +372,23 @@
       "requirementsByLocale": {},
       "jobReqId": "R68883",
       "previousSlugs": [
-        "intern-operational-excellence-medtronic-ch"
+        "intern-operational-excellence-medtronic-ch",
+        "tirocinante-operational-excellence-medtronic-lausanne",
+        "praktikant-operational-excellence-medtronic-lausanne",
+        "stagiaire-operational-excellence-medtronic-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-operational-excellence-medtronic-ch"
+          "intern-operational-excellence-medtronic-ch",
+          "tirocinante-operational-excellence-medtronic-lausanne"
         ],
         "de": [
-          "intern-operational-excellence-medtronic-ch"
+          "intern-operational-excellence-medtronic-ch",
+          "praktikant-operational-excellence-medtronic-lausanne"
         ],
         "fr": [
-          "intern-operational-excellence-medtronic-ch"
+          "intern-operational-excellence-medtronic-ch",
+          "stagiaire-operational-excellence-medtronic-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-15T14:53:34.893Z",
@@ -482,8 +488,8 @@
       "slugByLocale": {
         "it": "specialista-del-servizio-tecnico-m-w-d-medtronic-bern",
         "en": "technical-service-specialist-m-w-d-medtronic-ch",
-        "de": "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
-        "fr": "specialiste-du-service-technique-h-f-medtronic-bern"
+        "de": "technischer-mitarbeiter-m-w-d-medtronic-bern",
+        "fr": "specialiste-des-services-techniques-m-w-d-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -554,18 +560,18 @@
       "jobReqId": "R58182",
       "previousSlugs": [
         "technical-service-specialist-m-w-d-medtronic-ch",
-        "technischer-mitarbeiter-m-w-d-medtronic-bern",
-        "specialiste-des-services-techniques-m-w-d-medtronic-bern"
+        "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
+        "specialiste-du-service-technique-h-f-medtronic-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-service-specialist-m-w-d-medtronic-ch"
         ],
         "de": [
-          "technischer-mitarbeiter-m-w-d-medtronic-bern"
+          "technischer-servicemitarbeiter-m-w-d-medtronic-bern"
         ],
         "fr": [
-          "specialiste-des-services-techniques-m-w-d-medtronic-bern"
+          "specialiste-du-service-technique-h-f-medtronic-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:40.418Z",
@@ -722,10 +728,10 @@
     },
     {
       "id": "medtronic-f14cabd3c0ba",
-      "slug": "associate-occupational-nurse-medtronic-ch",
+      "slug": "infermiera-occupazionale-associata-medtronic-neuhausen",
       "slugByLocale": {
         "fr": "associate-occupational-nurse-medtronic-ch",
-        "it": "associate-occupational-nurse-medtronic-ch",
+        "it": "infermiera-occupazionale-associata-medtronic-neuhausen",
         "en": "associate-occupational-nurse-medtronic-ch",
         "de": "associate-occupational-nurse-medtronic-ch"
       },
@@ -783,7 +789,15 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-29T13:53:11.702Z"
+      "firstSeenAt": "2026-06-29T13:53:11.702Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-occupational-nurse-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-occupational-nurse-medtronic-ch"
+      ]
     }
   ]
 }

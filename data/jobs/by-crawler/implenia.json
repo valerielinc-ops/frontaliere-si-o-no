@@ -160,8 +160,8 @@
       "slugByLocale": {
         "de": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch",
         "it": "gestore-immobiliare-m-f-d-zurigo-centrale-80-100-implenia-zurich",
-        "en": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch",
-        "fr": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+        "en": "real-estate-manager-m-f-d-zurich-central-80-100-implenia-zurich",
+        "fr": "directeur-immobilier-m-f-j-zurich-central-80-100-implenia-zurich"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -220,6 +220,12 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+        ],
+        "en": [
+          "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -232,8 +238,8 @@
       "slugByLocale": {
         "de": "vermietungsspezialist-immobilien-m-w-d-zurich-central-80-implenia-ch",
         "it": "specialista-in-locazione-immobiliare-m-f-d-zurigo-centrale-80-implenia-zurich",
-        "en": "vermietungsspezialist-immobilien-m-w-d-zurich-central-80-implenia-ch",
-        "fr": "vermietungsspezialist-immobilien-m-w-d-zurich-central-80-implenia-ch"
+        "en": "rental-specialist-real-estate-m-f-d-zurich-central-80-implenia-zurich",
+        "fr": "location-immobilier-specialise-m-f-d-zurich-central-80-implenia-zurich"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -291,6 +297,12 @@
       "firstSeenAt": "2026-06-29T13:21:50.948Z",
       "previousSlugsByLocale": {
         "it": [
+          "vermietungsspezialist-immobilien-m-w-d-zurich-central-80-implenia-ch"
+        ],
+        "en": [
+          "vermietungsspezialist-immobilien-m-w-d-zurich-central-80-implenia-ch"
+        ],
+        "fr": [
           "vermietungsspezialist-immobilien-m-w-d-zurich-central-80-implenia-ch"
         ]
       },
@@ -1398,9 +1410,9 @@
     },
     {
       "id": "implenia-3d88eb17bdcd",
-      "slug": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+      "slug": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
       "slugByLocale": {
-        "it": "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
+        "it": "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "en": "rental-specialist-real-estate-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen",
         "de": "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
         "fr": "location-de-biens-immobiliers-specialises-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
@@ -1446,12 +1458,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-        "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
+        "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch",
-          "immobiliare-specializzato-in-noleggio-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
+          "azienda-immobiliare-m-f-d-st-gallen-100-implenia-st-leonhardstrasse-74-postfach-9001-st-gallen"
         ],
         "en": [
           "vermietungsspezialist-immobilien-m-w-d-st-gallen-100-implenia-ch"
@@ -2114,8 +2126,8 @@
       "slugByLocale": {
         "de": "projektmanager-umbau-w-m-d-implenia-ch",
         "it": "responsabile-di-progetto-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
-        "en": "projektmanager-umbau-w-m-d-implenia-ch",
-        "fr": "projektmanager-umbau-w-m-d-implenia-ch"
+        "en": "project-manager-conversion-f-m-d-implenia-glattpark-opfikon",
+        "fr": "transformation-du-gestionnaire-de-projet-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2174,6 +2186,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektmanager-umbau-w-m-d-implenia-ch"
+        ],
+        "en": [
+          "projektmanager-umbau-w-m-d-implenia-ch"
+        ],
+        "fr": [
+          "projektmanager-umbau-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -2186,8 +2204,8 @@
       "slugByLocale": {
         "de": "bauleiter-umbau-w-m-d-implenia-ch",
         "it": "direttore-dei-lavori-di-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
-        "en": "bauleiter-umbau-w-m-d-implenia-ch",
-        "fr": "bauleiter-umbau-w-m-d-implenia-ch"
+        "en": "construction-manager-conversion-f-m-d-implenia-glattpark-opfikon",
+        "fr": "transformation-du-chef-de-chantier-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2234,6 +2252,12 @@
         "it": [
           "bauleiter-umbau-w-m-d-implenia-ch",
           "bauleiter-umbau-m-w-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "bauleiter-umbau-w-m-d-implenia-ch"
+        ],
+        "fr": [
+          "bauleiter-umbau-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -2261,7 +2285,7 @@
         "de": "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
         "it": "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
         "en": "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
-        "fr": "lead-buyer-hlks-m-w-d-80-100-implenia-ch"
+        "fr": "acheteur-de-plomb-cvc-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2396,8 +2420,8 @@
       "slugByLocale": {
         "de": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch",
         "it": "polier-im-lehrgerust-e-bruckenbau-100-m-w-d-implenia-glattpark-opfikon",
-        "en": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch",
-        "fr": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
+        "en": "polisher-in-teaching-scaffolding-and-bridge-construction-100-f-m-implenia-glattpark-opfikon",
+        "fr": "polisher-dans-l-enseignement-des-echafaudages-et-la-construction-de-ponts-100-f-m-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2443,6 +2467,12 @@
       "previousSlugsByLocale": {
         "it": [
           "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
+        ],
+        "en": [
+          "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
+        ],
+        "fr": [
+          "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -2468,8 +2498,8 @@
       "slugByLocale": {
         "de": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
         "it": "direttore-dei-lavori-gu-tu-zurigo-f-m-d-implenia-glattpark-opfikon",
-        "en": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-        "fr": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+        "en": "construction-manager-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "fr": "directeur-de-la-construction-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2516,6 +2546,12 @@
         "it": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
           "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+        ],
+        "fr": [
+          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -2542,8 +2578,8 @@
       "slugByLocale": {
         "de": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
         "it": "responsabile-della-pianificazione-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
-        "en": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
-        "fr": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+        "en": "planning-manager-of-the-renovation-project-jelmoli-f-m-d-implenia-glattpark-opfikon",
+        "fr": "responsable-de-la-planification-du-projet-de-renovation-jelmoli-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2601,6 +2637,12 @@
       "firstSeenAt": "2026-06-29T13:21:42.577Z",
       "previousSlugsByLocale": {
         "it": [
+          "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+        ],
+        "en": [
+          "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
+        ],
+        "fr": [
           "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
         ]
       },
@@ -2678,8 +2720,8 @@
       "slugByLocale": {
         "de": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
         "it": "assistente-di-progetto-data-center-80-100-f-m-d-implenia-glattpark-opfikon",
-        "en": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
-        "fr": "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
+        "en": "project-assistance-datacenter-80-100-w-m-d-implenia-glattpark-opfikon",
+        "fr": "centre-de-donnees-d-aide-au-projet-80-100-p-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2738,6 +2780,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
+        ],
+        "en": [
+          "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
+        ],
+        "fr": [
+          "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -2750,8 +2798,8 @@
       "slugByLocale": {
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "it": "pulizia-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon",
-        "en": "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
-        "fr": "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
+        "fr": "reduction-de-la-pollution-p-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2798,6 +2846,12 @@
         "it": [
           "polier-schadstoffsanierung-w-m-d-implenia-ch",
           "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
@@ -2824,8 +2878,8 @@
       "slugByLocale": {
         "de": "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
         "it": "capocantiere-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon",
-        "en": "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
-        "fr": "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        "en": "construction-manager-pollution-remediation-w-m-d-implenia-glattpark-opfikon",
+        "fr": "directeur-de-la-construction-assainissement-de-la-pollution-p-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2872,6 +2926,12 @@
         "it": [
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
@@ -2898,8 +2958,8 @@
       "slugByLocale": {
         "de": "baukostenplaner-umbau-w-m-d-implenia-ch",
         "it": "pianificatore-dei-costi-di-costruzione-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
-        "en": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
-        "fr": "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        "en": "construction-cost-planner-conversion-f-m-d-implenia-glattpark-opfikon",
+        "fr": "transformation-du-planificateur-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2946,6 +3006,12 @@
         "it": [
           "baukostenplaner-umbau-w-m-d-implenia-ch",
           "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
@@ -2972,8 +3038,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
         "it": "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon",
-        "en": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
-        "fr": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        "en": "employee-construction-scheduling-avor-m-f-d-80-100-implenia-glattpark-opfikon",
+        "fr": "calendrier-de-construction-des-employes-avor-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3018,6 +3084,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
           "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
         ]
       },

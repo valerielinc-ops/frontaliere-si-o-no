@@ -867,8 +867,7 @@
           "flexible-aushilfe-tally-weijl-chur"
         ],
         "en": [
-          "flexible-assistance-tally-weijl-chur",
-          "flexible-aushilfe-tally-weijl-chur"
+          "flexible-assistance-tally-weijl-chur"
         ],
         "fr": [
           "flexible-aushilfe-tally-weijl-chur"
@@ -945,8 +944,7 @@
           "flexible-aushilfe-tally-weijl-baden"
         ],
         "en": [
-          "flexible-assistance-tally-weijl-baden",
-          "flexible-aushilfe-tally-weijl-baden"
+          "flexible-assistance-tally-weijl-baden"
         ],
         "fr": [
           "flexible-aushilfe-tally-weijl-baden"
@@ -972,7 +970,7 @@
       "id": "tally-weijl-59950cdafc4d",
       "slug": "assistente-flessibile-tally-weijl-aarau",
       "slugByLocale": {
-        "it": "assistente-flexibile-m-w-d-tally-weijl-aarau",
+        "it": "assistente-flessibile-tally-weijl-aarau",
         "en": "flexible-aushilfe-tally-weijl-aarau",
         "de": "flexible-aushilfe-tally-weijl-aarau",
         "fr": "assistant-flexible-tally-weijl-aarau"
@@ -1045,14 +1043,15 @@
       "previousSlugs": [
         "flexible-aushilfe-tally-weijl-aarau",
         "aushilfe-flessibile-tally-weijl-aarau",
+        "assistente-flexibile-m-w-d-tally-weijl-aarau",
         "aushilfe-fur-die-zukunft-tally-weijl-aarau",
-        "aushilfe-flessibile-m-p-g-tally-weijl-aarau",
-        "assistente-flessibile-tally-weijl-aarau"
+        "aushilfe-flessibile-m-p-g-tally-weijl-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-aarau",
-          "aushilfe-flessibile-tally-weijl-aarau"
+          "aushilfe-flessibile-tally-weijl-aarau",
+          "assistente-flexibile-m-w-d-tally-weijl-aarau"
         ],
         "de": [
           "aushilfe-fur-die-zukunft-tally-weijl-aarau"
@@ -1819,8 +1818,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "moduli-di-montaggio-tally-weijl-basel",
-          "fitting-models-tally-weijl-basel"
+          "moduli-di-montaggio-tally-weijl-basel"
         ],
         "de": [
           "fitting-modelle-tally-weijl-basel"
@@ -1923,12 +1921,12 @@
     },
     {
       "id": "tally-weijl-aedc5c211cac",
-      "slug": "conseillere-de-vente-30-tally-weijl-payerne",
+      "slug": "consulente-commerciale-30-tally-weijl-payerne",
       "slugByLocale": {
         "fr": "conseillere-de-vente-30-tally-weijl-payerne",
-        "it": "conseillere-de-vente-30-tally-weijl-payerne",
-        "en": "conseillere-de-vente-30-tally-weijl-payerne",
-        "de": "conseillere-de-vente-30-tally-weijl-payerne"
+        "it": "consulente-commerciale-30-tally-weijl-payerne",
+        "en": "sales-advisor-30-tally-weijl-payerne",
+        "de": "verkaufsberater-30-tally-weijl-payerne"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1983,16 +1981,30 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-29T14:10:11.595Z"
+      "firstSeenAt": "2026-06-29T14:10:11.595Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-de-vente-30-tally-weijl-payerne"
+        ],
+        "en": [
+          "conseillere-de-vente-30-tally-weijl-payerne"
+        ],
+        "de": [
+          "conseillere-de-vente-30-tally-weijl-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-de-vente-30-tally-weijl-payerne"
+      ]
     },
     {
       "id": "tally-weijl-ce819ab99bc7",
-      "slug": "conseilere-de-vente-30-tally-weijl-sion",
+      "slug": "consulente-commerciale-30-tally-weijl-sion",
       "slugByLocale": {
         "fr": "conseilere-de-vente-30-tally-weijl-sion",
-        "it": "conseilere-de-vente-30-tally-weijl-sion",
-        "en": "conseilere-de-vente-30-tally-weijl-sion",
-        "de": "conseilere-de-vente-30-tally-weijl-sion"
+        "it": "consulente-commerciale-30-tally-weijl-sion",
+        "en": "sales-advisor-30-tally-weijl-sion",
+        "de": "verkaufsberater-30-tally-weijl-sion"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -2047,7 +2059,21 @@
       },
       "postalCode": "1950",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-29T14:10:10.894Z"
+      "firstSeenAt": "2026-06-29T14:10:10.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseilere-de-vente-30-tally-weijl-sion"
+        ],
+        "en": [
+          "conseilere-de-vente-30-tally-weijl-sion"
+        ],
+        "de": [
+          "conseilere-de-vente-30-tally-weijl-sion"
+        ]
+      },
+      "previousSlugs": [
+        "conseilere-de-vente-30-tally-weijl-sion"
+      ]
     },
     {
       "id": "tally-weijl-111f0a6245f6",

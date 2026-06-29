@@ -9991,10 +9991,10 @@
     },
     {
       "id": "rolex-ed153aed20a7",
-      "slug": "assistant-h-f-rolex-ch",
+      "slug": "assistente-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "assistant-h-f-rolex-ch",
-        "it": "assistant-h-f-rolex-ch",
+        "it": "assistente-h-f-rolex-geneve",
         "en": "assistant-h-f-rolex-ch",
         "de": "assistent-h-f-rolex-geneve"
       },
@@ -10052,11 +10052,17 @@
       },
       "firstSeenAt": "2026-06-29T13:50:32.942Z",
       "previousSlugs": [
+        "assistant-h-f-rolex-ch",
         "assistente-amministrativo-h-f-rolex-geneve",
         "administrative-assistant-h-f-rolex-geneve",
         "assistent-administratif-h-f-rolex-geneve",
         "assistant-administratif-h-f-rolex-ch"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-h-f-rolex-ch"
+        ]
+      }
     }
   ]
 }

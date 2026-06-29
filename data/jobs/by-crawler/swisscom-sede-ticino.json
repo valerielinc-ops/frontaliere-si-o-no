@@ -29,9 +29,9 @@
         "de": "DevOps Ingenieur esBill",
         "fr": "DevOps Ingénieur esBill"
       },
-      "slug": "devops-engineer-esbill-swisscom-bern-sdfnw0",
+      "slug": "devops-ingegnere-esbill-swisscom-sede-ticino-bern",
       "slugByLocale": {
-        "it": "devops-engineer-esbill-swisscom-bern-sdfnw0",
+        "it": "devops-ingegnere-esbill-swisscom-sede-ticino-bern",
         "en": "devops-engineer-esbill-swisscom-bern-sdfnw0",
         "de": "devops-engineer-esbill-swisscom-bern-sdfnw0",
         "fr": "devops-engineer-esbill-swisscom-bern-sdfnw0"
@@ -66,7 +66,15 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-29T14:09:44.850Z"
+      "firstSeenAt": "2026-06-29T14:09:44.850Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-esbill-swisscom-bern-sdfnw0"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-esbill-swisscom-bern-sdfnw0"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Business-Engineer_R-0005408-1",
@@ -256,7 +264,7 @@
         "it": "tirocinio-in-audit-it-swisscom-sede-ticino-bern",
         "en": "internship-it-audit-swisscom-bern-u408v8",
         "de": "internship-it-audit-swisscom-bern-u408v8",
-        "fr": "verification-informatique-des-stages-swisscom-sede-ticino-bern"
+        "fr": "stage-it-audit-swisscom-sede-ticino-bern"
       },
       "category": "technology",
       "datePosted": "2026-06-12",
@@ -294,11 +302,13 @@
           "internship-it-audit-swisscom-bern-u408v8"
         ],
         "fr": [
-          "internship-it-audit-swisscom-bern-u408v8"
+          "internship-it-audit-swisscom-bern-u408v8",
+          "verification-informatique-des-stages-swisscom-sede-ticino-bern"
         ]
       },
       "previousSlugs": [
-        "internship-it-audit-swisscom-bern-u408v8"
+        "internship-it-audit-swisscom-bern-u408v8",
+        "verification-informatique-des-stages-swisscom-sede-ticino-bern"
       ]
     },
     {
@@ -1140,7 +1150,7 @@
         "it": "devops-ingegnere-swisscom-sede-ticino-bern-d524ff",
         "en": "devops-engineer-swisscom-sede-ticino-bern",
         "de": "devops-ingenieur-swisscom-sede-ticino-bern",
-        "fr": "devops-engineer-swisscom-bern-on9t50"
+        "fr": "ingenieur-devops-swisscom-sede-ticino-bern"
       },
       "category": "technology",
       "datePosted": "2026-05-19",
@@ -1182,12 +1192,11 @@
           "devops-engineer-swisscom-bern-on9t50"
         ],
         "fr": [
-          "ingenieur-devops-swisscom-sede-ticino-bern"
+          "devops-engineer-swisscom-bern-on9t50"
         ]
       },
       "previousSlugs": [
         "devops-engineer-swisscom-bern-on9t50",
-        "ingenieur-devops-swisscom-sede-ticino-bern",
         "devops-engineer-swisscom-bern-manv40",
         "devops-ingegnere-swisscom-sede-ticino-bern"
       ]
@@ -1623,7 +1632,7 @@
         "it": "business-ingegnere-syrius-swisscom-sede-ticino-zurich",
         "en": "business-engineer-syrius-swisscom-sede-ticino-zurich",
         "de": "business-engineer-syrius-swisscom-zurich-b0d1aa",
-        "fr": "business-engineer-syrius-swisscom-zurich-b0d1aa"
+        "fr": "ingenieur-d-affaires-syrius-swisscom-sede-ticino-zurich"
       },
       "category": "technology",
       "datePosted": "2026-04-30",
@@ -1662,13 +1671,11 @@
           "business-engineer-syrius-swisscom-zurich-b0d1aa"
         ],
         "fr": [
-          "ingenieur-d-affaires-syrius-swisscom-sede-ticino-zurich",
           "business-engineer-syrius-swisscom-zurich-b0d1aa"
         ]
       },
       "previousSlugs": [
-        "business-engineer-syrius-swisscom-zurich-b0d1aa",
-        "ingenieur-d-affaires-syrius-swisscom-sede-ticino-zurich"
+        "business-engineer-syrius-swisscom-zurich-b0d1aa"
       ]
     },
     {
@@ -2278,7 +2285,7 @@
         "it": "senior-consulente-sap-for-utilities-swisscom-sede-ticino-zurich",
         "en": "senior-consultant-sap-for-utilities-swisscom-sede-ticino-zurich",
         "de": "senior-berater-sap-for-utilities-swisscom-sede-ticino-zurich",
-        "fr": "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
+        "fr": "consultant-principal-sap-pour-les-services-publics-swisscom-sede-ticino-zurich"
       },
       "category": "general",
       "datePosted": "2025-09-19",
@@ -2317,6 +2324,9 @@
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
         ],
         "de": [
+          "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
+        ],
+        "fr": [
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
         ]
       },

@@ -24,12 +24,12 @@
         "en": "Delivery:in packages",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-liestal",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-liestal",
+        "en": "delivery-in-packages-die-schweizerische-post-liestal",
         "de": "zusteller-in-pakete-die-schweizerische-post-liestal",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-liestal"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-06-29T14:00:55.467Z"
+      "firstSeenAt": "2026-06-29T14:00:55.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Abendzustellung-Pakete/74182-de_DE",
@@ -87,12 +101,12 @@
         "en": "Delivery: in evening delivery packages",
         "fr": "Livraison: dans les colis de livraison du soir"
       },
-      "slug": "zusteller-in-abendzustellung-pakete-post",
+      "slug": "consegna-in-pacchetti-di-consegna-serale-die-schweizerische-post-liestal",
       "slugByLocale": {
-        "it": "zusteller-in-abendzustellung-pakete-post",
-        "en": "zusteller-in-abendzustellung-pakete-post",
+        "it": "consegna-in-pacchetti-di-consegna-serale-die-schweizerische-post-liestal",
+        "en": "delivery-in-evening-delivery-packages-die-schweizerische-post-liestal",
         "de": "zusteller-in-abendzustellung-pakete-post",
-        "fr": "zusteller-in-abendzustellung-pakete-post"
+        "fr": "livraison-dans-les-colis-de-livraison-du-soir-die-schweizerische-post-liestal"
       },
       "sourceLang": "de",
       "department": "",
@@ -126,7 +140,21 @@
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-06-29T14:00:55.467Z"
+      "firstSeenAt": "2026-06-29T14:00:55.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-abendzustellung-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-abendzustellung-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-abendzustellung-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-abendzustellung-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74188-de_DE",
@@ -150,12 +178,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-granichen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-granichen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-granichen",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-granichen"
       },
       "sourceLang": "de",
       "department": "",
@@ -193,17 +221,23 @@
       "firstSeenAt": "2026-06-29T14:00:55.467Z",
       "previousSlugsByLocale": {
         "en": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-3"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post"
         ],
         "fr": [
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-3"
+        ],
+        "it": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-3"
       ]
     },
     {
@@ -228,12 +262,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wynigen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wynigen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-wynigen",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-wynigen"
       },
       "sourceLang": "de",
       "department": "",
@@ -253,20 +287,25 @@
       "id": "posta-svizzera-centro-regionale-4d01fb2cbf16",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post-3"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-2"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post-3"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-3"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -312,9 +351,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "en": "ticket-controller-in-and-customer-advice-postauto-chur",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billetterie-en-et-conseil-client-postauto-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -349,7 +388,18 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "postalCode": "7000",
-      "firstSeenAt": "2026-06-29T14:00:55.467Z"
+      "firstSeenAt": "2026-06-29T14:00:55.467Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        ]
+      },
+      "previousSlugs": [
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73798-de_DE",
@@ -373,12 +423,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-affoltern-am-albis",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-affoltern-am-albis",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-affoltern-am-albis",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-affoltern-am-albis"
       },
       "sourceLang": "de",
       "department": "",
@@ -398,11 +448,19 @@
       "id": "posta-svizzera-centro-regionale-028a972ffff0",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post-3",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-3"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post-3"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-3"
+        "zusteller-in-briefe-und-pakete-post-3",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -890,12 +948,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-st-niklaus-vs",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-st-niklaus-vs",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-st-niklaus-vs",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-st-niklaus-vs"
       },
       "sourceLang": "de",
       "department": "",
@@ -915,20 +973,25 @@
       "id": "posta-svizzera-centro-regionale-8fab46ae54b9",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-4"
+          "zusteller-in-briefe-und-pakete-post-4",
+          "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-4"
+          "zusteller-in-briefe-und-pakete-post-4",
+          "zusteller-in-briefe-und-pakete-post-3"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-4"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-4"
+          "zusteller-in-briefe-und-pakete-post-4",
+          "zusteller-in-briefe-und-pakete-post-3"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-4"
+        "zusteller-in-briefe-und-pakete-post-4",
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-3"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -971,12 +1034,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et paquets) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-baar",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-paquets-dans-efz-distribution-die-schweizerische-post"
       },
       "sourceLang": "de",
       "department": "",
@@ -1011,7 +1074,21 @@
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "postalCode": "6300",
-      "firstSeenAt": "2026-06-29T14:00:55.467Z"
+      "firstSeenAt": "2026-06-29T14:00:55.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/74030-de_DE",
@@ -1035,12 +1112,12 @@
         "en": "Teaching as a logistician: in EFZ Distribution Package Delivery",
         "fr": "Enseignement en tant que logisticien: dans EFZ Distribution Package Delivery"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-baar",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-baar",
+        "en": "teaching-as-a-logistician-in-efz-distribution-package-delivery-die-schweizerische-post-baar",
         "de": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
+        "fr": "enseignement-en-tant-que-logisticien-dans-efz-distribution-package-delivery-die-schweizerische-post-baar"
       },
       "sourceLang": "de",
       "department": "",
@@ -1075,7 +1152,21 @@
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "postalCode": "6300",
-      "firstSeenAt": "2026-06-29T14:00:55.467Z"
+      "firstSeenAt": "2026-06-29T14:00:55.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74179-de_DE",
@@ -6530,11 +6621,11 @@
         "en": "CarPostal Driver, CSD 6 months",
         "de": "CarPostal Driver, CSD 6 Monate"
       },
-      "slug": "conductrice-conducteur-carpostal-cdd-6-mois-post",
+      "slug": "driver-carpostal-csd-6-mesi-carpostal-corcelles-pres-payerne",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-cdd-6-mois-post",
-        "en": "conductrice-conducteur-carpostal-cdd-6-mois-post",
-        "de": "conductrice-conducteur-carpostal-cdd-6-mois-post",
+        "it": "driver-carpostal-csd-6-mesi-carpostal-corcelles-pres-payerne",
+        "en": "carpostal-driver-csd-6-months-carpostal-corcelles-pres-payerne",
+        "de": "carpostal-driver-csd-6-monate-carpostal-corcelles-pres-payerne",
         "fr": "conductrice-conducteur-carpostal-cdd-6-mois-carpostal-corcelles-pres-payerne"
       },
       "sourceLang": "fr",
@@ -6570,7 +6661,21 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-29T14:00:55.467Z"
+      "firstSeenAt": "2026-06-29T14:00:55.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-cdd-6-mois-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-cdd-6-mois-post"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-cdd-6-mois-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-cdd-6-mois-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Responsable-d'%C3%A9quipe-Personnel-de-conduite/74171-fr_FR",

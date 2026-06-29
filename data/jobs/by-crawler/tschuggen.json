@@ -82,12 +82,12 @@
     },
     {
       "id": "tschuggen-f6bf7211a6a1",
-      "slug": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "de": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "it": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "it": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
         "en": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "fr": "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -144,7 +144,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-29T14:24:19.463Z"
+      "firstSeenAt": "2026-06-29T14:24:19.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "fr": [
+          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-8d19d792463c",
@@ -152,8 +163,8 @@
       "slugByLocale": {
         "de": "coiffeur-50-kosmetiker-in-oder-masseur-in-50-w-m-d-wintersaison-2026-27-tschuggen-ch",
         "it": "coiffeur-50-kosmetiker-in-o-masseur-in-50-m-w-d-wintersaison-2026-27-tschuggen-collection-st-moritz",
-        "en": "coiffeur-50-kosmetiker-in-o-masseur-in-50-m-w-d-wintersaison-2026-27-tschuggen-collection-st-moritz",
-        "fr": "coiffeur-50-kosmetiker-in-o-masseur-in-50-m-w-d-wintersaison-2026-27-tschuggen-collection-st-moritz"
+        "en": "coiffeur-beautician-in-or-masseur-in-f-m-d-winter-season-2026-27-tschuggen-collection-st-moritz",
+        "fr": "coiffeur-estheticienne-en-ou-masseur-en-f-m-d-saison-hivernale-2026-27-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -435,8 +446,7 @@
         ],
         "fr": [
           "assistant-pour-les-aliments-et-boissons-m-f-j-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
-          "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
-          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
+          "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
@@ -512,8 +522,7 @@
           "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
         ],
         "en": [
-          "front-office-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz",
-          "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+          "front-office-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz"
         ],
         "fr": [
           "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
@@ -592,8 +601,7 @@
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
         ],
         "en": [
-          "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
-          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+          "assistant-reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa"
         ],
         "fr": [
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"

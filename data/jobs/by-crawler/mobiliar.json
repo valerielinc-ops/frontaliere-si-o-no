@@ -100,12 +100,12 @@
     },
     {
       "id": "mobiliar-9a1fcb5a83cb",
-      "slug": "vulnerability-service-manager-w-m-d-mobiliar-ch",
+      "slug": "gestione-del-servizio-di-vulnerabilita-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "vulnerability-service-manager-w-m-d-mobiliar-ch",
-        "it": "vulnerability-service-manager-w-m-d-mobiliar-ch",
+        "it": "gestione-del-servizio-di-vulnerabilita-f-m-d-die-mobiliar-bern",
         "en": "vulnerability-service-manager-w-m-d-mobiliar-ch",
-        "fr": "vulnerability-service-manager-w-m-d-mobiliar-ch"
+        "fr": "gestionnaire-de-services-de-vulnerabilite-f-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -176,7 +176,18 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-29T14:26:54.695Z"
+      "firstSeenAt": "2026-06-29T14:26:54.695Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vulnerability-service-manager-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "vulnerability-service-manager-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vulnerability-service-manager-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-3b50d2f76a55",
@@ -184,8 +195,8 @@
       "slugByLocale": {
         "de": "informatik-lehrstelle-efz-2027-mobiliar-ch",
         "it": "informatik-apprendistato-cfc-2027-die-mobiliar-bern",
-        "en": "informatik-lehrstelle-efz-2027-mobiliar-ch",
-        "fr": "informatik-lehrstelle-efz-2027-mobiliar-ch"
+        "en": "computer-science-apprenticeship-efz-2027-die-mobiliar-bern",
+        "fr": "apprentissage-en-informatique-efz-2027-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -240,6 +251,12 @@
       "sfJobId": "1165001455",
       "previousSlugsByLocale": {
         "it": [
+          "informatik-lehrstelle-efz-2027-mobiliar-ch"
+        ],
+        "en": [
+          "informatik-lehrstelle-efz-2027-mobiliar-ch"
+        ],
+        "fr": [
           "informatik-lehrstelle-efz-2027-mobiliar-ch"
         ]
       },
@@ -353,8 +370,8 @@
       "slugByLocale": {
         "de": "mediamatik-lehrstelle-efz-2027-mobiliar-ch",
         "it": "mediamatik-apprendistato-cfc-2027-die-mobiliar-bern",
-        "en": "mediamatik-lehrstelle-efz-2027-mobiliar-ch",
-        "fr": "mediamatik-lehrstelle-efz-2027-mobiliar-ch"
+        "en": "mediatics-teaching-centre-efz-2027-die-mobiliar-bern",
+        "fr": "centre-d-enseignement-en-medecine-efz-2027-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -411,6 +428,12 @@
       "sfJobId": "1165000855",
       "previousSlugsByLocale": {
         "it": [
+          "mediamatik-lehrstelle-efz-2027-mobiliar-ch"
+        ],
+        "en": [
+          "mediamatik-lehrstelle-efz-2027-mobiliar-ch"
+        ],
+        "fr": [
           "mediamatik-lehrstelle-efz-2027-mobiliar-ch"
         ]
       },
@@ -523,8 +546,8 @@
       "slugByLocale": {
         "de": "kv-lehrstelle-efz-2027-mobiliar-ch",
         "it": "kv-apprendistato-cfc-2027-die-mobiliar-bern",
-        "en": "kv-lehrstelle-efz-2027-mobiliar-ch",
-        "fr": "kv-lehrstelle-efz-2027-mobiliar-ch"
+        "en": "kv-teaching-centre-efz-2027-die-mobiliar-bern",
+        "fr": "kv-centre-d-enseignement-efz-2027-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -578,6 +601,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-efz-2027-mobiliar-ch"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-2027-mobiliar-ch"
+        ],
+        "fr": [
+          "kv-lehrstelle-efz-2027-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -605,8 +634,8 @@
       "slugByLocale": {
         "de": "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch",
         "it": "kv-apprendistato-cfc-2027-lehre-e-sport-die-mobiliar-bern",
-        "en": "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch",
-        "fr": "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch"
+        "en": "kv-teaching-centre-efz-2027-teaching-and-sport-die-mobiliar-bern",
+        "fr": "centre-d-enseignement-kv-efz-2027-enseignement-et-sport-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -662,6 +691,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch"
+        ],
+        "fr": [
+          "kv-lehrstelle-efz-2027-lehre-und-sport-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -689,8 +724,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch",
         "it": "apprendistato-fachfrau-fachmann-kundendialog-cfc-2027-die-mobiliar-bern",
-        "en": "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch",
-        "fr": "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch"
+        "en": "apprenticeship-expert-expert-customer-dialogue-efz-2027-die-mobiliar-bern",
+        "fr": "expert-en-apprentissage-expert-dialogue-client-efz-2027-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -749,6 +784,12 @@
       "sfJobId": "1164999555",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-fachmann-kundendialog-efz-2027-mobiliar-ch"
         ]
       },

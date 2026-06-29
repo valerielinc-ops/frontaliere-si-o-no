@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+        "en": "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+        "fr": "programmes-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich"
       },
       "id": "pwc-2960bacdbee1",
       "salaryMin": 73500,
@@ -61,6 +61,12 @@
       "firstSeenAt": "2026-06-29T13:41:36.881Z",
       "previousSlugsByLocale": {
         "it": [
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+        ],
+        "en": [
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+        ],
+        "fr": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
         ]
       },
@@ -6395,13 +6401,12 @@
         "it": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
         "en": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
         "de": "direktor-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "fr": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
+        "fr": "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
         "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
-        "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+        "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich"
       ],
       "salaryMin": 100500,
       "salaryMax": 136500,
@@ -6432,7 +6437,7 @@
         "fr": [
           "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-          "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+          "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"

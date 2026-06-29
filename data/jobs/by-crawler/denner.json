@@ -274,9 +274,9 @@
       "slug": "vice-direttoredifiliale-denner-emmenbrucke",
       "slugByLocale": {
         "it": "vice-direttoredifiliale-denner-emmenbrucke",
-        "en": "stv-filialleiter-in-denner-emmenbrucke",
+        "en": "stv-branch-manager-in-denner-emmenbrucke",
         "de": "stv-filialleiter-in-denner-emmenbrucke",
-        "fr": "stv-filialleiter-in-denner-emmenbrucke"
+        "fr": "directeur-de-succursale-stv-denner-emmenbrucke"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -350,10 +350,17 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-emmenbrucke"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-emmenbrucke"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-emmenbrucke"
       ]
     },
     {
@@ -362,8 +369,8 @@
       "slugByLocale": {
         "it": "assistente-nella-direzione-della-filiale-denner-ebikon",
         "de": "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-ebikon",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -437,6 +444,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
@@ -448,9 +461,9 @@
       "slug": "responsabiledi-filiale-in-formazione-denner-emmenbrucke",
       "slugByLocale": {
         "it": "responsabiledi-filiale-in-formazione-denner-emmenbrucke",
-        "en": "filialleiter-in-in-ausbildung-denner-emmenbrucke",
+        "en": "branch-manager-in-training-denner-emmenbrucke",
         "de": "filialleiter-in-in-ausbildung-denner-emmenbrucke",
-        "fr": "filialleiter-in-in-ausbildung-denner-emmenbrucke"
+        "fr": "directeur-de-branche-en-formation-denner-emmenbrucke"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -524,10 +537,17 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-denner"
+        ],
+        "en": [
+          "filialleiter-in-in-ausbildung-denner-emmenbrucke"
+        ],
+        "fr": [
+          "filialleiter-in-in-ausbildung-denner-emmenbrucke"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-denner"
+        "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-emmenbrucke"
       ]
     },
     {
@@ -623,8 +643,8 @@
       "slugByLocale": {
         "it": "venditore-denner-wilderswil",
         "de": "verkaufer-in-denner-ag-wilderswil",
-        "en": "verkaufer-in-denner-wilderswil",
-        "fr": "verkaufer-in-denner-wilderswil"
+        "en": "seller-denner-wilderswil",
+        "fr": "vendeur-denner-wilderswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -685,6 +705,12 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-wilderswil"
+        ],
+        "en": [
+          "verkaufer-in-denner-wilderswil"
+        ],
+        "fr": [
+          "verkaufer-in-denner-wilderswil"
         ]
       },
       "previousSlugs": [
@@ -712,8 +738,8 @@
       "slugByLocale": {
         "it": "venditore-denner-reinach-bl",
         "de": "verkaufer-in-denner-ag-reinach-bl",
-        "en": "verkaufer-in-denner-reinach-bl",
-        "fr": "verkaufer-in-denner-reinach-bl"
+        "en": "seller-denner-reinach-bl",
+        "fr": "vendeur-denner-reinach-bl"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -774,6 +800,12 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-reinach-bl"
+        ],
+        "en": [
+          "verkaufer-in-denner-reinach-bl"
+        ],
+        "fr": [
+          "verkaufer-in-denner-reinach-bl"
         ]
       },
       "previousSlugs": [
@@ -801,8 +833,8 @@
       "slugByLocale": {
         "it": "venditore-denner-mohlin",
         "de": "verkaufer-in-denner-ag-mohlin",
-        "en": "verkaufer-in-denner-mohlin",
-        "fr": "verkaufer-in-denner-mohlin"
+        "en": "seller-denner-mohlin",
+        "fr": "vendeur-denner-mohlin"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -863,6 +895,12 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-mohlin"
+        ],
+        "en": [
+          "verkaufer-in-denner-mohlin"
+        ],
+        "fr": [
+          "verkaufer-in-denner-mohlin"
         ]
       },
       "previousSlugs": [
@@ -890,8 +928,8 @@
       "slugByLocale": {
         "it": "direttoredifiliale-denner-brig",
         "de": "filialleiter-in-denner-ag-brig",
-        "en": "filialleiter-in-denner-brig",
-        "fr": "filialleiter-in-denner-brig"
+        "en": "store-manager-denner-brig",
+        "fr": "gestionnaire-de-magasin-denner-brig"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -952,6 +990,12 @@
         "it": [
           "filialleiter-in-denner",
           "filialleiter-in-denner-brig"
+        ],
+        "en": [
+          "filialleiter-in-denner-brig"
+        ],
+        "fr": [
+          "filialleiter-in-denner-brig"
         ]
       },
       "previousSlugs": [
@@ -979,8 +1023,8 @@
       "slugByLocale": {
         "it": "venditore-denner-interlaken",
         "de": "verkaufer-in-denner-ag-interlaken",
-        "en": "verkaufer-in-denner-interlaken",
-        "fr": "verkaufer-in-denner-interlaken"
+        "en": "seller-denner-interlaken",
+        "fr": "vendeur-denner-interlaken"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1041,6 +1085,12 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-interlaken"
+        ],
+        "en": [
+          "verkaufer-in-denner-interlaken"
+        ],
+        "fr": [
+          "verkaufer-in-denner-interlaken"
         ]
       },
       "previousSlugs": [
@@ -1067,9 +1117,9 @@
       "slug": "venditore-denner-hasle-b",
       "slugByLocale": {
         "it": "venditore-denner-hasle-b",
-        "en": "verkaufer-in-denner-hasle-b-burgdorf",
+        "en": "seller-denner-hasle-b",
         "de": "verkaufer-in-denner-hasle-b-burgdorf",
-        "fr": "verkaufer-in-denner-hasle-b-burgdorf"
+        "fr": "vendeur-denner-hasle-b"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1130,11 +1180,18 @@
         "it": [
           "verkaufer-in-denner-2",
           "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-hasle-b-burgdorf"
+        ],
+        "fr": [
+          "verkaufer-in-denner-hasle-b-burgdorf"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-2",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-hasle-b-burgdorf"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -1244,8 +1301,8 @@
       "slugByLocale": {
         "it": "venditore-denner-birsfelden",
         "de": "verkaufer-in-denner-ag-birsfelden",
-        "en": "verkaufer-in-denner-birsfelden",
-        "fr": "verkaufer-in-denner-birsfelden"
+        "en": "seller-denner-birsfelden",
+        "fr": "vendeur-denner-birsfelden"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1305,6 +1362,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
+          "verkaufer-in-denner-birsfelden"
+        ],
+        "en": [
+          "verkaufer-in-denner-birsfelden"
+        ],
+        "fr": [
           "verkaufer-in-denner-birsfelden"
         ]
       },
@@ -1507,8 +1570,8 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-worb",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-worb-7snk70",
-        "en": "verkaufer-in-im-stundenlohn-denner-worb",
-        "fr": "verkaufer-in-im-stundenlohn-denner-worb"
+        "en": "seller-in-the-hourly-wage-denner-worb",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-worb"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1569,6 +1632,12 @@
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-worb"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-worb"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-worb"
         ]
       },
       "previousSlugs": [
@@ -1596,8 +1665,8 @@
       "slugByLocale": {
         "it": "venditore-denner-biel-bienne",
         "de": "verkaufer-in-denner-ag-biel-bienne-g2dpcm",
-        "en": "verkaufer-in-denner-biel-bienne",
-        "fr": "verkaufer-in-denner-biel-bienne"
+        "en": "seller-denner-biel-bienne",
+        "fr": "vendeur-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1658,6 +1727,12 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-biel-bienne"
+        ],
+        "en": [
+          "verkaufer-in-denner-biel-bienne"
+        ],
+        "fr": [
+          "verkaufer-in-denner-biel-bienne"
         ]
       },
       "previousSlugs": [
@@ -1684,9 +1759,9 @@
       "slug": "direttoredifiliale-denner-brugg-be",
       "slugByLocale": {
         "it": "direttoredifiliale-denner-brugg-be",
-        "en": "filialleiter-in-denner-brugg-be",
+        "en": "store-manager-denner-brugg-be",
         "de": "filialleiter-in-denner-brugg-be",
-        "fr": "filialleiter-in-denner-brugg-be"
+        "fr": "gestionnaire-de-magasin-denner-brugg-be"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1747,11 +1822,18 @@
         "it": [
           "filialleiter-in-denner-2",
           "filialleiter-in-denner"
+        ],
+        "en": [
+          "filialleiter-in-denner-brugg-be"
+        ],
+        "fr": [
+          "filialleiter-in-denner-brugg-be"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-denner-2",
-        "filialleiter-in-denner"
+        "filialleiter-in-denner",
+        "filialleiter-in-denner-brugg-be"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -1774,8 +1856,8 @@
       "slugByLocale": {
         "it": "vice-direttoredifiliale-denner-biel-bienne",
         "de": "stv-filialleiter-in-denner-ag-biel-bienne-erkcbo",
-        "en": "stv-filialleiter-in-denner-biel-bienne",
-        "fr": "stv-filialleiter-in-denner-biel-bienne"
+        "en": "stv-branch-manager-in-denner-biel-bienne",
+        "fr": "directeur-de-succursale-stv-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1835,6 +1917,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-biel-bienne"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-biel-bienne"
+        ],
+        "fr": [
           "stv-filialleiter-in-denner-biel-bienne"
         ]
       },
@@ -1950,8 +2038,8 @@
       "slugByLocale": {
         "it": "venditore-denner-allschwil",
         "de": "verkaufer-in-denner-ag-allschwil",
-        "en": "verkaufer-in-denner-allschwil",
-        "fr": "verkaufer-in-denner-allschwil"
+        "en": "seller-denner-allschwil",
+        "fr": "vendeur-denner-allschwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2012,6 +2100,12 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-allschwil"
+        ],
+        "en": [
+          "verkaufer-in-denner-allschwil"
+        ],
+        "fr": [
+          "verkaufer-in-denner-allschwil"
         ]
       },
       "previousSlugs": [
@@ -2039,8 +2133,8 @@
       "slugByLocale": {
         "it": "venditore-denner-winterthur",
         "de": "verkaufer-in-denner-ag-winterthur",
-        "en": "verkaufer-in-denner-winterthur",
-        "fr": "verkaufer-in-denner-winterthur"
+        "en": "seller-denner-winterthur",
+        "fr": "vendeur-denner-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2100,6 +2194,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
+          "verkaufer-in-denner-winterthur"
+        ],
+        "en": [
+          "verkaufer-in-denner-winterthur"
+        ],
+        "fr": [
           "verkaufer-in-denner-winterthur"
         ]
       },
@@ -2301,7 +2401,7 @@
       "slugByLocale": {
         "it": "studente-denner-sa-la-chaux-de-fonds",
         "en": "student-student-denner-sa-la-chaux-de-fonds",
-        "de": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
+        "de": "student-student-denner-la-chaux-de-fonds",
         "fr": "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
       },
       "company": "Denner",
@@ -2359,16 +2459,14 @@
       "crawledAt": "2026-06-28T21:30:50.281Z",
       "previousSlugs": [
         "etudiant-etudiante-denner",
-        "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
-        "student-student-denner-la-chaux-de-fonds"
+        "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
       ],
       "previousSlugsByLocale": {
         "it": [
           "etudiant-etudiante-denner"
         ],
         "de": [
-          "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo",
-          "student-student-denner-la-chaux-de-fonds"
+          "etudiant-etudiante-denner-sa-la-chaux-de-fonds-gmmleo"
         ]
       },
       "firstSeenAt": "2026-06-26T21:47:48.860Z",

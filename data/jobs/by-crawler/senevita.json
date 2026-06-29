@@ -6253,12 +6253,12 @@
     },
     {
       "id": "senevita-a32ccbe9607a",
-      "slug": "dipl-pflegefachperson-40-100-senevita-abtwil",
+      "slug": "dipl-professionista-di-cura-40-100-senevita-abtwil",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-40-100-senevita-abtwil",
-        "it": "dipl-pflegefachperson-40-100-senevita-abtwil",
-        "en": "dipl-pflegefachperson-40-100-senevita-abtwil",
-        "fr": "dipl-pflegefachperson-40-100-senevita-abtwil"
+        "it": "dipl-professionista-di-cura-40-100-senevita-abtwil",
+        "en": "dipl-care-professional-40-100-senevita-abtwil",
+        "fr": "dipl-professionnel-de-soins-40-100-senevita-abtwil"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -6314,7 +6314,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:12:08.927Z"
+      "firstSeenAt": "2026-06-29T14:12:08.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-40-100-senevita-abtwil"
+        ],
+        "en": [
+          "dipl-pflegefachperson-40-100-senevita-abtwil"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-40-100-senevita-abtwil"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-40-100-senevita-abtwil"
+      ]
     },
     {
       "id": "senevita-c107fcd0ac56",
@@ -6674,8 +6688,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be",
         "it": "dipl-pflegefachfrau-mann-con-fallfuhrung-40-100-senevita-biel-be",
-        "en": "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be",
-        "fr": "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be"
+        "en": "dipl-nursing-professional-with-case-management-40-100-senevita-biel-be",
+        "fr": "dipl-professionnel-infirmier-avec-gestion-de-cas-40-100-senevita-biel-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -6721,6 +6735,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-mit-fallfuhrung-40-100-senevita-biel-be"
         ]
       },
@@ -6893,12 +6913,12 @@
     },
     {
       "id": "senevita-8f002c6a5189",
-      "slug": "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg",
+      "slug": "dipl-infermieristica-professionale-hf-80-senevita-arbon-tg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg",
-        "it": "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg",
-        "en": "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg",
-        "fr": "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg"
+        "it": "dipl-infermieristica-professionale-hf-80-senevita-arbon-tg",
+        "en": "dipl-nursing-professional-hf-80-senevita-arbon-tg",
+        "fr": "dipl-professionnels-des-soins-infirmiers-hf-80-senevita-arbon-tg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -6954,7 +6974,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:12:04.699Z"
+      "firstSeenAt": "2026-06-29T14:12:04.699Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-80-senevita-arbon-tg"
+      ]
     },
     {
       "id": "senevita-d701380b26c5",

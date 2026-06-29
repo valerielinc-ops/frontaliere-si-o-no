@@ -2246,7 +2246,7 @@
       "slug": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
       "slugByLocale": {
         "it": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
-        "en": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
+        "en": "allrounder-in-vehicle-construction-emil-frey-safenwil",
         "de": "allrounder-in-fahrzeugbau-emil-frey-safenwil",
         "fr": "allrounder-in-fahrzeugbau-emil-frey-safenwil"
       },
@@ -2322,14 +2322,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.357Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "allrounder-in-vehicle-construction-emil-frey-safenwil"
-        ]
-      },
-      "previousSlugs": [
-        "allrounder-in-vehicle-construction-emil-frey-safenwil"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2349,7 +2341,7 @@
       "slugByLocale": {
         "it": "bodybuilder-pittore-emil-frey-crissier",
         "en": "body-painter-emil-frey-crissier",
-        "de": "carrossier-peintre-emil-frey-crissier",
+        "de": "maler-emil-frey-crissier",
         "fr": "carrossier-peintre-emil-frey-crissier"
       },
       "company": "Emil Frey",
@@ -2414,15 +2406,14 @@
         ]
       },
       "previousSlugs": [
-        "carrossier-peintre-emil-frey-crissier",
-        "maler-emil-frey-crissier"
+        "carrossier-peintre-emil-frey-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrossier-peintre-emil-frey-crissier"
         ],
         "de": [
-          "maler-emil-frey-crissier"
+          "carrossier-peintre-emil-frey-crissier"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.356Z",
@@ -2548,7 +2539,7 @@
         "it": "hr-business-partner-in-emil-frey-ostermundigen",
         "en": "hr-business-partner-in-emil-frey-ostermundigen",
         "de": "hr-business-partner-in-emil-frey-ostermundigen",
-        "fr": "hr-business-partner-in-emil-frey-ostermundigen"
+        "fr": "partenaire-d-affaires-rh-in-emil-frey-ostermundigen"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -2601,12 +2592,10 @@
         ]
       },
       "previousSlugs": [
-        "partenaire-d-affaires-rh-in-emil-frey-ostermundigen",
         "partenaire-operationnel-des-rh-in-emil-frey-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-d-affaires-rh-in-emil-frey-ostermundigen",
           "partenaire-operationnel-des-rh-in-emil-frey-ostermundigen"
         ]
       },
@@ -5700,8 +5689,8 @@
       "slugByLocale": {
         "de": "fahrzeugaufbereiter-in-emil-frey-zurich",
         "it": "confezionatrice-confezionatrice-veicolo-emil-frey-zurich",
-        "en": "fahrzeugaufbereiter-in-emil-frey-zurich",
-        "fr": "fahrzeugaufbereiter-in-emil-frey-zurich"
+        "en": "vehicle-conditioner-emil-frey-zurich",
+        "fr": "conditionneur-du-vehicule-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -5760,6 +5749,12 @@
       "firstSeenAt": "2026-06-29T13:20:30.826Z",
       "previousSlugsByLocale": {
         "it": [
+          "fahrzeugaufbereiter-in-emil-frey-zurich"
+        ],
+        "en": [
+          "fahrzeugaufbereiter-in-emil-frey-zurich"
+        ],
+        "fr": [
           "fahrzeugaufbereiter-in-emil-frey-zurich"
         ]
       },
@@ -6580,8 +6575,8 @@
       "slugByLocale": {
         "fr": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens",
         "it": "meccanico-meccatronico-emil-frey-chavannes-pres-renens",
-        "en": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens",
-        "de": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens"
+        "en": "mechanic-mechatronician-emil-frey-chavannes-pres-renens",
+        "de": "mechaniker-mechatroniker-emil-frey-chavannes-pres-renens"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6640,6 +6635,12 @@
       "firstSeenAt": "2026-06-29T13:20:30.777Z",
       "previousSlugsByLocale": {
         "it": [
+          "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens"
+        ],
+        "en": [
+          "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens"
+        ],
+        "de": [
           "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens"
         ]
       },

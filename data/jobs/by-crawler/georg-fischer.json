@@ -238,7 +238,7 @@
       "slug": "stage-in-gestione-di-progetti-it-focus-su-magazzinaggio-m-w-d-georg-fischer-sissach",
       "slugByLocale": {
         "it": "stage-in-gestione-di-progetti-it-focus-su-magazzinaggio-m-w-d-georg-fischer-sissach",
-        "en": "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch",
+        "en": "it-project-management-internship-focus-warehousing-m-f-d-georg-fischer-sissach",
         "de": "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch",
         "fr": "stage-en-gestion-de-projets-it-specialisation-sur-la-logistique-m-w-d-georg-fischer-sissach"
       },
@@ -283,15 +283,13 @@
       "requirementsByLocale": {},
       "jobReqId": "JR09277",
       "previousSlugs": [
-        "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch",
-        "it-project-management-internship-focus-warehousing-m-f-d-georg-fischer-sissach"
+        "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
         ],
         "en": [
-          "it-project-management-internship-focus-warehousing-m-f-d-georg-fischer-sissach",
           "it-project-management-praktikum-schwerpunkt-warehousing-m-w-d-georg-fischer-ch"
         ],
         "fr": [
@@ -396,7 +394,7 @@
         "it": "tirocinante-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-schaffhausen",
         "en": "intern-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-ch",
         "de": "praktikant-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-schaffhausen",
-        "fr": "stagiaire-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-schaffhausen"
+        "fr": "stagiaire-planification-globale-des-ventes-et-des-operations-h-f-d-100-12-mois-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -439,7 +437,8 @@
       "requirementsByLocale": {},
       "jobReqId": "JR09721",
       "previousSlugs": [
-        "intern-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-ch"
+        "intern-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-ch",
+        "stagiaire-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -449,7 +448,8 @@
           "intern-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-ch"
         ],
         "fr": [
-          "intern-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-ch"
+          "intern-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-ch",
+          "stagiaire-global-sales-operations-planning-m-f-d-100-12-months-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-23T11:32:48.492Z",
@@ -701,7 +701,7 @@
         "it": "marketing-operations-data-coordinatore-50-m-f-d-georg-fischer-schaffhausen",
         "en": "marketing-operations-data-coordinator-50-m-f-d-georg-fischer-ch",
         "de": "marketing-operations-data-coordinator-50-m-f-d-georg-fischer-ch",
-        "fr": "marketing-operations-data-coordinateur-50-m-f-d-georg-fischer-schaffhausen"
+        "fr": "operations-de-commercialisation-et-quai-de-donnees-50-m-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -743,14 +743,16 @@
       "requirementsByLocale": {},
       "jobReqId": "JR10044",
       "previousSlugs": [
-        "marketing-operations-data-coordinator-50-m-f-d-georg-fischer-ch"
+        "marketing-operations-data-coordinator-50-m-f-d-georg-fischer-ch",
+        "marketing-operations-data-coordinateur-50-m-f-d-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-operations-data-coordinator-50-m-f-d-georg-fischer-ch"
         ],
         "fr": [
-          "marketing-operations-data-coordinator-50-m-f-d-georg-fischer-ch"
+          "marketing-operations-data-coordinator-50-m-f-d-georg-fischer-ch",
+          "marketing-operations-data-coordinateur-50-m-f-d-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-23T11:32:44.719Z",
@@ -770,9 +772,9 @@
     },
     {
       "id": "georg-fischer-e0a7d300f6cd",
-      "slug": "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen",
+      "slug": "stage-nel-settore-della-ricerca-e-dello-sviluppo-m-p-d-6-mesi-o-su-accordo-georg-fischer-schaffhausen",
       "slugByLocale": {
-        "it": "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen",
+        "it": "stage-nel-settore-della-ricerca-e-dello-sviluppo-m-p-d-6-mesi-o-su-accordo-georg-fischer-schaffhausen",
         "en": "internship-in-research-and-development-m-f-d-6-months-or-by-agreement-georg-fischer-schaffhausen",
         "de": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
         "fr": "stages-dans-le-domaine-de-la-recherche-et-du-developpement-m-w-d-6-mois-ou-par-arrangement-georg-fischer-schaffhausen"
@@ -819,11 +821,13 @@
       "jobReqId": "JR10325",
       "previousSlugs": [
         "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
+        "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen",
         "stage-en-recherche-et-developpement-m-f-d-6-mois-ou-accord-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
+          "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen"
         ],
         "en": [
           "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
@@ -930,12 +934,12 @@
     },
     {
       "id": "georg-fischer-a3415d8a9eef",
-      "slug": "innovation-ingegnere-data-center-cooling-m-f-d-georg-fischer-schaffhausen",
+      "slug": "ingegner-dell-innovazione-data-center-cooling-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
-        "it": "innovation-ingegnere-data-center-cooling-m-f-d-georg-fischer-schaffhausen",
+        "it": "ingegner-dell-innovazione-data-center-cooling-m-f-d-georg-fischer-schaffhausen",
         "en": "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch",
-        "de": "innovation-ingenieur-data-center-cooling-m-f-d-georg-fischer-schaffhausen",
-        "fr": "innovation-ingenieur-data-center-cooling-m-f-d-georg-fischer-schaffhausen"
+        "de": "innovationsingenieur-rechenzentrumskuhlung-m-w-d-georg-fischer-schaffhausen",
+        "fr": "ingenieur-en-innovation-refroidissement-du-centre-de-donnees-m-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -978,17 +982,22 @@
       "requirementsByLocale": {},
       "jobReqId": "JR10330",
       "previousSlugs": [
-        "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch"
+        "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch",
+        "innovation-ingegnere-data-center-cooling-m-f-d-georg-fischer-schaffhausen",
+        "innovation-ingenieur-data-center-cooling-m-f-d-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch"
+          "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch",
+          "innovation-ingegnere-data-center-cooling-m-f-d-georg-fischer-schaffhausen"
         ],
         "de": [
-          "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch"
+          "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch",
+          "innovation-ingenieur-data-center-cooling-m-f-d-georg-fischer-schaffhausen"
         ],
         "fr": [
-          "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch"
+          "innovation-engineer-data-center-cooling-m-f-d-georg-fischer-ch",
+          "innovation-ingenieur-data-center-cooling-m-f-d-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-23T11:32:42.646Z",
@@ -1091,7 +1100,7 @@
         "it": "hr-business-partner-50-60-m-w-d-georg-fischer-ch",
         "en": "hr-business-partner-50-60-m-w-d-georg-fischer-ch",
         "de": "hr-business-partner-50-60-m-w-d-georg-fischer-ch",
-        "fr": "hr-business-partner-50-60-m-w-d-georg-fischer-ch"
+        "fr": "partenaire-d-affaires-rh-50-60-m-f-j-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1133,14 +1142,6 @@
       "requirementsByLocale": {},
       "jobReqId": "JR10319",
       "firstSeenAt": "2026-06-23T11:32:41.169Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "partenaire-d-affaires-rh-50-60-m-f-j-georg-fischer-schaffhausen"
-        ]
-      },
-      "previousSlugs": [
-        "partenaire-d-affaires-rh-50-60-m-f-j-georg-fischer-schaffhausen"
-      ],
       "salaryMin": 34500,
       "salaryMax": 52200,
       "baseSalary": {
@@ -1239,7 +1240,7 @@
         "it": "risorse-umane-business-partnerin-m-w-d-50-60-georg-fischer-sissach",
         "en": "hr-business-partner-m-f-d-50-60-georg-fischer-sissach",
         "de": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
-        "fr": "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch"
+        "fr": "partenaire-d-affaires-rh-m-f-d-50-60-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1282,8 +1283,7 @@
       "jobReqId": "JR10329",
       "previousSlugs": [
         "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch",
-        "hr-business-partner-m-p-d-50-60-georg-fischer-sissach",
-        "partenaire-d-affaires-rh-m-f-d-50-60-georg-fischer-sissach"
+        "hr-business-partner-m-p-d-50-60-georg-fischer-sissach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1291,7 +1291,6 @@
           "hr-business-partner-m-p-d-50-60-georg-fischer-sissach"
         ],
         "fr": [
-          "partenaire-d-affaires-rh-m-f-d-50-60-georg-fischer-sissach",
           "hr-business-partnerin-m-w-d-50-60-georg-fischer-ch"
         ]
       },
