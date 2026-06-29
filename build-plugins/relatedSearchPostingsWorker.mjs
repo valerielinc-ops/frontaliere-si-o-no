@@ -37,13 +37,16 @@ function normalizeText(value) {
 }
 
 /**
- * @param {{ titleByLocale?: Record<string,string>, descriptionByLocale?: Record<string,string>, title?: string, description?: string, company?: string, location?: string }} job
+ * `cantonSearch` is the canton-name token string ("ticino tessin") precomputed
+ * by the plugin (which alone can read the canton JSON) so this haystack stays
+ * byte-identical to relatedSearchClustersPlugin.buildJobHaystack (issue #2967).
+ * @param {{ titleByLocale?: Record<string,string>, descriptionByLocale?: Record<string,string>, title?: string, description?: string, company?: string, location?: string, cantonSearch?: string }} job
  * @param {string} locale
  */
 function buildJobHaystack(job, locale) {
   const title = job.titleByLocale?.[locale] ?? job.title ?? '';
   const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
-  return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`));
+  return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${job.cantonSearch ?? ''} ${description}`));
 }
 
 /** @param {string} value */
