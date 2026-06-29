@@ -28,7 +28,6 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 // imported module: .../NewsletterPopup.js", ref cwji52). Same rationale as
 // WhatsNewModal below.
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
-const FeatureSurvey = React.lazy(() => import('@/components/community/FeatureSurvey'));
 const OfferwallNewsletterGate = React.lazy(() => import('@/components/community/OfferwallNewsletterGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
@@ -3478,7 +3477,6 @@ const App: React.FC = () => {
  </nav>
 
  <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
- <SafeLazy boundary="feature-survey"><FeatureSurvey /></SafeLazy>
  <SafeLazy boundary="offerwall-gate"><OfferwallNewsletterGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  {showWhatsNew && (
