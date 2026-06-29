@@ -24,6 +24,13 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+# Register the seo-404 compat-shard merge driver (.gitattributes
+# `merge=compat-shard`) so concurrent rebases of data/seo-404-compat/part-*.json
+# auto-resolve as a 3-way SET merge (deduped + sorted) instead of git's default
+# line merge keeping both sorted rewrites → ~2x duplicate shards (issue #2988
+# follow-up). Local config, idempotent; harmless if the files aren't touched.
+git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B' || true
+
 # ── Parse --slice-only flag ──────────────────────────────────────────────────
 SLICE_ONLY=false
 if [ "${1:-}" = "--slice-only" ]; then
