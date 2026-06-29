@@ -733,6 +733,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Concours publics au Tessin : guide national mis à jour',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Aperçu des concours publics à Lugano et au Tessin : où les trouver, les entités impliquées, les modalités de participation et les procédures pratiques.',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Hôtel de ville de Lugano et place lors d\'un concours public.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Où vivent les frontaliers lombards : boom Brianza et numéros officiels',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Plus de 60 000 frontaliers lombards vivent entre Côme et Varèse ; la Brianza croît de 77 % en dix ans.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Vue panoramique de la zone frontalière entre le Tessin et la Lombardie.',
 };
 
 export default blogMetaChFr;

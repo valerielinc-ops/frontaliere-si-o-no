@@ -733,6 +733,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Public competitions in Ticino: updated national guide',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Overview of public competitions in Lugano and Ticino: where to find them, bodies involved, methods of participation and practical process.',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Lugano city hall and square during a public competition.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Where the Lombard frontier workers live: boom Brianza and official numbers',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'More than 60,000 Lombard frontier workers live between Como and Varese; Brianza has grown by 77% in ten years.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Panoramic view of the border area between Ticino and Lombardy.',
 };
 
 export default blogMetaChEn;

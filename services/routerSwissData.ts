@@ -267,6 +267,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'calcolo-tasse-frontalieri-oltre-20km': { it: 'calcolo-tasse-frontalieri-oltre-20km', en: 'cross-border-tax-calculation-over-20km', de: 'grenzgaenger-steuern-berechnen-ueber-20km', fr: 'calcul-impots-frontaliers-plus-20km' },
  'lidl-svizzera-lavora-con-noi': { it: 'lidl-svizzera-lavora-con-noi', en: 'lidl-switzerland-careers', de: 'lidl-schweiz-karriere', fr: 'lidl-suisse-travailler-avec-nous' },
  'concorsi-pubblici-ticino-guida-nazionale': { it: 'concorsi-pubblici-ticino-guida-nazionale', en: 'public-competitions-ticino-national-guide', de: 'oeffentliche-ausschreibungen-tessin-schweiz', fr: 'concours-publics-tessin-suisse' },
+ 'frontalieri-lombardi-residenza-tendenze': { it: 'frontalieri-lombardi-residenza-tendenze', en: 'where-lombard-frontaliers-live-trends', de: 'wo-leben-lombardische-grenzgaenger-trends', fr: 'ou-vivent-frontaliers-lombards-tendances' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
