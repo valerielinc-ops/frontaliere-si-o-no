@@ -1,22 +1,92 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-06-28T21:38:05.353Z",
-  "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "generatedAt": "2026-06-29T13:10:12.113Z",
+  "total": 2,
+  "newCount": 2,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5160,
-  "avgDurationMs": 5160,
+  "durationMs": 5704,
+  "avgDurationMs": 5704,
   "durationHistory": [
-    5160
+    5704
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "fondation-domus-c7035e55eb7f",
+      "slug": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
+      "company": "Fondation Domus",
+      "companyKey": "fondation-domus",
+      "companyDomain": "fondation-domus.ch",
+      "title": "Responsable ressources humaines - membre de la direction À 80%",
+      "location": "Ardon",
+      "canton": "VS",
+      "url": "https://www.jobup.ch/fr/emplois/detail/7b82cc50-8baf-45ac-af38-d733661d06d0/?source=[platform]",
+      "source": "Fondation Domus Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-29T13:10:09.198Z",
+      "addressLocality": "Ardon",
+      "postalCode": "1957",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Social / Fondation",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/7b82cc50-8baf-45ac-af38-d733661d06d0/?source=[platform]",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "fondation-domus-58291476562b",
+      "slug": "secretaire-receptionniste-a-50-fondation-domus-ch",
+      "company": "Fondation Domus",
+      "companyKey": "fondation-domus",
+      "companyDomain": "fondation-domus.ch",
+      "title": "Secrétaire-réceptionniste à 50%",
+      "location": "Ardon",
+      "canton": "VS",
+      "url": "https://www.jobup.ch/fr/emplois/detail/0cb2112b-171a-455f-a551-3dbca11a1885/?source=[platform]",
+      "source": "Fondation Domus Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-29T13:10:09.804Z",
+      "addressLocality": "Ardon",
+      "postalCode": "1957",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Social / Fondation",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/0cb2112b-171a-455f-a551-3dbca11a1885/?source=[platform]",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "fondation-domus-597828314199",
-      "slug": "secretaire-receptionniste-a-50-fondation-domus-ch",
+      "slug": "segretario-ricevitore-al-50-fondation-domus-ardon",
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
       "companyDomain": "fondation-domus.ch",
@@ -41,15 +111,17 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/8106818b-a0c1-4d58-850d-38841502e1b6/?source=[platform]",
       "firstSeenAt": "2026-06-25T11:17:35.542Z",
-      "_qualityScore": 85,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "addressRegion": "VS",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
