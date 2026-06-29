@@ -733,6 +733,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Concorsi pubblici in Ticino: guida nazionale aggiornata',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Panoramica sui concorsi pubblici a Lugano e in Ticino: dove trovarli, enti coinvolti, modalità di partecipazione e iter pratico.',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Palazzo municipale di Lugano e piazza durante un concorso pubblico.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Dove vivono i frontalieri lombardi: boom Brianza e numeri ufficiali',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Oltre 60.000 frontalieri lombardi abitano tra Como e Varese; Brianza cresce del 77% in dieci anni.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Vista panoramica sulla zona di confine tra Ticino e Lombardia.',
 };
 
 export default blogMetaChIt;
