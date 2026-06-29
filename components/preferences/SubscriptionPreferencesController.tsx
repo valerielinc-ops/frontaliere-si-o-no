@@ -1201,39 +1201,9 @@ export function SubscriptionPreferencesController({
  </div>
  )}
 
- {/* ── Newsletter subscription card ── */}
- <section className="border border-edge rounded-xl p-5 bg-surface">
- <div className="flex items-start justify-between gap-4">
- <div className="flex-1">
- <div className="flex items-center gap-2 mb-1">
- <Mail size={16} className="text-muted" />
- <h2 className="font-semibold text-heading">{S.newsletterTitle}</h2>
- </div>
- <p className="text-sm text-muted leading-relaxed">{S.newsletterDesc}</p>
- </div>
- <Toggle
- enabled={newsletterSubscribed}
- saving={savingNewsletter}
- onClick={handleToggleNewsletter}
- ariaLabel={S.newsletterTitle}
- />
- </div>
- <div className="mt-3 text-xs text-muted">
- {S.currentState}{' '}
- <span
- className={`font-semibold ${newsletterSubscribed ? 'text-success' : 'text-muted'}`}
- >
- {newsletterSubscribed ? S.newsletterStateOn : S.newsletterStateOff}
- </span>
- {savedTickKey === 'newsletter' && (
- <span className="ml-2 inline-flex items-center gap-1 text-success">
- <CheckCircle2 size={14} /> {S.saved}
- </span>
- )}
- </div>
- </section>
-
- {/* ── Job alerts card ── */}
+ {/* ── Job alerts card ── (shown first: this page is reached from the
+ "Gestisci alert" link in job-alert emails, so the alerts a user came to
+ manage are the first thing they see) */}
  <section className="border border-edge rounded-xl p-5 bg-surface">
  <div className="flex items-center gap-2 mb-1">
  <Bell size={16} className="text-muted" />
@@ -1295,6 +1265,38 @@ export function SubscriptionPreferencesController({
  )}
  {savedTickKey === 'new_alert' && (
  <span className="ml-2 inline-flex items-center gap-1 text-success text-xs">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
+
+ {/* ── Newsletter subscription card ── */}
+ <section className="border border-edge rounded-xl p-5 bg-surface">
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-2 mb-1">
+ <Mail size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.newsletterTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.newsletterDesc}</p>
+ </div>
+ <Toggle
+ enabled={newsletterSubscribed}
+ saving={savingNewsletter}
+ onClick={handleToggleNewsletter}
+ ariaLabel={S.newsletterTitle}
+ />
+ </div>
+ <div className="mt-3 text-xs text-muted">
+ {S.currentState}{' '}
+ <span
+ className={`font-semibold ${newsletterSubscribed ? 'text-success' : 'text-muted'}`}
+ >
+ {newsletterSubscribed ? S.newsletterStateOn : S.newsletterStateOff}
+ </span>
+ {savedTickKey === 'newsletter' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
  <CheckCircle2 size={14} /> {S.saved}
  </span>
  )}
