@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-06-28T21:15:22.551Z",
+  "assembledAt": "2026-06-29T12:34:19.594Z",
   "jobs": [
     {
       "id": "bls-7c039c3d71c3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-flottenmanagement/eaa6dfbf-e56d-4dc8-9c91-1d7a0b5c1736",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:19.923Z",
+      "crawledAt": "2026-06-29T12:34:16.930Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,6 +77,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:54.694Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -90,6 +91,86 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-e89d8290651b",
+      "slug": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
+      "slugByLocale": {
+        "de": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
+        "it": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
+        "en": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
+        "fr": "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Sachbearbeiter:in AVOR Fahrzeuge",
+      "titleByLocale": {
+        "de": "Sachbearbeiter:in AVOR Fahrzeuge",
+        "it": "Sachbearbeiter:in AVOR Fahrzeuge",
+        "en": "Sachbearbeiter:in AVOR Fahrzeuge",
+        "fr": "Sachbearbeiter:in AVOR Fahrzeuge"
+      },
+      "description": "Die gewaltige Lokomotive rollt majestätisch, bereit für umfassende Neuerungen an Sicherheits- und Steuerungseinrichtungen. Am Gleis steht das einsatzbereite Produktionsteam mit dem detaillierten Arbeitsplan, während die Logistik die letzte Lieferung von Ersatzmaterial präzise koordiniert. Dein täglicher Beitrag gewährleistet nicht nur Zuverlässigkeit, sondern auch wirtschaftlichen Erfolg in diesem faszinierenden Umfeld.\nWillkommen in einer Welt, in der du nicht nur Teil des Ganzen bist, sondern aktiv die Zukunft der Schienen mitgestaltest.\n\nDas wartet auf dich:\n\n• Revisionen, Umbauten und Reparaturen so planen, dass alles ins Rollen kommt\n\n• Jahres- und Ressourcenpläne gestalten, die unsere Fahrzeuge zuverlässig einsatzbereit halten\n\n• Fachliche Kompetenz einbringen und Ansprechpartner:in für Flotten, Loks und historische Schmuckstücke sein\n\n• Offerten für Drittkunden kalkulieren und Projekte transparent sowie zielsicher steuern\n\n• Revisionen begleiten und Prozesse im Shopfloor-Management nachhaltig weiterentwickeln\n\nDas bringst du mit:\n\n• Technische Grundausbildung EFZ (z. B. Mechaniker:in, Automatiker:in, Elektroniker:in oder Polymechaniker:in)\n\n• Weiterbildung als Prozessfachperson oder technische:r Kaufmann/Kauffrau – oder eine vergleichbare Qualifikation\n\n• Praxis in Instandhaltung oder Industrie sowie Organisationstalent und sicheres Verständnis für Arbeitssicherheit; Erfahrung in Kalkulationen, Offerten und Ressourcenplanung\n\n• Sicherer Umgang mit SAP-PM, ERP-Systemen und MS Office sowie Kompetenz im Lesen technischer Zeichnungen\n\n• Kommunikationsstärke in der Zusammenarbeit mit internen und externen Partnern sowie souveräne Verhandlungsführung in Deutsch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Die gewaltige Lokomotive rollt majestätisch, bereit für umfassende Neuerungen an Sicherheits- und Steuerungseinrichtungen. Am Gleis steht das einsatzbereite Produktionsteam mit dem detaillierten Arbeitsplan, während die Logistik die letzte Lieferung von Ersatzmaterial präzise koordiniert. Dein täglicher Beitrag gewährleistet nicht nur Zuverlässigkeit, sondern auch wirtschaftlichen Erfolg in diesem faszinierenden Umfeld.\nWillkommen in einer Welt, in der du nicht nur Teil des Ganzen bist, sondern aktiv die Zukunft der Schienen mitgestaltest.\n\nDas wartet auf dich:\n\n• Revisionen, Umbauten und Reparaturen so planen, dass alles ins Rollen kommt\n\n• Jahres- und Ressourcenpläne gestalten, die unsere Fahrzeuge zuverlässig einsatzbereit halten\n\n• Fachliche Kompetenz einbringen und Ansprechpartner:in für Flotten, Loks und historische Schmuckstücke sein\n\n• Offerten für Drittkunden kalkulieren und Projekte transparent sowie zielsicher steuern\n\n• Revisionen begleiten und Prozesse im Shopfloor-Management nachhaltig weiterentwickeln\n\nDas bringst du mit:\n\n• Technische Grundausbildung EFZ (z. B. Mechaniker:in, Automatiker:in, Elektroniker:in oder Polymechaniker:in)\n\n• Weiterbildung als Prozessfachperson oder technische:r Kaufmann/Kauffrau – oder eine vergleichbare Qualifikation\n\n• Praxis in Instandhaltung oder Industrie sowie Organisationstalent und sicheres Verständnis für Arbeitssicherheit; Erfahrung in Kalkulationen, Offerten und Ressourcenplanung\n\n• Sicherer Umgang mit SAP-PM, ERP-Systemen und MS Office sowie Kompetenz im Lesen technischer Zeichnungen\n\n• Kommunikationsstärke in der Zusammenarbeit mit internen und externen Partnern sowie souveräne Verhandlungsführung in Deutsch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Die gewaltige Lokomotive rollt majestätisch, bereit für umfassende Neuerungen an Sicherheits- und Steuerungseinrichtungen. Am Gleis steht das einsatzbereite Produktionsteam mit dem detaillierten Arbeitsplan, während die Logistik die letzte Lieferung von Ersatzmaterial präzise koordiniert. Dein täglicher Beitrag gewährleistet nicht nur Zuverlässigkeit, sondern auch wirtschaftlichen Erfolg in diesem faszinierenden Umfeld.\nWillkommen in einer Welt, in der du nicht nur Teil des Ganzen bist, sondern aktiv die Zukunft der Schienen mitgestaltest.\n\nDas wartet auf dich:\n\n• Revisionen, Umbauten und Reparaturen so planen, dass alles ins Rollen kommt\n\n• Jahres- und Ressourcenpläne gestalten, die unsere Fahrzeuge zuverlässig einsatzbereit halten\n\n• Fachliche Kompetenz einbringen und Ansprechpartner:in für Flotten, Loks und historische Schmuckstücke sein\n\n• Offerten für Drittkunden kalkulieren und Projekte transparent sowie zielsicher steuern\n\n• Revisionen begleiten und Prozesse im Shopfloor-Management nachhaltig weiterentwickeln\n\nDas bringst du mit:\n\n• Technische Grundausbildung EFZ (z. B. Mechaniker:in, Automatiker:in, Elektroniker:in oder Polymechaniker:in)\n\n• Weiterbildung als Prozessfachperson oder technische:r Kaufmann/Kauffrau – oder eine vergleichbare Qualifikation\n\n• Praxis in Instandhaltung oder Industrie sowie Organisationstalent und sicheres Verständnis für Arbeitssicherheit; Erfahrung in Kalkulationen, Offerten und Ressourcenplanung\n\n• Sicherer Umgang mit SAP-PM, ERP-Systemen und MS Office sowie Kompetenz im Lesen technischer Zeichnungen\n\n• Kommunikationsstärke in der Zusammenarbeit mit internen und externen Partnern sowie souveräne Verhandlungsführung in Deutsch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Die gewaltige Lokomotive rollt majestätisch, bereit für umfassende Neuerungen an Sicherheits- und Steuerungseinrichtungen. Am Gleis steht das einsatzbereite Produktionsteam mit dem detaillierten Arbeitsplan, während die Logistik die letzte Lieferung von Ersatzmaterial präzise koordiniert. Dein täglicher Beitrag gewährleistet nicht nur Zuverlässigkeit, sondern auch wirtschaftlichen Erfolg in diesem faszinierenden Umfeld.\nWillkommen in einer Welt, in der du nicht nur Teil des Ganzen bist, sondern aktiv die Zukunft der Schienen mitgestaltest.\n\nDas wartet auf dich:\n\n• Revisionen, Umbauten und Reparaturen so planen, dass alles ins Rollen kommt\n\n• Jahres- und Ressourcenpläne gestalten, die unsere Fahrzeuge zuverlässig einsatzbereit halten\n\n• Fachliche Kompetenz einbringen und Ansprechpartner:in für Flotten, Loks und historische Schmuckstücke sein\n\n• Offerten für Drittkunden kalkulieren und Projekte transparent sowie zielsicher steuern\n\n• Revisionen begleiten und Prozesse im Shopfloor-Management nachhaltig weiterentwickeln\n\nDas bringst du mit:\n\n• Technische Grundausbildung EFZ (z. B. Mechaniker:in, Automatiker:in, Elektroniker:in oder Polymechaniker:in)\n\n• Weiterbildung als Prozessfachperson oder technische:r Kaufmann/Kauffrau – oder eine vergleichbare Qualifikation\n\n• Praxis in Instandhaltung oder Industrie sowie Organisationstalent und sicheres Verständnis für Arbeitssicherheit; Erfahrung in Kalkulationen, Offerten und Ressourcenplanung\n\n• Sicherer Umgang mit SAP-PM, ERP-Systemen und MS Office sowie Kompetenz im Lesen technischer Zeichnungen\n\n• Kommunikationsstärke in der Zusammenarbeit mit internen und externen Partnern sowie souveräne Verhandlungsführung in Deutsch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Die gewaltige Lokomotive rollt majestätisch, bereit für umfassende Neuerungen an Sicherheits- und Steuerungseinrichtungen. Am Gleis steht das einsatzbereite Produktionsteam mit dem detaillierten Arbeitsplan, während die Logistik die letzte Lieferung von Ersatzmaterial präzise koordiniert. Dein täglicher Beitrag gewährleistet nicht nur Zuverlässigkeit, sondern auch wirtschaftlichen Erfolg in diesem faszinierenden Umfeld.\nWillkommen in einer Welt, in der du nicht nur Teil des Ganzen bist, sondern aktiv die Zukunft der Schienen mitgestaltest.\n\nDas wartet auf dich:\n\n• Revisionen, Umbauten und Reparaturen so planen, dass alles ins Rollen kommt\n\n• Jahres- und Ressourcenpläne gestalten, die unsere Fahrzeuge zuverlässig einsatzbereit halten\n\n• Fachliche Kompetenz einbringen und Ansprechpartner:in für Flotten, Loks und historische Schmuckstücke sein\n\n• Offerten für Drittkunden kalkulieren und Projekte transparent sowie zielsicher steuern\n\n• Revisionen begleiten und Prozesse im Shopfloor-Management nachhaltig weiterentwickeln\n\nDas bringst du mit:\n\n• Technische Grundausbildung EFZ (z. B. Mechaniker:in, Automatiker:in, Elektroniker:in oder Polymechaniker:in)\n\n• Weiterbildung als Prozessfachperson oder technische:r Kaufmann/Kauffrau – oder eine vergleichbare Qualifikation\n\n• Praxis in Instandhaltung oder Industrie sowie Organisationstalent und sicheres Verständnis für Arbeitssicherheit; Erfahrung in Kalkulationen, Offerten und Ressourcenplanung\n\n• Sicherer Umgang mit SAP-PM, ERP-Systemen und MS Office sowie Kompetenz im Lesen technischer Zeichnungen\n\n• Kommunikationsstärke in der Zusammenarbeit mit internen und externen Partnern sowie souveräne Verhandlungsführung in Deutsch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bönigen",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-avor-fahrzeuge/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-29T12:34:16.156Z",
+      "addressLocality": "Bönigen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3806",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "validThrough": "2026-07-28",
+      "pensum": "50-100%",
+      "salary": "105759",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
+      "requirements": [
+        "Technische Grundausbildung EFZ (z. B. Mechaniker:in, Automatiker:in, Elektroniker:in oder Polymechaniker:in)",
+        "Weiterbildung als Prozessfachperson oder technische:r Kaufmann/Kauffrau – oder eine vergleichbare Qualifikation",
+        "Praxis in Instandhaltung oder Industrie sowie Organisationstalent und sicheres Verständnis für Arbeitssicherheit; Erfahrung in Kalkulationen, Offerten und Ressourcenplanung",
+        "Sicherer Umgang mit SAP-PM, ERP-Systemen und MS Office sowie Kompetenz im Lesen technischer Zeichnungen",
+        "Kommunikationsstärke in der Zusammenarbeit mit internen und externen Partnern sowie souveräne Verhandlungsführung in Deutsch"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Technische Grundausbildung EFZ (z. B. Mechaniker:in, Automatiker:in, Elektroniker:in oder Polymechaniker:in)",
+          "Weiterbildung als Prozessfachperson oder technische:r Kaufmann/Kauffrau – oder eine vergleichbare Qualifikation",
+          "Praxis in Instandhaltung oder Industrie sowie Organisationstalent und sicheres Verständnis für Arbeitssicherheit; Erfahrung in Kalkulationen, Offerten und Ressourcenplanung",
+          "Sicherer Umgang mit SAP-PM, ERP-Systemen und MS Office sowie Kompetenz im Lesen technischer Zeichnungen",
+          "Kommunikationsstärke in der Zusammenarbeit mit internen und externen Partnern sowie souveräne Verhandlungsführung in Deutsch"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-06-29T12:34:16.156Z"
     },
     {
       "id": "bls-ede2fabbc5e0",
@@ -122,7 +203,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:19.153Z",
+      "crawledAt": "2026-06-29T12:34:15.368Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -167,6 +248,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -212,7 +294,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:18.473Z",
+      "crawledAt": "2026-06-29T12:34:14.640Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,6 +328,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -291,7 +374,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:17.778Z",
+      "crawledAt": "2026-06-29T12:34:13.942Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -340,6 +423,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -385,7 +469,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:17.040Z",
+      "crawledAt": "2026-06-29T12:34:13.250Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,6 +518,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -479,7 +564,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in/b902f38a-e2ae-46be-a6f8-d05911ff6585",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:16.220Z",
+      "crawledAt": "2026-06-29T12:34:12.471Z",
       "addressLocality": "Langnau im Emmental",
       "addressCountry": "CH",
       "country": "CH",
@@ -527,6 +612,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.211Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -572,7 +658,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:15.537Z",
+      "crawledAt": "2026-06-29T12:34:11.779Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -612,6 +698,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -657,7 +744,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:14.857Z",
+      "crawledAt": "2026-06-29T12:34:11.093Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -703,6 +790,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -748,7 +836,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/bc80ac8b-54e4-4703-8c22-df0dae662c39",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:14.070Z",
+      "crawledAt": "2026-06-29T12:34:10.187Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -800,6 +888,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:14:02.185Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -845,7 +934,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/3519fa54-3e07-4f66-8a1a-80329d4a5b4c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:13.080Z",
+      "crawledAt": "2026-06-29T12:34:09.394Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -879,6 +968,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:27.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -924,7 +1014,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/systemingenieur-in-plattformentwicklung/26107236-837f-4c94-8876-f62f2920f44d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:12.206Z",
+      "crawledAt": "2026-06-29T12:34:08.599Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -965,6 +1055,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:25.700Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -994,7 +1085,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -1010,7 +1101,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:11.505Z",
+      "crawledAt": "2026-06-29T12:34:07.909Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1050,6 +1141,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T21:56:35.717Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1095,7 +1187,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-fahrzeugreinigung/5cf9faa7-4e3c-4951-9b69-e921365abdce",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:15:10.627Z",
+      "crawledAt": "2026-06-29T12:34:07.131Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1136,6 +1228,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:31.813Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1149,6 +1242,86 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-530186efc0c5",
+      "slug": "marketing-manager-in-experience-bls-ch",
+      "slugByLocale": {
+        "de": "marketing-manager-in-experience-bls-ch",
+        "it": "marketing-manager-in-experience-bls-ch",
+        "en": "marketing-manager-in-experience-bls-ch",
+        "fr": "marketing-manager-in-experience-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Marketing Manager:in Experience",
+      "titleByLocale": {
+        "de": "Marketing Manager:in Experience",
+        "en": "Marketing Manager:in Experience",
+        "it": "Marketing Manager:in Experience",
+        "fr": "Marketing Manager:in Experience"
+      },
+      "description": "Wir lieben Seen, Natur und unvergessliche Erlebnisse - und wir suchen Menschen, die genau das aktiv mitgestalten wollen.\nDie BLS Schifffahrt bietet dafür ein einzigartiges Umfeld: Hier entwickelst du Angebote, die begeistern, überrasch­­en und nachhaltig in Erinnerung bleiben. Wenn du Dynamik, Kreativität und unternehmerisches Denken mitbringst, bist du bei uns genau richtig.\n\nDas wartet auf dich:\n\n• Gestaltungsspielraum zur Weiterentwicklung von Erlebnisangeboten an Bord\n\n• Verantwortung für die operative Umsetzung und Weiterentwicklung eines Angebotsbereiches\n\n• Leitung und Mitarbeit in übergreifenden Marketingprojekten\n\n• Konzeption und Lancierung ertragsstarker Zusatzangebote\n\n• Analyse von Markt-, Kunden- und Trendentwicklungen\n\n• Aufbau und Pflege eines starken internen und externen Netzwerks\n\nDas bringst du mit:\n\n• Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit\n\n• Gespür für Trends, Märkte und Zielgruppen\n\n• Konzeptionsstärke sowie Erfahrung im Projektmanagement\n\n• Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich\n\n• Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+      "descriptionByLocale": {
+        "de": "Wir lieben Seen, Natur und unvergessliche Erlebnisse - und wir suchen Menschen, die genau das aktiv mitgestalten wollen.\nDie BLS Schifffahrt bietet dafür ein einzigartiges Umfeld: Hier entwickelst du Angebote, die begeistern, überrasch­­en und nachhaltig in Erinnerung bleiben. Wenn du Dynamik, Kreativität und unternehmerisches Denken mitbringst, bist du bei uns genau richtig.\n\nDas wartet auf dich:\n\n• Gestaltungsspielraum zur Weiterentwicklung von Erlebnisangeboten an Bord\n\n• Verantwortung für die operative Umsetzung und Weiterentwicklung eines Angebotsbereiches\n\n• Leitung und Mitarbeit in übergreifenden Marketingprojekten\n\n• Konzeption und Lancierung ertragsstarker Zusatzangebote\n\n• Analyse von Markt-, Kunden- und Trendentwicklungen\n\n• Aufbau und Pflege eines starken internen und externen Netzwerks\n\nDas bringst du mit:\n\n• Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit\n\n• Gespür für Trends, Märkte und Zielgruppen\n\n• Konzeptionsstärke sowie Erfahrung im Projektmanagement\n\n• Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich\n\n• Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "it": "Wir lieben Seen, Natur und unvergessliche Erlebnisse - und wir suchen Menschen, die genau das aktiv mitgestalten wollen.\nDie BLS Schifffahrt bietet dafür ein einzigartiges Umfeld: Hier entwickelst du Angebote, die begeistern, überrasch­­en und nachhaltig in Erinnerung bleiben. Wenn du Dynamik, Kreativität und unternehmerisches Denken mitbringst, bist du bei uns genau richtig.\n\nDas wartet auf dich:\n\n• Gestaltungsspielraum zur Weiterentwicklung von Erlebnisangeboten an Bord\n\n• Verantwortung für die operative Umsetzung und Weiterentwicklung eines Angebotsbereiches\n\n• Leitung und Mitarbeit in übergreifenden Marketingprojekten\n\n• Konzeption und Lancierung ertragsstarker Zusatzangebote\n\n• Analyse von Markt-, Kunden- und Trendentwicklungen\n\n• Aufbau und Pflege eines starken internen und externen Netzwerks\n\nDas bringst du mit:\n\n• Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit\n\n• Gespür für Trends, Märkte und Zielgruppen\n\n• Konzeptionsstärke sowie Erfahrung im Projektmanagement\n\n• Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich\n\n• Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "en": "Wir lieben Seen, Natur und unvergessliche Erlebnisse - und wir suchen Menschen, die genau das aktiv mitgestalten wollen.\nDie BLS Schifffahrt bietet dafür ein einzigartiges Umfeld: Hier entwickelst du Angebote, die begeistern, überrasch­­en und nachhaltig in Erinnerung bleiben. Wenn du Dynamik, Kreativität und unternehmerisches Denken mitbringst, bist du bei uns genau richtig.\n\nDas wartet auf dich:\n\n• Gestaltungsspielraum zur Weiterentwicklung von Erlebnisangeboten an Bord\n\n• Verantwortung für die operative Umsetzung und Weiterentwicklung eines Angebotsbereiches\n\n• Leitung und Mitarbeit in übergreifenden Marketingprojekten\n\n• Konzeption und Lancierung ertragsstarker Zusatzangebote\n\n• Analyse von Markt-, Kunden- und Trendentwicklungen\n\n• Aufbau und Pflege eines starken internen und externen Netzwerks\n\nDas bringst du mit:\n\n• Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit\n\n• Gespür für Trends, Märkte und Zielgruppen\n\n• Konzeptionsstärke sowie Erfahrung im Projektmanagement\n\n• Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich\n\n• Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+        "fr": "Wir lieben Seen, Natur und unvergessliche Erlebnisse - und wir suchen Menschen, die genau das aktiv mitgestalten wollen.\nDie BLS Schifffahrt bietet dafür ein einzigartiges Umfeld: Hier entwickelst du Angebote, die begeistern, überrasch­­en und nachhaltig in Erinnerung bleiben. Wenn du Dynamik, Kreativität und unternehmerisches Denken mitbringst, bist du bei uns genau richtig.\n\nDas wartet auf dich:\n\n• Gestaltungsspielraum zur Weiterentwicklung von Erlebnisangeboten an Bord\n\n• Verantwortung für die operative Umsetzung und Weiterentwicklung eines Angebotsbereiches\n\n• Leitung und Mitarbeit in übergreifenden Marketingprojekten\n\n• Konzeption und Lancierung ertragsstarker Zusatzangebote\n\n• Analyse von Markt-, Kunden- und Trendentwicklungen\n\n• Aufbau und Pflege eines starken internen und externen Netzwerks\n\nDas bringst du mit:\n\n• Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit\n\n• Gespür für Trends, Märkte und Zielgruppen\n\n• Konzeptionsstärke sowie Erfahrung im Projektmanagement\n\n• Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich\n\n• Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/marketing-manager-in-experience/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-29T12:34:06.426Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Marketing",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "validThrough": "2026-07-28",
+      "pensum": "50-70%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
+      "requirements": [
+        "Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit",
+        "Gespür für Trends, Märkte und Zielgruppen",
+        "Konzeptionsstärke sowie Erfahrung im Projektmanagement",
+        "Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich",
+        "Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit",
+          "Gespür für Trends, Märkte und Zielgruppen",
+          "Konzeptionsstärke sowie Erfahrung im Projektmanagement",
+          "Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich",
+          "Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 106500,
+      "salaryMax": 188500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 106500,
+          "maxValue": 188500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-06-29T12:34:06.426Z"
     }
   ]
 }
