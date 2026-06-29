@@ -32,44 +32,77 @@ export function isChunkLoadError(err: unknown): boolean {
 }
 
 /**
- * Detect a CROSS-CHUNK VERSION-SKEW TypeError — a third stale-deploy failure
- * mode the two above do not cover.
+ * A LINK-TIME ES-module mismatch SyntaxError — the cross-browser wordings the
+ * browser throws when an importer chunk requests an export the (already loaded,
+ * HTTP 200) dependency chunk does not provide. Used by isVersionSkewError below
+ * and mirrored as an inline regex in index.html's runtime-error / rejection
+ * handlers (which cannot import this module — keep the two in sync).
  *
- * Root cause: chunk FILENAMES are stable (non-hashed, see vite.config rollup
- * output) but Rollup minifies internal cross-chunk export names to single
- * letters (`export { lt as m }`) that are REASSIGNED every build from pure
- * minifier ordering. When a deploy re-letters an export, a client still holding
- * a previously-cached importer chunk binds the OLD letter (`import { m as ls }`)
- * to whatever the FRESH dependency chunk now exports under `m`. Both chunks load
- * fine (HTTP 200, real JS) — the mismatch only surfaces at CALL time as a
- * TypeError: the bound symbol is the wrong kind of value.
+ * Wordings observed across engines (the binding name in quotes is app-specific):
+ *   - V8 / Chrome / Edge: "...does not provide an export named 'House'"
+ *   - Firefox:            "import not found: House" / "ambiguous indirect export: House"
+ *   - WebKit / Safari:    "Importing binding name 'House' is not found."
+ */
+export function isModuleLinkSkewMessage(msg: string): boolean {
+  return (
+    /does not provide an export named/.test(msg) ||
+    /import not found/.test(msg) ||
+    /indirect export/.test(msg) ||
+    /Importing binding name/.test(msg)
+  );
+}
+
+/**
+ * Detect a CROSS-CHUNK VERSION-SKEW error — a stale-deploy failure mode the
+ * fetch-based detectors above do not cover. Two distinct shapes, ONE root cause
+ * (stable filenames + per-asset cache lifetimes → a client ends up with a
+ * MISMATCHED set of stable-named chunks), ONE recovery (clear caches + reload).
  *
- * Observed shapes (minified identifiers, so the names are short/opaque):
- *   - "ls(...).then is not a function"  (expected an async fn, got something else)
- *   - "n is not a function" / "x.y is not a function"
- *   - "Ze is not a constructor"
- *   - "e is not iterable"
+ * (a) CALL-TIME (TypeError): Rollup minifies internal cross-chunk export names
+ *     to single letters (`export { lt as m }`) that are REASSIGNED every build
+ *     from pure minifier ordering. A client holding a previously-cached importer
+ *     chunk binds the OLD letter (`import { m as ls }`) to whatever the FRESH
+ *     dependency chunk now exports under `m`. Both chunks load fine (HTTP 200) —
+ *     the mismatch only surfaces at CALL time as a TypeError: the bound symbol
+ *     is the wrong kind of value. (`minifyInternalExports:false` in vite.config
+ *     attacks the cause; this is the runtime safety net.)
+ *       - "ls(...).then is not a function" / "n is not a function"
+ *       - "Ze is not a constructor" / "e is not iterable"
  *
- * Unlike isChunkLoadError this is NOT throwable at import() time — it fires deep
- * in render / effects / event handlers, so it is caught by the React
- * ErrorBoundary (in-render) or the global window 'error' handler (outside React),
- * NOT by resilientImport's import() wrapper. Both call recoverFromStaleChunk().
+ * (b) LINK-TIME (SyntaxError, issue #3097): the dependency chunk's EXPORT SET
+ *     changes between deploys (e.g. lucide-react tree-shaking adds/removes icons
+ *     in `vendor-icons.js`), so a cached importer (`BlogArticles.js` importing
+ *     `House`) links against a stale/old `vendor-icons.js` that does not export
+ *     that name. The ES module linker throws a SyntaxError at instantiation
+ *     ("...does not provide an export named 'House'"), surfaced through
+ *     React.lazy → ErrorBoundary. Same skew, same clear-caches + one-reload fix.
  *
- * The predicate is intentionally signature-based (not name-based — minification
- * makes every identifier opaque). A genuine app bug producing the same message
+ * Neither is throwable at import() time as a chunk-load error: (a) fires deep in
+ * render/effects, (b) rejects the lazy import() with a SyntaxError that the
+ * fetch-failure predicates (isChunkLoadError) do not match. Both reach the React
+ * ErrorBoundary (in-render) or the global window handlers (outside React), which
+ * route here → recoverFromStaleChunk().
+ *
+ * The predicate is signature-based. A genuine app bug producing the same message
  * costs at most ONE extra reload before the per-session guard blocks further
  * reloads and the error UI is shown — identical to the existing chunk-recovery
  * tradeoff, and far better than a permanent white screen on a real skew.
  */
 export function isVersionSkewError(err: unknown): boolean {
   const e = err as { name?: string; message?: string } | null | undefined;
-  if (!e || e.name !== 'TypeError') return false;
+  if (!e) return false;
   const msg = e.message || '';
-  return (
-    /\bis not a function\b/.test(msg) ||
-    /\bis not a constructor\b/.test(msg) ||
-    /\bis not iterable\b/.test(msg)
-  );
+  if (e.name === 'TypeError') {
+    return (
+      /\bis not a function\b/.test(msg) ||
+      /\bis not a constructor\b/.test(msg) ||
+      /\bis not iterable\b/.test(msg)
+    );
+  }
+  if (e.name === 'SyntaxError') {
+    return isModuleLinkSkewMessage(msg);
+  }
+  return false;
 }
 
 // Session-wide reload ceiling shared across ALL three recovery surfaces:

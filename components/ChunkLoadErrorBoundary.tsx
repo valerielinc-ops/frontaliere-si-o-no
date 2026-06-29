@@ -1,4 +1,5 @@
 import React, { Component, type ReactNode } from 'react';
+import { isModuleLinkSkewMessage } from '@/services/resilientImport';
 
 /**
  * Last-resort boundary for Vite chunk-load failures during render.
@@ -21,6 +22,11 @@ import React, { Component, type ReactNode } from 'react';
  *
  * Intentionally narrow scope — does NOT swallow non-chunk errors. The regex
  * is the one place to extend if new chunk-error wording appears in the wild.
+ * It also matches LINK-TIME version-skew SyntaxErrors (issue #3097, e.g.
+ * "...does not provide an export named 'House'") via the shared
+ * isModuleLinkSkewMessage predicate — same stale-deploy root cause, same reload
+ * recovery — so a module-graph mismatch that escapes the inner ErrorBoundary
+ * still reloads here instead of white-screening.
  */
 
 const CHUNK_ERROR_PATTERN = /Failed to fetch dynamically imported module|Importing a module script failed|ChunkLoadError|Loading chunk \d+ failed/i;
@@ -49,7 +55,7 @@ export class ChunkLoadErrorBoundary extends Component<Props, State> {
 
   static getDerivedStateFromError(error: Error): State | null {
     const message = error?.message ?? '';
-    if (!CHUNK_ERROR_PATTERN.test(message)) {
+    if (!CHUNK_ERROR_PATTERN.test(message) && !isModuleLinkSkewMessage(message)) {
       // Not our concern — let the next boundary handle it.
       return null;
     }

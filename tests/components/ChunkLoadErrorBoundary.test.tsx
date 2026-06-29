@@ -86,6 +86,19 @@ describe('ChunkLoadErrorBoundary', () => {
     expect(reloadSpy).toHaveBeenCalledTimes(1);
   });
 
+  it('reloads on a link-time version-skew SyntaxError (#3097)', () => {
+    // The chunk fetched fine but a cached importer links an export the stale
+    // dependency no longer provides — handled via isModuleLinkSkewMessage.
+    render(
+      <CatchAll>
+        <ChunkLoadErrorBoundary>
+          <ChunkThrower message="The requested module './vendor-icons.js' does not provide an export named 'House'" />
+        </ChunkLoadErrorBoundary>
+      </CatchAll>,
+    );
+    expect(reloadSpy).toHaveBeenCalledTimes(1);
+  });
+
   it('renders the Italian "in corso" fallback after triggering a reload', () => {
     // Capture the boundary instance via ref so we can drive its state to the
     // post-reload mode without relying on React 19 dev-mode re-throw behaviour

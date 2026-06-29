@@ -3,6 +3,7 @@ import {
   resilientImport,
   isChunkLoadError,
   isVersionSkewError,
+  isModuleLinkSkewMessage,
   recoverFromStaleChunk,
 } from '@/services/resilientImport';
 
@@ -123,6 +124,46 @@ describe('isVersionSkewError', () => {
     expect(isVersionSkewError(new TypeError('Assignment to constant variable.'))).toBe(false);
     expect(isVersionSkewError(null)).toBe(false);
     expect(isVersionSkewError(undefined)).toBe(false);
+  });
+
+  // Link-time skew (#3097): a cached importer chunk requests an export the
+  // already-loaded dependency chunk no longer provides → the ES module linker
+  // throws a SyntaxError at instantiation, surfaced through React.lazy →
+  // ErrorBoundary (NOT a TypeError, NOT a fetch error).
+  it('matches the link-time module-mismatch SyntaxError across browsers', () => {
+    // V8 / Chrome / Edge — the exact wording reported live on the blog article.
+    expect(
+      isVersionSkewError(
+        new SyntaxError("The requested module './vendor-icons.js' does not provide an export named 'House'"),
+      ),
+    ).toBe(true);
+    // Firefox.
+    expect(isVersionSkewError(new SyntaxError('import not found: House'))).toBe(true);
+    expect(isVersionSkewError(new SyntaxError('ambiguous indirect export: House'))).toBe(true);
+    // WebKit / Safari.
+    expect(isVersionSkewError(new SyntaxError("Importing binding name 'House' is not found."))).toBe(true);
+  });
+
+  it('ignores unrelated SyntaxErrors (genuine parse bugs)', () => {
+    expect(isVersionSkewError(new SyntaxError('Unexpected token <'))).toBe(false);
+    expect(isVersionSkewError(new SyntaxError('Unexpected end of input'))).toBe(false);
+    // Only a SyntaxError carries the link-skew signature; a hand-thrown Error does not.
+    expect(isVersionSkewError(new Error("does not provide an export named 'House'"))).toBe(false);
+  });
+});
+
+describe('isModuleLinkSkewMessage', () => {
+  it('recognises the cross-browser link-mismatch wordings', () => {
+    expect(isModuleLinkSkewMessage("does not provide an export named 'House'")).toBe(true);
+    expect(isModuleLinkSkewMessage('import not found: House')).toBe(true);
+    expect(isModuleLinkSkewMessage('ambiguous indirect export: House')).toBe(true);
+    expect(isModuleLinkSkewMessage("Importing binding name 'House' is not found.")).toBe(true);
+  });
+
+  it('does not match unrelated messages', () => {
+    expect(isModuleLinkSkewMessage('Unexpected token <')).toBe(false);
+    expect(isModuleLinkSkewMessage('Failed to fetch dynamically imported module')).toBe(false);
+    expect(isModuleLinkSkewMessage('')).toBe(false);
   });
 });
 
