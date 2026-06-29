@@ -727,6 +727,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Calcul des taxes frontalières sur 20 km : règles et simulations',
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Depuis 2024, les frontaliers à plus de 20 km de la frontière subissent des nouveautés fiscales : pas d\'avantages, impact IRPEF, crédit d’impôt et simulations.',
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'Vue sur Lugano et les Alpes, contexte frontalier typique.',
+    'blog.article.lidl-svizzera-lavora-con-noi.title': 'Travailler chez Lidl Suisse : opportunités et procédures actualisées',
+    'blog.article.lidl-svizzera-lavora-con-noi.excerpt': 'Lidl offre des opportunités d\'emploi dans toute la Suisse. Découvrez comment postuler, quels postes sont disponibles et quelles procédures suivre.',
+    'blog.article.lidl-svizzera-lavora-con-noi.imageAlt': 'Entrée d\'un supermarché moderne en Suisse, avec les Alpes en arrière-plan.',
 };
 
 export default blogMetaChFr;
