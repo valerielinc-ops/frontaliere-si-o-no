@@ -27,7 +27,7 @@
 
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { loadEventsDataset, upcomingEvents, slugifyComune } from './lib/events-utils.mjs';
+import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents } from './lib/events-utils.mjs';
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId } from './schedule-fb-jobs-daily.mjs';
 
@@ -108,6 +108,56 @@ export function selectUnpostedEvents(events, postedSet, limit) {
   return events.filter((e) => e && e.id && !postedSet.has(e.id)).slice(0, Math.max(0, limit | 0));
 }
 
+/** Canonical URL of the weekend digest landing page (matches the SSG plugin). */
+export const WEEKEND_DIGEST_URL = `${SITE_URL}/eventi/ticino/questo-weekend/`;
+
+/**
+ * Roundup caption for the weekend digest post. Mirrors `buildEventCaption`'s
+ * style (the bare URL is NOT inlined — FB renders the link card from the POST's
+ * `link` field). Lists how many events and a few comuni/highlights.
+ */
+export function buildWeekendDigestCaption(events, todayIso) {
+  const list = Array.isArray(events) ? events : [];
+  const comuni = [...new Set(list.map((e) => e?.comune).filter(Boolean))];
+  const n = list.length;
+  const headline = '🎉 Cosa fare questo weekend in Ticino';
+  const comuneTail = comuni.length ? ` — ${comuni.slice(0, 4).join(', ')}${comuni.length > 4 ? '…' : ''}` : '';
+  const count = `📅 ${n} ${n === 1 ? 'evento' : 'eventi'} tra sabato e domenica${comuneTail}.`;
+  const highlights = list.slice(0, 3).map((e) => {
+    const emoji = CATEGORY_EMOJI[e?.category] || '•';
+    const t = truncateBody(String(e?.title || '').trim(), 60);
+    return `${emoji} ${t}${e?.comune ? ` (${e.comune})` : ''}`;
+  });
+
+  const tags = ['#eventiticino', '#weekend', '#ticino', '#frontalieri'];
+  for (const c of comuni.slice(0, 2)) {
+    const tag = tagWord(c);
+    if (tag && tag.toLowerCase() !== 'ticino') tags.push(`#${tag}`);
+  }
+  const hashtags = [...new Set(tags.map((t) => t.toLowerCase()))].slice(0, 6).join(' ');
+
+  const parts = [headline, '', count];
+  if (highlights.length) parts.push('', ...highlights);
+  parts.push('', '👉 Programma completo, comune per comune:', '', hashtags);
+  let out = parts.join('\n').trim();
+  if (out.length > FB_MESSAGE_HARD_LIMIT) out = out.slice(0, FB_MESSAGE_HARD_LIMIT);
+  return out;
+}
+
+/**
+ * Build the single weekend-digest payload, or `null` when there is nothing to
+ * post (no weekend events, or this weekend already posted). Ledgered by the
+ * weekend's start date so a Friday re-run never double-posts.
+ */
+export function selectWeekendDigest(events, todayIso, postedSet) {
+  const { start } = weekendWindow(todayIso);
+  const id = `weekend-digest-${start}`;
+  if (postedSet && postedSet.has(id)) return null;
+  const weekend = weekendEvents(events, todayIso);
+  if (weekend.length === 0) return null;
+  return { id, url: WEEKEND_DIGEST_URL, message: buildWeekendDigestCaption(weekend, todayIso), placeId: null };
+}
+
 /**
  * @param {object} [opts]
  * @param {NodeJS.ProcessEnv} [opts.env]
@@ -133,7 +183,8 @@ export async function run(opts = {}) {
   log('🗓️', `FB events daily poster — volume=${volume}, dry=${dryRun}`);
 
   const dataset = loadEventsDataset(path.join(repoRoot, 'data', 'events.json'));
-  const upcoming = upcomingEvents(dataset.events, opts.todayIso);
+  const todayIso = opts.todayIso || isoDay(new Date());
+  const upcoming = upcomingEvents(dataset.events, todayIso);
   if (upcoming.length === 0) {
     log('ℹ️', 'no upcoming events, exiting');
     return { ok: true, posted: 0, dryRun, payloads: [] };
@@ -141,19 +192,47 @@ export async function run(opts = {}) {
 
   const ledger = loadLedger(ledgerPath);
   const postedSet = new Set(ledger.posted.map((e) => e?.id).filter(Boolean));
-  const candidates = selectUnpostedEvents(upcoming, postedSet, volume);
-  if (candidates.length === 0) {
-    log('ℹ️', 'no unposted upcoming events, exiting');
+
+  // On the weekly digest day (Friday by default; FB_EVENTS_DIGEST_DOW overrides,
+  // 0=Sun…6=Sat, set <0 to disable) post ONE weekend roundup linking to the
+  // /questo-weekend/ landing instead of individual per-event posts — covers the
+  // weekend in a single post without flooding the Page.
+  const rawDow = env.FB_EVENTS_DIGEST_DOW;
+  const digestDow = rawDow == null || rawDow === '' ? 5 : Number(rawDow);
+  const isDigestDay = Number.isInteger(digestDow) && new Date(`${todayIso}T00:00:00Z`).getUTCDay() === digestDow;
+  const weekendStart = weekendWindow(todayIso).start;
+  const digestAlreadyPosted = postedSet.has(`weekend-digest-${weekendStart}`);
+  const digestPayload = isDigestDay ? selectWeekendDigest(dataset.events, todayIso, postedSet) : null;
+
+  // The schedule cron fires twice a day: once the weekend roundup is posted and
+  // ledgered, a later digest-day run MUST stay silent — NOT fall through to
+  // per-event posting, which would re-post the same weekend events the roundup
+  // already covers (the very flooding this digest avoids). Only a digest day with
+  // NO weekend events at all falls back to per-event posts (so a quiet Friday
+  // isn't mute).
+  if (isDigestDay && digestAlreadyPosted) {
+    log('ℹ️', `weekend digest already posted (weekend-digest-${weekendStart}) — staying silent`);
     return { ok: true, posted: 0, dryRun, payloads: [] };
   }
 
   const placeIds = loadPlaceIds(repoRoot);
-  const payloads = candidates.map((event) => ({
-    id: event.id,
-    url: buildEventUrl(event),
-    message: buildEventCaption(event),
-    placeId: lookupPlaceId(event.comune, placeIds),
-  }));
+  let payloads;
+  if (digestPayload) {
+    log('🎉', `weekend digest day — posting roundup ${digestPayload.id}`);
+    payloads = [digestPayload];
+  } else {
+    const candidates = selectUnpostedEvents(upcoming, postedSet, volume);
+    payloads = candidates.map((event) => ({
+      id: event.id,
+      url: buildEventUrl(event),
+      message: buildEventCaption(event),
+      placeId: lookupPlaceId(event.comune, placeIds),
+    }));
+  }
+  if (payloads.length === 0) {
+    log('ℹ️', 'nothing to post, exiting');
+    return { ok: true, posted: 0, dryRun, payloads: [] };
+  }
   const placed = payloads.filter((p) => p.placeId).length;
   log('📍', `place tag resolved for ${placed}/${payloads.length} payloads`);
 

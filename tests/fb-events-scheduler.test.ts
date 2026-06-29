@@ -11,6 +11,9 @@ import {
   buildEventCaption,
   buildEventUrl,
   selectUnpostedEvents,
+  buildWeekendDigestCaption,
+  selectWeekendDigest,
+  WEEKEND_DIGEST_URL,
   run,
 } from '../scripts/schedule-fb-events-daily.mjs';
 
@@ -124,5 +127,144 @@ describe('run() dry-run', () => {
     });
     expect(res.ok).toBe(false);
     expect(res.posted).toBe(0);
+  });
+});
+
+describe('buildWeekendDigestCaption', () => {
+  const events = [
+    { id: '1', title: 'Concerto al LAC', comune: 'Lugano', category: 'musica', startDate: '2027-01-02' },
+    { id: '2', title: 'Mercatino', comune: 'Bellinzona', category: 'mercato', startDate: '2027-01-02' },
+    { id: '3', title: 'Mostra fotografica', comune: 'Locarno', category: 'cultura', startDate: '2027-01-03' },
+  ];
+  const caption = buildWeekendDigestCaption(events, '2027-01-01');
+  it('summarises the count and lists comuni', () => {
+    expect(caption).toContain('questo weekend in Ticino');
+    expect(caption).toContain('3 eventi');
+    expect(caption).toContain('Lugano');
+    expect(caption).toContain('Bellinzona');
+  });
+  it('shows highlights and weekend hashtags, without an inline URL', () => {
+    expect(caption).toContain('Concerto al LAC');
+    expect(caption).toContain('#eventiticino');
+    expect(caption).toContain('#weekend');
+    expect(caption).not.toContain('http'); // FB renders the card from the link field, not the message
+  });
+  it('singularises a one-event weekend', () => {
+    expect(buildWeekendDigestCaption([events[0]], '2027-01-01')).toContain('1 evento ');
+  });
+});
+
+describe('selectWeekendDigest', () => {
+  const events = [
+    { id: 'w', title: 'Festa', comune: 'Lugano', startDate: '2027-01-02' },
+    { id: 'far', title: 'Altro', comune: 'Lugano', startDate: '2027-02-10' },
+  ];
+  it('returns a single payload ledgered by the weekend start date', () => {
+    const p = selectWeekendDigest(events, '2027-01-01', new Set());
+    expect(p).not.toBeNull();
+    expect(p?.id).toBe('weekend-digest-2027-01-02');
+    expect(p?.url).toBe(WEEKEND_DIGEST_URL);
+    expect(p?.placeId).toBeNull(); // multi-comune roundup → no geo-anchor
+  });
+  it('returns null when this weekend was already posted', () => {
+    expect(selectWeekendDigest(events, '2027-01-01', new Set(['weekend-digest-2027-01-02']))).toBeNull();
+  });
+  it('returns null when no events fall in the weekend window', () => {
+    expect(selectWeekendDigest([events[1]], '2027-01-01', new Set())).toBeNull();
+  });
+});
+
+describe('run() weekend digest', () => {
+  function digestRepo() {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'fb-events-dg-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    writeFileSync(
+      path.join(root, 'data', 'events.json'),
+      JSON.stringify({
+        schemaVersion: 1,
+        events: [
+          { ...EVENT, id: 'tio-agenda:wk', startDate: '2027-01-02', comune: 'Lugano' },
+          { ...EVENT, id: 'tio-agenda:wk2', startDate: '2027-01-03', comune: 'Bellinzona' },
+        ],
+      }),
+    );
+    writeFileSync(path.join(root, 'data', 'fb-place-ids.json'), JSON.stringify({ schemaVersion: 1, places: {} }));
+    return root;
+  }
+
+  it('on Friday posts ONE weekend roundup to /questo-weekend/ and ledgers it', async () => {
+    const root = digestRepo();
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK' },
+      repoRoot: root,
+      todayIso: '2027-01-01', // Friday → digest day
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost1' }) }),
+      log: () => {},
+      warn: () => {},
+    });
+    expect(res.posted).toBe(1);
+    expect(res.payloads).toHaveLength(1);
+    expect(res.payloads[0].url).toBe(WEEKEND_DIGEST_URL);
+    const ledger = JSON.parse(readFileSync(path.join(root, 'data', 'fb-posted-events.json'), 'utf-8'));
+    expect(ledger.posted.map((e: { id: string }) => e.id)).toContain('weekend-digest-2027-01-02');
+  });
+
+  it('on a non-digest day posts individual events, not the digest', async () => {
+    const root = digestRepo();
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
+      repoRoot: root,
+      todayIso: '2026-12-31', // Thursday → not the digest day
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) }),
+      log: () => {},
+      warn: () => {},
+    });
+    expect(res.payloads.every((p: { url: string }) => p.url !== WEEKEND_DIGEST_URL)).toBe(true);
+    expect(res.posted).toBe(2);
+  });
+
+  // Regression for the twice-a-day cron: the afternoon digest-day run must NOT
+  // fall through to per-event posting once the roundup is already ledgered.
+  it('once the roundup is ledgered, the digest day stays silent (no per-event reposts)', async () => {
+    const root = digestRepo();
+    writeFileSync(
+      path.join(root, 'data', 'fb-posted-events.json'),
+      JSON.stringify({ posted: [{ id: 'weekend-digest-2027-01-02' }] }),
+    );
+    let feedPosts = 0;
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
+      repoRoot: root,
+      todayIso: '2027-01-01', // Friday, digest already posted this morning
+      fetchImpl: (url: string) => {
+        if (String(url).includes('/feed')) feedPosts += 1;
+        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) });
+      },
+      log: () => {},
+      warn: () => {},
+    });
+    expect(res.posted).toBe(0);
+    expect(res.payloads).toHaveLength(0);
+    expect(feedPosts).toBe(0); // crucially: did NOT re-post the weekend events individually
+  });
+
+  it('on the digest day with no weekend events, falls back to per-event posts', async () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'fb-events-noweekend-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    writeFileSync(
+      path.join(root, 'data', 'events.json'),
+      JSON.stringify({ schemaVersion: 1, events: [{ ...EVENT, id: 'tio-agenda:m', startDate: '2027-02-13', comune: 'Lugano' }] }),
+    );
+    writeFileSync(path.join(root, 'data', 'fb-place-ids.json'), JSON.stringify({ schemaVersion: 1, places: {} }));
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
+      repoRoot: root,
+      todayIso: '2027-01-01', // Friday, but the weekend window (Jan 2-3) has no events
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) }),
+      log: () => {},
+      warn: () => {},
+    });
+    expect(res.payloads.every((p: { url: string }) => p.url !== WEEKEND_DIGEST_URL)).toBe(true);
+    expect(res.posted).toBe(1);
   });
 });
