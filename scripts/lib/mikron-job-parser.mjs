@@ -1,20 +1,19 @@
 /**
  * Mikron Group — Drupal-based job listing parser
  *
- * Mikron Group is a Swiss industrial/precision manufacturing company
- * with operations in Agno, Canton Ticino (Mikron Machining division).
+ * Mikron Group is a Swiss industrial/precision manufacturing company with
+ * two Swiss sites: Mikron Machining in Agno (Ticino) and Mikron Automation
+ * in Boudry (Neuchâtel). Both publish on the same national career page; the
+ * canton is derived per-job from each teaser's location value.
  *
  * Career page: https://www.mikron.com/en/group/our-people/join-us/jobs
- * The page uses a Drupal Views module with AJAX filtering.
- * Jobs are rendered as HTML cards with division, function, and location metadata.
- *
- * Location filter for Agno: ?location=Switzerland%2C+Agno
+ * The page uses a Drupal Views module; the first page of job teasers is
+ * rendered server-side with division, function, and location metadata.
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
-export const MIKRON_AGNO_URL = `${MIKRON_CAREERS_URL}?location=Switzerland%2C+Agno`;
 export const MIKRON_HOST = 'www.mikron.com';
 
 export const AGNO_LOCATION_KEYWORDS = ['agno', 'ticino', 'lugano'];
@@ -86,15 +85,52 @@ export function isAgnoLocation(locationText = '') {
  *
  * @param {string} html - Raw HTML of the jobs page
  * @param {object} options - Options
- * @param {boolean} options.filterAgno - If true, only return Agno jobs (default: true)
+ * @param {boolean} options.filterAgno - If true, keep only Agno/TI jobs (default: false → all Swiss sites)
  * @returns {Array<{title: string, url: string, division: string, jobFunction: string, location: string, idx: number}>}
  */
 export function parseMikronJobs(html = '', options = {}) {
-  const { filterAgno = true } = options;
+  const { filterAgno = false } = options;
   if (!html || typeof html !== 'string') return [];
 
   const jobs = [];
   let idx = 0;
+
+  // Strategy 0 (primary): the Drupal "open_jobs" view renders one
+  // <article class="mi-job-teaser"> per job, server-side, with a
+  // job-attributes block that includes the real "Location" value
+  // (e.g. "Switzerland, Boudry" for the Automation division in NE,
+  // "Switzerland, Agno" for Machining in TI). Parse the full article so
+  // the location is never fabricated and non-Agno (NE/…) jobs survive.
+  const teaserRe = /<article[^>]*class="[^"]*mi-job-teaser[^"]*"[^>]*>([\s\S]*?)<\/article>/gi;
+  let teaserMatch;
+  while ((teaserMatch = teaserRe.exec(html)) !== null) {
+    const block = teaserMatch[1];
+    const linkMatch = block.match(/<a[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/i);
+    if (!linkMatch) continue;
+    const url = linkMatch[1];
+    const title = normalizeSpace(htmlToText(linkMatch[2]));
+    if (!title || title.length < 3) continue;
+
+    const text = normalizeSpace(htmlToText(block));
+    const locMatch = block.match(/(Switzerland|Germany|France|China|USA|Singapore|Lithuania)\s*,\s*([A-Za-zÀ-ÿ.\-\s]+?)\s*</i)
+      || text.match(/(Switzerland|Germany|France|China|USA|Singapore|Lithuania)\s*,\s*([A-Za-zÀ-ÿ.\-]+)/i);
+    const location = locMatch ? normalizeSpace(`${locMatch[1]}, ${locMatch[2]}`) : '';
+    const divisionMatch = text.match(/Division\s+([A-Za-z&\s]+?)(?=\s+(?:Function|Location|Workload|$))/i);
+
+    idx++;
+    jobs.push({
+      title,
+      url: url.startsWith('http') ? url : `https://${MIKRON_HOST}${url}`,
+      division: divisionMatch ? normalizeSpace(divisionMatch[1]) : '',
+      jobFunction: '',
+      location,
+      idx,
+    });
+  }
+  if (jobs.length > 0) {
+    const filtered = filterAgno ? jobs.filter((j) => !j.location || isAgnoLocation(j.location)) : jobs;
+    return dedupeByUrl(filtered);
+  }
 
   // Strategy 1: Look for views-row or article elements containing job links
   const rowRe = /<(?:article|div|tr)[^>]*class="[^"]*(?:views-row|job|node)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|div|tr)>/gi;
@@ -127,7 +163,7 @@ export function parseMikronJobs(html = '', options = {}) {
       url: url.startsWith('http') ? url : `https://${MIKRON_HOST}${url}`,
       division,
       jobFunction,
-      location: location || 'Switzerland, Agno',
+      location,
       idx,
     });
   }
@@ -149,17 +185,21 @@ export function parseMikronJobs(html = '', options = {}) {
         url: `https://${MIKRON_HOST}${url}`,
         division: '',
         jobFunction: '',
-        location: 'Switzerland, Agno',
+        location: '',
         idx,
       });
     }
   }
 
-  // Deduplicate by URL
+  return dedupeByUrl(jobs);
+}
+
+/** Deduplicate parsed job rows by their (lowercased) URL. */
+function dedupeByUrl(jobs = []) {
   const seen = new Set();
   return jobs.filter((j) => {
-    const key = j.url.toLowerCase();
-    if (seen.has(key)) return false;
+    const key = String(j.url || '').toLowerCase();
+    if (!key || seen.has(key)) return false;
     seen.add(key);
     return true;
   });
