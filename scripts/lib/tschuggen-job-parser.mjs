@@ -429,8 +429,15 @@ export async function fetchAllTschuggenJobs() {
     }
 
     const title = detailTitle;
-    const location = listing.location || 'Arosa';
-    const canton = inferAnyCanton(location) || 'GR';
+    // No fabricated Arosa: the Tschuggen Collection spans Arosa/St. Moritz (GR),
+    // Ascona (TI) and Geneva, so a blank location must not be stamped Arosa/GR
+    // in the indexed JobPosting. Skip unresolved rows (mirrors huntsman/lonza).
+    const location = listing.location;
+    if (!location) {
+      console.warn(`  ⏭️  Skipped — unresolved location: ${title}`);
+      continue;
+    }
+    const canton = inferAnyCanton(location) || '';
     const postalCode = lookupPostalCode(location);
 
     const fallbackDesc = `${title} — Tschuggen Collection, ${location}`;
