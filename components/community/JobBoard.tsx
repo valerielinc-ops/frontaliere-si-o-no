@@ -1949,6 +1949,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // still stale. A 0-result search holds the skeleton until this is true instead
  // of flashing "0 / no results" during the cross-locale processing window.
  const [crossLocaleSettled, setCrossLocaleSettled] = useState(false);
+ // Flips true once the company-hub broadening (Tier 3.5) fallback has fully
+ // settled — i.e. AFTER the locale-wide pool fetch + parse/dedup AND
+ // `setUnscopedJobs`. Same batching guarantee as `crossLocaleSettled`: set in
+ // the same batch as the results so there is never a frame where it reads
+ // "settled" while the 0-result count is still stale. A company-only view (no
+ // search) holds the skeleton until this is true instead of flashing "0 / no
+ // results" during the pool-processing window.
+ const [companyBroadenSettled, setCompanyBroadenSettled] = useState(false);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
@@ -3346,6 +3354,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(err, 'jobBoard.loadJobs.companyBroaden');
  } finally {
  setPendingFallbacks((n) => n - 1);
+ // Mark the terminal company-broaden fallback settled (batched with
+ // setUnscopedJobs on the success path, so results + settled flip together —
+ // no stale-0 frame). Mirrors the crossLocaleSettled pattern for Tier 4.
+ if (!cancelled) setCompanyBroadenSettled(true);
  }
  })();
  return () => { cancelled = true; };
@@ -3539,6 +3551,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flips true batched with the results, after which a still-empty set falls
  // through to the genuine empty-state (so a truly empty query isn't stuck).
  || (Boolean(deferredSearchQuery.trim()) && !crossLocaleSettled)
+ // Terminal company-broaden fallback (Tier 3.5) hasn't fully SETTLED yet.
+ // For a company-only view (no search) the in-canton tiers are empty, so
+ // this fetch fires and may still bring results — hold the skeleton across
+ // its entire lifecycle (fetch + parse/dedup of the locale-wide pool), not
+ // just until it's attempted, so the count never flashes "0" mid-processing.
+ // `settled` flips true batched with the results; a still-empty set then
+ // falls through to the genuine empty-state (not stuck). Mirrors the
+ // crossLocaleSettled guard for the search path (Tier 4).
+ || (Boolean(companySlugFilter) && !deferredSearchQuery.trim() && !companyBroadenSettled)
  // The query-match search index (`searchIndex`) is built incrementally over
  // the loaded jobs via rAF chunks and only committed when complete. Until it
  // covers every loaded job, `indexedQueryMatch` returns no hits, so a search
@@ -6845,11 +6866,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <section className="rounded-2xl border border-edge bg-surface p-5">
  <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2>
  <div className="space-y-2">
- {relatedJobs.map((job) => {
+ {relatedJobs.flatMap((job, relIdx) => {
  const jobHref = buildJobPath(job);
  const jobLogo = companyLogoUrl(job);
  const jobSalary = formatSalary(job);
- return (
+ const card = (
  <article
  key={job.id}
  className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
@@ -6902,6 +6923,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </article>
  );
+ const nodes: React.ReactNode[] = [card];
+ // One in-feed ad after every Nth related card (shared `shouldPlaceInfeedAd`
+ // cadence), never after the last — same as the crawler-visible related grid
+ // above. This `space-y-2` stack is the gated (`!hasAccess`) human surface;
+ // `renderInfeedAd` already wraps the ad as a full-width block (no col-span).
+ if (relIdx + 1 < relatedJobs.length && shouldPlaceInfeedAd(relIdx + 1)) {
+ nodes.push(renderInfeedAd(`relgate-${relIdx}`));
+ }
+ return nodes;
  })}
  </div>
  </section>
@@ -7604,7 +7634,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </Suspense>
  )}
- </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col"> <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
+ </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col"> <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.flatMap((job, relIdx) => { const jobLogo = companyLogoUrl(job); const card = ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}
@@ -7620,6 +7650,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </button>
  );
+ const nodes: React.ReactNode[] = [card];
+ // One in-feed ad after every Nth related card (shared `shouldPlaceInfeedAd`
+ // cadence, same as the main list); `col-span-full` so it spans the grid row.
+ if (relIdx + 1 < relatedJobs.length && shouldPlaceInfeedAd(relIdx + 1)) {
+ nodes.push(
+ <div key={`rel-infeed-${job.id}`} className="col-span-full">
+ {renderInfeedAd(`related-${relIdx}`)}
+ </div>
+ );
+ }
+ return nodes;
  })}
  </div>
  </section>

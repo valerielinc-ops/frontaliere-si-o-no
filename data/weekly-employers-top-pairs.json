@@ -1,18 +1,30 @@
 {
-  "generatedAt": "2026-06-01T11:07:26.097Z",
-  "totalQualifyingPairs": 34,
+  "generatedAt": "2026-06-29T10:28:16.876Z",
+  "totalQualifyingPairs": 32,
   "topPairs": [
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "bellinzona",
-      "active": 73
+      "active": 79
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "lugano",
-      "active": 36
+      "active": 39
+    },
+    {
+      "company": "EOC – Ente Ospedaliero Cantonale",
+      "companySlug": "eoc-ente-ospedaliero-cantonale",
+      "city": "locarno",
+      "active": 19
+    },
+    {
+      "company": "EOC – Ente Ospedaliero Cantonale",
+      "companySlug": "eoc-ente-ospedaliero-cantonale",
+      "city": "mendrisio",
+      "active": 18
     },
     {
       "company": "ReleWant",
@@ -21,46 +33,34 @@
       "active": 17
     },
     {
-      "company": "Città di Lugano",
-      "companySlug": "citta-di-lugano",
+      "company": "USI – Università della Svizzera italiana",
+      "companySlug": "usi-universita-della-svizzera-italiana",
       "city": "lugano",
-      "active": 17
-    },
-    {
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "companySlug": "eoc-ente-ospedaliero-cantonale",
-      "city": "mendrisio",
-      "active": 17
-    },
-    {
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "companySlug": "eoc-ente-ospedaliero-cantonale",
-      "city": "locarno",
-      "active": 16
-    },
-    {
-      "company": "PEMSA",
-      "companySlug": "pemsa",
-      "city": "bellinzona",
       "active": 15
     },
     {
-      "company": "Sintetica SA",
-      "companySlug": "sintetica-sa",
-      "city": "mendrisio",
-      "active": 11
-    },
-    {
       "company": "PEMSA",
       "companySlug": "pemsa",
       "city": "locarno",
-      "active": 8
+      "active": 13
     },
     {
       "company": "Rapelli - ORIOR Food AG",
       "companySlug": "rapelli-orior-food-ag",
       "city": "stabio",
-      "active": 6
+      "active": 8
+    },
+    {
+      "company": "PEMSA",
+      "companySlug": "pemsa",
+      "city": "bellinzona",
+      "active": 7
+    },
+    {
+      "company": "Amministrazione Cantonale Ticino",
+      "companySlug": "amministrazione-cantonale-ticino",
+      "city": "mendrisio",
+      "active": 7
     }
   ]
 }
