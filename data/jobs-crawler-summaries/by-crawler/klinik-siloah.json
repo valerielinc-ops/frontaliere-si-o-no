@@ -1,16 +1,16 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-06-28T22:01:17.668Z",
-  "total": 2,
+  "generatedAt": "2026-06-29T13:27:17.780Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 6737,
-  "avgDurationMs": 6737,
+  "durationMs": 5647,
+  "avgDurationMs": 5647,
   "durationHistory": [
-    6737
+    5647
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129721320-fachperson-gesundheit-auf-der-chirurgischen-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:01:14.803Z",
+      "crawledAt": "2026-06-29T13:27:15.922Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,15 +51,17 @@
         "translation": 21,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "klinik-siloah-8c9f652a99d1",
-      "slug": "dipl-fachperson-operationstechnik-hf-klinik-siloah",
+      "slug": "operatore-specializzato-in-tecniche-chirurgiche-hf-privatklinik-siloah-gumligen",
       "company": "Privatklinik Siloah",
       "companyKey": "klinik-siloah",
       "companyDomain": "swissmedical.net",
       "title": "Dipl. Fachperson Operationstechnik HF",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Gümligen",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116905314-dipl-fachperson-operationstechnik-hf",
@@ -82,15 +84,16 @@
       "postedDate": "2026-05-20",
       "datePosted": "2026-05-20",
       "firstSeenAt": "2026-05-20T06:08:47.414Z",
-      "_qualityScore": 83,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
