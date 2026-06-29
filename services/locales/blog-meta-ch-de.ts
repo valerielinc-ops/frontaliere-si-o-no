@@ -721,6 +721,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026: Steuerregeln und Praxisvergleich',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'Das neue Frontalieri-Abkommen regelt seit dem 1. Januar 2024 die Besteuerung: alte Grenzgänger, neue Regelungen, Italien-Steuerer und Praxisbeispiele.',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Lugano-Panorama mit Grenzgängern, Steuer-Thema.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.title': 'Stipendi frontalieri 2024: dati e privacy',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.excerpt': 'Die Lohndaten der italienischen Grenzgänger sind in den vorausgefüllten Einkommen enthalten. Kritik und Aufklärungswünsche von Verbänden und Politikern.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.imageAlt': 'Schweizer Steueramt in Lugano mit Dokumenten und digitalen Bildschirmen.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Berechnung Grenzsteuern über 20 km: Regeln und Simulationen',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Ab 2024 werden Grenzgänger über 20 km von der Grenze aus steuerlich benachteiligt: keine Vergünstigungen, IRPEF-Auswirkungen, Steuergutschriften und Simulationen.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'Blick auf Lugano und die Alpen, typisch für Grenzgänger.',
 };
 
 export default blogMetaChDe;
