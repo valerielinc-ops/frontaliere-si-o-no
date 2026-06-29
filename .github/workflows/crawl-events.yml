@@ -1,0 +1,100 @@
+name: Crawl Ticino events (tio.ch agenda)
+
+# Refreshes the per-comune events dataset (issue #2963). Quota-free crawler
+# (plain fetch + jsdom, no API key, no Claude). Commits data/events.json +
+# the per-source slice straight to main; the events test runs BEFORE commit as
+# a gate so a malformed dataset can never turn main red (AGENTS.md:
+# "data-refresh che committa su main = stesso gate test di una PR").
+#
+# NOTE: named crawl-events.yml (NOT update-jobs-*.yml) on purpose, so the jobs
+# orchestrator/health-monitor never sweeps it into the jobs pipeline.
+
+on:
+  schedule:
+    # Once daily at 05:40 UTC — free minute slot (jobs :05–:55, articles :22,
+    # article-gen :07/:37, weather :23 are all taken).
+    - cron: '40 5 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Days horizon to crawl'
+        required: false
+        default: '21'
+
+concurrency:
+  group: crawl-events
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  crawl-events:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Crawl tio.ch agenda
+        run: node scripts/crawl-tio-agenda.mjs --days "${{ github.event.inputs.days || '21' }}"
+
+      - name: Assemble events dataset
+        run: node scripts/assemble-events-dataset.mjs --stats
+
+      - name: Gate — events dataset must keep the suite green
+        run: npx vitest run tests/events-pipeline.test.ts
+
+      - name: Commit dataset (rebase-retry pattern)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/events.json data/events/by-source/tio-agenda.json
+          if git diff --cached --quiet; then
+            echo "No events diff, skipping commit"
+            exit 0
+          fi
+
+          git commit -m "📅 Refresh Ticino events agenda (tio.ch)"
+
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "push ok on attempt $attempt"
+              exit 0
+            fi
+            echo "push failed (attempt $attempt), rebasing..."
+            git fetch origin main || true
+            git rebase origin/main || { git rebase --abort; sleep 2; continue; }
+            sleep $((attempt * 2))
+          done
+          echo "::warning::push failed after 5 attempts — leaving events uncommitted"
+          exit 0
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Crawler Failure: Ticino events (tio.ch agenda)" \
+            --body "The crawl-events workflow failed. Check the run logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --label "crawler" || true
