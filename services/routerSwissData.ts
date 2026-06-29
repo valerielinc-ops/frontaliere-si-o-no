@@ -252,6 +252,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'cambio-commando-volontari-lugano': { it: 'cambio-commando-volontari-lugano', en: 'change-command-lugano-volunteers', de: 'wechsel-kommando-lugano-freiwillige', fr: 'changement-commande-volontaires-lugano' },
  'tagli-helvetia-baloise-svizzera-2028': { it: 'tagli-helvetia-baloise-svizzera-2028', en: 'helvetia-baloise-job-cuts-switzerland-2028', de: 'helvetia-baloise-stellenabbau-schweiz-2028', fr: 'helvetia-baloise-suppressions-emplois-suisse-2028' },
  'educatore-infanzia-ticino-stipendio-2024': { it: 'educatore-infanzia-ticino-stipendio-2024', en: 'working-as-childhood-educator-ticino-salary-requirements', de: 'arbeit-als-kleinkinderzieher-tessin-gehalt-anforderungen', fr: 'travailler-educateur-enfance-tessin-salaire-exigences' },
+ 'educatore-infanzia-ticino-lavoro': { it: 'educatore-infanzia-ticino-lavoro', en: 'working-as-childcare-educator-ticino', de: 'als-kindererzieher-im-tessin-arbeiten', fr: 'travailler-comme-educateur-enfance-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

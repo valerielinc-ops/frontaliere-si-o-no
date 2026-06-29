@@ -688,6 +688,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio-2024.title': 'Working as a child educator in Ticino: salary and requirements (2024)',
     'blog.article.educatore-infanzia-ticino-stipendio-2024.excerpt': 'To work as a child educator in Ticino you need the SSS diploma; salary between CHF 73,000 and 97,000. LIS and other entities hire.',
     'blog.article.educatore-infanzia-ticino-stipendio-2024.imageAlt': 'Childhood educator working in a nursery in Ticino.',
+    'blog.article.educatore-infanzia-ticino-lavoro.title': 'Working as a child educator in Ticino',
+    'blog.article.educatore-infanzia-ticino-lavoro.excerpt': 'Practical guide on the requirements, the required SSS diploma and the procedures to pursue a career as a child educator in the Canton of Ticino.',
+    'blog.article.educatore-infanzia-ticino-lavoro.imageAlt': 'Childcare educator in a Ticino nursery',
 };
 
 export default blogMetaChEn;

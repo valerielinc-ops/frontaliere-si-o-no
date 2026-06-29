@@ -688,6 +688,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio-2024.title': 'Als Kindergärtnerin im Tessin arbeiten: Gehalt und Voraussetzungen (2024)',
     'blog.article.educatore-infanzia-ticino-stipendio-2024.excerpt': 'Um als Kindererzieherin im Tessin zu arbeiten, benötigen Sie das HF-Diplom; Gehalt zwischen CHF 73 \'000 und 97\' 000. Lis und andere Körperschaften übernehmen.',
     'blog.article.educatore-infanzia-ticino-stipendio-2024.imageAlt': 'Kindererzieherin arbeitet in einer Kita im Tessin.',
+    'blog.article.educatore-infanzia-ticino-lavoro.title': 'Als Kindergärtnerin im Tessin arbeiten',
+    'blog.article.educatore-infanzia-ticino-lavoro.excerpt': 'Praktischer Leitfaden zu den Anforderungen, dem erforderlichen SSH-Diplom und den Verfahren für den Einstieg in die Erziehungslaufbahn im Kanton Tessin.',
+    'blog.article.educatore-infanzia-ticino-lavoro.imageAlt': 'Kindererzieher in einer Kindertagesstätte im Tessin',
 };
 
 export default blogMetaChDe;
