@@ -1,0 +1,40 @@
+# TEMPORARY probe: validate GitHub Actions step-level parallelism syntax.
+# Delete after confirming the new `background:`/`wait:`/`wait-all` keywords parse + run.
+name: _parallel-steps-probe
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Background A (sleep 8)
+        id: bgA
+        background: true
+        run: |
+          echo "A start $(date +%s)"
+          sleep 8
+          echo "A done $(date +%s)"
+
+      - name: Background B (sleep 8)
+        id: bgB
+        background: true
+        run: |
+          echo "B start $(date +%s)"
+          sleep 8
+          echo "B done $(date +%s)"
+
+      - name: Foreground work while A,B run
+        run: echo "foreground while bg running $(date +%s)"
+
+      - name: Wait for A only
+        wait: bgA
+        run: echo "A finished, continuing $(date +%s)"
+
+      - name: Wait for everything
+        wait-all:
+        run: echo "all background steps done $(date +%s)"
