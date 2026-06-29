@@ -57,6 +57,18 @@ describe('llmsTxtPlugin seo lookup key normalization', () => {
     expect(llmsSource).toContain("map.set(cp.replace(/\\/+$/, '') || '/', { title, desc });");
     expect(llmsSource).not.toMatch(/map\.set\(cp,/);
   });
+
+  // #2996: seo-pages.ts mixes single- and double-quoted `description:`/`title:`
+  // values; the parser must read BOTH or the 4 double-quoted entries
+  // (metodologia + 3 author pages) ship an empty llms.txt description.
+  it('parseSeoEntries reads double-quoted title/description values', () => {
+    const llmsSource = readFileSync(path.resolve(ROOT, 'build-plugins', 'llmsTxtPlugin.ts'), 'utf-8');
+    // A shared helper now extracts title/description trying single- then
+    // double-quoted values (was single-quote-only `descMatches`/`titleMatches`).
+    expect(llmsSource).toContain('lastQuoted');
+    expect(llmsSource).not.toContain('const descMatches');
+    expect(llmsSource).not.toContain('const titleMatches');
+  });
 });
 
 describe('seo source files parse contract (real files)', () => {
