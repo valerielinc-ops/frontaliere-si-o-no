@@ -389,16 +389,45 @@ function renderMetric(label: string, value: string, detail?: string): string {
   </div>`;
 }
 
+/** ICU-independent Central-European offset for a UTC instant — `+02:00` in CEST,
+ * `+01:00` in CET. EU DST runs from 01:00 UTC on the last Sunday of March to
+ * 01:00 UTC on the last Sunday of October. Deterministic fallback for when ICU
+ * timezone data is unavailable (a `small-icu` Node build, where formatting
+ * `Europe/Zurich` throws) — without it the offset would collapse to a fixed
+ * `+01:00`, shifting every summer event in the indexed JSON-LD by an hour. */
+function centralEuropeanOffset(d: Date): '+01:00' | '+02:00' {
+  const year = d.getUTCFullYear();
+  // Day-of-month of the last Sunday of a 0-based `month` (UTC): start from the
+  // month's last day and step back by its weekday index.
+  const lastSunday = (month: number): number => {
+    const lastDay = new Date(Date.UTC(year, month + 1, 0));
+    return lastDay.getUTCDate() - lastDay.getUTCDay();
+  };
+  const dstStart = Date.UTC(year, 2, lastSunday(2), 1); // last Sun March 01:00 UTC
+  const dstEnd = Date.UTC(year, 9, lastSunday(9), 1); // last Sun October 01:00 UTC
+  const t = d.getTime();
+  return t >= dstStart && t < dstEnd ? '+02:00' : '+01:00';
+}
+
 /** Europe/Zurich UTC offset for a given ISO date — `+02:00` in CEST (summer),
  * `+01:00` in CET (winter). Hardcoding one of them shifts the JSON-LD time by
- * an hour for half the year. */
-function zurichOffset(isoDate: string): string {
+ * an hour for half the year. Prefers ICU `longOffset` (authoritative on the
+ * historical/future rule); falls back to a computed CET/CEST when the build
+ * Node ships `small-icu` and `Intl.DateTimeFormat` either throws on the unknown
+ * `Europe/Zurich` zone or yields no `longOffset` — never a fixed `+01:00`. */
+export function zurichOffset(isoDate: string): string {
   const d = new Date(`${isoDate}T12:00:00Z`);
   if (Number.isNaN(d.getTime())) return '+01:00';
-  const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Zurich', timeZoneName: 'longOffset' }).formatToParts(d);
-  const tz = parts.find((p) => p.type === 'timeZoneName')?.value ?? '';
-  const m = /([+-]\d{2}:\d{2})/.exec(tz);
-  return m ? m[1] : '+01:00';
+  try {
+    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Zurich', timeZoneName: 'longOffset' }).formatToParts(d);
+    const tz = parts.find((p) => p.type === 'timeZoneName')?.value ?? '';
+    const m = /([+-]\d{2}:\d{2})/.exec(tz);
+    if (m) return m[1];
+  } catch {
+    // small-icu build: `Europe/Zurich` is unavailable and throws RangeError —
+    // fall through to the deterministic CET/CEST computation below.
+  }
+  return centralEuropeanOffset(d);
 }
 
 /**
