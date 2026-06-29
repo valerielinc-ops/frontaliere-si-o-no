@@ -494,15 +494,18 @@ function defaultCityResolver(job: JobRecord): { canton: string | null; cityKey: 
 const WEEKLY_INDEXABLE_LIMIT = 12;
 
 /**
- * Quote-flexible robots/noindex detector — twin of the validator regex in
- * scripts/validate-content-quality.mjs (and the PR #2707 dist-reader sweep).
- * Tolerates the minifier's removeAttributeQuotes output (`name=robots
- * content=noindex,follow`) so the sitemap exclusion check below cannot regress
- * when buildSeoPageHtml minifies the meta tag. Defensive backstop only — the
- * primary exclusion is the path lookup against the generator's noindexPaths.
+ * Quote-flexible, attribute-order-independent robots/noindex detector — twin of
+ * the validator regex in scripts/validate-content-quality.mjs (and the PR #2707
+ * dist-reader sweep). Tolerates the minifier's removeAttributeQuotes output
+ * (`name=robots content=noindex,follow`) so the sitemap exclusion check below
+ * cannot regress when buildSeoPageHtml minifies the meta tag. Two lookaheads
+ * (instead of a fixed name...content sequence) so a future template emitting
+ * `content` before `name` on the robots meta does NOT silently bypass the
+ * sitemap filter (#3060). Defensive backstop only — the primary exclusion is the
+ * path lookup against the generator's noindexPaths.
  */
 function htmlHasNoindexMeta(html: string): boolean {
-  return /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
+  return /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
 }
 
 /** Minimum weeks of real history needed to exit "degraded" mode. */

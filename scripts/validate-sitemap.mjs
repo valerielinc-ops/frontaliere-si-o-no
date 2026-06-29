@@ -26,8 +26,9 @@ function collectIndexablePages(dir, out = []) {
   }
   const relPath = '/' + rel.replace(/\/index\.html$/, '');
   const html = readFileSync(full, 'utf-8');
-  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
-  if (/<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html)) continue;
+  // Quote-flexible + attribute-order-independent (#3060) — PR #478 baked
+  // removeAttributeQuotes upstream; lookaheads tolerate content-before-name.
+  if (/<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html)) continue;
   if (html.includes('__BRIDGE_TARGET_SLUG__')) continue;
   if (html.includes('<script>location.replace(')) continue;
   out.push(normalize(relPath));

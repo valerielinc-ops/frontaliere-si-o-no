@@ -402,7 +402,7 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
     // archived weeks into sitemap-job-market.xml. The fix makes noindexPaths
     // the source of truth; this test locks it to the rendered meta tag so the
     // two can never diverge again. Note: out.pages HTML is already minified.
-    const quoteFlexibleNoindex = /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i;
+    const quoteFlexibleNoindex = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
     expect(out.noindexPaths.size).toBeGreaterThan(0);
     for (const [path, html] of Object.entries(out.pages)) {
       const metaSaysNoindex = quoteFlexibleNoindex.test(html);

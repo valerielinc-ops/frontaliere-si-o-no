@@ -81,7 +81,8 @@ describe('Thin content guard (post-build)', () => {
       // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so dist
       // metas are unquoted (`name=robots content=noindex`); a quote-mandatory
       // regex would false-negative and let a noindex page slip into a sitemap.
-      if (/<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html)) {
+      // Attribute-order-independent (#3060): content-before-name must not slip past.
+      if (/<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html)) {
         noindexPages.push(`[${sitemap}] /${relPath}`);
       }
     }
