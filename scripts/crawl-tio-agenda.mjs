@@ -180,8 +180,16 @@ async function main() {
   }
 
   if (events.length === 0) {
-    // Never overwrite a good slice with an empty one (transient fetch outage).
+    // Never overwrite a good slice with an empty one. Distinguish two causes:
+    //  - all pages failed to load (network/WAF) → transient, soft-exit 0.
+    //  - pages loaded (HTTP 200) but nothing parsed → likely tio.ch DOM drift
+    //    (our selectors went stale); exit non-zero so crawl-events.yml opens a
+    //    failure issue instead of letting the dataset go silently stale.
     console.log('[tio-agenda] 0 events parsed — leaving existing slice untouched');
+    if (pagesOk > 0) {
+      console.error(`[tio-agenda] DOM drift? ${pagesOk} page(s) returned HTTP 200 but yielded 0 events — check the .agenda-event selectors`);
+      process.exitCode = 1;
+    }
     return;
   }
 

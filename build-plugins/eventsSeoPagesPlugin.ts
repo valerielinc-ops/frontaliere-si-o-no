@@ -389,12 +389,37 @@ function renderMetric(label: string, value: string, detail?: string): string {
   </div>`;
 }
 
-/** Complete schema.org/Event object — every field the completeness gate needs. */
+/** Europe/Zurich UTC offset for a given ISO date — `+02:00` in CEST (summer),
+ * `+01:00` in CET (winter). Hardcoding one of them shifts the JSON-LD time by
+ * an hour for half the year. */
+function zurichOffset(isoDate: string): string {
+  const d = new Date(`${isoDate}T12:00:00Z`);
+  if (Number.isNaN(d.getTime())) return '+01:00';
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Zurich', timeZoneName: 'longOffset' }).formatToParts(d);
+  const tz = parts.find((p) => p.type === 'timeZoneName')?.value ?? '';
+  const m = /([+-]\d{2}:\d{2})/.exec(tz);
+  return m ? m[1] : '+01:00';
+}
+
+/**
+ * schema.org/Event object for one agenda entry.
+ *
+ * `offers` is deliberately OMITTED: the agenda never exposes a price, and
+ * asserting `price:"0"` (free) on paid concerts/theatre would misrepresent an
+ * indexed page (structured-data policy risk). Google treats `offers` as
+ * recommended-not-required, and validate-structured-data-completeness.mjs now
+ * validates it only when present. Every other Google-required/recommended
+ * Event field is emitted with a safe fallback.
+ */
 export function eventLd(event: SiteEvent, locale: Locale): Record<string, unknown> {
   const locality = event.comune || 'Canton Ticino';
   const venueName = event.venue || locality;
-  const start = event.startTime ? `${event.startDate}T${event.startTime}:00+01:00` : event.startDate;
-  const end = event.endDate && event.endDate !== event.startDate ? event.endDate : event.startDate;
+  const offset = zurichOffset(event.startDate);
+  const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
+  // For a single-day timed event, endDate must NOT be the bare date (Google
+  // reads it as midnight → "endDate before startDate"): mirror startIso.
+  const hasMultiDay = Boolean(event.endDate && event.endDate !== event.startDate);
+  const endIso = hasMultiDay ? (event.endDate as string) : startIso;
   const cat = categoryLabel(event.category, locale);
   const when = humanDate(event.startDate, locale);
   const description =
@@ -403,8 +428,8 @@ export function eventLd(event: SiteEvent, locale: Locale): Record<string, unknow
   return {
     '@type': 'Event',
     name: event.title,
-    startDate: start,
-    endDate: end,
+    startDate: startIso,
+    endDate: endIso,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
@@ -422,14 +447,6 @@ export function eventLd(event: SiteEvent, locale: Locale): Record<string, unknow
     url: event.url,
     organizer: { '@type': 'Organization', name: event.sourceName, url: SOURCE.homepage },
     performer: { '@type': 'Organization', name: venueName },
-    offers: {
-      '@type': 'Offer',
-      url: event.url,
-      price: '0',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: `${event.startDate}T00:00:00+01:00`,
-    },
   };
 }
 
@@ -725,26 +742,40 @@ function sitemapUrl(comune: string | undefined, dateStamp: string, priority: str
   return `  <url>\n    <loc>${BASE_URL}${pathFor('it', comune)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 }
 
-/** Inject a single "Eventi in Ticino" inbound link into an existing hub page so
- * the events hub is reachable by BFS from `/` (depth ≤ 2). Idempotent. */
-function patchInboundLink(distDir: string, relIndex: string): void {
+// Per-locale hub index files to patch with an inbound link to the events hub,
+// so every locale's events hub is BFS-reachable from `/` (not only IT). Each
+// locale gets its section landing + its border-municipality hub.
+const INBOUND_HUBS: Record<Locale, string[]> = {
+  it: ['vivere-in-ticino/index.html', 'vivere-in-ticino/comuni-di-frontiera/index.html'],
+  en: ['en/living-in-ticino/index.html', 'en/living-in-ticino/border-municipalities/index.html'],
+  de: ['de/leben-im-tessin/index.html', 'de/leben-im-tessin/grenzgemeinden/index.html'],
+  fr: ['fr/vivre-au-tessin/index.html', 'fr/vivre-au-tessin/communes-frontiere/index.html'],
+};
+
+/** Inject a localized "Eventi in Ticino" inbound link into an existing hub page
+ * so the events hub for `locale` is reachable by BFS from `/` (depth ≤ 2).
+ * Idempotent; silently skips a hub that doesn't exist or lacks an injection
+ * point. Returns true when the link was injected. */
+function patchInboundLink(distDir: string, relIndex: string, locale: Locale): boolean {
   const file = path.join(distDir, relIndex);
-  if (!fs.existsSync(file)) return;
+  if (!fs.existsSync(file)) return false;
   let html = fs.readFileSync(file, 'utf-8');
-  if (html.includes('data-events-hub-link="1"')) return;
+  if (html.includes('data-events-hub-link="1"')) return true;
+  const copy = COPY[locale];
   const block = `<section data-events-hub-link="1" class="my-8 rounded-md border border-edge bg-surface p-5">
-    <h2 class="text-2xl font-bold text-heading">${esc(COPY.it.hubH1)}</h2>
-    <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(COPY.it.hubLede)}</p>
-    <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor('it')}">${esc(COPY.it.allEvents)} →</a>
+    <h2 class="text-2xl font-bold text-heading">${esc(copy.hubH1)}</h2>
+    <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.hubLede)}</p>
+    <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale)}">${esc(copy.allEvents)} →</a>
   </section>`;
   if (html.includes('</main>')) {
     html = html.replace('</main>', `${block}</main>`);
   } else if (html.includes('</article>')) {
     html = html.replace('</article>', `${block}</article>`);
   } else {
-    return;
+    return false;
   }
   fs.writeFileSync(file, html, 'utf-8');
+  return true;
 }
 
 export function eventsSeoPagesPlugin(rootDir: string): Plugin {
@@ -800,13 +831,22 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const flushed = await collector.flush();
 
       // Inbound BFS links must be injected AFTER staticPagesPlugin has emitted
-      // the hub index.html files (enforce:'post' + this await).
+      // the hub index.html files (enforce:'post' + this await). Patch every
+      // locale's hubs so en/de/fr event hubs are reachable by internal link,
+      // not only via sitemap/hreflang.
       await staticPagesFlushed;
-      patchInboundLink(distDir, path.join('vivere-in-ticino', 'index.html'));
-      patchInboundLink(distDir, path.join('vivere-in-ticino', 'comuni-di-frontiera', 'index.html'));
+      const reached: Locale[] = [];
+      for (const locale of LOCALES) {
+        const ok = INBOUND_HUBS[locale].map((rel) => patchInboundLink(distDir, rel, locale)).some(Boolean);
+        if (ok) reached.push(locale);
+      }
+      const missing = LOCALES.filter((l) => !reached.includes(l));
+      if (missing.length) {
+        console.log(`\x1b[33m[events-pages]\x1b[0m WARNING: no inbound hub link injected for locale(s) ${missing.join(',')} — events hub reachable only via sitemap`);
+      }
 
       console.log(
-        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${comuni.length} comuni × ${LOCALES.length} locales + hubs) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''}`,
+        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${comuni.length} comuni × ${LOCALES.length} locales + hubs) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''} — inbound link locales: ${reached.join(',') || 'none'}`,
       );
     },
   };

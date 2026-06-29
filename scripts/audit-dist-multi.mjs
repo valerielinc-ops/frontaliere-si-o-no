@@ -902,23 +902,30 @@ function sdValidateEvent(schema, filePath) {
   if (!schema.performer || !sdIsNonEmpty(schema.performer.name)) {
     errors.push({ file: filePath, type: 'Event', field: 'performer', message: 'Event missing "performer" or performer.name' });
   }
-  if (!schema.offers || typeof schema.offers !== 'object') {
-    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
-  } else {
-    if (schema.offers.price === undefined || schema.offers.price === null) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
-    }
-    if (!sdIsNonEmpty(schema.offers.priceCurrency)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
-    }
-    if (!sdIsNonEmpty(schema.offers.availability)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
-    }
-    if (!sdIsNonEmpty(schema.offers.validFrom)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
-    }
-    if (!sdIsNonEmpty(schema.offers.url)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers missing "url"' });
+  // offers — OPTIONAL (recommended, not required by Google). Validate it only
+  // WHEN PRESENT so price-less Event listings (e.g. the Ticino agenda, where
+  // asserting price:"0" would misrepresent paid events) omit it cleanly while
+  // accurate offers stay complete. Kept in lockstep with the same rule in
+  // scripts/validate-structured-data-completeness.mjs (shared Event contract).
+  if (schema.offers !== undefined && schema.offers !== null) {
+    if (typeof schema.offers !== 'object') {
+      errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
+    } else {
+      if (schema.offers.price === undefined || schema.offers.price === null) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
+      }
+      if (!sdIsNonEmpty(schema.offers.priceCurrency)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
+      }
+      if (!sdIsNonEmpty(schema.offers.availability)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
+      }
+      if (!sdIsNonEmpty(schema.offers.validFrom)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
+      }
+      if (!sdIsNonEmpty(schema.offers.url)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers missing "url"' });
+      }
     }
   }
   return errors;

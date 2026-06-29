@@ -147,6 +147,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld['@type']).toBe('Event');
     expect(ld.name).toBeTruthy();
     expect(ld.startDate).toBeTruthy();
+    expect(ld.endDate).toBeTruthy();
     expect(ld.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
@@ -155,11 +156,10 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.organizer?.name).toBeTruthy();
     expect(ld.organizer?.url).toBeTruthy();
     expect(ld.performer?.name).toBeTruthy();
-    expect(ld.offers?.price).toBeDefined();
-    expect(ld.offers?.priceCurrency).toBeTruthy();
-    expect(ld.offers?.availability).toBeTruthy();
-    expect(ld.offers?.validFrom).toBeTruthy();
-    expect(ld.offers?.url).toBeTruthy();
+    // offers is intentionally OMITTED (price unknown → no false "free" claim).
+    expect(ld.offers).toBeUndefined();
+    // endDate must never precede startDate (Google Rich Results validity).
+    expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
 
   it('emits every Google-required Event field for a full event', () => {
@@ -181,6 +181,61 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         'it',
       ),
     );
+  });
+
+  it('single-day timed event: endDate equals startDate datetime, CEST offset in summer', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:3',
+        title: 'Concerto estivo',
+        startDate: '2026-07-04',
+        startTime: '20:00',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260704/62103',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    // July → CEST (+02:00), not the winter +01:00.
+    expect(ld.startDate).toBe('2026-07-04T20:00:00+02:00');
+    expect(ld.endDate).toBe(ld.startDate);
+  });
+
+  it('multi-day event keeps a distinct later endDate', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:4',
+        title: 'Mostra',
+        startDate: '2026-07-04',
+        endDate: '2026-07-10',
+        startTime: '10:00',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260704/62104',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(ld.endDate).toBe('2026-07-10');
+    expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
+  });
+
+  it('winter event uses CET offset (+01:00)', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:5',
+        title: 'Concerto invernale',
+        startDate: '2026-01-15',
+        startTime: '20:00',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260115/62105',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(ld.startDate).toBe('2026-01-15T20:00:00+01:00');
   });
 
   it('stays complete for a minimal event (no venue/time/comune)', () => {
