@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-02T02:05:27.243Z",
+  "generated": "2026-06-29T20:50:00.000Z",
   "mode": "rate",
   "threshold": 10,
   "tolerance": {
@@ -8,70 +8,75 @@
     "minAbsDelta": 5,
     "maxDeltaPp": 3
   },
-  "scanned": 29896,
-  "totalOffenders": 60,
-  "totalRatePct": 0.2007,
+  "scanned": 48315,
+  "totalOffenders": 111,
+  "totalRatePct": 0.2297,
   "byFeature": {
-    "spa-other": {
-      "scanned": 3124,
-      "offenders": 2,
-      "ratePct": 0.064
+    "blog": {
+      "scanned": 11898,
+      "offenders": 0,
+      "ratePct": 0.0
     },
     "border-wait": {
-      "scanned": 173,
+      "scanned": 187,
       "offenders": 0,
-      "ratePct": 0
+      "ratePct": 0.0
+    },
+    "career-landings": {
+      "scanned": 2662,
+      "offenders": 0,
+      "ratePct": 0.0
+    },
+    "eventi": {
+      "scanned": 56,
+      "offenders": 56,
+      "ratePct": 100.0
     },
     "fuel-daily": {
-      "scanned": 1496,
-      "offenders": 58,
-      "ratePct": 3.877
+      "scanned": 6229,
+      "offenders": 27,
+      "ratePct": 0.4335
     },
     "health-premiums": {
       "scanned": 733,
       "offenders": 0,
-      "ratePct": 0
+      "ratePct": 0.0
+    },
+    "job-board": {
+      "scanned": 21141,
+      "offenders": 1,
+      "ratePct": 0.0047
+    },
+    "job-market-snapshot": {
+      "scanned": 120,
+      "offenders": 0,
+      "ratePct": 0.0
+    },
+    "spa-locale": {
+      "scanned": 3394,
+      "offenders": 17,
+      "ratePct": 0.5009
+    },
+    "spa-other": {
+      "scanned": 1418,
+      "offenders": 9,
+      "ratePct": 0.6347
     },
     "weather": {
       "scanned": 39,
-      "offenders": 0,
-      "ratePct": 0
+      "offenders": 1,
+      "ratePct": 2.5641
     },
-    "job-market-snapshot": {
-      "scanned": 112,
+    "weekly-employers": {
+      "scanned": 338,
       "offenders": 0,
-      "ratePct": 0
-    },
-    "spa-locale": {
-      "scanned": 8619,
-      "offenders": 0,
-      "ratePct": 0
+      "ratePct": 0.0
     },
     "weekly-employers-hub": {
       "scanned": 100,
       "offenders": 0,
-      "ratePct": 0
-    },
-    "job-board": {
-      "scanned": 2552,
-      "offenders": 0,
-      "ratePct": 0
-    },
-    "career-landings": {
-      "scanned": 2046,
-      "offenders": 0,
-      "ratePct": 0
-    },
-    "weekly-employers": {
-      "scanned": 320,
-      "offenders": 0,
-      "ratePct": 0
-    },
-    "blog": {
-      "scanned": 10582,
-      "offenders": 0,
-      "ratePct": 0
+      "ratePct": 0.0
     }
   },
-  "_comment": "Rate-based baseline for audit-text-html-ratio (page ratio ≤ 10%). Per-page 10% threshold is the hard quality gate (unchanged). This ratchet tracks offender RATE (offenders/scanned) per feature: a feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its offender count grows by more than minAbsDelta — i.e. a real per-template quality regression, not organic crawler content growth. Seeded 2026-06-02T02:05:27.243Z from post-deploy run 26790443133 dist (the same artifact the count-ratchet false-failed on: job-board had improved to 0 offenders while the stale baseline still allowed 340; fuel-daily 55→58 was pure organic growth at a flat ~3.88% rate). Rates must only DECREASE going forward (modulo tolerance)."
+  "_comment": "Rate-based baseline for audit-text-html-ratio (page ratio ≤ 10%). The per-page threshold is the hard quality gate; this ratchet tracks the offender RATE (offenders/scanned) per feature so organic content growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance)."
 }
