@@ -39,15 +39,38 @@ const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 const NUM_ID_RE = /\b\d{6,}\b/;
 const HEX_TOKEN_RE = /\b[0-9a-f]{10,}\b/i;
 
-// Workday job URLs (`*.myworkdayjobs.com`) carry the stable requisition id as the
-// `_<req>` suffix of the path leaf, after the renamable title text:
+// Workday job URLs (`*.myworkdayjobs.com`) follow `…/job/<Location>/<Title>_<req>`
+// where <Title> is hyphen-slugified (never `_`) and the requisition id is the
+// stable per-job token, e.g.
 //   …/job/Sion/Conseiller-en-immobilier-…-Sierre-_R11696
-// Host-gated so the looser req-key never changes any other crawler's key. The
-// requisition forms observed in the corpus: R\d+, JR\d+, SJR\d+, each optionally
-// followed by a `-\d` re-posting suffix (a distinct posting of the same req — KEPT
-// in the key so two re-postings never collapse onto one identity).
-const WORKDAY_HOST_RE = /^https?:\/\/[^/]*\.myworkdayjobs\.com[:/]/;
-const WORKDAY_REQ_LEAF_RE = /_((?:s?jr|r)\d+(?:-\d+)?)$/;
+// The vendor requisition format varies wildly across the ~29 tenants in the
+// corpus — `R11696`, `JR123456`, `SJR987`, `R-0002527`, `REQ-16005`, `R26_173`,
+// pure-numeric `31138417`, each optionally with a `-N` re-posting suffix — so
+// instead of enumerating formats (and missing the next one) we take EVERYTHING
+// after the FIRST underscore in the leaf, which is the title↔req separator. A
+// digit is required so a stray non-req underscore can't be mistaken for an id.
+// Host-gated so no other crawler's key changes. The `-N`/`_N` re-posting suffix
+// is kept (distinct postings of the same req must not collapse onto one id).
+const WORKDAY_HOST_RE = /(?:^|\/\/)[^/]*\.myworkdayjobs\.com(?:[:/]|$)/;
+
+/**
+ * Workday requisition id = the leaf substring after its FIRST underscore (the
+ * title↔req separator), lowercased. Returns '' when the leaf has no underscore,
+ * nothing follows it, or the suffix carries no digit (so it isn't a requisition).
+ * Shared by mergeUrlKey Rule W and extractJobIdentityFromUrl so both derive the
+ * SAME stable Workday id (one definition, no drift).
+ * @param {string} leaf - path leaf (last `/`-separated segment, no query/hash)
+ * @returns {string}
+ */
+export function workdayReqFromLeaf(leaf) {
+  const s = String(leaf || '');
+  const i = s.indexOf('_');
+  if (i < 0 || i === s.length - 1) return '';
+  const req = s.slice(i + 1).toLowerCase();
+  return /\d/.test(req) ? req : '';
+}
+
+export { WORKDAY_HOST_RE };
 
 // A path leaf that is a generic directory-index page (apply.refline.ch ends
 // every job at `…/<companyId>/<jobId>/pub/1/index.html`) — the only extractable
@@ -134,16 +157,15 @@ export function lowerStripTrailingSlash(url) {
  * leaving 1 job-detail file for N distinct postings (observed: lwphr/cseb/refline/
  * flury/caritas/spital-limmattal, ~55 jobs). The three rules below fix the whole
  * class while preserving every key whose id already lives in the leaf:
- *   W. Workday host (`*.myworkdayjobs.com`) → the trailing requisition id in the
- *      leaf (`…_R11696`, `…_JR12345`, `…_R11696-1`). Workday puts the renamable
- *      title text BEFORE the stable `_<req>` suffix, and the generic rules miss
- *      that req: `R11696` is `R`+5 digits (`\b\d{6,}\b` needs ≥6 with a digit
- *      word-boundary, which the leading `R` removes) and is not ≥10 hex. Without
- *      this the whole URL — title leaf included — is the key, so a Workday title
- *      rename fragments the merge and orphans the old slug (no previousSlug
- *      captured → soft-landing; observed: Swiss Life `_R11696`). Host-gated so no
- *      other crawler's key changes; the `-\d` re-posting suffix is KEPT (distinct
- *      postings of the same req must not collapse).
+ *   W. Workday host (`*.myworkdayjobs.com`) → the requisition id, i.e. the leaf
+ *      suffix after the FIRST underscore (`Title_R11696` → `r11696`). Workday puts
+ *      the renamable title text BEFORE the `_<req>` separator, and the generic
+ *      rules miss most req formats (`R11696` is `R`+5 digits — below `\b\d{6,}\b`;
+ *      `REQ-16005` is non-numeric+5 digits → whole-URL fallback). Without this a
+ *      Workday title rename fragments the merge and orphans the old slug (no
+ *      previousSlug captured → soft-landing; observed: Swiss Life `_R11696`). See
+ *      workdayReqFromLeaf for the format-agnostic extraction; host-gated so no
+ *      other crawler's key changes, re-posting suffixes (`-N`/`_N`) KEPT.
  *   A. generic-index / document-file leaf + numeric/hex legacy token → per-job
  *      query id if present (`…/index.html?id=NNN`), else full URL (the only token
  *      is a shared folder/company id or a `%20`+year artifact).
@@ -163,10 +185,10 @@ export function mergeUrlKey(url) {
   const legacy = legacyMergeToken(u);
 
   // Rule W — Workday requisition id (host-gated). The stable per-job token is the
-  // `_<req>` suffix of the leaf (the title text precedes it and is freely renamed).
+  // leaf suffix after the first underscore (title text precedes it, freely renamed).
   if (WORKDAY_HOST_RE.test(u)) {
-    const req = leaf.match(WORKDAY_REQ_LEAF_RE);
-    if (req) return `req:${req[1]}`;
+    const req = workdayReqFromLeaf(leaf);
+    if (req) return `req:${req}`;
   }
 
   // Rule A — generic-page / document-file leaf whose only PATH token is a shared
