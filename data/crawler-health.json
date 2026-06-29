@@ -862,9 +862,9 @@
     "citta-di-mendrisio": {
       "lastSuccessfulRunAt": "2026-06-25T22:56:35.593Z",
       "lastNonZeroJobs": 1,
-      "consecutiveEmptyRuns": 3,
-      "lastFailureReason": "3 consecutive runs returned 0 jobs",
-      "status": "broken",
+      "consecutiveEmptyRuns": 0,
+      "lastFailureReason": null,
+      "status": "healthy",
       "_lastObservedAt": "2026-06-29T11:36:03.923Z",
       "_lastObservedJobs": 0,
       "_lastObservedFreshnessAt": "2026-06-28T22:13:09.028Z",
