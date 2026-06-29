@@ -1502,7 +1502,7 @@ function getAllArticleIds() {
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
     let src = '';
     try { src = read(cfg.slugDataFile); } catch { /* empty/missing section */ }
-    for (const m of src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)) ids.add(m[1]);
+    for (const m of src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{\s*it:/gm)) ids.add(m[2]);
   }
   return [...ids];
 }
