@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-06-28T21:33:42.978Z",
+  "assembledAt": "2026-06-29T13:18:09.669Z",
   "jobs": [
     {
       "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
@@ -215,16 +215,16 @@
       },
       "id": "ems-chemie-ed7f346f25fd",
       "sourceLang": "it",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 11500,
+      "salaryMax": 17400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 11500,
+          "maxValue": 17400,
           "unitText": "YEAR"
         }
       },
