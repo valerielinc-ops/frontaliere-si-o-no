@@ -20,7 +20,7 @@ import {
   groupByComune,
   loadCantonComuni,
 } from '../scripts/lib/events-utils.mjs';
-import { eventLd } from '../build-plugins/eventsSeoPagesPlugin';
+import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -219,6 +219,26 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     ) as Record<string, any>;
     expect(ld.endDate).toBe('2026-07-10');
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
+  });
+
+  it('zurichOffset stays correct when ICU lacks Europe/Zurich (small-icu build)', () => {
+    // Simulate a `small-icu` Node build: constructing a DateTimeFormat for a
+    // non-UTC zone throws RangeError. Without the defensive fallback the offset
+    // would collapse to a fixed +01:00 and shift summer JSON-LD times by an hour.
+    const RealDTF = Intl.DateTimeFormat;
+    Intl.DateTimeFormat = function () {
+      throw new RangeError('Invalid time zone specified: Europe/Zurich');
+    } as unknown as typeof Intl.DateTimeFormat;
+    try {
+      expect(zurichOffset('2026-07-04')).toBe('+02:00'); // CEST (summer)
+      expect(zurichOffset('2026-01-15')).toBe('+01:00'); // CET (winter)
+      // DST boundaries: last Sun March (29) → CEST, last Sun October (25) → CET.
+      expect(zurichOffset('2026-03-29')).toBe('+02:00');
+      expect(zurichOffset('2026-10-25')).toBe('+01:00');
+      expect(zurichOffset('2026-03-28')).toBe('+01:00');
+    } finally {
+      Intl.DateTimeFormat = RealDTF;
+    }
   });
 
   it('winter event uses CET offset (+01:00)', () => {
