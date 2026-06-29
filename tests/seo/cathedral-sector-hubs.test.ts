@@ -118,26 +118,56 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
     }
   });
 
-  it('TI company hub at /cerca-lavoro-ticino/azienda-{slug}/ stays intact (byte-identical legacy)', () => {
+  it('every TI /cerca-lavoro-ticino/azienda-{slug}/ hub canonicalizes to TI-self or the Switzerland aggregator (never a foreign canton)', () => {
     if (!fs.existsSync(DIST)) return;
     const tiDir = path.join(DIST, 'cerca-lavoro-ticino');
     if (!fs.existsSync(tiDir)) return;
     const aziendaEntries = fs.readdirSync(tiDir).filter((e) => e.startsWith('azienda-'));
     if (aziendaEntries.length === 0) return;
-    // Sample the first one — verify it carries its TI canonical (legacy
-    // semantics: a TI company hub canonical is its own TI URL, unless
-    // BRAND_CANONICAL_MAP redirects it to a sibling — either way Phase 3.3
-    // does not alter the TI emit).
-    const sampled = aziendaEntries[0];
-    const f = path.join(tiDir, sampled, 'index.html');
-    if (!fs.existsSync(f)) return;
-    const html = fs.readFileSync(f, 'utf-8');
-    // TI hub must reference itself somewhere as canonical OR a sibling TI
-    // company hub (BRAND_CANONICAL_MAP rerouting). Either way, never a
-    // non-TI section.
-    expect(html, 'TI legacy company hub canonical must stay under /cerca-lavoro-ticino/').toMatch(
-      /<link\s+rel=["']?canonical["']?\s+href=["']?https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/azienda-/,
-    );
+
+    // The `/cerca-lavoro-ticino/azienda-*` namespace is emitted by TWO plugins
+    // with intentionally different canonical semantics — sampling the first dir
+    // entry indiscriminately (the previous brittle approach) broke whenever an
+    // orphan-bridge happened to sort first (data-driven false-red, gate:seo-source
+    // in post-deploy validate-dist):
+    //   1. jobsSeoPagesPlugin real/legacy hubs + matched bridges +
+    //      BRAND_CANONICAL_MAP alias bridges → self-canonical under
+    //      `/cerca-lavoro-ticino/azienda-…` (a brand alias points at its TI
+    //      primary, still under this prefix).
+    //   2. companyHubBridgePlugin `renderUnmatchedPage` (orphan companies dropped
+    //      from data/jobs.json, e.g. cross-canton URLs) → canonical points at the
+    //      Switzerland-wide aggregator `/cerca-lavoro-svizzera/` BY DESIGN, to
+    //      consolidate dead/cross-canton company URLs onto a live hub instead of
+    //      self-canonicalizing thin orphan pages (404-recovery, AGENTS.md #4/SEO).
+    // The real invariant — and the only thing that would be an actual SEO bug —
+    // is a TI company hub whose canonical drifts to a *different specific canton*
+    // (e.g. /cerca-lavoro-ginevra/azienda-…). Assert that across EVERY hub so the
+    // gate is comprehensive and order-independent (never flaps on data churn).
+    const TI_SELF = /^https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/azienda-/;
+    const SWISS_AGGREGATOR = 'https://frontaliereticino.ch/cerca-lavoro-svizzera/';
+    const canonicalRe = /<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)/i;
+
+    const drifted: Array<{ entry: string; canonical: string }> = [];
+    let checked = 0;
+    for (const entry of aziendaEntries) {
+      const f = path.join(tiDir, entry, 'index.html');
+      if (!fs.existsSync(f)) continue;
+      const html = fs.readFileSync(f, 'utf-8');
+      const m = html.match(canonicalRe);
+      expect(m, `${entry} must declare a <link rel=canonical>`).not.toBeNull();
+      const canonical = m![1];
+      checked++;
+      if (!TI_SELF.test(canonical) && canonical !== SWISS_AGGREGATOR) {
+        drifted.push({ entry, canonical });
+      }
+    }
+
+    expect(checked, 'No readable TI company-hub index.html found').toBeGreaterThan(0);
+    expect(
+      drifted,
+      `TI company hub(s) canonicalize to a foreign canton (must be TI-self or ${SWISS_AGGREGATOR}):\n` +
+        drifted.map((d) => `  ${d.entry} → ${d.canonical}`).join('\n'),
+    ).toEqual([]);
   });
 });
 
