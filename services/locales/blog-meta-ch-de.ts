@@ -697,6 +697,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Steuerabzüge für Grenzgänger in Italien: Was ist absetzbar?',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Die Steuerabzüge für Grenzgänger in Italien richten sich nach italienischem Recht.',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Szene von Lugano mit einem Grenzgänger und Steuerdokumenten',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.title': 'Die Grenzgänger-Zusatzrente: So funktioniert die dritte Säule',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.excerpt': 'Grenzgänger können in die dritte Säule investieren, um ihre Rente zu erhöhen.',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.imageAlt': 'Schweizer Frontalier in einer Platz in Lugano',
 };
 
 export default blogMetaChDe;
