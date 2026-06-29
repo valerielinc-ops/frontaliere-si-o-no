@@ -1,5 +1,4 @@
-# TEMPORARY probe: validate failure propagation of background/wait steps.
-# Delete after confirming a failing background step fails the job.
+# TEMPORARY probe: confirm always()/failure() steps still run after a failed wait-all.
 name: _parallel-steps-probe
 
 on:
@@ -9,26 +8,26 @@ permissions:
   contents: read
 
 jobs:
-  probe-fail:
+  probe-cond:
     runs-on: ubuntu-latest
     steps:
-      - name: Background OK
-        id: bgok
-        background: true
-        run: |
-          sleep 3
-          echo "ok done"
-
       - name: Background FAIL
         id: bgfail
         background: true
         run: |
           sleep 2
-          echo "about to fail"
           exit 1
 
-      - name: Wait all (should surface failure)
+      - name: Wait all
         wait-all: true
 
-      - name: Should NOT run if wait-all propagates failure
-        run: echo "REACHED_POST_WAIT_ALL"
+      - name: success-step (should SKIP)
+        run: echo "RAN_SUCCESS_STEP"
+
+      - name: always-step (should RUN)
+        if: always()
+        run: echo "RAN_ALWAYS_STEP"
+
+      - name: failure-step (should RUN)
+        if: failure()
+        run: echo "RAN_FAILURE_STEP"
