@@ -730,6 +730,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lidl-svizzera-lavora-con-noi.title': 'Arbeiten bei Lidl Schweiz: Chancen und aktuelle Abläufe',
     'blog.article.lidl-svizzera-lavora-con-noi.excerpt': 'Lidl bietet Stellenangebote in der ganzen Schweiz an. Erfahren Sie, wie Sie sich bewerben, welche Stellen verfügbar sind und welche Verfahren zu befolgen sind.',
     'blog.article.lidl-svizzera-lavora-con-noi.imageAlt': 'Eingang eines modernen Supermarkts in der Schweiz, mit Alpen im Hintergrund.',
+    'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Öffentliche Wettbewerbe im Tessin: aktualisierter nationaler Leitfaden',
+    'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Überblick über öffentliche Wettbewerbe in Lugano und im Tessin: wo sie zu finden sind, beteiligte Stellen, Modalitäten der Teilnahme und praktischer Ablauf.',
+    'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Das Rathaus von Lugano und der Platz während eines öffentlichen Wettbewerbs.',
 };
 
 export default blogMetaChDe;

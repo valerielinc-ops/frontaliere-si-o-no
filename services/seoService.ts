@@ -4297,6 +4297,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dati-stipendi-frontalieri-privacy-2024': { name: 'Dati stipendi frontalieri', path: '/articoli-svizzera/dati-stipendi-frontalieri-privacy-2024/', parent: 'blog' },
     'blog-calcolo-tasse-frontalieri-oltre-20km': { name: 'Tasse frontalieri 20 km', path: '/articoli-svizzera/calcolo-tasse-frontalieri-oltre-20km/', parent: 'blog' },
     'blog-lidl-svizzera-lavora-con-noi': { name: 'Lavoro Lidl Svizzera', path: '/articoli-svizzera/lidl-svizzera-lavora-con-noi/', parent: 'blog' },
+    'blog-concorsi-pubblici-ticino-guida-nazionale': { name: 'Concorsi pubblici Ticino', path: '/articoli-svizzera/concorsi-pubblici-ticino-guida-nazionale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
