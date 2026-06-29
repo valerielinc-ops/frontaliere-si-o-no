@@ -81,16 +81,37 @@ function preferenceCities(preferences) {
 }
 
 /**
+ * @typedef {object} AlertProfileExtras
+ * @property {string[]} [behaviorLocations] Locations the subscriber actually
+ *   browsed — `filterUsage.location` keys + `viewedJobs[].location` from the
+ *   `newsletter_subscribers/{email}/private/personalization` subdoc. Folded into
+ *   the SOFT location set (ranking only): the precise location signal the issue
+ *   #2993 asks us to use, which the matcher previously never read (it lives in a
+ *   sibling subcollection, not the flat subscriber doc).
+ * @property {string[]} [behaviorTokens]   Free-text intent from browsing —
+ *   `searches[].query` + `viewedJobs[].category`. Folded into SOFT tokens.
+ * @property {string[]} [sourceJobLocations] Location + canton of the job the
+ *   user one-tap-subscribed from. A one-tap alert carries no explicit
+ *   location/canton, so a "nurse in Ticino" subscription used to match nurse
+ *   jobs across all of Switzerland. Folding the source job's geography into the
+ *   SOFT location set ranks same-area jobs to the top without hard-dropping the
+ *   rest (which could zero out a sparse match set).
+ */
+
+/**
  * Build the matching profile for one alert, enriched with the subscriber's
- * newsletter document (may be null when the user has no newsletter record).
+ * newsletter document (may be null when the user has no newsletter record) and
+ * optional behaviour/source-job signals.
  *
  * @param {object} alert       job_alert_subscribers/{email}/alerts/{id} document.
  * @param {object|null} [subscriber] newsletter_subscribers/{email} document.
+ * @param {AlertProfileExtras} [extras] Behaviour + source-job soft signals.
  * @returns {AlertProfile}
  */
-export function buildAlertProfile(alert, subscriber = null) {
+export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   const a = alert || {};
   const sub = subscriber || {};
+  const ex = extras || {};
 
   // 1. Explicit user keywords — hard requirement when present (legacy contract).
   const hardKeywords = new Set();
@@ -113,6 +134,9 @@ export function buildAlertProfile(alert, subscriber = null) {
   addTokens(sub.job_category);
   addTokens(sub.sector_interest);
   addTokens(sub.job_slug);
+  // Browsing-derived intent (searches + viewed-job categories) from the
+  // personalization subdoc.
+  for (const t of ex.behaviorTokens || []) addTokens(t);
 
   // 3. Company affinity — same employer the user already engaged with.
   const company = normalizeCompanyToken(sub.job_company);
@@ -130,6 +154,11 @@ export function buildAlertProfile(alert, subscriber = null) {
     String(sub.job_location || '').toLowerCase(),
     String(sub.geo_city || '').toLowerCase(),
     ...preferenceCities(sub.preferences),
+    // Browsing-derived locations (filter usage + viewed-job cities) and the
+    // one-tap source job's geography. SOFT only — they rank same-area jobs up
+    // but never hard-drop, so a sparse alert is never starved.
+    ...(ex.behaviorLocations || []).map((l) => String(l || '').toLowerCase()),
+    ...(ex.sourceJobLocations || []).map((l) => String(l || '').toLowerCase()),
   ]);
 
   const cantons = uniq((a.cantonFilter || []).map((c) => String(c || '').toLowerCase()));

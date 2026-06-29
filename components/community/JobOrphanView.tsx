@@ -351,11 +351,28 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const backButton = onBack && (
  <button
  onClick={onBack}
- className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-heading"
+ className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-heading shrink-0"
  >
  <ArrowLeft size={14} />
  {t('jobBoard.backToList')}
  </button>
+ );
+
+ // Back link + top leaderboard share one row — same header as the active job
+ // detail (JobBoard.tsx). Banner is lg+ only; mobile collapses to just the link.
+ const topBannerRow = (
+ <div className="flex items-center gap-4">
+ {backButton}
+ {isDesktopLg && AD_SLOTS.JOBDETAIL_TOP_BANNER.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
+ minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
+ className="flex-1 min-w-0"
+ />
+ )}
+ </div>
  );
 
  const jobHeaderCard = (
@@ -492,8 +509,21 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  if (alreadySignedIn) {
  return (
- <div className="space-y-6 max-w-2xl mx-auto">
- {backButton}
+ <div className="space-y-6">
+ {topBannerRow}
+
+ {/* 3-column rail grid: left rail | content | right rail — same full-height
+     side-rail layout as the active job detail. Rails 180px at xl (1280–1399),
+     300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+
+ {/* ── Left Rail (desktop xl only) ── */}
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <ArticleRailAdStack side="left" />
+ </aside>
+
+ {/* ── Center content ── */}
+ <div className="space-y-6 max-w-2xl mx-auto w-full">
  {jobHeaderCard}
 
  {/* Mobile/tablet in-article ad */}
@@ -519,6 +549,13 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  />
  )}
  </div>
+
+ {/* ── Right Rail (desktop xl only) ── */}
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <ArticleRailAdStack side="right" />
+ </aside>
+ </div>
+ </div>
  );
  }
 
@@ -526,7 +563,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  return (
  <div className="space-y-5">
- {backButton}
+ {topBannerRow}
 
  {/* 3-column grid: left rail | content | right rail. 180px at xl (1280–1399),
      300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}

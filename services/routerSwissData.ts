@@ -256,6 +256,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lavorare-educatore-infanzia-ticino': { it: 'lavorare-educatore-infanzia-ticino', en: 'working-as-childcare-educator-ticino', de: 'arbeiten-als-kindererzieher-tessin', fr: 'travailler-comme-educateur-enfance-tessin' },
  'frontaliere-detrazioni-fiscali-italia-2026': { it: 'frontaliere-detrazioni-fiscali-italia-2026', en: 'frontaliere-detrazioni-fiscali-italia-2026', de: 'frontaliere-detrazioni-fiscali-italia-2026', fr: 'frontaliere-detrazioni-fiscali-italia-2026' },
  'pensione-complementare-terzo-pilastro-frontalieri': { it: 'pensione-complementare-terzo-pilastro-frontalieri', en: 'pension-complement-3rd-pillar-frontaliers', de: 'pension-complement-3-tenne-pfeiler-frontalier', fr: 'pension-complement-3e-pilier-frontaliers' },
+ 'nuovi-frontalieri-poveri': { it: 'nuovi-frontalieri-poveri', en: 'new-commuters-increasingly-poor', de: 'neue-grenzpendler-immer-armer', fr: 'nouveaux-frontaliers-de-plus-en-plus-pauvres' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
