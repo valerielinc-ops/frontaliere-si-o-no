@@ -266,8 +266,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Owner decision: do NOT emit noindex SPA shells — REDIRECT each to the correct
  // EXISTING page that already returns 200 (verified live, all 4 locales). The whole
  // class is swept here (AGENTS.md #6): publish/dashboard/employer → live job board;
- // partner-services (thin utility) → home; press-kit → about; newsletter-prefs
- // (token-gated, no standalone content) → the live morning/newsletter landing.
+ // partner-services (thin utility) → home; press-kit → about. (Newsletter
+ // preferences are DELIBERATELY excluded from this sweep — see note below.)
  // NB: the publisher section — publish (/pubblica-offerta/, /en/post-a-job/, …),
  // my-listings (/i-miei-annunci/, …) and for-employers (/per-le-aziende/, …) in
  // all 4 locales — is the ACTIVE monetization funnel (Piano Azienda checkout,
@@ -284,11 +284,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/en/press-kit/': '/en/about-us/',
  '/de/pressekit/': '/de/ueber-uns/',
  '/fr/kit-presse/': '/fr/a-propos/',
- // Newsletter preferences (token-gated, no standalone content) → live morning landing.
- '/preferenze-newsletter/': '/buongiorno-frontaliere/',
- '/en/newsletter-preferences/': '/en/good-morning/',
- '/de/newsletter-einstellungen/': '/de/guten-morgen/',
- '/fr/preferences-newsletter/': '/fr/bonjour-frontalier/',
+ // NB: newsletter preferences (/preferenze-newsletter/ + locale variants) are
+ // DELIBERATELY NOT redirected. They render a live, token-gated management page
+ // (components/pages/NewsletterPreferences.tsx → SubscriptionPreferencesController)
+ // reached from the footer + "manage alerts" links in every newsletter and
+ // job-alert email (?email=&token=). Redirecting them to the morning landing
+ // broke the entire "manage newsletter / job alerts" funnel (issue #2973): users
+ // clicking "Gestisci alert" hit a "Pagina spostata" page instead of their
+ // alerts. Like the sibling /email-confirmed/ route, the SPA boots from 404.html
+ // and renders the page; it is noindex-by-nature (no public inbound links), so a
+ // soft-404 status for cold crawler hits is acceptable.
  };
 
  const normalize = (p: string): string => {
