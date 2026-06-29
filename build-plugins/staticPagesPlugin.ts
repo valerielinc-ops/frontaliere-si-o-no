@@ -1057,7 +1057,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  // Collect this section's IT canonical paths.
  const sectionItPaths: string[] = [];
- const cpRx = /canonicalPath:\s*'([^']+)'/g;
+ const cpRx = /canonicalPath:\s*["']([^"']+)["']/g;
  let cpM: RegExpExecArray | null;
  while ((cpM = cpRx.exec(seoSrc)) !== null) {
  const p = cpM[1].replace(/\/+$/, '') || '/';
@@ -1864,8 +1864,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (Indent floor stays 1: requiring >=2 spaces silently dropped EVERY entry in
  // seo-pages.ts / seo-landing.ts — ~200 curated pages on fallback meta, GSC CTR
  // ~0.2% — see #1897. Keep entryStartRx's `^\s{1,8}` form.)
- const entryStartRx = /^\s{1,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
- const hasCanonicalPath = (b: string): boolean => /canonicalPath:\s*'[^']+'/.test(b);
+    // Il KEY top-level è quote-agnostic (`["']`): tollera un formatter/quote-switch
+    // che renda double-quoted le chiavi di entry. Questo over-matcha anche le chiavi
+    // JSON-LD double-quoted di `structuredData` (245→936 candidati grezzi), MA il
+    // filtro a valle le scarta — `esm.index < claimedUntil` (annidate in un'entry
+    // già reclamata) + `hasCanonicalPath` (i blocchi JSON-LD non hanno `canonicalPath:`).
+    // Provato a parità: set finale 163 (seo-pages) / 25 (seo-landing), identico alla
+    // forma single-quote. Non ripristinare a `'…'`.
+ const entryStartRx = /^\s{1,8}(?:["']([^"']+)["']|([a-zA-Z_]\w*)):\s*\{/gm;
+ const hasCanonicalPath = (b: string): boolean => /canonicalPath:\s*["'][^"']+["']/.test(b);
  const entryBlocks: string[] = [];
  let esm: RegExpExecArray | null;
  let claimedUntil = -1;
@@ -1881,13 +1888,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  // Parse each entry from its balanced object block.
  for (const block of entryBlocks) {
- const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1];
+ const cp = block.match(/canonicalPath:\s*["']([^"']+)["']/)?.[1];
  if (!cp) continue;
 
  // Match title/desc allowing escaped quotes inside single-quoted strings
  const matchStr = (key: string): string => {
- const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
- return block.match(rx)?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
+ // Quote-agnostic: delimitatore in gruppo 1 (`["']`), valore in gruppo 2; il
+    // backreference `\1` chiude col MEDESIMO apice → tollera key/valore single- o
+    // double-quoted (formatter/quote-switch) senza troncare su un apice interno
+    // dell'altro tipo (es. title: 'Il "frontaliere" 2026') né su escape (`\'`).
+    const rx = new RegExp(`${key}:\\s*(["'])((?:(?!\\1)[^\\\\]|\\\\.)*)\\1`);
+ return block.match(rx)?.[2]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
  };
 
  const title = matchStr('title');
