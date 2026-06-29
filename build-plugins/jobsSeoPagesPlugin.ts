@@ -2779,7 +2779,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // close related-pool phase (selection done); relatedHtml render goes into
  // the same bucket so the bucket measures the full cross-link block cost.
  const relatedHtml = related
- .map((r: any) => {
+ .map((r: any, i: number) => {
  const rp = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${localizedSlug(r, locale)}`.replace(/\/+/g, '/');
  // Relative href — internal navigation resolves against canonical (absolute).
  const href = withSlash(rp);
@@ -2799,7 +2799,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // bodies live in the shared per-job `<style>` block (see lines ~2350+).
  // Style applied via `.rja > img` in seo-static.css (no inline style attr).
  const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40);
- return `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ const li = `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ // One in-feed ad `<li>` after every Nth related card (shared `shouldPlaceInfeedAd`
+ // cadence), never after the last — same logic as `jobCardListBody`. `.rul` is a
+ // plain block list (not a grid), so no `spanFull` is needed.
+ const ad =
+ i + 1 < related.length && shouldPlaceInfeedAd(i + 1)
+ ? infeedAdListItemHtml()
+ : '';
+ return li + ad;
  })
  .join('');
  recordPhase('related-pool', __tPh_related);
