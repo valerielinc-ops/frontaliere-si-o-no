@@ -41,6 +41,8 @@ import {
   groupByComune,
   slugifyComune,
   EVENT_SOURCES,
+  weekendWindow,
+  overlapsWindow,
 } from '../scripts/lib/events-utils.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
@@ -770,31 +772,10 @@ interface DigestDef {
   copy: Record<Locale, { title: string; h1: string; lede: string; desc: string; faqQ: string; faqA: string }>;
 }
 
-function overlapsWindow(e: SiteEvent, startIso: string, endIso: string): boolean {
-  const s = e.startDate;
-  const end = e.endDate || e.startDate;
-  return s <= endIso && end >= startIso;
-}
-
-/**
- * The current/upcoming weekend as a SINGLE contiguous [start, end] window,
- * clipped to today. Must NOT use min/max of `weekendSet()` (which scans 8 days
- * and on a Sat/Sun build also picks up the FOLLOWING Saturday → a non-contiguous
- * set whose min..max spans the whole week, listing weekday events under a
- * "sabato e domenica" title on an indexed page).
- *   - Mon–Fri → upcoming Saturday + Sunday.
- *   - Saturday → today + tomorrow (Sun).
- *   - Sunday   → today only (the weekend's Saturday is already past).
- */
-function weekendWindow(todayIso: string): { start: string; end: string } {
-  const today = new Date(`${todayIso}T00:00:00Z`);
-  const dow = today.getUTCDay(); // 0=Sun … 6=Sat
-  const sat =
-    dow === 6 ? today : dow === 0 ? new Date(today.getTime() - 86400000) : new Date(today.getTime() + (6 - dow) * 86400000);
-  const sun = new Date(sat.getTime() + 86400000);
-  const startMs = Math.max(sat.getTime(), today.getTime()); // never include a past Saturday
-  return { start: new Date(startMs).toISOString().slice(0, 10), end: sun.toISOString().slice(0, 10) };
-}
+// `overlapsWindow` + `weekendWindow` now live in scripts/lib/events-utils.mjs so
+// the SSG plugin, the FB digest poster and the weekly digest article generator
+// share one definition (AGENTS.md §6 — duplicated date math caused the prior
+// Sat/Sun weekend regression; one source of truth makes that drift impossible).
 
 export const DIGESTS: DigestDef[] = [
   {
