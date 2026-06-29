@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-06-29T13:20:22.555Z",
+  "generatedAt": "2026-06-29T22:00:10.946Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 18572,
-  "avgDurationMs": 18572,
+  "durationMs": 20407,
+  "avgDurationMs": 20407,
   "durationHistory": [
-    18572
+    20407
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Teamassistenz 50% (m/w) - Aarau",
+      "slug": "teamassistenz-50-m-w-aarau-engel-voelkers-aarau",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/db466ad6-4dc1-41fb-96be-de8fbe99484a",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/db466ad6-4dc1-41fb-96be-de8fbe99484a",
+      "company": "Engel & Völkers Wohnen Schweiz AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Aarau",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "real-estate",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Büroleiter/in (100%)",
@@ -339,10 +370,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Senior Immobilienmakler/in 50-100%",
-      "slug": "senior-immobilienmakler-in-50-100-engel-voelkers-st-gallen",
+      "slug": "agente-immobiliare-senior-50-100-buutiq-immobilien-ag-st-gallen",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3",
       "company": "buutiq Immobilien AG",
@@ -358,7 +391,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-29",
+      "postedDate": "2026-06-16",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -377,6 +410,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
