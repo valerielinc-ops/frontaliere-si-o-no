@@ -798,8 +798,7 @@
         "service-associate-ubs",
         "associe-de-services-ubs-ticino",
         "klientenmitarbeiter-ubs-ticino",
-        "kundenmitarbeiter-ubs-ticino",
-        "client-associate-ubs"
+        "kundenmitarbeiter-ubs-ticino"
       ]
     },
     {
@@ -2075,7 +2074,7 @@
         "en": "client-associate-ubs",
         "it": "cliente-associato-ubs-ticino",
         "fr": "client-associe-ubs-ticino",
-        "de": "cliente-associato-ubs-ticino"
+        "de": "kundenmitarbeiter-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2130,13 +2129,12 @@
           "client-associate-ubs"
         ],
         "de": [
-          "klientenmitarbeiter-ubs-ticino",
-          "kundenmitarbeiter-ubs-ticino"
+          "klientenmitarbeiter-ubs-ticino"
         ]
       },
       "previousSlugs": [
         "client-associate-ubs",
-        "kundenmitarbeiter-ubs-ticino",
+        "klientenmitarbeiter-ubs-ticino",
         "cliente-associato-registrato-ubs-ticino",
         "registered-client-associate-ubs",
         "client-enregistre-associe-ubs-ticino",
@@ -3310,7 +3308,7 @@
       "slug": "servizio-associato-ubs-ticino",
       "slugByLocale": {
         "en": "service-associate-ubs",
-        "it": "cliente-associato-ubs-ticino",
+        "it": "servizio-associato-ubs-ticino",
         "de": "cliente-associato-ubs-ticino",
         "fr": "associe-de-services-ubs-ticino"
       },
@@ -3378,6 +3376,7 @@
       "previousSlugs": [
         "client-associe-ubs-ticino",
         "service-associate-ubs",
+        "cliente-associato-ubs-ticino",
         "client-associate-ubs",
         "cliente-associato-registrato-ubs-ticino",
         "registered-client-associate-ubs",
@@ -3388,16 +3387,15 @@
         "associato-cliente-registrato-ubs-ticino-6c68dd",
         "cliente-associato-registrato-ubs-ticino-6c68dd",
         "klientenmitarbeiter-ubs-ticino",
-        "kundenmitarbeiter-ubs-ticino",
-        "servizio-associato-ubs-ticino",
-        "associe-de-services-ubs-ticino"
+        "kundenmitarbeiter-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "client-associe-ubs-ticino"
         ],
         "it": [
-          "service-associate-ubs"
+          "service-associate-ubs",
+          "cliente-associato-ubs-ticino"
         ]
       }
     },
@@ -3474,7 +3472,6 @@
       "previousSlugs": [
         "trade-surveillance-operations-analyst-ubs-2",
         "trade-surveillance-operations-analista-ubs-ticino",
-        "trade-surveillance-operations-analyst-ubs",
         "trade-surveillance-operations-analyst-ubs-3"
       ],
       "previousSlugsByLocale": {
@@ -3494,9 +3491,9 @@
       "slug": "trade-surveillance-operations-analyst-ubs-2",
       "slugByLocale": {
         "en": "trade-surveillance-operations-analyst-ubs",
-        "it": "trade-surveillance-operations-analyst-ubs-3",
-        "de": "trade-surveillance-operations-analyst-ubs-3",
-        "fr": "trade-surveillance-operations-analyst-ubs-3"
+        "it": "trade-surveillance-operations-analyst-ubs-2",
+        "de": "trade-surveillance-operations-analyst-ubs-2",
+        "fr": "trade-surveillance-operations-analyst-ubs-2"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3548,13 +3545,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "trade-surveillance-operations-analyst-ubs"
+          "trade-surveillance-operations-analyst-ubs",
+          "trade-surveillance-operations-analyst-ubs-3"
+        ],
+        "de": [
+          "trade-surveillance-operations-analyst-ubs-3"
+        ],
+        "fr": [
+          "trade-surveillance-operations-analyst-ubs-3"
         ]
       },
       "previousSlugs": [
         "trade-surveillance-operations-analyst-ubs",
-        "trade-surveillance-operations-analista-ubs-ticino",
-        "trade-surveillance-operations-analyst-ubs-2"
+        "trade-surveillance-operations-analyst-ubs-3",
+        "trade-surveillance-operations-analista-ubs-ticino"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4071,7 +4075,7 @@
       "slug": "ufficiale-di-conformita-ubs-ticino",
       "slugByLocale": {
         "en": "compliance-officer-ubs",
-        "it": "ufficiale-operativo-ubs-ticino",
+        "it": "ufficiale-di-conformita-ubs-ticino",
         "de": "compliance-beauftragter-ubs-ticino",
         "fr": "specialiste-du-respect-des-dispositions-ubs-ticino"
       },
@@ -4140,10 +4144,10 @@
         "operations-officer-ubs",
         "compliance-officer-ubs",
         "agente-operativo-ubs-ticino",
+        "ufficiale-operativo-ubs-ticino",
         "responsabile-della-conformita-ubs-ticino",
         "agente-di-vigilanza-ubs-ticino",
-        "specialiste-des-operations-ubs-ticino",
-        "ufficiale-di-conformita-ubs-ticino"
+        "specialiste-des-operations-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -4155,7 +4159,8 @@
         "it": [
           "operations-officer-ubs",
           "compliance-officer-ubs",
-          "agente-operativo-ubs-ticino"
+          "agente-operativo-ubs-ticino",
+          "ufficiale-operativo-ubs-ticino"
         ]
       }
     }
