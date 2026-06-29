@@ -21,6 +21,7 @@ import {
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
+import { WORKDAY_HOST_RE, workdayReqFromLeaf } from './job-url-key.mjs';
 import { recordSlugMutation } from './slug-history-journal.mjs';
 import { isAcceptableTranslation } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
@@ -4693,6 +4694,21 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   for (const key of queryKeys) {
     const val = normalizeSpace(u.searchParams.get(key));
     if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
+  }
+
+  // Workday (`*.myworkdayjobs.com`): the requisition id — the leaf suffix after
+  // the FIRST underscore — is the only rename-stable token; the title text before
+  // it is freely re-slugged by the vendor, so the default `/job/<loc>/<leaf>` rule
+  // (which captures the whole title-bearing leaf) mints a NEW fingerprint on every
+  // title rename and the registry never re-pins the canonical slug across it.
+  // Mirrors mergeUrlKey Rule W (job-url-key.mjs) so this PERSISTED identity and the
+  // crawl-time merge key derive the SAME req. Key on the FULL host (not
+  // registrableDomain): every tenant shares `myworkdayjobs.com`, so a bare req
+  // would collide across distinct employers (swisslife R11696 vs novartis R11696).
+  if (WORKDAY_HOST_RE.test(host)) {
+    const wdLeaf = u.pathname.split('/').filter(Boolean).pop() || '';
+    const req = workdayReqFromLeaf(wdLeaf);
+    if (req) return `${host}|${req}`;
   }
 
   // A per-job UUID in the LEAF path segment is the globally-unique id — prefer it
