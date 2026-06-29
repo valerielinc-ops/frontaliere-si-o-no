@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3009,
+ "numberOfItems": 3011,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7655,7 +7655,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3006, "name": "Lavorare come educatore dell'infanzia in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendio-2024` },
           { "@type": "ListItem", "position": 3007, "name": "Lavorare come educatore dell'infanzia in Ticino", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-lavoro` },
           { "@type": "ListItem", "position": 3008, "name": "Lavorare come educatore dell'infanzia in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/lavorare-educatore-infanzia-ticino` },
-          { "@type": "ListItem", "position": 3009, "name": "Detrazioni fiscali per frontalieri in Italia: q...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-detrazioni-fiscali-italia-2026` }
+          { "@type": "ListItem", "position": 3009, "name": "Detrazioni fiscali per frontalieri in Italia: q...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-detrazioni-fiscali-italia-2026` },
+          { "@type": "ListItem", "position": 3010, "name": "La pensione complementare per frontalieri: come...", "url": `${BASE_URL}/articoli-frontaliere/pensione-complementare-terzo-pilastro-frontalieri` },
+          { "@type": "ListItem", "position": 3011, "name": "Frontalieri in difficoltà: -20mila euro all'ann...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-frontalieri-poveri` }
  ]
  },
  {

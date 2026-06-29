@@ -208,6 +208,22 @@ const NATIONAL_BOARD_BY_LOCALE = {
   fr: '/fr/trouver-emploi-suisse/',
 };
 
+// Legacy listing-pagination recovery. The old listing URL format
+//   /<locale>/<section>-<canton>/<filter>/page-<N>/   (filter ∈ the "all jobs"
+// word per locale: tutte/tutti · alle · tous/toutes · all) was retired; every
+// `/page-N/` now hard-404s on origin (verified live — even page-1). These are
+// real legacy listing pages (Google indexed the deep pagination), and the canton
+// section root is always a live 200, so it is the correct topical home. We 301
+// there (real link-equity transfer) instead of leaving the soft-404, which the
+// SPA fallback MIS-recovered to the homepage: public/404.html's job-detail jobRe
+// matches only a SINGLE trailing segment, so the multi-segment pagination path
+// fell through to spaRedirect('/'). The `/page-\d+/` + known-filter shape is
+// specific enough that fake/garbage cantons effectively never reach here (those
+// are scanner noise on shallow paths), so the canton-root target is safe (no
+// 301→404). Group 1 captures the section root. MIRRORS public/404.html pagRe.
+const LEGACY_PAGINATION_RE =
+  /^((?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+)\/(?:tutte|tutti|alle|tous|toutes|all)\/page-\d+\/?$/;
+
 const MAP_FETCH_TIMEOUT_MS = 2000;
 const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 
@@ -321,6 +337,24 @@ function recoverLegacySearchCluster(url, locale) {
   // Already on the national board (loop guard — the board path has no extra segment).
   if (url.pathname.replace(/\/+$/, '') + '/' === board) return null;
   const location = board + url.search + url.hash;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+  });
+}
+
+// Returns a 301 Response to the canton section root when the requested path is a
+// legacy listing-pagination URL (`/<section>-<canton>/<filter>/page-<N>/` — see
+// LEGACY_PAGINATION_RE), otherwise null. Synchronous (no map/subrequest): the
+// target is a deterministic prefix of the requested path. Locale-agnostic — the
+// regex captures the full locale-routed prefix and the 301 stays within it.
+function recoverLegacyPagination(url) {
+  const m = url.pathname.match(LEGACY_PAGINATION_RE);
+  if (!m) return null;
+  const sectionRoot = `${m[1]}/`;
+  // Loop guard (unreachable: the matched path always has extra segments).
+  if (url.pathname.replace(/\/+$/, '') + '/' === sectionRoot) return null;
+  const location = sectionRoot + url.search + url.hash;
   return new Response(null, {
     status: 301,
     headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
@@ -551,6 +585,12 @@ export default {
       // Runs last so the specific canton-drift/company recoveries win first.
       const clusterRedirect = recoverLegacySearchCluster(url, match[1]);
       if (clusterRedirect) return clusterRedirect;
+      // Legacy listing-pagination URL (retired `/<filter>/page-N/` format) → 301
+      // to the canton section root. Distinct path shape (multi-segment, ends in
+      // /page-N/) so it never collides with the single-segment job-detail/company
+      // recoveries above; ordering is immaterial. See recoverLegacyPagination.
+      const paginationRedirect = recoverLegacyPagination(url);
+      if (paginationRedirect) return paginationRedirect;
     }
 
     // Stamp Cache-Control on 404s too: see NOT_FOUND_CACHE_CONTROL. GitHub

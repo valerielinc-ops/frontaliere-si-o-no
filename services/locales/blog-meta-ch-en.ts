@@ -697,6 +697,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Tax deductions for border workers in Italy: what expenses can be downloaded',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Tax deductions for frontier workers in Italy are governed by Italian law.',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Scene of Lugano with a frontierer and fiscal documents',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.title': 'The supplementary pension for border workers: how the third pillar works',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.excerpt': 'Border crossers can invest in the third pillar to increase their pension.',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.imageAlt': 'Frontalieri Swiss in a Lugano square',
+    'blog.article.nuovi-frontalieri-poveri.title': 'Frontier workers struggling: -20k euros per year',
+    'blog.article.nuovi-frontalieri-poveri.excerpt': 'The new frontier workers earn up to 20,000 euros less per year than the old ones. Here are the figures and tax implications.',
+    'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Commuter train crossing the Swiss-Italian border near Lugano',
 };
 
 export default blogMetaChEn;
