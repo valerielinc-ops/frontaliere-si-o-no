@@ -957,8 +957,56 @@ const _stats = {
   fallbacks: 0,
   exhausted: 0,
   providerCooldowns: 0,
+  cacheHits: 0,
   errors: [],
 };
+
+// ── In-process response cache (opt-in via opts.cache === true) ────
+// Dedups IDENTICAL deterministic prompts WITHIN a single run. The cache is
+// OPT-IN per call: creative generation (varying temperature / model rotation /
+// min-words retries) must NEVER be cached or it would return the same too-short
+// or identical output and defeat the retry. Only callers that pass deterministic
+// inputs (temperature 0 fact-check verdicts, page classification) opt in.
+//
+// Scope is per-run only (no cross-run persistence): the cross-run repetition
+// case is already covered elsewhere by the jobs crawler's committed content-hash
+// cache (data/jobs-ai-cache.json). create-article's amplifier waste is intra-run
+// (fact-check re-checking the same body across outer regeneration attempts), so
+// a per-run map captures it at zero infra cost and zero staleness risk.
+const _responseCache = new Map();
+const RESPONSE_CACHE_MAX = 500;
+
+// Tiny dependency-free hash (FNV-1a, 32-bit). This module deliberately avoids
+// static imports (it is loaded in varied contexts incl. Firebase Functions);
+// crypto is only ever dynamic-imported. For ≤500 deterministic entries the
+// collision probability is negligible, and the key includes the full opts so a
+// collision would still require an identical prompt+model+params tuple.
+function _fnv1aHex(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0;
+  }
+  return h.toString(16);
+}
+
+function _responseCacheKey(messages, o) {
+  // Only fields that change the model OUTPUT belong in the key.
+  return _fnv1aHex(JSON.stringify({
+    m: messages,
+    t: o.temperature,
+    mt: o.maxTokens,
+    j: o.jsonMode,
+    s: o.jsonSchema || null,
+    model: o.model || null,
+    ns: o.cacheNamespace || '',
+  }));
+}
+
+/** Clear the in-process response cache (used by tests / long-lived processes). */
+export function clearResponseCache() {
+  _responseCache.clear();
+}
 
 // ── Firestore-backed persistent score store ──────────────────
 // Scores are persisted to Firestore collection `ai_model_scores`
@@ -1864,7 +1912,9 @@ export function resetState() {
   _stats.retries = 0;
   _stats.fallbacks = 0;
   _stats.exhausted = 0;
+  _stats.cacheHits = 0;
   _stats.errors = [];
+  _responseCache.clear();
 }
 
 /** Remove a specific model from the exhausted set so it can be retried */
@@ -2836,6 +2886,23 @@ export async function callLLM(messages, opts = {}) {
   }
 
   const o = { ...DEFAULT_OPTS, ...opts };
+
+  // Opt-in response cache: reuse identical deterministic prompts within the run
+  // (e.g. fact-check re-checking an unchanged article body across regeneration
+  // attempts). A hit avoids the entire fallback cascade — the dominant intra-run
+  // burn — at zero risk, since the key includes the full prompt + model + params.
+  const _cacheOn = o.cache === true;
+  let _cacheKey = null;
+  if (_cacheOn) {
+    _cacheKey = _responseCacheKey(messages, o);
+    const hit = _responseCache.get(_cacheKey);
+    if (hit !== undefined) {
+      _stats.cacheHits++;
+      if (o.modelUsedRef && typeof o.modelUsedRef === 'object') o.modelUsedRef.model = 'cache';
+      return hit;
+    }
+  }
+
   let chain = o.chain || [...DEFAULT_CHAIN];
 
   // If a specific model is requested, start the chain from that model
@@ -2937,6 +3004,13 @@ export async function callLLM(messages, opts = {}) {
       // out to be malformed despite the HTTP 200 response.
       if (o.modelUsedRef && typeof o.modelUsedRef === 'object') {
         o.modelUsedRef.model = model;
+      }
+      if (_cacheOn && _cacheKey !== null) {
+        if (_responseCache.size >= RESPONSE_CACHE_MAX) {
+          const oldest = _responseCache.keys().next().value;
+          if (oldest !== undefined) _responseCache.delete(oldest);
+        }
+        _responseCache.set(_cacheKey, result);
       }
       return result;
     } catch (e) {

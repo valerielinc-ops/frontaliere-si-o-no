@@ -2567,12 +2567,21 @@ function quickJobPageSignals(html = '', pageUrl = '') {
 async function aiValidateJobDetailPage({ html, pageUrl, companyName }) {
   if (!crawlerConfigGlobal?.aiPageValidationEnabled) return { isJob: true, confidence: 0.5, reason: 'disabled' };
   if (!isAnyModelAvailable()) return { isJob: true, confidence: 0.5, reason: 'no_llm_keys' };
+
+  const text = stripHtml(html).slice(0, 5000);
+  // Content-hash cache (persisted in data/jobs-ai-cache.json across runs): a page
+  // whose visible text is unchanged returns the prior verdict without spending an
+  // LLM call OR a per-run budget slot. This was the only AI call site in this file
+  // without a cache; a re-crawled ambiguous page used to re-classify every run.
+  const cacheKey = buildAiCacheKey('validate-page-v1', [pageUrl, text]);
+  const cachedVerdict = getCachedAiResponse(cacheKey);
+  if (cachedVerdict) return cachedVerdict;
+
   if (aiPageValidationCalls >= (crawlerConfigGlobal?.aiPageValidationMaxPagesPerRun || 0)) {
     return { isJob: true, confidence: 0.5, reason: 'max_pages_reached' };
   }
   aiPageValidationCalls += 1;
 
-  const text = stripHtml(html).slice(0, 5000);
   const prompt = [
     'Determine whether this page is a REAL SINGLE JOB DETAIL page (not generic careers listing/news/about).',
     'Return JSON only: {"isJobDetail": boolean, "confidence": number, "reason": string}.',
@@ -2592,11 +2601,15 @@ async function aiValidateJobDetailPage({ html, pageUrl, companyName }) {
       jsonMode: true,
     });
     const parsed = JSON.parse(stripCodeFenceJson(raw));
-    return {
+    const verdict = {
       isJob: Boolean(parsed?.isJobDetail),
       confidence: Number(parsed?.confidence || 0),
       reason: normalizeSpace(parsed?.reason || 'ai_classification'),
     };
+    // Only successful classifications are cached — a failed-open default must be
+    // retried next run, not frozen.
+    setCachedAiResponse(cacheKey, verdict);
+    return verdict;
   } catch {
     return { isJob: true, confidence: 0.5, reason: 'ai_failed_open' };
   }
