@@ -2114,6 +2114,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'piscina-niederuzwil-rianimata',
+    category: 'pratico',
+    date: '2026-06-29T13:33:52.060Z',
+    image: '/images/blog/piscina-niederuzwil-rianimata.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
