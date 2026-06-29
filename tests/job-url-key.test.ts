@@ -43,6 +43,34 @@ describe('mergeUrlKey (crawl-time merge key — was extractStableJobId)', () => 
   });
 });
 
+describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', () => {
+  // Workday puts the renamable title text BEFORE the stable `_<req>` suffix.
+  // The generic NUM/HEX rules miss `R11696` (R+5 digits, not ≥6-with-boundary;
+  // not ≥10 hex) so the whole URL — title included — became the key, and a
+  // vendor title rename fragmented the merge → old slug orphaned (no
+  // previousSlug captured → noindex soft-landing). Observed: Swiss Life R11696.
+  const SWISS_LIFE = 'https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696';
+  it('extracts the requisition id (R\\d+) and survives a title rename', () => {
+    const renamed = 'https://swisslife.wd3.myworkdayjobs.com/de-DE/Swiss_Life_Career_Site/job/Sion/Immobilienberater--w-m-d-_R11696';
+    expect(mergeUrlKey(SWISS_LIFE)).toBe('req:r11696');
+    expect(mergeUrlKey(SWISS_LIFE)).toBe(mergeUrlKey(renamed));
+  });
+  it('handles JR / SJR requisition forms', () => {
+    expect(mergeUrlKey('https://novartis.wd3.myworkdayjobs.com/en/job/Basel/Some-Title_JR123456')).toBe('req:jr123456');
+    expect(mergeUrlKey('https://x.wd5.myworkdayjobs.com/job/Loc/Title_SJR98765')).toBe('req:sjr98765');
+  });
+  it('keeps the -N re-posting suffix distinct (two postings of the same req)', () => {
+    expect(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696-1')).toBe('req:r11696-1');
+    expect(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696'))
+      .not.toBe(mergeUrlKey('https://swisslife.wd3.myworkdayjobs.com/job/Sion/Title_R11696-1'));
+  });
+  it('does NOT change keys for non-Workday hosts (host-gated, no re-key)', () => {
+    // A non-Workday leaf that happens to end in `_r12345` must stay url:-keyed.
+    expect(mergeUrlKey('https://acme.com/careers/title_r12345')).toBe('url:https://acme.com/careers/title_r12345');
+    expect(mergeUrlKey('https://example.com/jobs/123456/old')).toBe('num:123456');
+  });
+});
+
 describe('mergeUrlKey leaf-scoping — shared-ancestor-token collision class', () => {
   // Regression guard for the bug where the legacy leftmost-token scan latched
   // onto a token shared across a whole crawler (board/company/upload-folder id

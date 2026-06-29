@@ -2025,7 +2025,9 @@ function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
 // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
 // attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`). A
 // quote-mandatory regex fails to detect minified noindex metas → false negative.
-const NOINDEX_RE = /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i;
+// Attribute-order-independent (two lookaheads, #3060): content-before-name on the
+// robots meta must not slip past and leak a noindex page into a cluster.
+const NOINDEX_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
 const CANONICAL_HREF_RE = /<link\b[^>]*rel\s*=\s*["']?canonical["']?[^>]*href\s*=\s*["']([^"']+)["']/i;
 const CANONICAL_HREF_REVERSED_RE = /<link\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*rel\s*=\s*["']?canonical["']?/i;
 function normalizeLocForCanonicalCmp(u: string): string {
