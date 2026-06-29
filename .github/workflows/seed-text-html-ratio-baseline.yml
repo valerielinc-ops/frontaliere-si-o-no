@@ -42,7 +42,7 @@ permissions:
 jobs:
   seed:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -73,21 +73,34 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - name: Download github-pages artifact from latest deploy
+      - name: Download + extract github-pages dist
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p /tmp/gh-pages-artifact dist
-          gh run download ${{ steps.latest.outputs.run_id }} \
-            --name "github-pages" \
-            --dir /tmp/gh-pages-artifact/
-          ls -lh /tmp/gh-pages-artifact/
-
-      - name: Extract dist/
-        run: |
-          tar -xf /tmp/gh-pages-artifact/artifact.tar -C dist
-          echo "Total HTML files:"
-          find dist -name '*.html' | wc -l
+          set -e
+          RID=${{ steps.latest.outputs.run_id }}
+          # Resolve the github-pages artifact id and pull the zip via the API —
+          # `gh run download --name github-pages` does not reliably yield
+          # artifact.tar for the large (>1 GB) Pages artifact. Mirrors the proven
+          # download path in audit-dist-from-run.yml.
+          ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $RID."
+            exit 1
+          fi
+          mkdir -p /tmp/pages dist
+          gh api -H "Accept: application/vnd.github+json" \
+            repos/${{ github.repository }}/actions/artifacts/$ARTIFACT_ID/zip \
+            > /tmp/pages.zip
+          unzip -q /tmp/pages.zip -d /tmp/pages
+          if [ -f /tmp/pages/artifact.tar ]; then
+            tar -xf /tmp/pages/artifact.tar -C dist
+          else
+            echo "::error::Expected /tmp/pages/artifact.tar — saw $(ls /tmp/pages)"
+            exit 1
+          fi
+          echo "Restored $(find dist -type f | wc -l) files into dist/; HTML: $(find dist -name '*.html' | wc -l)"
 
       - name: Generate text-html-ratio baseline
         run: |
