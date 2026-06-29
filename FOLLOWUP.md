@@ -28,8 +28,11 @@ Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body D
 
 Estrai sezione `## Non implementato (ancora)`. Ogni bullet `- **X** — Y` → candidate item.
 
-- Voci con motivo `out of scope` o `posposto` → skip (esplicitamente droppate).
-- Voci con motivo `follow-up`, `blocked`, `deferred`, o senza motivo → candidate issue.
+**Post-#8 (`AGENTS.md → Non-Negotiable #8`): `## Non implementato` NON è scope-deferito-e-chiuso, è il piano di completamento di un task ancora APERTO.** Idealmente l'agente lo svuota in-task (PR concatenate) e questa sezione legge «Nessuno» → zero candidate. Quando invece resta scope dovuto, va **tracciato a completamento**, non droppato:
+
+- `Nessuno` / sezione vuota → nessun candidate (task completo).
+- Voci `blocked: <causa esterna reale>` → candidate issue (label `blocked`), tracciate fino a sblocco.
+- **Ogni altra voce di scope dovuto → candidate issue** (il task non è chiuso finché non è fatta). Il vecchio skip su motivo `out of scope` / `posposto` è **ABOLITO**: non sono più scappatoie di chiusura. Restano fuori solo le categorie hard-exclude qui sotto (churn non-actionable / missing-test / live-verify-only), che non sono scope-feature.
 
 ### Da reviewer bot reviews
 
