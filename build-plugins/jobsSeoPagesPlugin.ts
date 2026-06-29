@@ -860,7 +860,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  } catch { /* non-fatal */ }
  try {
  const routerBlogSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+ const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
  let m: RegExpExecArray | null;
  while ((m = rx.exec(routerBlogSrc)) !== null) {
  articleSlugByLocale.it[m[1]] = m[2];

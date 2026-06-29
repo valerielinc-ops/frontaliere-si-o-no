@@ -47,13 +47,13 @@ function listArticles() {
   const i18nSrc = read('services/i18n.ts');
 
   // Extract articles from ARTICLES array
-  const articleRegex = /\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)',\s*image:\s*'([^']+)'/g;
+  const articleRegex = /\{\s*id:\s*["']([^"']+)["'],\s*category:\s*["']([^"']+)["'],\s*date:\s*["']([^"']+)["'],\s*image:\s*["']([^"']+)["']/g;
   const articles = [];
   let m;
   while ((m = articleRegex.exec(blogSrc)) !== null) {
     const [, id, category, date, image] = m;
     // Get title from i18n
-    const titleMatch = i18nSrc.match(new RegExp(`'blog\\.article\\.${escapeRegex(id)}\\.title':\s*'([^']+)'`));
+    const titleMatch = i18nSrc.match(new RegExp(`["']blog\\.article\\.${escapeRegex(id)}\\.title["']:\s*["']([^"']+)["']`));
     const title = titleMatch ? titleMatch[1] : '(title not found)';
     articles.push({ id, category, date, image, title });
   }
@@ -95,11 +95,11 @@ function removeFromRouter(articleId) {
   const slugKey = articleId.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
   blogSrc = blogSrc.replace(new RegExp(`\\s*${escapeRegex(slugKey)}:\\s*string;?\\n?`, 'g'), '');
 
-  // 4. Remove from locale slug tables: slugKey: 'slug-value',
-  blogSrc = blogSrc.replace(new RegExp(`\\s*${escapeRegex(slugKey)}:\\s*'[^']*',?\\n?`, 'g'), '');
+  // 4. Remove from locale slug tables: slugKey: 'slug-value' (quote-agnostic value)
+  blogSrc = blogSrc.replace(new RegExp(`\\s*${escapeRegex(slugKey)}:\\s*["'][^"']*["'],?\\n?`, 'g'), '');
 
-  // 5. Remove from BLOG_SLUGS mapping: 'article-id': { ... },
-  blogSrc = blogSrc.replace(new RegExp(`\\s*'${escaped}':\\s*\\{[^}]+\\},?\\n?`, 'g'), '');
+  // 5. Remove from BLOG_SLUGS mapping: 'article-id': { ... } (quote-agnostic key)
+  blogSrc = blogSrc.replace(new RegExp(`\\s*["']${escaped}["']:\\s*\\{[^}]+\\},?\\n?`, 'g'), '');
 
   write('services/routerBlogData.ts', blogSrc);
   console.error('  ✅ router.ts + routerBlogData.ts aggiornati');
@@ -169,7 +169,7 @@ function removeFromSitemap(articleId) {
   const slugKey = articleId.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
 
   // Try to find the IT slug from router.ts
-  const slugMatch = routerSrc.match(new RegExp(`${escapeRegex(slugKey)}:\\s*'([^']+)'`));
+  const slugMatch = routerSrc.match(new RegExp(`${escapeRegex(slugKey)}:\\s*["']([^"']+)["']`));
   const itSlug = slugMatch ? slugMatch[1] : articleId;
 
   // Remove the <url>...</url> block containing this slug
@@ -217,8 +217,8 @@ function addRedirectMapping(fromId, toId) {
 
   for (const locale of ['it', 'en', 'de', 'fr']) {
     // Find slugs in locale tables (search pattern: slugKey: 'value')
-    const fromSlugMatch = routerSrc.match(new RegExp(`${escapeRegex(fromSlugKey)}:\\s*'([^']+)'`));
-    const toSlugMatch = routerSrc.match(new RegExp(`${escapeRegex(toSlugKey)}:\\s*'([^']+)'`));
+    const fromSlugMatch = routerSrc.match(new RegExp(`${escapeRegex(fromSlugKey)}:\\s*["']([^"']+)["']`));
+    const toSlugMatch = routerSrc.match(new RegExp(`${escapeRegex(toSlugKey)}:\\s*["']([^"']+)["']`));
 
     if (fromSlugMatch && toSlugMatch) {
       const prefix = locale === 'it' ? '' : `/${locale}`;
@@ -260,14 +260,14 @@ function gitAddAll() {
 function articleExists(articleId) {
   const routerSrc = read('services/routerBlogData.ts');
   const idMatch = routerSrc.match(/ALL_BLOG_ARTICLE_IDS.*?\[([^\]]+)\]/s);
-  const existingIds = idMatch ? idMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [] : [];
+  const existingIds = idMatch ? idMatch[1].match(/["']([^"']+)["']/g)?.map(s => s.slice(1, -1)) || [] : [];
   return existingIds.includes(articleId);
 }
 
 function getAllArticleIds() {
   const routerSrc = read('services/routerBlogData.ts');
   const idMatch = routerSrc.match(/ALL_BLOG_ARTICLE_IDS.*?\[([^\]]+)\]/s);
-  return idMatch ? idMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [] : [];
+  return idMatch ? idMatch[1].match(/["']([^"']+)["']/g)?.map(s => s.slice(1, -1)) || [] : [];
 }
 
 // ── Main ────────────────────────────────────────────────────
@@ -323,7 +323,7 @@ Esempi:
 
     // Get article title for confirmation
     const i18nSrc = read('services/i18n.ts');
-    const titleMatch = i18nSrc.match(new RegExp(`'blog\\.article\\.${escapeRegex(articleId)}\\.title':\\s*'([^']+)'`));
+    const titleMatch = i18nSrc.match(new RegExp(`'blog\\.article\\.${escapeRegex(articleId)}\\.title':\\s*["']([^"']+)["']`));
     const title = titleMatch ? titleMatch[1] : articleId;
 
     if (!forceFlag) {

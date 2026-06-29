@@ -727,6 +727,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Berechnung Grenzsteuern über 20 km: Regeln und Simulationen',
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Ab 2024 werden Grenzgänger über 20 km von der Grenze aus steuerlich benachteiligt: keine Vergünstigungen, IRPEF-Auswirkungen, Steuergutschriften und Simulationen.',
     'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'Blick auf Lugano und die Alpen, typisch für Grenzgänger.',
+    'blog.article.lidl-svizzera-lavora-con-noi.title': 'Arbeiten bei Lidl Schweiz: Chancen und aktuelle Abläufe',
+    'blog.article.lidl-svizzera-lavora-con-noi.excerpt': 'Lidl bietet Stellenangebote in der ganzen Schweiz an. Erfahren Sie, wie Sie sich bewerben, welche Stellen verfügbar sind und welche Verfahren zu befolgen sind.',
+    'blog.article.lidl-svizzera-lavora-con-noi.imageAlt': 'Eingang eines modernen Supermarkts in der Schweiz, mit Alpen im Hintergrund.',
 };
 
 export default blogMetaChDe;

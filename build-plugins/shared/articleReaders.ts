@@ -92,7 +92,7 @@ export function readBlogUrlSlugs(
     const src = fs.readFileSync(file, 'utf-8');
     const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
     if (!block) return out;
-    const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+    const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
     let bm: RegExpExecArray | null;
     while ((bm = rx.exec(block)) !== null) {
       out[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
