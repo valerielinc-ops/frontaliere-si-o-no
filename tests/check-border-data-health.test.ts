@@ -109,13 +109,17 @@ describe('evaluateWebcamResult', () => {
     expect(r.broken).toBe(false);
   });
 
-  it('treats an IP-discriminating block (403/401/429/451) as INDETERMINATE, not broken', () => {
+  it('treats an IP-discriminating block (401/403/406/407/415/429/451) as INDETERMINATE, not broken', () => {
     // A 403 from the monitor's single cloud IP does NOT prove the feed is broken
     // for end users: access-control / geo / rate-limit layers routinely block
     // datacenter ranges while serving residential browsers a healthy 200.
     // (lagomaggiorexperience.it canneroriviera case, issue #2336: 200/147KB from a
     // residential IP, stable 403 from the GitHub Actions runner.)
-    for (const status of [401, 403, 407, 429, 451]) {
+    // 406 + 415 are the anti-bot/WAF content-negotiation replies reused from the
+    // shared WAF_IP_BLOCK_STATUS (lib/transient-fetch.mjs). #3098: a LiteSpeed 415
+    // from comune.cannobio.vb.it (Cannobio-Brissago webcam) mis-paged as broken
+    // while it served a healthy 200/62KB webp to real users.
+    for (const status of [401, 403, 406, 407, 415, 429, 451]) {
       const r = evaluateWebcamResult({ ok: false, status, bytes: 0 });
       expect(r.broken, `status ${status}`).toBe(false);
       expect(r.indeterminate, `status ${status}`).toBe(true);
