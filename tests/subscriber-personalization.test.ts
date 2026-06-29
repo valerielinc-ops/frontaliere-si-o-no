@@ -72,6 +72,25 @@ describe('derivePersonalizationPatch', () => {
     expect(patch?.job_search_query).toBe('infermiere notturno');
   });
 
+  it('clicked location wins when browsing is light (strongest signal, #3025)', () => {
+    const patch = derivePersonalizationPatch({
+      subscriber: {},
+      personalization: { viewedJobs: [{ location: 'Lugano' }] }, // weight 2
+      clicked: { locations: ['Bellinzona'], company: 'EOC' }, // weight 5
+    });
+    expect(patch?.location_interest).toBe('Bellinzona');
+    expect(patch?.job_company).toBe('EOC');
+  });
+
+  it('no-clobber still holds with a clicked signal present', () => {
+    const patch = derivePersonalizationPatch({
+      subscriber: { job_company: 'Existing SA' },
+      clicked: { locations: ['Lugano'], company: 'EOC' },
+    });
+    expect(patch?.job_company).toBeUndefined(); // already set → not clobbered
+    expect(patch?.location_interest).toBe('Lugano'); // empty → filled from click
+  });
+
   it('returns null when there is nothing to fill', () => {
     expect(derivePersonalizationPatch({ subscriber: {}, personalization: null, alerts: [] })).toBeNull();
     // All fields already populated → null.
