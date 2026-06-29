@@ -691,6 +691,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-lavoro.title': 'Working as a child educator in Ticino',
     'blog.article.educatore-infanzia-ticino-lavoro.excerpt': 'Practical guide on the requirements, the required SSS diploma and the procedures to pursue a career as a child educator in the Canton of Ticino.',
     'blog.article.educatore-infanzia-ticino-lavoro.imageAlt': 'Childcare educator in a Ticino nursery',
+    'blog.article.lavorare-educatore-infanzia-ticino.title': 'Working as a child educator in Ticino: requirements',
+    'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Complete guide for educators: SSS diploma, salaries between 73,000 and 97,000 CHF and procedures for the recognition of foreign qualifications.',
+    'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Modern kindergarten in Ticino with bright educational spaces',
 };
 
 export default blogMetaChEn;

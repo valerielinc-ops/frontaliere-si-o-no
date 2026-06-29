@@ -2069,6 +2069,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavorare-educatore-infanzia-ticino',
+    category: 'pratico',
+    date: '2026-06-29T02:05:34.007Z',
+    image: '/images/blog/lavorare-educatore-infanzia-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

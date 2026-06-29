@@ -691,6 +691,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-lavoro.title': 'Als Kindergärtnerin im Tessin arbeiten',
     'blog.article.educatore-infanzia-ticino-lavoro.excerpt': 'Praktischer Leitfaden zu den Anforderungen, dem erforderlichen SSH-Diplom und den Verfahren für den Einstieg in die Erziehungslaufbahn im Kanton Tessin.',
     'blog.article.educatore-infanzia-ticino-lavoro.imageAlt': 'Kindererzieher in einer Kindertagesstätte im Tessin',
+    'blog.article.lavorare-educatore-infanzia-ticino.title': 'Als Kindergärtnerin im Tessin arbeiten: Voraussetzungen',
+    'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Umfassender Leitfaden für Erzieherinnen und Erzieher: HF-Diplom, Löhne zwischen 73 \'000 und 97\' 000 CHF und Verfahren zur Anerkennung ausländischer Diplome.',
+    'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Moderner Kindergarten im Tessin mit hellen Bildungsräumen',
 };
 
 export default blogMetaChDe;

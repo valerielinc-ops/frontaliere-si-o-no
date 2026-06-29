@@ -691,6 +691,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-lavoro.title': 'Travailler comme éducateur d\'enfants au Tessin',
     'blog.article.educatore-infanzia-ticino-lavoro.excerpt': 'Guide pratique sur les exigences, le diplôme SSS requis et les procédures pour poursuivre une carrière d\'éducateur d\'enfants dans le canton du Tessin.',
     'blog.article.educatore-infanzia-ticino-lavoro.imageAlt': 'Éducateur de la petite enfance dans une crèche au Tessin',
+    'blog.article.lavorare-educatore-infanzia-ticino.title': 'Travailler comme éducateur d\'enfants au Tessin : exigences',
+    'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Guide complet pour les éducateurs : diplôme SSS, salaires compris entre 73 000 et 97 000 CHF et procédures de reconnaissance des diplômes étrangers.',
+    'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Crèche moderne au Tessin avec des espaces éducatifs lumineux',
 };
 
 export default blogMetaChFr;

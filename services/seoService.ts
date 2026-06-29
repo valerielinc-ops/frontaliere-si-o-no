@@ -4283,6 +4283,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tagli-helvetia-baloise-svizzera-2028': { name: 'Tagli Helvetia-Baloise', path: '/articoli-svizzera/tagli-helvetia-baloise-svizzera-2028/', parent: 'blog' },
     'blog-educatore-infanzia-ticino-stipendio-2024': { name: 'Educatore infanzia Ticino', path: '/articoli-svizzera/educatore-infanzia-ticino-stipendio-2024/', parent: 'blog' },
     'blog-educatore-infanzia-ticino-lavoro': { name: 'Educatore infanzia', path: '/articoli-svizzera/educatore-infanzia-ticino-lavoro/', parent: 'blog' },
+    'blog-lavorare-educatore-infanzia-ticino': { name: 'Educatore infanzia Ticino', path: '/articoli-svizzera/lavorare-educatore-infanzia-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
