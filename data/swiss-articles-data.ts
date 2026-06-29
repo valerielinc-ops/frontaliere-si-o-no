@@ -2204,6 +2204,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'stabio-dogana-svizzera',
+    category: 'pratico',
+    date: '2026-06-29T23:40:14.189Z',
+    image: '/images/blog/stabio-dogana-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

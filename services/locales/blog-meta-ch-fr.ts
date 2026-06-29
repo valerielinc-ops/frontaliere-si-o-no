@@ -736,6 +736,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Où vivent les frontaliers lombards : boom Brianza et numéros officiels',
     'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Plus de 60 000 frontaliers lombards vivent entre Côme et Varèse ; la Brianza croît de 77 % en dix ans.',
     'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Vue panoramique de la zone frontalière entre le Tessin et la Lombardie.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stade douanier : passage et procédures à la frontière suisse',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'Le col de Stabio représente un point de transit entre la Suisse et l\'Italie. Mise à jour des procédures douanières.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Poste frontière de Stabio, symbole de la frontière suisse-italienne.',
 };
 
 export default blogMetaChFr;

@@ -736,6 +736,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Dove vivono i frontalieri lombardi: boom Brianza e numeri ufficiali',
     'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Oltre 60.000 frontalieri lombardi abitano tra Como e Varese; Brianza cresce del 77% in dieci anni.',
     'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Vista panoramica sulla zona di confine tra Ticino e Lombardia.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stabio dogana: passaggio e procedure al confine svizzero',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'Il valico di Stabio rappresenta un punto di transito tra Svizzera e Italia. Aggiornamento sulle procedure doganali.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Valico doganale di Stabio, simbolo del confine svizzero-italiano.',
 };
 
 export default blogMetaChIt;
