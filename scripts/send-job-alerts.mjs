@@ -1035,6 +1035,12 @@ async function main() {
   // 1. Load recent jobs (+ full-dataset geo index for source-job resolution)
   const { recent: recentJobs, locationIndex } = loadJobs();
   console.log(`   Recent jobs (last 24h): ${recentJobs.length}`);
+  // Diagnostic (#3020): confirm the full-dataset geo index is non-trivially
+  // populated. Source-geo recovery for one-tap alerts (sourceJobLocationsFor)
+  // is a soft no-op when this index is empty — so a size of 0 here means the
+  // slug/slugByLocale/canton/location fields are absent from data/jobs.json and
+  // the one-tap precision boost never materializes. Expected: ≫ 0.
+  console.log(`   Geo index entries (slug/id → location): ${locationIndex.size}`);
   if (recentJobs.length === 0) {
     console.log('   No recent jobs — skipping.');
     return;
