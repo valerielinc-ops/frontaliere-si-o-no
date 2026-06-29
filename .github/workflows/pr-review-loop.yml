@@ -209,7 +209,11 @@ jobs:
           # (hardening #898): mai `*`. `claude[bot]` copre le PR fix-issue;
           # `github-actions[bot]` copre eventuali PR aperte da automation interna
           # (run 26621967484 era exit 1 col precedente vincolo non-human-actor).
-          allowed_bots: "github-actions[bot], claude[bot]"
+          # `frontaliere-automation[bot]` (App): le PR aggiornate/aperte via App
+          # token (autorebase App-push, issue-fix) triggerano `pull_request` con
+          # actor = l'App → senza whitelist la review aborta "non-human actor:
+          # frontaliere-automation" (exit 1) → niente `## LGTM` → pipeline ferma.
+          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
           # Tool expansion: aggiunti `Bash(rg:*)`, `Bash(git:*)` per consentire
           # cross-file pattern search (REVIEW.md → Reviewer behavior step 5) e
