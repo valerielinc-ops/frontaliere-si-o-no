@@ -100,10 +100,15 @@ jobs:
             // because ONE item was fixed (the fixer circuit-breaker does 1 item/run)
             // marks residual work COMPLETED while items stay due (real recurrence:
             // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
-            // isAggregate mirror — single source: scripts/ci/check-issue-already-resolved.mjs.
+            // FULL mirror of isAggregate() — single source scripts/ci/check-issue-already-resolved.mjs:
+            // OR of BOTH branches: "N item(s) deferred" (N>=2) OR the sweep/batch/bulk
+            // fallback (aggregates that enumerate N targets WITHOUT the count, e.g.
+            // "Sweep: ~30 crawlers" #1826). Omitting the 2nd branch would let a
+            // `Closes #<sweep-aggregate>` slip through — same bug class, sweep subtype.
             const isAggregateTitleBody = (t, b) => {
-              const m = `${t}\n${b}`.match(/(\d+)\s+items?\s+deferred/i);
-              return !!(m && Number(m[1]) >= 2);
+              const text = `${t}\n${b}`;
+              const m = text.match(/(\d+)\s+items?\s+deferred/i);
+              return (!!(m && Number(m[1]) >= 2)) || /\b(?:sweep|batch|bulk)\b/i.test(text);
             };
             // Strip code-formatted text first: GitHub does NOT honour a closing
             // keyword inside a fenced block or inline `code` span, so neither should
@@ -114,7 +119,8 @@ jobs:
               .replace(/```[\s\S]*?```/g, ' ')
               .replace(/`[^`\n]*`/g, ' ');
             // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
-            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s+#(\d+)\b/gi;
+            // `:?` tolerates the colon form `Closes: #N`, which GitHub also honours.
+            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+#(\d+)\b/gi;
             const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
 
             const { owner, repo } = context.repo;
