@@ -8182,6 +8182,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo launches Opas on Monte dei Paschi with shares and cash offer',
     'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo has filed the document for the public offer on MPs: 1.6 Intesa shares plus 1 euro per MPs share conferred',
     'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Panoramic view of Lugano with financial district in the background, sunny day',
+    'blog.article.bancomat-processo-varesenews-2023.title': 'Illicit use of ATMs: trial in Varese and implications',
+    'blog.article.bancomat-processo-varesenews-2023.excerpt': 'A woman accused of improper use of a neighbor\'s ATM: trial started on June 29 with purchases of less than 300 euros.',
+    'blog.article.bancomat-processo-varesenews-2023.imageAlt': 'Urban view of Mendrisio with local shops and pedestrians.',
 };
 
 export default blogMetaEn;

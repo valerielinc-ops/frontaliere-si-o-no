@@ -25929,6 +25929,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bancomat-processo-varesenews-2023',
+ category: 'novita',
+ date: '2026-06-29T21:14:55.257Z',
+ image: '/images/blog/bancomat-processo-varesenews-2023.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
