@@ -1894,8 +1894,7 @@
           "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ],
         "de": [
-          "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
-          "infirmier-f-h-en-ctr-ehc-vd-gilly"
+          "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.951Z",
@@ -4163,10 +4162,10 @@
     },
     {
       "id": "ehc-vd-a3da23b7bcc6",
-      "slug": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges",
+      "slug": "fisioterapista-o-ergoterapista-capo-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges",
-        "it": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges",
+        "it": "fisioterapista-o-ergoterapista-capo-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges",
         "de": "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges"
       },
@@ -4224,14 +4223,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:30:48.740Z"
+      "firstSeenAt": "2026-06-29T13:30:48.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-ou-ergotherapeute-chef-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-5e763e272ad7",
-      "slug": "agent-de-proprete-f-h-ehc-vd-aubonne",
+      "slug": "addetto-alle-pulizie-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "agent-de-proprete-f-h-ehc-vd-morges",
-        "it": "agent-de-proprete-f-h-ehc-vd-aubonne",
+        "it": "addetto-alle-pulizie-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "en": "agent-de-proprete-f-h-ehc-vd-aubonne",
         "de": "agent-de-proprete-f-h-ehc-vd-aubonne"
       },
@@ -4289,7 +4296,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:30:48.723Z"
+      "firstSeenAt": "2026-06-29T13:30:48.723Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-de-proprete-f-h-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "agent-de-proprete-f-h-ehc-vd-aubonne"
+      ]
     }
   ]
 }

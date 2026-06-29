@@ -831,8 +831,7 @@
         ],
         "en": [
           "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
-          "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
-          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+          "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve"
         ],
         "de": [
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
@@ -3095,8 +3094,7 @@
       "previousSlugsByLocale": {
         "it": [
           "educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
+          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex"
         ],
         "en": [
           "social-educator-in-psychiatry-80-hug-thonex"
@@ -4465,10 +4463,10 @@
     },
     {
       "id": "hug-efda45b6ded2",
-      "slug": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
+      "slug": "capo-o-capogruppo-servizio-di-ritrattamento-dispositivi-medici-100-hug-vernier",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
-        "it": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
+        "it": "capo-o-capogruppo-servizio-di-ritrattamento-dispositivi-medici-100-hug-vernier",
         "en": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
         "de": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
       },
@@ -4527,14 +4525,22 @@
         }
       },
       "postalCode": "1214",
-      "firstSeenAt": "2026-06-29T13:36:34.975Z"
+      "firstSeenAt": "2026-06-29T13:36:34.975Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+      ]
     },
     {
       "id": "hug-a5b0ce9c62b7",
-      "slug": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve",
+      "slug": "capo-o-capoclinica-in-radiologia-con-titolo-di-specializzazione-o-medico-aggiunto-a-50-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
-        "it": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve",
+        "it": "capo-o-capoclinica-in-radiologia-con-titolo-di-specializzazione-o-medico-aggiunto-a-50-hug-geneve",
         "en": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
         "de": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
       },
@@ -4582,11 +4588,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve"
         ]
       },
       "previousSlugs": [
-        "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
+        "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
+        "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve"
       ],
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -4605,10 +4613,10 @@
     },
     {
       "id": "hug-c10535c413de",
-      "slug": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
+      "slug": "agenti-o-agenti-pulizia-igiene-100-hug-geneve",
       "slugByLocale": {
         "fr": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
-        "it": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
+        "it": "agenti-o-agenti-pulizia-igiene-100-hug-geneve",
         "en": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
         "de": "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
       },
@@ -4667,7 +4675,15 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T13:36:34.972Z"
+      "firstSeenAt": "2026-06-29T13:36:34.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-f1c98584ae88",
@@ -4737,10 +4753,10 @@
     },
     {
       "id": "hug-c6d6a05885d6",
-      "slug": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
+      "slug": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
       "slugByLocale": {
         "fr": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
-        "it": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
+        "it": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
         "en": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
         "de": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
       },
@@ -4799,7 +4815,15 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T13:36:34.962Z"
+      "firstSeenAt": "2026-06-29T13:36:34.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
+      ]
     }
   ]
 }

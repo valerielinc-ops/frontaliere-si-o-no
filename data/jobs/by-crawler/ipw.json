@@ -559,8 +559,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur"
+          "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-05T22:15:31.956Z",
@@ -1083,10 +1082,10 @@
     },
     {
       "id": "ipw-d1d734279509",
-      "slug": "psychologin-psychologe-ipw-winterthur",
+      "slug": "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "psychologin-psychologe-ipw-winterthur",
-        "it": "psychologin-psychologe-ipw-winterthur",
+        "it": "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "psychologin-psychologe-ipw-winterthur",
         "fr": "psychologin-psychologe-ipw-winterthur"
       },
@@ -1148,7 +1147,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:10:26.856Z"
+      "firstSeenAt": "2026-06-29T13:10:26.856Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-c538e294c7b4",

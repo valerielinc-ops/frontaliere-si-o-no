@@ -95,10 +95,10 @@
     },
     {
       "id": "clinique-de-montchoisi-c20aef2d7c8c",
-      "slug": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi",
+      "slug": "tecnico-a-in-radiologia-medica-100-clinique-de-montchoisi-lausanne",
       "slugByLocale": {
         "fr": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi",
-        "it": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi",
+        "it": "tecnico-a-in-radiologia-medica-100-clinique-de-montchoisi-lausanne",
         "en": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi",
         "de": "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi"
       },
@@ -157,7 +157,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:22:30.107Z"
+      "firstSeenAt": "2026-06-29T13:22:30.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radiologie-medicale-100-clinique-de-montchoisi"
+      ]
     }
   ]
 }

@@ -94,10 +94,10 @@
     },
     {
       "id": "bls-e89d8290651b",
-      "slug": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
+      "slug": "incaricato-in-veicoli-avor-bls-ag-bonigen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
-        "it": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
+        "it": "incaricato-in-veicoli-avor-bls-ag-bonigen",
         "en": "sachbearbeiter-in-avor-fahrzeuge-bls-ch",
         "fr": "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
       },
@@ -170,7 +170,15 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-29T12:34:16.156Z"
+      "firstSeenAt": "2026-06-29T12:34:16.156Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-avor-fahrzeuge-bls-ch"
+      ]
     },
     {
       "id": "bls-ede2fabbc5e0",
@@ -1245,10 +1253,10 @@
     },
     {
       "id": "bls-530186efc0c5",
-      "slug": "marketing-manager-in-experience-bls-ch",
+      "slug": "marketing-manager-nell-esperienza-bls-ag-bern",
       "slugByLocale": {
         "de": "marketing-manager-in-experience-bls-ch",
-        "it": "marketing-manager-in-experience-bls-ch",
+        "it": "marketing-manager-nell-esperienza-bls-ag-bern",
         "en": "marketing-manager-in-experience-bls-ch",
         "fr": "marketing-manager-in-experience-bls-ch"
       },
@@ -1321,7 +1329,15 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-29T12:34:06.426Z"
+      "firstSeenAt": "2026-06-29T12:34:06.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-manager-in-experience-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-manager-in-experience-bls-ch"
+      ]
     }
   ]
 }

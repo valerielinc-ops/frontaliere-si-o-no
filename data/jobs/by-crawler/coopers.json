@@ -872,8 +872,7 @@
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "en": [
-          "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
-          "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
+          "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau"
         ],
         "fr": [
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
@@ -4558,10 +4557,10 @@
     },
     {
       "id": "coopers-8e8920b3406d",
-      "slug": "procurement-assistenz-m-w-d-coopers-basel-landschaft",
+      "slug": "assistente-agli-acquisti-m-f-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
         "de": "procurement-assistenz-m-w-d-coopers-basel-landschaft",
-        "it": "procurement-assistenz-m-w-d-coopers-basel-landschaft",
+        "it": "assistente-agli-acquisti-m-f-d-coopers-group-ag-basel-landschaft",
         "en": "procurement-assistenz-m-w-d-coopers-basel-landschaft",
         "fr": "procurement-assistenz-m-w-d-coopers-basel-landschaft"
       },
@@ -4633,7 +4632,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-29T12:55:14.035Z"
+      "firstSeenAt": "2026-06-29T12:55:14.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-assistenz-m-w-d-coopers-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-assistenz-m-w-d-coopers-basel-landschaft"
+      ]
     }
   ]
 }

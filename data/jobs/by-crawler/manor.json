@@ -750,7 +750,7 @@
       "slug": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
-        "en": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
+        "en": "employee-logistics-provision-of-goods-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "de": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "fr": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
       },
@@ -782,12 +782,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-26T11:54:46.120Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "employee-logistics-provision-of-goods-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
-        ]
-      }
+      "firstSeenAt": "2026-06-26T11:54:46.120Z"
     },
     {
       "title": "Mitarbeiter*in Supermarkt Epicerie 50%",
@@ -1430,9 +1425,9 @@
       },
       "postedDate": "2026-06-24",
       "source": "company-website",
-      "slug": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
+      "slug": "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales",
       "slugByLocale": {
-        "it": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
+        "it": "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales",
         "en": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
         "de": "manor-retail-media-sales-manager-100-basel-retail-media-sales",
         "fr": "manor-retail-media-sales-manager-100-basel-retail-media-sales"
@@ -1467,8 +1462,13 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-06-26T11:54:46.120Z",
       "previousSlugs": [
-        "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales"
-      ]
+        "manor-retail-media-sales-manager-100-basel-retail-media-sales"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-retail-media-sales-manager-100-basel-retail-media-sales"
+        ]
+      }
     },
     {
       "title": "Collaborateur/trice caisse (Supermarché) 50%",
@@ -2805,7 +2805,7 @@
       "slug": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
       "slugByLocale": {
         "it": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
-        "en": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
+        "en": "lehrstelle-polign-manor-ag-emmen-lehrstelle-polydesigner-in",
         "de": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
         "fr": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in"
       },
@@ -2837,12 +2837,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "lehrstelle-polign-manor-ag-emmen-lehrstelle-polydesigner-in"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Collaborateur/trice supermarché (Boulangerie) 30%",
@@ -4012,7 +4007,7 @@
       "slug": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
       "slugByLocale": {
         "it": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
-        "en": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
+        "en": "koch-kin-manor-ag-schaffhausen-kochkochin-80",
         "de": "manor-koch-kochin-80-schaffhausen-kochkochin-80",
         "fr": "manor-koch-kochin-80-schaffhausen-kochkochin-80"
       },
@@ -4044,12 +4039,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
-      "firstSeenAt": "2026-06-15T15:00:48.415Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "koch-kin-manor-ag-schaffhausen-kochkochin-80"
-        ]
-      }
+      "firstSeenAt": "2026-06-15T15:00:48.415Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Spielwaren, Papeterie, Sport 60%",
@@ -4737,7 +4727,7 @@
       "slug": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
-        "en": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
+        "en": "visual-merchandising-collaborator-100-manor-ag-lausanne-collaborateurtrice-visual-merchandising",
         "de": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
         "fr": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising"
       },
@@ -4769,12 +4759,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "visual-merchandising-collaborator-100-manor-ag-lausanne-collaborateurtrice-visual-merchandising"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Kassierer*in non Food 30%",
@@ -5298,7 +5283,7 @@
       "slug": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
-        "en": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
+        "en": "current-collaborator-accessoires-dames-60-manor-ag-monthey-collaborateurtrice-vente-accessoires",
         "de": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires",
         "fr": "manor-collaborateur-trice-vente-accessoires-dames-60-monthey-collaborateurtrice-vente-accessoires"
       },
@@ -5330,12 +5315,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "current-collaborator-accessoires-dames-60-manor-ag-monthey-collaborateurtrice-vente-accessoires"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Mitarbeiter*in Visual Merchandising Food 30%",
@@ -6851,7 +6831,7 @@
       "slug": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
       "slugByLocale": {
         "it": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
-        "en": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
+        "en": "cuisinier-isre-100-manor-ag-vevey-cuisinierere-100",
         "de": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
         "fr": "manor-cuisinier-ere-100-vevey-cuisinierere-100"
       },
@@ -6883,12 +6863,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "cuisinier-isre-100-manor-ag-vevey-cuisinierere-100"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Assistant/e visual merchandiser manager 100%",
@@ -6967,7 +6942,7 @@
       "slug": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
+        "en": "supermarket-collaborator-boulangerie-0-manor-ag-biel-collaborateurtrice-supermarche-boulangerie",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie"
       },
@@ -6999,12 +6974,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "supermarket-collaborator-boulangerie-0-manor-ag-biel-collaborateurtrice-supermarche-boulangerie"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Mitarbeiter*in Logistik 50-100%",

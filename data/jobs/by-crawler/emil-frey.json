@@ -2446,8 +2446,7 @@
           "carrossier-peintre-emil-frey-crissier"
         ],
         "de": [
-          "maler-emil-frey-crissier",
-          "carrossier-peintre-emil-frey-crissier"
+          "maler-emil-frey-crissier"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.356Z",
@@ -5751,10 +5750,10 @@
     },
     {
       "id": "emil-frey-c6b4151f67ba",
-      "slug": "fahrzeugaufbereiter-in-emil-frey-zurich",
+      "slug": "confezionatrice-confezionatrice-veicolo-emil-frey-zurich",
       "slugByLocale": {
         "de": "fahrzeugaufbereiter-in-emil-frey-zurich",
-        "it": "fahrzeugaufbereiter-in-emil-frey-zurich",
+        "it": "confezionatrice-confezionatrice-veicolo-emil-frey-zurich",
         "en": "fahrzeugaufbereiter-in-emil-frey-zurich",
         "fr": "fahrzeugaufbereiter-in-emil-frey-zurich"
       },
@@ -5813,7 +5812,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:20:30.826Z"
+      "firstSeenAt": "2026-06-29T13:20:30.826Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrzeugaufbereiter-in-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fahrzeugaufbereiter-in-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-3b606d46439b",
@@ -6625,10 +6632,10 @@
     },
     {
       "id": "emil-frey-2f0a2fc6cf77",
-      "slug": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens",
+      "slug": "meccanico-meccatronico-emil-frey-chavannes-pres-renens",
       "slugByLocale": {
         "fr": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens",
-        "it": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens",
+        "it": "meccanico-meccatronico-emil-frey-chavannes-pres-renens",
         "en": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens",
         "de": "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens"
       },
@@ -6687,7 +6694,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:20:30.777Z"
+      "firstSeenAt": "2026-06-29T13:20:30.777Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-mecatronicien-emil-frey-chavannes-pres-renens"
+      ]
     }
   ]
 }

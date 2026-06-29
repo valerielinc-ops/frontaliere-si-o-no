@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "fondation-domus-58291476562b",
-      "slug": "secretaire-receptionniste-a-50-fondation-domus-ch",
+      "slug": "segretario-ricevitore-al-50-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "secretaire-receptionniste-a-50-fondation-domus-ch",
-        "it": "secretaire-receptionniste-a-50-fondation-domus-ch",
+        "it": "segretario-ricevitore-al-50-fondation-domus-ardon",
         "en": "secretaire-receptionniste-a-50-fondation-domus-ch",
         "de": "secretaire-receptionniste-a-50-fondation-domus-ch"
       },
@@ -65,14 +65,22 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-29T13:10:09.804Z"
+      "firstSeenAt": "2026-06-29T13:10:09.804Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-receptionniste-a-50-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-receptionniste-a-50-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-c7035e55eb7f",
-      "slug": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
+      "slug": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
-        "it": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
+        "it": "responsabile-risorse-umane-membro-della-direzione-80-fondation-domus-ardon",
         "en": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch",
         "de": "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
       },
@@ -130,7 +138,15 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-29T13:10:09.198Z"
+      "firstSeenAt": "2026-06-29T13:10:09.198Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-ressources-humaines-membre-de-la-direction-a-80-fondation-domus-ch"
+      ]
     }
   ]
 }
