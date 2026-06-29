@@ -6,7 +6,7 @@
  */
 import { describe, it, expect } from 'vitest';
 
-import { parseLombardiDetailHtml, buildLombardiLocalizedContent, titleOverlap } from '@/scripts/lib/lombardi-job-parser.mjs';
+import { parseLombardiDetailHtml, buildLombardiLocalizedContent, titleOverlap, extractLombardiJobsFromHtml } from '@/scripts/lib/lombardi-job-parser.mjs';
 
 // ─── Fixture: Progettista / Tecnico RVCS (id=108934) ───
 const RVCS_HTML = `
@@ -368,5 +368,51 @@ describe('titleOverlap', () => {
   it('returns 0 for empty strings', () => {
     expect(titleOverlap('', 'Test')).toBe(0);
     expect(titleOverlap('Test', '')).toBe(0);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// extractLombardiJobsFromHtml — locks the embedded `var _jobs` contract
+//
+// Regression guard for issue #3064. The lombardi-group crawler was flagged
+// "broken" (3 consecutive 0-job runs) because the live careers page
+// (https://lombardi.group/eng/careers/open-positions) returns an HTTP 500
+// Craft CMS "Internal Server Error" server-side — a transient SOURCE outage,
+// not a parser break (Wayback confirms the `var _jobs` shape was intact and
+// the crawler succeeded on 2026-06-25). These tests pin the extraction
+// contract so a FUTURE real Lombardi redesign that drops/renames the embedded
+// `_jobs` block surfaces immediately instead of silently yielding zero jobs.
+// ═══════════════════════════════════════════════════════════════
+
+describe('extractLombardiJobsFromHtml', () => {
+  const LISTING_HTML = `
+    <script>
+      var _jobs = [{"annuncioId":105226,"sedeId":21,"sezioneId":252,"titolo":"Ingénieur·e Pôle Exploitation","occupMin":80,"occupMax":100},{"annuncioId":108934,"sedeId":1,"sezioneId":252,"titolo":"Progettista / Tecnico RVCS (M/F/X)","occupMin":80,"occupMax":100}];
+      var _other = [];
+    </script>`;
+
+  it('parses the embedded _jobs array', () => {
+    const jobs = extractLombardiJobsFromHtml(LISTING_HTML);
+    expect(Array.isArray(jobs)).toBe(true);
+    expect(jobs).toHaveLength(2);
+    expect(jobs[0].annuncioId).toBe(105226);
+  });
+
+  it('preserves the fields the crawler relies on (annuncioId, sedeId, titolo)', () => {
+    const jobs = extractLombardiJobsFromHtml(LISTING_HTML);
+    const giubiasco = jobs.find((j: { sedeId: number }) => j.sedeId === 1);
+    expect(giubiasco).toBeDefined();
+    expect(giubiasco.titolo).toContain('Progettista');
+    expect(giubiasco.annuncioId).toBe(108934);
+  });
+
+  it('throws when the _jobs marker is absent (HTTP 500 / redesigned page)', () => {
+    const errorPage = '<html><head><title>Internal Server Error - Lombardi</title></head><body>Server Error</body></html>';
+    expect(() => extractLombardiJobsFromHtml(errorPage)).toThrow(/_jobs/);
+  });
+
+  it('throws on empty / nullish input rather than returning a silent empty', () => {
+    expect(() => extractLombardiJobsFromHtml('')).toThrow(/_jobs/);
+    expect(() => extractLombardiJobsFromHtml(null as unknown as string)).toThrow(/_jobs/);
   });
 });
