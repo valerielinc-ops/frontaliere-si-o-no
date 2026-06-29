@@ -8180,6 +8180,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.canicola-sud-nord-alpi.title': 'Canicola agli sgoccioli a nord delle Alpi. A sud serve ancora pazienza',
     'blog.article.canicola-sud-nord-alpi.excerpt': 'Ultima giornata di caldo estremo al nord delle Alpi, in Svizzera. A sud, invece, temperature ancora elevate fino alla metà della prossima settimana.',
     'blog.article.canicola-sud-nord-alpi.imageAlt': 'Paesaggio del Ticino con lago e montagne sotto il sole',
+    'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo lancia Opas su Monte dei Paschi con offerta azioni e contanti',
+    'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo ha depositato il documento per l\'offerta pubblica su Mps: 1,6 azioni Intesa più 1 euro per azione Mps conferita',
+    'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Vista panoramica di Lugano con il centro finanziario sullo sfondo, giornata soleggiata',
 };
 
 export default blogMetaIt;

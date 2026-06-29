@@ -706,6 +706,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grono-entra-repower-moesano.title': 'Grono tritt in Repower Moesano ein',
     'blog.article.grono-entra-repower-moesano.excerpt': 'Die Gemeinde Grono wird Teil des Aktionärs der Repower Moesano SA',
     'blog.article.grono-entra-repower-moesano.imageAlt': 'Blick auf Grono',
+    'blog.article.piscina-niederuzwil-rianimata.title': 'Springt in den Pool, taucht aber nicht wieder auf, Baby wiederbelebt',
+    'blog.article.piscina-niederuzwil-rianimata.excerpt': 'Ein 5-jähriges Mädchen wurde wiederbelebt, nachdem sie unterWasser im Schwimmbad von Niederuzwil verschwunden war, dank des rechtzeitigen Eingreifens von Badegästen und Personal.',
+    'blog.article.piscina-niederuzwil-rianimata.imageAlt': 'Öffentliches Schwimmbad in Niederuzwil mit Kindern und Rettungspersonal',
+    'blog.article.energia-verde-svizzera.title': 'Schweizer Unternehmen erhöhen Anteil an grüner Energie',
+    'blog.article.energia-verde-svizzera.excerpt': 'Die Hälfte der Unternehmen im Swiss Market Index hat laut AWP den Einsatz erneuerbarer Energien im letzten Geschäftsjahr erhöht.',
+    'blog.article.energia-verde-svizzera.imageAlt': 'Schweizer Firma mit Solaranlagen und Symbolen für grüne Energie, professionelle Szene.',
 };
 
 export default blogMetaChDe;

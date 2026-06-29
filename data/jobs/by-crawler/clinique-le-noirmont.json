@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-le-noirmont",
-  "assembledAt": "2026-06-28T21:23:49.500Z",
+  "assembledAt": "2026-06-29T12:54:10.379Z",
   "jobs": [
     {
       "title": "Médecin chef réadaptation cardiovasculaire (F/H)",
@@ -221,16 +221,16 @@
         ]
       },
       "firstSeenAt": "2026-06-12T11:53:37.281Z",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
+      "salaryMin": 51600,
+      "salaryMax": 72000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86000,
-          "maxValue": 120000,
+          "minValue": 51600,
+          "maxValue": 72000,
           "unitText": "YEAR"
         }
       }
@@ -282,16 +282,16 @@
       },
       "id": "clinique-le-noirmont-8b22e9332c96",
       "firstSeenAt": "2026-06-03T13:10:30.072Z",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
+      "salaryMin": 77400,
+      "salaryMax": 108000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86000,
-          "maxValue": 120000,
+          "minValue": 77400,
+          "maxValue": 108000,
           "unitText": "YEAR"
         }
       }
@@ -354,16 +354,16 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:17:06.822Z",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
+      "salaryMin": 43000,
+      "salaryMax": 60000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86000,
-          "maxValue": 120000,
+          "minValue": 43000,
+          "maxValue": 60000,
           "unitText": "YEAR"
         }
       }
@@ -429,16 +429,16 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:17:06.822Z",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
+      "salaryMin": 68800,
+      "salaryMax": 96000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86000,
-          "maxValue": 120000,
+          "minValue": 68800,
+          "maxValue": 96000,
           "unitText": "YEAR"
         }
       }
