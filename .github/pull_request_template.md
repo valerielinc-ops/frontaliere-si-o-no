@@ -19,10 +19,17 @@
 ## Non implementato (ancora)
 
 <!--
-  Scope NON fatto + motivo: out of scope / follow-up / blocked / posposto.
-  Per fix di pattern (regex/guard/floor/threshold/selector): elenca ogni sibling
-  funnel-critical NON toccato e perché (AGENTS.md regola 6).
+  PIANO DI COMPLETAMENTO del task, NON scope-deferito-e-chiuso (AGENTS.md #8).
+  Il task è chiuso SOLO quando questa sezione legge "Nessuno". Ogni voce è lavoro
+  ancora DOVUTO: indica lo stato/next-step, non un motivo-scappatoia.
+    - <scope> — in questa PR
+    - <scope> — PR concatenata #N (in arrivo)
+    - <scope> — blocked: <causa esterna reale>
+  "out of scope" / "posposto" NON chiudono più il task: se è correlato/necessario
+  va fatto (stessa PR o catena); se è davvero un task diverso, NON elencarlo qui.
+  Per fix di pattern (regex/guard/floor/threshold/selector): fixa ogni sibling
+  funnel-critical (AGENTS.md regola 6) — elencarlo qui lo tiene dovuto, non lo chiude.
   Per claim build/perf non validabile pre-merge: dichiara il trigger di revert.
-  "Nessuno" è una risposta valida se la PR è completa.
+  "Nessuno" = task completo e live.
 -->
 -
