@@ -1,0 +1,81 @@
+name: FB Events Schedule
+
+# Posts the soonest upcoming Ticino events to the Facebook Page, geo-anchored
+# per comune (chained feature on #2963). Posts immediately (low volume), linking
+# to our /eventi/ticino/<comune>/ landing pages to drive the SEO funnel.
+
+on:
+  schedule:
+    # Twice daily at :50 — a free minute clear of the job FB slots
+    # (:05/:15/:25/:35/:45/:55), the article cron (:22) and article-gen
+    # (:07/:37). Runs after the 05:40 events crawl has refreshed data/events.json.
+    - cron: '50 8,16 * * *'
+  workflow_dispatch:
+    inputs:
+      volume:
+        description: 'Max events to post this run'
+        required: false
+        default: '3'
+        type: string
+      dry_run:
+        description: 'Skip Graph API call (preview only)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+# Serialize so two runs never post-and-commit the ledger concurrently (the only
+# writer of data/fb-posted-events.json).
+concurrency:
+  group: fb-events-schedule
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # to commit fb-posted-events.json
+  issues: write
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Post FB events
+        env:
+          FB_EVENT_VOLUME: ${{ github.event.inputs.volume || '3' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: node scripts/schedule-fb-events-daily.mjs
+
+      - name: Commit posted-events tracking
+        if: success() && github.event.inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/fb-posted-events.json 2>/dev/null; then
+            echo "no changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fb-posted-events.json
+          git commit -m "📅 Track posted FB events"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then echo "push ok"; exit 0; fi
+            git fetch origin main || true
+            git rebase origin/main || { git rebase --abort; sleep 2; continue; }
+            sleep $((attempt * 2))
+          done
+          echo "::warning::push failed after 5 attempts"

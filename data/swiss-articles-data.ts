@@ -2096,6 +2096,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nuovi-frontalieri-poveri',
+    category: 'fiscale',
+    date: '2026-06-29T06:48:33.670Z',
+    image: '/images/blog/nuovi-frontalieri-poveri.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -32,6 +32,7 @@ import {
  type Job as RawJob,
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
+import { cantonSearchTokens } from '@/services/cantonList';
 import {
  type BehaviorData,
  getBehaviorData,
@@ -222,7 +223,7 @@ function getBroadenHaystack(job: JobListing, locale: string): string {
   const description = job.descriptionByLocale?.[locale] ?? job.description;
   const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
   const hay = buildStemmedHaystack(
-    `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description || ''}`,
+    `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description || ''}`,
   );
   broadenHaystackCache.set(job, { locale, hay });
   return hay;
@@ -1729,7 +1730,7 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  if (queryTokens.length === 0) return true;
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
- const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${description}`);
+ const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description}`);
  return queryTokens.every((token) => haystack.includes(token));
 }
 
@@ -1812,6 +1813,42 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  </article>
 ));
 JobCard.displayName = 'JobCard';
+
+/**
+ * JobBoardRailShell — wraps a cerca-lavoro listing/editorial page view in the
+ * same monetisation chrome the job-detail view already carries (#2948): a
+ * desktop top leaderboard + the 3-column full-height side-rail grid (180px rails
+ * @xl widening to 300px @xlw, half-page creatives only at xlw). Below xl it
+ * collapses to a single column, so mobile/tablet layout is byte-identical to
+ * before. Module-level (never defined inside render) so the persistent GPT rail
+ * slots are not remounted as the visitor navigates between board views.
+ *
+ * The center column keeps its own `space-y-6` rhythm (the wrapped branch root),
+ * so existing listing/editorial spacing is unchanged; the shell only adds the
+ * banner above and the rail gutters beside it.
+ */
+const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode }> = ({ isDesktopLg, children }) => (
+ <div className="space-y-6">
+ {isDesktopLg && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
+ minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
+ />
+ )}
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="left" /></Suspense>
+ </aside>
+ <div className="min-w-0">{children}</div>
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <Suspense fallback={null}><ArticleRailAdStack side="right" /></Suspense>
+ </aside>
+ </div>
+ </div>
+);
+JobBoardRailShell.displayName = 'JobBoardRailShell';
 
 const JobBoard: React.FC<JobBoardProps> = ({
  onPostJob,
@@ -1912,6 +1949,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // still stale. A 0-result search holds the skeleton until this is true instead
  // of flashing "0 / no results" during the cross-locale processing window.
  const [crossLocaleSettled, setCrossLocaleSettled] = useState(false);
+ // Flips true once the company-hub broadening (Tier 3.5) fallback has fully
+ // settled — i.e. AFTER the locale-wide pool fetch + parse/dedup AND
+ // `setUnscopedJobs`. Same batching guarantee as `crossLocaleSettled`: set in
+ // the same batch as the results so there is never a frame where it reads
+ // "settled" while the 0-result count is still stale. A company-only view (no
+ // search) holds the skeleton until this is true instead of flashing "0 / no
+ // results" during the pool-processing window.
+ const [companyBroadenSettled, setCompanyBroadenSettled] = useState(false);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
@@ -2915,7 +2960,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Stemmed + space-padded haystack so query matching tolerates Italian
  // plural/feminine variants (pulizie ↔ pulizia, infermieri ↔ infermiera)
  // while still requiring word-boundary alignment (cas ≠ cassa).
- map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description}`));
+ map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description}`));
  }
  if (i < sortedJobs.length) {
  requestAnimationFrame(processChunk);
@@ -3309,6 +3354,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(err, 'jobBoard.loadJobs.companyBroaden');
  } finally {
  setPendingFallbacks((n) => n - 1);
+ // Mark the terminal company-broaden fallback settled (batched with
+ // setUnscopedJobs on the success path, so results + settled flip together —
+ // no stale-0 frame). Mirrors the crossLocaleSettled pattern for Tier 4.
+ if (!cancelled) setCompanyBroadenSettled(true);
  }
  })();
  return () => { cancelled = true; };
@@ -3502,6 +3551,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flips true batched with the results, after which a still-empty set falls
  // through to the genuine empty-state (so a truly empty query isn't stuck).
  || (Boolean(deferredSearchQuery.trim()) && !crossLocaleSettled)
+ // Terminal company-broaden fallback (Tier 3.5) hasn't fully SETTLED yet.
+ // For a company-only view (no search) the in-canton tiers are empty, so
+ // this fetch fires and may still bring results — hold the skeleton across
+ // its entire lifecycle (fetch + parse/dedup of the locale-wide pool), not
+ // just until it's attempted, so the count never flashes "0" mid-processing.
+ // `settled` flips true batched with the results; a still-empty set then
+ // falls through to the genuine empty-state (not stuck). Mirrors the
+ // crossLocaleSettled guard for the search path (Tier 4).
+ || (Boolean(companySlugFilter) && !deferredSearchQuery.trim() && !companyBroadenSettled)
  // The query-match search index (`searchIndex`) is built incrementally over
  // the loaded jobs via rAF chunks and only committed when complete. Until it
  // covers every loaded job, `indexedQueryMatch` returns no hits, so a search
@@ -5497,6 +5555,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialJobTodayLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5591,11 +5650,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialOfficialGazetteLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5710,11 +5771,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialNursesHubLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5818,12 +5881,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialCareVariantLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialCareVariantLanding.parentHubHref);
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -5916,11 +5981,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialLocationLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6029,12 +6096,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialLocationTypeLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationTypeLanding.parentLocationHref);
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6126,12 +6195,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialLocationSectorLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationSectorLanding.parentLocationHref);
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6223,11 +6294,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
  if (editorialSectorRegionLanding) {
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -6320,6 +6393,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {authGateModalJsx}
  </div>
+ </JobBoardRailShell>
  );
  }
 
@@ -7647,6 +7721,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return (
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
  {searchSlugFilter && (
  <div className="rounded-xl border border-accent-border bg-accent-subtle p-3 text-sm text-accent flex items-center justify-between gap-3">
@@ -8344,6 +8419,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  </div>
+ </JobBoardRailShell>
  );
 };
 

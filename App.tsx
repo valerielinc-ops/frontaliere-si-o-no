@@ -19,11 +19,18 @@ const unlockAchievement = (id: string) => {
 
 
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
-const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
-const FeatureSurvey = lazyRetry(() => import('@/components/community/FeatureSurvey'));
-const OfferwallNewsletterGate = lazyRetry(() => import('@/components/community/OfferwallNewsletterGate'));
+// Newsletter/community popups are NON-CRITICAL overlays. Use React.lazy (NOT
+// lazyRetry) + SilentErrorBoundary (see SafeLazy below) so a chunk-load failure
+// silently degrades the popup instead of force-reloading the page and then —
+// after lazyRetry's once-per-session reload guard trips — escalating the second
+// failure to the top-level ErrorBoundary and blanking the whole page (observed
+// on a Google-Jobs job-detail page; PostHog "Failed to fetch dynamically
+// imported module: .../NewsletterPopup.js", ref cwji52). Same rationale as
+// WhatsNewModal below.
+const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
+const OfferwallNewsletterGate = React.lazy(() => import('@/components/community/OfferwallNewsletterGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
-const NewsletterMount = lazyRetry(() => import('@/components/community/NewsletterMount'));
+const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
@@ -32,6 +39,21 @@ const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
 // of calling window.location.reload() mid-flight (disrupts newsletter autologin).
 const WhatsNewModal = React.lazy(() => import('@/components/community/WhatsNewModal'));
 const WhatsNewBellLazy = React.lazy(() => import('@/components/community/WhatsNewModal').then(m => ({ default: m.WhatsNewBell })));
+
+// ── SafeLazy ────────────────────────────────────────────────────────────────
+// Wraps a NON-CRITICAL lazy widget (popups, ad rails, footer chrome) so a
+// chunk-load failure or render error degrades the widget to `fallback`
+// (default: nothing) via SilentErrorBoundary, instead of escalating to the
+// top-level ErrorBoundary and blanking the whole page. Suspense lives INSIDE the
+// boundary so both the pending promise and the eventual reject are contained.
+// NEVER use for primary page content — that must surface real errors to the user.
+function SafeLazy({ boundary, fallback = null, children }: { boundary: string; fallback?: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <SilentErrorBoundary boundary={boundary}>
+      <Suspense fallback={fallback}>{children}</Suspense>
+    </SilentErrorBoundary>
+  );
+}
 
 // Lazy-loaded components — still used in secondary tabs / non-extracted sections
 const FeedbackSection = lazyRetry(() => import('@/components/community/FeedbackSection').then(m => ({ default: m.FeedbackSection })));
@@ -2381,7 +2403,7 @@ const App: React.FC = () => {
  >
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></Suspense>
+ <SafeLazy boundary="rail-ad-left"><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></SafeLazy>
  </aside>
  )}
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10 ${
@@ -2407,12 +2429,12 @@ const App: React.FC = () => {
  <h2 className="text-sm font-bold uppercase tracking-wider text-subtle mt-12 mb-4">
  Hub rapidi frontaliere
  </h2>
- <Suspense fallback={null}>
+ <SafeLazy boundary="hub-seo-daily">
  <SeoDailyBanner className="mb-4" />
- </Suspense>
- <Suspense fallback={null}>
+ </SafeLazy>
+ <SafeLazy boundary="hub-quick-links">
  <QuickLinksGrid className="mb-6" />
- </Suspense>
+ </SafeLazy>
  </>
  )}
  </>
@@ -2685,7 +2707,7 @@ const App: React.FC = () => {
  </main>
  {sideRailEligible && (
  <aside className="ft-rail-aside hidden xlw:flex xlw:flex-col">
- <Suspense fallback={null}><ArticleRailAdStack side="right" narrow onEmptyResolved={handleRightRailEmpty} /></Suspense>
+ <SafeLazy boundary="rail-ad-right"><ArticleRailAdStack side="right" narrow onEmptyResolved={handleRightRailEmpty} /></SafeLazy>
  </aside>
  )}
  </div>
@@ -2703,10 +2725,10 @@ const App: React.FC = () => {
    const rightTarget = document.getElementById('rail-right-root');
    if (!leftTarget && !rightTarget) return null;
    return (
- <Suspense fallback={null}>
+ <SafeLazy boundary="rail-ad-static">
  {leftTarget && createPortal(<ArticleRailAdStack side="left" />, leftTarget)}
  {rightTarget && createPortal(<ArticleRailAdStack side="right" />, rightTarget)}
- </Suspense>
+ </SafeLazy>
    );
  })()}
 
@@ -2731,16 +2753,16 @@ const App: React.FC = () => {
  <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10">
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
- <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>
+ <SafeLazy boundary="footer-weather" fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></SafeLazy>
 
  {/* Newsletter signup — inline in footer for persistent visibility */}
  <div className="max-w-xl mx-auto">
- <Suspense fallback={null}><NewsletterInline compact /></Suspense>
+ <SafeLazy boundary="footer-newsletter"><NewsletterInline compact /></SafeLazy>
  </div>
 
  {/* Donation banner */}
  <div className="max-w-xl mx-auto">
- <Suspense fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><DonationBanner variant="inline" /></Suspense>
+ <SafeLazy boundary="footer-donation" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><DonationBanner variant="inline" /></SafeLazy>
  </div>
 
  {/* Version badge with GitHub link */}
@@ -2764,9 +2786,9 @@ const App: React.FC = () => {
  {t('footer.disclaimer')}
  </p>
  {/* Layer 2B — Close orphan sitemap: top weekly {company × city} pages. */}
- <Suspense fallback={null}>
+ <SafeLazy boundary="footer-weekly-employers">
  <WeeklyEmployersTeaser />
- </Suspense>
+ </SafeLazy>
  {/* Layer 2A — Internal linking: freshly-updated SEO resources, desktop + mobile */}
  <nav
  aria-label={t('seoLinks.footer.title')}
@@ -3454,21 +3476,18 @@ const App: React.FC = () => {
  </div>
  </nav>
 
- <Suspense fallback={null}>
- <NewsletterPopup />
- <FeatureSurvey />
- <OfferwallNewsletterGate />
- <NewsletterMount />
+ <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
+ <SafeLazy boundary="offerwall-gate"><OfferwallNewsletterGate /></SafeLazy>
+ <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  {showWhatsNew && (
- <SilentErrorBoundary boundary="whats-new-modal">
+ <SafeLazy boundary="whats-new-modal">
  <WhatsNewModal
  open={showWhatsNew}
  onClose={() => setShowWhatsNew(false)}
  />
- </SilentErrorBoundary>
+ </SafeLazy>
  )}
- </Suspense>
- <Suspense fallback={null}>
+ <SafeLazy boundary="ai-chatbot">
  {/* Hide the floating AI assistant on the job-detail page: its bottom-right
  bubble overlaps the job-alert prompt toast and the apply CTA. */}
  {!(activeTab === 'job-board' && jobSlug) && (
@@ -3480,7 +3499,7 @@ const App: React.FC = () => {
  hideOnMobile={activeTab === 'blog'}
  />
  )}
- </Suspense>
+ </SafeLazy>
  </div>
  </NavigationContext.Provider>
  </TabContentContext.Provider>
