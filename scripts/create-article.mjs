@@ -2315,25 +2315,31 @@ ASSICURAZIONI:
 `;
 
 // ── Compact verified-facts brief for the GENERATION prompt (evergreen) ──
-// PR #3009 injected the FULL VERIFIED_DOMAIN_FACTS sheet (~607 tokens) into the
-// evergreen generation source content to align generator and fact-checker on
-// the same ground truth. That fixed the consensus-block (fact-check now PASSes)
-// but inflated the generation prompt from ~7800 to ~8300 tokens, tipping it
-// over the 8000-token input cap of several otherwise-available models
-// (gpt-4.1-mini/nano, Llama-3.3-70B, Meta-Llama-3.1-405B, Cohere-command-a,
-// Phi-4 → HTTP 413 tokens_limit_reached), shrinking the free-tier pool and
-// re-triggering "tutti i modelli esauriti" defers.
+// PR #3009 injected the FULL VERIFIED_DOMAIN_FACTS sheet into the evergreen
+// generation source content to align generator and fact-checker on the same
+// ground truth. That fixed the consensus-block (fact-check now PASSes) but
+// inflated the generation prompt enough to tip regeneration attempts over the
+// 8000-token input cap of several otherwise-available models (gpt-4.1-mini/
+// nano, Llama-3.3-70B, Meta-Llama-3.1-405B, Cohere-command-a, Phi-4 → HTTP 413
+// tokens_limit_reached, observed at estimated ~8309 on run 28353924029),
+// shrinking the free-tier pool and re-triggering "tutti i modelli esauriti".
 //
-// This compact brief (~300 tokens) keeps ONLY the facts the consensus
-// fact-checker HARD-BLOCKS on (`llmFactCheck` / VERIFIED_DOMAIN_FACTS, used in
-// full there): imposta alla fonte location, accordo dates, franchigia/
-// transitional, convenzione date, the load-bearing CH/IT aliquote, and the
-// valid-institution acronyms. The generator now sees these exact values, so it
-// can't diverge into a `critical` on the topics where free models actually go
-// wrong — while the prompt stays under the 8000-token cap. Softer facts (e.g.
-// frontalieri headcount, valichi geography) are intentionally dropped: they are
-// not in the unconditional-block criteria, and every extra line eats the thin
-// headroom over the base ~7575-token generation prompt.
+// This compact brief keeps ONLY the facts the consensus fact-checker
+// HARD-BLOCKS on (`llmFactCheck` / VERIFIED_DOMAIN_FACTS, used in full there):
+// imposta alla fonte location, accordo dates, franchigia/transitional,
+// convenzione date, the load-bearing CH/IT aliquote, the valid-institution
+// acronyms, and the LAMal definition. The generator now sees these exact
+// values, so it can't diverge into a `critical` on the topics where free models
+// actually go wrong — while keeping the prompt small. Softer facts (frontalieri
+// headcount, valichi geography) are intentionally dropped: not in the
+// unconditional-block criteria, and every line eats prompt headroom.
+//
+// Measured (runtime estimateRequestTokens, the same heuristic the model-skip
+// guard at ai-models.mjs uses) on the ASSEMBLED first-attempt evergreen prompt
+// with this brief: estTokens=7200 — ~800 under the 8000 cap, so the 8000-bracket
+// models are back in the pool. Regeneration attempts append fact-check feedback
+// (pre-existing behaviour shared by all sections); this brief keeps that path
+// strictly smaller than the #3009 full-sheet version.
 const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi da questi valori):
 - Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
 - Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
@@ -2934,8 +2940,9 @@ async function fetchPageContent(url) {
   // REGOLA #1 ("ogni fatto DEVE essere presente nel SOURCE CONTENT") then works
   // FOR convergence instead of against it: the model rewrites from the exact
   // values the fact-checker validates against. No gate is lowered. The brief is
-  // deliberately compact (EVERGREEN_FACTS_BRIEF, ~230 tokens) so the prompt
-  // stays under the 8000-token model input cap — see the constant's note.
+  // deliberately compact (EVERGREEN_FACTS_BRIEF) so the assembled first-attempt
+  // prompt measures estTokens=7200, under the 8000-token model input cap — see
+  // the constant's note for the measurement.
   if (url.startsWith('evergreen://')) {
     const keyword = process.env._EVERGREEN_KEYWORD || decodeURIComponent(url.replace('evergreen://', ''));
     const angle = process.env._EVERGREEN_ANGLE || '';
