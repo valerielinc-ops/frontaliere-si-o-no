@@ -5698,13 +5698,16 @@ function checkForDuplicates(data) {
       throw new Error(`❌ Slug "${locale}" mancante prima del controllo duplicati (data.slugs.${locale}=${newSlug}).`);
     }
     // Anchor on the matching locale slot, not any quoted token: the slug-data
-    // file stores all four locales as single-quoted strings on one line
-    // (`'id': { it: '…', en: '…', de: '…', fr: '…' }`), so an unanchored
-    // `'<slug>'` match false-positives when a new slug for one locale equals an
-    // existing value in a DIFFERENT locale-slot. Scoping to `${locale}:` checks
-    // it-vs-it, en-vs-en, … so cross-locale coincidences don't false-trip while
-    // genuine same-locale collisions are caught.
-    const slugPattern = new RegExp(`\\b${locale}:\\s*'${escapeRegex(newSlug)}'`, 'g');
+    // file stores all four locales as strings per entry, either on a single line
+    // (`'id': { it: '…', en: '…', de: '…', fr: '…' }`) or expanded across
+    // lines — both formats appear in routerSwissData.ts. `\s*` covers both.
+    // Double-quote variant (`it: "…"`) is also matched: a formatter or manual
+    // edit could switch quote style and a single-quote-only regex would silently
+    // miss the collision (silent zero-check). Both cases share the backreference
+    // guard so `it: 'slug"` (mixed quotes) never false-positives.
+    // Scoping to `${locale}:` checks it-vs-it, en-vs-en, … so cross-locale
+    // coincidences don't false-trip while genuine same-locale collisions are caught.
+    const slugPattern = new RegExp(`\\b${locale}:\\s*(['"])${escapeRegex(newSlug)}\\1`, 'g');
     if (slugPattern.test(sectionSlugSrc)) {
       throw new Error(`❌ DUPLICATO: Lo slug ${locale} "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
     }
