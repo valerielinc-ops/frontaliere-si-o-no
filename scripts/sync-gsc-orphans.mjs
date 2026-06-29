@@ -32,6 +32,7 @@ import {
   buildOrphanLocalePaths,
 } from './lib/orphan-canton-paths.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
+import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1123,8 +1124,10 @@ async function main() {
   // Search Analytics (no impressions/clicks). They get thin "Pagina archiviata" compat
   // pages at build time — feeding them into the orphan pipeline gives them proper
   // soft-landing pages with enriched content instead.
-  const compatPathsFile = dataPath('seo-404-compat-paths.json');
-  const compatData = readJsonSafe(compatPathsFile);
+  // Sharded accumulator (issue #2988): logical {paths} spread across shards;
+  // always go through readCompatPaths/writeCompatPaths, never a single file.
+  const compatPathsFile = dataPath('seo-404-compat');
+  const compatData = readCompatPaths(ROOT);
   if (compatData?.paths && Array.isArray(compatData.paths)) {
     // Canton-aware: the previous regex matched ONLY the four Ticino sections,
     // so every non-TI compat job path (grigioni, vallese, zurigo, soletta, …)
@@ -1273,10 +1276,10 @@ async function main() {
       // write TRONCA i centinaia di migliaia di path buoni a poche migliaia. prevCount
       // da una lettura on-disk fresca; il guard condiviso aborta se il write scende
       // sotto floor mentre l'esistente è già grande (stessa semantica di discover-404s).
-      const prevCount = readJsonSafe(compatPathsFile)?.paths?.length ?? 0;
+      const prevCount = readCompatPaths(ROOT)?.paths?.length ?? 0;
       assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatPathsFile });
-      fs.writeFileSync(compatPathsFile, JSON.stringify(updatedCompat, null, 2) + '\n');
-      console.log(`  ✅ Fed back ${feedbackAdded} orphan paths to seo-404-compat-paths.json`);
+      writeCompatPaths(updatedCompat, ROOT);
+      console.log(`  ✅ Fed back ${feedbackAdded} orphan paths to the seo-404-compat store`);
     } else {
       console.log(`  📝 No new orphan paths to feed back`);
     }

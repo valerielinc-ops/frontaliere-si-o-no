@@ -60,12 +60,14 @@ import { fileURLToPath } from 'node:url';
 
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
+import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
 const DOWNLOADS_DIR = path.join(ROOT, 'download');
 const COVERAGE_OUT = path.join(ROOT, 'data', 'gsc-coverage-404s.json');
-const COMPAT_PATH = path.join(ROOT, 'data', 'seo-404-compat-paths.json');
+// Sharded accumulator (issue #2988): use the store, never a single file.
+const COMPAT_PATH = path.join(ROOT, 'data', 'seo-404-compat');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const ALSO_COMPAT = process.argv.includes('--also-compat');
@@ -201,7 +203,7 @@ function main(): void {
   let prevCompat: string[] = [];
   let compatUnion: string[] = [];
   if (ALSO_COMPAT) {
-    prevCompat = readPaths(COMPAT_PATH);
+    prevCompat = readCompatPaths(ROOT).paths.map((p) => String(p));
     // Use coverageUnion (full accumulated coverage set) not just `seen` (current CSV batch):
     // on subsequent runs without new CSVs the existing 999 coverage paths would otherwise
     // be silently skipped, leaving TI paths without rich soft-landings.
@@ -229,20 +231,12 @@ function main(): void {
   );
   let wrote = 'data/gsc-coverage-404s.json';
   if (ALSO_COMPAT) {
-    // Preserve any extra metadata keys on the compat file (source/lastUpdated).
-    let compatMeta: Record<string, unknown> = { source: 'gsc-export+url-inspection' };
-    try {
-      const existing = JSON.parse(fs.readFileSync(COMPAT_PATH, 'utf-8'));
-      if (existing && typeof existing === 'object') {
-        compatMeta = { ...existing } as Record<string, unknown>;
-        delete compatMeta.paths;
-      }
-    } catch { /* use default meta */ }
-    fs.writeFileSync(
-      COMPAT_PATH,
-      JSON.stringify({ ...compatMeta, paths: compatUnion, lastUpdated: today }, null, 2) + '\n',
-    );
-    wrote += ' + data/seo-404-compat-paths.json';
+    // Preserve any extra metadata keys on the compat store (source/lastUpdated).
+    const existing = readCompatPaths(ROOT);
+    const { paths: _ignored, ...compatMeta } = existing as Record<string, unknown> & { paths?: unknown };
+    if (!compatMeta.source) compatMeta.source = 'gsc-export+url-inspection';
+    writeCompatPaths({ ...compatMeta, paths: compatUnion, lastUpdated: today }, ROOT);
+    wrote += ' + data/seo-404-compat/';
   }
   console.log(`[ingest-gsc-coverage] wrote ${wrote}`);
 }

@@ -17,13 +17,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fingerprintJob, loadSlugRegistry } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { readCompatPaths } from './lib/compat-paths-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
-const COMPAT_PATHS = path.resolve(ROOT, 'data', 'seo-404-compat-paths.json');
 
 const JOB_PATH_PREFIX = '/cerca-lavoro-ticino/';
 
@@ -117,9 +117,7 @@ function main() {
     return;
   }
 
-  const compat = fs.existsSync(COMPAT_PATHS)
-    ? JSON.parse(fs.readFileSync(COMPAT_PATHS, 'utf8'))
-    : { paths: [] };
+  const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
   const paths = Array.isArray(compat.paths) ? compat.paths : [];
 
   // Build index: companyKey → jobs

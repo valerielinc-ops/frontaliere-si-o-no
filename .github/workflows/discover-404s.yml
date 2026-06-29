@@ -3,7 +3,7 @@ name: Discover 404s via URL Inspection
 # Proactively inspects a rotating batch of known URLs (active job paths,
 # previous slugs, compat paths) using the GSC URL Inspection API to detect
 # 404 status changes. URLs that Google reports as NOT_FOUND/SOFT_404 are
-# appended to `data/seo-404-compat-paths.json` so the build pipeline
+# appended to the sharded `data/seo-404-compat/` store so the build pipeline
 # generates a soft-landing page. URLs that recovered are dropped.
 #
 # This compensates for Google's lack of a Coverage-drilldown API — the only
@@ -126,8 +126,9 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-          # Stage only the files this workflow is responsible for
-          git add data/seo-404-compat-paths.json data/inspection-state.json || true
+          # Stage only the files this workflow is responsible for.
+          # seo-404-compat is sharded across data/seo-404-compat/part-*.json (#2988).
+          git add data/seo-404-compat data/inspection-state.json || true
 
           if git diff --cached --quiet; then
             echo "📭 No changes to commit"
@@ -138,14 +139,14 @@ jobs:
           git commit -m "chore: discover 404s via URL Inspection sweep
 
           Automated sweep via GSC URL Inspection API. Paths flagged as
-          NOT_FOUND/SOFT_404 are added to seo-404-compat-paths.json so
+          NOT_FOUND/SOFT_404 are added to the seo-404-compat store so
           the next build generates a soft-landing page at those URLs.
           URLs that recovered are dropped from compat."
 
           # Centralized rebase-retry helper survives concurrent pushes from
-          # other workflows. `data/seo-404-compat-paths.json` is shared with
-          # sync-gsc-orphans.yml and a handful of slug-maintenance scripts,
-          # so a rebase conflict on `paths` is possible (run 25716042219).
+          # other workflows. The sharded `data/seo-404-compat/` store is shared
+          # with sync-gsc-orphans.yml and a handful of slug-maintenance scripts,
+          # so a rebase conflict on a shard's `paths` is possible (run 25716042219).
           # The in-place resolver does a 3-way set merge:
           #   final = upstream ∪ (local − base) − (base − local)
           # `data/inspection-state.json` is single-writer (this workflow);
@@ -159,9 +160,9 @@ jobs:
       - name: Trigger deploy if compat changed
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
         run: |
-          # Only trigger a deploy if the compat file itself changed — state-
+          # Only trigger a deploy if the compat store itself changed — state-
           # file-only updates don't affect the built site.
-          COMPAT_CHANGED=$(git diff HEAD~1 --name-only -- data/seo-404-compat-paths.json | wc -l)
+          COMPAT_CHANGED=$(git diff HEAD~1 --name-only -- data/seo-404-compat | wc -l)
           if [ "$COMPAT_CHANGED" -gt 0 ]; then
             echo "🚀 Compat file updated — triggering deploy"
             bash scripts/lib/trigger-deploy.sh

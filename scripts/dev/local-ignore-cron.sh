@@ -45,7 +45,7 @@ PATHS=(
 
   # SEO / GSC pipelines
   "data/gsc-orphan-queries-clusters.json"
-  "data/seo-404-compat-paths.json"
+  "data/seo-404-compat/*"
   "data/seo-serp-autopilot-last-run.json"
   "data/seo-serp-experiment-history.json"
   "data/seo-snapshots/*"

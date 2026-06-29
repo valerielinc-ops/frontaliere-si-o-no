@@ -19,11 +19,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { readCompatPaths } from './lib/compat-paths-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-const COMPAT = path.resolve(ROOT, 'data/seo-404-compat-paths.json');
 const ORPHAN_ENRICHED = path.resolve(ROOT, 'data/orphan-enriched-data.json');
 const ORPHAN_SLUGS = path.resolve(ROOT, 'data/orphan-indexed-job-slugs.json');
 const JOBS = path.resolve(ROOT, 'data/jobs.json');
@@ -143,7 +143,7 @@ function main() {
 
   console.log(`🔄 enrich-compat-orphan-slugs — ${dryRun ? 'DRY RUN' : 'LIVE'}`);
 
-  const compat = readJson(COMPAT, { paths: [] });
+  const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
   const compatPaths = Array.isArray(compat.paths) ? compat.paths : [];
   const enriched = readJson(ORPHAN_ENRICHED, []);
   const orphanSlugsList = readJson(ORPHAN_SLUGS, []);

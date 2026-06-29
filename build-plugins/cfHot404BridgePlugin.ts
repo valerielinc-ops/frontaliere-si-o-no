@@ -30,6 +30,7 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
 
 // Legacy per-canton related-search cluster URLs (old slug format, now 404). The
@@ -135,14 +136,9 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       // upgrades the existing hot-list + GSC bridges to real pages without it.
       const ACCUMULATOR_SYNTHETIC_HITS = 1;
       if (process.env.CF_HOT_404_INCLUDE_ACCUMULATOR === '1') {
-        const accumulatorFile = path.resolve(rootDir, 'data/seo-404-compat-paths.json');
-        if (fs.existsSync(accumulatorFile)) {
-          try {
-            const raw = JSON.parse(fs.readFileSync(accumulatorFile, 'utf-8'));
-            for (const p of (Array.isArray(raw?.paths) ? raw.paths : []) as unknown[]) {
-              addPath(p, ACCUMULATOR_SYNTHETIC_HITS);
-            }
-          } catch { /* unreadable accumulator — use the hot-list + coverage union */ }
+        // Sharded accumulator (issue #2988): union via the store helper.
+        for (const p of readCompatPaths(rootDir).paths as unknown[]) {
+          addPath(p, ACCUMULATOR_SYNTHETIC_HITS);
         }
       }
       if (hitsByPath.size === 0) return;

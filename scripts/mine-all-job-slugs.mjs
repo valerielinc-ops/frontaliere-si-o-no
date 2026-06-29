@@ -21,6 +21,7 @@ import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
+import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -222,7 +223,7 @@ function mineOrphanData() {
 
 function mineCompatPaths() {
   const slugs = new Map();
-  const compat = readJson(dataPath('seo-404-compat-paths.json'));
+  const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
   if (!compat?.paths) return slugs;
 
   for (const p of compat.paths) {
@@ -475,8 +476,8 @@ function main() {
   }
 
   // Update compat paths: add ALL tracking paths as safety net
-  const compatFile = dataPath('seo-404-compat-paths.json');
-  const compat = readJson(compatFile) || { paths: [] };
+  const compatFile = dataPath('seo-404-compat'); // sharded dir (issue #2988)
+  const compat = readCompatPaths(ROOT) || { paths: [] };
   const existingCompat = new Set(compat.paths);
   let compatAdded = 0;
 
@@ -501,13 +502,13 @@ function main() {
       lastUpdated: new Date().toISOString().split('T')[0],
     };
     // Floor-guard (#1353): additive writer (same class as discover-404s/sync-gsc-orphans).
-    // readJson() returns null on a corrupt file → `compat={paths:[]}` → existingCompat
+    // readCompatPaths() returns {paths:[]} on a corrupt/empty store → existingCompat
     // seeded only from tracking → this write TRUNCATES the accumulator. Re-read on-disk
     // for an authoritative prevCount and abort via the shared guard if it would shrink
     // below the floor while a large version exists.
-    const prevCount = readJson(compatFile)?.paths?.length ?? 0;
+    const prevCount = readCompatPaths(ROOT)?.paths?.length ?? 0;
     assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatFile });
-    fs.writeFileSync(compatFile, JSON.stringify(updatedCompat, null, 2) + '\n');
+    writeCompatPaths(updatedCompat, ROOT);
     console.log('\n  ✅ Files written');
   } else {
     console.log('\n  🔍 Dry run — no files written');

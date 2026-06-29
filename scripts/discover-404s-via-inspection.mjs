@@ -35,6 +35,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
+import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -152,7 +153,7 @@ function collectCandidatePaths() {
   // 3. Existing compat paths — they're already flagged, but re-inspecting
   // confirms Google still sees them as 404 (vs. recovered / redirected) and
   // captures any state changes.
-  const compat = readJsonSafe(dataPath('seo-404-compat-paths.json'), { paths: [] });
+  const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
   if (Array.isArray(compat.paths)) {
     for (const p of compat.paths) {
       if (typeof p === 'string' && p.startsWith('/')) paths.add(p.replace(/\/+$/, ''));
@@ -212,8 +213,9 @@ async function main() {
     return;
   }
 
-  const compatPath = dataPath('seo-404-compat-paths.json');
-  const compat = readJsonSafe(compatPath, { paths: [], source: 'gsc-export' });
+  const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
+  const compat = readCompatPaths(ROOT);
+  if (!compat.source) compat.source = 'gsc-export';
   if (!Array.isArray(compat.paths)) compat.paths = [];
   const compatSet = new Set(compat.paths);
 
@@ -321,7 +323,7 @@ async function main() {
     // floor 150000 violato). Guard condiviso in scripts/lib/compat-paths-floor-guard.mjs
     // (stessa semantica per tutti i writer del compat): fire solo se il write
     // scende sotto floor MENTRE l'esistente è già grande. ABORTISCE rumorosamente.
-    const prevCount = readJsonSafe(compatPath, { paths: [] }).paths?.length ?? 0;
+    const prevCount = readCompatPaths(ROOT).paths?.length ?? 0;
     try {
       assertCompatFloor(prevCount, updatedCompat.paths.length, {
         floor: COMPAT_PATHS_SANITY_FLOOR,
@@ -331,7 +333,7 @@ async function main() {
       console.error(err.message);
       process.exit(1);
     }
-    fs.writeFileSync(compatPath, JSON.stringify(updatedCompat, null, 2) + '\n');
+    writeCompatPaths(updatedCompat, ROOT);
     console.log(`\n✅ Wrote ${compatPath} (${updatedCompat.paths.length} total paths)`);
   } else {
     console.log('\n✅ Inspection state updated (no compat changes)');
