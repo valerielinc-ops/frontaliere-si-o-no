@@ -96,6 +96,18 @@ const EMPTY_OK_CRAWLERS = new Set([
   // shows "Assunzioni personale (0) — Nessun documento trovato". The
   // municipality has no active public competitions right now; parser is healthy.
   'citta-di-locarno',
+  // Città di Mendrisio: the concorsi page
+  // (https://mendrisio.ch/home/lavorare/lavorare-per-la-citta/concorsi-di-lavoro.html)
+  // loads its openings via the AJAX endpoint
+  // (.../concorsi-di-lavoro/content/04.html?ajax=true), which currently returns
+  // HTTP 200 with an empty "<div></div>" (no <article class="document"> blocks).
+  // The only recent listing ("Presidente aggiunto", deadline 2026-06-26) expired
+  // and was removed from the source, so the municipality has 0 open public
+  // competitions right now. The AJAX URL is unchanged and the parser last
+  // extracted a job on 2026-06-25, so it is healthy and re-arms when a new
+  // concorso is published. Same legitimately-empty Ticino-municipality case as
+  // citta-di-locarno and csvp-poschiavo.
+  'citta-di-mendrisio',
   // ALTEN Switzerland: the crawler is scoped to TI/GR openings only
   // (https://www.alten.ch/career/jobs/). The consultancy currently lists no
   // Ticino/Graubünden roles; same legitimately-empty regional-filter case as
