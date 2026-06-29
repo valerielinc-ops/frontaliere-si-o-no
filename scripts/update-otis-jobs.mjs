@@ -43,7 +43,6 @@ import {
   inferEmploymentType,
   buildPublicUrl,
 } from './lib/otis-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -54,7 +53,6 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'otis';
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Otis SA';
 
 function isCompanyJob(job) {
@@ -112,12 +110,14 @@ async function main() {
     const description = detail.description;
     const publicUrl = buildPublicUrl(raw.externalPath);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    // Prefer detail city (from full location text) over listing city
-    const city = detail.city || raw.city || 'Ticino';
+    // Prefer detail city (from full location text) over listing city. No Ticino
+    // default — Otis runs a national service network; leave blank when unresolved
+    // so the PLZ/locality hardening derives it instead of mislabeling on TI.
+    const city = detail.city || raw.city || '';
     // City-first: resolve the (detail-preferred) city alone before the raw
     // listing location, so the more authoritative city wins over the array-order
     // sensitivity of a combined string.
-    const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail.canton || DEFAULT_CANTON;
+    const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail.canton || '';
     const jobSlug = slugify(`${raw.title}-otis-${safeLocationToken(city, 'Ticino')}`);
     parsedJobs.push({
       id: `otis-${urlHash}`,

@@ -78,7 +78,10 @@ export function isSkyguideTargetLocation(raw = '') {
 }
 
 export function inferSkyguideCanton(raw = '') {
-  return inferAnyCanton(raw) || 'TI';
+  // No Ticino default — Skyguide's two area control centres are in Geneva (GE)
+  // and Dübendorf (ZH), plus towers nationwide. Leave blank when unresolved;
+  // the downstream hardening derives the canton from the city.
+  return inferAnyCanton(raw) || '';
 }
 
 export function parseSkyguideJobDetail(html = '') {
@@ -121,7 +124,7 @@ export function parseSkyguideJobDetail(html = '') {
 
 export function buildSkyguideLocalizedContent(detail = {}, companyName = 'Skyguide') {
   const title = String(detail.title || '').trim();
-  const location = String(detail.location || '').trim() || 'Ticino';
+  const location = String(detail.location || '').trim() || 'Svizzera';
   const description = String(detail.description || '').trim();
   return {
     titleByLocale: {

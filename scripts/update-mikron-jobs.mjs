@@ -18,8 +18,9 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_AGNO_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
+import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_CAREERS_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -104,15 +105,39 @@ function buildFallbackDescription(title, division, locale = 'en') {
   return `Open position: ${title} at Mikron Group in Agno, Canton Ticino, Switzerland.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with operations worldwide. The Mikron Machining division, based in Agno (Ticino), specializes in the design and production of high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
 }
 
-async function fetchMikronJobs() {
-  console.log(`🔍 Fetching Mikron Group Agno jobs`);
-  console.log(`   URL: ${MIKRON_AGNO_URL}`);
+// Known Swiss site addresses, keyed by city. Other cities fall back to the
+// PLZ/city enrichment downstream (street/postalCode left empty).
+const MIKRON_SITE_ADDRESS = {
+  agno:   { postalCode: '6982', streetAddress: 'Via Ginnasio 17, 6982 Agno' },
+  boudry: { postalCode: '2017', streetAddress: 'Route du Vignoble 17, 2017 Boudry' },
+};
 
-  const html = await fetchPage(MIKRON_AGNO_URL);
+/** Resolve {city, canton, postalCode, streetAddress} from a "Country, City" location.
+ * A blank canton means non-Swiss/unresolved — the caller drops the job. When the
+ * location string is empty, fall back to the Swiss division → site mapping
+ * (Machining → Agno TI, Automation → Boudry NE; Tool is Rottweil DE → unresolved). */
+function resolveMikronLocation(rawLocation = '', division = '') {
+  const parts = String(rawLocation || '').split(',').map((s) => s.trim()).filter(Boolean);
+  const city = parts.length > 1 ? parts[parts.length - 1] : (parts[0] || '');
+  const canton = city ? inferAnyCanton(city) : '';
+  if (canton) return { city, canton, ...(MIKRON_SITE_ADDRESS[city.toLowerCase()] || {}) };
+  if (!city) {
+    const d = String(division || '').toLowerCase();
+    if (d.includes('machining')) return { city: 'Agno', canton: 'TI', ...MIKRON_SITE_ADDRESS.agno };
+    if (d.includes('automation')) return { city: 'Boudry', canton: 'NE', ...MIKRON_SITE_ADDRESS.boudry };
+  }
+  return { city, canton: '' };
+}
+
+async function fetchMikronJobs() {
+  console.log(`🔍 Fetching Mikron Group jobs (all Swiss sites)`);
+  console.log(`   URL: ${MIKRON_CAREERS_URL}`);
+
+  const html = await fetchPage(MIKRON_CAREERS_URL);
   if (!html) return [];
 
-  const parsed = parseMikronJobs(html, { filterAgno: true });
-  console.log(`  📋 Agno jobs parsed from page: ${parsed.length}`);
+  const parsed = parseMikronJobs(html, { filterAgno: false });
+  console.log(`  📋 jobs parsed from page: ${parsed.length}`);
 
   const jobs = [];
   for (const p of parsed) {
@@ -122,11 +147,13 @@ async function fetchMikronJobs() {
     // Fetch detail page for rich description
     let descEn = '';
     let descIt = '';
+    let rawLocation = p.location || '';
     if (p.url) {
       console.log(`    🔗 Fetching detail page: ${p.url}`);
       const detailHtml = await fetchPage(p.url);
       if (detailHtml) {
         const detail = parseMikronJobDetail(detailHtml);
+        if (detail.location) rawLocation = detail.location;
         if (detail.description && detail.description.split(/\s+/).length >= 30) {
           descEn = detail.description;
           console.log(`    ✅ Detail description: ${descEn.split(/\s+/).length} words`);
@@ -140,6 +167,16 @@ async function fetchMikronJobs() {
       await new Promise((r) => setTimeout(r, 500));
     }
 
+    // Derive the real site/canton per-job (Agno TI vs Boudry NE vs …).
+    // A blank canton = non-Swiss (USA/Germany) or unresolved → drop the job
+    // instead of mislabeling it as the Agno HQ.
+    const { city, canton, postalCode, streetAddress } = resolveMikronLocation(rawLocation, p.division);
+    if (!canton) {
+      console.log(`    ⏭️ Skipped non-Swiss/unresolved location: ${title} (${rawLocation || 'n/a'})`);
+      continue;
+    }
+    const city0 = city;
+
     // Fallback: build a rich description (>50 words) if detail page failed
     if (!descEn || descEn.split(/\s+/).length < 50) {
       descEn = buildFallbackDescription(title, p.division, 'en');
@@ -152,15 +189,16 @@ async function fetchMikronJobs() {
 
     jobs.push({
       url: p.url, applyUrl: p.url, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: 'Agno', canton: DEFAULT_CANTON, country: 'CH',
-      postalCode: '6982', streetAddress: 'Via Ginnasio 17, 6982 Agno',
+      location: city0, canton, country: 'CH',
+      ...(postalCode && { postalCode }),
+      ...(streetAddress && { streetAddress }),
       description: descEn, descriptionByLocale: { en: descEn, it: descIt },
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'mikron') },
       sourceLang: detectLang(descEn || title, 'en'),
       category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
       source: 'mikron-html-crawler', employmentType,
       experienceLevel: detectExperienceLevel(title), sector: 'Manifattura / Precision Manufacturing',
-      _targetScope: { canton: DEFAULT_CANTON, location: 'Agno' },
+      _targetScope: { canton, location: city0 },
     });
   }
   return jobs;
@@ -216,7 +254,7 @@ async function main() {
   // Adapter
   const adapterPath = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const adapter = fs.existsSync(adapterPath) ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) : {};
-  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: MIKRON_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['html'], seedUrls: [MIKRON_AGNO_URL], notes: 'Drupal Views page — filter Agno TI.', updatedAt: new Date().toISOString() });
+  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: MIKRON_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['html'], seedUrls: [MIKRON_CAREERS_URL], notes: 'Drupal Views page — national listing (all Swiss sites); canton derived per-job (Agno TI / Boudry NE).', updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 

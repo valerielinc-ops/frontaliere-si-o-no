@@ -169,12 +169,14 @@ export function isRuagTargetLocation(raw = '') {
 }
 
 export function inferRuagCanton(raw = '') {
-  return inferAnyCanton(raw) || 'TI';
+  // No Ticino default — RUAG is Bern-based and national (defence); leave blank
+  // when unresolved so the downstream hardening derives the canton.
+  return inferAnyCanton(raw) || '';
 }
 
 export function buildRuagLocalizedContent(detail = {}, companyName = 'RUAG AG', locale = 'it') {
   const title = String(detail.title || '').trim();
-  const location = String(detail.location || '').trim() || 'Ticino';
+  const location = String(detail.location || '').trim() || 'Svizzera';
   const description = String(detail.description || '').trim();
   return {
     titleByLocale: {

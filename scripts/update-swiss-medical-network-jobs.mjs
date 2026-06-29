@@ -2,12 +2,14 @@
 /**
  * Dedicated Swiss Medical Network crawler runner.
  *
- * Swiss Medical Network operates multiple healthcare facilities across Switzerland,
- * including Clinica Sant'Anna and Clinica Moncucco in Ticino.
- * Uses SmartRecruiters as ATS.
+ * Swiss Medical Network operates 25+ healthcare facilities across Switzerland
+ * (Genolier VD, Montchoisi/Lausanne VD, Valère VS, Fribourg, Bern, Zürich,
+ * Neuchâtel, Sant'Anna/Moncucco TI, …). Uses SmartRecruiters as its ATS.
  *
- * Career page: https://www.swissmedical.net/en/career/job-offers
- * Ticino filter: ?region=7845726f-4952-4b7c-88da-8ff4f85e6afb
+ * Source: SmartRecruiters public postings API (CH-wide, all cantons) —
+ *   https://api.smartrecruiters.com/v1/companies/SwissMedicalNetwork1/postings
+ * The swissmedical.net careers page is React-rendered and region-filtered, so
+ * we read the API directly and infer the canton per-job from the API location.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,8 +21,8 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseSwissMedicalJobs, parseSmartRecruiterDetail, getClinicAddress, slugify, normalizeSpace, TICINO_REGION_UUID } from './lib/swiss-medical-network-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace } from './lib/swiss-medical-network-job-parser.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -30,10 +32,9 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'swiss-medical-network';
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Swiss Medical Network';
 const COMPANY_HOST = 'www.swissmedical.net';
-const CAREERS_URL = `https://www.swissmedical.net/en/career/job-offers?region=${TICINO_REGION_UUID}`;
+const CAREERS_URL = 'https://www.swissmedical.net/en/career/job-offers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
@@ -74,68 +75,113 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-async function fetchPage(url) {
+async function fetchJson(url) {
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'text/html', 'Accept-Language': 'en,it-CH;q=0.9' } });
+    const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'application/json' } });
     clearTimeout(timer);
     if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
+    return await res.json();
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
 }
 
-async function fetchCareersPage() {
-  return fetchPage(CAREERS_URL);
+/**
+ * Posting ids already owned by a DEDICATED SMN clinic crawler (genolier,
+ * montchoisi, valère, beaulieu, ste-anne, bethanien, obach, siloah, moutier, …).
+ * They read the same SmartRecruiters tenant with a clinic filter, so the CH-wide
+ * umbrella must skip those postings to avoid duplicate / canonical-churn pages
+ * (the dedicated crawler keeps its stable per-clinic slug). Future dedicated SMN
+ * crawlers are covered automatically — any non-umbrella slice with a
+ * SwissMedicalNetwork1 URL claims its posting ids.
+ */
+function loadDedicatedClinicPostingIds() {
+  const ids = new Set();
+  const dir = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
+  let files = [];
+  try { files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')); } catch { return ids; }
+  for (const f of files) {
+    if (f === `${COMPANY_KEY}.json`) continue; // skip the umbrella's own slice
+    let data;
+    try { data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8')); } catch { continue; }
+    const jobs = data?.jobs || (Array.isArray(data) ? data : []);
+    for (const j of jobs) {
+      const id = extractSmnPostingId(j?.url);
+      if (id) ids.add(id);
+    }
+  }
+  return ids;
+}
+
+/** Fetch every SmartRecruiters posting (paginated), CH-wide. */
+async function fetchAllApiPostings() {
+  const LIMIT = 100;
+  const all = [];
+  let offset = 0;
+  for (let page = 0; page < 50; page += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    const data = await fetchJson(smnPostingsApiUrl(offset, LIMIT));
+    const content = Array.isArray(data?.content) ? data.content : [];
+    if (content.length === 0) break;
+    all.push(...content);
+    const total = Number(data?.totalFound || 0);
+    console.log(`  📄 postings ${offset}-${offset + content.length} of ${total || '?'}`);
+    offset += content.length;
+    if (total && all.length >= total) break;
+    if (content.length < LIMIT) break;
+  }
+  return all;
 }
 
 /**
  * Build a rich fallback description (>50 words) for Swiss Medical Network.
  */
-function buildFallbackDescription(title, clinic, city, locale = 'en') {
+function buildFallbackDescription(title, city, locale = 'en') {
   if (locale === 'it') {
-    return `Posizione aperta: ${title} presso ${clinic} a ${city}, Cantone Ticino, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. ${clinic} offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti.`;
+    return `Posizione aperta: ${title} presso Swiss Medical Network${city ? ` a ${city}` : ''}, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. Offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti.`;
   }
-  return `Open position: ${title} at ${clinic} in ${city}, Canton Ticino, Switzerland.\n\nSwiss Medical Network is Switzerland's leading private healthcare group, established in 2002. The group operates over 20 healthcare facilities including clinics, medical centers, and rehabilitation institutes across Switzerland. ${clinic} offers a stimulating and dynamic working environment, with employment terms aligned with collective bargaining agreements. The group is constantly growing and offers professional development opportunities, continuous training, and a competitive compensation package with excellent social benefits. Apply to become part of a passionate team dedicated to patient care.`;
+  return `Open position: ${title} at Swiss Medical Network${city ? ` in ${city}` : ''}, Switzerland.\n\nSwiss Medical Network is Switzerland's leading private healthcare group, established in 2002. The group operates over 20 healthcare facilities including clinics, medical centers, and rehabilitation institutes across Switzerland. It offers a stimulating and dynamic working environment, with employment terms aligned with collective bargaining agreements. The group is constantly growing and offers professional development opportunities, continuous training, and a competitive compensation package with excellent social benefits. Apply to become part of a passionate team dedicated to patient care.`;
 }
 
-function buildJobFromParsed(parsed, detailDescription = '') {
-  const slug = slugify(parsed.title, 'swiss-medical-network');
-  const clinic = parsed.clinic || 'Swiss Medical Network';
-  const city = parsed.city || 'Lugano';
-  const address = getClinicAddress(clinic, city);
+function buildJobFromApi(posting, detailDescription = '', applyUrl = '', postingUrl = '') {
+  const slug = slugify(posting.title, 'swiss-medical-network');
+  const city = posting.city || '';
+  // Real canton from the API location. No Ticino default: leave blank when
+  // unresolved (the downstream PLZ/locality hardening fills it) rather than
+  // mislabeling a non-TI clinic as Ticino.
+  const canton = posting.canton || inferAnyCanton(city) || '';
 
-  // Use detail description if rich enough, otherwise use fallback
   let descEn = detailDescription;
   if (!descEn || descEn.split(/\s+/).length < 50) {
-    descEn = buildFallbackDescription(parsed.title, clinic, city, 'en');
+    descEn = buildFallbackDescription(posting.title, city, 'en');
   }
-  const descIt = buildFallbackDescription(parsed.title, clinic, city, 'it');
+  const descIt = buildFallbackDescription(posting.title, city, 'it');
 
   return {
-    url: parsed.applyUrl || `https://www.swissmedical.net/en/career/job-offers`,
-    applyUrl: parsed.applyUrl || '',
-    title: parsed.title,
+    url: postingUrl || applyUrl || `https://www.swissmedical.net/en/career/job-offers`,
+    applyUrl: applyUrl || postingUrl || '',
+    title: posting.title,
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     location: city,
-    canton: DEFAULT_CANTON,
+    addressLocality: city,
+    addressRegion: canton,
+    canton,
     country: 'CH',
-    postalCode: address.postalCode,
-    streetAddress: address.streetAddress,
+    ...(posting.postalCode && { postalCode: posting.postalCode }),
     description: descEn,
     descriptionByLocale: { en: descEn, it: descIt },
-    titleByLocale: { en: parsed.title },
-    slug, slugByLocale: { en: slug, it: slugify(parsed.title, 'swiss-medical-network') },
-    category: detectCategory(parsed.title),
+    titleByLocale: { en: posting.title },
+    slug, slugByLocale: { en: slug, it: slugify(posting.title, 'swiss-medical-network') },
+    category: detectCategory(posting.title),
     datePosted: new Date().toISOString().split('T')[0],
     source: 'swiss-medical-smartrecruiters-crawler',
-    employmentType: parsed.employmentRate?.includes('100') ? 'FULL_TIME' : 'PART_TIME',
-    experienceLevel: detectExperienceLevel(parsed.title),
+    employmentType: posting.employmentType || 'FULL_TIME',
+    experienceLevel: detectExperienceLevel(posting.title),
     sector: 'Sanità / Healthcare',
-    _targetScope: { canton: DEFAULT_CANTON, location: city },
-    sourceLang: detectLang(descEn || parsed.title, 'en'),
+    _targetScope: { canton, location: city },
+    sourceLang: detectLang(descEn || posting.title, 'en'),
   };
 }
 
@@ -172,7 +218,7 @@ async function mergeJobs(discoveredJobs) {
 function updateAdapterConfig() {
   const adapterPath = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const adapter = fs.existsSync(adapterPath) ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) : {};
-  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['html'], seedUrls: [CAREERS_URL], notes: 'SwissMedical.net career page — SmartRecruiters ATS — Ticino region filter.', updatedAt: new Date().toISOString() });
+  Object.assign(adapter, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: Math.max(adapter.priority || 0, 10), crawlerModes: ['html'], seedUrls: [SMN_POSTINGS_API, CAREERS_URL], notes: 'Swiss Medical Network — SmartRecruiters public postings API (CH-wide, all cantons); canton inferred per-job from the API location.', updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
 }
@@ -190,37 +236,45 @@ async function main() {
 
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isSwissMedicalJob))
 
-  const html = await fetchCareersPage();
-  if (!html) { console.log('\n⚠️ Could not fetch Swiss Medical Network careers page.'); return; }
+  const rawPostings = await fetchAllApiPostings();
+  if (!rawPostings.length) { console.log('\n⚠️ Could not fetch Swiss Medical Network postings from the SmartRecruiters API.'); return; }
 
-  const parsed = parseSwissMedicalJobs(html);
-  console.log(`  📋 Ticino jobs parsed: ${parsed.length}`);
+  // Keep only Swiss postings (the tenant is CH-only, but guard anyway —
+  // accept both the ISO code 'ch' and a spelled-out country name).
+  const isSwissCountry = (c = '') => !c || /^(ch|switzerland|suisse|schweiz|svizzera)/.test(c);
+  const swissPostings = rawPostings
+    .map(normalizeSmnApiPosting)
+    .filter((p) => p.id && p.title && isSwissCountry(p.country));
 
-  // Fetch detail pages from SmartRecruiters for rich descriptions
+  // Drop postings already owned by a dedicated SMN clinic crawler (same
+  // SmartRecruiters tenant) to prevent duplicate / canonical-churn job pages.
+  const dedicatedIds = loadDedicatedClinicPostingIds();
+  const postings = swissPostings.filter((p) => !dedicatedIds.has(p.id));
+  const skippedDedicated = swissPostings.length - postings.length;
+  console.log(`  📋 Swiss postings: ${postings.length} / ${rawPostings.length} (skipped ${skippedDedicated} owned by dedicated clinic crawlers)`);
+
+  // Fetch each posting's detail (description + canonical public URL).
   const discoveredJobs = [];
-  for (const p of parsed) {
+  for (const p of postings) {
     let detailDescription = '';
-    if (p.applyUrl) {
-      console.log(`    🔗 Fetching detail page: ${p.applyUrl}`);
-      const detailHtml = await fetchPage(p.applyUrl);
-      if (detailHtml) {
-        const detail = parseSmartRecruiterDetail(detailHtml);
-        if (detail.description && detail.description.split(/\s+/).length >= 30) {
-          detailDescription = detail.description;
-          console.log(`    ✅ Detail description: ${detailDescription.split(/\s+/).length} words`);
-        } else {
-          console.log(`    ⚠️ Detail page description too short (${(detail.description || '').split(/\s+/).length} words), using fallback`);
-        }
-      } else {
-        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+    let applyUrl = '';
+    let postingUrl = '';
+    const detail = await fetchJson(smnPostingDetailApiUrl(p.id));
+    if (detail) {
+      applyUrl = String(detail.applyUrl || '');
+      postingUrl = String(detail.postingUrl || '');
+      const desc = extractSmnApiDescription(detail);
+      if (desc && desc.split(/\s+/).length >= 30) {
+        detailDescription = desc;
       }
-      // Small delay to be respectful to SmartRecruiters
-      await new Promise((r) => setTimeout(r, 500));
     }
-    discoveredJobs.push(buildJobFromParsed(p, detailDescription));
+    console.log(`    ✅ ${p.title} → ${p.city || '?'} (${p.canton || '?'})`);
+    discoveredJobs.push(buildJobFromApi(p, detailDescription, applyUrl, postingUrl));
+    // Small delay to be respectful to the SmartRecruiters API.
+    await new Promise((r) => setTimeout(r, 150));
   }
 
-  if (discoveredJobs.length === 0) { console.log('\n⚠️ No Ticino Swiss Medical Network jobs found.'); return; }
+  if (discoveredJobs.length === 0) { console.log('\n⚠️ No Swiss Medical Network jobs found.'); return; }
 
   updateAdapterConfig();
   await mergeJobs(discoveredJobs);
@@ -231,19 +285,19 @@ async function main() {
   if (fs.existsSync(DATA_JOBS)) {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     let fixed = 0;
-    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isSwissMedicalJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = DEFAULT_CANTON; fixed++; } }
+    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isSwissMedicalJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { const c = inferAnyCanton(j.location || j.addressLocality || ''); if (c) { j.canton = c; fixed++; } } }
     if (fixed > 0) { writeJsonAtomic(DATA_JOBS, jobs); writeJsonAtomic(PUBLIC_JOBS, jobs); }
   }
 
   const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isSwissMedicalJob);
-  console.log(`\n📊 Swiss Medical Network Ticino jobs: ${companyJobs.length}`);
+  console.log(`\n📊 Swiss Medical Network jobs: ${companyJobs.length}`);
   const afterSnapshot = snapshotJobSlugs(companyJobs);
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, 'Swiss Medical Network');
   writeCrawlChangeSummaryToGH(diff, 'Swiss Medical Network');
 
-  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_SWISS_MEDICAL_STRICT', label: 'Swiss Medical Network', dataJobsPath: DATA_JOBS, isTargetJob: isSwissMedicalJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_swiss_medical_domain', failWhenNoJobs: false, noJobsMessage: 'No Swiss Medical Network Ticino jobs found.' });
+  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_SWISS_MEDICAL_STRICT', label: 'Swiss Medical Network', dataJobsPath: DATA_JOBS, isTargetJob: isSwissMedicalJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_swiss_medical_domain', failWhenNoJobs: false, noJobsMessage: 'No Swiss Medical Network jobs found.' });
   console.log('\n✅ Swiss Medical Network crawler complete.');
 
   const _durationMs = getCrawlerElapsedMs();

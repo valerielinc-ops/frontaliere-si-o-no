@@ -49,10 +49,13 @@ const COMPANY_NAME = 'Skyguide';
 const COMPANY_HOST = 'jobs.skyguide.ch';
 const COMPANY_DOMAIN = 'skyguide.ch';
 const DETAIL_BASE = 'https://jobs.skyguide.ch';
-const LISTING_URLS = [
-  'https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=Locarno%2C+CH',
-  'https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=Lugano+Agno%2C+CH',
-];
+// National listing — NO location facet. Skyguide's largest sites are the two
+// area control centres in Geneva (GE) and Dübendorf (ZH), plus tower units
+// nationwide; the previous Locarno + Lugano-Agno facets omitted them. The
+// SuccessFactors search paginates via `startrow` (25 rows/page).
+const LISTING_BASE = 'https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=';
+const LISTING_PAGE_SIZE = 25;
+const LISTING_MAX_PAGES = 20;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function readJson(filePath, fallback) {
@@ -128,26 +131,36 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchListings() {
-  console.log('🔍 Fetching Skyguide jobs from filtered listings...');
+  console.log('🔍 Fetching Skyguide jobs (national, all cantons)...');
   const discovered = [];
   const seen = new Set();
 
-  for (const listingUrl of LISTING_URLS) {
+  for (let page = 0; page < LISTING_MAX_PAGES; page += 1) {
+    const startRow = page * LISTING_PAGE_SIZE;
+    const listingUrl = `${LISTING_BASE}&startrow=${startRow}`;
+    // eslint-disable-next-line no-await-in-loop
     const html = await fetchHtml(listingUrl, SKYGUIDE_FETCH_OPTS);
     const rows = parseSkyguideListings(html);
-    console.log(`📋 Rows from filter ${listingUrl}: ${rows.length}`);
+    console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
+    if (rows.length === 0) break;
     for (const row of rows) {
-      if (!isSkyguideTargetLocation(row.location)) continue;
+      // Keep only Swiss locations (all 26 cantons); Skyguide is CH-only but the
+      // guard stays as a safety net.
+      if (row.location && !isSkyguideTargetLocation(row.location)) continue;
       const key = absoluteUrl(row.href);
       if (seen.has(key)) continue;
       seen.add(key);
       discovered.push(row);
       console.log(`  📄 ${row.title} (${row.location})`);
     }
+    // Last page reached when the page wasn't full (no further rows to fetch).
+    // (Bounded by LISTING_MAX_PAGES; we don't early-break on all-duplicate pages
+    // because SuccessFactors paginates sequentially by startrow.)
+    if (rows.length < LISTING_PAGE_SIZE) break;
   }
 
   if (discovered.length < 1) {
-    throw new Error(`Expected at least 1 Skyguide job in Ticino/Grigioni, found ${discovered.length}`);
+    throw new Error(`Expected at least 1 Skyguide job, found ${discovered.length}`);
   }
   return discovered;
 }
@@ -252,15 +265,15 @@ function refreshLocalizedSlugs() {
       const localizedTitle = String(next.titleByLocale?.[locale] || '').trim();
       if (!localizedTitle) continue;
       // Slug-only guard: `addressLocality`/`location` can be the literal
-      // "undefined"/"null" string (truthy → slips past `|| 'Ticino'`) → `-undefined`
+      // "undefined"/"null" string (truthy → slips past `|| 'Svizzera'`) → `-undefined`
       // in an active slug (#952, class #900/#901). Stored addressLocality untouched.
       // Guard each operand BEFORE the `||`: a literal "undefined" addressLocality is
       // truthy, so `addressLocality || location` would short-circuit on it and mask a
-      // valid `location`, yielding the 'Ticino' fallback instead of the real city
+      // valid `location`, yielding the 'Svizzera' fallback instead of the real city
       // (#1151). `safeLocationToken(x, null)` returns null for missing/"undefined"/
       // "null", letting the `||` fall through to `location`.
       const localizedLocation =
-        safeLocationToken(next.addressLocality, null) || safeLocationToken(next.location, 'Ticino');
+        safeLocationToken(next.addressLocality, null) || safeLocationToken(next.location, 'Svizzera');
       const slug = slugify(`${localizedTitle} ${COMPANY_NAME} ${localizedLocation}`);
       if (slug && next.slugByLocale[locale] !== slug) {
         next.slugByLocale[locale] = slug;
@@ -292,8 +305,8 @@ function updateAdapterConfig(jobs) {
     enabled: true,
     priority: 15,
     crawlerModes: ['html'],
-    seedUrls: LISTING_URLS,
-    notes: 'Dedicated Skyguide crawler parses the SuccessFactors filtered listings for Locarno and Lugano Agno and extracts full detail pages.',
+    seedUrls: [`${LISTING_BASE}&startrow=0`],
+    notes: 'Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -320,7 +333,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log('  Skyguide — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
-  console.log(`  Listing filters: ${LISTING_URLS.length}\n`);
+  console.log(`  Listing: national (all cantons)\n`);
 
   const listings = await fetchListings();
   const jobs = [];

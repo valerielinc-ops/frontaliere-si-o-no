@@ -253,7 +253,9 @@ export async function fetchAllKoneJobs() {
     const city = normalizeSpace(loc.city || '');
     const region = normalizeSpace(loc.region || '');
     const location = city || region || 'Switzerland';
-    const canton = inferAnyCanton(location) || 'VS';
+    // No Valais default — KONE (Schweiz) AG is Zürich/Adliswil and the API is
+    // national; leave blank when unresolved so the PLZ/locality hardening fills it.
+    const canton = inferAnyCanton(location) || '';
 
     // Description
     const descriptionText = buildDescription(sections);

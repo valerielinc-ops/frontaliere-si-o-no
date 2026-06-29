@@ -12,9 +12,73 @@
  * Job application links go to jobs.smartrecruiters.com/SwissMedicalNetwork1/...
  */
 
-import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { normalizeAnyCantonCode } from './crawler-location-config.mjs';
 
 export const TICINO_REGION_UUID = '7845726f-4952-4b7c-88da-8ff4f85e6afb';
+
+// ─── SmartRecruiters public API (CH-wide source of truth) ──────────────────
+// The swissmedical.net careers page is React-rendered and region-filtered; the
+// SmartRecruiters posting API exposes ALL Swiss Medical Network jobs across the
+// 26 cantons with per-job location (city/region/postalCode) — no clinic registry
+// or Ticino default needed. Company id is taken from the apply-URL path
+// (jobs.smartrecruiters.com/SwissMedicalNetwork1/...).
+export const SMN_SR_COMPANY_ID = 'SwissMedicalNetwork1';
+export const SMN_POSTINGS_API = `https://api.smartrecruiters.com/v1/companies/${SMN_SR_COMPANY_ID}/postings`;
+
+/** Build the postings list API URL for a given pagination window. */
+export function smnPostingsApiUrl(offset = 0, limit = 100) {
+  return `${SMN_POSTINGS_API}?limit=${limit}&offset=${offset}`;
+}
+
+/** Build the posting-detail API URL for a posting id. */
+export function smnPostingDetailApiUrl(id = '') {
+  return `${SMN_POSTINGS_API}/${encodeURIComponent(id)}`;
+}
+
+/** Extract the numeric SmartRecruiters posting id from a SwissMedicalNetwork1 URL. */
+export function extractSmnPostingId(url = '') {
+  const m = String(url || '').match(/smartrecruiters\.com\/SwissMedicalNetwork1\/(\d+)/i);
+  return m ? m[1] : '';
+}
+
+/**
+ * Normalize a SmartRecruiters postings-list entry to {id, title, city, region,
+ * canton, postalCode, country}. The canton is inferred from the API region
+ * (often a 2-letter code) or the city — no Ticino fallback.
+ */
+export function normalizeSmnApiPosting(posting = {}) {
+  const loc = posting.location || {};
+  const city = normalizeSpace(loc.city || '');
+  const region = normalizeSpace(loc.region || '');
+  // region is often a 2-letter canton code ("BE"); normalizeAnyCantonCode
+  // resolves both codes and names, then fall back to city-name inference.
+  const canton = normalizeAnyCantonCode(region) || inferAnyCanton(region) || inferAnyCanton(city) || '';
+  const empLabel = `${posting.typeOfEmployment?.id || ''} ${posting.typeOfEmployment?.label || ''}`.toLowerCase();
+  const employmentType = /part[\s-]?time|teilzeit|temps\s*partiel|tempo\s*parziale/.test(empLabel) ? 'PART_TIME' : 'FULL_TIME';
+  return {
+    id: String(posting.id || ''),
+    title: normalizeSpace(posting.name || ''),
+    city,
+    region,
+    canton,
+    postalCode: normalizeSpace(loc.postalCode || ''),
+    country: String(loc.country || '').toLowerCase(),
+    employmentType,
+  };
+}
+
+/** Extract a rich description from a SmartRecruiters posting-detail jobAd. */
+export function extractSmnApiDescription(detail = {}) {
+  const secs = detail?.jobAd?.sections || {};
+  const order = ['jobDescription', 'qualifications', 'additionalInformation', 'companyDescription'];
+  const parts = [];
+  for (const key of order) {
+    const text = htmlToText(secs[key]?.text || '');
+    if (text) parts.push(text);
+  }
+  return parts.join('\n\n').trim();
+}
 
 export const TICINO_CLINICS = [
   { code: 'CSA', name: 'Clinica Sant\'Anna', city: 'Sorengo' },
