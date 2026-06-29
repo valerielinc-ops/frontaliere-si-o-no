@@ -697,6 +697,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Detrazioni fiscali per frontalieri in Italia: quali spese si possono scaricare',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Le detrazioni fiscali per i frontalieri in Italia sono disciplinate dalla legge italiana.',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Scena di Lugano con un frontaliere e documenti fiscali',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.title': 'La pensione complementare per frontalieri: come funziona il terzo pilastro',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.excerpt': 'I frontalieri possono investire nella terza pilastro per aumentare la propria pensione.',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.imageAlt': 'Frontalieri svizzeri in una piazza di Lugano',
 };
 
 export default blogMetaChIt;
