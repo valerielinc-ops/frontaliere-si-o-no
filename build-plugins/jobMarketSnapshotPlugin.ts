@@ -493,6 +493,18 @@ function defaultCityResolver(job: JobRecord): { canton: string | null; cityKey: 
 /** Number of weekly archives kept index,follow — older ones get noindex. */
 const WEEKLY_INDEXABLE_LIMIT = 12;
 
+/**
+ * Quote-flexible robots/noindex detector — twin of the validator regex in
+ * scripts/validate-content-quality.mjs (and the PR #2707 dist-reader sweep).
+ * Tolerates the minifier's removeAttributeQuotes output (`name=robots
+ * content=noindex,follow`) so the sitemap exclusion check below cannot regress
+ * when buildSeoPageHtml minifies the meta tag. Defensive backstop only — the
+ * primary exclusion is the path lookup against the generator's noindexPaths.
+ */
+function htmlHasNoindexMeta(html: string): boolean {
+  return /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
+}
+
 /** Minimum weeks of real history needed to exit "degraded" mode. */
 const MIN_HISTORY_WEEKS_FOR_NORMAL_MODE = 2;
 
@@ -2078,6 +2090,12 @@ export interface GeneratorInputs {
 
 export interface GeneratorOutput {
   pages: Record<string, string>;
+  /**
+   * Canonical paths emitted with `noindex,follow` (archived weeks beyond the
+   * 12-week index window). The sitemap writer excludes these by path lookup
+   * instead of re-sniffing minified HTML — see the closeBundle sitemap loop.
+   */
+  noindexPaths: Set<string>;
   /** True when we fell back to current-snapshot-only (history too sparse). */
   degraded: boolean;
   /** Weekly buckets in the normal mode, or synthesised ones in degraded mode. */
@@ -2136,6 +2154,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
   const medianSalary = computeMedianSalaryFromJobs(opts.jobs);
 
   const pages: Record<string, string> = {};
+  const noindexPaths = new Set<string>();
   const trendSeries = buildWeeklyTrendSeries(completedWeeks);
   const degraded = completedWeeks.length < MIN_HISTORY_WEEKS_FOR_NORMAL_MODE;
 
@@ -2243,6 +2262,13 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
     const stats = buildWeeklyAggregates(bucket, trendSeries, medianSalary);
     for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
       const canonicalPath = buildWeeklyPath(locale, bucket.isoYear, bucket.isoWeek);
+      // Source of truth for sitemap exclusion. The closeBundle sitemap writer
+      // must NOT re-sniff the emitted HTML for a noindex meta: buildSeoPageHtml
+      // minifies (removeAttributeQuotes), so a quoted-string `includes()` match
+      // silently misses `<meta name=robots content=noindex,follow>` and leaks
+      // archived weeks into sitemap-job-market.xml → validate:content-quality
+      // BLOCKING ("noindex URL in sitemap"). Track the boolean here instead.
+      if (noindex) noindexPaths.add(canonicalPath);
       pages[canonicalPath] = renderSnapshotPage({
         locale,
         kind: 'weekly',
@@ -2285,7 +2311,7 @@ export function generateJobMarketSnapshotPages(opts: GeneratorInputs): Generator
     }
   }
 
-  return { pages, degraded, completedWeeks, completedMonths };
+  return { pages, noindexPaths, degraded, completedWeeks, completedMonths };
 }
 
 // ── Per-sector snapshot generation (D-3A) ──────────────────────
@@ -3165,7 +3191,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       }
 
       const knownSlugs = loadKnownCompanySlugs(rootDir);
-      const { pages, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
+      const { pages, noindexPaths, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
 
       // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
       const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
@@ -3194,9 +3220,15 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
         collector.add(np.join(outDir, 'index.html'), html);
         pagesWritten++;
 
-        // Sitemap: only emit IT canonical for each page (hub/weekly/monthly), with hreflang alternates
+        // Sitemap: only emit IT canonical for each page (hub/weekly/monthly), with hreflang alternates.
+        // Exclude noindex pages by PATH lookup against the generator's source-of-truth set — never by
+        // re-sniffing the emitted HTML: buildSeoPageHtml minifies (removeAttributeQuotes) so a quoted
+        // `includes('name="robots" content="noindex')` match silently misses `name=robots content=noindex`
+        // and leaked archived weeks into the sitemap (validate:content-quality BLOCKING, recurring weekly).
+        // The quote-flexible HTML regex is a defensive backstop so any future noindex page type that
+        // forgets to register in noindexPaths still cannot leak into the sitemap.
         const isItalian = !path.startsWith('/en/') && !path.startsWith('/de/') && !path.startsWith('/fr/');
-        if (isItalian && !html.includes('name="robots" content="noindex')) {
+        if (isItalian && !noindexPaths.has(path) && !htmlHasNoindexMeta(html)) {
           // Extract the IT sub-slug after the section, then re-localise it
           // per alternate so the alternate link lands on the correct
           // locale-specific URL (woche-16-2026, week-16-2026, etc.).

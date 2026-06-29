@@ -394,6 +394,25 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
     expect(noindexCount).toBeGreaterThanOrEqual(4);
   });
 
+  it('noindexPaths exactly matches the noindex meta in the emitted (minified) HTML', () => {
+    // Regression for the recurring validate:content-quality BLOCKING failure
+    // ("noindex URL in sitemap", issue #2976). The sitemap writer used to
+    // re-sniff `html.includes('name="robots" content="noindex')` — a quoted
+    // match that the HTML minifier (removeAttributeQuotes) defeats, leaking
+    // archived weeks into sitemap-job-market.xml. The fix makes noindexPaths
+    // the source of truth; this test locks it to the rendered meta tag so the
+    // two can never diverge again. Note: out.pages HTML is already minified.
+    const quoteFlexibleNoindex = /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i;
+    expect(out.noindexPaths.size).toBeGreaterThan(0);
+    for (const [path, html] of Object.entries(out.pages)) {
+      const metaSaysNoindex = quoteFlexibleNoindex.test(html);
+      expect(
+        out.noindexPaths.has(path),
+        `noindexPaths/${metaSaysNoindex ? 'missing' : 'extra'} mismatch for ${path}`,
+      ).toBe(metaSaysNoindex);
+    }
+  });
+
   it('contains no dark: color class in body', () => {
     for (const html of Object.values(out.pages)) {
       expect(html).not.toMatch(/\sdark:[a-z-]+/);
