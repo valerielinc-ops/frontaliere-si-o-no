@@ -10,13 +10,16 @@
  * API: https://ohws.prospective.ch/public/v1/medium/1000103/jobs
  *   - Medium ID 1000103 = Coop Group career center (shared with Coop, Fust, etc.)
  *   - Company filter: f=70:1114048  (attribute 70 = "Interdiscount")
- *   - Canton filter:  f=30:1024526  (attribute 30 = "Wallis" / Valais)
+ *   - CH-wide fetch: no canton facet (`f=30:{cantonId}`). The per-job canton is
+ *     inferred from attribute 30 downstream, mirroring the canonical coop-ticino
+ *     crawler. A hard Wallis filter previously starved this crawler to ~1 job
+ *     whenever Valais had no openings (sibling of issue #3065); CH-wide ~29.
  *
  * No detail page fetching needed — the API returns full descriptions in szas.*.
  * Detail page URL pattern: https://jobs.coopjobs.ch/offene-stellen/{slug}/{viewkey}
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllInterdiscountJobs()  — Fetch and parse all Valais jobs
+ *   - fetchAllInterdiscountJobs()  — Fetch and parse all CH-wide jobs
  *   - isInterdiscountJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
@@ -39,10 +42,10 @@ const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
 /**
  * Filter IDs for the Prospective.ch API:
  *   Attribute 70 (Unternehmen/Company): 1114048 = Interdiscount
- *   Attribute 30 (Kanton/Canton): 1024526 = Wallis/Valais
+ * No canton facet (attribute 30): jobs are fetched CH-wide and the per-job
+ * canton is inferred from the API canton label downstream.
  */
 const COMPANY_FILTER_ID = '1114048';
-const CANTON_WALLIS_ID = '1024526';
 const API_LIMIT = 100;
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -201,7 +204,11 @@ async function callApi(url) {
 }
 
 /**
- * Fetch Interdiscount job listings from Prospective.ch API, filtered to Wallis/Valais.
+ * Fetch Interdiscount job listings from Prospective.ch API, CH-wide.
+ *
+ * Company filter only (`f=70:`): no canton facet so all CH cantons are
+ * returned; the per-job canton is inferred from attribute 30 downstream.
+ * A hard Wallis filter previously returned ~1 job (sibling of issue #3065).
  * Returns the raw API job objects.
  */
 async function fetchJobListings() {
@@ -216,11 +223,9 @@ async function fetchJobListings() {
     });
     // Company filter: Interdiscount
     params.append('f', `70:${COMPANY_FILTER_ID}`);
-    // Canton filter: Wallis/Valais
-    params.append('f', `30:${CANTON_WALLIS_ID}`);
 
     const apiUrl = `${API_BASE}/jobs?${params}`;
-    console.log(`  📄 Fetching Interdiscount Wallis jobs (offset=${offset})...`);
+    console.log(`  📄 Fetching Interdiscount CH-wide jobs (offset=${offset})...`);
 
     const data = await callApi(apiUrl);
     const items = assertJsonListShape(data, { key: 'jobs', source: INTERDISCOUNT_KEY });
@@ -271,7 +276,7 @@ function buildDescription(szas = {}, title = '', city = '') {
   }
 
   if (sections.length === 0) {
-    return `${title} - Interdiscount, ${city || 'Wallis'}, Schweiz`;
+    return `${title} - Interdiscount, ${city || 'Schweiz'}, Schweiz`;
   }
 
   return sections.join('\n\n');
@@ -305,7 +310,7 @@ function parsePensum(szas = {}, attrs = {}) {
 }
 
 /**
- * Fetch all Interdiscount jobs in Valais/Wallis.
+ * Fetch all Interdiscount jobs CH-wide.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -315,7 +320,7 @@ export async function fetchAllInterdiscountJobs() {
   console.log(`🔍 Fetching Interdiscount jobs`);
   console.log(`   Platform: Prospective.ch JobBooster (Coop Group Career Center)`);
   console.log(`   API: ${API_BASE}/jobs`);
-  console.log(`   Filters: Company=Interdiscount (70:${COMPANY_FILTER_ID}), Canton=Wallis (30:${CANTON_WALLIS_ID})\n`);
+  console.log(`   Filter: Company=Interdiscount (70:${COMPANY_FILTER_ID}), CH-wide (no canton filter)\n`);
 
   const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
@@ -343,8 +348,11 @@ export async function fetchAllInterdiscountJobs() {
     );
     const postalCode = normalizeSpace(szas['sza_workplace.zip'] || '');
     const street = normalizeSpace(szas['sza_workplace.street'] || '');
-    const location = city || region || 'Wallis';
-    const canton = normalizeCantonCode(region) || 'VS';
+    const location = city || region || 'Schweiz';
+    const canton = normalizeCantonCode(region);
+    // CH-only gate: drop foreign postings (e.g. Liechtenstein) whose region
+    // doesn't resolve to a Swiss canton — mirrors the coop-ticino crawler.
+    if (!canton) continue;
 
     // Description
     const descriptionText = buildDescription(szas, title, city);
@@ -370,7 +378,7 @@ export async function fetchAllInterdiscountJobs() {
       ? `interdiscount-${viewkey.slice(0, 12)}`
       : `interdiscount-${createHash('sha1').update(publicUrl).digest('hex').slice(0, 12)}`;
 
-    const jobSlug = slugify(`${title} interdiscount ${city || 'wallis'}`);
+    const jobSlug = slugify(`${title} interdiscount ${city || canton}`);
 
     // Posted date from API start_date
     const postedDate = listing.start_date
@@ -424,6 +432,6 @@ export async function fetchAllInterdiscountJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total Interdiscount Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Interdiscount CH-wide jobs discovered: ${jobs.length}`);
   return jobs;
 }
