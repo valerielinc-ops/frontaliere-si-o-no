@@ -703,6 +703,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nuovi-frontalieri-poveri.title': 'Grenzgänger in Not: -20.000 Euro jährlich',
     'blog.article.nuovi-frontalieri-poveri.excerpt': 'Neue Grenzgänger verdienen bis zu 20.000 Euro weniger pro Jahr als alte Grenzgänger. Hier sind die Zahlen und die steuerlichen Auswirkungen.',
     'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Pendlerzug an der Schweizerisch-italienischen Grenze bei Lugano',
+    'blog.article.grono-entra-repower-moesano.title': 'Grono tritt in Repower Moesano ein',
+    'blog.article.grono-entra-repower-moesano.excerpt': 'Die Gemeinde Grono wird Teil des Aktionärs der Repower Moesano SA',
+    'blog.article.grono-entra-repower-moesano.imageAlt': 'Blick auf Grono',
 };
 
 export default blogMetaChDe;

@@ -703,6 +703,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nuovi-frontalieri-poveri.title': 'Frontalieri in difficoltà: -20mila euro all\'anno rispetto ai precedenti',
     'blog.article.nuovi-frontalieri-poveri.excerpt': 'I nuovi frontalieri guadagnano fino a 20mila euro in meno all\'anno rispetto ai vecchi. Ecco le cifre e le implicazioni fiscali.',
     'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Treno dei pendolari che attraversa il confine svizzero-italiano vicino a Lugano',
+    'blog.article.grono-entra-repower-moesano.title': 'Grono entra in Repower Moesano',
+    'blog.article.grono-entra-repower-moesano.excerpt': 'Il Comune di Grono entra a far parte dell\'azionariato di Repower Moesano SA',
+    'blog.article.grono-entra-repower-moesano.imageAlt': 'Vista di Grono',
 };
 
 export default blogMetaChIt;
