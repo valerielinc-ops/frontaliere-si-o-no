@@ -13,6 +13,12 @@ import {
   parseLidlDetailPage,
   hasListContent,
   MIN_LIDL_FULL_DESC,
+  LIDL_SEARCH_API_BASE,
+  LIDL_SEARCH_JOBS_KEY,
+  LIDL_DEFAULT_RESULTS_PER_PAGE,
+  buildLidlSearchQuery,
+  getLidlSearchPageCount,
+  extractLidlApiHitFields,
 } from '../scripts/lib/lidl-job-parser.mjs';
 
 // ─── Fixture helpers ──────────────────────────────────────────────────────────
@@ -298,5 +304,127 @@ describe('parseLidlDetailPage / edge cases', () => {
     const result = parseLidlDetailPage(html);
     expect(result.title).toBe('Logistiker/in EFZ – Locarno');
     expect(result.hasLists).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// LiCa search-API contract (regression guard for issue #3063)
+//
+// Lidl migrated team.lidl.ch to the LiCa SPA platform: the legacy endpoint
+// GET /it/search_api/jobsearch (result.hits[] / result.pageCount) was retired
+// and now 404s, so the crawler returned 0 jobs for 3 consecutive runs. The new
+// endpoint is GET /it/api/v1/search?general={"page":N,...} -> { jobs[], meta }.
+// These tests pin the new contract so a future rename fails loudly here instead
+// of silently emptying a 350+ job CH-wide source.
+// ---------------------------------------------------------------------------
+
+// Fixture modeled on a real /it/api/v1/search job hit.
+const LICA_HIT = {
+  title: 'Collaborateur/Collaboratrice libre-service et vente 40%',
+  descResponsibilities:
+    '<div><h2>Introduction</h2><p>Tu aimes le contact clientèle.</p><ul><li>Travail aux caisses</li><li>Aide self-checkout</li></ul></div>',
+  language: 'fr',
+  requisitionId: '693901',
+  recruitingUrlEasyApply:
+    'https://ea-lidl.cfapps.eu20.hana.ondemand.com/easyapply/index.html?ReqId=693901&sap-language=it_CH',
+  recruitingUrl:
+    'https://ea-lidl.cfapps.eu20.hana.ondemand.com/easyapply/index.html?ReqId=693901&sap-language=it_CH',
+  contractType: 'Temps Partiel',
+  contractTypeId: 'Teilzeit',
+  highlight: false,
+  jobDetailUrl:
+    'https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-martigny-693901',
+  location: {
+    zipCode: '1920',
+    address: 'Rue du Levant 145',
+    city: 'Martigny',
+    country: 'CH',
+  },
+};
+
+describe('LiCa search-API contract / endpoint constants', () => {
+  it('targets the LiCa /api/v1/search endpoint, not the retired search_api/jobsearch', () => {
+    expect(LIDL_SEARCH_API_BASE).toContain('/api/v1/search');
+    expect(LIDL_SEARCH_API_BASE).not.toContain('search_api');
+    expect(LIDL_SEARCH_API_BASE).not.toContain('jobsearch');
+  });
+
+  it('reads the job list from the top-level `jobs` key', () => {
+    expect(LIDL_SEARCH_JOBS_KEY).toBe('jobs');
+  });
+});
+
+describe('buildLidlSearchQuery', () => {
+  it('paginates via a JSON-encoded `general` object (a bare page=N is ignored)', () => {
+    const qs = buildLidlSearchQuery(3, 20);
+    const params = new URLSearchParams(qs);
+    expect(params.has('general')).toBe(true);
+    expect(params.has('page')).toBe(false);
+    const general = JSON.parse(params.get('general') as string);
+    expect(general.page).toBe(3);
+    expect(general.resultsPerPage).toBe(20);
+  });
+
+  it('defaults resultsPerPage to LIDL_DEFAULT_RESULTS_PER_PAGE', () => {
+    const general = JSON.parse(
+      new URLSearchParams(buildLidlSearchQuery(1)).get('general') as string,
+    );
+    expect(general.resultsPerPage).toBe(LIDL_DEFAULT_RESULTS_PER_PAGE);
+  });
+});
+
+describe('getLidlSearchPageCount', () => {
+  it('derives the page count from meta.totalCount / resultsPerPage (ceil)', () => {
+    expect(getLidlSearchPageCount({ totalCount: 357, resultsPerPage: 20 })).toBe(18);
+    expect(getLidlSearchPageCount({ totalCount: 40, resultsPerPage: 20 })).toBe(2);
+  });
+
+  it('returns 1 for a missing/empty meta envelope', () => {
+    expect(getLidlSearchPageCount(undefined)).toBe(1);
+    expect(getLidlSearchPageCount({})).toBe(1);
+  });
+});
+
+describe('extractLidlApiHitFields', () => {
+  it('maps the new LiCa field names', () => {
+    const f = extractLidlApiHitFields(LICA_HIT);
+    expect(f.detailUrl).toBe(LICA_HIT.jobDetailUrl);
+    expect(f.title).toBe(LICA_HIT.title);
+    expect(f.language).toBe('fr');
+    expect(f.requisitionId).toBe('693901');
+    expect(f.applyUrl).toContain('ReqId=693901');
+    expect(f.contractType).toBe('Teilzeit'); // contractTypeId wins (German canonical)
+    expect(f.zipCode).toBe('1920');
+    expect(f.address).toBe('Rue du Levant 145');
+    expect(f.city).toBe('Martigny');
+    expect(f.country).toBe('CH');
+    expect(f.descriptionHtml).toContain('Travail aux caisses');
+  });
+
+  it('falls back to the legacy search_api field names', () => {
+    const f = extractLidlApiHitFields({
+      url: 'https://team.lidl.ch/it/jobs/x-12345',
+      jobLanguage: 'IT',
+      descOffer: '<p>old body</p>',
+      reference: '12345',
+      easyApply: { easyApplyUrl: 'https://ea?ReqId=12345' },
+      contractType: 'Vollzeit',
+      location: { postcode: '6900', title: 'Lugano Filiale', city: 'Lugano' },
+    });
+    expect(f.detailUrl).toBe('https://team.lidl.ch/it/jobs/x-12345');
+    expect(f.language).toBe('it');
+    expect(f.descriptionHtml).toBe('<p>old body</p>');
+    expect(f.requisitionId).toBe('12345');
+    expect(f.applyUrl).toContain('ReqId=12345');
+    expect(f.zipCode).toBe('6900');
+    expect(f.locationName).toBe('Lugano Filiale');
+    expect(f.city).toBe('Lugano');
+  });
+
+  it('returns empty strings (never throws) for a malformed hit', () => {
+    const f = extractLidlApiHitFields({});
+    expect(f.detailUrl).toBe('');
+    expect(f.city).toBe('');
+    expect(f.highlight).toBe(false);
   });
 });
