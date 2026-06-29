@@ -1,7 +1,69 @@
 {
   "crawlerKey": "oscam",
-  "assembledAt": "2026-06-25T22:57:40.200Z",
+  "assembledAt": "2026-06-28T22:12:23.198Z",
   "jobs": [
+    {
+      "title": "Apprendistato come impiegata/to di commercio AFC",
+      "slug": "apprendistato-come-impiegata-to-di-commercio-afc-oscam",
+      "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+      "companyKey": "oscam",
+      "location": "Castelrotto",
+      "canton": "TI",
+      "country": "CH",
+      "url": "http://www.oscam.ch/wp-content/uploads/2018/02/Concorso_generale_medici_assistenti_01.pdf",
+      "applyUrl": "mailto:info@oscam.ch",
+      "description": "## Concorso\n\nOSCAM – Ospedale e Casa Anziani Malcantonese pubblica il seguente concorso: Apprendistato come impiegata/to di commercio AFC.\n\nPer i dettagli completi del concorso, consultare il bando PDF allegato.\n\n**Settore:** Sanità pubblica / Assistenza anziani\n\n**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Svizzera\n\n**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Svizzera\n\n**Contatto:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+      "category": "apprenticeship",
+      "sector": "Sanità pubblica / Assistenza anziani",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "oscam-crawler",
+      "postedDate": "2026-06-26",
+      "titleByLocale": {
+        "it": "Apprendistato come impiegata/to di commercio AFC",
+        "en": "Entrepreneurship as employee/business AFC",
+        "de": "Unternehmertum als Mitarbeiter / Business AFC",
+        "fr": "Entrepreneuriat en tant qu'employé/entreprise AFC"
+      },
+      "descriptionByLocale": {
+        "it": "## Concorso OSCAM – Ospedale e Casa Anziani Malcantonese pubblica il seguente concorso: Apprendistato come impiegata/to di commercio AFC. Per i dettagli completi del concorso, consultare il bando PDF allegato. **Settore:** Sanità pubblica / Assistenza anziani **Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Svizzera **Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Svizzera **Contatto:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+        "en": "## Competition OSCAM – Hospital and Casa Anziani Malcantonese publishes the following contest: Learned as an AFC business employee. For the complete details of the competition, see the attached PDF call. **Sector:*** Public Health / Senior Caregiver **Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Switzerland **Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Switzerland **Contact:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+        "de": "## Wettbewerb OSCAM – Hospital and Casa Anziani Malcantonese veröffentlicht den folgenden Wettbewerb: Learned as a AFC Business Employee. Die vollständigen Details des Wettbewerbs finden Sie im beigefügten PDF-Aufruf. **Sektor: *** Öffentliche Gesundheit / Senior Caregiver **Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Schweiz **Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Schweiz **Kontakt:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+        "fr": "## Concurrence OSCAM – L'hôpital et Casa Anziani Malcantonese publient le concours suivant: Learned as an AFC business employee. Pour les détails complets du concours, consultez l'appel PDF ci-joint. **Secteur:*** Santé publique / Soins aux aînés **Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Suisse **Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Suisse Tél. +41 (0)91 611 37 00"
+      },
+      "slugByLocale": {
+        "it": "apprendistato-come-impiegata-to-di-commercio-afc-oscam",
+        "en": "entrepreneurship-as-employee-business-afc-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
+        "de": "unternehmertum-als-mitarbeiter-business-afc-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
+        "fr": "entrepreneuriat-en-tant-qu-employe-entreprise-afc-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
+      },
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Castelrotto"
+      },
+      "crawledAt": "",
+      "id": "oscam-8b832504260b",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 10",
+      "postalCode": "6807",
+      "addressLocality": "Castelrotto",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-06-26T22:29:03.666Z"
+    },
     {
       "title": "Concorso generale 2026",
       "slug": "concorso-generale-2026-oscam",

@@ -1,58 +1,16 @@
 {
   "key": "transgourmet",
   "label": "Transgourmet",
-  "generatedAt": "2026-06-25T23:28:58.194Z",
-  "total": 1,
+  "generatedAt": "2026-06-28T22:44:45.295Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2672,
-  "avgDurationMs": 2672,
-  "durationHistory": [
-    2672
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "transgourmet-1c3385a2-832",
-      "slug": "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Mitarbeiterin / Mitarbeiter Verkauf Markt",
-      "location": "Gamsen",
-      "canton": "VS",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/1c3385a2-832c-49c6-a61a-0308193c5d51",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T23:28:56.095Z",
-      "addressLocality": "Gamsen",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3900",
-      "streetAddress": "Kantonsstrasse 424",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-12",
-      "pensum": "50%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164555",
-      "firstSeenAt": "2026-04-13T11:25:48.621Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

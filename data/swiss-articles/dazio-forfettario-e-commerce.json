@@ -1,0 +1,40 @@
+{
+  "id": "dazio-forfettario-e-commerce",
+  "slug": "dazio-forfettario-e-commerce",
+  "publishedAt": "2026-06-27T18:10:47.827Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "fiscoetasse.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.5062079036428777,
+    "confidence": 0.8,
+    "finalScore": 2.0049663229143024,
+    "topK": [
+      {
+        "slug": "comco-keyword-bidding-inchieste",
+        "cosine": 0.8354026345476259
+      },
+      {
+        "slug": "comco-indaga-pubblicita-motori-ricerca",
+        "cosine": 0.8331602937945009
+      },
+      {
+        "slug": "tassa-salute-frontalieri-accordo-frontalieri",
+        "cosine": 0.830450141920299
+      },
+      {
+        "slug": "nuove-regole-scambio-informazioni-ader-enti-creditori",
+        "cosine": 0.8278095438661552
+      },
+      {
+        "slug": "sfruttamento-corsieri-ticino-2026",
+        "cosine": 0.8262217427602735
+      }
+    ],
+    "score": 1.0024831614571512,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

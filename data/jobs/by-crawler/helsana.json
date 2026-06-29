@@ -1,393 +1,7 @@
 {
   "crawlerKey": "helsana",
-  "assembledAt": "2026-06-25T22:26:26.216Z",
+  "assembledAt": "2026-06-28T21:45:02.078Z",
   "jobs": [
-    {
-      "id": "helsana-ee004d522639",
-      "slug": "team-leader-facility-management-svizzera-tedesca-a-80-100-helsana-dubendorf-stettbach-homeoff",
-      "slugByLocale": {
-        "de": "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach",
-        "it": "team-leader-facility-management-svizzera-tedesca-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "team-leader-facility-management-german-speaking-switzerland-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "chef-d-equipe-gestion-des-installations-suisse-alemanique-a-80-100-helsana-dubendorf-stettbach-homeoff"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Teamleiterin Facility Management Deutschschweiz (a) 80-100%",
-      "titleByLocale": {
-        "de": "Teamleiterin Facility Management Deutschschweiz (a) 80-100%",
-        "it": "Team Leader Facility Management Svizzera tedesca (a) 80-100 %",
-        "en": "Team Leader Facility Management German-speaking Switzerland (a) 80-100 %",
-        "fr": "Chef d'équipe Gestion des installations Suisse alémanique (a) 80-100 %"
-      },
-      "description": "Teamleiterin Facility Management Deutschschweiz (a) 80-100% bei Helsana in Dübendorf-Stettbach & Homeoff.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "de": "Teamleiterin Facility Management Deutschschweiz (a) 80-100% bei Helsana in Dübendorf-Stettbach & Homeoff.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "it": "Leader del team Facility Management Deutschschweiz (a) 80-100% a Helsana in Dübendorf-Stettbach & Homeoff.\n\nHelsana è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Team leader Facility Management Deutschschweiz (a) 80-100% at Helsana in Dübendorf-Stettbach & Homeoff.\n\nHelsana is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "fr": "Chef d'équipe Gestion des installations Deutschschweiz (a) 80-100% à Helsana à Dübendorf-Stettbach & Homeoff.\n\nHelsana est un fournisseur de soins de santé suisse. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation."
-      },
-      "location": "Dübendorf-Stettbach & Homeoff",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Teamleiterin-Facility-Management-Deutschschweiz-%28a%29-80-100/1389100733/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:23.316Z",
-      "addressLocality": "Dübendorf-Stettbach & Homeoff",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-30",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1389100733/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-25T22:26:23.316Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
-        ],
-        "en": [
-          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
-        ],
-        "fr": [
-          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
-        ]
-      },
-      "previousSlugs": [
-        "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
-      ]
-    },
-    {
-      "id": "helsana-62d28e348fe3",
-      "slug": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino",
-      "slugByLocale": {
-        "it": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino",
-        "en": "outbound-insurance-consultant-80-100-helsana-ticino",
-        "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice",
-        "fr": "conseiller-en-assurance-en-service-externe-80-100-helsana-ticino"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Versicherungsberater im Aussendienst (a) 80-100%",
-      "titleByLocale": {
-        "it": "Consulente assicurativo in servizio esterno (a) 80-100%",
-        "en": "Outbound Insurance Consultant (80-100%)",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Conseiller en assurance en service externe (80-100%)"
-      },
-      "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Horgen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Consulente assicurativo nel servizio esterno (a) 80-100% presso Helsana a Horgen & Homeoffice. Descrizione Helsana è un noto fornitore svizzero di servizi sanitari. Questo ruolo offre un ambiente di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessuno specificato\n• Cosa offriamo - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Molte opportunità di formazione continua Contatto - Nessun dettaglio di contatto specificato",
-        "en": "Mansioni - Insurance consultant in the field service (a) 80-100% at Helsana in Horgen & HomeOffice. Descrizione Helsana è un noto for Nitore sviz Zero di servizi sanitari. Questo ruolo offre un a·de di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione Thora.\n• Requisiti - Nessuno specificato Cosa offiamo - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Molte opportunità di formazione Thora Contatto - Nessun dettaglio di contattoremato",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Horgen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Mansioni - Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana in Horgen & HomeOffice. Descrizione Helsana è un noto for Nitore sviz Zero di Servizi sanitari. Questo ruolo offre un a·de di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione Thora.\n• Requisiti - Nessuno specificato Cosa offiamo - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Molte opportunà di formazione Thora Contatto - Nessun dettaglio di contatoremato"
-      },
-      "needsRetranslation": false,
-      "location": "Ticino",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/Horgen-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1283467901/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:22.728Z",
-      "addressLocality": "Ticino",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1283467901/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:43:22.076Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "helsana-2e6adfec3542",
-      "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino",
-      "slugByLocale": {
-        "it": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino",
-        "en": "specialist-in-internal-medicine-a-80-100-helsana-ticino",
-        "de": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice",
-        "fr": "specialiste-en-medecine-interne-a-80-100-helsana-ticino"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
-      "titleByLocale": {
-        "it": "Medico Specialista in Medicina Interna (a) 80-100%",
-        "en": "Specialist in Internal Medicine (a) 80-100%",
-        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
-        "fr": "Spécialiste en Médecine Interne (a) 80-100%"
-      },
-      "description": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Specialista in Medicina Interna Generale (a) 80-100% Luogo di lavoro - Helsana a Zurigo & Homeoffice Descrizione - Helsana è un noto fornitore svizzero di servizi sanitari. - Questa posizione offre un ambiente di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessuno specificato\n• Cosa offriamo - Nessuno specificato Contatto - Nessuno specificato",
-        "en": "Mansioni - Specialist General Internal Medicine (a) 80- 100% Luogo di lavoro - Helsana in Zurich & HomeOffice Descrizione - Helsana è un noto for Nitore sviz Zero di servizi sanitari. - Questa posizione offre un·oe di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessunosportato\n• Cosa offriamo - Nessunosportato Contatto - Nessuno specificato",
-        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Mansioni - Spécialiste en Médecine Générale Interne (a) 80- 100% Luogo di lavoro - Helsana in Zurich & HomeOffice Descrizione - Helsana è un noto for Nitore sviz Zero di Servizi sanitari. - Questa posizione offre un·oe di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessunosportato\n• Cosa offriamo - Nessunosportato Contatto - Nessuno specificato"
-      },
-      "needsRetranslation": false,
-      "location": "Ticino",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Fach%C3%A4rztin-Allgemeine-Innere-Medizin-%28a%29-80-100/1286296501/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:22.167Z",
-      "addressLocality": "Ticino",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1286296501/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
-        ],
-        "en": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
-        ],
-        "fr": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:43:21.469Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "helsana-cd4d60a450e5",
-      "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5",
-      "slugByLocale": {
-        "it": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5",
-        "en": "specialist-in-internal-medicine-a-80-100-helsana-ticino-882bb5",
-        "de": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice",
-        "fr": "specialiste-en-medecine-interne-a-80-100-helsana-ticino-882bb5"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
-      "titleByLocale": {
-        "it": "Medico Specialista in Medicina Interna (a) 80-100%",
-        "en": "Specialist in Internal Medicine (a) 80-100%",
-        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
-        "fr": "Spécialiste en Médecine Interne (a) 80-100%"
-      },
-      "description": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Bern & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Specialista in Medicina Interna Generale (a) 80-100% Dati dell'azienda - Helsana, un noto fornitore di servizi sanitari svizzero Luogo di lavoro - Berna & smart working Offerta - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Ampie opportunità di formazione continua",
-        "en": "Mansioni - Specialist General Internal Medicine (a) 80- 100% Dati dell'azienda - Helsana, un noto for Nitore di servizi sanitari sviz Zero Luogo di lavoro - Berna & smart working Offerta - Ambiente di lavoro moderno - Condizioni di impiego atratti - Ampie opportunità di formazione continua",
-        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Mansioni - Spécialiste en Médecine Générale Interne (a) 80- 100% Dati dell'azienda - Helsana, un noto for Nitore di servizi sanitari sviz Zero Luogo di lavoro - Berna & smart working Offerta - Ambiente di lavoro moderno - Condizioni di impiego atratti - APIE opportunità di formazione continua"
-      },
-      "needsRetranslation": false,
-      "location": "Ticino",
-      "canton": "BE",
-      "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Fach%C3%A4rztin-Allgemeine-Innere-Medizin-%28a%29-80-100/1286311701/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:21.602Z",
-      "addressLocality": "Ticino",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1286311701/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
-        ],
-        "en": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
-        ],
-        "fr": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:43:20.847Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "helsana-9e72b04cec91",
-      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino",
-      "slugByLocale": {
-        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino",
-        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino",
-        "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice",
-        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Versicherungsberater im Aussendienst (a) 80-100%",
-      "titleByLocale": {
-        "it": "Consulente assicurativo nel settore del servizio (a) 80- 100%",
-        "en": "Insurance consultant in the field service (a) 80- 100%",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Consultant en assurance dans le service extérieur (a) 80- 100%"
-      },
-      "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Meilen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Consulente assicurativo presso il servizio sul campo (a) 80-100% presso Helsana a Meilen & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Insurance consultant in the field service (a) 80-100% at Helsana in Meilen & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Meilen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana à Meilen & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation complémentaire."
-      },
-      "needsRetranslation": false,
-      "location": "Ticino",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/Meilen-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1287759401/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:21.026Z",
-      "addressLocality": "Ticino",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1287759401/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:43:20.262Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "helsana-58dbae0c6408",
       "slug": "consulente-assicurativo-nel-settore-del-servizio-a-80-100-helsana-ticino",
@@ -420,7 +34,7 @@
       "url": "https://careers.helsana.ch/job/Chur-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1399619433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:20.443Z",
+      "crawledAt": "2026-06-28T21:44:59.298Z",
       "addressLocality": "Ticino",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -501,7 +115,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-%28a%29-80-100/1389900033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:19.865Z",
+      "crawledAt": "2026-06-28T21:44:58.739Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -578,7 +192,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Tempor%C3%A4re-Mitarbeiterin-Kundenbetreuung-%28a%29-80-100-befristet-vom-10_08_2026-bis-31_01_2027/1400174933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:19.291Z",
+      "crawledAt": "2026-06-28T21:44:58.173Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -657,7 +271,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Temporaire-au-Service-Client%C3%A8le-International-FD-%28t%29-80-100-1_-Juillet-%C3%A0-30_-Septembre-2026/1400264333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:18.711Z",
+      "crawledAt": "2026-06-28T21:44:57.609Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -728,7 +342,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Controller-in-der-Vertriebssteuerung-%28a%29-80-100/1400195433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:18.111Z",
+      "crawledAt": "2026-06-28T21:44:57.034Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -805,7 +419,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Leistungen-ambulant-%28a%29-80-100/1400327433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:17.522Z",
+      "crawledAt": "2026-06-28T21:44:56.462Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -882,7 +496,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Bereichsleiterin-Unternehmensgesch%C3%A4ft-Region-Z%C3%BCrich%2C-Zentral-&-Ostschweiz-%28a%29-80-100/1390427433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:16.952Z",
+      "crawledAt": "2026-06-28T21:44:55.905Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -958,7 +572,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Sachbearbeiter-KTG-&-UVG-Unternehmensgesch%C3%A4ft-%28a%29/1377015033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:16.348Z",
+      "crawledAt": "2026-06-28T21:44:55.331Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1038,7 +652,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Fallmanagement-%28a%29-80/1400830233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:15.768Z",
+      "crawledAt": "2026-06-28T21:44:54.762Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1115,7 +729,7 @@
       "url": "https://careers.helsana.ch/job/Solothurn-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1278103201/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:15.190Z",
+      "crawledAt": "2026-06-28T21:44:54.209Z",
       "addressLocality": "Ticino",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1194,7 +808,7 @@
       "url": "https://careers.helsana.ch/job/St_-Gallen-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Kanton-Graub%C3%BCnden-%28a%29-80-100/1391034133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:14.628Z",
+      "crawledAt": "2026-06-28T21:44:53.630Z",
       "addressLocality": "Ticino",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1275,7 +889,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Tempor%C3%A4re-Mitarbeit-Kundenbetreuung-%28a%29-80-100-vom-10_8_2026-bis-31_3_2027/1401355333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:14.025Z",
+      "crawledAt": "2026-06-28T21:44:53.067Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1354,7 +968,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Insights-&-Analytics-Specialist-in-der-Vertriebssteuerung-%28a%29-80-100/1401359633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:13.416Z",
+      "crawledAt": "2026-06-28T21:44:52.504Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1428,7 +1042,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Krankentaggeld-%28a%29-80-100/1382744233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:12.835Z",
+      "crawledAt": "2026-06-28T21:44:51.908Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1511,7 +1125,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Full-Stack-Software-Engineer-C-_NET-React-%28a%29-80-100/1382641433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:12.243Z",
+      "crawledAt": "2026-06-28T21:44:51.345Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1574,7 +1188,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Fachspezialist-Underwriting-Services-%28a%29-80/1378902933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:11.649Z",
+      "crawledAt": "2026-06-28T21:44:50.782Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1648,7 +1262,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Spezialistin-Fachstelle-Unternehmensgesch%C3%A4ft-%28a%29-80-100/1401674733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:11.073Z",
+      "crawledAt": "2026-06-28T21:44:50.215Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1725,7 +1339,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Ambulant-%28a%29-80-100/1401940633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:10.498Z",
+      "crawledAt": "2026-06-28T21:44:49.643Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1809,7 +1423,7 @@
       "url": "https://careers.helsana.ch/job/Biel-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1372733633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:09.927Z",
+      "crawledAt": "2026-06-28T21:44:49.079Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1892,7 +1506,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Fachspezialist-Gesch%C3%A4ftsfeldentwicklung-&-Innovation-%28a%29-80-100/1402391633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:09.350Z",
+      "crawledAt": "2026-06-28T21:44:48.512Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1969,7 +1583,7 @@
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Versicherungsmediziner-DF-%28a%29-40-60/1293845001/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:08.737Z",
+      "crawledAt": "2026-06-28T21:44:47.944Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2047,7 +1661,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Versicherungsmediziner-DI-%28a%29-40-60/1293851501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:08.157Z",
+      "crawledAt": "2026-06-28T21:44:47.373Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2124,7 +1738,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Medizinischer-Codierer-%28a%29-80-100/1293590601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:07.552Z",
+      "crawledAt": "2026-06-28T21:44:46.798Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2201,7 +1815,7 @@
       "url": "https://careers.helsana.ch/job/Solothurn-&-Homeoffice-Mitarbeiterin-Verkaufssupport-%28a%29-60/1402803133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:06.970Z",
+      "crawledAt": "2026-06-28T21:44:46.220Z",
       "addressLocality": "Ticino",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2282,7 +1896,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Retention-%28a%29-80-100/1392844533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:06.388Z",
+      "crawledAt": "2026-06-28T21:44:45.662Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2359,7 +1973,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Case-Manager-%28a%29-80-100/1392720933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:05.791Z",
+      "crawledAt": "2026-06-28T21:44:45.091Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2422,7 +2036,7 @@
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1383716733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:05.230Z",
+      "crawledAt": "2026-06-28T21:44:44.531Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2502,7 +2116,7 @@
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Mitarbeiterin-Verkaufssupport-%28a%29-80-100/1393332533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:04.629Z",
+      "crawledAt": "2026-06-28T21:44:43.973Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2583,7 +2197,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-_Net-Azure-Entwickler-%28a%29-80-100/1393480033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:04.050Z",
+      "crawledAt": "2026-06-28T21:44:43.402Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2646,7 +2260,7 @@
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Kundenbetreuerin-Verkaufsstelle-%28a%29-80-100/1403685533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:03.483Z",
+      "crawledAt": "2026-06-28T21:44:42.840Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2728,7 +2342,7 @@
       "url": "https://careers.helsana.ch/job/Group-Controller-%28a%29-80-100/970403401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:02.894Z",
+      "crawledAt": "2026-06-28T21:44:42.283Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2802,7 +2416,7 @@
       "url": "https://careers.helsana.ch/job/Basel-&-Homeoffice-Kundenbetreuerin-Verkaufsstelle-%28a%29-80-100/1374917633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:02.304Z",
+      "crawledAt": "2026-06-28T21:44:41.697Z",
       "addressLocality": "Ticino",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2885,7 +2499,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Spontanbewerbungen/639608001/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:01.709Z",
+      "crawledAt": "2026-06-28T21:44:41.137Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2961,7 +2575,7 @@
       "url": "https://careers.helsana.ch/job/Senior-Test-Engineer-%28a%29-80-100/961278101/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:01.096Z",
+      "crawledAt": "2026-06-28T21:44:40.562Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3035,7 +2649,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenberaterin-Contact-Center-mw-%2840-60%29/730311601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:26:00.504Z",
+      "crawledAt": "2026-06-28T21:44:39.999Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3112,7 +2726,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenbetreuer-Inkasso-DE-&-IT-wm-%2880-100%29/655242701/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:59.934Z",
+      "crawledAt": "2026-06-28T21:44:39.402Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3158,6 +2772,85 @@
       }
     },
     {
+      "id": "helsana-f503122230cf",
+      "slug": "assistenza-medica-pratica-a-80-100-helsana-ticino",
+      "slugByLocale": {
+        "it": "assistenza-medica-pratica-a-80-100-helsana-ticino",
+        "en": "medical-practice-assistance-a-80-100-helsana-ticino",
+        "de": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+        "fr": "assistant-e-medical-e-de-pratique-a-80-100-helsana-ticino"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Medizinische Praxisassistenz (a) 80-100%",
+      "titleByLocale": {
+        "it": "Assistente di pratica medica (a) 80-100%",
+        "en": "Medical Practice Assistant (a) 80-100%",
+        "de": "Medizinische Praxisassistenz (a) 80-100%",
+        "fr": "Assistant(e) médical(e) de pratique (a) 80-100%"
+      },
+      "description": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Assistenza medica (a) 80-100% presso Helsana a Zurigo & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Medical practice assistance (a) 80-100% at Helsana in Zurich & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Assistance médicale (a) 80-100% à Helsana à Zurich & HomeOffice. Helsana est un prestataire suisse de soins de santé établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
+      },
+      "needsRetranslation": false,
+      "location": "Ticino",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80-100/1405612533/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:44:38.829Z",
+      "addressLocality": "Ticino",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612533/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+        "assistance-medicale-a-80-100-helsana-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+          "assistance-medicale-a-80-100-helsana-ticino"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T11:42:53.510Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "helsana-0da34c418159",
       "slug": "assistente-di-pratica-medica-a-50-helsana-ticino",
       "slugByLocale": {
@@ -3189,7 +2882,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-50/1405612133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:59.355Z",
+      "crawledAt": "2026-06-28T21:44:38.262Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3270,7 +2963,7 @@
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80/1405612633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:58.782Z",
+      "crawledAt": "2026-06-28T21:44:37.690Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3320,85 +3013,6 @@
       }
     },
     {
-      "id": "helsana-f503122230cf",
-      "slug": "assistenza-medica-pratica-a-80-100-helsana-ticino",
-      "slugByLocale": {
-        "it": "assistenza-medica-pratica-a-80-100-helsana-ticino",
-        "en": "medical-practice-assistance-a-80-100-helsana-ticino",
-        "de": "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
-        "fr": "assistant-e-medical-e-de-pratique-a-80-100-helsana-ticino"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Medizinische Praxisassistenz (a) 80-100%",
-      "titleByLocale": {
-        "it": "Assistente di pratica medica (a) 80-100%",
-        "en": "Medical Practice Assistant (a) 80-100%",
-        "de": "Medizinische Praxisassistenz (a) 80-100%",
-        "fr": "Assistant(e) médical(e) de pratique (a) 80-100%"
-      },
-      "description": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Assistenza medica (a) 80-100% presso Helsana a Zurigo & HomeOffice. Helsana è un fornitore svizzero di assistenza sanitaria. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Medical practice assistance (a) 80-100% at Helsana in Zurich & HomeOffice. Helsana is an established Swiss health care provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
-        "de": "Medizinische Praxisassistenz (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Assistance médicale (a) 80-100% à Helsana à Zurich & HomeOffice. Helsana est un prestataire suisse de soins de santé établi. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation continue."
-      },
-      "needsRetranslation": false,
-      "location": "Ticino",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80-100/1405612533/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:58.211Z",
-      "addressLocality": "Ticino",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612533/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
-        "assistance-medicale-a-80-100-helsana-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
-        ],
-        "en": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
-        ],
-        "fr": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
-          "assistance-medicale-a-80-100-helsana-ticino"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:42:53.510Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "helsana-261a20bad839",
       "slug": "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
@@ -3430,7 +3044,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Conseiller-Service-Client%C3%A8le-International-FRDE-%28t%29-80-100/1405623733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:57.649Z",
+      "crawledAt": "2026-06-28T21:44:37.115Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3501,7 +3115,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Marketing-Stratege-%28mw%29-%2880-100%29/637016301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:57.066Z",
+      "crawledAt": "2026-06-28T21:44:36.563Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3575,7 +3189,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Partner-und-Kundenbetreuer-Unternehmensgesch%C3%A4ft-%28a%29-80-100/1394891033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:56.468Z",
+      "crawledAt": "2026-06-28T21:44:35.989Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3652,7 +3266,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-Praktikant-Ausbildung-wm/657978401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:55.900Z",
+      "crawledAt": "2026-06-28T21:44:35.404Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3728,7 +3342,7 @@
       "url": "https://careers.helsana.ch/job/Lausanne-Candidature-Spontan%C3%A9e/637828601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:55.317Z",
+      "crawledAt": "2026-06-28T21:44:34.813Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3804,7 +3418,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Leistungen-Sozialversicherungen-%28a%29-80-100/1406318733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:54.711Z",
+      "crawledAt": "2026-06-28T21:44:34.243Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3881,7 +3495,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Mittelland-%28a%29-80-100/1406355933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:54.122Z",
+      "crawledAt": "2026-06-28T21:44:33.689Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3963,7 +3577,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Spezialistin-Fachstelle-Unternehmensgesch%C3%A4ft-%28a%29-80-100/861656201/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:53.534Z",
+      "crawledAt": "2026-06-28T21:44:33.122Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4040,7 +3654,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Fachspezialistin-Partnerschaften-Gesundheitsberatung-wm-%2880-100%29/652014801/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:52.928Z",
+      "crawledAt": "2026-06-28T21:44:32.556Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4117,7 +3731,7 @@
       "url": "https://careers.helsana.ch/job/Thun-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1270807101/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:52.347Z",
+      "crawledAt": "2026-06-28T21:44:31.967Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4197,7 +3811,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Release-und-Test-Engineer-%28a%29-80-100/1386841133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:51.774Z",
+      "crawledAt": "2026-06-28T21:44:31.400Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4271,7 +3885,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Kundenservice-International-DEENIT-%28a%29-80-100/1396541033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:51.195Z",
+      "crawledAt": "2026-06-28T21:44:30.819Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4348,7 +3962,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuerin-Antragsverarbeitung-%28a%29-80-100/1377417133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:50.616Z",
+      "crawledAt": "2026-06-28T21:44:30.254Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4431,7 +4045,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Formulare-&-Leistungen-%28a%29-80-100-befristet-bis-September-2026/1387426333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:50.030Z",
+      "crawledAt": "2026-06-28T21:44:29.644Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4510,7 +4124,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Lernende-%28a%29-Informatikerin-EFZ-Plattformentwicklung-per-August-2023/840037501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:49.459Z",
+      "crawledAt": "2026-06-28T21:44:29.056Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4586,7 +4200,7 @@
       "url": "https://careers.helsana.ch/job/Release-und-Test-Engineer-%28a%29-80-100/956343301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:48.893Z",
+      "crawledAt": "2026-06-28T21:44:28.486Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4656,7 +4270,7 @@
       "url": "https://careers.helsana.ch/job/Inhouse-Consultant-SAP-HCM-&-Success-Factors-%28a%29-80-100/990259401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:48.306Z",
+      "crawledAt": "2026-06-28T21:44:27.905Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4719,7 +4333,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Senior-Linux-Cloud-Engineer-%28a%29-80-100/791705601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:47.695Z",
+      "crawledAt": "2026-06-28T21:44:27.338Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4782,7 +4396,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-Mitarbeiterin-Impfzentrum-wm-%2880-100%29/668203501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:47.111Z",
+      "crawledAt": "2026-06-28T21:44:26.750Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4861,7 +4475,7 @@
       "url": "https://careers.helsana.ch/job/Horgen-&-Homeoffice-Verkaufsleiterin-%28a%29-80-100/1407833633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:46.552Z",
+      "crawledAt": "2026-06-28T21:44:26.194Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4938,7 +4552,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Competence-Center-DEIT-%28a%29-80-100/1393160633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:45.975Z",
+      "crawledAt": "2026-06-28T21:44:25.638Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5012,7 +4626,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-IT-Security-Architect-%28a%29-Secure-Development%2C-Threat-&-Vulnerability-Management-80-100/1277473401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:45.388Z",
+      "crawledAt": "2026-06-28T21:44:25.074Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5086,7 +4700,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Trainee-Business-Engineering-%28a%29-80-100-ab-September-2026-f%C3%BCr-18-Monate/1397095933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:44.814Z",
+      "crawledAt": "2026-06-28T21:44:24.506Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5163,7 +4777,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Leiter-Portal-&-Data-Solutions-%28a%29-80-100/1408168833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:44.252Z",
+      "crawledAt": "2026-06-28T21:44:23.935Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5180,15 +4794,15 @@
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1408168833/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-25T11:13:50.098Z",
+      "previousSlugs": [
+        "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ]
       },
-      "previousSlugs": [
-        "leiter-portal-data-solutions-a-80-100-helsana-dubendorf-stettbach-homeoff"
-      ],
+      "firstSeenAt": "2026-06-25T11:13:50.098Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5234,7 +4848,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Tempor%C3%A4rer-Kundenbetreuer-Online-Support-%28a%29-80-100-befristet-01_08_2026-bis-31_01_2027/1381603033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:43.670Z",
+      "crawledAt": "2026-06-28T21:44:23.363Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5313,7 +4927,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Leistungen-Krankentaggeld-%28a%29-80-100/1397747433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:25:43.069Z",
+      "crawledAt": "2026-06-28T21:44:22.756Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5345,6 +4959,453 @@
         ]
       },
       "firstSeenAt": "2026-06-23T11:43:23.302Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "helsana-707817d6d999",
+      "slug": "conseiller-clientele-service-international-t-fr-de-80-100-helsana-dubendorf-stettbach",
+      "slugByLocale": {
+        "it": "conseiller-clientele-service-international-t-fr-de-80-100-helsana-dubendorf-stettbach",
+        "en": "conseiller-clientele-service-international-t-fr-de-80-100-helsana-dubendorf-stettbach",
+        "de": "conseiller-clientele-service-international-t-fr-de-80-100-helsana-dubendorf-stettbach",
+        "fr": "conseiller-clientele-service-international-t-fr-de-80-100-helsana-dubendorf-stettbach"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Conseiller Clientèle Service International (t) FR/DE 80-100 %",
+      "titleByLocale": {
+        "it": "Conseiller Clientèle Service International (t) FR/DE 80-100%",
+        "en": "Conseiller Clientèle Service International (t) FR/DE 80-100 %",
+        "de": "Conseiller Clientèle Service International (t) FR/DE 80-100 %",
+        "fr": "Conseiller Clientèle Service International (t) FR/DE 80-100 %"
+      },
+      "description": "Conseiller Clientèle Service International (t) FR/DE 80-100 % bei Helsana in Dübendorf-Stettbach & Homeoff.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Conseiller Clientèle Service International (t) FR/DE 80-100 % a Helsana in Dübendorf-Stettbach & Homeoff. Helsana è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Conseiller Clientèle Service International (t) FR/DE 80-100 % at Helsana in Dübendorf-Stettbach & Homeoff. Helsana is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Conseiller Clientèle Service International (t) FR/DE 80-100 % bei Helsana in Dübendorf-Stettbach & Homeoff. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Conseiller Clientèle Service International (t) FR/DE 80-100 % à Helsana à Dübendorf-Stettbach & Homeoff. Helsana est un fournisseur de soins de santé suisse. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation."
+      },
+      "location": "Dübendorf-Stettbach & Homeoff",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Conseiller-Client%C3%A8le-Service-International-%28t%29-FRDE-80-100/1408744933/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:44:22.187Z",
+      "addressLocality": "Dübendorf-Stettbach & Homeoff",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1408744933/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-26T11:31:30.364Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "helsana-ee004d522639",
+      "slug": "team-leader-facility-management-svizzera-tedesca-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slugByLocale": {
+        "it": "team-leader-facility-management-svizzera-tedesca-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "team-leader-facility-management-german-speaking-switzerland-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "de": "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach",
+        "fr": "chef-d-equipe-gestion-des-installations-suisse-alemanique-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Teamleiterin Facility Management Deutschschweiz (a) 80-100%",
+      "titleByLocale": {
+        "it": "Team Leader Facility Management Svizzera tedesca (a) 80-100 %",
+        "en": "Team Leader Facility Management German-speaking Switzerland (a) 80-100 %",
+        "de": "Teamleiterin Facility Management Deutschschweiz (a) 80-100%",
+        "fr": "Chef d'équipe Gestion des installations Suisse alémanique (a) 80-100 %"
+      },
+      "description": "Teamleiterin Facility Management Deutschschweiz (a) 80-100% bei Helsana in Dübendorf-Stettbach & Homeoff.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Leader del team Facility Management Deutschschweiz (a) 80-100% a Helsana in Dübendorf-Stettbach & Homeoff. Helsana è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Team leader Facility Management Deutschschweiz (a) 80-100% at Helsana in Dübendorf-Stettbach & Homeoff. Helsana is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Teamleiterin Facility Management Deutschschweiz (a) 80-100% bei Helsana in Dübendorf-Stettbach & Homeoff. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Chef d'équipe Gestion des installations Deutschschweiz (a) 80-100% à Helsana à Dübendorf-Stettbach & Homeoff. Helsana est un fournisseur de soins de santé suisse. Cette position offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation."
+      },
+      "needsRetranslation": false,
+      "location": "Dübendorf-Stettbach & Homeoff",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Teamleiterin-Facility-Management-Deutschschweiz-%28a%29-80-100/1389100733/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:44:21.616Z",
+      "addressLocality": "Dübendorf-Stettbach & Homeoff",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1389100733/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+        ]
+      },
+      "firstSeenAt": "2026-06-25T22:26:23.316Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "helsana-62d28e348fe3",
+      "slug": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino",
+      "slugByLocale": {
+        "it": "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino",
+        "en": "outbound-insurance-consultant-80-100-helsana-ticino",
+        "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice",
+        "fr": "conseiller-en-assurance-en-service-externe-80-100-helsana-ticino"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Versicherungsberater im Aussendienst (a) 80-100%",
+      "titleByLocale": {
+        "it": "Consulente assicurativo in servizio esterno (a) 80-100%",
+        "en": "Outbound Insurance Consultant (80-100%)",
+        "de": "Versicherungsberater im Aussendienst (a) 80-100%",
+        "fr": "Conseiller en assurance en service externe (80-100%)"
+      },
+      "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Horgen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Mansioni - Consulente assicurativo nel servizio esterno (a) 80-100% presso Helsana a Horgen & Homeoffice. Descrizione Helsana è un noto fornitore svizzero di servizi sanitari. Questo ruolo offre un ambiente di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessuno specificato\n• Cosa offriamo - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Molte opportunità di formazione continua Contatto - Nessun dettaglio di contatto specificato",
+        "en": "Mansioni - Insurance consultant in the field service (a) 80-100% at Helsana in Horgen & HomeOffice. Descrizione Helsana è un noto for Nitore sviz Zero di servizi sanitari. Questo ruolo offre un a·de di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione Thora.\n• Requisiti - Nessuno specificato Cosa offiamo - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Molte opportunità di formazione Thora Contatto - Nessun dettaglio di contattoremato",
+        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Horgen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Mansioni - Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana in Horgen & HomeOffice. Descrizione Helsana è un noto for Nitore sviz Zero di Servizi sanitari. Questo ruolo offre un a·de di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione Thora.\n• Requisiti - Nessuno specificato Cosa offiamo - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Molte opportunà di formazione Thora Contatto - Nessun dettaglio di contatoremato"
+      },
+      "needsRetranslation": false,
+      "location": "Ticino",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/Horgen-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1283467901/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:44:21.041Z",
+      "addressLocality": "Ticino",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1283467901/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T11:43:22.076Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "helsana-cd4d60a450e5",
+      "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5",
+      "slugByLocale": {
+        "it": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5",
+        "en": "specialist-in-internal-medicine-a-80-100-helsana-ticino-882bb5",
+        "de": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice",
+        "fr": "specialiste-en-medecine-interne-a-80-100-helsana-ticino-882bb5"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
+      "titleByLocale": {
+        "it": "Medico Specialista in Medicina Interna (a) 80-100%",
+        "en": "Specialist in Internal Medicine (a) 80-100%",
+        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
+        "fr": "Spécialiste en Médecine Interne (a) 80-100%"
+      },
+      "description": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Bern & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Mansioni - Specialista in Medicina Interna Generale (a) 80-100% Dati dell'azienda - Helsana, un noto fornitore di servizi sanitari svizzero Luogo di lavoro - Berna & smart working Offerta - Ambiente di lavoro moderno - Condizioni di impiego attraenti - Ampie opportunità di formazione continua",
+        "en": "Mansioni - Specialist General Internal Medicine (a) 80- 100% Dati dell'azienda - Helsana, un noto for Nitore di servizi sanitari sviz Zero Luogo di lavoro - Berna & smart working Offerta - Ambiente di lavoro moderno - Condizioni di impiego atratti - Ampie opportunità di formazione continua",
+        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Bern & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Mansioni - Spécialiste en Médecine Générale Interne (a) 80- 100% Dati dell'azienda - Helsana, un noto for Nitore di servizi sanitari sviz Zero Luogo di lavoro - Berna & smart working Offerta - Ambiente di lavoro moderno - Condizioni di impiego atratti - APIE opportunità di formazione continua"
+      },
+      "needsRetranslation": false,
+      "location": "Ticino",
+      "canton": "BE",
+      "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Fach%C3%A4rztin-Allgemeine-Innere-Medizin-%28a%29-80-100/1286311701/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:44:20.476Z",
+      "addressLocality": "Ticino",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1286311701/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+        ],
+        "en": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+        ],
+        "fr": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T11:43:20.847Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "helsana-2e6adfec3542",
+      "slug": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino",
+      "slugByLocale": {
+        "it": "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino",
+        "en": "specialist-in-internal-medicine-a-80-100-helsana-ticino",
+        "de": "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice",
+        "fr": "specialiste-en-medecine-interne-a-80-100-helsana-ticino"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
+      "titleByLocale": {
+        "it": "Medico Specialista in Medicina Interna (a) 80-100%",
+        "en": "Specialist in Internal Medicine (a) 80-100%",
+        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100%",
+        "fr": "Spécialiste en Médecine Interne (a) 80-100%"
+      },
+      "description": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Zürich & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Mansioni - Specialista in Medicina Interna Generale (a) 80-100% Luogo di lavoro - Helsana a Zurigo & Homeoffice Descrizione - Helsana è un noto fornitore svizzero di servizi sanitari. - Questa posizione offre un ambiente di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessuno specificato\n• Cosa offriamo - Nessuno specificato Contatto - Nessuno specificato",
+        "en": "Mansioni - Specialist General Internal Medicine (a) 80- 100% Luogo di lavoro - Helsana in Zurich & HomeOffice Descrizione - Helsana è un noto for Nitore sviz Zero di servizi sanitari. - Questa posizione offre un·oe di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessunosportato\n• Cosa offriamo - Nessunosportato Contatto - Nessuno specificato",
+        "de": "Fachärztin Allgemeine Innere Medizin (a) 80-100% bei Helsana in Zürich & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Mansioni - Spécialiste en Médecine Générale Interne (a) 80- 100% Luogo di lavoro - Helsana in Zurich & HomeOffice Descrizione - Helsana è un noto for Nitore sviz Zero di Servizi sanitari. - Questa posizione offre un·oe di lavoro moderno, condizioni di impiego attraenti e molte opportunità di formazione continua.\n• Requisiti - Nessunosportato\n• Cosa offriamo - Nessunosportato Contatto - Nessuno specificato"
+      },
+      "needsRetranslation": false,
+      "location": "Ticino",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Fach%C3%A4rztin-Allgemeine-Innere-Medizin-%28a%29-80-100/1286296501/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:44:19.909Z",
+      "addressLocality": "Ticino",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1286296501/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "en": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+        ],
+        "fr": [
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T11:43:21.469Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "helsana-9e72b04cec91",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino",
+      "slugByLocale": {
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino",
+        "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice",
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Versicherungsberater im Aussendienst (a) 80-100%",
+      "titleByLocale": {
+        "it": "Consulente assicurativo nel settore del servizio (a) 80- 100%",
+        "en": "Insurance consultant in the field service (a) 80- 100%",
+        "de": "Versicherungsberater im Aussendienst (a) 80-100%",
+        "fr": "Consultant en assurance dans le service extérieur (a) 80- 100%"
+      },
+      "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Meilen & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Consulente assicurativo presso il servizio sul campo (a) 80-100% presso Helsana a Meilen & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Insurance consultant in the field service (a) 80-100% at Helsana in Meilen & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
+        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Meilen & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana à Meilen & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et une large gamme de possibilités de formation complémentaire."
+      },
+      "needsRetranslation": false,
+      "location": "Ticino",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/Meilen-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1287759401/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:44:19.329Z",
+      "addressLocality": "Ticino",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-30",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1287759401/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T11:43:20.262Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

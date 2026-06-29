@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-06-25T22:02:40.032Z",
+  "assembledAt": "2026-06-28T21:20:52.865Z",
   "jobs": [
     {
       "id": "cds-savognin-405-9cf102943bc6",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:02:37.778Z",
+      "crawledAt": "2026-06-28T21:20:50.661Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/410.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:02:37.775Z",
+      "crawledAt": "2026-06-28T21:20:50.660Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:02:37.773Z",
+      "crawledAt": "2026-06-28T21:20:50.658Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -270,7 +270,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/413.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-25T22:02:37.748Z",
+      "crawledAt": "2026-06-28T21:20:50.655Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -311,6 +311,77 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "cds-savognin-270-1dc201a15dcc",
+      "slug": "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin",
+      "slugByLocale": {
+        "it": "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin",
+        "en": "co-chief-doctor-co-chief-doctor-with-option-chief-doctor-chief-internal-medicine-center-da-sanadad-savognin-savognin",
+        "de": "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
+        "fr": "co-chef-medecin-co-chef-medecin-avec-option-chef-medecin-chef-de-la-medecine-interne-center-da-sanadad-savognin-savognin"
+      },
+      "company": "Center da Sanadad Savognin",
+      "companyKey": "cds-savognin",
+      "companyDomain": "cds-savognin.ch",
+      "title": "Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin",
+      "titleByLocale": {
+        "it": "Co-Chefarzt / Co-Chefärztin con Option Chefarzt / Chefärztin innere Medizin",
+        "en": "Co-Chief doctor / Co-Chief doctor with option Chief doctor / Chief internal medicine",
+        "de": "Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin",
+        "fr": "Co-chef médecin / Co-chef médecin avec option Chef médecin / Chef de la médecine interne"
+      },
+      "description": "Beschäftigungsumfang: ca. 80 - 100%\nStellenantritt: nach Vereinbarung\nBeachten Sie auch das Stelleninserat (unten aufgeführt)\n\nSind Sie interessiert an dieser Herausforderung?\n Für weitere Auskünfte steht Ihnen\nStefano Corra, Chefarzt\n(Tel.: 081 669 14 00), gerne zur Verfügung.\n Wir freuen uns auf Ihre schriftliche Bewerbung mit Foto an\nStefano Corra, Chefarzt\nE-Mail: stefano.corra@spital-savognin.ch\n Online Bewerbungsformular\n\nCo-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+      "descriptionByLocale": {
+        "it": "Ambito di lavoro: circa 80 - 100% Lavoro: su appuntamento Vedi anche l'elenco dei lavori (elenco qui sotto) Sei interessato a questa sfida? Per ulteriori informazioni, siete Stefano Corra, Chief Medical Officer (tel: 081 669 14 00), a vostra disposizione. Attendiamo con ansia la vostra applicazione scritta con foto Stefano Corra, Chief Medical Officer Email: stefano.corra@spital-savognin.ch Modulo di domanda online medico co-capo con opzione medico capo / medicina interna capo al Center da Sanadad Savognin a Savognin, Canton Grigioni. Il Center da Sanadad Savognin (CDS) è il centro sanitario regionale per Surses e dintorni con reparto acuto, riabilitazione e cura.\n• Offriamo assistenza medica di base in un ambiente alpino e valutiamo un team collegiale e la cura individuale del paziente.",
+        "en": "Scope of employment: approximately 80 - 100% Job: by appointment See also the job listing (listed below) Are you interested in this challenge? For further information, you are Stefano Corra, Chief Medical Officer (tel: 081 669 14 00), at your disposal. We look forward to your written application with photo Stefano Corra, Chief Medical Officer Email: stefano.corra@spital-savognin.ch Online application form Co-Chief physician with option Chief physician / Chief internal medicine at the Center da Sanadad Savognin in Savognin, Canton of Graubünden. The Center da Sanadad Savognin (CDS) is the regional health center for Surses and surroundings with acute, rehabilitation and care department.\n• We offer basic medical care in an alpine environment and value a collegial team and individual patient care.",
+        "de": "Beschäftigungsumfang: ca. 80 - 100% Stellenantritt: nach Vereinbarung Beachten Sie auch das Stelleninserat (unten aufgeführt) Sind Sie interessiert an dieser Herausforderung? Für weitere Auskünfte steht Ihnen Stefano Corra, Chefarzt (Tel.: 081 669 14 00), gerne zur Verfügung. Wir freuen uns auf Ihre schriftliche Bewerbung mit Foto an Stefano Corra, Chefarzt E-Mail: stefano.corra@spital-savognin.ch Online Bewerbungsformular Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+        "fr": "Portée de l'emploi: environ 80 - 100% Emploi: sur rendez-vous Voir aussi la liste des emplois (voir ci-dessous) Êtes-vous intéressé par ce défi? Pour plus d'informations, vous êtes Stefano Corra, médecin-chef (tél. : 081 669 14 00), à votre disposition. Nous attendons avec impatience votre candidature écrite avec photo Stefano Corra, médecin-chef Courriel: stefano.corra@spital-savognin.ch Formulaire de demande en ligne Co-médecin en chef avec option Médecin en chef / Médecin en chef interne au Centre da Sanadad Savognin à Savognin, Canton des Grisons. Le Centre da Sanadad Savognin (CDS) est le centre de santé régional pour les Surses et les environs avec service aigu, réhabilitation et soins.\n• Nous offrons des soins médicaux de base dans un environnement alpin et valorisons une équipe collégiale et des soins individuels."
+      },
+      "needsRetranslation": false,
+      "location": "Savognin",
+      "canton": "GR",
+      "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
+      "source": "CDS Savognin Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-28T21:20:50.636Z",
+      "addressLocality": "Savognin",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7460",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-27",
+      "applyUrl": "https://cds-savognin.ch/uploads/files/chefarzt_aerztin_mitqr-code.pdf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin"
+        ]
+      },
+      "firstSeenAt": "2026-06-27T10:16:30.022Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       }

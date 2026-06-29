@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-25T23:21:41.079Z",
-  "total": 27,
-  "newCount": 27,
+  "generatedAt": "2026-06-28T22:44:12.249Z",
+  "total": 26,
+  "newCount": 26,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 163726,
-  "avgDurationMs": 163726,
+  "durationMs": 158182,
+  "avgDurationMs": 158182,
   "durationHistory": [
-    163726
+    158182
   ],
   "newJobs": [
     {
@@ -66,7 +66,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-25",
+      "postedDate": "2026-06-20",
       "url": "https://www.supsi.ch/bando26_5032",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -360,7 +360,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-25",
+      "postedDate": "2026-06-13",
       "url": "https://www.supsi.ch/bando26_5030",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -396,7 +396,7 @@
       "slug": "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Collaboratrice scientifica / Collaboratore scientifico in Salute di Precisione Abilitata dall’IA",
-      "location": "Lugano",
+      "location": "Lugano. Grado d",
       "canton": "TI",
       "category": "health",
       "contract": "part-time",
@@ -425,10 +425,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
+        "richness": 25,
         "translation": 23,
         "completeness": 25
       }
@@ -476,6 +476,48 @@
       }
     },
     {
+      "id": "company-l4u54f",
+      "slug": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
+      "company": "SUPSI / DTI",
+      "title": "Assistente Bachelor in formazione Master MSE in Electrical Engineering",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "url": "https://www.supsi.ch/bando26_5028",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-06-11T13:41:02.453Z",
+      "firstSeenAt": "2026-06-11T13:41:02.453Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 20,
+        "completeness": 25
+      }
+    },
+    {
       "id": "company-l4u54g",
       "slug": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all",
       "company": "SUPSI / DTI",
@@ -514,48 +556,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4u54f",
-      "slug": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
-      "company": "SUPSI / DTI",
-      "title": "Assistente Bachelor in formazione Master MSE in Electrical Engineering",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "url": "https://www.supsi.ch/bando26_5028",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-06-11T13:41:02.453Z",
-      "firstSeenAt": "2026-06-11T13:41:02.453Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 17,
-        "translation": 18,
         "completeness": 25
       }
     },
@@ -761,10 +761,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 17,
+        "richness": 25,
         "translation": 23,
         "completeness": 25
       }
@@ -799,48 +799,6 @@
       "streetAddress": "Via Cantonale 2C",
       "postalCode": "6928",
       "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4rl4l",
-      "slug": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
-      "company": "SUPSI / DTI",
-      "title": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
-      "location": "Mendrisio. Grado d",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.supsi.ch/bando26_1008",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Mendrisio",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-05-30T00:49:50.919Z",
-      "firstSeenAt": "2026-05-30T00:49:50.919Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",

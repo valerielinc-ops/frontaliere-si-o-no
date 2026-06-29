@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-06-25T21:55:41.870Z",
-  "total": 11,
+  "generatedAt": "2026-06-28T21:14:01.600Z",
+  "total": 13,
   "newCount": 0,
-  "updatedCount": 11,
-  "removedCount": 1,
+  "updatedCount": 13,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5438,
-  "avgDurationMs": 5438,
+  "durationMs": 4185,
+  "avgDurationMs": 4185,
   "durationHistory": [
-    5438
+    4185
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -420,23 +420,21 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Praktikant:in Pflege, 100%",
-      "slug": "tirocinante-in-cura-100-berit-klinik-speicher",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_pflege__100__b7a20ea305.pdf",
+      "title": "Fachperson Gesundheit EFZ, Notfallbettenstation 80-100%",
+      "slug": "fachperson-gesundheit-efz-notfallbettenstation-80-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachperson_gesundheit_80_100__wattwil_759d5a4b42.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
       "companyKey": "berit-klinik",
       "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
+      "location": "Wattwil",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "postalCode": "9630",
       "addressCountry": "CH",
-      "canton": "AR",
+      "canton": "SG",
       "country": "CH",
       "category": "health",
       "sector": "Gesundheitswesen / Klinik",
@@ -444,24 +442,60 @@
       "contractType": "full-time",
       "source": "berit-klinik-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-09",
+      "postedDate": "2026-06-26",
       "validThrough": "",
+      "needsRetranslation": true,
       "_meta": {
-        "sourceFilename": "stelleninserat_praktikant_in_pflege__100__b7a20ea305.pdf"
+        "sourceFilename": "stelleninserat_fachperson_gesundheit_80_100__wattwil_759d5a4b42.pdf"
       },
-      "id": "berit-klinik-426d69c27cd6",
-      "firstSeenAt": "2026-06-09T11:01:58.260Z",
-      "salaryMin": 72000,
-      "salaryMax": 101000,
-      "currency": "CHF",
-      "_qualityScore": 90,
+      "id": "berit-klinik-e3f853638bc1",
+      "firstSeenAt": "2026-06-26T21:31:20.872Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Pflegefachperson HF/FH, Notfallbettenstation 100%",
+      "slug": "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._pflegefachperson_hf_100__wattwil_b4ee69cb65.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Wattwil",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "postalCode": "9630",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-26",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_dipl._pflegefachperson_hf_100__wattwil_b4ee69cb65.pdf"
+      },
+      "id": "berit-klinik-44616834167e",
+      "firstSeenAt": "2026-06-26T21:31:20.872Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

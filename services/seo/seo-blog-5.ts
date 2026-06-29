@@ -44963,6 +44963,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-busto-arsizio-orientation-days-aslam': {
+    title: 'A Busto Arsizio partono gli Orientation Days di Aslam per i giovani migranti',
+    description: 'Partiti gli Orientation Days di Aslam a Busto Arsizio, con corsi gratuiti per giovani migranti, rispondendo alla domanda di manodopera qualificata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, busto, arsizio, partono, orientation',
+    ogTitle: 'Orientation Days di Aslam a Busto Arsizio',
+    ogDescription: 'Iniziativa di ASLAM per formare 300 giovani migranti in 4 anni, con corsi gratuiti e stage in azienda.',
+    canonicalPath: '/articoli-frontaliere/busto-arsizio-orientation-days-aslam',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Busto Arsizio partono gli Orientation Days di Aslam per i giovani migranti",
+      "description": "Partiti gli Orientation Days di Aslam a Busto Arsizio, con corsi gratuiti per giovani migranti, rispondendo alla domanda di manodopera qualificata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/busto-arsizio-orientation-days-aslam.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani migranti partecipano a un evento formativo a Busto Arsizio"
+      },
+      "datePublished": "2026-06-26T09:37:30+00:00",
+      "dateModified": "2026-06-26T09:37:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/busto-arsizio-orientation-days-aslam`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-uonboldo-tributo-lucio-dalla': {
+    title: 'Uboldo: Estate 2026 Parte con “Ciao Lucio” | Frontaliere Ticino',
+    description: 'Il 27 giugno a Uboldo il concerto gratuito “Ciao Lucio” nel parco Falcone e Borsellino, primo evento di “Aria d’Estate”. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, uboldo, estate, parte, ciao',
+    ogTitle: 'Uboldo: estate 2026 con tributo a Lucio Dalla',
+    ogDescription: 'Il 27 giugno il parco di Uboldo ospiterà un concerto gratuito dedicato a Lucio Dalla, aprendo la rassegna “Aria d’Estate” per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/uonboldo-tributo-lucio-dalla',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uboldo: Estate 2026 Parte con “Ciao Lucio”",
+      "description": "Il 27 giugno a Uboldo il concerto gratuito “Ciao Lucio” nel parco Falcone e Borsellino, primo evento di “Aria d’Estate”. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uonboldo-tributo-lucio-dalla.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Concerto all'aperto nel parco di Uboldo dedicato a Lucio Dalla"
+      },
+      "datePublished": "2026-06-26T20:06:32+00:00",
+      "dateModified": "2026-06-26T20:06:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/uonboldo-tributo-lucio-dalla`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cessione-cargotrailers-lonate-pozzolo': {
+    title: 'Cargotrailers: l\'azienda di Lonate Pozzolo diventa tedesca',
+    description: 'Andrea Perotti racconta la cessione di Cargotrailers a player tedeschi. Analisi sulle difficoltà burocratiche per le imprese in Italia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cargotrailers, azienda, lonate, pozzolo',
+    ogTitle: 'Cargotrailers: l\'azienda di Lonate Pozzolo diventa tedesca',
+    ogDescription: 'Andrea Perotti racconta la cessione di Cargotrailers a player tedeschi. Analisi sulle difficoltà burocratiche per le imprese in Italia.',
+    canonicalPath: '/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cargotrailers: l'azienda di Lonate Pozzolo diventa tedesca",
+      "description": "Andrea Perotti racconta la cessione di Cargotrailers a player tedeschi. Analisi sulle difficoltà burocratiche per le imprese in Italia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cessione-cargotrailers-lonate-pozzolo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede Cargotrailers a Lonate Pozzolo"
+      },
+      "datePublished": "2026-06-27T05:55:06+00:00",
+      "dateModified": "2026-06-27T05:55:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cessione-cargotrailers-lonate-pozzolo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mobilita-quotidiana-varesino-dati-sondaggio': {
+    title: 'Distanze, tempi e mezzi del pendolarismo varesino: i dati del sondaggio',
+    description: 'Un sondaggio sulla mobilità quotidiana in provincia di Varese rivela che gli spostamenti quotidiani sono spesso sopra i 20 chilometri, con tempi medi tra 15 e',
+    keywords: 'frontalieri, ticino, svizzera, italia, distanze, tempi, mezzi, pendolarismo',
+    ogTitle: 'Distanze, tempi e mezzi del pendolarismo varesino: i dati del sondaggio',
+    ogDescription: 'Un sondaggio sulla mobilità quotidiana in provincia di Varese rivela che gli spostamenti quotidiani sono spesso sopra i 20 chilometri, con tempi medi tra 15 e',
+    canonicalPath: '/articoli-frontaliere/mobilita-quotidiana-varesino-dati-sondaggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Distanze, tempi e mezzi del pendolarismo varesino: i dati del sondaggio",
+      "description": "Un sondaggio sulla mobilità quotidiana in provincia di Varese rivela che gli spostamenti quotidiani sono spesso sopra i 20 chilometri, con tempi medi tra 15 e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilita-quotidiana-varesino-dati-sondaggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine rappresentativa del sondaggio sulla mobilità quotidiana a Varese"
+      },
+      "datePublished": "2026-06-27T06:18:52+00:00",
+      "dateModified": "2026-06-27T06:18:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilita-quotidiana-varesino-dati-sondaggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scambio-internazionale-croce-rossa-varese': {
+    title: 'Croce Rossa Varese: scambio internazionale con la Germania',
+    description: 'Dal 24 al 28 giugno 2026, il Comitato CRI di Varese ospita volontari tedeschi per il progetto di cooperazione internazionale \'The Light We Share\'.',
+    keywords: 'frontalieri, ticino, svizzera, italia, croce, rossa, varese, scambio',
+    ogTitle: 'Croce Rossa Varese: scambio internazionale con la Germania',
+    ogDescription: 'Dal 24 al 28 giugno 2026, il Comitato CRI di Varese ospita volontari tedeschi per il progetto di cooperazione internazionale \'The Light We Share\'.',
+    canonicalPath: '/articoli-frontaliere/scambio-internazionale-croce-rossa-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Croce Rossa Varese: scambio internazionale con la Germania",
+      "description": "Dal 24 al 28 giugno 2026, il Comitato CRI di Varese ospita volontari tedeschi per il progetto di cooperazione internazionale 'The Light We Share'.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scambio-internazionale-croce-rossa-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari della Croce Rossa Italiana e Tedesca a Varese"
+      },
+      "datePublished": "2026-06-27T06:37:13+00:00",
+      "dateModified": "2026-06-27T06:37:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scambio-internazionale-croce-rossa-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-canicola-sud-nord-alpi': {
+    title: 'Canicola agli sgoccioli a nord delle Alpi. A sud serve ancora pazienza',
+    description: 'Previsioni meteo: calo delle temperature al nord, caldo protratto al sud fino a metà settimana. Implicazioni per frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, agli, sgoccioli, nord',
+    ogTitle: 'Fine del caldo estremo al nord, ancora caldo al sud',
+    ogDescription: 'Previsioni meteorologiche in Ticino: temperature in calo al nord, ancora caldo nel sud fino a metà settimana.',
+    canonicalPath: '/articoli-frontaliere/canicola-sud-nord-alpi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola agli sgoccioli a nord delle Alpi. A sud serve ancora pazienza",
+      "description": "Previsioni meteo: calo delle temperature al nord, caldo protratto al sud fino a metà settimana. Implicazioni per frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-sud-nord-alpi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del Ticino con lago e montagne sotto il sole"
+      },
+      "datePublished": "2026-06-28T16:00:44+00:00",
+      "dateModified": "2026-06-28T16:00:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/canicola-sud-nord-alpi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
