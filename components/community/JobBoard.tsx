@@ -1912,6 +1912,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // still stale. A 0-result search holds the skeleton until this is true instead
  // of flashing "0 / no results" during the cross-locale processing window.
  const [crossLocaleSettled, setCrossLocaleSettled] = useState(false);
+ // Flips true once the company-hub broadening (Tier 3.5) fallback has fully
+ // settled — i.e. AFTER the locale-wide pool fetch + parse/dedup AND
+ // `setUnscopedJobs`. Same batching guarantee as `crossLocaleSettled`: set in
+ // the same batch as the results so there is never a frame where it reads
+ // "settled" while the 0-result count is still stale. A company-only view (no
+ // search) holds the skeleton until this is true instead of flashing "0 / no
+ // results" during the pool-processing window.
+ const [companyBroadenSettled, setCompanyBroadenSettled] = useState(false);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
@@ -3309,6 +3317,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(err, 'jobBoard.loadJobs.companyBroaden');
  } finally {
  setPendingFallbacks((n) => n - 1);
+ // Mark the terminal company-broaden fallback settled (batched with
+ // setUnscopedJobs on the success path, so results + settled flip together —
+ // no stale-0 frame). Mirrors the crossLocaleSettled pattern for Tier 4.
+ if (!cancelled) setCompanyBroadenSettled(true);
  }
  })();
  return () => { cancelled = true; };
@@ -3502,6 +3514,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flips true batched with the results, after which a still-empty set falls
  // through to the genuine empty-state (so a truly empty query isn't stuck).
  || (Boolean(deferredSearchQuery.trim()) && !crossLocaleSettled)
+ // Terminal company-broaden fallback (Tier 3.5) hasn't fully SETTLED yet.
+ // For a company-only view (no search) the in-canton tiers are empty, so
+ // this fetch fires and may still bring results — hold the skeleton across
+ // its entire lifecycle (fetch + parse/dedup of the locale-wide pool), not
+ // just until it's attempted, so the count never flashes "0" mid-processing.
+ // `settled` flips true batched with the results; a still-empty set then
+ // falls through to the genuine empty-state (not stuck). Mirrors the
+ // crossLocaleSettled guard for the search path (Tier 4).
+ || (Boolean(companySlugFilter) && !deferredSearchQuery.trim() && !companyBroadenSettled)
  // The query-match search index (`searchIndex`) is built incrementally over
  // the loaded jobs via rAF chunks and only committed when complete. Until it
  // covers every loaded job, `indexedQueryMatch` returns no hits, so a search
