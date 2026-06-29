@@ -700,6 +700,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pensione-complementare-terzo-pilastro-frontalieri.title': 'Die Grenzgänger-Zusatzrente: So funktioniert die dritte Säule',
     'blog.article.pensione-complementare-terzo-pilastro-frontalieri.excerpt': 'Grenzgänger können in die dritte Säule investieren, um ihre Rente zu erhöhen.',
     'blog.article.pensione-complementare-terzo-pilastro-frontalieri.imageAlt': 'Schweizer Frontalier in einer Platz in Lugano',
+    'blog.article.nuovi-frontalieri-poveri.title': 'Grenzgänger in Not: -20.000 Euro jährlich',
+    'blog.article.nuovi-frontalieri-poveri.excerpt': 'Neue Grenzgänger verdienen bis zu 20.000 Euro weniger pro Jahr als alte Grenzgänger. Hier sind die Zahlen und die steuerlichen Auswirkungen.',
+    'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Pendlerzug an der Schweizerisch-italienischen Grenze bei Lugano',
 };
 
 export default blogMetaChDe;

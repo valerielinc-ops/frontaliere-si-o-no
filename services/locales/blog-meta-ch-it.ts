@@ -700,6 +700,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pensione-complementare-terzo-pilastro-frontalieri.title': 'La pensione complementare per frontalieri: come funziona il terzo pilastro',
     'blog.article.pensione-complementare-terzo-pilastro-frontalieri.excerpt': 'I frontalieri possono investire nella terza pilastro per aumentare la propria pensione.',
     'blog.article.pensione-complementare-terzo-pilastro-frontalieri.imageAlt': 'Frontalieri svizzeri in una piazza di Lugano',
+    'blog.article.nuovi-frontalieri-poveri.title': 'Frontalieri in difficoltà: -20mila euro all\'anno rispetto ai precedenti',
+    'blog.article.nuovi-frontalieri-poveri.excerpt': 'I nuovi frontalieri guadagnano fino a 20mila euro in meno all\'anno rispetto ai vecchi. Ecco le cifre e le implicazioni fiscali.',
+    'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Treno dei pendolari che attraversa il confine svizzero-italiano vicino a Lugano',
 };
 
 export default blogMetaChIt;

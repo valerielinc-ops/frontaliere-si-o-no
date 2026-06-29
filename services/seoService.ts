@@ -4286,6 +4286,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavorare-educatore-infanzia-ticino': { name: 'Educatore infanzia Ticino', path: '/articoli-svizzera/lavorare-educatore-infanzia-ticino/', parent: 'blog' },
     'blog-frontaliere-detrazioni-fiscali-italia-2026': { name: 'Detrazioni fiscali per frontalieri in', path: '/articoli-svizzera/frontaliere-detrazioni-fiscali-italia-2026/', parent: 'blog' },
     'blog-pensione-complementare-terzo-pilastro-frontalieri': { name: 'Pensione complementare per frontalieri', path: '/articoli-svizzera/pensione-complementare-terzo-pilastro-frontalieri/', parent: 'blog' },
+    'blog-nuovi-frontalieri-poveri': { name: 'Fiscalità frontalieri', path: '/articoli-svizzera/nuovi-frontalieri-poveri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
