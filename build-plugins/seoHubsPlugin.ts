@@ -36,6 +36,7 @@ import {
   type HubLocale,
 } from './seoHubsData';
 import { ARTICLE_SECTIONS } from '../services/articleSections';
+import { finalizeMeta } from '../services/seo/meta-descriptions';
 import { readSvizzeraArticleUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
@@ -1446,29 +1447,40 @@ function cantonHubH1(locale: HubLocale, hub: CantonHubKind, cantonLabel: string,
   }[locale];
 }
 
-function cantonHubIntro(locale: HubLocale, hub: CantonHubKind, cantonLabel: string, n: number): string {
+// Per-hub-kind meta description for the thin canton sub-hubs. Kept to the
+// 140-160 char SERP range via `finalizeMeta` (issue #2996 — the old one-liners
+// were ~60 chars, which GSC flags as "Description too short", e.g. on
+// /cerca-lavoro-ticino/aziende/). These feed ONLY the <meta name="description">
+// (the visible header uses `h1`/`bodyCopy`), so length is free to grow without
+// touching on-page layout.
+function cantonHubIntro(locale: HubLocale, hub: CantonHubKind, cantonLabel: string): string {
+  const c = cantonLabel;
+  const qualifier = { it: 'Candidati gratis.', en: 'Apply online, free.', de: 'Gratis bewerben.', fr: 'Sans inscription.' }[locale];
   if (hub === 'tutti') {
-    return {
-      it: `Indice completo delle offerte di lavoro attive nel cantone ${cantonLabel}. ${n.toLocaleString('it-IT')} posizioni aperte aggiornate quotidianamente.`,
-      en: `Complete index of active job openings in ${cantonLabel}. ${n.toLocaleString('en-US')} positions updated daily.`,
-      de: `Vollständiger Index der aktiven Stellenangebote im Kanton ${cantonLabel}. ${n.toLocaleString('de-DE')} Stellen täglich aktualisiert.`,
-      fr: `Index complet des offres d’emploi actives dans le canton ${cantonLabel}. ${n.toLocaleString('fr-FR')} postes mis à jour quotidiennement.`,
+    const base = {
+      it: `Offerte di lavoro attive nel cantone ${c}, aggiornate ogni giorno e filtrabili per settore, livello, tipo di contratto e sede.`,
+      en: `Active job openings in ${c}, Switzerland, updated daily and filterable by sector, level and contract type for cross-border workers.`,
+      de: `Aktive Stellenangebote im Kanton ${c}, täglich aktualisiert und filterbar nach Branche, Level und Vertragsart für Grenzgänger.`,
+      fr: `Offres d’emploi actives dans le canton ${c}, mises à jour chaque jour et filtrables par secteur, niveau et type de contrat.`,
     }[locale];
+    return finalizeMeta(base, qualifier);
   }
   if (hub === 'settori') {
-    return {
-      it: `Settori professionali con offerte attive nel cantone ${cantonLabel}.`,
-      en: `Professional sectors with active openings in ${cantonLabel}.`,
-      de: `Berufsgruppen mit aktiven Stellenangeboten im Kanton ${cantonLabel}.`,
-      fr: `Secteurs professionnels avec offres actives dans le canton ${cantonLabel}.`,
+    const base = {
+      it: `Settori con offerte di lavoro attive nel cantone ${c}: sanità, banca, industria, edilizia, IT e oltre 40 categorie professionali.`,
+      en: `Sectors hiring in ${c}, Switzerland: healthcare, banking, industry, construction, IT and over 40 professional job categories.`,
+      de: `Branchen mit Stellenangeboten im Kanton ${c}: Gesundheit, Bank, Industrie, Bau, IT und über 40 Berufskategorien für Grenzgänger.`,
+      fr: `Secteurs qui recrutent dans le canton ${c} : santé, banque, industrie, construction, IT et plus de 40 catégories professionnelles.`,
     }[locale];
+    return finalizeMeta(base, qualifier);
   }
-  return {
-    it: `Aziende che pubblicano offerte di lavoro nel cantone ${cantonLabel}.`,
-    en: `Companies posting openings in ${cantonLabel}.`,
-    de: `Unternehmen mit Stellenangeboten im Kanton ${cantonLabel}.`,
-    fr: `Entreprises publiant des offres dans le canton ${cantonLabel}.`,
+  const base = {
+    it: `Aziende che assumono nel cantone ${c}, ordinate per posizioni aperte: scopri i datori che cercano frontalieri e candidati subito.`,
+    en: `Companies hiring in ${c}, Switzerland, ranked by active positions: discover employers that recruit cross-border workers and apply.`,
+    de: `Unternehmen, die im Kanton ${c} einstellen, sortiert nach offenen Stellen: entdecke Arbeitgeber für Grenzgänger und bewirb dich.`,
+    fr: `Entreprises qui recrutent dans le canton ${c}, classées par postes ouverts : découvrez les employeurs pour frontaliers et postulez.`,
   }[locale];
+  return finalizeMeta(base, qualifier);
 }
 
 /**
@@ -1497,9 +1509,9 @@ function buildPageNCompactProse(locale: HubLocale, cantonLabel: string, hub: Can
  * Long-form body copy for thin canton hubs. Lives below the items list to
  * push the page over the 50-word floor enforced by validate-sitemap-pages
  * for small cantons (Glarona / Uri / Svitto / Zugo / Neuchatel had only the
- * employer-link grid + 1-sentence intro and tripped the gate). Stays short
- * enough that the meta description (single sentence from cantonHubIntro)
- * remains under the 160-char SERP truncation.
+ * employer-link grid + 1-sentence intro and tripped the gate). Independent of
+ * the meta description, which `cantonHubIntro` now sizes to the 140-160 char
+ * SERP range (issue #2996).
  */
 function cantonHubBody(locale: HubLocale, hub: CantonHubKind, cantonLabel: string): string {
   if (hub === 'tutti') {
@@ -1610,7 +1622,7 @@ function buildThinCantonHubHtml(args: {
   const page = args.page ?? 1;
   const totalPages = args.totalPages ?? 1;
   const h1 = cantonHubH1(locale, hub, cantonLabel, totalItems);
-  const intro = cantonHubIntro(locale, hub, cantonLabel, totalItems);
+  const intro = cantonHubIntro(locale, hub, cantonLabel);
   const bodyCopy = cantonHubBody(locale, hub, cantonLabel);
   const proseDetailsLabel = {
     it: `Approfondisci · mercato del lavoro frontaliere a ${cantonLabel}`,

@@ -20,6 +20,7 @@ import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSe
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
+import { buildMetodologiaSeo } from '../services/seo/seo-metodologia';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
 import {
@@ -804,7 +805,7 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/guida-frontaliere/lamal-frontalieri/', label: 'LAMal frontalieri — guida pillar' },
   { href: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/', label: 'Simulazione tasse nuovi frontalieri' },
   { href: '/calcola-stipendio/', label: 'Simulatore stipendio frontaliere' },
-  { href: '/comparatori/lamal-vs-cmi/', label: 'LAMal vs CMI — diritto d’opzione' },
+  { href: '/articoli-frontaliere/lamal-vs-cmi-frontaliere/', label: 'LAMal vs CMI — diritto d’opzione' },
   { href: '/cerca-lavoro-ticino/', label: 'Cerca lavoro Ticino' },
   { href: '/domande-frequenti-frontalieri/', label: 'FAQ frontalieri' },
   { href: '/glossario-frontaliere/', label: 'Glossario frontaliere' },
@@ -2043,6 +2044,25 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ogD: `Traffico dogana ${label}: tempi di attesa, orari e consigli pratici per frontalieri al valico.`,
  });
  }
+ }
+ }
+
+ // ─ /metodologia/ — rich SEO meta (issue #2996) ─
+ // The editorial-methodology page's copy lives in services/seo/seo-metodologia.ts
+ // (a builder, not the inline `canonicalPath:`/`desc:` shape the parser scans),
+ // so it never entered seoMap and the static HTML fell back to an empty/thin
+ // description that GSC flagged "Description too short". Inject it explicitly so
+ // the pre-rendered <meta name="description"> matches the runtime SPA copy.
+ {
+ const metodologiaSeo = buildMetodologiaSeo('it');
+ if (!seoMap.has(seoKey('/metodologia/'))) {
+ seoMap.set(seoKey('/metodologia/'), {
+ title: metodologiaSeo.title,
+ desc: metodologiaSeo.description,
+ ogT: metodologiaSeo.title,
+ ogD: metodologiaSeo.description,
+ sd: JSON.stringify(metodologiaSeo.jsonLd),
+ });
  }
  }
 
@@ -3399,7 +3419,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // H.7 — conclusion + actionable next step to raise text/HTML ratio above 0.10
  `<h2 class="s-o3IET6">Come scegliere: flusso decisionale consigliato</h2>`,
  `Per una famiglia di frontalieri il percorso decisionale consigliato è in quattro passaggi. <strong>Primo</strong>: usare il comparatore per filtrare le strutture in base al comune di residenza italiano (Como, Varese, Luino, Ponte Tresa) oppure al comune svizzero se si detiene un permesso B, ordinate per costo mensile stimato sul reddito familiare reale. <strong>Secondo</strong>: verificare la lista d'attesa con una telefonata diretta o e-mail al servizio infanzia del Comune; nei nidi comunali ticinesi conviene iscriversi almeno 9-12 mesi prima della data di ingresso desiderata. <strong>Terzo</strong>: calcolare il costo netto sottraendo le detrazioni IRPEF italiane (fino a 632 € a figlio) e il Bonus Asilo Nido INPS (fino a 3.000 €/anno con ISEE basso) oppure, in caso di nido svizzero, le deduzioni fiscali ticinesi per spese di custodia. <strong>Quarto</strong>: valutare i costi accessori di trasporto quotidiano — se il nido è a Lugano e si vive a Como, il tempo aggiuntivo mattutino e l'abbonamento Arcobaleno o il consumo di benzina possono spostare il break-even di 200-400 CHF al mese.`,
- `Una volta presa la decisione, è utile integrarla con la pianificazione fiscale complessiva: i frontalieri soggetti al regime dei "nuovi frontalieri" possono dedurre in Italia una parte delle spese di asilo e in Svizzera beneficiare di deduzioni aggiuntive per spese di custodia, mentre i "vecchi frontalieri" (assunti prima del 17 luglio 2023) hanno solo la detrazione italiana. Per stimare l'impatto sul netto mensile usa il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> e il <a href="/comparatori/confronta-lamal-ssn/">comparatore LAMal vs SSN</a> (che pesa molto se il figlio è assicurato in SSN italiano invece che in LAMal svizzera). Il comparatore asili nido viene aggiornato due volte all'anno, a marzo per le nuove tariffe comunali e a settembre alla pubblicazione delle graduatorie definitive.`,
+ `Una volta presa la decisione, è utile integrarla con la pianificazione fiscale complessiva: i frontalieri soggetti al regime dei "nuovi frontalieri" possono dedurre in Italia una parte delle spese di asilo e in Svizzera beneficiare di deduzioni aggiuntive per spese di custodia, mentre i "vecchi frontalieri" (assunti prima del 17 luglio 2023) hanno solo la detrazione italiana. Per stimare l'impatto sul netto mensile usa il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> e il <a href="/compara-servizi/confronta-casse-malati/">comparatore LAMal vs SSN</a> (che pesa molto se il figlio è assicurato in SSN italiano invece che in LAMal svizzera). Il comparatore asili nido viene aggiornato due volte all'anno, a marzo per le nuove tariffe comunali e a settembre alla pubblicazione delle graduatorie definitive.`,
  `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www4.ti.ch/das" rel="noopener">Divisione azione sociale Ticino</a> · <a class="s-OsohZU" href="https://www.inps.it" rel="noopener">INPS — Bonus Asilo Nido</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate — detrazioni asilo nido</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/trasporti-frontalieri')) {
@@ -3897,7 +3917,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // H.7 conclusion — reinforces dwell-time and closes the editorial loop
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Dall'articolo al calcolo: come sfruttare al meglio l'hub</h2>`,
- `Per ottenere il massimo da questa sezione conviene partire dall'articolo che riguarda la propria situazione (ad esempio <em>nuovo frontaliere assunto dopo il 17 luglio 2023</em> oppure <em>vecchio frontaliere che lavora da remoto 2 giorni a settimana</em>) e poi cliccare sui link interni che portano al simulatore fiscale, al comparatore LAMal o alla bacheca lavoro. In questo modo è possibile passare in meno di due minuti da una notizia generica a una stima numerica personalizzata sul proprio stipendio netto, sul premio LAMal della propria famiglia o sul beneficio fiscale del terzo pilastro 3a. Per chi preferisce un percorso guidato, la home page raccoglie i quattro strumenti più usati — <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, <a class="s-OsohZU" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>, <a class="s-OsohZU" href="/comparatori/confronta-lamal-ssn/">confronto LAMal vs SSN</a> e <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a> — assieme ai dieci articoli più letti dell'ultima settimana.`,
+ `Per ottenere il massimo da questa sezione conviene partire dall'articolo che riguarda la propria situazione (ad esempio <em>nuovo frontaliere assunto dopo il 17 luglio 2023</em> oppure <em>vecchio frontaliere che lavora da remoto 2 giorni a settimana</em>) e poi cliccare sui link interni che portano al simulatore fiscale, al comparatore LAMal o alla bacheca lavoro. In questo modo è possibile passare in meno di due minuti da una notizia generica a una stima numerica personalizzata sul proprio stipendio netto, sul premio LAMal della propria famiglia o sul beneficio fiscale del terzo pilastro 3a. Per chi preferisce un percorso guidato, la home page raccoglie i quattro strumenti più usati — <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, <a class="s-OsohZU" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>, <a class="s-OsohZU" href="/compara-servizi/confronta-casse-malati/">confronto LAMal vs SSN</a> e <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a> — assieme ai dieci articoli più letti dell'ultima settimana.`,
  `<p class="s-4Rmrb6">Fonti principali: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC/ESTV</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · <a class="s-OsohZU" href="https://www.bag.admin.ch" rel="noopener">BAG/UFSP</a></p>`,
  );
  // AI-extractable FAQ for blog — collapsible to not disturb UX
