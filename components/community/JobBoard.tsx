@@ -3502,6 +3502,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flips true batched with the results, after which a still-empty set falls
  // through to the genuine empty-state (so a truly empty query isn't stuck).
  || (Boolean(deferredSearchQuery.trim()) && !crossLocaleSettled)
+ // The query-match search index (`searchIndex`) is built incrementally over
+ // the loaded jobs via rAF chunks and only committed when complete. Until it
+ // covers every loaded job, `indexedQueryMatch` returns no hits, so a search
+ // reads 0 even when matches exist — the dominant "0" window on large
+ // (aggregate) sets (~6s for ~12k jobs). Hold the skeleton until the index
+ // covers the corpus; a still-0 result then is a genuine empty-state.
+ || (Boolean(deferredSearchQuery.trim()) && searchIndex.size < sortedJobs.length)
  ))
  );
 
