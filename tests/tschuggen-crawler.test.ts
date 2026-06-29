@@ -344,8 +344,8 @@ describe('Tschuggen Collection crawler parser', () => {
       expect(extractLocation('Arosa')).toBe('Arosa');
     });
 
-    it('defaults to Arosa for empty input', () => {
-      expect(extractLocation('')).toBe('Arosa');
+    it('does not invent Arosa for empty input', () => {
+      expect(extractLocation('')).toBe('');
     });
 
     it('decodes HTML entities in location', () => {

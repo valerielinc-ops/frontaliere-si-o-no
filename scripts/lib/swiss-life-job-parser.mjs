@@ -34,7 +34,6 @@ export const SWISS_LIFE_COMPANY_NAME = 'Swiss Life';
 export const SWISS_LIFE_COMPANY_DOMAIN = 'swisslife.ch';
 
 const SWISS_LIFE_HQ = getCompanyDefaults(SWISS_LIFE_KEY);
-const DEFAULT_SWISS_LIFE_CITY = SWISS_LIFE_HQ?.city || 'Sion';
 const DEFAULT_SWISS_LIFE_CANTON = SWISS_LIFE_HQ?.canton || 'VS';
 
 const WORKDAY_API_BASE =
@@ -293,8 +292,10 @@ function resolveValaisCity(info = {}, listingLocText = '') {
   if (!valaisLoc) return '';
 
   const city = parseWorkdayLocation(valaisLoc);
-  // Bare canton descriptor ("Valais"/"Wallis") or empty → default to primary office.
-  if (!city || /valais|wallis|vallese/i.test(city)) return DEFAULT_SWISS_LIFE_CITY;
+  // No fabricated city: empty → skip (caller drops the row); a bare canton
+  // descriptor ("Valais"/"Wallis") is returned as-is — honest region-level
+  // location that still resolves to canton VS, instead of inventing "Sion".
+  if (!city) return '';
   return city;
 }
 

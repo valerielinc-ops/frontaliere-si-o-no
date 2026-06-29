@@ -250,7 +250,7 @@ function resolveSwissCity(detail, listing) {
 
   // Fallback: parse whatever location text we have
   const city = parseWorkdayLocation(primaryLoc);
-  return city || 'Monthey';
+  return city;
 }
 
 /* ── Main fetch function ─────────────────────────────────── */
@@ -291,6 +291,10 @@ export async function fetchAllHuntsmanJobs() {
     }
 
     const city = resolveSwissCity(detail, listing);
+    if (!city) {
+      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
+      continue;
+    }
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);

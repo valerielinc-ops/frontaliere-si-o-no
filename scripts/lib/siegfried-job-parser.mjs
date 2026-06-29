@@ -288,7 +288,10 @@ export async function fetchAllSiegfriedJobs() {
         }
       }
     }
-    if (!city) city = 'Evionnaz'; // Default — main manufacturing site in VS
+    if (!city) {
+      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
+      continue;
+    }
 
     // Skip foreign locations that slipped through Workday's country filter
     if (isLocationExplicitlyForeign(city)) {

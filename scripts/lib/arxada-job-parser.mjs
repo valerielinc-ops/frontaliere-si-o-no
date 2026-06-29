@@ -294,7 +294,10 @@ export async function fetchAllArxadaJobs() {
     // Extract city from Workday location text
     const locationRaw = info.location || listing.locationsText || '';
     let city = parseWorkdayLocation(locationRaw);
-    if (!city) city = 'Visp';
+    if (!city) {
+      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
+      continue;
+    }
 
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';

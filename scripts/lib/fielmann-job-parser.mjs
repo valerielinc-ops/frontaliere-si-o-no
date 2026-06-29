@@ -279,10 +279,16 @@ export async function fetchAllFielmannJobs() {
       listing.bulletFields,
       info.location || '',
     );
-    const city = locInfo.city || 'Sion';
+    // No fabricated Sion: Fielmann runs optician stores nationwide, so skip
+    // rows with no resolvable city instead of stamping a fake Valais address.
+    const city = locInfo.city;
+    if (!city) {
+      console.log('  ⏭️  Skipped — unresolved location');
+      continue;
+    }
     const postalCode = locInfo.postalCode || '';
     const streetAddress = locInfo.streetAddress || '';
-    const canton = inferAnyCanton(city) || 'VS';
+    const canton = inferAnyCanton(city) || '';
 
     // Description
     const descriptionHtml = info.jobDescription || '';
