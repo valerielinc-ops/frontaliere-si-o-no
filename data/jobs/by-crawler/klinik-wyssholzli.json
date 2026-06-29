@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-06-28T21:58:11.498Z",
+  "assembledAt": "2026-06-29T13:32:07.492Z",
   "jobs": [
     {
       "title": "Chefpsychologin 06/2026",
@@ -135,16 +135,16 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 51000,
+      "salaryMax": 71400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 51000,
+          "maxValue": 71400,
           "unitText": "YEAR"
         }
       }
@@ -214,16 +214,16 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 51000,
+      "salaryMax": 71400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 51000,
+          "maxValue": 71400,
           "unitText": "YEAR"
         }
       }
@@ -289,16 +289,16 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       }

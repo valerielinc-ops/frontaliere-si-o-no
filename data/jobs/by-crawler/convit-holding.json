@@ -1,6 +1,6 @@
 {
   "crawlerKey": "convit-holding",
-  "assembledAt": "2026-06-28T21:32:00.000Z",
+  "assembledAt": "2026-06-29T13:09:15.193Z",
   "jobs": [
     {
       "id": "convit-4c8a4aa9db48",
@@ -736,7 +736,7 @@
       "slugByLocale": {
         "it": "financial-apprendista-3a-3b-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "en": "financial-train-3a-3b-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "finanz-trainee-3a-3b-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
+        "de": "financial-trainee-3a-3b-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "fr": "financial-apprenti-3a-3b-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       },
       "salaryMin": 59500,
@@ -766,11 +766,13 @@
           "financial-trainee-3a-3b-convit-via-al-mulino-22a-6814-cadempino"
         ],
         "de": [
-          "financial-trainee-3a-3b-convit-via-al-mulino-22a-6814-cadempino"
+          "financial-trainee-3a-3b-convit-via-al-mulino-22a-6814-cadempino",
+          "finanz-trainee-3a-3b-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "previousSlugs": [
-        "financial-trainee-3a-3b-convit-via-al-mulino-22a-6814-cadempino"
+        "financial-trainee-3a-3b-convit-via-al-mulino-22a-6814-cadempino",
+        "finanz-trainee-3a-3b-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ]
     },
     {
@@ -3771,16 +3773,16 @@
         "de": "teilzeitpartner-finanzberatung-seiteneingang-10-60-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "fr": "conseil-financier-des-partenaires-a-temps-partiel-entree-laterale-10-60-homeoffice-convit-holding-gmbh-via-al-mulino-22a"
       },
-      "salaryMin": 85500,
-      "salaryMax": 150000,
+      "salaryMin": 51300,
+      "salaryMax": 90000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
+          "minValue": 51300,
+          "maxValue": 90000,
           "unitText": "YEAR"
         }
       },

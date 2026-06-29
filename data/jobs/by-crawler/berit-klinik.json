@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berit-klinik",
-  "assembledAt": "2026-06-28T21:14:01.599Z",
+  "assembledAt": "2026-06-29T12:37:08.448Z",
   "jobs": [
     {
       "title": "Praktikant:In Berit Sportslab",
@@ -138,16 +138,16 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
+      "salaryMin": 64800,
+      "salaryMax": 90400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
+          "minValue": 64800,
+          "maxValue": 90400,
           "unitText": "YEAR"
         }
       }
@@ -728,16 +728,16 @@
       },
       "id": "berit-klinik-d8e0f1afab48",
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salaryMin": 57100,
+      "salaryMax": 79800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 57100,
+          "maxValue": 79800,
           "unitText": "YEAR"
         }
       }
@@ -797,16 +797,16 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salaryMin": 32600,
+      "salaryMax": 45600,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 32600,
+          "maxValue": 45600,
           "unitText": "YEAR"
         }
       }

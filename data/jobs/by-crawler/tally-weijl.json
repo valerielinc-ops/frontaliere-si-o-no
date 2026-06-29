@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-06-28T22:51:35.913Z",
+  "assembledAt": "2026-06-29T14:10:26.917Z",
   "jobs": [
     {
       "id": "tally-weijl-acd4bfc45a27",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:15.223Z",
+      "crawledAt": "2026-06-29T14:10:24.486Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,6 +96,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:51.502Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -142,7 +143,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:14.492Z",
+      "crawledAt": "2026-06-29T14:10:23.844Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,6 +206,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.870Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -251,7 +253,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:13.865Z",
+      "crawledAt": "2026-06-29T14:10:23.171Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,6 +314,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.216Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -358,7 +361,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvnd/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:51:31.352Z",
+      "crawledAt": "2026-06-29T14:10:22.519Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -394,15 +397,15 @@
         ]
       },
       "firstSeenAt": "2026-05-16T11:08:35.554Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 28800,
+      "salaryMax": 43500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 28800,
+          "maxValue": 43500,
           "unitText": "YEAR"
         }
       },
@@ -424,7 +427,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -440,7 +443,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:12.637Z",
+      "crawledAt": "2026-06-29T14:10:21.895Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -494,6 +497,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:48.369Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -524,7 +528,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -540,7 +544,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:11.980Z",
+      "crawledAt": "2026-06-29T14:10:21.301Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -594,6 +598,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.809Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -624,7 +629,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -640,7 +645,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:11.363Z",
+      "crawledAt": "2026-06-29T14:10:20.697Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -696,6 +701,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.230Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -726,7 +732,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE FLEXIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT FLEXIBLE (m/w/d)"
       },
@@ -742,7 +748,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:10.723Z",
+      "crawledAt": "2026-06-29T14:10:20.062Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,6 +803,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:46.588Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -817,7 +824,7 @@
       "slug": "aiuto-flessibile-tally-weijl-chur",
       "slugByLocale": {
         "it": "aiuto-flessibile-tally-weijl-chur",
-        "en": "flexible-assistance-tally-weijl-chur",
+        "en": "flexible-aushilfe-tally-weijl-chur",
         "de": "flexible-aushilfe-tally-weijl-chur",
         "fr": "auchifte-flexible-tally-weijl-chur"
       },
@@ -827,7 +834,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Aiuto flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Auchifte flexible"
       },
@@ -843,7 +850,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:10.042Z",
+      "crawledAt": "2026-06-29T14:10:19.395Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -859,13 +866,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "flexible-aushilfe-tally-weijl-chur"
+        "flexible-aushilfe-tally-weijl-chur",
+        "flexible-assistance-tally-weijl-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-chur"
         ],
         "en": [
+          "flexible-assistance-tally-weijl-chur",
           "flexible-aushilfe-tally-weijl-chur"
         ],
         "fr": [
@@ -873,6 +882,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T22:44:04.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -893,7 +903,7 @@
       "slug": "aiuto-flessibile-tally-weijl-baden",
       "slugByLocale": {
         "it": "aiuto-flessibile-tally-weijl-baden",
-        "en": "flexible-assistance-tally-weijl-baden",
+        "en": "flexible-aushilfe-tally-weijl-baden",
         "de": "flexible-aushilfe-tally-weijl-baden",
         "fr": "auchifte-flexible-tally-weijl-baden"
       },
@@ -903,7 +913,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Aiuto flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Auchifte flexible"
       },
@@ -919,7 +929,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:09.425Z",
+      "crawledAt": "2026-06-29T14:10:18.768Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -935,13 +945,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "flexible-aushilfe-tally-weijl-baden"
+        "flexible-aushilfe-tally-weijl-baden",
+        "flexible-assistance-tally-weijl-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-baden"
         ],
         "en": [
+          "flexible-assistance-tally-weijl-baden",
           "flexible-aushilfe-tally-weijl-baden"
         ],
         "fr": [
@@ -949,6 +961,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T22:21:29.384Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -979,7 +992,7 @@
       "title": "Flexible Aushilfe",
       "titleByLocale": {
         "it": "Assistente flessibile",
-        "en": "Flexible assistance",
+        "en": "Flexible Aushilfe",
         "de": "Flexible Aushilfe",
         "fr": "Assistant flexible"
       },
@@ -995,7 +1008,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:08.816Z",
+      "crawledAt": "2026-06-29T14:10:18.200Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1059,6 +1072,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:45.359Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1089,7 +1103,7 @@
       "title": "Filialleiter / Store Manager (w/m/d)",
       "titleByLocale": {
         "it": "Responsabile Filiale / Store Manager (w/m/d)",
-        "en": "Branch Manager / Store Manager (f/m/d)",
+        "en": "Filialleiter / Store Manager (w/m/d)",
         "de": "Filialleiter / Store Manager (w/m/d)",
         "fr": "Responsable de Magasin / Store Manager (w/m/d)"
       },
@@ -1105,7 +1119,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2qx/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:08.182Z",
+      "crawledAt": "2026-06-29T14:10:17.577Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,6 +1180,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:44.122Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1180,162 +1195,6 @@
       },
       "postalCode": "6003",
       "addressRegion": "LU"
-    },
-    {
-      "id": "tally-weijl-5010e3f8aec3",
-      "slug": "assistente-h-f-tw-sion-tally-weijl-sion",
-      "slugByLocale": {
-        "it": "assistente-h-f-tw-sion-tally-weijl-sion",
-        "en": "auxiliaire-h-f-tw-sion-tally-weijl-sion",
-        "de": "assistent-h-f-tw-sion-tally-weijl-sion",
-        "fr": "auxiliaire-h-f-tw-sion-tally-weijl-sion"
-      },
-      "company": "TALLY WEiJL",
-      "companyKey": "tally-weijl",
-      "companyDomain": "tally-weijl.com",
-      "title": "Auxiliaire (h/f) TW Sion",
-      "titleByLocale": {
-        "it": "Assistente (h/f) TW Sion",
-        "en": "Assistant (h/f) TW Sion",
-        "de": "Assistent (h/f) TW Sion",
-        "fr": "Auxiliaire (h/f) TW Sion"
-      },
-      "description": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
-      "descriptionByLocale": {
-        "it": "Descrizione Siamo qui per farti sentire sexy, alimentato e NONPPABILE. Fondato nel 1984, Tally Weijl è stato in un viaggio folle per celebrare moda, indipendenza, divertimento, amore e comunità per quasi 40 anni. Oggi siamo presenti in 35 mercati con oltre 700+ negozi, presenza online e 3m+ fan attraverso i canali sociali. Mostraci come #UNSTOPPABLE sei! Mansioni - Come assistente di vendita, consiglia il nostro cliente con un sacco di motivazione e piacere - Conosci le nostre collezioni e le nostre tendenze e usa le tue conoscenze per consigliare il cliente - Sei co-responsabile per il raggiungimento degli obiettivi impostati e supporti il tuo team con un impegno totale Obbligo - Sei 100% orientato verso la vendita e il cliente - Hai già avuto esperienza in un ruolo come - He mondo della moda alla moda è la tua passione - La comunicazione e il lavoro di squadra fanno parte dei tuoi punta di forza - Seiglioso del tuo aspetto curato - Parli fluentemente il tedesco e altra lingua è un vantaggio Cosa fare - Incoraggiamo lo sviluppo professionale e offriamo molte opportunità di carriera - A lavoro vario in una cultura aziendale, aperta e orientaleta al lavoro di squadra - Sconti interessanti per i dipendenti (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrundstehen - Esperienza professionale internazionale - Minimo 25 giorni di ferie (+ 3 giorni di premo di presenza) - Salario base e possibilitàà di bonus/gratificazioni Contatto Hai visto far parte della nostra Fashion Story e diventare un membro aggiunto della nostra TALLY Family. Allora condividi il tuo talento individuale coni e",
-        "en": "Descrizione We're here to make you feel sexy, powered & UNSTOPPABLE. Found in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we are present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are! Mansioni - As a sales assistant, you advise our client with a lot of motivation and pleasure - You know our collections and trends and use your knowledge to advise the client - You are co-responsible for achieving the goals set and you support your team with a total commitment Required - You are 100% oriented towards sale and customer - You hai già potuto acquisire esperienza in a ruolo like - He mondo della moda alla moda è la tua passione - The comunicazione e il lavoro di squadra fanno parte dei tuoi punta di forza - Sei organoglioso del tuo aspetto curato - Parli fluentemente il tedesco e qualsiasi altra lingua è un vantaggio Cosa offeriamo - We encourage professional development and offer many career opportunities - A lavoro vario in una cultura aziendale dinamica, aperta e orientata al lavoro di squadra - Attractive discounts for employees (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrundstehen - International professional experience - Minimum 25 giorni di ferie (+ 3 giorni di premo di presenza) - Salario base e possibilityà di bonus/gratificazioni Contatto You saw far parte della nostra Fashion Story e diventare a membro entusiasta della nostra TALLY Family. Allora condividi il tuo talento individuale coni e",
-        "de": "Descrizion Wir sind hier, damit Sie sich sexy, powered und UNSTOPPABLE fühlen. Tally Weijl wurde 1984 gegründet und ist seit fast 40 Jahren auf einer verrückten Reise, um Mode, Unabhängigkeit, Spaß, Liebe und Gemeinschaft zu feiern. Heute sind wir in 35 Märkten mit über 700 Geschäften, Online-Präsenz und 3 Millionen Fans über soziale Kanäle präsent. Zeigen Sie uns, wie #UNSTOPPABLE Sie sind! Mansioni - Als Verkaufsassistent beraten Sie unseren Kunden mit viel Motivation und Freude - Sie kennen unsere Kollektionen und Trends und nutzen Ihr Wissen, um den Kunden zu beraten - Sie sind mitverantwortlich für das Erreichen der gesetzten Ziele und unterstützen Ihr Team mit vollem Einsatz erforderlich - Sie sind zu 100% auf Verkauf und Kunden ausgerichtet - Sie hai già potuto acquisire esperienza in einem Ruolo wie He mondo della moda alla moda è la tua passione - Die comunicazione e il lavoro di squadra fanno parte dei tuoi punta di forza Sei organoglioso del tuo aspetto curato - Parli fluentemente il tedesco e qualsiasi altra lingua è un vantaggio Cosa offeriamo - Wir fördern die berufliche Entwicklung und bieten viele Karrieremöglichkeiten - A lavoro vario in una cultura aziendale dinamica, aperta e orientata al lavoro di squadra - Attraktive Ermäßigungen für Mitarbeiter (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrundstehen - Internationale Berufserfahrung - mindestens 25 giorni di ferie (+ 3 giorni di premo di presenza) - Salario base e possibilityà di bonus/gratificazioni Contatto Sie sahen weit parte della nostra Fashion Story e diventare a membro entusiasta della nostra TALLY Family. Allora condividi il tuo talento individuale coni e",
-        "fr": "We're here to make you feel sexy, empowered & UNSTOPPABLE. Founded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are! Auxiliaire (h/f) TA CONTRIBUTION À NOTRE SUCCÈS COMMUN · En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir · Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente · Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total CE QUI TE CARACTÉRISE · Tu es orienté à 100% vers la vente et le client · Tu as déjà pu acquérir de l'expérience dans un poste similaire · Le monde de la mode branchée est ta passion · La communication et le travail en équipe font partie de tes points forts · Tu es fier de ton apparence soignée · Tu parles couramment l'allemand et toute autre langue est un avantage TES AVANTAGES CHEZ NOUS · Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière · Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe · Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen · Expérience professionnelle internationale · Minimum 25 jours de congé (+ 3 jours de prime de présence) · Salaire de base et possibilités de bonus/gratifications Tu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr2w/",
-      "source": "TALLY WEiJL Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:51:25.619Z",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Moda / Abbigliamento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr2w/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "auxiliaire-h-f-tw-sion-tally-weijl-sion",
-        "auxiliaire-m-w-d-tw-sion-tally-weijl-sion",
-        "assistente-m-f-tw-sion-tally-weijl-sion",
-        "assistant-m-f-tw-sion-tally-weijl-sion",
-        "assistentin-m-w-tw-sion-tally-weijl-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "auxiliaire-h-f-tw-sion-tally-weijl-sion",
-          "auxiliaire-m-w-d-tw-sion-tally-weijl-sion"
-        ],
-        "de": [
-          "auxiliaire-h-f-tw-sion-tally-weijl-sion"
-        ]
-      },
-      "firstSeenAt": "2026-06-08T23:21:41.956Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950",
-      "addressRegion": "VS"
-    },
-    {
-      "id": "tally-weijl-f2c2a36618fb",
-      "slug": "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre",
-      "slugByLocale": {
-        "it": "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre",
-        "en": "auxiliary-h-f-tw-sierre-tally-weijl-sierre",
-        "de": "hilfsguter-h-f-tw-sierre-tally-weijl-sierre",
-        "fr": "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
-      },
-      "company": "TALLY WEiJL",
-      "companyKey": "tally-weijl",
-      "companyDomain": "tally-weijl.com",
-      "title": "Auxiliaire (h/f) TW Sierre",
-      "titleByLocale": {
-        "it": "Ausiliare (h/f) TW Sierre",
-        "en": "Auxiliary (h/f) TW Sierre",
-        "de": "Hilfsgüter (h/f) TW Sierre",
-        "fr": "Auxiliaire (h/f) TW Sierre"
-      },
-      "description": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
-      "descriptionByLocale": {
-        "it": "Descrizione Siamo qui per farti sentire sexy, alimentato e NONPPABILE. Fondato nel 1984, Tally Weijl è stato in un viaggio folle per celebrare moda, indipendenza, divertimento, amore e comunità per quasi 40 anni. Oggi siamo presenti in 35 mercati con oltre 700+ negozi, presenza online e 3m+ fan attraverso i canali sociali. Mostraci come #UNSTOPPABLE sei! Mansioni - Come assistente di vendita, consiglia il nostro cliente con un sacco di motivazione e piacere - Conosci le nostre collezioni e le nostre tendenze e usa le tue conoscenze per consigliare il cliente - Sei co-responsabile per il raggiungimento degli obiettivi impostati e supporti il tuo team con un impegno totale Obbligo - Sei 100% orientato verso la vendita e il cliente - Hai già avuto esperienza in un ruolo come - He mondo della moda alla moda è la tua passione - La comunicazione e il lavoro di squadra fanno parte dei tuoi punta di forza - Seiglioso del tuo aspetto curato - Parli fluentemente il tedesco e altra lingua è un vantaggio Cosa fare - Incoraggiamo lo sviluppo professionale e offriamo molte opportunità di carriera - A lavoro vario in una cultura aziendale, aperta e orientaleta al lavoro di squadra - Sconti interessanti per i dipendenti (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrundstehen - Esperienza professionale internazionale - Minimo 25 giorni di ferie (+ 3 giorni di premo di presenza) - Salario base e possibilitàà di bonus/gratificazioni Contatto Hai visto far parte della nostra Fashion Story e diventare un membro aggiunto della nostra TALLY Family. Allora condividi il tuo talento individuale coni e",
-        "en": "Descrizione We're here to make you feel sexy, powered & UNSTOPPABLE. Found in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we are present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are! Mansioni - As a sales assistant, you advise our client with a lot of motivation and pleasure - You know our collections and trends and use your knowledge to advise the client - You are co-responsible for achieving the goals set and you support your team with a total commitment Required - You are 100% oriented towards sale and customer - You hai già potuto acquisire esperienza in a ruolo like - He mondo della moda alla moda è la tua passione - The comunicazione e il lavoro di squadra fanno parte dei tuoi punta di forza - Sei organoglioso del tuo aspetto curato - Parli fluentemente il tedesco e qualsiasi altra lingua è un vantaggio Cosa offeriamo - We encourage professional development and offer many career opportunities - A lavoro vario in una cultura aziendale dinamica, aperta e orientata al lavoro di squadra - Attractive discounts for employees (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrundstehen - International professional experience - Minimum 25 giorni di ferie (+ 3 giorni di premo di presenza) - Salario base e possibilityà di bonus/gratificazioni Contatto You saw far parte della nostra Fashion Story e diventare a membro entusiasta della nostra TALLY Family. Allora condividi il tuo talento individuale coni e",
-        "de": "Beschreibung Wir sind hier, um Sie fühlen sich sexy, powered & UNSTOPPABLE. Tally Weijl wurde 1984 gegründet und ist seit fast 40 Jahren auf einer verrückten Reise, um Mode, Unabhängigkeit, Spaß, Liebe und Gemeinschaft zu feiern. Heute sind wir in 35 Märkten mit über 700+ Geschäften, Online-Präsenz und 3m+ Fans auf sozialen Kanälen vertreten. Zeig uns, wie #UNSTOPPABLE du bist! Mansion - Als Vertriebsassistent beraten Sie unseren Kunden mit viel Motivation und Vergnügen - Sie kennen unsere Kollektionen und Trends und nutzen Ihr Wissen, um den Kunden zu beraten - Sie sind mitverantwortlich für die Erreichung der gesetzten Ziele und Sie unterstützen Ihr Team mit einem Gesamtengagement Erforderlich - Sie sind zu 100% auf Verkauf und Kunden ausgerichtet - Sie hai già potuto acquisire esperienza in ruolo wie - Er mondo della moda alla moda è la tua passione - Die comunicazione e il lavoro di squadra fanno parte dei tuoi punta di forza - Sei organoglioso del tuo aspetto curato - Parli fluentemente il tedesco e qualsiasi altra lingua Cosa offeriamo - Wir fördern professionelle Entwicklung und bieten viele Karrieremöglichkeiten - A lavoro vario in una cultura aziendale dinamica, aperta e orientata al lavoro di squadra - Attraktive Rabatte für Mitarbeiter (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen - Internationale Berufserfahrung - Mindestens 25 giorni di ferie (+ 3 giorni di premo di presenza) - Salario base e optionà di bonus/gratificazioni Contattoo Sie sahen weit parte della nostra Fashion Story e diventare a membro entusiasta della nostra TALLY Family. Allora condividi il tuo talento individuale coni e",
-        "fr": "We're here to make you feel sexy, empowered & UNSTOPPABLE. Founded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are! Auxiliaire (h/f) TA CONTRIBUTION À NOTRE SUCCÈS COMMUN · En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir · Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente · Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total CE QUI TE CARACTÉRISE · Tu es orienté à 100% vers la vente et le client · Tu as déjà pu acquérir de l'expérience dans un poste similaire · Le monde de la mode branchée est ta passion · La communication et le travail en équipe font partie de tes points forts · Tu es fier de ton apparence soignée · Tu parles couramment l'allemand et toute autre langue est un avantage TES AVANTAGES CHEZ NOUS · Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière · Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe · Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen · Expérience professionnelle internationale · Minimum 25 jours de congé (+ 3 jours de prime de présence) · Salaire de base et possibilités de bonus/gratifications Tu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR"
-      },
-      "location": "Sierre",
-      "canton": "VS",
-      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr26/",
-      "source": "TALLY WEiJL Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:51:24.958Z",
-      "addressLocality": "Sierre",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Moda / Abbigliamento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr26/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
-        "ausiliare-h-f-tw-sierre-tally-weijl-sierre"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
-          "ausiliare-h-f-tw-sierre-tally-weijl-sierre"
-        ],
-        "en": [
-          "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
-        ],
-        "de": [
-          "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
-        ]
-      },
-      "firstSeenAt": "2026-05-30T00:52:50.841Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3960",
-      "addressRegion": "VS"
     },
     {
       "id": "tally-weijl-bfa30ecffc38",
@@ -1368,7 +1227,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T12:07:06.168Z",
+      "crawledAt": "2026-06-29T14:10:17.015Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1431,6 +1290,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:42.270Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1477,7 +1337,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29q/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T22:51:23.617Z",
+      "crawledAt": "2026-06-29T14:10:16.419Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1539,7 +1399,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z297/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T22:51:23.033Z",
+      "crawledAt": "2026-06-29T14:10:15.850Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1619,7 +1479,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zx56/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T22:51:22.404Z",
+      "crawledAt": "2026-06-29T14:10:15.287Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1681,7 +1541,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zx5h/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:07:03.498Z",
+      "crawledAt": "2026-06-29T14:10:14.657Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1708,6 +1568,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:42:18.822Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1754,7 +1615,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxrc/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:07:02.811Z",
+      "crawledAt": "2026-06-29T14:10:14.087Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1770,6 +1631,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-04-28T11:43:35.259Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1800,7 +1662,7 @@
       "title": "FLEXIBLE AUSHILFE (m/w/d)",
       "titleByLocale": {
         "it": "ASSISTENTE VENDITE FLESSIBILE (m/w/d)",
-        "en": "FLEXIBLE AID (m/f/d)",
+        "en": "FLEXIBLE AUSHILFE (m/w/d)",
         "de": "FLEXIBLE AUSHILFE (m/w/d)",
         "fr": "ASSISTANT(E) VENTES FLEXIBLE (m/w/d)"
       },
@@ -1816,7 +1678,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:07:02.115Z",
+      "crawledAt": "2026-06-29T14:10:13.508Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1873,6 +1735,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.789Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1890,9 +1753,9 @@
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
-      "slug": "moduli-di-montaggio-tally-weijl-basel",
+      "slug": "fitting-models-tally-weijl-basel",
       "slugByLocale": {
-        "it": "moduli-di-montaggio-tally-weijl-basel",
+        "it": "fitting-models-tally-weijl-basel",
         "en": "fitting-models-tally-weijl-basel",
         "de": "passformmodell-tally-weijl-basel",
         "fr": "modele-d-essayage-tally-weijl-basel"
@@ -1902,7 +1765,7 @@
       "companyDomain": "tally-weijl.com",
       "title": "Fitting MODELS",
       "titleByLocale": {
-        "it": "Moduli di montaggio",
+        "it": "Fitting MODELS",
         "en": "Fitting MODELS",
         "de": "Passformmodell",
         "fr": "Modèle d'Essayage"
@@ -1919,7 +1782,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:07:01.405Z",
+      "crawledAt": "2026-06-29T14:10:12.898Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1966,12 +1829,13 @@
         ]
       },
       "previousSlugs": [
-        "fitting-models-tally-weijl-basel",
+        "moduli-di-montaggio-tally-weijl-basel",
         "fitting-modelle-tally-weijl-basel",
         "modeles-d-ajustement-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "moduli-di-montaggio-tally-weijl-basel",
           "fitting-models-tally-weijl-basel"
         ],
         "de": [
@@ -1982,6 +1846,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2028,7 +1893,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz3g/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:51:19.331Z",
+      "crawledAt": "2026-06-29T14:10:12.261Z",
       "addressLocality": "Sierre",
       "addressCountry": "CH",
       "country": "CH",
@@ -2058,15 +1923,15 @@
         ]
       },
       "firstSeenAt": "2026-06-08T23:21:35.605Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 30300,
+          "maxValue": 45800,
           "unitText": "YEAR"
         }
       },
@@ -2074,86 +1939,134 @@
       "addressRegion": "VS"
     },
     {
-      "id": "tally-weijl-c05ba4b32106",
-      "slug": "assistente-alle-vendite-20-tally-weijl-nyon",
+      "id": "tally-weijl-aedc5c211cac",
+      "slug": "conseillere-de-vente-30-tally-weijl-payerne",
       "slugByLocale": {
-        "it": "assistente-alle-vendite-20-tally-weijl-nyon",
-        "en": "sales-assistant-20-tally-weijl-nyon",
-        "de": "verkaufsassistent-in-20-tally-weijl-nyon",
-        "fr": "auxilaire-20-tally-weijl-nyon"
+        "fr": "conseillere-de-vente-30-tally-weijl-payerne",
+        "it": "conseillere-de-vente-30-tally-weijl-payerne",
+        "en": "conseillere-de-vente-30-tally-weijl-payerne",
+        "de": "conseillere-de-vente-30-tally-weijl-payerne"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
       "companyDomain": "tally-weijl.com",
-      "title": "Auxilaire 20%",
+      "title": "Conseillère de vente 30%",
       "titleByLocale": {
-        "it": "Assistente alle vendite 20%",
-        "en": "Sales Assistant 20%",
-        "de": "Verkaufsassistent/in 20%",
-        "fr": "Auxilaire 20%"
+        "fr": "Conseillère de vente 30%",
+        "it": "Conseillère de vente 30%",
+        "en": "Conseillère de vente 30%",
+        "de": "Conseillère de vente 30%"
       },
-      "description": "TA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment français et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%) Un environnement de travail où la mode et le plaisir au travail occupent une place centrale\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR\n\n·",
+      "description": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
       "descriptionByLocale": {
-        "it": "CONTRIBUTO DI NON I BELLETTI COMUNI · Come assistente commerciale, consigliate il nostro cliente con molta motivazione e piacere · Conoscete le nostre collezioni e tendenze e utilizzate le vostre conoscenze per consigliare il cliente · Siete responsabili del raggiungimento degli obiettivi prefissati e del supporto del vostro team con un impegno totale COSA CARATTERIZZARE · Siete orientati al 100% alle vendite e al cliente · Siete già stati in grado di acquisire esperienza in una posizione simile · Il mondo della moda di tendenza è la vostra passione · Comunicazione e lavoro di squadra fanno parte del I tuoi punti di forza · Sei orgoglioso del tuo benessere · Parli fluentemente il francese e qualsiasi altra lingua è un vantaggio I VOSTRO VANTAGGI NEL NOSTRO TEAM · Incoraggiamo lo sviluppo professionale e offriamo molte opportunità di carriera · Un lavoro variegato in una cultura imprenditoriale dinamica, aperta e orientata al team · Sconti interessanti per i dipendenti (510) Un ambiente di lavoro dove la moda e il piacere sul lavoro occupano un posto centrale · Esperienza professionale internazionale · Minimo 25 giorni di riposo (+ 3 giorni di frequenza bonus) · Stipendio base e opzioni di gratificazione / gratifica Volete essere parte della nostra storia di cromo e diventare un membro entusiasta della nostra famiglia TALLY. Condividi il tuo talento individuale con noi e applicaci alle risorse umane",
-        "en": "TA CONTRIBUTION TO NOT THE COMMON WELLS · As a sales assistant, you advise our customer with a lot of motivation and pleasure · You know our collections and trends and you use your knowledge to advise the customer · You are responsible for achieving the objectives set and you support your team with a total commitment WHAT TO CHARACTERISE · You are 100% oriented to sales and the customer · You have already been able to gain experience in a similar position · The world of trendy fashion is your passion · Communication and teamwork are part of the your strengths · You are proud of your well-being · You speak fluently French and any other language is an advantage YOUR BENEFITS IN OUR TEAM · We encourage professional development and offer many career opportunities · A varied work in a dynamic, open and team-oriented business culture · Attractive discounts for employees (510) A working environment where fashion and pleasure at work occupy a central place · International professional experience · Minimum 25 days off (+ 3 days of attendance bonus) · Basic salary and bonus/gratification options You want to be part of our Chromium Story and become an enthusiastic member of our TALLY Family. So share your individual talent with us and apply to HR",
-        "de": "TA CONTRIBUTION TO NOT THE COMMON WELLS · Als Vertriebsassistent beraten Sie unseren Kunden mit viel Motivation und Freude · Sie kennen unsere Kollektionen und Trends und nutzen Ihr Wissen, um den Kunden zu beraten · Sie sind verantwortlich für die Erreichung der gesetzten Ziele und unterstützen Ihr Team mit einem Gesamtengagement WAS SIE WARENWAS SIE SICH KENNEN · Sie sind zu 100% auf den Vertrieb und den Kunden ausgerichtet · Sie haben bereits Erfahrungen in einer ähnlichen Position sammeln können · Die Welt der trendigen Mode ist Ihre Leidenschaft · Kommunikation und Teamarbeit sind Teil der Ihre Stärken · Sie sind stolz auf Ihr Wohlbefinden · Sie sprechen fließend Französisch und jede andere Sprache ist ein Vorteil IHRE BENEFITS IN UNSEREM TEAM · Wir fördern die berufliche Entwicklung und bieten viele Karrieremöglichkeiten · Eine abwechslungsreiche Arbeit in einer dynamischen, offenen und teamorientierten Unternehmenskultur · Attraktive Rabatte für Mitarbeiter (510) Ein Arbeitsumfeld, in dem Mode und Vergnügen am Arbeitsplatz einen zentralen Platz einnehmen · Internationale Berufserfahrung · Mindestens 25 Tage frei (+ 3 Tage Teilnahmebonus) · Grundgehalt und Bonus/Befriedigungsoptionen Sie wollen Teil unserer Chromium Story sein und ein begeistertes Mitglied unserer ALLY Family werden. Teilen Sie also Ihr individuelles Talent mit uns und bewerben Sie sich bei HR",
-        "fr": "TA CONTRIBUTION À NOTRE SUCCÈS COMMUN · En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir · Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente · Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total CE QUI TE CARACTÉRISE · Tu es orienté à 100% vers la vente et le client · Tu as déjà pu acquérir de l'expérience dans un poste similaire · Le monde de la mode branchée est ta passion · La communication et le travail en équipe font partie de tes points forts · Tu es fier de ton apparence soignée · Tu parles couramment français et toute autre langue est un avantage TES AVANTAGES CHEZ NOUS · Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière · Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe · Remises attrayantes pour les collaborateurs (50%) Un environnement de travail où la mode et le plaisir au travail occupent une place centrale · Expérience professionnelle internationale · Minimum 25 jours de congé (+ 3 jours de prime de présence) · Salaire de base et possibilités de bonus/gratifications Tu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR ·"
+        "fr": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
+        "it": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
+        "en": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines",
+        "de": "VOTRE CONTRIBUTION À NOTRE RÉUSSITE COMMUNE\n\n· En tant que vendeur/vendeuse, vous conseillerez nos clients (Young & Golden) de manière complète, avec beaucoup de motivation et de bonne humeur\n\n· Grâce à votre charisme positif, vous attirerez de nouveaux clients et entretiendrez les relations avec nos clients existants\n\n· Vous présenterez la gamme de produits et l'agencement du magasin conformément aux directives internes\n\n· Vous connaissez nos collections et les tendances et intégrez vos connaissances dans le conseil au client\n\n· À la caisse, vous complétez l'expérience d'achat du client grâce à votre attitude amicale et ouverte\n\nCE QUI VOUS DISTINGUE\n\n· Formation commerciale de base dans le commerce de détail réussie\n\n· Vous êtes à 100 % orienté(e) vers la vente et le client\n\n· Vous avez déjà acquis de l'expérience dans un poste similaire\n\n· Le monde de la mode tendance est votre passion\n\n· La communication et le travail en équipe font partie de vos points forts\n\n· Vous êtes fier(e) de votre présentation soignée\n\n· Vous parlez couramment le français ; la maîtrise d'une autre langue est un atout\n\nVOS AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons un large éventail de perspectives de carrière\n\n· Un travail varié au sein d’une culture d’entreprise dynamique, ouverte et axée sur le travail d’équipe\n\n· Des réductions attractives pour les employés (50 %)\n\n· Un environnement de travail où la mode et le plaisir au travail sont au premier plan\n\n· Au moins 25 jours de congés (plus 3 jours de prime d'assiduité)\n\n· Salaire de base et options de primes/gratifications\n\nVous souhaitez participer à notre aventure dans le monde de la mode et rejoindre avec enthousiasme la famille TALLY ? Alors faites-nous découvrir vos talents et postulez dès maintenant auprès de notre service des ressources humaines"
       },
-      "location": "Nyon",
+      "location": "Payerne",
       "canton": "VD",
-      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvpu/",
+      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z7dc/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:51:18.715Z",
-      "addressLocality": "Nyon",
+      "crawledAt": "2026-06-29T14:10:11.595Z",
+      "addressLocality": "Payerne",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvpu/",
+      "postedDate": "2026-12-04",
+      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z7dc/",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "auxilaire-20-tally-weijl-nyon",
-        "ausiliare-20-tally-weijl-nyon",
-        "auxiliary-20-tally-weijl-nyon",
-        "zusatz-20-tally-weijl-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "auxilaire-20-tally-weijl-nyon",
-          "ausiliare-20-tally-weijl-nyon"
-        ],
-        "en": [
-          "auxilaire-20-tally-weijl-nyon",
-          "auxiliary-20-tally-weijl-nyon"
-        ],
-        "de": [
-          "auxilaire-20-tally-weijl-nyon",
-          "zusatz-20-tally-weijl-nyon"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "firstSeenAt": "2026-06-22T15:13:41.520Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "needsRetranslation": true,
+      "salaryMin": 18200,
+      "salaryMax": 27500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 18200,
+          "maxValue": 27500,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1260",
-      "addressRegion": "VD"
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-06-29T14:10:11.595Z"
+    },
+    {
+      "id": "tally-weijl-ce819ab99bc7",
+      "slug": "conseilere-de-vente-30-tally-weijl-sion",
+      "slugByLocale": {
+        "fr": "conseilere-de-vente-30-tally-weijl-sion",
+        "it": "conseilere-de-vente-30-tally-weijl-sion",
+        "en": "conseilere-de-vente-30-tally-weijl-sion",
+        "de": "conseilere-de-vente-30-tally-weijl-sion"
+      },
+      "company": "TALLY WEiJL",
+      "companyKey": "tally-weijl",
+      "companyDomain": "tally-weijl.com",
+      "title": "Conseilère de vente 30%",
+      "titleByLocale": {
+        "fr": "Conseilère de vente 30%",
+        "it": "Conseilère de vente 30%",
+        "en": "Conseilère de vente 30%",
+        "de": "Conseilère de vente 30%"
+      },
+      "description": "TA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment français et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%) Un environnement de travail où la mode et le plaisir au travail occupent une place centrale\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR\n\n·",
+      "descriptionByLocale": {
+        "fr": "TA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment français et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%) Un environnement de travail où la mode et le plaisir au travail occupent une place centrale\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR\n\n·",
+        "it": "TA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment français et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%) Un environnement de travail où la mode et le plaisir au travail occupent une place centrale\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR\n\n·",
+        "en": "TA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment français et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%) Un environnement de travail où la mode et le plaisir au travail occupent une place centrale\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR\n\n·",
+        "de": "TA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment français et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%) Un environnement de travail où la mode et le plaisir au travail occupent une place centrale\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR\n\n·"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z7dl/",
+      "source": "TALLY WEiJL Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-29T14:10:10.894Z",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2027-01-01",
+      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z7dl/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 18200,
+      "salaryMax": 27500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 18200,
+          "maxValue": 27500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-06-29T14:10:10.894Z"
     },
     {
       "id": "tally-weijl-111f0a6245f6",
@@ -2186,7 +2099,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zzaf/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T22:51:18.058Z",
+      "crawledAt": "2026-06-29T14:10:10.225Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2262,7 +2175,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zz36/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T12:06:58.811Z",
+      "crawledAt": "2026-06-29T14:10:09.595Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2278,6 +2191,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-08T13:52:35.310Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2324,7 +2238,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T22:51:16.789Z",
+      "crawledAt": "2026-06-29T14:10:09.038Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2400,7 +2314,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zzf2/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T12:06:57.553Z",
+      "crawledAt": "2026-06-29T14:10:08.418Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2416,6 +2330,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-05T12:48:23.842Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {

@@ -1,6 +1,6 @@
 name: Discover 404s via Cloudflare
 
-# Third producer for data/seo-404-compat-paths.json (beside the two GSC-based
+# Third producer for the sharded data/seo-404-compat/ store (beside the two GSC-based
 # sweeps). Cloudflare edge analytics records EVERY real 404 hit — including the
 # zero-impression long tail GSC never surfaces — with no GSC quota. Paths the
 # resolver can map get a reconciled soft-landing/bridge page at the next build.
@@ -114,7 +114,8 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
           # Stage only the files this workflow owns.
-          git add data/seo-404-compat-paths.json || true
+          # seo-404-compat is sharded across data/seo-404-compat/part-*.json (#2988).
+          git add data/seo-404-compat || true
           git add data/cf-hot-404s.json || true
 
           if git diff --cached --quiet; then
@@ -127,14 +128,14 @@ jobs:
 
           Automated sweep of real status-404 hits from Cloudflare's
           httpRequestsAdaptiveGroups. Recurring 404 paths the resolver can map
-          are added to seo-404-compat-paths.json so the next build generates a
+          are added to the seo-404-compat store so the next build generates a
           soft-landing/bridge page at those URLs. Also refreshes
           cf-hot-404s.json — the bounded, hit-ranked list of non-Ticino job
           404s that cfHot404BridgePlugin recovers as bridge pages."
 
-          # data/seo-404-compat-paths.json is shared with discover-404s.yml and
-          # sync-gsc-orphans.yml; the rebase-retry helper 3-way set-merges the
-          # `paths` array so concurrent appends never clobber each other.
+          # The sharded data/seo-404-compat/ store is shared with discover-404s.yml
+          # and sync-gsc-orphans.yml; the rebase-retry helper 3-way set-merges each
+          # shard's `paths` array so concurrent appends never clobber each other.
           bash scripts/lib/git-push-with-retry.sh \
             --in-place-resolver-cmd "node scripts/lib/resolve-404-compat-conflict.mjs && git add -A"
 

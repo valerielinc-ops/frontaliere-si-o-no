@@ -1,5 +1,52 @@
 [
   {
+    "slug": "impiegato-amministrativo-80-hug-geneve",
+    "title": "Commis ou Commise administrative - 80%",
+    "titleByLocale": {
+      "it": "Impiegato amministrativo - 80%",
+      "en": "Administrative clerk - 80%",
+      "de": "Verwaltungsangestellter – 80 %",
+      "fr": "Commis ou Commise administrative - 80%"
+    },
+    "company": "HUG",
+    "companyKey": "hug",
+    "location": "Genève",
+    "addressLocality": "Genève",
+    "descriptionByLocale": {
+      "it": "Il Dipartimento di Anestesiologia è un dipartimento interdisciplinare del HUG al centro della piattaforma tecnica. Con le sue 6 unità mediche e un'unità di ricerca e innovazione, la sua missione è garantire il comfort e la sicurezza dei pazienti durante procedure terapeutiche o diagnostiche, mediche o chirurgiche, così come durante le cure post-interventistica, garantendo al contempo una corretta gestione del dolore. Essendo il più grande centro della Svizzera in termini di numero di procedure interventistiche eseguite all'anno, il dipartimento di anestesiologia è all'avanguardia nei progressi in questo campo. Il servizio offre inoltre formazione pre-laurea, post-laurea e continua per infermieri e medici in formazione specializzata. Il dipartimento di servizio, anestesiologia, interviene anche nel campo dell'analgesia interventistica e in situazioni di emergenza vitale intraospedaliera o preospedaliera insieme al pronto soccorso.",
+      "en": "The Anesthesiology Department is a cross-disciplinary department of the HUG at the heart of the technical platform. With its 6 medical units and a research and innovation unit, its mission is to ensure the comfort and safety of patients during therapeutic or diagnostic, medical or surgical procedures, as well as during post-interventional care, while ensuring the proper management of pain. As the largest centre in Switzerland in terms of the number of interventional procedures performed per year, the anaesthesiology department is at the forefront of progress in this field. The service also provides pre-, post-graduate and continuing education for nurses and doctors in specialized training. The service department, anaesthesiology also intervenes in the field of interventional analgesia and in situations of vital intra-hospital or pre-hospital emergencies alongside the emergency department.",
+      "de": "Die Anästhesiologie-Abteilung ist eine interdisziplinäre Abteilung des HUG im Zentrum der technischen Plattform. Mit ihren sechs medizinischen Einheiten und einer Forschungs- und Innovationseinheit ist es ihre Mission, den Komfort und die Sicherheit der Patienten während therapeutischer oder diagnostischer, medizinischer oder chirurgischer Eingriffe sowie während der postinterventionellen Versorgung zu gewährleisten und gleichzeitig eine angemessene Schmerzbehandlung zu gewährleisten. Als größtes Zentrum der Schweiz gemessen an der Anzahl der jährlich durchgeführten interventionellen Eingriffe steht die Anästhesiologieabteilung an der Spitze des Fortschritts in diesem Bereich. Der Service bietet außerdem vor-, postgraduale und fortlaufende Ausbildung für Pflegekräfte und Ärzte in spezialisierter Ausbildung an. Die Serviceabteilung, Anästhesiologie, greift auch im Bereich der interventionellen Analgesie und in wichtigen innerkranken oder präkranken Notfällen zusammen mit der Notaufnahme ein.",
+      "fr": "Le Service d’anesthésiologie est un service transversal des HUG au cœur du plateau technique. Avec ses 6 unités médicales et une unité de recherche et d'innovation, sa mission vise à assurer le confort et la sécurité des patients et patientes au cours d'actes thérapeutiques ou diagnostiques, médicaux ou chirurgicaux, ainsi que lors des soins post- interventionnels, tout en veillant à la bonne prise en charge de la douleur. Plus grand centre de Suisse en nombres d’actes interventionnels assumés par année, le service d’anesthésiologie est à la pointe des progrès réalisés dans ce domaine. Le service pourvoit également l’enseignement pré, post-gradué et continu des infirmiers et infirmières et médecins en formation spécialisée. Le service de prestations, l’anesthésiologie intervient également dans le domaine de l’antalgie interventionnelle et dans des situations d’urgences vitales intra-hospitalières ou pré- hospitalières aux côtés du service des urgences."
+    },
+    "slugByLocale": {
+      "it": "impiegato-amministrativo-80-hug-geneve",
+      "en": "administrative-clerk-80-hug-geneve",
+      "de": "verwaltungsangestellter-80-hug-geneve",
+      "fr": "commis-ou-commise-administrative-80-hug-geneve"
+    },
+    "sector": "Sanità",
+    "expiredAt": "2026-06-29T13:36:35.071Z",
+    "previousSlugs": [
+      "commis-ou-commise-administrative-80-hug-geneve"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "commis-ou-commise-administrative-80-hug-geneve"
+      ],
+      "en": [
+        "commis-ou-commise-administrative-80-hug-geneve"
+      ],
+      "de": [
+        "commis-ou-commise-administrative-80-hug-geneve"
+      ]
+    },
+    "postalCode": "1201",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "ingegnere-o-flow-engineer-per-la-direzione-blocchi-operativi-100-hug-geneve",
     "title": "Ingénieur ou Ingénieure flux pour la Direction des blocs opératoires - 100%",
     "titleByLocale": {

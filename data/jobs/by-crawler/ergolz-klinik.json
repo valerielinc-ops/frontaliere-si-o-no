@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ergolz-klinik",
-  "assembledAt": "2026-06-28T21:36:41.695Z",
+  "assembledAt": "2026-06-29T13:27:55.117Z",
   "jobs": [
     {
       "id": "ergolz-klinik-9afa70b1ddcc",
@@ -33,7 +33,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:36:39.849Z",
+      "crawledAt": "2026-06-29T13:27:53.269Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -65,15 +65,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:51:38.840Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49600,
+      "salaryMax": 75200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49600,
+          "maxValue": 75200,
           "unitText": "YEAR"
         }
       }

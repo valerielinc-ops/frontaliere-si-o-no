@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nant",
-  "assembledAt": "2026-06-28T22:10:18.448Z",
+  "assembledAt": "2026-06-29T13:47:31.521Z",
   "jobs": [
     {
       "id": "nant-131c4a56f15e",
@@ -33,7 +33,7 @@
       "url": "https://app.beehire.com/invite/N_WPAcg-a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:10:16.073Z",
+      "crawledAt": "2026-06-29T13:47:29.512Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://app.beehire.com/invite/uZyK5KPP4",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:10:16.070Z",
+      "crawledAt": "2026-06-29T13:47:29.511Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://app.beehire.com/invite/pBmWNTB_c",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:10:16.069Z",
+      "crawledAt": "2026-06-29T13:47:29.509Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -223,15 +223,15 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:36:11.131Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       }
@@ -268,7 +268,7 @@
       "url": "https://app.beehire.com/invite/VOz1Igca6",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:10:16.066Z",
+      "crawledAt": "2026-06-29T13:47:29.507Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -301,15 +301,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:49:36.391Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       }
@@ -345,7 +345,7 @@
       "url": "https://app.beehire.com/invite/E343v_9h-",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:10:16.064Z",
+      "crawledAt": "2026-06-29T13:47:29.506Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -425,7 +425,7 @@
       "url": "https://app.beehire.com/invite/SBKxBZBpb",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:10:16.063Z",
+      "crawledAt": "2026-06-29T13:47:29.505Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -458,15 +458,15 @@
         ]
       },
       "firstSeenAt": "2026-06-15T14:59:29.185Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 42400,
+      "salaryMax": 64000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 42400,
+          "maxValue": 64000,
           "unitText": "YEAR"
         }
       }
@@ -503,7 +503,7 @@
       "url": "https://app.beehire.com/invite/VflSeVwHT",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:10:16.061Z",
+      "crawledAt": "2026-06-29T13:47:29.503Z",
       "addressLocality": "Vaud, Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -536,15 +536,15 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:54:03.199Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       }

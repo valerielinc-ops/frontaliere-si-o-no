@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { resolveSearchConsoleCompatTarget } from '@/build-plugins/searchConsoleCompat';
+import { readCompatPaths } from '@/scripts/lib/compat-paths-store.mjs';
 import searchClusterMapFile from '@/data/search-cluster-301-map.json';
 
 describe('Search Console 404 compatibility resolver', () => {
@@ -177,15 +178,15 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
-  // Full-coverage scan over the committed 404 export. This file is an unbounded
-  // GSC-orphan accumulator (~306k paths, ~31MB at time of writing) so the loop
-  // cost scales with data size; the default 15s vitest budget overflows under CI
-  // load (observed ~20s). Explicit generous timeout preserves full coverage
-  // without sampling/weakening.
+  // Full-coverage scan over the committed 404 export. This is an unbounded
+  // GSC-orphan accumulator (~1M paths, ~95MB across shards at time of writing)
+  // so the loop cost scales with data size; the default 15s vitest budget
+  // overflows under CI load (observed ~20s). Explicit generous timeout
+  // preserves full coverage without sampling/weakening. The accumulator is
+  // sharded across data/seo-404-compat/part-*.json (issue #2988) — read the
+  // union via the store helper, never a single file.
   it('covers the committed live 404 export paths', () => {
-    const compatPaths = JSON.parse(
-      readFileSync(path.resolve(__dirname, '..', 'data', 'seo-404-compat-paths.json'), 'utf-8')
-    );
+    const compatPaths = readCompatPaths(path.resolve(__dirname, '..'));
     expect(Array.isArray(compatPaths.paths)).toBe(true);
     // Realistic sanity floor (~half the current ~306k volume) so an organic
     // shrink doesn't false-fail but a catastrophic truncation (e.g. a write

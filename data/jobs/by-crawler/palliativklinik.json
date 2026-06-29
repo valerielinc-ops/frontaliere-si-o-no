@@ -1,6 +1,6 @@
 {
   "crawlerKey": "palliativklinik",
-  "assembledAt": "2026-06-28T22:18:01.562Z",
+  "assembledAt": "2026-06-29T13:54:44.284Z",
   "jobs": [
     {
       "id": "palliativklinik-377ce6673bae",
@@ -34,7 +34,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_Medizinstudenten_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:17:59.234Z",
+      "crawledAt": "2026-06-29T13:54:42.316Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflege_FAGE-fach_Nov25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:17:58.405Z",
+      "crawledAt": "2026-06-29T13:54:41.488Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflegefach_Nov25-1.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:17:57.574Z",
+      "crawledAt": "2026-06-29T13:54:40.661Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2026/04/PKiP_Spitalarzt_April-26.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:17:56.740Z",
+      "crawledAt": "2026-06-29T13:54:39.833Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -326,7 +326,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_AerztIn_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:17:55.757Z",
+      "crawledAt": "2026-06-29T13:54:38.992Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -358,15 +358,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:54:22.033Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49600,
+      "salaryMax": 75200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49600,
+          "maxValue": 75200,
           "unitText": "YEAR"
         }
       }

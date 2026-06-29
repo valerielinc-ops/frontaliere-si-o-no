@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-06-28T22:09:32.734Z",
+  "assembledAt": "2026-06-29T14:03:21.966Z",
   "jobs": [
     {
       "title": "Mitarbeiter*in Verkauf Damenabteilung 20%",
@@ -37,16 +37,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-8c5bbe3965d2",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 16600,
+      "salaryMax": 25500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 16600,
+          "maxValue": 25500,
           "unitText": "YEAR"
         }
       },
@@ -119,14 +119,14 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugs": [
-        "maison-mode-beaute-100-manor-ag-hinwil-floor-manager-home"
-      ],
       "previousSlugsByLocale": {
         "fr": [
           "maison-mode-beaute-100-manor-ag-hinwil-floor-manager-home"
         ]
-      }
+      },
+      "previousSlugs": [
+        "maison-mode-beaute-100-manor-ag-hinwil-floor-manager-home"
+      ]
     },
     {
       "title": "Mitarbeiter*in Warenbewirtschaftung Spielwaren 20%",
@@ -163,16 +163,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-f54b427d1c2c",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 16600,
+      "salaryMax": 25500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 16600,
+          "maxValue": 25500,
           "unitText": "YEAR"
         }
       },
@@ -226,12 +226,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
         "de": "Mitarbeiter*in Logistik 100%",
-        "en": "Mitarbeiter*in Logistik 100%",
+        "en": "Mitarbeiter * in Logistik 100%",
         "fr": "Mitarbeiter*in Logistik 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-07100ac0ef92",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -344,16 +343,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-a3f7de131ec8",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 36300,
+      "salaryMax": 54900,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 36300,
+          "maxValue": 54900,
           "unitText": "YEAR"
         }
       },
@@ -402,16 +401,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-e7a3c87ae136",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -457,16 +456,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-63d09053d946",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -572,16 +571,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-f57ff7710bcd",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "salaryMin": 15500,
+      "salaryMax": 23700,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
+          "minValue": 15500,
+          "maxValue": 23700,
           "unitText": "YEAR"
         }
       },
@@ -750,19 +749,18 @@
       "slug": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
-        "en": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
+        "en": "employee-logistics-provision-of-goods-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "de": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung",
         "fr": "manor-mitarbeiter-in-logistik-warenbereitstellung-100-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik Warenbereitstellung 100%",
         "de": "Mitarbeiter*in Logistik Warenbereitstellung 100%",
-        "en": "Mitarbeiter*in Logistik Warenbereitstellung 100%",
+        "en": "Employee logistics provision of goods 100%",
         "fr": "Mitarbeiter*in Logistik Warenbereitstellung 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-5ad679489a0d",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -782,12 +780,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-26T11:54:46.120Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "employee-logistics-provision-of-goods-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenbereitstellung"
-        ]
-      }
+      "firstSeenAt": "2026-06-26T11:54:46.120Z"
     },
     {
       "title": "Mitarbeiter*in Supermarkt Epicerie 50%",
@@ -824,16 +817,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-9cf95065ce6c",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
+      "salaryMin": 34300,
+      "salaryMax": 52500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
+          "minValue": 34300,
+          "maxValue": 52500,
           "unitText": "YEAR"
         }
       },
@@ -879,16 +872,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-4978b15cb602",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 43200,
+      "salaryMax": 66600,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 43200,
+          "maxValue": 66600,
           "unitText": "YEAR"
         }
       },
@@ -949,16 +942,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-f007b3b6df1e",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
+      "salaryMin": 27400,
+      "salaryMax": 42000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
+          "minValue": 27400,
+          "maxValue": 42000,
           "unitText": "YEAR"
         }
       },
@@ -1018,16 +1011,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-3ab58130bea9",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 43200,
+      "salaryMax": 66600,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 43200,
+          "maxValue": 66600,
           "unitText": "YEAR"
         }
       },
@@ -1093,16 +1086,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-82863ccab186",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 43200,
+      "salaryMax": 66600,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 43200,
+          "maxValue": 66600,
           "unitText": "YEAR"
         }
       },
@@ -1148,16 +1141,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-dfabe098294f",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "salaryMin": 62000,
+      "salaryMax": 94800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
+          "minValue": 62000,
+          "maxValue": 94800,
           "unitText": "YEAR"
         }
       },
@@ -1203,16 +1196,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-e228a441724e",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "salaryMin": 62000,
+      "salaryMax": 94800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
+          "minValue": 62000,
+          "maxValue": 94800,
           "unitText": "YEAR"
         }
       },
@@ -1258,16 +1251,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-c1b100998a3a",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "salaryMin": 46500,
+      "salaryMax": 71100,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
+          "minValue": 46500,
+          "maxValue": 71100,
           "unitText": "YEAR"
         }
       },
@@ -1321,16 +1314,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-1c4a4c2b776c",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 50400,
+      "salaryMax": 77700,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 50400,
+          "maxValue": 77700,
           "unitText": "YEAR"
         }
       },
@@ -1391,16 +1384,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-482805491115",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
+      "salaryMin": 44400,
+      "salaryMax": 68100,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
+          "minValue": 44400,
+          "maxValue": 68100,
           "unitText": "YEAR"
         }
       },
@@ -1505,16 +1498,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-885ce64a18a4",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -1565,16 +1558,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-68262212c046",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -1688,12 +1681,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik VZ FFFCD 2 100%",
         "de": "Mitarbeiter*in Logistik VZ FFFCD 2 100%",
-        "en": "Mitarbeiter*in Logistik VZ FFFCD 2 100%",
+        "en": "Mitarbeiter * in Logistik VZ FFFCD 2 100%",
         "fr": "Mitarbeiter*in Logistik VZ FFFCD 2 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-5ddb0d5243d3",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1750,16 +1742,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-d8275113ce81",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -1805,16 +1797,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-cbe69c510073",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 32800,
+      "salaryMax": 41300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 32800,
+          "maxValue": 41300,
           "unitText": "YEAR"
         }
       },
@@ -1995,16 +1987,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-fdfcea239d31",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 24900,
+      "salaryMax": 38300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 24900,
+          "maxValue": 38300,
           "unitText": "YEAR"
         }
       },
@@ -2050,16 +2042,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-82d8574f7f11",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 75600,
+      "salaryMax": 114400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 75600,
+          "maxValue": 114400,
           "unitText": "YEAR"
         }
       },
@@ -2080,62 +2072,6 @@
           "manor-assistant-backoffice-manager-80-langenthal-assistant-backoffice-manager"
         ]
       }
-    },
-    {
-      "title": "Mitarbeiter*in Logistik 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1356188255/",
-      "location": "Hochdorf Mitarbeiterin Logistik 100",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "description": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Logistik 100% at Manor, located in Hochdorf Mitarbeiterin Logistik 100, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Logistik 100% bei Manor, gelegen in Hochdorf Mitarbeiterin Logistik 100, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Logistik 100% chez Manor, situé à Hochdorf Mitarbeiterin Logistik 100, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-22",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-      "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-        "en": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-        "de": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
-        "fr": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik 100%",
-        "de": "Mitarbeiter*in Logistik 100%",
-        "en": "Mitarbeiter*in Logistik 100%",
-        "fr": "Mitarbeiter*in Logistik 100%"
-      },
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "manor-4bc046df64c6",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Hochdorf Mitarbeiterin Logistik 100",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "6003",
-      "firstSeenAt": "2026-06-26T11:54:46.120Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Kinderkonfektion 40%",
@@ -2172,16 +2108,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-f2f756843fc8",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 33200,
+      "salaryMax": 51000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 33200,
+          "maxValue": 51000,
           "unitText": "YEAR"
         }
       },
@@ -2227,16 +2163,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-818497abe6ad",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 46000,
+      "salaryMax": 69600,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 46000,
+          "maxValue": 69600,
           "unitText": "YEAR"
         }
       },
@@ -2283,16 +2219,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-249745891a2c",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 51900,
+      "salaryMax": 72300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 51900,
+          "maxValue": 72300,
           "unitText": "YEAR"
         }
       },
@@ -2338,16 +2274,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-9828dca9e6a1",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 16600,
+      "salaryMax": 25500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 16600,
+          "maxValue": 25500,
           "unitText": "YEAR"
         }
       },
@@ -2401,16 +2337,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-06b4ec00d71c",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
+      "salaryMin": 13700,
+      "salaryMax": 21000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
+          "minValue": 13700,
+          "maxValue": 21000,
           "unitText": "YEAR"
         }
       },
@@ -2464,12 +2400,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 30-100%",
         "de": "Mitarbeiter*in Logistik 30-100%",
-        "en": "Mitarbeiter*in Logistik 30-100%",
+        "en": "Mitarbeiter*in Logistik 30-100%.",
         "fr": "Mitarbeiter*in Logistik 30-100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-e23a20d76d9b",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2592,16 +2527,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-6a82adf5b795",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 32800,
+      "salaryMax": 41300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 32800,
+          "maxValue": 41300,
           "unitText": "YEAR"
         }
       },
@@ -2652,16 +2587,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-aca8321359e8",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 28800,
+      "salaryMax": 44400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 28800,
+          "maxValue": 44400,
           "unitText": "YEAR"
         }
       },
@@ -2699,14 +2634,13 @@
         "fr": "manor-visual-merchandising-manager-100-vevey-visual-merchandising-manager"
       },
       "titleByLocale": {
-        "it": "Visual Merchandising Manager 100%",
+        "it": "Visual Merchandising Manager al 100%",
         "en": "Visual Merchandising Manager 100%",
         "fr": "Visual Merchandising Manager 100%",
         "de": "Visual Merchandising Manager 100%"
       },
       "sourceLang": "fr",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-19934496adb1",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -2727,61 +2661,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "firstSeenAt": "2026-06-19T22:18:10.950Z"
-    },
-    {
-      "title": "Mitarbeiter*in Facility 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Facility-100/1352875255/",
-      "location": "Möhlin Mitarbeiterin Facility 100",
-      "canton": "AG",
-      "country": "CH",
-      "category": "retail",
-      "description": "Mitarbeiter*in Facility 100% presso Manor, con sede a Möhlin Mitarbeiterin Facility 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Facility 100% presso Manor, con sede a Möhlin Mitarbeiterin Facility 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Facility 100% presso Manor, con sede a Möhlin Mitarbeiterin Facility 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Facility 100% at Manor, located in Möhlin Mitarbeiterin Facility 100, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Facility 100% bei Manor, gelegen in Möhlin Mitarbeiterin Facility 100, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Facility 100% chez Manor, situé à Möhlin Mitarbeiterin Facility 100, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-05-20",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-facility-100-mohlin-mitarbeiterin-facility-100",
-      "slugByLocale": {
-        "it": "manor-mitarbeiter-in-facility-100-mohlin-mitarbeiterin-facility-100",
-        "en": "manor-mitarbeiter-in-facility-100-mohlin-mitarbeiterin-facility-100",
-        "de": "manor-mitarbeiter-in-facility-100-mohlin-mitarbeiterin-facility-100",
-        "fr": "manor-mitarbeiter-in-facility-100-mohlin-mitarbeiterin-facility-100"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Facility 100%",
-        "de": "Mitarbeiter*in Einrichtung 100%",
-        "en": "Mitarbeiter*in Facility 100%",
-        "fr": "Mitarbeiter*en installation 100%"
-      },
-      "sourceLang": "it",
-      "crawledAt": "",
-      "id": "manor-bcf68320f3a2",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Möhlin Mitarbeiterin Facility 100",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5000",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Lehrstelle Polydesigner/-in 3D EFZ Styling",
@@ -2805,19 +2684,18 @@
       "slug": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
       "slugByLocale": {
         "it": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
-        "en": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
+        "en": "lehrstelle-polign-manor-ag-emmen-lehrstelle-polydesigner-in",
         "de": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in",
         "fr": "manor-lehrstelle-polydesigner-in-3d-efz-styling-emmen-lehrstelle-polydesigner-in"
       },
       "titleByLocale": {
         "it": "Apprendistato Polydesigner/-in 3D CFC Styling",
         "de": "Lehrstelle Polydesigner/-in 3D EFZ Styling",
-        "en": "Lehrstelle Polydesigner/-in 3D EFZ Styling",
+        "en": "Lehrstelle Polign",
         "fr": "Lehrstelle Polydesigner/-in 3D EFZ Styling"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-93c757b9e7b9",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -2837,12 +2715,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "lehrstelle-polign-manor-ag-emmen-lehrstelle-polydesigner-in"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Collaborateur/trice supermarché (Boulangerie) 30%",
@@ -2879,16 +2752,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-a7b0cffa6d3c",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 19700,
+      "salaryMax": 24800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 19700,
+          "maxValue": 24800,
           "unitText": "YEAR"
         }
       },
@@ -2939,16 +2812,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-7329578951f9",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
+      "salaryMin": 23600,
+      "salaryMax": 36200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
+          "minValue": 23600,
+          "maxValue": 36200,
           "unitText": "YEAR"
         }
       },
@@ -2968,8 +2841,8 @@
         ]
       },
       "previousSlugs": [
-        "collaborator-trice-crate-men-s-pack-40-manor-ag-locarno-collaboratoretrice-cassa-confezione",
-        "contributor-trice-cassa-confection-man-40-manor-ag-locarno-collaboratoretrice-cassa-confezione"
+        "contributor-trice-cassa-confection-man-40-manor-ag-locarno-collaboratoretrice-cassa-confezione",
+        "collaborator-trice-crate-men-s-pack-40-manor-ag-locarno-collaboratoretrice-cassa-confezione"
       ]
     },
     {
@@ -3007,16 +2880,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-2063a95eaa39",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 55600,
+      "salaryMax": 84800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 55600,
+          "maxValue": 84800,
           "unitText": "YEAR"
         }
       },
@@ -3076,16 +2949,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-76d0921da059",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -3095,14 +2968,14 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
       "firstSeenAt": "2026-06-18T12:48:58.568Z",
-      "previousSlugs": [
-        "kollaborateur-trische-kuche-etudiant-20-manor-ag-sion-collaborateurtrice-cuisine-etudiant"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "kollaborateur-trische-kuche-etudiant-20-manor-ag-sion-collaborateurtrice-cuisine-etudiant"
         ]
-      }
+      },
+      "previousSlugs": [
+        "kollaborateur-trische-kuche-etudiant-20-manor-ag-sion-collaborateurtrice-cuisine-etudiant"
+      ]
     },
     {
       "title": "Head of Retail Media 100%",
@@ -3194,16 +3067,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-812a7308aca3",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -3213,14 +3086,14 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugs": [
-        "supermarket-collaborator-epicerie-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
-      ],
       "previousSlugsByLocale": {
         "en": [
           "supermarket-collaborator-epicerie-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
         ]
-      }
+      },
+      "previousSlugs": [
+        "supermarket-collaborator-epicerie-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
+      ]
     },
     {
       "title": "Cuisinier 60%",
@@ -3257,16 +3130,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-879e07774b89",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 39300,
+      "salaryMax": 49500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 39300,
+          "maxValue": 49500,
           "unitText": "YEAR"
         }
       },
@@ -3312,16 +3185,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-5b68c5c19d03",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 16600,
+      "salaryMax": 25500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 16600,
+          "maxValue": 25500,
           "unitText": "YEAR"
         }
       },
@@ -3379,16 +3252,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-60f131ac4b11",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 49800,
+      "salaryMax": 76500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 49800,
+          "maxValue": 76500,
           "unitText": "YEAR"
         }
       },
@@ -3489,16 +3362,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-6c9db3d447af",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -3549,16 +3422,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-86a402293704",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
+      "salaryMin": 63200,
+      "salaryMax": 97200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
+          "minValue": 63200,
+          "maxValue": 97200,
           "unitText": "YEAR"
         }
       },
@@ -3604,16 +3477,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-08fb5bccfe57",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 64800,
+      "salaryMax": 99900,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 64800,
+          "maxValue": 99900,
           "unitText": "YEAR"
         }
       },
@@ -3672,16 +3545,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-2eb30a8e5da2",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 34500,
+      "salaryMax": 52200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 34500,
+          "maxValue": 52200,
           "unitText": "YEAR"
         }
       },
@@ -3741,16 +3614,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-1798daa9b307",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 10800,
+      "salaryMax": 16700,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 10800,
+          "maxValue": 16700,
           "unitText": "YEAR"
         }
       },
@@ -3796,16 +3669,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-886039770bdd",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
+      "salaryMin": 22200,
+      "salaryMax": 34100,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
+          "minValue": 22200,
+          "maxValue": 34100,
           "unitText": "YEAR"
         }
       },
@@ -3851,16 +3724,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-9fff11f74503",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
+      "salaryMin": 29600,
+      "salaryMax": 45400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
+          "minValue": 29600,
+          "maxValue": 45400,
           "unitText": "YEAR"
         }
       },
@@ -3906,16 +3779,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-244e4cd16fe3",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
+      "salaryMin": 14800,
+      "salaryMax": 22700,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
+          "minValue": 14800,
+          "maxValue": 22700,
           "unitText": "YEAR"
         }
       },
@@ -4026,16 +3899,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-9d57a9e3a2f8",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
+      "salaryMin": 49600,
+      "salaryMax": 62400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
+          "minValue": 49600,
+          "maxValue": 62400,
           "unitText": "YEAR"
         }
       },
@@ -4086,16 +3959,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-eef8c519b49b",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
+      "salaryMin": 47400,
+      "salaryMax": 72900,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
+          "minValue": 47400,
+          "maxValue": 72900,
           "unitText": "YEAR"
         }
       },
@@ -4141,16 +4014,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-a0a4808ef1d1",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
+      "salaryMin": 15800,
+      "salaryMax": 24300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
+          "minValue": 15800,
+          "maxValue": 24300,
           "unitText": "YEAR"
         }
       },
@@ -4201,16 +4074,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-17b8dea31b60",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -4256,16 +4129,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-6f0dbe9eecd2",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -4316,16 +4189,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-46cf414ffac9",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -4436,16 +4309,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-a977c2196d1b",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 55600,
+      "salaryMax": 84800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 55600,
+          "maxValue": 84800,
           "unitText": "YEAR"
         }
       },
@@ -4455,14 +4328,14 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugs": [
-        "mitarbeiter-dans-le-commerce-visuel-40-80-manor-ag-emmen-mitarbeiterin-visual-merchandising"
-      ],
       "previousSlugsByLocale": {
         "fr": [
           "mitarbeiter-dans-le-commerce-visuel-40-80-manor-ag-emmen-mitarbeiterin-visual-merchandising"
         ]
-      }
+      },
+      "previousSlugs": [
+        "mitarbeiter-dans-le-commerce-visuel-40-80-manor-ag-emmen-mitarbeiterin-visual-merchandising"
+      ]
     },
     {
       "title": "Praktikant/in Beauty 100%",
@@ -4517,131 +4390,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z"
-    },
-    {
-      "title": "Sales Trainer 60-80%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Sales-Trainer-60-80/1337700455/",
-      "location": "Basel Sales Trainer 60",
-      "canton": "BS",
-      "country": "CH",
-      "category": "sales",
-      "description": "• Ausgezeichnete Kenntnisse in Verkaufstechniken\n• Fundierte Erfahrung in Schulungskonzeption und Coaching Ausgezeichnete Kommunikations-, Präsentations-, und Analysefähigkeiten\n• Führungskompetenz und Motivationsfähigkeit",
-      "descriptionIt": "Ausgezeichnete Kenntnisse in Verkaufstechniken\nFundierte Erfahrung in Schulungskonzeption und Coaching Ausgezeichnete Kommunikations-, Präsentations-, und Analysefähigkeiten\nFührungskompetenz und Motivationsfähigkeit",
-      "descriptionByLocale": {
-        "it": "## Sales Trainer 60-80%\n\n**Manor AG** — Basel Sales Trainer 60 (BS)\n\n• Ausgezeichnete Kenntnisse in Verkaufstechniken\n• Fundierte Erfahrung in Schulungskonzeption und Coaching Ausgezeichnete Kommunikations-, Präsentations-, und Analysefähigkeiten\n• Führungskompetenz und Motivationsfähigkeit\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
-        "en": "Sales Trainer 60-80% at Manor, located in Basel Sales Trainer 60, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Sales Trainer 60-80% bei Manor, gelegen in Basel Sales Trainer 60, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Sales Trainer 60-80% chez Manor, situé à Basel Sales Trainer 60, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-13",
-      "source": "company-website",
-      "slug": "vendite-trainer-60-80-manor-ag-basel-sales-trainer-60",
-      "slugByLocale": {
-        "it": "vendite-trainer-60-80-manor-ag-basel-sales-trainer-60",
-        "en": "manor-sales-trainer-60-80-basel-sales-trainer-60",
-        "de": "manor-sales-trainer-60-80-basel-sales-trainer-60",
-        "fr": "formateur-de-vente-60-80-manor-ag-basel-sales-trainer-60"
-      },
-      "titleByLocale": {
-        "it": "Vendite Trainer 60-80 %",
-        "en": "Sales Trainer 60-80 %",
-        "de": "Sales Trainer 60-80%",
-        "fr": "Formateur de vente 60-80 %"
-      },
-      "sourceLang": "de",
-      "crawledAt": "",
-      "id": "manor-f93ec91bbdba",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Basel Sales Trainer 60",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-06-13T11:26:14.934Z",
-      "previousSlugs": [
-        "entraineur-commercial-60-80-manor-ag-basel-sales-trainer-60",
-        "manor-sales-trainer-60-80-basel-sales-trainer-60",
-        "addestratore-di-vendita-60-80-manor-ag-basel-sales-trainer-60",
-        "trainer-vendite-60-80-manor-ag-basel-sales-trainer-60"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "entraineur-commercial-60-80-manor-ag-basel-sales-trainer-60",
-          "manor-sales-trainer-60-80-basel-sales-trainer-60"
-        ],
-        "it": [
-          "manor-sales-trainer-60-80-basel-sales-trainer-60"
-        ]
-      }
-    },
-    {
-      "title": "Sales Trainer 80-100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Sales-Trainer-80-100/1337700755/",
-      "location": "Basel Sales Trainer 80",
-      "canton": "BS",
-      "country": "CH",
-      "category": "sales",
-      "description": "• Ausgezeichnete Kenntnisse in Verkaufstechniken\n• Fundierte Erfahrung in Schulungskonzeption und Coaching Ausgezeichnete Kommunikations-, Präsentations-, und Analysefähigkeiten\n• Führungskompetenz und Motivationsfähigkeit",
-      "descriptionIt": "Ausgezeichnete Kenntnisse in Verkaufstechniken\nFundierte Erfahrung in Schulungskonzeption und Coaching Ausgezeichnete Kommunikations-, Präsentations-, und Analysefähigkeiten\nFührungskompetenz und Motivationsfähigkeit",
-      "descriptionByLocale": {
-        "it": "## Sales Trainer 80-100%\n\n**Manor AG** — Basel Sales Trainer 80 (BS)\n\n• Ausgezeichnete Kenntnisse in Verkaufstechniken\n• Fundierte Erfahrung in Schulungskonzeption und Coaching Ausgezeichnete Kommunikations-, Präsentations-, und Analysefähigkeiten\n• Führungskompetenz und Motivationsfähigkeit\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
-        "en": "Sales Trainer 80-100% at Manor, located in Basel Sales Trainer 80, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Sales Trainer 80-100% bei Manor, gelegen in Basel Sales Trainer 80, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Sales Trainer 80-100% chez Manor, situé à Basel Sales Trainer 80, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-06-13",
-      "source": "company-website",
-      "slug": "manor-sales-trainer-80-100-basel-sales-trainer-80",
-      "slugByLocale": {
-        "it": "manor-sales-trainer-80-100-basel-sales-trainer-80",
-        "en": "manor-sales-trainer-80-100-basel-sales-trainer-80",
-        "de": "manor-sales-trainer-80-100-basel-sales-trainer-80",
-        "fr": "entraineur-commercial-80-100-manor-ag-basel-sales-trainer-80"
-      },
-      "titleByLocale": {
-        "it": "Vendite Trainer 80-100 %",
-        "en": "Sales Trainer 80-100 %",
-        "de": "Sales Trainer 80-100%",
-        "fr": "Entraîneur commercial 80-100 %"
-      },
-      "sourceLang": "de",
-      "crawledAt": "",
-      "id": "manor-d5e4d20850c7",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Basel Sales Trainer 80",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "4001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
@@ -4737,19 +4485,18 @@
       "slug": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
-        "en": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
+        "en": "visual-merchandising-collaborator-100-manor-ag-lausanne-collaborateurtrice-visual-merchandising",
         "de": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising",
         "fr": "manor-collaborateur-trice-visual-merchandising-100-lausanne-collaborateurtrice-visual-merchandising"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice Visual Merchandising 100%",
-        "en": "Collaborateur/trice Visual Merchandising 100%",
+        "en": "Visual Merchandising Collaborator 100%",
         "de": "Collaborateur/trice Visual Merchandising 100%",
         "fr": "Collaborateur/trice Visual Merchandising 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-3e0aad57cf64",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4769,12 +4516,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "visual-merchandising-collaborator-100-manor-ag-lausanne-collaborateurtrice-visual-merchandising"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Kassierer*in non Food 30%",
@@ -4811,16 +4553,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-d1cefca3c6a2",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 24900,
+      "salaryMax": 38300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 24900,
+          "maxValue": 38300,
           "unitText": "YEAR"
         }
       },
@@ -5002,16 +4744,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-0e934d5ccbbc",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 16600,
+      "salaryMax": 25500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 16600,
+          "maxValue": 25500,
           "unitText": "YEAR"
         }
       },
@@ -5057,16 +4799,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-bdc2f43f9e7d",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 32800,
+      "salaryMax": 41300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 32800,
+          "maxValue": 41300,
           "unitText": "YEAR"
         }
       },
@@ -5127,16 +4869,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-8be1a13e7782",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "salaryMin": 38800,
+      "salaryMax": 59300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
+          "minValue": 38800,
+          "maxValue": 59300,
           "unitText": "YEAR"
         }
       },
@@ -5191,16 +4933,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-19478ae42a4f",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 52400,
+      "salaryMax": 66000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 52400,
+          "maxValue": 66000,
           "unitText": "YEAR"
         }
       },
@@ -5251,16 +4993,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-d8190b0b3afa",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 33200,
+      "salaryMax": 51000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 33200,
+          "maxValue": 51000,
           "unitText": "YEAR"
         }
       },
@@ -5312,16 +5054,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-e998536175d3",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 43200,
+      "salaryMax": 66600,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 43200,
+          "maxValue": 66600,
           "unitText": "YEAR"
         }
       },
@@ -5372,16 +5114,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-f1cc723efbd6",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 17300,
+      "salaryMax": 26100,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 17300,
+          "maxValue": 26100,
           "unitText": "YEAR"
         }
       },
@@ -5482,16 +5224,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-a6413e1b53b7",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 19700,
+      "salaryMax": 24800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 19700,
+          "maxValue": 24800,
           "unitText": "YEAR"
         }
       },
@@ -5608,16 +5350,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-1a10ead92783",
-      "salaryMin": 67500,
-      "salaryMax": 84500,
+      "salaryMin": 33800,
+      "salaryMax": 42300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 67500,
-          "maxValue": 84500,
+          "minValue": 33800,
+          "maxValue": 42300,
           "unitText": "YEAR"
         }
       },
@@ -5677,16 +5419,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-143a7e68f58f",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 23000,
+      "salaryMax": 34800,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 23000,
+          "maxValue": 34800,
           "unitText": "YEAR"
         }
       },
@@ -5696,14 +5438,14 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugs": [
-        "mitarbeiter-en-commerce-visuel-40-manor-ag-rickenbach-b"
-      ],
       "previousSlugsByLocale": {
         "fr": [
           "mitarbeiter-en-commerce-visuel-40-manor-ag-rickenbach-b"
         ]
-      }
+      },
+      "previousSlugs": [
+        "mitarbeiter-en-commerce-visuel-40-manor-ag-rickenbach-b"
+      ]
     },
     {
       "title": "Mitarbeiter/in Logistik 20% - 60%",
@@ -5740,16 +5482,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-9c4088d29cb8",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 44100,
+      "salaryMax": 66900,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 44100,
+          "maxValue": 66900,
           "unitText": "YEAR"
         }
       },
@@ -5809,16 +5551,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-78e29222cfbc",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
+      "salaryMin": 34300,
+      "salaryMax": 52500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
+          "minValue": 34300,
+          "maxValue": 52500,
           "unitText": "YEAR"
         }
       },
@@ -5880,16 +5622,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-3c8f749b15ee",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
+      "salaryMin": 20600,
+      "salaryMax": 31500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
+          "minValue": 20600,
+          "maxValue": 31500,
           "unitText": "YEAR"
         }
       },
@@ -5949,16 +5691,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-0f428fbd0da4",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 36300,
+      "salaryMax": 54900,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 36300,
+          "maxValue": 54900,
           "unitText": "YEAR"
         }
       },
@@ -5968,6 +5710,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugs": [
+        "collaborateur-trice-marchandise-visuelle-alimentaire-60-manor-ag-vevey-collaborateurtrice-visual-merchandising"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "visual-merchandising-collaborator-food-60-manor-ag-vevey-collaborateurtrice-visual-merchandising"
@@ -5975,10 +5720,7 @@
         "fr": [
           "collaborateur-trice-marchandise-visuelle-alimentaire-60-manor-ag-vevey-collaborateurtrice-visual-merchandising"
         ]
-      },
-      "previousSlugs": [
-        "collaborateur-trice-marchandise-visuelle-alimentaire-60-manor-ag-vevey-collaborateurtrice-visual-merchandising"
-      ]
+      }
     },
     {
       "title": "Mitarbeiter*in Verkauf Parfümerie / Bijouterie 100%",
@@ -6078,16 +5820,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-416ef1bddace",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
+      "salaryMin": 47400,
+      "salaryMax": 72900,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
+          "minValue": 47400,
+          "maxValue": 72900,
           "unitText": "YEAR"
         }
       },
@@ -6141,16 +5883,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-9bd8ebcd187b",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 45900,
+      "salaryMax": 57700,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 45900,
+          "maxValue": 57700,
           "unitText": "YEAR"
         }
       },
@@ -6201,16 +5943,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-3d0a0770f8ef",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -6220,10 +5962,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugs": [
-        "supermarche-cooperateur-trice-prise-50-manor-ag-lausanne-collaborateurtrice-supermarche-take",
-        "supermarket-collaborator-take-out-50-manor-ag-lausanne-collaborateurtrice-supermarche-take"
-      ],
       "previousSlugsByLocale": {
         "fr": [
           "supermarche-cooperateur-trice-prise-50-manor-ag-lausanne-collaborateurtrice-supermarche-take"
@@ -6231,7 +5969,11 @@
         "en": [
           "supermarket-collaborator-take-out-50-manor-ag-lausanne-collaborateurtrice-supermarche-take"
         ]
-      }
+      },
+      "previousSlugs": [
+        "supermarche-cooperateur-trice-prise-50-manor-ag-lausanne-collaborateurtrice-supermarche-take",
+        "supermarket-collaborator-take-out-50-manor-ag-lausanne-collaborateurtrice-supermarche-take"
+      ]
     },
     {
       "title": "Droguiste CFC (Dermacenter) 50-80%",
@@ -6269,16 +6011,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-a309ddeb2d82",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       },
@@ -6324,16 +6066,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-5772f9031c59",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       },
@@ -6379,16 +6121,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-c85c28f4ab1c",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 54800,
+      "salaryMax": 83200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 54800,
+          "maxValue": 83200,
           "unitText": "YEAR"
         }
       },
@@ -6434,16 +6176,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-c64b552e5e2d",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "salaryMin": 7800,
+      "salaryMax": 11900,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
+          "minValue": 7800,
+          "maxValue": 11900,
           "unitText": "YEAR"
         }
       },
@@ -6497,16 +6239,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-4d96974d96bc",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 41100,
+      "salaryMax": 62400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 41100,
+          "maxValue": 62400,
           "unitText": "YEAR"
         }
       },
@@ -6552,16 +6294,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-16d9a6fda457",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
+      "salaryMin": 29600,
+      "salaryMax": 45400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
+          "minValue": 29600,
+          "maxValue": 45400,
           "unitText": "YEAR"
         }
       },
@@ -6626,14 +6368,14 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugs": [
-        "directeur-principal-de-projet-100-manor-ag-basel-senior-project-managerin"
-      ],
       "previousSlugsByLocale": {
         "fr": [
           "directeur-principal-de-projet-100-manor-ag-basel-senior-project-managerin"
         ]
-      }
+      },
+      "previousSlugs": [
+        "directeur-principal-de-projet-100-manor-ag-basel-senior-project-managerin"
+      ]
     },
     {
       "title": "Drogist*in 80%",
@@ -6670,16 +6412,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-579512c99476",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
+      "salaryMin": 70400,
+      "salaryMax": 98400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
+          "minValue": 70400,
+          "maxValue": 98400,
           "unitText": "YEAR"
         }
       },
@@ -6725,16 +6467,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-38491dac5d47",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 17300,
+      "salaryMax": 26100,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 17300,
+          "maxValue": 26100,
           "unitText": "YEAR"
         }
       },
@@ -6851,19 +6593,18 @@
       "slug": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
       "slugByLocale": {
         "it": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
-        "en": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
+        "en": "cuisinier-isre-100-manor-ag-vevey-cuisinierere-100",
         "de": "manor-cuisinier-ere-100-vevey-cuisinierere-100",
         "fr": "manor-cuisinier-ere-100-vevey-cuisinierere-100"
       },
       "titleByLocale": {
         "it": "Cuisinier/ère 100%",
         "fr": "Cuisinier/ère 100%",
-        "en": "Cuisinier/ère 100%",
+        "en": "Cuisinier / isre 100%",
         "de": "Cuisinier/ère 100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-fb015ed8a6f9",
       "salaryMin": 65500,
       "salaryMax": 82500,
@@ -6883,12 +6624,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "cuisinier-isre-100-manor-ag-vevey-cuisinierere-100"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Assistant/e visual merchandiser manager 100%",
@@ -6967,19 +6703,18 @@
       "slug": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
-        "en": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
+        "en": "supermarket-collaborator-boulangerie-0-manor-ag-biel-collaborateurtrice-supermarche-boulangerie",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-0-biel-collaborateurtrice-supermarche-boulangerie"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (boulangerie) 0%",
-        "en": "Collaborateur/trice supermarché (boulangerie) 0%",
+        "en": "Supermarket collaborator (boulangerie) 0%",
         "de": "Collaborateur/trice supermarché (boulangerie) 0%",
         "fr": "Collaborateur/trice supermarché (boulangerie) 0%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-603b63f7c4f9",
       "salaryMin": 67500,
       "salaryMax": 84500,
@@ -6999,12 +6734,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "supermarket-collaborator-boulangerie-0-manor-ag-biel-collaborateurtrice-supermarche-boulangerie"
-        ]
-      }
+      "firstSeenAt": "2026-06-10T23:09:21.713Z"
     },
     {
       "title": "Mitarbeiter*in Logistik 50-100%",
@@ -7035,12 +6765,11 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 50-100%",
         "de": "Mitarbeiter*in Logistik 50-100%",
-        "en": "Mitarbeiter*in Logistik 50-100%",
+        "en": "Mitarbeiter * in Logistik 50-100%",
         "fr": "Mitarbeiter*in Logistik 50-100%"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-faa55edac52a",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -7153,16 +6882,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-c0d8a64b6096",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -7172,15 +6901,15 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
+      "previousSlugs": [
+        "twenty-collaborator-confection-dames-50-of-24-08-2026-manor-ag-geneve-1-collaborateurtrice-vente"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "current-collaborator-confection-dames-50-of-24-08-2026-manor-ag-geneve-1-collaborateurtrice-vente",
           "twenty-collaborator-confection-dames-50-of-24-08-2026-manor-ag-geneve-1-collaborateurtrice-vente"
         ]
-      },
-      "previousSlugs": [
-        "twenty-collaborator-confection-dames-50-of-24-08-2026-manor-ag-geneve-1-collaborateurtrice-vente"
-      ]
+      }
     },
     {
       "title": "Collaborateur/trice vente (Confection Dames) 50% du 31.08.2026 au 12.09.2026",
@@ -7217,16 +6946,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-9efa7eac56c1",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -7277,16 +7006,16 @@
       "sourceLang": "de",
       "crawledAt": "",
       "id": "manor-d18bfeed3a2c",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "salaryMin": 33200,
+      "salaryMax": 51000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
+          "minValue": 33200,
+          "maxValue": 51000,
           "unitText": "YEAR"
         }
       },
@@ -7346,16 +7075,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-63a85c131f30",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -7417,16 +7146,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-1ad39e528dc4",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 43200,
+      "salaryMax": 66600,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 43200,
+          "maxValue": 66600,
           "unitText": "YEAR"
         }
       },
@@ -7538,21 +7267,22 @@
         "it": "Collaborateur/trice vente (Bijouterie/Montres) 30%",
         "en": "Collaborateur/trice vente (Bijouterie/Montres) 30%",
         "de": "Kollaborateur/trice vente (Bijouterie/Montres) 30%",
-        "fr": "Collaborateur/chaîne de vente (Bijouterie/Montres) 30%"
+        "fr": "Collaborateur/trice vente (Bijouterie/Montres) 30%"
       },
       "sourceLang": "it",
       "crawledAt": "",
+      "needsRetranslation": true,
       "id": "manor-f7cc4f0fd937",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 21600,
+      "salaryMax": 33300,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 21600,
+          "maxValue": 33300,
           "unitText": "YEAR"
         }
       },
@@ -7603,16 +7333,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-b97e3480eb8d",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 36000,
+      "salaryMax": 55500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 36000,
+          "maxValue": 55500,
           "unitText": "YEAR"
         }
       },
@@ -7791,16 +7521,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-94ae77498cde",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -7907,13 +7637,12 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Parfumerie) 100% de suite",
-        "en": "Collaborateur/trice vente (Parfumerie) 100% de suite",
+        "en": "Collaborateur / trice vente (Parfumerie) 100% de suite",
         "de": "Collaborateur/trice vente (Parfumerie) 100% de suite",
         "fr": "Collaborateur/trice vente (Parfumerie) 100% de suite"
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-c08c0ce90f28",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -8035,16 +7764,16 @@
       "sourceLang": "it",
       "crawledAt": "",
       "id": "manor-20da51270318",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 69200,
+      "salaryMax": 96400,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       },
@@ -8201,16 +7930,16 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "id": "manor-ddf0e8f2dd41",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 13900,
+      "salaryMax": 21200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 13900,
+          "maxValue": 21200,
           "unitText": "YEAR"
         }
       },
@@ -8256,16 +7985,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-552af0292bec",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
+      "salaryMin": 14400,
+      "salaryMax": 22200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
+          "minValue": 14400,
+          "maxValue": 22200,
           "unitText": "YEAR"
         }
       },
@@ -8327,16 +8056,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-c27f62e3605f",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
+      "salaryMin": 52400,
+      "salaryMax": 66000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
+          "minValue": 52400,
+          "maxValue": 66000,
           "unitText": "YEAR"
         }
       },
@@ -8401,16 +8130,16 @@
       "sourceLang": "fr",
       "crawledAt": "",
       "id": "manor-31d83dbe394a",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       },
@@ -8494,6 +8223,118 @@
           "boulanger-era-100-manor-ag-geneve-1-boulangerere-100"
         ]
       }
+    },
+    {
+      "title": "Junior Buyer Food (m/w/d) 50-100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Basel-Junior-Buyer-Food-%28mwd%29-50-100/1356656755/",
+      "location": "Basel Junior Buyer Food",
+      "canton": "BS",
+      "country": "CH",
+      "category": "retail",
+      "description": "• Très bonnes connaissances linguistiques en allemand et en français\n• Connaissance des produits et air pour les tendances\n• Orienté vers le client et le marché\n• Connaissance des systèmes\n• Méthode de travail organisée\n• Bonnes capacités de communication et esprit d'initiative",
+      "descriptionIt": "Très bonnes connaissances linguistiques en allemand et en français \nConnaissance des produits et air pour les tendances \nOrienté vers le client et le marché\nConnaissance des systèmes\nMéthode de travail organisée\nBonnes capacités de communication et esprit d'initiative",
+      "descriptionByLocale": {
+        "it": "## Junior Buyer Food (m/w/d) 50-100%\n\n**Manor AG** — Basel Junior Buyer Food (BS)\n\n• Très bonnes connaissances linguistiques en allemand et en français\n• Connaissance des produits et air pour les tendances\n• Orienté vers le client et le marché\n• Connaissance des systèmes\n• Méthode de travail organisée\n• Bonnes capacités de communication et esprit d'initiative\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
+        "en": "Junior Buyer Food (m/w/d) 50-100% at Manor, located in Basel Junior Buyer Food, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Junior Buyer Food (m/w/d) 50-100% bei Manor, gelegen in Basel Junior Buyer Food, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Junior Buyer Food (m/w/d) 50-100% chez Manor, situé à Basel Junior Buyer Food, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-06-26",
+      "source": "company-website",
+      "slug": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
+      "slugByLocale": {
+        "it": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
+        "en": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
+        "de": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food",
+        "fr": "manor-junior-buyer-food-m-w-d-50-100-basel-junior-buyer-food"
+      },
+      "titleByLocale": {
+        "it": "Junior Buyer Food (m/w/d) 50-100%",
+        "fr": "Junior Buyer Food (m/w/d) 50-100%",
+        "en": "Junior Buyer Food (m/w/d) 50-100%",
+        "de": "Junior Buyer Food (m/w/d) 50-100%"
+      },
+      "sourceLang": "fr",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-e4ff39060e8e",
+      "salaryMin": 58500,
+      "salaryMax": 89500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Basel Junior Buyer Food",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "4001",
+      "firstSeenAt": "2026-06-29T14:03:15.325Z"
+    },
+    {
+      "title": "Mitarbeiter*in Logistik 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1356186355/",
+      "location": "Hochdorf Mitarbeiterin Logistik 100",
+      "canton": "LU",
+      "country": "CH",
+      "category": "logistics",
+      "description": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionByLocale": {
+        "it": "Mitarbeiter*in Logistik 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik 100, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Mitarbeiter*in Logistik 100% at Manor, located in Hochdorf Mitarbeiterin Logistik 100, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Mitarbeiter*in Logistik 100% bei Manor, gelegen in Hochdorf Mitarbeiterin Logistik 100, Kanton Luzern, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Logistik 100% chez Manor, situé à Hochdorf Mitarbeiterin Logistik 100, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-06-22",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
+      "slugByLocale": {
+        "it": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
+        "en": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
+        "de": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100",
+        "fr": "manor-mitarbeiter-in-logistik-100-hochdorf-mitarbeiterin-logistik-100"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice*in Logistik 100%",
+        "de": "Mitarbeiter*in Logistik 100%",
+        "en": "Mitarbeiter*in Logistik 100%",
+        "fr": "Mitarbeiter*in Logistik 100%"
+      },
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-fb872f767895",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Hochdorf Mitarbeiterin Logistik 100",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-06-29T14:03:15.325Z"
     }
   ]
 }

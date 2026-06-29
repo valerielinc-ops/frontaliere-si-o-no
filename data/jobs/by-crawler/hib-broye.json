@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-06-28T21:45:48.100Z",
+  "assembledAt": "2026-06-29T13:55:48.186Z",
   "jobs": [
     {
       "id": "hib-broye-c91295de9ba0",
@@ -33,7 +33,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/psychologue-psychotherapeute-a-20",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.725Z",
+      "crawledAt": "2026-06-29T13:55:45.602Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -59,15 +59,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.578Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 13700,
+      "salaryMax": 20800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 13700,
+          "maxValue": 20800,
           "unitText": "YEAR"
         }
       }
@@ -104,7 +104,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti-e-logisticien-ne-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.724Z",
+      "crawledAt": "2026-06-29T13:55:45.601Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.723Z",
+      "crawledAt": "2026-06-29T13:55:45.600Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -201,90 +201,19 @@
       "previousSlugs": [
         "assistant-e-medical-e-secretaire-medical-e-polyvalente-a-80-hib-broye-payerne"
       ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       },
       "firstSeenAt": "2026-05-19T09:58:42.575Z"
-    },
-    {
-      "id": "hib-broye-df08b1d82a20",
-      "slug": "infermiere-a-clinico-a-specializzato-a-icls-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-      "slugByLocale": {
-        "it": "infermiere-a-clinico-a-specializzato-a-icls-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "clinical-specialist-nurse-csn-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "de": "klinische-fachkrankenschwester-fachkrankenpfleger-icls-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "fr": "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Infirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 %",
-      "titleByLocale": {
-        "it": "Infermiere/a clinico/a specializzato/a (ICLS) dall'80% al 100%",
-        "en": "Clinical Specialist Nurse (CSN) from 80% to 100%",
-        "de": "Klinische Fachkrankenschwester/Fachkrankenpfleger (ICLS) 80% bis 100%",
-        "fr": "Infirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 %"
-      },
-      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Afin de renforcer les équipes soignantes du centre de traitement et de réadaptation (CTR) d’Estavayer-le-Lac, la direction des soins de l’HIB est à la recherche d’un-e :\n\nInfirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 %\n\nVotre mission\n\nLe CTR compte 47 lits d'hospitalisation et est organisé en deux secteurs. Sa mission est d’assurer la prise en charge de réadaptation (musculosquelettique, gériatrie et médecine interne-oncologie) des patients adultes de la région de la Broye. Le service fonctionne étroitement avec l’ensemble du plateau médico-thérapeutique et les acteurs pluridisciplinaires institutionnels. L’équipe soignante est composée d’environ 35 EPT sous la supervision de deux ICUS.\n\nVos tâches :\n\n• Exercer une pratique clinique à 40-50% directement auprès des patients\n\n• Evaluer et analyser les situations de soins complexes et proposer les actions nécessaires\n\n• Gérer des projets cliniques institutionnels sous la supervision de la direction des soins\n\n• Promouvoir l’intégration des données probantes dans la pratique clinique au profit de la qualité, de la sécurité et de l’efficience des soins\n\n• Assurer un encadrement clinique soutenant et responsabilisant aux membres de l’équipe soignante\n\n• Contribuer au développement des compétences de l’équipe, à la réorganisation du service et accompagner le changement\n\n• Définir et suivre les indicateurs de performance clinique attribuables aux soins infirmiers\n\n• Participer à la mise en œuvre de la stratégie institutionnelle\n\n• Stimuler la réflexion sur les projets futurs et l’innovation dans les soins\n\nVos atouts\n\n• Vous êtes au bénéfice d’un Master en Sciences infirmières et si possible, d’une expérience dans le domaine des soins hospitaliers gériatriques et/ou de réadaptation.\n\n• De nature proactive, vos compétences techniques, organisationnelles et relationnelles vous permettent d'offrir des soins de qualité.\n\n• Doté∙e d’un bon sens de la communication, vous avez un intérêt marqué pour la qualité des soins, la collaboration pluridisciplinaire.\n\n• Vous faites preuve d’entregent, d’un réel leadership clinique et de créativité.\n\n• Une excellente maîtrise du français (parlé et écrit), de l’anglais scientifique ainsi que des outils informatiques sont indispensables.\n\nEntrée en fonction : de suite ou à convenir.\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Natacha Szüts, ICLS adjointe de direction des soins, au 026 662 82 47 ou natacha.szuets@hibroye.ch.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
-      "descriptionByLocale": {
-        "it": "Mansioni Infermiera Clinica Specializzata (ICLS) dall'80% al 100% Missione Il CTR ha 47 posti letto ospedalieri ed è organizzato in due settori. La sua missione è garantire la cura della riabilitazione (muscolo-scheletrica, geriatria e medicina interna-oncologia) dei pazienti adulti della regione della Broye. Il servizio lavora a stretto contatto con tutto l’altopiano medico-terapeutico e con gli attori multidisciplinari istituzionali. Il team di assistenza è composto da circa 35 ETP sotto la supervisione di due ICUS. Compiti - Esercitare una pratica clinica al 40-50% direttamente presso i pazienti - Valutare e analizzare le situazioni di cura complesse e proporre le azioni necessarie - Gestire progetti clinici istituzionali sotto la supervisione della direzione delle cure - Promuovere l’integrazione delle evidenze nella pratica clinica a vantaggio della qualità, della sicurezza e dell'efficienza delle cure - Garantire un inquadramento clinico che sostenga e responsabilizzi i membri del team di cura - Contribuire allo sviluppo delle competenze del team, alla riorganizzazione del servizio e accompagnare il cambiamento - Definire e monitorare gli indicatori di prestazione clinica attribuibili alle cure infermieristiche - Partecipare all'attuazione della strategia istituzionale - Stimolare la riflessione sui progetti futuri e l’innovazione nelle cure Atouts - Siete a beneficio di un",
-        "en": "Thanks to its 800 employees, the Intercantonal Hospital of La Broye (HIB) ensures an acute care and rehabilitation mission. Its ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the crushed population. In order to strengthen the care teams of the Estavayer-le-Lac treatment and rehabilitation center (CTR), the HIB care department is looking for a specialist clinical nurse (ICLS) from 80% to 100% Your mission The CTR has 47 hospital beds and is organized into two sectors. Its mission is to provide rehabilitation care (musculoskeletal, geriatric and internal medicine-oncology) for adult patients in the Broye region. The service works closely with the entire medical-therapeutic platform and institutional multidisciplinary actors. The healthcare team consists of approximately 35 FTEs under the supervision of two ICUs. Your tasks:\n• Perform 40-50% clinical practice directly with patients\n• Evaluate and analyze complex care situations and propose the necessary actions\n• Manage institutional clinical projects under the supervision of the care management\n• Promote the integration of evidence into clinical practice for the benefit of the quality, safety and efficiency of care\n• Provide clinical supervision",
-        "de": "Mansioni Klinische Fachkrankenschwester (ICLS) von 80 % bis 100 % Missione Die CTR verfügt über 47 Krankenhausbetten und ist in zwei Bereiche gegliedert. Seine Aufgabe ist es, die Rehabilitation (Muskel-Skelett, Geriatrie und Innere Medizin-Onkologie) erwachsener Patienten in der Broye-Region zu gewährleisten. Die Abteilung arbeitet eng mit der gesamten medizinisch-therapeutischen Plattform und den institutionellen multidisziplinären Akteuren zusammen. Das Pflegeteam besteht aus rund 35 VZÄ unter der Aufsicht von zwei ICUS.\n• Aufgaben - 40-50% klinische Praxis direkt bei den Patienten ausüben - Komplexe Pflegesituationen bewerten und analysieren und notwendige Maßnahmen vorschlagen - Institutionelle klinische Projekte unter der Aufsicht der Pflegedirektion verwalten - Die Integration von Evidenz in die klinische Praxis fördern, um die Qualität, Sicherheit und Effizienz der Pflege zu fördern - Eine unterstützende und verantwortliche klinische Betreuung der Mitglieder des Pflegeteams gewährleisten - Zur Entwicklung der Fähigkeiten des Teams, zur Reorganisation der Abteilung beitragen und den Wandel begleiten - Klinische Leistungsindikatoren definieren und überwachen, die der Pflege zuzurechnen sind - An der Umsetzung der institutionellen Strategie teilnehmen - Das Nachdenken über zukünftige Projekte und Innovationen in der Pflege fördern Stärken - Sie profitieren von einem",
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Afin de renforcer les équipes soignantes du centre de traitement et de réadaptation (CTR) d’Estavayer-le-Lac, la direction des soins de l’HIB est à la recherche d’un-e : Infirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 % Votre mission Le CTR compte 47 lits d'hospitalisation et est organisé en deux secteurs. Sa mission est d’assurer la prise en charge de réadaptation (musculosquelettique, gériatrie et médecine interne-oncologie) des patients adultes de la région de la Broye. Le service fonctionne étroitement avec l’ensemble du plateau médico-thérapeutique et les acteurs pluridisciplinaires institutionnels. L’équipe soignante est composée d’environ 35 EPT sous la supervision de deux ICUS. Vos tâches :\n• Exercer une pratique clinique à 40-50% directement auprès des patients\n• Evaluer et analyser les situations de soins complexes et proposer les actions nécessaires\n• Gérer des projets cliniques institutionnels sous la supervision de la direction des soins\n• Promouvoir l’intégration des données probantes dans la pratique clinique au profit de la qualité, de la sécurité et de l’efficience des soins\n• Assurer un encadrement clinique soutenant et responsabilisant aux membres de l’équipe soignante\n• Contribuer au développement des compétences de l’équipe, à la réorganisation du service et accompagner le changement\n• Définir et suivre les indicateurs de performance clinique attribuables aux soins infirmiers\n• Participer à la mise en œuvre de la stratégie institutionnelle\n• Stimuler la réflexion sur les projets futurs et l’innovation dans les soins Vos atouts\n• Vous êtes au bénéfice d’un Master en Sciences infirmières et si possible, d’une expérience dans le domaine des soins hospitaliers gériatriques et/ou de réadaptation.\n• De nature proactive, vos compétences techniques, organisationnelles et relationnelles vous permettent d'offrir des soins de qualité.\n• Doté∙e d’un bon sens de la communication, vous avez un intérêt marqué pour la qualité des soins, la collaboration pluridisciplinaire.\n• Vous faites preuve d’entregent, d’un réel leadership clinique et de créativité.\n• Une excellente maîtrise du français (parlé et écrit), de l’anglais scientifique ainsi que des outils informatiques sont indispensables. Entrée en fonction : de suite ou à convenir. Nous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne. Pour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Natacha Szüts, ICLS adjointe de direction des soins, au 026 662 82 47 ou natacha.szuets@hibroye.ch. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91. Un extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
-      },
-      "needsRetranslation": true,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.721Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T09:58:42.574Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
     },
     {
       "id": "hib-broye-5b4f9dfa4967",
@@ -317,7 +246,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/technologue-en-dispositifs-medicaux-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.720Z",
+      "crawledAt": "2026-06-29T13:55:45.598Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -381,6 +310,77 @@
       }
     },
     {
+      "id": "hib-broye-df08b1d82a20",
+      "slug": "infermiere-a-clinico-a-specializzato-a-icls-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slugByLocale": {
+        "it": "infermiere-a-clinico-a-specializzato-a-icls-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "clinical-specialist-nurse-csn-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "klinische-fachkrankenschwester-fachkrankenpfleger-icls-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "fr": "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Infirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 %",
+      "titleByLocale": {
+        "it": "Infermiere/a clinico/a specializzato/a (ICLS) dall'80% al 100%",
+        "en": "Clinical Specialist Nurse (CSN) from 80% to 100%",
+        "de": "Klinische Fachkrankenschwester/Fachkrankenpfleger (ICLS) 80% bis 100%",
+        "fr": "Infirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 %"
+      },
+      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Afin de renforcer les équipes soignantes du centre de traitement et de réadaptation (CTR) d’Estavayer-le-Lac, la direction des soins de l’HIB est à la recherche d’un-e :\n\nInfirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 %\n\nVotre mission\n\nLe CTR compte 47 lits d'hospitalisation et est organisé en deux secteurs. Sa mission est d’assurer la prise en charge de réadaptation (musculosquelettique, gériatrie et médecine interne-oncologie) des patients adultes de la région de la Broye. Le service fonctionne étroitement avec l’ensemble du plateau médico-thérapeutique et les acteurs pluridisciplinaires institutionnels. L’équipe soignante est composée d’environ 35 EPT sous la supervision de deux ICUS.\n\nVos tâches :\n\n• Exercer une pratique clinique à 40-50% directement auprès des patients\n\n• Evaluer et analyser les situations de soins complexes et proposer les actions nécessaires\n\n• Gérer des projets cliniques institutionnels sous la supervision de la direction des soins\n\n• Promouvoir l’intégration des données probantes dans la pratique clinique au profit de la qualité, de la sécurité et de l’efficience des soins\n\n• Assurer un encadrement clinique soutenant et responsabilisant aux membres de l’équipe soignante\n\n• Contribuer au développement des compétences de l’équipe, à la réorganisation du service et accompagner le changement\n\n• Définir et suivre les indicateurs de performance clinique attribuables aux soins infirmiers\n\n• Participer à la mise en œuvre de la stratégie institutionnelle\n\n• Stimuler la réflexion sur les projets futurs et l’innovation dans les soins\n\nVos atouts\n\n• Vous êtes au bénéfice d’un Master en Sciences infirmières et si possible, d’une expérience dans le domaine des soins hospitaliers gériatriques et/ou de réadaptation.\n\n• De nature proactive, vos compétences techniques, organisationnelles et relationnelles vous permettent d'offrir des soins de qualité.\n\n• Doté∙e d’un bon sens de la communication, vous avez un intérêt marqué pour la qualité des soins, la collaboration pluridisciplinaire.\n\n• Vous faites preuve d’entregent, d’un réel leadership clinique et de créativité.\n\n• Une excellente maîtrise du français (parlé et écrit), de l’anglais scientifique ainsi que des outils informatiques sont indispensables.\n\nEntrée en fonction : de suite ou à convenir.\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Natacha Szüts, ICLS adjointe de direction des soins, au 026 662 82 47 ou natacha.szuets@hibroye.ch.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
+      "descriptionByLocale": {
+        "it": "Mansioni Infermiera Clinica Specializzata (ICLS) dall'80% al 100% Missione Il CTR ha 47 posti letto ospedalieri ed è organizzato in due settori. La sua missione è garantire la cura della riabilitazione (muscolo-scheletrica, geriatria e medicina interna-oncologia) dei pazienti adulti della regione della Broye. Il servizio lavora a stretto contatto con tutto l’altopiano medico-terapeutico e con gli attori multidisciplinari istituzionali. Il team di assistenza è composto da circa 35 ETP sotto la supervisione di due ICUS. Compiti - Esercitare una pratica clinica al 40-50% direttamente presso i pazienti - Valutare e analizzare le situazioni di cura complesse e proporre le azioni necessarie - Gestire progetti clinici istituzionali sotto la supervisione della direzione delle cure - Promuovere l’integrazione delle evidenze nella pratica clinica a vantaggio della qualità, della sicurezza e dell'efficienza delle cure - Garantire un inquadramento clinico che sostenga e responsabilizzi i membri del team di cura - Contribuire allo sviluppo delle competenze del team, alla riorganizzazione del servizio e accompagnare il cambiamento - Definire e monitorare gli indicatori di prestazione clinica attribuibili alle cure infermieristiche - Partecipare all'attuazione della strategia istituzionale - Stimolare la riflessione sui progetti futuri e l’innovazione nelle cure Atouts - Siete a beneficio di un",
+        "en": "Thanks to its 800 employees, the Intercantonal Hospital of La Broye (HIB) ensures an acute care and rehabilitation mission. Its ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the crushed population. In order to strengthen the care teams of the Estavayer-le-Lac treatment and rehabilitation center (CTR), the HIB care department is looking for a specialist clinical nurse (ICLS) from 80% to 100% Your mission The CTR has 47 hospital beds and is organized into two sectors. Its mission is to provide rehabilitation care (musculoskeletal, geriatric and internal medicine-oncology) for adult patients in the Broye region. The service works closely with the entire medical-therapeutic platform and institutional multidisciplinary actors. The healthcare team consists of approximately 35 FTEs under the supervision of two ICUs. Your tasks:\n• Perform 40-50% clinical practice directly with patients\n• Evaluate and analyze complex care situations and propose the necessary actions\n• Manage institutional clinical projects under the supervision of the care management\n• Promote the integration of evidence into clinical practice for the benefit of the quality, safety and efficiency of care\n• Provide clinical supervision",
+        "de": "Mansioni Klinische Fachkrankenschwester (ICLS) von 80 % bis 100 % Missione Die CTR verfügt über 47 Krankenhausbetten und ist in zwei Bereiche gegliedert. Seine Aufgabe ist es, die Rehabilitation (Muskel-Skelett, Geriatrie und Innere Medizin-Onkologie) erwachsener Patienten in der Broye-Region zu gewährleisten. Die Abteilung arbeitet eng mit der gesamten medizinisch-therapeutischen Plattform und den institutionellen multidisziplinären Akteuren zusammen. Das Pflegeteam besteht aus rund 35 VZÄ unter der Aufsicht von zwei ICUS.\n• Aufgaben - 40-50% klinische Praxis direkt bei den Patienten ausüben - Komplexe Pflegesituationen bewerten und analysieren und notwendige Maßnahmen vorschlagen - Institutionelle klinische Projekte unter der Aufsicht der Pflegedirektion verwalten - Die Integration von Evidenz in die klinische Praxis fördern, um die Qualität, Sicherheit und Effizienz der Pflege zu fördern - Eine unterstützende und verantwortliche klinische Betreuung der Mitglieder des Pflegeteams gewährleisten - Zur Entwicklung der Fähigkeiten des Teams, zur Reorganisation der Abteilung beitragen und den Wandel begleiten - Klinische Leistungsindikatoren definieren und überwachen, die der Pflege zuzurechnen sind - An der Umsetzung der institutionellen Strategie teilnehmen - Das Nachdenken über zukünftige Projekte und Innovationen in der Pflege fördern Stärken - Sie profitieren von einem",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Afin de renforcer les équipes soignantes du centre de traitement et de réadaptation (CTR) d’Estavayer-le-Lac, la direction des soins de l’HIB est à la recherche d’un-e : Infirmier-ère clinicien-ne spécialisé-e (ICLS) de 80% à 100 % Votre mission Le CTR compte 47 lits d'hospitalisation et est organisé en deux secteurs. Sa mission est d’assurer la prise en charge de réadaptation (musculosquelettique, gériatrie et médecine interne-oncologie) des patients adultes de la région de la Broye. Le service fonctionne étroitement avec l’ensemble du plateau médico-thérapeutique et les acteurs pluridisciplinaires institutionnels. L’équipe soignante est composée d’environ 35 EPT sous la supervision de deux ICUS. Vos tâches :\n• Exercer une pratique clinique à 40-50% directement auprès des patients\n• Evaluer et analyser les situations de soins complexes et proposer les actions nécessaires\n• Gérer des projets cliniques institutionnels sous la supervision de la direction des soins\n• Promouvoir l’intégration des données probantes dans la pratique clinique au profit de la qualité, de la sécurité et de l’efficience des soins\n• Assurer un encadrement clinique soutenant et responsabilisant aux membres de l’équipe soignante\n• Contribuer au développement des compétences de l’équipe, à la réorganisation du service et accompagner le changement\n• Définir et suivre les indicateurs de performance clinique attribuables aux soins infirmiers\n• Participer à la mise en œuvre de la stratégie institutionnelle\n• Stimuler la réflexion sur les projets futurs et l’innovation dans les soins Vos atouts\n• Vous êtes au bénéfice d’un Master en Sciences infirmières et si possible, d’une expérience dans le domaine des soins hospitaliers gériatriques et/ou de réadaptation.\n• De nature proactive, vos compétences techniques, organisationnelles et relationnelles vous permettent d'offrir des soins de qualité.\n• Doté∙e d’un bon sens de la communication, vous avez un intérêt marqué pour la qualité des soins, la collaboration pluridisciplinaire.\n• Vous faites preuve d’entregent, d’un réel leadership clinique et de créativité.\n• Une excellente maîtrise du français (parlé et écrit), de l’anglais scientifique ainsi que des outils informatiques sont indispensables. Entrée en fonction : de suite ou à convenir. Nous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne. Pour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Natacha Szüts, ICLS adjointe de direction des soins, au 026 662 82 47 ou natacha.szuets@hibroye.ch. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91. Un extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
+      },
+      "needsRetranslation": true,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-29T13:55:45.598Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-clinicien-ne-specialise-e-icls-de-80-a-100-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T09:58:42.574Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hib-broye-bb43b169cd8c",
       "slug": "ergoterapeuta-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
@@ -411,7 +411,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/ergotherapeute-30-a-50",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.719Z",
+      "crawledAt": "2026-06-29T13:55:45.596Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -465,15 +465,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.571Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 30300,
+          "maxValue": 45800,
           "unitText": "YEAR"
         }
       }
@@ -509,7 +509,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-de-90-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.717Z",
+      "crawledAt": "2026-06-29T13:55:45.595Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -581,7 +581,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-en-soins-durgences-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.715Z",
+      "crawledAt": "2026-06-29T13:55:45.592Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -652,7 +652,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.713Z",
+      "crawledAt": "2026-06-29T13:55:45.590Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -678,15 +678,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.565Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 48000,
+      "salaryMax": 72800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 48000,
+          "maxValue": 72800,
           "unitText": "YEAR"
         }
       }
@@ -723,7 +723,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti-e-gestionnaire-en-intendance",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.712Z",
+      "crawledAt": "2026-06-29T13:55:45.589Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -793,7 +793,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.711Z",
+      "crawledAt": "2026-06-29T13:55:45.588Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -819,15 +819,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.562Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 36300,
+      "salaryMax": 54900,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 36300,
+          "maxValue": 54900,
           "unitText": "YEAR"
         }
       }
@@ -864,7 +864,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-pre-heghesheig-cdd-1-an-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.710Z",
+      "crawledAt": "2026-06-29T13:55:45.587Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -934,7 +934,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-au-sein-du-service-de-facturation-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.709Z",
+      "crawledAt": "2026-06-29T13:55:45.586Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1041,7 +1041,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.708Z",
+      "crawledAt": "2026-06-29T13:55:45.585Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1096,15 +1096,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.555Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 30300,
+          "maxValue": 45800,
           "unitText": "YEAR"
         }
       }
@@ -1140,7 +1140,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.708Z",
+      "crawledAt": "2026-06-29T13:55:45.585Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1239,7 +1239,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.706Z",
+      "crawledAt": "2026-06-29T13:55:45.583Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1334,7 +1334,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.704Z",
+      "crawledAt": "2026-06-29T13:55:45.581Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1429,7 +1429,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.702Z",
+      "crawledAt": "2026-06-29T13:55:45.579Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1534,7 +1534,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.701Z",
+      "crawledAt": "2026-06-29T13:55:45.578Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1639,7 +1639,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.699Z",
+      "crawledAt": "2026-06-29T13:55:45.577Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1691,15 +1691,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.547Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 61700,
+      "salaryMax": 93600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 61700,
+          "maxValue": 93600,
           "unitText": "YEAR"
         }
       }
@@ -1735,7 +1735,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-en-pharmacie-cdm",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.698Z",
+      "crawledAt": "2026-06-29T13:55:45.576Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1826,7 +1826,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.696Z",
+      "crawledAt": "2026-06-29T13:55:45.573Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1928,7 +1928,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-rh",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.694Z",
+      "crawledAt": "2026-06-29T13:55:45.571Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1954,15 +1954,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.540Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 30300,
+          "maxValue": 45800,
           "unitText": "YEAR"
         }
       }
@@ -1999,7 +1999,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/trm-de-60-a-70",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.692Z",
+      "crawledAt": "2026-06-29T13:55:45.570Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2070,7 +2070,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-chef.fe-dunite-de-soins-pour-le-service-danesthesie-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.691Z",
+      "crawledAt": "2026-06-29T13:55:45.568Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2102,15 +2102,15 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:42:08.663Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 61700,
+      "salaryMax": 93600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 61700,
+          "maxValue": 93600,
           "unitText": "YEAR"
         }
       }
@@ -2147,7 +2147,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/intendant.e-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.690Z",
+      "crawledAt": "2026-06-29T13:55:45.567Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2229,7 +2229,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/controleur.euse-de-gestion-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.689Z",
+      "crawledAt": "2026-06-29T13:55:45.566Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2326,7 +2326,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/collaborateur-trice-dexploitation-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.687Z",
+      "crawledAt": "2026-06-29T13:55:45.563Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2422,7 +2422,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-comptable-de-60-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.687Z",
+      "crawledAt": "2026-06-29T13:55:45.563Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2454,15 +2454,15 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:43:37.125Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 54800,
+      "salaryMax": 83200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 54800,
+          "maxValue": 83200,
           "unitText": "YEAR"
         }
       }
@@ -2498,7 +2498,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-service-de-medecine-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.685Z",
+      "crawledAt": "2026-06-29T13:55:45.561Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2555,15 +2555,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.532Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 30300,
+          "maxValue": 45800,
           "unitText": "YEAR"
         }
       }
@@ -2600,7 +2600,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-service-des-urgences-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.683Z",
+      "crawledAt": "2026-06-29T13:55:45.559Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2671,7 +2671,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-service-de-dialyse-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.681Z",
+      "crawledAt": "2026-06-29T13:55:45.557Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2741,7 +2741,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/sage-femme-homme-sage-femme-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.679Z",
+      "crawledAt": "2026-06-29T13:55:45.555Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2787,15 +2787,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.525Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 27400,
+      "salaryMax": 41600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 27400,
+          "maxValue": 41600,
           "unitText": "YEAR"
         }
       }
@@ -2831,7 +2831,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/ergotherapeute-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.678Z",
+      "crawledAt": "2026-06-29T13:55:45.554Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2888,15 +2888,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.523Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 42400,
+      "salaryMax": 64000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 42400,
+          "maxValue": 64000,
           "unitText": "YEAR"
         }
       }
@@ -2932,7 +2932,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.676Z",
+      "crawledAt": "2026-06-29T13:55:45.552Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3035,7 +3035,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier-ere-en-dietetique-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.674Z",
+      "crawledAt": "2026-06-29T13:55:45.550Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3092,15 +3092,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.518Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       }
@@ -3136,7 +3136,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/chef.fe-de-clinique-en-radiologie-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.672Z",
+      "crawledAt": "2026-06-29T13:55:45.548Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3193,15 +3193,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.498Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 30300,
+          "maxValue": 45800,
           "unitText": "YEAR"
         }
       }
@@ -3237,7 +3237,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier.ere-en-dietetique",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.671Z",
+      "crawledAt": "2026-06-29T13:55:45.547Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3271,15 +3271,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:08:14.662Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 66800,
+      "salaryMax": 101200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 66800,
+          "maxValue": 101200,
           "unitText": "YEAR"
         }
       }
@@ -3316,7 +3316,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/codificateur-trice-medical-e-80-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.669Z",
+      "crawledAt": "2026-06-29T13:55:45.545Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3394,7 +3394,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.667Z",
+      "crawledAt": "2026-06-29T13:55:45.543Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3481,7 +3481,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier.ere-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.665Z",
+      "crawledAt": "2026-06-29T13:55:45.541Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3558,7 +3558,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-chef-fe-dunites-de-soins-icus-pour-le-service-de-chirurgie-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:45:45.645Z",
+      "crawledAt": "2026-06-29T13:55:45.519Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",

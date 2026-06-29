@@ -1,61 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-06-28T22:15:21.534Z",
-  "total": 3,
+  "generatedAt": "2026-06-29T13:49:34.998Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 13453,
-  "avgDurationMs": 13453,
+  "durationMs": 10945,
+  "avgDurationMs": 10945,
   "durationHistory": [
-    13453
+    10945
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Technical-Product-Owner-Voice-&-Chatbot-%28wmd%29/1382590233/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Technical-Product-Owner-Voice-&-Chatbot-%28wmd%29/1382590233/",
-      "title": "Technical Product Owner Voice- & Chatbot (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "titolare-del-prodotto-voce-chatbot-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-06-03",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-06c5bd58ead9",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-06-03T00:39:50.515Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
@@ -141,6 +99,49 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Technical-Product-Owner-Voice-&-Chatbot-%28wmd%29/1382590233/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Technical-Product-Owner-Voice-&-Chatbot-%28wmd%29/1382590233/",
+      "title": "Technical Product Owner Voice- & Chatbot (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "titolare-del-prodotto-voce-chatbot-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-06-03",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-06c5bd58ead9",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-06-03T00:39:50.515Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "unchangedJobs": []
 }

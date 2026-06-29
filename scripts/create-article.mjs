@@ -2701,7 +2701,10 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
     // Fact-check output is a compact JSON issues list (rarely >1500 tokens).
     // 60s is ample for any responsive model; a checker that hasn't replied in
     // 60s is stalled — fail over fast instead of burning the old 120s budget.
-    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000 }
+    // cache:true — verdict is deterministic (temperature 0); re-checking an
+    // unchanged body with the same judge model reuses the result instead of
+    // re-running the full fallback cascade.
+    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000, cache: true }
   );
 
   const jsonMatch = raw.match(/\{[\s\S]*\}/);

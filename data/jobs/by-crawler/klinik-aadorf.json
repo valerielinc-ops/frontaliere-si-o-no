@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-aadorf",
-  "assembledAt": "2026-06-28T21:57:21.951Z",
+  "assembledAt": "2026-06-29T13:33:13.877Z",
   "jobs": [
     {
       "id": "klinik-aadorf-0f6af3615eac",
@@ -33,7 +33,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/1727a35a-ab32-4a43-a153-c4de9cf74c12/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:57:20.094Z",
+      "crawledAt": "2026-06-29T13:33:11.637Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:57:19.664Z",
+      "crawledAt": "2026-06-29T13:33:11.125Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/3ad10aff-6faf-49e6-850a-ef073d05bd7b/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:57:19.225Z",
+      "crawledAt": "2026-06-29T13:33:10.607Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/af339bff-6451-4460-bfcc-935ee92ee2e8/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:57:18.785Z",
+      "crawledAt": "2026-06-29T13:33:10.097Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -282,15 +282,15 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:04:30.023Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 28800,
+      "salaryMax": 43500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 28800,
+          "maxValue": 43500,
           "unitText": "YEAR"
         }
       }

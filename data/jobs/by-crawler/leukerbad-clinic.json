@@ -1,13 +1,13 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-06-28T22:05:20.736Z",
+  "assembledAt": "2026-06-29T13:38:44.059Z",
   "jobs": [
     {
       "id": "leukerbad-clinic-d80ce36d545a",
-      "slug": "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
+      "slug": "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
       "slugByLocale": {
         "fr": "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "it": "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
+        "it": "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
         "en": "spontaneous-application-for-a-position-of-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
         "de": "spontane-bewerbung-um-eine-stelle-von-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
       },
@@ -17,7 +17,7 @@
       "title": "Candidature spontanée pour un poste de PHYSIOTHERAPEUTE DIPLOME-E",
       "titleByLocale": {
         "fr": "Candidature spontanée pour un poste de PHYSIOTHERAPEUTE DIPLOME-E",
-        "it": "Applicazione spontanea per una posizione di PHYSIOTHERAPEUTE DIPLOME-E",
+        "it": "Candidatura spontanea per una posizione DI PHYSIOTHERAPEUTE DIPLOME-E",
         "en": "Spontaneous application for a position of PHYSIOTHERAPEUTE DIPLOME-E",
         "de": "Spontane Bewerbung um eine Stelle von PHYSIOTHERAPEUTE DIPLOME-E"
       },
@@ -47,7 +47,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T22:05:18.803Z",
+      "crawledAt": "2026-06-29T13:38:41.740Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -63,29 +63,29 @@
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
       "previousSlugs": [
         "spontaneous-application-for-a-stage-in-care-leukerbad-clinic-loeche-les-bains",
-        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
         "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
         "spontane-bewerbung-um-stage-in-care-leukerbad-clinic-loeche-les-bains",
         "spontanz-leukerbad-clinic-loeche-les-bains",
         "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
         "candidatura-spontanea-per-uno-stage-in-cura-leukerbad-clinic-loeche-les-bains",
         "applicazione-spontanea-per-un-stage-in-care-leukerbad-clinic-loeche-les-bains",
-        "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
         "spontancy-leukerbad-clinic-loeche-les-bains",
         "domanda-spontanea-per-un-tirocinio-in-assistenza-leukerbad-clinic-loeche-les-bains"
       ],
       "previousSlugsByLocale": {
         "en": [
           "spontaneous-application-for-a-stage-in-care-leukerbad-clinic-loeche-les-bains",
-          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
+          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
         ],
         "de": [
           "spontane-bewerbung-um-stage-in-care-leukerbad-clinic-loeche-les-bains",
           "spontanz-leukerbad-clinic-loeche-les-bains",
           "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
+          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
         ],
         "fr": [
           "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
@@ -143,7 +143,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:05:18.803Z",
+      "crawledAt": "2026-06-29T13:38:41.740Z",
       "previousSlugsByLocale": {
         "it": [
           "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",

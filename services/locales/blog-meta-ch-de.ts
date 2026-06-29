@@ -703,6 +703,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nuovi-frontalieri-poveri.title': 'Grenzgänger in Not: -20.000 Euro jährlich',
     'blog.article.nuovi-frontalieri-poveri.excerpt': 'Neue Grenzgänger verdienen bis zu 20.000 Euro weniger pro Jahr als alte Grenzgänger. Hier sind die Zahlen und die steuerlichen Auswirkungen.',
     'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Pendlerzug an der Schweizerisch-italienischen Grenze bei Lugano',
+    'blog.article.grono-entra-repower-moesano.title': 'Grono tritt in Repower Moesano ein',
+    'blog.article.grono-entra-repower-moesano.excerpt': 'Die Gemeinde Grono wird Teil des Aktionärs der Repower Moesano SA',
+    'blog.article.grono-entra-repower-moesano.imageAlt': 'Blick auf Grono',
+    'blog.article.piscina-niederuzwil-rianimata.title': 'Springt in den Pool, taucht aber nicht wieder auf, Baby wiederbelebt',
+    'blog.article.piscina-niederuzwil-rianimata.excerpt': 'Ein 5-jähriges Mädchen wurde wiederbelebt, nachdem sie unterWasser im Schwimmbad von Niederuzwil verschwunden war, dank des rechtzeitigen Eingreifens von Badegästen und Personal.',
+    'blog.article.piscina-niederuzwil-rianimata.imageAlt': 'Öffentliches Schwimmbad in Niederuzwil mit Kindern und Rettungspersonal',
+    'blog.article.energia-verde-svizzera.title': 'Schweizer Unternehmen erhöhen Anteil an grüner Energie',
+    'blog.article.energia-verde-svizzera.excerpt': 'Die Hälfte der Unternehmen im Swiss Market Index hat laut AWP den Einsatz erneuerbarer Energien im letzten Geschäftsjahr erhöht.',
+    'blog.article.energia-verde-svizzera.imageAlt': 'Schweizer Firma mit Solaranlagen und Symbolen für grüne Energie, professionelle Szene.',
+    'blog.article.grigioni-modello-basilese-traffico.title': 'Graubünden greift bei der Verkehrssteuerung nicht auf das Basler Modell zurück',
+    'blog.article.grigioni-modello-basilese-traffico.excerpt': 'Die Bündner Regierung ist skeptisch gegenüber der Einführung des Birsfeldener Sanktionsmodells, um den Urlaubs- und Tourismusverkehr abzulenken.',
+    'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Verkehrsreiche Straße in Graubünden',
+    'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in der Schweiz: Was ändert sich mit dem Steuerabkommen 2024',
+    'blog.article.frontaliere-steuern-2026.excerpt': 'Ab dem 1. Januar 2024 neue Steuervorschriften für Grenzgänger zwischen Italien und der Schweiz mit erhöhter Selbstbeteiligung und neuen Besteuerungsverfahren.',
+    'blog.article.frontaliere-steuern-2026.imageAlt': 'Schweizer Grenzgänger bei der Arbeit vor Berglandschaft',
 };
 
 export default blogMetaChDe;

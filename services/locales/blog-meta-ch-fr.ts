@@ -703,6 +703,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nuovi-frontalieri-poveri.title': 'Frontaliers en difficulté : -20 000 euros par an par rapport aux précédents',
     'blog.article.nuovi-frontalieri-poveri.excerpt': 'Les nouveaux frontaliers gagnent jusqu\'à 20 000 euros de moins par an que les anciens. Voici les chiffres et les implications fiscales.',
     'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Train de banlieue traversant la frontière italo-suisse près de Lugano',
+    'blog.article.grono-entra-repower-moesano.title': 'Grono entre dans Repower Moesano',
+    'blog.article.grono-entra-repower-moesano.excerpt': 'La municipalité de Grono fait partie de l\'actionnariat de Repower Moesano SA',
+    'blog.article.grono-entra-repower-moesano.imageAlt': 'Vue de Grono',
+    'blog.article.piscina-niederuzwil-rianimata.title': 'Elle plonge dans la piscine mais ne refait pas surface, petite fille réanimée',
+    'blog.article.piscina-niederuzwil-rianimata.excerpt': 'Une fillette de 5 ans a été réanimée après avoir disparu sous l\'eau dans la piscine de Niederuzwil, grâce à l\'intervention rapide des baigneurs et du personnel.',
+    'blog.article.piscina-niederuzwil-rianimata.imageAlt': 'Piscine publique à Niederuzwil avec enfants et personnel de secours',
+    'blog.article.energia-verde-svizzera.title': 'Les entreprises suisses augmentent leur part d\'énergie verte',
+    'blog.article.energia-verde-svizzera.excerpt': 'La moitié des sociétés du Swiss Market Index ont augmenté leur utilisation d\'énergie renouvelable au cours du dernier exercice, selon AWP.',
+    'blog.article.energia-verde-svizzera.imageAlt': 'Entreprise suisse avec panneaux solaires et symboles d\'énergie verte, scène professionnelle.',
+    'blog.article.grigioni-modello-basilese-traffico.title': 'Grisons ne reprennent pas le modèle bâlois pour gérer le trafic',
+    'blog.article.grigioni-modello-basilese-traffico.excerpt': 'Le gouvernement grison est sceptique quant à l\'adoption du modèle de sanctions de Birsfelden pour détourner le trafic festif et touristique.',
+    'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Route fréquentée dans les Grisons',
+    'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger en Suisse : ce qui change avec l’accord fiscal 2024',
+    'blog.article.frontaliere-steuern-2026.excerpt': 'À partir du 1er janvier 2024, nouvelles règles fiscales pour les frontaliers entre l\'Italie et la Suisse, avec franchise augmentée et nouvelles procédures de taxation.',
+    'blog.article.frontaliere-steuern-2026.imageAlt': 'Travailleurs frontaliers suisses avec paysage de montagne en arrière-plan',
 };
 
 export default blogMetaChFr;

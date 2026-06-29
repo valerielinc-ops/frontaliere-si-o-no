@@ -24,6 +24,13 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+# Register the seo-404 compat-shard merge driver (.gitattributes
+# `merge=compat-shard`) so concurrent rebases of data/seo-404-compat/part-*.json
+# auto-resolve as a 3-way SET merge (deduped + sorted) instead of git's default
+# line merge keeping both sorted rewrites → ~2x duplicate shards (issue #2988
+# follow-up). Local config, idempotent; harmless if the files aren't touched.
+git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B' || true
+
 # ── Parse --slice-only flag ──────────────────────────────────────────────────
 SLICE_ONLY=false
 if [ "${1:-}" = "--slice-only" ]; then
@@ -229,28 +236,38 @@ restore_stashed_changes_with_safe_merge() {
         exit 1
       }
 
-      # Re-prune the seo-404 compat file after the 3-way set-merge. The
-      # committing workflows (sync-gsc-orphans, discover-404s) prune BEFORE
-      # pushing, but mergeArrayByDelta keeps everything already present in the
-      # `remote`/upstream side: a non-resolving path that entered upstream after
-      # `base` (and is absent from local) is neither an add nor a remove, so it
-      # SURVIVES this merge and would poison the committed file →
-      # tests/search-console-compat.test.ts red → main red (R2-B pattern, #1166
-      # item 5). Re-validate here, reusing the single resolvability source.
-      # PRUNE_404_STRICT=1 = fail-closed: if tsx or the assembled dataset isn't
-      # available at this in-rebase point, the prune ABORTS the push (exit 1)
-      # rather than silently committing an unvalidated merge.
-      if [ "$f" = "data/seo-404-compat-paths.json" ]; then
-        echo "🔎 Re-validating $f after 3-way merge (fail-closed)…"
-        PRUNE_404_STRICT=1 npx tsx scripts/prune-404-compat-paths.ts || {
-          echo "❌ Post-merge resolvability prune failed for $f — refusing to stage a possibly-poisoned file."
-          exit 1
-        }
-      fi
+      # The seo-404 compat accumulator is sharded across
+      # data/seo-404-compat/part-*.json (issue #2988). Re-prune it AFTER the
+      # whole merge loop (not here per-shard): a mid-loop prune would read the
+      # not-yet-merged shards (still carrying conflict markers → JSON parse fail
+      # → skipped by the store reader) as empty and drop their paths. Flag it
+      # and run the strict prune once below.
+      case "$f" in
+        data/seo-404-compat/*.json|data/seo-404-compat-paths.json)
+          COMPAT_STORE_TOUCHED=1
+          ;;
+      esac
     else
       cp "$snapshot_dir/local/$f" "$f"
     fi
   done
+
+  # Re-validate the sharded seo-404 compat store once, after all shard merges.
+  # mergeArrayByDelta keeps everything already present in the remote/upstream
+  # side: a non-resolving path that entered upstream after `base` (and is absent
+  # from local) is neither an add nor a remove, so it SURVIVES the merge and
+  # would poison the committed store → tests/search-console-compat.test.ts red →
+  # main red (R2-B pattern, #1166 item 5). Re-prune via the single resolvability
+  # source. PRUNE_404_STRICT=1 = fail-closed: if tsx or the assembled dataset is
+  # unavailable here, the prune ABORTS the push (exit 1) rather than committing
+  # an unvalidated merge.
+  if [ -n "${COMPAT_STORE_TOUCHED:-}" ]; then
+    echo "🔎 Re-validating sharded seo-404 compat store after 3-way merge (fail-closed)…"
+    PRUNE_404_STRICT=1 npx tsx scripts/prune-404-compat-paths.ts || {
+      echo "❌ Post-merge resolvability prune failed — refusing to stage a possibly-poisoned compat store."
+      exit 1
+    }
+  fi
 
   unmerged="$(git diff --name-only --diff-filter=U || true)"
   if [ -n "$unmerged" ]; then

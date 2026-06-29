@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-im-hasel",
-  "assembledAt": "2026-06-28T21:56:28.925Z",
+  "assembledAt": "2026-06-29T13:22:39.288Z",
   "jobs": [
     {
       "id": "klinik-im-hasel-b4882cfaff23",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:56:26.861Z",
+      "crawledAt": "2026-06-29T13:22:37.079Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:56:26.145Z",
+      "crawledAt": "2026-06-29T13:22:36.654Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -160,15 +160,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T16:17:58.820Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
+      "salaryMin": 26000,
+      "salaryMax": 39300,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
+          "minValue": 26000,
+          "maxValue": 39300,
           "unitText": "YEAR"
         }
       }
@@ -204,7 +204,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/460/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:56:25.436Z",
+      "crawledAt": "2026-06-29T13:22:35.894Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -261,15 +261,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T16:17:56.835Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 37200,
+      "salaryMax": 56400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 37200,
+          "maxValue": 56400,
           "unitText": "YEAR"
         }
       }
@@ -305,7 +305,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/462/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:56:24.708Z",
+      "crawledAt": "2026-06-29T13:22:35.363Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -376,7 +376,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/463/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:56:23.987Z",
+      "crawledAt": "2026-06-29T13:22:34.763Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -408,15 +408,15 @@
         ]
       },
       "firstSeenAt": "2026-06-22T23:02:03.273Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 31000,
+      "salaryMax": 47000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 31000,
+          "maxValue": 47000,
           "unitText": "YEAR"
         }
       }

@@ -703,6 +703,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nuovi-frontalieri-poveri.title': 'Frontier workers struggling: -20k euros per year',
     'blog.article.nuovi-frontalieri-poveri.excerpt': 'The new frontier workers earn up to 20,000 euros less per year than the old ones. Here are the figures and tax implications.',
     'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Commuter train crossing the Swiss-Italian border near Lugano',
+    'blog.article.grono-entra-repower-moesano.title': 'Grono enters Repower Moesano',
+    'blog.article.grono-entra-repower-moesano.excerpt': 'The Municipality of Grono becomes part of the shareholding of Repower Moesano SA',
+    'blog.article.grono-entra-repower-moesano.imageAlt': 'View of Grono',
+    'blog.article.piscina-niederuzwil-rianimata.title': 'She dives into the pool but does not re-emerge, girl revived',
+    'blog.article.piscina-niederuzwil-rianimata.excerpt': 'A 5-year-old girl has been resuscitated after disappearing underwater in the Niederuzwil swimming pool, thanks to timely intervention by bathers and staff.',
+    'blog.article.piscina-niederuzwil-rianimata.imageAlt': 'Public swimming pool in Niederuzwil with children and rescue staff',
+    'blog.article.energia-verde-svizzera.title': 'Swiss companies increase share of green energy',
+    'blog.article.energia-verde-svizzera.excerpt': 'Half of the companies in the Swiss Market Index have increased their use of renewable energy in the last year, according to AWP.',
+    'blog.article.energia-verde-svizzera.imageAlt': 'Swiss company with solar panels and green energy symbols, professional scene.',
+    'blog.article.grigioni-modello-basilese-traffico.title': 'Graubünden does not use the Basel model to manage traffic',
+    'blog.article.grigioni-modello-basilese-traffico.excerpt': 'The Grison government is sceptical about adopting the Birsfelden model of sanctions to divert holiday and tourist traffic.',
+    'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Busy road in Grisons',
+    'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in Switzerland: what changes with the 2024 tax agreement',
+    'blog.article.frontaliere-steuern-2026.excerpt': 'From 1 January 2024, new tax rules for border workers between Italy and Switzerland, with increased deductibles and new taxation procedures.',
+    'blog.article.frontaliere-steuern-2026.imageAlt': 'Swiss cross-border workers at work with mountain landscape in background',
 };
 
 export default blogMetaChEn;

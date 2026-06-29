@@ -1,6 +1,6 @@
 {
   "crawlerKey": "entero",
-  "assembledAt": "2026-06-28T21:36:01.026Z",
+  "assembledAt": "2026-06-29T13:35:15.360Z",
   "jobs": [
     {
       "id": "entero-49fe8c5ed6a1",
@@ -33,7 +33,7 @@
       "url": "https://www.entero.ch/de/karriere/dipl-pflegfachperson-hf-psychiatrie-w-m-d-schwerpunkt-sucht-6080",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:35:58.755Z",
+      "crawledAt": "2026-06-29T13:35:13.017Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -67,15 +67,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:50:17.447Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 68400,
+      "salaryMax": 103600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 68400,
+          "maxValue": 103600,
           "unitText": "YEAR"
         }
       }
@@ -111,7 +111,7 @@
       "url": "https://www.entero.ch/de/karriere/psycholog-in-psychotherapeut-in-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:35:58.141Z",
+      "crawledAt": "2026-06-29T13:35:12.369Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -143,15 +143,15 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:23:30.548Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
+      "salaryMin": 51600,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
+          "minValue": 51600,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       }
@@ -187,7 +187,7 @@
       "url": "https://www.entero.ch/de/karriere/psychotherapeutin-oder-psychotherapeut-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:35:57.526Z",
+      "crawledAt": "2026-06-29T13:35:11.717Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -219,15 +219,15 @@
         ]
       },
       "firstSeenAt": "2026-06-18T22:42:57.394Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
+      "salaryMin": 51600,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
+          "minValue": 51600,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       }
@@ -264,7 +264,7 @@
       "url": "https://www.entero.ch/de/karriere/dipl-pflegfachperson-hf-die-menschen-begleiten-statt-nur-versorgen",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:35:56.912Z",
+      "crawledAt": "2026-06-29T13:35:11.070Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -326,7 +326,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegfachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:35:56.299Z",
+      "crawledAt": "2026-06-29T13:35:10.421Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -403,7 +403,7 @@
       "url": "https://www.entero.ch/de/karriere/mutterschaftsvertretung-als-fallfuehrende-bezugsperson-60",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:35:55.681Z",
+      "crawledAt": "2026-06-29T13:35:09.768Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -435,15 +435,15 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:30:02.184Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
+      "salaryMin": 38700,
+      "salaryMax": 66000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
+          "minValue": 38700,
+          "maxValue": 66000,
           "unitText": "YEAR"
         }
       }
@@ -479,7 +479,7 @@
       "url": "https://www.entero.ch/de/karriere/it-und-applikationsverantwortliche-r-60-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:35:55.063Z",
+      "crawledAt": "2026-06-29T13:35:09.116Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -511,15 +511,15 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:18:28.919Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
+      "salaryMin": 51600,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
+          "minValue": 51600,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       }

@@ -257,6 +257,11 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-detrazioni-fiscali-italia-2026': { it: 'frontaliere-detrazioni-fiscali-italia-2026', en: 'frontaliere-detrazioni-fiscali-italia-2026', de: 'frontaliere-detrazioni-fiscali-italia-2026', fr: 'frontaliere-detrazioni-fiscali-italia-2026' },
  'pensione-complementare-terzo-pilastro-frontalieri': { it: 'pensione-complementare-terzo-pilastro-frontalieri', en: 'pension-complement-3rd-pillar-frontaliers', de: 'pension-complement-3-tenne-pfeiler-frontalier', fr: 'pension-complement-3e-pilier-frontaliers' },
  'nuovi-frontalieri-poveri': { it: 'nuovi-frontalieri-poveri', en: 'new-commuters-increasingly-poor', de: 'neue-grenzpendler-immer-armer', fr: 'nouveaux-frontaliers-de-plus-en-plus-pauvres' },
+ 'grono-entra-repower-moesano': { it: 'grono-entra-repower-moesano', en: 'grono-joins-repower-moesano', de: 'grono-tritt-repower-moesano', fr: 'grono-rejoint-repower-moesano' },
+ 'piscina-niederuzwil-rianimata': { it: 'piscina-niederuzwil-rianimata', en: 'dive-pool-niederuzwil-resuscitated', de: 'sprung-pool-niederuzwil-wiederbelebt', fr: 'plongee-piscine-niederuzwil-resuscitee' },
+ 'energia-verde-svizzera': { it: 'energia-verde-svizzera', en: 'swiss-companies-green-energy', de: 'schweizer-firmen-erneuerbare-energie', fr: 'entreprises-suisses-energie-verte' },
+ 'grigioni-modello-basilese-traffico': { it: 'grigioni-modello-basilese-traffico', en: 'grisons-basel-model-traffic', de: 'graubuenden-basler-modell-verkehr', fr: 'grisons-modele-bale-trafic' },
+ 'frontaliere-steuern-2026': { it: 'frontaliere-steuern-2026', en: 'cross-border-taxes-2026', de: 'grenzgaenger-steuern-2026', fr: 'frontaliers-impots-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

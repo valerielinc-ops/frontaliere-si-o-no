@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-06-28T11:10:45.284Z",
+  "assembledAt": "2026-06-29T13:16:13.259Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4177?c=groupemutuel&lang=fr-FR",
@@ -348,16 +348,16 @@
       "jobReqId": "4157",
       "crawledAt": "",
       "id": "groupe-mutuel-482baead672c",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       },
