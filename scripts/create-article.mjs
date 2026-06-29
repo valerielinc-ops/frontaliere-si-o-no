@@ -5707,7 +5707,18 @@ function checkForDuplicates(data) {
   // section refactor (it is a local of modifyRouterTs), which threw
   // "routerSrc is not defined" and broke EVERY generation run.
   const sectionSlugSrc = readSectionSlugData();
-  for (const locale of ['it']) {
+  // Check EVERY locale, not just `it`. The registry stores one localized slug
+  // per locale-slot (`'id': { it: '…', en: '…', de: '…', fr: '…' }`) and
+  // REVERSE_SWISS/REVERSE_BLOG are last-write-wins: two articles sharing the
+  // same EN/DE/FR slug make the earlier one unreachable in that locale (its
+  // buildPath → parsePath round-trip resolves to the sibling). The IT slug is
+  // human-authored and already unique; the EN/DE/FR slugs are auto-translated
+  // and historically went UNCHECKED here — that is exactly how the svizzera
+  // pairs collided (de-duped by data fix #3000) and how 36 frontaliere pairs
+  // still collide. Guard each locale against its OWN slot so a colliding
+  // translation fails generation loudly instead of poisoning the registry and
+  // surfacing later as main-red on the routing round-trip test.
+  for (const locale of ['it', 'en', 'de', 'fr']) {
     const newSlug = data.slugs[locale];
     // A nullish slug builds a degenerate regex (`escapeRegex(undefined)` → '')
     // that never matches a populated slot → the overlap check silently passes
@@ -5716,14 +5727,16 @@ function checkForDuplicates(data) {
     if (!newSlug) {
       throw new Error(`❌ Slug "${locale}" mancante prima del controllo duplicati (data.slugs.${locale}=${newSlug}).`);
     }
-    // Anchor on the `it:` slot, not any quoted token: the slug-data file stores
-    // all four locales as single-quoted strings on one line
+    // Anchor on the matching locale slot, not any quoted token: the slug-data
+    // file stores all four locales as single-quoted strings on one line
     // (`'id': { it: '…', en: '…', de: '…', fr: '…' }`), so an unanchored
-    // `'<slug>'` match false-positives when a new IT slug equals an existing
-    // EN/DE/FR value. Slugs are unique per locale-slot → scope the test to `it:`.
-    const slugPattern = new RegExp(`\\bit:\\s*'${escapeRegex(newSlug)}'`, 'g');
+    // `'<slug>'` match false-positives when a new slug for one locale equals an
+    // existing value in a DIFFERENT locale-slot. Scoping to `${locale}:` checks
+    // it-vs-it, en-vs-en, … so cross-locale coincidences don't false-trip while
+    // genuine same-locale collisions are caught.
+    const slugPattern = new RegExp(`\\b${locale}:\\s*'${escapeRegex(newSlug)}'`, 'g');
     if (slugPattern.test(sectionSlugSrc)) {
-      throw new Error(`❌ DUPLICATO: Lo slug "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
+      throw new Error(`❌ DUPLICATO: Lo slug ${locale} "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
     }
   }
 
