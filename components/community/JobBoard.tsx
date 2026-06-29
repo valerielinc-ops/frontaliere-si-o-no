@@ -2348,15 +2348,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // first-page asset is recency-ordered/TI-dominant — painting it for, say,
  // /cerca-lavoro-zurigo/ would flash mostly-TI cards before the scoped set.
  //
- // Also skipped for any FILTERED view (active search / company / location): the
- // slim first-page is a recency-ordered generic payload, so filtering it yields
- // a misleading provisional count + fallback banner (e.g. "1 offerta", then "0",
- // then the real "34") before the authoritative shard lands. Holding the
+ // Also skipped for any FILTERED view (active search / company / location) or
+ // EDITORIAL LANDING (e.g. /cerca-lavoro-ticino/ultimi-3-giorni/, today landing): the
+ // slim first-page is a recency-ordered generic payload, so filtering it (or rendering
+ // it under an editorial subset) yields a misleading provisional count + fallback
+ // banner (e.g. "1 offerta", then "0", then the real "34") before the authoritative
+ // shard lands. (editorialLandingDescriptor is declared below via useMemo; this effect
+ // closure reads it after render, so it is bound.) Holding the
  // jobsLoading skeleton (hero + skeleton cards, same LCP element) until the full
  // load is cleaner and avoids that flash; the unfiltered listing keeps the paint.
  const firstPaintEligible =
  !seededJob &&
- !searchQuery.trim() && !companySlugFilter && !locationSlugFilter &&
+ !searchQuery.trim() && !companySlugFilter && !locationSlugFilter && !editorialLandingDescriptor &&
  (targetCanton === AGGREGATE_CANTON_CODE || targetCanton === 'TI');
  if (firstPaintEligible) {
  const firstPage = await loadFirstPageSlim();

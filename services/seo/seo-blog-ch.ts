@@ -9378,6 +9378,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-concorsi-pubblici-ticino-guida-nazionale': {
+    title: 'Concorsi pubblici in Ticino: guida nazionale aggiornata',
+    description: 'Scopri come funzionano i concorsi pubblici a Lugano e in Ticino: dove trovarli, come candidarsi, enti coinvolti e procedure. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, concorsi, pubblici, nazionale, aggiornata',
+    ogTitle: 'Concorsi pubblici Ticino: guida aggiornata e iter pratico 2024',
+    ogDescription: 'Panoramica aggiornata sui concorsi pubblici in Ticino: pubblicazione, requisiti, candidatura e passi da seguire.',
+    canonicalPath: '/articoli-svizzera/concorsi-pubblici-ticino-guida-nazionale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Concorsi pubblici in Ticino: guida nazionale aggiornata",
+      "description": "Scopri come funzionano i concorsi pubblici a Lugano e in Ticino: dove trovarli, come candidarsi, enti coinvolti e procedure. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/concorsi-pubblici-ticino-guida-nazionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo municipale di Lugano e piazza durante un concorso pubblico."
+      },
+      "datePublished": "2026-06-29T20:58:06+00:00",
+      "dateModified": "2026-06-29T20:58:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/concorsi-pubblici-ticino-guida-nazionale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

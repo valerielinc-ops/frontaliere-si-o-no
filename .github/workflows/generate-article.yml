@@ -139,19 +139,29 @@ jobs:
             curl -fsSL https://ollama.com/install.sh | sh
           fi
           # Start the server in the background and wait for it to answer.
-          OLLAMA_HOST=127.0.0.1:11434 nohup ollama serve >/tmp/ollama.log 2>&1 &
+          # OLLAMA_KEEP_ALIVE keeps the model resident between cascade calls so
+          # each fallback attempt pays inference time only, not a reload.
+          OLLAMA_HOST=127.0.0.1:11434 OLLAMA_KEEP_ALIVE=30m nohup ollama serve >/tmp/ollama.log 2>&1 &
           for _ in $(seq 1 30); do
             if curl -sf http://127.0.0.1:11434/api/version >/dev/null; then break; fi
             sleep 2
           done
           # Pull the model (no-op if restored from cache).
           ollama pull "$LOCAL_MODEL"
+          # Warm the model into RAM so the first real generate call spends its
+          # budget on inference, not the one-off model load.
+          ollama run "$LOCAL_MODEL" "ok" >/dev/null 2>&1 || true
           # Export so the generate step's ai-models cascade can reach the local
           # model as last resort. ollama exposes an OpenAI-compatible endpoint.
+          # LOCAL_LLM_TIMEOUT_MS gives a full CPU generation room (30 min, well
+          # under the 300-min wall) and also sizes undici's headers/body timeout
+          # via the local dispatcher — non-streaming CPU inference otherwise dies
+          # at undici's 300s default as `fetch failed` before any output.
           {
             echo "LOCAL_LLM_ENABLED=1"
             echo "LOCAL_LLM_URL=http://127.0.0.1:11434/v1/chat/completions"
             echo "LOCAL_LLM_MODEL=$LOCAL_MODEL"
+            echo "LOCAL_LLM_TIMEOUT_MS=1800000"
           } >> "$GITHUB_ENV"
           echo "🧠 Local LLM fallback ready: $LOCAL_MODEL (last-resort in the cascade)"
 
