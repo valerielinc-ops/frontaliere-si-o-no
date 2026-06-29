@@ -41,7 +41,6 @@
     "https://positions.manor.ch/job/Biel-Store-Visual-Merchandiser-100-100/1336575155/",
     "https://positions.manor.ch/job/St_-Gallen-Mitarbeiterin-Supermarkt-Epicerie-50/1356594455/",
     "https://positions.manor.ch/job/Nyon-Collaborateurtrice-cuisine-%28Fresh-to-go%29-60/1356582255/",
-    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Supermarkt-B%C3%A4ckerei-40/1356544455/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Polydesigner-3D-%28Food%29-60/1356646255/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-Etudiant-20/1356646355/",
     "https://positions.manor.ch/job/Basel-Buyer-Herren-Fashion-100/1356447655/",
@@ -156,10 +155,11 @@
     "https://positions.manor.ch/job/Basel-Assistant-Product-Manager-100/1356656555/",
     "https://positions.manor.ch/job/Basel-Assistant-Product-Manager-100/1356656855/",
     "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-Bijouterie-100/1354958455/",
-    "https://positions.manor.ch/job/Thun-Mitarbeiterin-Service-50/1354960355/"
+    "https://positions.manor.ch/job/Thun-Mitarbeiterin-Service-50/1354960355/",
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Supermarkt-B%C3%A4ckerei-40/1356544455/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-29T14:03:11.441Z",
+  "updatedAt": "2026-06-29T23:27:57.811Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Langenthal-Assistant-Backoffice-Manager-80/1356129455/": {
       "company": "Manor AG",
@@ -290,10 +290,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Nyon-Collaborateurtrice-cuisine-%28Fresh-to-go%29-60/1356582255/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Supermarkt-B%C3%A4ckerei-40/1356544455/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -754,6 +750,10 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Thun-Mitarbeiterin-Service-50/1354960355/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Supermarkt-B%C3%A4ckerei-40/1356544455/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
