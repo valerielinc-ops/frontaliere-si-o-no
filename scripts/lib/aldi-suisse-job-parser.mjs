@@ -48,6 +48,48 @@ const TICINO_LOCATIONS = [
 ];
 
 
+/**
+ * Extract the inner HTML of the first `<div>` whose class contains `classToken`,
+ * matching the *balanced* closing `</div>` rather than the first one.
+ *
+ * A plain non-greedy regex (`<div ...>([\s\S]*?)</div>`) stops at the FIRST
+ * `</div>`, so a nested `<div>` inside the block truncates the capture — on a
+ * job detail page that means a thin (<50-word) body and a page that drops out
+ * of the index. This walks the tag stream keeping a depth counter so the whole
+ * block is returned regardless of nesting.
+ *
+ * @param {string} html
+ * @param {string} classToken - bare class name to look for (e.g. "description")
+ * @returns {string|null} inner HTML of the matched block, or null if not found
+ */
+function extractBalancedDiv(html = '', classToken = '') {
+  if (!html || !classToken) return null;
+  const openRe = new RegExp(
+    `<div[^>]*class="[^"]*\\b${classToken}\\b[^"]*"[^>]*>`,
+    'i',
+  );
+  const open = openRe.exec(html);
+  if (!open) return null;
+
+  const start = open.index + open[0].length;
+  // Walk every <div ...>/<\/div> from the block start, tracking nesting depth.
+  const tagRe = /<div\b[^>]*>|<\/div\s*>/gi;
+  tagRe.lastIndex = start;
+  let depth = 1;
+  let tag;
+  while ((tag = tagRe.exec(html)) !== null) {
+    if (tag[0][1] === '/') {
+      depth -= 1;
+      if (depth === 0) return html.slice(start, tag.index);
+    } else {
+      depth += 1;
+    }
+  }
+  // Unbalanced markup: fall back to everything after the opening tag so we
+  // keep the full body rather than truncating to nothing.
+  return html.slice(start);
+}
+
 function stripHtml(html = '') {
   return html
     .replace(/<br\s*\/?>/gi, '\n')
@@ -206,16 +248,17 @@ export function parseAldiDetailPage(html = '') {
   }
 
   // Body — the live TYPO3 detail page wraps the job-specific sections
-  // (Aufgaben / Profil / Unser Angebot) in `<div class="description">` (a
-  // flat block, no nested <div>). Older fixtures used <main>/<article>/.content,
-  // kept here as fallbacks.
+  // (Aufgaben / Profil / Unser Angebot) in `<div class="description">`. Use a
+  // depth-balanced extractor so a nested <div> inside the block does not
+  // truncate the body to thin (<50-word) content. Older fixtures used
+  // <main>/<article>/.content, kept here as fallbacks.
   let body = '';
-  const contentMatch = html.match(/<div[^>]*class="[^"]*\bdescription\b[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-    || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-
-  const contentHtml = contentMatch ? contentMatch[1] : '';
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  const contentHtml = extractBalancedDiv(html, 'description')
+    || (mainMatch ? mainMatch[1] : '')
+    || extractBalancedDiv(html, 'content')
+    || '';
   if (contentHtml) {
     body = stripHtml(contentHtml);
   }
