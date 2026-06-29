@@ -16114,7 +16114,7 @@
         "de": "dipl-orthoptist-in-hf-40-100-usz-ch",
         "it": "dipl-orthoptist-in-hf-40-100-usz-ch-2",
         "en": "dipl-orthoptist-in-hf-40-100-usz-ch-2",
-        "fr": "dipl-orthoptist-in-hf-40-100-usz-ch-2"
+        "fr": "orthoptiste-en-hf-40-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16173,12 +16173,12 @@
     },
     {
       "id": "usz-fbe976f2986d",
-      "slug": "junior-applikationsspezialist-in-servicenow-50-usz-ch",
+      "slug": "specializzato-per-applicazioni-junior-in-servicenow-50-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
         "de": "junior-applikationsspezialist-in-servicenow-50-usz-ch",
-        "it": "junior-applikationsspezialist-in-servicenow-50-usz-ch",
-        "en": "junior-applikationsspezialist-in-servicenow-50-usz-ch",
-        "fr": "junior-applikationsspezialist-in-servicenow-50-usz-ch"
+        "it": "specializzato-per-applicazioni-junior-in-servicenow-50-universitatsspital-zurich-usz-stettbach",
+        "en": "junior-application-specialist-in-servicenow-50-universitatsspital-zurich-usz-stettbach",
+        "fr": "specialiste-des-applications-juniors-dans-servicenow-50-universitatsspital-zurich-usz-stettbach"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16233,7 +16233,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-28T22:40:10.800Z"
+      "firstSeenAt": "2026-06-28T22:40:10.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-applikationsspezialist-in-servicenow-50-usz-ch"
+        ],
+        "en": [
+          "junior-applikationsspezialist-in-servicenow-50-usz-ch"
+        ],
+        "fr": [
+          "junior-applikationsspezialist-in-servicenow-50-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-applikationsspezialist-in-servicenow-50-usz-ch"
+      ]
     },
     {
       "id": "usz-c60c7b6123d4",
@@ -16241,8 +16255,8 @@
       "slugByLocale": {
         "de": "beauftragte-r-qualitatsmanagement-institut-fur-pathologie-und-molekularpathologie-70-90",
         "it": "beauftragte-r-qualitatsmanagement-institut-per-pathologie-e-molekularpathologie-70-90-universitatsspital-zurich-usz-campus",
-        "en": "beauftragte-r-qualitatsmanagement-institut-fur-pathologie-und-molekularpathologie-70-90",
-        "fr": "beauftragte-r-qualitatsmanagement-institut-fur-pathologie-und-molekularpathologie-70-90"
+        "en": "commissioner-r-quality-management-institute-for-pathology-and-molecular-pathology-70-90-universitatsspital-zurich-usz",
+        "fr": "commissaire-r-quality-management-institute-for-pathology-and-molecular-pathology-70-90-universitatsspital-zurich-usz"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16288,6 +16302,12 @@
       "previousSlugsByLocale": {
         "it": [
           "beauftragte-r-qualitatsmanagement-institut-fur-pathologie-und-molekularpathologie-70-90"
+        ],
+        "en": [
+          "beauftragte-r-qualitatsmanagement-institut-fur-pathologie-und-molekularpathologie-70-90"
+        ],
+        "fr": [
+          "beauftragte-r-qualitatsmanagement-institut-fur-pathologie-und-molekularpathologie-70-90"
         ]
       },
       "previousSlugs": [
@@ -16309,11 +16329,11 @@
     },
     {
       "id": "usz-401d610836de",
-      "slug": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
+      "slug": "terapista-occupazionale-in-terapia-neurologia-80-90-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
-        "it": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
-        "en": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
+        "it": "terapista-occupazionale-in-terapia-neurologia-80-90-universitatsspital-zurich-usz-campus",
+        "en": "occupational-therapist-in-therapy-neurology-80-90-universitatsspital-zurich-usz-campus",
         "fr": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -16369,7 +16389,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-28T22:40:10.773Z"
+      "firstSeenAt": "2026-06-28T22:40:10.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-therapie-neurologie-80-90-usz-ch"
+        ],
+        "en": [
+          "ergotherapeut-in-therapie-neurologie-80-90-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-therapie-neurologie-80-90-usz-ch"
+      ]
     }
   ]
 }

@@ -590,12 +590,12 @@
     },
     {
       "id": "implenia-ffa974df4648",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
+      "slug": "gestione-della-proprieta-m-f-d-basilea-50-implenia-basel-wohnen-1",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        "it": "gestione-della-proprieta-m-f-d-basilea-50-implenia-basel-wohnen-1",
+        "en": "property-management-m-f-d-basel-50-implenia-basel-wohnen-1",
+        "fr": "gestion-des-biens-m-f-d-bale-50-implenia-basel-wohnen-1"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -650,7 +650,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-28T21:53:11.968Z"
+      "firstSeenAt": "2026-06-28T21:53:11.968Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-basel-50-implenia-ch"
+      ]
     },
     {
       "id": "implenia-57b92be1bcb9",
@@ -2633,7 +2647,7 @@
         "de": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch",
         "it": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch",
         "en": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch",
-        "fr": "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch"
+        "fr": "opfikon-50-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3144,12 +3158,12 @@
     },
     {
       "id": "implenia-bbd3211955e2",
-      "slug": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a",
+      "slug": "contabili-immobiliari-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a",
       "slugByLocale": {
         "de": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch",
-        "it": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a",
-        "en": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a",
-        "fr": "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
+        "it": "contabili-immobiliari-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a",
+        "en": "real-estate-accountants-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a",
+        "fr": "comptables-immobiliers-m-f-d-opfikon-80-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3194,11 +3208,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch"
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch",
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
+        ],
+        "en": [
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
+        ],
+        "fr": [
+          "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
         ]
       },
       "previousSlugs": [
-        "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch"
+        "immobilienbuchhalter-m-w-d-opfikon-80-implenia-ch",
+        "immobilienbuchhalter-m-w-d-opfikon-80-implenia-thurgauerstrasse-101a"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3285,7 +3307,7 @@
         "de": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch",
         "it": "technischer-leiter-center-e-mixed-use-site-management-m-w-d-opfikon-100-implenia-thurgauerstrasse-101a",
         "en": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch",
-        "fr": "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
+        "fr": "directeur-technique-centre-et-gestion-des-sites-a-usage-mixte-m-f-d-opfikon-100-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3330,6 +3352,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
+        ],
+        "fr": [
           "technischer-leiter-center-und-mixed-use-site-management-m-w-d-opfikon-100-implenia-ch"
         ]
       },
