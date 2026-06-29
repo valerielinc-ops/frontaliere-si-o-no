@@ -86,6 +86,25 @@ function authedUrl() {
   return `https://x-access-token:${TOKEN}@github.com/${REPO}.git`;
 }
 
+// Push del branch forzando l'identità del TOKEN (App → `<app>[bot]`, fallback PAT
+// → valerielinc-ops). `actions/checkout` (persist-credentials:true) persiste
+// `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
+// header che viaggia su OGNI push verso github.com e SOVRASCRIVE lo
+// `x-access-token:<App/PAT>` embeddato in authedUrl() → il push si autentica come
+// `github-actions[bot]`, e GitHub mette ogni workflow PR risultante in
+// `action_required` (approvazione manuale, anti-ricorsione) — che non si
+// auto-sblocca mai e si accumula. Azzerare l'extraheader per il SOLO push (`-c
+// http.https://github.com/.extraheader=`) neutralizza l'override: vince il token
+// in URL → i check ri-partono da soli, niente più approvazioni manuali. Se il
+// TOKEN è invalido il push FALLISCE in modo visibile (niente fallback silenzioso
+// a github-actions[bot]).
+function pushBranch(branch) {
+  return git(
+    ['-c', 'http.https://github.com/.extraheader=', 'push', authedUrl(), `${branch}:${branch}`],
+    { allowFail: true },
+  );
+}
+
 /** Una review claude-bot con `## LGTM` (su qualunque commit)? */
 function hasLgtmReview(num) {
   const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate'], { allowFail: true });
@@ -417,7 +436,7 @@ async function processPR(pr) {
         git(['config', 'user.email', 'valerielinc@gmail.com']);
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
         if (mg === null && resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
-          const pushed = git(['push', authedUrl(), `${branch}:${branch}`], { allowFail: true });
+          const pushed = pushBranch(branch);
           if (pushed !== null) {
             // Push OK: la PR è ora mergeable. Dispatch tests (gate vitest di
             // auto-merge-eval valida la risoluzione: se l'unione fosse errata i
@@ -540,7 +559,7 @@ async function processPR(pr) {
   // Push via PAT. TOCTOU: tra mergeable-check e push un nuovo commit potrebbe
   // essere arrivato → push non-fast-forward fallisce (no --force): skip, il
   // prossimo tick ricalcola.
-  const pushed = git(['push', authedUrl(), `${branch}:${branch}`], { allowFail: true });
+  const pushed = pushBranch(branch);
   if (pushed === null) {
     console.log(`PR #${num}: push fallito (probabile non-fast-forward / TOCTOU) — skip, riprova al prossimo tick.`);
     return;
