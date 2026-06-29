@@ -31,6 +31,7 @@ import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
 import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
+import { WAF_IP_BLOCK_STATUS } from './lib/transient-fetch.mjs';
 
 // ── Tunables ────────────────────────────────────────────────────────
 const DEFAULT_STALE_HOURS = 6;
@@ -46,7 +47,16 @@ const WEBCAM_FETCH_TIMEOUT_MS = 15000;
 // is broken FOR END USERS, so it must not page. A feed that is genuinely gone
 // returns 404/410, a server fault returns 5xx, and a stub returns a tiny body —
 // all of which remain confirmed-broken signals that DO page.
-const IP_DISCRIMINATING_STATUSES = new Set([401, 403, 407, 429, 451]);
+//
+// The anti-bot/WAF subset (403 forbidden, 406 not-acceptable, 415 unsupported-
+// media-type, 451 legal-block) is reused from the SINGLE source of truth
+// `WAF_IP_BLOCK_STATUS` in lib/transient-fetch.mjs (AGENTS.md #6: no copy-pasted
+// status set that can drift). #3098: comune.cannobio.vb.it returned a LiteSpeed
+// 415 to the GitHub Actions runner while serving a healthy 200/62KB webp to real
+// users — 415 was missing here and the feed (mis)paged as confirmed-broken. We
+// UNION that WAF class with the auth / proxy-auth / rate-limit codes (401/407/429)
+// that likewise hit only the monitor's single cloud IP.
+const IP_DISCRIMINATING_STATUSES = new Set([...WAF_IP_BLOCK_STATUS, 401, 407, 429]);
 
 // ── Pure logic (unit-tested; NO network/IO) ─────────────────────────
 
@@ -166,9 +176,10 @@ export function evaluateWebcamResult(result, minBytes = MIN_WEBCAM_BYTES) {
   if (result && result.networkError === true) {
     return { broken: false, indeterminate: true, reason: `unreachable from monitor (${result.status}) — not confirmed broken` };
   }
-  // An access-control / rate-limit / geo-block status (401/403/407/429/451) from
-  // the monitor's single cloud IP is INDETERMINATE for the same reason a TCP
-  // failure is: such layers routinely block datacenter ranges while serving
+  // An access-control / rate-limit / geo-block / anti-bot status (401/403/406/
+  // 407/415/429/451 — see IP_DISCRIMINATING_STATUSES) from the monitor's single
+  // cloud IP is INDETERMINATE for the same reason a TCP failure is: such layers
+  // routinely block datacenter ranges (e.g. LiteSpeed 415, #3098) while serving
   // residential browsers (the real users) a healthy 200. Don't page; report it.
   if (result && result.ok !== true && IP_DISCRIMINATING_STATUSES.has(result.status)) {
     return { broken: false, indeterminate: true, reason: `blocked from monitor (HTTP ${result.status}) — likely cloud-IP block, not confirmed broken` };
