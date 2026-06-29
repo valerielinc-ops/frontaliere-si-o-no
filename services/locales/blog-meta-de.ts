@@ -8178,6 +8178,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.canicola-sud-nord-alpi.title': 'Hitzewallungen an den Abflüssen nördlich der Alpen. Im Süden braucht es noch Geduld',
     'blog.article.canicola-sud-nord-alpi.excerpt': 'Letzter Tag mit extremer Hitze nördlich der Alpen in der Schweiz. Im Süden hingegen sind die Temperaturen bis Mitte nächster Woche noch hoch.',
     'blog.article.canicola-sud-nord-alpi.imageAlt': 'Tessin-Landschaft mit See und Bergen bei Sonnenschein',
+    'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo startet Opas auf Monte dei Paschi mit Aktien- und Barangebot',
+    'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo hat das Dokument für das öffentliche Angebot auf MPS eingereicht: 1,6 Aktien Intesa plus 1 Euro pro verliehene MPS-Aktie',
+    'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Panoramablick auf Lugano mit Finanzviertel im Hintergrund, sonniger Tag',
 };
 
 export default blogMetaDe;

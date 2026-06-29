@@ -4289,6 +4289,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovi-frontalieri-poveri': { name: 'Fiscalità frontalieri', path: '/articoli-svizzera/nuovi-frontalieri-poveri/', parent: 'blog' },
     'blog-grono-entra-repower-moesano': { name: 'Grono e Repower Moesano', path: '/articoli-svizzera/grono-entra-repower-moesano/', parent: 'blog' },
     'blog-piscina-niederuzwil-rianimata': { name: 'pratico', path: '/articoli-svizzera/piscina-niederuzwil-rianimata/', parent: 'blog' },
+    'blog-intesa-mps-opas-azioni-contanti': { name: 'Intesa Sanpaolo Opas Mps', path: '/articoli-frontaliere/intesa-mps-opas-azioni-contanti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
