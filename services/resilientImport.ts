@@ -31,9 +31,103 @@ export function isChunkLoadError(err: unknown): boolean {
   );
 }
 
+/**
+ * Detect a CROSS-CHUNK VERSION-SKEW TypeError — a third stale-deploy failure
+ * mode the two above do not cover.
+ *
+ * Root cause: chunk FILENAMES are stable (non-hashed, see vite.config rollup
+ * output) but Rollup minifies internal cross-chunk export names to single
+ * letters (`export { lt as m }`) that are REASSIGNED every build from pure
+ * minifier ordering. When a deploy re-letters an export, a client still holding
+ * a previously-cached importer chunk binds the OLD letter (`import { m as ls }`)
+ * to whatever the FRESH dependency chunk now exports under `m`. Both chunks load
+ * fine (HTTP 200, real JS) — the mismatch only surfaces at CALL time as a
+ * TypeError: the bound symbol is the wrong kind of value.
+ *
+ * Observed shapes (minified identifiers, so the names are short/opaque):
+ *   - "ls(...).then is not a function"  (expected an async fn, got something else)
+ *   - "n is not a function" / "x.y is not a function"
+ *   - "Ze is not a constructor"
+ *   - "e is not iterable"
+ *
+ * Unlike isChunkLoadError this is NOT throwable at import() time — it fires deep
+ * in render / effects / event handlers, so it is caught by the React
+ * ErrorBoundary (in-render) or the global window 'error' handler (outside React),
+ * NOT by resilientImport's import() wrapper. Both call recoverFromStaleChunk().
+ *
+ * The predicate is intentionally signature-based (not name-based — minification
+ * makes every identifier opaque). A genuine app bug producing the same message
+ * costs at most ONE extra reload before the per-session guard blocks further
+ * reloads and the error UI is shown — identical to the existing chunk-recovery
+ * tradeoff, and far better than a permanent white screen on a real skew.
+ */
+export function isVersionSkewError(err: unknown): boolean {
+  const e = err as { name?: string; message?: string } | null | undefined;
+  if (!e || e.name !== 'TypeError') return false;
+  const msg = e.message || '';
+  return (
+    /\bis not a function\b/.test(msg) ||
+    /\bis not a constructor\b/.test(msg) ||
+    /\bis not iterable\b/.test(msg)
+  );
+}
+
 // Shared across all callers so a stale deploy triggers at most one reload per
-// session, no matter which service chunk was the first to fail.
+// session, no matter which service chunk was the first to fail. The
+// `index.html` bootstrap recovery uses its own `_swReloadCount` for the same
+// purpose; both ceilings are honoured so a session reloads at most once total.
 const RELOAD_KEY = '_serviceChunkReload';
+
+/**
+ * Clear all CacheStorage entries and reload the page ONCE per session so the
+ * browser refetches a CONSISTENT set of stable-named chunks (post-propagation,
+ * the skew is gone). Shared by resilientImport's import() recovery and the
+ * ErrorBoundary version-skew recovery. No-op outside the browser. Returns true
+ * if a reload was scheduled, false if the per-session guard blocked it.
+ */
+export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
+  if (typeof window === 'undefined') return false;
+  // Dev (Vite HMR) produces transient skew that resolves itself — never reload.
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return false;
+  }
+  let guarded = false;
+  try {
+    guarded = !!sessionStorage.getItem(RELOAD_KEY);
+  } catch {
+    /* private mode — proceed without the guard */
+  }
+  if (guarded) return false;
+  try {
+    sessionStorage.setItem(RELOAD_KEY, '1');
+  } catch {
+    /* private mode — guard unavailable, still attempt one reload below */
+  }
+  // Best-effort breadcrumb for Analytics.initGlobalErrorTracking() post-reload.
+  try {
+    sessionStorage.setItem(
+      '_forceReloadInfo',
+      JSON.stringify({
+        source: 'resilient_import',
+        reason,
+        pagePath: window.location.pathname + window.location.search,
+        timestamp: new Date().toISOString(),
+      }),
+    );
+  } catch {
+    /* storage unavailable */
+  }
+  if ('caches' in window) {
+    try {
+      const names = await caches.keys();
+      await Promise.all(names.map((n) => caches.delete(n)));
+    } catch {
+      /* cache eviction is best-effort */
+    }
+  }
+  window.location.reload();
+  return true;
+}
 
 /**
  * Load a dynamically-imported module, recovering from stale-deploy failures.
