@@ -72,15 +72,10 @@ export function isVersionSkewError(err: unknown): boolean {
   );
 }
 
-// Per-session reload guard for resilientImport's own import() recovery path.
-const RELOAD_KEY = '_serviceChunkReload';
-
-// Session-wide reload ceiling SHARED with the `index.html` bootstrap recovery
-// (resource-error, dynamic-import, and version-skew handlers all gate on this
-// counter). recoverFromStaleChunk reads+increments the SAME key so the
-// ErrorBoundary skew path and the global window-error skew path can never each
-// fire their own reload — the session reloads at most once across BOTH skew
-// surfaces (the value `>= 1` blocks further reloads, matching index.html).
+// Session-wide reload ceiling shared across ALL three recovery surfaces:
+// resilientImport's chunk-load path (below), recoverFromStaleChunk (called by
+// ErrorBoundary + global window-error handler), and index.html bootstrap handlers.
+// At most one reload per session total; the value `>= 1` blocks further reloads.
 const BOOTSTRAP_RELOAD_KEY = '_swReloadCount';
 
 /**
@@ -183,8 +178,9 @@ export async function resilientImport<T>(
       // Chunk truly gone — reload to get fresh HTML with current chunk URLs.
       if (typeof window !== 'undefined') {
         try {
-          if (!sessionStorage.getItem(RELOAD_KEY)) {
-            sessionStorage.setItem(RELOAD_KEY, '1');
+          const rc = parseInt(sessionStorage.getItem(BOOTSTRAP_RELOAD_KEY) || '0', 10) || 0;
+          if (rc < 1) {
+            sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, String(rc + 1));
             window.location.reload();
           }
         } catch {
