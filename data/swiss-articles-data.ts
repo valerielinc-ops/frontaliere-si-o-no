@@ -2168,6 +2168,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'calcolo-tasse-frontalieri-oltre-20km',
+    category: 'fiscale',
+    date: '2026-06-29T19:16:46.692Z',
+    image: '/images/blog/calcolo-tasse-frontalieri-oltre-20km.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

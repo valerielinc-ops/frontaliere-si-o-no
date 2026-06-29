@@ -724,6 +724,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dati-stipendi-frontalieri-privacy-2024.title': 'Stipendi frontalieri, dati svelati 2024',
     'blog.article.dati-stipendi-frontalieri-privacy-2024.excerpt': 'Les données salariales des frontaliers italiens sont apparues dans les revenus pré-remplis. Critiques et demandes d\'éclaircissements des associations et des politiciens.',
     'blog.article.dati-stipendi-frontalieri-privacy-2024.imageAlt': 'Bureau fiscal suisse à Lugano avec documents et écrans numériques.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Calcul des taxes frontalières sur 20 km : règles et simulations',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Depuis 2024, les frontaliers à plus de 20 km de la frontière subissent des nouveautés fiscales : pas d\'avantages, impact IRPEF, crédit d’impôt et simulations.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'Vue sur Lugano et les Alpes, contexte frontalier typique.',
 };
 
 export default blogMetaChFr;

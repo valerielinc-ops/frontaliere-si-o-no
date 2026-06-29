@@ -724,6 +724,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dati-stipendi-frontalieri-privacy-2024.title': 'Border salaries and privacy: data disclosed in 2024 statements',
     'blog.article.dati-stipendi-frontalieri-privacy-2024.excerpt': 'The salary data of Italian border workers appeared in the pre-filled incomes. Criticism and requests for clarification from associations and politicians.',
     'blog.article.dati-stipendi-frontalieri-privacy-2024.imageAlt': 'Swiss tax office in Lugano with documents and digital screens.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.title': 'Calculation of border taxes over 20 km: rules and simulations',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.excerpt': 'Since 2024, border crossers over 20 km from the border have undergone tax changes: no concessions, IRPEF impact, tax credit and simulations.',
+    'blog.article.calcolo-tasse-frontalieri-oltre-20km.imageAlt': 'View of Lugano and the Alps, typical for cross-border commuters.',
 };
 
 export default blogMetaChEn;
