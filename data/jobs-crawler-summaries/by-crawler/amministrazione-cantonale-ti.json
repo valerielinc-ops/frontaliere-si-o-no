@@ -1,18 +1,49 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-29T14:33:56.055Z",
-  "total": 14,
-  "newCount": 0,
+  "generatedAt": "2026-06-29T23:18:46.780Z",
+  "total": 15,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 18006,
-  "avgDurationMs": 18006,
+  "durationMs": 22032,
+  "avgDurationMs": 22032,
   "durationHistory": [
-    18006
+    22032
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213hpz",
+      "slug": "operatore-trice-sociale-i-a-tempo-parziale-80-presso-l-ufficio-degli-invalidi-centro-professionale-e-sociale-cugnasco-gerra-e-al-funzionamen",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Operatore/trice sociale I a tempo parziale (80%), presso l’Ufficio degli invalidi, Centro professionale e sociale, Cugnasco-Gerra",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4218",
+      "source": "Company Careers Crawler",
+      "salaryMin": 68456,
+      "salaryMax": 107475,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-06-29T23:18:41.118Z",
+      "firstSeenAt": "2026-06-29T23:18:41.118Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213j37",
