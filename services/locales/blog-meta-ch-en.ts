@@ -718,6 +718,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in Switzerland: what changes with the 2024 tax agreement',
     'blog.article.frontaliere-steuern-2026.excerpt': 'From 1 January 2024, new tax rules for border workers between Italy and Switzerland, with increased deductibles and new taxation procedures.',
     'blog.article.frontaliere-steuern-2026.imageAlt': 'Swiss cross-border workers at work with mountain landscape in background',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026: tax rules and practical comparison',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'The new Frontier Agreement from 1 January 2024 governs taxation: old frontier workers, new regimes, Italy-Steuer and practical examples.',
+    'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Lugano skyline with commuters, cross-border fiscal theme.',
 };
 
 export default blogMetaChEn;
