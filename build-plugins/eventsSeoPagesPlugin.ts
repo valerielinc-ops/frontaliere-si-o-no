@@ -776,15 +776,32 @@ function overlapsWindow(e: SiteEvent, startIso: string, endIso: string): boolean
   return s <= endIso && end >= startIso;
 }
 
+/**
+ * The current/upcoming weekend as a SINGLE contiguous [start, end] window,
+ * clipped to today. Must NOT use min/max of `weekendSet()` (which scans 8 days
+ * and on a Sat/Sun build also picks up the FOLLOWING Saturday → a non-contiguous
+ * set whose min..max spans the whole week, listing weekday events under a
+ * "sabato e domenica" title on an indexed page).
+ *   - Mon–Fri → upcoming Saturday + Sunday.
+ *   - Saturday → today + tomorrow (Sun).
+ *   - Sunday   → today only (the weekend's Saturday is already past).
+ */
+function weekendWindow(todayIso: string): { start: string; end: string } {
+  const today = new Date(`${todayIso}T00:00:00Z`);
+  const dow = today.getUTCDay(); // 0=Sun … 6=Sat
+  const sat =
+    dow === 6 ? today : dow === 0 ? new Date(today.getTime() - 86400000) : new Date(today.getTime() + (6 - dow) * 86400000);
+  const sun = new Date(sat.getTime() + 86400000);
+  const startMs = Math.max(sat.getTime(), today.getTime()); // never include a past Saturday
+  return { start: new Date(startMs).toISOString().slice(0, 10), end: sun.toISOString().slice(0, 10) };
+}
+
 export const DIGESTS: DigestDef[] = [
   {
     key: 'weekend',
     slug: { it: 'questo-weekend', en: 'this-weekend', de: 'dieses-wochenende', fr: 'ce-week-end' },
-    filter: (events, { weekendDays }) => {
-      const days = [...weekendDays].sort();
-      if (days.length === 0) return [];
-      const start = days[0];
-      const end = days[days.length - 1];
+    filter: (events, { todayIso }) => {
+      const { start, end } = weekendWindow(todayIso);
       return events.filter((e) => overlapsWindow(e, start, end));
     },
     copy: {
@@ -932,6 +949,7 @@ function renderDigestPage(params: {
     </dl>
 
     <section class="mt-8">
+      <h2 class="text-2xl font-bold text-heading">${esc(dc.h1)}</h2>
       <div class="mt-4">${renderEventList(list, locale)}</div>
     </section>
 
@@ -993,12 +1011,12 @@ function renderDigestPage(params: {
   return { urlPath: canonicalPath, html, wordCount };
 }
 
-function buildSitemap(comuni: string[], dateStamp: string): string {
+function buildSitemap(comuni: string[], dateStamp: string, digests: DigestDef[]): string {
   const entries: string[] = [];
   // Hub
   entries.push(sitemapUrl(undefined, dateStamp, '0.7'));
-  // Time-window digests
-  for (const d of DIGESTS) entries.push(digestSitemapUrl(d.slug, dateStamp));
+  // Time-window digests (only the indexable ones)
+  for (const d of digests) entries.push(digestSitemapUrl(d.slug, dateStamp));
   for (const comune of comuni) entries.push(sitemapUrl(comune, dateStamp, '0.5'));
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`;
 }
@@ -1092,20 +1110,27 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       };
 
       const digestCtx = { todayIso: dateStamp, weekendDays };
+      // Only sitemap a digest whose page is indexable — a rare empty window can
+      // render below MIN_INDEXABLE_WORDS (→ noindex,follow); listing a noindex
+      // URL in the sitemap triggers GSC "submitted URL marked noindex".
+      const indexableDigests = new Set<string>();
       for (const locale of LOCALES) {
         emit(renderHubPage({ locale, events: all, byComune, dateStamp, weekendDays, distDir }));
         for (const comune of comuni) {
           emit(renderComunePage({ locale, comune, events: byComune.get(comune)!, dateStamp, weekendDays, distDir }));
         }
-        // Time-window digests (weekend / this week) — emitted even when empty
-        // (the page degrades to a "no events" notice + comune links, never thin
-        // enough to drop) so the URL is stable for sitemap + FB linking.
+        // Time-window digests (weekend / this week). Emitted even when empty (the
+        // page degrades to a "no events" notice + comune links) so the URL is
+        // stable for FB linking; sitemap inclusion is gated on indexability.
         for (const def of DIGESTS) {
-          emit(renderDigestPage({ def, locale, events: def.filter(all, digestCtx), dateStamp, distDir }));
+          const rendered = renderDigestPage({ def, locale, events: def.filter(all, digestCtx), dateStamp, distDir });
+          if (rendered.wordCount >= MIN_INDEXABLE_WORDS) indexableDigests.add(def.key);
+          emit(rendered);
         }
       }
 
-      const sitemapXml = buildSitemap(comuni, dateStamp);
+      const sitemapDigests = DIGESTS.filter((d) => indexableDigests.has(d.key));
+      const sitemapXml = buildSitemap(comuni, dateStamp, sitemapDigests);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
 

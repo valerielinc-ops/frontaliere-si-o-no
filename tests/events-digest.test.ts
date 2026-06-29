@@ -46,6 +46,36 @@ describe('weekend digest filter', () => {
     const events = [ev('expo', '2026-07-01', '2026-07-10')];
     expect((weekend.filter as any)(events, ctx)).toHaveLength(1);
   });
+
+  // Regression: when the build runs ON a Saturday/Sunday, the window must stay a
+  // single contiguous weekend (not min..max of an 8-day scan that also grabs the
+  // NEXT Saturday → spanning the whole week under a "sab e dom" title).
+  it('on a Saturday build, excludes next-week weekday events', () => {
+    const sat = { todayIso: '2026-07-04', weekendDays: weekendSet('2026-07-04') }; // Saturday
+    const events = [
+      ev('sat', '2026-07-04'),
+      ev('sun', '2026-07-05'),
+      ev('nextWed', '2026-07-08'),
+      ev('nextSat', '2026-07-11'),
+    ];
+    const ids = (weekend.filter as any)(events, sat).map((e: Ev) => e.id);
+    expect(ids).toEqual(['sat', 'sun']);
+    expect(ids).not.toContain('nextWed');
+    expect(ids).not.toContain('nextSat');
+  });
+
+  it('on a Sunday build, includes only that Sunday (Saturday already past)', () => {
+    const sun = { todayIso: '2026-07-05', weekendDays: weekendSet('2026-07-05') }; // Sunday
+    const events = [
+      ev('satPast', '2026-07-04'),
+      ev('sun', '2026-07-05'),
+      ev('nextWed', '2026-07-08'),
+    ];
+    const ids = (weekend.filter as any)(events, sun).map((e: Ev) => e.id);
+    expect(ids).toEqual(['sun']);
+    expect(ids).not.toContain('satPast');
+    expect(ids).not.toContain('nextWed');
+  });
 });
 
 describe('this-week digest filter', () => {
