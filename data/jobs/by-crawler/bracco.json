@@ -24,12 +24,12 @@
         "de": "MEDICAL DEVICE Spezialist",
         "fr": "SPÉCIALISTE EN DISPOSITIFS MÉDICAUX"
       },
-      "slug": "medical-device-specialista-bracco-suisse-s-a-cadempino",
+      "slug": "specialista-in-dispositivi-medici-bracco-suisse-s-a-cadempino",
       "slugByLocale": {
-        "it": "medical-device-specialista-bracco-suisse-s-a-cadempino",
+        "it": "specialista-in-dispositivi-medici-bracco-suisse-s-a-cadempino",
         "en": "medical-device-specialist-bracco-suisse",
         "de": "medical-device-spezialist-bracco-suisse-s-a-cadempino",
-        "fr": "medical-device-specialiste-bracco-suisse-s-a-cadempino"
+        "fr": "specialiste-en-dispositifs-medicaux-bracco-suisse-s-a-cadempino"
       },
       "category": "general",
       "datePosted": "2026-06-25",
@@ -67,17 +67,21 @@
       "firstSeenAt": "2026-06-25T21:58:41.752Z",
       "previousSlugsByLocale": {
         "it": [
-          "medical-device-specialist-bracco-suisse"
+          "medical-device-specialist-bracco-suisse",
+          "medical-device-specialista-bracco-suisse-s-a-cadempino"
         ],
         "de": [
           "medical-device-specialist-bracco-suisse"
         ],
         "fr": [
-          "medical-device-specialist-bracco-suisse"
+          "medical-device-specialist-bracco-suisse",
+          "medical-device-specialiste-bracco-suisse-s-a-cadempino"
         ]
       },
       "previousSlugs": [
-        "medical-device-specialist-bracco-suisse"
+        "medical-device-specialist-bracco-suisse",
+        "medical-device-specialista-bracco-suisse-s-a-cadempino",
+        "medical-device-specialiste-bracco-suisse-s-a-cadempino"
       ],
       "retranslationAttempts": 2
     },
