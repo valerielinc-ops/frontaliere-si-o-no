@@ -206,6 +206,17 @@ const EMPTY_OK_CRAWLERS = new Set([
   // open competitions right now; the selector is healthy and re-arms when a
   // listing reappears.
   'moncucco',
+  // DXT Commodities S.A. (Lugano, TI): the WordPress + WPSM accordion careers
+  // page (https://dxt.com/careers/) returns HTTP 200 with the full ~370 KB
+  // rendered page (166 panels) for the crawler's default desktop UA, but every
+  // location group (London, Lugano, Singapore, Stamford) currently holds a
+  // single placeholder panel reading "There are no open positions at the
+  // moment. Please check back." The energy/commodity trader (Duferco Group)
+  // legitimately has no Lugano openings right now; the WPSM parser correctly
+  // skips the no-positions placeholders and re-arms when a vacancy is
+  // published. Same legitimately-empty small-employer case as linnea and
+  // banca-raiffeisen-vedeggio-cassarate.
+  'dxt-commodities',
 ]);
 
 /** Read JSON file, return null on any error. */
