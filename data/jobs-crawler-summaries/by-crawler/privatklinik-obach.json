@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-06-29T14:03:24.594Z",
+  "generatedAt": "2026-06-29T23:07:55.009Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13973,
-  "avgDurationMs": 13973,
+  "durationMs": 8326,
+  "avgDurationMs": 8326,
   "durationHistory": [
-    13973
+    8326
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:03:20.588Z",
+      "crawledAt": "2026-06-29T23:07:50.739Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132192300-pflegeassistenz-50-60-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:03:21.500Z",
+      "crawledAt": "2026-06-29T23:07:51.698Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000122175817-dipl-expertin-experte-anasthesiepflege-hf-40-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:03:22.396Z",
+      "crawledAt": "2026-06-29T23:07:52.644Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -129,46 +129,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "privatklinik-obach-07e15a4a8083",
-      "slug": "diplomato-a-in-tecnica-operativa-hf-privatklinik-obach-solothurn",
-      "company": "Privatklinik Obach",
-      "companyKey": "privatklinik-obach",
-      "companyDomain": "swissmedical.net",
-      "title": "Dipl. Fachperson Operationstechnik HF",
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000118055792-dipl-fachperson-operationstechnik-hf",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000118055792-dipl-fachperson-operationstechnik-hf",
-      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:17:39.646Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4500",
-      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "datePosted": "2026-05-26",
-      "firstSeenAt": "2026-05-26T14:04:34.003Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
