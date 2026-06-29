@@ -155,7 +155,8 @@ function countWords(text) {
  *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
 function hasNoindex(html) {
   // soft404 uses match(); content-quality uses test() — same intent, same outcome.
-  return /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
+  // Attribute-order-independent (#3060): content-before-name must not slip past.
+  return /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
 }
 
 function hasJobPostingSchema(html) {

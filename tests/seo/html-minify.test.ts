@@ -261,6 +261,6 @@ describe('minifyHtml — safe attribute-quote removal', () => {
     );
     expect(out).toMatch(/<link\s+rel=["']?canonical["']?\s+href=["']?https:\/\/x\.test\/page["']?\s*>/);
     expect(out).toMatch(/<link\s+rel=["']?alternate["']?\s+hreflang=["']?en["']?\s+href=["']?https:\/\/x\.test\/en\/page["']?\s*>/);
-    expect(out).toMatch(/<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i);
+    expect(out).toMatch(/<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i);
   });
 });
