@@ -712,6 +712,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.energia-verde-svizzera.title': 'Les entreprises suisses augmentent leur part d\'énergie verte',
     'blog.article.energia-verde-svizzera.excerpt': 'La moitié des sociétés du Swiss Market Index ont augmenté leur utilisation d\'énergie renouvelable au cours du dernier exercice, selon AWP.',
     'blog.article.energia-verde-svizzera.imageAlt': 'Entreprise suisse avec panneaux solaires et symboles d\'énergie verte, scène professionnelle.',
+    'blog.article.grigioni-modello-basilese-traffico.title': 'Grisons ne reprennent pas le modèle bâlois pour gérer le trafic',
+    'blog.article.grigioni-modello-basilese-traffico.excerpt': 'Le gouvernement grison est sceptique quant à l\'adoption du modèle de sanctions de Birsfelden pour détourner le trafic festif et touristique.',
+    'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Route fréquentée dans les Grisons',
 };
 
 export default blogMetaChFr;

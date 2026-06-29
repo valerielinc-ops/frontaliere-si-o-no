@@ -4291,6 +4291,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-piscina-niederuzwil-rianimata': { name: 'pratico', path: '/articoli-svizzera/piscina-niederuzwil-rianimata/', parent: 'blog' },
     'blog-intesa-mps-opas-azioni-contanti': { name: 'Intesa Sanpaolo Opas Mps', path: '/articoli-frontaliere/intesa-mps-opas-azioni-contanti', parent: 'blog' },
     'blog-energia-verde-svizzera': { name: 'energia-verde', path: '/articoli-svizzera/energia-verde-svizzera/', parent: 'blog' },
+    'blog-grigioni-modello-basilese-traffico': { name: 'Traffico Grigioni', path: '/articoli-svizzera/grigioni-modello-basilese-traffico/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

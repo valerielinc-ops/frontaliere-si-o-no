@@ -2132,6 +2132,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'grigioni-modello-basilese-traffico',
+    category: 'pratico',
+    date: '2026-06-29T16:07:16.810Z',
+    image: '/images/blog/grigioni-modello-basilese-traffico.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

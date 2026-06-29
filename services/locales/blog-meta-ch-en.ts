@@ -712,6 +712,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.energia-verde-svizzera.title': 'Swiss companies increase share of green energy',
     'blog.article.energia-verde-svizzera.excerpt': 'Half of the companies in the Swiss Market Index have increased their use of renewable energy in the last year, according to AWP.',
     'blog.article.energia-verde-svizzera.imageAlt': 'Swiss company with solar panels and green energy symbols, professional scene.',
+    'blog.article.grigioni-modello-basilese-traffico.title': 'Graubünden does not use the Basel model to manage traffic',
+    'blog.article.grigioni-modello-basilese-traffico.excerpt': 'The Grison government is sceptical about adopting the Birsfelden model of sanctions to divert holiday and tourist traffic.',
+    'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Busy road in Grisons',
 };
 
 export default blogMetaChEn;
