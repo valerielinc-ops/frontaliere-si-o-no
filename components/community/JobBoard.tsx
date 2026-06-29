@@ -32,6 +32,7 @@ import {
  type Job as RawJob,
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
+import { cantonSearchTokens } from '@/services/cantonList';
 import {
  type BehaviorData,
  getBehaviorData,
@@ -222,7 +223,7 @@ function getBroadenHaystack(job: JobListing, locale: string): string {
   const description = job.descriptionByLocale?.[locale] ?? job.description;
   const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
   const hay = buildStemmedHaystack(
-    `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description || ''}`,
+    `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description || ''}`,
   );
   broadenHaystackCache.set(job, { locale, hay });
   return hay;
@@ -1729,7 +1730,7 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  if (queryTokens.length === 0) return true;
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
- const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${description}`);
+ const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description}`);
  return queryTokens.every((token) => haystack.includes(token));
 }
 
@@ -2915,7 +2916,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Stemmed + space-padded haystack so query matching tolerates Italian
  // plural/feminine variants (pulizie ↔ pulizia, infermieri ↔ infermiera)
  // while still requiring word-boundary alignment (cas ≠ cassa).
- map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description}`));
+ map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description}`));
  }
  if (i < sortedJobs.length) {
  requestAnimationFrame(processChunk);
