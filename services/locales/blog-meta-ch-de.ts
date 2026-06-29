@@ -694,6 +694,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavorare-educatore-infanzia-ticino.title': 'Als Kindergärtnerin im Tessin arbeiten: Voraussetzungen',
     'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Umfassender Leitfaden für Erzieherinnen und Erzieher: HF-Diplom, Löhne zwischen 73 \'000 und 97\' 000 CHF und Verfahren zur Anerkennung ausländischer Diplome.',
     'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Moderner Kindergarten im Tessin mit hellen Bildungsräumen',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Steuerabzüge für Grenzgänger in Italien: Was ist absetzbar?',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Die Steuerabzüge für Grenzgänger in Italien richten sich nach italienischem Recht.',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Szene von Lugano mit einem Grenzgänger und Steuerdokumenten',
 };
 
 export default blogMetaChDe;
