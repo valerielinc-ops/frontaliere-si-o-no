@@ -51,6 +51,7 @@ import {
   validateCoopDescription,
   titleOverlap,
   applyCoopJsonLdToJob,
+  buildCoopTranslationCacheEntry,
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
@@ -441,26 +442,13 @@ function saveCoopTranslationsCache() {
   const coopJobs = Array.isArray(allJobs) ? allJobs.filter(isCoopJob) : [];
   if (coopJobs.length === 0) return;
 
-  const cache = coopJobs.map((job) => ({
-    url: job.url,
-    slug: job.slug,
-    title: job.title,
-    company: job.company,
-    companyKey: job.companyKey,
-    location: job.location,
-    canton: job.canton,
-    description: job.description,
-    requirements: job.requirements || [],
-    titleByLocale: job.titleByLocale || {},
-    descriptionByLocale: job.descriptionByLocale || {},
-    requirementsByLocale: job.requirementsByLocale || {},
-    slugByLocale: job.slugByLocale || {},
-    postedDate: job.postedDate,
-    crawledAt: job.crawledAt,
-    source: job.source,
-    sourceLang: job.sourceLang,
-    cachedAt: new Date().toISOString(),
-  }));
+  // buildCoopTranslationCacheEntry preserves previousSlugs/previousSlugsByLocale
+  // (issue #2962) so re-injected jobs keep their slug-redirect history and the
+  // build plugin can still emit bridge pages for old, sitemap-referenced URLs.
+  // cachedAt is stamped here (kept out of the pure helper) so the helper stays
+  // deterministic + unit-testable.
+  const cachedAt = new Date().toISOString();
+  const cache = coopJobs.map((job) => ({ ...buildCoopTranslationCacheEntry(job), cachedAt }));
 
   try {
     // Directory is data/jobs/by-crawler/ which always exists after a crawler run.

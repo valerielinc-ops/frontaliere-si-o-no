@@ -9417,6 +9417,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-lombardi-residenza-tendenze': {
+    title: 'Dove vivono i frontalieri lombardi: boom Brianza e numeri ufficiali',
+    description: 'Oltre 60.000 frontalieri lombardi risiedono tra Como e Varese; boom Brianza con +77% in dieci anni. Analisi e dati aggiornati. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dove, vivono, lombardi, boom',
+    ogTitle: 'Dove vivono i frontalieri lombardi: numeri e trend 2024',
+    ogDescription: 'Oltre 60.000 frontalieri lombardi risiedono tra Como e Varese; Brianza registra +77% in dieci anni.',
+    canonicalPath: '/articoli-svizzera/frontalieri-lombardi-residenza-tendenze/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dove vivono i frontalieri lombardi: boom Brianza e numeri ufficiali",
+      "description": "Oltre 60.000 frontalieri lombardi risiedono tra Como e Varese; boom Brianza con +77% in dieci anni. Analisi e dati aggiornati. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-lombardi-residenza-tendenze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica sulla zona di confine tra Ticino e Lombardia."
+      },
+      "datePublished": "2026-06-29T21:26:46+00:00",
+      "dateModified": "2026-06-29T21:26:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-lombardi-residenza-tendenze/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
