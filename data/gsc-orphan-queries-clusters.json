@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-22T09:26:22.489Z",
+  "generatedAt": "2026-06-29T08:30:31.367Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 880,
+  "totalClusters": 882,
   "gates": {
     "minClusterImpressions": 5
   },
@@ -18,13 +18,13 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 5037,
+      "totalImpressions": 5038,
       "totalClicks": 151,
       "queries": [
         {
           "query": "offerte di lavoro ticino",
           "clicks": 79,
-          "impressions": 2830
+          "impressions": 2831
         },
         {
           "query": "offerte lavoro ticino",
@@ -124,13 +124,13 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 1269,
+      "totalImpressions": 1270,
       "totalClicks": 23,
       "queries": [
         {
           "query": "offerte di lavoro ticino negli ultimi 3 giorni",
           "clicks": 12,
-          "impressions": 966
+          "impressions": 967
         },
         {
           "query": "offerte lavoro ticino negli ultimi 3 giorni",
@@ -210,6 +210,40 @@
       ]
     },
     {
+      "clusterId": "it-case-anziani-ticino-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "case anziani ticino offerte di lavoro",
+      "canonicalSlug": "case-anziani-ticino-offerte-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 805,
+      "totalClicks": 54,
+      "queries": [
+        {
+          "query": "case anziani ticino offerte di lavoro",
+          "clicks": 35,
+          "impressions": 589
+        },
+        {
+          "query": "offerte di lavoro casa anziani ticino",
+          "clicks": 13,
+          "impressions": 156
+        },
+        {
+          "query": "offerte lavoro casa anziani ticino",
+          "clicks": 6,
+          "impressions": 60
+        }
+      ]
+    },
+    {
       "clusterId": "it-eoc-offerte-di-lavoro",
       "locale": "it",
       "canonicalQuery": "eoc offerte di lavoro",
@@ -242,40 +276,6 @@
           "query": "eoc offerte lavoro",
           "clicks": 0,
           "impressions": 23
-        }
-      ]
-    },
-    {
-      "clusterId": "it-case-anziani-ticino-offerte-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "case anziani ticino offerte di lavoro",
-      "canonicalSlug": "case-anziani-ticino-offerte-di-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 737,
-      "totalClicks": 46,
-      "queries": [
-        {
-          "query": "case anziani ticino offerte di lavoro",
-          "clicks": 32,
-          "impressions": 546
-        },
-        {
-          "query": "offerte di lavoro casa anziani ticino",
-          "clicks": 10,
-          "impressions": 141
-        },
-        {
-          "query": "offerte lavoro casa anziani ticino",
-          "clicks": 4,
-          "impressions": 50
         }
       ]
     },
@@ -369,6 +369,35 @@
           "query": "annunci di lavoro in ticino",
           "clicks": 0,
           "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-casa-di-riposo-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro casa di riposo svizzera",
+      "canonicalSlug": "offerte-di-lavoro-casa-di-riposo-svizzera",
+      "roleTokens": [
+        "cas",
+        "lavor",
+        "offert",
+        "ripos"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 461,
+      "totalClicks": 33,
+      "queries": [
+        {
+          "query": "offerte di lavoro casa di riposo svizzera",
+          "clicks": 16,
+          "impressions": 232
+        },
+        {
+          "query": "offerte lavoro casa di riposo svizzera",
+          "clicks": 17,
+          "impressions": 229
         }
       ]
     },
@@ -489,35 +518,6 @@
           "query": "offerte di lavoro presso ente ospedaliero cantonale (eoc)",
           "clicks": 2,
           "impressions": 98
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-di-lavoro-casa-di-riposo-svizzera",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro casa di riposo svizzera",
-      "canonicalSlug": "offerte-di-lavoro-casa-di-riposo-svizzera",
-      "roleTokens": [
-        "cas",
-        "lavor",
-        "offert",
-        "ripos"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 378,
-      "totalClicks": 30,
-      "queries": [
-        {
-          "query": "offerte di lavoro casa di riposo svizzera",
-          "clicks": 14,
-          "impressions": 190
-        },
-        {
-          "query": "offerte lavoro casa di riposo svizzera",
-          "clicks": 16,
-          "impressions": 188
         }
       ]
     },
@@ -685,6 +685,26 @@
       ]
     },
     {
+      "clusterId": "de-nursing-jobs",
+      "locale": "de",
+      "canonicalQuery": "nursing jobs",
+      "canonicalSlug": "nursing-jobs",
+      "roleTokens": [
+        "job",
+        "nurs"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 300,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "nursing jobs",
+          "clicks": 0,
+          "impressions": 300
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-in-svizzera",
       "locale": "it",
       "canonicalQuery": "lavoro in svizzera",
@@ -733,26 +753,6 @@
           "query": "eoc lavora con noi",
           "clicks": 2,
           "impressions": 296
-        }
-      ]
-    },
-    {
-      "clusterId": "de-nursing-jobs",
-      "locale": "de",
-      "canonicalQuery": "nursing jobs",
-      "canonicalSlug": "nursing-jobs",
-      "roleTokens": [
-        "job",
-        "nurs"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 276,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "nursing jobs",
-          "clicks": 0,
-          "impressions": 276
         }
       ]
     },
@@ -1294,6 +1294,30 @@
       ]
     },
     {
+      "clusterId": "it-case-anziani-lugano-posti-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "case anziani lugano posti di lavoro",
+      "canonicalSlug": "case-anziani-lugano-posti-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "post"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 161,
+      "totalClicks": 9,
+      "queries": [
+        {
+          "query": "case anziani lugano posti di lavoro",
+          "clicks": 9,
+          "impressions": 161
+        }
+      ]
+    },
+    {
       "clusterId": "it-usi-offerte-di-lavoro",
       "locale": "it",
       "canonicalQuery": "usi offerte di lavoro",
@@ -1490,30 +1514,6 @@
           "query": "lavoro ticino vendita",
           "clicks": 0,
           "impressions": 16
-        }
-      ]
-    },
-    {
-      "clusterId": "it-case-anziani-lugano-posti-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "case anziani lugano posti di lavoro",
-      "canonicalSlug": "case-anziani-lugano-posti-di-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor",
-        "post"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 145,
-      "totalClicks": 7,
-      "queries": [
-        {
-          "query": "case anziani lugano posti di lavoro",
-          "clicks": 7,
-          "impressions": 145
         }
       ]
     },
@@ -1777,6 +1777,30 @@
       ]
     },
     {
+      "clusterId": "it-offerte-lavoro-assistente-di-cura-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro assistente di cura ticino",
+      "canonicalSlug": "offerte-lavoro-assistente-di-cura-ticino",
+      "roleTokens": [
+        "assistent",
+        "cur",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 116,
+      "totalClicks": 9,
+      "queries": [
+        {
+          "query": "offerte lavoro assistente di cura ticino",
+          "clicks": 9,
+          "impressions": 116
+        }
+      ]
+    },
+    {
       "clusterId": "it-eoc-lavoro",
       "locale": "it",
       "canonicalQuery": "eoc lavoro",
@@ -1893,30 +1917,6 @@
           "query": "offerte di lavoro cantone ticino",
           "clicks": 0,
           "impressions": 2
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-lavoro-assistente-di-cura-ticino",
-      "locale": "it",
-      "canonicalQuery": "offerte lavoro assistente di cura ticino",
-      "canonicalSlug": "offerte-lavoro-assistente-di-cura-ticino",
-      "roleTokens": [
-        "assistent",
-        "cur",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 111,
-      "totalClicks": 9,
-      "queries": [
-        {
-          "query": "offerte lavoro assistente di cura ticino",
-          "clicks": 9,
-          "impressions": 111
         }
       ]
     },
@@ -2706,6 +2706,31 @@
       ]
     },
     {
+      "clusterId": "en-i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "locale": "en",
+      "canonicalQuery": "i am searching for caregiver jobs in ticino for elderly support.",
+      "canonicalSlug": "i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "roleTokens": [
+        "caregiver",
+        "elderly",
+        "job",
+        "search",
+        "support"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 77,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "i am searching for caregiver jobs in ticino for elderly support.",
+          "clicks": 0,
+          "impressions": 77
+        }
+      ]
+    },
+    {
       "clusterId": "it-offerte-lavoro-frontaliere-svizzera",
       "locale": "it",
       "canonicalQuery": "offerte lavoro frontaliere svizzera",
@@ -2839,31 +2864,6 @@
           "query": "manor offerte di lavoro ticino",
           "clicks": 2,
           "impressions": 73
-        }
-      ]
-    },
-    {
-      "clusterId": "en-i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
-      "locale": "en",
-      "canonicalQuery": "i am searching for caregiver jobs in ticino for elderly support.",
-      "canonicalSlug": "i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
-      "roleTokens": [
-        "caregiver",
-        "elderly",
-        "job",
-        "search",
-        "support"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 71,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "i am searching for caregiver jobs in ticino for elderly support.",
-          "clicks": 0,
-          "impressions": 71
         }
       ]
     },
@@ -3196,6 +3196,30 @@
       ]
     },
     {
+      "clusterId": "it-casa-anziani-paradiso-offerta-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani paradiso offerta lavoro",
+      "canonicalSlug": "casa-anziani-paradiso-offerta-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "paradiso"
+      ],
+      "totalImpressions": 61,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "casa anziani paradiso offerta lavoro",
+          "clicks": 1,
+          "impressions": 61
+        }
+      ]
+    },
+    {
       "clusterId": "it-denner-offerte-di-lavoro-ticino",
       "locale": "it",
       "canonicalQuery": "denner offerte di lavoro ticino",
@@ -3364,31 +3388,6 @@
       ]
     },
     {
-      "clusterId": "it-swisscom-lehre",
-      "locale": "it",
-      "canonicalQuery": "swisscom lehre",
-      "canonicalSlug": "swisscom-lehre",
-      "roleTokens": [
-        "lehr",
-        "swisscom"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 60,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "swisscom lehre",
-          "clicks": 0,
-          "impressions": 59
-        },
-        {
-          "query": "lehre swisscom",
-          "clicks": 0,
-          "impressions": 1
-        }
-      ]
-    },
-    {
       "clusterId": "en-help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
       "locale": "en",
       "canonicalQuery": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
@@ -3411,13 +3410,38 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 59,
+      "totalImpressions": 60,
       "totalClicks": 0,
       "queries": [
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
+          "impressions": 60
+        }
+      ]
+    },
+    {
+      "clusterId": "it-swisscom-lehre",
+      "locale": "it",
+      "canonicalQuery": "swisscom lehre",
+      "canonicalSlug": "swisscom-lehre",
+      "roleTokens": [
+        "lehr",
+        "swisscom"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 60,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "swisscom lehre",
+          "clicks": 0,
           "impressions": 59
+        },
+        {
+          "query": "lehre swisscom",
+          "clicks": 0,
+          "impressions": 1
         }
       ]
     },
@@ -3586,6 +3610,27 @@
       ]
     },
     {
+      "clusterId": "it-coop-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "coop lavora con noi",
+      "canonicalSlug": "coop-lavora-con-noi",
+      "roleTokens": [
+        "coop",
+        "lavor",
+        "noi"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 54,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "coop lavora con noi",
+          "clicks": 0,
+          "impressions": 54
+        }
+      ]
+    },
+    {
       "clusterId": "it-manor-lavora-con-noi",
       "locale": "it",
       "canonicalQuery": "manor lavora con noi",
@@ -3684,27 +3729,6 @@
       ]
     },
     {
-      "clusterId": "it-coop-lavora-con-noi",
-      "locale": "it",
-      "canonicalQuery": "coop lavora con noi",
-      "canonicalSlug": "coop-lavora-con-noi",
-      "roleTokens": [
-        "coop",
-        "lavor",
-        "noi"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 53,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "coop lavora con noi",
-          "clicks": 0,
-          "impressions": 53
-        }
-      ]
-    },
-    {
       "clusterId": "it-indeed-svizzera",
       "locale": "it",
       "canonicalQuery": "indeed svizzera",
@@ -3722,30 +3746,6 @@
           "query": "indeed svizzera",
           "clicks": 0,
           "impressions": 52
-        }
-      ]
-    },
-    {
-      "clusterId": "it-casa-anziani-paradiso-offerta-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani paradiso offerta lavoro",
-      "canonicalSlug": "casa-anziani-paradiso-offerta-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "paradiso"
-      ],
-      "totalImpressions": 51,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "casa anziani paradiso offerta lavoro",
-          "clicks": 1,
-          "impressions": 51
         }
       ]
     },
@@ -3952,6 +3952,31 @@
       ]
     },
     {
+      "clusterId": "it-casa-anziani-comunale-bellinzona-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani comunale bellinzona offerte di lavoro",
+      "canonicalSlug": "casa-anziani-comunale-bellinzona-offerte-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "comunal",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 47,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "casa anziani comunale bellinzona offerte di lavoro",
+          "clicks": 2,
+          "impressions": 47
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-frontaliere-svizzera",
       "locale": "it",
       "canonicalQuery": "lavoro frontaliere svizzera",
@@ -4136,6 +4161,29 @@
           "query": "offerte di lavoro presso città di lugano",
           "clicks": 0,
           "impressions": 45
+        }
+      ]
+    },
+    {
+      "clusterId": "it-casa-anziani-mendrisio-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani mendrisio lavoro",
+      "canonicalSlug": "casa-anziani-mendrisio-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor"
+      ],
+      "regionTokens": [
+        "mendrisio"
+      ],
+      "totalImpressions": 44,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "casa anziani mendrisio lavoro",
+          "clicks": 1,
+          "impressions": 44
         }
       ]
     },
@@ -4345,6 +4393,28 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-presso-coop",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro presso coop",
+      "canonicalSlug": "offerte-di-lavoro-presso-coop",
+      "roleTokens": [
+        "coop",
+        "lavor",
+        "offert",
+        "press"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 42,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro presso coop",
+          "clicks": 0,
+          "impressions": 42
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-mendrisio",
       "locale": "it",
       "canonicalQuery": "lavoro mendrisio",
@@ -4458,28 +4528,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-presso-coop",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro presso coop",
-      "canonicalSlug": "offerte-di-lavoro-presso-coop",
-      "roleTokens": [
-        "coop",
-        "lavor",
-        "offert",
-        "press"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 41,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offerte di lavoro presso coop",
-          "clicks": 0,
-          "impressions": 41
-        }
-      ]
-    },
-    {
       "clusterId": "it-assistenza-ascensori-bellinzona",
       "locale": "it",
       "canonicalQuery": "assistenza ascensori bellinzona",
@@ -4498,54 +4546,6 @@
           "query": "assistenza ascensori bellinzona",
           "clicks": 0,
           "impressions": 41
-        }
-      ]
-    },
-    {
-      "clusterId": "it-casa-anziani-comunale-bellinzona-offerte-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani comunale bellinzona offerte di lavoro",
-      "canonicalSlug": "casa-anziani-comunale-bellinzona-offerte-di-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "comunal",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "bellinzona"
-      ],
-      "totalImpressions": 40,
-      "totalClicks": 2,
-      "queries": [
-        {
-          "query": "casa anziani comunale bellinzona offerte di lavoro",
-          "clicks": 2,
-          "impressions": 40
-        }
-      ]
-    },
-    {
-      "clusterId": "it-casa-anziani-mendrisio-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani mendrisio lavoro",
-      "canonicalSlug": "casa-anziani-mendrisio-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor"
-      ],
-      "regionTokens": [
-        "mendrisio"
-      ],
-      "totalImpressions": 40,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "casa anziani mendrisio lavoro",
-          "clicks": 1,
-          "impressions": 40
         }
       ]
     },
@@ -4639,6 +4639,29 @@
           "query": "zivildienst schweiz stellen",
           "clicks": 0,
           "impressions": 4
+        }
+      ]
+    },
+    {
+      "clusterId": "it-casa-anziani-chiasso-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani chiasso lavoro",
+      "canonicalSlug": "casa-anziani-chiasso-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor"
+      ],
+      "regionTokens": [
+        "chiasso"
+      ],
+      "totalImpressions": 39,
+      "totalClicks": 7,
+      "queries": [
+        {
+          "query": "casa anziani chiasso lavoro",
+          "clicks": 7,
+          "impressions": 39
         }
       ]
     },
@@ -4948,29 +4971,6 @@
           "query": "stage en banque",
           "clicks": 0,
           "impressions": 3
-        }
-      ]
-    },
-    {
-      "clusterId": "it-casa-anziani-chiasso-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani chiasso lavoro",
-      "canonicalSlug": "casa-anziani-chiasso-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor"
-      ],
-      "regionTokens": [
-        "chiasso"
-      ],
-      "totalImpressions": 36,
-      "totalClicks": 6,
-      "queries": [
-        {
-          "query": "casa anziani chiasso lavoro",
-          "clicks": 6,
-          "impressions": 36
         }
       ]
     },
@@ -5368,6 +5368,30 @@
       ]
     },
     {
+      "clusterId": "it-case-di-riposo-ticino-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "case di riposo ticino lavora con noi",
+      "canonicalSlug": "case-di-riposo-ticino-lavora-con-noi",
+      "roleTokens": [
+        "cas",
+        "lavor",
+        "noi",
+        "ripos"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 34,
+      "totalClicks": 4,
+      "queries": [
+        {
+          "query": "case di riposo ticino lavora con noi",
+          "clicks": 4,
+          "impressions": 34
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-chiasso-da-ieri",
       "locale": "it",
       "canonicalQuery": "lavoro chiasso da ieri",
@@ -5617,30 +5641,6 @@
           "query": "ibsa lugano offerte lavoro",
           "clicks": 0,
           "impressions": 32
-        }
-      ]
-    },
-    {
-      "clusterId": "it-case-di-riposo-ticino-lavora-con-noi",
-      "locale": "it",
-      "canonicalQuery": "case di riposo ticino lavora con noi",
-      "canonicalSlug": "case-di-riposo-ticino-lavora-con-noi",
-      "roleTokens": [
-        "cas",
-        "lavor",
-        "noi",
-        "ripos"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 31,
-      "totalClicks": 4,
-      "queries": [
-        {
-          "query": "case di riposo ticino lavora con noi",
-          "clicks": 4,
-          "impressions": 31
         }
       ]
     },
@@ -7325,6 +7325,34 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-briga-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro briga svizzera",
+      "canonicalSlug": "offerte-di-lavoro-briga-svizzera",
+      "roleTokens": [
+        "brig",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 22,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro briga svizzera",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "offerte lavoro briga svizzera",
+          "clicks": 1,
+          "impressions": 9
+        }
+      ]
+    },
+    {
       "clusterId": "it-venditrice-ticino",
       "locale": "it",
       "canonicalQuery": "venditrice ticino",
@@ -7783,21 +7811,54 @@
       ]
     },
     {
-      "clusterId": "it-frontalieri",
+      "clusterId": "it-offerte-di-lavoro-centri-diurni-ticino",
       "locale": "it",
-      "canonicalQuery": "frontalieri",
-      "canonicalSlug": "frontalieri",
+      "canonicalQuery": "offerte di lavoro centri diurni ticino",
+      "canonicalSlug": "offerte-di-lavoro-centri-diurni-ticino",
       "roleTokens": [
-        "frontalier"
+        "centr",
+        "diurn",
+        "lavor",
+        "offert"
       ],
-      "regionTokens": [],
+      "regionTokens": [
+        "ticino"
+      ],
       "totalImpressions": 20,
-      "totalClicks": 0,
+      "totalClicks": 1,
       "queries": [
         {
-          "query": "frontalieri",
-          "clicks": 0,
+          "query": "offerte di lavoro centri diurni ticino",
+          "clicks": 1,
           "impressions": 20
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-lavoro-educatore-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro educatore ticino",
+      "canonicalSlug": "offerte-lavoro-educatore-ticino",
+      "roleTokens": [
+        "educat",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 20,
+      "totalClicks": 4,
+      "queries": [
+        {
+          "query": "offerte lavoro educatore ticino",
+          "clicks": 1,
+          "impressions": 12
+        },
+        {
+          "query": "offerte di lavoro educatore ticino",
+          "clicks": 3,
+          "impressions": 8
         }
       ]
     },
@@ -8002,34 +8063,6 @@
           "query": "rapelli lavora con noi",
           "clicks": 0,
           "impressions": 20
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-di-lavoro-briga-svizzera",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro briga svizzera",
-      "canonicalSlug": "offerte-di-lavoro-briga-svizzera",
-      "roleTokens": [
-        "brig",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 20,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offerte di lavoro briga svizzera",
-          "clicks": 0,
-          "impressions": 13
-        },
-        {
-          "query": "offerte lavoro briga svizzera",
-          "clicks": 0,
-          "impressions": 7
         }
       ]
     },
@@ -8341,30 +8374,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-centri-diurni-ticino",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro centri diurni ticino",
-      "canonicalSlug": "offerte-di-lavoro-centri-diurni-ticino",
-      "roleTokens": [
-        "centr",
-        "diurn",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 18,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "offerte di lavoro centri diurni ticino",
-          "clicks": 1,
-          "impressions": 18
-        }
-      ]
-    },
-    {
       "clusterId": "it-softwareentwickler-jobs-lugano",
       "locale": "it",
       "canonicalQuery": "softwareentwickler jobs lugano",
@@ -8383,6 +8392,31 @@
           "query": "softwareentwickler jobs lugano",
           "clicks": 0,
           "impressions": 18
+        }
+      ]
+    },
+    {
+      "clusterId": "de-ubs-jobs",
+      "locale": "de",
+      "canonicalQuery": "ubs jobs",
+      "canonicalSlug": "ubs-jobs",
+      "roleTokens": [
+        "job",
+        "ubs"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 18,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "ubs jobs",
+          "clicks": 2,
+          "impressions": 15
+        },
+        {
+          "query": "jobs ubs",
+          "clicks": 0,
+          "impressions": 3
         }
       ]
     },
@@ -8663,6 +8697,57 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-educatrice-svizzera-italiana",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro educatrice svizzera italiana",
+      "canonicalSlug": "offerte-di-lavoro-educatrice-svizzera-italiana",
+      "roleTokens": [
+        "educatr",
+        "italian",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 17,
+      "totalClicks": 6,
+      "queries": [
+        {
+          "query": "offerte di lavoro educatrice svizzera italiana",
+          "clicks": 6,
+          "impressions": 17
+        }
+      ]
+    },
+    {
+      "clusterId": "it-educatrice-ticino-lavoro",
+      "locale": "it",
+      "canonicalQuery": "educatrice ticino lavoro",
+      "canonicalSlug": "educatrice-ticino-lavoro",
+      "roleTokens": [
+        "educatr",
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 17,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "educatrice ticino lavoro",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "lavoro educatrice ticino",
+          "clicks": 2,
+          "impressions": 8
+        }
+      ]
+    },
+    {
       "clusterId": "it-infermieri-lugano-offerte-lavoro",
       "locale": "it",
       "canonicalQuery": "infermieri lugano offerte lavoro",
@@ -8687,6 +8772,25 @@
           "query": "offerte di lavoro infermieri lugano",
           "clicks": 0,
           "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-frontalieri",
+      "locale": "it",
+      "canonicalQuery": "frontalieri",
+      "canonicalSlug": "frontalieri",
+      "roleTokens": [
+        "frontalier"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 17,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 17
         }
       ]
     },
@@ -9046,6 +9150,49 @@
       ]
     },
     {
+      "clusterId": "it-das-assicurazione-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecni",
+      "locale": "it",
+      "canonicalQuery": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "canonicalSlug": "das-assicurazione-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecni",
+      "roleTokens": [
+        "5g",
+        "accis",
+        "assicurazion",
+        "book",
+        "casin",
+        "com",
+        "f1",
+        "facebook",
+        "fibr",
+        "fur",
+        "idrotecnic",
+        "instagram",
+        "monitoraggi",
+        "nas",
+        "ottic",
+        "pl",
+        "reddit",
+        "sismic",
+        "sit",
+        "tiktok",
+        "tripadvisor",
+        "twitter",
+        "wykop",
+        "yelp",
+        "youtub"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 16,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "clicks": 0,
+          "impressions": 16
+        }
+      ]
+    },
+    {
       "clusterId": "it-offerte-di-lavoro-oss-svizzera-italiana",
       "locale": "it",
       "canonicalQuery": "offerte di lavoro oss svizzera italiana",
@@ -9071,6 +9218,34 @@
           "query": "offerte lavoro oss svizzera italiana",
           "clicks": 0,
           "impressions": 8
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-negli-ultimi-3-giorni",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro negli ultimi 3 giorni",
+      "canonicalSlug": "offerte-di-lavoro-negli-ultimi-3-giorni",
+      "roleTokens": [
+        "giorn",
+        "lavor",
+        "negl",
+        "offert",
+        "ultim"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 16,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
+          "query": "offerte lavoro negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 4
         }
       ]
     },
@@ -9399,14 +9574,15 @@
       ]
     },
     {
-      "clusterId": "it-offerte-lavoro-educatore-ticino",
+      "clusterId": "it-educatore-sociale-offerte-lavoro-ticino",
       "locale": "it",
-      "canonicalQuery": "offerte lavoro educatore ticino",
-      "canonicalSlug": "offerte-lavoro-educatore-ticino",
+      "canonicalQuery": "educatore sociale offerte lavoro ticino",
+      "canonicalSlug": "educatore-sociale-offerte-lavoro-ticino",
       "roleTokens": [
         "educat",
         "lavor",
-        "offert"
+        "offert",
+        "social"
       ],
       "regionTokens": [
         "ticino"
@@ -9415,14 +9591,31 @@
       "totalClicks": 3,
       "queries": [
         {
-          "query": "offerte lavoro educatore ticino",
-          "clicks": 0,
-          "impressions": 9
-        },
-        {
-          "query": "offerte di lavoro educatore ticino",
+          "query": "educatore sociale offerte lavoro ticino",
           "clicks": 3,
-          "impressions": 6
+          "impressions": 15
+        }
+      ]
+    },
+    {
+      "clusterId": "en-web-developer-ticino",
+      "locale": "en",
+      "canonicalQuery": "web developer ticino",
+      "canonicalSlug": "web-developer-ticino",
+      "roleTokens": [
+        "developer",
+        "web"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 15,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "web developer ticino",
+          "clicks": 0,
+          "impressions": 15
         }
       ]
     },
@@ -9655,34 +9848,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-negli-ultimi-3-giorni",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro negli ultimi 3 giorni",
-      "canonicalSlug": "offerte-di-lavoro-negli-ultimi-3-giorni",
-      "roleTokens": [
-        "giorn",
-        "lavor",
-        "negl",
-        "offert",
-        "ultim"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 15,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offerte di lavoro negli ultimi 3 giorni",
-          "clicks": 0,
-          "impressions": 11
-        },
-        {
-          "query": "offerte lavoro negli ultimi 3 giorni",
-          "clicks": 0,
-          "impressions": 4
-        }
-      ]
-    },
-    {
       "clusterId": "it-coop-lugano-lavora-con-noi",
       "locale": "it",
       "canonicalQuery": "coop lugano lavora con noi",
@@ -9873,52 +10038,6 @@
       ]
     },
     {
-      "clusterId": "it-educatore-sociale-offerte-lavoro-ticino",
-      "locale": "it",
-      "canonicalQuery": "educatore sociale offerte lavoro ticino",
-      "canonicalSlug": "educatore-sociale-offerte-lavoro-ticino",
-      "roleTokens": [
-        "educat",
-        "lavor",
-        "offert",
-        "social"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 14,
-      "totalClicks": 3,
-      "queries": [
-        {
-          "query": "educatore sociale offerte lavoro ticino",
-          "clicks": 3,
-          "impressions": 14
-        }
-      ]
-    },
-    {
-      "clusterId": "en-web-developer-ticino",
-      "locale": "en",
-      "canonicalQuery": "web developer ticino",
-      "canonicalSlug": "web-developer-ticino",
-      "roleTokens": [
-        "developer",
-        "web"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 14,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "web developer ticino",
-          "clicks": 0,
-          "impressions": 14
-        }
-      ]
-    },
-    {
       "clusterId": "it-softwareentwicklung-jobs-lugano",
       "locale": "it",
       "canonicalQuery": "softwareentwicklung jobs lugano",
@@ -9941,27 +10060,24 @@
       ]
     },
     {
-      "clusterId": "de-ubs-jobs",
-      "locale": "de",
-      "canonicalQuery": "ubs jobs",
-      "canonicalSlug": "ubs-jobs",
+      "clusterId": "it-pflegejobs-regionalspital-surselva-ag",
+      "locale": "it",
+      "canonicalQuery": "pflegejobs regionalspital surselva ag",
+      "canonicalSlug": "pflegejobs-regionalspital-surselva-ag",
       "roleTokens": [
-        "job",
-        "ubs"
+        "ag",
+        "pflegejob",
+        "regionalspital",
+        "surselv"
       ],
       "regionTokens": [],
       "totalImpressions": 14,
-      "totalClicks": 2,
+      "totalClicks": 0,
       "queries": [
         {
-          "query": "ubs jobs",
-          "clicks": 2,
-          "impressions": 11
-        },
-        {
-          "query": "jobs ubs",
+          "query": "pflegejobs regionalspital surselva ag",
           "clicks": 0,
-          "impressions": 3
+          "impressions": 14
         }
       ]
     },
@@ -10300,6 +10416,29 @@
           "query": "jobs matterhorn gotthard bahn",
           "clicks": 0,
           "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-casa-di-riposo-per-anziani",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro casa di riposo per anziani",
+      "canonicalSlug": "offerte-di-lavoro-casa-di-riposo-per-anziani",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "offert",
+        "ripos"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 13,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro casa di riposo per anziani",
+          "clicks": 1,
+          "impressions": 13
         }
       ]
     },
@@ -10848,72 +10987,50 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-casa-di-riposo-per-anziani",
+      "clusterId": "it-offerte-lavoro-educatrice-ticino",
       "locale": "it",
-      "canonicalQuery": "offerte di lavoro casa di riposo per anziani",
-      "canonicalSlug": "offerte-di-lavoro-casa-di-riposo-per-anziani",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor",
-        "offert",
-        "ripos"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 12,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "offerte di lavoro casa di riposo per anziani",
-          "clicks": 1,
-          "impressions": 12
-        }
-      ]
-    },
-    {
-      "clusterId": "it-educatrice-ticino-lavoro",
-      "locale": "it",
-      "canonicalQuery": "educatrice ticino lavoro",
-      "canonicalSlug": "educatrice-ticino-lavoro",
+      "canonicalQuery": "offerte lavoro educatrice ticino",
+      "canonicalSlug": "offerte-lavoro-educatrice-ticino",
       "roleTokens": [
         "educatr",
-        "lavor"
+        "lavor",
+        "offert"
       ],
       "regionTokens": [
         "ticino"
       ],
       "totalImpressions": 12,
-      "totalClicks": 0,
+      "totalClicks": 1,
       "queries": [
         {
-          "query": "educatrice ticino lavoro",
-          "clicks": 0,
+          "query": "offerte lavoro educatrice ticino",
+          "clicks": 1,
           "impressions": 7
         },
         {
-          "query": "lavoro educatrice ticino",
+          "query": "offerte di lavoro educatrice ticino",
           "clicks": 0,
           "impressions": 5
         }
       ]
     },
     {
-      "clusterId": "it-pflegejobs-regionalspital-surselva-ag",
-      "locale": "it",
-      "canonicalQuery": "pflegejobs regionalspital surselva ag",
-      "canonicalSlug": "pflegejobs-regionalspital-surselva-ag",
+      "clusterId": "de-enterprise-suche-fur-entwickler",
+      "locale": "de",
+      "canonicalQuery": "enterprise suche für entwickler",
+      "canonicalSlug": "enterprise-suche-fur-entwickler",
       "roleTokens": [
-        "ag",
-        "pflegejob",
-        "regionalspital",
-        "surselv"
+        "enterpris",
+        "entwickler",
+        "fur",
+        "such"
       ],
       "regionTokens": [],
       "totalImpressions": 12,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "pflegejobs regionalspital surselva ag",
+          "query": "enterprise suche für entwickler",
           "clicks": 0,
           "impressions": 12
         }
@@ -11825,30 +11942,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-educatrice-svizzera-italiana",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro educatrice svizzera italiana",
-      "canonicalSlug": "offerte-di-lavoro-educatrice-svizzera-italiana",
-      "roleTokens": [
-        "educatr",
-        "italian",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 11,
-      "totalClicks": 5,
-      "queries": [
-        {
-          "query": "offerte di lavoro educatrice svizzera italiana",
-          "clicks": 5,
-          "impressions": 11
-        }
-      ]
-    },
-    {
       "clusterId": "it-software-house-canton-ticino",
       "locale": "it",
       "canonicalQuery": "software house canton ticino",
@@ -11866,6 +11959,28 @@
       "queries": [
         {
           "query": "software house canton ticino",
+          "clicks": 0,
+          "impressions": 11
+        }
+      ]
+    },
+    {
+      "clusterId": "it-software-house-ticino",
+      "locale": "it",
+      "canonicalQuery": "software house ticino",
+      "canonicalSlug": "software-house-ticino",
+      "roleTokens": [
+        "hous",
+        "softwar"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 11,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "software house ticino",
           "clicks": 0,
           "impressions": 11
         }
@@ -12383,6 +12498,130 @@
           "query": "fart lavora con noi",
           "clicks": 0,
           "impressions": 11
+        }
+      ]
+    },
+    {
+      "clusterId": "it-das-clienti-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecnica-mon",
+      "locale": "it",
+      "canonicalQuery": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "canonicalSlug": "das-clienti-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecnica-mon",
+      "roleTokens": [
+        "5g",
+        "accis",
+        "book",
+        "casin",
+        "client",
+        "com",
+        "f1",
+        "facebook",
+        "fibr",
+        "fur",
+        "idrotecnic",
+        "instagram",
+        "monitoraggi",
+        "nas",
+        "ottic",
+        "pl",
+        "reddit",
+        "sismic",
+        "sit",
+        "tiktok",
+        "tripadvisor",
+        "twitter",
+        "wykop",
+        "yelp",
+        "youtub"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "clicks": 0,
+          "impressions": 10
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-lavoro-educatore",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro educatore",
+      "canonicalSlug": "offerte-lavoro-educatore",
+      "roleTokens": [
+        "educat",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte lavoro educatore",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "offerte di lavoro educatore",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-lavoro-educatore-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro educatore svizzera",
+      "canonicalSlug": "offerte-lavoro-educatore-svizzera",
+      "roleTokens": [
+        "educat",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte lavoro educatore svizzera",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "offerte di lavoro educatore svizzera",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-ristorazione",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino ristorazione",
+      "canonicalSlug": "lavoro-ticino-ristorazione",
+      "roleTokens": [
+        "lavor",
+        "ristorazion"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro ticino ristorazione",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "lavoro ristorazione ticino",
+          "clicks": 0,
+          "impressions": 3
         }
       ]
     },
@@ -13193,39 +13432,36 @@
       ]
     },
     {
-      "clusterId": "it-offerte-lavoro-educatore",
+      "clusterId": "it-offerte-lavoro-educatore-canton-ticino",
       "locale": "it",
-      "canonicalQuery": "offerte lavoro educatore",
-      "canonicalSlug": "offerte-lavoro-educatore",
+      "canonicalQuery": "offerte lavoro educatore canton ticino",
+      "canonicalSlug": "offerte-lavoro-educatore-canton-ticino",
       "roleTokens": [
+        "canton",
         "educat",
         "lavor",
         "offert"
       ],
-      "regionTokens": [],
+      "regionTokens": [
+        "ticino"
+      ],
       "totalImpressions": 9,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "offerte lavoro educatore",
+          "query": "offerte lavoro educatore canton ticino",
           "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "offerte di lavoro educatore",
-          "clicks": 0,
-          "impressions": 3
+          "impressions": 9
         }
       ]
     },
     {
-      "clusterId": "it-lavoro-ticino-ristorazione",
+      "clusterId": "it-educatore-ticino",
       "locale": "it",
-      "canonicalQuery": "lavoro ticino ristorazione",
-      "canonicalSlug": "lavoro-ticino-ristorazione",
+      "canonicalQuery": "educatore ticino",
+      "canonicalSlug": "educatore-ticino",
       "roleTokens": [
-        "lavor",
-        "ristorazion"
+        "educat"
       ],
       "regionTokens": [
         "ticino"
@@ -13234,34 +13470,7 @@
       "totalClicks": 0,
       "queries": [
         {
-          "query": "lavoro ticino ristorazione",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "lavoro ristorazione ticino",
-          "clicks": 0,
-          "impressions": 3
-        }
-      ]
-    },
-    {
-      "clusterId": "it-software-house-ticino",
-      "locale": "it",
-      "canonicalQuery": "software house ticino",
-      "canonicalSlug": "software-house-ticino",
-      "roleTokens": [
-        "hous",
-        "softwar"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 9,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "software house ticino",
+          "query": "educatore ticino",
           "clicks": 0,
           "impressions": 9
         }
@@ -14250,15 +14459,14 @@
       ]
     },
     {
-      "clusterId": "it-offerte-lavoro-educatore-canton-ticino",
+      "clusterId": "it-lavoro-insegnante-canton-ticino",
       "locale": "it",
-      "canonicalQuery": "offerte lavoro educatore canton ticino",
-      "canonicalSlug": "offerte-lavoro-educatore-canton-ticino",
+      "canonicalQuery": "lavoro insegnante canton ticino",
+      "canonicalSlug": "lavoro-insegnante-canton-ticino",
       "roleTokens": [
         "canton",
-        "educat",
-        "lavor",
-        "offert"
+        "insegnant",
+        "lavor"
       ],
       "regionTokens": [
         "ticino"
@@ -14267,28 +14475,7 @@
       "totalClicks": 0,
       "queries": [
         {
-          "query": "offerte lavoro educatore canton ticino",
-          "clicks": 0,
-          "impressions": 8
-        }
-      ]
-    },
-    {
-      "clusterId": "it-educatore-ticino",
-      "locale": "it",
-      "canonicalQuery": "educatore ticino",
-      "canonicalSlug": "educatore-ticino",
-      "roleTokens": [
-        "educat"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 8,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "educatore ticino",
+          "query": "lavoro insegnante canton ticino",
           "clicks": 0,
           "impressions": 8
         }
@@ -14346,43 +14533,21 @@
       ]
     },
     {
-      "clusterId": "it-das-assicurazione-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecni",
-      "locale": "it",
-      "canonicalQuery": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
-      "canonicalSlug": "das-assicurazione-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecni",
+      "clusterId": "de-pflegedienst-tessin",
+      "locale": "de",
+      "canonicalQuery": "pflegedienst tessin",
+      "canonicalSlug": "pflegedienst-tessin",
       "roleTokens": [
-        "5g",
-        "accis",
-        "assicurazion",
-        "book",
-        "casin",
-        "com",
-        "f1",
-        "facebook",
-        "fibr",
-        "fur",
-        "idrotecnic",
-        "instagram",
-        "monitoraggi",
-        "nas",
-        "ottic",
-        "pl",
-        "reddit",
-        "sismic",
-        "sit",
-        "tiktok",
-        "tripadvisor",
-        "twitter",
-        "wykop",
-        "yelp",
-        "youtub"
+        "pflegedienst"
       ],
-      "regionTokens": [],
+      "regionTokens": [
+        "ticino"
+      ],
       "totalImpressions": 8,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "query": "pflegedienst tessin",
           "clicks": 0,
           "impressions": 8
         }
@@ -14402,6 +14567,28 @@
       "queries": [
         {
           "query": "disegnatore",
+          "clicks": 0,
+          "impressions": 8
+        }
+      ]
+    },
+    {
+      "clusterId": "en-hire-developers-in-switzerland",
+      "locale": "en",
+      "canonicalQuery": "hire developers in switzerland",
+      "canonicalSlug": "hire-developers-in-switzerland",
+      "roleTokens": [
+        "developer",
+        "hir"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "hire developers in switzerland",
           "clicks": 0,
           "impressions": 8
         }
@@ -14451,6 +14638,28 @@
           "query": "apprendistati ticino",
           "clicks": 0,
           "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-citta-di-bellinzona-lavoro",
+      "locale": "it",
+      "canonicalQuery": "citta di bellinzona lavoro",
+      "canonicalSlug": "citta-di-bellinzona-lavoro",
+      "roleTokens": [
+        "citt",
+        "lavor"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "citta di bellinzona lavoro",
+          "clicks": 0,
+          "impressions": 8
         }
       ]
     },
@@ -15604,23 +15813,47 @@
       ]
     },
     {
-      "clusterId": "de-pflegedienst-tessin",
-      "locale": "de",
-      "canonicalQuery": "pflegedienst tessin",
-      "canonicalSlug": "pflegedienst-tessin",
+      "clusterId": "it-ubs-lavoro",
+      "locale": "it",
+      "canonicalQuery": "ubs lavoro",
+      "canonicalSlug": "ubs-lavoro",
       "roleTokens": [
-        "pflegedienst"
+        "lavor",
+        "ubs"
       ],
-      "regionTokens": [
-        "ticino"
-      ],
+      "regionTokens": [],
       "totalImpressions": 7,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "pflegedienst tessin",
+          "query": "ubs lavoro",
           "clicks": 0,
           "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "de-denner-stellen",
+      "locale": "de",
+      "canonicalQuery": "denner stellen",
+      "canonicalSlug": "denner-stellen",
+      "roleTokens": [
+        "denner",
+        "stellen"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "denner stellen",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "stellen denner",
+          "clicks": 0,
+          "impressions": 1
         }
       ]
     },
@@ -15641,28 +15874,6 @@
         {
           "query": "ubs lavora con noi",
           "clicks": 1,
-          "impressions": 7
-        }
-      ]
-    },
-    {
-      "clusterId": "it-citta-di-bellinzona-lavoro",
-      "locale": "it",
-      "canonicalQuery": "citta di bellinzona lavoro",
-      "canonicalSlug": "citta-di-bellinzona-lavoro",
-      "roleTokens": [
-        "citt",
-        "lavor"
-      ],
-      "regionTokens": [
-        "bellinzona"
-      ],
-      "totalImpressions": 7,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "citta di bellinzona lavoro",
-          "clicks": 0,
           "impressions": 7
         }
       ]
@@ -16964,29 +17175,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-lavoro-educatore-svizzera",
-      "locale": "it",
-      "canonicalQuery": "offerte lavoro educatore svizzera",
-      "canonicalSlug": "offerte-lavoro-educatore-svizzera",
-      "roleTokens": [
-        "educat",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 6,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offerte lavoro educatore svizzera",
-          "clicks": 0,
-          "impressions": 6
-        }
-      ]
-    },
-    {
       "clusterId": "it-tutti-ch-lavoro-ticino-ristorazione",
       "locale": "it",
       "canonicalQuery": "tutti ch lavoro ticino ristorazione",
@@ -17044,28 +17232,6 @@
       ]
     },
     {
-      "clusterId": "de-enterprise-suche-fur-entwickler",
-      "locale": "de",
-      "canonicalQuery": "enterprise suche für entwickler",
-      "canonicalSlug": "enterprise-suche-fur-entwickler",
-      "roleTokens": [
-        "enterpris",
-        "entwickler",
-        "fur",
-        "such"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 6,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "enterprise suche für entwickler",
-          "clicks": 0,
-          "impressions": 6
-        }
-      ]
-    },
-    {
       "clusterId": "it-lavorare-in-svizzera-come-oss",
       "locale": "it",
       "canonicalQuery": "lavorare in svizzera come oss",
@@ -17082,6 +17248,28 @@
       "queries": [
         {
           "query": "lavorare in svizzera come oss",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "de-pflege-jobs-spital-thusis",
+      "locale": "de",
+      "canonicalQuery": "pflege jobs spital thusis",
+      "canonicalSlug": "pflege-jobs-spital-thusis",
+      "roleTokens": [
+        "job",
+        "pfleg",
+        "spital",
+        "thusi"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflege jobs spital thusis",
           "clicks": 0,
           "impressions": 6
         }
@@ -18058,26 +18246,6 @@
       "queries": [
         {
           "query": "manor lugano offerte di lavoro",
-          "clicks": 0,
-          "impressions": 6
-        }
-      ]
-    },
-    {
-      "clusterId": "de-denner-stellen",
-      "locale": "de",
-      "canonicalQuery": "denner stellen",
-      "canonicalSlug": "denner-stellen",
-      "roleTokens": [
-        "denner",
-        "stellen"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 6,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "denner stellen",
           "clicks": 0,
           "impressions": 6
         }
@@ -19158,6 +19326,30 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-educatore-svizzera-italiana",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro educatore svizzera italiana",
+      "canonicalSlug": "offerte-di-lavoro-educatore-svizzera-italiana",
+      "roleTokens": [
+        "educat",
+        "italian",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro educatore svizzera italiana",
+          "clicks": 1,
+          "impressions": 5
+        }
+      ]
+    },
+    {
       "clusterId": "it-concorsi-lugano",
       "locale": "it",
       "canonicalQuery": "concorsi lugano",
@@ -19216,76 +19408,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-educatore-svizzera-italiana",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro educatore svizzera italiana",
-      "canonicalSlug": "offerte-di-lavoro-educatore-svizzera-italiana",
-      "roleTokens": [
-        "educat",
-        "italian",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "offerte di lavoro educatore svizzera italiana",
-          "clicks": 1,
-          "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-lavoro-educatrice-ticino",
-      "locale": "it",
-      "canonicalQuery": "offerte lavoro educatrice ticino",
-      "canonicalSlug": "offerte-lavoro-educatrice-ticino",
-      "roleTokens": [
-        "educatr",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "offerte lavoro educatrice ticino",
-          "clicks": 1,
-          "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavoro-insegnante-canton-ticino",
-      "locale": "it",
-      "canonicalQuery": "lavoro insegnante canton ticino",
-      "canonicalSlug": "lavoro-insegnante-canton-ticino",
-      "roleTokens": [
-        "canton",
-        "insegnant",
-        "lavor"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "lavoro insegnante canton ticino",
-          "clicks": 0,
-          "impressions": 5
-        }
-      ]
-    },
-    {
       "clusterId": "de-what-nursing-jobs-are-open-in-the-zurich-region",
       "locale": "de",
       "canonicalQuery": "what nursing jobs are open in the zurich region?",
@@ -19333,49 +19455,6 @@
           "query": "offerte lavoro ristorazione",
           "clicks": 0,
           "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "it-das-clienti-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecnica-mon",
-      "locale": "it",
-      "canonicalQuery": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
-      "canonicalSlug": "das-clienti-5g-d-a-s-p-o-f1-accise-casino-e-das-fibra-ottica-fur-idrotecnica-mon",
-      "roleTokens": [
-        "5g",
-        "accis",
-        "book",
-        "casin",
-        "client",
-        "com",
-        "f1",
-        "facebook",
-        "fibr",
-        "fur",
-        "idrotecnic",
-        "instagram",
-        "monitoraggi",
-        "nas",
-        "ottic",
-        "pl",
-        "reddit",
-        "sismic",
-        "sit",
-        "tiktok",
-        "tripadvisor",
-        "twitter",
-        "wykop",
-        "yelp",
-        "youtub"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
-          "clicks": 0,
-          "impressions": 5
         }
       ]
     },
@@ -19521,26 +19600,6 @@
       "queries": [
         {
           "query": "\"medacta\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
-          "clicks": 0,
-          "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "it-ubs-lavoro",
-      "locale": "it",
-      "canonicalQuery": "ubs lavoro",
-      "canonicalSlug": "ubs-lavoro",
-      "roleTokens": [
-        "lavor",
-        "ubs"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "ubs lavoro",
           "clicks": 0,
           "impressions": 5
         }
