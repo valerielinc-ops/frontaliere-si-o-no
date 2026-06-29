@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { callLLM, isAnyModelAvailable } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { reduceSalaryToPartTime } from './lib/structured-salary.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -954,9 +955,20 @@ async function enrichJob(job, aiState) {
   const reportedSalary = extractReportedAnnualSalary(jobWithNormalizedCategory);
   const existingSalary = FORCE_REESTIMATE ? null : extractExistingAnnualSalary(jobWithNormalizedCategory);
   const estimated = estimateSalaryFromSectors(jobWithNormalizedCategory);
+  // Part-time roles state an employment percentage (e.g. "Part-time (20%)").
+  // The sector estimate is a full-time-equivalent band, so reduce it to the
+  // stated workload. Shared helper keeps this identical to the harden pass in
+  // structured-salary.mjs (same chokepoint, no estimator drift).
+  const reducedEstimate = reduceSalaryToPartTime(
+    estimated.minValue,
+    estimated.maxValue,
+    jobWithNormalizedCategory,
+  );
+  const estMin = reducedEstimate ? reducedEstimate.min : estimated.minValue;
+  const estMax = reducedEstimate ? reducedEstimate.max : estimated.maxValue;
   const salary = reportedSalary || existingSalary || {
-    salaryMin: estimated.minValue,
-    salaryMax: estimated.maxValue,
+    salaryMin: estMin,
+    salaryMax: estMax,
     currency: String(job.currency || 'CHF').toUpperCase() || 'CHF',
     source: 'sectors_estimation',
   };
@@ -976,9 +988,11 @@ async function enrichJob(job, aiState) {
   if (reportedSalary) {
     salarySource = 'reported';
   } else if (existingSalary) {
+    // Fingerprint against the part-time-aware estimate (estMin/estMax), so a
+    // persisted scaled band is still recognised as 'estimated', not 'existing'.
     salarySource =
-      existingSalary.salaryMin === estimated.minValue
-        && existingSalary.salaryMax === estimated.maxValue
+      existingSalary.salaryMin === estMin
+        && existingSalary.salaryMax === estMax
         ? 'estimated'
         : 'existing';
   }

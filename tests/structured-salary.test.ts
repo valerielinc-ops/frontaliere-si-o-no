@@ -37,6 +37,59 @@ describe('structured salary hardening', () => {
     expect(result.job.baseSalary?.value?.maxValue).toBe(118000);
   });
 
+  it('reduces an estimated salary to the stated part-time workload', () => {
+    const fullTime = ensureStructuredSalary({
+      title: 'Sales Associate',
+      category: 'Commerciale',
+      canton: 'ZH',
+      employmentType: 'FULL_TIME',
+    });
+    const partTime = ensureStructuredSalary({
+      title: 'Sales Associate - Part-time (20%)',
+      category: 'Commerciale',
+      canton: 'ZH',
+      contract: 'part-time',
+      employmentType: 'PART_TIME',
+    });
+
+    // 20% workload → roughly one fifth of the full-time estimate.
+    expect(partTime.job.salaryMin).toBe(Math.round((fullTime.job.salaryMin * 0.2) / 100) * 100);
+    expect(partTime.job.salaryMax).toBe(Math.round((fullTime.job.salaryMax * 0.2) / 100) * 100);
+    expect(partTime.job.salaryMax).toBeGreaterThan(partTime.job.salaryMin);
+    expect(partTime.job.baseSalary?.value?.minValue).toBe(partTime.job.salaryMin);
+  });
+
+  it('is idempotent: a scaled part-time salary is not reduced again', () => {
+    const first = ensureStructuredSalary({
+      title: 'Verkaufsmitarbeiter – Teilzeit (20 %)',
+      category: 'Commerciale',
+      canton: 'ZH',
+      contract: 'part-time',
+      employmentType: 'PART_TIME',
+    });
+    const second = ensureStructuredSalary(first.job);
+
+    expect(second.job.salaryMin).toBe(first.job.salaryMin);
+    expect(second.job.salaryMax).toBe(first.job.salaryMax);
+    expect(second.changed).toBe(false);
+  });
+
+  it('keeps a salary reported in the posting even for a part-time role', () => {
+    const result = ensureStructuredSalary({
+      title: 'Pflegefachperson Teilzeit (60%)',
+      category: 'health',
+      canton: 'TI',
+      contract: 'part-time',
+      employmentType: 'PART_TIME',
+      salaryMin: 33000,
+      salaryMax: 41000,
+      currency: 'CHF',
+    });
+
+    expect(result.job.salaryMin).toBe(33000);
+    expect(result.job.salaryMax).toBe(41000);
+  });
+
   it('reports how many jobs were hardened in a collection', () => {
     const hardened = hardenJobsWithStructuredSalary([
       {
