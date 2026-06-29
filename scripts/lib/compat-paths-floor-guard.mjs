@@ -1,6 +1,8 @@
 /**
- * Shared floor-guard for the `data/seo-404-compat-paths.json` accumulator
- * (the 404→301 redirect engine, ~300-650k path).
+ * Shared floor-guard for the `data/seo-404-compat` accumulator (the 404→301
+ * redirect engine, ~1M paths; sharded across part-*.json since issue #2988,
+ * formerly the single seo-404-compat-paths.json). Operates on path COUNTS, so
+ * it is storage-shape-agnostic — callers pass prev/next totals.
  *
  * Why this exists (2026-06-04, #404-truncation; #1353): the compat file is an
  * ACCUMULATOR written by MULTIPLE jobs:

@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { resolveCantonSection, resolveJobCanton, type CantonLocale } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { loadJobsJson } from './shared/loadJobsJson';
@@ -411,7 +412,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  count++;
  }
 
- const compatPathsPath = path.resolve(rootDir, 'data/seo-404-compat-paths.json');
+ // Sharded accumulator (issue #2988): read the union via the store helper.
  // Job URL patterns handled exclusively by jobsSeoPagesPlugin (active + bridge + soft-landing + self-healing).
  // Writing thin compat pages for job paths is harmful: if jobsSeoPagesPlugin's flush fails,
  // the thin compat page survives and Google indexes it instead of enriched content.
@@ -436,9 +437,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  })();
  const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
  let skippedJobPaths = 0;
- if (fs.existsSync(compatPathsPath)) {
- const compatPathsRaw = JSON.parse(fs.readFileSync(compatPathsPath, 'utf-8'));
- const compatPaths = Array.isArray(compatPathsRaw?.paths) ? compatPathsRaw.paths : [];
+ {
+ const compatPaths = readCompatPaths(rootDir).paths;
  for (const compatPathRaw of compatPaths) {
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
