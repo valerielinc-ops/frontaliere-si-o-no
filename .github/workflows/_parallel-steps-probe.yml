@@ -1,5 +1,5 @@
-# TEMPORARY probe: validate GitHub Actions step-level parallelism syntax.
-# Delete after confirming the new `background:`/`wait:`/`wait-all` keywords parse + run.
+# TEMPORARY probe: validate failure propagation of background/wait steps.
+# Delete after confirming a failing background step fails the job.
 name: _parallel-steps-probe
 
 on:
@@ -9,36 +9,26 @@ permissions:
   contents: read
 
 jobs:
-  probe:
+  probe-fail:
     runs-on: ubuntu-latest
     steps:
-      - name: Background A (sleep 8)
-        id: bgA
+      - name: Background OK
+        id: bgok
         background: true
         run: |
-          echo "A start $(date +%s)"
-          sleep 8
-          echo "A done $(date +%s)"
+          sleep 3
+          echo "ok done"
 
-      - name: Background B (sleep 8)
-        id: bgB
+      - name: Background FAIL
+        id: bgfail
         background: true
         run: |
-          echo "B start $(date +%s)"
-          sleep 8
-          echo "B done $(date +%s)"
+          sleep 2
+          echo "about to fail"
+          exit 1
 
-      - name: Foreground work while A,B run
-        run: echo "foreground while bg running $(date +%s)"
-
-      - name: Wait for A only
-        wait: bgA
-
-      - name: After A
-        run: echo "A finished, continuing $(date +%s)"
-
-      - name: Wait for everything
+      - name: Wait all (should surface failure)
         wait-all: true
 
-      - name: After all
-        run: echo "all background steps done $(date +%s)"
+      - name: Should NOT run if wait-all propagates failure
+        run: echo "REACHED_POST_WAIT_ALL"
