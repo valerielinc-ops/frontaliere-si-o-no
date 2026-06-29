@@ -2078,6 +2078,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-detrazioni-fiscali-italia-2026',
+    category: 'fiscale',
+    date: '2026-06-29T04:10:13.777Z',
+    image: '/images/blog/frontaliere-detrazioni-fiscali-italia-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

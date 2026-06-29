@@ -694,6 +694,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavorare-educatore-infanzia-ticino.title': 'Travailler comme éducateur d\'enfants au Tessin : exigences',
     'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Guide complet pour les éducateurs : diplôme SSS, salaires compris entre 73 000 et 97 000 CHF et procédures de reconnaissance des diplômes étrangers.',
     'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Crèche moderne au Tessin avec des espaces éducatifs lumineux',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Déductions fiscales pour frontaliers en Italie',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Les déductions fiscales pour les frontaliers en Italie sont régies par la loi italienne.',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Scène de Lugano avec un frontalier et des documents fiscaux',
 };
 
 export default blogMetaChFr;

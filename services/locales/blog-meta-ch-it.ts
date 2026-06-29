@@ -694,6 +694,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavorare-educatore-infanzia-ticino.title': 'Lavorare come educatore dell\'infanzia in Ticino: requisiti',
     'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Guida completa per educatori: diploma SSS, stipendi tra 73.000 e 97.000 CHF e procedure per il riconoscimento dei titoli esteri.',
     'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Asilo nido moderno in Ticino con spazi educativi luminosi',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Detrazioni fiscali per frontalieri in Italia: quali spese si possono scaricare',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Le detrazioni fiscali per i frontalieri in Italia sono disciplinate dalla legge italiana.',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Scena di Lugano con un frontaliere e documenti fiscali',
 };
 
 export default blogMetaChIt;

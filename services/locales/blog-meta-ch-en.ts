@@ -694,6 +694,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavorare-educatore-infanzia-ticino.title': 'Working as a child educator in Ticino: requirements',
     'blog.article.lavorare-educatore-infanzia-ticino.excerpt': 'Complete guide for educators: SSS diploma, salaries between 73,000 and 97,000 CHF and procedures for the recognition of foreign qualifications.',
     'blog.article.lavorare-educatore-infanzia-ticino.imageAlt': 'Modern kindergarten in Ticino with bright educational spaces',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Tax deductions for border workers in Italy: what expenses can be downloaded',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Tax deductions for frontier workers in Italy are governed by Italian law.',
+    'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Scene of Lugano with a frontierer and fiscal documents',
 };
 
 export default blogMetaChEn;

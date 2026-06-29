@@ -254,6 +254,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'educatore-infanzia-ticino-stipendio-2024': { it: 'educatore-infanzia-ticino-stipendio-2024', en: 'working-as-childhood-educator-ticino-salary-requirements', de: 'arbeit-als-kleinkinderzieher-tessin-gehalt-anforderungen', fr: 'travailler-educateur-enfance-tessin-salaire-exigences' },
  'educatore-infanzia-ticino-lavoro': { it: 'educatore-infanzia-ticino-lavoro', en: 'working-as-childcare-educator-ticino', de: 'als-kindererzieher-im-tessin-arbeiten', fr: 'travailler-comme-educateur-enfance-tessin' },
  'lavorare-educatore-infanzia-ticino': { it: 'lavorare-educatore-infanzia-ticino', en: 'working-as-childcare-educator-ticino', de: 'arbeiten-als-kindererzieher-tessin', fr: 'travailler-comme-educateur-enfance-tessin' },
+ 'frontaliere-detrazioni-fiscali-italia-2026': { it: 'frontaliere-detrazioni-fiscali-italia-2026', en: 'frontaliere-detrazioni-fiscali-italia-2026', de: 'frontaliere-detrazioni-fiscali-italia-2026', fr: 'frontaliere-detrazioni-fiscali-italia-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
