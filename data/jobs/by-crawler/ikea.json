@@ -1156,9 +1156,9 @@
     },
     {
       "id": "ikea-7a66eddf61cd",
-      "slug": "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
+      "slug": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
       "slugByLocale": {
-        "it": "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
+        "it": "collaborateur-trice-cuisine-ikea-40-ikea-ch",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "koch-kellnerin-ikea-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -1168,7 +1168,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "IKEA Cucina Collaboratore 40%",
+        "it": "Contributatore da cucina IKEA 40%",
         "en": "Collaborator: IKEA Cuisine 40%",
         "de": "Mitarbeiter: IKEA Cuisine 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -1204,11 +1204,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
-        "collaborateur-trice-cuisine-ikea-40-ikea-ch"
+        "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
+          "ikea-cucina-collaboratore-40-ikea-aubonne-vaud-switzerland",
           "collaborateur-trice-cuisine-ikea-40-ikea-ch"
         ]
       },
@@ -1835,7 +1836,7 @@
       "slugByLocale": {
         "it": "leader-dell-audit-interno-ikea-pratteln-bl-switzerland",
         "en": "internal-audit-leader-ikea-ch",
-        "de": "leiter-der-internen-revision-ikea-pratteln-bl-switzerland",
+        "de": "internal-audit-leader-ikea-ch",
         "fr": "chef-de-la-verification-interne-ikea-pratteln-bl-switzerland"
       },
       "company": "IKEA",
@@ -1878,13 +1879,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internal-audit-leader-ikea-ch"
+        "internal-audit-leader-ikea-ch",
+        "leiter-der-internen-revision-ikea-pratteln-bl-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "internal-audit-leader-ikea-ch"
         ],
         "de": [
+          "leiter-der-internen-revision-ikea-pratteln-bl-switzerland",
           "internal-audit-leader-ikea-ch"
         ],
         "fr": [
@@ -1989,7 +1992,7 @@
         "it": "soluzione-di-adempimento-unita-responsabile-100-ikea-itingen",
         "en": "unit-fulfilment-solution-responsible-100-ikea-ch",
         "de": "unit-fulfillment-losung-verantwortlich-100-ikea-itingen",
-        "fr": "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
+        "fr": "unit-fulfilment-solution-responsible-100-ikea-ch"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2031,7 +2034,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unit-fulfilment-solution-responsible-100-ikea-ch"
+        "unit-fulfilment-solution-responsible-100-ikea-ch",
+        "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2041,6 +2045,7 @@
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ],
         "fr": [
+          "solution-d-execution-de-l-unite-responsable-100-ikea-itingen-basel-landschaft-switzerland",
           "unit-fulfilment-solution-responsible-100-ikea-ch"
         ]
       },

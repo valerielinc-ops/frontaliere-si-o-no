@@ -775,7 +775,7 @@
       "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
-        "en": "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
+        "en": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
         "de": "klinikleiter-mit-oder-ohne-fachtitel-fellowship-in-der-padiatrischen-intensivmedizin-100-hug-geneve",
         "fr": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
       },
@@ -785,7 +785,7 @@
       "title": "Cheffe ou Chef de clinique avec ou sans titre de spécialité - Fellowship en médecine intensive pédiatrique - 100%",
       "titleByLocale": {
         "it": "Responsabile clinica con o senza titolo di specialità - Fellowship in medicina intensiva pediatrica - 100%",
-        "en": "Head of clinic with or without specialty title - Fellowship in paediatric intensive medicine - 100%",
+        "en": "Head of clinic with or without specialty title - Fellowship in intensive paediatric medicine - 100%",
         "de": "Klinikleiter mit oder ohne Fachtitel - Fellowship in der pädiatrischen Intensivmedizin - 100%",
         "fr": "Cheffe ou Chef de clinique avec ou sans titre de spécialité - Fellowship en médecine intensive pédiatrique - 100%"
       },
@@ -820,7 +820,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-        "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve"
+        "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
+        "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -828,7 +829,7 @@
         ],
         "en": [
           "head-of-clinic-with-or-without-specialty-title-fellowship-in-intensive-paediatric-medicine-100-hug-geneve",
-          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+          "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve"
         ],
         "de": [
           "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
@@ -3039,9 +3040,9 @@
     },
     {
       "id": "hug-87803c0ec6d6",
-      "slug": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
+      "slug": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
       "slugByLocale": {
-        "it": "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
+        "it": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
         "en": "educator-or-social-educator-in-psychiatry-80-hug-thonex",
         "de": "padagoge-oder-sozialpadagoge-in-der-psychiatrie-80-hug-thonex",
         "fr": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
@@ -3051,7 +3052,7 @@
       "companyDomain": "hug.ch",
       "title": "Educateur ou Educatrice sociale en psychiatrie - 80%",
       "titleByLocale": {
-        "it": "Educatore o Educatore Sociale in Psichiatria - 80%",
+        "it": "Educatore sociale in psichiatria - 80%",
         "en": "Educator or Social Educator in Psychiatry - 80%",
         "de": "Pädagoge oder Sozialpädagoge in der Psychiatrie - 80%",
         "fr": "Educateur ou Educatrice sociale en psychiatrie - 80%"
@@ -3087,14 +3088,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "educatore-sociale-in-psichiatria-80-hug-thonex",
-        "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
+        "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
         "social-educator-in-psychiatry-80-hug-thonex",
         "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
+          "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex"
         ],
         "en": [
           "social-educator-in-psychiatry-80-hug-thonex"
@@ -4464,8 +4465,8 @@
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
         "it": "capo-o-capogruppo-servizio-di-ritrattamento-dispositivi-medici-100-hug-vernier",
-        "en": "head-of-group-medical-devices-reprocessing-service-100-hug-vernier",
-        "de": "gruppenleiter-medical-devices-reprocessing-service-100-hug-vernier"
+        "en": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
+        "de": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4474,15 +4475,15 @@
       "titleByLocale": {
         "fr": "Chef ou Cheffe de groupe - service de retraitement des dispositifs médicaux - 100%",
         "it": "Capo o Capogruppo - servizio di ritrattamento dispositivi medici - 100%",
-        "en": "Head of group - medical devices reprocessing service - 100%",
-        "de": "Gruppenleiter - Medical Devices Reprocessing Service - 100%"
+        "en": "Group leader - medical devices reprocessing service - 100%",
+        "de": "Gruppenleiter - Wiederaufbereitungsservice für medizinische Geräte - 100%"
       },
       "description": "Sous la responsabilité du chef ou de la cheffe de production, vous faites partie d'une équipe de chefs et cheffes de groupe, se répartissant le management des 70 technologues en dispositifs médicaux du service dès leur prise de poste et au quotidien.\n Vous organisez et assurez les prestations de retraitement des dispositifs médicaux pour l’ensemble des services des HUG (Blocs opératoires, services de soins ou tout autre client interne) et des clients externes en vous appuyant sur votre attitude orientée service clients.\n Vous coordonnez la prise en charge des dispositifs médicaux selon les bonnes pratiques en stérilisation, les priorités et les urgences pour les blocs opératoires et l’ensemble de la clientèle.\n Vous savez analyser des situations, décider, travailler en autonomie et en équipe afin d'optimiser l’utilisation des moyens techniques par rapport aux priorités et aux besoins.\n Sensible à la présence de la patientèle et aux contraintes hospitalières, vous supervisez et faites respecter l’application des procédures et protocoles définis dans le système assurance qualité du service et l’ensemble des bonnes pratiques professionnelles.\n Votre sens de l'organisation et de la planification vous garantit la prise en charge des dispositifs médicaux selon les ressources et les besoins des différents secteurs tout en veillant à l'équilibre entre les besoins de production et le bien-être des collaborateurs et collaboratrices.\n De nature positive, optimiste et faisant preuve d'écoute, vous motivez et accompagnez vos collaboratrices et collaborateurs en développant l'esprit d'équipe. Vous entretenez un climat de partenariat afin de gérer de manière proactive des situations complexes impliquant plusieurs acteurs et actrices professionnelles.\n Vous faites preuve de rigueur et vous managez avec respect et reconnaissance tout en faisant preuve d'équité. Vous veillez à fournir des feedbacks réguliers pour développer les compétences de votre équipe.\n Vous actualisez les connaissances de vos collaborateurs et collaboratrices ainsi que les vôtres, relatives au retraitement des dispositifs médicaux, par le biais de formations continues et de congrès.",
       "descriptionByLocale": {
         "fr": "Sous la responsabilité du chef ou de la cheffe de production, vous faites partie d'une équipe de chefs et cheffes de groupe, se répartissant le management des 70 technologues en dispositifs médicaux du service dès leur prise de poste et au quotidien.\n Vous organisez et assurez les prestations de retraitement des dispositifs médicaux pour l’ensemble des services des HUG (Blocs opératoires, services de soins ou tout autre client interne) et des clients externes en vous appuyant sur votre attitude orientée service clients.\n Vous coordonnez la prise en charge des dispositifs médicaux selon les bonnes pratiques en stérilisation, les priorités et les urgences pour les blocs opératoires et l’ensemble de la clientèle.\n Vous savez analyser des situations, décider, travailler en autonomie et en équipe afin d'optimiser l’utilisation des moyens techniques par rapport aux priorités et aux besoins.\n Sensible à la présence de la patientèle et aux contraintes hospitalières, vous supervisez et faites respecter l’application des procédures et protocoles définis dans le système assurance qualité du service et l’ensemble des bonnes pratiques professionnelles.\n Votre sens de l'organisation et de la planification vous garantit la prise en charge des dispositifs médicaux selon les ressources et les besoins des différents secteurs tout en veillant à l'équilibre entre les besoins de production et le bien-être des collaborateurs et collaboratrices.\n De nature positive, optimiste et faisant preuve d'écoute, vous motivez et accompagnez vos collaboratrices et collaborateurs en développant l'esprit d'équipe. Vous entretenez un climat de partenariat afin de gérer de manière proactive des situations complexes impliquant plusieurs acteurs et actrices professionnelles.\n Vous faites preuve de rigueur et vous managez avec respect et reconnaissance tout en faisant preuve d'équité. Vous veillez à fournir des feedbacks réguliers pour développer les compétences de votre équipe.\n Vous actualisez les connaissances de vos collaborateurs et collaboratrices ainsi que les vôtres, relatives au retraitement des dispositifs médicaux, par le biais de formations continues et de congrès.",
-        "it": "Sotto la responsabilità del capo della produzione, fai parte di un team di leader di gruppo, condividendo la gestione dei 70 tecnologi di dispositivi medici nel dipartimento non appena assumono le loro posizioni e su base giornaliera.\n L'utente organizza e garantisce il rielaborazione di dispositivi medici per tutti i servizi del HUG (blocchi operativi, servizi di assistenza o qualsiasi altro cliente interno) e clienti esterni in base al proprio atteggiamento orientato al cliente.\n Coordinate la gestione dei dispositivi medici secondo buone pratiche di sterilizzazione, priorità e emergenze per le unità operative e tutti i clienti.\n Sai come analizzare situazioni, decidere, lavorare in autonomia e team per ottimizzare l'uso di mezzi tecnici in relazione alle priorità e alle esigenze.\n Sensibile alla presenza del paziente e ai vincoli ospedalieri, si controlla e applica le procedure e i protocolli definiti nel sistema di garanzia della qualità del servizio e tutte le buone pratiche professionali.\n Il vostro senso di organizzazione e pianificazione assicura che si prende cura di dispositivi medici in base alle risorse e alle esigenze dei vari settori, garantendo al tempo stesso l'equilibrio tra le esigenze di produzione e il benessere dei dipendenti.\n Di una natura positiva, ottimistica e di ascolto, motivate e accompagnate i vostri collaboratori sviluppando lo spirito di squadra. Si mantiene un clima di partnership per gestire attivamente situazioni complesse che coinvolgono diversi attori e attrici professionali.\n Sei rigoroso e gestisci con rispetto e gratitudine mentre sei giusto. Assicurarsi di fornire feedback regolari per sviluppare le competenze del vostro team.\n Aggiornate la conoscenza dei vostri collaboratori e dei vostri colleghi circa la rielaborazione dei dispositivi medici attraverso la formazione e i congressi in corso.",
-        "en": "Under the responsibility of the chief of production, you are part of a team of group leaders, sharing the management of the 70 medical devices technologists in the department as soon as they take up their positions and on a daily basis.\n You arrange and ensure the reprocessing of medical devices for all services of the HUG (Operational Blocks, Care Services or any other in-house client) and external clients based on your customer-oriented attitude.\n You coordinate the management of medical devices according to good sterilization practices, priorities and emergencies for operating units and all clients.\n You know how to analyze situations, decide, work in autonomy and team to optimize the use of technical means in relation to priorities and needs.\n Sensitive to the patient's presence and hospital constraints, you supervise and enforce the procedures and protocols defined in the service quality assurance system and all good professional practices.\n Your sense of organization and planning ensures that you take care of medical devices according to the resources and needs of the various sectors while ensuring the balance between the production needs and the well-being of employees.\n Of a positive, optimistic and listening nature, you motivate and accompany your collaborators by developing team spirit. You maintain a climate of partnership to proactively manage complex situations involving several professional actors and actresses.\n You are rigorous and you manage with respect and gratitude while being fair. You ensure that you provide regular feedback to develop your team's skills.\n You update the knowledge of your collaborators and your colleagues about the reprocessing of medical devices through ongoing training and congresses.",
-        "de": "Unter der Verantwortung des Produktionsleiters sind Sie Teil eines Teams von Gruppenleitern, die das Management der 70 Medizinproduktetechnologen in der Abteilung teilen, sobald sie ihre Positionen einnehmen und täglich.\n Sie arrangieren und gewährleisten die Wiederaufbereitung von medizinischen Geräten für alle Dienstleistungen der HUG (Operational Blocks, Care Services oder andere interne Kunden) und externe Kunden basierend auf Ihrer kundenorientierten Einstellung.\n Sie koordinieren das Management von Medizinprodukten nach guten Sterilisationspraktiken, Prioritäten und Notfällen für operative Einheiten und alle Kunden.\n Sie wissen, wie Sie Situationen analysieren, entscheiden, autonom arbeiten und den Einsatz technischer Mittel in Bezug auf Prioritäten und Bedürfnisse optimieren.\n Sensibel für die Anwesenheit des Patienten und Krankenhaus Zwänge, überwachen und erzwingen Sie die Verfahren und Protokolle im Service-Qualitätssicherungssystem und alle guten beruflichen Praktiken definiert.\n Ihr Organisations- und Planungssinn stellt sicher, dass Sie sich entsprechend den Ressourcen und Bedürfnissen der verschiedenen Sektoren um Medizinprodukte kümmern und gleichzeitig das Gleichgewicht zwischen den Produktionsbedürfnissen und dem Wohlbefinden der Mitarbeiter sicherstellen.\n Positiv, optimistisch und zuhörend motivieren und begleiten Sie Ihre Mitarbeiter durch die Entwicklung von Teamgeist. Sie pflegen ein partnerschaftliches Klima, um komplexe Situationen mit mehreren professionellen Schauspielern und Schauspielerinnen proaktiv zu bewältigen.\n Sie sind streng und Sie verwalten mit Respekt und Dankbarkeit, während Sie fair sind. Sie stellen sicher, dass Sie regelmäßig Feedback geben, um die Fähigkeiten Ihres Teams zu entwickeln.\n Sie aktualisieren das Wissen Ihrer Mitarbeiter und Kollegen über die Wiederaufbereitung von Medizinprodukten durch laufende Schulungen und Kongresse."
+        "it": "Sotto la responsabilità del leader di produzione, fai parte di un team di leader di gruppo, condividendo la gestione dei 70 tecnologi di dispositivi medici nel dipartimento non appena assumono le loro posizioni e su base giornaliera.\n L'utente organizza e garantisce il rielaborazione di dispositivi medici per tutti i servizi del HUG (blocchi operativi, servizi di assistenza o qualsiasi altro cliente interno) e clienti esterni in base al proprio atteggiamento orientato al cliente.\n Coordinate la gestione dei dispositivi medici secondo buone pratiche di sterilizzazione, priorità e emergenze per le unità operative e tutti i clienti.\n È possibile analizzare situazioni, decidere, lavorare in autonomia e team per ottimizzare l'uso di mezzi tecnici in relazione alle priorità e alle esigenze.\n Sensibile alla presenza del paziente e ai vincoli ospedalieri, si supervisiona ed esecutiva l'applicazione delle procedure e dei protocolli definiti nel sistema di garanzia della qualità del servizio e tutte le buone pratiche professionali.\n Il vostro senso di organizzazione e pianificazione assicura che si prende cura di dispositivi medici in base alle risorse e alle esigenze dei vari settori, garantendo l'equilibrio tra le esigenze di produzione e il benessere dei dipendenti.\n Di natura positiva, ottimistica e di ascolto, motivate e accompagnate i vostri dipendenti sviluppando lo spirito di squadra. Si mantiene un clima di partnership per gestire attivamente situazioni complesse che coinvolgono diversi attori e attrici professionali.\n Sei rigoroso e gestisci con rispetto e gratitudine mentre sei giusto. Garantisci un feedback regolare per sviluppare le competenze del tuo team.\n Si aggiorna la conoscenza dei dipendenti del ritrattamento dei dispositivi medici attraverso la formazione continua e congressi.",
+        "en": "Under the responsibility of the production leader, you are part of a team of group leaders, sharing the management of the 70 medical devices technologists in the department as soon as they take up their positions and on a daily basis.\n You arrange and ensure the reprocessing of medical devices for all the services of the HUG (Operational Blocks, Care Services or any other in-house client) and external clients based on your customer-oriented attitude.\n You coordinate the management of medical devices according to good sterilization practices, priorities and emergencies for operating units and all clients.\n You can analyse situations, decide, work in autonomy and team to optimize the use of technical means in relation to priorities and needs.\n Sensitive to the patient's presence and hospital constraints, you supervise and enforce the application of the procedures and protocols defined in the service quality assurance system and all good professional practices.\n Your sense of organization and planning ensures that you take care of medical devices according to the resources and needs of the various sectors while ensuring the balance between the production needs and the well-being of employees.\n Of a positive, optimistic and listening nature, you motivate and accompany your employees by developing team spirit. You maintain a climate of partnership to proactively manage complex situations involving several professional actors and actresses.\n You are rigorous and you manage with respect and gratitude while being fair. You ensure regular feedback to develop your team's skills.\n You update your employees' knowledge of the reprocessing of medical devices through ongoing training and congresses.",
+        "de": "Unter der Verantwortung des Produktionsleiters sind Sie Teil eines Teams von Gruppenleitern, die sich das Management der 70 Medizinproduktetechnologen in der Abteilung teilen, sobald sie ihre Positionen einnehmen und täglich.\n Sie arrangieren und gewährleisten die Wiederaufbereitung von medizinischen Geräten für alle Dienstleistungen der HUG (Operational Blocks, Care Services oder andere interne Kunden) und externe Kunden basierend auf Ihrer kundenorientierten Einstellung.\n Sie koordinieren das Management von Medizinprodukten nach guten Sterilisationspraktiken, Prioritäten und Notfällen für operative Einheiten und alle Kunden.\n Sie können Situationen analysieren, entscheiden, autonom arbeiten und den Einsatz technischer Mittel in Bezug auf Prioritäten und Bedürfnisse optimieren.\n Sensibel für die Anwesenheit des Patienten und Krankenhaus Zwänge, überwachen und erzwingen Sie die Anwendung der Verfahren und Protokolle im Service-Qualitätssicherungssystem und alle guten beruflichen Praktiken definiert.\n Ihr Organisations- und Planungssinn stellt sicher, dass Sie sich entsprechend den Ressourcen und Bedürfnissen der verschiedenen Sektoren um Medizinprodukte kümmern und gleichzeitig das Gleichgewicht zwischen den Produktionsbedürfnissen und dem Wohlbefinden der Mitarbeiter gewährleisten.\n Positiv, optimistisch und zuhörend motivieren und begleiten Sie Ihre Mitarbeiter durch die Entwicklung von Teamgeist. Sie pflegen ein partnerschaftliches Klima, um komplexe Situationen mit mehreren professionellen Schauspielern und Schauspielerinnen proaktiv zu bewältigen.\n Sie sind streng und Sie verwalten mit Respekt und Dankbarkeit, während Sie fair sind. Sie sorgen für regelmäßiges Feedback, um die Fähigkeiten Ihres Teams zu entwickeln.\n Sie aktualisieren das Wissen Ihrer Mitarbeiter über die Wiederaufbereitung von Medizinprodukten durch laufende Schulungen und Kongresse."
       },
       "location": "Vernier",
       "canton": "GE",
@@ -4525,12 +4526,6 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
-        ],
-        "en": [
-          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
-        ],
-        "de": [
-          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
         ]
       },
       "previousSlugs": [
@@ -4543,8 +4538,8 @@
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
         "it": "capo-o-capoclinica-in-radiologia-con-titolo-di-specializzazione-o-medico-aggiunto-a-50-hug-geneve",
-        "en": "head-of-x-ray-clinic-with-specialty-or-assistant-physician-50-hug-geneve",
-        "de": "leiter-der-rontgenklinik-mit-facharzt-oder-assistenzarzt-50-hug-geneve"
+        "en": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
+        "de": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4553,15 +4548,15 @@
       "titleByLocale": {
         "fr": "Chef ou Cheffe de clinique en radiologie avec titre de spécialité ou Médecin adjoint ou adjointe - 50%",
         "it": "Capo o Capoclinica in Radiologia con titolo di specializzazione o Medico aggiunto/a - 50%",
-        "en": "Head of X-ray Clinic with Specialty or Assistant Physician - 50%",
-        "de": "Leiter der Röntgenklinik mit Facharzt oder Assistenzarzt - 50%"
+        "en": "Head of X-ray Clinic with Specialty Title or Assistant or Assistant Physician - 50%",
+        "de": "Leiter der Röntgenklinik mit Spezialtitel oder Assistent oder Assistenzarzt - 50%"
       },
       "description": "Vous coordonnez et développez les activités diagnostiques médico-légales post-mortem et cliniques (CT-scanner, IRM, RX). Vous assurez également une bonne interface avec les autres unités et secteurs du CURML ainsi qu'avec les techniciens et techniciennes en radiologie médicale. Vous réalisez également des expertises sur mandat du Ministère public. Vous participez aux auditions en qualité d’expert devant le Ministère public et/ou le Tribunal. Vous êtes aussi capable d’illustrer des rapports radiologiques par des supports PowerPoint. Vous participez également activement à l’activité de recherche au sein du CURML.",
       "descriptionByLocale": {
         "fr": "Vous coordonnez et développez les activités diagnostiques médico-légales post-mortem et cliniques (CT-scanner, IRM, RX). Vous assurez également une bonne interface avec les autres unités et secteurs du CURML ainsi qu'avec les techniciens et techniciennes en radiologie médicale. Vous réalisez également des expertises sur mandat du Ministère public. Vous participez aux auditions en qualité d’expert devant le Ministère public et/ou le Tribunal. Vous êtes aussi capable d’illustrer des rapports radiologiques par des supports PowerPoint. Vous participez également activement à l’activité de recherche au sein du CURML.",
-        "it": "Coordinate e sviluppate attività diagnostiche postmortem e cliniche (CT-scanner, MRI, RX). Assicura anche una buona interfaccia con altre unità e settori del CURML e con tecnici e tecnici di radiologia medica. Effettuate anche valutazioni di esperti per conto dell'Ufficio del Pubblico Procuratore. Partecipa alle audizioni come esperto presso l'Ufficio del Pubblico Procuratore e/o il Tribunale. Siete anche in grado di illustrare i rapporti radiologici con i media di PowerPoint. Sei anche attivamente coinvolto nell'attività di ricerca all'interno di CURML.",
-        "en": "You coordinate and develop postmortem and clinical forensic diagnostic activities (CT-scanner, MRI, RX). You also ensure a good interface with other units and sectors of the CURML as well as with medical radiology technicians and technicians. You also carry out expert assessments on behalf of the Public Prosecutor's Office. You participate in the hearings as an expert before the Public Prosecutor's Office and/or the Tribunal. You are also able to illustrate radiological reports with PowerPoint media. You are also actively involved in the research activity within CURML.",
-        "de": "Sie koordinieren und entwickeln postmortale und klinische forensische diagnostische Aktivitäten (CT-Scanner, MRT, RX). Sie sorgen auch für eine gute Schnittstelle zu anderen Einheiten und Sektoren der CURML sowie zu Technikern der medizinischen Radiologie und Technikern. Sie führen auch Gutachten im Auftrag der Staatsanwaltschaft durch. Sie nehmen an den Anhörungen als Sachverständiger vor der Staatsanwaltschaft und/oder dem Gericht teil. Sie können auch radiologische Berichte mit PowerPoint-Medien illustrieren. Sie sind auch aktiv an der Forschungstätigkeit innerhalb von CURML beteiligt."
+        "it": "Coordinate e sviluppate attività diagnostiche postmortem e cliniche (CT-scanner, MRI, RX). Assicura anche una buona interfaccia con altre unità e settori di CURML e con tecnici di radiologia medica. Effettuate anche competenze sul mandato dell'Ufficio Pubblico Procuratore. Partecipa alle audizioni come esperto presso l'Ufficio del Pubblico Procuratore e/o il Tribunale. Siete anche in grado di illustrare i rapporti radiologici con i media di PowerPoint. Sei anche attivamente coinvolto nell'attività di ricerca all'interno di CURML.",
+        "en": "You coordinate and develop postmortem and clinical forensic diagnostic activities (CT-scanner, MRI, RX). You also ensure a good interface with other units and sectors of CURML as well as with medical radiology technicians. You also carry out expertise on the mandate of the Public Prosecutor's Office. You participate in the hearings as an expert before the Public Prosecutor's Office and/or the Tribunal. You are also able to illustrate radiological reports with PowerPoint media. You are also actively involved in the research activity within CURML.",
+        "de": "Sie koordinieren und entwickeln postmortale und klinische forensische diagnostische Aktivitäten (CT-Scanner, MRT, RX). Sie sorgen auch für eine gute Schnittstelle zu anderen Einheiten und Sektoren von CURML sowie zu Technikern der medizinischen Radiologie. Sie führen auch Expertise zum Mandat der Staatsanwaltschaft durch. Sie nehmen an den Anhörungen als Sachverständiger vor der Staatsanwaltschaft und/oder dem Gericht teil. Sie können auch radiologische Berichte mit PowerPoint-Medien illustrieren. Sie sind auch aktiv an der Forschungstätigkeit innerhalb von CURML beteiligt."
       },
       "location": "Genève",
       "canton": "GE",
@@ -4591,12 +4586,6 @@
         "it": [
           "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou",
           "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou-adjointe-50-hug-geneve"
-        ],
-        "en": [
-          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
-        ],
-        "de": [
-          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-ou-medecin-adjoint-ou"
         ]
       },
       "previousSlugs": [
@@ -4625,7 +4614,7 @@
         "fr": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
         "it": "agenti-o-agenti-pulizia-igiene-100-hug-geneve",
         "en": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
-        "de": "hygienemittel-100-hug-geneve"
+        "de": "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4634,15 +4623,15 @@
       "titleByLocale": {
         "fr": "Agents ou Agentes propreté hygiène - 100%",
         "it": "Agenti o Agenti pulizia igiene - 100%",
-        "en": "Hygiene agents - 100%",
-        "de": "Hygienemittel - 100%"
+        "en": "Hygiene cleanliness agents - 100%",
+        "de": "Hygiene Sauberkeitsmittel - 100%"
       },
       "description": "Dans le cadre de vos activités, vous assurez le nettoyage, le bio-nettoyage, l’entretien général et spécifique et la désinfection dans l’ensemble des bâtiments hospitaliers définis dans les cahiers de tâches.\n\nVous assurez le nettoyage, le bio-nettoyage et la désinfection du mobilier et des lits.\n\nVous êtes une personne polyvalente au niveau des sites et des horaires, mais aussi des connaissances métiers (entretiens, à fonds) afin de palier à des demandes urgentes et/ou d’éventuels remplacements.\n\nVous respectez les directives du service prévention et contrôle de l’infection.",
       "descriptionByLocale": {
         "fr": "Dans le cadre de vos activités, vous assurez le nettoyage, le bio-nettoyage, l’entretien général et spécifique et la désinfection dans l’ensemble des bâtiments hospitaliers définis dans les cahiers de tâches.\n\nVous assurez le nettoyage, le bio-nettoyage et la désinfection du mobilier et des lits.\n\nVous êtes une personne polyvalente au niveau des sites et des horaires, mais aussi des connaissances métiers (entretiens, à fonds) afin de palier à des demandes urgentes et/ou d’éventuels remplacements.\n\nVous respectez les directives du service prévention et contrôle de l’infection.",
-        "it": "Nell'ambito delle vostre attività, assicurate la pulizia, la bio-pulizia, la manutenzione generale e specifica e la disinfezione in tutti gli edifici ospedalieri definiti nelle cartelle di lavoro.\n\nAssicurate la pulizia, la biopulizia e la disinfezione di mobili e letti.\n\nSei una persona versatile in termini di luoghi e orari, ma anche conoscenza professionale (interviste, fondi) al fine di affrontare urgenti e/o possibili richieste di sostituzione.\n\nSegui le istruzioni del reparto prevenzione e controllo delle infezioni.",
-        "en": "As part of your activities, you ensure cleaning, bio-cleaning, general and specific maintenance and disinfection in all the hospital buildings defined in the workbooks.\n\nYou ensure cleaning, bio-cleaning and disinfection of furniture and beds.\n\nYou are a versatile person in terms of locations and schedules, but also professional knowledge (interviews, fund) in order to deal with urgent and/or possible replacement requests.\n\nYou follow the instructions of the infection prevention and control department.",
-        "de": "Im Rahmen Ihrer Aktivitäten stellen Sie die Reinigung, Bioreinigung, allgemeine und spezifische Wartung und Desinfektion in allen in den Arbeitsmappen definierten Krankenhausgebäuden sicher.\n\nSie sorgen für die Reinigung, Bioreinigung und Desinfektion von Möbeln und Betten.\n\nSie sind eine vielseitige Person in Bezug auf Standorte und Zeitpläne, aber auch Fachwissen (Interviews, Fonds), um dringende und / oder mögliche Ersatzanfragen zu bearbeiten.\n\nSie folgen den Anweisungen der Abteilung für Infektionsprävention und -kontrolle."
+        "it": "Nell'ambito delle vostre attività, assicurate la pulizia, la bio-pulizia, la manutenzione generale e specifica e la disinfezione in tutti gli edifici ospedalieri definiti nelle cartelle di lavoro.\n\nAssicurate la pulizia, la bio-pulizia e la disinfezione di mobili e letti.\n\nSei una persona versatile in termini di luoghi e orari, ma anche conoscenze professionali (interviste, fondi) per affrontare richieste urgenti e/o di sostituzione possibili.\n\nSegui le istruzioni del reparto prevenzione e controllo delle infezioni.",
+        "en": "As part of your activities, you ensure the cleaning, bio-cleaning, general and specific maintenance and disinfection in all hospital buildings defined in the workbooks.\n\nYou ensure cleaning, bio-cleaning and disinfection of furniture and beds.\n\nYou are a versatile person in terms of locations and schedules, but also professional knowledge (interviews, fund) to deal with urgent and/or possible replacement requests.\n\nYou follow the instructions of the infection prevention and control department.",
+        "de": "Im Rahmen Ihrer Tätigkeiten stellen Sie die Reinigung, Bioreinigung, allgemeine und spezifische Wartung und Desinfektion in allen in den Arbeitsmappen definierten Krankenhausgebäuden sicher.\n\nSie sorgen für die Reinigung, Bioreinigung und Desinfektion von Möbeln und Betten.\n\nSie sind eine vielseitige Person in Bezug auf Standorte und Zeitpläne, aber auch Fachwissen (Interviews, Fonds), um dringende und / oder mögliche Ersatzanfragen zu bearbeiten.\n\nSie folgen den Anweisungen der Abteilung für Infektionsprävention und -kontrolle."
       },
       "location": "Genève",
       "canton": "GE",
@@ -4685,9 +4674,6 @@
       "previousSlugsByLocale": {
         "it": [
           "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
-        ],
-        "de": [
-          "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
         ]
       },
       "previousSlugs": [
@@ -4696,11 +4682,11 @@
     },
     {
       "id": "hug-f1c98584ae88",
-      "slug": "assistente-assistente-di-gestione-60-hug-geneve",
+      "slug": "assistant-ou-assistante-de-gestion-60-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-gestion-60-hug-geneve",
-        "it": "assistente-assistente-di-gestione-60-hug-geneve",
-        "en": "assistant-management-assistant-60-hug-geneve",
+        "it": "assistant-ou-assistante-de-gestion-60-hug-geneve",
+        "en": "assistant-ou-assistante-de-gestion-60-hug-geneve",
         "de": "assistant-ou-assistante-de-gestion-60-hug-geneve"
       },
       "company": "HUG",
@@ -4709,16 +4695,16 @@
       "title": "Assistant ou Assistante de gestion - 60%",
       "titleByLocale": {
         "fr": "Assistant ou Assistante de gestion - 60%",
-        "it": "Assistente/Assistente di gestione - 60%",
-        "en": "Assistant/Management Assistant - 60%",
+        "it": "Assistente di Gestione - 60%",
+        "en": "Management Assistant - 60%",
         "de": "Assistent ou Assistante de gestion - 60%"
       },
       "description": "Vous êtes rattaché ou rattachée à la responsable administrative et financière du département de réadaptation et gériatrie, vous contribuez à la bonne gestion administrative, financière et logistique du département.\n Vous traitez et assurez le suivi de la documentation du département, en toute autonomie, notamment des conventions internes et externes. Vous évaluez les besoins, analysez les demandes, recueillez les informations nécessaires et prenez les mesures appropriées pour le traitement et le suivi des dossiers. Vous gérez la mise à jour des outils de gestion sur Excel, assurez le suivi des requêtes de facturation et de paiement, ainsi que le contrôle et la gestion des factures, des notes de frais et des demandes de formation. Vous veillez à la conformité des factures et apportez votre soutien à la gestion des fonds hors exploitation.\n Vous prenez des décisions dans les affaires courantes en vertu d’une délégation de pouvoir confiée par la hiérarchie, dans le respect des budgets et des directives en vigueur. Vous signalez à votre hiérarchie les situations complexes ou particulières et formulez des propositions de solutions adaptées.\n Vous êtes en charge des tâches administratives inhérentes à l’organisation du service. Vous assistez la responsable administrative et financière ainsi que son équipe dans la réalisation de leurs missions et dans la gestion des projets du département. Vous participez activement aux séances de l’administration.",
       "descriptionByLocale": {
         "fr": "Vous êtes rattaché ou rattachée à la responsable administrative et financière du département de réadaptation et gériatrie, vous contribuez à la bonne gestion administrative, financière et logistique du département.\n Vous traitez et assurez le suivi de la documentation du département, en toute autonomie, notamment des conventions internes et externes. Vous évaluez les besoins, analysez les demandes, recueillez les informations nécessaires et prenez les mesures appropriées pour le traitement et le suivi des dossiers. Vous gérez la mise à jour des outils de gestion sur Excel, assurez le suivi des requêtes de facturation et de paiement, ainsi que le contrôle et la gestion des factures, des notes de frais et des demandes de formation. Vous veillez à la conformité des factures et apportez votre soutien à la gestion des fonds hors exploitation.\n Vous prenez des décisions dans les affaires courantes en vertu d’une délégation de pouvoir confiée par la hiérarchie, dans le respect des budgets et des directives en vigueur. Vous signalez à votre hiérarchie les situations complexes ou particulières et formulez des propositions de solutions adaptées.\n Vous êtes en charge des tâches administratives inhérentes à l’organisation du service. Vous assistez la responsable administrative et financière ainsi que son équipe dans la réalisation de leurs missions et dans la gestion des projets du département. Vous participez activement aux séances de l’administration.",
-        "it": "Sei attaccato o attaccato al gestore amministrativo e finanziario del dipartimento di riabilitazione e geriatria, contribuisci alla buona gestione amministrativa, finanziaria e logistica del dipartimento.\n Elabori e monitori la documentazione del dipartimento in modo indipendente, comprese le convenzioni interne ed esterne. Valutare le esigenze, analizzare le richieste, raccogliere le informazioni necessarie, e prendere un'azione appropriata per elaborare e monitorare i file. Gestisci la manutenzione degli strumenti di gestione su Excel, monitora le richieste di fatturazione e pagamento e monitora e gestisci fatture, note a pagamento e richieste di formazione. Controllare la conformità delle fatture e sostenere la gestione dei fondi non operativi.\n Prendere decisioni in affari di giorno per giorno da delegazione di autorità dalla gerarchia, in conformità con i bilanci e le direttive in vigore. Fai rapporto alla tua gerarchia situazioni complesse o particolari e formula proposte per soluzioni adeguate.\n Lei è responsabile dei compiti amministrativi inerenti all'organizzazione del servizio. Lei assiste il direttore amministrativo e finanziario e il suo team nella realizzazione dei loro compiti e nella gestione dei progetti del dipartimento. Stai partecipando attivamente alle sessioni di amministrazione.",
-        "en": "You are attached or attached to the administrative and financial manager of the department of rehabilitation and geriatrics, you contribute to the good administrative, financial and logistical management of the department.\n You process and monitor the department's documentation independently, including internal and external conventions. You assess needs, analyze requests, gather the necessary information, and take appropriate action to process and track files. You manage the maintenance of management tools on Excel, monitor billing and payment requests, and monitor and manage invoices, fee notes, and training requests. You monitor the compliance of invoices and support the management of non-operational funds.\n You make decisions in day-to-day business by delegation of authority from the hierarchy, in accordance with the budgets and directives in force. You report to your hierarchy complex or particular situations and formulate proposals for suitable solutions.\n You are in charge of the administrative tasks inherent in the organization of the service. You assist the administrative and financial manager and his team in carrying out their tasks and in managing the projects of the department. You are actively participating in the administration sessions.",
-        "de": "Sie sind dem Verwaltungs- und Finanzmanager der Abteilung für Rehabilitation und Geriatrie angeschlossen oder angeschlossen, Sie tragen zur guten administrativen, finanziellen und logistischen Verwaltung der Abteilung bei.\n Sie verarbeiten und überwachen die Dokumentation der Abteilung unabhängig, einschließlich interner und externer Konventionen. Sie bewerten Bedürfnisse, analysieren Anfragen, sammeln die notwendigen Informationen und ergreifen geeignete Maßnahmen, um Dateien zu verarbeiten und zu verfolgen. Sie verwalten die Wartung von Management-Tools in Excel, überwachen Abrechnungs- und Zahlungsanforderungen und überwachen und verwalten Rechnungen, Gebühren und Schulungsanforderungen. Sie überwachen die Einhaltung der Rechnungen und unterstützen die Verwaltung von nicht operativen Fonds.\n Sie treffen Entscheidungen im Tagesgeschäft durch Delegierung von Befugnissen aus der Hierarchie gemäß den geltenden Budgets und Richtlinien. Sie berichten Ihrem Hierarchiekomplex oder bestimmten Situationen und formulieren Vorschläge für geeignete Lösungen.\n Sie sind für die administrativen Aufgaben verantwortlich, die mit der Organisation des Dienstes verbunden sind. Sie unterstützen den Verwaltungs- und Finanzmanager und sein Team bei der Erfüllung ihrer Aufgaben und bei der Verwaltung der Projekte der Abteilung. Sie nehmen aktiv an den Verwaltungssitzungen teil."
+        "it": "Lei è attaccato o attaccato al direttore amministrativo e finanziario del reparto riabilitazione e geriatrica, contribuisce alla buona gestione amministrativa, finanziaria e logistica del dipartimento.\n Elabori e monitori la documentazione del dipartimento in modo indipendente, compresi gli accordi interni ed esterni. Valutare le esigenze, analizzare le applicazioni, raccogliere le informazioni necessarie e intraprendere azioni appropriate per elaborare e monitorare i file. Gestisci la manutenzione degli strumenti di gestione su Excel, monitora le richieste di fatturazione e pagamento e monitora e gestisci fatture, note a pagamento e richieste di formazione. Controllare la conformità delle fatture e sostenere la gestione dei fondi non operativi.\n Prendere decisioni in affari di giorno per giorno sotto una delegazione di autorità dalla gerarchia, in conformità con i bilanci e le direttive in vigore. Si segnalano situazioni complesse o particolari alla propria gerarchia e si fanno proposte per soluzioni adeguate.\n Lei è responsabile dei compiti amministrativi inerenti all'organizzazione del servizio. Lei assiste il direttore amministrativo e finanziario e il suo team nello svolgimento delle loro missioni e nella gestione dei progetti del dipartimento. Stai partecipando attivamente alle sessioni amministrative.",
+        "en": "You are attached or attached to the administrative and financial manager of the rehabilitation and geriatric department, you contribute to the good administrative, financial and logistical management of the department.\n You process and monitor the department's documentation independently, including internal and external agreements. You assess needs, analyze applications, collect the necessary information, and take appropriate action to process and track files. You manage the maintenance of management tools on Excel, monitor billing and payment requests, and monitor and manage invoices, fee notes and training requests. You monitor the compliance of invoices and support the management of non-operational funds.\n You make decisions in day-to-day business under a delegation of authority from the hierarchy, in accordance with the budgets and directives in force. You report complex or particular situations to your hierarchy and make proposals for suitable solutions.\n You are in charge of the administrative tasks inherent in the organization of the service. You assist the administrative and financial manager and his team in carrying out their missions and in managing the projects of the department. You are actively participating in administrative sessions.",
+        "de": "Sie sind dem Verwaltungs- und Finanzmanager der Rehabilitations- und Geriatrieabteilung angeschlossen oder angeschlossen, Sie tragen zur guten administrativen, finanziellen und logistischen Verwaltung der Abteilung bei.\n Sie verarbeiten und überwachen die Dokumentation der Abteilung unabhängig, einschließlich interner und externer Vereinbarungen. Sie bewerten Bedürfnisse, analysieren Anwendungen, sammeln die notwendigen Informationen und ergreifen geeignete Maßnahmen, um Dateien zu verarbeiten und zu verfolgen. Sie verwalten die Wartung von Management-Tools in Excel, überwachen Abrechnungs- und Zahlungsanforderungen und überwachen und verwalten Rechnungen, Gebühren und Schulungsanforderungen. Sie überwachen die Einhaltung der Rechnungen und unterstützen die Verwaltung von nicht operativen Fonds.\n Sie treffen Entscheidungen im Tagesgeschäft unter einer Befugnisdelegation aus der Hierarchie gemäß den geltenden Budgets und Richtlinien. Sie melden komplexe oder besondere Situationen Ihrer Hierarchie und machen Vorschläge für geeignete Lösungen.\n Sie sind für die administrativen Aufgaben verantwortlich, die mit der Organisation des Dienstes verbunden sind. Sie unterstützen den Verwaltungs- und Finanzmanager und sein Team bei der Durchführung ihrer Missionen und bei der Verwaltung der Projekte der Abteilung. Sie nehmen aktiv an Verwaltungssitzungen teil."
       },
       "location": "Genève",
       "canton": "GE",
@@ -4757,21 +4743,7 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T13:36:34.971Z",
-      "previousSlugs": [
-        "assistant-ou-assistante-de-gestion-60-hug-geneve",
-        "assistent-ou-assistante-de-gestion-60-hug-geneve",
-        "assistente-di-gestione-60-hug-geneve",
-        "management-assistant-60-hug-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-ou-assistante-de-gestion-60-hug-geneve"
-        ],
-        "en": [
-          "assistant-ou-assistante-de-gestion-60-hug-geneve"
-        ]
-      }
+      "firstSeenAt": "2026-06-29T13:36:34.971Z"
     },
     {
       "id": "hug-c6d6a05885d6",
@@ -4779,8 +4751,8 @@
       "slugByLocale": {
         "fr": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
         "it": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
-        "en": "box-manager-palliative-and-support-care-centre-80-hug-geneve",
-        "de": "box-manager-palliative-und-support-care-center-80-hug-geneve"
+        "en": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
+        "de": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4788,16 +4760,16 @@
       "title": "Case manager - Centre de soins palliatifs et soins de support - 80%",
       "titleByLocale": {
         "fr": "Case manager - Centre de soins palliatifs et soins de support - 80%",
-        "en": "Box manager - Palliative and Support Care Centre - 80%",
+        "en": "Case manager - Palliative and Support Care Centre - 80%",
         "it": "Case manager - Centro di cure palliative e cure di supporto - 80%",
-        "de": "Box Manager - Palliative und Support Care Center - 80%"
+        "de": "Case Manager - Palliative und Support Care Center - 80%"
       },
       "description": "• Rattaché ou rattachée à la cheffe de service de soins palliatifs, vous supervisez les prises en charge multidisciplinaires conformément aux procédures établies par le Centre.\n • Vous coordonnez le réseau de référents soins palliatifs en collaboration avec les départements ainsi que les différentes activités du centre (organisation de symposium , RESOPAL)\n • Vous collaborez avec l'Itinéraire Patient Manager (IPM) et les RES pour améliorer les prises en charge. Vous participez à la coordination des différents projets en cours.\n Vous formez les collaboratrices et collaborateurs concernés à l’identification des patients et patientes éligibles aux prises en charge standardisées ou complexes. Ainsi qu’à l'utilisation des outils d'évaluation et de suivi liés aux processus et prises en charge standardisées.\n Vous implémentez et suivez les indicateurs pertinents (ex : taux de couverture des prises en charge).\n Vous améliorez la qualité des soins en proposant des actions qualités et participez à la promotion du Centre au sein du réseau.",
       "descriptionByLocale": {
         "fr": "• Rattaché ou rattachée à la cheffe de service de soins palliatifs, vous supervisez les prises en charge multidisciplinaires conformément aux procédures établies par le Centre.\n • Vous coordonnez le réseau de référents soins palliatifs en collaboration avec les départements ainsi que les différentes activités du centre (organisation de symposium , RESOPAL)\n • Vous collaborez avec l'Itinéraire Patient Manager (IPM) et les RES pour améliorer les prises en charge. Vous participez à la coordination des différents projets en cours.\n Vous formez les collaboratrices et collaborateurs concernés à l’identification des patients et patientes éligibles aux prises en charge standardisées ou complexes. Ainsi qu’à l'utilisation des outils d'évaluation et de suivi liés aux processus et prises en charge standardisées.\n Vous implémentez et suivez les indicateurs pertinents (ex : taux de couverture des prises en charge).\n Vous améliorez la qualité des soins en proposant des actions qualités et participez à la promotion du Centre au sein du réseau.",
-        "it": "• Attaccato o attaccato al Capo dei Servizi di Cura Palliative, si supervisiona l'assistenza multidisciplinare secondo le procedure stabilite dal Centro.\n • Coordinate la rete di referral di assistenza palliativa in collaborazione con i dipartimenti e le varie attività del centro (organizzazione di simposio, RESOPAL)\n • Stai lavorando con il Responsabile Paziente (IPM) e RES per migliorare il supporto. Siete coinvolti nel coordinamento dei vari progetti in corso.\n Allena i collaboratori coinvolti nell'identificazione di pazienti idonei a cure standardizzate o complesse. Oltre all'utilizzo di strumenti di valutazione e monitoraggio standardizzati del processo e della gestione.\n L'utente implementa e segue gli indicatori pertinenti (ad esempio i tassi di copertura per il supporto).\n Migliora la qualità della cura offrendo azioni di qualità e partecipa alla promozione del Centro all'interno della rete.",
-        "en": "• Attached or attached to the Chief of Palliative Care Services, you supervise multidisciplinary care in accordance with procedures established by the Centre.\n • You coordinate the network of palliative care referrals in collaboration with the departments as well as the various activities of the centre (organisation of symposiums, RESOPAL)\n • You are working with the Patient Manager (IPM) and RES to improve support. You are involved in the coordination of the various projects under way.\n You train the collaborators involved in identifying patients eligible for standardized or complex care. As well as the use of standardized process and management assessment and monitoring tools.\n You implement and follow the relevant indicators (e.g. coverage rates for support).\n You improve the quality of care by offering quality actions and participate in the promotion of the Centre within the network.",
-        "de": "• Beigegeben oder an den Leiter der Palliative Care Services angeschlossen, beaufsichtigen Sie die multidisziplinäre Pflege gemäß den vom Zentrum festgelegten Verfahren.\n • Sie koordinieren das Netzwerk der Palliativmedizinempfehlungen in Zusammenarbeit mit den Abteilungen sowie den verschiedenen Aktivitäten des Zentrums (Organisation von Symposien, RESOPAL)\n • Sie arbeiten mit dem Patient Manager (IPM) und RES zusammen, um den Support zu verbessern. Sie sind an der Koordinierung der verschiedenen laufenden Projekte beteiligt.\n Sie schulen die Mitarbeiter, die an der Identifizierung von Patienten beteiligt sind, die für eine standardisierte oder komplexe Versorgung in Frage kommen. Sowie die Verwendung von standardisierten Prozess- und Managementbewertungs- und Monitoring-Tools.\n Sie implementieren und befolgen die relevanten Indikatoren (z. B. Deckungsquoten für den Support).\n Sie verbessern die Qualität der Pflege durch Qualitätsaktionen und beteiligen sich an der Förderung des Zentrums im Netzwerk."
+        "it": "• Attaccato o attaccato al Capo dei Servizi di Cura Palliativa, si supervisiona l'assistenza multidisciplinare secondo le procedure stabilite dal Centro.\n • Coordinate la rete di referral di assistenza palliativa in collaborazione con i dipartimenti e le varie attività del centro (organizzazione del simposio, RESOPAL)\n • Stai lavorando con il Responsabile Paziente (IPM) e RES per migliorare il supporto. Siete coinvolti nel coordinamento dei vari progetti in corso.\n Allena i collaboratori coinvolti nell'identificazione di pazienti idonei a cure standardizzate o complesse. Oltre all'utilizzo di strumenti di valutazione e monitoraggio standardizzati del processo e della gestione.\n L'utente implementa e segue gli indicatori pertinenti (ad esempio i tassi di copertura per il supporto).\n Migliora la qualità della cura offrendo azioni di qualità e partecipa alla promozione del Centro all'interno della rete.",
+        "en": "• Attached or attached to the Chief of Palliative Care Services, you supervise multidisciplinary care in accordance with procedures established by the Centre.\n • You coordinate the network of palliative care referrals in collaboration with the departments as well as the various activities of the centre (organisation of symposium, RESOPAL)\n • You are working with the Patient Manager (IPM) and RES to improve support. You are involved in the coordination of the various projects under way.\n You train the collaborators involved in identifying patients eligible for standardized or complex care. As well as the use of standardized process and management assessment and monitoring tools.\n You implement and follow the relevant indicators (e.g. coverage rates for support).\n You improve the quality of care by offering quality actions and participate in the promotion of the Centre within the network.",
+        "de": "• Angefügt oder dem Leiter der Palliative Care Services zugeordnet, beaufsichtigen Sie die multidisziplinäre Pflege gemäß den vom Zentrum festgelegten Verfahren.\n • Sie koordinieren das Netzwerk der Palliativmedizinempfehlungen in Zusammenarbeit mit den Abteilungen sowie den verschiedenen Aktivitäten des Zentrums (Organisation des Symposiums, RESOPAL)\n • Sie arbeiten mit dem Patient Manager (IPM) und RES zusammen, um den Support zu verbessern. Sie sind an der Koordinierung der verschiedenen laufenden Projekte beteiligt.\n Sie schulen die Mitarbeiter, die an der Identifizierung von Patienten beteiligt sind, die für eine standardisierte oder komplexe Versorgung in Frage kommen. Sowie die Verwendung von standardisierten Prozess- und Management-Bewertungs- und Monitoring-Tools.\n Sie implementieren und befolgen die relevanten Indikatoren (z. B. Deckungsquoten für den Support).\n Sie verbessern die Qualität der Pflege durch Qualitätsaktionen und beteiligen sich an der Förderung des Zentrums im Netzwerk."
       },
       "location": "Genève",
       "canton": "GE",
@@ -4839,12 +4811,6 @@
       "firstSeenAt": "2026-06-29T13:36:34.962Z",
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
-        ],
-        "en": [
-          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
-        ],
-        "de": [
           "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
         ]
       },
