@@ -1,21 +1,157 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-06-29T13:50:50.000Z",
-  "total": 10,
-  "newCount": 0,
+  "generatedAt": "2026-06-29T22:57:28.303Z",
+  "total": 4,
+  "newCount": 4,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 16189,
-  "avgDurationMs": 16189,
+  "removedCount": 10,
+  "unchangedCount": 0,
+  "durationMs": 20022,
+  "avgDurationMs": 20022,
   "durationHistory": [
-    16189
+    20022
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
+      "applyUrl": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
+      "title": "Formateur d’apprentissage pour former les apprentis polymécaniciens",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
+      "sourceLang": "fr",
+      "category": "hr",
+      "datePosted": "2026-06-29",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
+      "applyUrl": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
+      "title": "Quality Technician Specialist (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "quality-technician-specialist-m-f-d-mikron",
+      "sourceLang": "fr",
+      "category": "production",
+      "datePosted": "2026-06-29",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://www.mikron.com/en/team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-dequipe-en-28-mf",
+      "applyUrl": "https://www.mikron.com/en/team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-dequipe-en-28-mf",
+      "title": "Team Leader des polymécaniciens pour le département fabrication – horaire d’équipe en 2×8 (m/f)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron",
+      "sourceLang": "fr",
+      "category": "management",
+      "datePosted": "2026-06-29",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",
+      "applyUrl": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",
+      "title": "Warehouse & Logistic Team Leader (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "warehouse-logistic-team-leader-m-f-d-mikron",
+      "sourceLang": "fr",
+      "category": "logistics",
+      "datePosted": "2026-06-29",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressCountry": "CH",
+      "addressRegion": "NE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://www.mikron.com/en/assistente-alla-vendita-madrelingua-tedesca-sales-assistant",
       "applyUrl": "https://www.mikron.com/en/assistente-alla-vendita-madrelingua-tedesca-sales-assistant",
@@ -406,5 +542,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
