@@ -92,7 +92,7 @@ function notifyAwaitingVitest(pr) {
  * Conservativo: qualunque incertezza (compare troncato, patch mancanti su file
  * grossi, errore API) → ritorna null → niente carry-forward (stale come prima).
  */
-function prContributionFingerprint(sha) {
+export function prContributionFingerprint(sha) {
   let mb;
   try {
     mb = gh(['api', `repos/${REPO}/compare/main...${sha}`, '--jq', '.merge_base_commit.sha'],

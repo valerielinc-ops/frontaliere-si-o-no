@@ -8,11 +8,17 @@
  * porti avanti l'`## LGTM` esistente (il contributo proprio della PR è invariato
  * su un rebase di solo main-merge). Tocchiamo solo le PR "near-merge".
  *
- * NB sul trigger: un push PAT su un branch PR NON ri-triggera in modo
- * affidabile i workflow `pull_request` (osservato: head rebasati di #1587/#1526
- * con zero check-run) — per questo dispatchiamo tests.yml esplicitamente invece
- * di affidarci al push. Questo evita anche di bruciare quota Claude: nessuna
- * review Opus/Sonnet riparte sul rebase.
+ * NB sul trigger: il push del rebase si autentica via App/PAT (x-access-token) e
+ * RI-TRIGGERA i workflow `pull_request` — incluso `pr-review-loop`, che con
+ * `cancel-in-progress` cancella la review in corso. Per NON bruciare quota Claude
+ * né innescare un livelock, (a) dispatchiamo comunque tests.yml esplicitamente
+ * (più affidabile di affidarsi al push per il solo vitest) e (b) **defer del
+ * rebase finché una review è in volo** (vedi reviewInProgress): rebasare mentre la
+ * review gira la cancella, e con main caldo non concluderebbe mai (la PR
+ * collision-risk va behind a ogni tick) → niente `## LGTM`, niente merge.
+ * (Storico: il claim "push PAT non ri-triggera pull_request" su #1587/#1526 era
+ * uno zero-check-run da rebase pre-#1597 che non dispatchava, non l'assenza di
+ * trigger; il push autenticato App/PAT ri-triggera, osservato su #3038.)
  *
  * Per ogni PR OPEN non-draft:
  *   GATE (frugalità): procedi solo se "near-merge" =
@@ -218,6 +224,25 @@ function vitestFailureIsTransient(head) {
     ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
     { json: true, allowFail: true });
   return vitestFailureIsTransientCancellation(out && out.check_runs);
+}
+
+/** C'è una review Claude (`pr-review-loop`, check-run `review`) ANCORA in volo
+ * sull'head (status `queued`/`in_progress`)? Il push del rebase si autentica via
+ * App/PAT (x-access-token) e quindi RI-TRIGGERA `pull_request` → `pr-review-loop`
+ * ha `cancel-in-progress: true` → il nostro push CANCELLA la review in corso e ne
+ * avvia un'altra. Con main caldo (commit ogni pochi minuti) e una review da
+ * ~8-11min, una PR collision-risk va `behind>0` a metà review, l'autorebase la
+ * rebasa, il push cancella la review, che riparte → LIVELOCK: la review non
+ * conclude mai, l'`## LGTM` non viene mai postato, niente merge (e quota Claude
+ * bruciata a ogni restart). Difesa: se una review è in volo, DEFER il rebase di un
+ * tick (come ACTIVITY_GUARD). Il rebase non è urgente (main è sempre fresco); la
+ * review conclude, posta il verdetto, e auto-merge-eval porta avanti l'LGTM. */
+function reviewInProgress(head) {
+  const out = gh(
+    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
+      '--jq', '[.check_runs[] | select(.name == "review" and (.status == "in_progress" or .status == "queued"))] | length'],
+    { json: false, allowFail: true });
+  return (parseInt((out || '0').trim(), 10) || 0) > 0;
 }
 
 /**
@@ -498,6 +523,18 @@ async function processPR(pr) {
     return;
   }
   console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
+
+  // Review-in-flight guard: NON rebasare mentre una review Claude è in volo
+  // sull'head. Il push del rebase (App/PAT) ri-triggera pr-review-loop, che con
+  // cancel-in-progress CANCELLA la review in corso e la riavvia → con main caldo
+  // la review non conclude mai (livelock; quota bruciata). Defer di un tick: la
+  // review conclude, posta il verdetto, auto-merge-eval porta avanti l'LGTM. Il
+  // rebase non è urgente (main è sempre fresco). NB: l'orphan-heal sopra dispatcha
+  // solo tests (no push), quindi non è soggetto a questa race.
+  if (reviewInProgress(head)) {
+    console.log(`PR #${num}: review Claude in volo sull'head ${head.slice(0, 8)} — skip rebase questo tick (un push ora la cancellerebbe; defer finché conclude).`);
+    return;
+  }
 
   // Activity-guard: se l'head è stato pushato pochi minuti fa, un contributor/
   // agent è probabilmente mid-flight (sta ancora pushando fix su una PR LGTM'd).

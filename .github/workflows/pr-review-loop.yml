@@ -99,8 +99,23 @@ jobs:
           if [ -z "$code" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "Delta dall'ultima LGTM = SOLO data/docs (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest gira comunque."
+            exit 0
+          fi
+          # Il compare 2-dot last...HEAD vede ANCHE il code che main ha portato in
+          # un rebase di solo main-merge — ma quel code NON è il contributo della
+          # PR, che resta invariato. Confronta allora il FINGERPRINT del contributo
+          # (3-dot vs merge-base con main, code-only) a HEAD vs all'ultima LGTM: se
+          # uguale, la PR non ha cambiato il proprio code (es. autorebase ha solo
+          # mergiato main) → skip Claude. Stessa funzione che auto-merge-eval usa
+          # per il carry-forward dell'LGTM → niente drift. NULL/incerto → review
+          # piena (conservativo). vitest gira comunque sull'head (safety net).
+          fpHead=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
+          fpLast=$(node scripts/ci/pr-contribution-fingerprint.mjs "$last" 2>/dev/null || echo NULL)
+          if [ -n "$fpHead" ] && [ "$fpHead" != "NULL" ] && [ "$fpHead" = "$fpLast" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Contributo CODE invariato dall'ultima LGTM (fingerprint $fpHead) — solo main-merge nel delta → skip Claude; LGTM carry-forward, vitest gira comunque."
           else
-            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code cambiato dall'ultima LGTM → review piena."
+            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code del contributo cambiato dall'ultima LGTM (fpHead=$fpHead fpLast=$fpLast) → review piena."
           fi
 
       - name: Determine review tier
