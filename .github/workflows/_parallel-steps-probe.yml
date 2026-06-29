@@ -33,8 +33,12 @@ jobs:
 
       - name: Wait for A only
         wait: bgA
+
+      - name: After A
         run: echo "A finished, continuing $(date +%s)"
 
       - name: Wait for everything
-        wait-all:
+        wait-all: true
+
+      - name: After all
         run: echo "all background steps done $(date +%s)"
