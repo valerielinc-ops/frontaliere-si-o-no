@@ -124,7 +124,7 @@ jobs:
       # stays unset → ai-models marks local/* unavailable → identical to today.
       - name: Cache local LLM model
         if: vars.ARTICLE_LOCAL_FALLBACK == '1'
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.ollama/models
           key: ollama-${{ vars.ARTICLE_LOCAL_MODEL || 'qwen2.5:7b' }}
