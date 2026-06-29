@@ -8949,6 +8949,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensione-complementare-terzo-pilastro-frontalieri': {
+    title: 'La pensione complementare per frontalieri: come funziona il terzo pilastro',
+    description: 'I frontalieri possono investire nella terza pilastro per aumentare la propria pensione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, complementare, funziona, terzo',
+    ogTitle: 'La pensione complementare per frontalieri: come funziona il terzo pilastro',
+    ogDescription: 'I frontalieri possono investire nella terza pilastro per aumentare la propria pensione.',
+    canonicalPath: '/articoli-svizzera/pensione-complementare-terzo-pilastro-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La pensione complementare per frontalieri: come funziona il terzo pilastro",
+      "description": "I frontalieri possono investire nella terza pilastro per aumentare la propria pensione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-complementare-terzo-pilastro-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri svizzeri in una piazza di Lugano"
+      },
+      "datePublished": "2026-06-29T06:07:28+00:00",
+      "dateModified": "2026-06-29T06:07:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensione-complementare-terzo-pilastro-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
