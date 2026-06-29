@@ -105,9 +105,17 @@ jobs:
               const m = `${t}\n${b}`.match(/(\d+)\s+items?\s+deferred/i);
               return !!(m && Number(m[1]) >= 2);
             };
+            // Strip code-formatted text first: GitHub does NOT honour a closing
+            // keyword inside a fenced block or inline `code` span, so neither should
+            // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
+            // PR, a fix-instruction example) false-positives. Real fixer closes are
+            // plain text on their own line.
+            const bodyNoCode = body
+              .replace(/```[\s\S]*?```/g, ' ')
+              .replace(/`[^`\n]*`/g, ' ');
             // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
             const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s+#(\d+)\b/gi;
-            const closingNums = [...new Set([...body.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
+            const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
 
             const { owner, repo } = context.repo;
             const issue_number = context.payload.pull_request.number;
