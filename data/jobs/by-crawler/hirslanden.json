@@ -10118,8 +10118,6 @@
         "specialiste-senior-m-a-hirslanden-klinik-zurich",
         "specialiste-senior-fusion-acquisition-a-80-100-hirslanden-klinik-zurich",
         "senior-spezialist-fusionen-ubernahmen-a-80-100-hirslanden-klinik-zurich",
-        "senior-specialista-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
-        "senior-specialiste-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
         "specialista-senior-fusioni-e-acquisizioni-a-80-100-hirslanden-klinik-zurich"
       ],
       "previousSlugsByLocale": {
@@ -17236,7 +17234,7 @@
       "slugByLocale": {
         "it": "infermiera-nella-cura-continua-hirslanden-klinik-geneve",
         "en": "continuing-care-nurse-hirslanden-klinik-geneve",
-        "de": "krankenschwester-in-continuing-care-hirslanden-klinik-geneve",
+        "de": "pflegefachmann-frau-in-der-weiterbetreuung-hirslanden-klinik-geneve",
         "fr": "infirmier-e-en-soins-continus-hirslanden-geneve"
       },
       "company": "Hirslanden Klinik",
@@ -17282,7 +17280,8 @@
         "infirmier-e-en-soins-continus-hirslanden-geneve",
         "pflegekraft-fur-weiterbildung-hirslanden-klinik-geneve",
         "fachfrau-mann-fur-intensivpflege-hirslanden-klinik-geneve",
-        "pflegerin-in-pflege-hirslanden-klinik-geneve"
+        "pflegerin-in-pflege-hirslanden-klinik-geneve",
+        "krankenschwester-in-continuing-care-hirslanden-klinik-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17292,7 +17291,8 @@
           "pflegekraft-fur-weiterbildung-hirslanden-klinik-geneve",
           "fachfrau-mann-fur-intensivpflege-hirslanden-klinik-geneve",
           "pflegerin-in-pflege-hirslanden-klinik-geneve",
-          "infirmier-e-en-soins-continus-hirslanden-geneve"
+          "infirmier-e-en-soins-continus-hirslanden-geneve",
+          "krankenschwester-in-continuing-care-hirslanden-klinik-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -21296,9 +21296,9 @@
     },
     {
       "id": "hirslanden-ec8103a9f02e",
-      "slug": "radiologia-medica-technican-irm-cardiaco-hirslanden-klinik-geneve",
+      "slug": "tecnica-in-radiologia-medica-mri-cardiaca-hirslanden-klinik-geneve",
       "slugByLocale": {
-        "it": "radiologia-medica-technican-irm-cardiaco-hirslanden-klinik-geneve",
+        "it": "tecnica-in-radiologia-medica-mri-cardiaca-hirslanden-klinik-geneve",
         "en": "medical-radiology-technician-cardiac-mri-hirslanden-klinik-geneve",
         "de": "medizinische-radiologie-techniker-herz-mrt-hirslanden-klinik-geneve",
         "fr": "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve"
@@ -21345,6 +21345,7 @@
       "previousSlugs": [
         "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve",
         "tecnico-di-radiologia-medica-risonanza-magnetica-cardiaca-hirslanden-klinik-geneve",
+        "radiologia-medica-technican-irm-cardiaco-hirslanden-klinik-geneve",
         "medizinisch-technischer-radiologieassistent-m-w-d-kardiale-mrt-hirslanden-klinik-geneve",
         "medizinischer-radiologietechniker-herz-mrt-hirslanden-klinik-geneve",
         "medizinisch-technischer-radiologieassistent-kardiale-mrt-hirslanden-klinik-geneve"
@@ -21352,7 +21353,8 @@
       "previousSlugsByLocale": {
         "it": [
           "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve",
-          "tecnico-di-radiologia-medica-risonanza-magnetica-cardiaca-hirslanden-klinik-geneve"
+          "tecnico-di-radiologia-medica-risonanza-magnetica-cardiaca-hirslanden-klinik-geneve",
+          "radiologia-medica-technican-irm-cardiaco-hirslanden-klinik-geneve"
         ],
         "en": [
           "technicienn-e-en-radiologie-medicale-irm-cardiaque-hirslanden-geneve"
@@ -22884,7 +22886,6 @@
         "activite-principale-du-poste-hirslanden-search-4",
         "haupt-aktivitat-hirslanden-klinik-search",
         "chef-fe-de-projet-analyste-hirslanden-geneve",
-        "activite-principale-du-poste-hirslanden-search-3",
         "activite-principale-du-poste-hirslanden-search-2"
       ],
       "previousSlugsByLocale": {
@@ -24187,7 +24188,7 @@
       "slug": "campi-d-azione-hirslanden-klinik-search",
       "slugByLocale": {
         "it": "campi-d-azione-hirslanden-klinik-search",
-        "en": "registered-nurse-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne",
+        "en": "nurse-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
         "de": "infirmier-infirmierere-dipl-a-100-maternite-et-service-pluridisciplinaire-adultes",
         "fr": "tes-champs-d-actions-hirslanden-search"
       },
@@ -24236,7 +24237,7 @@
         "registered-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne",
         "nurse-dipl-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
         "registered-nurse-a-100-maternity-and-multidisciplinary-service-for-adults-hirslanden-klinik-biel-bienne",
-        "nurse-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
+        "registered-nurse-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne",
         "deine-handlungsfelder-hirslanden-klinik-search"
       ],
       "previousSlugsByLocale": {
@@ -24248,8 +24249,8 @@
           "registered-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne",
           "nurse-dipl-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
           "registered-nurse-a-100-maternity-and-multidisciplinary-service-for-adults-hirslanden-klinik-biel-bienne",
-          "nurse-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
-          "tes-champs-d-actions-hirslanden-search"
+          "tes-champs-d-actions-hirslanden-search",
+          "registered-nurse-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne"
         ],
         "de": [
           "deine-handlungsfelder-hirslanden-klinik-search",
@@ -25532,7 +25533,6 @@
         "activite-principale-du-poste-hirslanden-search-3",
         "un-e-infirmier-ere-hpci-a-100-hirslanden-geneve",
         "chef-fe-de-projet-immobilier-hirslanden-geneve",
-        "activite-principale-du-poste-hirslanden-search-4",
         "activite-principale-du-poste-hirslanden-search-2"
       ],
       "previousSlugsByLocale": {
@@ -25542,7 +25542,6 @@
         ],
         "de": [
           "activite-principale-du-poste-hirslanden-search",
-          "chef-fe-de-projet-analyste-hirslanden-geneve",
           "chef-fe-de-projet-immobilier-hirslanden-geneve"
         ]
       },
@@ -25986,7 +25985,7 @@
       "slug": "principali-hirslanden-klinik-search-1cb1a5",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-1cb1a5",
-        "en": "registered-nurse-in-inpatient-care-80-hirslanden-klinik-geneve",
+        "en": "nurse-in-stationary-care-80-hirslanden-klinik-geneve",
         "de": "infirmier-ere-en-soins-stationnaire-a-80-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-7"
       },
@@ -26043,9 +26042,9 @@
         "taches-principales-hirslanden-search-7",
         "infirmier-ere-en-soins-stationnaire-a-80-hirslanden-geneve",
         "80-staff-nurse-in-inpatient-care-hirslanden-klinik-geneve",
-        "nurse-in-stationary-care-80-hirslanden-klinik-geneve",
         "stationary-care-nurse-at-80-hirslanden-klinik-geneve",
         "80-inpatient-nurse-hirslanden-klinik-geneve",
+        "registered-nurse-in-inpatient-care-80-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -26055,10 +26054,10 @@
         ],
         "en": [
           "80-staff-nurse-in-inpatient-care-hirslanden-klinik-geneve",
-          "nurse-in-stationary-care-80-hirslanden-klinik-geneve",
           "stationary-care-nurse-at-80-hirslanden-klinik-geneve",
           "80-inpatient-nurse-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-7"
+          "taches-principales-hirslanden-search-7",
+          "registered-nurse-in-inpatient-care-80-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -26162,11 +26161,11 @@
     },
     {
       "id": "hirslanden-887d35153e07",
-      "slug": "infermiere-a-tecnico-a-cardiovascolare-in-sala-di-cateterismo-80-hirslanden-klinik-geneve",
+      "slug": "infermiera-ere-cardio-technican-n-nella-sala-del-cateterismo-all-80-hirslanden-klinik-geneve",
       "slugByLocale": {
-        "it": "infermiere-a-tecnico-a-cardiovascolare-in-sala-di-cateterismo-80-hirslanden-klinik-geneve",
-        "en": "cardio-technician-nurse-in-catheterization-lab-80-hirslanden-klinik-geneve",
-        "de": "krankenstation-ere-kardiotechniker-ne-im-katheterraum-80-hirslanden-klinik-geneve",
+        "it": "infermiera-ere-cardio-technican-n-nella-sala-del-cateterismo-all-80-hirslanden-klinik-geneve",
+        "en": "nurse-ere-cardio-technician-n-in-the-catheterism-hall-at-80-hirslanden-klinik-geneve",
+        "de": "krankenschwester-ere-cardio-technikerin-n-in-der-katheterismushalle-bei-80-hirslanden-klinik-geneve",
         "fr": "infirmier-ere-cardio-technicien-ne-en-salle-de-catheterisme-a-80-hirslanden-geneve"
       },
       "company": "Hirslanden Klinik",
@@ -26212,24 +26211,30 @@
         "infirmier-ere-cardio-technicien-ne-en-salle-de-catheterisme-a-80-hirslanden-geneve",
         "infermeria-ere-cardio-technician-ne-in-catheterism-room-80-hirslanden-klinik-geneve",
         "infermiere-a-cardiotecnico-a-in-sala-di-cateterismo-80-hirslanden-klinik-geneve",
+        "infermiere-a-tecnico-a-cardiovascolare-in-sala-di-cateterismo-80-hirslanden-klinik-geneve",
         "infirmary-ere-cardio-technician-ne-in-catheterism-room-80-hirslanden-klinik-geneve",
+        "cardio-technician-nurse-in-catheterization-lab-80-hirslanden-klinik-geneve",
         "kardiotechnischer-e-krankenpfleger-in-im-katheterlabor-80-hirslanden-klinik-geneve",
-        "krankenstation-ere-kardiotechniker-ne-im-katheterraum-bei-80-hirslanden-klinik-geneve"
+        "krankenstation-ere-kardiotechniker-ne-im-katheterraum-bei-80-hirslanden-klinik-geneve",
+        "krankenstation-ere-kardiotechniker-ne-im-katheterraum-80-hirslanden-klinik-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-cardio-technicien-ne-en-salle-de-catheterisme-a-80-hirslanden-geneve",
           "infermeria-ere-cardio-technician-ne-in-catheterism-room-80-hirslanden-klinik-geneve",
-          "infermiere-a-cardiotecnico-a-in-sala-di-cateterismo-80-hirslanden-klinik-geneve"
+          "infermiere-a-cardiotecnico-a-in-sala-di-cateterismo-80-hirslanden-klinik-geneve",
+          "infermiere-a-tecnico-a-cardiovascolare-in-sala-di-cateterismo-80-hirslanden-klinik-geneve"
         ],
         "en": [
           "infirmier-ere-cardio-technicien-ne-en-salle-de-catheterisme-a-80-hirslanden-geneve",
-          "infirmary-ere-cardio-technician-ne-in-catheterism-room-80-hirslanden-klinik-geneve"
+          "infirmary-ere-cardio-technician-ne-in-catheterism-room-80-hirslanden-klinik-geneve",
+          "cardio-technician-nurse-in-catheterization-lab-80-hirslanden-klinik-geneve"
         ],
         "de": [
           "kardiotechnischer-e-krankenpfleger-in-im-katheterlabor-80-hirslanden-klinik-geneve",
           "krankenstation-ere-kardiotechniker-ne-im-katheterraum-bei-80-hirslanden-klinik-geneve",
-          "infirmier-ere-cardio-technicien-ne-en-salle-de-catheterisme-a-80-hirslanden-geneve"
+          "infirmier-ere-cardio-technicien-ne-en-salle-de-catheterisme-a-80-hirslanden-geneve",
+          "krankenstation-ere-kardiotechniker-ne-im-katheterraum-80-hirslanden-klinik-geneve"
         ]
       },
       "firstSeenAt": "2026-06-22T14:21:00.318Z",
@@ -26680,11 +26685,11 @@
     },
     {
       "id": "hirslanden-b07949a288d3",
-      "slug": "cura-generale-infermiera-70-hirslanden-klinik-geneve",
+      "slug": "generale-assistenza-infermieristica-70-hirslanden-klinik-geneve",
       "slugByLocale": {
-        "it": "cura-generale-infermiera-70-hirslanden-klinik-geneve",
+        "it": "generale-assistenza-infermieristica-70-hirslanden-klinik-geneve",
         "en": "general-care-nurse-70-hirslanden-klinik-geneve",
-        "de": "allgemeine-pflege-krankenschwester-70-hirslanden-klinik-geneve",
+        "de": "allgemeine-pflegebedurftigkeit-70-hirslanden-klinik-geneve",
         "fr": "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve"
       },
       "company": "Hirslanden Klinik",
@@ -26727,17 +26732,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve"
+        "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve",
+        "cura-generale-infermiera-70-hirslanden-klinik-geneve",
+        "allgemeine-pflege-krankenschwester-70-hirslanden-klinik-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve"
+          "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve",
+          "cura-generale-infermiera-70-hirslanden-klinik-geneve"
         ],
         "en": [
           "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve"
         ],
         "de": [
-          "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve"
+          "infirmier-ere-en-soins-generaux-a-70-hirslanden-geneve",
+          "allgemeine-pflege-krankenschwester-70-hirslanden-klinik-geneve"
         ]
       },
       "firstSeenAt": "2026-06-23T11:55:57.860Z",
@@ -34373,7 +34382,7 @@
       "slug": "principali-hirslanden-klinik-search-c77b1a",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-c77b1a",
-        "en": "anaesthetist-nurse-at-80-hirslanden-klinik-geneve",
+        "en": "anesthesiistic-nurse-at-80-hirslanden-klinik-geneve",
         "de": "infirmier-ere-anesthesiste-a-80-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-23"
       },
@@ -34419,6 +34428,7 @@
       "previousSlugs": [
         "infirmier-ere-anesthesiste-a-80-hirslanden-geneve",
         "taches-principales-hirslanden-search-23",
+        "anaesthetist-nurse-at-80-hirslanden-klinik-geneve",
         "infirmier-ere-anesthesiste-a-80-hirslanden-klinik-geneve"
       ],
       "previousSlugsByLocale": {
@@ -34426,7 +34436,8 @@
           "infirmier-ere-anesthesiste-a-80-hirslanden-geneve"
         ],
         "en": [
-          "taches-principales-hirslanden-search-23"
+          "taches-principales-hirslanden-search-23",
+          "anaesthetist-nurse-at-80-hirslanden-klinik-geneve"
         ]
       },
       "firstSeenAt": "2026-06-26T22:29:34.363Z",
@@ -35343,12 +35354,12 @@
     },
     {
       "id": "hirslanden-ea9eb6deb1ea",
-      "slug": "salute-specialistica-a-80-100-postpartum-surgery-hirslanden-klinik-aarau",
+      "slug": "specialista-in-salute-a-80-100-postweekly-bed-surgery-hirslanden-klinik-aarau",
       "slugByLocale": {
-        "it": "salute-specialistica-a-80-100-postpartum-surgery-hirslanden-klinik-aarau",
+        "it": "specialista-in-salute-a-80-100-postweekly-bed-surgery-hirslanden-klinik-aarau",
         "en": "specialist-health-a-80-100-postpartum-surgery-hirslanden-klinik-aarau",
         "de": "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau",
-        "fr": "specialiste-de-la-sante-a-80-100-postpartum-et-chirurgie-hirslanden-klinik-aarau"
+        "fr": "sante-specialisee-a-80-100-lit-post-hebdomadaire-et-surgery-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -35404,17 +35415,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau"
+          "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau",
+          "salute-specialistica-a-80-100-postpartum-surgery-hirslanden-klinik-aarau"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau"
+          "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau",
+          "specialiste-de-la-sante-a-80-100-postpartum-et-chirurgie-hirslanden-klinik-aarau"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau"
+        "fachfrau-fachmann-gesundheit-a-80-100-wochenbett-chirurgie-hirslanden-aarau",
+        "salute-specialistica-a-80-100-postpartum-surgery-hirslanden-klinik-aarau",
+        "specialiste-de-la-sante-a-80-100-postpartum-et-chirurgie-hirslanden-klinik-aarau"
       ]
     },
     {
