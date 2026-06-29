@@ -736,6 +736,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Wo die Grenzgänger der Lombardei leben: Boom Brianza und offizielle Zahlen',
     'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Mehr als 60.000 lombardische Grenzgänger leben zwischen Como und Varese; Brianza wächst in zehn Jahren um 77%.',
     'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Panoramablick auf das Grenzgebiet zwischen Tessin und Lombardei.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stabius Customs: Passage und Verfahren an der Schweizer Grenze',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'Der Stabio-Pass ist ein Transitpunkt zwischen der Schweiz und Italien. Aktualisierung der Zollverfahren.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Zollübergang Stabio, Symbol der Schweizer-italienischen Grenze.',
 };
 
 export default blogMetaChDe;

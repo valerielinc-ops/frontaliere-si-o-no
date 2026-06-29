@@ -736,6 +736,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Where the Lombard frontier workers live: boom Brianza and official numbers',
     'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'More than 60,000 Lombard frontier workers live between Como and Varese; Brianza has grown by 77% in ten years.',
     'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Panoramic view of the border area between Ticino and Lombardy.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stabio customs: passage and procedures at the Swiss border',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'The Stabio crossing is a transit point between Switzerland and Italy. Update on customs procedures.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Stabio border crossing, symbol of the Swiss-Italian frontier.',
 };
 
 export default blogMetaChEn;

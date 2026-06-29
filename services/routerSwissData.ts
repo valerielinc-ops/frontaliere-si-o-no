@@ -268,6 +268,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lidl-svizzera-lavora-con-noi': { it: 'lidl-svizzera-lavora-con-noi', en: 'lidl-switzerland-careers', de: 'lidl-schweiz-karriere', fr: 'lidl-suisse-travailler-avec-nous' },
  'concorsi-pubblici-ticino-guida-nazionale': { it: 'concorsi-pubblici-ticino-guida-nazionale', en: 'public-competitions-ticino-national-guide', de: 'oeffentliche-ausschreibungen-tessin-schweiz', fr: 'concours-publics-tessin-suisse' },
  'frontalieri-lombardi-residenza-tendenze': { it: 'frontalieri-lombardi-residenza-tendenze', en: 'where-lombard-frontaliers-live-trends', de: 'wo-leben-lombardische-grenzgaenger-trends', fr: 'ou-vivent-frontaliers-lombards-tendances' },
+ 'stabio-dogana-svizzera': { it: 'stabio-dogana-svizzera', en: 'stabio-border-crossing-switzerland', de: 'stabio-zoll-schweiz', fr: 'stabio-douane-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
