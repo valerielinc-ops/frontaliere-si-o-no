@@ -138,6 +138,7 @@ import {
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import {
  buildCityHubMeta as buildCtrCityHubMeta,
+ buildCantonHubMeta,
  buildEmployerHubMeta,
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
@@ -8929,6 +8930,16 @@ ${staticAnalyticsHtml}
      // end — see line 276 of that script).
      if (!meetsThreshold) markCantonNoindex(entry.key);
      const labels = buildCantonLocaleLabels(entry.locale, display);
+     // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
+     // description use a 140-160 char canton+count-aware snippet so GSC no
+     // longer flags "Description too short" (issue #2996). The thin
+     // `labels.lede` ("...per il cantone X.") was ~50 chars.
+     const cantonMetaDescription = buildCantonHubMeta({
+       locale: entry.locale,
+       cantonDisplay: display,
+       count: cantonCount,
+       isAggregate: entry.key === AGGREGATE_KEY,
+     });
      // P4 — CTA points to the canton-filtered job board (entry.section is
      // already the canton-aware locale URL segment, e.g. `cerca-lavoro-zurigo`
      // or `find-jobs-zurich`). For the AGGREGATE_KEY this resolves to the
@@ -9537,7 +9548,7 @@ ${staticAnalyticsHtml}
            '@context': 'https://schema.org',
            '@type': 'CollectionPage',
            name: labels.title,
-           description: labels.lede,
+           description: cantonMetaDescription,
            url: canonicalUrl,
            inLanguage: entry.locale,
            isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
@@ -9582,7 +9593,7 @@ ${staticAnalyticsHtml}
      const html = buildSeoPageHtml({
        canonicalUrl,
        title: labels.title,
-       description: labels.lede,
+       description: cantonMetaDescription,
        locale: entry.locale,
        bodyHtml,
        distDir,
