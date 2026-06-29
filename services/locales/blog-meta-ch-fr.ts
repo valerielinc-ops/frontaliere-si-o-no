@@ -721,6 +721,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026 : règles fiscales et comparaison pratique',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'Le nouvel accord frontalier à partir du 1er janvier 2024 régit la fiscalité : anciens frontaliers, nouveaux régimes, Italie-Steuer et exemples pratiques.',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Panorama de Lugano avec frontaliers, thème fiscal.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.title': 'Stipendi frontalieri, dati svelati 2024',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.excerpt': 'Les données salariales des frontaliers italiens sont apparues dans les revenus pré-remplis. Critiques et demandes d\'éclaircissements des associations et des politiciens.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.imageAlt': 'Bureau fiscal suisse à Lugano avec documents et écrans numériques.',
 };
 
 export default blogMetaChFr;

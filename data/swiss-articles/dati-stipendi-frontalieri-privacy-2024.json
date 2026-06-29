@@ -1,0 +1,40 @@
+{
+  "id": "dati-stipendi-frontalieri-privacy-2024",
+  "slug": "dati-stipendi-frontalieri-privacy-2024",
+  "publishedAt": "2026-06-29T18:54:54.454Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.442440664599606,
+    "confidence": 0.8,
+    "finalScore": 2.753952531679685,
+    "topK": [
+      {
+        "slug": "frontalieri-salari-polemica-ticino",
+        "cosine": 0.861583982468653
+      },
+      {
+        "slug": "stipendi-frontalieri-inflazione-ticino",
+        "cosine": 0.858948673539302
+      },
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.8526104038772945
+      },
+      {
+        "slug": "lohnausweis-frontalieri-ticino",
+        "cosine": 0.8512169273425602
+      },
+      {
+        "slug": "decreto-lavoro-meloni-2026-frontalieri",
+        "cosine": 0.8500941634527968
+      }
+    ],
+    "score": 2.753952531679685,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

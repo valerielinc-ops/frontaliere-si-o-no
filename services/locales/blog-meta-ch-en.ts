@@ -721,6 +721,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.title': 'grenzgänger schweiz steuern 2026: tax rules and practical comparison',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.excerpt': 'The new Frontier Agreement from 1 January 2024 governs taxation: old frontier workers, new regimes, Italy-Steuer and practical examples.',
     'blog.article.grenzgaenger-steuern-nuovo-accordo-2026.imageAlt': 'Lugano skyline with commuters, cross-border fiscal theme.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.title': 'Border salaries and privacy: data disclosed in 2024 statements',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.excerpt': 'The salary data of Italian border workers appeared in the pre-filled incomes. Criticism and requests for clarification from associations and politicians.',
+    'blog.article.dati-stipendi-frontalieri-privacy-2024.imageAlt': 'Swiss tax office in Lugano with documents and digital screens.',
 };
 
 export default blogMetaChEn;

@@ -263,6 +263,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'grigioni-modello-basilese-traffico': { it: 'grigioni-modello-basilese-traffico', en: 'grisons-basel-model-traffic', de: 'graubuenden-basler-modell-verkehr', fr: 'grisons-modele-bale-trafic' },
  'frontaliere-steuern-2026': { it: 'frontaliere-steuern-2026', en: 'cross-border-taxes-2026', de: 'grenzgaenger-steuern-2026', fr: 'frontaliers-impots-2026' },
  'grenzgaenger-steuern-nuovo-accordo-2026': { it: 'grenzgaenger-steuern-nuovo-accordo-2026', en: 'grenzgaenger-switzerland-taxes-2026', de: 'grenzgaenger-schweiz-steuern-2026', fr: 'grenzgaenger-suisse-impots-2026' },
+ 'dati-stipendi-frontalieri-privacy-2024': { it: 'dati-stipendi-frontalieri-privacy-2024', en: 'cross-border-salary-data-privacy-2024', de: 'grenzgaenger-gehaltsdaten-privacy-2024', fr: 'donnees-salaire-frontaliers-privacy-2024' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
