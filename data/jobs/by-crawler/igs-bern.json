@@ -7,7 +7,7 @@
       "slug": "servizio-di-guardia-notturna-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
       "slugByLocale": {
         "it": "servizio-di-guardia-notturna-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
-        "en": "night-shift-duty-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
+        "en": "night-emergency-service-approx-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
         "de": "nachtpikett-dienst-ca-30-40-igs-bern-ch",
         "fr": "service-de-garde-nocturne-environ-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern"
       },
@@ -80,15 +80,18 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "nachtpikett-dienst-ca-30-40-igs-bern-ch",
-        "nachtpikett-dienst-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern"
+        "nachtpikett-dienst-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
+        "night-shift-duty-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachtpikett-dienst-ca-30-40-igs-bern-ch"
         ],
         "de": [
-          "nachtpikett-dienst-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
-          "nachtpikett-dienst-ca-30-40-igs-bern-ch"
+          "nachtpikett-dienst-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern"
+        ],
+        "en": [
+          "night-shift-duty-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T21:18:41.342Z",
@@ -113,7 +116,7 @@
         "it": "assistente-professionale-per-assistenza-fabe-assistenza-sanitaria-fage-efz-50-80-interessengemeinschaft",
         "en": "care-professional-fabe-health-care-professional-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
         "de": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-igs-bern-ch",
-        "fr": "aide-en-soins-fabe-aide-en-sante-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
+        "fr": "professionnel-de-la-prise-en-charge-fabe-sante-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
       },
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
       "companyKey": "igs-bern",
@@ -190,15 +193,18 @@
       "pensum": "50%",
       "previousSlugs": [
         "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-igs-bern-ch",
-        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
+        "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
+        "aide-en-soins-fabe-aide-en-sante-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-igs-bern-ch"
         ],
         "de": [
-          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
-          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-igs-bern-ch"
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
+        ],
+        "fr": [
+          "aide-en-soins-fabe-aide-en-sante-fage-efz-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
         ]
       },
       "firstSeenAt": "2026-05-19T21:18:42.995Z",
