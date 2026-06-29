@@ -2541,8 +2541,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!initialJobSlug) return null;
  // When navigating via a previousSlug (bridge), use the current slug for job lookup
  const lookupSlug = bridgeTargetSlug || initialJobSlug;
- return jobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
- }, [jobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+ // Primary lookup: the canton-scoped `jobs` array.
+ const scoped = jobs.find((j) => matchesRouteSlug(j, lookupSlug));
+ if (scoped) return scoped;
+ // Cross-canton fallback: a legacy-TI bridge URL (`/cerca-lavoro-ticino/<slug>/`)
+ // for a job that lives in another canton (e.g. BE) parses to jobBoardCanton='TI',
+ // so `jobs` is scoped to TI and never contains the bridged job → it would fall
+ // through to JobOrphanView ("Questo annuncio non è più disponibile") even though
+ // the job is alive and its full content is pre-rendered. The locale-wide
+ // `unscopedJobs` pool (loaded for cross-canton search) DOES contain it, so resolve
+ // from there. This is deterministic (no dependency on the async bridge-rescue
+ // fetch landing before the wholesale `setJobs` of the full load clobbers a merged
+ // record), closing the timing race that intermittently showed the orphan banner.
+ return unscopedJobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
+ }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
 
  // Cross-canton bridge resolution: when a bridge URL (e.g.
  // /cerca-lavoro-ticino/<old-slug>/) points to a job that now lives in a
@@ -2592,6 +2604,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const targetId = meta.id;
  const match = all.find((j: { id?: string }) => j?.id === targetId);
  if (match) extra = [match];
+ // Seed the locale-wide pool so the `selectedJob` unscoped fallback can
+ // resolve this (and any other) cross-canton bridge job deterministically,
+ // independent of whether the canton-scoped `jobs` array retains the merge.
+ if (!cancelled && all.length > 0) {
+ setUnscopedJobs((prev) => prev.length > 0
+ ? prev
+ : dedupeJobsForListing(all.map((job: unknown) => normalizeIncomingJob(job))));
+ }
  }
  }
  } catch {

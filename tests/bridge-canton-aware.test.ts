@@ -122,6 +122,28 @@ describe('Bridge page canton-aware UX', () => {
       // Filter must be id-based to avoid loading a 5MB monolith into state.
       expect(jobBoardSrc).toMatch(/all\.find\(\(j: \{ id\?: string \}\) => j\?\.id === targetId\)/);
     });
+
+    it('selectedJob resolves cross-canton bridge jobs from the unscoped pool (no orphan for live content)', () => {
+      // Root-cause guard for "Questo annuncio non è più disponibile" on a
+      // legacy-TI bridge URL (e.g. /cerca-lavoro-ticino/<BE-job-slug>/): the URL
+      // parses to jobBoardCanton='TI', so the canton-scoped `jobs` array never
+      // contains the BE job. The async bridge-rescue fetch can race against the
+      // wholesale `setJobs` of the full load (which would clobber a merged
+      // record) → intermittent JobOrphanView for a live, pre-rendered job.
+      //
+      // The deterministic fix: `selectedJob` must ALSO look up the locale-wide
+      // `unscopedJobs` pool (already loaded for cross-canton search) before
+      // falling through to the orphan view. This resolves synchronously off
+      // in-memory data, independent of the rescue fetch timing.
+      const selectedJobStart = jobBoardSrc.indexOf('const selectedJob = useMemo(');
+      expect(selectedJobStart).toBeGreaterThan(-1);
+      const selectedJobBlock = jobBoardSrc.slice(selectedJobStart, selectedJobStart + 2500);
+      // The unscoped pool is consulted as a fallback inside the selectedJob memo.
+      expect(selectedJobBlock).toMatch(/unscopedJobs\.find\(\(j\) => matchesRouteSlug\(j, lookupSlug\)\)/);
+      // And `unscopedJobs` is a reactive dependency so the memo recomputes once
+      // the pool lands.
+      expect(selectedJobBlock).toMatch(/\}, \[jobs, unscopedJobs,/);
+    });
   });
 
   describe('F1: backfilled previousSlugs for the canonical Denner case', () => {
