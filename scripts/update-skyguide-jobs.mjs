@@ -343,6 +343,11 @@ async function main() {
   const { total , diff } = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
+  // Seed the slice with the freshly-merged jobs now, so refreshLocalizedSlugs()
+  // (which reads via readExistingCrawlerJobs) sees the fresh dataset instead of
+  // the STALE committed slice and doesn't clobber DATA_JOBS back down to it.
+  writeJobsCrawlerSlice(COMPANY_KEY, (JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isTargetJob));
+
   console.log('\n🌐 Running locale fill for Skyguide jobs...');
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
