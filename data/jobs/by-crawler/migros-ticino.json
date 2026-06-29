@@ -231,7 +231,8 @@
         "venditore-denner-ag-zurich",
         "venditore-denner-ag-langenthal-hutbop",
         "verkaufer-in-denner-ag-wattwil",
-        "vendeur-denner-ag-wattwil"
+        "vendeur-denner-ag-wattwil",
+        "venditore-denner-ag-wattwil-8129f7"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -241,7 +242,8 @@
           "vendeur-denner-ag-langenthal-634638"
         ],
         "it": [
-          "venditore-denner-ag-urdorf"
+          "venditore-denner-ag-urdorf",
+          "venditore-denner-ag-wattwil-8129f7"
         ]
       },
       "needsRetranslation": true
@@ -2503,10 +2505,15 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-ag-luzern",
-          "assistent-in-filialleitung-denner-ag-luzern-0g3128"
+          "assistent-in-filialleitung-denner-ag-luzern-0g3128",
+          "vice-direttore-di-filiale-denner-ag-bubendorf",
+          "assistent-in-filialleitung-denner-ag-bubendorf-5mpbsv",
+          "directeur-adjoint-de-succursale-denner-ag-bubendorf",
+          "assistent-in-filialleitung-denner-ag-bubendorf"
         ],
         "en": [
-          "assistent-in-filialleitung-denner-ag-luzern-0g3128"
+          "assistent-in-filialleitung-denner-ag-luzern-0g3128",
+          "assistant-branch-manager-denner-ag-bubendorf"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-ag-luzern-0g3128"
@@ -2514,7 +2521,12 @@
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner-ag-luzern",
-        "assistent-in-filialleitung-denner-ag-luzern-0g3128"
+        "assistent-in-filialleitung-denner-ag-luzern-0g3128",
+        "vice-direttore-di-filiale-denner-ag-bubendorf",
+        "assistant-branch-manager-denner-ag-bubendorf",
+        "assistent-in-filialleitung-denner-ag-bubendorf-5mpbsv",
+        "directeur-adjoint-de-succursale-denner-ag-bubendorf",
+        "assistent-in-filialleitung-denner-ag-bubendorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -7095,7 +7107,8 @@
         "it": [
           "verkaufer-in-denner-ag-zurich",
           "venditore-denner-ag-zurich-1d38ef",
-          "venditore-denner-ag-urdorf"
+          "venditore-denner-ag-urdorf",
+          "venditore-denner-ag-langenthal"
         ],
         "en": [
           "verkaufer-in-denner-ag-zurich"
@@ -7121,7 +7134,8 @@
         "vendeur-denner-ag-langenthal-634638",
         "verkaufer-in-denner-ag-wattwil",
         "vendeur-denner-ag-wattwil",
-        "venditore-denner-ag-wattwil-8129f7"
+        "venditore-denner-ag-wattwil-8129f7",
+        "venditore-denner-ag-langenthal"
       ],
       "needsRetranslation": true
     },
@@ -10480,7 +10494,12 @@
           "salesperson-on-an-hourly-wage-denner-ag-uetendorf",
           "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8",
           "vendeur-a-salaire-horaire-denner-ag-uetendorf",
-          "verkaufer-in-im-stundenlohn-denner-ag-uetendorf"
+          "verkaufer-in-im-stundenlohn-denner-ag-uetendorf",
+          "venditore-con-salario-orario-denner-ag-winterthur-bb4244",
+          "salesperson-on-an-hourly-wage-denner-ag-winterthur-bb4244",
+          "verkaufer-in-im-stundenlohn-denner-ag-winterthur-q46pqr",
+          "vendeur-a-salaire-horaire-denner-ag-winterthur-bb4244",
+          "verkaufer-in-im-stundenlohn-denner-ag-winterthur-2"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-ds0v39"
@@ -10496,7 +10515,12 @@
         "salesperson-on-an-hourly-wage-denner-ag-uetendorf",
         "verkaufer-in-im-stundenlohn-denner-ag-uetendorf-9elgt8",
         "vendeur-a-salaire-horaire-denner-ag-uetendorf",
-        "verkaufer-in-im-stundenlohn-denner-ag-uetendorf"
+        "verkaufer-in-im-stundenlohn-denner-ag-uetendorf",
+        "venditore-con-salario-orario-denner-ag-winterthur-bb4244",
+        "salesperson-on-an-hourly-wage-denner-ag-winterthur-bb4244",
+        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-q46pqr",
+        "vendeur-a-salaire-horaire-denner-ag-winterthur-bb4244",
+        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-2"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13756,10 +13780,15 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-genossenschaft-migros-zurich",
-          "verkaufer-in-food-genossenschaft-migros-zurich-11u9rz"
+          "verkaufer-in-food-genossenschaft-migros-zurich-11u9rz",
+          "assistente-alimentare-genossenschaft-migros-zurich-zurich-0ab9e3",
+          "verkaufer-in-food-genossenschaft-migros-zurich-ov9s7k",
+          "verkaufer-in-food-genossenschaft-migros-zurich-4"
         ],
         "en": [
-          "verkaufer-in-food-genossenschaft-migros-zurich-11u9rz"
+          "verkaufer-in-food-genossenschaft-migros-zurich-11u9rz",
+          "food-assistant-genossenschaft-migros-zurich-zurich-0ab9e3",
+          "assistant-alimentaire-genossenschaft-migros-zurich-zurich-0ab9e3"
         ],
         "fr": [
           "verkaufer-in-food-genossenschaft-migros-zurich-11u9rz"
@@ -13767,7 +13796,12 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-genossenschaft-migros-zurich",
-        "verkaufer-in-food-genossenschaft-migros-zurich-11u9rz"
+        "verkaufer-in-food-genossenschaft-migros-zurich-11u9rz",
+        "assistente-alimentare-genossenschaft-migros-zurich-zurich-0ab9e3",
+        "food-assistant-genossenschaft-migros-zurich-zurich-0ab9e3",
+        "verkaufer-in-food-genossenschaft-migros-zurich-ov9s7k",
+        "assistant-alimentaire-genossenschaft-migros-zurich-zurich-0ab9e3",
+        "verkaufer-in-food-genossenschaft-migros-zurich-4"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -25716,18 +25750,30 @@
       "previousSlugsByLocale": {
         "it": [
           "employe-e-logistique-elsa-group-ursy",
-          "employe-e-logistique-elsa-group-ursy-275fie"
+          "employe-e-logistique-elsa-group-ursy-275fie",
+          "impiegato-in-restauro-elsa-group-ursy",
+          "employee-in-restoration-elsa-group-ursy",
+          "employe-e-en-restauration-elsa-group-ursy-ijnymr",
+          "employe-e-en-restauration-elsa-group-ursy",
+          "dipendenti-in-restauro-elsa-group-ursy"
         ],
         "en": [
           "employe-e-logistique-elsa-group-ursy-275fie"
         ],
         "de": [
-          "employe-e-logistique-elsa-group-ursy-275fie"
+          "employe-e-logistique-elsa-group-ursy-275fie",
+          "mitarbeiter-in-der-restaurierung-elsa-group-ursy"
         ]
       },
       "previousSlugs": [
         "employe-e-logistique-elsa-group-ursy",
-        "employe-e-logistique-elsa-group-ursy-275fie"
+        "employe-e-logistique-elsa-group-ursy-275fie",
+        "impiegato-in-restauro-elsa-group-ursy",
+        "employee-in-restoration-elsa-group-ursy",
+        "mitarbeiter-in-der-restaurierung-elsa-group-ursy",
+        "employe-e-en-restauration-elsa-group-ursy-ijnymr",
+        "employe-e-en-restauration-elsa-group-ursy",
+        "dipendenti-in-restauro-elsa-group-ursy"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -26548,25 +26594,26 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-ag-ruti-zh",
-          "vendeur-denner-ag-ruti-zh-45abe1",
-          "venditore-denner-ag-ruti-zh-45abe1",
-          "seller-denner-ag-mohlin-0713a1",
-          "vendeur-denner-ag-mohlin-0713a1",
-          "venditore-denner-ag-mohlin-0713a1",
-          "venditore-a-denner-ag-mohlin",
-          "salesperson-denner-ag-mohlin",
-          "vendeur-vendeuse-denner-ag-mohlin",
-          "venditore-denner-ag-langenthal-oggkv1",
-          "seller-denner-ag-langenthal",
-          "verkaufer-in-denner-ag-langenthal",
-          "vendeur-denner-ag-langenthal-634638",
-          "venditore-denner-ag-langenthal-634638",
-          "venditore-denner-ag-langenthal",
-          "venditore-denner-ag-frauenfeld",
-          "verkaufer-in-denner-ag-urdorf",
-          "verkaufer-in-denner-ag-wattwil",
-          "venditore-denner-ag-urdorf"
+          "venditore-denner-ag-ruti-zh-t7zg1v",
+          "venditore-denner-ag-wattwil-8129f7",
+          "venditore-denner-ag-mohlin-68d2c2",
+          "vendeur-denner-ag-mohlin-68d2c2",
+          "venditore-denner-ag-wetzikon-8q0wha",
+          "venditore-denner-ag-wetzikon",
+          "venditore-denner-ag-frauenfeld-m4pjdx",
+          "seller-denner-ag-frauenfeld",
+          "verkaufer-in-denner-ag-frauenfeld",
+          "vendeur-denner-ag-frauenfeld",
+          "verkaufer-in-denner-ag-wilderswil-8uju7p",
+          "verkaufer-in-denner-ag-wilderswil-2",
+          "verkaufer-in-denner-ag-chur-s710og",
+          "verkaufer-in-denner-ag-chur-2",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
+          "venditore-denner-ag-allschwil-5b4844",
+          "salesperson-denner-ag-langenthal"
         ],
         "en": [
           "verkaufer-in-denner-ag-sulgen-ylgjxe",
@@ -26583,26 +26630,26 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-ruti-zh",
-        "vendeur-denner-ag-ruti-zh-45abe1",
-        "venditore-denner-ag-ruti-zh-45abe1",
-        "seller-denner-ag-mohlin-0713a1",
-        "vendeur-denner-ag-mohlin-0713a1",
-        "venditore-denner-ag-mohlin-0713a1",
-        "venditore-a-denner-ag-mohlin",
-        "salesperson-denner-ag-mohlin",
-        "vendeur-vendeuse-denner-ag-mohlin",
-        "venditore-denner-ag-langenthal-oggkv1",
-        "seller-denner-ag-langenthal",
-        "verkaufer-in-denner-ag-langenthal",
-        "vendeur-denner-ag-langenthal-634638",
-        "venditore-denner-ag-langenthal-634638",
-        "venditore-denner-ag-langenthal",
-        "venditore-denner-ag-frauenfeld",
-        "verkaufer-in-denner-ag-urdorf",
-        "verkaufer-in-denner-ag-wattwil",
-        "verkaufer-in-denner-ag-urdorf-56ql1j",
-        "venditore-denner-ag-zurich-fzpktp"
+        "venditore-denner-ag-ruti-zh-t7zg1v",
+        "venditore-denner-ag-wattwil-8129f7",
+        "venditore-denner-ag-mohlin-68d2c2",
+        "vendeur-denner-ag-mohlin-68d2c2",
+        "venditore-denner-ag-wetzikon-8q0wha",
+        "venditore-denner-ag-wetzikon",
+        "venditore-denner-ag-frauenfeld-m4pjdx",
+        "seller-denner-ag-frauenfeld",
+        "verkaufer-in-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld",
+        "verkaufer-in-denner-ag-wilderswil-8uju7p",
+        "verkaufer-in-denner-ag-wilderswil-2",
+        "verkaufer-in-denner-ag-chur-s710og",
+        "verkaufer-in-denner-ag-chur-2",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
+        "venditore-denner-ag-allschwil-5b4844",
+        "salesperson-denner-ag-langenthal"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -26707,7 +26754,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-ag-zurich-r5knfa",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-b9428d",
           "stv-filialleiter-in-denner-ag-zurich-4",
           "vice-direttore-di-filiale-denner-ag-zurich-3e601b",
@@ -26726,7 +26772,8 @@
           "vice-direttore-di-filiale-denner-ag-zurich-d310b2",
           "stv-filialleiter-in-denner-ag-zurich-iwlyck",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
-          "stv-filialleiter-in-denner-ag-zurich-3"
+          "stv-filialleiter-in-denner-ag-zurich-3",
+          "vice-direttore-di-filiale-denner-ag-zurich-b9428d"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-appenzell-3o9h68",
@@ -26741,7 +26788,6 @@
         ]
       },
       "previousSlugs": [
-        "vice-direttore-di-filiale-denner-ag-zurich-5450de",
         "deputy-branch-manager-denner-ag-zurich-5450de",
         "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-5450de",
@@ -26760,7 +26806,8 @@
         "vice-direttore-di-filiale-denner-ag-zurich-d310b2",
         "stv-filialleiter-in-denner-ag-zurich-iwlyck",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
-        "stv-filialleiter-in-denner-ag-zurich-3"
+        "stv-filialleiter-in-denner-ag-zurich-3",
+        "vice-direttore-di-filiale-denner-ag-zurich-b9428d"
       ],
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -27218,26 +27265,23 @@
           "vice-direttore-di-filiale-denner-ag-horgen",
           "stv-filialleiter-in-denner-ag-horgen-ic4c9c",
           "directeur-adjoint-de-la-succursale-denner-ag-horgen",
-          "stv-filialleiter-in-denner-ag-horgen"
+          "stv-filialleiter-in-denner-ag-horgen",
+          "vice-direttore-di-filiale-denner-ag-bubendorf",
+          "assistent-in-filialleitung-denner-ag-bubendorf-5mpbsv",
+          "directeur-adjoint-de-succursale-denner-ag-bubendorf",
+          "assistent-in-filialleitung-denner-ag-bubendorf"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-flawil-l51ecj",
           "assistant-branch-manager-denner-ag-baar",
-          "deputy-branch-manager-denner-ag-horgen"
+          "deputy-branch-manager-denner-ag-horgen",
+          "assistant-branch-manager-denner-ag-bubendorf"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-ag-flawil-l51ecj"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-ag-flawil",
-        "assistent-in-filialleitung-denner-ag-flawil-l51ecj",
-        "assistente-nella-gestione-delle-branche-denner-ag-flawil",
-        "vice-direttore-di-filiale-denner-ag-baar",
-        "assistant-branch-manager-denner-ag-baar",
-        "assistent-in-filialleitung-denner-ag-baar-1u85lz",
-        "directeur-adjoint-de-succursale-denner-ag-baar",
-        "assistent-in-filialleitung-denner-ag-baar",
         "vice-direttore-di-filiale-denner-ag-horgen",
         "deputy-branch-manager-denner-ag-horgen",
         "stv-filialleiter-in-denner-ag-horgen-ic4c9c",
@@ -27252,7 +27296,12 @@
         "deputy-branch-manager-denner-ag-adliswil",
         "stv-filialleiter-in-denner-ag-adliswil-4rogfo",
         "directeur-adjoint-de-la-succursale-denner-ag-adliswil",
-        "stv-filialleiter-in-denner-ag-adliswil"
+        "stv-filialleiter-in-denner-ag-adliswil",
+        "vice-direttore-di-filiale-denner-ag-bubendorf",
+        "assistant-branch-manager-denner-ag-bubendorf",
+        "assistent-in-filialleitung-denner-ag-bubendorf-5mpbsv",
+        "directeur-adjoint-de-succursale-denner-ag-bubendorf",
+        "assistent-in-filialleitung-denner-ag-bubendorf"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -29798,17 +29847,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-ag-mohlin-ynz3u9",
-          "verkaufer-in-denner-ag-mohlin-2",
-          "verkaufer-in-denner-ag-mohlin",
-          "verkaufer-in-denner-ag-zurich",
-          "verkaufer-in-denner-ag-langenthal-oggkv1",
-          "verkaufer-in-denner-ag-langenthal-3",
-          "verkaufer-in-denner-ag-langenthal",
-          "venditore-denner-ag-frick",
-          "verkaufer-in-denner-ag-interlaken-vz3gdz",
-          "verkaufer-in-denner-ag-interlaken-2",
-          "verkaufer-in-denner-ag-interlaken",
           "verkaufer-in-denner-ag-basel-68m8tl",
           "verkaufer-in-denner-ag-zurich-fzpktp",
           "verkaufer-in-denner-ag-zurich-2",
@@ -29817,7 +29855,18 @@
           "verkaufer-in-denner-ag-wilderswil-8uju7p",
           "verkaufer-in-denner-ag-wilderswil-2",
           "verkaufer-in-denner-ag-wilderswil",
-          "verkaufer-in-denner-ag-chur-s710og"
+          "verkaufer-in-denner-ag-chur-s710og",
+          "verkaufer-in-denner-ag-chur-2",
+          "verkaufer-in-denner-ag-chur",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil",
+          "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
+          "verkaufer-in-denner-ag-ruti-zh-2",
+          "verkaufer-in-denner-ag-ruti-zh"
         ],
         "en": [
           "verkaufer-in-denner-ag-frick-7j5ksm",
@@ -29834,17 +29883,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-mohlin-ynz3u9",
-        "verkaufer-in-denner-ag-mohlin-2",
-        "verkaufer-in-denner-ag-mohlin",
-        "verkaufer-in-denner-ag-zurich",
-        "verkaufer-in-denner-ag-langenthal-oggkv1",
-        "verkaufer-in-denner-ag-langenthal-3",
-        "verkaufer-in-denner-ag-langenthal",
-        "venditore-denner-ag-frick",
-        "verkaufer-in-denner-ag-interlaken-vz3gdz",
-        "verkaufer-in-denner-ag-interlaken-2",
-        "verkaufer-in-denner-ag-interlaken",
         "verkaufer-in-denner-ag-basel-68m8tl",
         "verkaufer-in-denner-ag-zurich-fzpktp",
         "verkaufer-in-denner-ag-zurich-2",
@@ -29853,7 +29891,18 @@
         "verkaufer-in-denner-ag-wilderswil-8uju7p",
         "verkaufer-in-denner-ag-wilderswil-2",
         "verkaufer-in-denner-ag-wilderswil",
-        "verkaufer-in-denner-ag-chur-s710og"
+        "verkaufer-in-denner-ag-chur-s710og",
+        "verkaufer-in-denner-ag-chur-2",
+        "verkaufer-in-denner-ag-chur",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil",
+        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
+        "verkaufer-in-denner-ag-ruti-zh-2",
+        "verkaufer-in-denner-ag-ruti-zh"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -35160,15 +35209,31 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-engineer-80-100-alle-migros-bank-wallisellen"
+          "senior-data-engineer-80-100-alle-migros-bank-wallisellen",
+          "senior-data-ingegnere-m-w-d-migros-genossenschafts-bund-zurich-0bnzu6",
+          "senior-data-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-0bnzu6",
+          "ingenieur-de-donnees-senior-migros-genossenschafts-bund-zurich",
+          "ingenieur-principal-des-donnees-f-m-d-migros-genossenschafts-bund-zurich",
+          "senior-data-ingegnere-beschaffung-logistik-w-m-d-migros-genossenschafts-bund-zurich"
         ],
         "fr": [
           "senior-data-ingenieur-80-100-alle-migros-bank-wallisellen-7j0x4j"
+        ],
+        "en": [
+          "senior-data-engineer-m-w-d-migros-genossenschafts-bund-zurich-0bnzu6",
+          "senior-data-engineer-m-w-d-migros-genossenschafts-bund-zurich"
         ]
       },
       "previousSlugs": [
         "senior-data-engineer-80-100-alle-migros-bank-wallisellen",
-        "senior-data-ingenieur-80-100-alle-migros-bank-wallisellen-7j0x4j"
+        "senior-data-ingenieur-80-100-alle-migros-bank-wallisellen-7j0x4j",
+        "senior-data-ingegnere-m-w-d-migros-genossenschafts-bund-zurich-0bnzu6",
+        "senior-data-engineer-m-w-d-migros-genossenschafts-bund-zurich-0bnzu6",
+        "senior-data-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-0bnzu6",
+        "ingenieur-de-donnees-senior-migros-genossenschafts-bund-zurich",
+        "senior-data-engineer-m-w-d-migros-genossenschafts-bund-zurich",
+        "ingenieur-principal-des-donnees-f-m-d-migros-genossenschafts-bund-zurich",
+        "senior-data-ingegnere-beschaffung-logistik-w-m-d-migros-genossenschafts-bund-zurich"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -48520,7 +48585,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-winterthur",
-          "verkaufer-in-im-stundenlohn-denner-ag-winterthur-qxh2o6"
+          "verkaufer-in-im-stundenlohn-denner-ag-winterthur-qxh2o6",
+          "venditore-con-salario-orario-denner-ag-winterthur-bb4244",
+          "salesperson-on-an-hourly-wage-denner-ag-winterthur-bb4244",
+          "verkaufer-in-im-stundenlohn-denner-ag-winterthur-q46pqr",
+          "vendeur-a-salaire-horaire-denner-ag-winterthur-bb4244",
+          "verkaufer-in-im-stundenlohn-denner-ag-winterthur-2"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-winterthur-qxh2o6"
@@ -48531,7 +48601,12 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-ag-winterthur",
-        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-qxh2o6"
+        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-qxh2o6",
+        "venditore-con-salario-orario-denner-ag-winterthur-bb4244",
+        "salesperson-on-an-hourly-wage-denner-ag-winterthur-bb4244",
+        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-q46pqr",
+        "vendeur-a-salaire-horaire-denner-ag-winterthur-bb4244",
+        "verkaufer-in-im-stundenlohn-denner-ag-winterthur-2"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
