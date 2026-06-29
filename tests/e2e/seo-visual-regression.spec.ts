@@ -59,8 +59,9 @@ const CASES: VisualCase[] = [
   // baseline generation froze the pre-hydration tombstone, which then diffed
   // 100% against every fully-hydrated live render (validate-live recurring fail).
   // `#exchange-amount` is the comparator's amount input: it exists ONLY in the
-  // hydrated comparator (never in the tombstone nor the static SEO shell), so
-  // gating on it forces a deterministic full-comparator capture on both sides.
+  // hydrated comparator (never in the tombstone nor the static SEO shell — verified
+  // by the guard in tests/noindex-builders.test.ts), so gating on it forces a
+  // deterministic full-comparator capture on both sides.
   { name: 'currency-comparator', url: '/comparatori/cambio-valuta/', readySelector: '#exchange-amount' },
 ];
 

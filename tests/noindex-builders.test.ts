@@ -80,6 +80,25 @@ describe('SEO builder noindex guards', () => {
     });
   });
 
+  describe('tombstone template does not carry component-level ids (#3093)', () => {
+    it('/comparatori/cambio-valuta/ tombstone is free of #exchange-amount', () => {
+      // seo-visual-regression.spec.ts uses '#exchange-amount' as the readySelector
+      // for /comparatori/cambio-valuta/ to gate on full SPA hydration before the
+      // screenshot fires. That selector is only safe if the static tombstone HTML
+      // does NOT carry the id — otherwise the selector resolves pre-hydration and
+      // re-introduces the baseline race (reviewer ❓ in PR #3084, follow-up #3093).
+      // This guard catches any future change that accidentally injects the id into
+      // the tombstone template at build time.
+      const html = buildCanonicalBridgePage({
+        canonicalUrl: 'https://frontaliereticino.ch/compara-servizi/cambio-franco-euro/',
+        pathLabel: '/compara-servizi/cambio-franco-euro/',
+        title: 'Pagina spostata',
+        noindex: true,
+      });
+      expect(html).not.toContain('exchange-amount');
+    });
+  });
+
   describe('bridge page call sites pass noindex: true', () => {
     const source = readFileSync(
       path.resolve(__dirname, '..', 'build-plugins', 'jobsSeoPagesPlugin.ts'),
