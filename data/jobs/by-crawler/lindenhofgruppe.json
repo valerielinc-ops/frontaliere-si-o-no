@@ -310,9 +310,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -356,8 +356,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
-        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
-        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -370,11 +368,9 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
-          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
@@ -3078,10 +3074,10 @@
     },
     {
       "id": "lindenhofgruppe-ee38e03f1f8b",
-      "slug": "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
+      "slug": "team-leader-specialisti-farmacia-assistenti-farmaceutici-lindenhofgruppe-lindenhofgruppe",
       "slugByLocale": {
         "de": "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
-        "it": "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
+        "it": "team-leader-specialisti-farmacia-assistenti-farmaceutici-lindenhofgruppe-lindenhofgruppe",
         "en": "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
         "fr": "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch"
       },
@@ -3139,14 +3135,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:29:08.785Z"
+      "firstSeenAt": "2026-06-29T13:29:08.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-68891f23b989",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+      "slug": "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+        "it": "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital",
         "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
         "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9"
       },
@@ -3194,11 +3198,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

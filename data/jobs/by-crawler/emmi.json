@@ -3709,12 +3709,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -3772,16 +3772,13 @@
         ]
       },
       "previousSlugs": [
-        "gestione-account-emmi-luzern-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "account-manager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -4900,10 +4897,10 @@
     },
     {
       "id": "emmi-025f3db15e67",
-      "slug": "fachspezialist-in-elektrotechnik-emmi-ch",
+      "slug": "specialista-in-elettrotecnica-emmi-ostermundigen-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-elektrotechnik-emmi-ch",
-        "it": "fachspezialist-in-elektrotechnik-emmi-ch",
+        "it": "specialista-in-elettrotecnica-emmi-ostermundigen-bern",
         "en": "fachspezialist-in-elektrotechnik-emmi-ch",
         "fr": "fachspezialist-in-elektrotechnik-emmi-ch"
       },
@@ -4973,7 +4970,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:01:17.217Z"
+      "firstSeenAt": "2026-06-29T13:01:17.217Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-elektrotechnik-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-elektrotechnik-emmi-ch"
+      ]
     }
   ]
 }

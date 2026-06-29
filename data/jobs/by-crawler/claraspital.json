@@ -134,8 +134,7 @@
         ],
         "en": [
           "business-electrician-st-claraspital-basel",
-          "company-electrician-st-claraspital-basel",
-          "betriebselektriker-in-claraspital-basel"
+          "company-electrician-st-claraspital-basel"
         ],
         "de": [
           "betriebsleiter-st-claraspital-basel"
@@ -888,8 +887,7 @@
         ],
         "fr": [
           "specialiste-des-soins-infirmiers-st-claraspital-basel",
-          "soins-infirmiers-st-claraspital-basel",
-          "pflegepraktikant-in-claraspital-basel"
+          "soins-infirmiers-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.140Z",
@@ -1087,8 +1085,7 @@
           "dipl-radiologiefachperson-hf-claraspital-basel"
         ],
         "en": [
-          "dipl-radiology-specialist-hf-st-claraspital-basel",
-          "dipl-radiologiefachperson-hf-claraspital-basel"
+          "dipl-radiology-specialist-hf-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.139Z",
@@ -1648,8 +1645,7 @@
           "dipl-pflegefachperson-hf-fh-claraspital-basel"
         ],
         "en": [
-          "dipl-care-professional-hf-fh-st-claraspital-basel",
-          "dipl-pflegefachperson-hf-fh-claraspital-basel"
+          "dipl-care-professional-hf-fh-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.141Z",
@@ -2244,10 +2240,10 @@
     },
     {
       "id": "claraspital-fb3d857a6185",
-      "slug": "sachbearbeiter-in-patientenaufnahme-notfallaufnahme-claraspital-basel",
+      "slug": "addetto-a-al-ricovero-del-paziente-pronto-soccorso-st-claraspital-basel",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenaufnahme-notfallaufnahme-claraspital-basel",
-        "it": "sachbearbeiter-in-patientenaufnahme-notfallaufnahme-claraspital-basel",
+        "it": "addetto-a-al-ricovero-del-paziente-pronto-soccorso-st-claraspital-basel",
         "en": "sachbearbeiter-in-patientenaufnahme-notfallaufnahme-claraspital-basel",
         "fr": "sachbearbeiter-in-patientenaufnahme-notfallaufnahme-claraspital-basel"
       },
@@ -2305,7 +2301,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T12:58:58.107Z"
+      "firstSeenAt": "2026-06-29T12:58:58.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-notfallaufnahme-claraspital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-notfallaufnahme-claraspital-basel"
+      ]
     }
   ]
 }

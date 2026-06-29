@@ -1964,8 +1964,7 @@
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "en": [
-          "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
-          "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
+          "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
         ],
         "fr": [
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
@@ -3628,8 +3627,7 @@
           "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "fr": [
-          "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen",
-          "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+          "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.472Z",
@@ -3925,8 +3923,7 @@
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "en": [
-          "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
-          "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+          "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf"
         ],
         "fr": [
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
@@ -5492,8 +5489,7 @@
           "e-banking-specializzato-m-f-d-helvetia-versicherungen-solothurn"
         ],
         "en": [
-          "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
-          "fachspezialist-e-banking-m-w-d-helvetia-solothurn"
+          "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn"
         ],
         "fr": [
           "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
@@ -8585,12 +8581,12 @@
     },
     {
       "id": "helvetia-9881449bb12c",
-      "slug": "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz",
+      "slug": "investment-specialista-w-m-d-part-time-tempo-pieno-helvetia-versicherungen-basel-hauptsitz",
       "slugByLocale": {
         "en": "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz",
-        "it": "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz",
-        "de": "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz",
-        "fr": "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz"
+        "it": "investment-specialista-w-m-d-part-time-tempo-pieno-helvetia-versicherungen-basel-hauptsitz",
+        "de": "investment-spezialist-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel-hauptsitz",
+        "fr": "investment-specialiste-w-m-d-temps-partiel-temps-plein-helvetia-versicherungen-basel-hauptsitz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8646,7 +8642,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:30:38.861Z"
+      "firstSeenAt": "2026-06-29T13:30:38.861Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz"
+        ],
+        "de": [
+          "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz"
+        ],
+        "fr": [
+          "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz"
+        ]
+      },
+      "previousSlugs": [
+        "investment-specialist-w-m-d-parttime-fulltime-helvetia-basel-hauptsitz"
+      ]
     },
     {
       "id": "helvetia-94510ab63590",
@@ -8654,8 +8664,8 @@
       "slugByLocale": {
         "en": "it-people-lead-it-line-manager-f-m-d-part-time-full-time-helvetia-basel-hauptsitz",
         "it": "it-people-lead-it-line-manager-f-m-d-part-time-full-time-helvetia-basel-hauptsitz",
-        "de": "it-people-lead-it-line-manager-f-m-d-part-time-full-time-helvetia-basel-hauptsitz",
-        "fr": "it-people-lead-it-line-manager-f-m-d-part-time-full-time-helvetia-basel-hauptsitz"
+        "de": "it-people-lead-it-line-manager-f-m-d-teilzeit-vollzeit-helvetia-versicherungen-basel-hauptsitz",
+        "fr": "it-people-lead-it-line-manager-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen-basel-hauptsitz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8780,10 +8790,10 @@
     },
     {
       "id": "helvetia-5d7655457f1d",
-      "slug": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz",
+      "slug": "studente-lavoratore-corporate-services-f-m-d-part-time-helvetia-versicherungen-basel-hauptsitz",
       "slugByLocale": {
         "de": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz",
-        "it": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz",
+        "it": "studente-lavoratore-corporate-services-f-m-d-part-time-helvetia-versicherungen-basel-hauptsitz",
         "en": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz",
         "fr": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz"
       },
@@ -8841,7 +8851,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T13:30:38.841Z"
+      "firstSeenAt": "2026-06-29T13:30:38.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz"
+      ]
     }
   ]
 }

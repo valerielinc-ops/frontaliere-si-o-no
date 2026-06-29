@@ -176,7 +176,7 @@
         "fr": "client-advisor-retail-cite-ubs-suisse-romande",
         "it": "consulente-clienti-retail-cite-ubs-suisse-romande",
         "en": "client-advisor-retail-cite-ubs-suisse-romande",
-        "de": "kundenberater-einzelhandel-cite-ubs-suisse-romande"
+        "de": "client-berater-retail-cite-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -229,10 +229,14 @@
       "previousSlugsByLocale": {
         "it": [
           "client-advisor-retail-cite-ubs-suisse-romande"
+        ],
+        "de": [
+          "kundenberater-einzelhandel-cite-ubs-suisse-romande"
         ]
       },
       "previousSlugs": [
         "client-advisor-retail-cite-ubs-suisse-romande",
+        "kundenberater-einzelhandel-cite-ubs-suisse-romande",
         "client-advisor-retail-cite-ubs"
       ],
       "salaryMin": 60500,
