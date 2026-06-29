@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-28T22:44:12.249Z",
+  "generatedAt": "2026-06-29T14:28:54.763Z",
   "total": 26,
   "newCount": 26,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 158182,
-  "avgDurationMs": 158182,
+  "durationMs": 145414,
+  "avgDurationMs": 145414,
   "durationHistory": [
-    158182
+    145414
   ],
   "newJobs": [
     {
@@ -215,10 +215,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 21,
         "translation": 23,
         "completeness": 25
       }
@@ -476,6 +476,48 @@
       }
     },
     {
+      "id": "company-l4u54e",
+      "slug": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
+      "company": "SUPSI / DTI",
+      "title": "Assistenti Bachelor in Formazione Master MSE in Mechanical Engineering and Materials",
+      "location": "Lugano. Grado d",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://www.supsi.ch/bando26_5027",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-06-11T13:41:02.453Z",
+      "firstSeenAt": "2026-06-11T13:41:02.453Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 20,
+        "completeness": 25
+      }
+    },
+    {
       "id": "company-l4u54f",
       "slug": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
       "company": "SUPSI / DTI",
@@ -560,48 +602,6 @@
       }
     },
     {
-      "id": "company-l4u54e",
-      "slug": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
-      "company": "SUPSI / DTI",
-      "title": "Assistenti Bachelor in Formazione Master MSE in Mechanical Engineering and Materials",
-      "location": "Lugano. Grado d",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "url": "https://www.supsi.ch/bando26_5027",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-06-11T13:41:02.453Z",
-      "firstSeenAt": "2026-06-11T13:41:02.453Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-l4u54c",
       "slug": "dottoranda-dottorando-in-microtecnica-e-micromeccanica-con-applicazioni-in-microfluidica-biomedicale-per-sistemi-avanzati-organ-on-chip-sups-l4u54c",
       "company": "SUPSI / DTI",
@@ -635,11 +635,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -887,11 +887,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 16,
         "completeness": 25
       }
     },
