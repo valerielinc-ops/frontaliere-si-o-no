@@ -3825,6 +3825,35 @@ function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
     for (const [key, jobs] of byKey) {
       writeJson(path.join(sliceDir, `${key}.json`), { jobs });
     }
+    // A scoped key that matches zero jobs in the merged data/jobs.json is NOT
+    // reseeded above (it never enters byKey), so its on-disk slice is left
+    // untouched. That is fine for a genuinely-empty crawler, but it is the
+    // SILENT failure mode of #3089 item 2: if the crawler writes jobs under a
+    // companyKey that differs from the scoped key (an alias or a canton suffix),
+    // the seed matches nothing, the existing slice is never refreshed, and the
+    // pre-#3070 stale-read bug persists for that crawler with no signal. Surface
+    // it: a missing key whose slice file already holds jobs is almost certainly
+    // a companyKey mismatch (stale slice), so warn loudly; a missing key with no
+    // (or empty) slice is the legitimate "nothing to seed yet" case (info only).
+    for (const key of keySet) {
+      if (byKey.has(key)) continue;
+      let existingJobCount = 0;
+      try {
+        const existing = JSON.parse(fs.readFileSync(path.join(sliceDir, `${key}.json`), 'utf-8'));
+        existingJobCount = Array.isArray(existing?.jobs) ? existing.jobs.length : 0;
+      } catch {
+        existingJobCount = 0; // missing/unreadable slice → treat as nothing to refresh
+      }
+      if (existingJobCount > 0) {
+        console.warn(
+          `⚠️  Slice seed: companyKey "${key}" matched 0 jobs in data/jobs.json but its ` +
+            `slice holds ${existingJobCount} job(s) → slice NOT refreshed (likely a companyKey ` +
+            `alias/canton-suffix mismatch; that slice may be serving stale localizations).`,
+        );
+      } else {
+        console.log(`ℹ️  Slice seed: companyKey "${key}" matched 0 jobs (no slice to refresh).`);
+      }
+    }
   } catch (err) {
     // A failed seed (corrupt data/jobs.json, writeJson failing mid-loop) leaves
     // the per-crawler slice files stale → silently reintroduces the pre-#3070
