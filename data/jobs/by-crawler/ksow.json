@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-06-28T22:00:29.918Z",
+  "assembledAt": "2026-06-29T13:44:34.413Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:00:27.530Z",
+      "crawledAt": "2026-06-29T13:44:32.115Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -69,6 +69,7 @@
           "Charge de travail : jours fériés individuels et week-ends par an"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
@@ -81,111 +82,15 @@
         "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:31.266Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 7000,
+      "salaryMax": 10600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ksow-d027bd6744df",
-      "slug": "fisioterapista-sup-a-80-kantonsspital-obwalden-sarnen",
-      "slugByLocale": {
-        "it": "fisioterapista-sup-a-80-kantonsspital-obwalden-sarnen",
-        "en": "physiotherapist-in-fh-a-80-kantonsspital-obwalden-sarnen",
-        "de": "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen",
-        "fr": "physiotherapeute-hes-f-m-80-kantonsspital-obwalden-sarnen"
-      },
-      "company": "Kantonsspital Obwalden",
-      "companyKey": "ksow",
-      "companyDomain": "ksow.ch",
-      "title": "Physiotherapeut/in FH (a) 80%",
-      "titleByLocale": {
-        "it": "Fisioterapista SUP (a) 80%",
-        "en": "Physiotherapist/in FH (a) 80 %",
-        "de": "Physiotherapeut/in FH (a) 80%",
-        "fr": "Physiothérapeute HES (f/m) 80%"
-      },
-      "description": "Physiotherapeut/in FH (a) 80%\n per sofort oder nach Vereinbarung\n Das Kantonsspital Obwalden steht für moderne Medizin in persönlicher Atmosphäre. Bei uns bist du ein wichtiger Teil eines engagierten Teams, das täglich gemeinsam für die bestmögliche Betreuung unserer Patientinnen und Patienten arbeitet.\n\nFür unser Kompetenzzentrum Physiotherapie suchen wir eine engagierte Persönlichkeit, die Verantwortung übernimmt und sich aktiv einbringt.\n\nDeine Aufgaben - sinnstiftend und vielseitig\n\n• Du behandelst ambulante und stationäre Patientinnen und Patienten aus verschiedensten Fachbereichen\n\n• Du übernimmst Verantwortung – z. B. für Fachbereiche wie Chirurgie, Orthopädie oder Innere Medizin oder in der Begleitung von Auszubildenden\n\n• Du arbeitest eng mit Ärztinnen/Ärzten und Pflege zusammen und bringst deine Perspektive aktiv ein\n\n• Du organisierst deinen Arbeitsalltag selbstständig und behältst den Überblick\n\nDas bringst du mit - fachlich stark, menschlich überzeugend\n\n• Ausbildung als Physiotherapeut/in FH\n\n• Freude daran, Menschen auf ihrem Weg zu begleiten und echte Fortschritte zu ermöglichen\n\n• Selbstständige, lösungsorientierte Arbeitsweise\n\n• Teamgeist, Offenheit und Lust auf ein lebendiges Umfeld\n\nWas Sie bei uns erwartet - weil deine Arbeit wertvoll ist\n\n• Einen Arbeitsplatz an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof\n\n• Ein Team, das zusammenhält, sich unterstützt und auch mal miteinander lacht\n Zeit für eine sorgfältige Einarbeitung – damit du wirklich ankommen kannst\n Entwicklungsmöglichkeiten, die zu dir passen – fachlich und persönlich\n Attraktive Anstellungsbedingungen mit spürbarem Mehrwert:\n\n• Gratis Fitness-Abo in unserer Physio-Fitness\n\n• Vergünstigte Verpflegung und Parkmöglichkeiten\n\n• Weltweite private Unfallversicherung\n\n• betriebliche Kinderzulagen und REKA-Schecks\n\n• weitere Benefits, die deinen Alltag erleichtern\n\nNeugierig geworden?\nDann freuen wir uns darauf, dich kennenzulernen. Bewirb dich jetzt online.\n Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Ruud Rietveld, Leiter Physiotherapie, 041 666 41 75\nFrau Carmen Dollinger, Leiterin Pflegedienst und Kompetenzzentren, 041 666 42 60\n Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 40 22",
-      "descriptionByLocale": {
-        "it": "Descrizione Fisioterapista (a) 80% da subito o su appuntamento L'ospedale cantonale di Obvaldo è sinonimo di medicina moderna in un'atmosfera personale. Con noi sei una parte importante di un team dedicato che lavora insieme ogni giorno per fornire la migliore assistenza possibile ai nostri pazienti. Per il nostro centro di competenza in fisioterapia cerchiamo una persona impegnata che si assuma la responsabilità e si impegni attivamente. Mansioni - Curi pazienti ambulatoriali e stazionari di diversi settori specialistici - Ti assumi la responsabilità – ad es. B. per settori specialistici come la chirurgia, l'ortopedia o la medicina interna o nell'accompagnamento di tirocinanti - Lavori a stretto contatto con medici e infermieri e apporti attivamente la tua prospettiva - Organizzi autonomamente il tuo lavoro quotidiano e tieni traccia dei requisiti - Formazione come fisioterapista/trice - Piacere di accompagnare le persone nel loro percorso e di consentire veri progressi - Lavoro autonomo e orientato alla soluzione - Spirito di squadra, apertura e voglia di un ambiente vivace\n• Cosa offriamo - Un posto di lavoro in una posizione attraente a Sarnen am See, a 5 minuti a piedi dalla stazione ferroviaria - Un team che tiene insieme, si sostiene e a volte ride insieme - Tempo per un'attenta formazione – in modo che tu possa davvero arrivare - Opportunità di sviluppo che ti si adattano – professionalmente e personalmente -",
-        "en": "Descrizione Physiotherapeut/in FH (a) 80% with immediate effect or by appointment The Obwalden Cantonal Hospital stands for modern medicine in a personal atmosphere. With us, you are an important part of a committed team that works together every day to provide the best possible care for our patients. For our Physiotherapy Competence Centre, we are looking for a committed personality who takes responsibility and actively participates. Mansioni - You treat outpatients and inpatients from a wide range of specialist areas - You take on responsibility – e.g. For specialist areas such as surgery, orthopaedics or internal medicine or in the company of trainees - You work closely with doctors and nurses and actively contribute your perspective - You organize your everyday work independently and keep track of props - Training as a physiotherapist FH - Joy in accompanying people on their way and enabling real progress - Independent, solution-oriented way of working - Team spirit, openness and desire for a lively environment\n• Cosa offriamo - A workplace in an attractive location in Sarnen on the lake, 5 minutes walk from the train station - A team that holds together, supports each other and also laughs with each other - Time for careful familiarization – so that you can really arrive - Development opportunities that suit you – professionally and personally -",
-        "de": "Physiotherapeut/in FH (a) 80% per sofort oder nach Vereinbarung Das Kantonsspital Obwalden steht für moderne Medizin in persönlicher Atmosphäre. Bei uns bist du ein wichtiger Teil eines engagierten Teams, das täglich gemeinsam für die bestmögliche Betreuung unserer Patientinnen und Patienten arbeitet. Für unser Kompetenzzentrum Physiotherapie suchen wir eine engagierte Persönlichkeit, die Verantwortung übernimmt und sich aktiv einbringt. Deine Aufgaben - sinnstiftend und vielseitig\n• Du behandelst ambulante und stationäre Patientinnen und Patienten aus verschiedensten Fachbereichen\n• Du übernimmst Verantwortung – z. B. für Fachbereiche wie Chirurgie, Orthopädie oder Innere Medizin oder in der Begleitung von Auszubildenden\n• Du arbeitest eng mit Ärztinnen/Ärzten und Pflege zusammen und bringst deine Perspektive aktiv ein\n• Du organisierst deinen Arbeitsalltag selbstständig und behältst den Überblick Das bringst du mit - fachlich stark, menschlich überzeugend\n• Ausbildung als Physiotherapeut/in FH\n• Freude daran, Menschen auf ihrem Weg zu begleiten und echte Fortschritte zu ermöglichen\n• Selbstständige, lösungsorientierte Arbeitsweise\n• Teamgeist, Offenheit und Lust auf ein lebendiges Umfeld Was Sie bei uns erwartet - weil deine Arbeit wertvoll ist\n• Einen Arbeitsplatz an attraktiver Lage in Sarnen am See, 5 Gehminuten vom Bahnhof\n• Ein Team, das zusammenhält, sich unterstützt und auch mal miteinander lacht Zeit für eine sorgfältige Einarbeitung – damit du wirklich ankommen kannst Entwicklungsmöglichkeiten, die zu dir passen – fachlich und persönlich Attraktive Anstellungsbedingungen mit spürbarem Mehrwert:\n• Gratis Fitness-Abo in unserer Physio-Fitness\n• Vergünstigte Verpflegung und Parkmöglichkeiten\n• Weltweite private Unfallversicherung\n• betriebliche Kinderzulagen und REKA-Schecks\n• weitere Benefits, die deinen Alltag erleichtern Neugierig geworden? Dann freuen wir uns darauf, dich kennenzulernen. Bewirb dich jetzt online. Jetzt bewerben Haben Sie Fragen zu dieser Stelle? Ihre Ansprechsperson für Auskünfte: Herr Ruud Rietveld, Leiter Physiotherapie, 041 666 41 75 Frau Carmen Dollinger, Leiterin Pflegedienst und Kompetenzzentren, 041 666 42 60 Kantonsspital Obwalden, Brünigstrasse 181, 6060 Sarnen, +41 666 40 22",
-        "fr": "Descrizione Physiothérapeute HES (a) 80 % immédiatement ou sur rendez-vous L'Hôpital cantonal d'Obwald est synonyme de médecine moderne dans une atmosphère personnelle. Chez nous, vous êtes un membre important d'une équipe engagée qui travaille chaque jour ensemble pour la meilleure prise en charge possible de nos patients. Pour notre centre de compétence en physiothérapie, nous recherchons une personnalité engagée qui assume ses responsabilités et s'implique activement. Mansioni - Vous traitez des patients ambulatoires et stationnaires de différents domaines - Vous assumez des responsabilités – par ex. Par exemple, pour des domaines tels que la chirurgie, l'orthopédie ou la médecine interne ou dans l'accompagnement d'apprentis - Vous travaillez en étroite collaboration avec des médecins et des infirmières et apportez activement votre point de vue - Vous organisez votre travail quotidien de manière autonome et gardez une vue d'ensemble des accessoires - Formation en tant que physiothérapeute HES - Plaisir à accompagner les gens sur leur chemin et à permettre de réels progrès - Travail indépendant et axé sur les solutions - Esprit d'équipe, ouverture et envie d'un environnement vivant\n• Cosa offriamo - Un lieu de travail attrayant à Sarnen am See, à 5 minutes à pied de la gare - Une équipe qui tient ensemble, se soutient et rit parfois ensemble - Temps pour une initiation minutieuse – afin que vous puissiez vraiment arriver - Opportunités de développement qui vous conviennent – professionnellement et personnellement -"
-      },
-      "location": "Sarnen",
-      "canton": "OW",
-      "url": "https://link.ostendis.com/publication/physiotherapeut-in-fh/a6efg0x6if55x3bdlwflcg4mxfhjffmtjnm5uw3koat4yk6k46zwti4vfj3n5085",
-      "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:00:25.835Z",
-      "addressLocality": "Sarnen",
-      "addressRegion": "OW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6060",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-21",
-      "applyUrl": "https://link.ostendis.com/publication/physiotherapeut-in-fh/a6efg0x6if55x3bdlwflcg4mxfhjffmtjnm5uw3koat4yk6k46zwti4vfj3n5085",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione come fisioterapista SUP",
-          "Piacere nell'accompagnare le persone nel loro percorso",
-          "Approccio lavorativo autonomo e orientato alle soluzioni",
-          "Spirito di squadra e apertura"
-        ],
-        "en": [
-          "Training as a physiotherapist BSc",
-          "Enjoyment in accompanying people on their journey",
-          "Independent, solution-oriented way of working",
-          "Team spirit and openness"
-        ],
-        "fr": [
-          "Formation en tant que physiothérapeute HES",
-          "Plaisir à accompagner les personnes dans leur parcours",
-          "Méthode de travail autonome et axée sur les solutions",
-          "Esprit d'équipe et ouverture"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "physiotherapeut-in-fh-a-80-ksow-sarnen"
-        ],
-        "it": [
-          "physiotherapeut-in-fh-a-80-ksow-sarnen"
-        ],
-        "en": [
-          "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen"
-        ]
-      },
-      "previousSlugs": [
-        "physiotherapeut-in-fh-a-80-ksow-sarnen",
-        "physiotherapeut-in-fh-a-80-kantonsspital-obwalden-sarnen"
-      ],
-      "firstSeenAt": "2026-05-26T14:05:27.865Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 7000,
+          "maxValue": 10600,
           "unitText": "YEAR"
         }
       }
@@ -221,7 +126,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-anaesthesiepflege-nds-hf/hchi3byoxnduiomr2q4tb57d5q2hclz4a4rlhxrx251bbwzfp46rw7d7eza4dy67",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:00:24.140Z",
+      "crawledAt": "2026-06-29T13:44:30.445Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -260,6 +165,7 @@
           "Plaisir pour la collaboration interdisciplinaire"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
@@ -316,7 +222,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:00:22.426Z",
+      "crawledAt": "2026-06-29T13:44:28.800Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -355,6 +261,7 @@
           "Activité en tant que sage-femme indépendante"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
@@ -415,7 +322,7 @@
       "url": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:00:20.706Z",
+      "crawledAt": "2026-06-29T13:44:27.104Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -463,6 +370,7 @@
           "Réalisation autonome d'examens médicaux"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
@@ -493,7 +401,7 @@
       "slug": "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen",
-        "en": "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen",
+        "en": "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
         "de": "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
         "fr": "technicien-en-salle-d-operation-es-a-50-100-kantonsspital-obwalden-sarnen"
       },
@@ -503,7 +411,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
       "titleByLocale": {
         "it": "Tecnico di Sala Operatoria SSS (a) 50–100%",
-        "en": "Dipl. Specialist Operations Technique HF (a) 50–100 %",
+        "en": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "de": "Dipl. Fachperson Operationstechnik HF (a) 50–100%",
         "fr": "Technicien en salle d'opération ES (a) 50–100%"
       },
@@ -519,7 +427,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:00:19.009Z",
+      "crawledAt": "2026-06-29T13:44:25.333Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -562,6 +470,7 @@
           "Esprit d'équipe, flexibilité et plaisir à travailler dans un environnement dynamique"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
@@ -570,12 +479,13 @@
           "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
         ],
         "en": [
+          "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen",
           "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
+        "dipl-specialist-operations-technique-hf-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
       "salaryMin": 69500,
@@ -622,7 +532,7 @@
       "url": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T22:00:17.301Z",
+      "crawledAt": "2026-06-29T13:44:23.579Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -660,6 +570,7 @@
           "Personnalité flexible et orientée service"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "lagerungspfleger-in-a-60-100-ksow-sarnen"
@@ -716,7 +627,7 @@
       "url": "https://link.ostendis.com/publication/techn-sterilisationsassistent-in-befristet/rfpa5h3aw8vi46v8rsi32eyl2x5kkjolkqxz333k3ce3025g2ag5gq44iz2bitgm",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:59:56.982Z",
+      "crawledAt": "2026-06-29T13:44:19.841Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -757,6 +668,7 @@
           "Bonnes connaissances en allemand et compétences informatiques"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "techn-sterilisationsassistent-in-50-befristet-ksow-sarnen"
@@ -769,15 +681,15 @@
         "techn-sterilisationsassistent-in-50-befristet-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:04:55.270Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 34800,
+      "salaryMax": 53000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 34800,
+          "maxValue": 53000,
           "unitText": "YEAR"
         }
       }
@@ -813,7 +725,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:59:54.749Z",
+      "crawledAt": "2026-06-29T13:44:17.714Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -856,6 +768,7 @@
           "Haute compétence sociale ainsi qu'une communication précieuse"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
@@ -868,15 +781,15 @@
         "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:04:50.682Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 19200,
+      "salaryMax": 29200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 19200,
+          "maxValue": 29200,
           "unitText": "YEAR"
         }
       }
@@ -885,10 +798,10 @@
       "id": "ksow-aa3d4a817280",
       "slug": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
+        "it": "responsabile-comunicazione-integrazione-80-100-kantonsspital-obwalden-sarnen",
         "en": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
         "de": "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "fr": "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
+        "fr": "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -896,7 +809,7 @@
       "title": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
       "titleByLocale": {
         "it": "Responsabile Comunicazione & Integrazione 80–100 %",
-        "en": "Responsible for Communication & Integration 80-100%",
+        "en": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
         "de": "Fachverantwortliche/r Kommunikation & Integration 80–100 %",
         "fr": "Responsable Communication & Intégration 80–100 %"
       },
@@ -912,7 +825,7 @@
       "url": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:59:53.055Z",
+      "crawledAt": "2026-06-29T13:44:16.030Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -929,15 +842,18 @@
       "applyUrl": "https://link.ostendis.com/publication/fachverantwortliche-kommunikation-integration/45lzm6nxauy2fp2yegtlj6xpvujwo2yimxaq76inj6k2xh7y228yn0n6lqi5om3z",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
-        "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
+        "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen"
+          "fachverantwortliche-r-kommunikation-integration-80-100-ksow-sarnen",
+          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen"
         ],
         "fr": [
+          "fachverantwortliche-r-kommunikation-integration-80-100-kantonsspital-obwalden-sarnen",
           "responsable-communication-integration-80-100-kantonsspital-obwalden-sarnen"
         ]
       },
@@ -986,7 +902,7 @@
       "url": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:59:51.060Z",
+      "crawledAt": "2026-06-29T13:44:14.118Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1003,6 +919,7 @@
       "applyUrl": "https://link.ostendis.com/publication/arztsekretaer-in-chirurgie-und-belegaerzte/6ma2h98zyhwoalv2qvtuurisbrp7vrnc8gm3hx8lv7uxlfst7sqj6ji7trnveuzi",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "arztsekretar-in-chirurgie-und-belegarzte-a-80-ksow-sarnen"
       ],
@@ -1018,15 +935,15 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:36:56.504Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 55600,
+      "salaryMax": 84800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 55600,
+          "maxValue": 84800,
           "unitText": "YEAR"
         }
       }
