@@ -104,9 +104,12 @@ describe('seo source files parse contract (real files)', () => {
     for (const block of blocks) {
       const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1];
       if (!cp) continue;
+      // Mirrors staticPagesPlugin.matchStr: single-quoted first, then
+      // double-quoted (seo-pages.ts mixes both — #2996).
       const matchStr = (key: string): string => {
-        const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
-        return block.match(rx)?.[1] ?? '';
+        const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
+        const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`);
+        return (block.match(rxSingle) || block.match(rxDouble))?.[1] ?? '';
       };
       // Recover the raw structuredData block (intact only if the entry block was
       // not truncated by a spurious nested-property entry-start).
@@ -170,6 +173,9 @@ describe('seo source files parse contract (real files)', () => {
       '/tasse-e-pensione/festivita-ticino/',
       '/vivere-in-ticino/comuni-di-frontiera/',
       '/tasse-e-pensione/ristorni-fiscali/',
+      // Double-quoted `description: "…"` entry — shipped an EMPTY meta
+      // description until matchStr learned to read double quotes (#2996).
+      '/metodologia/',
     ];
     for (const cp of mustHave) {
       const entry = entries.get(cp);
