@@ -45236,6 +45236,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eventi-weekend-ticino': {
+    title: 'Eventi del weekend in Ticino: cosa fare',
+    description: 'Agenda degli eventi del weekend in Ticino: concerti, mostre, feste e mercati, comune per comune, aggiornata ogni giorno.',
+    keywords: 'eventi ticino, eventi weekend ticino, cosa fare in ticino, agenda eventi ticino, eventi lugano',
+    ogTitle: 'Eventi del weekend in Ticino',
+    ogDescription: 'Concerti, mostre, feste e mercati questo weekend in Ticino, comune per comune. Aggiornato ogni giorno.',
+    canonicalPath: '/articoli-frontaliere/eventi-weekend-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eventi del weekend in Ticino: cosa fare sabato e domenica",
+      "description": "Agenda degli eventi del weekend in Ticino: concerti, mostre, feste e mercati, comune per comune, aggiornata ogni giorno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Eventi del weekend in Ticino"
+      },
+      "datePublished": "2026-06-29T19:07:39+02:00",
+      "dateModified": "2026-06-29T19:07:39+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eventi-weekend-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8183,6 +8183,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo lancia Opas su Monte dei Paschi con offerta azioni e contanti',
     'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo ha depositato il documento per l\'offerta pubblica su Mps: 1,6 azioni Intesa più 1 euro per azione Mps conferita',
     'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Vista panoramica di Lugano con il centro finanziario sullo sfondo, giornata soleggiata',
+    'blog.article.eventi-weekend-ticino.title': 'Eventi del weekend in Ticino: cosa fare sabato e domenica',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Eventi in Ticino ogni weekend: concerti, mostre, feste e mercati, comune per comune. Agenda aggiornata ogni giorno.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Eventi del weekend in Ticino',
 };
 
 export default blogMetaIt;

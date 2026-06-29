@@ -8181,6 +8181,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo startet Opas auf Monte dei Paschi mit Aktien- und Barangebot',
     'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo hat das Dokument für das öffentliche Angebot auf MPS eingereicht: 1,6 Aktien Intesa plus 1 Euro pro verliehene MPS-Aktie',
     'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Panoramablick auf Lugano mit Finanzviertel im Hintergrund, sonniger Tag',
+    'blog.article.eventi-weekend-ticino.title': 'Veranstaltungen am Wochenende im Tessin: was tun Sa & So',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Veranstaltungen im Tessin an jedem Wochenende: Konzerte, Ausstellungen, Feste und Märkte, Gemeinde für Gemeinde. Täglich aktualisiert.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Veranstaltungen am Wochenende im Tessin',
 };
 
 export default blogMetaDe;

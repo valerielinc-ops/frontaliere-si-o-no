@@ -8182,6 +8182,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo launches Opas on Monte dei Paschi with shares and cash offer',
     'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo has filed the document for the public offer on MPs: 1.6 Intesa shares plus 1 euro per MPs share conferred',
     'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Panoramic view of Lugano with financial district in the background, sunny day',
+    'blog.article.eventi-weekend-ticino.title': 'Weekend events in Ticino: what to do Saturday & Sunday',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Events in Ticino every weekend: concerts, exhibitions, festivals and markets, municipality by municipality. Refreshed daily.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Weekend events in Ticino',
 };
 
 export default blogMetaEn;

@@ -64,6 +64,7 @@ import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, copyFile
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError } from './lib/ai-models.mjs';
 // Quota-free MT cascade (DeepL-free / Google / MyMemory / LibreTranslate /
 // local Opus-MT) — the SAME translator the job crawlers + FAQ batch use
@@ -8535,7 +8536,66 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   finalizeRunReport('generated');
 }
 
-main().catch((e) => {
+/**
+ * Reuse the article registration pipeline from another script (e.g. the events
+ * weekend-digest generator) WITHOUT going through the AI generation path.
+ * Takes a fully-built `data` object (same shape the AI path produces) and writes
+ * every registration file: slug map + router union, ARTICLES registry, i18n meta
+ * (it/en/de/fr), body files, blog SEO + JSON-LD, sitemaps, then regenerates RSS.
+ *
+ * Registration is APPEND-ONLY (no upsert): it throws if `data.id` already exists,
+ * so callers refreshing an evergreen article must rewrite only the body files
+ * (see `buildBodyFile`) instead of re-registering.
+ *
+ * @param {object} data
+ * @param {{ skipRss?: boolean, skipNews?: boolean }} [opts]
+ */
+export async function registerArticleFiles(data, opts = {}) {
+  if (!data || !data.id || !data.content?.it?.title) {
+    throw new Error('registerArticleFiles: data.id and data.content.it.title are required');
+  }
+  if (checkArticleIdExists(data.id)) {
+    throw new Error(
+      `registerArticleFiles: article "${data.id}" already exists (registration is append-only). ` +
+        'Refresh the body files instead of re-registering.',
+    );
+  }
+  modifyRouterTs(data);
+  modifyBlogArticlesTsx(data);
+  modifyI18nTs(data);
+  modifyLocaleFile(data, 'en');
+  modifyLocaleFile(data, 'de');
+  modifyLocaleFile(data, 'fr');
+  modifySeoService(data);
+  modifySitemap(data);
+  if (!opts.skipNews) modifySitemapNews(data);
+  validateStructuredData(data);
+  if (!opts.skipRss) {
+    execSync('node scripts/generate-rss-feeds.mjs', { stdio: 'inherit', cwd: PROJECT_ROOT });
+  }
+}
+
+/** True when an article id is already registered in any section. */
+export function checkArticleIdExists(id) {
+  return getAllArticleIds().includes(id);
+}
+
+// Re-exported so the evergreen refresh path produces byte-identical body files
+// to the registration path (no copy-paste of the locale-file format — §6).
+export { buildBodyFile };
+
+// Only run the AI generation pipeline when invoked directly as a CLI — importing
+// this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly)
+  main().catch((e) => {
   // Transient free-model pool exhaustion (every model in the fallback chain hit
   // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
   // reset at 00:00 UTC, so the next scheduled run normally succeeds. Treat it as

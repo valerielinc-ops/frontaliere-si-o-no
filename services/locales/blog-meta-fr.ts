@@ -8183,6 +8183,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.intesa-mps-opas-azioni-contanti.title': 'Intesa Sanpaolo lance une OPA sur Monte dei Paschi',
     'blog.article.intesa-mps-opas-azioni-contanti.excerpt': 'Intesa Sanpaolo a déposé le document pour l\'offre publique sur MPS : 1,6 action Intesa plus 1 euro par action MPS conférée',
     'blog.article.intesa-mps-opas-azioni-contanti.imageAlt': 'Vue panoramique de Lugano avec le quartier financier en arrière-plan, journée ensoleillée',
+    'blog.article.eventi-weekend-ticino.title': 'Événements du week-end au Tessin : que faire samedi & dimanche',
+    'blog.article.eventi-weekend-ticino.excerpt': 'Événements au Tessin chaque week-end : concerts, expositions, fêtes et marchés, commune par commune. Mis à jour chaque jour.',
+    'blog.article.eventi-weekend-ticino.imageAlt': 'Événements du week-end au Tessin',
 };
 
 export default blogMetaFr;
