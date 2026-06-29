@@ -53,6 +53,19 @@ describe('backfillRegistryLocaleSlugs (unit)', () => {
     expect(registered.slugByLocale.de).toBe('de-real');
   });
 
+  it('corrects a source-COPY slot once a real translation exists (KSBL sub-class)', () => {
+    // fr is occupied but merely copies the en (source) slug → never served as
+    // canonical (registryPinnedLocaleSlug nulls it), so it must be overwritten
+    // by the genuine FR translation, not masked by the "already occupied" guard.
+    const registered = { canonicalSlug: 'advisor-ch', slugByLocale: { en: 'advisor-ch', fr: 'advisor-ch' } };
+    const job = { sourceLang: 'en', slugByLocale: { en: 'advisor-ch', fr: 'conseiller-sion', it: 'consulente-sion' } };
+    const added = backfillRegistryLocaleSlugs(registered, job, 'en');
+    expect(added).toBe(2); // fr (corrected) + it (added)
+    expect(registered.slugByLocale.fr).toBe('conseiller-sion'); // source-copy replaced by real translation
+    expect(registered.slugByLocale.it).toBe('consulente-sion');
+    expect(registered.slugByLocale.en).toBe('advisor-ch'); // source slot untouched
+  });
+
   it('is a no-op when the job carries no per-locale slugs', () => {
     const registered = { canonicalSlug: 'x', slugByLocale: { en: 'en' } };
     expect(backfillRegistryLocaleSlugs(registered, { sourceLang: 'en' }, 'en')).toBe(0);

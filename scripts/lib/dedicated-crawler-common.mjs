@@ -4943,11 +4943,21 @@ export function backfillRegistryLocaleSlugs(registered, job, srcLang) {
   const srcSlug = src ? normalizeSpace(String(job.slugByLocale[src] || '')) : '';
   let added = 0;
   for (const locale of LOCALES) {
-    if (registered.slugByLocale[locale]) continue; // immutable per-locale
+    // Keep the immutable source-locale slot and any locale already pinned with a
+    // REAL translation. A slot that merely COPIES the source slug is NOT a real
+    // pin (registryPinnedLocaleSlug returns null for it) and was therefore never
+    // served as canonical — so it must NOT mask the source-copy sub-class:
+    // overwrite it once a genuine translation exists (nothing is lost). Early
+    // entries (KSBL-style) whose later locales were byte-copies of the source
+    // would otherwise stay un-pinned forever.
+    if (registered.slugByLocale[locale]) {
+      if (locale === src) continue;
+      if (registryPinnedLocaleSlug(registered, locale, src)) continue;
+    }
     const cur = normalizeSpace(String(job.slugByLocale[locale] || ''));
     if (!cur) continue;
-    // Skip a non-source locale that merely copies the source slug — no real
-    // translation yet (mirrors registryPinnedLocaleSlug's source-copy guard).
+    // Don't write a non-source locale that merely copies the source slug — still
+    // no real translation yet (mirrors registryPinnedLocaleSlug's source-copy guard).
     if (src && locale !== src && srcSlug && cur === srcSlug) continue;
     registered.slugByLocale[locale] = cur;
     added += 1;
