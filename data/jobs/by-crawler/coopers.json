@@ -793,7 +793,7 @@
       "slug": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-w-d-coopers-group-ag-aargau",
-        "en": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
+        "en": "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "de": "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
         "fr": "gestion-du-projet-m-w-d-coopers-group-ag-aargau"
       },
@@ -854,7 +854,6 @@
       },
       "previousSlugs": [
         "instandhaltung-sap-prozesse-m-w-d-coopers-aargau",
-        "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau",
         "gestione-del-prodotto-m-w-d-coopers-group-ag-luzern",
         "quality-control-inspector-m-w-d-coopers-luzern",
         "gestion-du-projet-m-w-d-coopers-group-ag-luzern"
@@ -864,7 +863,7 @@
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "en": [
-          "maintenance-sap-processes-m-f-d-coopers-group-ag-aargau"
+          "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
         ],
         "fr": [
           "instandhaltung-sap-prozesse-m-w-d-coopers-aargau"
@@ -4441,7 +4440,7 @@
         "de": "customer-care-consultant-service-desk-agent-m-w-d-coopers-bern",
         "it": "customer-care-consultant-service-desk-agent-m-w-d-coopers-bern",
         "en": "customer-care-consultant-service-desk-agent-m-w-d-coopers-bern",
-        "fr": "customer-care-consultant-service-desk-agent-m-w-d-coopers-bern"
+        "fr": "consultant-en-soins-a-la-clientele-agent-de-service-m-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4518,8 +4517,8 @@
       "slugByLocale": {
         "de": "procurement-assistenz-m-w-d-coopers-basel-landschaft",
         "it": "assistente-agli-acquisti-m-f-d-coopers-group-ag-basel-landschaft",
-        "en": "procurement-assistenz-m-w-d-coopers-basel-landschaft",
-        "fr": "procurement-assistenz-m-w-d-coopers-basel-landschaft"
+        "en": "procurement-assistance-m-f-d-coopers-group-ag-basel-landschaft",
+        "fr": "aide-aux-achats-m-f-d-coopers-group-ag-basel-landschaft"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4591,6 +4590,12 @@
       "firstSeenAt": "2026-06-29T12:55:14.035Z",
       "previousSlugsByLocale": {
         "it": [
+          "procurement-assistenz-m-w-d-coopers-basel-landschaft"
+        ],
+        "en": [
+          "procurement-assistenz-m-w-d-coopers-basel-landschaft"
+        ],
+        "fr": [
           "procurement-assistenz-m-w-d-coopers-basel-landschaft"
         ]
       },

@@ -1513,7 +1513,7 @@
       "slug": "infermiere-diplomata-hf-fh-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "infermiere-diplomata-hf-fh-50-100-universitatsklinik-balgrist-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
+        "en": "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich",
         "de": "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
         "fr": "infirmier-e-diplome-e-hf-fh-50-100-universitatsklinik-balgrist-zurich"
       },
@@ -1586,15 +1586,14 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
-        "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich"
+        "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
         ],
         "en": [
-          "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich"
+          "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:10.433Z",
@@ -2376,7 +2375,7 @@
       "slug": "assistente-medico-specialista-clinico-specialisti-clinici-m-f-d-80-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "assistente-medico-specialista-clinico-specialisti-clinici-m-f-d-80-100-universitatsklinik-balgrist-zurich",
-        "en": "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100",
+        "en": "physician-associate-clinical-specialist-clinical-specialist-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "de": "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100",
         "fr": "associe-medical-specialiste-clinique-h-f-80-100-universitatsklinik-balgrist-zurich"
       },
@@ -2444,7 +2443,6 @@
       },
       "previousSlugs": [
         "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100",
-        "physician-associate-clinical-specialist-clinical-specialist-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "assistenzarzt-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2452,7 +2450,7 @@
           "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100"
         ],
         "en": [
-          "physician-associate-clinical-specialist-clinical-specialist-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+          "physician-associate-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100"
         ],
         "de": [
           "assistenzarzt-klinische-fachspezialistin-klinischen-fachspezialisten-m-w-d-80-100-universitatsklinik-balgrist-zurich"
@@ -3112,7 +3110,7 @@
       "slug": "fisioterapia-physiotherapeut-w-m-d-90-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "fisioterapia-physiotherapeut-w-m-d-90-100-universitatsklinik-balgrist-zurich",
-        "en": "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich",
+        "en": "physiotherapist-physiotherapist-f-m-d-90-100-universitatsklinik-balgrist-zurich",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich",
         "fr": "physiotherapeutine-physiotherapeut-m-j-90-100-universitatsklinik-balgrist-zurich"
       },
@@ -3157,8 +3155,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fisioterapeuta-physiotherapeut-w-m-d-90-100-universitatsklinik-balgrist-zurich",
-        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich",
-        "physiotherapist-physiotherapist-f-m-d-90-100-universitatsklinik-balgrist-zurich"
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3166,7 +3163,7 @@
           "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich"
         ],
         "en": [
-          "physiotherapist-physiotherapist-f-m-d-90-100-universitatsklinik-balgrist-zurich"
+          "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-w-m-d-90-100-balgrist-zurich"
@@ -3191,7 +3188,7 @@
       "slug": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
       "slugByLocale": {
         "it": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
-        "en": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
+        "en": "occupational-therapist-f-m-d-80-100-universitatsklinik-balgrist-zurich",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich",
         "fr": "ergotherapeutin-ergotherapeut-w-m-d-80-100-balgrist-zurich"
       },
@@ -3235,14 +3232,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T22:42:24.483Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "occupational-therapist-f-m-d-80-100-universitatsklinik-balgrist-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "occupational-therapist-f-m-d-80-100-universitatsklinik-balgrist-zurich"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3670,7 +3659,7 @@
       "slug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+        "en": "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
       },
@@ -3717,7 +3706,6 @@
         "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "infermiera-diplomata-ic-fh-lunedi-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
         "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
@@ -3727,7 +3715,7 @@
           "infermiera-diplomata-ic-fh-lunedi-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "en": [
-          "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
         ],
         "fr": [
           "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
@@ -4216,7 +4204,7 @@
       "slugByLocale": {
         "de": "hr-assistentin-hr-assistent-m-w-d-80-balgrist-zurich",
         "it": "hr-assistentin-hr-assistent-m-w-d-80-balgrist-zurich",
-        "en": "hr-assistentin-hr-assistent-m-w-d-80-balgrist-zurich",
+        "en": "hr-assistant-hr-assistant-m-f-d-80-universitatsklinik-balgrist-zurich",
         "fr": "hr-assistentin-hr-assistent-m-w-d-80-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",

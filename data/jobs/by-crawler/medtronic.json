@@ -722,10 +722,10 @@
     },
     {
       "id": "medtronic-f14cabd3c0ba",
-      "slug": "associate-occupational-nurse-medtronic-ch",
+      "slug": "infermiera-occupazionale-associata-medtronic-neuhausen",
       "slugByLocale": {
         "fr": "associate-occupational-nurse-medtronic-ch",
-        "it": "associate-occupational-nurse-medtronic-ch",
+        "it": "infermiera-occupazionale-associata-medtronic-neuhausen",
         "en": "associate-occupational-nurse-medtronic-ch",
         "de": "associate-occupational-nurse-medtronic-ch"
       },
@@ -783,7 +783,15 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-29T13:53:11.702Z"
+      "firstSeenAt": "2026-06-29T13:53:11.702Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-occupational-nurse-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-occupational-nurse-medtronic-ch"
+      ]
     }
   ]
 }

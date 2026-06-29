@@ -1907,7 +1907,7 @@
       "slug": "group-governance-consulente-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
       "slugByLocale": {
         "it": "group-governance-consulente-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "en": "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
+        "en": "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
         "de": "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
         "fr": "group-governance-conseiller-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel"
       },
@@ -1951,15 +1951,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel",
-        "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
+        "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "en": [
-          "group-governance-advisor-m-f-d-part-time-full-time-helvetia-versicherungen-basel"
+          "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "fr": [
           "group-governance-advisor-m-w-d-teilzeit-vollzeit-helvetia-basel"
@@ -3568,7 +3567,7 @@
         "it": "gestione-delle-operazioni-e-del-traffico-senior-w-m-d-a-tempo-parziale-a-tempo-pieno-helvetia-versicherungen-dubendorf",
         "en": "senior-acquisition-transaction-management-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
         "de": "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "fr": "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        "fr": "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -3611,8 +3610,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "acquisizione-senior-transaction-management-f-m-d-part-time-fulltime-helvetia-versicherungen-dubendorf",
-        "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
+        "acquisizione-senior-transaction-management-f-m-d-part-time-fulltime-helvetia-versicherungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3623,7 +3621,7 @@
           "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "fr": [
-          "gestion-principale-des-acquisitions-et-des-transactions-f-m-d-temps-partiel-temps-plein-helvetia-versicherungen"
+          "senior-acquisition-amp-transaction-management-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ]
       },
       "firstSeenAt": "2026-06-23T11:50:49.472Z",
@@ -3865,7 +3863,7 @@
       "slug": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
       "slugByLocale": {
         "it": "customer-care-specialista-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf",
-        "en": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
+        "en": "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf",
         "de": "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
         "fr": "customer-care-specialiste-w-m-d-teilzeit-vollzeit-helvetia-versicherungen-dubendorf"
       },
@@ -3909,15 +3907,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf"
+        "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "en": [
-          "customer-care-specialist-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf"
+          "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
         ],
         "fr": [
           "customer-care-specialist-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
@@ -5426,7 +5423,7 @@
       "slug": "specialista-in-e-banking-m-p-d-helvetia-versicherungen-solothurn",
       "slugByLocale": {
         "it": "specialista-in-e-banking-m-p-d-helvetia-versicherungen-solothurn",
-        "en": "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
+        "en": "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
         "de": "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
         "fr": "specialiste-des-banques-electroniques-m-w-d-helvetia-versicherungen-solothurn"
       },
@@ -5472,7 +5469,6 @@
       "previousSlugs": [
         "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
         "e-banking-specializzato-m-f-d-helvetia-versicherungen-solothurn",
-        "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn",
         "banque-electronique-specialisee-m-f-d-helvetia-versicherungen-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -5481,7 +5477,7 @@
           "e-banking-specializzato-m-f-d-helvetia-versicherungen-solothurn"
         ],
         "en": [
-          "specialist-e-banking-m-f-d-helvetia-versicherungen-solothurn"
+          "fachspezialist-e-banking-m-w-d-helvetia-solothurn"
         ],
         "fr": [
           "fachspezialist-e-banking-m-w-d-helvetia-solothurn",
@@ -8706,7 +8702,7 @@
         "de": "legal-counsel-bank-w-m-d-helvetia-solothurn",
         "it": "legal-counsel-bank-w-m-d-helvetia-solothurn",
         "en": "legal-counsel-bank-w-m-d-helvetia-solothurn",
-        "fr": "legal-counsel-bank-w-m-d-helvetia-solothurn"
+        "fr": "conseil-juridique-banque-f-m-d-helvetia-versicherungen-solothurn"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8769,8 +8765,8 @@
       "slugByLocale": {
         "de": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz",
         "it": "studente-lavoratore-corporate-services-f-m-d-part-time-helvetia-versicherungen-basel-hauptsitz",
-        "en": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz",
-        "fr": "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz"
+        "en": "working-student-corporate-services-f-m-d-part-time-helvetia-versicherungen-basel-hauptsitz",
+        "fr": "etudiants-qui-travaillent-services-integres-f-m-d-temps-partiel-helvetia-versicherungen-basel-hauptsitz"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -8828,6 +8824,12 @@
       "firstSeenAt": "2026-06-29T13:30:38.841Z",
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz"
+        ],
+        "en": [
+          "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz"
+        ],
+        "fr": [
           "werkstudent-corporate-services-w-m-d-teilzeit-helvetia-basel-hauptsitz"
         ]
       },
