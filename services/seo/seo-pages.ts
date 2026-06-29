@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3016,
+ "numberOfItems": 3017,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7662,7 +7662,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3013, "name": "Si tuffa in piscina ma non riemerge, bimba rian...", "url": `${BASE_URL}/articoli-frontaliere/piscina-niederuzwil-rianimata` },
           { "@type": "ListItem", "position": 3014, "name": "Intesa Sanpaolo lancia Opas su Monte dei Paschi...", "url": `${BASE_URL}/articoli-frontaliere/intesa-mps-opas-azioni-contanti` },
           { "@type": "ListItem", "position": 3015, "name": "Aziende svizzere aumentano quota di energia verde", "url": `${BASE_URL}/articoli-frontaliere/energia-verde-svizzera` },
-          { "@type": "ListItem", "position": 3016, "name": "Grigioni non riprendono il modello basilese per...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-modello-basilese-traffico` }
+          { "@type": "ListItem", "position": 3016, "name": "Grigioni non riprendono il modello basilese per...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-modello-basilese-traffico` },
+          { "@type": "ListItem", "position": 3017, "name": "Grenzgänger in Svizzera: cosa cambia con l’acco...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-steuern-2026` }
  ]
  },
  {
