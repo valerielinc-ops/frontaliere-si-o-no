@@ -25,8 +25,8 @@
  * Meglio una run Claude in più che perdere un follow-up legittimo.
  *
  * Output (GITHUB_OUTPUT): `has_candidates=true|false`.
- * Env: PR_NUMBER (richiesto), GH_REPO|GITHUB_REPOSITORY, REVIEWER_LOGIN
- *      (default `github-actions[bot]`), GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz).
+ * Env: PR_NUMBER (richiesto), GH_REPO|GITHUB_REPOSITORY,
+ *      GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz).
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -109,6 +109,26 @@ export function reviewerMarkerLines(reviewBody) {
 }
 
 /**
+ * Pick the body of the LATEST review left by the Claude reviewer bot.
+ *
+ * Matches on `user.type === 'Bot' && /^claude/i.test(user.login)` — the SAME
+ * convention as the sibling gates `pr-autorebase.mjs` / `auto-merge-eval.mjs`.
+ * The reviewer posts as `claude[bot]` (verified on #3074), NOT
+ * `github-actions[bot]`: an exact-match on the wrong login matched zero reviews
+ * and silently killed the 🟡/❓ branch (🔴 caught in review of this PR).
+ *
+ * @param {Array<{user?:{login?:string,type?:string}, body?:string}>} reviews
+ * @returns {string}
+ */
+export function selectReviewerBody(reviews) {
+  if (!Array.isArray(reviews)) return '';
+  const mine = reviews.filter(
+    (r) => r?.user?.type === 'Bot' && /^claude/i.test(r?.user?.login || '') && r?.body,
+  );
+  return mine.length ? String(mine[mine.length - 1].body) : '';
+}
+
+/**
  * Decide whether a PR has at least one plausible follow-up candidate.
  * @param {{body:string, reviewBody:string}} input
  * @returns {boolean}
@@ -123,17 +143,14 @@ export function hasCandidates({ body, reviewBody }) {
 // ── I/O entrypoint ──────────────────────────────────────────────────
 
 function latestReviewerBody() {
-  const reviewer = process.env.REVIEWER_LOGIN || 'github-actions[bot]';
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
   if (!repo) return '';
   const raw = gh(['api', `repos/${repo}/pulls/${PR}/reviews`, '--paginate']);
   if (!raw) return '';
   try {
-    const reviews = JSON.parse(raw);
-    const mine = reviews.filter((r) => r?.user?.login === reviewer && r?.body);
-    return mine.length ? mine[mine.length - 1].body : '';
+    return selectReviewerBody(JSON.parse(raw));
   } catch {
-    return '';
+    return ''; // proceed-safe upstream: empty review body → decision falls to NI items.
   }
 }
 

@@ -3,6 +3,7 @@ import {
   extractNonImplementedItems,
   isCandidateItem,
   reviewerMarkerLines,
+  selectReviewerBody,
   hasCandidates,
 } from '../scripts/ci/followup-has-candidates.mjs';
 
@@ -72,6 +73,35 @@ describe('reviewerMarkerLines', () => {
 
   it('returns [] for a clean LGTM with no markers', () => {
     expect(reviewerMarkerLines('## LGTM\nTutto a posto, nessun finding.')).toEqual([]);
+  });
+});
+
+describe('selectReviewerBody', () => {
+  // Regression for the 🔴 caught in review: the reviewer posts as `claude[bot]`,
+  // not `github-actions[bot]`. Filtering on the wrong login killed the 🟡/❓ branch.
+  it('picks the claude[bot] review, not github-actions[bot]', () => {
+    const reviews = [
+      { user: { login: 'github-actions[bot]', type: 'Bot' }, body: 'CI summary' },
+      { user: { login: 'claude[bot]', type: 'Bot' }, body: '## LGTM\n🟡 nit' },
+    ];
+    expect(selectReviewerBody(reviews)).toBe('## LGTM\n🟡 nit');
+  });
+
+  it('returns the LATEST claude review when there are several', () => {
+    const reviews = [
+      { user: { login: 'claude[bot]', type: 'Bot' }, body: 'round 1: 🔴 Important' },
+      { user: { login: 'claude[bot]', type: 'Bot' }, body: 'round 2: ## LGTM' },
+    ];
+    expect(selectReviewerBody(reviews)).toBe('round 2: ## LGTM');
+  });
+
+  it('ignores human reviews and returns "" when no bot review exists', () => {
+    expect(selectReviewerBody([{ user: { login: 'someone', type: 'User' }, body: '🟡 manual' }])).toBe('');
+  });
+
+  it('proceed-safe on non-array / empty input', () => {
+    expect(selectReviewerBody(undefined as unknown as [])).toBe('');
+    expect(selectReviewerBody([])).toBe('');
   });
 });
 
