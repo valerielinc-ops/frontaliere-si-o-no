@@ -2314,6 +2314,41 @@ ASSICURAZIONI:
 - LAMAL non è "tassa sulla salute" — è assicurazione malattia
 `;
 
+// ── Compact verified-facts brief for the GENERATION prompt (evergreen) ──
+// PR #3009 injected the FULL VERIFIED_DOMAIN_FACTS sheet into the evergreen
+// generation source content to align generator and fact-checker on the same
+// ground truth. That fixed the consensus-block (fact-check now PASSes) but
+// inflated the generation prompt enough to tip regeneration attempts over the
+// 8000-token input cap of several otherwise-available models (gpt-4.1-mini/
+// nano, Llama-3.3-70B, Meta-Llama-3.1-405B, Cohere-command-a, Phi-4 → HTTP 413
+// tokens_limit_reached, observed at estimated ~8309 on run 28353924029),
+// shrinking the free-tier pool and re-triggering "tutti i modelli esauriti".
+//
+// This compact brief keeps ONLY the facts the consensus fact-checker
+// HARD-BLOCKS on (`llmFactCheck` / VERIFIED_DOMAIN_FACTS, used in full there):
+// imposta alla fonte location, accordo dates, franchigia/transitional,
+// convenzione date, the load-bearing CH/IT aliquote, the valid-institution
+// acronyms, and the LAMal definition. The generator now sees these exact
+// values, so it can't diverge into a `critical` on the topics where free models
+// actually go wrong — while keeping the prompt small. Softer facts (frontalieri
+// headcount, valichi geography) are intentionally dropped: not in the
+// unconditional-block criteria, and every line eats prompt headroom.
+//
+// Measured (runtime estimateRequestTokens, the same heuristic the model-skip
+// guard at ai-models.mjs uses) on the ASSEMBLED first-attempt evergreen prompt
+// with this brief: estTokens=7200 — ~800 under the 8000 cap, so the 8000-bracket
+// models are back in the pool. Regeneration attempts append fact-check feedback
+// (pre-existing behaviour shared by all sections); this brief keeps that path
+// strictly smaller than the #3009 full-sheet version.
+const EVERGREEN_FACTS_BRIEF = `FATTI VERIFICATI (ground truth — il fact-checker blocca l'articolo se diverghi da questi valori):
+- Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri (MAI "in entrambi i paesi"). L'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730).
+- Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO 2024 (NON 2026). Ratifica IT: Legge 83 del 13/6/2023.
+- Vecchi frontalieri (già tali prima del 17/7/2023): esenzione €7'500, regime transitorio 2024–2033. Nuovi frontalieri: franchigia €10'000.
+- Convenzione doppie imposizioni Italia-Svizzera: firmata il 9 DICEMBRE 1976. La Svizzera NON è membro UE/SEE.
+- Aliquote/contributi svizzeri: AVS/AI/IPG 5.3% dipendente, AD/AC 1.1%, LPP dai 25 anni. IRPEF italiana: 23% fino €28'000, 35% €28'001–50'000, 43% oltre €50'000.
+- Acronimi/enti VALIDI (non inventarne altri): SECO, SEM, USTAT, UFSP/BAG, SUVA, INPS, Agenzia delle Entrate, MEF.
+- LAMal = assicurazione malattia (NON "tassa sulla salute"); frontalieri G hanno diritto d'opzione; franchige adulti CHF 300–2500.`;
+
 /**
  * PRIMARY BLOCKING — Multi-model consensus fact verification.
  *
@@ -2901,15 +2936,18 @@ async function fetchPageContent(url) {
   // ~0 articles/run for days (issue #2947: frontaliere cadence collapsed while
   // svizzera — mostly real-news, already source-grounded — kept producing).
   //
-  // Fix: feed the SAME VERIFIED_DOMAIN_FACTS sheet into the generation prompt.
+  // Fix: feed a COMPACT verified-facts brief into the generation prompt.
   // REGOLA #1 ("ogni fatto DEVE essere presente nel SOURCE CONTENT") then works
   // FOR convergence instead of against it: the model rewrites from the exact
-  // values the fact-checker validates against. No gate is lowered.
+  // values the fact-checker validates against. No gate is lowered. The brief is
+  // deliberately compact (EVERGREEN_FACTS_BRIEF) so the assembled first-attempt
+  // prompt measures estTokens=7200, under the 8000-token model input cap — see
+  // the constant's note for the measurement.
   if (url.startsWith('evergreen://')) {
     const keyword = process.env._EVERGREEN_KEYWORD || decodeURIComponent(url.replace('evergreen://', ''));
     const angle = process.env._EVERGREEN_ANGLE || '';
     console.error(`📚 Articolo evergreen: "${keyword}"`);
-    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.\n\n${VERIFIED_DOMAIN_FACTS}\n\n⚠️ I FATTI VERIFICATI qui sopra sono la TUA SOURCE CONTENT autorevole: date, aliquote, franchigie, istituzioni e numeri DEVONO corrispondere ESATTAMENTE a quei valori (lo stesso foglio è usato dal fact-checker, che blocca l'articolo se divergi). Per dettagli NON coperti dal foglio, attieniti a nozioni stabili e generali del dominio; se un dato specifico non è certo, ometti o usa formulazioni qualitative invece di inventare cifre/date precise.`;
+    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.\n\n${EVERGREEN_FACTS_BRIEF}\n\n⚠️ I FATTI VERIFICATI qui sopra DEVONO corrispondere ESATTAMENTE (lo stesso ground truth è usato dal fact-checker, che blocca l'articolo se diverghi). Per dettagli NON coperti, attieniti a nozioni stabili e generali del dominio; se un dato specifico non è certo, ometti o usa formulazioni qualitative invece di inventare cifre/date precise.`;
   }
   console.error(`📰 Fetching: ${url}`);
   try {
@@ -5677,7 +5715,18 @@ function checkForDuplicates(data) {
   // section refactor (it is a local of modifyRouterTs), which threw
   // "routerSrc is not defined" and broke EVERY generation run.
   const sectionSlugSrc = readSectionSlugData();
-  for (const locale of ['it']) {
+  // Check EVERY locale, not just `it`. The registry stores one localized slug
+  // per locale-slot (`'id': { it: '…', en: '…', de: '…', fr: '…' }`) and
+  // REVERSE_SWISS/REVERSE_BLOG are last-write-wins: two articles sharing the
+  // same EN/DE/FR slug make the earlier one unreachable in that locale (its
+  // buildPath → parsePath round-trip resolves to the sibling). The IT slug is
+  // human-authored and already unique; the EN/DE/FR slugs are auto-translated
+  // and historically went UNCHECKED here — that is exactly how the svizzera
+  // pairs collided (de-duped by data fix #3000) and how 36 frontaliere pairs
+  // still collide. Guard each locale against its OWN slot so a colliding
+  // translation fails generation loudly instead of poisoning the registry and
+  // surfacing later as main-red on the routing round-trip test.
+  for (const locale of ['it', 'en', 'de', 'fr']) {
     const newSlug = data.slugs[locale];
     // A nullish slug builds a degenerate regex (`escapeRegex(undefined)` → '')
     // that never matches a populated slot → the overlap check silently passes
@@ -5686,14 +5735,16 @@ function checkForDuplicates(data) {
     if (!newSlug) {
       throw new Error(`❌ Slug "${locale}" mancante prima del controllo duplicati (data.slugs.${locale}=${newSlug}).`);
     }
-    // Anchor on the `it:` slot, not any quoted token: the slug-data file stores
-    // all four locales as single-quoted strings on one line
+    // Anchor on the matching locale slot, not any quoted token: the slug-data
+    // file stores all four locales as single-quoted strings on one line
     // (`'id': { it: '…', en: '…', de: '…', fr: '…' }`), so an unanchored
-    // `'<slug>'` match false-positives when a new IT slug equals an existing
-    // EN/DE/FR value. Slugs are unique per locale-slot → scope the test to `it:`.
-    const slugPattern = new RegExp(`\\bit:\\s*'${escapeRegex(newSlug)}'`, 'g');
+    // `'<slug>'` match false-positives when a new slug for one locale equals an
+    // existing value in a DIFFERENT locale-slot. Scoping to `${locale}:` checks
+    // it-vs-it, en-vs-en, … so cross-locale coincidences don't false-trip while
+    // genuine same-locale collisions are caught.
+    const slugPattern = new RegExp(`\\b${locale}:\\s*'${escapeRegex(newSlug)}'`, 'g');
     if (slugPattern.test(sectionSlugSrc)) {
-      throw new Error(`❌ DUPLICATO: Lo slug "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
+      throw new Error(`❌ DUPLICATO: Lo slug ${locale} "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
     }
   }
 

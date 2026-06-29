@@ -73,6 +73,7 @@ import { marketReportPlugin } from './build-plugins/marketReportPlugin';
 import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { borderMunicipalityPagesPlugin } from './build-plugins/borderMunicipalityPagesPlugin';
+import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
 import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
@@ -211,6 +212,12 @@ export default defineConfig(({ mode }) => {
  // Keep this after staticPagesPlugin: with sequential closeBundle hooks,
  // running it earlier would wait on a signal that cannot be resolved yet.
  borderMunicipalityPagesPlugin(__dirname),
+ // Per-comune Ticino events pages (issue #2963). Same post-staticPages
+ // ordering as borderMunicipalityPagesPlugin: it patches the
+ // /vivere-in-ticino/ hubs after they are flushed and awaits
+ // staticPagesFlushed, so it must run after staticPagesPlugin. Default-on;
+ // escape hatch SKIP_EVENTS_PAGES=1.
+ eventsSeoPagesPlugin(__dirname),
  // Related-search cluster landings (B2). Self-gated by
  // SKIP_RELATED_SEARCH_CLUSTERS=1 (no outer wrapper needed); skipped in
  // typical agent sessions via .claude/settings.json env block.
