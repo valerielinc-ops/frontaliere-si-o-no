@@ -5,6 +5,7 @@ import {
   validateCoopDescription,
   titleOverlap,
   applyCoopJsonLdToJob,
+  buildCoopTranslationCacheEntry,
 } from '../scripts/lib/coop-job-parser.mjs';
 
 // ──────────────────────────────────────────────────────────────
@@ -439,5 +440,71 @@ describe('applyCoopJsonLdToJob — concurrency safety', () => {
 
     // Deterministic: A produces the same result regardless of B running between.
     expect(r3.job).toEqual(r1.job);
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// Translation-cache redirect-history preservation (issue #2962)
+//
+// All 9 URLs flagged by the daily 404-risk audit were Coop jobs whose old
+// (sitemap-referenced) slugs were left unserved. The Coop translation cache is
+// the only crawler-specific persistence layer, and it must carry redirect
+// history (previousSlugs / previousSlugsByLocale) so that, when the cache
+// re-injects a job into data/jobs.json, the build plugin can still emit bridge
+// pages for the old URLs instead of letting them 404.
+// ──────────────────────────────────────────────────────────────
+describe('buildCoopTranslationCacheEntry — redirect-history preservation (#2962)', () => {
+  const jobWithHistory = {
+    url: 'https://jobs.coopjobs.ch/offene-stellen/metzger/abc-123',
+    slug: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
+    company: 'Coop Genossenschaft',
+    companyKey: 'coop',
+    location: 'Goldach',
+    canton: 'SG',
+    titleByLocale: { it: 'Macellaio', en: 'Butcher', de: 'Metzger', fr: 'Boucher' },
+    slugByLocale: {
+      it: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
+      en: 'butcher-meat-specialist-coop-genossenschaft-goldach-i5fg9z',
+      de: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
+      fr: 'boucher-specialiste-de-la-viande-coop-genossenschaft-goldach-i5fg9z',
+    },
+    previousSlugs: ['butcher-meat-specialist-coop-genossenschaft-goldach'],
+    previousSlugsByLocale: {
+      en: ['butcher-meat-specialist-coop-genossenschaft-goldach'],
+      fr: ['boucher-specialiste-de-la-viande-coop-genossenschaft-goldach'],
+    },
+  };
+
+  it('carries previousSlugs and previousSlugsByLocale through the cache entry', () => {
+    const entry = buildCoopTranslationCacheEntry(jobWithHistory);
+    expect(entry.previousSlugs).toEqual(jobWithHistory.previousSlugs);
+    expect(entry.previousSlugsByLocale).toEqual(jobWithHistory.previousSlugsByLocale);
+    // Existing translation fields still preserved.
+    expect(entry.slugByLocale).toEqual(jobWithHistory.slugByLocale);
+    expect(entry.titleByLocale).toEqual(jobWithHistory.titleByLocale);
+  });
+
+  it('omits redirect-history keys entirely when there is no history (no empty-placeholder churn)', () => {
+    const entry = buildCoopTranslationCacheEntry({
+      url: 'https://jobs.coopjobs.ch/offene-stellen/x/1',
+      slug: 'fresh-job-coop-lugano',
+      slugByLocale: { it: 'fresh-job-coop-lugano' },
+      // no previousSlugs / previousSlugsByLocale
+    });
+    expect(entry).not.toHaveProperty('previousSlugs');
+    expect(entry).not.toHaveProperty('previousSlugsByLocale');
+    // Empty objects/arrays are not treated as history.
+    const entryEmpty = buildCoopTranslationCacheEntry({
+      url: 'u', slug: 's', previousSlugs: [], previousSlugsByLocale: {},
+    });
+    expect(entryEmpty).not.toHaveProperty('previousSlugs');
+    expect(entryEmpty).not.toHaveProperty('previousSlugsByLocale');
+  });
+
+  it('is pure/deterministic (does not stamp cachedAt itself)', () => {
+    const a = buildCoopTranslationCacheEntry(jobWithHistory);
+    const b = buildCoopTranslationCacheEntry(jobWithHistory);
+    expect(a).toEqual(b);
+    expect(a).not.toHaveProperty('cachedAt');
   });
 });
