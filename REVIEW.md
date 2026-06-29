@@ -17,7 +17,7 @@ Non passa nessuno → drop. Non importante per questo progetto.
 
 | Marker | Quando |
 |---|---|
-| 🔴 Important | Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante |
+| 🔴 Important | Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante. **Scope-feature dovuto lasciato in `## Non implementato` come deferral senza essere fatto né avere un next-step/piano-di-completamento (post-#8)** |
 | 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione, **code-smell che crea maintenance debt** (hardcoded values che invecchiano, comment grossly oversized). **Cap 3/review**; oltre → `+N similar nits` in summary |
 | 🟣 Pre-existing | Bug già pre-PR. Solo se rilevante al diff |
 | ❓ q | Domanda genuina quando incerto (no speculazione) |
@@ -75,13 +75,13 @@ PR body DEVE avere:
 - Lista cosa la PR fa.
 
 ## Non implementato (ancora)
-- Lista scope NON fatto + motivo (out of scope / follow-up / blocked / posposto).
+- Piano di completamento: scope ancora dovuto + stato/next-step (in questa PR / PR concatenata #N / blocked: <causa>). «Nessuno» = task completo. Vedi AGENTS.md #8.
 ```
 
 ### Reviewer behavior
 
 1. **Implementato item** → critical thinking: diff lo implementa? edge case? logica boundary/null/async/ordering? modo più semplice? buco visibile? Code-smell con maintenance debt anche se non blocca il funnel → 🟡 Nit.
-2. **Non implementato item** → filtro scopo: critico per monetizzazione/traffico? SÌ → 🔴 chiedi impl pre-merge o follow-up issue. NO → ignora.
+2. **Non implementato item** → **post-#8 `## Non implementato` = piano di completamento del task aperto, NON scope-deferito-e-chiuso** (vedi `AGENTS.md → Non-Negotiable #8`). Ogni voce è lavoro ancora dovuto. Verifica che dichiari **stato/next-step concreto** (`in questa PR` / `PR concatenata #N` / `blocked: <causa esterna reale>`), non un motivo-scappatoia (`out of scope`/`posposto`). Voce di scope-feature lasciata come deferral senza piano-di-completamento né essere fatta → **🔴 Important**: "scope dovuto non implementato né pianificato; il task non è chiuso finché `## Non implementato` non legge «Nessuno» — completa (PR concatenata) o dichiara `blocked:<causa>`." Una singola PR PUÒ mergiare con la sezione non-vuota se ogni voce porta un next-step credibile (è una catena): in quel caso non bloccare il merge, ma **non scrivere `## LGTM` per il TASK** — l'auto-merge della PR ≠ chiusura del task. `blocked:` con causa esterna reale → accettato (task resta aperto, non colpa). `Nessuno` → task completo, ok.
 3. **Diff fa cose non dichiarate** → 🟡 scope drift: "diff fa X non in scope. PR separata o aggiungi a Implementato."
    - **Inverso — body dichiara X ma diff non lo mostra** (claim falso, es. "Nessun sibling da sweepare" quando diff include sibling cambiati; cluster PR #1508) → 🟡 Nit: "`## Implementato` afferma X ma il diff non lo riflette — aggiornare il body." (`pr-body-contract.yml` valida presenza degli header, non la precisione del contenuto.)
 4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale."
