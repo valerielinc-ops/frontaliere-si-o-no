@@ -78,7 +78,7 @@ jobs:
             services/locales/blog-body/en/eventi-weekend-ticino.ts \
             services/locales/blog-body/de/eventi-weekend-ticino.ts \
             services/locales/blog-body/fr/eventi-weekend-ticino.ts \
-            data/blog-articles-data.ts
+            data/blog-articles-data.ts services/seo/seo-blog-5.ts public/sitemap-blog.xml
           if git diff --cached --quiet; then
             echo "No events diff, skipping commit"
             exit 0

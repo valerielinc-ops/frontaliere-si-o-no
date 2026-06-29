@@ -12,7 +12,14 @@
  * suite. Re-uses the shared event helpers (AGENTS.md §6 — one source of truth).
  */
 
-import { slugifyComune, weekendWindow, weekendEvents, groupByComune } from './events-utils.mjs';
+import {
+  slugifyComune,
+  weekendWindow,
+  weekendEvents,
+  groupByComune,
+  EVENTS_BASE_PATH,
+  EVENTS_DIGEST_SLUGS,
+} from './events-utils.mjs';
 
 /** Stable, evergreen identity — never changes (no date in id/slug → no flooding). */
 export const DIGEST_ARTICLE_ID = 'eventi-weekend-ticino';
@@ -34,10 +41,13 @@ const MONTHS = {
 };
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
-/** Path prefix per locale (mirrors eventsSeoPagesPlugin BASE_PATH). */
-const BASE_PATH = { it: '/eventi/ticino', en: '/en/eventi/ticino', de: '/de/eventi/ticino', fr: '/fr/eventi/ticino' };
-const WEEKEND_SLUG = { it: 'questo-weekend', en: 'this-weekend', de: 'dieses-wochenende', fr: 'ce-week-end' };
-const WEEK_SLUG = { it: 'questa-settimana', en: 'this-week', de: 'diese-woche', fr: 'cette-semaine' };
+// Localized path segments come from the SHARED config so the article's deep links
+// match the SSG plugin's emitted URLs exactly (en/de/fr translate the segment —
+// /en/events/ticino, /de/veranstaltungen/tessin, /fr/evenements/tessin). A local
+// copy drifted and produced /en/eventi/ticino → 404 (PR #3088 review).
+const BASE_PATH = EVENTS_BASE_PATH;
+const WEEKEND_SLUG = EVENTS_DIGEST_SLUGS.weekend;
+const WEEK_SLUG = EVENTS_DIGEST_SLUGS.week;
 
 function parseIso(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));

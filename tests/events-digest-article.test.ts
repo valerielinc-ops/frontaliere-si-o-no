@@ -9,6 +9,7 @@ import {
   DIGEST_ARTICLE_ID,
   DIGEST_ARTICLE_SLUGS,
 } from '../scripts/lib/events-digest-content.mjs';
+import { EVENTS_BASE_PATH } from '../scripts/lib/events-utils.mjs';
 
 const TODAY = '2027-01-01'; // Friday → weekend window = 2027-01-02 (Sat) .. 2027-01-03 (Sun)
 const EVENTS = [
@@ -56,9 +57,9 @@ describe('buildWeekendDigestArticle', () => {
     expect(art.content.it.body2).toContain('### [Bellinzona](/eventi/ticino/bellinzona/)');
     // busiest comune (Lugano, 2 events) listed before Bellinzona (1 event)
     expect(art.content.it.body2.indexOf('Lugano')).toBeLessThan(art.content.it.body2.indexOf('Bellinzona'));
-    // locale-prefixed links
-    expect(art.content.de.body2).toContain('(/de/eventi/ticino/lugano/)');
-    expect(art.content.fr.body2).toContain('(/fr/eventi/ticino/lugano/)');
+    // locale-prefixed links use the TRANSLATED base segment (matches the SSG plugin)
+    expect(art.content.de.body2).toContain('(/de/veranstaltungen/tessin/lugano/)');
+    expect(art.content.fr.body2).toContain('(/fr/evenements/tessin/lugano/)');
   });
 
   it('handles an empty weekend without inventing events', () => {
@@ -68,6 +69,22 @@ describe('buildWeekendDigestArticle', () => {
     expect(empty.content.it.body1.toLowerCase()).toContain('non risultano eventi');
     // still valid 4-locale payload
     expect(empty.content.en.body1.toLowerCase()).toContain('no events');
+  });
+
+  it('deep-links events pages with the locale-correct base path (no /en/eventi/ 404s)', () => {
+    // Regression for PR #3088 🔴: the EN/DE/FR base segment is translated
+    // (/en/events/ticino, /de/veranstaltungen/tessin, /fr/evenements/tessin).
+    // Every events deep link in the body MUST start with the shared base path.
+    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+      const body = art.content[loc].body1 + art.content[loc].body2 + art.content[loc].body3;
+      const localPrefixed = [...body.matchAll(/\]\((\/(?:en|de|fr)?\/?(?:events|eventi|veranstaltungen|evenements)\/[^)]*)\)/g)];
+      expect(localPrefixed.length).toBeGreaterThan(0);
+      for (const m of localPrefixed) {
+        expect(m[1].startsWith(`${EVENTS_BASE_PATH[loc]}/`)).toBe(true);
+      }
+      // sanity: IT links never carry a non-IT segment and vice versa
+      if (loc !== 'it') expect(body).not.toContain(`(${EVENTS_BASE_PATH.it}/questo-weekend`);
+    }
   });
 
   it('keeps title/excerpt evergreen (no date) but dates the body for the live weekend', () => {

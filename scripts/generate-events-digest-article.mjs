@@ -94,6 +94,42 @@ export function bumpUpdatedAt(id, todayIso, repoRoot = REPO_ROOT) {
   return true;
 }
 
+/**
+ * Bump the NewsArticle `dateModified` of the article's blog-SEO entry so the
+ * freshness signal tracks the weekly body refresh (datePublished is left as the
+ * original publish date). Scoped to this article's block only.
+ */
+export function bumpDateModified(id, isoDateTime, repoRoot = REPO_ROOT) {
+  const file = path.join(repoRoot, 'services', 'seo', 'seo-blog-5.ts');
+  const src = readFileSync(file, 'utf-8');
+  const startIdx = src.indexOf(`'blog-${id}':`);
+  if (startIdx < 0) return false;
+  const dmRe = /"dateModified":\s*"[^"]*"/;
+  // Replace the FIRST dateModified after the entry start (each entry has one).
+  const after = src.slice(startIdx);
+  if (!dmRe.test(after)) return false;
+  const replaced = after.replace(dmRe, `"dateModified": "${isoDateTime}"`);
+  writeFileSync(file, src.slice(0, startIdx) + replaced);
+  return true;
+}
+
+/** Bump the `<lastmod>` of the article's sitemap-blog entry to the refresh date. */
+export function bumpSitemapLastmod(slug, isoDate, repoRoot = REPO_ROOT) {
+  const file = path.join(repoRoot, 'public', 'sitemap-blog.xml');
+  let src = readFileSync(file, 'utf-8');
+  // Match the <url> block whose <loc> ends with /<slug>/ and rewrite ITS <lastmod>.
+  // The negative lookahead keeps the match inside this url block, so a missing
+  // lastmod can never make it bump a different article's date.
+  const urlBlockRe = new RegExp(
+    `(<url>\\s*<loc>[^<]*/${slug}/</loc>(?:(?!</url>)[\\s\\S])*?<lastmod>)[^<]*(</lastmod>)`,
+  );
+  const m = src.match(urlBlockRe);
+  if (!m) return false;
+  src = src.replace(urlBlockRe, `$1${isoDate}$2`);
+  writeFileSync(file, src);
+  return true;
+}
+
 async function main() {
   const dryRun = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true';
   const todayIso = process.env.TODAY_ISO || isoDay(new Date());
@@ -125,6 +161,10 @@ async function main() {
   console.log('♻️  refreshing body files (article already registered)…');
   refreshBodyFiles(data);
   bumpUpdatedAt(data.id, todayIso);
+  // Keep the freshness signals in sync with the refreshed body (the JSON-LD
+  // dateModified and the sitemap lastmod), without re-registering or churning RSS.
+  bumpDateModified(data.id, `${todayIso}T00:00:00+02:00`);
+  bumpSitemapLastmod(data.slugs.it, todayIso);
   console.log('✅ refreshed.');
 }
 

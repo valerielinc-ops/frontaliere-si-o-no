@@ -8,7 +8,7 @@ import { describe, it, expect } from 'vitest';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { refreshBodyFiles, bumpUpdatedAt } from '../scripts/generate-events-digest-article.mjs';
+import { refreshBodyFiles, bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from '../scripts/generate-events-digest-article.mjs';
 import { buildWeekendDigestArticle } from '../scripts/lib/events-digest-content.mjs';
 
 const article = buildWeekendDigestArticle({
@@ -64,5 +64,64 @@ describe('events digest article generator', () => {
     mkdirSync(path.join(root, 'data'), { recursive: true });
     writeFileSync(path.join(root, 'data', 'blog-articles-data.ts'), 'const RAW_ARTICLES = [];\n');
     expect(bumpUpdatedAt('does-not-exist', '2027-01-09', root)).toBe(false);
+  });
+
+  it('bumpDateModified updates only the target article entry, not its siblings', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-dm-'));
+    mkdirSync(path.join(root, 'services', 'seo'), { recursive: true });
+    const file = path.join(root, 'services', 'seo', 'seo-blog-5.ts');
+    writeFileSync(
+      file,
+      [
+        "  'blog-other': {",
+        '    structuredData: {',
+        '      "datePublished": "2026-01-01T00:00:00+02:00",',
+        '      "dateModified": "2026-01-01T00:00:00+02:00",',
+        '    },',
+        '  },',
+        "  'blog-eventi-weekend-ticino': {",
+        '    structuredData: {',
+        '      "datePublished": "2026-06-29T19:07:39+02:00",',
+        '      "dateModified": "2026-06-29T19:07:39+02:00",',
+        '    },',
+        '  },',
+        '',
+      ].join('\n'),
+    );
+    expect(bumpDateModified('eventi-weekend-ticino', '2027-01-09T00:00:00+02:00', root)).toBe(true);
+    const src = readFileSync(file, 'utf-8');
+    expect(src).toContain('"dateModified": "2027-01-09T00:00:00+02:00"');
+    // the sibling article and the datePublished must be untouched
+    expect(src).toContain("'blog-other'");
+    expect((src.match(/2026-01-01T00:00:00\+02:00/g) || []).length).toBe(2);
+    expect(src).toContain('"datePublished": "2026-06-29T19:07:39+02:00"');
+  });
+
+  it('bumpSitemapLastmod rewrites only the target url block lastmod', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-sm-'));
+    mkdirSync(path.join(root, 'public'), { recursive: true });
+    const file = path.join(root, 'public', 'sitemap-blog.xml');
+    writeFileSync(
+      file,
+      [
+        '<urlset>',
+        '  <url>',
+        '    <loc>https://x/articoli-frontaliere/altro-articolo/</loc>',
+        '    <lastmod>2026-01-01</lastmod>',
+        '  </url>',
+        '  <url>',
+        '    <loc>https://x/articoli-frontaliere/eventi-weekend-ticino/</loc>',
+        '    <image:image><image:loc>x</image:loc></image:image>',
+        '    <lastmod>2026-06-29</lastmod>',
+        '  </url>',
+        '</urlset>',
+        '',
+      ].join('\n'),
+    );
+    expect(bumpSitemapLastmod('eventi-weekend-ticino', '2027-01-09', root)).toBe(true);
+    const src = readFileSync(file, 'utf-8');
+    expect(src).toContain('<lastmod>2027-01-09</lastmod>');
+    expect(src).toContain('<lastmod>2026-01-01</lastmod>'); // sibling untouched
+    expect(src).not.toContain('<lastmod>2026-06-29</lastmod>');
   });
 });
