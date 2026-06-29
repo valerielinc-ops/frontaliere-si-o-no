@@ -44,15 +44,28 @@ jobs:
       # No explicit `env:` here — that would shadow RC values with empty
       # GitHub secret references. FIREBASE_SERVICE_ACCOUNT_JSON also
       # already in env via the first step.
+      #
+      # The evidence index (GA4/PostHog network fetch) and the article
+      # embeddings (local ONNX CPU work) are independent and write disjoint
+      # files (data/evidence-index.json vs data/article-embeddings*.{bin,json}),
+      # so they run as background steps concurrently. `wait-all` rejoins before
+      # the commit; a failure in either still fails the job (verified live).
       - name: Build evidence index
+        id: evidence-index
+        background: true
         run: node scripts/build-evidence-index.mjs
 
       - name: Build article embeddings (incremental)
+        id: article-embeddings
+        background: true
         run: node scripts/build-article-embeddings.mjs --incremental
         env:
           # Local ONNX embeddings (no API key). Cache model weights in-repo so the
           # actions/cache step above persists them across runs.
           TRANSFORMERS_CACHE: .cache/transformers
+
+      - name: Wait for evidence index + embeddings
+        wait-all: true
 
       - name: Commit evidence
         run: |

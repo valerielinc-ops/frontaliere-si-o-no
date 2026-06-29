@@ -212,7 +212,22 @@ jobs:
       # serve 200, else the live site can't boot → fail → caller rolls back.
       # If no CDN /assets/ ref is present (assets stayed same-origin this round —
       # Guard B kept dist/assets), there is nothing to verify → pass.
+      # ── Parallel live gates ──────────────────────────────────────────────
+      # The CDN-bundle curl check and the CLS gate (PSI — network-bound, light
+      # local CPU) are mutually independent and touch disjoint paths, so they run
+      # as `background:` steps overlapping the foreground Playwright chain (Live
+      # smoke → visual regression). `wait-all` near the end rejoins them; a failed
+      # background gate still fails the job (verified live, probe run 28352247167).
+      # The two Playwright steps stay foreground + sequential — they share
+      # playwright-report/ + test-results/ and would clobber each other if run
+      # concurrently. Load RC is hoisted here so the backgrounded CLS step
+      # inherits the PageSpeed key from $GITHUB_ENV before it launches.
+      - name: Load RC secrets (PageSpeed API key)
+        run: node scripts/load-rc-env.mjs
+
       - name: Verify CDN-offloaded bundle serves live
+        id: cdn-gate
+        background: true
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: |
@@ -261,6 +276,20 @@ jobs:
           fi
           echo "✅ [validate-live] CDN boot bundle serves 200 from cdn.frontaliereticino.ch"
 
+      # CLS ratchet — fails if any audited template's CLS p75 regresses past
+      # Google's "needs improvement" threshold (0.25) or by more than 10%/+0.05
+      # absolute vs `data/cls-baseline.json`. CLS poor crushes AdSense viewability
+      # and ad-bid; without this gate, every refactor risks pushing it up another
+      # notch. Improving the baseline requires running `audit-cls-live --rebaseline`
+      # locally and committing the diff together with the fix.
+      # Backgrounded so PSI's serial/quota-limited wait overlaps the Playwright chain.
+      - name: CLS regression gate
+        id: cls-gate
+        background: true
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: node scripts/audit-cls-live.mjs
+
       - name: Live smoke (probe 5xx + e2e:live)
         env:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
@@ -269,19 +298,25 @@ jobs:
           npm run probe:5xx
           npm run test:e2e:live
 
-      # CLS ratchet — fails if any audited template's CLS p75 regresses past
-      # Google's "needs improvement" threshold (0.25) or by more than 10%/+0.05
-      # absolute vs `data/cls-baseline.json`. CLS poor crushes AdSense viewability
-      # and ad-bid; without this gate, every refactor risks pushing it up another
-      # notch. Improving the baseline requires running `audit-cls-live --rebaseline`
-      # locally and committing the diff together with the fix.
-      - name: Load RC secrets (PageSpeed API key)
-        run: node scripts/load-rc-env.mjs
-
-      - name: CLS regression gate
+      # Visual regression on the LIVE site. Skipped until linux baselines
+      # are committed (run regenerate-visual-baselines.yml workflow_dispatch
+      # to generate them). On failure, validate-live fails → rollback fires
+      # and restores the previous dist (which by definition matched the
+      # baseline). Foreground + sequential after Live smoke: both drive
+      # Playwright and share playwright-report/ + test-results/.
+      - name: E2E visual regression (live)
+        if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
         env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
           LIVE_BASE_URL: https://frontaliereticino.ch
-        run: node scripts/audit-cls-live.mjs
+        run: npx playwright test tests/e2e/seo-visual-regression.spec.ts
+
+      # Rejoin the backgrounded CDN + CLS gates. A failure in either surfaces
+      # here and fails the job. The upload + reporter steps below are
+      # always()/failure()-gated, so they still run on a gate failure (verified
+      # live, probe run 28352484149).
+      - name: Wait for parallel live gates (CDN bundle + CLS)
+        wait-all: true
 
       - name: Upload CLS report
         if: always()
@@ -306,18 +341,6 @@ jobs:
           path: dist/audit-reports/**
           if-no-files-found: ignore
           retention-days: 7
-
-      # Visual regression on the LIVE site. Skipped until linux baselines
-      # are committed (run regenerate-visual-baselines.yml workflow_dispatch
-      # to generate them). On failure, validate-live fails → rollback fires
-      # and restores the previous dist (which by definition matched the
-      # baseline).
-      - name: E2E visual regression (live)
-        if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
-        env:
-          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
-          LIVE_BASE_URL: https://frontaliereticino.ch
-        run: npx playwright test tests/e2e/seo-visual-regression.spec.ts
 
       - name: Upload Playwright report
         if: always()
