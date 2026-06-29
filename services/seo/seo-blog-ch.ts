@@ -9027,6 +9027,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grono-entra-repower-moesano': {
+    title: 'Grono entra in Repower Moesano | Frontaliere Ticino',
+    description: 'Il Comune di Grono entra a far parte dell\'azionariato di Repower Moesano SA, portando la partecipazione dei Comuni al 30%. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, grono, entra, repower, moesano',
+    ogTitle: 'Grono entra in Repower Moesano',
+    ogDescription: 'Il Comune di Grono entra a far parte dell\'azionariato di Repower Moesano SA',
+    canonicalPath: '/articoli-svizzera/grono-entra-repower-moesano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grono entra in Repower Moesano",
+      "description": "Il Comune di Grono entra a far parte dell'azionariato di Repower Moesano SA, portando la partecipazione dei Comuni al 30%. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grono-entra-repower-moesano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Grono"
+      },
+      "datePublished": "2026-06-29T12:17:04+00:00",
+      "dateModified": "2026-06-29T12:17:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grono-entra-repower-moesano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

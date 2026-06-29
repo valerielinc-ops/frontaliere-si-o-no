@@ -4287,6 +4287,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-detrazioni-fiscali-italia-2026': { name: 'Detrazioni fiscali per frontalieri in', path: '/articoli-svizzera/frontaliere-detrazioni-fiscali-italia-2026/', parent: 'blog' },
     'blog-pensione-complementare-terzo-pilastro-frontalieri': { name: 'Pensione complementare per frontalieri', path: '/articoli-svizzera/pensione-complementare-terzo-pilastro-frontalieri/', parent: 'blog' },
     'blog-nuovi-frontalieri-poveri': { name: 'Fiscalità frontalieri', path: '/articoli-svizzera/nuovi-frontalieri-poveri/', parent: 'blog' },
+    'blog-grono-entra-repower-moesano': { name: 'Grono e Repower Moesano', path: '/articoli-svizzera/grono-entra-repower-moesano/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
