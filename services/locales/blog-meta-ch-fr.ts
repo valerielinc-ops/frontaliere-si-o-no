@@ -709,6 +709,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.piscina-niederuzwil-rianimata.title': 'Elle plonge dans la piscine mais ne refait pas surface, petite fille réanimée',
     'blog.article.piscina-niederuzwil-rianimata.excerpt': 'Une fillette de 5 ans a été réanimée après avoir disparu sous l\'eau dans la piscine de Niederuzwil, grâce à l\'intervention rapide des baigneurs et du personnel.',
     'blog.article.piscina-niederuzwil-rianimata.imageAlt': 'Piscine publique à Niederuzwil avec enfants et personnel de secours',
+    'blog.article.energia-verde-svizzera.title': 'Les entreprises suisses augmentent leur part d\'énergie verte',
+    'blog.article.energia-verde-svizzera.excerpt': 'La moitié des sociétés du Swiss Market Index ont augmenté leur utilisation d\'énergie renouvelable au cours du dernier exercice, selon AWP.',
+    'blog.article.energia-verde-svizzera.imageAlt': 'Entreprise suisse avec panneaux solaires et symboles d\'énergie verte, scène professionnelle.',
 };
 
 export default blogMetaChFr;

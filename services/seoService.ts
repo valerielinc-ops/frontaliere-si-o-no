@@ -4290,6 +4290,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grono-entra-repower-moesano': { name: 'Grono e Repower Moesano', path: '/articoli-svizzera/grono-entra-repower-moesano/', parent: 'blog' },
     'blog-piscina-niederuzwil-rianimata': { name: 'pratico', path: '/articoli-svizzera/piscina-niederuzwil-rianimata/', parent: 'blog' },
     'blog-intesa-mps-opas-azioni-contanti': { name: 'Intesa Sanpaolo Opas Mps', path: '/articoli-frontaliere/intesa-mps-opas-azioni-contanti', parent: 'blog' },
+    'blog-energia-verde-svizzera': { name: 'energia-verde', path: '/articoli-svizzera/energia-verde-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
