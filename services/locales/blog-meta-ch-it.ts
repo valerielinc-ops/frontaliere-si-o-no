@@ -715,6 +715,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-modello-basilese-traffico.title': 'Grigioni non riprendono il modello basilese per gestire il traffico',
     'blog.article.grigioni-modello-basilese-traffico.excerpt': 'Il governo grigionese è scettico sull\'adozione del modello di sanzioni di Birsfelden per deviare il traffico festivo e turistico.',
     'blog.article.grigioni-modello-basilese-traffico.imageAlt': 'Strada trafficata nei Grigioni',
+    'blog.article.frontaliere-steuern-2026.title': 'Grenzgänger in Svizzera: cosa cambia con l’accordo fiscale 2024',
+    'blog.article.frontaliere-steuern-2026.excerpt': 'Dal 1° gennaio 2024, nuove regole fiscali per i frontalieri tra Italia e Svizzera, con franchigia aumentata e nuove procedure di tassazione.',
+    'blog.article.frontaliere-steuern-2026.imageAlt': 'Frontalieri svizzeri in un paesaggio di montagna con uffici e città sullo sfondo',
 };
 
 export default blogMetaChIt;

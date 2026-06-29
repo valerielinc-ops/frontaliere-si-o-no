@@ -3479,8 +3479,7 @@
           "hr-business-partner-region-mid-stadler-rail-ch"
         ],
         "fr": [
-          "partenaires-en-rh-region-mid-stadler-rail-bussnang",
-          "hr-business-partner-region-mid-stadler-rail-ch"
+          "partenaires-en-rh-region-mid-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
@@ -4064,8 +4063,7 @@
           "sap-inhouse-consultant-logistik-stadler-rail-ch"
         ],
         "fr": [
-          "sap-consultant-logistique-interne-stadler-rail-bussnang",
-          "sap-inhouse-consultant-logistik-stadler-rail-ch"
+          "sap-consultant-logistique-interne-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
@@ -4797,8 +4795,7 @@
           "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
         ],
         "en": [
-          "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld",
-          "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch"
+          "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:36.575Z",
@@ -8482,8 +8479,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amministratore-di-sistema-plm-stadler-rail-bussnang",
-          "plm-system-administrator-stadler-rail-ch"
+          "amministratore-di-sistema-plm-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:07.715Z",
@@ -11193,7 +11189,7 @@
         "it": "assistente-amministrativo-stadler-rail-wallisellen",
         "en": "administrative-assistant-stadler-rail-ch",
         "de": "administrative-assistant-stadler-rail-ch",
-        "fr": "assistant-administratif-stadler-rail-wallisellen"
+        "fr": "administrative-assistant-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -11236,7 +11232,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "administrative-assistant-stadler-rail-ch",
-        "administrative-assistant-stadler-rail-wallisellen"
+        "assistant-administratif-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11244,7 +11240,7 @@
         ],
         "fr": [
           "administrative-assistant-stadler-rail-ch",
-          "administrative-assistant-stadler-rail-wallisellen"
+          "assistant-administratif-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-25T12:13:52.087Z",
@@ -11567,8 +11563,7 @@
           "category-manager-traktionssysteme-stadler-rail-ch"
         ],
         "en": [
-          "category-manager-traction-systems-stadler-rail-frauenfeld",
-          "category-manager-traktionssysteme-stadler-rail-ch"
+          "category-manager-traction-systems-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:55.597Z",
@@ -12819,8 +12814,7 @@
           "team-leader-battery-maintenance-engineering-stadler-rail-ch"
         ],
         "de": [
-          "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld",
-          "team-leader-battery-maintenance-engineering-stadler-rail-ch"
+          "teamleiter-batteriewartungstechnik-stadler-rail-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:44.658Z",
@@ -13561,11 +13555,11 @@
     },
     {
       "id": "stadler-rail-b49474b5c402",
-      "slug": "network-engineer-stadler-rail-ch",
+      "slug": "network-ingegnere-stadler-rail-wallisellen",
       "slugByLocale": {
         "en": "network-engineer-stadler-rail-ch",
-        "it": "network-engineer-stadler-rail-ch",
-        "de": "network-engineer-stadler-rail-ch",
+        "it": "network-ingegnere-stadler-rail-wallisellen",
+        "de": "network-ingenieur-stadler-rail-wallisellen",
         "fr": "network-engineer-stadler-rail-ch"
       },
       "company": "Stadler Rail",
@@ -13622,16 +13616,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:38:59.304Z"
+      "firstSeenAt": "2026-06-29T14:38:59.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "network-engineer-stadler-rail-ch"
+        ],
+        "de": [
+          "network-engineer-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "network-engineer-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-dc8338a537c6",
-      "slug": "customer-service-coordinator-stadler-rail-ch",
+      "slug": "servizio-clienti-coordinatore-stadler-rail-wallisellen",
       "slugByLocale": {
         "en": "customer-service-coordinator-stadler-rail-ch",
-        "it": "customer-service-coordinator-stadler-rail-ch",
-        "de": "customer-service-coordinator-stadler-rail-ch",
-        "fr": "customer-service-coordinator-stadler-rail-ch"
+        "it": "servizio-clienti-coordinatore-stadler-rail-wallisellen",
+        "de": "kundendienst-koordinator-stadler-rail-wallisellen",
+        "fr": "service-client-coordinateur-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13687,16 +13692,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:38:58.701Z"
+      "firstSeenAt": "2026-06-29T14:38:58.701Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-coordinator-stadler-rail-ch"
+        ],
+        "de": [
+          "customer-service-coordinator-stadler-rail-ch"
+        ],
+        "fr": [
+          "customer-service-coordinator-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-coordinator-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-9515d14ed913",
-      "slug": "customer-service-coordinator-stadler-rail-ch-2",
+      "slug": "servizio-clienti-coordinatore-stadler-rail-wallisellen-4c631c",
       "slugByLocale": {
         "de": "customer-service-coordinator-stadler-rail-ch",
-        "it": "customer-service-coordinator-stadler-rail-ch-2",
+        "it": "servizio-clienti-coordinatore-stadler-rail-wallisellen-4c631c",
         "en": "customer-service-coordinator-stadler-rail-ch-2",
-        "fr": "customer-service-coordinator-stadler-rail-ch-2"
+        "fr": "service-client-coordinateur-stadler-rail-wallisellen-4c631c"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13752,7 +13771,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T14:38:58.101Z"
+      "firstSeenAt": "2026-06-29T14:38:58.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-coordinator-stadler-rail-ch-2"
+        ],
+        "fr": [
+          "customer-service-coordinator-stadler-rail-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-coordinator-stadler-rail-ch-2"
+      ]
     },
     {
       "id": "stadler-rail-0fa950db023e",
