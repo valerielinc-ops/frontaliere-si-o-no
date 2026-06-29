@@ -32,7 +32,7 @@ const BLOG_LOC_PATTERNS = {
 function parseBlogSlugs() {
   const src = readFileSync(resolve(root, 'services/routerBlogData.ts'), 'utf-8');
   const block = src.match(/const BLOG_SLUGS[\s\S]*?\n\};/m)?.[0] ?? '';
-  const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
   const slugs = {};
   let m;
   while ((m = rx.exec(block)) !== null) {
