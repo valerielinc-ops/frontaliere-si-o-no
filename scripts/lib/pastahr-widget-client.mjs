@@ -177,6 +177,21 @@ async function fetchWidgetViaPlaywright(bodyString, contentType, endpoint, { ref
     await page.goto(referer, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
 
     // Replay the widget POST from within the page's JS context.
+    //
+    // CORS NOTE: this fetch runs in the browser, so it IS subject to the page's
+    // CORS policy (unlike the Node-side fetch path, which is not). When the
+    // endpoint is cross-origin to the navigated page — the PastaHR case, where
+    // the page is the employer site (e.g. igsbern.ch / gzo.ch) but the endpoint
+    // is www.publicjobs.ch — only headers on the CORS-safelist
+    // (Accept, Accept-Language, Content-Language, and Content-Type with a
+    // form/text value) keep this a "simple request" that needs no preflight.
+    // `X-Requested-With` is NOT safelisted: adding it forces a preflight OPTIONS
+    // that publicjobs.ch does not answer, so the whole fetch dies with
+    // `TypeError: Failed to fetch` (#2992) — defeating the anti-bot fallback.
+    // The header is only needed on the Node path (WAF fingerprint, no CORS), so
+    // it is deliberately omitted here. The urlencoded body keeps Content-Type
+    // safelisted; the same-origin Phenom case (careers.straumann.com) is exempt
+    // from CORS entirely, so dropping the header is harmless there too.
     const result = await page.evaluate(
       async ({ ep, body, ct }) => {
         const res = await fetch(ep, {
@@ -185,7 +200,6 @@ async function fetchWidgetViaPlaywright(bodyString, contentType, endpoint, { ref
             Accept: 'application/json, text/javascript, */*; q=0.01',
             'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
             'Content-Type': ct,
-            'X-Requested-With': 'XMLHttpRequest',
           },
           body,
         });
