@@ -2,12 +2,18 @@
  * Traffic Service
  *
  * The browser reads the latest border-crossing snapshot from Firestore.
- * When no fresh snapshot is available, it falls back to the deterministic
- * mock model instead of calling a paid routing API directly from the client.
+ * When no fresh Firestore snapshot is available, it falls back to the last-known
+ * committed snapshot (data/border-wait-current.json) — the SAME real values the
+ * static /traffico-dogane/<crossing>/oggi/ pages render — instead of calling a
+ * paid routing API or fabricating random numbers on the client. The latter used
+ * to make pages disagree (issue #2997): the guide page showed an invented
+ * "5 min" while /traffico-dogane/.../oggi/ correctly showed "0 min".
  */
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { borderCrossings as centralizedCrossings } from '../data/borderCrossings';
+import borderWaitCurrent from '../data/border-wait-current.json';
+import { slugifyCrossingName } from './borderCrossingSlug';
 
 interface BorderCrossingCoordinates {
  name: string;
@@ -26,6 +32,22 @@ export interface TrafficData {
  totalCrossingMinutes?: number;
 }
 
+/** Shape of the committed snapshot consumed as the non-live fallback. */
+interface BorderWaitSnapshotEntry {
+ waitTimeMinutes?: number;
+ approachMinutes?: number;
+ totalCrossingMinutes?: number;
+ status?: string;
+ source?: string;
+ lastUpdate?: string;
+}
+interface BorderWaitSnapshot {
+ updatedAt?: string;
+ perCrossing?: Record<string, BorderWaitSnapshotEntry>;
+}
+
+const BORDER_WAIT_SNAPSHOT = borderWaitCurrent as BorderWaitSnapshot;
+
 const BORDER_CROSSINGS: BorderCrossingCoordinates[] = centralizedCrossings
  .filter(c => c.trafficLevel !== 'closed')
  .map(c => ({ name: c.name }));
@@ -35,13 +57,12 @@ export function hasLiveTrafficData(data: TrafficData[]): boolean {
 }
 
 class TrafficService {
- private cache: Map<string, { data: TrafficData; timestamp: number }> = new Map();
- private readonly CACHE_DURATION = 60 * 60 * 1000; // 1 ora
-
  /**
  * Priority order:
  * 1. Firestore `trafficCurrent` collection — written by the scheduled collector.
- * 2. Mock data — deterministic fallback when no fresh snapshot exists.
+ * 2. Committed snapshot (data/border-wait-current.json) — last-known REAL values,
+ *    the same source the static /traffico-dogane/.../oggi/ pages render, used
+ *    when no fresh Firestore data is available. Never random/fabricated (#2997).
  */
  async getTrafficData(): Promise<TrafficData[]> {
  try {
@@ -53,7 +74,7 @@ class TrafficService {
  reportCaughtError(error, 'traffic.firestoreRead');
  }
 
- return this.getMockTrafficData();
+ return this.getFallbackTrafficData();
  }
 
  /**
@@ -111,82 +132,49 @@ class TrafficService {
  });
 
  if (results.length > 0 && results.every(r => now - r.lastUpdate.getTime() > STALE_THRESHOLD_MS)) {
- console.warn('[trafficService] Firestore data is stale (>2 h old) — using mock data');
+ console.warn('[trafficService] Firestore data is stale (>2 h old) — using committed snapshot fallback');
  return [];
  }
 
  return results;
  }
 
- private getMockTrafficData(): TrafficData[] {
- return BORDER_CROSSINGS.map(crossing => this.getMockTrafficForCrossing(crossing.name));
- }
-
- private getMockTrafficForCrossing(crossingName: string): TrafficData {
- const cacheKey = crossingName;
- const cached = this.cache.get(cacheKey);
- if (cached && Date.now() - cached.timestamp < this.CACHE_DURATION) {
- return cached.data;
- }
-
- const hour = new Date().getHours();
- const dayOfWeek = new Date().getDay();
-
- let baseWait = 3;
- let direction = 'Entrambi';
-
- if (crossingName.includes('Chiasso')) {
- baseWait = 8;
- }
- if (crossingName.includes('Gaggiolo') || crossingName.includes('Brogeda')) {
- baseWait = 6;
- }
- if (crossingName.includes('Ponte Tresa') || crossingName.includes('San Pietro') || crossingName.includes('Luino')) {
- baseWait = 5;
- }
-
- if (hour >= 7 && hour < 9) {
- baseWait *= crossingName.includes('Chiasso') ? 3 : 2;
- direction = 'IT → CH';
- }
- if (hour >= 17 && hour < 19) {
- baseWait *= crossingName.includes('Chiasso') ? 4 : 2.5;
- direction = 'CH → IT';
- }
- if (dayOfWeek === 5 && hour >= 16) {
- baseWait *= 1.5;
- }
- if (dayOfWeek === 0 && hour >= 17) {
- baseWait *= 1.3;
- }
-
- const variation = 0.7 + Math.random() * 0.6;
- const waitTimeMinutes = Math.round(baseWait * variation);
-
- let status: 'green' | 'yellow' | 'red';
- if (waitTimeMinutes < 5) status = 'green';
- else if (waitTimeMinutes < 15) status = 'yellow';
- else status = 'red';
-
- const trafficData: TrafficData = {
- crossingName,
- waitTimeMinutes,
- status,
- direction,
- lastUpdate: new Date(),
+ /**
+ * Non-live fallback: the last-known committed snapshot
+ * (data/border-wait-current.json), keyed by `slugifyCrossingName`. These are
+ * REAL recorded values (the same the static /traffico-dogane/.../oggi/ pages
+ * show), not fabricated — so the guide page and the oggi page agree (#2997).
+ *
+ * Entries are tagged `source: 'mock'` so `hasLiveTrafficData()` still treats
+ * the UI as "not live" (we cannot confirm current conditions without a live
+ * feed); the displayed minutes are the real last-known figure, never random.
+ * A crossing missing from the snapshot falls back to 0 / green (no queue).
+ */
+ private getFallbackTrafficData(): TrafficData[] {
+ const perCrossing = BORDER_WAIT_SNAPSHOT.perCrossing ?? {};
+ const snapshotUpdate = BORDER_WAIT_SNAPSHOT.updatedAt;
+ return BORDER_CROSSINGS.map(({ name }) => {
+ const entry = perCrossing[slugifyCrossingName(name)];
+ return {
+ crossingName: name,
+ waitTimeMinutes: entry?.waitTimeMinutes ?? 0,
+ status: (entry?.status as TrafficData['status']) ?? 'green',
+ direction: 'Entrambi',
+ lastUpdate: new Date(entry?.lastUpdate ?? snapshotUpdate ?? Date.now()),
  source: 'mock',
+ approachMinutes: entry?.approachMinutes,
+ totalCrossingMinutes: entry?.totalCrossingMinutes,
  };
-
- this.cache.set(cacheKey, {
- data: trafficData,
- timestamp: Date.now(),
  });
-
- return trafficData;
  }
 
+ /**
+ * Retained for callers that force a refresh (e.g. MorningDashboard). There is
+ * no client-side cache anymore — `getTrafficData()` always re-reads Firestore
+ * — so this is a no-op kept for API compatibility.
+ */
  clearCache() {
- this.cache.clear();
+ /* no-op: live data is re-fetched on every getTrafficData() call */
  }
 }
 

@@ -1,5 +1,6 @@
 import { borderCrossings } from '../data/borderCrossings';
 import type { BorderCrossingId } from './router';
+import { slugifyCrossingName } from './borderCrossingSlug';
 
 type CrossingType = {
  id: BorderCrossingId;
@@ -254,17 +255,6 @@ function normalize(value = ''): string {
  .trim();
 }
 
-function slugifyCrossingName(name: string): BorderCrossingId {
- return name
- .normalize('NFKD')
- .replace(/[\u0300-\u036f]/g, '')
- .replace(/\([^)]*\)/g, '')
- .replace(/[^a-zA-Z0-9]+/g, '-')
- .replace(/-+/g, '-')
- .replace(/^-|-$/g, '')
- .toLowerCase() as BorderCrossingId;
-}
-
 function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
  const toRad = (deg: number) => (deg * Math.PI) / 180;
  const dLat = toRad(lat2 - lat1);
@@ -345,7 +335,7 @@ function rankCrossings(seed: LocationSeed): CrossingType[] {
  const preferredProvince = seed.lat >= 46.1 || seed.lng < 8.9 ? 'VA' : null;
  return borderCrossings
  .map((crossing) => {
- const id = slugifyCrossingName(crossing.name);
+ const id = slugifyCrossingName(crossing.name) as BorderCrossingId;
  const distance = haversineKm(seed.lat, seed.lng, crossing.lat, crossing.lng);
  const commuterPenalty = COMMUTER_FRIENDLY_IDS.has(id) ? 0 : 25;
  const typePenalty = crossing.type === 'autostrada' ? 0 : crossing.type === 'statale' ? 4 : 14;

@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { AlertTriangle, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2, Filter, ExternalLink } from 'lucide-react';
 import Callout from '@/components/shared/Callout';
 import { trafficService, hasLiveTrafficData, type TrafficData } from '../../services/trafficService';
+import { slugifyCrossingName } from '../../services/borderCrossingSlug';
 import { Analytics } from '../../services/analytics';
 import { borderCrossings as centralizedCrossings } from '../../data/borderCrossings';
 import { useTranslation } from '@/services/i18n';
@@ -82,17 +83,6 @@ const createTrafficIcon = (status: 'green' | 'yellow' | 'red', waitTime: number)
  popupAnchor: [0, -size / 2 - 4],
  });
 };
-
-function slugifyCrossingName(name: string): string {
- return name
- .normalize('NFKD')
- .replace(/[̀-ͯ]/g, '')
- .replace(/\([^)]*\)/g, '')
- .replace(/[^a-zA-Z0-9]+/g, '-')
- .replace(/-+/g, '-')
- .replace(/^-|-$/g, '')
- .toLowerCase();
-}
 
 function effectiveWait(t: TrafficData): number {
  return t.totalCrossingMinutes ?? t.waitTimeMinutes;
