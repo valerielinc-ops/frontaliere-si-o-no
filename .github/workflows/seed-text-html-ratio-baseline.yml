@@ -1,0 +1,118 @@
+name: Seed text-html-ratio baseline
+
+# One-shot helper workflow: regenerates data/text-html-ratio-baseline.json
+# against the latest deployed dist/ (downloaded from the most recent
+# `github-pages` artifact) and uploads the JSON as an artifact.
+#
+# Why this exists
+# ---------------
+# `audit-text-html-ratio` is a per-feature ratchet. When a new markup-heavy
+# feature ships (Ticino events hub + per-comune pages, statistics/author
+# pages), its low text-to-HTML-ratio pages land in the `spa-locale`/`spa-other`
+# catch-all buckets and trip the ratchet even though the pages are legitimate.
+# The companion classifier fix (this PR) routes events into their own `eventi`
+# bucket; this workflow then recomputes the baseline against a real prod dist
+# so every bucket (the new `eventi` one included) gets accurate counts.
+#
+# Mirrors `seed-title-baselines.yml` / `seed-bfs-depth-baseline.yml` exactly.
+#
+# Usage
+# -----
+# 1. Trigger via "Run workflow" (workflow_dispatch) ON THIS BRANCH so the run
+#    uses the updated classifier (the `eventi` bucket only exists here).
+# 2. Download the `text-html-ratio-baseline-${{ github.run_id }}` artifact.
+# 3. Replace, commit, push:
+#       cp /tmp/text-html-ratio-baseline.json data/
+#       git add data/text-html-ratio-baseline.json
+#       git commit -m "chore(seo-gate): reseed text-html-ratio baseline (eventi bucket)"
+#       git push
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: 'deploy.yml run id whose github-pages dist to audit. Leave empty to use the latest successful deploy.'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+
+      - name: Resolve deploy run id
+        id: latest
+        run: |
+          run_id="${{ inputs.deploy_run_id }}"
+          if [ -z "$run_id" ]; then
+            run_id=$(gh run list \
+              --workflow=deploy.yml \
+              --status=success \
+              --limit=1 \
+              --json databaseId \
+              --jq '.[0].databaseId')
+          fi
+          echo "Using deploy run: $run_id"
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Download github-pages artifact from latest deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gh-pages-artifact dist
+          gh run download ${{ steps.latest.outputs.run_id }} \
+            --name "github-pages" \
+            --dir /tmp/gh-pages-artifact/
+          ls -lh /tmp/gh-pages-artifact/
+
+      - name: Extract dist/
+        run: |
+          tar -xf /tmp/gh-pages-artifact/artifact.tar -C dist
+          echo "Total HTML files:"
+          find dist -name '*.html' | wc -l
+
+      - name: Generate text-html-ratio baseline
+        run: |
+          node scripts/audit-text-html-ratio.mjs \
+            --write-baseline=data/text-html-ratio-baseline.json
+          echo ""
+          echo "==== text-html-ratio baseline preview (byFeature) ===="
+          node -e "const b=require('./data/text-html-ratio-baseline.json');console.log(JSON.stringify({mode:b.mode,threshold:b.threshold,scanned:b.scanned,totalOffenders:b.totalOffenders,byFeature:b.byFeature},null,2))"
+
+      - name: Upload baseline
+        uses: actions/upload-artifact@v7
+        with:
+          name: text-html-ratio-baseline-${{ github.run_id }}
+          path: data/text-html-ratio-baseline.json
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Echo download instructions
+        run: |
+          echo "════════════════════════════════════════════════════════════════"
+          echo "Baseline generated. Next steps:"
+          echo "  gh run download ${{ github.run_id }} \\"
+          echo "    --name text-html-ratio-baseline-${{ github.run_id }} --dir /tmp/"
+          echo "  cp /tmp/text-html-ratio-baseline.json data/"
+          echo "  git add data/text-html-ratio-baseline.json"
+          echo "  git commit -m 'chore(seo-gate): reseed text-html-ratio baseline (eventi bucket)'"
+          echo "  git push"
+          echo "════════════════════════════════════════════════════════════════"
