@@ -560,6 +560,78 @@ export async function fetchHtml(url, options = {}) {
 }
 
 /**
+ * Fetch HTML while persisting cookies across the redirect chain.
+ *
+ * Native `fetch` follows redirects automatically but DROPS Set-Cookie between
+ * hops (it has no cookie jar), so it cannot clear cookie-challenge WAFs. The
+ * Airlock Gateway "AL_CHK" cookie-check fronting Swiss defense/gov sites such as
+ * www.ruag.ch sets a cookie and 307-redirects to /cookie-check; without the
+ * cookie resent on the follow-up hop the chain dead-ends at HTTP 400 (so the
+ * facet listing yields zero links). This helper follows redirects MANUALLY with
+ * a per-attempt cookie jar, resending accumulated cookies on each hop exactly as
+ * a browser would, so the challenge completes and the real page is returned.
+ *
+ * Use it for listing/index fetches behind such a challenge. fetchHtml() stays
+ * the default for plain pages — it also carries the Jina IP-block fallback this
+ * helper deliberately omits (a cookie wall is not an IP-reputation block).
+ *
+ * @param {string} url
+ * @param {Object} [options] — { timeoutMs, headers, maxRedirects }
+ */
+export async function fetchHtmlWithCookies(url, options = {}) {
+  const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const maxRedirects = options.maxRedirects ?? 8;
+  return fetchWithRetry(async () => {
+    const jar = new Map();
+    let currentUrl = url;
+    for (let hop = 0; hop <= maxRedirects; hop += 1) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      let res;
+      try {
+        const cookieHeader = jar.size
+          ? [...jar.entries()].map(([name, value]) => `${name}=${value}`).join('; ')
+          : undefined;
+        res = await fetch(currentUrl, {
+          method: 'GET',
+          redirect: 'manual',
+          headers: {
+            'User-Agent': DEFAULT_UA,
+            Accept: 'text/html,application/xhtml+xml',
+            ...options.headers,
+            ...(cookieHeader ? { Cookie: cookieHeader } : {}),
+          },
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timer);
+      }
+      // Absorb every Set-Cookie into the jar so the next hop resends them.
+      for (const cookie of res.headers.getSetCookie?.() ?? []) {
+        const nameValue = cookie.split(';')[0];
+        const eqIdx = nameValue.indexOf('=');
+        if (eqIdx > 0) jar.set(nameValue.slice(0, eqIdx).trim(), nameValue.slice(eqIdx + 1).trim());
+      }
+      if (res.status >= 300 && res.status < 400) {
+        const location = res.headers.get('location');
+        await res.arrayBuffer().catch(() => {}); // drain body to free the socket
+        if (!location) break;
+        currentUrl = new URL(location, currentUrl).toString();
+        continue;
+      }
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${currentUrl}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.text();
+    }
+    throw new Error(`Too many redirects (>${maxRedirects}) fetching ${url}`);
+  }, options);
+}
+
+/**
  * Terminal `.catch` handler for crawlers that run a CUSTOM main() instead of
  * runStandardCrawlerPipeline (which has its own connection-level guard).
  *
