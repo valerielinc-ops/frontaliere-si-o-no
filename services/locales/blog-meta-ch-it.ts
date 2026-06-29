@@ -688,6 +688,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio-2024.title': 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti (2024)',
     'blog.article.educatore-infanzia-ticino-stipendio-2024.excerpt': 'Per lavorare come educatore dell\'infanzia in Ticino serve il diploma SSS; stipendio tra CHF 73.000 e 97.000. LIS e altri enti assumono.',
     'blog.article.educatore-infanzia-ticino-stipendio-2024.imageAlt': 'Educatore dell\'infanzia al lavoro in un asilo in Ticino.',
+    'blog.article.educatore-infanzia-ticino-lavoro.title': 'Lavorare come educatore dell\'infanzia in Ticino',
+    'blog.article.educatore-infanzia-ticino-lavoro.excerpt': 'Guida pratica sui requisiti, il diploma SSS richiesto e le procedure per intraprendere la carriera di educatore dell\'infanzia nel Cantone Ticino.',
+    'blog.article.educatore-infanzia-ticino-lavoro.imageAlt': 'Educatore dell\'infanzia in un asilo in Ticino',
 };
 
 export default blogMetaChIt;
