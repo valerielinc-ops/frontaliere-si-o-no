@@ -2461,6 +2461,21 @@ export function parsePath(pathname: string): ParseResult {
    return { route: { activeTab: 'vita', vitaSubTab: 'municipalities', staticOverlay: true }, locale: targetLocale };
  }
 
+ // Per-comune Ticino events pages (issue #2963) — /eventi/ticino/ hub +
+ // /eventi/ticino/{comune}/ leaf, build-emitted outside #root. staticOverlay
+ // keeps the SPA from replacing the static agenda body on back-nav. Routed to
+ // the `vita` hub (living-in-Ticino theme) to match the page's hubChrome.
+ if (
+   /^\/eventi\/ticino(\/[a-z0-9-]+)?\/?$/.test(pathname) ||
+   /^\/en\/events\/ticino(\/[a-z0-9-]+)?\/?$/.test(pathname) ||
+   /^\/de\/veranstaltungen\/tessin(\/[a-z0-9-]+)?\/?$/.test(pathname) ||
+   /^\/fr\/evenements\/tessin(\/[a-z0-9-]+)?\/?$/.test(pathname)
+ ) {
+   const localeMatch = pathname.match(/^\/(en|de|fr)\//);
+   const targetLocale = (localeMatch ? localeMatch[1] : 'it') as Locale;
+   return { route: { activeTab: 'vita', vitaSubTab: 'places', staticOverlay: true }, locale: targetLocale };
+ }
+
  // FR salary calculator landing — /fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/.
  // Without staticOverlay the SPA's calculator tab parser treats the trailing
  // segment as an unknown sub-tab slug, falls back to the default calculator

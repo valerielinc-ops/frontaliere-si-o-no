@@ -265,24 +265,31 @@ function validateEvent(schema, filePath) {
     errors.push({ file: filePath, type: 'Event', field: 'performer', message: 'Event missing "performer" or performer.name' });
   }
 
-  // offers (price, priceCurrency, availability, validFrom AND url)
-  if (!schema.offers || typeof schema.offers !== 'object') {
-    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
-  } else {
-    if (schema.offers.price === undefined || schema.offers.price === null) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
-    }
-    if (!isNonEmpty(schema.offers.priceCurrency)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
-    }
-    if (!isNonEmpty(schema.offers.availability)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
-    }
-    if (!isNonEmpty(schema.offers.validFrom)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
-    }
-    if (!isNonEmpty(schema.offers.url)) {
-      errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers missing "url"' });
+  // offers — OPTIONAL (Google lists it as recommended, not required). Many
+  // Event sources (e.g. the Ticino agenda) never expose a price, and asserting
+  // price:"0" (free) on a paid concert/theatre would misrepresent an indexed
+  // page (structured-data policy risk). So we require offers to be COMPLETE
+  // only WHEN PRESENT — accurate offers (e.g. free public holidays) still get
+  // fully validated; price-less Event listings omit it cleanly.
+  if (schema.offers !== undefined && schema.offers !== null) {
+    if (typeof schema.offers !== 'object') {
+      errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
+    } else {
+      if (schema.offers.price === undefined || schema.offers.price === null) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
+      }
+      if (!isNonEmpty(schema.offers.priceCurrency)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
+      }
+      if (!isNonEmpty(schema.offers.availability)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
+      }
+      if (!isNonEmpty(schema.offers.validFrom)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
+      }
+      if (!isNonEmpty(schema.offers.url)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers missing "url"' });
+      }
     }
   }
 

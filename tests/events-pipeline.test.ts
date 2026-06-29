@@ -1,0 +1,275 @@
+/**
+ * Pipeline guard for the per-comune Ticino events feature (issue #2963):
+ * crawler parser → comune resolution → dataset shaping → Event JSON-LD.
+ *
+ * This is the CI gate the crawl-events workflow runs BEFORE committing
+ * data/events.json to main, so a malformed agenda parse can never poison the
+ * dataset / turn main red (AGENTS.md: data-refresh = same gate as a PR).
+ */
+import { describe, it, expect } from 'vitest';
+import { existsSync, readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { parseDayHtml } from '../scripts/crawl-tio-agenda.mjs';
+import {
+  resolveComune,
+  slugifyComune,
+  isoFromCompactDate,
+  eventStableId,
+  upcomingEvents,
+  groupByComune,
+  loadCantonComuni,
+} from '../scripts/lib/events-utils.mjs';
+import { eventLd } from '../build-plugins/eventsSeoPagesPlugin';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+// Minimal tio.ch /agenda/day fixture: one date-picker card (must be ignored),
+// one region-resolved event (Luganese → Lugano) and one exact-match event
+// (venue contains "Bellinzona").
+const DAY_HTML = `
+<div class="agenda-event">
+  <a href="/agenda/day/20260704" class="stretched-link"><div class="card dayCard"><span class="dayText">Saturday</span></div></a>
+</div>
+<div class="agenda-event">
+  <a href="/agenda/day/20260704/62100" class="stretched-link">
+    <div class="card mb-3">
+      <img src="https://biglietteria.ch/flyer.jpg" class="card-img-top" width="450" height="200">
+      <div class="card-body">
+        <p class="card-text d-flex justify-content-between"><small class="text-muted">Sabato 04</small> <small class="text-muted">07.30</small></p>
+        <p class="card-text d-flex justify-content-between"><small class="text-muted"><span class="category-color background_agenda_arte"></span>Arte</small> <small class="text-muted">Luganese</small></p>
+        <h5 class="card-title">Quando delle opere d'arte rimangono solo le foto</h5>
+        <p class="card-text description"> Canvetto luganese </p>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="agenda-event">
+  <a href="/agenda/day/20260704/62101" class="stretched-link">
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text d-flex justify-content-between"><small class="text-muted">Sabato 04</small> <small class="text-muted">20.00</small></p>
+        <p class="card-text d-flex justify-content-between"><small class="text-muted"><span class="category-color background_agenda_musica"></span>Musica</small> <small class="text-muted">Bellinzonese</small></p>
+        <h5 class="card-title">Concerto sinfonico</h5>
+        <p class="card-text description">Teatro Sociale Bellinzona</p>
+      </div>
+    </div>
+  </a>
+</div>`;
+
+describe('parseDayHtml (tio.ch agenda card parser)', () => {
+  const events = parseDayHtml(DAY_HTML, '20260704');
+
+  it('ignores date-picker cards and keeps only real events', () => {
+    expect(events).toHaveLength(2);
+    expect(events.every((e: { url: string }) => /\/agenda\/day\/\d+\/\d+/.test(e.url))).toBe(true);
+  });
+
+  it('extracts title, date, time, category, venue and image', () => {
+    const e = events[0];
+    expect(e.title).toBe("Quando delle opere d'arte rimangono solo le foto");
+    expect(e.startDate).toBe('2026-07-04');
+    expect(e.startTime).toBe('07:30');
+    expect(e.category).toBe('arte');
+    expect(e.venue).toBe('Canvetto luganese');
+    expect(e.imageUrl).toContain('biglietteria.ch');
+    expect(e.url).toBe('https://www.tio.ch/agenda/day/20260704/62100');
+    expect(e.id).toBe('tio-agenda:62100');
+    expect(e.canton).toBe('TI');
+  });
+
+  it('resolves comune by region adjective (Luganese → Lugano)', () => {
+    expect(events[0].comune).toBe('Lugano');
+    expect(events[0].comuneMatch).toBe('region');
+  });
+
+  it('resolves comune by exact venue match (Teatro Sociale Bellinzona → Bellinzona)', () => {
+    expect(events[1].comune).toBe('Bellinzona');
+    expect(events[1].comuneMatch).toBe('exact');
+  });
+});
+
+describe('events-utils helpers', () => {
+  it('resolveComune: exact > region > none', () => {
+    expect(resolveComune({ venue: 'Palazzo dei Congressi Lugano', title: '', region: '' }).comune).toBe('Lugano');
+    expect(resolveComune({ venue: 'Palazzo dei Congressi Lugano', title: '', region: '' }).method).toBe('exact');
+    expect(resolveComune({ venue: '', title: '', region: 'Mendrisiotto' })).toEqual({ comune: 'Mendrisio', method: 'region' });
+    expect(resolveComune({ venue: 'Posto ignoto', title: 'Evento', region: 'Boh' })).toEqual({ comune: null, method: null });
+  });
+
+  it('resolveComune: longer comune name wins over a shorter substring', () => {
+    // "Riva San Vitale" must win over "Riviera" for a Riva San Vitale venue.
+    expect(resolveComune({ venue: 'Centro Riva San Vitale', title: '', region: '' }).comune).toBe('Riva San Vitale');
+  });
+
+  it('slugifyComune is ascii, lowercase, hyphenated', () => {
+    expect(slugifyComune('Riva San Vitale')).toBe('riva-san-vitale');
+    expect(slugifyComune("Sant'Antonino")).toBe('santantonino');
+    expect(slugifyComune('Bosco/Gurin')).toBe('bosco-gurin');
+  });
+
+  it('isoFromCompactDate + eventStableId', () => {
+    expect(isoFromCompactDate('20260704')).toBe('2026-07-04');
+    expect(isoFromCompactDate('bad')).toBe('');
+    expect(eventStableId('tio-agenda', '62100')).toBe('tio-agenda:62100');
+  });
+
+  it('upcomingEvents prunes past and sorts ascending', () => {
+    const sample = [
+      { startDate: '2026-07-10', title: 'B', comune: 'Lugano' },
+      { startDate: '2020-01-01', title: 'Old', comune: 'Lugano' },
+      { startDate: '2026-07-10', title: 'A', comune: 'Locarno' },
+    ];
+    const out = upcomingEvents(sample, '2026-07-01');
+    expect(out.map((e: { title: string }) => e.title)).toEqual(['A', 'B']);
+  });
+
+  it('groupByComune drops events without a comune', () => {
+    const g = groupByComune([
+      { comune: 'Lugano', title: 'x' },
+      { comune: undefined, title: 'y' },
+      { comune: 'Lugano', title: 'z' },
+    ]);
+    expect(g.get('Lugano')).toHaveLength(2);
+    expect(g.has('undefined')).toBe(false);
+  });
+
+  it('loadCantonComuni returns the 100 Ticino comuni', () => {
+    const comuni = loadCantonComuni('TI');
+    expect(comuni).toContain('Lugano');
+    expect(comuni).toContain('Stabio');
+    expect(comuni.length).toBeGreaterThanOrEqual(90);
+  });
+});
+
+describe('eventLd — schema.org/Event completeness gate', () => {
+  const REQUIRED = (ld: Record<string, any>) => {
+    expect(ld['@type']).toBe('Event');
+    expect(ld.name).toBeTruthy();
+    expect(ld.startDate).toBeTruthy();
+    expect(ld.endDate).toBeTruthy();
+    expect(ld.eventStatus).toBe('https://schema.org/EventScheduled');
+    expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
+    expect(ld.location?.address?.addressLocality).toBeTruthy();
+    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
+    expect(ld.image).toBeTruthy();
+    expect(ld.organizer?.name).toBeTruthy();
+    expect(ld.organizer?.url).toBeTruthy();
+    expect(ld.performer?.name).toBeTruthy();
+    // offers is intentionally OMITTED (price unknown → no false "free" claim).
+    expect(ld.offers).toBeUndefined();
+    // endDate must never precede startDate (Google Rich Results validity).
+    expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
+  };
+
+  it('emits every Google-required Event field for a full event', () => {
+    REQUIRED(
+      eventLd(
+        {
+          id: 'tio-agenda:1',
+          title: 'Concerto sinfonico',
+          startDate: '2026-07-04',
+          startTime: '20:00',
+          category: 'musica',
+          venue: 'Teatro Sociale Bellinzona',
+          comune: 'Bellinzona',
+          canton: 'TI',
+          url: 'https://www.tio.ch/agenda/day/20260704/62101',
+          sourceKey: 'tio-agenda',
+          sourceName: 'Tio.ch Agenda',
+        },
+        'it',
+      ),
+    );
+  });
+
+  it('single-day timed event: endDate equals startDate datetime, CEST offset in summer', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:3',
+        title: 'Concerto estivo',
+        startDate: '2026-07-04',
+        startTime: '20:00',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260704/62103',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    // July → CEST (+02:00), not the winter +01:00.
+    expect(ld.startDate).toBe('2026-07-04T20:00:00+02:00');
+    expect(ld.endDate).toBe(ld.startDate);
+  });
+
+  it('multi-day event keeps a distinct later endDate', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:4',
+        title: 'Mostra',
+        startDate: '2026-07-04',
+        endDate: '2026-07-10',
+        startTime: '10:00',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260704/62104',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(ld.endDate).toBe('2026-07-10');
+    expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
+  });
+
+  it('winter event uses CET offset (+01:00)', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:5',
+        title: 'Concerto invernale',
+        startDate: '2026-01-15',
+        startTime: '20:00',
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20260115/62105',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(ld.startDate).toBe('2026-01-15T20:00:00+01:00');
+  });
+
+  it('stays complete for a minimal event (no venue/time/comune)', () => {
+    REQUIRED(
+      eventLd(
+        {
+          id: 'tio-agenda:2',
+          title: 'X',
+          startDate: '2026-07-04',
+          canton: 'TI',
+          url: 'https://www.tio.ch/agenda/day/20260704/62102',
+          sourceKey: 'tio-agenda',
+          sourceName: 'Tio.ch Agenda',
+        },
+        'en',
+      ),
+    );
+  });
+});
+
+describe('assembled dataset integrity (data/events.json)', () => {
+  it('every committed event has the required base shape and ISO dates', () => {
+    const file = path.join(REPO_ROOT, 'data', 'events.json');
+    if (!existsSync(file)) return; // dataset is CI-generated; absent locally is fine
+    const ds = JSON.parse(readFileSync(file, 'utf-8'));
+    expect(Array.isArray(ds.events)).toBe(true);
+    for (const e of ds.events) {
+      expect(typeof e.id).toBe('string');
+      expect(e.id.length).toBeGreaterThan(0);
+      expect(typeof e.title).toBe('string');
+      expect(e.title.length).toBeGreaterThan(0);
+      expect(e.startDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      if (e.endDate) expect(e.endDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(e.canton).toBe('TI');
+    }
+  });
+});
