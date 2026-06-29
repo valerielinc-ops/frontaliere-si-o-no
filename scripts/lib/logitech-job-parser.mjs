@@ -259,7 +259,8 @@ export async function fetchAllLogitechJobs() {
     if (!title || title.length < 3) continue;
 
     const rawLocation = listing.location || '';
-    const location = parseWorkdayLocation(rawLocation) || 'Lausanne';
+    const location = parseWorkdayLocation(rawLocation);
+    if (!location) continue;
     const canton = inferSwissTargetCanton(location) || 'VD';
     const publicUrl = listing.url || CAREER_URL;
 
