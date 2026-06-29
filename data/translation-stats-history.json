@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-29T06:50:44.402Z",
+    "label": "before",
+    "total": 17779,
+    "needsRetranslation": 2476,
+    "suppressed": 494,
+    "incomplete": 876,
+    "complete": 16903,
+    "missingByLocale": {
+      "it": 383,
+      "en": 281,
+      "de": 487,
+      "fr": 118
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 815
+      },
+      {
+        "company": "Manor AG",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Implenia",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-29T08:18:31.638Z",
+    "label": "after",
+    "total": 17779,
+    "needsRetranslation": 2402,
+    "suppressed": 494,
+    "incomplete": 877,
+    "complete": 16902,
+    "missingByLocale": {
+      "it": 382,
+      "en": 278,
+      "de": 494,
+      "fr": 117
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 817
+      },
+      {
+        "company": "Manor AG",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "IKEA",
+        "pending": 2
+      },
+      {
+        "company": "Implenia",
+        "pending": 2
+      },
+      {
+        "company": "Roche",
+        "pending": 2
+      }
+    ]
   }
 ]
