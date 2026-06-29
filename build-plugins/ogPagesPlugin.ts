@@ -268,9 +268,16 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const e = i + 1 < pos.length ? pos[i + 1].start : Math.min(s + 3000, seoSrc.length);
  const b = seoSrc.substring(s, e);
 
+ // Match title/desc/og* allowing escaped quotes, trying single-quoted first
+ // (dominant style) then double-quoted: the SEO entry sources mix both (e.g. the
+ // metodologia + author entries in seo-pages.ts use `description: "…"`), and a
+ // single-quote-only regex silently dropped those → empty og:title/og:description,
+ // the same failure mode as #2996 transposed onto the OG emitter.
  const matchStr = (key: string, flags = ''): string => {
- const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, flags);
- return b.match(rx)?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
+ const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, flags);
+ const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, flags);
+ const m = b.match(rxSingle) || b.match(rxDouble);
+ return m?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
  };
  const title = matchStr('title', 'm') || '';
  const desc = matchStr('description', 'm') || '';

@@ -57,6 +57,18 @@ describe('llmsTxtPlugin seo lookup key normalization', () => {
     expect(llmsSource).toContain("map.set(cp.replace(/\\/+$/, '') || '/', { title, desc });");
     expect(llmsSource).not.toMatch(/map\.set\(cp,/);
   });
+
+  // #2996: seo-pages.ts mixes single- and double-quoted `description:`/`title:`
+  // values; the parser must read BOTH or the 4 double-quoted entries
+  // (metodologia + 3 author pages) ship an empty llms.txt description.
+  it('parseSeoEntries reads double-quoted title/description values', () => {
+    const llmsSource = readFileSync(path.resolve(ROOT, 'build-plugins', 'llmsTxtPlugin.ts'), 'utf-8');
+    // A shared helper now extracts title/description trying single- then
+    // double-quoted values (was single-quote-only `descMatches`/`titleMatches`).
+    expect(llmsSource).toContain('lastQuoted');
+    expect(llmsSource).not.toContain('const descMatches');
+    expect(llmsSource).not.toContain('const titleMatches');
+  });
 });
 
 describe('seo source files parse contract (real files)', () => {
@@ -104,9 +116,12 @@ describe('seo source files parse contract (real files)', () => {
     for (const block of blocks) {
       const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1];
       if (!cp) continue;
+      // Mirrors staticPagesPlugin.matchStr: single-quoted first, then
+      // double-quoted (seo-pages.ts mixes both — #2996).
       const matchStr = (key: string): string => {
-        const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
-        return block.match(rx)?.[1] ?? '';
+        const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
+        const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`);
+        return (block.match(rxSingle) || block.match(rxDouble))?.[1] ?? '';
       };
       // Recover the raw structuredData block (intact only if the entry block was
       // not truncated by a spurious nested-property entry-start).
@@ -170,6 +185,9 @@ describe('seo source files parse contract (real files)', () => {
       '/tasse-e-pensione/festivita-ticino/',
       '/vivere-in-ticino/comuni-di-frontiera/',
       '/tasse-e-pensione/ristorni-fiscali/',
+      // Double-quoted `description: "…"` entry — shipped an EMPTY meta
+      // description until matchStr learned to read double quotes (#2996).
+      '/metodologia/',
     ];
     for (const cp of mustHave) {
       const entry = entries.get(cp);

@@ -20,7 +20,6 @@ import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSe
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
-import { buildMetodologiaSeo } from '../services/seo/seo-metodologia';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
 import {
@@ -1884,10 +1883,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const cp = block.match(/canonicalPath:\s*'([^']+)'/)?.[1];
  if (!cp) continue;
 
- // Match title/desc allowing escaped quotes inside single-quoted strings
+ // Match title/desc allowing escaped quotes inside the string. Tries
+ // single-quoted first (dominant style) then double-quoted: seo-pages.ts mixes
+ // both (e.g. the metodologia + author entries use `description: "…"`), and a
+ // single-quote-only regex silently dropped those → empty
+ // `<meta name="description">` on the static page (issue #2996).
  const matchStr = (key: string): string => {
- const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
- return block.match(rx)?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
+ const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`);
+ const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`);
+ const m = block.match(rxSingle) || block.match(rxDouble);
+ return m?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
  };
 
  const title = matchStr('title');
@@ -2044,25 +2049,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ogD: `Traffico dogana ${label}: tempi di attesa, orari e consigli pratici per frontalieri al valico.`,
  });
  }
- }
- }
-
- // ─ /metodologia/ — rich SEO meta (issue #2996) ─
- // The editorial-methodology page's copy lives in services/seo/seo-metodologia.ts
- // (a builder, not the inline `canonicalPath:`/`desc:` shape the parser scans),
- // so it never entered seoMap and the static HTML fell back to an empty/thin
- // description that GSC flagged "Description too short". Inject it explicitly so
- // the pre-rendered <meta name="description"> matches the runtime SPA copy.
- {
- const metodologiaSeo = buildMetodologiaSeo('it');
- if (!seoMap.has(seoKey('/metodologia/'))) {
- seoMap.set(seoKey('/metodologia/'), {
- title: metodologiaSeo.title,
- desc: metodologiaSeo.description,
- ogT: metodologiaSeo.title,
- ogD: metodologiaSeo.description,
- sd: JSON.stringify(metodologiaSeo.jsonLd),
- });
  }
  }
 

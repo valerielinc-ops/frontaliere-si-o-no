@@ -585,11 +585,14 @@ describe('OG Meta Integrity — no truncated titles/descriptions from escaped qu
   const seoSrc = readProjectFile('services/seoService.ts');
   const blogKeys = Object.keys(SEO_METADATA).filter(k => k.startsWith('blog-'));
 
-  // This is the regex the ogPagesPlugin uses to extract single-quoted strings
-  // from seoService.ts source. It must handle escaped quotes like dell\'USI.
+  // This is the regex the ogPagesPlugin uses to extract quoted strings from
+  // seoService.ts source. It must handle escaped quotes like dell\'USI and BOTH
+  // single- and double-quoted values (seo-pages.ts entries mix styles — #2996).
   const extractFromSource = (block: string, key: string, flags = ''): string => {
-    const rx = new RegExp(String.raw`${key}:\s*'((?:[^'\\]|\\.)*)'`, flags);
-    return block.match(rx)?.[1]?.replace(/\\'/g, "'") ?? '';
+    const rxSingle = new RegExp(String.raw`${key}:\s*'((?:[^'\\]|\\.)*)'`, flags);
+    const rxDouble = new RegExp(String.raw`${key}:\s*"((?:[^"\\]|\\.)*)"`, flags);
+    const m = block.match(rxSingle) || block.match(rxDouble);
+    return m?.[1]?.replace(/\\'/g, "'") ?? '';
   };
 
   for (const seoKey of blogKeys) {
