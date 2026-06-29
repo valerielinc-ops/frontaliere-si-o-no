@@ -145,7 +145,11 @@ jobs:
           git commit -m "chore(grace-window): GSC refinement (run ${GITHUB_RUN_ID})"
           # Push with the PAT in the URL: the credential persisted by
           # actions/checkout is the GITHUB_TOKEN, which cannot open the PR below.
-          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
+          # `-c http.https://github.com/.extraheader=` azzera l'header GITHUB_TOKEN
+          # persistito da checkout, che altrimenti sovrascrive il token in URL → il
+          # push autenticherebbe come github-actions[bot] e i check della chore-PR
+          # finirebbero in `action_required` (approvazione manuale).
+          git -c http.https://github.com/.extraheader= push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
           gh pr create \
             --base main \
             --head "$BRANCH" \
