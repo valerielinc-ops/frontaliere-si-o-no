@@ -1070,7 +1070,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // ogPagesPlugin uses to build its locale paths.
  try {
  const routerSrc = fs.readFileSync(np.resolve(rootDir, sec.slugData), 'utf-8');
- const bsRx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+ const bsRx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
  const itSlugToLocales: Record<string, Record<string, string>> = {};
  let bm: RegExpExecArray | null;
  while ((bm = bsRx.exec(routerSrc)) !== null) {
@@ -1614,7 +1614,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  try {
  const routerBlogDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+ const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
  let match: RegExpExecArray | null;
  while ((match = rx.exec(routerBlogDataSrc)) !== null) {
  blogArticleIdByLocale.it[match[2]] = match[1];

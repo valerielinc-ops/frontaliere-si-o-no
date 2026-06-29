@@ -408,7 +408,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const rSrc = fs.readFileSync(np.resolve(rootDir, SECTION.slugData), 'utf-8');
  // Parse the section's slug-const map ({slugConst})
  const bsBlock = rSrc.match(new RegExp(`const ${SECTION.slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
- const bsRx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+ const bsRx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
  let bm: RegExpExecArray | null;
  while ((bm = bsRx.exec(bsBlock)) !== null) {
  blogSlugs[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };

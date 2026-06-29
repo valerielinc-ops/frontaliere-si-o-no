@@ -95,11 +95,11 @@ function removeFromRouter(articleId) {
   const slugKey = articleId.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
   blogSrc = blogSrc.replace(new RegExp(`\\s*${escapeRegex(slugKey)}:\\s*string;?\\n?`, 'g'), '');
 
-  // 4. Remove from locale slug tables: slugKey: 'slug-value',
-  blogSrc = blogSrc.replace(new RegExp(`\\s*${escapeRegex(slugKey)}:\\s*'[^']*',?\\n?`, 'g'), '');
+  // 4. Remove from locale slug tables: slugKey: 'slug-value' (quote-agnostic value)
+  blogSrc = blogSrc.replace(new RegExp(`\\s*${escapeRegex(slugKey)}:\\s*["'][^"']*["'],?\\n?`, 'g'), '');
 
-  // 5. Remove from BLOG_SLUGS mapping: 'article-id': { ... },
-  blogSrc = blogSrc.replace(new RegExp(`\\s*'${escaped}':\\s*\\{[^}]+\\},?\\n?`, 'g'), '');
+  // 5. Remove from BLOG_SLUGS mapping: 'article-id': { ... } (quote-agnostic key)
+  blogSrc = blogSrc.replace(new RegExp(`\\s*["']${escaped}["']:\\s*\\{[^}]+\\},?\\n?`, 'g'), '');
 
   write('services/routerBlogData.ts', blogSrc);
   console.error('  ✅ router.ts + routerBlogData.ts aggiornati');

@@ -1485,7 +1485,10 @@ function readSectionSlugData() {
  */
 function getSectionExistingIds(slugDataSrc) {
   const src = slugDataSrc ?? readSectionSlugData();
-  return [...src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)].map((m) => m[1]);
+  // Quote-agnostic key match (mirrors getAllArticleIds): a formatter/manual
+  // edit could switch an entry key to double quotes; the `\1` backreference
+  // rejects mixed quotes. Key is m[2] (group 1 is the quote char).
+  return [...src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{\s*it:/gm)].map((m) => m[2]);
 }
 
 /**
