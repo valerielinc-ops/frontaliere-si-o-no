@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel } from '../scripts/lib/ai-models.mjs';
+import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM } from '../scripts/lib/ai-models.mjs';
 
 // Local open-source fallback provider: opt-in last-resort used when every remote
 // free-tier provider is daily-exhausted. These invariants guard the two things
@@ -98,6 +98,41 @@ describe('local LLM fallback provider', () => {
       if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
       if (prevModel === undefined) delete process.env.LOCAL_LLM_MODEL; else process.env.LOCAL_LLM_MODEL = prevModel;
       if (prevTimeout === undefined) delete process.env.LOCAL_LLM_TIMEOUT_MS; else process.env.LOCAL_LLM_TIMEOUT_MS = prevTimeout;
+    }
+  });
+
+  // AI_MODELS_FORCE_CHAIN pins the cascade to an explicit list so ops can
+  // validate/measure a specific provider (e.g. the local fallback) on demand
+  // without waiting for the remote pool to exhaust naturally.
+  it('AI_MODELS_FORCE_CHAIN pins callLLM to exactly the listed models', async () => {
+    const prevFetch = globalThis.fetch;
+    const prevForce = process.env.AI_MODELS_FORCE_CHAIN;
+    const prevUrl = process.env.LOCAL_LLM_URL;
+    const prevModel = process.env.LOCAL_LLM_MODEL;
+    process.env.LOCAL_LLM_ENABLED = '1';
+    process.env.LOCAL_LLM_URL = 'http://127.0.0.1:11434/v1/chat/completions';
+    process.env.LOCAL_LLM_MODEL = 'qwen2.5:7b';
+    process.env.AI_MODELS_FORCE_CHAIN = 'local/fallback';
+    const urls: string[] = [];
+    try {
+      globalThis.fetch = (async (url: string) => {
+        urls.push(url);
+        return {
+          ok: true,
+          status: 200,
+          text: async () => JSON.stringify({ choices: [{ message: { content: 'forced' } }] }),
+        };
+      }) as unknown as typeof fetch;
+      const out = await callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1 });
+      expect(out).toBe('forced');
+      // Exactly one call, to the local endpoint only — no remote provider touched.
+      expect(urls).toHaveLength(1);
+      expect(urls[0]).toBe('http://127.0.0.1:11434/v1/chat/completions');
+    } finally {
+      globalThis.fetch = prevFetch;
+      if (prevForce === undefined) delete process.env.AI_MODELS_FORCE_CHAIN; else process.env.AI_MODELS_FORCE_CHAIN = prevForce;
+      if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
+      if (prevModel === undefined) delete process.env.LOCAL_LLM_MODEL; else process.env.LOCAL_LLM_MODEL = prevModel;
     }
   });
 });

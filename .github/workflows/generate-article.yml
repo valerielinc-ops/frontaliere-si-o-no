@@ -33,6 +33,11 @@ on:
         required: false
         type: string
         default: ''
+      force_chain:
+        description: 'Diagnostic: comma-separated model chain to force (e.g. local/fallback) — bypasses the auto cascade. Use to validate/measure the local fallback on demand without waiting for natural remote exhaustion. Leave empty in normal runs.'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   # Shared group: only 1 run active at a time, next run queues (not skipped).
@@ -170,6 +175,10 @@ jobs:
         env:
           CREATE_ARTICLE_REPORT_FILE: .tmp/create-article-run-report.json
           TARGET_SECTION: ${{ steps.section.outputs.section }}
+          # Diagnostic chain override (empty in normal runs). Lets ops force the
+          # local fallback (or any subset) on demand to validate/measure it
+          # without waiting for the remote pool to exhaust naturally.
+          AI_MODELS_FORCE_CHAIN: ${{ github.event.inputs.force_chain }}
           # Section-aware wall-clock budget. The `frontaliere` pipeline is
           # gate-heavier than `svizzera`: it carries the frontaliere-density
           # relevance gate (>=8 keyword hits) on top of the shared fact-check /
@@ -185,12 +194,13 @@ jobs:
           #
           # When the local-LLM fallback is enabled (ARTICLE_LOCAL_FALLBACK=1),
           # generation can fall to a slow CPU model whose single calls take
-          # minutes; the 55-min cap then cuts the run off mid-generation before
-          # it can land a fact-check-passing article (measured Jun-29: 3b did 12
-          # attempts/55min, 7b only ~2/55min — both deferred on the wall, not on
-          # quality-exhaustion). Raise the budget to 300 min in that mode so the
-          # local path can RUN TO COMPLETION and we can measure its real
-          # end-to-end time. Still under the 360-min job `timeout-minutes`
+          # minutes. NB (corrected Jun-29, run 28390219943): earlier "3b 12/55min,
+          # 7b ~2/55min, deferred on the wall" was WRONG — every local call was
+          # dying at undici's 300s headersTimeout as `fetch failed`, so no local
+          # generation ever completed (fixed in #3102 via a per-call dispatcher).
+          # The 300-min budget still gives a genuinely-slow CPU model room to RUN
+          # TO COMPLETION so we can measure its real end-to-end time. Still under
+          # the 360-min job `timeout-minutes`
           # (300min create-article + ollama setup + commit/deploy < 360). Defers
           # stay rare/acceptable; this just stops the premature cut-off so the
           # measurement is real. Reverts to 55/30 min when the var is unset.
