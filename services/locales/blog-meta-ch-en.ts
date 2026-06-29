@@ -703,6 +703,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nuovi-frontalieri-poveri.title': 'Frontier workers struggling: -20k euros per year',
     'blog.article.nuovi-frontalieri-poveri.excerpt': 'The new frontier workers earn up to 20,000 euros less per year than the old ones. Here are the figures and tax implications.',
     'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Commuter train crossing the Swiss-Italian border near Lugano',
+    'blog.article.grono-entra-repower-moesano.title': 'Grono enters Repower Moesano',
+    'blog.article.grono-entra-repower-moesano.excerpt': 'The Municipality of Grono becomes part of the shareholding of Repower Moesano SA',
+    'blog.article.grono-entra-repower-moesano.imageAlt': 'View of Grono',
 };
 
 export default blogMetaChEn;

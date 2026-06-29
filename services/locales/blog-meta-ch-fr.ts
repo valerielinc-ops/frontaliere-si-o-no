@@ -703,6 +703,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nuovi-frontalieri-poveri.title': 'Frontaliers en difficulté : -20 000 euros par an par rapport aux précédents',
     'blog.article.nuovi-frontalieri-poveri.excerpt': 'Les nouveaux frontaliers gagnent jusqu\'à 20 000 euros de moins par an que les anciens. Voici les chiffres et les implications fiscales.',
     'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Train de banlieue traversant la frontière italo-suisse près de Lugano',
+    'blog.article.grono-entra-repower-moesano.title': 'Grono entre dans Repower Moesano',
+    'blog.article.grono-entra-repower-moesano.excerpt': 'La municipalité de Grono fait partie de l\'actionnariat de Repower Moesano SA',
+    'blog.article.grono-entra-repower-moesano.imageAlt': 'Vue de Grono',
 };
 
 export default blogMetaChFr;
