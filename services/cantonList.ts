@@ -141,6 +141,40 @@ export function getCantonLabel(code: string, locale: CantonLocale): string {
   return upper;
 }
 
+const SEARCH_TOKEN_LOCALES: ReadonlyArray<CantonLocale> = ['it', 'en', 'de', 'fr'];
+
+/**
+ * Locale-agnostic search tokens for a canton/group code: every distinct
+ * localized canton name (e.g. `TI` → "ticino tessin", `BL` → "basilea
+ * campagna basilea citta basel-landschaft bale-campagne"), lowercased and
+ * space-joined. Returns `''` for empty/unknown codes.
+ *
+ * Why: a job stores only its CITY in `location` (e.g. "Bellinzona") and the
+ * 2-letter `canton` code ("TI") — never the canton NAME. So a search whose
+ * query carries the canton ("fust bellinzona ticino", a real related-search
+ * cluster slug) could never satisfy the strict AND-match and was forced into
+ * the fuzzy "Nessun risultato esatto" fallback even though the source job is a
+ * Fust vacancy in Bellinzona/Ticino (issue #2967). Enriching the search
+ * haystack with these tokens makes the canton name a first-class match term.
+ *
+ * Locale-agnostic on purpose: the SAME string is appended in every locale's
+ * haystack so the SPA, the static cluster build plugin, and the off-thread
+ * postings worker stay byte-identical (the lockstep contract), and a query in
+ * any locale ("ticino"/"tessin") matches.
+ */
+export function cantonSearchTokens(code: string): string {
+  const upper = String(code || '').toUpperCase();
+  if (!upper) return '';
+  const names = new Set<string>();
+  for (const loc of SEARCH_TOKEN_LOCALES) {
+    const label = getCantonLabel(upper, loc);
+    // getCantonLabel echoes the code back when no localized name exists; skip
+    // that so an unknown code contributes no junk token.
+    if (label && label.toUpperCase() !== upper) names.add(label.toLowerCase());
+  }
+  return Array.from(names).join(' ');
+}
+
 export interface CantonOption {
   code: string;
   label: string;

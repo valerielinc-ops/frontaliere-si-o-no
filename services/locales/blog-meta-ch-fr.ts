@@ -697,6 +697,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.title': 'Déductions fiscales pour frontaliers en Italie',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.excerpt': 'Les déductions fiscales pour les frontaliers en Italie sont régies par la loi italienne.',
     'blog.article.frontaliere-detrazioni-fiscali-italia-2026.imageAlt': 'Scène de Lugano avec un frontalier et des documents fiscaux',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.title': 'Pension complémentaire des frontaliers : le troisième pilier',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.excerpt': 'Les frontaliers peuvent investir dans le troisième pilier pour augmenter leur pension.',
+    'blog.article.pensione-complementare-terzo-pilastro-frontalieri.imageAlt': 'Frontaliers suisses dans une place de Lugano',
+    'blog.article.nuovi-frontalieri-poveri.title': 'Frontaliers en difficulté : -20 000 euros par an par rapport aux précédents',
+    'blog.article.nuovi-frontalieri-poveri.excerpt': 'Les nouveaux frontaliers gagnent jusqu\'à 20 000 euros de moins par an que les anciens. Voici les chiffres et les implications fiscales.',
+    'blog.article.nuovi-frontalieri-poveri.imageAlt': 'Train de banlieue traversant la frontière italo-suisse près de Lugano',
 };
 
 export default blogMetaChFr;

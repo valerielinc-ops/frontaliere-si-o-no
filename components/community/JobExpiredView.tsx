@@ -335,11 +335,29 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const backButton = onBack && (
  <button
  onClick={onBack}
- className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"
+ className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline shrink-0"
  >
  <ArrowLeft size={14} />
  {t('jobBoard.backToList')}
  </button>
+ );
+
+ // Back link + top leaderboard share one row — same header as the active job
+ // detail (JobBoard.tsx): the back link keeps its natural width, the desktop
+ // banner fills the rest of the row. Banner is lg+ only.
+ const topBannerRow = (
+ <div className="flex items-center gap-4">
+ {backButton}
+ {isDesktopLg && AD_SLOTS.JOBDETAIL_TOP_BANNER.slot && (
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
+ adFormat={AD_SLOTS.JOBDETAIL_TOP_BANNER.format}
+ fullWidthResponsive={AD_SLOTS.JOBDETAIL_TOP_BANNER.fullWidthResponsive}
+ minHeight={AD_SLOTS.JOBDETAIL_TOP_BANNER.placeholderMinHeight}
+ className="flex-1 min-w-0"
+ />
+ )}
+ </div>
  );
 
  const expiredBanner = (
@@ -516,9 +534,20 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  return (
  <div className="space-y-5">
- {backButton}
+ {topBannerRow}
  {expiredBanner}
 
+ {/* 3-column rail grid: left rail | content | right rail — same full-height
+     side-rail layout as the active job detail. Rails 180px at xl (1280–1399),
+     300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}
+ <div className="ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-4 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
+
+ {/* ── Left Rail (desktop xl only) ── */}
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <ArticleRailAdStack side="left" />
+ </aside>
+
+ {/* ── Center content (12-col job-detail grid) ── */}
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
  {/* ── Main content (8 cols) ── */}
  <article className="lg:col-span-8 space-y-5">
@@ -687,6 +716,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
  </div>
 
+ {/* ── Right Rail (desktop xl only) ── */}
+ <aside className="ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <ArticleRailAdStack side="right" />
+ </aside>
+ </div>
+
  {/* End multiplex */}
  {AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot && (
  <AdSenseBanner
@@ -703,7 +738,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  return (
  <div className="space-y-5" data-no-auto-ads="inside">
- {backButton}
+ {topBannerRow}
  {/* Status banner ("no longer active") deferred until sign-in: a logged-out
      visitor sees the gate, not the dead-job notice. Shown in the logged-in view. */}
 

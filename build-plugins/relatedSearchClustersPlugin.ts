@@ -69,6 +69,7 @@ import {
 } from '../services/relatedSearchClusters';
 import { isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
+import { cantonSearchTokens } from '../services/cantonList';
 import {
   AGGREGATE_KEY,
   resolveCantonSection,
@@ -192,7 +193,7 @@ function tokenizeQuery(query: string): string[] {
 function buildJobHaystack(job: RawJob, locale: Locale): string {
   const title = job.titleByLocale?.[locale] ?? job.title ?? '';
   const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
-  return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`));
+  return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${cantonSearchTokens(job.canton ?? '')} ${description}`));
 }
 
 /** Detect a known city in a sample term (longest match wins). */
@@ -2479,11 +2480,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const workerUrl = new URL('./relatedSearchPostingsWorker.mjs', import.meta.url);
         const localeKeys = Array.from(tokensByLocale.keys());
         // Build a SLIM, same-order projection once: the worker reads only these
-        // six fields (relatedSearchPostingsWorker buildJobHaystack) and returns
+        // seven fields (relatedSearchPostingsWorker buildJobHaystack) and returns
         // postings by job INDEX, so order/length must match `jobs` exactly. This
         // avoids structured-cloning the full ~88 MB dataset into each of up to 4
         // worker boot payloads simultaneously (the "external memory pressure" in
         // the build OOM). Output is byte-identical. (Build OOM fix, #1290.)
+        // `cantonSearch` is the canton-name token string resolved HERE (the
+        // worker can't import the canton JSON) so the worker haystack stays
+        // byte-identical to this plugin's buildJobHaystack (issue #2967).
         const slimJobs = jobs.map((j: any) => ({
           title: j.title,
           titleByLocale: j.titleByLocale,
@@ -2491,6 +2495,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           descriptionByLocale: j.descriptionByLocale,
           company: j.company,
           location: j.location,
+          cantonSearch: cantonSearchTokens(j.canton ?? ''),
         }));
         // Concurrency cap on simultaneous workers. Each worker builds a FULL
         // per-locale 2/3-gram inverted index (~hundreds of MB for ~11k jobs)

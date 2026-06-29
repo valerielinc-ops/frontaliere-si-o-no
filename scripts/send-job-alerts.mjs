@@ -28,6 +28,13 @@ import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatchin
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isAddressSuppressed } from '../services/emailSuppression.mjs';
+import {
+  normalizeSentMap,
+  filterUnsentJobs,
+  mergeSentJobs,
+  DEDUP_WINDOW_MS,
+} from './lib/alert-sent-jobs.mjs';
+import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -421,16 +428,69 @@ async function getFirestoreAdmin() {
 
 // ── Load jobs from data/jobs.json ────────────────────────────
 
-function loadRecentJobs() {
-  if (!fs.existsSync(JOBS_PATH)) return [];
+// Returns the recent-job match pool AND a lightweight slug/id → geography index
+// over the FULL dataset. The index lets us recover the location of the job a
+// one-tap subscriber engaged with (`sourceJobSlug`) even when that job is older
+// than the 24h match window — folded into the matcher as a soft location signal
+// so same-area jobs rank to the top of a location-less alert.
+function loadJobs() {
+  if (!fs.existsSync(JOBS_PATH)) return { recent: [], locationIndex: new Map() };
   const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
-  if (!Array.isArray(jobs)) return [];
+  if (!Array.isArray(jobs)) return { recent: [], locationIndex: new Map() };
 
   const cutoff = Date.now() - MATCH_WINDOW_MS;
-  return jobs.filter((j) => {
-    const crawledAt = firstParsableMs(j.crawledAt, j.postedDate);
-    return crawledAt >= cutoff;
-  });
+  const recent = [];
+  const locationIndex = new Map();
+  for (const j of jobs) {
+    const geo = [j.location || j.addressLocality || '', j.canton || ''].filter(Boolean);
+    if (geo.length > 0) {
+      for (const key of [j.slug, ...Object.values(j.slugByLocale || {}), j.id]) {
+        if (key) locationIndex.set(String(key).toLowerCase(), geo);
+      }
+    }
+    if (firstParsableMs(j.crawledAt, j.postedDate) >= cutoff) recent.push(j);
+  }
+  return { recent, locationIndex };
+}
+
+// Resolve the geography of the job a one-tap alert was created from, via its
+// stored slug / pinned id. Returns lowercased location + canton tokens ('' set
+// filtered out by the caller).
+function sourceJobLocationsFor(alert, locationIndex) {
+  if (!locationIndex || locationIndex.size === 0) return [];
+  const keys = [
+    alert.sourceJobSlug,
+    alert.specificJobId,
+    ...(Array.isArray(alert.specificJobIds) ? alert.specificJobIds : []),
+  ];
+  for (const k of keys) {
+    if (!k) continue;
+    const geo = locationIndex.get(String(k).toLowerCase());
+    if (geo) return geo;
+  }
+  return [];
+}
+
+// Extract soft browsing signals from the personalization subdoc
+// (newsletter_subscribers/{email}/private/personalization). `filterUsage.location`
+// keys + viewed-job cities are the precise location data issue #2993 asks us to
+// use; `searches[].query` + viewed-job categories add intent tokens.
+function behaviorSignals(personalization) {
+  if (!personalization || typeof personalization !== 'object') {
+    return { behaviorLocations: [], behaviorTokens: [] };
+  }
+  const viewedJobs = Array.isArray(personalization.viewedJobs) ? personalization.viewedJobs : [];
+  const searches = Array.isArray(personalization.searches) ? personalization.searches : [];
+  const filterLoc = personalization.filterUsage?.location;
+  const behaviorLocations = [
+    ...(filterLoc && typeof filterLoc === 'object' ? Object.keys(filterLoc) : []),
+    ...viewedJobs.map((v) => v?.location).filter(Boolean),
+  ];
+  const behaviorTokens = [
+    ...searches.map((s) => s?.query).filter(Boolean),
+    ...viewedJobs.map((v) => v?.category).filter(Boolean),
+  ];
+  return { behaviorLocations, behaviorTokens };
 }
 
 // ── Matching logic ───────────────────────────────────────────
@@ -972,9 +1032,15 @@ async function main() {
     console.log('   🔵 DRY RUN — skipping retry queue processing');
   }
 
-  // 1. Load recent jobs
-  const recentJobs = loadRecentJobs();
+  // 1. Load recent jobs (+ full-dataset geo index for source-job resolution)
+  const { recent: recentJobs, locationIndex } = loadJobs();
   console.log(`   Recent jobs (last 24h): ${recentJobs.length}`);
+  // Diagnostic (#3020): confirm the full-dataset geo index is non-trivially
+  // populated. Source-geo recovery for one-tap alerts (sourceJobLocationsFor)
+  // is a soft no-op when this index is empty — so a size of 0 here means the
+  // slug/slugByLocale/canton/location fields are absent from data/jobs.json and
+  // the one-tap precision boost never materializes. Expected: ≫ 0.
+  console.log(`   Geo index entries (slug/id → location): ${locationIndex.size}`);
   if (recentJobs.length === 0) {
     console.log('   No recent jobs — skipping.');
     return;
@@ -1041,10 +1107,21 @@ async function main() {
   // so the matcher can fold the newsletter profile (job_company, job_category,
   // sector_interest, location_interest, preferences, …) into relevance scoring.
   const subscriberProfiles = new Map();
+  // Browsing-personalization signals (filter usage + viewed-job cities/searches)
+  // keyed by lowercased email. These live in a SUBCOLLECTION the matcher never
+  // read before (newsletter_subscribers/{email}/private/personalization), which
+  // is why precise location data was "missing" from alerts (issue #2993).
+  const behaviorProfiles = new Map();
+  // Raw personalization subdoc + whether the parent doc exists, kept so the
+  // post-send enrichment step (section 6 below) can consolidate every signal
+  // back into the flat profile fields (no-clobber).
+  const personalizationRaw = new Map();
+  const subscriberDocExists = new Set();
   for (const email of alertEmails) {
     try {
       const subDoc = await db.collection('newsletter_subscribers').doc(email).get();
       if (subDoc.exists) {
+        subscriberDocExists.add(email.toLowerCase());
         const data = subDoc.data() || {};
         subscriberProfiles.set(email.toLowerCase(), data);
         if (isAddressSuppressed(data.status)) suppressedEmails.add(email.toLowerCase());
@@ -1064,6 +1141,16 @@ async function main() {
       const alertSubDoc = await db.collection('job_alert_subscribers').doc(email).get();
       if (alertSubDoc.exists && isAddressSuppressed(alertSubDoc.data()?.status)) {
         suppressedEmails.add(email.toLowerCase());
+      }
+      // Personalization subdoc (browsing-derived location + intent). Read here
+      // so the matcher can fold it into ranking; absent for users who never
+      // browsed while identified — the matcher tolerates an empty profile.
+      const personDoc = await db.collection('newsletter_subscribers').doc(email)
+        .collection('private').doc('personalization').get();
+      if (personDoc.exists) {
+        const personData = personDoc.data() || {};
+        behaviorProfiles.set(email.toLowerCase(), behaviorSignals(personData));
+        personalizationRaw.set(email.toLowerCase(), personData);
       }
     } catch (err) {
       // Fail-open (don't drop a valid recipient on a transient read blip) but
@@ -1102,9 +1189,20 @@ async function main() {
   let totalMatches = 0;
 
   for (const alert of alerts) {
-    // Enrich the alert with the subscriber's newsletter profile + its own
-    // source-job signals, then score every recent job against that profile.
-    const profile = buildAlertProfile(alert, subscriberProfiles.get(alert.email.toLowerCase()) || null);
+    // Enrich the alert with the subscriber's newsletter profile, browsing
+    // personalization (filter usage + viewed-job geography) and the geography of
+    // the job it was created from, then score every recent job against it.
+    const behavior = behaviorProfiles.get(alert.email.toLowerCase()) || {};
+    const extras = {
+      behaviorLocations: behavior.behaviorLocations || [],
+      behaviorTokens: behavior.behaviorTokens || [],
+      sourceJobLocations: sourceJobLocationsFor(alert, locationIndex),
+    };
+    const profile = buildAlertProfile(
+      alert,
+      subscriberProfiles.get(alert.email.toLowerCase()) || null,
+      extras,
+    );
     // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
     // so a test listing can't reach real alert subscribers.
     const eligibleJobs = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
@@ -1142,13 +1240,30 @@ async function main() {
         remainder.push(m.job);
       }
     }
-    const matched = surfaced.concat(remainder).map((job) => job);
+    const ranked = surfaced.concat(remainder).map((job) => job);
 
-    if (matched.length === 0) continue;
+    if (ranked.length === 0) continue;
+
+    // De-dup: drop jobs already emailed to THIS alert within the dedup window.
+    // Without this a re-crawled job (its crawledAt refreshes, so it re-enters the
+    // 24h pool) headlines the alert every single day — the "I keep getting the
+    // same jobs" report (#2993). When nothing new remains we skip the send
+    // entirely rather than re-mail stale offers.
+    const sentMap = normalizeSentMap(alert.sentJobIds);
+    const matched = filterUnsentJobs(ranked, sentMap, now, DEDUP_WINDOW_MS);
+    if (matched.length === 0) {
+      console.log(`   ⏭️  Alert ${alert.id}: ${ranked.length} matches, all already sent → skip`);
+      continue;
+    }
 
     totalMatches += matched.length;
     const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
     const { subject, html, text, unsubscribeUrl } = buildAlertEmail(alert, matched, autologinEnabled);
+
+    // Mark the jobs actually shown (the rendered cards) as sent so they rotate
+    // out next run. buildAlertEmail renders up to 10 cards. References, not
+    // copies — cheap to carry to the post-send persistence step.
+    const sentJobs = matched.slice(0, 10);
 
     emailsToSend.push({
       to: alert.email,
@@ -1158,6 +1273,8 @@ async function main() {
       alertId: alert.id,
       ref: alert.ref,
       matchCount: matched.length,
+      sentMap,
+      sentJobs,
       unsubscribeUrl,
     });
 
@@ -1197,9 +1314,49 @@ async function main() {
       batch.update(email.ref, {
         lastMatchedAt: FieldValue.serverTimestamp(),
         matchCount: FieldValue.increment(email.matchCount),
+        // Persist the merged sent-job map (pruned to the dedup window + capped)
+        // so the next run excludes these jobs and surfaces fresh ones.
+        sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),
       });
     });
     console.log('   📊 Firestore updated');
+
+    // 6. Personalization enrichment (no-clobber). Consolidate every signal we
+    // just read — browsing subdoc (filter usage, viewed-job cities/categories,
+    // searches) + the user's own alerts (locations, cantons, sectors, keywords)
+    // — into the flat newsletter_subscribers profile fields the matcher,
+    // newsletter and employer-blast funnels read. Only MISSING fields are
+    // filled, so an explicit user value is never overwritten. Runs every day,
+    // progressively enriching profiles that previously had empty location/sector
+    // targeting (the "personalization fields missing" half of #2993).
+    const alertsByEmail = new Map();
+    for (const alert of alerts) {
+      const key = String(alert.email || '').toLowerCase();
+      if (!key) continue;
+      if (!alertsByEmail.has(key)) alertsByEmail.set(key, []);
+      alertsByEmail.get(key).push(alert);
+    }
+    const enrichTargets = [];
+    for (const key of alertsByEmail.keys()) {
+      // Only enrich an existing subscriber doc — never create an orphan record.
+      if (!subscriberDocExists.has(key)) continue;
+      const patch = derivePersonalizationPatch({
+        subscriber: subscriberProfiles.get(key) || null,
+        personalization: personalizationRaw.get(key) || null,
+        alerts: alertsByEmail.get(key),
+      });
+      if (patch) enrichTargets.push({ key, patch });
+    }
+    if (enrichTargets.length > 0) {
+      await commitInChunks(db, enrichTargets, (batch, { key, patch }) => {
+        batch.set(db.collection('newsletter_subscribers').doc(key), {
+          ...patch,
+          personalization_enriched_at: FieldValue.serverTimestamp(),
+          updated_at: FieldValue.serverTimestamp(),
+        }, { merge: true });
+      });
+      console.log(`   🧬 Personalization enriched: ${enrichTargets.length} subscriber profile(s)`);
+    }
   }
 
   console.log('\n🔔 Job Alert Matching — Done.');
