@@ -82,7 +82,7 @@ function loadBlogIdToSlug() {
   if (!fs.existsSync(ROUTER_BLOG_PATH)) return new Map();
   const src = fs.readFileSync(ROUTER_BLOG_PATH, 'utf-8');
   const map = new Map();
-  const re = /'([a-z0-9-]+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'\s*\}/g;
+  const re = /["']([a-z0-9-]+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']\s*\}/g;
   let m;
   while ((m = re.exec(src)) !== null) {
     map.set(m[1], { it: m[2], en: m[3], de: m[4], fr: m[5] });

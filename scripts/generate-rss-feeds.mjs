@@ -148,7 +148,7 @@ function parseBlogSlugs(slugFile) {
   const src = fs.readFileSync(filePath, 'utf-8');
 
   const slugs = new Map(); // articleId → { it, en, de, fr }
-  const entryRe = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+  const entryRe = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
   let match;
   while ((match = entryRe.exec(src)) !== null) {
     slugs.set(match[1], { it: match[2], en: match[3], de: match[4], fr: match[5] });
