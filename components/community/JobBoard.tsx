@@ -6845,11 +6845,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <section className="rounded-2xl border border-edge bg-surface p-5">
  <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2>
  <div className="space-y-2">
- {relatedJobs.map((job) => {
+ {relatedJobs.flatMap((job, relIdx) => {
  const jobHref = buildJobPath(job);
  const jobLogo = companyLogoUrl(job);
  const jobSalary = formatSalary(job);
- return (
+ const card = (
  <article
  key={job.id}
  className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
@@ -6902,6 +6902,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </article>
  );
+ const nodes: React.ReactNode[] = [card];
+ // One in-feed ad after every Nth related card (shared `shouldPlaceInfeedAd`
+ // cadence), never after the last — same as the crawler-visible related grid
+ // above. This `space-y-2` stack is the gated (`!hasAccess`) human surface;
+ // `renderInfeedAd` already wraps the ad as a full-width block (no col-span).
+ if (relIdx + 1 < relatedJobs.length && shouldPlaceInfeedAd(relIdx + 1)) {
+ nodes.push(renderInfeedAd(`relgate-${relIdx}`));
+ }
+ return nodes;
  })}
  </div>
  </section>
