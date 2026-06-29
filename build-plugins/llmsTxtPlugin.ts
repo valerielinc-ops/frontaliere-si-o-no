@@ -107,16 +107,20 @@ function parseSeoEntries(rootDir: string, fs: typeof import('node:fs')): Map<str
  const localOffset = idx - blockStart;
  const beforeCp = block.substring(0, localOffset);
 
- // Look for title: '...' in the text before our canonicalPath (same entry)
- const titleMatches = [...beforeCp.matchAll(/title:\s*'((?:[^'\\]|\\.)*)'/g)];
- const title = titleMatches.length > 0
- ? titleMatches[titleMatches.length - 1][1].replace(/\\'/g, "'").replace(/\s*\|\s*Frontaliere Ticino$/, '').trim()
- : '';
-
- const descMatches = [...beforeCp.matchAll(/description:\s*'((?:[^'\\]|\\.)*)'/g)];
- const desc = descMatches.length > 0
- ? descMatches[descMatches.length - 1][1].replace(/\\'/g, "'").trim().slice(0, 160)
- : '';
+ // Look for title:/description: before our canonicalPath (same entry),
+ // accepting BOTH single- and double-quoted values. seo-pages.ts mixes styles
+ // (metodologia + author entries use `description: "…"`); a single-quote-only
+ // regex left those curated pages with an EMPTY llms.txt description (#2996,
+ // sibling of the staticPagesPlugin matchStr fix).
+ const lastQuoted = (key: string): string => {
+ const single = [...beforeCp.matchAll(new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g'))];
+ const pool = single.length > 0
+ ? single
+ : [...beforeCp.matchAll(new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'g'))];
+ return pool.length > 0 ? pool[pool.length - 1][1] : '';
+ };
+ const title = lastQuoted('title').replace(/\\'/g, "'").replace(/\s*\|\s*Frontaliere Ticino$/, '').trim();
+ const desc = lastQuoted('description').replace(/\\'/g, "'").trim().slice(0, 160);
 
  // Key form must match parseSitemapUrls output, which strips trailing
  // slashes — hand-written canonicalPath values are stored WITH a trailing
