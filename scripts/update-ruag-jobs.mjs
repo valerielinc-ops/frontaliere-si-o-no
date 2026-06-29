@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml, fetchHtmlWithCookies } from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -49,15 +49,19 @@ const COMPANY_DOMAIN = 'ruag.ch';
 const LISTING_URLS = [
   'https://www.ruag.ch/en/working-us/job-portal?f%5B0%5D=job_facet_workplace%3A310',
   'https://www.ruag.ch/de/arbeiten-bei-uns/job-portal?f%5B0%5D=job_facet_workplace%3A310',
-  'https://www.ruag.ch/it/lavorare-con-noi/portale-lavoro?f%5B0%5D=job_facet_workplace%3A310',
+  'https://www.ruag.ch/it/interested-career-ruag?f%5B0%5D=job_facet_workplace%3A310',
 ];
+// Cold-start fallback seeds only. Primary discovery is the facet listing above
+// (now behind the Airlock cookie wall — see discoverListingSeeds) plus the
+// last-known-good URLs read from the persisted slice in discoverRuagGraph, so
+// these self-heal each run. RUAG rotates detail-page UUIDs (expired postings
+// return 410), so this static list WILL drift; it exists purely to bootstrap a
+// fresh checkout whose slice is empty. Verified live 2026-06-29.
 const SEED_DETAIL_URLS = [
-  'https://jobs.ruag.ch/posizioni-aperte/apprendista-polimeccanico-a-afc-2026/8719425f-0598-427b-94ec-9d6a1189fe64',
-  'https://jobs.ruag.ch/offene-stellen/data-architect-space-c5i/e2fb49c3-9399-4dc9-8db3-172c6255a543',
-  'https://jobs.ruag.ch/offene-stellen/facility-office-manager/49bf3704-581a-43a6-a61b-e6995907530a',
-  'https://jobs.ruag.ch/offene-stellen/disposition-item-manager/9c1ebff5-de02-4068-a479-b64b91086a5f',
-  'https://jobs.ruag.ch/offene-stellen/technician-electrical/c684b90b-83f4-40b9-99b4-8f9afd171572',
-  'https://jobs.ruag.ch/offene-stellen/technician-maintenance/5b277eeb-bafc-4076-bb5e-21a1bcf71bbb',
+  'https://jobs.ruag.ch/offene-stellen/apprendista-operatore-in-automazione-afc-2026/c224bc01-8478-492d-8f40-a396baf066ce',
+  'https://jobs.ruag.ch/offene-stellen/facility-manager-networks-betriebselektrikerin-schwachstrom/8e281827-5c3f-44d8-a754-cf6caf198437',
+  'https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965',
+  'https://jobs.ruag.ch/offene-stellen/assistentin-construction-management-west/81b4936b-bb5a-4a41-9298-336b3dc084a5',
 ];
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -128,19 +132,39 @@ async function discoverListingSeeds() {
   const discovered = new Set();
   for (const url of LISTING_URLS) {
     try {
-      const html = await fetchText(url, 12000);
+      // The www.ruag.ch facet listing sits behind an Airlock Gateway cookie
+      // challenge (AL_CHK → /cookie-check → back). Native fetch drops the
+      // challenge cookie across the redirect, dead-ending at HTTP 400, so use
+      // the cookie-jar fetch that completes the handshake like a browser.
+      const html = await fetchHtmlWithCookies(url, { timeoutMs: 12000 });
       for (const link of parseRuagListingLinks(html)) discovered.add(link);
     } catch {
-      // RUAG listing page currently returns 400 frequently; fallback graph discovery remains primary.
+      // A single locale listing can 404/4xx when RUAG renames a portal path;
+      // the other locales + persisted-slice seeds keep discovery alive.
     }
   }
   return [...discovered];
 }
 
+// Last-known-good detail URLs from the persisted slice. Each successful run
+// refreshes the slice, so these self-heal: dead (410) URLs are skipped during
+// the crawl while live ones re-seed the graph even if the listing format drifts.
+function readPersistedSeedUrls() {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  if (!Array.isArray(existing)) return [];
+  const urls = new Set();
+  for (const job of existing) {
+    const url = String(job?.url || job?.canonicalUrl || '').trim();
+    if (url.startsWith('https://jobs.ruag.ch/')) urls.add(url);
+  }
+  return [...urls];
+}
+
 async function discoverRuagGraph() {
   console.log('🔍 Discovering RUAG job detail pages...');
   const discoveredSeeds = await discoverListingSeeds();
-  const queue = [...new Set([...SEED_DETAIL_URLS, ...discoveredSeeds])];
+  const persistedSeeds = readPersistedSeedUrls();
+  const queue = [...new Set([...SEED_DETAIL_URLS, ...persistedSeeds, ...discoveredSeeds])];
   const seen = new Set();
   const details = [];
 
