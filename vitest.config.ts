@@ -117,6 +117,10 @@ const JSDOM_TS_FILES = [
   'tests/seo/inlanguage-whitelist.test.ts',
   'tests/seo/seo-hubs-pagination-bfs.test.ts',
   'tests/services/benignErrorPatterns.test.ts',
+  // analytics.ts exports `fireCalcEntryIfNeeded` only when `window` is defined,
+  // so under the node project the import resolves to `undefined` ("not a
+  // function"). The test loads the real module via vi.importActual → needs jsdom.
+  'tests/services/calc-entry-emitter.test.ts',
   'tests/services/jobDetailAlertGating.test.ts',
   'tests/services/pdf-report.test.ts',
   'tests/services/posthog.test.ts',
