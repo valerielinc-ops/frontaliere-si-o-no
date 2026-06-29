@@ -1,5 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { resilientImport, isChunkLoadError } from '@/services/resilientImport';
+import {
+  resilientImport,
+  isChunkLoadError,
+  isVersionSkewError,
+  recoverFromStaleChunk,
+} from '@/services/resilientImport';
 
 /**
  * resilientImport recovers from two stale-deploy failure modes:
@@ -85,5 +90,80 @@ describe('resilientImport', () => {
     expect(isChunkLoadError(new Error('Importing a module script failed'))).toBe(true);
     expect(isChunkLoadError(Object.assign(new Error('x'), { name: 'ChunkLoadError' }))).toBe(true);
     expect(isChunkLoadError(new Error('something else'))).toBe(false);
+  });
+});
+
+/**
+ * Cross-chunk version-skew recovery — the third stale-deploy failure mode
+ * (stable filenames + re-lettered minified cross-chunk exports). A successfully
+ * loaded but mismatched chunk throws a TypeError at CALL time
+ * ("ls(...).then is not a function") deep in render/effects — caught by the
+ * ErrorBoundary / global window error handler, NOT by resilientImport's import()
+ * wrapper. isVersionSkewError is the signature predicate both call.
+ */
+describe('isVersionSkewError', () => {
+  it('matches the version-skew TypeError signatures', () => {
+    // The exact shape reported live on /articoli-frontaliere/<slug>/.
+    expect(isVersionSkewError(new TypeError('ls(...).then is not a function'))).toBe(true);
+    expect(isVersionSkewError(new TypeError('n.getApp is not a function'))).toBe(true);
+    expect(isVersionSkewError(new TypeError('n is not a function'))).toBe(true);
+    expect(isVersionSkewError(new TypeError('Ze is not a constructor'))).toBe(true);
+    expect(isVersionSkewError(new TypeError('e is not iterable'))).toBe(true);
+  });
+
+  it('ignores non-TypeError errors with the same message', () => {
+    // Only TypeError carries the skew signature; a hand-thrown Error does not.
+    expect(isVersionSkewError(new Error('x is not a function'))).toBe(false);
+    expect(isVersionSkewError(Object.assign(new Error('x'), { name: 'ChunkLoadError' }))).toBe(false);
+  });
+
+  it('ignores unrelated TypeErrors', () => {
+    expect(isVersionSkewError(new TypeError('Cannot read properties of undefined (reading "x")'))).toBe(false);
+    expect(isVersionSkewError(new TypeError('Assignment to constant variable.'))).toBe(false);
+    expect(isVersionSkewError(null)).toBe(false);
+    expect(isVersionSkewError(undefined)).toBe(false);
+  });
+});
+
+describe('recoverFromStaleChunk', () => {
+  const setHostname = (hostname: string) => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, hostname, reload: vi.fn() },
+    });
+    return window.location.reload as unknown as ReturnType<typeof vi.fn>;
+  };
+
+  beforeEach(() => {
+    sessionStorage.clear();
+    (globalThis as any).caches = {
+      keys: vi.fn().mockResolvedValue(['c1', 'c2']),
+      delete: vi.fn().mockResolvedValue(true),
+    };
+  });
+
+  it('clears caches and reloads once on a production host', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const scheduled = await recoverFromStaleChunk('version_skew:test');
+    expect(scheduled).toBe(true);
+    expect((globalThis as any).caches.delete).toHaveBeenCalledTimes(2);
+    expect(reload).toHaveBeenCalledTimes(1);
+    expect(sessionStorage.getItem('_serviceChunkReload')).toBe('1');
+  });
+
+  it('is guarded to a single reload per session', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    await recoverFromStaleChunk('first');
+    reload.mockClear();
+    const scheduled = await recoverFromStaleChunk('second');
+    expect(scheduled).toBe(false);
+    expect(reload).not.toHaveBeenCalled();
+  });
+
+  it('never reloads in local dev (Vite HMR produces transient skew)', async () => {
+    const reload = setHostname('localhost');
+    const scheduled = await recoverFromStaleChunk('dev');
+    expect(scheduled).toBe(false);
+    expect(reload).not.toHaveBeenCalled();
   });
 });

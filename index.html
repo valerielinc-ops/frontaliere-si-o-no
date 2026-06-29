@@ -931,6 +931,49 @@
           }
         }
       }, true);
+      // Catch CROSS-CHUNK VERSION-SKEW TypeErrors thrown OUTSIDE React (event
+      // handlers, async .then callbacks, setTimeout) — React-caught skew is
+      // handled by ErrorBoundary. Chunk FILENAMES are stable but Rollup
+      // re-letters minified cross-chunk exports every build; a client holding a
+      // stale importer chunk binds an old letter to a fresh dependency's new
+      // export → the symbol is the wrong kind of value → TypeError at call time
+      // (e.g. "ls(...).then is not a function", "x is not a constructor").
+      // Both chunks loaded fine, so the resource/import handlers above never
+      // fire. Self-heal: clear caches + reload ONCE (shared _swReloadCount
+      // ceiling). Post-propagation the refetched chunk set is consistent.
+      window.addEventListener('error', function(e) {
+        // Resource (script/link) errors are handled by the capture-phase handler
+        // above; this non-capture handler only inspects runtime errors.
+        if (e.target && e.target !== window && e.target.tagName) return;
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+        var err = e.error;
+        if (!err || err.name !== 'TypeError') return;
+        var m = err.message || '';
+        var skew = / is not a function\b/.test(m) ||
+                   / is not a constructor\b/.test(m) ||
+                   / is not iterable\b/.test(m);
+        if (!skew) return;
+        var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
+        if (reloadCount >= 1) return;
+        sessionStorage.setItem('_swReloadCount', String(reloadCount + 1));
+        try {
+          sessionStorage.setItem('_forceReloadInfo', JSON.stringify({
+            source: 'index_html_skew',
+            reason: 'version_skew_typeerror',
+            resource: m.slice(0, 300),
+            reloadCount: reloadCount + 1,
+            pagePath: location.pathname + location.search,
+            timestamp: new Date().toISOString()
+          }));
+        } catch(ex) {}
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            return Promise.all(names.map(function(n) { return caches.delete(n); }));
+          }).then(function() { location.reload(); });
+        } else {
+          location.reload();
+        }
+      });
       // Catch dynamic import() rejections (React.lazy chunk 404s from stale SW cache).
       // Skip in dev mode — Vite HMR can produce transient import failures that resolve on their own.
       window.addEventListener('unhandledrejection', function(e) {
