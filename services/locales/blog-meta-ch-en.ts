@@ -706,6 +706,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grono-entra-repower-moesano.title': 'Grono enters Repower Moesano',
     'blog.article.grono-entra-repower-moesano.excerpt': 'The Municipality of Grono becomes part of the shareholding of Repower Moesano SA',
     'blog.article.grono-entra-repower-moesano.imageAlt': 'View of Grono',
+    'blog.article.piscina-niederuzwil-rianimata.title': 'She dives into the pool but does not re-emerge, girl revived',
+    'blog.article.piscina-niederuzwil-rianimata.excerpt': 'A 5-year-old girl has been resuscitated after disappearing underwater in the Niederuzwil swimming pool, thanks to timely intervention by bathers and staff.',
+    'blog.article.piscina-niederuzwil-rianimata.imageAlt': 'Public swimming pool in Niederuzwil with children and rescue staff',
+    'blog.article.energia-verde-svizzera.title': 'Swiss companies increase share of green energy',
+    'blog.article.energia-verde-svizzera.excerpt': 'Half of the companies in the Swiss Market Index have increased their use of renewable energy in the last year, according to AWP.',
+    'blog.article.energia-verde-svizzera.imageAlt': 'Swiss company with solar panels and green energy symbols, professional scene.',
 };
 
 export default blogMetaChEn;
