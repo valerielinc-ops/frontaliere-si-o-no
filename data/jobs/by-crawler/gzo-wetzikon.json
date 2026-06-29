@@ -1293,9 +1293,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-spital-wetzikon",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-spital-wetzikon",
-        "en": "certified-nurse-hf-dialysis-80-gzo-spital-wetzikon-wetzikon",
+        "en": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch",
         "de": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch",
-        "fr": "infirmiere-certifiee-en-dialyse-cardiaque-80-gzo-spital-wetzikon-wetzikon"
+        "fr": "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1339,16 +1339,20 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
+        "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch",
+        "certified-nurse-hf-dialysis-80-gzo-spital-wetzikon-wetzikon",
+        "infirmiere-certifiee-en-dialyse-cardiaque-80-gzo-spital-wetzikon-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
         ],
         "en": [
+          "certified-nurse-hf-dialysis-80-gzo-spital-wetzikon-wetzikon",
           "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
         ],
         "fr": [
+          "infirmiere-certifiee-en-dialyse-cardiaque-80-gzo-spital-wetzikon-wetzikon",
           "dipl-pflegefachfrau-mann-hf-dialyse-80-gzo-wetzikon-ch"
         ]
       },
@@ -1956,7 +1960,7 @@
       "slug": "elettricista-di-stabilimento-a-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "it": "elettricista-di-stabilimento-a-100-gzo-spital-wetzikon-wetzikon",
-        "en": "company-electrician-in-100-gzo-spital-wetzikon-wetzikon",
+        "en": "betriebselektriker-in-100-gzo-wetzikon-ch",
         "de": "betriebselektriker-in-100-gzo-wetzikon-ch",
         "fr": "electricien-ne-d-etablissement-100-gzo-spital-wetzikon-wetzikon"
       },
@@ -2006,13 +2010,15 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "betriebselektriker-in-100-gzo-wetzikon-ch"
+        "betriebselektriker-in-100-gzo-wetzikon-ch",
+        "company-electrician-in-100-gzo-spital-wetzikon-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-100-gzo-wetzikon-ch"
         ],
         "en": [
+          "company-electrician-in-100-gzo-spital-wetzikon-wetzikon",
           "betriebselektriker-in-100-gzo-wetzikon-ch"
         ]
       },
@@ -2046,7 +2052,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF 40-100%",
       "titleByLocale": {
         "it": "Dipl. Assistenza intensiva esperto NDS HF 40-100 %",
-        "en": "Dipl. Expert/Expert Intensive Care NDS HF 40-100 %",
+        "en": "Dipl. Expert intensive care NDS HF 40-100 %",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF 40-100%",
         "fr": "Dipl. Expert en soins intensifs NDS HF 40-100 %"
       },
@@ -2122,7 +2128,7 @@
       "title": "Ausbildungsplatz als Dipl. Fachperson Operationstechnik HF",
       "titleByLocale": {
         "it": "Formazione come Tecnico di Sala Operatoria HF",
-        "en": "Training place as Dipl. Specialist surgical technique HF",
+        "en": "Traineeship as Dipl. Specialist Operations Engineering HF",
         "de": "Ausbildungsplatz als Dipl. Fachperson Operationstechnik HF",
         "fr": "Formation en tant que Technicien(ne) en Techniques Chirurgicales HF"
       },
