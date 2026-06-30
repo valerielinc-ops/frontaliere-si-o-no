@@ -64,6 +64,14 @@ function ChunkThrower({ message }: { message: string }) {
   throw new Error(message);
 }
 
+// The boundary now reloads ASYNCHRONOUSLY (#3097): getDerivedStateFromError kicks
+// off bustAssetHttpCache() — which refetches stale /assets chunks with
+// cache:'reload' so a plain reload doesn't re-serve them — and reloads in the
+// .finally(). With no /assets resources in the test DOM the bust resolves on a
+// microtask, so flush microtasks before asserting reload() ran. Works under fake
+// timers too (the bust early-returns before scheduling any timer).
+const flushReload = () => act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
 describe('ChunkLoadErrorBoundary', () => {
   it('renders children when no error occurs', () => {
     render(
@@ -75,7 +83,7 @@ describe('ChunkLoadErrorBoundary', () => {
     expect(reloadSpy).not.toHaveBeenCalled();
   });
 
-  it('reloads on the first chunk-load failure', () => {
+  it('reloads on the first chunk-load failure', async () => {
     render(
       <CatchAll>
         <ChunkLoadErrorBoundary>
@@ -83,10 +91,11 @@ describe('ChunkLoadErrorBoundary', () => {
         </ChunkLoadErrorBoundary>
       </CatchAll>,
     );
+    await flushReload();
     expect(reloadSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('reloads on a link-time version-skew SyntaxError (#3097)', () => {
+  it('reloads on a link-time version-skew SyntaxError (#3097)', async () => {
     // The chunk fetched fine but a cached importer links an export the stale
     // dependency no longer provides — handled via isModuleLinkSkewMessage.
     render(
@@ -96,6 +105,7 @@ describe('ChunkLoadErrorBoundary', () => {
         </ChunkLoadErrorBoundary>
       </CatchAll>,
     );
+    await flushReload();
     expect(reloadSpy).toHaveBeenCalledTimes(1);
   });
 
@@ -118,7 +128,7 @@ describe('ChunkLoadErrorBoundary', () => {
     expect(screen.getByText(/Aggiornamento del sito in corso/i)).toBeInTheDocument();
   });
 
-  it('does NOT reload twice within the 60s cooldown', () => {
+  it('does NOT reload twice within the 60s cooldown', async () => {
     vi.useFakeTimers();
     const start = 1_700_000_000_000;
     vi.setSystemTime(start);
@@ -130,6 +140,7 @@ describe('ChunkLoadErrorBoundary', () => {
         </ChunkLoadErrorBoundary>
       </CatchAll>,
     );
+    await flushReload();
     expect(reloadSpy).toHaveBeenCalledTimes(1);
     first.unmount();
 
@@ -143,13 +154,14 @@ describe('ChunkLoadErrorBoundary', () => {
         </ChunkLoadErrorBoundary>
       </CatchAll>,
     );
+    await flushReload();
     // Still 1 — second render inside the cooldown must NOT trigger reload.
     expect(reloadSpy).toHaveBeenCalledTimes(1);
     // CatchAll caught the rethrown error.
     expect(screen.getByTestId('caught')).toBeInTheDocument();
   });
 
-  it('reloads again once the 60s cooldown has elapsed', () => {
+  it('reloads again once the 60s cooldown has elapsed', async () => {
     vi.useFakeTimers();
     const start = 1_700_000_000_000;
     vi.setSystemTime(start);
@@ -161,6 +173,7 @@ describe('ChunkLoadErrorBoundary', () => {
         </ChunkLoadErrorBoundary>
       </CatchAll>,
     );
+    await flushReload();
     expect(reloadSpy).toHaveBeenCalledTimes(1);
     first.unmount();
 
@@ -174,6 +187,7 @@ describe('ChunkLoadErrorBoundary', () => {
         </ChunkLoadErrorBoundary>
       </CatchAll>,
     );
+    await flushReload();
     expect(reloadSpy).toHaveBeenCalledTimes(2);
   });
 

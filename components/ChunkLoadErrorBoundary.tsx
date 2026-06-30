@@ -1,5 +1,5 @@
 import React, { Component, type ReactNode } from 'react';
-import { isModuleLinkSkewMessage } from '@/services/resilientImport';
+import { isModuleLinkSkewMessage, bustAssetHttpCache } from '@/services/resilientImport';
 
 /**
  * Last-resort boundary for Vite chunk-load failures during render.
@@ -63,7 +63,11 @@ export class ChunkLoadErrorBoundary extends Component<Props, State> {
       const last = Number(sessionStorage.getItem(RELOAD_FLAG) ?? '0');
       if (Date.now() - last > RELOAD_COOLDOWN_MS) {
         sessionStorage.setItem(RELOAD_FLAG, String(Date.now()));
-        window.location.reload();
+        // Bust the HTTP cache (not just CacheStorage) before reloading: a
+        // link-time version-skew (#3097) re-serves the same stale cross-origin
+        // chunk on a plain reload, so this boundary's one reload would be wasted.
+        // Show the "Aggiornamento…" fallback while the async bust + reload run.
+        void bustAssetHttpCache().finally(() => window.location.reload());
         return { hasError: true };
       }
     } catch {

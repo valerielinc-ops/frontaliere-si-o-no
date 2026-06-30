@@ -1,4 +1,5 @@
 import React, { lazy } from 'react';
+import { bustAssetHttpCache } from '@/services/resilientImport';
 
 /**
  * Retry wrapper for React.lazy dynamic imports.
@@ -84,7 +85,11 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  pagePath: window.location.pathname + window.location.search,
  blocked: false,
  })).catch(() => {});
- window.location.reload();
+ // Bust the HTTP cache (not just CacheStorage) before reloading: a stale-but-200
+ // chunk (SPA-fallback HTML for a .js, or a cached module the retries kept
+ // re-linking) would otherwise be re-served from the disk cache and this one
+ // reload wasted (#3097).
+ void bustAssetHttpCache().finally(() => window.location.reload());
  // Reject to satisfy the type, though reload will prevent this from running
  reject(err);
  });

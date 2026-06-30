@@ -1,10 +1,11 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import {
   resilientImport,
   isChunkLoadError,
   isVersionSkewError,
   isModuleLinkSkewMessage,
   recoverFromStaleChunk,
+  bustAssetHttpCache,
 } from '@/services/resilientImport';
 
 /**
@@ -217,5 +218,118 @@ describe('recoverFromStaleChunk', () => {
     const scheduled = await recoverFromStaleChunk('dev');
     expect(scheduled).toBe(false);
     expect(reload).not.toHaveBeenCalled();
+  });
+});
+
+/**
+ * bustAssetHttpCache (#3097): the #3071/#3131 self-heal only cleared CacheStorage
+ * (empty here — no asset-caching service worker) and then reloaded, so the HTTP
+ * disk cache re-served the SAME version-skewed cross-origin chunk within the
+ * max-age=600 window → the one allowed reload was wasted and the error page
+ * persisted (works in incognito only — no persistent HTTP cache). bustAssetHttpCache
+ * refetches the loaded /assets/ chunks with `cache: 'reload'`, OVERWRITING the
+ * stale entries so the subsequent reload loads a consistent, current set.
+ */
+describe('bustAssetHttpCache', () => {
+  let fetchMock: ReturnType<typeof vi.fn>;
+  let perfSpy: ReturnType<typeof vi.spyOn>;
+  const originalFetch = (globalThis as any).fetch;
+
+  const mockResources = (names: string[]) => {
+    perfSpy = vi
+      .spyOn(performance, 'getEntriesByType')
+      .mockReturnValue(names.map((name) => ({ name })) as unknown as PerformanceEntryList);
+  };
+
+  beforeEach(() => {
+    sessionStorage.clear();
+    fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    (globalThis as any).fetch = fetchMock;
+  });
+
+  afterEach(() => {
+    perfSpy?.mockRestore();
+    (globalThis as any).fetch = originalFetch;
+    vi.useRealTimers();
+  });
+
+  it('refetches every loaded /assets/ JS+CSS with cache:reload, skipping non-assets', async () => {
+    mockResources([
+      'https://cdn.frontaliereticino.ch/assets/vendor-icons.js',
+      'https://cdn.frontaliereticino.ch/assets/App.js',
+      'https://cdn.frontaliereticino.ch/assets/index.css',
+      'https://cdn.frontaliereticino.ch/data/jobs.json', // data, not a code chunk
+      'https://www.googletagmanager.com/gtag/js', // third-party
+    ]);
+
+    await bustAssetHttpCache();
+
+    expect(fetchMock.mock.calls.map((c) => c[0])).toEqual([
+      'https://cdn.frontaliereticino.ch/assets/vendor-icons.js',
+      'https://cdn.frontaliereticino.ch/assets/App.js',
+      'https://cdn.frontaliereticino.ch/assets/index.css',
+    ]);
+    for (const call of fetchMock.mock.calls) {
+      // cache:'reload' is what overwrites the stale HTTP cache entry; cors+omit
+      // match the <script crossorigin> module fetch so the reload reuses them.
+      expect(call[1]).toMatchObject({ cache: 'reload', mode: 'cors', credentials: 'omit' });
+    }
+  });
+
+  it('deduplicates repeated URLs', async () => {
+    mockResources([
+      'https://cdn.frontaliereticino.ch/assets/App.js',
+      'https://cdn.frontaliereticino.ch/assets/App.js',
+    ]);
+    await bustAssetHttpCache();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('resolves even when a refetch rejects (best-effort)', async () => {
+    mockResources(['https://cdn.frontaliereticino.ch/assets/App.js']);
+    fetchMock.mockRejectedValue(new Error('network down'));
+    await expect(bustAssetHttpCache()).resolves.toBeUndefined();
+  });
+
+  it('no-ops when fetch is unavailable', async () => {
+    mockResources(['https://cdn.frontaliereticino.ch/assets/App.js']);
+    delete (globalThis as any).fetch;
+    await expect(bustAssetHttpCache()).resolves.toBeUndefined();
+  });
+
+  it('does not fetch when no /assets/ chunks are loaded', async () => {
+    mockResources(['https://example.com/x.js']);
+    await bustAssetHttpCache();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('reloads anyway when a refetch hangs past the timeout', async () => {
+    vi.useFakeTimers();
+    mockResources(['https://cdn.frontaliereticino.ch/assets/App.js']);
+    fetchMock.mockReturnValue(new Promise(() => {/* never settles */}));
+    const pending = bustAssetHttpCache();
+    await vi.advanceTimersByTimeAsync(4000);
+    await expect(pending).resolves.toBeUndefined();
+  });
+
+  it('recoverFromStaleChunk busts the HTTP cache before reloading', async () => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, hostname: 'frontaliereticino.ch', reload: vi.fn() },
+    });
+    (globalThis as any).caches = {
+      keys: vi.fn().mockResolvedValue([]),
+      delete: vi.fn().mockResolvedValue(true),
+    };
+    mockResources(['https://cdn.frontaliereticino.ch/assets/vendor-icons.js']);
+
+    const scheduled = await recoverFromStaleChunk('version_skew:link');
+
+    expect(scheduled).toBe(true);
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://cdn.frontaliereticino.ch/assets/vendor-icons.js',
+      expect.objectContaining({ cache: 'reload' }),
+    );
+    expect((window.location.reload as unknown as ReturnType<typeof vi.fn>)).toHaveBeenCalledTimes(1);
   });
 });

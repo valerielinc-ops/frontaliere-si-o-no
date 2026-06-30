@@ -848,6 +848,56 @@
           registrations.forEach(function(r) { r.unregister(); });
         });
       }
+      // Self-heal recovery shared by the version-skew handlers below. CacheStorage
+      // (caches.*) is EMPTY on this site — no service worker caches /assets — so a
+      // version-skewed chunk lives ONLY in the HTTP disk cache (cross-origin
+      // cdn.frontaliereticino.ch/assets/* modules, Cache-Control max-age=600). A
+      // plain location.reload() re-serves the SAME stale bytes within that window,
+      // wasting the one allowed reload and stranding the user on the error page
+      // (#3097; works in incognito only because there is no persistent HTTP cache).
+      // Refetch every loaded /assets/ JS+CSS with cache:'reload' to OVERWRITE the
+      // stale HTTP cache entries, THEN reload onto a consistent, current set.
+      // Time-boxed so a hung refetch never blocks the reload. Mirrors
+      // bustAssetHttpCache() in services/resilientImport.ts — kept inline because
+      // this bootstrap script runs before any module JS loads.
+      function frBustAssetCacheThenReload() {
+        function reload() { try { location.reload(); } catch (e) {} }
+        function clearCacheStorage() {
+          if (!('caches' in window)) return Promise.resolve();
+          return caches.keys().then(function(names) {
+            return Promise.all(names.map(function(n) { return caches.delete(n); }));
+          }).catch(function() {});
+        }
+        var urls = [];
+        try {
+          var entries = (window.performance && performance.getEntriesByType)
+            ? performance.getEntriesByType('resource') : [];
+          for (var i = 0; i < entries.length; i++) {
+            var n = entries[i].name || '';
+            if (/\/assets\/.+\.(js|css)(\?|$)/.test(n)) urls.push(n);
+          }
+        } catch (e) {}
+        if (!urls.length) {
+          try {
+            var els = document.querySelectorAll('script[src*="/assets/"], link[href*="/assets/"]');
+            for (var j = 0; j < els.length; j++) {
+              var u = els[j].src || els[j].href;
+              if (u) urls.push(u);
+            }
+          } catch (e) {}
+        }
+        var uniq = [];
+        for (var k = 0; k < urls.length; k++) if (uniq.indexOf(urls[k]) === -1) uniq.push(urls[k]);
+        if (!uniq.length || typeof fetch !== 'function') { clearCacheStorage().then(reload, reload); return; }
+        var done = false;
+        function finish() { if (done) return; done = true; reload(); }
+        setTimeout(finish, 4000);
+        clearCacheStorage().then(function() {
+          return Promise.all(uniq.map(function(u) {
+            return fetch(u, { cache: 'reload', mode: 'cors', credentials: 'omit' }).catch(function() {});
+          }));
+        }).then(finish, finish);
+      }
       // Suppress Firebase SDK internal IndexedDB DOMExceptions (race condition
       // when IDB connection closes during page suspend/resume on iOS Safari).
       // Must be registered here (before module JS) to catch errors that fire
@@ -922,13 +972,9 @@
               timestamp: new Date().toISOString()
             }));
           } catch(ex) {}
-          if ('caches' in window) {
-            caches.keys().then(function(names) {
-              return Promise.all(names.map(function(n) { return caches.delete(n); }));
-            }).then(function() { location.reload(); });
-          } else {
-            location.reload();
-          }
+          // A purged /assets/ script/link 404'd: bust the HTTP cache (in case a
+          // stale-but-200 sibling lingers) then reload onto a current set.
+          frBustAssetCacheThenReload();
         }
       }, true);
       // Catch CROSS-CHUNK VERSION-SKEW errors thrown OUTSIDE React (event
@@ -980,13 +1026,8 @@
             timestamp: new Date().toISOString()
           }));
         } catch(ex) {}
-        if ('caches' in window) {
-          caches.keys().then(function(names) {
-            return Promise.all(names.map(function(n) { return caches.delete(n); }));
-          }).then(function() { location.reload(); });
-        } else {
-          location.reload();
-        }
+        // HTTP-cache bust (not just CacheStorage) — see frBustAssetCacheThenReload.
+        frBustAssetCacheThenReload();
       });
       // Catch dynamic import() rejections (React.lazy chunk 404s from stale SW
       // cache) AND link-time version-skew SyntaxErrors (#3097) from an import()
@@ -1050,13 +1091,8 @@
             type: 'dynamic_import'
           }));
         } catch(ex) {}
-        if ('caches' in window) {
-          caches.keys().then(function(names) {
-            return Promise.all(names.map(function(n) { return caches.delete(n); }));
-          }).then(function() { location.reload(); });
-        } else {
-          location.reload();
-        }
+        // HTTP-cache bust (not just CacheStorage) — see frBustAssetCacheThenReload.
+        frBustAssetCacheThenReload();
       });
     </script>
     <script type="module" src="/index.tsx"></script>

@@ -2,7 +2,7 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Analytics, decodeReactError } from '../../services/analytics';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { t } from '../../services/i18n';
-import { isVersionSkewError, recoverFromStaleChunk } from '../../services/resilientImport';
+import { isVersionSkewError, recoverFromStaleChunk, bustAssetHttpCache } from '../../services/resilientImport';
 
 interface Props {
  children: ReactNode;
@@ -235,7 +235,10 @@ export class ErrorBoundary extends Component<Props, State> {
  pagePath: this.state.snapshotUrl || window.location.pathname + window.location.search,
  blocked: false,
  });
- window.location.reload();
+ // Bust the HTTP cache (not just CacheStorage) before reloading. If the user
+ // landed here via a version-skew (#3097), a plain reload re-serves the same
+ // stale chunk and leaves them stuck; cache:'reload' refetches a fresh set.
+ void bustAssetHttpCache().finally(() => window.location.reload());
  }}
  className="flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-on-accent rounded-xl font-bold transition-colors"
  >
