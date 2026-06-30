@@ -992,6 +992,12 @@ function _fnv1aHex(str) {
 
 function _responseCacheKey(messages, o) {
   // Only fields that change the model OUTPUT belong in the key.
+  // bypassForceChain and the current AI_MODELS_FORCE_CHAIN state alter which
+  // model actually answers: a forced call (bypassForceChain=false) and a bypass
+  // call (bypassForceChain=true) with identical prompt+model+params can produce
+  // different outputs → they must map to different cache entries. Without these
+  // fields, a forced-local response could be served to the fact-check bypass
+  // path, short-circuiting remote verification (circular self-consensus).
   return _fnv1aHex(JSON.stringify({
     m: messages,
     t: o.temperature,
@@ -1000,6 +1006,8 @@ function _responseCacheKey(messages, o) {
     s: o.jsonSchema || null,
     model: o.model || null,
     ns: o.cacheNamespace || '',
+    bfc: !!o.bypassForceChain,
+    fc: (process.env.AI_MODELS_FORCE_CHAIN || '').trim(),
   }));
 }
 
