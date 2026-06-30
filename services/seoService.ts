@@ -4304,6 +4304,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-eventi-weekend-ticino': { name: 'Eventi del weekend', path: '/articoli-frontaliere/eventi-weekend-ticino', parent: 'blog' },
     'blog-concorsi-pubblici-ticino-guida-nazionale': { name: 'Concorsi pubblici Ticino', path: '/articoli-svizzera/concorsi-pubblici-ticino-guida-nazionale/', parent: 'blog' },
     'blog-bancomat-processo-varesenews-2023': { name: 'Processo bancomat Varese', path: '/articoli-frontaliere/bancomat-processo-varesenews-2023', parent: 'blog' },
+    'blog-frontalieri-sede-datore-fuori-confine': { name: 'Sede del datore fuori confine', path: '/articoli-frontaliere/frontalieri-sede-datore-fuori-area-confine', parent: 'blog' },
     'blog-frontalieri-lombardi-residenza-tendenze': { name: 'Frontalieri lombardi', path: '/articoli-svizzera/frontalieri-lombardi-residenza-tendenze/', parent: 'blog' },
     'blog-stabio-dogana-svizzera': { name: 'Stabio dogana', path: '/articoli-svizzera/stabio-dogana-svizzera/', parent: 'blog' },
     'blog-tempi-attesa-dogana-chiasso-strada': { name: 'Dogana Chiasso', path: '/articoli-svizzera/tempi-attesa-dogana-chiasso-strada/', parent: 'blog' },

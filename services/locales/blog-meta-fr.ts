@@ -8189,6 +8189,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.eventi-weekend-ticino.title': 'Événements du week-end au Tessin : que faire samedi & dimanche',
     'blog.article.eventi-weekend-ticino.excerpt': 'Événements au Tessin chaque week-end : concerts, expositions, fêtes et marchés, commune par commune. Mis à jour chaque jour.',
     'blog.article.eventi-weekend-ticino.imageAlt': 'Événements du week-end au Tessin',
+  'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Frontaliers : siège de l\'employeur hors zone frontalière',
+  'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'L\'administration fiscale italienne (réponse 126/2026) précise que si l\'activité est exercée dans la zone frontalière italienne, un siège de l\'employeur hors de cette zone n\'exclut pas le régime des frontaliers.',
+  'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'Vue de Mendrisio, ville frontalière du canton du Tessin, symbole du travail frontalier entre l\'Italie et la Suisse.',
 };
 
 export default blogMetaFr;

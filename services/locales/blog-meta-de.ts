@@ -8187,6 +8187,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.eventi-weekend-ticino.title': 'Veranstaltungen am Wochenende im Tessin: was tun Sa & So',
     'blog.article.eventi-weekend-ticino.excerpt': 'Veranstaltungen im Tessin an jedem Wochenende: Konzerte, Ausstellungen, Feste und Märkte, Gemeinde für Gemeinde. Täglich aktualisiert.',
     'blog.article.eventi-weekend-ticino.imageAlt': 'Veranstaltungen am Wochenende im Tessin',
+  'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Grenzgänger: Arbeitgebersitz ausserhalb des Grenzgebiets',
+  'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'Die Agenzia delle Entrate (Auskunft 126/2026) stellt klar: Wird die Tätigkeit im italienischen Grenzgebiet ausgeübt, schliesst ein Arbeitgebersitz ausserhalb dieser Zone das Grenzgängerregime nicht aus.',
+  'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'Blick auf Mendrisio, eine Grenzstadt im Kanton Tessin, Sinnbild der Grenzgängerarbeit zwischen Italien und der Schweiz.',
 };
 
 export default blogMetaDe;

@@ -10300,6 +10300,45 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ],
   },
 
+  'autore-samuele-valente': {
+    title: 'Samuele Valente — Fiscalità transfrontaliera | Frontaliere Ticino',
+    description: "Samuele Valente è un professionista esperto di fiscalità internazionale e transfrontaliera tra Italia e Svizzera, autore ospite di Frontaliere Ticino.",
+    keywords: 'samuele valente, autore, fiscalità transfrontaliera, accordo Italia-Svizzera, interpelli agenzia delle entrate, residenza fiscale, frontalieri',
+    ogTitle: 'Samuele Valente — Fiscalità transfrontaliera Italia-Svizzera',
+    ogDescription: "Profilo dell'autore ospite Samuele Valente su Frontaliere Ticino: prassi dell'Agenzia delle Entrate, accordo Italia-Svizzera e fiscalità dei frontalieri.",
+    canonicalPath: '/autori/samuele-valente/',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Samuele Valente — Frontaliere Ticino",
+        "url": `${BASE_URL}/autori/samuele-valente/`,
+        "mainEntity": { "@id": `${BASE_URL}/autori/samuele-valente/#person` },
+        "inLanguage": "it"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${BASE_URL}/autori/samuele-valente/#person`,
+        "name": "Samuele Valente",
+        "image": `${BASE_URL}/images/authors/samuele-valente.webp`,
+        "jobTitle": "Autore ospite — fiscalità transfrontaliera",
+        "description": "Esperto di fiscalità internazionale e transfrontaliera Italia-Svizzera: prassi dell'Agenzia delle Entrate, accordo sui frontalieri e residenza fiscale.",
+        "url": `${BASE_URL}/autori/samuele-valente/`,
+        "sameAs": ["https://www.linkedin.com/in/samuele-valente-9b8a4335b/"],
+        "knowsAbout": [
+          "fiscalità transfrontaliera",
+          "accordo Italia-Svizzera",
+          "interpelli Agenzia delle Entrate",
+          "residenza fiscale",
+          "frontalieri"
+        ],
+        "worksFor": { "@id": `${BASE_URL}/#organization` },
+        "knowsLanguage": ["it", "en"]
+      }
+    ],
+  },
+
   'autore-laura-bianchi': {
     title: 'Laura Bianchi — Specialista previdenza svizzera | Frontaliere Ticino',
     description: "Laura Bianchi è specialista in previdenza sociale svizzera (AVS, LPP, LAMal) applicata ai lavoratori frontalieri italiani in Canton Ticino.",

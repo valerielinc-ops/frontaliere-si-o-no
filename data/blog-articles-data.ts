@@ -25947,6 +25947,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-sede-datore-fuori-confine',
+ category: 'fiscale',
+ date: '2026-06-30',
+ image: '/images/places/mendrisio.webp',
+ hasCalculator: true,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

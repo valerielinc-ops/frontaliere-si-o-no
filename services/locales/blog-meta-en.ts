@@ -8188,6 +8188,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eventi-weekend-ticino.title': 'Weekend events in Ticino: what to do Saturday & Sunday',
     'blog.article.eventi-weekend-ticino.excerpt': 'Events in Ticino every weekend: concerts, exhibitions, festivals and markets, municipality by municipality. Refreshed daily.',
     'blog.article.eventi-weekend-ticino.imageAlt': 'Weekend events in Ticino',
+  'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Cross-border workers: employer outside the border area',
+  'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'Italy\'s Revenue Agency (ruling 126/2026) clarifies that if the work is performed in the Italian border area, an employer located outside that zone does not bar the cross-border tax regime.',
+  'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'View of Mendrisio, a border town in Canton Ticino, symbol of cross-border work between Italy and Switzerland.',
 };
 
 export default blogMetaEn;
