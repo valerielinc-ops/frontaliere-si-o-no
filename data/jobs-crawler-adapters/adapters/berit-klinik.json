@@ -11,9 +11,6 @@
   "seedUrls": [
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_restaurant_60_80__84f364acfb.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_stv._teamleitung_fakturierung_100__8a984a3fa8.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sachbearbeiter_in_fakturierung_100__084809a698.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachfrau_fachmann_gesundheit_rehaklinik_100__eb7500408c.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__f29b91f9d3.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sportphysiotherapeut_in_fh_80_100__202910a062.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf",
@@ -24,7 +21,7 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._pflegefachperson_hf_100__wattwil_b4ee69cb65.pdf"
   ],
   "notes": "Dedicated Berit Klinik crawler parses the Next.js careers page and extracts descriptions from CMS-hosted Stelleninserat PDFs.",
-  "updatedAt": "2026-06-30T10:58:43.485Z",
+  "updatedAt": "2026-06-30T21:53:37.077Z",
   "seedMetaByUrl": {
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf": {
       "location": "St. Gallen",
@@ -34,24 +31,6 @@
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_restaurant_60_80__84f364acfb.pdf": {
       "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "postedDate": "2026-06-30"
-    },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_stv._teamleitung_fakturierung_100__8a984a3fa8.pdf": {
-      "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "postedDate": "2026-06-30"
-    },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sachbearbeiter_in_fakturierung_100__084809a698.pdf": {
-      "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "postedDate": "2026-06-30"
-    },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachfrau_fachmann_gesundheit_rehaklinik_100__eb7500408c.pdf": {
-      "location": "Niederteufen",
       "canton": "AR",
       "company": "Berit Klinik",
       "postedDate": "2026-06-30"
