@@ -805,7 +805,7 @@
         "it": "subacqueo-esperto-pemsa-lausanne",
         "en": "diver-expert-pemsa-lausanne",
         "de": "taucherexperte-pemsa-lausanne",
-        "fr": "subacqueo-esperto-pemsa-lausanne"
+        "fr": "expert-plongeur-pemsa-lausanne"
       },
       "id": "pemsa-480c2a82ac8f",
       "salaryMin": 60500,
@@ -823,14 +823,6 @@
       },
       "postalCode": "1003",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "expert-plongeur-pemsa-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "expert-plongeur-pemsa-lausanne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -1074,7 +1066,7 @@
         "it": "caposquadra-muratura-m-f-pemsa-tavannes",
         "en": "caposquadra-muratura-m-f-pemsa-tavannes",
         "de": "caposquadra-muratura-m-f-pemsa-tavannes",
-        "fr": "caposquadra-muratura-m-f-pemsa-tavannes"
+        "fr": "siege-mur-m-f-pemsa-tavannes"
       },
       "id": "pemsa-ac0652767ae9",
       "salaryMin": 68500,
@@ -1092,14 +1084,6 @@
       },
       "postalCode": "3001",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "siege-mur-m-f-pemsa-tavannes"
-        ]
-      },
-      "previousSlugs": [
-        "siege-mur-m-f-pemsa-tavannes"
-      ],
       "needsRetranslation": true
     },
     {
@@ -1780,7 +1764,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-taverne",
         "en": "plumbing-heating-systems-pemsa-taverne",
         "de": "hydraulische-arbeit-pemsa-taverne",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-taverne"
+        "fr": "systemes-de-chauffage-pemsa-taverne"
       },
       "id": "pemsa-de27966aeeb1",
       "salaryMin": 49500,
@@ -1805,15 +1789,11 @@
         ],
         "de": [
           "heizsysteme-pemsa-taverne"
-        ],
-        "fr": [
-          "systemes-de-chauffage-pemsa-taverne"
         ]
       },
       "previousSlugs": [
         "heating-systems-pemsa-taverne",
-        "heizsysteme-pemsa-taverne",
-        "systemes-de-chauffage-pemsa-taverne"
+        "heizsysteme-pemsa-taverne"
       ],
       "needsRetranslation": true
     },
@@ -4044,7 +4024,7 @@
       "slugByLocale": {
         "it": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve",
         "en": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve",
-        "de": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve",
+        "de": "baumaschinen-und-maschinen-m-f-d-pemsa-geneve",
         "fr": "meccanico-di-macchine-da-cantiere-e-parco-macchine-m-f-d-pemsa-geneve"
       },
       "id": "pemsa-1a4e7d64115f",
@@ -4064,14 +4044,8 @@
       "postalCode": "1201",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "previousSlugs": [
-        "baumaschinen-und-maschinen-m-f-d-pemsa-geneve",
         "meccanico-di-macchine-da-cantiere-pemsa-locarno"
       ],
-      "previousSlugsByLocale": {
-        "de": [
-          "baumaschinen-und-maschinen-m-f-d-pemsa-geneve"
-        ]
-      },
       "needsRetranslation": true
     },
     {

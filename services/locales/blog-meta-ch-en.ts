@@ -745,6 +745,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-prezzi-svizzera-oggi.title': 'Petrol prices in Switzerland today',
     'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'Petrol prices in Switzerland vary depending on the region and fuel type. Here are the current prices.',
     'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Gas station in Bellinzona with current fuel prices',
+    'blog.article.guess-stabio-lavoro-merchandiser.title': 'Guess Stabio: job opportunities as a merchandiser',
+    'blog.article.guess-stabio-lavoro-merchandiser.excerpt': 'Job listing in Stabio: search for merchandisers for well-known fashion brands with fixed-term contracts.',
+    'blog.article.guess-stabio-lavoro-merchandiser.imageAlt': 'Merchandiser working in a store in Stabio, Switzerland',
 };
 
 export default blogMetaChEn;

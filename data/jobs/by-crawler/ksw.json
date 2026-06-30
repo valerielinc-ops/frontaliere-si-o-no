@@ -56,8 +56,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-akutgeriatrie-ksw-ch",
-          "assistente-secondario-assistente-secondario-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur"
+          "unterassistentin-unterassistent-akutgeriatrie-ksw-ch"
         ],
         "en": [
           "unterassistentin-unterassistent-akutgeriatrie-ksw-ch"
@@ -95,7 +94,7 @@
       "title": "Werkstudentin / Werkstudent Management Support",
       "titleByLocale": {
         "it": "Assistenza per la gestione degli studenti di lavoro",
-        "en": "Werkstudentin / Werkstudent Management Support",
+        "en": "Working student / Working student Management Support",
         "de": "Werkstudentin / Werkstudent Management Support",
         "fr": "Soutien à la gestion des étudiants en activité"
       },
@@ -138,8 +137,7 @@
         "it": [
           "werkstudent-management-support-ksw-ch",
           "supporto-alla-gestione-degli-studenti-lavoratori-kantonsspital-winterthur-ksw-winterthur",
-          "werkstudentin-werkstudent-management-support-ksw-ch",
-          "assistenza-per-la-gestione-degli-studenti-di-lavoro-kantonsspital-winterthur-ksw-winterthur"
+          "werkstudentin-werkstudent-management-support-ksw-ch"
         ],
         "en": [
           "werkstudent-management-support-ksw-ch"
@@ -149,7 +147,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T14:23:29.069Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -177,7 +174,7 @@
       "companyDomain": "ksw.ch",
       "title": "Pflegefachfrau / Pflegefachmann Traumatologie, Hand /Plastische Chirurgie",
       "titleByLocale": {
-        "it": "Pflegefachfrau / Pflegefachmann Traumatologie, Hand /Plastische Chirurgie",
+        "it": "Infermieristica specialista / Infermieristica Traumatologia, Chirurgia a mano /plastica",
         "en": "Nursing specialist / Nursing specialist Traumatology, Hand /Plastic surgery",
         "de": "Pflegefachfrau / Pflegefachmann Traumatologie, Hand /Plastische Chirurgie",
         "fr": "Spécialiste en soins infirmiers / Spécialiste en soins infirmiers Traumatologie, Chirurgie manuelle / plastique"
@@ -217,12 +214,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
-          "infermieristica-specialista-infermieristica-traumatologia-chirurgia-a-mano-plastica-kantonsspital-winterthur-ksw"
+          "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-20T22:15:43.731Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -290,8 +285,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch",
-          "infermieristica-professionale-infermieristica-in-piscina-medica-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch"
@@ -368,8 +362,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
-          "infermiera-nel-campo-medico-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
@@ -476,16 +469,16 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
       "companyDomain": "ksw.ch",
       "title": "Radiologiefachfrau / Radiologiefachmann HF",
       "titleByLocale": {
-        "it": "Radiologiefachfrau / Radiologiefachmann HF",
+        "it": "Specialista di radiologia / Specialista di radiologia HF",
         "en": "Radiology specialist / Radiology specialist HF",
         "de": "Radiologiefachfrau / Radiologiefachmann HF",
         "fr": "Spécialiste en radiologie / Spécialiste en radiologie HF"
@@ -521,12 +514,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
+          "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
         ],
         "en": [
           "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur"
@@ -536,7 +530,6 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -604,8 +597,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
-          "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
@@ -682,15 +674,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physician-associate-ksw-ch",
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur"
+          "physician-associate-ksw-ch"
         ],
         "fr": [
           "physician-associate-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T00:10:18.427Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -758,8 +748,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-klinikschule-ksw-ch",
-          "interno-scuola-clinica-interna-kantonsspital-winterthur-ksw-winterthur"
+          "praktikantin-praktikant-klinikschule-ksw-ch"
         ],
         "en": [
           "praktikantin-praktikant-klinikschule-ksw-ch"
@@ -786,8 +775,8 @@
       "id": "ksw-338414bc11b1",
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -799,7 +788,7 @@
         "it": "Interno di cura / Interno di cura",
         "en": "Care intern / Care intern",
         "de": "Pflegepraktikantin / Pflegepraktikant",
-        "fr": "Pflegepraktikantin / Pflegepraktikant"
+        "fr": "Spécialiste des soins infirmiers / praticien des soins infirmiers"
       },
       "description": "Bei den Praktikas handelt es sich um befristete Einsätze für Personen welche sich mit dem Einstieg in eine Berufsausbildung im Gesundheitswesen befassen. Das Praktikum bietet einen ersten Einblick in den Pflegealltag und dient der Interessen- und Eignungsabklärung.\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Kantonsspital Winterthur\n• Pensum: 80-100%",
       "descriptionByLocale": {
@@ -833,21 +822,17 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-pflegepraktikant-ksw-ch",
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-          "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
           "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -878,7 +863,7 @@
         "it": "Candidatura spontanea per Tecnico di Radiologia Diagnostica o Interventistica",
         "en": "Spontaneous Application for Diagnostic or Interventional Radiology Technician",
         "de": "Spontanbewerbung als Radiologiefachperson Diagnostische oder Interventionelle Radiologie",
-        "fr": "Spontanbewerbung als Radiologiefachperson Diagnostische oder Interventionelle Radiologie"
+        "fr": "Application spontanée comme spécialiste en radiologie Radiologie diagnostique ou interventionnelle"
       },
       "description": "In der Klinik für Radiologie und Nuklearmedizin werden jährlich über 105'000 Untersuchungen und Eingriffe durchgeführt. Die Klinik für Radiologie und Nuklearmedizin gewährleistet höchste Fachkompetenz und Versorgungsqualität in all seinen Bereichen: Röntgen- und Durchleuchtungs-Diagnostik, Brustbildgebung, Ultraschall, Nuklearmedizin, Magnetresonanztomographie, Computertomographie, Kinderradiologie, Neuroradiologie und Interventionelle Radiologie. Du interessierst dich für eine spannende und vielseitige Tätigkeit als Radiologiefachperson? Dann freuen wir uns darauf, dich kennenzulernen und gemeinsam über deine Perspektiven sowie deine möglichen Aufgaben bei uns zu sprechen. Wir bieten laufend interessante Stellen für Radiologiefachpersonen in den Fachbereichen Diagnostische und Interventionelle Radiologie an.\n\nAufgaben:\n• Du behältst den Durchblick bei der täglichen Arbeit und verbindest gekonnt und einfühlsam eine hochkomplexe Spitzentechnologie mit Patientinnen und Patienten\n• Du überwachst, begleitest, denkst vernetzt und übernimmst Verantwortung im zugeteilten Untersuchungsspektrum\n• Die Teilnahme an Wochenend-, Nacht- und Pikettdiensten siehst du als Chance und bist bereit zwischendurch solche Dienste zu übernehmen\n\nProfil:\n• Abgeschlossene Ausbildung als Dipl. Radiologiefachfrau / Radiologiefachmann HF\n• Interesse am Fachgebiet der Diagnostischen und Interventionellen Radiologie sowie ein gutes technisches Verständnis\n• Freude an der interdisziplinären Zusammenarbeit mit Patientinnen und Patienten, Ärztinnen und Ärzten sowie Mitarbeitenden\n• Du schätzt die Arbeit im Team, bist motiviert, zuverlässig, belastbar und arbeitest gerne in einem vielseitigen Betrieb mit individuellen Aufstiegschancen\n• Gute bis sehr gute Deutschkenntnisse, andere Sprachen sind von Vorteil\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MTTB (med. techn. therapeut. Berufe)\n• Bereich: Klinik für Radiologie und Nuklearmedizin\n• Pensum: 40-100%",
       "descriptionByLocale": {
@@ -929,7 +914,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -997,8 +981,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technikerin-techniker-hf-gebaudetechnik-hlk-ksw-ch",
-          "tecnici-hf-building-technology-hlk-kantonsspital-winterthur-ksw-winterthur"
+          "technikerin-techniker-hf-gebaudetechnik-hlk-ksw-ch"
         ],
         "en": [
           "technikerin-techniker-hf-gebaudetechnik-hlk-ksw-ch"
@@ -1008,7 +991,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1076,8 +1058,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-chirurgie-ksw-ch",
-          "assistente-inferiore-chirurgia-kantonsspital-winterthur-ksw-winterthur"
+          "unterassistentin-unterassistent-chirurgie-ksw-ch"
         ],
         "en": [
           "unterassistentin-unterassistent-chirurgie-ksw-ch"
@@ -1154,8 +1135,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-frauenklinik-ksw-ch",
-          "sub-assistente-sub-assistente-clinica-ginecologica-kantonsspital-winterthur-ksw-winterthur"
+          "unterassistentin-unterassistent-frauenklinik-ksw-ch"
         ],
         "en": [
           "unterassistentin-unterassistent-frauenklinik-ksw-ch"
@@ -1232,8 +1212,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-neurochirurgie-ksw-ch",
-          "assistente-junior-neurochirurgia-kantonsspital-winterthur-ksw-winterthur"
+          "unterassistentin-unterassistent-neurochirurgie-ksw-ch"
         ],
         "en": [
           "unterassistentin-unterassistent-neurochirurgie-ksw-ch"
@@ -1310,8 +1289,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-padiatrie-ksw-ch",
-          "assistente-inferiore-pediatria-kantonsspital-winterthur-ksw-winterthur"
+          "unterassistentin-unterassistent-padiatrie-ksw-ch"
         ],
         "en": [
           "unterassistentin-unterassistent-padiatrie-ksw-ch"
@@ -1393,8 +1371,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-urologie-ksw-ch",
-          "assistente-urologia-kantonsspital-winterthur-ksw-winterthur"
+          "unterassistentin-unterassistent-urologie-ksw-ch"
         ],
         "en": [
           "unterassistentin-unterassistent-urologie-ksw-ch"
@@ -1431,7 +1408,7 @@
       "companyDomain": "ksw.ch",
       "title": "Vitreoretinale Chirurgin / Chirurge",
       "titleByLocale": {
-        "it": "Vitreoretinale Chirurgin / Chirurge",
+        "it": "Chirurgo Vitreoretinale/surgeon",
         "en": "Vitreoretinal Surgeon",
         "de": "Vitreoretinale Chirurgin / Chirurge",
         "fr": "Chirurgien vitréo-rétinien"
@@ -1476,8 +1453,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vitreoretinale-chirurgin-chirurge-ksw-ch",
-          "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur"
+          "vitreoretinale-chirurgin-chirurge-ksw-ch"
         ],
         "en": [
           "vitreoretinal-surgery-surgery-kantonsspital-winterthur-ksw-winterthur",
@@ -1492,7 +1468,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1560,8 +1535,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch",
-          "esperto-di-formazione-cura-intensiva-degli-esperti-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+          "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch"
         ],
         "en": [
           "weiterbildung-expertin-experte-intensivpflege-nds-hf-ksw-ch"
@@ -1599,7 +1573,7 @@
       "title": "Weiterbildung Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/a in Formazione di Emergenza NDS HF",
-        "en": "Weiterbildung Expertin / Experte Notfallpflege NDS HF",
+        "en": "Professional Training Expert / Expert Emergency Care NDS HF",
         "de": "Weiterbildung Expertin / Experte Notfallpflege NDS HF",
         "fr": "Spécialiste en Formation d'Urgence NDS HF"
       },
@@ -1638,8 +1612,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
-          "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+          "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ],
         "en": [
           "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
@@ -1649,7 +1622,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1717,8 +1689,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch",
-          "fachfrau-fachmann-gesundheit-urologie-e-orthopala-kantonsspital-winterthur-ksw-winterthur"
+          "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch"
@@ -1728,7 +1699,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:20:27.750Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1796,8 +1766,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-          "assistente-di-ambulatorio-medico-assistente-di-ambulatorio-medico-kantonsspital-winterthur-ksw-winterthur"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
@@ -1818,16 +1787,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksw-d8323ae6df1a",
-      "slug": "oberarztin-arzt-rheumatologie-ksw-ch",
+      "slug": "reumatologia-medico-senior-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "oberarztin-arzt-rheumatologie-ksw-ch",
-        "it": "oberarztin-arzt-rheumatologie-ksw-ch",
-        "en": "oberarztin-arzt-rheumatologie-ksw-ch",
-        "fr": "oberarztin-arzt-rheumatologie-ksw-ch"
+        "it": "reumatologia-medico-senior-kantonsspital-winterthur-ksw-winterthur",
+        "en": "senior-physician-rheumatology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "rhumatologie-chez-le-medecin-principal-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1835,16 +1806,16 @@
       "title": "Oberärztin/-arzt Rheumatologie",
       "titleByLocale": {
         "de": "Oberärztin/-arzt Rheumatologie",
-        "it": "Oberärztin/-arzt Rheumatologie",
-        "en": "Oberärztin/-arzt Rheumatologie",
-        "fr": "Oberärztin/-arzt Rheumatologie"
+        "it": "Reumatologia medico senior",
+        "en": "Senior physician rheumatology",
+        "fr": "Rhumatologie chez le médecin principal"
       },
       "description": "Das Kantonsspital Winterthur verfügt mit einem Einzugsgebiet von über 200‘000 Einwohnern über alle wichtigen Fachdisziplinen und ist für die Grundversorgung sowie die hochspezialisierte Medizin der Grossregion Winterthur verantwortlich. Es liegt zentral, nur 30 Minuten von Zürich und von der deutschen Grenze entfernt. Der Fachbereich Rheumatologie umfasst eigene ambulante Sprechstunden und einen spitalinternen Konsiliardienst für die Mitbetreuung stationärer Patientinnen und Patienten. Er ist auf die Behandlung des gesamten Spektrums entzündlicher und degenerativer Erkrankungen des Bewegungsapparates ausgerichtet und verfügt über eine hervorragende Infrastruktur. Die interdisziplinäre Zusammenarbeit mit den verwandten Fachgebieten wird aktiv gepflegt in krankheitsspezifischen Boards und Clinical Rounds. Das Kantonsspital Winterthur ist anerkannte Weiterbildungsstätte für Rheumatologie Kategorie B (2 Jahre). Wir suchen per 01.11.2026 oder nach Vereinbarung eine/-n engagierte/-n Oberärztin/Oberarzt.\n\nAufgaben:\n• Betreuung ambulanter Patienten mit dem gesamten Spektrum rheumatologischer Erkrankungen\n• Spitalinterne Konsiliartätigkeit\n• Teilnahme an interdisziplinären Besprechungen\n• Teaching und Supervision von Assistenzärztinnen und -ärzten\n\nProfil:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologie\n• Fähigkeitsausweis Ultraschall Bewegungsapparat oder kurz davor\n• Freude an der interdisziplinären Zusammenarbeit und an Aus- und Weiterbildung junger Kolleginnen und Kollegen\n• Bereitschaft zur Mitgestaltung des Fachbereichs, Übernahme von Führungsverantwortung und Organisationsgeschick\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ärztinnen und Ärzte\n• Bereich: Fachbereich Rheumatologie\n• Pensum: 80-100%",
       "descriptionByLocale": {
         "de": "Das Kantonsspital Winterthur verfügt mit einem Einzugsgebiet von über 200‘000 Einwohnern über alle wichtigen Fachdisziplinen und ist für die Grundversorgung sowie die hochspezialisierte Medizin der Grossregion Winterthur verantwortlich. Es liegt zentral, nur 30 Minuten von Zürich und von der deutschen Grenze entfernt. Der Fachbereich Rheumatologie umfasst eigene ambulante Sprechstunden und einen spitalinternen Konsiliardienst für die Mitbetreuung stationärer Patientinnen und Patienten. Er ist auf die Behandlung des gesamten Spektrums entzündlicher und degenerativer Erkrankungen des Bewegungsapparates ausgerichtet und verfügt über eine hervorragende Infrastruktur. Die interdisziplinäre Zusammenarbeit mit den verwandten Fachgebieten wird aktiv gepflegt in krankheitsspezifischen Boards und Clinical Rounds. Das Kantonsspital Winterthur ist anerkannte Weiterbildungsstätte für Rheumatologie Kategorie B (2 Jahre). Wir suchen per 01.11.2026 oder nach Vereinbarung eine/-n engagierte/-n Oberärztin/Oberarzt.\n\nAufgaben:\n• Betreuung ambulanter Patienten mit dem gesamten Spektrum rheumatologischer Erkrankungen\n• Spitalinterne Konsiliartätigkeit\n• Teilnahme an interdisziplinären Besprechungen\n• Teaching und Supervision von Assistenzärztinnen und -ärzten\n\nProfil:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologie\n• Fähigkeitsausweis Ultraschall Bewegungsapparat oder kurz davor\n• Freude an der interdisziplinären Zusammenarbeit und an Aus- und Weiterbildung junger Kolleginnen und Kollegen\n• Bereitschaft zur Mitgestaltung des Fachbereichs, Übernahme von Führungsverantwortung und Organisationsgeschick\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ärztinnen und Ärzte\n• Bereich: Fachbereich Rheumatologie\n• Pensum: 80-100%",
-        "it": "Das Kantonsspital Winterthur verfügt mit einem Einzugsgebiet von über 200‘000 Einwohnern über alle wichtigen Fachdisziplinen und ist für die Grundversorgung sowie die hochspezialisierte Medizin der Grossregion Winterthur verantwortlich. Es liegt zentral, nur 30 Minuten von Zürich und von der deutschen Grenze entfernt. Der Fachbereich Rheumatologie umfasst eigene ambulante Sprechstunden und einen spitalinternen Konsiliardienst für die Mitbetreuung stationärer Patientinnen und Patienten. Er ist auf die Behandlung des gesamten Spektrums entzündlicher und degenerativer Erkrankungen des Bewegungsapparates ausgerichtet und verfügt über eine hervorragende Infrastruktur. Die interdisziplinäre Zusammenarbeit mit den verwandten Fachgebieten wird aktiv gepflegt in krankheitsspezifischen Boards und Clinical Rounds. Das Kantonsspital Winterthur ist anerkannte Weiterbildungsstätte für Rheumatologie Kategorie B (2 Jahre). Wir suchen per 01.11.2026 oder nach Vereinbarung eine/-n engagierte/-n Oberärztin/Oberarzt.\n\nAufgaben:\n• Betreuung ambulanter Patienten mit dem gesamten Spektrum rheumatologischer Erkrankungen\n• Spitalinterne Konsiliartätigkeit\n• Teilnahme an interdisziplinären Besprechungen\n• Teaching und Supervision von Assistenzärztinnen und -ärzten\n\nProfil:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologie\n• Fähigkeitsausweis Ultraschall Bewegungsapparat oder kurz davor\n• Freude an der interdisziplinären Zusammenarbeit und an Aus- und Weiterbildung junger Kolleginnen und Kollegen\n• Bereitschaft zur Mitgestaltung des Fachbereichs, Übernahme von Führungsverantwortung und Organisationsgeschick\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ärztinnen und Ärzte\n• Bereich: Fachbereich Rheumatologie\n• Pensum: 80-100%",
-        "en": "Das Kantonsspital Winterthur verfügt mit einem Einzugsgebiet von über 200‘000 Einwohnern über alle wichtigen Fachdisziplinen und ist für die Grundversorgung sowie die hochspezialisierte Medizin der Grossregion Winterthur verantwortlich. Es liegt zentral, nur 30 Minuten von Zürich und von der deutschen Grenze entfernt. Der Fachbereich Rheumatologie umfasst eigene ambulante Sprechstunden und einen spitalinternen Konsiliardienst für die Mitbetreuung stationärer Patientinnen und Patienten. Er ist auf die Behandlung des gesamten Spektrums entzündlicher und degenerativer Erkrankungen des Bewegungsapparates ausgerichtet und verfügt über eine hervorragende Infrastruktur. Die interdisziplinäre Zusammenarbeit mit den verwandten Fachgebieten wird aktiv gepflegt in krankheitsspezifischen Boards und Clinical Rounds. Das Kantonsspital Winterthur ist anerkannte Weiterbildungsstätte für Rheumatologie Kategorie B (2 Jahre). Wir suchen per 01.11.2026 oder nach Vereinbarung eine/-n engagierte/-n Oberärztin/Oberarzt.\n\nAufgaben:\n• Betreuung ambulanter Patienten mit dem gesamten Spektrum rheumatologischer Erkrankungen\n• Spitalinterne Konsiliartätigkeit\n• Teilnahme an interdisziplinären Besprechungen\n• Teaching und Supervision von Assistenzärztinnen und -ärzten\n\nProfil:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologie\n• Fähigkeitsausweis Ultraschall Bewegungsapparat oder kurz davor\n• Freude an der interdisziplinären Zusammenarbeit und an Aus- und Weiterbildung junger Kolleginnen und Kollegen\n• Bereitschaft zur Mitgestaltung des Fachbereichs, Übernahme von Führungsverantwortung und Organisationsgeschick\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ärztinnen und Ärzte\n• Bereich: Fachbereich Rheumatologie\n• Pensum: 80-100%",
-        "fr": "Das Kantonsspital Winterthur verfügt mit einem Einzugsgebiet von über 200‘000 Einwohnern über alle wichtigen Fachdisziplinen und ist für die Grundversorgung sowie die hochspezialisierte Medizin der Grossregion Winterthur verantwortlich. Es liegt zentral, nur 30 Minuten von Zürich und von der deutschen Grenze entfernt. Der Fachbereich Rheumatologie umfasst eigene ambulante Sprechstunden und einen spitalinternen Konsiliardienst für die Mitbetreuung stationärer Patientinnen und Patienten. Er ist auf die Behandlung des gesamten Spektrums entzündlicher und degenerativer Erkrankungen des Bewegungsapparates ausgerichtet und verfügt über eine hervorragende Infrastruktur. Die interdisziplinäre Zusammenarbeit mit den verwandten Fachgebieten wird aktiv gepflegt in krankheitsspezifischen Boards und Clinical Rounds. Das Kantonsspital Winterthur ist anerkannte Weiterbildungsstätte für Rheumatologie Kategorie B (2 Jahre). Wir suchen per 01.11.2026 oder nach Vereinbarung eine/-n engagierte/-n Oberärztin/Oberarzt.\n\nAufgaben:\n• Betreuung ambulanter Patienten mit dem gesamten Spektrum rheumatologischer Erkrankungen\n• Spitalinterne Konsiliartätigkeit\n• Teilnahme an interdisziplinären Besprechungen\n• Teaching und Supervision von Assistenzärztinnen und -ärzten\n\nProfil:\n• Abgeschlossene oder kurz vor dem Abschluss stehende Facharztausbildung in Rheumatologie\n• Fähigkeitsausweis Ultraschall Bewegungsapparat oder kurz davor\n• Freude an der interdisziplinären Zusammenarbeit und an Aus- und Weiterbildung junger Kolleginnen und Kollegen\n• Bereitschaft zur Mitgestaltung des Fachbereichs, Übernahme von Führungsverantwortung und Organisationsgeschick\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ärztinnen und Ärzte\n• Bereich: Fachbereich Rheumatologie\n• Pensum: 80-100%"
+        "it": "Con una zona di cattura di oltre 200.000 abitanti, l'Ospedale cantonale Winterthur ha tutte le discipline importanti ed è responsabile della cura di base e della medicina altamente specializzata della regione Grande Inverno. Si trova in posizione centrale, a soli 30 minuti da Zurigo e dal confine tedesco. Il Dipartimento di Rheumatologia comprende le proprie ore di consultazione ambulatoriale e un servizio di consulenza ospedaliera interna per la co-assistenza di pazienti malati. È progettato per trattare l'intero spettro di malattie infiammatorie e degenerative del sistema muscoloscheletrico e ha un'eccellente infrastruttura. La cooperazione interdisciplinare con le relative aree specialistiche è attivamente mantenuta nelle schede specifiche delle malattie e nei giri clinici. L'Ospedale cantonale Winterthur è un'istituzione riconosciuta per la categoria Rheumatology B (2 anni). Entro il 01.11.2026 o su appuntamento, stiamo cercando un medico senior dedicato / medico senior.\n\nCompiti:\n• Cura degli ambulatori con l'intero spettro delle malattie reumatologiche\n• Servizi di consulenza ospedaliera interna\n• Partecipazione a riunioni interdisciplinari\n• Insegnamento e supervisione dei medici assistenti\n\nProfilo:\n• Formazione specialistica in reumatologia completata o prossima al completamento\n• Certificato muscoloscheletrico a ultrasuoni o poco prima\n• Sfruttamento della cooperazione interdisciplinare e della formazione dei giovani colleghi\n• Volontà a formare il dipartimento, assumendo responsabilità di leadership e competenze organizzative\n\nVantaggi: KSW offre ai dipendenti condizioni che permettono loro di conciliare i loro obiettivi professionali e le esigenze personali. Orario di lavoro flessibile, flessibile, home office e un generoso congedo di maternità e livelli di occupazione adattati a situazioni diverse – tutto questo è possibile a KSW, purché l'azienda lo permetta. Ogni anno, il KSW offre 40 corsi di formazione interdisciplinare e 50 corsi di formazione professionale. Vi sosteniamo anche nel tempo e/o finanziariamente per la formazione esterna.; In situazioni straordinarie, ad esempio B. malattia prolungata, grave stress personale o esperienze difficili nella vita privata, così come nel lavoro quotidiano, sono disponibili varie offerte di conversazione.; La collaborazione apprezzata e amichevole all'interno delle squadre e di tutti i dipartimenti caratterizza l'atmosfera di lavoro a KSW. Come segno di un forte spirito di squadra, il “tu” è stato introdotto come standard al KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande evento di personale per tutta la casa ogni quattro anni. I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione di fondo pensionistico con BVK è molto superiore al minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben coperti.; Con sconti su abbonamenti di fitness, opportunità di formazione interna e offerte di corso, vantaggi in farmacie e presso le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute.; Il nostro centro diurno La Luna con ampie ore di apertura si trova direttamente accanto al KSW. Inoltre, è possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla.; In collaborazione con partner culturali di Winterthur e dintorni, offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n\n• Campo professionale: Medici\n• Dipartimento di Reumatologia\n• Pensum: 80-100 %",
+        "en": "With a catchment area of more than 200,000 inhabitants, the Cantonal Hospital Winterthur has all important disciplines and is responsible for the basic care and highly specialized medicine of the Greater Winterthur region. It is centrally located, only 30 minutes from Zurich and from the German border. The Department of Rheumatology includes its own outpatient consultation hours and an internal hospital consultancy service for the co-care of inpatient patients. It is designed to treat the entire spectrum of inflammatory and degenerative diseases of the musculoskeletal system and has an excellent infrastructure. The interdisciplinary cooperation with the related specialist areas is actively maintained in disease-specific boards and clinical rounds. The Cantonal Hospital Winterthur is a recognized institution for Rheumatology category B (2 years). By 01.11.2026 or by appointment, we are looking for a dedicated senior physician / senior physician.\n\nTasks:\n• Care of outpatients with the full spectrum of rheumatological diseases\n• Internal hospital consultancy services\n• Participation in interdisciplinary meetings\n• Teaching and supervision of assistant doctors\n\nProfile:\n• Specialist training in rheumatology completed or nearing completion\n• Ultrasonic musculoskeletal certificate or shortly before\n• Enjoyment of interdisciplinary cooperation and training of young colleagues\n• Willingness to shape the department, assuming leadership responsibility and organizational skills\n\nBenefits: KSW offers employees conditions that enable them to reconcile their professional goals and personal needs. Flexible, flexible working hours, home office as well as a generous maternity leave and employment levels adapted to different situations – all this is possible at KSW, as long as the company allows it. Every year, the KSW offers 40 interdisciplinary and 50 professional training courses. We also support you temporally and/or financially for external training.; In extraordinary situations, e.g. B. prolonged illness, severe personal stress or difficult experiences in private life as well as in everyday work, various offers of conversation are available to you.; The appreciative and friendly cooperation within the teams and across the departments characterizes the working atmosphere at KSW. As a sign of a strong team spirit, the “you” was introduced as a standard at KSW. In addition, the KSW supports annual team events financially and organizes a large staffing event for the whole house every four years. KSW employees benefit from very good social benefits. Thus, the pension fund solution with BVK is far above the legal minimum. Even in the event of illness or accident, KSW employees are very well covered.; With discounts on fitness subscriptions, internal training opportunities and course offers, perks in pharmacies as well as at the most popular health insurance companies. You can benefit from a comprehensive offer for your health.; Our daycare center La Luna with spacious opening hours is located directly next to the KSW. In addition, you can use the income-dependent, financial support from the KSW for the crib costs.; In cooperation with cultural partners in and around Winterthur, we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free of charge for employees.\n\n• Professional field: Doctors\n• Department of Rheumatology\n• Pensum: 80-100 %",
+        "fr": "Avec un bassin versant de plus de 200 000 habitants, l'hôpital cantonal Winterthur a toutes les disciplines importantes et est responsable des soins de base et de la médecine hautement spécialisée de la région du Grand Winterthur. Il est situé au centre, à seulement 30 minutes de Zurich et de la frontière allemande. Le Département de Rheumatologie comprend ses propres heures de consultation externe et un service de conseil hospitalier interne pour les co-soins des patients hospitalisés. Il est conçu pour traiter tout le spectre des maladies inflammatoires et dégénératives du système musculosquelettique et dispose d'une excellente infrastructure. La coopération interdisciplinaire avec les domaines spécialisés connexes est activement maintenue dans les conseils d'administration et les cycles cliniques spécifiques aux maladies. L'hôpital cantonal Winterthur est un établissement reconnu pour la catégorie de rhumatologie B (2 ans). Au 01.11.2026 ou sur rendez-vous, nous sommes à la recherche d'un médecin ou d'un médecin senior dévoué.\n\nTâches :\n• Soins aux malades ambulatoires avec tout le spectre des maladies rhumatologiques\n• Services de conseil hospitalier interne\n• Participation à des réunions interdisciplinaires\n• Enseignement et supervision des médecins adjoints\n\nProfil :\n• Formation spécialisée en rhumatologie terminée ou en voie d'achèvement\n• Certificat musculosquelettique ultrasonique ou peu avant\n• Appréciation de la coopération interdisciplinaire et formation de jeunes collègues\n• Volonté de façonner le ministère en assumant la responsabilité du leadership et les compétences organisationnelles\n\nAvantages: KSW offre aux employés des conditions qui leur permettent de concilier leurs objectifs professionnels et leurs besoins personnels. Des horaires flexibles et flexibles, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés à différentes situations – tout cela est possible chez KSW, tant que l'entreprise le permet. Chaque année, le KSW propose 40 formations interdisciplinaires et 50 formations professionnelles. Nous vous soutenons également temporairement et/ou financièrement pour la formation externe; Dans des situations extraordinaires, comme une maladie prolongée de B., un stress personnel grave ou des expériences difficiles dans la vie privée ainsi que dans le travail quotidien, diverses offres de conversation vous sont offertes. La coopération reconnaissante et amicale au sein des équipes et des départements caractérise l'atmosphère de travail de KSW. Comme signe d'un fort esprit d'équipe, le -you , a été introduit comme un standard chez KSW. De plus, le KSW appuie financièrement les activités annuelles de l'équipe et organise tous les quatre ans un important événement de dotation pour toute la maison. Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution de fonds de pension avec BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien couverts. Avec des rabais sur les abonnements de fitness, des possibilités de formation interne et des cours, avantages dans les pharmacies ainsi que dans les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture spacieuses est située directement à côté de la KSW. De plus, vous pouvez utiliser le soutien financier de la KSW, qui dépend du revenu, pour les coûts du lit. En collaboration avec des partenaires culturels de Winterthur et des environs, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n\n• Domaine professionnel: Médecins\n• Département de Rheumatologie\n• Récipient: 80-100 %"
       },
       "location": "Winterthur",
       "canton": "ZH",
@@ -1871,7 +1842,6 @@
         "de": []
       },
       "department": "Fachbereich Rheumatologie",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1884,7 +1854,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:40:05.624Z"
+      "firstSeenAt": "2026-06-29T22:40:05.624Z",
+      "previousSlugs": [
+        "oberarztin-arzt-rheumatologie-ksw-ch",
+        "medico-specialista-in-reumatologia-kantonsspital-winterthur-ksw-winterthur",
+        "medecin-specialiste-en-rhumatologie-kantonsspital-winterthur-ksw-winterthur",
+        "medico-capo-endocrinologia-diabetologia-kantonsspital-winterthur-ksw-winterthur",
+        "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
+        "senior-physician-endocrinology-diabetology-kantonsspital-winterthur-ksw-winterthur",
+        "medecin-chef-endocrinologie-diabetologie-kantonsspital-winterthur-ksw-winterthur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-rheumatologie-ksw-ch"
+        ],
+        "en": [
+          "oberarztin-arzt-rheumatologie-ksw-ch"
+        ],
+        "fr": [
+          "oberarztin-arzt-rheumatologie-ksw-ch"
+        ]
+      }
     },
     {
       "id": "ksw-c2039c9ddd1f",
@@ -1940,8 +1930,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch",
-          "professionista-salute-nel-campo-medico-kantonsspital-winterthur-ksw-winterthur"
+          "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch"
@@ -2097,8 +2086,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch",
-          "mitarbeiterin-collaboratore-trice-telefonzentrale-e-information-kantonsspital-winterthur-ksw-winterthur"
+          "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
@@ -2108,7 +2096,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:07:25.120Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2213,7 +2200,7 @@
       "companyDomain": "ksw.ch",
       "title": "Pflegefachfrau / Pflegefachmann Akutgeriatrie",
       "titleByLocale": {
-        "it": "Pflegefachfrau / Pflegefachmann Akutgeriatrie",
+        "it": "Infermiera/Nurse specialista acutogeria",
         "en": "Nurse in acute geriatrics",
         "de": "Pflegefachfrau / Pflegefachmann Akutgeriatrie",
         "fr": "Infirmière en gériatrie aiguë"
@@ -2253,12 +2240,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-          "infermiera-nurse-specialista-acutogeria-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-18T23:06:56.257Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2326,8 +2311,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationslagerung-ksw-ch",
-          "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur"
+          "fachfrau-fachmann-operationslagerung-ksw-ch"
         ],
         "en": [
           "fachfrau-fachmann-operationslagerung-ksw-ch"
@@ -2404,8 +2388,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-          "assistente-alla-pratica-medica-kantonsspital-winterthur-ksw-winterthur"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
@@ -2445,7 +2428,7 @@
         "it": "Specialista in Radiologia Medico-Tecnica HF (MTR HF) per il campo della radiologia interventistica",
         "en": "Medical-Technical Radiology Specialist HF (MTR HF) for the field of interventional radiology",
         "de": "Medizinisch-technische Radiologiefachperson HF (MTR HF) für den Bereich interventionelle Radiologie",
-        "fr": "Medizinisch-technische Radiologiefachperson HF (MTR HF) für den Bereich interventionelle Radiologie"
+        "fr": "Spécialiste de radiologie médicale-technique HF (MTR HF) dans le domaine de la radiologie interventionnelle"
       },
       "description": "In der Klinik für Radiologie und Nuklearmedizin werden jährlich über 105'000 Untersuchungen und Eingriffe durchgeführt. Die Klinik für Radiologie und Nuklearmedizin gewährleistet höchste Fachkompetenz und Versorgungsqualität in all seinen Bereichen: Röntgen- und Durchleuchtungs-Diagnostik, Brustbildgebung, Ultraschall, Nuklearmedizin, Magnetresonanztomographie, Computertomographie, Kinderradiologie, Neuroradiologie und Interventionelle Radiologie. Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte und qualifizierte medizinisch-technische Radiologiefachperson HF (MTR HF) für den Bereich interventionelle Radiologie.\n\nAufgaben:\n• Assistenz bei diagnostischen und therapeutischen interventionell-radiologischen Eingriffen unter Einhaltung der Strahlenschutzrichtlinien\n• Vorbereitung, Betreuung und Überwachung der Patientinnen und Patienten vor, während und nach den Interventionen\n• Bedienung und Qualitätskontrolle moderner bildgebender Geräte (Angiografieanlagen, CT)\n• Enge interdisziplinäre Zusammenarbeit mit Ärztinnen und Ärzten, Pflegepersonal und weiteren Fachbereichen\n• Mitwirkung bei der Weiterentwicklung von Arbeitsabläufen sowie Qualitätssicherung\n\nProfil:\n• Abgeschlossene Ausbildung als MTR HF oder gleichwertige, in der Schweiz anerkannte Ausbildung\n• Idealerweise Erfahrung in der interventionellen Radiologie oder hohe Bereitschaft zur Einarbeitung\n• Verantwortungsbewusste, selbstständige und präzise Arbeitsweise\n• Hohe Sozialkompetenz, Teamfähigkeit und Belastbarkeit\n• Flexibilität für Pikett- oder Bereitschaftsdienste\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MTTB (med. techn. therapeut. Berufe)\n• Bereich: Klinik für Radiologie und Nuklearmedizin\n• Pensum: 80-100%",
       "descriptionByLocale": {
@@ -2492,7 +2475,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T23:19:33.020Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2560,8 +2542,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-ksw-ch",
-          "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur"
+          "fachfrau-fachmann-operationstechnik-ksw-ch"
         ],
         "en": [
           "fachfrau-fachmann-operationstechnik-ksw-ch"
@@ -2599,7 +2580,7 @@
       "title": "Handtherapeutin / Handtherapeut (Ergo- oder Physiotherapeut/-in)",
       "titleByLocale": {
         "it": "Handtherapeutin / Handtherapeut (Ergo- o Physiotherapeut/-in)",
-        "en": "Handtherapeutin / Handtherapeut (Ergo- oder Physiotherapeut/-in)",
+        "en": "Hand therapist (ergo- or physiotherapist)",
         "de": "Handtherapeutin / Handtherapeut (Ergo- oder Physiotherapeut/-in)",
         "fr": "Thérapeutine de la main / Thérapeute de la main (Ergo- oder Physiotherapeut/-in)"
       },
@@ -2648,7 +2629,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:28:09.257Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2716,8 +2696,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-fachperson-gesundheit-sprechstundenzentrum-notfall-der-frauenklinik",
-          "med-assistente-pratica-centro-sanitario-emergenza-della-clinica-femminile-kantonsspital-winterthur-ksw-winterthur"
+          "med-praxisassistent-in-fachperson-gesundheit-sprechstundenzentrum-notfall-der-frauenklinik"
         ],
         "en": [
           "med-praxisassistent-in-fachperson-gesundheit-sprechstundenzentrum-notfall-der-frauenklinik"
@@ -2794,8 +2773,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
-          "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-del-policlinico-medico-kantonsspital-winterthur-ksw"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
@@ -2872,8 +2850,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-personalrestaurant-und-bistro-15-ksw-ch",
-          "mitarbeiterin-collaboratore-trice-personalrestaurant-e-bistro-15-kantonsspital-winterthur-ksw-winterthur"
+          "mitarbeiterin-mitarbeiter-personalrestaurant-und-bistro-15-ksw-ch"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-personalrestaurant-und-bistro-15-ksw-ch"
@@ -2883,7 +2860,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:28:40.332Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2951,8 +2927,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-notfall-erwachsene-ksw-ch",
-          "medico-senior-medico-senior-adulto-di-emergenza-kantonsspital-winterthur-ksw-winterthur"
+          "oberarztin-oberarzt-notfall-erwachsene-ksw-ch"
         ],
         "en": [
           "oberarztin-oberarzt-notfall-erwachsene-ksw-ch"
@@ -3106,8 +3081,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch",
-          "group-manager-group-manager-kantonsspital-winterthur-ksw-winterthur"
+          "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch"
         ],
         "en": [
           "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch"
@@ -3184,8 +3158,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-fachperson-gesundheit-ksw-ch",
-          "assistente-medico-operatore-sanitario-kantonsspital-winterthur-ksw-winterthur"
+          "med-praxisassistent-in-fachperson-gesundheit-ksw-ch"
         ],
         "en": [
           "med-praxisassistent-in-fachperson-gesundheit-ksw-ch"
@@ -3268,8 +3241,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-          "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur-5a2b0e"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
@@ -3346,8 +3318,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-geriatrie-ksw-ch",
-          "medico-senior-geriatrie-kantonsspital-winterthur-ksw-winterthur"
+          "oberarztin-oberarzt-geriatrie-ksw-ch"
         ],
         "en": [
           "oberarztin-oberarzt-geriatrie-ksw-ch"
@@ -3428,8 +3399,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-neonatologie-ksw-ch",
-          "babysitter-medico-senior-kantonsspital-winterthur-ksw-winterthur"
+          "oberarztin-oberarzt-neonatologie-ksw-ch"
         ],
         "en": [
           "oberarztin-oberarzt-neonatologie-ksw-ch"
@@ -3512,8 +3482,7 @@
         "it": [
           "leiter-in-qualitats-und-erlosmanagement-ksw-ch",
           "responsabile-qualita-e-gestione-dei-ricavi-kantonsspital-winterthur-ksw-winterthur",
-          "responsabile-qualita-ed-earnings-management-kantonsspital-winterthur-ksw-winterthur",
-          "responsabile-qualitats-e-erlosmanagement-kantonsspital-winterthur-ksw-winterthur"
+          "responsabile-qualita-ed-earnings-management-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "leiter-in-qualitats-und-erlosmanagement-ksw-ch",
@@ -3596,8 +3565,7 @@
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
-          "medico-specialista-in-dermatologia-kantonsspital-winterthur-ksw-winterthur",
-          "medico-specialista-in-dermatologia-responsabile-di-area-kantonsspital-winterthur-ksw-winterthur"
+          "medico-specialista-in-dermatologia-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
@@ -3609,7 +3577,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.043Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3680,8 +3647,7 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-masseurin-medizinischer-masseur-ksw-ch",
-          "massaggiatore-trice-medico-a-kantonsspital-winterthur-ksw-winterthur",
-          "massaggiatrice-medica-massaggiatore-medico-kantonsspital-winterthur-ksw-winterthur"
+          "massaggiatore-trice-medico-a-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "medizinische-masseurin-medizinischer-masseur-ksw-ch"
@@ -3762,8 +3728,7 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
-          "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur",
-          "medico-specialista-in-endocrinologia-diabetologia-kantonsspital-winterthur-ksw-winterthur"
+          "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
@@ -3846,8 +3811,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexperte-fachexpertin-computertomographie-ksw-ch",
-          "tomografia-informatica-esperto-specialista-kantonsspital-winterthur-ksw-winterthur"
+          "fachexperte-fachexpertin-computertomographie-ksw-ch"
         ],
         "en": [
           "projekt-und-teamassistenz-ksw-ch",
@@ -3926,8 +3890,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch",
-          "tecnico-a-di-operazione-tecnologia-interna-organi-kantonsspital-winterthur-ksw-winterthur"
+          "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch"
         ],
         "en": [
           "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch"
@@ -4004,8 +3967,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
-          "specialista-in-tecniche-operative-nell-area-muscoloscheletrica-kantonsspital-winterthur-ksw-winterthur"
+          "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch"
         ],
         "en": [
           "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch"
@@ -4086,9 +4048,6 @@
         ],
         "fr": [
           "orthophoniste-orthophoniste-kantonsspital-winterthur-ksw-winterthur"
-        ],
-        "de": [
-          "logopadin-logopade-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
@@ -4170,8 +4129,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
-          "specializzato-infermieristica-medicina-intensiva-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch"
@@ -4209,7 +4167,7 @@
       "title": "Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Expert / Expert Emergency Care NDS HF",
-        "en": "Expertin / Experte Notfallpflege NDS HF",
+        "en": "Expert / Expert Emergency Care NDS HF",
         "de": "Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expert / Expert Soins d'urgence NDS HF"
       },
@@ -4248,15 +4206,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-notfallpflege-nds-hf-ksw-ch",
-          "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+          "expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ],
         "fr": [
           "expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-27T22:14:05.738Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4324,8 +4280,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistentin-assistent-leitung-pflege-ksw-ch",
-          "assistente-assistente-kantonsspital-winterthur-ksw-winterthur"
+          "assistentin-assistent-leitung-pflege-ksw-ch"
         ],
         "en": [
           "assistentin-assistent-leitung-pflege-ksw-ch"
@@ -4402,8 +4357,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-          "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur"
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
         ],
         "en": [
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
@@ -4413,7 +4367,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:07:25.119Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4481,8 +4434,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diatkochin-diatkoch-ksw-ch",
-          "cucina-dietetica-cucina-dietetica-kantonsspital-winterthur-ksw-winterthur"
+          "diatkochin-diatkoch-ksw-ch"
         ],
         "en": [
           "diatkochin-diatkoch-ksw-ch"
@@ -4492,7 +4444,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:43.718Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4557,8 +4508,7 @@
       "department": "Klinik für med. Onkologie und Hämatologie",
       "previousSlugsByLocale": {
         "de": [
-          "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-          "arztsekretarin-arztsekretar-ksw-ch"
+          "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
@@ -4642,7 +4592,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:20:37.293Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4707,8 +4656,7 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugsByLocale": {
         "de": [
-          "arztsekretarin-arztsekretar-ksw-ch",
-          "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
+          "arztsekretarin-arztsekretar-ksw-ch"
         ],
         "it": [
           "arztsekretarin-arztsekretar-ksw-ch"
@@ -4745,7 +4693,7 @@
       "companyDomain": "ksw.ch",
       "title": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
       "titleByLocale": {
-        "it": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
+        "it": "Cura intensiva di esperti NDS",
         "en": "Expert in Intensive Care Nursing NDS Intensive Medicine",
         "de": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
         "fr": "Expert en soins intensifs NDS Médecine intensive"
@@ -4789,8 +4737,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
-          "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur"
+          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
         ],
         "en": [
           "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
@@ -4805,7 +4752,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.042Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4875,8 +4821,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-ksw-ch",
-          "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur"
+          "arztsekretarin-arztsekretar-ksw-ch"
         ],
         "en": [
           "arztsekretarin-arztsekretar-ksw-ch"
@@ -4886,7 +4831,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:46:05.232Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4915,7 +4859,7 @@
       "title": "Applikations-Manager/-in Medizininformatik",
       "titleByLocale": {
         "it": "Applikations-Manager/-in Medizinformatik",
-        "en": "Applikations-Manager/-in Medizininformatik",
+        "en": "Application Manager/in Medical Informatics",
         "de": "Applikations-Manager/-in Medizininformatik",
         "fr": "Applikations-Gestionnaire/-in Medizinformatik"
       },
@@ -4958,15 +4902,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-medizininformatik-ksw-ch",
-          "applikations-manager-in-medizinformatik-kantonsspital-winterthur-ksw-winterthur"
+          "applikations-manager-in-medizininformatik-ksw-ch"
         ],
         "en": [
           "applikations-manager-in-medizininformatik-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-04T00:15:33.566Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
