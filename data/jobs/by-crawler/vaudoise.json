@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-06-29T23:25:52.154Z",
+  "assembledAt": "2026-06-30T12:57:25.869Z",
   "jobs": [
     {
       "id": "vaudoise-9670a5945437",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=274501323&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:49.454Z",
+      "crawledAt": "2026-06-30T12:57:23.143Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -54,7 +54,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
+          "specialista-di-casi-complessi-francese-tedesco-laa-h-f-x-80-vaudoise-assurances-lausanne"
         ],
         "en": [
           "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
@@ -110,7 +111,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=274501338&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:49.153Z",
+      "crawledAt": "2026-06-30T12:57:22.831Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +134,8 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100",
-          "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-m-w-d-80-100-vaudoise-assurances-suisse"
+          "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-m-w-d-80-100-vaudoise-assurances-suisse",
+          "gestore-prestazioni-animalia-incaricato-delle-assicurazioni-per-cani-e-gatti-m-f-x-80-100-vaudoise-assurances-suisse"
         ],
         "en": [
           "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100"
@@ -189,7 +191,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=274501358&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:48.845Z",
+      "crawledAt": "2026-06-30T12:57:22.511Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,7 +273,7 @@
       "url": "https://vaudoise.softgarden.io/job/64517448/Mitarbeiter-in-Schaden-m-w-d-60-100-?jobDbPVId=274601658&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:48.458Z",
+      "crawledAt": "2026-06-30T12:57:22.113Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -292,7 +294,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
+          "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch",
+          "collaboratore-trice-schaden-m-w-d-60-100-vaudoise-assurances-bern"
         ],
         "en": [
           "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
@@ -348,7 +351,7 @@
       "url": "https://vaudoise.softgarden.io/job/65149268/Ing%C3%A9nieur-Ing%C3%A9nieure-Workplace-IT-h-f-x-80-100-?jobDbPVId=275647721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:48.158Z",
+      "crawledAt": "2026-06-30T12:57:21.799Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -369,7 +372,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
+          "ingegnere-workplace-engineer-it-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
@@ -388,85 +392,6 @@
           "@type": "QuantitativeValue",
           "minValue": 63000,
           "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
-    },
-    {
-      "id": "vaudoise-c3b401fb2aad",
-      "slug": "ingegnere-devops-tra-80-e-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "ingegnere-devops-tra-80-e-100-vaudoise-assurances-lausanne",
-        "en": "engineer-devops-between-80-and-100-vaudoise-assurances-lausanne",
-        "de": "ingenieur-devops-zwischen-80-und-100-vaudoise-assurances-lausanne",
-        "fr": "ingenieur-e-devops-entre-80-et-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Ingénieur / ingénieure Devops, entre 80 et 100%",
-      "titleByLocale": {
-        "it": "Ingegnere Devops, tra 80 e 100%",
-        "en": "Engineer Devops, between 80 and 100%",
-        "de": "Ingenieur Devops, zwischen 80 und 100%",
-        "fr": "Ingénieur / ingénieure Devops, entre 80 et 100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Fortement engagée dans sa transformation digitale, la Vaudoise Assurances désire renforcer son équipe Solutions Prestations P&C et recherche un/e Ingénieur Devops, entre 80 et 100%. Ce poste se positionne au sein du Département TD/SI. Au travers de ce rôle, vous intégrerez une équipe agile et deviendrez progressivement un interlocuteur privilégié pour accompagner les différentes équipes de développement (Dev, Product Owners et Business Analysts). Les missions qui vous attendent :\n• Créer et améliorer des services au sein de notre plateforme interne de développement\n• Soutenir les équipes de développement dans la mise en place des pipelines de CI/CD et de l'infrastructure des projets\n• Automatiser les processus en s’appuyant sur une toolchain DevOps standardisée\n• Accompagner les équipes IT dans l’adoption des bonnes pratiques\n• Fournir l’accompagnement nécessaire à l’amélioration continue et la résolution des incidents\n• Mettre en place les outils de suivi, d’alerting et de reporting Votre profil :\n• Formation supérieure type HES, Université, EPF, ingénierie ou équivalent en informatique\n• 3 ans d’expérience minimum dans un rôle de DevOps Engineer, et une excellente maîtrise des concepts DevOps et des outils DevOps (Azure DevOps, TeamCity, Jenkins, Sonarqube, Artifactory, Bitbucket)\n• Expérience confirmée en intégration continue sur des projets de CI/CD (gestion de pipelines, gestion des identités, gestion de repository Git, gestion des branches, webhook…)\n• Maîtrise des concepts Infra as Code et de scripting Terraform et Groovy\n• Maîtrise des outils de monitoring de type Grafana\n• Expérience de Microsoft Azure exigée, d’AWS un atout.\n• Connaissances de l’ERP Guidewire Cloud : un vrai plus\n• Langues : français (langue maternelle), anglais (minimum B2) Doté(e) d’un solide leadership technique, vous faites preuve de proactivité et d’un fort esprit d’équipe. Vous êtes capable de vulgariser des concepts techniques auprès d’interlocuteurs non techniques et démontrez un excellent sens de l’organisation, avec une forte orientation qualité. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Descrizione Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Fortemente impegnata nella sua trasformazione digitale, Vaudoise Assurances vuole rafforzare il suo team di P&C Services Solutions e cercare un Devops Engineer, tra l'80 e il 100%. Questa posizione si trova all'interno del Dipartimento TD/SI. Missioni - Creare e migliorare i servizi all'interno della nostra piattaforma di sviluppo interno - Squadre di sviluppo di supporto per l'implementazione di tubazioni IC/CD e infrastrutture di progetto - Automatizzare i processi utilizzando una toolchain DevOps standardizzata - Sostenere i team IT nell'adottare buone pratiche - Fornire il supporto necessario per il miglioramento continuo e la risoluzione degli incidenti - Mettere in posizione gli strumenti per rintracciare, d Profilo - Tipo di istruzione superiore HES, Università, EPF, ingegneria o equivalente in IT - 3 anni di esperienza minima in un ruolo di DevOps Engineer, e eccellente padronanza dei concetti DevOps e strumenti DevOps (Azure DevOps, TeamCity, Jenkins, Sonarqube, Artifactory, Bitbucket) - Esperienza confermata in continua integrazione su progetti CI/CD (gestione pipeline, gestione dell'identità, gestione restitory Git, gestione filiale, webhook...) - Mastery dei concetti come Codice e script Terraform e Groovy - Mastery di strumenti di monitoraggio di tipo Grafana - Esperienza di Microsoft Azure richiesto, da AWS un bene. - Conoscenza del cloud di guidaERP: un vantaggio reale Lingue: Francese (lingua madre), Inglese (minimo B2) Cosa fare - Un ambiente di lavoro sano in una società comune denominata \"Best Employer\" - Prestazioni sociali multiple, compresa la flessibilità nell'organizzazione del lavoro - Lavorare in un team dinamico e appassionato - Valori umani focalizzati sul benessere dei dipendenti Contatto Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
-        "en": "Descrizione A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. Strongly committed to its digital transformation, Vaudoise Assurances wants to strengthen its P&C Services Solutions team and search for a Devops Engineer, between 80 and 100%. This position is located within the TD/SI Department. Missioni - Create and improve services within our internal development platform - Support development teams in the implementation of IC/CD pipelines and project infrastructure - Automate processes using a standardized DevOps toolchain - Support IT teams in adopting good practices - Provide the necessary support for continuous improvement and resolution of incidents - Putting in place the tools for tracking, d\n• Profile - Higher education type HES, University, EPF, engineering or equivalent in IT - 3 years minimum experience in a role of DevOps Engineer, and excellent mastery of DevOps concepts and DevOps tools (Azure DevOps, TeamCity, Jenkins, Sonarqube, Artifactory, Bitbucket) - Experience confirmed in continuous integration on CI/CD projects ( pipeline management, identity management, restitory Git management, branch management, webhook...) - Mastery of concepts infra as Code and scripting Terraform and Groovy - Mastery of Grafana-type monitoring tools - Experience of Microsoft Azure required, from AWS an asset. - Knowledge of theERP Guidewire Cloud: a real plus Languages: French (mother tongue), English (minimum B2) Cosa offeriamo - A healthy working environment in a mutual company labeled \"Best Employer\" - Multiple social benefits, including flexibility in work organisation - Work within a dynamic and passionate team - Human values focused on the well-being of employees Contatto We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Descrizion Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und seinen Werten fördert es die Schaffung einer gesunden, integrativen und inspirierenden Arbeitsumgebung, die ideal ist, um Ihre Talente zu entwickeln. Vaudoise Assurances engagiert sich stark für die digitale Transformation und möchte sein Team von P&C Services Solutions stärken und nach einem Devops Engineer zwischen 80 und 100 % suchen. Diese Position befindet sich innerhalb der TD / SI-Abteilung. Missioni - Erstellen und Verbessern von Dienstleistungen innerhalb unserer internen Entwicklungsplattform - Unterstützung von Entwicklungsteams bei der Implementierung von IC/CD-Pipelines und Projektinfrastruktur - Automatisieren von Prozessen mit einer standardisierten DevOps-Toolchain - Unterstützung von IT-Teams bei der Übernahme guter Praktiken - Bereitstellung der notwendigen Unterstützung für die kontinuierliche Verbesserung und Lösung von Vorfällen - Einführung der Tools für das Tracking, d Profil - Hochschultyp HES, Universität, EPF, Ingenieurwesen oder gleichwertig in IT - 3 Jahre Mindesterfahrung in einer Rolle als DevOps Engineer und ausgezeichnete Beherrschung von DevOps-Konzepten und DevOps-Tools (Azure DevOps, TeamCity, Jenkins, Sonarqube, Artifactory, Bitbucket) - Erfahrung in der kontinuierlichen Integration von CI/CD-Projekten bestätigt (Pipeline Management, Identitätsmanagement, Restitory Git Management, Filialmanagement, Webhook...) - Beherrschung von Konzepten infra als Code und Skript Terraform und Groovy - Beherrschung von Grafana-Typ Monitoring-Tools - Erfahrung mit Microsoft Azure erforderlich, von AWS ein Asset. - Wissen über dieERP Guidewire Cloud: ein echtes Plus Sprachen: Französisch (Muttersprache), Englisch (mindestens B2) Cosa offeriamo - Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen mit der Bezeichnung \"Bester Arbeitgeber\" Mehrere Sozialleistungen, einschließlich Flexibilität in der Arbeitsorganisation - Arbeiten in einem dynamischen und leidenschaftlichen Team - Menschliche Werte mit Fokus auf das Wohlbefinden der Mitarbeiter Contatto Wir freuen uns auf Ihr komplettes Bewerbungspaket digital (mit Lebenslauf, Anschreiben, Kopien von Arbeitszertifikaten und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Fortement engagée dans sa transformation digitale, la Vaudoise Assurances désire renforcer son équipe Solutions Prestations P&C et recherche un/e Ingénieur Devops, entre 80 et 100%. Ce poste se positionne au sein du Département TD/SI. Au travers de ce rôle, vous intégrerez une équipe agile et deviendrez progressivement un interlocuteur privilégié pour accompagner les différentes équipes de développement (Dev, Product Owners et Business Analysts). Les missions qui vous attendent :\n• Créer et améliorer des services au sein de notre plateforme interne de développement\n• Soutenir les équipes de développement dans la mise en place des pipelines de CI/CD et de l'infrastructure des projets\n• Automatiser les processus en s’appuyant sur une toolchain DevOps standardisée\n• Accompagner les équipes IT dans l’adoption des bonnes pratiques\n• Fournir l’accompagnement nécessaire à l’amélioration continue et la résolution des incidents\n• Mettre en place les outils de suivi, d’alerting et de reporting Votre profil :\n• Formation supérieure type HES, Université, EPF, ingénierie ou équivalent en informatique\n• 3 ans d’expérience minimum dans un rôle de DevOps Engineer, et une excellente maîtrise des concepts DevOps et des outils DevOps (Azure DevOps, TeamCity, Jenkins, Sonarqube, Artifactory, Bitbucket)\n• Expérience confirmée en intégration continue sur des projets de CI/CD (gestion de pipelines, gestion des identités, gestion de repository Git, gestion des branches, webhook…)\n• Maîtrise des concepts Infra as Code et de scripting Terraform et Groovy\n• Maîtrise des outils de monitoring de type Grafana\n• Expérience de Microsoft Azure exigée, d’AWS un atout.\n• Connaissances de l’ERP Guidewire Cloud : un vrai plus\n• Langues : français (langue maternelle), anglais (minimum B2) Doté(e) d’un solide leadership technique, vous faites preuve de proactivité et d’un fort esprit d’équipe. Vous êtes capable de vulgariser des concepts techniques auprès d’interlocuteurs non techniques et démontrez un excellent sens de l’organisation, avec une forte orientation qualité. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/65154483/Ing%C3%A9nieur-ing%C3%A9nieure-Devops,-entre-80-et-100-?jobDbPVId=275647626&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:47.857Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "05/06/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/65154483/Ing%C3%A9nieur-ing%C3%A9nieure-Devops,-entre-80-et-100-?jobDbPVId=275647626&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Informatica e tecnologia",
-      "previousSlugs": [
-        "ingenieur-e-devops-entre-80-et-100-vaudoise-ch",
-        "ingenieur-ingenieure-devops-entre-80-et-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ingenieur-e-devops-entre-80-et-100-vaudoise-ch",
-          "ingenieur-ingenieure-devops-entre-80-et-100-vaudoise-ch"
-        ],
-        "en": [
-          "ingenieur-e-devops-entre-80-et-100-vaudoise-ch"
-        ],
-        "de": [
-          "ingenieur-e-devops-entre-80-et-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-05T23:03:29.488Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -504,7 +429,7 @@
       "url": "https://vaudoise.softgarden.io/job/63296089/Chef-de-groupe-sp%C3%A9cialis%C3%A9-en-gestion-contrats-Cheffe-de-groupe-sp%C3%A9cialis%C3%A9e-en-gestion-contrats-h-f-x-100-?jobDbPVId=275833096&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:47.553Z",
+      "crawledAt": "2026-06-30T12:57:21.478Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -525,7 +450,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
+          "gruppo-leader-specializzato-nella-gestione-dei-contratti-gruppo-leader-specializzato-nella-gestione-dei-contratti-h-f-x"
         ],
         "en": [
           "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
@@ -581,7 +507,7 @@
       "url": "https://vaudoise.softgarden.io/job/63349219/Generalagent-in-Berner-Oberland-m-w-d-100-?jobDbPVId=275078778&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:47.257Z",
+      "crawledAt": "2026-06-30T12:57:21.166Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -602,7 +528,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "generalagent-in-berner-oberland-m-w-d-100-vaudoise-ch"
+          "generalagent-in-berner-oberland-m-w-d-100-vaudoise-ch",
+          "agente-generale-bernese-oberland-m-f-d-al-100-vaudoise-assurances-bern"
         ],
         "en": [
           "generalagent-in-berner-oberland-m-w-d-100-vaudoise-ch"
@@ -639,7 +566,7 @@
       "title": "Business Analyst RH (h/f/x) - 80-100%",
       "titleByLocale": {
         "it": "Business Analista RH (h/f/x) - 80-100%",
-        "en": "Business Analyst HR (h/f/x) - 80-100%",
+        "en": "Business Analyst RH (h/f/x) - 80-100%",
         "de": "Business Analyst HR (h/f/x) - 80-100%",
         "fr": "Business Analyste RH (h/f/x) - 80-100%"
       },
@@ -655,7 +582,7 @@
       "url": "https://vaudoise.softgarden.io/job/63990868/Business-Analyst-RH-h-f-x-80-100-?jobDbPVId=275309201&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:46.956Z",
+      "crawledAt": "2026-06-30T12:57:20.856Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -676,10 +603,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-rh-h-f-x-80-100-vaudoise-ch"
+          "business-analyst-rh-h-f-x-80-100-vaudoise-ch",
+          "business-analista-rh-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -726,7 +655,7 @@
       "url": "https://vaudoise.softgarden.io/job/62654354/Responsable-Formation-%E2%80%93-Insurance-Training-h-f-x-80-100-?jobDbPVId=275639876&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:46.658Z",
+      "crawledAt": "2026-06-30T12:57:20.554Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,7 +676,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
+          "formazione-responsabile-formazione-assicurativa-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
@@ -803,7 +733,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=275273571&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:46.362Z",
+      "crawledAt": "2026-06-30T12:57:20.240Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -868,7 +798,7 @@
       "title": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
       "titleByLocale": {
         "it": "Product Manager/in previdenza (m/w/d) - 80-100%",
-        "en": "Product Manager Provision (m/f/d) - 80-100 %",
+        "en": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
         "de": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
         "fr": "Gestionnaire de produits/en Vorsorge (m/p/j) - 80-100%"
       },
@@ -884,7 +814,7 @@
       "url": "https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge-m-w-d-80-100-?jobDbPVId=275371581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:46.067Z",
+      "crawledAt": "2026-06-30T12:57:19.926Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -907,13 +837,15 @@
       "previousSlugsByLocale": {
         "it": [
           "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch",
-          "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne"
+          "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne",
+          "product-manager-in-previdenza-m-w-d-80-100-vaudoise-assurances-lausanne"
         ],
         "fr": [
           "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -960,7 +892,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060783/Sachbearbeiter-in-Inkasso-m-w-d-80-100-?jobDbPVId=275486456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:45.764Z",
+      "crawledAt": "2026-06-30T12:57:19.611Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -977,6 +909,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1023,7 +956,7 @@
       "url": "https://vaudoise.softgarden.io/job/65240161/Charg%C3%A9-Charg%C3%A9e-de-relation-client%C3%A8le-h-f-x-100-?jobDbPVId=275510721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:45.460Z",
+      "crawledAt": "2026-06-30T12:57:19.298Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1044,7 +977,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
+          "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
+          "charged-customer-relations-officer-h-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
@@ -1100,7 +1034,7 @@
       "url": "https://vaudoise.softgarden.io/job/64674339/Expert-Technique-Microsoft-365-h-f-x-80-100-?jobDbPVId=275648436&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:45.161Z",
+      "crawledAt": "2026-06-30T12:57:18.971Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1121,7 +1055,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch"
+          "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch",
+          "microsoft-365-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch"
@@ -1174,7 +1109,7 @@
       "url": "https://vaudoise.softgarden.io/job/65279086/Product-Owner-Microsoft-365-Copilot-h-f-x-80-100-?jobDbPVId=275669596&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:44.861Z",
+      "crawledAt": "2026-06-30T12:57:18.658Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1191,6 +1126,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "firstSeenAt": "2026-06-12T13:15:13.965Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1237,7 +1173,7 @@
       "url": "https://vaudoise.softgarden.io/job/63905289/Quality-FinOps-Manager-h-f-x-80-100-?jobDbPVId=275739581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:44.563Z",
+      "crawledAt": "2026-06-30T12:57:18.345Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1258,13 +1194,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
+          "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
+          "responsabile-qualita-finops-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "de": [
           "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1294,7 +1232,7 @@
       "companyDomain": "vaudoise.ch",
       "title": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
       "titleByLocale": {
-        "it": "Esperto interno (m/f/d) - 80-100 %",
+        "it": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
         "en": "Interne/r Autoexperte (m/w/d) - 80-100 %",
         "de": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
         "fr": "Interne/r Autoexperte (m/m/j) - 80-100 %"
@@ -1311,7 +1249,7 @@
       "url": "https://vaudoise.softgarden.io/job/64702594/Interne-r-Autoexperte-in-m-w-d-80-100-?jobDbPVId=275739726&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:44.248Z",
+      "crawledAt": "2026-06-30T12:57:18.031Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1332,10 +1270,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
+          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1382,7 +1322,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=276097271&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:43.953Z",
+      "crawledAt": "2026-06-30T12:57:17.717Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1403,7 +1343,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
+          "vantaggi-specialistici-incidente-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
@@ -1459,7 +1400,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=276369111&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:43.650Z",
+      "crawledAt": "2026-06-30T12:57:17.404Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1489,7 +1430,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch",
+          "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch"
@@ -1530,7 +1472,7 @@
       "titleByLocale": {
         "it": "Perdita di testa/gruppo di guadagno di malattia - 80%-100% (h/f/x)",
         "en": "Head / Group Head Loss of sickness gain - 80%-100% (h/f/x)",
-        "de": "Leiter / Gruppenleiter Verlust des Krankheitsgewinns - 80% - 100% (h / f / x)",
+        "de": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)",
         "fr": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Au sein du Département Assurances de personnes, et afin de renforcer le service Perte de gain maladie (PGM), nous recherchons un/e Chef de groupe Perte de gain maladie entre 80 et 100% , basé à Lausanne. Le rôle comporte d’une part la conduite d’une équipe de gestionnaires spécialisés et d’autre part de la gestion de dossiers de sinistres. Les missions qui vous attendent :\n• Apporter votre soutien et vos conseils techniques à vos collaborateurs dans les dossiers\n• Organiser et coordonner le travail de votre groupe : tenue de séances d’équipe, bilatérales, organisation des plans de remplacements, etc.\n• Participer activement aux séances hebdomadaires des cadres du service et collaborer étroitement avec la cheffe de service ainsi que les autres chefs de groupe\n• Former vos collaborateurs (10 personnes) et veiller à la bonne application des règles de gestion\n• Planifier, organiser et contrôler le traitement des cas de prestations de votre équipe et participer activement à l'amélioration et à la simplification des processus de traitement\n• Traiter de manière autonome et proactive une partie des cas de sinistres de votre propre portefeuille de client (à partir de l’ouverture et en étroite collaboration avec les médecins-conseils et nos Care Managers)\n• Entretenir des contacts réguliers avec les partenaires, les assurés, les employeurs et les prestataires de soins Votre profil :\n• Brevet fédéral en assurances ou titre jugé équivalent\n• Expérience confirmée dans le domaine des prestations PGM\n• Leader expérimenté(e), reconnu(e) pour votre capacité à mobiliser les équipes, à instaurer une atmosphère de travail positive et à favoriser le développement des collaborateurs, tout en prenant des décisions efficaces dans des environnements exigeants\n• De langue maternelle française, une très bonne maîtrise de l’italien constitue un atout\n• A l’aise avec les outils informatiques usuels (MS Office) Si vous êtes également un leader investi, organisé, force de proposition et faites preuve d’une forte orientation client et disposez d’un caractère positif, vous êtes alors probablement la personne que nous recherchons ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
@@ -1545,7 +1487,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=276369151&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:43.353Z",
+      "crawledAt": "2026-06-30T12:57:17.087Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1567,7 +1509,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
+          "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne"
         ],
         "en": [
           "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
@@ -1578,6 +1521,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1624,7 +1568,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=276369181&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:43.039Z",
+      "crawledAt": "2026-06-30T12:57:16.576Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1645,7 +1589,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+          "responsabile-servizi-cassa-malattia-m-w-d-80-100-vaudoise-assurances-berne"
         ],
         "en": [
           "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
@@ -1701,7 +1646,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=276446426&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:42.738Z",
+      "crawledAt": "2026-06-30T12:57:16.270Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1722,7 +1667,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
+          "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+          "consulente-senior-m-w-d-80-100-vaudoise-assurances-bern"
         ],
         "en": [
           "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
@@ -1732,6 +1678,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1778,7 +1725,7 @@
       "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=276446476&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:42.437Z",
+      "crawledAt": "2026-06-30T12:57:15.954Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1799,7 +1746,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
+          "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
@@ -1855,7 +1803,7 @@
       "url": "https://vaudoise.softgarden.io/job/65328776/Junior-Portfolio-Manager-h-f-x-80-100-%09?jobDbPVId=276496586&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:42.138Z",
+      "crawledAt": "2026-06-30T12:57:15.652Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1882,6 +1830,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:12:08.402Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1928,7 +1877,7 @@
       "url": "https://vaudoise.softgarden.io/job/65519536/Costumer-Service-Mitarbeiter-in-m-w-d-%E2%80%93-100-?jobDbPVId=276707446&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:41.833Z",
+      "crawledAt": "2026-06-30T12:57:15.340Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1949,7 +1898,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch"
+          "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
+          "costumer-service-collaboratore-trice-m-w-d-100-vaudoise-assurances-fribourg"
         ],
         "en": [
           "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch"
@@ -1959,6 +1909,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:54:48.849Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2005,7 +1956,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=276977356&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:41.524Z",
+      "crawledAt": "2026-06-30T12:57:15.026Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2026,7 +1977,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
+          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
+          "responsabile-gruppo-delle-soluzioni-architetti-it-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
@@ -2082,7 +2034,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=276977446&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:41.214Z",
+      "crawledAt": "2026-06-30T12:57:14.713Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -2113,6 +2065,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.678Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2159,7 +2112,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=276977456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:40.909Z",
+      "crawledAt": "2026-06-30T12:57:14.401Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2184,6 +2137,9 @@
         ],
         "fr": [
           "conseiller-broker-m-w-d-100-vaudoise-assurances-bern"
+        ],
+        "de": [
+          "brokerbetreuer-in-m-w-d-100-vaudoise-assurances-bern"
         ]
       },
       "previousSlugs": [
@@ -2222,7 +2178,7 @@
       "title": "Key Account Manager/in Tierversicherungen (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Key Account Manager/in Assicurazioni per Animali (m/w/d) 80-100%",
-        "en": "Key Account Manager in Animal Insurance (m/f/d) 80-100 %",
+        "en": "Key Account Manager/in Tierversicherungen (m/w/d) 80-100%",
         "de": "Key Account Manager/in Tierversicherungen (m/w/d) 80-100%",
         "fr": "Key Account Manager/in Assurance Animaux (m/w/d) 80-100%"
       },
@@ -2238,7 +2194,7 @@
       "url": "https://vaudoise.softgarden.io/job/63569294/Key-Account-Manager-in-Tierversicherungen-m-w-d-80-100-?jobDbPVId=276977486&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:40.536Z",
+      "crawledAt": "2026-06-30T12:57:14.090Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2259,13 +2215,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "key-account-manager-in-tierversicherungen-m-w-d-80-100-vaudoise-ch"
+          "key-account-manager-in-tierversicherungen-m-w-d-80-100-vaudoise-ch",
+          "key-account-manager-in-assicurazioni-per-animali-m-w-d-80-100-vaudoise-assurances-berne"
         ],
         "fr": [
           "key-account-manager-in-tierversicherungen-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:26.801Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2312,7 +2270,7 @@
       "url": "https://vaudoise.softgarden.io/job/64317263/%C3%9Cbersetzungspraktikant-in-Universit%C3%A4t-oder-Fachhochschule-m-w-x-%E2%80%93-100-?jobDbPVId=276977546&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:40.237Z",
+      "crawledAt": "2026-06-30T12:57:13.775Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2345,6 +2303,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2391,7 +2350,7 @@
       "url": "https://vaudoise.softgarden.io/job/65588916/Leiter-in-Ausbildung-%E2%80%93-Insurance-Training-m-w-d-80-100-?jobDbPVId=277043411&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:39.933Z",
+      "crawledAt": "2026-06-30T12:57:13.462Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2412,7 +2371,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
+          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
+          "responsabile-ausbildung-insurance-training-m-w-d-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
@@ -2422,6 +2382,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:20:02.997Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2468,7 +2429,7 @@
       "url": "https://vaudoise.softgarden.io/job/65607556/Gestionnaire-Service-Client-et-Souscription-h-f-x-80-100-?jobDbPVId=277128006&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:39.632Z",
+      "crawledAt": "2026-06-30T12:57:13.142Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2493,7 +2454,8 @@
         "it": [
           "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
           "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
-          "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne"
+          "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne",
+          "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
@@ -2534,7 +2496,7 @@
       "titleByLocale": {
         "it": "Capo dell'Agenzia (h/f/x) - 80-100%",
         "en": "Head of Agency (h/f/x) - 80-100%",
-        "de": "Leiter der Agentur (h/f/x) - 80-100%",
+        "de": "Chef / Cheffe d'agence (h/f/x) - 80-100%",
         "fr": "Chef / Cheffe d'agence (h/f/x) - 80-100%"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de soutenir le développement réjouissant de notre agence générale La Côte, nous recherchons, pour une entrée en fonction au 1er janvier 2027, un Chef ou une Cheffe d’agence rapportant directement à l'agent général, ayant pour mission de conduire une équipe de conseillers de l’agence de Nyon et de développer les affaires de la région Nyonnaise. Les missions qui vous attendent :\n• Former, accompagner et suivre régulièrement les conseillers au service externe\n• Participer à la stratégie de l’agence\n• Prendre en charge un portefeuille clients et contribuer à son développement ; déceler les besoins de la clientèle et leur soumettre des solutions adaptées et différenciées\n• Proposer des améliorations de processus en lien avec l'évolution des outils\n• Connaître les tendances de son marché ; s'informer régulièrement de leur évolution\n• Participer et contribuer à la vie économique et sociale de son périmètre ; se créer des opportunités de contact, développer des réseaux d'indicateurs et d'apporteurs d'affaires et les influencer activement Votre profil :\n• Certificat Intermédiaire d’assurance AFA obligatoire, diplôme IAF, brevet fédéral ou titre équivalent\n• Expérience de plusieurs années réussie dans le conseil en assurances et le management d’une équipe de vente\n• Leader orienté humain et culture de la performance\n• Fort esprit entrepreneurial\n• Compétences financières et analytiques Bien intégré dans le milieu économique et social de la région, vous aimez le contact et développez des relations. Vous êtes également doté d'un leadership naturel et savez prendre des décisions. Organisé, investi et d'un caractère positif, vous êtes force de propositions et prenez volontiers des initiatives. Votre orientation client ainsi que votre aptitude à soutenir vos collègues et à travailler en équipe vous apportent une réelle valeur ajoutée. De plus, vous êtes ouvert à former des jeunes. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
@@ -2549,7 +2511,7 @@
       "url": "https://vaudoise.softgarden.io/job/64916376/Chef-Cheffe-d-agence-h-f-x-80-100-?jobDbPVId=277246401&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:39.335Z",
+      "crawledAt": "2026-06-30T12:57:12.818Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2570,7 +2532,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
+          "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon"
         ],
         "en": [
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
@@ -2580,6 +2543,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2626,7 +2590,7 @@
       "url": "https://vaudoise.softgarden.io/job/63764914/Chef-Cheffe-de-service-Souscription-Choses-h-f-x-80-100-?jobDbPVId=277246426&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:39.037Z",
+      "crawledAt": "2026-06-30T12:57:12.503Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2647,7 +2611,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch"
+          "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch",
+          "capo-capo-servizio-abbonamento-cose-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch"
@@ -2703,7 +2668,7 @@
       "url": "https://vaudoise.softgarden.io/job/63770144/D%C3%A9veloppeur-d%C3%A9veloppeuse-Power-Platform-et-.NET-h-f-x-80-100-?jobDbPVId=277266936&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:38.736Z",
+      "crawledAt": "2026-06-30T12:57:12.190Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2724,7 +2689,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch"
+          "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch",
+          "potere-piattaforma-e-net-sviluppatore-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch"
@@ -2780,7 +2746,7 @@
       "url": "https://vaudoise.softgarden.io/job/64946996/Ing%C3%A9nieur-ing%C3%A9nieure-Devops-h-f-x-80-%C3%A0-100-?jobDbPVId=277296641&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:38.404Z",
+      "crawledAt": "2026-06-30T12:57:11.874Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2799,7 +2765,11 @@
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-h-f-x-80-a-100-vaudoise-ch",
-          "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
+          "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch",
+          "devops-ingegnere-h-f-x-80-a-100-vaudoise-assurances-lausanne"
+        ],
+        "fr": [
+          "devops-engineer-h-f-x-80-a-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
@@ -2807,6 +2777,7 @@
         "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
       ],
       "firstSeenAt": "2026-05-28T00:47:16.925Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2853,7 +2824,7 @@
       "url": "https://vaudoise.softgarden.io/job/65675871/R%C3%A9alisateur%C2%B7trice-Publicitaire-Collaborateur%C2%B7trice-%C3%89v%C3%A9nementiel%C2%B7le-h-f-x-%E2%80%93-100-?jobDbPVId=277362716&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:25:38.082Z",
+      "crawledAt": "2026-06-30T12:57:11.558Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2874,7 +2845,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
+          "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
+          "direttore-pubblicita-collaboratore-event-h-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
@@ -2898,6 +2870,72 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD"
+    },
+    {
+      "id": "vaudoise-817b94e253ab",
+      "slug": "digital-creative-specialist-h-f-x-80-100-vaudoise-ch",
+      "slugByLocale": {
+        "fr": "digital-creative-specialist-h-f-x-80-100-vaudoise-ch",
+        "it": "digital-creative-specialist-h-f-x-80-100-vaudoise-ch",
+        "en": "digital-creative-specialist-h-f-x-80-100-vaudoise-ch",
+        "de": "digital-creative-specialist-h-f-x-80-100-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Digital Creative Specialist (h/f/x) - 80-100%",
+      "titleByLocale": {
+        "fr": "Digital Creative Spécialiste (h/f/x) - 80-100%",
+        "en": "Digital Creative Specialist (h/f/x) - 80-100%",
+        "it": "Digital Creative Specialista (h/f/x) - 80-100%",
+        "de": "Digital Creative Spezialist (h/f/x) - 80-100%"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de la Division Assurances Animalières, nous recherchons un(e) Digital Creative Specialist. Les diverses missions qui vous attendent :\n• Créer des visuels (photos et vidéos) Social Media intégrant les codes actuels des plateformes, mais également pour les pages de campagne et landing pages des sites internet\n• Décliner les campagnes sur différents formats et supports\n• Développer l’approche UX/UI et faire évoluer l’expérience sur nos sites internet\n• Exécuter les actions SEO/GEO (mise à jour des contenus sur le digital en fonction des recommandations de l’équipe) Ce qui vous rend unique :\n• Formation en design graphique, communication visuelle ou marketing digital\n• Expérience confirmée (3 à 6 ans) en production visuelle marketing\n• Excellente maîtrise du français\n• Maîtrise des codes visuels des réseaux sociaux et production Social Media avérée\n• Excellente maîtrise d’outils de création (Suite Adobe, Figma ou équivalent)\n• Dynamique et rigoureux(se)\n• Capacité à délivrer avec rapidité tout en garantissant la qualité\n• Optionnel fortement apprécié : joindre un portfolio de vos réalisations et performances en création de visuels à destination des réseaux sociaux et/ou sites internet\n• Intérêt pour le monde animalier Vous êtes également autonome, fiable et doté d’un sens du détail et de l’esthétique, alors vous êtes la personne qu’il nous faut. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de la Division Assurances Animalières, nous recherchons un(e) Digital Creative Specialist. Les diverses missions qui vous attendent :\n• Créer des visuels (photos et vidéos) Social Media intégrant les codes actuels des plateformes, mais également pour les pages de campagne et landing pages des sites internet\n• Décliner les campagnes sur différents formats et supports\n• Développer l’approche UX/UI et faire évoluer l’expérience sur nos sites internet\n• Exécuter les actions SEO/GEO (mise à jour des contenus sur le digital en fonction des recommandations de l’équipe) Ce qui vous rend unique :\n• Formation en design graphique, communication visuelle ou marketing digital\n• Expérience confirmée (3 à 6 ans) en production visuelle marketing\n• Excellente maîtrise du français\n• Maîtrise des codes visuels des réseaux sociaux et production Social Media avérée\n• Excellente maîtrise d’outils de création (Suite Adobe, Figma ou équivalent)\n• Dynamique et rigoureux(se)\n• Capacité à délivrer avec rapidité tout en garantissant la qualité\n• Optionnel fortement apprécié : joindre un portfolio de vos réalisations et performances en création de visuels à destination des réseaux sociaux et/ou sites internet\n• Intérêt pour le monde animalier Vous êtes également autonome, fiable et doté d’un sens du détail et de l’esthétique, alors vous êtes la personne qu’il nous faut. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de la Division Assurances Animalières, nous recherchons un(e) Digital Creative Specialist. Les diverses missions qui vous attendent :\n• Créer des visuels (photos et vidéos) Social Media intégrant les codes actuels des plateformes, mais également pour les pages de campagne et landing pages des sites internet\n• Décliner les campagnes sur différents formats et supports\n• Développer l’approche UX/UI et faire évoluer l’expérience sur nos sites internet\n• Exécuter les actions SEO/GEO (mise à jour des contenus sur le digital en fonction des recommandations de l’équipe) Ce qui vous rend unique :\n• Formation en design graphique, communication visuelle ou marketing digital\n• Expérience confirmée (3 à 6 ans) en production visuelle marketing\n• Excellente maîtrise du français\n• Maîtrise des codes visuels des réseaux sociaux et production Social Media avérée\n• Excellente maîtrise d’outils de création (Suite Adobe, Figma ou équivalent)\n• Dynamique et rigoureux(se)\n• Capacité à délivrer avec rapidité tout en garantissant la qualité\n• Optionnel fortement apprécié : joindre un portfolio de vos réalisations et performances en création de visuels à destination des réseaux sociaux et/ou sites internet\n• Intérêt pour le monde animalier Vous êtes également autonome, fiable et doté d’un sens du détail et de l’esthétique, alors vous êtes la personne qu’il nous faut. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de la Division Assurances Animalières, nous recherchons un(e) Digital Creative Specialist. Les diverses missions qui vous attendent :\n• Créer des visuels (photos et vidéos) Social Media intégrant les codes actuels des plateformes, mais également pour les pages de campagne et landing pages des sites internet\n• Décliner les campagnes sur différents formats et supports\n• Développer l’approche UX/UI et faire évoluer l’expérience sur nos sites internet\n• Exécuter les actions SEO/GEO (mise à jour des contenus sur le digital en fonction des recommandations de l’équipe) Ce qui vous rend unique :\n• Formation en design graphique, communication visuelle ou marketing digital\n• Expérience confirmée (3 à 6 ans) en production visuelle marketing\n• Excellente maîtrise du français\n• Maîtrise des codes visuels des réseaux sociaux et production Social Media avérée\n• Excellente maîtrise d’outils de création (Suite Adobe, Figma ou équivalent)\n• Dynamique et rigoureux(se)\n• Capacité à délivrer avec rapidité tout en garantissant la qualité\n• Optionnel fortement apprécié : joindre un portfolio de vos réalisations et performances en création de visuels à destination des réseaux sociaux et/ou sites internet\n• Intérêt pour le monde animalier Vous êtes également autonome, fiable et doté d’un sens du détail et de l’esthétique, alors vous êtes la personne qu’il nous faut. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de la Division Assurances Animalières, nous recherchons un(e) Digital Creative Specialist. Les diverses missions qui vous attendent :\n• Créer des visuels (photos et vidéos) Social Media intégrant les codes actuels des plateformes, mais également pour les pages de campagne et landing pages des sites internet\n• Décliner les campagnes sur différents formats et supports\n• Développer l’approche UX/UI et faire évoluer l’expérience sur nos sites internet\n• Exécuter les actions SEO/GEO (mise à jour des contenus sur le digital en fonction des recommandations de l’équipe) Ce qui vous rend unique :\n• Formation en design graphique, communication visuelle ou marketing digital\n• Expérience confirmée (3 à 6 ans) en production visuelle marketing\n• Excellente maîtrise du français\n• Maîtrise des codes visuels des réseaux sociaux et production Social Media avérée\n• Excellente maîtrise d’outils de création (Suite Adobe, Figma ou équivalent)\n• Dynamique et rigoureux(se)\n• Capacité à délivrer avec rapidité tout en garantissant la qualité\n• Optionnel fortement apprécié : joindre un portfolio de vos réalisations et performances en création de visuels à destination des réseaux sociaux et/ou sites internet\n• Intérêt pour le monde animalier Vous êtes également autonome, fiable et doté d’un sens du détail et de l’esthétique, alors vous êtes la personne qu’il nous faut. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/65702651/Digital-Creative-Specialist-h-f-x-80-100-?jobDbPVId=277472226&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-30T12:57:10.961Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "30/06/26",
+      "applyUrl": "https://vaudoise.softgarden.io/job/65702651/Digital-Creative-Specialist-h-f-x-80-100-?jobDbPVId=277472226&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Marketing, media, RP e comunicazione",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-06-30T12:57:10.961Z"
     }
   ]
 }
