@@ -27,6 +27,7 @@ import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
+import { adFilterSafeChunkName } from './build-plugins/shared/adFilterSafeChunkName';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
 import { legacyAliasPlugin } from './build-plugins/legacyAliasPlugin';
@@ -450,7 +451,12 @@ export default defineConfig(({ mode }) => {
  !dep.includes('vendor-charts') && 
  !dep.includes('vendor-pdf') &&
  !dep.includes('vendor-maps') &&
- !dep.includes('vendor-firebase') &&
+ // `deps` are EMITTED filenames, which chunkFileNames runs through
+ // adFilterSafeChunkName (firebase→fdb, #2971). Match the sanitized token so
+ // this no-preload guard keeps suppressing the heavy firebase vendor chunks
+ // instead of silently letting them eager-preload on the entry. Sanitising the
+ // logical name inline keeps it readable AND rename-proof if the alias changes.
+ !dep.includes(adFilterSafeChunkName('vendor-firebase')) &&
  !dep.includes('shared-services') &&
  !dep.includes('vendor-icons') &&
  !dep.includes('seoService') &&
@@ -530,8 +536,13 @@ export default defineConfig(({ mode }) => {
  // (dot separator: can't be confused with a real slug suffix nor with the
  // legacy `-<hash8>` shape the CDN janitor prunes).
  const m = (chunk.facadeModuleId ?? '').match(/[\\/]services[\\/]locales[\\/]blog-body(-ch)?[\\/]([a-z]{2})[\\/]/);
- if (m) return `assets/[name].${m[1] ? 'ch.' : ''}${m[2]}.js`;
- return 'assets/[name].js';
+ // Neutralise ad-filter trigger substrings in the stable basename so a
+ // blocked/surrogated first-party chunk can't link-break the page (issue
+ // #2971). No-op for names without a tracker keyword; Rollup rewrites every
+ // internal import reference to the emitted name, so the rename is consistent.
+ const safe = adFilterSafeChunkName(chunk.name ?? '');
+ if (m) return `assets/${safe}.${m[1] ? 'ch.' : ''}${m[2]}.js`;
+ return `assets/${safe}.js`;
  },
  assetFileNames: (assetInfo) => {
  const n = assetInfo.name || (assetInfo.names && assetInfo.names[0]) || '';

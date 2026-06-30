@@ -55,8 +55,13 @@ describe('stable asset filenames', () => {
     expect(src).toContain("entryFileNames: 'assets/index-entry.js'");
     // chunkFileNames is a function: stable default + locale-qualified
     // blog-body chunks (their basenames collide across the 4 locale dirs).
-    expect(src).toContain("return 'assets/[name].js'");
-    expect(src).toContain("return `assets/[name].${m[1] ? 'ch.' : ''}${m[2]}.js`");
+    // The basename is routed through adFilterSafeChunkName (issue #2971) — a
+    // deterministic 1:1 substring swap that keeps names STABLE while making them
+    // invisible to ad-block network filters; it is a no-op for non-tracker names.
+    expect(src).toContain("import { adFilterSafeChunkName } from './build-plugins/shared/adFilterSafeChunkName'");
+    expect(src).toContain("const safe = adFilterSafeChunkName(chunk.name ?? '')");
+    expect(src).toContain("return `assets/${safe}.js`");
+    expect(src).toContain("return `assets/${safe}.${m[1] ? 'ch.' : ''}${m[2]}.js`");
     // All stylesheets stable; only non-CSS bundler assets keep the hash.
     expect(src).toContain("if (n.endsWith('.css')) return 'assets/[name][extname]'");
   });
