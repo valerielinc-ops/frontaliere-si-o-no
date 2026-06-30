@@ -1990,7 +1990,7 @@
       "slugByLocale": {
         "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
-        "de": "electrical-fitter-sulzer-winterthur",
+        "de": "elektrischer-fitter-sulzer-winterthur",
         "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -2031,7 +2031,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "electrical-fitter-sulzer-ch"
+        "electrical-fitter-sulzer-ch",
+        "electrical-fitter-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2039,6 +2040,9 @@
         ],
         "fr": [
           "electrical-fitter-sulzer-ch"
+        ],
+        "de": [
+          "electrical-fitter-sulzer-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-04T01:29:13.018Z",
@@ -13031,7 +13035,7 @@
         "it": "risorse-umane-business-partner-sulzer-shanghai",
         "en": "hr-business-partner-sulzer-ch",
         "de": "personalwesen-business-partner-sulzer-shanghai",
-        "fr": "partenaire-d-affaires-rh-sulzer-shanghai"
+        "fr": "partenaire-operationnel-rh-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -13074,7 +13078,7 @@
       "previousSlugs": [
         "hr-business-partner-sulzer-ch",
         "hr-business-partner-sulzer-shanghai",
-        "partenaire-operationnel-rh-sulzer-shanghai"
+        "partenaire-d-affaires-rh-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13085,7 +13089,7 @@
         ],
         "fr": [
           "hr-business-partner-sulzer-shanghai",
-          "partenaire-operationnel-rh-sulzer-shanghai"
+          "partenaire-d-affaires-rh-sulzer-shanghai"
         ]
       },
       "firstSeenAt": "2026-05-28T14:24:07.018Z",
@@ -22153,12 +22157,12 @@
     },
     {
       "id": "sulzer-ea0098ac41da",
-      "slug": "field-service-manager-sulzer-ch",
+      "slug": "gestore-di-servizi-sulzer-pasadena",
       "slugByLocale": {
         "en": "field-service-manager-sulzer-ch",
-        "it": "field-service-manager-sulzer-ch",
-        "de": "field-service-manager-sulzer-ch",
-        "fr": "field-service-manager-sulzer-ch"
+        "it": "gestore-di-servizi-sulzer-pasadena",
+        "de": "au-endienstleiter-sulzer-pasadena",
+        "fr": "administrateur-du-service-mobile-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22213,7 +22217,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-29T23:33:00.411Z"
+      "firstSeenAt": "2026-06-29T23:33:00.411Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-manager-sulzer-ch"
+        ],
+        "de": [
+          "field-service-manager-sulzer-ch"
+        ],
+        "fr": [
+          "field-service-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-1a666aee1e5c",
