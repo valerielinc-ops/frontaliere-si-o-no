@@ -216,7 +216,12 @@ export function upcomingEvents(events, todayIso) {
   const today = todayIso || isoDay(new Date());
   return [...events]
     .filter((e) => e && typeof e.startDate === 'string' && (e.endDate || e.startDate) >= today)
-    .sort((a, b) => (a.startDate || '').localeCompare(b.startDate || '') || (a.title || '').localeCompare(b.title || ''));
+    .sort(
+      (a, b) =>
+        (a.startDate || '').localeCompare(b.startDate || '') ||
+        (a.title || '').localeCompare(b.title || '') ||
+        (a.id || '').localeCompare(b.id || ''),
+    );
 }
 
 /** Group events by their resolved comune (events without a comune are dropped). */

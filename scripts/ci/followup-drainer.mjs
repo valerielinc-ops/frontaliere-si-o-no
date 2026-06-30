@@ -54,8 +54,8 @@ const LBL_PARKED = 'fu-parked';
 // agent:fix-queued) non verrà mai drenato: chiudilo (riapribile se ricorre). I
 // `fu-parked` (tentativi esauriti) sono i candidati principali. Drain, non
 // perdita: commento esplicito + reversibile. 0 disabilita.
-const AGEOUT_DAYS = Number(process.env.FOLLOWUP_AGEOUT_DAYS || 21);
-const AGEOUT_INACTIVE_DAYS = Number(process.env.FOLLOWUP_AGEOUT_INACTIVE_DAYS || 14);
+const AGEOUT_DAYS = Number(process.env.FOLLOWUP_AGEOUT_DAYS || 10);
+const AGEOUT_INACTIVE_DAYS = Number(process.env.FOLLOWUP_AGEOUT_INACTIVE_DAYS || 7);
 const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20);
 
 // Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
@@ -272,16 +272,21 @@ const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
 // --- PARKED-RETRY: ri-accoda i parked ritentabili (convergenza backlog) -------
 // Un follow-up va `fu-parked` dopo MAX_ATTEMPTS fix falliti. Molti fallirono per
 // cause ORA risolte (cap turni #1919/#1952, aggregate-sweep #1979, drift #2007):
-// restano un pool stagnante che NON drena fino all'age-out 21gg. Questo ri-prova
+// restano un pool stagnante che NON drena fino all'age-out 10gg. Questo ri-prova
 // i parked con il fixer migliorato, BOUNDED (no loop infinito):
 //   - skip WF-scope (capability-guard: il fixer CI non può toccare workflows →
 //     re-fail garantito; restano umani/age-out);
 //   - cooldown: solo parked fermi da ≥ RETRY_COOLDOWN_DAYS (non i freschi);
 //   - generation-cap: `fu-reparked:N` ≤ MAX_REPARK_GEN (poi resta parked stabile);
 //   - cap/run anti-burst.
-const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 2);
-const MAX_REPARK_GEN = Number(process.env.FOLLOWUP_MAX_REPARK_GEN || 2);
-const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 5);
+// Token-frugality (2026-06-30): default abbassati per strozzare il ri-burn di
+// quota Max sui parked già falliti MAX_ATTEMPTS×. Cooldown 2→5gg (ri-prova meno
+// spesso), repark-gen 2→1 (un solo giro di retry, poi parked stabile fino
+// all'age-out), cap/run 5→1 (no burst di run Claude su pool a basso rendimento).
+// Override via env se serve più aggressività di convergenza.
+const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 5);
+const MAX_REPARK_GEN = Number(process.env.FOLLOWUP_MAX_REPARK_GEN || 1);
+const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 1);
 const reparkGenOf = (iss) => {
   const m = names(iss).map((n) => /^fu-reparked:(\d+)$/.exec(n)).find(Boolean);
   return m ? parseInt(m[1], 10) : 0;
