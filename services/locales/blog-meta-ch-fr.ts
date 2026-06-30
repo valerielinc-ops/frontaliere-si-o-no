@@ -778,6 +778,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-g-svizzera-nazionale.title': 'Permis G en Suisse : guide pratique pour les travailleurs frontaliers',
     'blog.article.permesso-g-svizzera-nazionale.excerpt': 'Le permis G est essentiel pour les frontaliers qui travaillent en Suisse ; voici ce qu\'il faut savoir sur les exigences, la durée et les procédures.',
     'blog.article.permesso-g-svizzera-nazionale.imageAlt': 'Vue panoramique de Lugano avec des travailleurs frontaliers passant un point de contrôle à la frontière suisse',
+    'blog.article.volg-binn-novita-2024.title': 'Volg Binn : nouveautés nationales pour le commerce local',
+    'blog.article.volg-binn-novita-2024.excerpt': 'Volg renouvelle sa présence à Binn avec de nouvelles offres et initiatives pour les consommateurs suisses.',
+    'blog.article.volg-binn-novita-2024.imageAlt': 'Vue photoréaliste d\'un magasin Volg dans un village suisse avec paysage alpin',
 };
 
 export default blogMetaChFr;

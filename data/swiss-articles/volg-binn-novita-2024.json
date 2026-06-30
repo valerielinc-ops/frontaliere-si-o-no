@@ -1,0 +1,40 @@
+{
+  "id": "volg-binn-novita-2024",
+  "slug": "volg-binn-novita-2024",
+  "publishedAt": "2026-06-30T21:27:12.904Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.557097374563488,
+    "confidence": 0.8,
+    "finalScore": 10.04567789965079,
+    "topK": [
+      {
+        "slug": "ribaltone-mps-lovaglio-frontalieri-ticino",
+        "cosine": 0.784818585910218
+      },
+      {
+        "slug": "corsi-vela-adulti-luino-avav-2026",
+        "cosine": 0.7839605469155414
+      },
+      {
+        "slug": "carburanti-ticino-confronto-2024",
+        "cosine": 0.7801781763314503
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.7782492042216644
+      },
+      {
+        "slug": "multa-svapo-stazioni-ticino-2026",
+        "cosine": 0.778044750142409
+      }
+    ],
+    "score": 2.5114194749126977,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

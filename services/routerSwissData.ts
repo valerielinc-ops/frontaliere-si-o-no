@@ -282,6 +282,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dogana-brogeda': { it: 'dogana-brogeda', en: 'brogeda-customs-waiting-times', de: 'brogeda-zollwartezeiten', fr: 'douane-brogeda-delais-attente' },
  'reclutamento-lugano': { it: 'reclutamento-lugano', en: 'recruitment-lugano', de: 'rekrutierung-lugano', fr: 'recrutement-lugano' },
  'permesso-g-svizzera-nazionale': { it: 'permesso-g-svizzera-nazionale', en: 'switzerland-permit-g', de: 'schweiz-permit-g', fr: 'permis-g-suisse' },
+ 'volg-binn-novita-2024': { it: 'volg-binn-novita-2024', en: 'volg-binn-news-2024', de: 'volg-binn-neuigkeiten-2024', fr: 'volg-binn-nouveautes-2024' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
