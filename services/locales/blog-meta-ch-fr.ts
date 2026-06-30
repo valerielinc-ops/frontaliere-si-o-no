@@ -733,6 +733,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Concours publics au Tessin : guide national mis à jour',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Aperçu des concours publics à Lugano et au Tessin : où les trouver, les entités impliquées, les modalités de participation et les procédures pratiques.',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Hôtel de ville de Lugano et place lors d\'un concours public.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Où vivent les frontaliers lombards : boom Brianza et numéros officiels',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Plus de 60 000 frontaliers lombards vivent entre Côme et Varèse ; la Brianza croît de 77 % en dix ans.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Vue panoramique de la zone frontalière entre le Tessin et la Lombardie.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stade douanier : passage et procédures à la frontière suisse',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'Le col de Stabio représente un point de transit entre la Suisse et l\'Italie. Mise à jour des procédures douanières.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Poste frontière de Stabio, symbole de la frontière suisse-italienne.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Douane Chiasso : temps d\'attente et viabilité',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analyse des flux de trafic à la douane routière de Chiasso. Informations mises à jour pour ceux qui transitent quotidiennement entre l\'Italie et la Suisse.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Douane routière de Chiasso aux heures de pointe',
+    'blog.article.benzina-prezzi-svizzera-oggi.title': 'Prix de l\'essence en Suisse aujourd\'hui',
+    'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'Les prix de l\'essence en Suisse varient en fonction de la région et du type de carburant. Voici les prix actuels.',
+    'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Station-service à Bellinzona avec prix du carburant actuels',
+    'blog.article.guess-stabio-lavoro-merchandiser.title': 'Guess Stabio : opportunités d\'emploi en tant que merchandiseur',
+    'blog.article.guess-stabio-lavoro-merchandiser.excerpt': 'Annonce d\'emploi à Stabio : recherche de marchands pour une marque de mode connue avec un contrat à durée déterminée.',
+    'blog.article.guess-stabio-lavoro-merchandiser.imageAlt': 'Merchandiser travaillant dans un magasin à Stabio, Suisse',
 };
 
 export default blogMetaChFr;

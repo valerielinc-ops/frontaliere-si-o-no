@@ -733,6 +733,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Public competitions in Ticino: updated national guide',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Overview of public competitions in Lugano and Ticino: where to find them, bodies involved, methods of participation and practical process.',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Lugano city hall and square during a public competition.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Where the Lombard frontier workers live: boom Brianza and official numbers',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'More than 60,000 Lombard frontier workers live between Como and Varese; Brianza has grown by 77% in ten years.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Panoramic view of the border area between Ticino and Lombardy.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stabio customs: passage and procedures at the Swiss border',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'The Stabio crossing is a transit point between Switzerland and Italy. Update on customs procedures.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Stabio border crossing, symbol of the Swiss-Italian frontier.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Customs Chiasso: waiting times and viability',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analysis of traffic flows at Chiasso road customs. Updated information for those who transit daily between Italy and Switzerland.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Chiasso road customs crossing during peak hours',
+    'blog.article.benzina-prezzi-svizzera-oggi.title': 'Petrol prices in Switzerland today',
+    'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'Petrol prices in Switzerland vary depending on the region and fuel type. Here are the current prices.',
+    'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Gas station in Bellinzona with current fuel prices',
+    'blog.article.guess-stabio-lavoro-merchandiser.title': 'Guess Stabio: job opportunities as a merchandiser',
+    'blog.article.guess-stabio-lavoro-merchandiser.excerpt': 'Job listing in Stabio: search for merchandisers for well-known fashion brands with fixed-term contracts.',
+    'blog.article.guess-stabio-lavoro-merchandiser.imageAlt': 'Merchandiser working in a store in Stabio, Switzerland',
 };
 
 export default blogMetaChEn;

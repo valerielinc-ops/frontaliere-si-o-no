@@ -733,6 +733,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.title': 'Concorsi pubblici in Ticino: guida nazionale aggiornata',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.excerpt': 'Panoramica sui concorsi pubblici a Lugano e in Ticino: dove trovarli, enti coinvolti, modalità di partecipazione e iter pratico.',
     'blog.article.concorsi-pubblici-ticino-guida-nazionale.imageAlt': 'Palazzo municipale di Lugano e piazza durante un concorso pubblico.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Dove vivono i frontalieri lombardi: boom Brianza e numeri ufficiali',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Oltre 60.000 frontalieri lombardi abitano tra Como e Varese; Brianza cresce del 77% in dieci anni.',
+    'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Vista panoramica sulla zona di confine tra Ticino e Lombardia.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stabio dogana: passaggio e procedure al confine svizzero',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'Il valico di Stabio rappresenta un punto di transito tra Svizzera e Italia. Aggiornamento sulle procedure doganali.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Valico doganale di Stabio, simbolo del confine svizzero-italiano.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Dogana Chiasso: tempi di attesa e viabilità',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analisi dei flussi di traffico alla dogana stradale di Chiasso. Informazioni aggiornate per chi transita quotidianamente tra Italia e Svizzera.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Dogana stradale di Chiasso durante le ore di punta',
+    'blog.article.benzina-prezzi-svizzera-oggi.title': 'Prezzi della benzina in Svizzera oggi',
+    'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante. Ecco i prezzi attuali.',
+    'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Stazione di servizio a Bellinzona con prezzi della benzina',
+    'blog.article.guess-stabio-lavoro-merchandiser.title': 'Guess Stabio: opportunità di lavoro come merchandiser',
+    'blog.article.guess-stabio-lavoro-merchandiser.excerpt': 'Annuncio di lavoro a Stabio: ricerca merchandiser per noto brand di moda con contratto a tempo determinato.',
+    'blog.article.guess-stabio-lavoro-merchandiser.imageAlt': 'Merchandiser al lavoro in negozio a Stabio, Svizzera',
 };
 
 export default blogMetaChIt;

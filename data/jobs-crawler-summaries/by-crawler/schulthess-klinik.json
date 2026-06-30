@@ -1,18 +1,19 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-06-29T14:15:21.152Z",
+  "generatedAt": "2026-06-29T23:02:59.732Z",
   "total": 5,
-  "newCount": 2,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2871,
-  "avgDurationMs": 2871,
+  "durationMs": 3349,
+  "avgDurationMs": 3349,
   "durationHistory": [
-    2871
+    3349
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "schulthess-klinik-37ab220e3234",
       "slug": "mitarbeiterin-mitarbeiter-room-service-schulthess-klinik-lengghalde-2-zurich",
@@ -20,13 +21,13 @@
       "companyKey": "schulthess-klinik",
       "companyDomain": "schulthess-klinik.ch",
       "title": "Mitarbeiterin / Mitarbeiter Room Service",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lengghalde 2, Zürich",
       "canton": "ZH",
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/a2344639-6389-423c-8a22-07f082b1c437",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:15:19.085Z",
+      "crawledAt": "2026-06-29T23:02:57.215Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-06-29",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1946",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-06-29T14:15:19.085Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -56,13 +58,13 @@
       "companyKey": "schulthess-klinik",
       "companyDomain": "schulthess-klinik.ch",
       "title": "Arztsekretärin / Arztsekretär Wirbelsäulenchirurgie",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lengghalde 2, Zürich",
       "canton": "ZH",
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-wirbelsaeulenchirurgie/7607b33a-8296-4b17-b04a-7b6846e0c4c6",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:15:19.112Z",
+      "crawledAt": "2026-06-29T23:02:57.244Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-06-29",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2033",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-06-29T14:15:19.112Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "schulthess-klinik-50404989604c",
       "slug": "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2",
@@ -100,7 +101,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/experte-expertin-anaesthesiepflege-nds-hf-in-ausbildung/b875938d-269e-4c26-908f-b9fbff344713",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:15:19.115Z",
+      "crawledAt": "2026-06-29T23:02:57.247Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +138,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-abendreinigung/bb80d999-f343-4117-9089-a719a7bc15b9",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:15:19.119Z",
+      "crawledAt": "2026-06-29T23:02:57.250Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,7 +175,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/3ffb96ec-37cc-4a3c-b0af-ce35d3983c9c",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T14:15:19.121Z",
+      "crawledAt": "2026-06-29T23:02:57.252Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",

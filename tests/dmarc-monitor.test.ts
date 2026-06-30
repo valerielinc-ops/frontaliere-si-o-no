@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { analyze, isKnown, nextEnforcementStep } from '../scripts/dmarc-monitor.mjs';
+import { analyze, isKnown, nextEnforcementStep, buildFailBody } from '../scripts/dmarc-monitor.mjs';
 
 // Helper: build a GraphQL-shaped source row.
 function row(sourceOrgName: string, total: number, dmarc: number, sourceIP = '1.2.3.4') {
@@ -63,15 +63,51 @@ describe('dmarc-monitor', () => {
       expect(a.ready).toBe(false);
     });
 
-    it('flags a KNOWN sender too when it fails in volume (misconfig, would break under enforcement)', () => {
+    it('flags a KNOWN sender when it fails SYSTEMATICALLY (low pass-rate = real misconfig)', () => {
       const a = analyze([
         row('MAILJET SAS', 500, 500),
-        row('Amazon.com, Inc.', 80, 40), // 40 fails > floor
+        row('Amazon.com, Inc.', 80, 40), // 50% pass-rate, 40 fails > floor → systematic
       ]);
       const failing = a.failingSources.find((s) => s.org === 'Amazon.com, Inc.')!;
       expect(failing).toBeTruthy();
       expect(failing.known).toBe(true);
       expect(a.ready).toBe(false);
+    });
+
+    it('does NOT flag a healthy KNOWN sender whose only failures are a forwarding tail', () => {
+      // Mirrors the real Mailjet snapshot: ~96% pass, a 65-msg both-fail tail
+      // (forwarded copies). Above the volume floor but a high pass-rate → noise,
+      // not a misconfig. Surfacing it would re-open this issue every week.
+      const a = analyze([
+        row('MAILJET SAS', 1506, 1441), // 95.7% pass, 65 fails > FAIL_MIN_VOL (20)
+      ]);
+      expect(a.failingSources).toHaveLength(0);
+    });
+
+    it('flags a systematically-failing KNOWN sender but ignores a healthy one in the same window', () => {
+      // The production #3066 snapshot: Maileroo (0% pass) is real; Mailjet's
+      // forwarding tail is noise. Only Maileroo must surface.
+      const a = analyze([
+        row('MAILJET SAS', 1506, 1441), // 95.7% pass → ignored
+        row('The Constant Company, LLC', 96, 0, '85.204.106.10'), // 0% pass (Maileroo) → flagged
+      ]);
+      expect(a.failingSources).toHaveLength(1);
+      expect(a.failingSources[0].org).toBe('The Constant Company, LLC');
+      expect(a.failingSources[0].fail).toBe(96);
+      expect(a.failingSources[0].topFailIP).toBe('85.204.106.10');
+    });
+
+    it('always flags an UNKNOWN source failing in volume, even with a high pass-rate', () => {
+      // The pass-rate floor is a KNOWN-sender concession only — an unrecognised
+      // org could be spoofing, so a meaningful fail volume is surfaced regardless.
+      const a = analyze([
+        row('MAILJET SAS', 500, 500),
+        row('Random Hosting GmbH', 1000, 960, '9.9.9.9'), // 96% pass but UNKNOWN, 40 fails
+      ]);
+      const bad = a.failingSources.find((s) => s.org === 'Random Hosting GmbH')!;
+      expect(bad).toBeTruthy();
+      expect(bad.known).toBe(false);
+      expect(bad.fail).toBe(40);
     });
 
     it('is not ready when the total sample is too small even with a clean pass rate', () => {
@@ -116,6 +152,37 @@ describe('dmarc-monitor', () => {
     it('suggests nothing when not ready, regardless of policy', () => {
       expect(nextEnforcementStep('none', notReady)).toBeNull();
       expect(nextEnforcementStep('quarantine', notReady)).toBeNull();
+    });
+  });
+
+  describe('buildFailBody — null-policy guard', () => {
+    // A minimal analysis with one failing source to exercise the policy-aware advice.
+    const a = analyze([
+      row('MAILJET SAS', 500, 500),
+      row('Sketchy Spoofer Ltd', 50, 0, '9.9.9.9'),
+    ]);
+    const since = '2026-06-23';
+
+    it('with policy=null gives cautious "policy unknown" advice instead of defaulting to non-reject branch', () => {
+      const body = buildFailBody(a, 7, since, null);
+      // Must acknowledge the uncertainty — not silently treat null as "not reject".
+      expect(body).toContain('sconosciuta');
+      // Must NOT give the (wrong) "fix before tightening" advice that assumes non-reject.
+      expect(body).not.toContain('PRIMA di irrigidire la policy');
+      // Must NOT give the reject-specific "already rejected" text either (we don't know).
+      expect(body).not.toContain('rifiutata ADESSO**: è\n  consegna legittima');
+    });
+
+    it('with policy=reject gives the urgent "already bouncing" advice for a known sender', () => {
+      const body = buildFailBody(a, 7, since, 'reject');
+      expect(body).toContain('rifiutata ADESSO');
+      expect(body).toContain('sta già rifiutando');
+    });
+
+    it('with policy=none gives the "fix before tightening" non-urgent advice', () => {
+      const body = buildFailBody(a, 7, since, 'none');
+      expect(body).toContain('PRIMA di irrigidire la policy');
+      expect(body).not.toContain('rifiutata ADESSO**: è\n  consegna legittima');
     });
   });
 });

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-06-29T13:52:12.435Z",
+  "assembledAt": "2026-06-29T22:51:35.930Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:52:09.566Z",
+      "crawledAt": "2026-06-29T22:51:33.017Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:52:08.543Z",
+      "crawledAt": "2026-06-29T22:51:32.404Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -183,9 +183,9 @@
     },
     {
       "id": "siegfried-edb1dd9691d1",
-      "slug": "recensione-dati-analitica-siegfried-zofingen",
+      "slug": "revisore-dei-dati-analitico-siegfried-zofingen",
       "slugByLocale": {
-        "it": "recensione-dati-analitica-siegfried-zofingen",
+        "it": "revisore-dei-dati-analitico-siegfried-zofingen",
         "en": "anal-rev-siegfried-zofingen",
         "de": "analytical-data-reviewer-siegfried-ch",
         "fr": "chercheur-de-donnees-analytiques-siegfried-zofingen"
@@ -195,7 +195,7 @@
       "companyDomain": "siegfried.ch",
       "title": "Analytical Data Reviewer",
       "titleByLocale": {
-        "it": "Recensione dati analitica",
+        "it": "Revisore dei dati analitico",
         "en": "Anal Rev",
         "de": "Analytical Data Reviewer",
         "fr": "Chercheur de données analytiques"
@@ -212,7 +212,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:52:07.858Z",
+      "crawledAt": "2026-06-29T22:51:31.791Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,15 +231,15 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "analytical-data-reviewer-siegfried-ch",
-        "revisore-dei-dati-analitico-siegfried-zofingen",
         "analytical-data-reviewer-siegfried-zofingen",
+        "recensione-dati-analitica-siegfried-zofingen",
         "analytische-datenprufer-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analytical-data-reviewer-siegfried-ch",
-          "revisore-dei-dati-analitico-siegfried-zofingen",
-          "analytical-data-reviewer-siegfried-zofingen"
+          "analytical-data-reviewer-siegfried-zofingen",
+          "recensione-dati-analitica-siegfried-zofingen"
         ],
         "de": [
           "analytische-datenprufer-siegfried-zofingen"
@@ -292,7 +292,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-DP-Development---Technology_R26_123",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T13:52:07.098Z",
+      "crawledAt": "2026-06-29T22:51:31.184Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -370,7 +370,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Emergency-and-Fire-Services-Coordinator_R26_416",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:52:06.147Z",
+      "crawledAt": "2026-06-29T22:51:30.572Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -445,7 +445,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:52:05.335Z",
+      "crawledAt": "2026-06-29T22:51:29.958Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -471,10 +471,10 @@
           "betriebsingenieur-in-siegfried-ch",
           "betriebsingenieur-in-siegfried-zofingen"
         ],
-        "fr": [
+        "en": [
           "betriebsingenieur-in-siegfried-zofingen"
         ],
-        "en": [
+        "fr": [
           "betriebsingenieur-in-siegfried-zofingen"
         ]
       },
@@ -525,7 +525,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:52:04.574Z",
+      "crawledAt": "2026-06-29T22:51:29.341Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -600,7 +600,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:52:03.816Z",
+      "crawledAt": "2026-06-29T22:51:28.732Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -672,7 +672,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:52:03.006Z",
+      "crawledAt": "2026-06-29T22:51:28.123Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -724,7 +724,7 @@
         "it": "controllo-del-laboratorio-qc-siegfried-evionnaz",
         "en": "quality-control-laboratory-supervisor-siegfried-evionnaz",
         "de": "laborleiter-qc-siegfried-evionnaz",
-        "fr": "lab-supervisor-qc-siegfried-evionnaz"
+        "fr": "lab-supervisor-qc-siegfried-ch"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -748,7 +748,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-QC_R26_463",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:52:02.176Z",
+      "crawledAt": "2026-06-29T22:51:27.512Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -767,7 +767,7 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugsByLocale": {
         "fr": [
-          "lab-supervisor-qc-siegfried-ch"
+          "lab-supervisor-qc-siegfried-evionnaz"
         ],
         "it": [
           "lab-supervisor-qc-siegfried-ch",
@@ -783,6 +783,7 @@
       },
       "previousSlugs": [
         "lab-supervisor-qc-siegfried-ch",
+        "lab-supervisor-qc-siegfried-evionnaz",
         "lab-supervisore-qc-siegfried-evionnaz",
         "lab-vorgesetzter-qc-siegfried-evionnaz"
       ],
@@ -807,7 +808,7 @@
       "slug": "piombo-opex-siegfried-evionnaz",
       "slugByLocale": {
         "it": "piombo-opex-siegfried-evionnaz",
-        "en": "opex-lead-siegfried-evionnaz",
+        "en": "opex-lead-siegfried-ch",
         "de": "op-leitung-siegfried-evionnaz",
         "fr": "chef-d-equipe-siegfried-evionnaz"
       },
@@ -833,7 +834,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/OPEX-Lead_R26_432",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T13:52:01.514Z",
+      "crawledAt": "2026-06-29T22:51:26.896Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -851,6 +852,9 @@
       "jobReqId": "R26_432",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugsByLocale": {
+        "en": [
+          "opex-lead-siegfried-evionnaz"
+        ],
         "it": [
           "opex-lead-siegfried-ch"
         ],
@@ -862,6 +866,7 @@
         ]
       },
       "previousSlugs": [
+        "opex-lead-siegfried-evionnaz",
         "opex-lead-siegfried-ch"
       ],
       "firstSeenAt": "2026-05-29T00:30:06.196Z",
@@ -911,7 +916,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-of-Sales---Business-Development-Drug-Products_R26_482-2",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T13:52:00.762Z",
+      "crawledAt": "2026-06-29T22:51:26.292Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -995,7 +1000,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:51:59.899Z",
+      "crawledAt": "2026-06-29T22:51:25.625Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1077,7 +1082,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:51:59.092Z",
+      "crawledAt": "2026-06-29T22:51:25.007Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1157,7 +1162,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Legal-Counsel--80-100--_R26_507",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T13:51:58.273Z",
+      "crawledAt": "2026-06-29T22:51:24.395Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1235,7 +1240,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:51:57.558Z",
+      "crawledAt": "2026-06-29T22:51:23.787Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1311,7 +1316,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T13:51:56.831Z",
+      "crawledAt": "2026-06-29T22:51:23.163Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1389,7 +1394,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_553",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:51:56.114Z",
+      "crawledAt": "2026-06-29T22:51:22.560Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1461,7 +1466,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-Analytik-QC_R26_465",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:51:55.322Z",
+      "crawledAt": "2026-06-29T22:51:21.943Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1539,7 +1544,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/QA-Supervisor_R26_565",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T13:51:54.600Z",
+      "crawledAt": "2026-06-29T22:51:21.336Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",

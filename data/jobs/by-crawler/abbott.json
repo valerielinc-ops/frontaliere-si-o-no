@@ -1,13 +1,13 @@
 {
   "crawlerKey": "abbott",
-  "assembledAt": "2026-06-29T12:23:14.402Z",
+  "assembledAt": "2026-06-29T21:30:14.648Z",
   "jobs": [
     {
       "id": "abbott-d2551ed36471",
       "slug": "cloud-architetto-abbott-basel",
       "slugByLocale": {
         "it": "cloud-architetto-abbott-basel",
-        "en": "cloud-architect-abbott-basel",
+        "en": "cloud-architect-abbott-ch",
         "de": "architektur-und-architektur-abbott-basel",
         "fr": "architecte-cloud-abbott-basel"
       },
@@ -33,7 +33,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Cloud-Architect_31138417",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:11.888Z",
+      "crawledAt": "2026-06-29T21:30:12.274Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -69,11 +69,13 @@
       "jobReqId": "31138417",
       "previousSlugsByLocale": {
         "en": [
+          "cloud-architect-abbott-basel",
           "cloud-architect-abbott-ch"
         ],
         "it": [
           "cloud-architect-abbott-ch",
-          "cloud-architect-abbott-basel"
+          "cloud-architect-abbott-basel",
+          "cloud-architetto-abbott-basel"
         ],
         "de": [
           "cloud-architekt-abbott-basel"
@@ -130,7 +132,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Manufacturing-Engineer_31138835",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:11.171Z",
+      "crawledAt": "2026-06-29T21:30:11.502Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -183,7 +185,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manufacturing-engineer-abbott-ch"
+          "senior-manufacturing-engineer-abbott-ch",
+          "ingegnere-di-produzione-senior-abbott-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:44.436Z",
@@ -232,7 +235,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Regional-Sales-Manager-Cardiac-Rhythm-Management---Region-Zentralschweiz_31142681",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T12:23:10.374Z",
+      "crawledAt": "2026-06-29T21:30:10.670Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -288,7 +291,8 @@
       "previousSlugsByLocale": {
         "it": [
           "regional-sales-manager-cardiac-rhythm-management-region-zentralschweiz-abbott-ch",
-          "regional-sales-manager-cardiac-rhythm-management-regione-svizzera-centrale-abbott-basel"
+          "regional-sales-manager-cardiac-rhythm-management-regione-svizzera-centrale-abbott-basel",
+          "responsabile-vendite-regionale-gestione-del-ritmo-cardiaco-regione-svizzera-centrale-abbott-basel"
         ],
         "de": [
           "regional-sales-manager-herzrhythmusmanagement-region-zentralschweiz-abbott-basel"
@@ -340,7 +344,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Manufacturing-Engineering---Maintenance---Facility-Control_31142513",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:09.630Z",
+      "crawledAt": "2026-06-29T21:30:09.874Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -393,7 +397,8 @@
       "previousSlugsByLocale": {
         "it": [
           "manufacturing-engineering-maintenance-facility-control-abbott-ch",
-          "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich"
+          "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich",
+          "ingegneria-manifatturiera-manutenzione-e-controllo-della-facilita-abbott-zurich"
         ],
         "fr": [
           "ingenieur-de-production-entretien-et-controle-des-installations-abbott-zurich"
@@ -445,7 +450,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Cardiometabolic_31146564",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:08.878Z",
+      "crawledAt": "2026-06-29T21:30:09.089Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -498,7 +503,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-director-cardiometabolic-abbott-ch"
+          "global-medical-director-cardiometabolic-abbott-ch",
+          "direttore-medico-globale-cardiometabolico-abbott-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:33.997Z",
@@ -547,7 +553,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Gastroenterology_31146562",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:07.184Z",
+      "crawledAt": "2026-06-29T21:30:08.318Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -622,7 +628,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Supervisor-Quality-Release_31149238",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:06.433Z",
+      "crawledAt": "2026-06-29T21:30:07.453Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -677,7 +683,8 @@
       "previousSlugsByLocale": {
         "it": [
           "supervisor-quality-release-abbott-ch",
-          "supervisore-rilascio-qualita-abbott-zurich"
+          "supervisore-rilascio-qualita-abbott-zurich",
+          "supervisore-quality-release-abbott-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:32.428Z",
@@ -727,7 +734,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Schweiz_31149502",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T12:23:05.703Z",
+      "crawledAt": "2026-06-29T21:30:06.688Z",
       "addressLocality": "Remote",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -781,7 +788,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-educator-schweiz-abbott-ch"
+          "medical-educator-schweiz-abbott-ch",
+          "educatore-medico-svizzera-abbott-remote"
         ],
         "de": [
           "medizinpadagogin-schweiz-abbott-remote"
@@ -834,7 +842,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Marketing-Acceleration---Excellence-Associate-Director_31148490-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:04.983Z",
+      "crawledAt": "2026-06-29T21:30:05.927Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -857,7 +865,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-acceleration-excellence-associate-director-abbott-ch"
+          "marketing-acceleration-excellence-associate-director-abbott-ch",
+          "marketing-accelerazione-e-eccellenza-direttore-associato-abbott-basel"
         ],
         "de": [
           "marketing-acceleration-excellence-associate-director-abbott-ch"
@@ -913,7 +922,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Tender-Specialist_31151935",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:03.657Z",
+      "crawledAt": "2026-06-29T21:30:05.159Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -935,7 +944,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tender-specialist-abbott-ch"
+          "tender-specialist-abbott-ch",
+          "specialista-di-tender-abbott-basel"
         ],
         "de": [
           "tender-specialist-abbott-ch"
@@ -991,7 +1001,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Mechatronics-Engineer_31153027",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:02.939Z",
+      "crawledAt": "2026-06-29T21:30:03.621Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1017,7 +1027,8 @@
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-senior-in-meccatronica-abbott-zurich",
-          "senior-mechatronics-engineer-abbott-ch"
+          "senior-mechatronics-engineer-abbott-ch",
+          "ingegnere-mechatronics-senior-abbott-zurich"
         ],
         "de": [
           "senior-mechatronik-ingenieur-abbott-zurich"
@@ -1073,7 +1084,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/XMLNAME--Senior--Financial-Analyst_31152349",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:02.178Z",
+      "crawledAt": "2026-06-29T21:30:02.818Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1095,7 +1106,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-financial-analyst-abbott-ch"
+          "senior-financial-analyst-abbott-ch",
+          "senior-financial-analista-abbott-zurich"
         ]
       },
       "firstSeenAt": "2026-06-11T12:03:15.779Z",
@@ -1145,7 +1157,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Quality-Engineer_31153258",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:01.396Z",
+      "crawledAt": "2026-06-29T21:30:02.015Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1170,7 +1182,8 @@
       "previousSlugsByLocale": {
         "it": [
           "quality-engineer-abbott-ch",
-          "quality-ingegnere-abbott-zurich"
+          "quality-ingegnere-abbott-zurich",
+          "ingegnere-della-qualita-abbott-zurich"
         ],
         "de": [
           "quality-engineer-abbott-ch",
@@ -1227,7 +1240,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Quality-Engineer_31153262",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:23:00.634Z",
+      "crawledAt": "2026-06-29T21:30:01.176Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1250,7 +1263,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-quality-engineer-abbott-ch"
+          "senior-quality-engineer-abbott-ch",
+          "ingegnere-senior-della-qualita-abbott-zurich"
         ],
         "de": [
           "senior-qualitat-ingenieur-abbott-zurich"
@@ -1302,7 +1316,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Belgium---Diegem/Director--Commercial-Excellence--EMEA-Structural-Heart_31146965-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:22:59.902Z",
+      "crawledAt": "2026-06-29T21:30:00.256Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1327,7 +1341,8 @@
       "previousSlugsByLocale": {
         "it": [
           "director-commercial-excellence-emea-structural-heart-abbott-ch",
-          "direttore-commercial-excellence-emea-structural-heart-abbott-basel"
+          "direttore-commercial-excellence-emea-structural-heart-abbott-basel",
+          "direttore-eccellenza-commerciale-emea-cuore-strutturale-abbott-basel"
         ],
         "de": [
           "director-commercial-excellence-emea-structural-heart-abbott-ch",
@@ -1384,7 +1399,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Manager---Women-s-Health_31154466",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:22:58.907Z",
+      "crawledAt": "2026-06-29T21:29:59.506Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1406,7 +1421,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-manager-women-s-health-abbott-ch"
+          "global-medical-manager-women-s-health-abbott-ch",
+          "global-medical-manager-salute-delle-donne-abbott-basel"
         ],
         "de": [
           "global-medical-manager-women-s-health-abbott-ch"
@@ -1429,80 +1445,6 @@
         }
       },
       "postalCode": "4001"
-    },
-    {
-      "id": "abbott-a7c7494c33dc",
-      "slug": "brand-manager-switzerland-1-anno-abbott-baar",
-      "slugByLocale": {
-        "it": "brand-manager-switzerland-1-anno-abbott-baar",
-        "en": "brand-manager-switzerland-1-jahr-abbott-ch",
-        "de": "brand-manager-switzerland-1-jahr-abbott-ch",
-        "fr": "brand-manager-switzerland-1-an-abbott-baar"
-      },
-      "company": "Abbott",
-      "companyKey": "abbott",
-      "companyDomain": "abbott.com",
-      "title": "Brand Manager Switzerland",
-      "titleByLocale": {
-        "it": "Brand Manager Switzerland, 1 anno",
-        "en": "Brand Manager Switzerland",
-        "de": "Brand Manager Switzerland",
-        "fr": "Brand Manager Switzerland, 1 an"
-      },
-      "description": "JOB DESCRIPTION:\nAbbott ist ein global tätiges Unternehmen im Gesundheitswesen, das sich mit der Erforschung, Entwicklung und Herstellung von Produkten in den Bereichen Medizintechnik, Pharmazeutik, Diagnostik und medizinischer Ernährung befasst. Das Unternehmen vermarktet seine Produkte weltweit und beschäftigt ungefähr 99‘000 Mitarbeitende in 150 Ländern. In der Schweiz beschäftigt Abbott rund 470 Mitarbeitende.\n\nAbbott bietet Ihnen die Chance, die Welt nachhaltig zu verändern. Als Mitarbeiter eines erfolgreichen und renommierten Unternehmens meistern Sie schwierige und zugleich lohnenswerte Herausforderungen und prägen die Zukunft der Gesundheitsversorgung.\n\nFür unser Abbott Diabetes Care Team in Baar , Schweiz suchen wir per sofort eine selbständige, teamorientierte und aufgestellte Persönlichkeit als\n\nBrand Manager (m/w/d) 100%\n\nAls Mitarbeiter/in in unserem Marketing Team arbeiten Sie am Puls unserer Division. Mit Ihrer strukturierten und vernetzt denkenden Art leisten Sie einen wichtigen Beitrag, die globale Strategie in lokale Massnahmen umzusetzen für unsere FreeStyle Libre Anwender/innen. Dies schaffen Sie dank Ihrer Erfahrung in der Pharma- oder Medizintechnikbranche spielend in 3 unserer Landessprachen (Deutsch, Französisch, Italienisch).\n\nIhr Aufgabenbereich umfasst folgende Bereiche:\n\n• Lokale Umsetzung der globalen Strategie im Bereich Consumer Marketing\n\n• Planen und implementieren von Massnahmen (digital und Print) inkl. Budgetplanung und -kontrolle im Opti-Channel-Marketing\n\n• Festlegen und analysieren von relevanten KPI’s sowie laufende Optimierung der Aktivitäten auf Basis dieser Resultate (ROI)\n\n• Ansprechperson für unsere internen und externen Partner\n\n• Interne Schnittstelle zu anderen Abteilungen (lokal, europäisch und global) und dem Aussendienst\n\nSie verfügen über eine zuverlässige, selbständige und zielorientierte Hands-On-Arbeitsweise und bringen folgende Voraussetzungen mit:\n\n• Hochschulabschluss in Marketing oder Betriebswirtschaft oder fundierte, relevante Berufserfahrung in einem vergleichbaren Bereich\n\n• Mehrjährige Marketingerfahrung in der Schweizer Pharma- oder Medizintechnikbranche mit Fokus auf digitalem Marketing\n\n• Sprachkenntnisse: Verhandlungssicher in Wort und Schrift in Deutsch, Französisch und Englisch sowie fortgeschrittene Kenntnisse in Italienisch\n\n• Fähigkeit, sich in unsere Kund:innen hineinzuversetzen und entsprechende Massnahmen zu planen\n\n• Stärke in der Umsetzung von Massnahmen in 3 Sprachen (Deutsch, Französisch, Italienisch)\n\n• Affinität für digitale Gesundheitstools\n\n• Erfahrung in der Zusammenarbeit mit Agenturen und Organisation von lokalen Kongressen\n\n• Sicheres Auftreten im Umgang mit internen und externen Stakeholdern\n\n• Verständnis für interne Prozesse und deren Einhaltung\n\n• Ausgeprägte Team- und Kundenorientierung in internationalem Umfeld\n\n• Situationsangepasste Flexibiltiät für erfolgreiches Priorisieren und eigener Anspruch an qualitativ hochstehende Umsetzung in einer agilen Umgebung\n\n• Reisebereitschaft bis zu 20%\n\nWenn Sie eine flexible, aufgeschlossene und engagierte Persönlichkeit sind, bietet Ihnen Abbott nicht nur eine abwechslungsreiche und anspruchsvolle Aufgabe sondern auch eine angenehme und offene Arbeitsatmosphäre in einem spannenden, internationalen Umfeld.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nProduct Management\nDIVISION:\nADC Diabetes Care\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 20 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
-      "descriptionByLocale": {
-        "it": "DESCRIZIONE JOB: Abbott è una società sanitaria globale impegnata nella ricerca, sviluppo e produzione di prodotti nel campo della tecnologia medica, farmaceutica, diagnostica e nutrizione medica. L'azienda commercializza i suoi prodotti in tutto il mondo e impiega circa 99.000 persone in 150 paesi. Abbott impiega circa 470 persone in Svizzera. Abbott ti offre l'opportunità di cambiare il mondo in modo sostenibile. Come dipendente di una società di successo e rinomata, si padroneggiano sfide difficili e allo stesso tempo vale la pena e modellano il futuro della salute. Per il nostro Abbott Diabetes Care Team di Baar, in Svizzera stiamo cercando una personalità indipendente, orientata al team e consolidata come Brand Manager (m/f/d) 100% È inizialmente una distribuzione per un anno, con l'occupazione che viene effettuata tramite un partner esterno payrolling. Come dipendente del nostro team di marketing, lavori sul polso della nostra divisione. Con il vostro modo di pensare strutturato e in rete, contribuite in modo importante all'attuazione della strategia globale nelle misure locali per i nostri utenti FreeStyle Libre. Grazie alla vostra esperienza nel settore farmaceutico o medicale, potete farlo in 3 lingue nazionali (tedesco, francese, italiano). Le sue responsabilità includono i seguenti settori:\n• implementazione locale della strategia globale nel settore del marketing dei consumatori\n• Programmazione e attuazione di misure (digitali e stampa) incl. Pianificazione e controllo del bilancio nel marketing opti-channel\n• Determinazione e analisi dei KPI rilevanti e ottimizzazione continua delle attività basate su questi risultati (ROI)\n• Persona di contatto per i nostri partner interni ed esterni\n• Interfaccia interna ad altri dipartimenti (locali, europei e globali) e servizio sul campo Hai uno stile di lavoro pratico, affidabile, indipendente e orientato all'obiettivo e hai i seguenti prerequisiti:\n• Laurea in marketing o amministrazione aziendale o suono, esperienza professionale rilevante in un settore comparabile\n• Diversi anni di esperienza di marketing nel settore farmaceutico o medicale svizzero con un focus sul marketing digitale\n• Capacità linguistiche:\n• Capacità di mettersi nei nostri clienti: all'interno e pianificare le misure appropriate\n• Forza nell'attuazione delle misure in 3 lingue (tedesco, francese, italiano)\n• Affinità per gli strumenti di salute digitale\n• Esperienza nel lavoro con le agenzie e organizzazione di congressi locali\n• Approccio sicuro agli stakeholder interni ed esterni\n• Comprensione dei processi interni e della loro conformità\n• Forte e orientamento al cliente in un ambiente internazionale Se sei una personalità flessibile, aperta e impegnata, Abbott ti offre non solo un compito vario e impegnativo, ma anche un ambiente di lavoro piacevole e aperto in un ambiente emozionante e internazionale. Il pagamento base per questa posizione è N/A In posizioni specifiche, l'intervallo di pagamento può variare dall'intervallo pubblicato. FAMIGLIA JOB: DIVISIONE di gestione dei prodotti: ADC Diabetes Care LOCATION: Switzerland > Baar : Neuhofstrasse 23 LOCALI ADDIZIONALI: SHIFT DI LAVORO: Standard TRAVEL: Sì, 20% del tempo MEDICAL SURVEILLANCE: ATTIVITÀ DI LAVORO non applicabili: Non applicabili",
-        "en": "JOB DESCRIPTION: Abbott is a global healthcare company engaged in the research, development and manufacture of products in the fields of medical technology, pharmaceuticals, diagnostics and medical nutrition. The company markets its products worldwide and employs approximately 99,000 people in 150 countries. Abbott employs around 470 people in Switzerland. Abbott offers you the opportunity to change the world sustainably. As an employee of a successful and renowned company, you master difficult and at the same time worthwhile challenges and shape the future of healthcare. For our Abbott Diabetes Care Team in Baar, Switzerland we are looking for an independent, team-oriented and established personality as a Brand Manager (m/f/d) 100% It is initially a deployment for one year, with the employment being carried out via an external payrolling partner. As an employee in our marketing team, you work on the pulse of our division. With your structured and networked way of thinking, you make an important contribution to implementing the global strategy into local measures for our FreeStyle Libre users. Thanks to your experience in the pharmaceutical or medical technology industry, you can do this in 3 of our national languages (German, French, Italian). Her responsibilities include the following areas:\n• Local implementation of the global strategy in the area of consumer marketing\n• Planning and implementing measures (digital and print) incl. Budget planning and control in opti-channel marketing\n• Determining and analyzing relevant KPIs as well as ongoing optimization of activities based on these results (ROI)\n• Contact person for our internal and external partners\n• Internal interface to other departments (local, European and global) and the field service You have a reliable, independent and goal-oriented hands-on working style and have the following prerequisites:\n• University degree in marketing or business administration or sound, relevant professional experience in a comparable area\n• Several years of marketing experience in the Swiss pharmaceutical or medical technology industry with a focus on digital marketing\n• Language skills: Confident in words and writing in German, French and English as well as advanced knowledge in Italian\n• Ability to put oneself in our customers: inside and plan appropriate measures\n• Strength in the implementation of measures in 3 languages (German, French, Italian)\n• Affinity for digital health tools\n• Experience in working with agencies and organising local congresses\n• Secure approach to internal and external stakeholders\n• Understanding internal processes and their compliance\n• Strong team and customer orientation in an international environment\n• Situation-adapted flexibility for successful prioritisation and your own demand for high-quality implementation in an agile environment\n• Willingness to travel up to 20% If you are a flexible, open-minded and committed personality, Abbott offers you not only a varied and challenging task but also a pleasant and open working atmosphere in an exciting, international environment. The base pay for this position is N/A In specific locations, the pay range may vary from the range posted. JOB FAMILY: Product Management DIVISION: ADC Diabetes Care LOCATION: Switzerland > Baar : Neuhofstrasse 23 ADDITIONAL LOCATIONS: WORK SHIFT: Standard TRAVEL: Yes, 20% of the Time MEDICAL SURVEILLANCE: Not Applicable SIGNIFICANT WORK ACTIVITIES: Not Applicable",
-        "de": "JOB DESCRIPTION: Abbott ist ein global tätiges Unternehmen im Gesundheitswesen, das sich mit der Erforschung, Entwicklung und Herstellung von Produkten in den Bereichen Medizintechnik, Pharmazeutik, Diagnostik und medizinischer Ernährung befasst. Das Unternehmen vermarktet seine Produkte weltweit und beschäftigt ungefähr 99‘000 Mitarbeitende in 150 Ländern. In der Schweiz beschäftigt Abbott rund 470 Mitarbeitende. Abbott bietet Ihnen die Chance, die Welt nachhaltig zu verändern. Als Mitarbeiter eines erfolgreichen und renommierten Unternehmens meistern Sie schwierige und zugleich lohnenswerte Herausforderungen und prägen die Zukunft der Gesundheitsversorgung. Für unser Abbott Diabetes Care Team in Baar , Schweiz suchen wir per sofort eine selbständige, teamorientierte und aufgestellte Persönlichkeit als Brand Manager (m/w/d) 100% Als Mitarbeiter/in in unserem Marketing Team arbeiten Sie am Puls unserer Division. Mit Ihrer strukturierten und vernetzt denkenden Art leisten Sie einen wichtigen Beitrag, die globale Strategie in lokale Massnahmen umzusetzen für unsere FreeStyle Libre Anwender/innen. Dies schaffen Sie dank Ihrer Erfahrung in der Pharma- oder Medizintechnikbranche spielend in 3 unserer Landessprachen (Deutsch, Französisch, Italienisch). Ihr Aufgabenbereich umfasst folgende Bereiche:\n• Lokale Umsetzung der globalen Strategie im Bereich Consumer Marketing\n• Planen und implementieren von Massnahmen (digital und Print) inkl. Budgetplanung und -kontrolle im Opti-Channel-Marketing\n• Festlegen und analysieren von relevanten KPI’s sowie laufende Optimierung der Aktivitäten auf Basis dieser Resultate (ROI)\n• Ansprechperson für unsere internen und externen Partner\n• Interne Schnittstelle zu anderen Abteilungen (lokal, europäisch und global) und dem Aussendienst Sie verfügen über eine zuverlässige, selbständige und zielorientierte Hands-On-Arbeitsweise und bringen folgende Voraussetzungen mit:\n• Hochschulabschluss in Marketing oder Betriebswirtschaft oder fundierte, relevante Berufserfahrung in einem vergleichbaren Bereich\n• Mehrjährige Marketingerfahrung in der Schweizer Pharma- oder Medizintechnikbranche mit Fokus auf digitalem Marketing\n• Sprachkenntnisse: Verhandlungssicher in Wort und Schrift in Deutsch, Französisch und Englisch sowie fortgeschrittene Kenntnisse in Italienisch\n• Fähigkeit, sich in unsere Kund:innen hineinzuversetzen und entsprechende Massnahmen zu planen\n• Stärke in der Umsetzung von Massnahmen in 3 Sprachen (Deutsch, Französisch, Italienisch)\n• Affinität für digitale Gesundheitstools\n• Erfahrung in der Zusammenarbeit mit Agenturen und Organisation von lokalen Kongressen\n• Sicheres Auftreten im Umgang mit internen und externen Stakeholdern\n• Verständnis für interne Prozesse und deren Einhaltung\n• Ausgeprägte Team- und Kundenorientierung in internationalem Umfeld\n• Situationsangepasste Flexibiltiät für erfolgreiches Priorisieren und eigener Anspruch an qualitativ hochstehende Umsetzung in einer agilen Umgebung\n• Reisebereitschaft bis zu 20% Wenn Sie eine flexible, aufgeschlossene und engagierte Persönlichkeit sind, bietet Ihnen Abbott nicht nur eine abwechslungsreiche und anspruchsvolle Aufgabe sondern auch eine angenehme und offene Arbeitsatmosphäre in einem spannenden, internationalen Umfeld. The base pay for this position is N/A In specific locations, the pay range may vary from the range posted. JOB FAMILY: Product Management DIVISION: ADC Diabetes Care LOCATION: Switzerland > Baar : Neuhofstrasse 23 ADDITIONAL LOCATIONS: WORK SHIFT: Standard TRAVEL: Yes, 20 % of the Time MEDICAL SURVEILLANCE: Not Applicable SIGNIFICANT WORK ACTIVITIES: Not Applicable",
-        "fr": "DESCRIPTION DE L'EMPLOI : Abbott est une société de santé mondiale engagée dans la recherche, le développement et la fabrication de produits dans les domaines de la technologie médicale, des produits pharmaceutiques, du diagnostic et de la nutrition médicale. L'entreprise commercialise ses produits dans le monde entier et emploie environ 99 000 personnes dans 150 pays. Abbott emploie environ 470 personnes en Suisse. Abbott vous offre l'opportunité de changer durablement le monde. En tant qu'employé d'une entreprise prospère et réputée, vous maîtrisez des défis difficiles et en même temps valables et façonnez l'avenir des soins de santé. Pour notre équipe Abbott Diabetes Care à Baar, Suisse, nous recherchons une personnalité indépendante, axée sur l'équipe et établie en tant que responsable de marque (m/f/d) 100% Il s'agit initialement d'un déploiement d'un an, l'emploi étant effectué par l'intermédiaire d'un partenaire externe de paye. En tant qu'employé de notre équipe marketing, vous travaillez sur le pouls de notre division. Grâce à votre façon de penser structurée et en réseau, vous contribuez grandement à la mise en œuvre de la stratégie globale dans les mesures locales pour nos utilisateurs de FreeStyle Libre. Grâce à votre expérience dans l'industrie pharmaceutique ou médicale, vous pouvez le faire en 3 langues nationales (allemand, français, italien). Ses responsabilités comprennent les domaines suivants :\n• Mise en oeuvre locale de la stratégie globale dans le domaine du marketing des consommateurs\n• Planification et mise en oeuvre de mesures (numériques et imprimées) y compris : Planification budgétaire et contrôle du marketing opti-canal\n• Détermination et analyse des ICR pertinents ainsi que l'optimisation continue des activités sur la base de ces résultats (ROI)\n• Personne de contact pour nos partenaires internes et externes\n• Interface interne avec d'autres départements (local, européen et mondial) et le service sur le terrain Vous avez un style de travail pratique fiable, indépendant et axé sur les objectifs et avez les conditions suivantes:\n• Diplôme universitaire en marketing ou administration d'entreprise ou une expérience professionnelle solide et pertinente dans un domaine comparable\n• Plusieurs années d'expérience en marketing dans l'industrie pharmaceutique ou médicale suisse avec un accent sur le marketing numérique\n• Compétences linguistiques: Confiance dans les mots et l'écriture en allemand, français et anglais ainsi que les connaissances avancées en italien\n• Aptitude à se mettre dans nos clients: à l'intérieur et à planifier des mesures appropriées\n• Force dans la mise en œuvre des mesures en 3 langues (allemand, français, italien)\n• Affinité des outils numériques de santé\n• Expérience dans le travail avec les agences et l'organisation de congrès locaux\n• Approche sécurisée auprès des acteurs internes et externes\n• Compréhension des processus internes et de leur conformité\n• Forte orientation des équipes et des clients dans un environnement international\n• Flexibilité adaptée à la situation pour une hiérarchisation réussie et votre propre demande de mise en œuvre de haute qualité dans un environnement agile\n• Volonté de voyager jusqu'à 20% Si vous êtes une personnalité flexible, ouverte d'esprit et engagée, Abbott vous offre non seulement une tâche variée et stimulante, mais aussi une atmosphère de travail agréable et ouverte dans un environnement international passionnant. La rémunération de base pour ce poste est s.o. Dans certains endroits, l'échelle de rémunération peut varier de l'échelle affichée. EMPLOI FAMILLE: Gestion des produits DIVISION: ADC Diabetes Care LOCATION: Suisse > Baar : Neuhofstrasse 23 LOCATIONS SUPPLÉMENTAIRES: RÉSEAU DE TRAVAIL: VOYAGE Standard: Oui, 20% du temps SURVEILLANCE MÉDICALE: Sans objet ACTIVITÉS DE TRAVAIL SIGNIFIANTES: Sans objet"
-      },
-      "location": "Baar",
-      "canton": "ZG",
-      "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Brand-Manager-Switzerland--1-Jahr_31153660",
-      "source": "Abbott Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-29T12:22:58.032Z",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Dispositivi medici / Farmaceutico",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Brand-Manager-Switzerland--1-Jahr_31153660",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "31153660",
-      "previousSlugs": [
-        "brand-manager-switzerland-1-jahr-abbott-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "brand-manager-switzerland-1-jahr-abbott-ch"
-        ],
-        "fr": [
-          "brand-manager-switzerland-1-jahr-abbott-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T22:25:46.516Z",
-      "salaryMin": 108500,
-      "salaryMax": 192000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 108500,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6300"
     },
     {
       "id": "abbott-f7f92af67616",
@@ -1535,7 +1477,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Romandie_31154099",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T12:22:57.253Z",
+      "crawledAt": "2026-06-29T21:29:58.540Z",
       "addressLocality": "Remote",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1557,7 +1499,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-educator-romandie-abbott-ch"
+          "medical-educator-romandie-abbott-ch",
+          "insegnante-medico-romandie-abbott-remote"
         ],
         "de": [
           "medical-educator-romandie-abbott-ch"
@@ -1582,8 +1525,8 @@
       "id": "abbott-71f7694315a2",
       "slug": "senior-quality-engineer-abbott-ch-2",
       "slugByLocale": {
-        "en": "senior-quality-engineer-abbott-ch",
         "it": "senior-quality-engineer-abbott-ch-2",
+        "en": "senior-quality-engineer-abbott-ch",
         "de": "senior-qualitat-ingenieur-abbott-zurich-d9c2bd",
         "fr": "senior-qualite-ingenieur-abbott-zurich-d9c2bd"
       },
@@ -1592,24 +1535,25 @@
       "companyDomain": "abbott.com",
       "title": "Senior Quality Engineer",
       "titleByLocale": {
-        "en": "Senior Quality Engineer",
         "it": "Senior Quality Ingegnere",
+        "en": "Senior Quality Engineer",
         "de": "Senior Qualität Ingenieur",
         "fr": "Senior Qualité Ingénieur"
       },
       "description": "JOB DESCRIPTION:\nSenior Quality Engineer\n\nZurich, Switzerland | Thoratec Switzerland GmbH (Abbott)\nBuild life‑saving technology — in a team where your growth matters.\n\nAt Thoratec Switzerland GmbH , part of Abbott’s Medical Devices division , we develop and manufacture advanced heart pump systems that support patients with severe heart failure around the world. Our technologies — including CentriMag and HeartMate 3 — are designed and produced in Zurich and play a vital role in saving and improving lives every day.\n\nOur local team of around 140 colleagues across Development, Quality, and Production combines deep expertise with a collaborative, respectful culture. We believe that the best innovations happen when diverse perspectives come together — and we are committed to creating an environment where everyone can thrive and grow.\n\nAs we continue to expand, we are looking for a Senior Quality Engineer to join our team and help ensure the highest standards of quality, safety, and performance for our products.\n\nAbout the Role\n\nIn this role, you will contribute to the quality and compliance of life‑saving medical devices while working closely with cross-functional teams. You will play an important part in strengthening quality systems, driving improvements, and supporting both internal and external stakeholders.\nThis is a role for someone who enjoys collaboration, problem-solving, and continuous learning — and who wants to make a meaningful impact through their work.\n\nWhat You’ll Do\n\n• Implement aspects of production quality assurance and document control activities to ensure compliance with internal procedures and international regulations.\n\n• Execute quality organization activities ensuring product quality, performance, and safety.\n\n• Support communication with Operations and external suppliers to resolve quality issues.\n\n• Drive Quality Systems goals and objectives at site level.\n\nDuties and Responsibilities:\n\nCompliance:\n\n• Ensure facility-wide compliance with quality systems and regulatory requirements.\n\nQuality Analysis and Reporting:\n\n• Analyze and report quality metrics and trends.\n\n• Develop, maintain, and present dashboards for quality data reporting and decision-making.\n\nNon-conforming Product:\n\n• Resolve or escalate issues and coordinate corrective actions with suppliers.\n\n• Take ownership of supplier non-conformances and manage them throughout all the remediation process\n\nSupplier Quality:\n\n• Perform audits at supplier sites to ensure compliance with quality and regulatory requirements.\nManage supplier qualification documentation, ensuring completeness and compliance.\n\n• Coordinate and oversee validations conducted at supplier locations.\n\n• Manages internal and external reporting, reports, and dashboards related to supplier-related KPIs\n\nChange Management:\n\n• Manage and support change control processes, including assessment, approval, implementation, and effectiveness checks of changes.\n\nQuality System Procedures:\n\n• Support the administration and improvement of quality assurance procedures.\n\nSupplier Change Notifications:\n\n• Reviews and manages supplier change notifications, ensuring timely risk assessment, cross-functional alignment, and proper approval and implementation in compliance with internal procedures and regulatory requirements.\n\nAudit\n\n• Actively support the certified bodies and authorities, as well as the internal audits received by the site.\n\nCorrective and Preventive Actions:\n\n• Analyze trends and determine root causes.\n\n• Implement CAPA actions.\n\nGeneral:\n\n• Travel as required (20% aprox.)\n\n• Perform additional tasks assigned by QA management.\n\nQualifications:\n\n• Bachelor or Master degree in Science, Engineering, or other technical field.\n\n• Minimum 5 years of experience in a medical-device manufacturing or other regulated industry in a quality-related role.\n\n• Experience conducting and / or reviewing validations.\n\n• Supplier Audit experience preferred.\n\n• Certified body audit and Inspection experience",
       "descriptionByLocale": {
-        "en": "JOB DESCRIPTION:\nSenior Quality Engineer\n\nZurich, Switzerland | Thoratec Switzerland GmbH (Abbott)\nBuild life‑saving technology — in a team where your growth matters.\n\nAt Thoratec Switzerland GmbH , part of Abbott’s Medical Devices division , we develop and manufacture advanced heart pump systems that support patients with severe heart failure around the world. Our technologies — including CentriMag and HeartMate 3 — are designed and produced in Zurich and play a vital role in saving and improving lives every day.\n\nOur local team of around 140 colleagues across Development, Quality, and Production combines deep expertise with a collaborative, respectful culture. We believe that the best innovations happen when diverse perspectives come together — and we are committed to creating an environment where everyone can thrive and grow.\n\nAs we continue to expand, we are looking for a Senior Quality Engineer to join our team and help ensure the highest standards of quality, safety, and performance for our products.\n\nAbout the Role\n\nIn this role, you will contribute to the quality and compliance of life‑saving medical devices while working closely with cross-functional teams. You will play an important part in strengthening quality systems, driving improvements, and supporting both internal and external stakeholders.\nThis is a role for someone who enjoys collaboration, problem-solving, and continuous learning — and who wants to make a meaningful impact through their work.\n\nWhat You’ll Do\n\n• Implement aspects of production quality assurance and document control activities to ensure compliance with internal procedures and international regulations.\n\n• Execute quality organization activities ensuring product quality, performance, and safety.\n\n• Support communication with Operations and external suppliers to resolve quality issues.\n\n• Drive Quality Systems goals and objectives at site level.\n\nDuties and Responsibilities:\n\nCompliance:\n\n• Ensure facility-wide compliance with quality systems and regulatory requirements.\n\nQuality Analysis and Reporting:\n\n• Analyze and report quality metrics and trends.\n\n• Develop, maintain, and present dashboards for quality data reporting and decision-making.\n\nNon-conforming Product:\n\n• Resolve or escalate issues and coordinate corrective actions with suppliers.\n\n• Take ownership of supplier non-conformances and manage them throughout all the remediation process\n\nSupplier Quality:\n\n• Perform audits at supplier sites to ensure compliance with quality and regulatory requirements.\nManage supplier qualification documentation, ensuring completeness and compliance.\n\n• Coordinate and oversee validations conducted at supplier locations.\n\n• Manages internal and external reporting, reports, and dashboards related to supplier-related KPIs\n\nChange Management:\n\n• Manage and support change control processes, including assessment, approval, implementation, and effectiveness checks of changes.\n\nQuality System Procedures:\n\n• Support the administration and improvement of quality assurance procedures.\n\nSupplier Change Notifications:\n\n• Reviews and manages supplier change notifications, ensuring timely risk assessment, cross-functional alignment, and proper approval and implementation in compliance with internal procedures and regulatory requirements.\n\nAudit\n\n• Actively support the certified bodies and authorities, as well as the internal audits received by the site.\n\nCorrective and Preventive Actions:\n\n• Analyze trends and determine root causes.\n\n• Implement CAPA actions.\n\nGeneral:\n\n• Travel as required (20% aprox.)\n\n• Perform additional tasks assigned by QA management.\n\nQualifications:\n\n• Bachelor or Master degree in Science, Engineering, or other technical field.\n\n• Minimum 5 years of experience in a medical-device manufacturing or other regulated industry in a quality-related role.\n\n• Experience conducting and / or reviewing validations.\n\n• Supplier Audit experience preferred.\n\n• Certified body audit and Inspection experience",
-        "it": "DESCRIZIONE:\nIngegnere di qualità senior\n\nZurigo, Svizzera | Thoratec Switzerland GmbH (Abbott)\nCostruire la tecnologia salvavita — in un team in cui la vostra crescita conta.\n\nA Thoratec Switzerland GmbH, parte della divisione Dispositivi Medici di Abbott, sviluppiamo e produciamo sistemi di pompa cardiaca avanzati che supportano i pazienti con grave insufficienza cardiaca in tutto il mondo. Le nostre tecnologie, tra cui CentriMag e HeartMate 3, sono progettate e prodotte a Zurigo e svolgono un ruolo vitale nel salvare e migliorare la vita ogni giorno.\n\nIl nostro team locale di circa 140 colleghi di Sviluppo, Qualità e Produzione combina una profonda esperienza con una cultura collaborativa e rispettosa. Crediamo che le migliori innovazioni avvengano quando si riuniscono prospettive diverse — e ci impegniamo a creare un ambiente in cui tutti possano prosperare e crescere.\n\nMentre continuiamo ad espanderci, stiamo cercando un Senior Quality Engineer per unirsi al nostro team e contribuire a garantire i più elevati standard di qualità, sicurezza e prestazioni per i nostri prodotti.\n\nInformazioni sul ruolo\n\nIn questo ruolo, contribuirai alla qualità e alla conformità dei dispositivi medicali salvavita, lavorando a stretto contatto con i team interfunzionali. Si svolgerà un ruolo importante nel rafforzare i sistemi di qualità, migliorare la guida e sostenere sia gli stakeholder interni che esterni.\nQuesto è un ruolo per qualcuno che gode di collaborazione, problem solving e apprendimento continuo — e che vuole fare un impatto significativo attraverso il loro lavoro.\n\nCosa farai\n\n• Aspetti di attuazione delle attività di garanzia della qualità della produzione e di controllo dei documenti per garantire il rispetto delle procedure interne e delle normative internazionali.\n\n• Eseguire attività di organizzazione di qualità che garantiscono la qualità del prodotto, le prestazioni e la sicurezza.\n\n• Supporta la comunicazione con Operazioni e fornitori esterni per risolvere problemi di qualità.\n\n• Guida obiettivi e obiettivi dei sistemi di qualità a livello del sito.\n\nDoveri e responsabilità:\n\nCompliance:\n\n• Assicurare la conformità a livello degli impianti ai sistemi di qualità e ai requisiti normativi.\n\nAnalisi della Qualità e Reporting:\n\n• Analizzare e segnalare metriche di qualità e tendenze.\n\n• Sviluppare, mantenere e presentare dashboard per la segnalazione dei dati di qualità e il processo decisionale.\n\nProdotto non conforme:\n\n• Risolvere o escalare i problemi e coordinare le azioni correttive con i fornitori.\n\n• Assumere la proprietà dei fornitori non conformi e gestirli durante tutto il processo di bonifica\n\nQualità del fornitore:\n\n• Eseguire controlli presso i siti dei fornitori per garantire il rispetto dei requisiti di qualità e normazione.\nGestisci la documentazione di qualificazione del fornitore, garantendo la completezza e la conformità.\n\n• Coordinare e supervisionare le validazioni condotte nelle sedi dei fornitori.\n\n• Gestisce report, report e dashboard interni ed esterni relativi ai KPI correlati ai fornitori\n\nGestione dei cambiamenti:\n\n• Gestione e supporto dei processi di controllo dei cambiamenti, inclusi i controlli di valutazione, approvazione, implementazione e efficacia delle modifiche.\n\nProcedure di Sistema di Qualità:\n\n• Sostenere l'amministrazione e il miglioramento delle procedure di garanzia della qualità.\n\nNotifiche di cambiamento del fornitore:\n\n• Recensioni e gestisce le notifiche di cambiamento dei fornitori, assicurando una valutazione tempestiva dei rischi, un allineamento interfunzionale e una corretta approvazione e implementazione nel rispetto delle procedure interne e dei requisiti normativi.\n\nAudit\n\n• Supporta attivamente gli enti e le autorità certificati, nonché i controlli interni ricevuti dal sito.\n\nAzioni correttive e preventive:\n\n• Analizzare le tendenze e determinare le cause della radice.\n\n• Attuazione delle azioni della PACA.\n\nGenerale:\n\n• Viaggiare come richiesto (20% grembiule.)\n\n• Eseguire ulteriori compiti assegnati dalla gestione QA.\n\nQualifiche:\n\n• Laurea o Master in Scienze, Ingegneria o altro campo tecnico.\n\n• Minimo 5 anni di esperienza in una produzione di dispositivi medici o in un altro settore regolamentato in un ruolo legato alla qualità.\n\n• Esperienza di conduzione e / o revisione delle validazioni.\n\n• Fornitore Audit esperienza preferita.\n\n• Prova certificata del corpo e esperienza di ispezione",
-        "de": "GEMEINSAME BESCHREIBUNG:\nSenior Quality Engineer\n\nZürich, Schweiz | Thoratec Switzerland GmbH (Abbott)\nBauen Sie lebensrettende Technologie auf - in einem Team, in dem Ihr Wachstum wichtig ist.\n\nBei Thoratec Switzerland GmbH, Teil des Geschäftsbereichs Medical Devices von Abbott, entwickeln und fertigen wir fortschrittliche Herzpumpensysteme, die Patienten mit schwerer Herzinsuffizienz weltweit unterstützen. Unsere Technologien – darunter CentriMag und HeartMate 3 – werden in Zürich entwickelt und produziert und spielen eine wichtige Rolle bei der Rettung und Verbesserung von Leben jeden Tag.\n\nUnser lokales Team von rund 140 Kollegen aus den Bereichen Entwicklung, Qualität und Produktion verbindet fundiertes Fachwissen mit einer kooperativen, respektvollen Kultur. Wir glauben, dass die besten Innovationen entstehen, wenn verschiedene Perspektiven zusammenkommen - und wir sind bestrebt, ein Umfeld zu schaffen, in dem jeder gedeihen und wachsen kann.\n\nWährend wir weiter expandieren, suchen wir einen Senior Quality Engineer, der sich unserem Team anschließt und dazu beiträgt, die höchsten Standards in Bezug auf Qualität, Sicherheit und Leistung unserer Produkte zu gewährleisten.\n\nÜber die Rolle\n\nIn dieser Funktion tragen Sie zur Qualität und Compliance von lebensrettenden Medizinprodukten bei und arbeiten eng mit funktionsübergreifenden Teams zusammen. Sie werden eine wichtige Rolle bei der Stärkung der Qualitätssysteme spielen, Verbesserungen vorantreiben und sowohl interne als auch externe Stakeholder unterstützen.\nDies ist eine Rolle für jemanden, der gerne zusammenarbeitet, Probleme löst und kontinuierlich lernt - und der durch seine Arbeit eine sinnvolle Wirkung erzielen möchte.\n\nWas du tun wirst\n\n• Umsetzung von Aspekten der Qualitätssicherung und Dokumentenkontrolle der Produktion, um die Einhaltung interner Verfahren und internationaler Vorschriften zu gewährleisten.\n\n• Durchführung von Qualitätsorganisationsaktivitäten zur Gewährleistung von Produktqualität, -leistung und -sicherheit.\n\n• Unterstützung der Kommunikation mit dem Betrieb und externen Lieferanten, um Qualitätsprobleme zu lösen.\n\n• Ziele und Ziele von Qualitätssystemen auf Standortebene vorantreiben.\n\nPflichten und Zuständigkeiten:\n\nEinhaltung:\n\n• Gewährleistung der anlagenweiten Einhaltung von Qualitätssystemen und regulatorischen Anforderungen.\n\nQualitätsanalyse und Reporting:\n\n• Analyse und Bericht Qualität Metriken und Trends.\n\n• Entwickeln, pflegen und präsentieren Sie Dashboards für die Berichterstattung und Entscheidungsfindung von Qualitätsdaten.\n\nNicht konformes Produkt:\n\n• Beheben oder eskalieren Sie Probleme und koordinieren Sie Korrekturmaßnahmen mit Lieferanten.\n\n• Übernahme von Lieferanten-Nichtkonformitäten und deren Verwaltung während des gesamten Sanierungsprozesses\n\nLieferantenqualität:\n\n• Durchführung von Audits an Lieferantenstandorten, um die Einhaltung der Qualitäts- und Regulierungsanforderungen sicherzustellen.\nVerwalten Sie die Dokumentation zur Lieferantenqualifizierung und gewährleisten Sie Vollständigkeit und Compliance.\n\n• Koordinieren und überwachen Sie Validierungen, die an Lieferantenstandorten durchgeführt werden.\n\n• Verwaltet interne und externe Berichte, Berichte und Dashboards in Bezug auf lieferantenbezogene KPIs\n\nChange Management:\n\n• Verwalten und unterstützen Sie Änderungskontrollprozesse, einschließlich Bewertung, Genehmigung, Implementierung und Wirksamkeitsprüfungen von Änderungen.\n\nVerfahren des Qualitätssicherungssystems:\n\n• Unterstützung der Verwaltung und Verbesserung von Qualitätssicherungsverfahren.\n\nBenachrichtigungen zu Lieferantenänderungen:\n\n• Überprüfung und Verwaltung von Lieferantenänderungsmeldungen, um eine zeitnahe Risikobewertung, eine funktionsübergreifende Abstimmung und eine ordnungsgemäße Genehmigung und Umsetzung in Übereinstimmung mit internen Verfahren und regulatorischen Anforderungen sicherzustellen.\n\nAudit\n\n• Aktive Unterstützung der zertifizierten Stellen und Behörden sowie der von der Website erhaltenen internen Audits.\n\nKorrektur- und Präventivmaßnahmen:\n\n• Analysieren Sie Trends und bestimmen Sie die Ursachen.\n\n• Umsetzung der CAPA-Maßnahmen.\n\nAllgemeines:\n\n• Reisen Sie nach Bedarf (20% aprox.)\n\n• Führen Sie zusätzliche Aufgaben aus, die vom QA-Management zugewiesen werden.\n\nQualifikationen:\n\n• Bachelor- oder Master-Abschluss in Naturwissenschaften, Ingenieurwissenschaften oder anderen technischen Bereichen.\n\n• Mindestens 5 Jahre Erfahrung in einer Medizingeräteherstellung oder einer anderen regulierten Industrie in einer qualitätsbezogenen Rolle.\n\n• Erfahrung in der Durchführung und / oder Überprüfung von Validierungen.\n\n• Supplier Audit Erfahrung bevorzugt.\n\n• Erfahrung mit zertifiziertem Audit und Inspektion durch die Stelle",
-        "fr": "DESCRIPTION DE L'EMPLOI :\nIngénieur principal de la qualité\n\nZurich, Suisse\nBâtir une technologie vitale — dans une équipe où votre croissance compte.\n\nChez Thoratec Switzerland GmbH , qui fait partie de la division des dispositifs médicaux d'Abbott, nous développons et fabriquons des systèmes avancés de pompes cardiaques qui soutiennent les patients souffrant d'insuffisance cardiaque sévère dans le monde entier. Nos technologies, dont CentriMag et HeartMate 3, sont conçues et produites à Zurich et jouent un rôle vital pour sauver et améliorer des vies chaque jour.\n\nNotre équipe locale d'environ 140 collègues de Développement, Qualité et Production allie une expertise approfondie à une culture collaborative et respectueuse. Nous croyons que les meilleures innovations se produisent lorsque des points de vue divers se rencontrent — et nous sommes déterminés à créer un environnement où chacun peut prospérer et grandir.\n\nAu fur et à mesure que nous poursuivons notre expansion, nous cherchons un ingénieur de la qualité senior pour nous joindre à notre équipe et nous aider à assurer les plus hautes normes de qualité, de sécurité et de performance pour nos produits.\n\nÀ propos du rôle\n\nDans ce rôle, vous contribuerez à la qualité et à la conformité des dispositifs médicaux vitaux tout en travaillant en étroite collaboration avec les équipes interfonctionnelles. Vous jouerez un rôle important dans le renforcement des systèmes de qualité, l'amélioration des systèmes et le soutien aux intervenants internes et externes.\nC'est un rôle pour quelqu'un qui aime la collaboration, la résolution de problèmes et l'apprentissage continu, et qui veut avoir un impact significatif grâce à son travail.\n\nCe que vous allez faire\n\n• Mettre en œuvre certains aspects de l'assurance de la qualité de la production et des activités de contrôle des documents pour assurer le respect des procédures internes et des règlements internationaux.\n\n• Exécuter des activités d'organisation de qualité assurant la qualité, la performance et la sécurité des produits.\n\n• Appuyer la communication avec les Opérations et les fournisseurs externes pour résoudre les problèmes de qualité.\n\n• Conduire les buts et les objectifs des systèmes de qualité au niveau du site.\n\nFonctions et responsabilités :\n\nConformité:\n\n• Assurer la conformité à l'échelle de l'installation aux systèmes de qualité et aux exigences réglementaires.\n\nAnalyse de la qualité et rapports :\n\n• Analyser et signaler les paramètres et les tendances de la qualité.\n\n• Élaborer, tenir à jour et présenter des tableaux de bord pour la communication de données de qualité et la prise de décisions.\n\nProduit non conforme :\n\n• Résoudre ou aggraver les problèmes et coordonner les mesures correctives avec les fournisseurs.\n\n• S'approprier les non-conformités des fournisseurs et les gérer tout au long du processus d'assainissement\n\nQualité du fournisseur:\n\n• Effectuer des vérifications sur les sites des fournisseurs afin d'assurer la conformité aux exigences de qualité et de réglementation.\nGérer la documentation relative à la qualification des fournisseurs, en assurant l'exhaustivité et la conformité.\n\n• Coordonner et superviser les validations effectuées aux emplacements des fournisseurs.\n\n• Gérer les rapports internes et externes, les rapports et les tableaux de bord relatifs aux ICR liés aux fournisseurs\n\nGestion du changement :\n\n• Gérer et appuyer les processus de contrôle du changement, y compris l'évaluation, l'approbation, la mise en oeuvre et les vérifications de l'efficacité des changements.\n\nProcédures du système qualité :\n\n• Soutenir l'administration et l'amélioration des procédures d'assurance qualité.\n\nAvis de changement de fournisseur :\n\n• Examiner et gérer les notifications de changement de fournisseur, en veillant à ce que les risques soient évalués en temps opportun, qu'ils soient harmonisés entre les fonctions et qu'ils soient approuvés et mis en oeuvre conformément aux procédures internes et aux exigences réglementaires.\n\nVérification des comptes\n\n• Soutenir activement les organismes et autorités certifiés, ainsi que les audits internes reçus par le site.\n\nMesures correctives et préventives :\n\n• Analyser les tendances et déterminer les causes profondes.\n\n• Mettre en œuvre les actions du PACE.\n\nGénéralités:\n\n• Voyage au besoin (20 % aprox.)\n\n• Effectuer des tâches supplémentaires assignées par la direction de l'AQ.\n\nQualifications\n\n• Baccalauréat ou maîtrise en sciences, ingénierie ou autre domaine technique.\n\n• Au moins 5 ans d'expérience dans une fabrication d'appareils médicaux ou dans une autre industrie réglementée dans un rôle lié à la qualité.\n\n• Expérience de la conduite et/ou de l'examen des validations.\n\n• Expérience de vérification des fournisseurs préférée.\n\n• Vérification et inspection certifiées"
+        "it": "DESCRIZIONE: Ingegnere di qualità senior Zurigo, Svizzera | Thoratec Switzerland GmbH (Abbott) Costruire la tecnologia salvavita — in un team in cui la vostra crescita conta. A Thoratec Switzerland GmbH, parte della divisione Dispositivi Medici di Abbott, sviluppiamo e produciamo sistemi di pompa cardiaca avanzati che supportano i pazienti con grave insufficienza cardiaca in tutto il mondo. Le nostre tecnologie, tra cui CentriMag e HeartMate 3, sono progettate e prodotte a Zurigo e svolgono un ruolo vitale nel salvare e migliorare la vita ogni giorno. Il nostro team locale di circa 140 colleghi di Sviluppo, Qualità e Produzione combina una profonda esperienza con una cultura collaborativa e rispettosa. Crediamo che le migliori innovazioni avvengano quando si riuniscono prospettive diverse — e ci impegniamo a creare un ambiente in cui tutti possano prosperare e crescere. Mentre continuiamo ad espanderci, stiamo cercando un Senior Quality Engineer per unirsi al nostro team e contribuire a garantire i più elevati standard di qualità, sicurezza e prestazioni per i nostri prodotti. Informazioni sul ruolo In questo ruolo, contribuirai alla qualità e alla conformità dei dispositivi medicali salvavita, lavorando a stretto contatto con i team interfunzionali. Si svolgerà un ruolo importante nel rafforzare i sistemi di qualità, migliorare la guida e sostenere sia gli stakeholder interni che esterni. Questo è un ruolo per qualcuno che gode di collaborazione, problem solving e apprendimento continuo — e che vuole fare un impatto significativo attraverso il loro lavoro. Cosa farai\n• Aspetti di attuazione delle attività di garanzia della qualità della produzione e di controllo dei documenti per garantire il rispetto delle procedure interne e delle normative internazionali.\n• Eseguire attività di organizzazione di qualità che garantiscono la qualità del prodotto, le prestazioni e la sicurezza.\n• Supporta la comunicazione con Operazioni e fornitori esterni per risolvere problemi di qualità.\n• Guida obiettivi e obiettivi dei sistemi di qualità a livello del sito. Doveri e responsabilità: Compliance:\n• Assicurare la conformità a livello degli impianti ai sistemi di qualità e ai requisiti normativi. Analisi della Qualità e Reporting:\n• Analizzare e segnalare metriche di qualità e tendenze.\n• Sviluppare, mantenere e presentare dashboard per la segnalazione dei dati di qualità e il processo decisionale. Prodotto non conforme:\n• Risolvere o escalare i problemi e coordinare le azioni correttive con i fornitori.\n• Assumere la proprietà dei fornitori non conformi e gestirli durante tutto il processo di bonifica Qualità del fornitore:\n• Eseguire controlli presso i siti dei fornitori per garantire il rispetto dei requisiti di qualità e normazione. Gestisci la documentazione di qualificazione del fornitore, garantendo la completezza e la conformità.\n• Coordinare e supervisionare le validazioni condotte nelle sedi dei fornitori.\n• Gestisce report, report e dashboard interni ed esterni relativi ai KPI correlati ai fornitori Gestione dei cambiamenti:\n• Gestione e supporto dei processi di controllo dei cambiamenti, inclusi i controlli di valutazione, approvazione, implementazione e efficacia delle modifiche. Procedure di Sistema di Qualità:\n• Sostenere l'amministrazione e il miglioramento delle procedure di garanzia della qualità. Notifiche di cambiamento del fornitore:\n• Recensioni e gestisce le notifiche di cambiamento dei fornitori, assicurando una valutazione tempestiva dei rischi, un allineamento interfunzionale e una corretta approvazione e implementazione nel rispetto delle procedure interne e dei requisiti normativi. Audit\n• Supporta attivamente gli enti e le autorità certificati, nonché i controlli interni ricevuti dal sito. Azioni correttive e preventive:\n• Analizzare le tendenze e determinare le cause della radice.\n• Attuazione delle azioni della PACA. Generale:\n• Viaggiare come richiesto (20% grembiule.)\n• Eseguire ulteriori compiti assegnati dalla gestione QA. Qualifiche:\n• Laurea o Master in Scienze, Ingegneria o altro campo tecnico.\n• Minimo 5 anni di esperienza in una produzione di dispositivi medici o in un altro settore regolamentato in un ruolo legato alla qualità.\n• Esperienza di conduzione e / o revisione delle validazioni.\n• Fornitore Audit esperienza preferita.\n• Prova certificata del corpo e esperienza di ispezione",
+        "en": "JOB DESCRIPTION: Senior Quality Engineer Zurich, Switzerland | Thoratec Switzerland GmbH (Abbott) Build life‑saving technology — in a team where your growth matters. At Thoratec Switzerland GmbH , part of Abbott’s Medical Devices division , we develop and manufacture advanced heart pump systems that support patients with severe heart failure around the world. Our technologies — including CentriMag and HeartMate 3 — are designed and produced in Zurich and play a vital role in saving and improving lives every day. Our local team of around 140 colleagues across Development, Quality, and Production combines deep expertise with a collaborative, respectful culture. We believe that the best innovations happen when diverse perspectives come together — and we are committed to creating an environment where everyone can thrive and grow. As we continue to expand, we are looking for a Senior Quality Engineer to join our team and help ensure the highest standards of quality, safety, and performance for our products. About the Role In this role, you will contribute to the quality and compliance of life‑saving medical devices while working closely with cross-functional teams. You will play an important part in strengthening quality systems, driving improvements, and supporting both internal and external stakeholders. This is a role for someone who enjoys collaboration, problem-solving, and continuous learning — and who wants to make a meaningful impact through their work. What You’ll Do\n• Implement aspects of production quality assurance and document control activities to ensure compliance with internal procedures and international regulations.\n• Execute quality organization activities ensuring product quality, performance, and safety.\n• Support communication with Operations and external suppliers to resolve quality issues.\n• Drive Quality Systems goals and objectives at site level. Duties and Responsibilities: Compliance:\n• Ensure facility-wide compliance with quality systems and regulatory requirements. Quality Analysis and Reporting:\n• Analyze and report quality metrics and trends.\n• Develop, maintain, and present dashboards for quality data reporting and decision-making. Non-conforming Product:\n• Resolve or escalate issues and coordinate corrective actions with suppliers.\n• Take ownership of supplier non-conformances and manage them throughout all the remediation process Supplier Quality:\n• Perform audits at supplier sites to ensure compliance with quality and regulatory requirements. Manage supplier qualification documentation, ensuring completeness and compliance.\n• Coordinate and oversee validations conducted at supplier locations.\n• Manages internal and external reporting, reports, and dashboards related to supplier-related KPIs Change Management:\n• Manage and support change control processes, including assessment, approval, implementation, and effectiveness checks of changes. Quality System Procedures:\n• Support the administration and improvement of quality assurance procedures. Supplier Change Notifications:\n• Reviews and manages supplier change notifications, ensuring timely risk assessment, cross-functional alignment, and proper approval and implementation in compliance with internal procedures and regulatory requirements. Audit\n• Actively support the certified bodies and authorities, as well as the internal audits received by the site. Corrective and Preventive Actions:\n• Analyze trends and determine root causes.\n• Implement CAPA actions. General:\n• Travel as required (20% aprox.)\n• Perform additional tasks assigned by QA management. Qualifications:\n• Bachelor or Master degree in Science, Engineering, or other technical field.\n• Minimum 5 years of experience in a medical-device manufacturing or other regulated industry in a quality-related role.\n• Experience conducting and / or reviewing validations.\n• Supplier Audit experience preferred.\n• Certified body audit and Inspection experience",
+        "de": "GEMEINSAME BESCHREIBUNG: Senior Quality Engineer Zürich, Schweiz | Thoratec Switzerland GmbH (Abbott) Bauen Sie lebensrettende Technologie auf - in einem Team, in dem Ihr Wachstum wichtig ist. Bei Thoratec Switzerland GmbH, Teil des Geschäftsbereichs Medical Devices von Abbott, entwickeln und fertigen wir fortschrittliche Herzpumpensysteme, die Patienten mit schwerer Herzinsuffizienz weltweit unterstützen. Unsere Technologien – darunter CentriMag und HeartMate 3 – werden in Zürich entwickelt und produziert und spielen eine wichtige Rolle bei der Rettung und Verbesserung von Leben jeden Tag. Unser lokales Team von rund 140 Kollegen aus den Bereichen Entwicklung, Qualität und Produktion verbindet fundiertes Fachwissen mit einer kooperativen, respektvollen Kultur. Wir glauben, dass die besten Innovationen entstehen, wenn verschiedene Perspektiven zusammenkommen - und wir sind bestrebt, ein Umfeld zu schaffen, in dem jeder gedeihen und wachsen kann. Während wir weiter expandieren, suchen wir einen Senior Quality Engineer, der sich unserem Team anschließt und dazu beiträgt, die höchsten Standards in Bezug auf Qualität, Sicherheit und Leistung unserer Produkte zu gewährleisten. Über die Rolle In dieser Funktion tragen Sie zur Qualität und Compliance von lebensrettenden Medizinprodukten bei und arbeiten eng mit funktionsübergreifenden Teams zusammen. Sie werden eine wichtige Rolle bei der Stärkung der Qualitätssysteme spielen, Verbesserungen vorantreiben und sowohl interne als auch externe Stakeholder unterstützen. Dies ist eine Rolle für jemanden, der gerne zusammenarbeitet, Probleme löst und kontinuierlich lernt - und der durch seine Arbeit eine sinnvolle Wirkung erzielen möchte. Was du tun wirst\n• Umsetzung von Aspekten der Qualitätssicherung und Dokumentenkontrolle der Produktion, um die Einhaltung interner Verfahren und internationaler Vorschriften zu gewährleisten.\n• Durchführung von Qualitätsorganisationsaktivitäten zur Gewährleistung von Produktqualität, -leistung und -sicherheit.\n• Unterstützung der Kommunikation mit dem Betrieb und externen Lieferanten, um Qualitätsprobleme zu lösen.\n• Ziele und Ziele von Qualitätssystemen auf Standortebene vorantreiben. Pflichten und Zuständigkeiten: Einhaltung:\n• Gewährleistung der anlagenweiten Einhaltung von Qualitätssystemen und regulatorischen Anforderungen. Qualitätsanalyse und Reporting:\n• Analyse und Bericht Qualität Metriken und Trends.\n• Entwickeln, pflegen und präsentieren Sie Dashboards für die Berichterstattung und Entscheidungsfindung von Qualitätsdaten. Nicht konformes Produkt:\n• Beheben oder eskalieren Sie Probleme und koordinieren Sie Korrekturmaßnahmen mit Lieferanten.\n• Übernahme von Lieferanten-Nichtkonformitäten und deren Verwaltung während des gesamten Sanierungsprozesses Lieferantenqualität:\n• Durchführung von Audits an Lieferantenstandorten, um die Einhaltung der Qualitäts- und Regulierungsanforderungen sicherzustellen. Verwalten Sie die Dokumentation zur Lieferantenqualifizierung und gewährleisten Sie Vollständigkeit und Compliance.\n• Koordinieren und überwachen Sie Validierungen, die an Lieferantenstandorten durchgeführt werden.\n• Verwaltet interne und externe Berichte, Berichte und Dashboards in Bezug auf lieferantenbezogene KPIs Change Management:\n• Verwalten und unterstützen Sie Änderungskontrollprozesse, einschließlich Bewertung, Genehmigung, Implementierung und Wirksamkeitsprüfungen von Änderungen. Verfahren des Qualitätssicherungssystems:\n• Unterstützung der Verwaltung und Verbesserung von Qualitätssicherungsverfahren. Benachrichtigungen zu Lieferantenänderungen:\n• Überprüfung und Verwaltung von Lieferantenänderungsmeldungen, um eine zeitnahe Risikobewertung, eine funktionsübergreifende Abstimmung und eine ordnungsgemäße Genehmigung und Umsetzung in Übereinstimmung mit internen Verfahren und regulatorischen Anforderungen sicherzustellen. Audit\n• Aktive Unterstützung der zertifizierten Stellen und Behörden sowie der von der Website erhaltenen internen Audits. Korrektur- und Präventivmaßnahmen:\n• Analysieren Sie Trends und bestimmen Sie die Ursachen.\n• Umsetzung der CAPA-Maßnahmen. Allgemeines:\n• Reisen Sie nach Bedarf (20% aprox.)\n• Führen Sie zusätzliche Aufgaben aus, die vom QA-Management zugewiesen werden. Qualifikationen:\n• Bachelor- oder Master-Abschluss in Naturwissenschaften, Ingenieurwissenschaften oder anderen technischen Bereichen.\n• Mindestens 5 Jahre Erfahrung in einer Medizingeräteherstellung oder einer anderen regulierten Industrie in einer qualitätsbezogenen Rolle.\n• Erfahrung in der Durchführung und / oder Überprüfung von Validierungen.\n• Supplier Audit Erfahrung bevorzugt.\n• Erfahrung mit zertifiziertem Audit und Inspektion durch die Stelle",
+        "fr": "DESCRIPTION DE L'EMPLOI : Ingénieur principal de la qualité Zurich, Suisse Bâtir une technologie vitale — dans une équipe où votre croissance compte. Chez Thoratec Switzerland GmbH , qui fait partie de la division des dispositifs médicaux d'Abbott, nous développons et fabriquons des systèmes avancés de pompes cardiaques qui soutiennent les patients souffrant d'insuffisance cardiaque sévère dans le monde entier. Nos technologies, dont CentriMag et HeartMate 3, sont conçues et produites à Zurich et jouent un rôle vital pour sauver et améliorer des vies chaque jour. Notre équipe locale d'environ 140 collègues de Développement, Qualité et Production allie une expertise approfondie à une culture collaborative et respectueuse. Nous croyons que les meilleures innovations se produisent lorsque des points de vue divers se rencontrent — et nous sommes déterminés à créer un environnement où chacun peut prospérer et grandir. Au fur et à mesure que nous poursuivons notre expansion, nous cherchons un ingénieur de la qualité senior pour nous joindre à notre équipe et nous aider à assurer les plus hautes normes de qualité, de sécurité et de performance pour nos produits. À propos du rôle Dans ce rôle, vous contribuerez à la qualité et à la conformité des dispositifs médicaux vitaux tout en travaillant en étroite collaboration avec les équipes interfonctionnelles. Vous jouerez un rôle important dans le renforcement des systèmes de qualité, l'amélioration des systèmes et le soutien aux intervenants internes et externes. C'est un rôle pour quelqu'un qui aime la collaboration, la résolution de problèmes et l'apprentissage continu, et qui veut avoir un impact significatif grâce à son travail. Ce que vous allez faire\n• Mettre en œuvre certains aspects de l'assurance de la qualité de la production et des activités de contrôle des documents pour assurer le respect des procédures internes et des règlements internationaux.\n• Exécuter des activités d'organisation de qualité assurant la qualité, la performance et la sécurité des produits.\n• Appuyer la communication avec les Opérations et les fournisseurs externes pour résoudre les problèmes de qualité.\n• Conduire les buts et les objectifs des systèmes de qualité au niveau du site. Fonctions et responsabilités : Conformité:\n• Assurer la conformité à l'échelle de l'installation aux systèmes de qualité et aux exigences réglementaires. Analyse de la qualité et rapports :\n• Analyser et signaler les paramètres et les tendances de la qualité.\n• Élaborer, tenir à jour et présenter des tableaux de bord pour la communication de données de qualité et la prise de décisions. Produit non conforme :\n• Résoudre ou aggraver les problèmes et coordonner les mesures correctives avec les fournisseurs.\n• S'approprier les non-conformités des fournisseurs et les gérer tout au long du processus d'assainissement Qualité du fournisseur:\n• Effectuer des vérifications sur les sites des fournisseurs afin d'assurer la conformité aux exigences de qualité et de réglementation. Gérer la documentation relative à la qualification des fournisseurs, en assurant l'exhaustivité et la conformité.\n• Coordonner et superviser les validations effectuées aux emplacements des fournisseurs.\n• Gérer les rapports internes et externes, les rapports et les tableaux de bord relatifs aux ICR liés aux fournisseurs Gestion du changement :\n• Gérer et appuyer les processus de contrôle du changement, y compris l'évaluation, l'approbation, la mise en oeuvre et les vérifications de l'efficacité des changements. Procédures du système qualité :\n• Soutenir l'administration et l'amélioration des procédures d'assurance qualité. Avis de changement de fournisseur :\n• Examiner et gérer les notifications de changement de fournisseur, en veillant à ce que les risques soient évalués en temps opportun, qu'ils soient harmonisés entre les fonctions et qu'ils soient approuvés et mis en oeuvre conformément aux procédures internes et aux exigences réglementaires. Vérification des comptes\n• Soutenir activement les organismes et autorités certifiés, ainsi que les audits internes reçus par le site. Mesures correctives et préventives :\n• Analyser les tendances et déterminer les causes profondes.\n• Mettre en œuvre les actions du PACE. Généralités:\n• Voyage au besoin (20 % aprox.)\n• Effectuer des tâches supplémentaires assignées par la direction de l'AQ. Qualifications\n• Baccalauréat ou maîtrise en sciences, ingénierie ou autre domaine technique.\n• Au moins 5 ans d'expérience dans une fabrication d'appareils médicaux ou dans une autre industrie réglementée dans un rôle lié à la qualité.\n• Expérience de la conduite et/ou de l'examen des validations.\n• Expérience de vérification des fournisseurs préférée.\n• Vérification et inspection certifiées"
       },
+      "needsRetranslation": false,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Quality-Engineer_31154509",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T12:22:56.371Z",
+      "crawledAt": "2026-06-29T21:29:57.791Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1624,10 +1568,9 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Quality-Engineer_31154509",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "31154509",
+      "firstSeenAt": "2026-06-29T12:22:56.371Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1640,8 +1583,84 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-29T12:22:56.371Z"
+      "postalCode": "8001"
+    },
+    {
+      "id": "abbott-a7c7494c33dc",
+      "slug": "brand-manager-switzerland-1-anno-abbott-baar",
+      "slugByLocale": {
+        "it": "brand-manager-switzerland-1-anno-abbott-baar",
+        "en": "brand-manager-switzerland-1-jahr-abbott-ch",
+        "de": "brand-manager-switzerland-1-jahr-abbott-ch",
+        "fr": "brand-manager-switzerland-1-an-abbott-baar"
+      },
+      "company": "Abbott",
+      "companyKey": "abbott",
+      "companyDomain": "abbott.com",
+      "title": "Brand Manager Switzerland, befristet 1 Jahr",
+      "titleByLocale": {
+        "it": "Brand Manager Switzerland, 1 anno",
+        "en": "Brand Manager Switzerland, limited to 1 year",
+        "de": "Brand Manager Switzerland, befristet 1 Jahr",
+        "fr": "Brand Manager Switzerland, 1 an"
+      },
+      "description": "JOB DESCRIPTION:\nAbbott ist ein global tätiges Unternehmen im Gesundheitswesen, das sich mit der Erforschung, Entwicklung und Herstellung von Produkten in den Bereichen Medizintechnik, Pharmazeutik, Diagnostik und medizinischer Ernährung befasst. Das Unternehmen vermarktet seine Produkte weltweit und beschäftigt ungefähr 99‘000 Mitarbeitende in 150 Ländern. In der Schweiz beschäftigt Abbott rund 470 Mitarbeitende.\n\nAbbott bietet Ihnen die Chance, die Welt nachhaltig zu verändern. Als Mitarbeiter eines erfolgreichen und renommierten Unternehmens meistern Sie schwierige und zugleich lohnenswerte Herausforderungen und prägen die Zukunft der Gesundheitsversorgung.\n\nFür unser Abbott Diabetes Care Team in Baar , Schweiz suchen wir per sofort eine selbständige, teamorientierte und aufgestellte Persönlichkeit als\n\nBrand Manager (m/w/d) 100%. Die Anstellung ist zunächst für 1 Jahr befristet und erfolgt über eine Payrollagentur.\n\nAls Mitarbeiter/in in unserem Marketing Team arbeiten Sie am Puls unserer Division. Mit Ihrer strukturierten und vernetzt denkenden Art leisten Sie einen wichtigen Beitrag, die globale Strategie in lokale Massnahmen umzusetzen für unsere FreeStyle Libre Anwender/innen. Dies schaffen Sie dank Ihrer Erfahrung in der Pharma- oder Medizintechnikbranche spielend in 3 unserer Landessprachen (Deutsch, Französisch, Italienisch).\n\nIhr Aufgabenbereich umfasst folgende Bereiche:\n\n• Lokale Umsetzung der globalen Strategie im Bereich Consumer Marketing\n\n• Planen und implementieren von Massnahmen (digital und Print) inkl. Budgetplanung und -kontrolle im Opti-Channel-Marketing\n\n• Festlegen und analysieren von relevanten KPI’s sowie laufende Optimierung der Aktivitäten auf Basis dieser Resultate (ROI)\n\n• Ansprechperson für unsere internen und externen Partner\n\n• Interne Schnittstelle zu anderen Abteilungen (lokal, europäisch und global) und dem Aussendienst\n\nSie verfügen über eine zuverlässige, selbständige und zielorientierte Hands-On-Arbeitsweise und bringen folgende Voraussetzungen mit:\n\n• Hochschulabschluss in Marketing oder Betriebswirtschaft oder fundierte, relevante Berufserfahrung in einem vergleichbaren Bereich\n\n• Mehrjährige Marketingerfahrung in der Schweizer Pharma- oder Medizintechnikbranche mit Fokus auf digitalem Marketing\n\n• Sprachkenntnisse: Verhandlungssicher in Wort und Schrift in Deutsch, Französisch und Englisch sowie fortgeschrittene Kenntnisse in Italienisch\n\n• Fähigkeit, sich in unsere Kund:innen hineinzuversetzen und entsprechende Massnahmen zu planen\n\n• Stärke in der Umsetzung von Massnahmen in 3 Sprachen (Deutsch, Französisch, Italienisch)\n\n• Affinität für digitale Gesundheitstools\n\n• Erfahrung in der Zusammenarbeit mit Agenturen und Organisation von lokalen Kongressen\n\n• Sicheres Auftreten im Umgang mit internen und externen Stakeholdern\n\n• Verständnis für interne Prozesse und deren Einhaltung\n\n• Ausgeprägte Team- und Kundenorientierung in internationalem Umfeld\n\n• Situationsangepasste Flexibiltiät für erfolgreiches Priorisieren und eigener Anspruch an qualitativ hochstehende Umsetzung in einer agilen Umgebung\n\n• Reisebereitschaft bis zu 20%\n\nWenn Sie eine flexible, aufgeschlossene und engagierte Persönlichkeit sind, bietet Ihnen Abbott nicht nur eine abwechslungsreiche und anspruchsvolle Aufgabe sondern auch eine angenehme und offene Arbeitsatmosphäre in einem spannenden, internationalen Umfeld.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nProduct Management\nDIVISION:\nADC Diabetes Care\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 20 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
+      "descriptionByLocale": {
+        "it": "DESCRIZIONE JOB: Abbott è una società sanitaria globale impegnata nella ricerca, sviluppo e produzione di prodotti nel campo della tecnologia medica, farmaceutica, diagnostica e nutrizione medica. L'azienda commercializza i suoi prodotti in tutto il mondo e impiega circa 99.000 persone in 150 paesi. Abbott impiega circa 470 persone in Svizzera. Abbott ti offre l'opportunità di cambiare il mondo in modo sostenibile. Come dipendente di una società di successo e rinomata, si padroneggiano sfide difficili e allo stesso tempo vale la pena e modellano il futuro della salute. Per il nostro Abbott Diabetes Care Team di Baar, in Svizzera stiamo cercando una personalità indipendente, orientata al team e consolidata come Brand Manager (m/f/d) 100% È inizialmente una distribuzione per un anno, con l'occupazione che viene effettuata tramite un partner esterno payrolling. Come dipendente del nostro team di marketing, lavori sul polso della nostra divisione. Con il vostro modo di pensare strutturato e in rete, contribuite in modo importante all'attuazione della strategia globale nelle misure locali per i nostri utenti FreeStyle Libre. Grazie alla vostra esperienza nel settore farmaceutico o medicale, potete farlo in 3 lingue nazionali (tedesco, francese, italiano). Le sue responsabilità includono i seguenti settori:\n• implementazione locale della strategia globale nel settore del marketing dei consumatori\n• Programmazione e attuazione di misure (digitali e stampa) incl. Pianificazione e controllo del bilancio nel marketing opti-channel\n• Determinazione e analisi dei KPI rilevanti e ottimizzazione continua delle attività basate su questi risultati (ROI)\n• Persona di contatto per i nostri partner interni ed esterni\n• Interfaccia interna ad altri dipartimenti (locali, europei e globali) e servizio sul campo Hai uno stile di lavoro pratico, affidabile, indipendente e orientato all'obiettivo e hai i seguenti prerequisiti:\n• Laurea in marketing o amministrazione aziendale o suono, esperienza professionale rilevante in un settore comparabile\n• Diversi anni di esperienza di marketing nel settore farmaceutico o medicale svizzero con un focus sul marketing digitale\n• Capacità linguistiche:\n• Capacità di mettersi nei nostri clienti: all'interno e pianificare le misure appropriate\n• Forza nell'attuazione delle misure in 3 lingue (tedesco, francese, italiano)\n• Affinità per gli strumenti di salute digitale\n• Esperienza nel lavoro con le agenzie e organizzazione di congressi locali\n• Approccio sicuro agli stakeholder interni ed esterni\n• Comprensione dei processi interni e della loro conformità\n• Forte e orientamento al cliente in un ambiente internazionale Se sei una personalità flessibile, aperta e impegnata, Abbott ti offre non solo un compito vario e impegnativo, ma anche un ambiente di lavoro piacevole e aperto in un ambiente emozionante e internazionale. Il pagamento base per questa posizione è N/A In posizioni specifiche, l'intervallo di pagamento può variare dall'intervallo pubblicato. FAMIGLIA JOB: DIVISIONE di gestione dei prodotti: ADC Diabetes Care LOCATION: Switzerland > Baar : Neuhofstrasse 23 LOCALI ADDIZIONALI: SHIFT DI LAVORO: Standard TRAVEL: Sì, 20% del tempo MEDICAL SURVEILLANCE: ATTIVITÀ DI LAVORO non applicabili: Non applicabili",
+        "en": "JOB DESCRIPTION: Abbott is a global healthcare company engaged in the research, development and manufacture of products in the fields of medical technology, pharmaceuticals, diagnostics and medical nutrition. The company markets its products worldwide and employs approximately 99,000 people in 150 countries. Abbott employs around 470 people in Switzerland. Abbott offers you the opportunity to change the world sustainably. As an employee of a successful and renowned company, you master difficult and at the same time worthwhile challenges and shape the future of healthcare. For our Abbott Diabetes Care Team in Baar, Switzerland we are looking for an independent, team-oriented and established personality as a Brand Manager (m/f/d) 100% It is initially a deployment for one year, with the employment being carried out via an external payrolling partner. As an employee in our marketing team, you work on the pulse of our division. With your structured and networked way of thinking, you make an important contribution to implementing the global strategy into local measures for our FreeStyle Libre users. Thanks to your experience in the pharmaceutical or medical technology industry, you can do this in 3 of our national languages (German, French, Italian). Her responsibilities include the following areas:\n• Local implementation of the global strategy in the area of consumer marketing\n• Planning and implementing measures (digital and print) incl. Budget planning and control in opti-channel marketing\n• Determining and analyzing relevant KPIs as well as ongoing optimization of activities based on these results (ROI)\n• Contact person for our internal and external partners\n• Internal interface to other departments (local, European and global) and the field service You have a reliable, independent and goal-oriented hands-on working style and have the following prerequisites:\n• University degree in marketing or business administration or sound, relevant professional experience in a comparable area\n• Several years of marketing experience in the Swiss pharmaceutical or medical technology industry with a focus on digital marketing\n• Language skills: Confident in words and writing in German, French and English as well as advanced knowledge in Italian\n• Ability to put oneself in our customers: inside and plan appropriate measures\n• Strength in the implementation of measures in 3 languages (German, French, Italian)\n• Affinity for digital health tools\n• Experience in working with agencies and organising local congresses\n• Secure approach to internal and external stakeholders\n• Understanding internal processes and their compliance\n• Strong team and customer orientation in an international environment\n• Situation-adapted flexibility for successful prioritisation and your own demand for high-quality implementation in an agile environment\n• Willingness to travel up to 20% If you are a flexible, open-minded and committed personality, Abbott offers you not only a varied and challenging task but also a pleasant and open working atmosphere in an exciting, international environment. The base pay for this position is N/A In specific locations, the pay range may vary from the range posted. JOB FAMILY: Product Management DIVISION: ADC Diabetes Care LOCATION: Switzerland > Baar : Neuhofstrasse 23 ADDITIONAL LOCATIONS: WORK SHIFT: Standard TRAVEL: Yes, 20% of the Time MEDICAL SURVEILLANCE: Not Applicable SIGNIFICANT WORK ACTIVITIES: Not Applicable",
+        "de": "JOB DESCRIPTION: Abbott ist ein global tätiges Unternehmen im Gesundheitswesen, das sich mit der Erforschung, Entwicklung und Herstellung von Produkten in den Bereichen Medizintechnik, Pharmazeutik, Diagnostik und medizinischer Ernährung befasst. Das Unternehmen vermarktet seine Produkte weltweit und beschäftigt ungefähr 99‘000 Mitarbeitende in 150 Ländern. In der Schweiz beschäftigt Abbott rund 470 Mitarbeitende. Abbott bietet Ihnen die Chance, die Welt nachhaltig zu verändern. Als Mitarbeiter eines erfolgreichen und renommierten Unternehmens meistern Sie schwierige und zugleich lohnenswerte Herausforderungen und prägen die Zukunft der Gesundheitsversorgung. Für unser Abbott Diabetes Care Team in Baar , Schweiz suchen wir per sofort eine selbständige, teamorientierte und aufgestellte Persönlichkeit als Brand Manager (m/w/d) 100%. Die Anstellung ist zunächst für 1 Jahr befristet und erfolgt über eine Payrollagentur. Als Mitarbeiter/in in unserem Marketing Team arbeiten Sie am Puls unserer Division. Mit Ihrer strukturierten und vernetzt denkenden Art leisten Sie einen wichtigen Beitrag, die globale Strategie in lokale Massnahmen umzusetzen für unsere FreeStyle Libre Anwender/innen. Dies schaffen Sie dank Ihrer Erfahrung in der Pharma- oder Medizintechnikbranche spielend in 3 unserer Landessprachen (Deutsch, Französisch, Italienisch). Ihr Aufgabenbereich umfasst folgende Bereiche:\n• Lokale Umsetzung der globalen Strategie im Bereich Consumer Marketing\n• Planen und implementieren von Massnahmen (digital und Print) inkl. Budgetplanung und -kontrolle im Opti-Channel-Marketing\n• Festlegen und analysieren von relevanten KPI’s sowie laufende Optimierung der Aktivitäten auf Basis dieser Resultate (ROI)\n• Ansprechperson für unsere internen und externen Partner\n• Interne Schnittstelle zu anderen Abteilungen (lokal, europäisch und global) und dem Aussendienst Sie verfügen über eine zuverlässige, selbständige und zielorientierte Hands-On-Arbeitsweise und bringen folgende Voraussetzungen mit:\n• Hochschulabschluss in Marketing oder Betriebswirtschaft oder fundierte, relevante Berufserfahrung in einem vergleichbaren Bereich\n• Mehrjährige Marketingerfahrung in der Schweizer Pharma- oder Medizintechnikbranche mit Fokus auf digitalem Marketing\n• Sprachkenntnisse: Verhandlungssicher in Wort und Schrift in Deutsch, Französisch und Englisch sowie fortgeschrittene Kenntnisse in Italienisch\n• Fähigkeit, sich in unsere Kund:innen hineinzuversetzen und entsprechende Massnahmen zu planen\n• Stärke in der Umsetzung von Massnahmen in 3 Sprachen (Deutsch, Französisch, Italienisch)\n• Affinität für digitale Gesundheitstools\n• Erfahrung in der Zusammenarbeit mit Agenturen und Organisation von lokalen Kongressen\n• Sicheres Auftreten im Umgang mit internen und externen Stakeholdern\n• Verständnis für interne Prozesse und deren Einhaltung\n• Ausgeprägte Team- und Kundenorientierung in internationalem Umfeld\n• Situationsangepasste Flexibiltiät für erfolgreiches Priorisieren und eigener Anspruch an qualitativ hochstehende Umsetzung in einer agilen Umgebung\n• Reisebereitschaft bis zu 20% Wenn Sie eine flexible, aufgeschlossene und engagierte Persönlichkeit sind, bietet Ihnen Abbott nicht nur eine abwechslungsreiche und anspruchsvolle Aufgabe sondern auch eine angenehme und offene Arbeitsatmosphäre in einem spannenden, internationalen Umfeld. The base pay for this position is N/A In specific locations, the pay range may vary from the range posted. JOB FAMILY: Product Management DIVISION: ADC Diabetes Care LOCATION: Switzerland > Baar : Neuhofstrasse 23 ADDITIONAL LOCATIONS: WORK SHIFT: Standard TRAVEL: Yes, 20 % of the Time MEDICAL SURVEILLANCE: Not Applicable SIGNIFICANT WORK ACTIVITIES: Not Applicable",
+        "fr": "DESCRIPTION DE L'EMPLOI : Abbott est une société de santé mondiale engagée dans la recherche, le développement et la fabrication de produits dans les domaines de la technologie médicale, des produits pharmaceutiques, du diagnostic et de la nutrition médicale. L'entreprise commercialise ses produits dans le monde entier et emploie environ 99 000 personnes dans 150 pays. Abbott emploie environ 470 personnes en Suisse. Abbott vous offre l'opportunité de changer durablement le monde. En tant qu'employé d'une entreprise prospère et réputée, vous maîtrisez des défis difficiles et en même temps valables et façonnez l'avenir des soins de santé. Pour notre équipe Abbott Diabetes Care à Baar, Suisse, nous recherchons une personnalité indépendante, axée sur l'équipe et établie en tant que responsable de marque (m/f/d) 100% Il s'agit initialement d'un déploiement d'un an, l'emploi étant effectué par l'intermédiaire d'un partenaire externe de paye. En tant qu'employé de notre équipe marketing, vous travaillez sur le pouls de notre division. Grâce à votre façon de penser structurée et en réseau, vous contribuez grandement à la mise en œuvre de la stratégie globale dans les mesures locales pour nos utilisateurs de FreeStyle Libre. Grâce à votre expérience dans l'industrie pharmaceutique ou médicale, vous pouvez le faire en 3 langues nationales (allemand, français, italien). Ses responsabilités comprennent les domaines suivants :\n• Mise en oeuvre locale de la stratégie globale dans le domaine du marketing des consommateurs\n• Planification et mise en oeuvre de mesures (numériques et imprimées) y compris : Planification budgétaire et contrôle du marketing opti-canal\n• Détermination et analyse des ICR pertinents ainsi que l'optimisation continue des activités sur la base de ces résultats (ROI)\n• Personne de contact pour nos partenaires internes et externes\n• Interface interne avec d'autres départements (local, européen et mondial) et le service sur le terrain Vous avez un style de travail pratique fiable, indépendant et axé sur les objectifs et avez les conditions suivantes:\n• Diplôme universitaire en marketing ou administration d'entreprise ou une expérience professionnelle solide et pertinente dans un domaine comparable\n• Plusieurs années d'expérience en marketing dans l'industrie pharmaceutique ou médicale suisse avec un accent sur le marketing numérique\n• Compétences linguistiques: Confiance dans les mots et l'écriture en allemand, français et anglais ainsi que les connaissances avancées en italien\n• Aptitude à se mettre dans nos clients: à l'intérieur et à planifier des mesures appropriées\n• Force dans la mise en œuvre des mesures en 3 langues (allemand, français, italien)\n• Affinité des outils numériques de santé\n• Expérience dans le travail avec les agences et l'organisation de congrès locaux\n• Approche sécurisée auprès des acteurs internes et externes\n• Compréhension des processus internes et de leur conformité\n• Forte orientation des équipes et des clients dans un environnement international\n• Flexibilité adaptée à la situation pour une hiérarchisation réussie et votre propre demande de mise en œuvre de haute qualité dans un environnement agile\n• Volonté de voyager jusqu'à 20% Si vous êtes une personnalité flexible, ouverte d'esprit et engagée, Abbott vous offre non seulement une tâche variée et stimulante, mais aussi une atmosphère de travail agréable et ouverte dans un environnement international passionnant. La rémunération de base pour ce poste est s.o. Dans certains endroits, l'échelle de rémunération peut varier de l'échelle affichée. EMPLOI FAMILLE: Gestion des produits DIVISION: ADC Diabetes Care LOCATION: Suisse > Baar : Neuhofstrasse 23 LOCATIONS SUPPLÉMENTAIRES: RÉSEAU DE TRAVAIL: VOYAGE Standard: Oui, 20% du temps SURVEILLANCE MÉDICALE: Sans objet ACTIVITÉS DE TRAVAIL SIGNIFIANTES: Sans objet"
+      },
+      "location": "Baar",
+      "canton": "ZG",
+      "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Brand-Manager-Switzerland--1-Jahr_31153660",
+      "source": "Abbott Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-29T21:29:56.983Z",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Dispositivi medici / Farmaceutico",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Brand-Manager-Switzerland--1-Jahr_31153660",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "31153660",
+      "previousSlugs": [
+        "brand-manager-switzerland-1-jahr-abbott-ch",
+        "brand-manager-switzerland-befristet-1-jahr-abbott-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-manager-switzerland-1-jahr-abbott-ch",
+          "brand-manager-switzerland-befristet-1-jahr-abbott-ch",
+          "brand-manager-switzerland-1-anno-abbott-baar"
+        ],
+        "fr": [
+          "brand-manager-switzerland-1-jahr-abbott-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-15T22:25:46.516Z",
+      "salaryMin": 108500,
+      "salaryMax": 192000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 108500,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6300"
     }
   ]
 }

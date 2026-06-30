@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3022,
+ "numberOfItems": 3029,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7668,7 +7668,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3019, "name": "Stipendi frontalieri e privacy: dati svelati ne...", "url": `${BASE_URL}/articoli-frontaliere/dati-stipendi-frontalieri-privacy-2024` },
           { "@type": "ListItem", "position": 3020, "name": "Calcolo tasse frontalieri oltre 20 km: regole e...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-tasse-frontalieri-oltre-20km` },
           { "@type": "ListItem", "position": 3021, "name": "Lavorare in Lidl Svizzera: opportunità e proced...", "url": `${BASE_URL}/articoli-frontaliere/lidl-svizzera-lavora-con-noi` },
-          { "@type": "ListItem", "position": 3022, "name": "Concorsi pubblici in Ticino: guida nazionale ag...", "url": `${BASE_URL}/articoli-frontaliere/concorsi-pubblici-ticino-guida-nazionale` }
+          { "@type": "ListItem", "position": 3022, "name": "Concorsi pubblici in Ticino: guida nazionale ag...", "url": `${BASE_URL}/articoli-frontaliere/concorsi-pubblici-ticino-guida-nazionale` },
+          { "@type": "ListItem", "position": 3023, "name": "Utilizzo illecito di bancomat: processo a Vares...", "url": `${BASE_URL}/articoli-frontaliere/bancomat-processo-varesenews-2023` },
+          { "@type": "ListItem", "position": 3024, "name": "Dove vivono i frontalieri lombardi: boom Brianz...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-lombardi-residenza-tendenze` },
+          { "@type": "ListItem", "position": 3025, "name": "Eventi del weekend in Ticino: cosa fare sabato ...", "url": `${BASE_URL}/articoli-frontaliere/eventi-weekend-ticino` },
+          { "@type": "ListItem", "position": 3026, "name": "Stabio dogana: passaggio e procedure al confine...", "url": `${BASE_URL}/articoli-frontaliere/stabio-dogana-svizzera` },
+          { "@type": "ListItem", "position": 3027, "name": "Dogana Chiasso: tempi di attesa e viabilità", "url": `${BASE_URL}/articoli-frontaliere/tempi-attesa-dogana-chiasso-strada` },
+          { "@type": "ListItem", "position": 3028, "name": "Prezzi della benzina in Svizzera oggi", "url": `${BASE_URL}/articoli-frontaliere/benzina-prezzi-svizzera-oggi` },
+          { "@type": "ListItem", "position": 3029, "name": "Guess Stabio: opportunità di lavoro come mercha...", "url": `${BASE_URL}/articoli-frontaliere/guess-stabio-lavoro-merchandiser` }
  ]
  },
  {

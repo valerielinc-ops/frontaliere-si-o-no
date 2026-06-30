@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel } from '../scripts/lib/ai-models.mjs';
+import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM } from '../scripts/lib/ai-models.mjs';
 
 // Local open-source fallback provider: opt-in last-resort used when every remote
 // free-tier provider is daily-exhausted. These invariants guard the two things
@@ -40,10 +40,24 @@ describe('local LLM fallback provider', () => {
     }
   });
 
+  // Read the per-Agent options bag (undici stores it under `Symbol(options)`).
+  // This is what the Agent forwards to every per-origin Pool/Client, so asserting
+  // the timeouts here proves they are EFFECTIVE, not merely passed to the
+  // constructor and silently dropped by an undici version that only honours them
+  // on Pool/Client (the leaky-assertion gap #3106 item 1 was raised against).
+  function readUndiciOptions(dispatcher: unknown): Record<string, unknown> | null {
+    if (!dispatcher || typeof dispatcher !== 'object') return null;
+    const sym = Object.getOwnPropertySymbols(dispatcher).find(
+      (s) => s.toString() === 'Symbol(options)',
+    );
+    return sym ? ((dispatcher as Record<symbol, unknown>)[sym] as Record<string, unknown>) : null;
+  }
+
   // Regression guard: non-streaming CPU inference buffers the whole completion
   // before sending headers, so without a dispatcher raising undici's 300s
   // headersTimeout the local call dies as `fetch failed` at exactly 5 min — long
-  // before the AbortSignal. The local path MUST attach an undici Agent dispatcher.
+  // before the AbortSignal. The local path MUST attach an undici Agent dispatcher
+  // whose header/body timeouts are RAISED to the local budget (not just present).
   it('attaches an undici dispatcher to the local fetch (raised header/body timeout)', async () => {
     const prevFetch = globalThis.fetch;
     const prevUrl = process.env.LOCAL_LLM_URL;
@@ -71,11 +85,54 @@ describe('local LLM fallback provider', () => {
       expect(captured).not.toBeNull();
       expect(captured!.dispatcher).toBeTruthy();
       expect((captured!.dispatcher as { constructor: { name: string } }).constructor.name).toBe('Agent');
+      // The fix is inert unless the Agent actually retains the raised timeouts.
+      // Assert the effective values (= LOCAL_LLM_TIMEOUT_MS), not just presence,
+      // so a future undici that drops these on Agent fails loud here instead of
+      // silently degrading the local fallback back to the 300s headersTimeout.
+      const undiciOpts = readUndiciOptions(captured!.dispatcher);
+      expect(undiciOpts).not.toBeNull();
+      expect(undiciOpts!.headersTimeout).toBe(900_000);
+      expect(undiciOpts!.bodyTimeout).toBe(900_000);
     } finally {
       globalThis.fetch = prevFetch;
       if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
       if (prevModel === undefined) delete process.env.LOCAL_LLM_MODEL; else process.env.LOCAL_LLM_MODEL = prevModel;
       if (prevTimeout === undefined) delete process.env.LOCAL_LLM_TIMEOUT_MS; else process.env.LOCAL_LLM_TIMEOUT_MS = prevTimeout;
+    }
+  });
+
+  // AI_MODELS_FORCE_CHAIN pins the cascade to an explicit list so ops can
+  // validate/measure a specific provider (e.g. the local fallback) on demand
+  // without waiting for the remote pool to exhaust naturally.
+  it('AI_MODELS_FORCE_CHAIN pins callLLM to exactly the listed models', async () => {
+    const prevFetch = globalThis.fetch;
+    const prevForce = process.env.AI_MODELS_FORCE_CHAIN;
+    const prevUrl = process.env.LOCAL_LLM_URL;
+    const prevModel = process.env.LOCAL_LLM_MODEL;
+    process.env.LOCAL_LLM_ENABLED = '1';
+    process.env.LOCAL_LLM_URL = 'http://127.0.0.1:11434/v1/chat/completions';
+    process.env.LOCAL_LLM_MODEL = 'qwen2.5:7b';
+    process.env.AI_MODELS_FORCE_CHAIN = 'local/fallback';
+    const urls: string[] = [];
+    try {
+      globalThis.fetch = (async (url: string) => {
+        urls.push(url);
+        return {
+          ok: true,
+          status: 200,
+          text: async () => JSON.stringify({ choices: [{ message: { content: 'forced' } }] }),
+        };
+      }) as unknown as typeof fetch;
+      const out = await callLLM([{ role: 'user', content: 'hi' }], { maxRetriesPerModel: 1 });
+      expect(out).toBe('forced');
+      // Exactly one call, to the local endpoint only — no remote provider touched.
+      expect(urls).toHaveLength(1);
+      expect(urls[0]).toBe('http://127.0.0.1:11434/v1/chat/completions');
+    } finally {
+      globalThis.fetch = prevFetch;
+      if (prevForce === undefined) delete process.env.AI_MODELS_FORCE_CHAIN; else process.env.AI_MODELS_FORCE_CHAIN = prevForce;
+      if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
+      if (prevModel === undefined) delete process.env.LOCAL_LLM_MODEL; else process.env.LOCAL_LLM_MODEL = prevModel;
     }
   });
 });

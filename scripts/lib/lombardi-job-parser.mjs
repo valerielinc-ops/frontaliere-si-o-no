@@ -59,6 +59,24 @@ function stripHtml(html = '') {
 }
 
 /**
+ * Extract the embedded `var _jobs = [...]` JSON array from listing-page HTML.
+ *
+ * Pure (no network) so the brittle source-shape contract is unit-testable: a
+ * Lombardi site redesign that drops/renames the embedded `_jobs` block — the
+ * real future break mode for this crawler — is caught immediately instead of
+ * silently yielding zero jobs. Throws when the marker is absent (e.g. an
+ * Internal-Server-Error page or a redesigned listing).
+ *
+ * @param {string} html  Raw listing-page HTML.
+ * @returns {Array<object>} Parsed `_jobs` entries.
+ */
+export function extractLombardiJobsFromHtml(html) {
+  const match = String(html || '').match(/var _jobs = (\[.*?\]);/s);
+  if (!match) throw new Error('Could not find _jobs data in listing page');
+  return JSON.parse(match[1]);
+}
+
+/**
  * Fetch and parse the listing page to extract the embedded _jobs JSON.
  */
 export async function parseLombardiListingPage(timeoutMs = 20000) {
@@ -74,11 +92,7 @@ export async function parseLombardiListingPage(timeoutMs = 20000) {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
-
-    const match = html.match(/var _jobs = (\[.*?\]);/s);
-    if (!match) throw new Error('Could not find _jobs data in listing page');
-
-    return JSON.parse(match[1]);
+    return extractLombardiJobsFromHtml(html);
   } finally {
     clearTimeout(timer);
   }

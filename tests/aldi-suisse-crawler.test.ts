@@ -1,18 +1,84 @@
 /**
  * ALDI Suisse crawler parser tests
  *
- * Tests parseAldiListingPage(), parseAldiDetailPage(),
- * isAldiTicinoJob(), isAldiJob(), and constants.
+ * Tests parseAldiSearchResults(), parseAldiListingPage(),
+ * parseAldiDetailPage(), isAldiTicinoJob(), isAldiJob(), and constants.
  */
 import { describe, it, expect } from 'vitest';
 
 import {
+  parseAldiSearchResults,
   parseAldiListingPage,
   parseAldiDetailPage,
   isAldiTicinoJob,
   isAldiJob,
+  ALDI_SEARCH_API,
   ALDI_SUCCESSFACTORS_BASE,
 } from '@/scripts/lib/aldi-suisse-job-parser.mjs';
+
+// --- Fixture: live TYPO3 REST job-search response ---
+const SEARCH_JSON = {
+  jobs: [
+    {
+      rmk_id: '74455',
+      title: 'Mitarbeiter Verkauf (m/w/d)',
+      shift_type: '50 - 70%',
+      shift: '50 - 70%',
+      url: 'job/1271973201',
+      area_of_activity_title: 'Filialteam',
+      workload: 59,
+      career_level_title: 'Berufseinsteiger',
+      sys_language_uid: 0,
+      latitude: '47.10',
+      longitude: '9.06',
+      city: 'Näfels',
+      address: 'Oberdorf 54',
+      zip: '8752',
+      job_id: '1271973201',
+    },
+    {
+      rmk_id: '77113',
+      title: 'Filialleiter/in (m/w/d)',
+      shift_type: '100%',
+      url: 'job/1409127233',
+      area_of_activity_title: 'Filialteam',
+      sys_language_uid: 2,
+      city: 'Bellinzona',
+      address: 'Via Stazione 1',
+      zip: '6500',
+      job_id: '1409127233',
+    },
+    // duplicate URL — must be deduped
+    {
+      title: 'Mitarbeiter Verkauf (m/w/d) dup',
+      url: 'job/1271973201',
+      city: 'Näfels',
+      zip: '8752',
+      job_id: '1271973201',
+    },
+  ],
+};
+
+// --- Fixture: live TYPO3 detail page (description div) ---
+const DETAIL_TYPO3_HTML = `
+<html><body>
+  <h1 class="title">Mitarbeiter Verkauf (m/w/d)</h1>
+  <div class="profilecolumn"><b>ARBEITSORT</b> 8752 Näfels, Oberdorf 54</div>
+  <div class="shifttype">50 - 70%</div>
+  <div class="description">
+    <p><b>Aufgaben</b></p>
+    <ul>
+      <li>Warenbereitstellung</li>
+      <li>Kassieren und Kundenberatung</li>
+      <li>Reinigung der Filiale</li>
+    </ul>
+    <p><b>Profil</b></p>
+    <ul>
+      <li>Berufserfahrung im Verkauf</li>
+      <li>Gute Deutschkenntnisse</li>
+    </ul>
+  </div>
+</body></html>`;
 
 // --- Fixture: Homepage with /job/{id} links ---
 const LISTING_HTML = `
@@ -68,6 +134,54 @@ const DETAIL_HTML = `
 </main>
 </body>
 </html>`;
+
+// ===================================================================
+// parseAldiSearchResults (live REST discovery path)
+// ===================================================================
+
+describe('parseAldiSearchResults', () => {
+  it('extracts job rows from the REST payload', () => {
+    const rows = parseAldiSearchResults(SEARCH_JSON);
+    // 3 input rows, 1 duplicate URL → 2 unique
+    expect(rows.length).toBe(2);
+  });
+
+  it('builds absolute detail URLs from relative job/{id}', () => {
+    const rows = parseAldiSearchResults(SEARCH_JSON);
+    expect(rows[0].url).toBe('https://www.jobs.aldi.ch/job/1271973201');
+  });
+
+  it('carries the structured location fields (city/zip/address)', () => {
+    const rows = parseAldiSearchResults(SEARCH_JSON);
+    expect(rows[0].city).toBe('Näfels');
+    expect(rows[0].zip).toBe('8752');
+    expect(rows[0].address).toBe('Oberdorf 54');
+  });
+
+  it('uses shift_type as the human workload, not the numeric workload score', () => {
+    const rows = parseAldiSearchResults(SEARCH_JSON);
+    expect(rows[0].workload).toBe('50 - 70%');
+  });
+
+  it('deduplicates rows that share a URL', () => {
+    const rows = parseAldiSearchResults(SEARCH_JSON);
+    const naefels = rows.filter((r) => r.url.includes('1271973201'));
+    expect(naefels.length).toBe(1);
+  });
+
+  it('accepts a raw JSON string payload', () => {
+    const rows = parseAldiSearchResults(JSON.stringify(SEARCH_JSON));
+    expect(rows.length).toBe(2);
+  });
+
+  it('returns empty array for malformed / empty input', () => {
+    expect(parseAldiSearchResults('')).toEqual([]);
+    expect(parseAldiSearchResults('not json')).toEqual([]);
+    expect(parseAldiSearchResults(null)).toEqual([]);
+    expect(parseAldiSearchResults({})).toEqual([]);
+    expect(parseAldiSearchResults({ jobs: [] })).toEqual([]);
+  });
+});
 
 // ===================================================================
 // parseAldiListingPage
@@ -142,6 +256,46 @@ describe('parseAldiDetailPage', () => {
     expect(parseAldiDetailPage('')).toBeNull();
     expect(parseAldiDetailPage(null)).toBeNull();
   });
+
+  it('extracts the body from the live TYPO3 <div class="description">', () => {
+    const result = parseAldiDetailPage(DETAIL_TYPO3_HTML);
+    expect(result).not.toBeNull();
+    expect(result.title).toBe('Mitarbeiter Verkauf (m/w/d)');
+    expect(result.body).toContain('Aufgaben');
+    expect(result.body).toContain('Kassieren');
+    expect(result.body).toContain('Profil');
+  });
+
+  it('extracts bullet requirements from the description block', () => {
+    const result = parseAldiDetailPage(DETAIL_TYPO3_HTML);
+    expect(result.requirements.length).toBe(5);
+    expect(result.requirements).toContain('Warenbereitstellung');
+    expect(result.requirements).toContain('Gute Deutschkenntnisse');
+  });
+
+  it('does not truncate the body when the description block has nested <div>s', () => {
+    const nestedHtml = `
+<html><body>
+  <h1 class="title">Filialleiter (m/w/d)</h1>
+  <div class="description">
+    <div class="section"><p><b>Aufgaben</b></p>
+      <ul><li>Filialführung</li></ul>
+    </div>
+    <div class="section"><p><b>Profil</b></p>
+      <ul><li>Berufserfahrung im Detailhandel</li></ul>
+    </div>
+    <p>Unser Angebot: attraktive Anstellungsbedingungen.</p>
+  </div>
+</body></html>`;
+    const result = parseAldiDetailPage(nestedHtml);
+    expect(result).not.toBeNull();
+    // First nested </div> must NOT end the capture: later sections survive.
+    expect(result.body).toContain('Aufgaben');
+    expect(result.body).toContain('Profil');
+    expect(result.body).toContain('Unser Angebot');
+    expect(result.requirements).toContain('Filialführung');
+    expect(result.requirements).toContain('Berufserfahrung im Detailhandel');
+  });
 });
 
 // ===================================================================
@@ -208,5 +362,11 @@ describe('ALDI_SUCCESSFACTORS_BASE', () => {
   it('points to SuccessFactors with ALDI company', () => {
     expect(ALDI_SUCCESSFACTORS_BASE).toContain('successfactors');
     expect(ALDI_SUCCESSFACTORS_BASE).toContain('aldisuis');
+  });
+});
+
+describe('ALDI_SEARCH_API', () => {
+  it('points to the jobs.aldi.ch REST job-search endpoint', () => {
+    expect(ALDI_SEARCH_API).toBe('https://www.jobs.aldi.ch/rest/jobs/search');
   });
 });

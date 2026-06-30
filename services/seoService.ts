@@ -4297,7 +4297,14 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dati-stipendi-frontalieri-privacy-2024': { name: 'Dati stipendi frontalieri', path: '/articoli-svizzera/dati-stipendi-frontalieri-privacy-2024/', parent: 'blog' },
     'blog-calcolo-tasse-frontalieri-oltre-20km': { name: 'Tasse frontalieri 20 km', path: '/articoli-svizzera/calcolo-tasse-frontalieri-oltre-20km/', parent: 'blog' },
     'blog-lidl-svizzera-lavora-con-noi': { name: 'Lavoro Lidl Svizzera', path: '/articoli-svizzera/lidl-svizzera-lavora-con-noi/', parent: 'blog' },
+    'blog-eventi-weekend-ticino': { name: 'Eventi del weekend', path: '/articoli-frontaliere/eventi-weekend-ticino', parent: 'blog' },
     'blog-concorsi-pubblici-ticino-guida-nazionale': { name: 'Concorsi pubblici Ticino', path: '/articoli-svizzera/concorsi-pubblici-ticino-guida-nazionale/', parent: 'blog' },
+    'blog-bancomat-processo-varesenews-2023': { name: 'Processo bancomat Varese', path: '/articoli-frontaliere/bancomat-processo-varesenews-2023', parent: 'blog' },
+    'blog-frontalieri-lombardi-residenza-tendenze': { name: 'Frontalieri lombardi', path: '/articoli-svizzera/frontalieri-lombardi-residenza-tendenze/', parent: 'blog' },
+    'blog-stabio-dogana-svizzera': { name: 'Stabio dogana', path: '/articoli-svizzera/stabio-dogana-svizzera/', parent: 'blog' },
+    'blog-tempi-attesa-dogana-chiasso-strada': { name: 'Dogana Chiasso', path: '/articoli-svizzera/tempi-attesa-dogana-chiasso-strada/', parent: 'blog' },
+    'blog-benzina-prezzi-svizzera-oggi': { name: 'Benzina Svizzera', path: '/articoli-svizzera/benzina-prezzi-svizzera-oggi/', parent: 'blog' },
+    'blog-guess-stabio-lavoro-merchandiser': { name: 'Lavoro Stabio', path: '/articoli-svizzera/guess-stabio-lavoro-merchandiser/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

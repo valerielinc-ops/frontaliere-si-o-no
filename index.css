@@ -886,6 +886,28 @@ input[type=number] { -moz-appearance: textfield; }
   .seo-fade-in { animation: none; }
 }
 
+/* ── Job-board loading shimmer (JobBoardResultsLoader, #2968) ──
+   A sheen sweeps across each skeleton card so the loading phase reads as
+   active work ("woow effect") instead of a frozen page. The highlight is a
+   theme-agnostic translucent mix of the heading colour, so it stays visible
+   on the light slate-100 base and the dark slate-700 base alike. The global
+   prefers-reduced-motion rule above neutralises the sweep (single 0.01ms run
+   → band ends off-screen), leaving a calm static card. */
+.job-loader-shimmer {
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    color-mix(in srgb, var(--color-heading) 9%, transparent) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  animation: job-loader-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes job-loader-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 /* ── SEO card atoms (job-card + employer-card) ──
    Replace ~900 B of Tailwind utility strings per card in
    build-plugins/shared/jobCardHtml.ts + employerCardHtml.ts with short atom

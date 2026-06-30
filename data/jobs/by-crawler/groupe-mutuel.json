@@ -1,7 +1,83 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-06-29T13:16:13.259Z",
+  "assembledAt": "2026-06-29T22:11:17.864Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4185?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4185?c=groupemutuel&lang=fr-FR",
+      "title": "Kundenberater Agenturen (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "description": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen - telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Du unterstützt die internen Abteilungen bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Advising and supporting our customers in all insurance matters - by telephone and directly at the contract change counter, you can work independently and efficiently You can arrange consulting appointments by phone for our insurance and pension consultants: inside – with a sense of coordination and acquisition You support the internal departments in administrative\n• Tasks, in particular in contract management\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Poste ouvert chez Groupe Mutuel à Zürich.\nRôle : Kundenberater Agenturen (m/w) 80-100%.\n\nGroupe Mutuel est l'un des principaux groupes d'assurance en Suisse, dont le siège est à Martigny (Valais). L'entreprise propose une large gamme de produits d'assurance et de prévoyance pour les particuliers et les entreprises dans toute la Suisse.",
+        "de": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen - telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Du unterstützt die internen Abteilungen bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Consulenza e supporto ai nostri clienti in tutte le questioni assicurative - telefonicamente e direttamente al contatore di cambio del contratto, è possibile lavorare in modo indipendente ed efficiente È possibile organizzare consultazioni telefonicamente per i nostri consulenti assicurativi e pensionistici: all'interno - con un senso di coordinamento e acquisizione Si sostiene i dipartimenti interni in ambito amministrativo\n• Compiti, in particolare nella gestione dei contratti\n\nGroupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per privati e imprese in tutta la Svizzera."
+      },
+      "titleByLocale": {
+        "fr": "Agences de conseil à la clientèle (m/f) 80-100 %",
+        "de": "Kundenberater Agenturen (m/w) 80-100%",
+        "it": "Agenzie di consulenza clienti (m/f) 80-100 %",
+        "en": "Client Advisor Agencies (m/f) 80-100 %"
+      },
+      "slug": "agenzie-di-consulenza-clienti-m-f-80-100-groupe-mutuel-zurich",
+      "slugByLocale": {
+        "fr": "agences-de-conseil-a-la-clientele-m-f-80-100-groupe-mutuel-zurich",
+        "en": "client-advisor-agencies-m-f-80-100-groupe-mutuel-zurich",
+        "it": "agenzie-di-consulenza-clienti-m-f-80-100-groupe-mutuel-zurich",
+        "de": "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+      },
+      "category": "customer-service",
+      "datePosted": "2026-06-29",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "jobReqId": "4185",
+      "crawledAt": "",
+      "id": "groupe-mutuel-c8901da9f329",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-06-29T22:11:17.863Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+      ]
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4177?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4177?c=groupemutuel&lang=fr-FR",
