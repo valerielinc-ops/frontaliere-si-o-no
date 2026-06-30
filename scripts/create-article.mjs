@@ -2700,7 +2700,8 @@ function normalizeFactCheckIssues(issues, { isEvergreen = false } = {}) {
 }
 
 async function _runSingleFactCheck(model, prompt, opts = {}) {
-  const raw = await callLLM(
+  const modelUsedRef = { model: null };
+  const raw = await _aiCallLLM(
     [{ role: 'user', content: prompt }],
     // Fact-check output is a compact JSON issues list (rarely >1500 tokens).
     // 60s is ample for any responsive model; a checker that hasn't replied in
@@ -2712,8 +2713,15 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
     // and must stay independent of AI_MODELS_FORCE_CHAIN. Without this, forcing
     // generation onto the local model would also force the checker onto it
     // (the model grading itself), so a forced run could publish unchecked content.
-    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000, cache: true, bypassForceChain: true }
+    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000, cache: true, bypassForceChain: true, modelUsedRef }
   );
+  // Guard: if the full remote cascade is exhausted, callLLM falls through to
+  // local/fallback — the same model that may have generated the content.
+  // Self-verification (local grading local) produces circular self-consensus
+  // and cannot catch fabricated facts. Defer rather than publish (Non-Negotiable #1).
+  if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) {
+    throw new Error(`fact-check deferred: all remote verifiers exhausted — local/fallback cannot self-verify (requested: ${model})`);
+  }
 
   const jsonMatch = raw.match(/\{[\s\S]*\}/);
   if (!jsonMatch) {
