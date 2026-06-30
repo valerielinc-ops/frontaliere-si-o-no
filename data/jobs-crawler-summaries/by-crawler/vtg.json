@@ -1,18 +1,113 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-06-30T12:45:32.053Z",
-  "total": 37,
-  "newCount": 0,
+  "generatedAt": "2026-06-30T23:33:30.918Z",
+  "total": 40,
+  "newCount": 3,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 27,
-  "durationMs": 73690,
-  "avgDurationMs": 73690,
+  "durationMs": 75560,
+  "avgDurationMs": 75560,
   "durationHistory": [
-    73690
+    75560
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-g1g1m",
+      "slug": "chef-in-unterhalt-luftfahrzeuge-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern-0g1g1m",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Chef/-in Unterhalt Luftfahrzeuge, Militärflugplatz Alpnach",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "url": "https://jobs.admin.ch/offene-stellen/chef-in-unterhalt-luftfahrzeuge-militaerflugplatz-alpnach/dd727741-2cb8-4268-889e-92e4d93dc355",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Alpnach",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-30T23:33:28.304Z",
+      "firstSeenAt": "2026-06-30T23:33:28.304Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-4qkyj9",
+      "slug": "motorgeratemechaniker-in-bronschhofen-swiss-armed-forces-vtg-bern-4qkyj9",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Motorgerätemechaniker/-in Bronschhofen",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "url": "https://jobs.admin.ch/offene-stellen/motorgeraetemechaniker-in-bronschhofen/7eb83c67-8c70-4b77-ac39-23eaed0662dc",
+      "source": "Company Careers Crawler",
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-30T23:33:28.304Z",
+      "firstSeenAt": "2026-06-30T23:33:28.304Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-9n3div",
+      "slug": "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-9n3div",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Motorgerätemechaniker/-in Hinwil",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "url": "https://jobs.admin.ch/offene-stellen/motorgeraetemechaniker-in-hinwil/32c4735a-151f-4caa-adb1-9a57d02d434c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Hinwil",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-30T23:33:28.304Z",
+      "firstSeenAt": "2026-06-30T23:33:28.304Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-71gebl",
