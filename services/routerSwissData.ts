@@ -273,6 +273,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'benzina-prezzi-svizzera-oggi': { it: 'benzina-prezzi-svizzera-oggi', en: 'switzerland-gasoline-prices-today', de: 'schweiz-benzinpreise-heute', fr: 'prix-essence-suisse-aujourd-hui' },
  'guess-stabio-lavoro-merchandiser': { it: 'guess-stabio-lavoro-merchandiser', en: 'guess-stabio-job-merchandiser', de: 'guess-stabio-job-merchandiser', fr: 'guess-stabio-emploi-merchandiser' },
  'volg-reckingen-2026': { it: 'volg-reckingen-2026', en: 'volg-reckingen-2026', de: 'volg-reckingen-2026', fr: 'volg-reckingen-2026' },
+ 'fielmann-interlaken-lavoro-svizzera': { it: 'fielmann-interlaken-lavoro-svizzera', en: 'fielmann-interlaken-jobs-switzerland', de: 'fielmann-interlaken-jobs-schweiz', fr: 'fielmann-interlaken-emploi-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

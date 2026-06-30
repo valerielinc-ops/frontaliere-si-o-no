@@ -4310,6 +4310,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-benzina-prezzi-svizzera-oggi': { name: 'Benzina Svizzera', path: '/articoli-svizzera/benzina-prezzi-svizzera-oggi/', parent: 'blog' },
     'blog-guess-stabio-lavoro-merchandiser': { name: 'Lavoro Stabio', path: '/articoli-svizzera/guess-stabio-lavoro-merchandiser/', parent: 'blog' },
     'blog-volg-reckingen-2026': { name: 'pratico', path: '/articoli-svizzera/volg-reckingen-2026/', parent: 'blog' },
+    'blog-fielmann-interlaken-lavoro-svizzera': { name: 'Fielmann Interlaken', path: '/articoli-svizzera/fielmann-interlaken-lavoro-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
