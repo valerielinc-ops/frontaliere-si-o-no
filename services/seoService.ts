@@ -4320,6 +4320,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dogana-brogeda': { name: 'Dogana Brogeda', path: '/articoli-svizzera/dogana-brogeda/', parent: 'blog' },
     'blog-reclutamento-lugano': { name: 'Reclutamento', path: '/articoli-svizzera/reclutamento-lugano/', parent: 'blog' },
     'blog-permesso-g-svizzera-nazionale': { name: 'Permesso G Svizzera', path: '/articoli-svizzera/permesso-g-svizzera-nazionale/', parent: 'blog' },
+    'blog-volg-binn-novita-2024': { name: 'Volg Binn', path: '/articoli-svizzera/volg-binn-novita-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

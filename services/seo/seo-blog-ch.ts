@@ -10002,6 +10002,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-volg-binn-novita-2024': {
+    title: 'Volg Binn: novità nazionali per il commercio locale',
+    description: 'Volg rilancia il punto vendita a Binn per sostenere economia e prodotti locali nelle aree rurali svizzere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, volg, binn, novità, nazionali',
+    ogTitle: 'Volg Binn: novità per il commercio locale in Svizzera',
+    ogDescription: 'Il rilancio del negozio Volg a Binn rafforza l\'accesso ai beni essenziali e supporta l\'economia delle aree rurali svizzere.',
+    canonicalPath: '/articoli-svizzera/volg-binn-novita-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Volg Binn: novità nazionali per il commercio locale",
+      "description": "Volg rilancia il punto vendita a Binn per sostenere economia e prodotti locali nelle aree rurali svizzere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/volg-binn-novita-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta fotorealistica di un negozio Volg in un villaggio svizzero con paesaggio alpino"
+      },
+      "datePublished": "2026-06-30T21:27:09+00:00",
+      "dateModified": "2026-06-30T21:27:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/volg-binn-novita-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

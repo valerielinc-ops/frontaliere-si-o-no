@@ -778,6 +778,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-g-svizzera-nazionale.title': 'Ausweis G in der Schweiz: Praktischer Leitfaden für Grenzgänger',
     'blog.article.permesso-g-svizzera-nazionale.excerpt': 'Die G-Bewilligung ist für Grenzgänger, die in der Schweiz arbeiten, unerlässlich. Hier erfahren Sie, was Sie über die Anforderungen, die Dauer und die Verfahren wissen müssen.',
     'blog.article.permesso-g-svizzera-nazionale.imageAlt': 'Panoramablick auf Lugano mit Grenzgängern an einem Schweizer Grenzkontrollpunkt',
+    'blog.article.volg-binn-novita-2024.title': 'Volg Binn: Nationale Neuheiten für den lokalen Handel',
+    'blog.article.volg-binn-novita-2024.excerpt': 'Volg erneuert seine Präsenz in Binn mit neuen Angeboten und Initiativen für Schweizer Konsumenten.',
+    'blog.article.volg-binn-novita-2024.imageAlt': 'Fotorealistische Ansicht eines Volg-Geschäfts in einem Schweizer Dorf mit Alpenlandschaft',
 };
 
 export default blogMetaChDe;

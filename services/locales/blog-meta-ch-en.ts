@@ -778,6 +778,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-g-svizzera-nazionale.title': 'Permit G in Switzerland: a practical guide for frontier workers',
     'blog.article.permesso-g-svizzera-nazionale.excerpt': 'The G permit is essential for border workers working in Switzerland; here\'s what you need to know about requirements, duration and procedures.',
     'blog.article.permesso-g-svizzera-nazionale.imageAlt': 'Panoramic view of Lugano with cross-border workers passing through a Swiss border checkpoint',
+    'blog.article.volg-binn-novita-2024.title': 'Volg Binn: national news for local commerce',
+    'blog.article.volg-binn-novita-2024.excerpt': 'Volg renews its presence at Binn with new offers and initiatives for Swiss consumers.',
+    'blog.article.volg-binn-novita-2024.imageAlt': 'Photorealistic view of a Volg store in a Swiss village with alpine landscape',
 };
 
 export default blogMetaChEn;

@@ -778,6 +778,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-g-svizzera-nazionale.title': 'Permesso G in Svizzera: guida pratica per lavoratori frontalieri',
     'blog.article.permesso-g-svizzera-nazionale.excerpt': 'Il permesso G è essenziale per i frontalieri che lavorano in Svizzera; ecco cosa sapere su requisiti, durata e procedure.',
     'blog.article.permesso-g-svizzera-nazionale.imageAlt': 'Vista panoramica di Lugano con lavoratori frontalieri che attraversano un punto di controllo al confine svizzero',
+    'blog.article.volg-binn-novita-2024.title': 'Volg Binn: novità nazionali per il commercio locale',
+    'blog.article.volg-binn-novita-2024.excerpt': 'Volg rinnova la sua presenza a Binn con nuove offerte e iniziative per i consumatori svizzeri.',
+    'blog.article.volg-binn-novita-2024.imageAlt': 'Veduta fotorealistica di un negozio Volg in un villaggio svizzero con paesaggio alpino',
 };
 
 export default blogMetaChIt;
