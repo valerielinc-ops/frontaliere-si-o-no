@@ -218,6 +218,20 @@ const EMPTY_OK_CRAWLERS = new Set([
   // open competitions right now; the selector is healthy and re-arms when a
   // listing reappears.
   'moncucco',
+  // Impresa Pizzarotti & C. S.p.A. (Parma-based construction group): the
+  // dedicated crawler parses the InRecruiting/Intervieweb listing
+  // (https://inrecruiting.intervieweb.it/app.php?module=iframeAnnunci&k=4b540470d86438622d22d56b1b3e761a&LAC=impresapizzarotti&typeView=large)
+  // and keeps ONLY Swiss-located vacancies. The endpoint returns HTTP 200 with
+  // ~14 live `div.vacancy__render` cards (parser healthy — it discovers them
+  // all), but they are currently all Italy roles (Parma, Ponte Taro, Calabria,
+  // Baragiano…) and zero Switzerland. The Italian builder posts Swiss roles only
+  // sporadically on its cross-border projects (history: Le Locle NE chef de
+  // contrôle de projet; Project Control Manager Svizzera req 659346). The listing
+  // parser + Swiss filter are healthy — they fetch every posting and correctly
+  // classify all current rows as non-Swiss. Same legitimately-empty
+  // regional-filter case as giorgio-armani/bracco/fnz/manor/alten-switzerland.
+  // Re-arms when a CH listing reappears.
+  'impresa-pizzarotti',
   // DXT Commodities S.A. (Lugano, TI): the WordPress + WPSM accordion careers
   // page (https://dxt.com/careers/) returns HTTP 200 with the full ~370 KB
   // rendered page (166 panels) for the crawler's default desktop UA, but every

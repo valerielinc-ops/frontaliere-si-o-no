@@ -17,6 +17,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -98,6 +99,19 @@ export function slugifyComune(value) {
     .replace(/['’]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Stable, URL-safe slug for a single event detail page: `<title>-<YYYY-MM-DD>`
+ * (title truncated at a word boundary). Deterministic from title+startDate so
+ * the detail-page URL is stable across crawl runs. Collisions (same title+date
+ * in the same comune) are disambiguated by the caller (the SSG emit loop).
+ */
+export function slugifyEvent(event) {
+  const titlePart = truncateSlugAtWordBoundary(slugifyComune(event?.title || ''), 60).replace(/-+$/, '');
+  const datePart = String(event?.startDate || '').slice(0, 10);
+  const base = [titlePart, datePart].filter(Boolean).join('-');
+  return base || `evento-${slugifyComune(event?.id || 'senza-data')}`;
 }
 
 // ── Comuni loader ────────────────────────────────────────────
