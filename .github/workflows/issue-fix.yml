@@ -212,9 +212,10 @@ jobs:
             2. Diagnosi root cause della issue (NON sintomo). Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body.
             3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
             4. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
-            5. Commit con identity canonica già configurata. Messaggio conventional, in fondo nessuna email non-canonica.
-            6. Push del branch: `git push -u origin fix/issue-$ISSUE_NUMBER`.
-            7. Apri PR con `gh pr create`. Body OBBLIGATORIO (REVIEW.md completeness contract):
+            5. **Gate test pre-PR (anti re-review — OBBLIGATORIO):** prima di committare/aprire la PR, gira i test che coprono l'area che hai toccato: `npx vitest run <path/glob pertinente al code modificato>` (es. fix a un parser → `npx vitest run tests/<area>`). Verde → procedi; rosso introdotto da te → fixa la root cause e ri-gira fino a verde. NON girare la suite intera col `npm test` cieco: qui manca `data/jobs.json` (lo assembla la CI `tests`) → sarebbe rossa per infra, non per il tuo fix; se il tuo cambiamento tocca l'assembly dati gira prima `node scripts/assemble-jobs-dataset.mjs`. **Perché:** la review Claude ora parte SOLO dopo `tests` verde (gate `pr-review-loop` su `workflow_run[tests]==success`). Una PR coi test rossi NON riceve review e resta ferma — e tu sei già terminato → spreco di un ciclo. Test d'area verdi = la suite CI passa al primo colpo e la review parte subito.
+            6. Commit con identity canonica già configurata. Messaggio conventional, in fondo nessuna email non-canonica.
+            7. Push del branch: `git push -u origin fix/issue-$ISSUE_NUMBER`.
+            8. Apri PR con `gh pr create`. Body OBBLIGATORIO (REVIEW.md completeness contract):
                ```
                ## Implementato
                - <cosa fa il fix>
@@ -223,7 +224,7 @@ jobs:
                ## Non implementato (ancora)
                - <scope NON fatto + motivo: out of scope / follow-up / blocked / posposto>
                ```
-            8. La PR entra automaticamente in `pr-review-loop` → review → `## LGTM` → `auto-merge-on-lgtm`. NON mergiare a mano.
+            9. La PR entra automaticamente in `pr-review-loop` → review → `## LGTM` → `auto-merge-on-lgtm`. NON mergiare a mano.
 
             **Constraint:**
             - Changes chirurgiche, root-cause, una issue alla volta.
