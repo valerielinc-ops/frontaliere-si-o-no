@@ -751,6 +751,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.volg-reckingen-2026.title': 'Volg Reckingen: Neuigkeiten und Updates 2026',
     'blog.article.volg-reckingen-2026.excerpt': 'Aktuelle Updates rund um den Supermarkt Volg in Reckingen, neue Richtlinien und Öffnungszeiten für 2026.',
     'blog.article.volg-reckingen-2026.imageAlt': 'Schweizer Landschaft mit See und Bergen bei Sonnenuntergang',
+    'blog.article.fielmann-interlaken-lavoro-svizzera.title': 'Arbeiten bei Fielmann in Interlaken: Chancen und Stellensuche',
+    'blog.article.fielmann-interlaken-lavoro-svizzera.excerpt': 'Übersicht über Stellenangebote bei Fielmann in Interlaken und wie Sie offene Stellen finden.',
+    'blog.article.fielmann-interlaken-lavoro-svizzera.imageAlt': 'Blick auf das Zentrum von Interlaken mit modernem Optikergeschäft und Passanten.',
 };
 
 export default blogMetaChDe;
