@@ -414,6 +414,34 @@ jobs:
       - name: Validate locale shard output
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
+      # ── Ticino shard (keeps the IT apex under the 10 GB Pages cap) ──────────
+      # Push dist/cerca-lavoro-ticino to its OWN Pages repo (frontaliere-ticino-it,
+      # ~4 GB) and strip it from dist BEFORE deploy-it-pages-prep packs the
+      # artifact, so the IT github-pages artifact drops below the
+      # actions/deploy-pages 10 GB cap (the limit that failed the 2026-06-30
+      # deploy). One repo PER LOCALE — a single combined Ticino repo would be
+      # ~16 GB, over the cap itself. Runs BEFORE the IT offload (inside
+      # deploy-it-pages-prep) so push-ticino-shard offloads its own staged copy
+      # exactly once. Push gates on the deploy key; strip additionally gates on
+      # TICINO_SHARD_LIVE + the push ok-marker (populate-then-strip) → a full no-op
+      # until the owner provisions + flips the split.
+      - name: Push Ticino shard (IT → frontaliere-ticino-it)
+        if: matrix.locale == 'it'
+        # A push failure must never block the apex publish: the strip then no-ops
+        # (no ok-marker) so Ticino stays in the apex (>10 GB, deploy fails — but
+        # never UNSERVED). The shard otherwise keeps serving its previous build.
+        continue-on-error: true
+        env:
+          SHARD_TICINO_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DEPLOY_KEY }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: bash scripts/lib/push-ticino-shard.sh it dist
+      - name: Strip Ticino subtree (IT)
+        if: matrix.locale == 'it'
+        env:
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+        run: bash scripts/lib/strip-ticino-subtree.sh it dist
+
       # ── IT shard → GitHub Pages + CDN (Pages-serving shard) ──────────────
       # deploy-it-pages-prep.sh runs the monolith's post-build bash IN ORDER:
       # SPA fallback, CDN push (exports CDN_BASE), offload, prune-cdn, drop
@@ -608,6 +636,26 @@ jobs:
           echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
 
       # ── NON-IT shards (en/de/fr) → frontaliere-<loc> shard repos ─────────
+      # Ticino shard push FIRST (before the offload below) so push-ticino-shard
+      # stages the RAW subtree (find-jobs-ticino / jobs-im-tessin /
+      # trouver-emploi-tessin) and offloads its own copy exactly once; then strip
+      # it so the locale shard drops below the 10 GB Pages cap. One repo PER LOCALE
+      # (frontaliere-ticino-<loc>). Push gates on the deploy key; strip on
+      # TICINO_SHARD_LIVE + the push ok-marker.
+      - name: Push Ticino shard (non-IT → frontaliere-ticino-<loc>)
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        env:
+          SHARD_TICINO_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DEPLOY_KEY }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: bash scripts/lib/push-ticino-shard.sh "${{ matrix.locale }}" dist
+      - name: Strip Ticino subtree (non-IT)
+        if: matrix.locale != 'it'
+        env:
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+        run: bash scripts/lib/strip-ticino-subtree.sh "${{ matrix.locale }}" dist
+
       - name: Offload shard refs to CDN
         if: matrix.locale != 'it'
         continue-on-error: true

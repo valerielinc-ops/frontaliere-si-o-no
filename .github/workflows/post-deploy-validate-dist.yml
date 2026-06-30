@@ -298,6 +298,43 @@ jobs:
           # the metric that actually matters after rehydrating ~27G into dist/.
           df -h / | tail -1
 
+      - name: Rehydrate Ticino shards into dist/ (when Ticino split active)
+        # Mirrors the locale rehydrate above for the carved-out Ticino section.
+        # deploy.yml strips dist/<ticino-subtree> from the apex/locale artifacts
+        # (strip-ticino-subtree.sh) and publishes ONE Pages repo PER LOCALE
+        # (frontaliere-ticino-<loc>, push-ticino-shard.sh). Restore each subtree
+        # by cloning its shard repo so validators that walk dist for the Ticino
+        # URLs don't false-flag them missing. (No tar artifact: the push is
+        # per-leg direct, so the published shard repo is the source of truth.)
+        if: ${{ vars.TICINO_SHARD_LIVE == 'true' }}
+        run: |
+          set -uo pipefail
+          declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
+          for loc in it en de fr; do
+            sub="${TICINO_SUB[$loc]}"
+            if [ -d "dist/$sub" ]; then
+              echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
+              continue
+            fi
+            tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
+            rm -rf "$tmp"
+            if ! git clone --depth 1 --single-branch --branch main \
+                 "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
+              echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
+              continue
+            fi
+            if [ -d "$tmp/$sub" ]; then
+              mkdir -p "dist/$(dirname "$sub")"
+              rm -rf "dist/$sub"
+              cp -r "$tmp/$sub" "dist/$sub"
+              echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
+            else
+              echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
+            fi
+            rm -rf "$tmp"
+          done
+          df -h / | tail -1
+
       - name: Migrate all-known-job-slugs to canton-aware paths
         # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
         # tracking entries from previous builds. The builder
