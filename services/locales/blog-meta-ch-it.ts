@@ -757,6 +757,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.macchinisti-autisti-lavoro-locarno.title': 'Opportunità per macchinisti e autisti a Locarno: guida al lavoro',
     'blog.article.macchinisti-autisti-lavoro-locarno.excerpt': 'Annunci di lavoro per macchinisti e conducenti a Locarno: offerta aggiornata, requisiti e possibilità per chi cerca impiego nel settore dei trasporti.',
     'blog.article.macchinisti-autisti-lavoro-locarno.imageAlt': 'Vista della stazione di Locarno con operatori e conducenti in uniforme.',
+    'blog.article.volg-wiler-analisi-nazionale.title': 'Volg Wiler: novità per i supermercati nei villaggi svizzeri',
+    'blog.article.volg-wiler-analisi-nazionale.excerpt': 'Il punto vendita Volg di Wiler rappresenta un esempio di distribuzione alimentare nei piccoli comuni svizzeri. Il ruolo locale e la presenza nazionale sono al centro.',
+    'blog.article.volg-wiler-analisi-nazionale.imageAlt': 'Scorcio di un supermercato di paese in Svizzera con clienti all\'esterno',
 };
 
 export default blogMetaChIt;
