@@ -24,9 +24,9 @@
       "description": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nLernen Sie unsere Benefits HIER kennen.",
       "descriptionByLocale": {
         "it": "Il KSB offre più di un posto di lavoro emozionante con buone condizioni di lavoro. Venite a conoscere i nostri benefici QUI.",
-        "en": "The KSB offers more than an exciting workplace with good working conditions. Get to know our benefits HERE.",
+        "en": "The KSB offers more than an exciting workplace with good working conditions.\nGet to know our benefits HERE.",
         "de": "Das KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen. Lernen Sie unsere Benefits HIER kennen.",
-        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail. Découvrez nos avantages ICI."
+        "fr": "Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nDécouvrez nos avantages ICI."
       },
       "needsRetranslation": true,
       "location": "Baden",
@@ -34,7 +34,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-rztInnen_R1896",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:16:56.908Z",
+      "crawledAt": "2026-06-29T22:38:22.085Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -51,26 +51,25 @@
       "applyUrl": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-rztInnen_R1896",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden",
-        "spontanbewerbungen-facharztinnen-ksb-ch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden",
-          "spontanbewerbungen-facharztinnen-ksb-ch",
-          "applicazioni-spontanee-kantonsspital-baden-ksb-baden"
-        ],
-        "en": [
+        "de": [
           "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden"
         ],
-        "de": [
+        "it": [
+          "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden",
+          "spontanbewerbungen-facharztinnen-ksb-ch"
+        ],
+        "en": [
           "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
           "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden"
         ]
       },
+      "previousSlugs": [
+        "spontanbewerbungen-facharztinnen-ksb-ch",
+        "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden"
+      ],
       "firstSeenAt": "2026-05-28T13:13:47.026Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -83,7 +82,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "ksb-de0f63fc07c0",
