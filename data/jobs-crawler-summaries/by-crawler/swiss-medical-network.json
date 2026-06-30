@@ -1,18 +1,324 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-06-29T23:34:11.530Z",
-  "total": 52,
-  "newCount": 52,
+  "generatedAt": "2026-06-30T12:39:06.165Z",
+  "total": 56,
+  "newCount": 8,
   "updatedCount": 0,
-  "removedCount": 4,
-  "unchangedCount": 0,
-  "durationMs": 35894,
-  "avgDurationMs": 35894,
+  "removedCount": 1,
+  "unchangedCount": 48,
+  "durationMs": 39816,
+  "avgDurationMs": 39816,
   "durationHistory": [
-    35894
+    39816
   ],
   "newJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134969331-lehrstelle-fachperson-gesundheit",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134969331-lehrstelle-fachperson-gesundheit?oga=true",
+      "title": "Lehrstelle Fachperson Gesundheit",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Rapperswil-Jona",
+      "addressLocality": "Rapperswil-Jona",
+      "addressRegion": "SG",
+      "canton": "SG",
+      "country": "CH",
+      "postalCode": "8640",
+      "slug": "lehrstelle-fachperson-gesundheit-swiss-medical-network",
+      "category": "hr",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Rapperswil-Jona"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935259-allgemeinmediziner-in-40-bis-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935259-allgemeinmediziner-in-40-bis-100-?oga=true",
+      "title": "Allgemeinmediziner/-in (40 bis 100 %)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Ittigen",
+      "addressLocality": "Ittigen",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3063",
+      "slug": "allgemeinmediziner-in-40-bis-100-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Ittigen"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935089-gynakologe-in-und-geburtshelfer-in",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935089-gynakologe-in-und-geburtshelfer-in?oga=true",
+      "title": "Gynäkologe/-in und Geburtshelfer/-in",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3013",
+      "slug": "gynakologe-in-und-geburtshelfer-in-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134935009-medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-?oga=true",
+      "title": "Médecin Spécialiste en Psychiatrie et Psychothérapie des addictions (H/F)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Moutier",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2740",
+      "slug": "medecin-specialiste-en-psychiatrie-et-psychotherapie-des-addictions-h-f-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Moutier"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134930919-infirmier-ere-instrumentiste",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134930919-infirmier-ere-instrumentiste?oga=true",
+      "title": "Infirmier(ère) instrumentiste",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Sion",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "canton": "VS",
+      "country": "CH",
+      "postalCode": "1950",
+      "slug": "infirmier-ere-instrumentiste-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133550704-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133550704-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärzt/-in Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Grindelwald",
+      "addressLocality": "Grindelwald",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3818",
+      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Grindelwald"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin 50 - 100%",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Schaffhausen",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "canton": "SH",
+      "country": "CH",
+      "postalCode": "8203",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SH",
+        "location": "Schaffhausen"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130202265-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130202265-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Medizinische Praxisassistenz für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "canton": "LU",
+      "country": "CH",
+      "postalCode": "6222",
+      "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-06-30",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "LU",
+        "location": "Beromünster"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133015166-fachperson-gesundheit-efz",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133015166-fachperson-gesundheit-efz?oga=true",
+      "title": "Fachperson Gesundheit EFZ",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Rapperswil-Jona",
+      "addressLocality": "Rapperswil-Jona",
+      "addressRegion": "SG",
+      "canton": "SG",
+      "country": "CH",
+      "postalCode": "8640",
+      "slug": "professionista-della-salute-efz-swiss-medical-network-rapperswil-jona",
+      "category": "technology",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Rapperswil-Jona"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    }
+  ],
+  "unchangedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134747524-assistant-e-technique-bloc-operatoire",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134747524-assistant-e-technique-bloc-operatoire?oga=true",
@@ -25,7 +331,7 @@
       "canton": "NE",
       "country": "CH",
       "postalCode": "2000",
-      "slug": "assistant-e-technique-bloc-operatoire-swiss-medical-network",
+      "slug": "unita-operativa-assistente-tecnico-swiss-medical-network-neuchatel",
       "category": "admin",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -38,12 +344,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -71,12 +381,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -91,7 +405,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2740",
-      "slug": "medecin-dermatologue-swiss-medical-network",
+      "slug": "dottore-dermatologo-swiss-medical-network-moutier",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -104,12 +418,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -124,7 +442,7 @@
       "canton": "",
       "country": "CH",
       "postalCode": "2713",
-      "slug": "administrateur-trice-du-logiciel-de-gestion-du-temps-de-travail-polypoint-60-80-swiss-medical-network",
+      "slug": "amministratore-del-software-di-gestione-del-tempo-di-lavoro-polypoint-60-80-swiss-medical-network-bellelay",
       "category": "admin",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -137,12 +455,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 39600,
+      "salaryMax": 60000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 19,
+        "completeness": 17
       }
     },
     {
@@ -157,7 +479,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2502",
-      "slug": "medecin-generaliste-f-et-ou-d-swiss-medical-network",
+      "slug": "ufficiale-medico-generale-f-e-o-d-swiss-medical-network-biel",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -170,12 +492,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -190,7 +516,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2502",
-      "slug": "assistant-e-s-medicale-s-d-f-swiss-medical-network",
+      "slug": "assistente-medico-i-d-f-swiss-medical-network-biel",
       "category": "admin",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -203,12 +529,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -223,7 +553,7 @@
       "canton": "VS",
       "country": "CH",
       "postalCode": "1950",
-      "slug": "technicien-ne-en-radiologie-medicale-80-100-swiss-medical-network",
+      "slug": "radiologia-medica-tecnico-80-100-swiss-medical-network-sion",
       "category": "technical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -236,12 +566,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -256,7 +590,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2610",
-      "slug": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
+      "slug": "professionista-generale-medico-di-famiglia-swiss-medical-network-saint-imier",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -269,12 +603,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -289,7 +627,7 @@
       "canton": "VD",
       "country": "CH",
       "postalCode": "1006",
-      "slug": "secretaire-medical-e-swiss-medical-network",
+      "slug": "segretario-medico-swiss-medical-network-lausanne",
       "category": "healthcare",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -302,12 +640,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -322,7 +664,7 @@
       "canton": "BS",
       "country": "CH",
       "postalCode": "4010",
-      "slug": "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network",
+      "slug": "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -335,12 +677,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 63,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -355,7 +701,7 @@
       "canton": "VS",
       "country": "CH",
       "postalCode": "1950",
-      "slug": "collaborateur-trice-au-service-technique-80-100-swiss-medical-network",
+      "slug": "collaboratore-servizio-tecnico-80-100-swiss-medical-network-sion",
       "category": "technical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -368,12 +714,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 63,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -388,7 +738,7 @@
       "canton": "SG",
       "country": "CH",
       "postalCode": "8640",
-      "slug": "dipl-fachperson-operationstechnik-40-80-swiss-medical-network",
+      "slug": "dipl-tecnica-chirurgica-specialistica-40-80-swiss-medical-network-rapperswil-jona",
       "category": "technical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -401,12 +751,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 46000,
+      "salaryMax": 69600,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -421,7 +775,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2610",
-      "slug": "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network",
+      "slug": "specialista-in-chirurgia-a-mano-swiss-medical-network-saint-imier",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -434,12 +788,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -454,7 +812,7 @@
       "canton": "SH",
       "country": "CH",
       "postalCode": "8260",
-      "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "slug": "assistente-medico-per-la-medicina-interna-generale-swiss-medical-network-stein-am-rhein",
       "category": "healthcare",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -467,12 +825,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -487,7 +849,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2610",
-      "slug": "medecin-angiologue-h-f-swiss-medical-network",
+      "slug": "angiologo-h-f-swiss-medical-network-st-imier",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -500,12 +862,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -520,7 +886,7 @@
       "canton": "ZH",
       "country": "CH",
       "postalCode": "8008",
-      "slug": "hzp-dipl-pflegefachfrau-mann-hf-swiss-medical-network",
+      "slug": "hzp-dipl-infermieristica-professionale-hf-swiss-medical-network-zurich",
       "category": "nursing",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -533,12 +899,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -553,7 +923,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2740",
-      "slug": "infirmier-e-h-f-unite-de-retablissement-80-swiss-medical-network",
+      "slug": "infermiera-h-f-unita-di-recupero-80-swiss-medical-network-moutier",
       "category": "technology",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -566,12 +936,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 54800,
+      "salaryMax": 83200,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 19,
+        "completeness": 17
       }
     },
     {
@@ -586,7 +960,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2610",
-      "slug": "medecin-pediatre-h-f-swiss-medical-network",
+      "slug": "medico-pediatrico-h-f-swiss-medical-network-saint-imier",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -599,12 +973,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -619,7 +997,7 @@
       "canton": "VD",
       "country": "CH",
       "postalCode": "1006",
-      "slug": "photographe-specialise-e-en-imagerie-ophtalmique-swiss-medical-network",
+      "slug": "fotografo-specializzato-in-imaging-oftalmico-swiss-medical-network-lausanne",
       "category": "healthcare",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -632,12 +1010,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -652,7 +1034,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "3823",
-      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+      "slug": "specialista-in-medicina-interna-generale-swiss-medical-network-wengen",
       "category": "healthcare",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -665,45 +1047,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133550704-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133550704-facharzt-in-allgemeine-innere-medizin?oga=true",
-      "title": "Fachärzt/-in Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Grindelwald",
-      "addressLocality": "Grindelwald",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "3818",
-      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-06-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Grindelwald"
-      },
-      "sourceLang": "de",
-      "addressCountry": "CH",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -718,7 +1071,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "3072",
-      "slug": "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network",
+      "slug": "dipl-infermieristica-professionale-hf-fh-assistente-di-pratica-medica-gastroenterologia-endoscopia-40-60-swiss-medical",
       "category": "nursing",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -731,12 +1084,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 60,
+      "salaryMin": 41100,
+      "salaryMax": 62400,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -750,7 +1107,7 @@
       "addressRegion": "GE",
       "canton": "GE",
       "country": "CH",
-      "slug": "assistant-e-medical-e-en-pneumologie-et-cardiologie-cdm-swiss-medical-network",
+      "slug": "assistente-medico-in-pneumologia-e-cardiologia-cdm-swiss-medical-network-geneve",
       "category": "admin",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -763,12 +1120,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 60,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 9
+        "translation": 21,
+        "completeness": 14
       }
     },
     {
@@ -783,7 +1144,7 @@
       "canton": "NE",
       "country": "CH",
       "postalCode": "2000",
-      "slug": "hdp-tso-ou-instrumentiste-au-bloc-operatoire-swiss-medical-network",
+      "slug": "hdp-tso-o-strumentalista-del-blocco-operativo-swiss-medical-network-neuchatel",
       "category": "healthcare",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -796,12 +1157,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 86000,
+      "salaryMax": 120000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -816,7 +1181,7 @@
       "canton": "SO",
       "country": "CH",
       "postalCode": "4500",
-      "slug": "sachbearbeiter-in-finanzbuchhaltung-swiss-medical-network",
+      "slug": "personale-in-contabilita-finanziaria-swiss-medical-network-solothurn",
       "category": "admin",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -829,45 +1194,16 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 63,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133015166-fachperson-gesundheit-efz",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133015166-fachperson-gesundheit-efz?oga=true",
-      "title": "Fachperson Gesundheit EFZ",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Rapperswil-Jona",
-      "addressLocality": "Rapperswil-Jona",
-      "addressRegion": "SG",
-      "canton": "SG",
-      "country": "CH",
-      "postalCode": "8640",
-      "slug": "fachperson-gesundheit-efz-swiss-medical-network",
-      "category": "technology",
-      "datePosted": "2026-06-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Rapperswil-Jona"
-      },
-      "sourceLang": "de",
-      "addressCountry": "CH",
-      "_qualityScore": 63,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -882,7 +1218,7 @@
       "canton": "VD",
       "country": "CH",
       "postalCode": "1272",
-      "slug": "controleur-euse-de-gestion-swiss-medical-network",
+      "slug": "controllore-di-gestione-swiss-medical-network-genolier",
       "category": "healthcare",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -895,12 +1231,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -915,7 +1255,7 @@
       "canton": "JU",
       "country": "CH",
       "postalCode": "2740",
-      "slug": "medecin-assistant-e-en-pedopsychiatrie-stationnaire-swiss-medical-network",
+      "slug": "assistente-medico-in-psichiatria-infantile-stazionaria-swiss-medical-network-moutier",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -928,12 +1268,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
@@ -948,7 +1292,7 @@
       "canton": "SH",
       "country": "CH",
       "postalCode": "8200",
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
+      "slug": "specialista-in-medicina-interna-generale-50-100-swiss-medical-network-schaffhausen",
       "category": "medical",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -961,206 +1305,128 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-?oga=true",
-      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin 50 - 100%",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131901736-medizinische-r-praxisassistent-in",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131901736-medizinische-r-praxisassistent-in?oga=true",
+      "title": "Medizinische/-r Praxisassistent/-in",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Schaffhausen",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "canton": "SH",
+      "location": "Ostermundigen",
+      "addressLocality": "Ostermundigen",
+      "addressRegion": "BE",
+      "canton": "BE",
       "country": "CH",
-      "postalCode": "8203",
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
-      "category": "medical",
+      "postalCode": "3072",
+      "slug": "assistente-medico-pratico-in-swiss-medical-network-ostermundigen",
+      "category": "healthcare",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Ostermundigen"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131823739-sportphysiotherapeut-in",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131823739-sportphysiotherapeut-in?oga=true",
+      "title": "Sportphysiotherapeut/-in",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4500",
+      "slug": "fisioterapista-in-swiss-medical-network-solothurn",
+      "category": "physiotherapy",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "SH",
-        "location": "Schaffhausen"
+        "canton": "SO",
+        "location": "Solothurn"
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116962250-tecnico-di-sala-operatoria",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116962250-tecnico-di-sala-operatoria",
-      "title": "Tecnico di sala operatoria",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Sorengo",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6924",
-      "streetAddress": "Via Sant'Anna 1, 6924 Sorengo",
-      "slug": "tecnico-di-sala-operatoria-swiss-medical-network-sorengo",
-      "category": "technical",
-      "datePosted": "2026-03-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Sorengo"
-      },
-      "crawledAt": "",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:31:18.601Z",
-      "addressLocality": "Sorengo",
-      "addressCountry": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
+        "translation": 21,
+        "completeness": 17
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116579987-medico-assistente-in-formazione-in-chirurgia",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116579987-medico-assistente-in-formazione-in-chirurgia",
-      "title": "Medico Assistente in formazione in chirurgia",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131822324-dipl-physiotherapeut-in",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131822324-dipl-physiotherapeut-in?oga=true",
+      "title": "Dipl. Physiotherapeut/-in",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Sorengo",
-      "canton": "TI",
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "canton": "SO",
       "country": "CH",
-      "postalCode": "6924",
-      "streetAddress": "Via Sant'Anna 1, 6924 Sorengo",
-      "slug": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-03-29",
+      "postalCode": "4500",
+      "slug": "dipl-fisioterapista-in-swiss-medical-network-solothurn",
+      "category": "physiotherapy",
+      "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "TI",
-        "location": "Sorengo"
+        "canton": "SO",
+        "location": "Solothurn"
       },
-      "crawledAt": "",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:31:18.601Z",
-      "addressLocality": "Sorengo",
+      "sourceLang": "de",
       "addressCountry": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116187012-medico-ospedaliero",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116187012-medico-ospedaliero",
-      "title": "Medico Ospedaliero",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Sorengo",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6924",
-      "streetAddress": "Via Sant'Anna 1, 6924 Sorengo",
-      "slug": "medico-ospedaliero-swiss-medical-network-sorengo",
-      "category": "medical",
-      "datePosted": "2026-03-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Sorengo"
-      },
-      "crawledAt": "",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "currency": "CHF",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:31:18.601Z",
-      "addressLocality": "Sorengo",
-      "addressCountry": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 90,
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000113431836-collaboratore-hr",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000113431836-collaboratore-hr",
-      "title": "Collaboratore HR",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Moncucco 2, 6900 Lugano",
-      "slug": "collaboratore-hr-swiss-medical-network-lugano",
-      "category": "technical",
-      "datePosted": "2026-03-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:31:18.601Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
-        "translation": 25,
-        "completeness": 20
+        "translation": 21,
+        "completeness": 17
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
