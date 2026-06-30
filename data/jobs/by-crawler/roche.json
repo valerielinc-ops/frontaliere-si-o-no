@@ -3503,7 +3503,7 @@
         "it": "partner-del-viaggio-paziente-ophthalmology-roche-almaty",
         "en": "patient-journey-partner-ophthalmology-roche-ch",
         "de": "patient-journey-partner-ophthalmology-roche-ch",
-        "fr": "partenaire-de-voyage-ophtalmologique-roche-almaty"
+        "fr": "ophtalmologie-du-partenaire-voyage-patient-roche-almaty"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3544,8 +3544,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "patient-journey-partner-ophthalmology-roche-ch",
-        "ophtalmologie-du-partenaire-voyage-patient-roche-almaty",
-        "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty"
+        "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty",
+        "partenaire-de-voyage-ophtalmologique-roche-almaty"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3553,8 +3553,8 @@
         ],
         "fr": [
           "patient-journey-partner-ophthalmology-roche-ch",
-          "ophtalmologie-du-partenaire-voyage-patient-roche-almaty",
-          "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty"
+          "partenaire-de-voyage-des-patients-ophtalmologie-roche-almaty",
+          "partenaire-de-voyage-ophtalmologique-roche-almaty"
         ]
       },
       "needsRetranslation": true,
@@ -8881,8 +8881,8 @@
       "slugByLocale": {
         "en": "product-manager-roche-ch",
         "it": "responsabile-del-prodotto-roche-ho-chi-minh-d96e04",
-        "de": "product-manager-roche-ch",
-        "fr": "product-manager-roche-ch"
+        "de": "produktmanager-roche-ho-chi-minh",
+        "fr": "gestionnaire-de-produits-roche-ho-chi-minh"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8940,6 +8940,12 @@
       "firstSeenAt": "2026-06-30T12:42:57.238Z",
       "previousSlugsByLocale": {
         "it": [
+          "product-manager-roche-ch"
+        ],
+        "de": [
+          "product-manager-roche-ch"
+        ],
+        "fr": [
           "product-manager-roche-ch"
         ]
       },
@@ -14081,7 +14087,7 @@
         "it": "partner-del-viaggio-paziente-ophthalmology-roche-basel",
         "en": "patient-journey-partner-ophthalmology-roche-ch",
         "de": "patientenreise-partner-augenheilkunde-roche-basel",
-        "fr": "partenaire-de-voyage-ophtalmologique-roche-basel"
+        "fr": "ophtalmologie-du-partenaire-voyage-patient-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -14124,6 +14130,7 @@
         "patient-journey-partner-ophthalmology-roche-ch-2",
         "patient-journey-partner-ophthalmology-roche-ch",
         "partenaire-de-voyage-des-patients-ophtalmologie-roche-basel",
+        "partenaire-de-voyage-ophtalmologique-roche-basel",
         "patient-journey-partner-roche-ch-2",
         "patient-journey-partner-oncology-roche-ch",
         "partner-del-viaggio-paziente-lussemburgo-roche-brussels",
@@ -14151,7 +14158,8 @@
         ],
         "fr": [
           "patient-journey-partner-ophthalmology-roche-ch-2",
-          "partenaire-de-voyage-des-patients-ophtalmologie-roche-basel"
+          "partenaire-de-voyage-des-patients-ophtalmologie-roche-basel",
+          "partenaire-de-voyage-ophtalmologique-roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-03T15:19:54.996Z",
@@ -16201,9 +16209,9 @@
     },
     {
       "id": "roche-353c8b53b221",
-      "slug": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
+      "slug": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
       "slugByLocale": {
-        "it": "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore",
+        "it": "buyer-trainee-attacca-e-programma-treno-roche-central-singapore",
         "en": "buyer-trainee-attach-train-program-roche-ch",
         "de": "buyer-auszubildender-attach-train-program-roche-central-singapore",
         "fr": "buyer-apprenti-attach-train-program-roche-central-singapore"
@@ -16247,12 +16255,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buyer-trainee-attach-train-program-roche-ch",
-        "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
+        "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buyer-trainee-attach-train-program-roche-ch",
-          "buyer-trainee-attacca-e-programma-treno-roche-central-singapore"
+          "buyer-trainee-addetto-e-programma-di-treni-roche-central-singapore"
         ]
       },
       "needsRetranslation": true,
@@ -84558,7 +84566,7 @@
         "en": "patient-journey-partner-oncology-roche-ch",
         "it": "partner-del-percorso-del-paziente-oncologia-roche-beirut",
         "de": "patient-journey-partner-oncology-roche-ch",
-        "fr": "patient-journey-partner-oncology-roche-ch"
+        "fr": "partenaire-de-voyage-patient-oncologie-roche-beirut"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84616,6 +84624,9 @@
       "firstSeenAt": "2026-06-30T12:26:02.790Z",
       "previousSlugsByLocale": {
         "it": [
+          "patient-journey-partner-oncology-roche-ch"
+        ],
+        "fr": [
           "patient-journey-partner-oncology-roche-ch"
         ]
       },
@@ -87667,7 +87678,7 @@
         "en": "technical-support-partner-roche-ch",
         "it": "partner-del-supporto-tecnico-roche-thailand",
         "de": "technical-support-partner-roche-ch",
-        "fr": "technical-support-partner-roche-ch"
+        "fr": "partenaire-de-soutien-technique-roche-thailand"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87725,6 +87736,9 @@
       "firstSeenAt": "2026-06-30T12:25:24.176Z",
       "previousSlugsByLocale": {
         "it": [
+          "technical-support-partner-roche-ch"
+        ],
+        "fr": [
           "technical-support-partner-roche-ch"
         ]
       },
@@ -87803,7 +87817,7 @@
         "en": "roche-ch",
         "it": "traduzione-roche-shenyang",
         "de": "roche-shenyang",
-        "fr": "roche-shenyang"
+        "fr": "c-est-pas-vrai-roche-shenyang-151cd5"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87847,6 +87861,9 @@
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-159",
+          "roche-shenyang"
+        ],
+        "fr": [
           "roche-shenyang"
         ]
       },
@@ -88026,7 +88043,7 @@
       "slugByLocale": {
         "en": "marketing-partner-ivd-roche-ch",
         "it": "marketing-partner-ivd-roche-ch",
-        "de": "marketing-partner-ivd-roche-ch",
+        "de": "marketingpartner-ivd-roche-petaling-jaya",
         "fr": "marketing-partner-ivd-roche-ch"
       },
       "company": "Roche",
@@ -88091,7 +88108,7 @@
         "en": "roche-ch",
         "it": "traduzione-roche-guangzhou-f65fb2",
         "de": "roche-guangzhou",
-        "fr": "roche-guangzhou"
+        "fr": "c-est-pas-vrai-roche-guangzhou-f65fb2"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88136,6 +88153,9 @@
         "it": [
           "roche-ch-160",
           "roche-guangzhou"
+        ],
+        "fr": [
+          "roche-guangzhou"
         ]
       },
       "previousSlugs": [
@@ -88165,7 +88185,7 @@
         "en": "roche-ch",
         "it": "traduzione-roche-taiyuan",
         "de": "roche-taiyuan",
-        "fr": "roche-taiyuan"
+        "fr": "c-est-pas-vrai-roche-taiyuan"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88210,6 +88230,9 @@
         "it": [
           "roche-ch-161",
           "roche-taiyuan"
+        ],
+        "fr": [
+          "roche-taiyuan"
         ]
       },
       "previousSlugs": [
@@ -88239,7 +88262,7 @@
         "en": "roche-ch",
         "it": "traduzione-roche-chengdu-c4b268",
         "de": "roche-chengdu",
-        "fr": "roche-chengdu"
+        "fr": "c-est-pas-vrai-roche-chengdu"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88284,6 +88307,9 @@
         "it": [
           "roche-ch-162",
           "roche-chengdu"
+        ],
+        "fr": [
+          "roche-chengdu"
         ]
       },
       "previousSlugs": [
@@ -88313,7 +88339,7 @@
         "en": "roche-ch",
         "it": "organizzazione-della-pesca-roche-tianjin",
         "de": "roche-tianjin",
-        "fr": "roche-tianjin"
+        "fr": "c-est-pas-vrai-roche-tianjin"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88376,6 +88402,9 @@
           "roche-ch-70",
           "traduzione-roche-hefei",
           "roche-hefei"
+        ],
+        "fr": [
+          "roche-tianjin"
         ]
       },
       "previousSlugs": [
@@ -88499,7 +88528,7 @@
         "en": "md-clinical-fellow-roche-ch",
         "it": "medico-clinico-fellow-roche-welwyn",
         "de": "md-clinical-fellow-roche-ch",
-        "fr": "md-clinical-fellow-roche-ch"
+        "fr": "membre-clinique-du-md-roche-welwyn"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88544,6 +88573,9 @@
         "it": [
           "md-clinical-fellow-roche-ch",
           "md-clinical-fellow-roche-welwyn"
+        ],
+        "fr": [
+          "md-clinical-fellow-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -88573,7 +88605,7 @@
         "it": "investor-relations-expert-pharma-esg-roche-ch",
         "en": "investor-relations-officer-pharma-esg-roche-ch",
         "de": "investor-relations-expert-pharma-esg-roche-ch",
-        "fr": "investor-relations-expert-pharma-esg-roche-ch"
+        "fr": "specialiste-des-relations-avec-les-investisseurs-pharma-esg-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88643,7 +88675,7 @@
         "en": "roche-ch",
         "it": "traduzione-roche-wenzhou",
         "de": "roche-wenzhou",
-        "fr": "roche-wenzhou"
+        "fr": "c-est-pas-vrai-roche-wenzhou"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88687,6 +88719,9 @@
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-165",
+          "roche-wenzhou"
+        ],
+        "fr": [
           "roche-wenzhou"
         ]
       },
@@ -88781,7 +88816,7 @@
         "en": "roche-ch",
         "it": "traduzione-roche-nanchang",
         "de": "roche-nanchang",
-        "fr": "roche-nanchang"
+        "fr": "c-est-pas-vrai-roche-nanchang-93b7d8"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88825,6 +88860,9 @@
       "previousSlugsByLocale": {
         "it": [
           "roche-ch-166",
+          "roche-nanchang"
+        ],
+        "fr": [
           "roche-nanchang"
         ]
       },
@@ -89462,8 +89500,8 @@
       "slugByLocale": {
         "en": "business-development-lead-new-business-models-roche-ch",
         "it": "business-development-lead-nuovi-modelli-di-business-roche-basel",
-        "de": "business-development-lead-new-business-models-roche-ch",
-        "fr": "business-development-lead-new-business-models-roche-ch"
+        "de": "business-development-lead-neue-geschaftsmodelle-roche-basel",
+        "fr": "responsable-du-developpement-des-entreprises-nouveaux-modeles-d-affaires-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89522,6 +89560,12 @@
       "previousSlugsByLocale": {
         "it": [
           "business-development-lead-new-business-models-roche-ch"
+        ],
+        "de": [
+          "business-development-lead-new-business-models-roche-ch"
+        ],
+        "fr": [
+          "business-development-lead-new-business-models-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -89535,7 +89579,7 @@
         "en": "project-client-services-manager-roche-ch",
         "it": "responsabile-del-progetto-servizi-clienti-roche-sant-cugat-del-valles",
         "de": "project-client-services-manager-roche-ch",
-        "fr": "project-client-services-manager-roche-ch"
+        "fr": "gestionnaire-de-projet-services-a-la-clientele-roche-sant-cugat-del-valles"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89593,6 +89637,9 @@
       "firstSeenAt": "2026-06-30T12:25:00.610Z",
       "previousSlugsByLocale": {
         "it": [
+          "project-client-services-manager-roche-ch"
+        ],
+        "fr": [
           "project-client-services-manager-roche-ch"
         ]
       },
@@ -89670,8 +89717,8 @@
       "slugByLocale": {
         "de": "praktikum-im-sustainability-bereich-bei-rda-ludwigsburg-roche-ch",
         "it": "tirocinio-in-sostenibilita-presso-rda-ludwigsburg-roche-ludwigsburg",
-        "en": "praktikum-im-sustainability-bereich-bei-rda-ludwigsburg-roche-ch",
-        "fr": "praktikum-im-sustainability-bereich-bei-rda-ludwigsburg-roche-ch"
+        "en": "internship-in-sustainability-at-rda-ludwigsburg-roche-ludwigsburg",
+        "fr": "stage-en-durabilite-a-rda-ludwigsburg-roche-ludwigsburg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89729,6 +89776,12 @@
       "firstSeenAt": "2026-06-30T12:24:58.843Z",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-im-sustainability-bereich-bei-rda-ludwigsburg-roche-ch"
+        ],
+        "en": [
+          "praktikum-im-sustainability-bereich-bei-rda-ludwigsburg-roche-ch"
+        ],
+        "fr": [
           "praktikum-im-sustainability-bereich-bei-rda-ludwigsburg-roche-ch"
         ]
       },

@@ -1368,8 +1368,8 @@
       "slugByLocale": {
         "de": "pflege-mit-weitblick-und-freiheit-fage-fur-die-spitex-spitex-ch-muhen",
         "it": "pflege-con-weitblick-e-freiheit-fage-per-la-spitex-suhrental-plus-muhen",
-        "en": "pflege-con-weitblick-e-freiheit-fage-per-la-spitex-suhrental-plus-muhen",
-        "fr": "pflege-con-weitblick-e-freiheit-fage-per-la-spitex-suhrental-plus-muhen"
+        "en": "fage-for-the-spitex-your-commitment-counts-spitex-suhrental-plus-muhen",
+        "fr": "fage-pour-le-spitex-votre-engagement-compte-spitex-suhrental-plus-muhen"
       },
       "company": "Spitex Suhrental Plus",
       "companyKey": "spitex-ch",
@@ -1444,8 +1444,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
         "it": "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
-        "en": "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
-        "fr": "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
+        "en": "professional-health-efz-spitex-dienste-bellach-bellach",
+        "fr": "sante-professionnelle-efz-spitex-dienste-bellach-bellach"
       },
       "company": "Spitex Dienste Bellach",
       "companyKey": "spitex-ch",
@@ -1509,8 +1509,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-50-100-spitex-ch-sarnen",
         "it": "infermiera-hf-50-100-spitex-obwalden-sarnen",
-        "en": "pflegefachperson-hf-50-100-spitex-ch-sarnen",
-        "fr": "pflegefachperson-hf-50-100-spitex-ch-sarnen"
+        "en": "care-professional-hf-50-100-spitex-obwalden-sarnen",
+        "fr": "professionnel-de-soins-hf-50-100-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1570,6 +1570,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-50-100-spitex-ch-sarnen"
+        ],
+        "en": [
+          "pflegefachperson-hf-50-100-spitex-ch-sarnen"
+        ],
+        "fr": [
+          "pflegefachperson-hf-50-100-spitex-ch-sarnen"
         ]
       },
       "previousSlugs": [
@@ -1582,8 +1588,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-100-spitex-ch-sarnen",
         "it": "specialista-della-salute-80-100-spitex-obwalden-sarnen",
-        "en": "fachperson-gesundheit-80-100-spitex-ch-sarnen",
-        "fr": "fachperson-gesundheit-80-100-spitex-ch-sarnen"
+        "en": "health-professional-80-100-spitex-obwalden-sarnen",
+        "fr": "professionnels-de-la-sante-80-100-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1643,6 +1649,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-80-100-spitex-ch-sarnen"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-spitex-ch-sarnen"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-100-spitex-ch-sarnen"
         ]
       },
       "previousSlugs": [
@@ -1655,8 +1667,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-mit-schwerpunkt-demenz-60-100-spitex-ch-sarnen",
         "it": "pflegefachperson-hf-mit-schwerpunkt-demenz-60-100-spitex-ch-sarnen",
-        "en": "pflegefachperson-hf-mit-schwerpunkt-demenz-60-100-spitex-ch-sarnen",
-        "fr": "pflegefachperson-hf-mit-schwerpunkt-demenz-60-100-spitex-ch-sarnen"
+        "en": "care-professional-hf-with-focus-on-dementia-60-100-spitex-obwalden-sarnen",
+        "fr": "soins-professionnels-hf-avec-accent-sur-la-demence-60-100-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1720,8 +1732,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-60-80-in-engelberg-spitex-ch-sarnen",
         "it": "infermiera-ic-60-80-a-engelberg-spitex-obwalden-sarnen",
-        "en": "pflegefachperson-hf-60-80-in-engelberg-spitex-ch-sarnen",
-        "fr": "pflegefachperson-hf-60-80-in-engelberg-spitex-ch-sarnen"
+        "en": "nurse-hf-60-80-in-engelberg-spitex-obwalden-sarnen",
+        "fr": "infirmiere-hf-60-80-a-engelberg-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1781,6 +1793,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-60-80-in-engelberg-spitex-ch-sarnen"
+        ],
+        "en": [
+          "pflegefachperson-hf-60-80-in-engelberg-spitex-ch-sarnen"
+        ],
+        "fr": [
+          "pflegefachperson-hf-60-80-in-engelberg-spitex-ch-sarnen"
         ]
       },
       "previousSlugs": [
@@ -1793,7 +1811,7 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
         "it": "infermiere-certificato-in-psichiatria-hf-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "en": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+        "en": "dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
         "fr": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
       },
       "company": "Spitex-Verein Buttisholz/Nottwil",
@@ -1854,6 +1872,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
         ]
       },
       "previousSlugs": [
@@ -1866,8 +1887,8 @@
       "slugByLocale": {
         "de": "teamleitung-pflege-spitex-ch-horgen",
         "it": "capo-squadra-infermieristica-spitex-horgen-oberrieden-horgen",
-        "en": "teamleitung-pflege-spitex-ch-horgen",
-        "fr": "teamleitung-pflege-spitex-ch-horgen"
+        "en": "team-leadership-care-spitex-horgen-oberrieden-horgen",
+        "fr": "soins-de-direction-de-l-equipe-spitex-horgen-oberrieden-horgen"
       },
       "company": "Spitex Horgen-Oberrieden",
       "companyKey": "spitex-ch",
@@ -1926,6 +1947,12 @@
       "firstSeenAt": "2026-06-30T12:44:00.232Z",
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ],
+        "en": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ],
+        "fr": [
           "teamleitung-pflege-spitex-ch-horgen"
         ]
       },

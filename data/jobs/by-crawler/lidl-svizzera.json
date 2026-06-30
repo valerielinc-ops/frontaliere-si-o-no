@@ -43,7 +43,7 @@
         "it": "it-service-support-collaboratore-trice-m-w-d-80-100-lidl-svizzera-weinfelden-hie5re",
         "en": "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden-hie5re",
         "de": "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden-hie5re",
-        "fr": "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden-hie5re"
+        "fr": "employe-de-soutien-et-de-services-informatiques-m-f-d-80-100-lidl-svizzera-weinfelden"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -51,10 +51,14 @@
       "previousSlugsByLocale": {
         "it": [
           "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden"
+        ],
+        "fr": [
+          "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden-hie5re"
         ]
       },
       "previousSlugs": [
-        "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden"
+        "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden",
+        "it-service-support-mitarbeiter-in-m-w-d-80-100-lidl-svizzera-weinfelden-hie5re"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -113,8 +117,8 @@
       },
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey",
-        "en": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr",
-        "de": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr",
+        "en": "assistant-manager-assistant-manager-h-f-d-80-lidl-svizzera-conthey",
+        "de": "assistant-manager-assistant-manager-h-w-d-80-lidl-svizzera-conthey",
         "fr": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr"
       },
       "requirementsByLocale": {},
@@ -122,6 +126,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr"
+        ],
+        "en": [
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr"
+        ],
+        "de": [
           "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr"
         ]
       },
@@ -173,8 +183,8 @@
       "firstSeenAt": "2026-06-30T13:04:54.871Z",
       "slugByLocale": {
         "it": "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre",
-        "en": "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre-azl494",
-        "de": "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre-azl494",
+        "en": "manager-alternate-store-manager-h-f-d-80-100-lidl-svizzera-sierre",
+        "de": "manager-alternate-store-manager-h-w-d-80-100-lidl-svizzera-sierre",
         "fr": "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre-azl494"
       },
       "titleByLocale": {
@@ -208,7 +218,18 @@
       "addressRegion": "VS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "3960"
+      "postalCode": "3960",
+      "previousSlugsByLocale": {
+        "en": [
+          "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre-azl494"
+        ],
+        "de": [
+          "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre-azl494"
+        ]
+      },
+      "previousSlugs": [
+        "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre-azl494"
+      ]
     },
     {
       "id": "company-myml0g",
@@ -249,8 +270,8 @@
       },
       "slugByLocale": {
         "it": "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-martigny-myml0g",
-        "en": "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-martigny-myml0g",
-        "de": "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-martigny-myml0g",
+        "en": "student-job-sales-h-f-d-20-martigny-lidl-svizzera-martigny",
+        "de": "student-job-sales-h-w-d-20-martigny-lidl-svizzera-martigny",
         "fr": "job-etudiant-etudiante-vente-m-w-d-20-lidl-svizzera-martigny-myml0g"
       },
       "requirementsByLocale": {},
@@ -311,9 +332,9 @@
       "firstSeenAt": "2026-06-30T13:04:54.871Z",
       "slugByLocale": {
         "it": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
-        "en": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
-        "de": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
-        "fr": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv"
+        "en": "343-seller-seller-m-f-d-20-40-lidl-svizzera-minusio",
+        "de": "343-verkaufer-verkaufer-m-w-d-20-40-lidl-svizzera-minusio",
+        "fr": "343-vendeur-vendeur-m-f-j-20-40-lidl-svizzera-minusio"
       },
       "titleByLocale": {
         "en": "343 Seller / Seller (m/f/d) 20-40%",
@@ -471,9 +492,9 @@
       },
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno-son2uz",
-        "en": "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno-son2uz",
-        "de": "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno-son2uz",
-        "fr": "venditore-venditrice-m-w-d-40-1-lidl-svizzera-locarno-son2uz"
+        "en": "seller-seller-m-f-d-40-1-lidl-svizzera-locarno",
+        "de": "verkaufer-verkaufer-m-w-d-40-1-lidl-svizzera-locarno",
+        "fr": "vendeur-vendeur-m-f-d-40-1-lidl-svizzera-locarno"
       },
       "requirementsByLocale": {
         "it": [
@@ -514,7 +535,7 @@
     },
     {
       "id": "company-htt1jv",
-      "slug": "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv",
+      "slug": "picker-d-ordine-m-f-d-60-lidl-svizzera-sevaz",
       "company": "Lidl Svizzera",
       "title": "Kommissionierer / Kommissioniererin (m/w/d) 60%",
       "location": "Sévaz",
@@ -550,21 +571,29 @@
         "fr": "Présentation\n\nAvec un réseau de succursales moderne, Lidl Suisse a une présence de plus en plus dense sur le marché suisse. L'expansion en Suisse s'est poursuivie depuis l'entrée sur le marché en 2009. Chez Lidl, des tâches passionnantes et des possibilités de carrière polyvalentes vous attendent dans l'environnement dynamique du commerce de détail.\nVos tâches\n\n- Choisir les commandes de nos succursales\n\n- Assistance aux stocks d'entrepôts\n\n- Fourniture de palettes pour l'expédition\n\n- Respect des normes d'hygiène et de propreté\n\n- Les jours ouvrables fixes sont définis ensemble\nVotre profil\n\n- Expérience en logistique ou en production\n\n- Personnalité fiable, indépendante et résistante\n\n- Compétences en équipe, coopération et communication\n\n- Préparation pour le travail posté, la nuit et le dimanche\n\n- Bonne connaissance de l'allemand et/ou du français\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participez activement. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une familiarisation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv",
-        "en": "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv",
+        "it": "picker-d-ordine-m-f-d-60-lidl-svizzera-sevaz",
+        "en": "order-picker-m-f-d-60-lidl-svizzera-sevaz",
         "de": "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv",
-        "fr": "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv"
+        "fr": "recuperateur-de-commandes-m-f-j-60-lidl-svizzera-sevaz"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz"
+          "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz",
+          "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv"
+        ],
+        "en": [
+          "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv"
+        ],
+        "fr": [
+          "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv"
         ]
       },
       "previousSlugs": [
-        "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz"
+        "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz",
+        "kommissionierer-kommissioniererin-m-w-d-60-lidl-svizzera-sevaz-htt1jv"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -675,7 +704,7 @@
       "firstSeenAt": "2026-06-30T13:04:54.871Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
+        "en": "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
       },
@@ -710,7 +739,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
+      ]
     },
     {
       "id": "company-jw8tep",
@@ -751,8 +788,8 @@
       },
       "slugByLocale": {
         "it": "gerant-gerante-de-magasin-m-w-d-80-100-lausanne-lidl-svizzera-lausanne",
-        "en": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep",
-        "de": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep",
+        "en": "manager-store-manager-h-f-d-80-100-lausanne-lidl-svizzera-lausanne",
+        "de": "manager-store-manager-h-w-d-80-100-lausanne-lidl-svizzera-lausanne",
         "fr": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
       },
       "requirementsByLocale": {},
@@ -761,6 +798,12 @@
       "previousSlugsByLocale": {
         "it": [
           "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne",
+          "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
+        ],
+        "en": [
+          "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
+        ],
+        "de": [
           "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
         ]
       },
@@ -813,7 +856,7 @@
       "firstSeenAt": "2026-06-30T13:04:54.871Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
+        "en": "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
       },
@@ -848,7 +891,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugsByLocale": {
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
+      ]
     },
     {
       "id": "company-ehg9v1",
@@ -15271,7 +15322,7 @@
         "it": "ordina-picker-ordine-picker-non-food-m-f-d-40-80-lidl-svizzera-derendingen",
         "en": "order-picker-non-food-m-f-d-40-80-lidl-svizzera-derendingen",
         "de": "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-        "fr": "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen"
+        "fr": "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -15285,15 +15336,14 @@
           "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6"
         ],
         "fr": [
-          "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
           "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-          "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
+          "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
+          "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen"
         ]
       },
       "previousSlugs": [
         "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen",
         "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-        "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
         "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
       ],
       "baseSalary": {

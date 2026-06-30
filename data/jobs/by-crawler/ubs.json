@@ -101,7 +101,7 @@
         "en": "sr-wealth-strategy-associate-ubs-missouri",
         "it": "associato-senior-strategia-di-ricchezza-ubs-missouri",
         "de": "sr-wealth-strategy-associate-ubs-missouri",
-        "fr": "sr-wealth-strategy-associate-ubs-missouri"
+        "fr": "sr-richesse-strategie-associee-ubs-missouri"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -172,14 +172,13 @@
         ],
         "fr": [
           "associe-senior-en-strategie-patrimoniale-ubs-missouri",
-          "sr-richesse-strategie-associee-ubs-missouri"
+          "sr-wealth-strategy-associate-ubs-missouri"
         ]
       },
       "previousSlugs": [
         "sr-wealth-strategy-associate-ubs-missouri",
-        "associe-senior-en-strategie-patrimoniale-ubs-missouri",
         "associato-senior-strategia-patrimoniale-ubs-missouri",
-        "sr-richesse-strategie-associee-ubs-missouri"
+        "associe-senior-en-strategie-patrimoniale-ubs-missouri"
       ]
     },
     {
@@ -188,8 +187,8 @@
       "slugByLocale": {
         "it": "event-attendant-contratto-a-ore-ubs-ticino",
         "en": "event-attendant-hourly-contract-ubs-ticino",
-        "de": "event-attendant-contratto-a-ore-ubs-ticino",
-        "fr": "event-attendant-contratto-a-ore-ubs-ticino"
+        "de": "event-waitant-vertrag-nach-stunden-ubs-ticino",
+        "fr": "attendant-de-l-evenement-contrat-en-heures-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -260,8 +259,8 @@
       "slugByLocale": {
         "de": "finanzplaner-wmch-basel-ubs-nordschweiz",
         "it": "consulente-finanziario-wmch-basilea-ubs-nordschweiz",
-        "en": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "fr": "finanzplaner-wmch-basel-ubs-nordschweiz"
+        "en": "financial-planner-wmch-basel-ubs-nordschweiz",
+        "fr": "planificateur-financier-wmch-bale-ubs-nordschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -327,6 +326,12 @@
       "previousSlugsByLocale": {
         "it": [
           "finanzplaner-wmch-basel-ubs-nordschweiz"
+        ],
+        "en": [
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
+        ],
+        "fr": [
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
         ]
       },
       "previousSlugs": [
@@ -339,8 +344,8 @@
       "slugByLocale": {
         "de": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
         "it": "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz",
-        "en": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "fr": "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        "en": "tax-expert-wealth-management-ubs-zentralschweiz",
+        "fr": "expert-fiscal-gestion-de-la-masse-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -406,6 +411,12 @@
       "previousSlugsByLocale": {
         "it": [
           "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        ],
+        "en": [
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        ],
+        "fr": [
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
         ]
       },
       "previousSlugs": [
@@ -418,8 +429,8 @@
       "slugByLocale": {
         "de": "succession-planner-ubs-zentralschweiz",
         "it": "pianificatore-della-successione-ubs-zentralschweiz",
-        "en": "succession-planner-ubs-zentralschweiz",
-        "fr": "succession-planner-ubs-zentralschweiz"
+        "en": "succession-planners-ubs-zentralschweiz",
+        "fr": "planificateurs-de-releve-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -484,6 +495,12 @@
       "firstSeenAt": "2026-06-30T12:37:52.062Z",
       "previousSlugsByLocale": {
         "it": [
+          "succession-planner-ubs-zentralschweiz"
+        ],
+        "en": [
+          "succession-planner-ubs-zentralschweiz"
+        ],
+        "fr": [
           "succession-planner-ubs-zentralschweiz"
         ]
       },

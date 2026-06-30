@@ -3231,8 +3231,8 @@
       "slugByLocale": {
         "de": "operative-r-einkaufer-in-lindenhofgruppe-ch",
         "it": "acquirente-operativo-lindenhofgruppe-sonnenhofspital",
-        "en": "operative-r-einkaufer-in-lindenhofgruppe-sonnenhofspital",
-        "fr": "operative-r-einkaufer-in-lindenhofgruppe-sonnenhofspital"
+        "en": "operational-purchaser-lindenhofgruppe-sonnenhofspital",
+        "fr": "operationnel-acheteur-lindenhofgruppe-sonnenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3278,6 +3278,12 @@
       "previousSlugsByLocale": {
         "it": [
           "operative-r-einkaufer-in-lindenhofgruppe-ch",
+          "operative-r-einkaufer-in-lindenhofgruppe-sonnenhofspital"
+        ],
+        "en": [
+          "operative-r-einkaufer-in-lindenhofgruppe-sonnenhofspital"
+        ],
+        "fr": [
           "operative-r-einkaufer-in-lindenhofgruppe-sonnenhofspital"
         ]
       },

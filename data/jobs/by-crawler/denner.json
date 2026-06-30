@@ -560,7 +560,7 @@
       "id": "denner-b76e1a8cc96d",
       "slug": "venditore-denner-wilderswil",
       "slugByLocale": {
-        "it": "venditore-denner-wilderswil",
+        "it": "venditore-denner-ag-wilderswil-2b22fa",
         "en": "seller-denner-wilderswil",
         "de": "verkaufer-in-denner-ag-wilderswil",
         "fr": "vendeur-denner-wilderswil"
@@ -654,10 +654,10 @@
       "id": "denner-5db834ae5c48",
       "slug": "verkaufer-in-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
+        "it": "venditore-denner-ag-wilderswil",
         "de": "verkaufer-in-denner-rubigen",
-        "en": "verkaufer-in-denner",
-        "fr": "verkaufer-in-denner"
+        "en": "seller-denner-ag-wilderswil-834c79",
+        "fr": "vendeur-denner-ag-wilderswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -730,26 +730,18 @@
       "firstSeenAt": "2026-06-29T22:14:12.562Z",
       "previousSlugsByLocale": {
         "en": [
-          "verkaufer-in-denner-wilderswil",
-          "seller-denner-ag-wilderswil-834c79"
+          "verkaufer-in-denner-wilderswil"
         ],
         "de": [
           "verkaufer-in-denner-ag-wilderswil"
         ],
         "fr": [
-          "verkaufer-in-denner-wilderswil",
-          "vendeur-denner-ag-wilderswil"
-        ],
-        "it": [
-          "venditore-denner-ag-wilderswil"
+          "verkaufer-in-denner-wilderswil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-wilderswil",
-        "verkaufer-in-denner-ag-wilderswil",
-        "seller-denner-ag-wilderswil-834c79",
-        "vendeur-denner-ag-wilderswil",
-        "venditore-denner-ag-wilderswil"
+        "verkaufer-in-denner-ag-wilderswil"
       ]
     },
     {
@@ -856,7 +848,7 @@
       "id": "denner-b97641f6e185",
       "slug": "venditore-denner-mohlin",
       "slugByLocale": {
-        "it": "venditore-denner-mohlin",
+        "it": "venditore-denner-ag-mohlin-68d2c2",
         "en": "seller-denner-mohlin",
         "de": "verkaufer-in-denner-ag-mohlin",
         "fr": "vendeur-denner-mohlin"
@@ -2896,9 +2888,9 @@
       "id": "denner-dd3624ee9fe8",
       "slug": "vicesindaco-denner-lonay",
       "slugByLocale": {
-        "it": "vicesindaco-denner-lonay",
-        "en": "adjoint-e-gerant-e-denner",
-        "de": "adjoint-e-gerant-e-denner",
+        "it": "amministratore-delegato-denner-sa-lonay",
+        "en": "deputy-managing-officer-denner-lonay",
+        "de": "stellvertretender-geschaftsfuhrer-denner-lonay",
         "fr": "adjoint-e-gerant-e-denner-lonay"
       },
       "company": "Denner",
@@ -2972,6 +2964,12 @@
       "firstSeenAt": "2026-06-30T11:16:33.763Z",
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-e-gerant-e-denner"
+        ],
+        "en": [
+          "adjoint-e-gerant-e-denner"
+        ],
+        "de": [
           "adjoint-e-gerant-e-denner"
         ]
       },

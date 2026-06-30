@@ -268,8 +268,8 @@
       "slugByLocale": {
         "de": "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-langenthal",
         "it": "segretario-80-clinica-psichiatrica-ambulatoriale-langenthal-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-langenthal",
-        "fr": "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-langenthal"
+        "en": "secretary-in-80-psychiatric-ambulatorium-langenthal-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "secretaire-dans-80-ambulateur-psychiatrique-langenthal-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -332,6 +332,12 @@
       "firstSeenAt": "2026-06-30T12:29:11.346Z",
       "previousSlugsByLocale": {
         "it": [
+          "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-langenthal"
+        ],
+        "en": [
+          "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-langenthal"
+        ],
+        "fr": [
           "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-langenthal"
         ]
       },

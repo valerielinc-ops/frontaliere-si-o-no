@@ -4288,8 +4288,8 @@
       "slugByLocale": {
         "fr": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
         "it": "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "en": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
-        "de": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
+        "en": "head-of-palliative-care-and-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "leiterin-palliative-care-und-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4348,6 +4348,12 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
+        ],
+        "de": [
+          "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
         ]
       },
       "previousSlugs": [
@@ -4360,8 +4366,8 @@
       "slugByLocale": {
         "fr": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne",
         "it": "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "en": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne",
-        "de": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
+        "en": "head-of-clinic-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "leiter-der-klinik-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4419,6 +4425,12 @@
       "firstSeenAt": "2026-06-30T11:19:43.019Z",
       "previousSlugsByLocale": {
         "it": [
+          "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
+        ],
+        "de": [
           "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
         ]
       },

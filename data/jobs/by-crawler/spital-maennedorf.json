@@ -3365,8 +3365,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-privatstation-60-80-m-w-d-spital-maennedorf",
         "it": "infermiera-laureata-in-hf-fh-in-reparto-privato-di-turno-notturno-permanente-60-80-lunedi-venerdi-giorno-spital",
-        "en": "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-privatstation-60-80-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-privatstation-60-80-m-w-d-spital-mannedorf-mannedorf"
+        "en": "dipl-nurse-hf-fh-in-the-permanent-night-service-private-station-60-80-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "dipl-infirmiere-hf-fh-dans-la-station-privee-permanente-de-service-de-nuit-60-80-m-f-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3415,6 +3415,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-privatstation-60-80-m-w-d-spital-maennedorf",
+          "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-privatstation-60-80-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-privatstation-60-80-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-hf-fh-im-dauernachtdienst-privatstation-60-80-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
