@@ -61,14 +61,7 @@
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
       "previousSlugsByLocale": {
         "en": [
-          "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf",
-          "ausbildung-flugverkehrsleiter-in-fluglots-in-skyguide-dubendorf-ch"
-        ],
-        "it": [
-          "ausbildung-flugverkehrsleiter-in-fluglots-in-skyguide-dubendorf-ch"
-        ],
-        "fr": [
-          "ausbildung-flugverkehrsleiter-in-fluglots-in-skyguide-dubendorf-ch"
+          "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf"
         ]
       }
     },
@@ -109,12 +102,15 @@
       },
       "slugByLocale": {
         "it": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno",
-        "en": "air-traffic-controller-training-lugano-skyguide-lugano-agno",
-        "de": "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
-        "fr": "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
+        "en": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
+        "de": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
+        "fr": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36"
       },
       "previousSlugs": [
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
+        "air-traffic-controller-training-lugano-skyguide-lugano-agno",
+        "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
+        "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno",
         "fluglotsenausbildung-lugano-skyguide-lugano-agno"
       ],
       "salaryMin": 58000,
@@ -135,12 +131,10 @@
       "id": "skyguide-sa-b96de90ca094",
       "previousSlugsByLocale": {
         "it": [
-          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
-          "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
+          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36"
         ],
         "en": [
           "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
-          "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
           "air-traffic-controller-training-lugano-skyguide-lugano-agno"
         ],
         "de": [
@@ -191,12 +185,15 @@
       },
       "slugByLocale": {
         "it": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno",
-        "en": "air-traffic-controller-training-locarno-skyguide-locarno",
-        "de": "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
-        "fr": "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno"
+        "en": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
+        "de": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
+        "fr": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp"
       },
       "previousSlugs": [
         "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
+        "air-traffic-controller-training-locarno-skyguide-locarno",
+        "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
+        "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno",
         "fluglotsenausbildung-locarno-skyguide-locarno",
         "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno"
       ],
@@ -218,12 +215,10 @@
       "id": "skyguide-sa-338538f51d4a",
       "previousSlugsByLocale": {
         "it": [
-          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
-          "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch"
+          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp"
         ],
         "en": [
           "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
-          "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
           "air-traffic-controller-training-locarno-skyguide-locarno"
         ],
         "de": [
@@ -293,18 +288,7 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-sion-skyguide-sion-ch"
-        ],
-        "en": [
-          "formation-controleur-euse-de-la-circulation-aerienne-sion-skyguide-sion-ch"
-        ],
-        "de": [
-          "formation-controleur-euse-de-la-circulation-aerienne-sion-skyguide-sion-ch"
-        ]
-      }
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Genève",
@@ -362,18 +346,7 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve-ch"
-        ],
-        "en": [
-          "formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve-ch"
-        ],
-        "de": [
-          "formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve-ch"
-        ]
-      }
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Payerne",
@@ -431,18 +404,7 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-payerne-skyguide-payerne-ch"
-        ],
-        "en": [
-          "formation-controleur-euse-de-la-circulation-aerienne-payerne-skyguide-payerne-ch"
-        ],
-        "de": [
-          "formation-controleur-euse-de-la-circulation-aerienne-payerne-skyguide-payerne-ch"
-        ]
-      }
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Techniker:in HLK (80-100%)",
@@ -501,18 +463,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "streetAddress": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "techniker-in-hlk-80-100-skyguide-wangen-b-dubendorf-ch"
-        ],
-        "en": [
-          "techniker-in-hlk-80-100-skyguide-wangen-b-dubendorf-ch"
-        ],
-        "fr": [
-          "techniker-in-hlk-80-100-skyguide-wangen-b-dubendorf-ch"
-        ]
-      }
+      "streetAddress": ""
     },
     {
       "title": "IT Application Solutions Lead (80-100%)",
@@ -571,12 +522,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "streetAddress": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
-        ]
-      }
+      "streetAddress": ""
     }
   ]
 }

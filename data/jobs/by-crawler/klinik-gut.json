@@ -81,7 +81,7 @@
         "de": "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
         "it": "tecnico-di-operazione-hf-o-infermiere-dipl-fa-op-60-100-klinik-gut-ag-flasch",
         "fr": "technicien-d-operation-hf-ou-infirmier-dipl-fa-op-60-100-klinik-gut-ag-flasch",
-        "en": "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
+        "en": "operational-technique-hf-or-dipl-care-professional-fa-op-60-100-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -126,6 +126,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
+        ],
+        "en": [
           "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
         ]
       },
@@ -368,8 +371,8 @@
       "slugByLocale": {
         "de": "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
         "it": "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz",
-        "en": "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz",
-        "fr": "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
+        "en": "med-practical-assistant-in-60-80-winter-season-2026-27-klinik-gut-ag-st-moritz",
+        "fr": "med-assistant-pratique-en-60-80-saison-d-hiver-2026-27-klinik-gut-ag-st-moritz"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
