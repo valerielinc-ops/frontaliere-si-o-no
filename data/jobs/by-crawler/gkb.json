@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-06-30T11:34:23.216Z",
+  "assembledAt": "2026-06-30T22:18:46.236Z",
   "jobs": [
     {
       "id": "gkb-3ab1e6c3a064",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:20.496Z",
+      "crawledAt": "2026-06-30T22:18:43.911Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -66,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T22:21:54.751Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -111,7 +112,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:19.778Z",
+      "crawledAt": "2026-06-30T22:18:43.109Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -145,6 +146,7 @@
         "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-01T23:46:30.584Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -190,7 +192,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:18.991Z",
+      "crawledAt": "2026-06-30T22:18:42.308Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -211,6 +213,7 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "firstSeenAt": "2026-06-03T13:43:29.166Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -240,7 +243,7 @@
       "title": "IT-Controlling und Governance Manager (100%)",
       "titleByLocale": {
         "it": "Responsabile Controllo e Governance IT (100%)",
-        "en": "IT Controlling and Governance Manager (100%)",
+        "en": "IT-Controlling und Governance Manager (100%)",
         "de": "IT-Controlling und Governance Manager (100%)",
         "fr": "Gestionnaire du contrôle et de la gouvernance de la TI (100%)"
       },
@@ -256,7 +259,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:18.362Z",
+      "crawledAt": "2026-06-30T22:18:41.485Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -290,6 +293,7 @@
         "it-controlling-und-governance-manager-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "baseSalary": {
@@ -335,7 +339,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:17.576Z",
+      "crawledAt": "2026-06-30T22:18:40.662Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -410,7 +414,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:16.790Z",
+      "crawledAt": "2026-06-30T22:18:39.839Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -485,7 +489,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:15.910Z",
+      "crawledAt": "2026-06-30T22:18:39.014Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -566,7 +570,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1940/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:15.033Z",
+      "crawledAt": "2026-06-30T22:18:38.203Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -645,7 +649,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1944/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:14.154Z",
+      "crawledAt": "2026-06-30T22:18:37.374Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -701,11 +705,11 @@
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
       "companyDomain": "gkb.ch",
-      "title": "Immobilienbewirtschafter:in 100%",
+      "title": "Immobilienbewirtschafter:in (100%)",
       "titleByLocale": {
         "it": "Responsabile della proprietà: 100%",
         "en": "Property manager: 100%",
-        "de": "Immobilienbewirtschafter:in 100%",
+        "de": "Immobilienbewirtschafter:in (100%)",
         "fr": "Gestionnaire immobilier : 100%"
       },
       "description": "Graubündner Kantonalbank | online seit: 15.06.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du möchtest gemeinsam mit unserem Team Liegenschaften unsere Kunden mit erstklassigem Service und Fachwissen überzeugen? Bist du eine teamorientierte Persönlichkeit mit einer hohen Dienstleistungs- und Kundenorientierung sowie Freude am direkten Kundenkontakt? Dann bieten wir dir ein spannendes Umfeld mit individuellen Entwicklungsmöglichkeiten. | ab sofort oder nach Vereinbarung |\n• Du betreust ein vielseitiges Immobilienportfolio mit Geschäfts-, Betriebs- und Wohnimmobilien in der Region Graubünden. Deine Aufgaben umfassen die strategiekonforme und selbstständige Bewirtschaftung.\n• Du verantwortest die marktkonforme Vollvermietung, das Inserieren von Mietobjekten, die Leerstandsplanung und Mietzinsanpassungen. Zudem erstellst du Mietverträge inkl. Nachträge und wickelst Mieterwechsel ab.\n• Als Eigentümervertretung pflegst du aktiv Beziehungen zu Mieterschaft, Hauswartung, Handwerksbetrieben, Behörden und internen Partnern.\n• Du stellst den ordentlichen wie auch den ausserordentlichen Gebäudeunterhalt sicher, koordinierst Reparaturen, planst Sanierungen und übernimmst die Abwicklung von Versicherungsfällen.\n• Vertrittst die Eigentümerschaft in Stockwerkeigentümergemeinschaften, nimmst an Sitzungen sowie Eigentümerversammlungen teil und bringst deren Interesse aktiv ein. |\n• Kaufmännische Grundausbildung, idealerweise in der Immobilien-, Treuhand- oder Bankbranche.\n• Abgeschlossene Weiterbildung als Immobilienbewirtschafter/-in mit eidg. Fachausweis oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Immobilienbewirtschaftung.\n• Selbständige, strukturierte, zuverlässige und lösungsorientierte Arbeitsweise\n• Führerausweis der Kategorie B | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
@@ -720,7 +724,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T11:34:13.107Z",
+      "crawledAt": "2026-06-30T22:18:36.533Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
