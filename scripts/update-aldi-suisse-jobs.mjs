@@ -166,6 +166,7 @@ async function fetchAndParseDetailPages(listings) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const concurrency = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 3;
   const jobs = [];
+  let droppedNoCanton = 0;
 
   for (let i = 0; i < listings.length; i += concurrency) {
     const batch = listings.slice(i, i + concurrency);
@@ -208,8 +209,16 @@ async function fetchAndParseDetailPages(listings) {
 
       const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${rawTitle}-aldi-suisse`);
-      const canton = inferAnyCanton(location) || HQ.canton;
-      const postalCode = listing.zip || TICINO_PLZ[location.toLowerCase()] || HQ.postalCode || '';
+      // CH-only canton gate: ALDI Suisse hires across all 26 cantons, so an
+      // unresolved location must NOT default to the HQ canton (TI/Lugano). A
+      // row with an empty city (the REST `address` carries only the street, not
+      // the locality) and a non-TI zip would otherwise be mislabeled Ticino —
+      // landing on the wrong canton SEO page with inconsistent structured data
+      // (addressRegion=TI paired with a non-TI postalCode). Drop it instead,
+      // the same CH-only gate the Fust crawler uses (never defaulted to TI).
+      const canton = inferAnyCanton(location);
+      if (!canton) { droppedNoCanton += 1; continue; }
+      const postalCode = listing.zip || TICINO_PLZ[location.toLowerCase()] || '';
 
       jobs.push({
         id: `aldi-suisse-${urlHash}`,
@@ -244,6 +253,10 @@ async function fetchAndParseDetailPages(listings) {
         crawledAt: new Date().toISOString(),
       });
     }
+  }
+
+  if (droppedNoCanton > 0) {
+    console.log(`   ↪︎ Dropped ${droppedNoCanton} job(s) with an unresolvable canton (no TI default)`);
   }
 
   return jobs;
