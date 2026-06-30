@@ -33,11 +33,12 @@ routes = [
   { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
-  # Ticino section (IT apex prefix). The en/de/fr Ticino subpaths
+  # Ticino section (IT apex prefix) → origin-ticino-it (one shard repo per locale;
+  # see locale-router.js TICINO_ORIGIN). The en/de/fr Ticino subpaths
   # (/en/find-jobs-ticino, /de/jobs-im-tessin, /fr/trouver-emploi-tessin) already
   # reach the Worker via the /en|/de|/fr routes above and are re-targeted to
-  # origin-ticino in-code (matchTicino), so only the IT prefix needs new routes
-  # here — the IT apex otherwise bypasses the Worker entirely.
+  # origin-ticino-<loc> in-code (matchTicino), so only the IT prefix needs new
+  # routes here — the IT apex otherwise bypasses the Worker entirely.
   { pattern = "frontaliereticino.ch/cerca-lavoro-ticino/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/cerca-lavoro-ticino",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/cerca-lavoro-ticino.html", zone_name = "frontaliereticino.ch" },

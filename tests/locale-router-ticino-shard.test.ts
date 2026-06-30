@@ -2,13 +2,13 @@
  * Ticino-section shard routing of the Cloudflare locale-router Worker.
  *
  * The Ticino job section (the single largest subtree in the build) is carved out
- * to its own Pages repo served from origin-ticino.frontaliereticino.ch, so the IT
- * apex and the en/de/fr locale shards each stay under the 10 GB Pages cap. The
- * Worker must:
- *   - route the IT prefix /cerca-lavoro-ticino/** to origin-ticino;
+ * to ONE Pages repo PER LOCALE (origin-ticino-<loc>.frontaliereticino.ch) — a
+ * single combined repo would be ~16 GB, over the 10 GB Pages cap itself — so the
+ * IT apex and the en/de/fr locale shards each stay under the cap. The Worker must:
+ *   - route the IT prefix /cerca-lavoro-ticino/** to origin-ticino-it;
  *   - route the localized prefixes /en/find-jobs-ticino/**, /de/jobs-im-tessin/**,
- *     /fr/trouver-emploi-tessin/** to origin-ticino (NOT origin-{loc}), which
- *     requires the Ticino check to run BEFORE the locale check;
+ *     /fr/trouver-emploi-tessin/** to origin-ticino-{loc} (NOT origin-{loc}),
+ *     which requires the Ticino check to run BEFORE the locale check;
  *   - leave every other path untouched: non-Ticino /en|/de|/fr → origin-{loc},
  *     non-Ticino IT → apex passthrough, and look-alikes (…-ticino-altro) → apex.
  *
@@ -25,7 +25,12 @@ import worker from '../infra/cloudflare-worker/locale-router.js';
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 
-const TICINO_ORIGIN = 'origin-ticino.frontaliereticino.ch';
+const TICINO_ORIGIN = {
+  it: 'origin-ticino-it.frontaliereticino.ch',
+  en: 'origin-ticino-en.frontaliereticino.ch',
+  de: 'origin-ticino-de.frontaliereticino.ch',
+  fr: 'origin-ticino-fr.frontaliereticino.ch',
+};
 
 /** Capture the upstream host the Worker fetches for a given public path. */
 let lastUpstreamHost: string | null;
@@ -59,34 +64,34 @@ afterEach(() => {
 });
 
 describe('locale-router Ticino-section shard routing', () => {
-  it('routes the IT Ticino prefix to origin-ticino', async () => {
+  it('routes the IT Ticino prefix to origin-ticino-it', async () => {
     const res = await worker.fetch(
       new Request(`${APEX}/cerca-lavoro-ticino/consulente-vendita-jumbo-sant-antonino-ticino-abc123/`),
       {},
       ctx,
     );
     expect(res.status).toBe(200);
-    expect(lastUpstreamHost).toBe(TICINO_ORIGIN);
+    expect(lastUpstreamHost).toBe(TICINO_ORIGIN.it);
   });
 
-  it('routes the IT Ticino section root to origin-ticino', async () => {
+  it('routes the IT Ticino section root to origin-ticino-it', async () => {
     await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/`), {}, ctx);
-    expect(lastUpstreamHost).toBe(TICINO_ORIGIN);
+    expect(lastUpstreamHost).toBe(TICINO_ORIGIN.it);
   });
 
-  it('routes /en/find-jobs-ticino to origin-ticino, not origin-en', async () => {
+  it('routes /en/find-jobs-ticino to origin-ticino-en, not origin-en', async () => {
     await worker.fetch(new Request(`${APEX}/en/find-jobs-ticino/some-job-zurich/`), {}, ctx);
-    expect(lastUpstreamHost).toBe(TICINO_ORIGIN);
+    expect(lastUpstreamHost).toBe(TICINO_ORIGIN.en);
   });
 
-  it('routes /de/jobs-im-tessin to origin-ticino', async () => {
+  it('routes /de/jobs-im-tessin to origin-ticino-de', async () => {
     await worker.fetch(new Request(`${APEX}/de/jobs-im-tessin/irgendein-job/`), {}, ctx);
-    expect(lastUpstreamHost).toBe(TICINO_ORIGIN);
+    expect(lastUpstreamHost).toBe(TICINO_ORIGIN.de);
   });
 
-  it('routes /fr/trouver-emploi-tessin to origin-ticino', async () => {
+  it('routes /fr/trouver-emploi-tessin to origin-ticino-fr', async () => {
     await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/un-emploi/`), {}, ctx);
-    expect(lastUpstreamHost).toBe(TICINO_ORIGIN);
+    expect(lastUpstreamHost).toBe(TICINO_ORIGIN.fr);
   });
 
   it('still routes a non-Ticino EN path to origin-en (regression guard)', async () => {

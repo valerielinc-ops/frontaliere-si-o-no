@@ -61,29 +61,34 @@ const SHARD_ORIGIN = {
   en: 'origin-en.frontaliereticino.ch',
   de: 'origin-de.frontaliereticino.ch',
   fr: 'origin-fr.frontaliereticino.ch',
-  // Ticino-section shard (repo frontaliere-ticino). The Ticino job section is
-  // the single largest subtree in the build (~4.2 GB / ~222k pages in IT alone,
-  // because the cross-canton bridge mirrors essentially every active CH job
-  // under the legacy TI section). Carved out to its OWN Pages repo so neither
-  // the IT apex nor any en/de/fr locale shard trips the 10 GB Pages cap (the
-  // actions/deploy-pages hard limit that failed the 2026-06-30 IT deploy:
-  // "total size is less than 10GB"). Holds all four locales' Ticino subtrees:
-  //   /cerca-lavoro-ticino/**         (IT)
-  //   /en/find-jobs-ticino/**         (EN)
-  //   /de/jobs-im-tessin/**           (DE)
-  //   /fr/trouver-emploi-tessin/**    (FR)
-  // Routing it through the Worker is fine on Workers Paid (10M req/mo included,
-  // overage ~$0.30/M) — the free 100k/day cap that originally scoped the Worker
-  // away from the IT bulk no longer binds.
-  ticino: 'origin-ticino.frontaliereticino.ch',
 };
 
-// Ticino-section path prefixes → which locale's 404-recovery to run. Matched
-// BEFORE LOCALE_RE so an /en|/de|/fr Ticino path resolves to origin-ticino, not
-// origin-{loc}. The IT prefix (/cerca-lavoro-ticino) is newly routed through the
-// Worker via dedicated wrangler routes (the apex bypasses the Worker for
-// everything else); the three localized prefixes already reach the Worker under
-// the existing /en|/de|/fr routes, so matchTicino re-targets them in-code.
+// Ticino-section shards — ONE Pages repo PER LOCALE (frontaliere-ticino-<loc>).
+// The Ticino job section is the single largest subtree in the build: ~4.2 GB /
+// ~222k pages in IT alone (the cross-canton bridge mirrors essentially every
+// active CH job under the legacy TI section), and the bridge runs independently
+// in every locale, so en/de/fr each carry a comparably large Ticino mirror.
+// A SINGLE combined repo would therefore be ~16 GB — over the 10 GB Pages cap
+// itself — so each locale's Ticino subtree gets its OWN ~4 GB shard repo, served
+// from origin-ticino-<loc>.frontaliereticino.ch. This keeps the IT apex AND every
+// en/de/fr locale shard under the actions/deploy-pages 10 GB hard cap (the limit
+// that failed the 2026-06-30 IT deploy: "total size is less than 10GB"). Routing
+// it through the Worker is fine on Workers Paid (10M req/mo, overage ~$0.30/M).
+//   it → /cerca-lavoro-ticino/**        de → /de/jobs-im-tessin/**
+//   en → /en/find-jobs-ticino/**        fr → /fr/trouver-emploi-tessin/**
+const TICINO_ORIGIN = {
+  it: 'origin-ticino-it.frontaliereticino.ch',
+  en: 'origin-ticino-en.frontaliereticino.ch',
+  de: 'origin-ticino-de.frontaliereticino.ch',
+  fr: 'origin-ticino-fr.frontaliereticino.ch',
+};
+
+// Ticino-section path prefixes → which locale's shard + 404-recovery to use.
+// Matched BEFORE LOCALE_RE so an /en|/de|/fr Ticino path resolves to its Ticino
+// shard, not origin-{loc}. The IT prefix (/cerca-lavoro-ticino) is newly routed
+// through the Worker via dedicated wrangler routes (the apex bypasses the Worker
+// for everything else); the three localized prefixes already reach the Worker
+// under the existing /en|/de|/fr routes, so matchTicino re-targets them in-code.
 const TICINO_ROUTES = [
   { prefix: '/cerca-lavoro-ticino', locale: 'it' },
   { prefix: '/en/find-jobs-ticino', locale: 'en' },
@@ -626,7 +631,7 @@ export default {
     // stay a pure apex passthrough (the !match branch below).
     const tic = matchTicino(url.pathname);
     if (tic) {
-      return serveShard(request, url, SHARD_ORIGIN.ticino, tic.locale, ctx);
+      return serveShard(request, url, TICINO_ORIGIN[tic.locale], tic.locale, ctx);
     }
 
     const match = url.pathname.match(LOCALE_RE);
