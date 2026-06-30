@@ -1,6 +1,6 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-06-30T12:28:06.724Z",
+  "assembledAt": "2026-06-30T23:21:08.306Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
@@ -34,7 +34,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-30T12:28:04.243Z",
+      "crawledAt": "2026-06-30T23:21:05.725Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -59,7 +59,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -114,7 +115,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:28:03.239Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:21:04.661Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -142,7 +144,8 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
+          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen"
@@ -151,7 +154,8 @@
           "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ]
       },
       "previousSlugs": [
@@ -207,7 +211,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-30T12:28:02.222Z",
+      "crawledAt": "2026-06-30T23:21:03.594Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -233,7 +237,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -282,7 +287,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:28:01.217Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:21:02.544Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -334,7 +340,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch",
+          "assistente-assistente-di-medicina-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
@@ -383,7 +390,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:28:00.220Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:21:01.506Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -431,7 +439,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
+          "dipl-infermiere-re-notturno-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -480,7 +489,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:59.205Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:21:00.424Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -525,7 +535,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -574,7 +585,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:58.201Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:59.390Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -624,7 +636,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+          "studente-esperto-anestesia-nds-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
@@ -657,7 +670,7 @@
       "title": "Dipl. Pflegefachperson HF Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Persona di Cura HF Chirurgia",
-        "en": "Dipl. Care professional HF surgery",
+        "en": "Dipl. Pflegefachperson HF Chirurgie",
         "de": "Dipl. Pflegefachperson HF Chirurgie",
         "fr": "Dipl. Professionnel de Soins HF Chirurgie"
       },
@@ -673,7 +686,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:57.200Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:58.344Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -724,11 +738,13 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+          "spitex-fachperson-gesundheit-50-100-spital-davos-ch"
         ],
         "it": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
+          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
+          "spitex-assistente-sanitario-50-100-spital-davos-davos"
         ],
         "en": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
@@ -774,14 +790,14 @@
       "titleByLocale": {
         "it": "Primario Riabilitazione e intervento pediatrico (80-100%)",
         "en": "Senior Physician Pediatric Rehabilitation and Intervention (80-100%)",
-        "de": "Oberärztin/Oberarzt Pädiatrische Rehabilitation und Intervention (80-100%)",
+        "de": "Rettungssanitäter*in in Ausbildung",
         "fr": "Médecin-chef Rééducation pédiatrique et intervention (80-100 %)"
       },
       "description": "Ihr Profil:\n\n• Abschluss auf Sekundarstufe 2 (Ausbildung mit eidg. Fähigkeitszeugnis EFZ oder Matura / Fachmittelschulabschluss)\n• Abschluss als dipl. Pflegefachfrau*mann HF oder Transportsanitäter*in mit eidg. FA und absolvierten Lehrgang (für die verkürzte Ausbildung)\n• Alter ab 23 Jahre (bei Ausbildungsbeginn)\n• Einwandfreier Leumund (Strafregister- und IVZ-Register Auszug)\n• Einwandfreier Sonderprivatauszug (muss bei Ausbildungsbeginn vorliegen)\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Physische, psychische und soziale Eignung / Belastbarkeit\n• Flair für technische Hilfsmittel\n• Fahrausweis Kategorie B mit zweijähriger, unfallfreier Fahrpraxis (Kategorie C1/D1, Code 121, muss bei Ausbildungsbeginn vorliegen)\n\nBewerbungsverfahren:\n\n• Ihre Motivation in Form eines Kurzfilms von max. 1 Minute (z.B. gefilmt mit Mobiltelefon) Sie können das Video im freien Feld mit max. 50 MB Datengrösse hochladen\n• Lebenslauf inkl. Foto\n• Qualifikationen und Diplome\n• Arbeitszeugnisse\n• Fahrausweis (Kat. C1/D1 bei Ausbildungsbeginn zwingend nötig)\n• Strafregisterauszug\n• Auszug Administrativmassnahmen-Register (Strassenverkehrsamt Ihres Wohnkantons)\n• Multicheck Kompetenzanalyse Gesundheit HF / Rettungssanitäter*in HF\n• Selbstreflexion und Fremdreflexionen vorhergegangener Eignungspraktika (falls vorhanden)\n\nWas wir Ihnen bieten:\n\n• Spannendes und vielfältiges Einsatzgebiet (Land – Stadt – See)\n• Attraktive Anstellungsbedingungen mit einer hoch-flexiblen Dienstplanung\n• Verantwortliches Arbeiten und Lernen mit aktiver Förderung in den Praxisphasen\n• Möglichkeit der Mitarbeit bei sanitätsdienstlicher Event-Betreuung\n• Ein angenehmes Arbeitsklima in einem familiären Team\n• Persönliche Betreuung durch unsere Berufsbildner*innen Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
         "it": "• Trattamento dei bambini con particolare attenzione ai disturbi del movimento (interventi)\n• Ore di consultazione neuropediatrica dopo ICF con un focus sull'intervento e la riabilitazione, comprese le visite del team interno (focus 0-3 anni e domande speciali)\n• Visite e cure interdisciplinari secondo ICF in e con le istituzioni esterne\n• Orari di consultazione speciali interdisciplinari per i bambini e gli adolescenti, inter alia, con l'insufficienza della mobilità e dell'uso manuale con o\n• L'istituzione di un'unità di riabilitazione ospedaliera nel nuovo edificio della clinica per bambini partecipa attivamente ai compiti:\n• Il trattamento dei bambini con un focus sui disturbi del movimento (interventi)\n• Ore di consultazione neuropediatrica dopo ICF con un focus sull'intervento e la riabilitazione, comprese le visite del team interno (focus 0-3 anni e domande speciali)\n• Visite e cure interdisciplinari secondo ICF e con istituzioni esterne\n• Interdisciplinari Il tuo profilo Ã ̈ attivamente coinvolto nella creazione di un'unitÃ di riabilitazione ospedaliera nel nuovo edificio della clinica per bambini:\n• Esperienza professionale che lavora con bambini e adolescenti con malattie neurologiche\n• Esperienza nei temi sopra elencati o motivazione esistente per diventare un esperto in questo campo\n• Centro familiare, la filosofia di ICF e il lavoro di squadra sono visti come arricchimento del lavoro\n• Una delle seguenti qualifiche sarebbe auspicabile:\n• Medicina pediatrica e adolescenziale con un focus sui neuropediatri\n• Medicina pediatrica e adolescenziale con un focus sulla pediatrica dello sviluppo\n• Medicina pediatrica e adolescente nella formazione come focus su neuropediatria o pediatrica di sviluppo\n• Specialista in medicina fisica e riabilitazione\n• Gioia nel perseguire nuovi percorsi Assistenti di riabilitazione specialistica con approfondimenti Offriamo: È\n• istruzione eccellente e formazione in aree specializzate\n• Supporto e sollievo attraverso la gestione della cura\n• Opportunità per la ricerca clinica ( registro PC, ultrasuono muscolare e hellip;) e l'insegnamento\n• Responsabilità perché ci fidiamo nella competenza dei nostri dipendenti\n• Prospettive perché stiamo costantemente sviluppando insieme a voi\n• Lavoro di squadra, perché sappiamo che raggiungeremo solo l'obiettivo insieme\n• Eccezione, perché con la vista della nuova costruzione è in settembre 2026. Per immediata o per accordo siamo alla ricerca di un medico senior / medico senior riabilitazione pediatrica e intervento per sostenere il nostro team di neurologia pediatrica, pediatrica e riabilitazione (Centro KER).",
         "en": "Your tasks:\n• Treatment of children with a focus on movement disorders (interventions)\n• Neuropediatric consultation hours after ICF with a focus on intervention and rehabilitation including internal team visits (focus 0-3 years and special questions)\n• Visits and interdisciplinary care according to ICF in and with external institutions\n• Interdisciplinary special consultation hours for children and adolescents, inter alia, with impairment of mobility and arm and hand use with orthopedics, developmental paediatrics, neurology, surgery, neurosurgery, plastic and hand surgery\n• Botulinum toxin treatments\n• Diagnostic nerve blocks and cryoneurolysis (under construction)\n• Indication and postoperative care: intrathecal baclofen (with single-use testing), DBS and SDR\n• Orthetics and auxiliary care\n• Consiliar care of patients on the wards\n• The establishment of an inpatient rehabilitation unit in the new building of the children's clinic actively participates tasks:\n• Treatment of children with a focus on movement disorders (interventions)\n• Neuropediatric consultation hours after ICF with a focus on intervention and rehabilitation including internal team visits (focus 0-3 years and special questions)\n• Visits and interdisciplinary care according to ICF in and with external institutions\n• Interdisciplinary special consultation hours for children and adolescents, inter alia, with impairment of mobility and arm and hand use with orthopedics, developmental paediatrics, neurology, surgery, neurosurgery, plastic and hand surgery\n• Botulinum toxin treatments\n• Diagnostic nerve blocks and cryoneurolysis (under construction)\n• Indication and postoperative care: intrathecal baclofen (with single-use testing), DBS and SDR\n• Orthetics and auxiliary care\n• Consiliar care of patients on the wards\n• Your profile is actively involved in setting up an inpatient rehabilitation unit in the new building of the children’s clinic:\n• Professional experience working with children and adolescents with neurological diseases\n• Experience in the topics listed above or existing motivation to become an expert in this field\n• Family centering, the philosophy of ICF and teamwork are seen as enrichment of work\n• One of the following qualifications would be desirable:\n• Pediatric and adolescent medicine with a focus on neuropediatrics\n• Pediatric and adolescent medicine with a focus on developmental paediatrics\n• Pediatric and adolescent medicine in training as a focus on neuropediatrics or developmental paediatrics\n• Specialist in physical medicine and rehabilitation\n• Joy in pursuing new paths Advanced assistants in specialist training paediatrics with an interest in deepening their knowledge in paediatric rehabilitation and intervention are invited to apply. We offer: You\n• Excellent education and training in specialized areas\n• Support and relief through Care Management\n• Opportunities for clinical research (CP registry, muscle ultrasound & hellip;) and teaching\n• Responsibility because we trust in the competence of our employees\n• Perspectives because we are constantly developing together with you\n• Teamwork, because we know that we will only reach the goal together\n• Excitement, because with a view to the new construction in September 2026, there is an eventful time ahead of us We are looking for: you. By immediate or by agreement we are looking for a senior physician / senior physician paediatric rehabilitation & intervention to support our team of paediatric neurology, developmental paediatrics and rehabilitation (KER Centre).",
-        "de": "Ihre Aufgaben:\n• Behandlung von Kindern mit dem Schwerpunkt Bewegungsstörungen (Interventionen)\n• Neuropädiatrische Sprechstunde nach ICF mit Schwerpunkt Intervention und Rehabilitation inklusive interner Teamvisiten (Schwerpunkt 0-3 Jahre und Spezialfragstellungen)\n• Visiten und interdisziplinäre Versorgung nach ICF in und mit externen Institutionen\n• Interdisziplinäre Spezialsprechstunden für Kinder und Jugendliche u.a. mit Beeinträchtigung der Mobilität und des Arm- und Handgebrauchs mit Orthopädie, Entwicklungspädiatrie, Neurologie, Chirurgie, Neurochirurgie, Plastischer- und Handchirurgie\n• Botulinumtoxin-Behandlungen\n• Diagnostische Nervenblockaden und Cryneurolyse (im Aufbau)\n• Indikationsstellung und postoperative Versorgung: intrathekales Baclofen (mit Einmaltestungen), DBS und SDR\n• Orthetik und Hilfsmittelversorgung\n• Konsiliarische Betreuung von Patienten auf den Stationen\n• Am Aufbau einer stationären Rehabilitationseinheit im Neubau der Kinderklinik wird aktiv mitgewirkt Aufgaben:\n• Behandlung von Kindern mit dem Schwerpunkt Bewegungsstörungen (Interventionen)\n• Neuropädiatrische Sprechstunde nach ICF mit Schwerpunkt Intervention und Rehabilitation inklusive interner Teamvisiten (Schwerpunkt 0-3 Jahre und Spezialfragstellungen)\n• Visiten und interdisziplinäre Versorgung nach ICF in und mit externen Institutionen\n• Interdisziplinäre Spezialsprechstunden für Kinder und Jugendliche u.a. mit Beeinträchtigung der Mobilität und des Arm- und Handgebrauchs mit Orthopädie, Entwicklungspädiatrie, Neurologie, Chirurgie, Neurochirurgie, Plastischer- und Handchirurgie\n• Botulinumtoxin-Behandlungen\n• Diagnostische Nervenblockaden und Cryneurolyse (im Aufbau)\n• Indikationsstellung und postoperative Versorgung: intrathekales Baclofen (mit Einmaltestungen), DBS und SDR\n• Orthetik und Hilfsmittelversorgung\n• Konsiliarische Betreuung von Patienten auf den Stationen\n• Am Aufbau einer stationären Rehabilitationseinheit im Neubau der Kinderklinik wird aktiv mitgewirkt Ihr Profil:\n• Berufserfahrung in der Arbeit mit Kindern- und Jugendlichen mit neurologischen Erkrankungen\n• Erfahrung in den oben aufgeführten Themenfeldern oder vorhandene Motivation, Experte auf diesem Gebiet zu werden\n• Familienzentrierung, die Philosophie der ICF und Teamwork werden als Bereicherung der Arbeit angesehen\n• Wünschenswert wäre eine der folgenden Qualifikationen:\n• Facharzt Kinder- und Jugendmedizin mit Schwerpunkt Neuropädiatrie\n• Facharzt Kinder- und Jugendmedizin mit Schwerpunkt Entwicklungspädiatrie\n• Facharzt Kinder- und Jugendmedizin in Ausbildung zum Schwerpunkt Neuropädiatrie oder Entwicklungspädiatrie\n• Facharzt für Physikalische Medizin und Rehabilitation\n• Freude am Beschreiten von neuen Wegen Fortgeschrittene Assistenten in der Facharztausbildung Pädiatrie mit Interesse, ihre Kenntnisse in der pädiatrischen Rehabilitation und Intervention zu vertiefen, sind eingeladen sich zu bewerben. Wir bieten: Ihnen\n• Eine exzellente Aus- und Weiterbildung in spezialisierten Bereichen\n• Unterstützung und Entlastung durch das Care Management\n• Möglichkeiten zu klinischer Forschung (CP-Register, Muskelultraschall…) und Lehre\n• Verantwortung, weil wir auf die Kompetenz unserer Mitarbeitenden vertrauen\n• Perspektiven, weil wir uns zusammen mit Ihnen stetig weiterentwickeln\n• Teamwork, weil wir wissen, dass wir das Ziel nur gemeinsam erreichen\n• Spannung, weil mit Ausblick auf den Neubaubezug im September 2026 eine bewegte Zeit vor uns liegt Wir suchen: Sie. Zurück zur Übersicht Per sofort oder nach Vereinbarung suchen wir zur Unterstützung unseres Teams der Kinderneurologie, Entwicklungspädiatrie und Rehabilitation (KER-Zentrum) eine/n Oberärztin/Oberarzt Pädiatrische Rehabilitation & Intervention.",
+        "de": "Ihr Profil:\n• Abschluss auf Sekundarstufe 2 (Ausbildung mit eidg. Fähigkeitszeugnis EFZ oder Matura / Fachmittelschulabschluss)\n• Abschluss als dipl. Pflegefachfrau*mann HF oder Transportsanitäter*in mit eidg. FA und absolvierten Lehrgang (für die verkürzte Ausbildung)\n• Alter ab 23 Jahre (bei Ausbildungsbeginn)\n• Einwandfreier Leumund (Strafregister- und IVZ-Register Auszug)\n• Einwandfreier Sonderprivatauszug (muss bei Ausbildungsbeginn vorliegen)\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Physische, psychische und soziale Eignung / Belastbarkeit\n• Flair für technische Hilfsmittel\n• Fahrausweis Kategorie B mit zweijähriger, unfallfreier Fahrpraxis (Kategorie C1/D1, Code 121, muss bei Ausbildungsbeginn vorliegen) Bewerbungsverfahren:\n• Ihre Motivation in Form eines Kurzfilms von max. 1 Minute (z.B. gefilmt mit Mobiltelefon) Sie können das Video im freien Feld mit max. 50 MB Datengrösse hochladen\n• Lebenslauf inkl. Foto\n• Qualifikationen und Diplome\n• Arbeitszeugnisse\n• Fahrausweis (Kat. C1/D1 bei Ausbildungsbeginn zwingend nötig)\n• Strafregisterauszug\n• Auszug Administrativmassnahmen-Register (Strassenverkehrsamt Ihres Wohnkantons)\n• Multicheck Kompetenzanalyse Gesundheit HF / Rettungssanitäter*in HF\n• Selbstreflexion und Fremdreflexionen vorhergegangener Eignungspraktika (falls vorhanden) Was wir Ihnen bieten:\n• Spannendes und vielfältiges Einsatzgebiet (Land – Stadt – See)\n• Attraktive Anstellungsbedingungen mit einer hoch-flexiblen Dienstplanung\n• Verantwortliches Arbeiten und Lernen mit aktiver Förderung in den Praxisphasen\n• Möglichkeit der Mitarbeit bei sanitätsdienstlicher Event-Betreuung\n• Ein angenehmes Arbeitsklima in einem familiären Team\n• Persönliche Betreuung durch unsere Berufsbildner*innen Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
         "fr": "Vos tâches :\n• Traitement des enfants avec un accent sur les troubles du mouvement (interventions)\n• Heures de consultation neuropédiatrique selon ICF avec un accent sur l'intervention et la réadaptation, y compris des visites d'équipe internes (accent sur 0-3 ans et questions spéciales)\n• Visites et soins interdisciplinaires selon ICF dans et avec des institutions externes\n• Heures de consultation spéciales interdisciplinaires pour enfants et adolescents, entre autres, à mobilité réduite et utilisation des bras et des mains en orthopédie, pédiatrie du développement, neurologie, chirurgie, neurochirurgie, chirurgie plastique et de la main\n• Traitements à la toxine botulique\n• Blocs nerveux diagnostiques et cryneurolyse (en construction)\n• Indications et soins postopératoires : baclofène intrathécal (avec tests ponctuels), DBS et SDR\n• Orthèses et aides\n• Soins consultatifs pour les patients dans les services\n• Participation active à la construction d'une unité de rééducation pour patients hospitalisés dans le nouveau bâtiment de la clinique pour enfants Tâches :\n• Traitement des enfants avec un accent sur les troubles du mouvement (Interventions)\n• Heures de consultation neuropédiatrique selon ICF avec un accent sur l'intervention et rééducation incluant des visites d'équipes internes (focus 0-3 ans et questions particulières)\n• Visites et soins interdisciplinaires selon ICF dans et avec des institutions externes\n• Horaires de consultations interdisciplinaires particulières pour enfants et adolescents, etc. avec déficience de la mobilité et de l'usage du bras et de la main en orthopédie, pédiatrie du développement, neurologie, chirurgie, neurochirurgie, chirurgie plastique et de la main\n• Traitements à la toxine botulique\n• Blocs nerveux diagnostiques et cryneurolyse (en construction)\n• Indication et soins postopératoires : baclofène intrathécal (avec tests ponctuels), DBS et SDR\n• Orthèses et fourniture d'aides\n• Soins consultatifs pour les patients dans les services\n• On Vous participerez activement à la mise en place d'une unité de réadaptation pour patients hospitalisés dans le nouveau bâtiment de la clinique pour enfants. Votre profil :\n• Expérience professionnelle dans le travail avec des enfants et des adolescents atteints de maladies neurologiques\n• Expérience dans les domaines énumérés ci-dessus ou motivation existante pour devenir un expert dans ce domaine\n• L'orientation familiale, la philosophie de l'ICF et le travail en équipe sont considérés comme un enrichissement du travail\n• Une des qualifications suivantes serait souhaitable :\n• Spécialiste en médecine pédiatrique et adolescente avec une spécialisation en neuropédiatrie\n• Spécialiste en médecine pédiatrique et adolescente avec une spécialisation en pédiatrie du développement\n• Spécialiste en médecine pédiatrique et de l'adolescence en formation avec une spécialisation en neuropédiatrie ou en pédiatrie du développement\n• Spécialiste en médecine physique et réadaptation\n• Joie d'innover Les assistants avancés en formation spécialisée en pédiatrie qui souhaitent approfondir leurs connaissances en réadaptation et intervention pédiatriques sont invités à postuler. Nous vous offrons :\n• D'excellentes formations et perfectionnements dans des domaines spécialisés\n• Soutien et soulagement par la gestion des soins\n• Possibilités de recherche clinique (registre CP, échographie musculaire...) et d'enseignement\n• Responsabilité parce que nous avons confiance dans la compétence de nos collaborateurs\n• Perspectives parce que nous évoluons constamment avec vous\n• Travail d'équipe parce que nous savons que nous ne pouvons atteindre l'objectif qu'ensemble\n• Enthousiasme parce qu'une période mouvementée nous attend avec la perspective d'emménager dans le nouveau bâtiment en septembre 2026. Nous recherchons : Vous. Retour à l'aperçu Nous recherchons un médecin-chef en réadaptation et intervention pédiatriques pour soutenir notre équipe en neurologie infantile, pédiatrie du développement et réadaptation (Centre KER) immédiatement ou sur rendez-vous."
       },
       "location": "Horgen",
@@ -789,7 +805,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:56.174Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:57.319Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -843,7 +860,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch",
+          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -867,7 +885,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "company": "See-Spital",
@@ -877,14 +895,14 @@
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
         "en": "Certified physiotherapist",
-        "de": "Absolvent Physiotherapeut",
+        "de": "Oberarzt*ärztin Frauenklinik",
         "fr": "Physiothérapeute diplômé"
       },
       "description": "Ihr Profil:\n\n• Facharzt*ärztin für Gynäkologie und Geburtshilfe oder kurz davor\n• Gute fachliche Qualifikation und Berufserfahrung\n• Motivierte und teamfähige Persönlichkeit\n• Hohe Sozialkompetenz und Engagement\n• Bereitschaft zur multidisziplinären Zusammenarbeit\n• Erfahrung in ambulanter Tätigkeit von Vorteil\n• Besitz von Schwerpunkt von Vorteil\n\nWas wir Ihnen bieten:\n\n• Abwechslungsreiche, selbstständige und verantwortungsvolle Tätigkeit in einem aufgeschlossenen Team\n• Einen attraktiven Arbeitsplatz mit moderner Infrastruktur\n• Die Möglichkeit für eigene Sprechstundentätigkeit in externer Praxis\n• Vielseitige Weiterbildungsmöglichkeiten (inkl. Schwerpunkt operative Gynäkologie und Geburtshilfe)\n• Breites Spektrum in der Gynäkologie und Geburtshilfe\n• Hoher Freizeitwert in einer attraktiven Umgebung Physische Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
         "it": "Fisioterapista diplomato/a - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea presso la Clinica di Riabilitazione EOC (CREOC) per la sede di Mendrisio. In caso di disponibilità di impiego i candidati con i profili che corrispondono ai requisiti richiesti verranno contattati per un primo colloquio. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Fisioterapista diplomato/a Profilo Il/la futuro/a collaboratore/trice lavora in modo autonomo e a livello interdisciplinare. Ha preferibilmente esperienza nei seguenti ambiti: neurologico angiologico chirurgico riabilitazione posturale e presa a carico di pazienti con problematiche cardio-respiratorie Ha una buona capacità di ascolto e sa valutare con attenzione ogni situazione prima di agire. Crede, come noi, nell’importanza di mettere il paziente e la sua famiglia al centro di tutte le nostre attenzioni e si dedica con impegno al proprio sviluppo personale.\n• Requisiti indispensabili Diploma di fisioterapista riconosciuto Spirito di iniziativa; spiccate capacità relazionali e comunicative Capacità organizzative e predisposizione alla collaborazione interdisciplinare in un’ottica di miglioramento continuo dello sviluppo del dipartimento e di raggiungimento degli obiettivi dati. Flessibilità ed atteggiamento positivo, piacere a lavorare in un team e a collaborare a livello trasversale. È richiesta oltre alla lingua italiana, la conoscenza delle altre lingue nazionali e dell’inglese Ottime conoscenze dei principali applicativi informatici Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - insieme per curare meglio. Interessato/a?",
         "en": "Graduated physiotherapist - Ausschreibung L’EOC the multisite Ticino hospital is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality healthcare to 380,000 patients per year. The following position is addressed to candidates wishing to apply spontaneously at the EOC Rehabilitation Clinic (CREOC) for the seat of Mendrisio. In case of availability of employment, candidates with profiles that meet the requirements will be contacted for a first interview. The following position is addressed to candidates who wish to apply for a spontaneous application such as Physiotherapist graduate/ Profile The future/cooperator/cooperator works independently and interdisciplinaryly. It preferably has experience in the following areas: neurological angiological surgical postural rehabilitation and taking care of patients with cardio-respiratory problems It has a good ability to listen and can carefully evaluate each situation before acting. He believes, like us, in the importance of putting the patient and his family at the center of all our attentions and devotes himself with commitment to his personal development.\n• Essential Requirements Diploma of physiotherapist recognized Spirit of initiative; strong relational and communicative skills organizational ability and predisposition to interdisciplinary collaboration in a perspective of continuous improvement of the development of the department and of achieving the data objectives. Flexibility and positive attitude, pleasure to work in a team and to collaborate transversally. It is required in addition to the Italian language, knowledge of other national languages and English Excellent knowledge of the main computer applications Comments --> Applications of those who do not have the above requirements will not be taken into account in any case and consequently will be deleted from our database. Applications will be assessed only in case of service requirements. As a position for spontaneous applications, telephone information is not released. EOC - together to cure better. Interested?",
-        "de": "Absolventin Physiotherapeutin - Ausschreibung L’EOC Das Tessiner Multisite-Krankenhaus ist mit seinen Instituten auf dem gesamten Kantonsgebiet für insgesamt 1’000 Betten präsent. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen benötigt werden. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit für die menschliche Beziehung bietet EOC 380.000 Patienten pro Jahr eine qualitativ hochwertige Gesundheitsversorgung. Die folgende Stelle richtet sich an Kandidaten, die sich spontan bei der EOC Rehabilitation Clinic (CREOC) für den Sitz von Mendrisio bewerben möchten. Im Falle der Verfügbarkeit einer Beschäftigung werden Kandidaten mit Profilen, die die Anforderungen erfüllen, für ein erstes Interview kontaktiert. Die folgende Stelle richtet sich an Kandidaten, die sich für eine spontane Bewerbung bewerben möchten, wie z.B. Physiotherapeuten/ Profil Der Future/Cooperator/Cooperator arbeitet unabhängig und interdisziplinär. Es hat vorzugsweise Erfahrung in den folgenden Bereichen: neurologische angiologische chirurgische posturale Rehabilitation und Betreuung von Patienten mit Herz-Kreislauf-Problemen Es hat eine gute Fähigkeit zuzuhören und kann jede Situation sorgfältig bewerten, bevor es handelt. Er glaubt wie wir daran, dass es wichtig ist, den Patienten und seine Familie in den Mittelpunkt all unserer Aufmerksamkeit zu stellen, und widmet sich mit Engagement seiner persönlichen Entwicklung.\n• Grundlegende Anforderungen Diplom des Physiotherapeuten anerkannt Geist der Initiative; starke relationale und kommunikative Fähigkeiten Organisationsfähigkeit und Prädisposition für interdisziplinäre Zusammenarbeit in einer Perspektive der kontinuierlichen Verbesserung der Entwicklung der Abteilung und der Erreichung der Datenziele. Flexibilität und positive Einstellung, Freude daran, im Team zu arbeiten und transversal zusammenzuarbeiten. Es ist erforderlich, zusätzlich zu der italienischen Sprache, Kenntnisse der anderen Landessprachen und Englisch Ausgezeichnete Kenntnisse der wichtigsten Computeranwendungen Kommentare --> Bewerbungen von Personen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und folglich aus unserer Datenbank gelöscht. Anwendungen werden nur im Falle von Serviceanforderungen bewertet. Als Position für spontane Anwendungen werden Telefoninformationen nicht freigegeben. EOC - gemeinsam besser zu heilen. Interessiert?",
+        "de": "Ihr Profil:\n• Facharzt*ärztin für Gynäkologie und Geburtshilfe oder kurz davor\n• Gute fachliche Qualifikation und Berufserfahrung\n• Motivierte und teamfähige Persönlichkeit\n• Hohe Sozialkompetenz und Engagement\n• Bereitschaft zur multidisziplinären Zusammenarbeit\n• Erfahrung in ambulanter Tätigkeit von Vorteil\n• Besitz von Schwerpunkt von Vorteil Was wir Ihnen bieten:\n• Abwechslungsreiche, selbstständige und verantwortungsvolle Tätigkeit in einem aufgeschlossenen Team\n• Einen attraktiven Arbeitsplatz mit moderner Infrastruktur\n• Die Möglichkeit für eigene Sprechstundentätigkeit in externer Praxis\n• Vielseitige Weiterbildungsmöglichkeiten (inkl. Schwerpunkt operative Gynäkologie und Geburtshilfe)\n• Breites Spektrum in der Gynäkologie und Geburtshilfe\n• Hoher Freizeitwert in einer attraktiven Umgebung Physische Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Physiothérapeute diplômé - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, EOC fournit des soins de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément à la clinique de réadaptation de l'EOC (CREOC) pour le siège de Mendrisio. En cas de disponibilité d'un emploi, les candidats dont les profils répondent aux exigences seront contactés pour une première entrevue. Le poste suivant s'adresse aux candidats et candidates qui souhaitent présenter une demande spontanée, comme le Physiothérapeute diplômé/ Profil Le futur/coopérateur/coopérateur travaille de façon indépendante et interdisciplinaire. Il a de préférence l'expérience dans les domaines suivants: neurologie angiologique chirurgical réadaptation posturale et prise en charge des patients présentant des problèmes cardio-respiratoires Il a une bonne capacité d'écoute et peut évaluer soigneusement chaque situation avant d'agir. Il croit, comme nous, à l'importance de placer le patient et sa famille au centre de toutes nos attentions et se consacre à son développement personnel.\n• Exigences essentielles Diplôme de physiothérapeute reconnu Esprit d'initiative; solides compétences relationnelles et communicatives capacité organisationnelle et prédisposition à la collaboration interdisciplinaire dans une perspective d'amélioration continue du développement du ministère et d'atteinte des objectifs de données. Flexibilité et attitude positive, plaisir de travailler en équipe et de collaborer transversalement. Elle est requise en plus de la langue italienne, la connaissance d'autres langues nationales et l'anglais Excellente connaissance des principales applications informatiques Commentaires --> Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc supprimées de notre base de données. Les demandes ne seront évaluées qu'en cas d'exigences de service. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. EOC - ensemble pour mieux guérir. Intéressé ?"
       },
       "location": "Horgen",
@@ -892,7 +910,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/957/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:55.167Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:56.283Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -945,12 +964,14 @@
           "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
           "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
           "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
           "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
-          "medico-senior-see-spital-horgen"
+          "medico-senior-see-spital-horgen",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "en": [
           "gynecologist-and-obstetrician-see-spital-horgen",
@@ -970,7 +991,6 @@
         "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
         "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
         "medico-senior-see-spital-horgen",
         "gynecologist-and-obstetrician-see-spital-horgen",
@@ -1027,7 +1047,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:54.139Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:55.248Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1078,7 +1099,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+          "radiologo-a-formatore-a-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -1127,7 +1149,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:53.097Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:54.215Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1172,7 +1195,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch"
+          "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
+          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1221,7 +1245,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:52.079Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:53.192Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1275,7 +1300,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch",
+          "esperto-a-di-anestesia-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1308,7 +1334,7 @@
       "title": "Dipl. Pflegefachperson HF Excellence",
       "titleByLocale": {
         "it": "Dipl. Persona di Cura HF Excellence",
-        "en": "Dipl. Care professional HF Excellence",
+        "en": "Dipl. Pflegefachperson HF Excellence",
         "de": "Dipl. Pflegefachperson HF Excellence",
         "fr": "Dipl. Professionnel de Soins HF Excellence"
       },
@@ -1324,7 +1350,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:51.074Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:52.172Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1375,10 +1402,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
         ]
       },
       "previousSlugs": [
@@ -1431,7 +1460,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-06-30T12:27:50.062Z",
+      "crawledAt": "2026-06-30T23:20:51.136Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1486,7 +1515,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1519,7 +1549,7 @@
       "title": "Dipl. Pflegefachperson HF Medizin",
       "titleByLocale": {
         "it": "Specialista infermieristico qualificato Medicina HF",
-        "en": "Dipl. Nurse HF Medicine",
+        "en": "Dipl. Pflegefachperson HF Medizin",
         "de": "Dipl. Pflegefachperson HF Medizin",
         "fr": "Dipl. Pflegefachperson HF Médecine"
       },
@@ -1535,7 +1565,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:49.043Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:50.073Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1589,7 +1620,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1641,7 +1673,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:48.043Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:49.028Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1684,7 +1717,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sportarztin-arzt-see-spital-ch"
+          "sportarztin-arzt-see-spital-ch",
+          "medico-dello-sport-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1718,14 +1752,14 @@
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a",
         "en": "Specialised nurses",
-        "de": "Spezialisierte Krankenschwestern",
+        "de": "Assistenzarzt*ärztin Nephrologie",
         "fr": "Infirmières spécialisées"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Sie betreuen Hämodialyse-Patient*innen unseres Dialysezentrums (8 Dialyseplätze) und der Intensivstation bei akutem Nierenversagen\n• Sie führen eigenständig die nephrologische Sprechstunde\n• Sie übernehmen regelmässig Samstagsdienste im Rahmen unseres Rotationssystems\n\nIhr Profil:\n\n• Abgeschlossenes Medizinstudium\n• Berufserfahrung als Assistenzarzt*ärztin Allgemeine Innere Medizin\n• Sie befinden sich in der Weiterbildung zur Facharzt*ärztin FMH-Nephrologie oder FMH-Innere Medizin\n• Sie bringen ein hohes Mass an sozialer und fachlicher Kompetenz sowie Verantwortungsbewusstsein mit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (C1-Niveau)\n\nWas wir Ihnen bieten:\n\n• Anerkannte Weiterbildungsstätte Kategorie C für den Facharzttitel Nephrologie\n• Enge Begleitung durch einen sehr erfahrenen und engagierten Kaderarzt\n• Eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem überschaubaren und gut strukturierten Umfeld\n• Kollegiale Arbeitsatmosphäre mit kurzen Entscheidungswegen\n• Zeitgemässe Anstellungsbedingungen und attraktive Fortbildungsmöglichkeiten. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
         "it": "Infermiere/a specializzato/a - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Infermiere/a specializzato/a Profilo Il Servizio infermieristico dell'Ospedale Regionale \"La Carità\" di Locarno impiega ca. 400 collaboratori, ripartiti nei diversi reparti.\n• Requisiti necessari\n• Requisiti indispensabili: - Diploma di infermiere (Bachelor SUPSI) oppure Diploma di infermiere (SSSCI) oppure Diploma di infermiere conseguito in altri cantoni svizzeri oppure Laurea in cure infermieristiche (Italia o altri paesi europei) riconosciuta dalla Croce Rossa Svizzera - Una tra le seguenti specializzazioni: a) Formazione post-diploma infermiera/e esperta/o cure intense diplomata/o SPD SSS oppure diploma ASI b) Formazione post-diploma infermiera/e esperta/o cure anestesia diplomata/o SPD SSS oppure diploma ASI c) Formazione post-diploma infermiera/e esperta/o cure urgenti diplomata/o SPD SSS - Conoscenza della lingua italiana, parlata e scritta\n• Requisiti auspicati: - Conoscenza di almeno un'altra lingua nazionale (tedesco o francese) auspicata Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - il nostro ospedale. Interessato/a?",
         "en": "The multisite Ticino hospital is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality health care to 380,000 patients per year. The following position is addressed to candidates wishing to apply spontaneously as Infermiere/a specialisti/a Profile The Nursing Service of the Regional Hospital \"La Carità\" in Locarno employs about 400 employees, divided into different departments.\n• Requirements\n• Requisites: - Diploma of nurses (Bachelor SUPSI) or Diploma of nurses (SSSCI) or Diploma of nurses obtained in other Swiss cantons or Degree in nursing care (Italy or other European countries) recognized by the Swiss Red Cross - One of the following specializations: a) Post-diploma training nurse/experts\n• Requirements: - Knowledge of at least another national language (German or French) desired Comments --> Applications of those who do not have the above requirements will not be taken into account in any case and will therefore be eliminated from our database. Applications will be assessed only in case of service requirements. As a position for spontaneous applications, telephone information is not released. EOC - our hospital. Interested?",
-        "de": "Das Multisite Ticino Krankenhaus ist mit seinen Instituten auf dem gesamten Kantongebiet für insgesamt 1’000 Betten. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtsicht effektiv zu kombinieren, um der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit auf die menschliche Beziehung bietet EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Position richtet sich an Kandidaten, die sich spontan bewerben möchten, da Infermiere/a speciali/a Profile Der Pflegedienst des Regionalkrankenhauses \"La Carità\" in Locarno etwa 400 Mitarbeiter beschäftigt, die in verschiedene Abteilungen unterteilt sind.\n• Anforderungen\n• Requisiten: - Diplom der Krankenschwestern (Bachelor SUPSI) oder Diplom der Krankenschwestern (SSSCI) oder Diplom der Krankenschwestern in anderen Schweizer Kantonen oder Grad in Pflege (Italien oder andere europäische Länder) vom Schweizer Roten Kreuz anerkannt - Eine der folgenden Spezialisierungen: a) Postdiplom-Ausbildung Krankenschwester/Experten\n• Anforderungen: - Kenntnis von mindestens einer anderen Landessprache (deutsch oder französisch) gewünschte Kommentare --> Anwendungen von denen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und werden daher aus unserer Datenbank gestrichen. Die Bewerbungen werden nur im Falle der Leistungsanforderungen bewertet. Als Position für spontane Anwendungen werden keine Telefoninformationen freigegeben. EOC - unser Krankenhaus. Interessant?",
+        "de": "Ihr Aufgabengebiet:\n• Sie betreuen Hämodialyse-Patient*innen unseres Dialysezentrums (8 Dialyseplätze) und der Intensivstation bei akutem Nierenversagen\n• Sie führen eigenständig die nephrologische Sprechstunde\n• Sie übernehmen regelmässig Samstagsdienste im Rahmen unseres Rotationssystems Ihr Profil:\n• Abgeschlossenes Medizinstudium\n• Berufserfahrung als Assistenzarzt*ärztin Allgemeine Innere Medizin\n• Sie befinden sich in der Weiterbildung zur Facharzt*ärztin FMH-Nephrologie oder FMH-Innere Medizin\n• Sie bringen ein hohes Mass an sozialer und fachlicher Kompetenz sowie Verantwortungsbewusstsein mit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (C1-Niveau) Was wir Ihnen bieten:\n• Anerkannte Weiterbildungsstätte Kategorie C für den Facharzttitel Nephrologie\n• Enge Begleitung durch einen sehr erfahrenen und engagierten Kaderarzt\n• Eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem überschaubaren und gut strukturierten Umfeld\n• Kollegiale Arbeitsatmosphäre mit kurzen Entscheidungswegen\n• Zeitgemässe Anstellungsbedingungen und attraktive Fortbildungsmöglichkeiten. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
         "fr": "L'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, le COE fournit des soins de santé de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément comme Infermiere/a specialisti/a Profile Le service de soins infirmiers de l'hôpital régional « La Carità » de Locarno emploie environ 400 employés, répartis en différents départements.\n• Exigences\n• Requis : - Diplôme d'infirmière (Bachelor SUPSI) ou Diplôme d'infirmière (SSSCI) ou Diplôme d'infirmières obtenu dans d'autres cantons suisses ou Diplôme de soins infirmiers (Italie ou autres pays européens) reconnu par la Croix-Rouge suisse - Une des spécialisations suivantes : a) Infirmière/experte postdiplôme\n• Exigences : - Connaissance d'au moins une autre langue nationale (allemand ou français) Commentaires souhaités --> Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc éliminées de notre base de données. Les demandes ne seront évaluées qu'en cas d'exigences de service. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. EOC - notre hôpital. Intéressé ?"
       },
       "location": "Horgen",
@@ -1733,7 +1767,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:47.048Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:47.965Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1776,11 +1811,13 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "assistenzarzt-arztin-nephrologie-see-spital-horgen"
+          "assistenzarzt-arztin-nephrologie-see-spital-horgen",
+          "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen",
+          "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "en": [
           "assistant-physician-nephrology-see-spital-horgen"
@@ -1842,7 +1879,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:46.038Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:46.896Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1895,7 +1933,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch"
+          "studierende-r-operationstechnik-hf-see-spital-ch",
+          "studente-operatore-tecnico-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1944,7 +1983,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:45.005Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:45.853Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1998,7 +2038,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+          "fachinfermiere-efz-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -2047,7 +2088,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:43.970Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:44.787Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2099,7 +2141,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+          "studente-studente-di-infermieristica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -2148,7 +2191,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:42.932Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:43.713Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2202,7 +2246,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-arzt-arztin-pneumologie-see-spital-ch"
+          "leitende-r-arzt-arztin-pneumologie-see-spital-ch",
+          "medico-direttore-pneumologia-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.373Z",
@@ -2251,7 +2296,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:41.898Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:42.635Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2302,7 +2348,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
@@ -2351,7 +2398,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1225/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:40.886Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:41.612Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2410,7 +2458,8 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-          "impiegato-a-segreteria-terapie-see-spital-horgen"
+          "impiegato-a-segreteria-terapie-see-spital-horgen",
+          "segretaria-terapie-see-spital-horgen"
         ],
         "en": [
           "staff-in-secretariat-therapies-see-spital-horgen",
@@ -2450,7 +2499,7 @@
       "title": "Klinische*r Fachspezialist*in / Physician Associate",
       "titleByLocale": {
         "it": "Fachspezialist*in Clinico / Physician Associate",
-        "en": "Clinical Specialist / Physician Associate",
+        "en": "Klinische*r Fachspezialist*in / Physician Associate",
         "de": "Klinische*r Fachspezialist*in / Physician Associate",
         "fr": "Spécialiste Clinique / Associé Médecin"
       },
@@ -2466,7 +2515,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:39.837Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:40.581Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2514,10 +2564,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen"
         ],
         "it": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
         ]
       },
       "previousSlugs": [
@@ -2569,7 +2621,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:38.839Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:39.528Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2614,10 +2667,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "op-lagerungspfleger-in-see-spital-ch"
+          "op-lagerungspfleger-in-see-spital-ch",
+          "op-lagerungspfleger-in-see-spital-horgen"
         ],
         "it": [
-          "op-lagerungspfleger-in-see-spital-ch"
+          "op-lagerungspfleger-in-see-spital-ch",
+          "operatore-di-preparazione-operatoria-see-spital-horgen"
         ]
       },
       "previousSlugs": [
@@ -2653,7 +2708,7 @@
       "title": "Dipl. Expert*in Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung",
       "titleByLocale": {
         "it": "Esperto/a di Emergenza NDS o Specialista di Assistenza Infermieristica con Esperienza in Emergenza",
-        "en": "Dipl. Expert*in Emergency Care NDS or Dipl. Nurse HF with emergency experience",
+        "en": "Dipl. Expert*in Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung",
         "de": "Dipl. Expert*in Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung",
         "fr": "Expert en Soins d'Urgence NDS ou Spécialiste en Soins Infirmiers avec Expérience en Urgence"
       },
@@ -2669,7 +2724,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1219/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:37.795Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:38.465Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2717,10 +2773,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfall-see-spital-horgen"
         ],
         "it": [
-          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
+          "esperto-a-di-emergenza-nds-o-specialista-di-assistenza-infermieristica-con-esperienza-in-emergenza-see-spital-horgen"
         ]
       },
       "previousSlugs": [
@@ -2756,7 +2814,7 @@
       "title": "Wundexpert*in",
       "titleByLocale": {
         "it": "Wundexpert * in",
-        "en": "Wound expert*",
+        "en": "Wundexpert*in",
         "de": "Wundexpert*in",
         "fr": "Spécialiste des plaies"
       },
@@ -2772,7 +2830,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:36.778Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:37.427Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2817,10 +2876,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "wundexpert-in-see-spital-ch"
+          "wundexpert-in-see-spital-ch",
+          "wundexperte-in-see-spital-horgen"
         ],
         "it": [
-          "wundexpert-in-see-spital-ch"
+          "wundexpert-in-see-spital-ch",
+          "wundexpert-in-see-spital-horgen"
         ]
       },
       "previousSlugs": [
@@ -2855,7 +2916,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Radiologiefachfrau*mann HF",
       "titleByLocale": {
-        "it": "Specialista di radiologia* HF",
+        "it": "Radiologiefachfrau*mann HF",
         "en": "Radiologist HF",
         "de": "Radiologiefachfrau*mann HF",
         "fr": "Radiologue HF"
@@ -2872,7 +2933,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:35.754Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:36.370Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2924,10 +2986,12 @@
           "radiologiefachfrau-mann-hf-see-spital-horgen",
           "specialista-di-radiologia-hf-see-spital-horgen",
           "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
-          "radiologiefachfrau-mann-hf-see-spital-ch"
+          "radiologiefachfrau-mann-hf-see-spital-ch",
+          "specialista-in-radiologia-hf-see-spital-horgen"
         ],
         "de": [
-          "radiologiefachfrau-mann-hf-see-spital-ch"
+          "radiologiefachfrau-mann-hf-see-spital-ch",
+          "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
         ]
       },
       "previousSlugs": [
@@ -2982,7 +3046,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1253/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:34.748Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:35.344Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3033,11 +3098,13 @@
       "previousSlugsByLocale": {
         "de": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen"
+          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
+          "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "it": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-          "operatore-notturno-centro-di-sonno-see-spital-horgen"
+          "operatore-notturno-centro-di-sonno-see-spital-horgen",
+          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "en": [
           "night-shift-staff-sleep-center-see-spital-horgen"
@@ -3100,7 +3167,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-30T12:27:33.734Z",
+      "crawledAt": "2026-06-30T23:20:34.281Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3180,7 +3247,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:32.716Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:33.244Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3261,7 +3329,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-30T12:27:31.734Z",
+      "crawledAt": "2026-06-30T23:20:32.214Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3284,7 +3352,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-aemp-see-spital-ch"
+          "assistent-in-aemp-see-spital-ch",
+          "assistente-in-aemp-see-spital-horgen"
         ],
         "en": [
           "assistent-in-aemp-see-spital-ch"
@@ -3340,7 +3409,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-30T12:27:30.707Z",
+      "crawledAt": "2026-06-30T23:20:31.181Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3363,7 +3432,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+          "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
         ],
         "en": [
           "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
@@ -3418,7 +3488,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1249/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:29.683Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:30.131Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3443,7 +3514,8 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-it-see-spital-ch",
-          "leiter-in-it-see-spital-horgen"
+          "leiter-in-it-see-spital-horgen",
+          "capo-it-see-spital-horgen"
         ],
         "en": [
           "leiter-in-it-see-spital-ch"
@@ -3481,24 +3553,25 @@
       "companyDomain": "see-spital.ch",
       "title": "IT Koordinator*in Projekte & Betrieb",
       "titleByLocale": {
-        "it": "Coordinatore IT* in Progetti e Operazioni",
+        "it": "IT Koordinator*in Projekte & Betrieb",
         "en": "IT Coordinator Projects & Operations",
         "de": "IT Koordinator*in Projekte & Betrieb",
         "fr": "Coordinateur/Coordinatrice IT Projets & Opérations"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Koordination von IT-Projekten, Changes und betrieblichen IT-Themen mit Fachbereichen, IT-Provider und Drittlieferanten\n• Drehscheibenfunktion zwischen Spital, externem IT-Provider, Projektleitenden und internen Anspruchsgruppen\n• Nachverfolgung von Anforderungen, Aufgaben, Pendenzen, Fristen, Risiken und Eskalationen\n• Abstimmung von Incident-, Problem-, Change- und Request-Prozessen sowie Unterstützung bei Service Reviews und Betriebsübergaben\n• Mitarbeit in der Koordination von ISMS/DSMS mit externem CISO und Datenschutzfunktion (ca. 20%)\n\nIhr Profil:\n\n• Fundierte IT-Ausbildung und gute Kenntnisse in IT-Service-Management\n• Erfahrung in Projektkoordination, Changes, IT-Betrieb und Schnittstellenmanagement\n• Verständnis für IT-Infrastrukturen, Applikationen, Schnittstellen und Betriebsprozesse; Erfahrung im Spitalumfeld von Vorteil\n• Verhandlungssicherer Umgang mit IT-Providern, externen Partnern und Lieferanten\n• Strukturierte, dienstleistungsorientierte Persönlichkeit mit Kommunikationsstärke, Durchsetzungsvermögen und Priorisierungskompetenz\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
-        "it": "Mansioni - Coordinamento di progetti IT, modifiche e temi IT operativi con dipartimenti, fornitori IT e fornitori terzi - Funzione hub tra ospedale, fornitori IT esterni, project manager e stakeholder interni - Monitoraggio di requisiti, attività, pendenti, scadenze, rischi ed escalation - Coordinamento dei processi di incidenti, problemi, modifiche e richieste, nonché supporto con revisioni dei servizi e passaggi operativi - Partecipazione al coordinamento del CISO esterno ISMS/DSMS e della funzione di protezione dei dati (circa 20%) Requisiti - Solida formazione IT e buona conoscenza della gestione dei servizi IT - Esperienza nel coordinamento di progetti, modifiche, operazioni IT e gestione delle interfacce - Comprensione delle infrastrutture IT, delle applicazioni, delle interfacce e dei processi operativi; L'esperienza in un ambiente ospedaliero è un vantaggio - Capacità di negoziare con fornitori IT, partner esterni e fornitori - Personalità strutturata e orientata al servizio con forti capacità di comunicazione, assertività e capacità di definizione delle priorità Cosa offriamo - Lavorare in modo indipendente in un team motivato e collegiale che si supporta a vicenda. - Un luogo di lavoro con i migliori collegamenti con i trasporti pubblici, nonché parcheggi economici per il personale. - Infrastrutture moderne e un ambiente di lavoro in cui sentirsi a proprio agio, vista lago inclusa. - Una serie di vantaggi: dagli ottimi sconti per i dipendenti alle offerte di formazione continua. - Un'atmosfera di lavoro piacevole in una località attraente vicino a Zurigo che ha molto da offrirti sia a livello professionale che privato. Le domande fisiche non possono essere prese in considerazione o restituite. Contatto",
-        "en": "Mansioni - Coordination of IT projects, changes and operational IT topics with departments, IT providers and third-party suppliers - Hub function between the hospital, external IT providers, project managers and internal stakeholders - Tracking requirements, tasks, pending, deadlines, risks and escalations - Coordination of incident, problem, change and request processes as well as support with service reviews and operational handovers - Participation in the coordination of ISMS/DSMS external CISO and data protection function (approx. 20%) Requisiti - Sound IT training and good knowledge of IT service management - Experience in project coordination, changes, IT operations and interface management - Understanding of IT infrastructures, applications, interfaces and operating processes; Experience in a hospital environment is an advantage - Ability to negotiate with IT providers, external partners and suppliers - Structured, service-oriented personality with strong communication skills, assertiveness and prioritization skills Cosa offriamo - Working independently in a motivated and collegial team that supports each other. - A place of work with the best connections to public transport, as well as inexpensive staff parking spaces. - Modern infrastructure and a working environment in which you can feel comfortable - lake view included. - A variety of benefits – from great employee discounts to further training offers. - A pleasant working atmosphere in an attractive location near Zurich that has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned. Contatto",
-        "de": "Mansioni\n- Koordination von IT-Projekten, Changes und betrieblichen IT-Themen mit Fachbereichen, IT-Provider und Drittlieferanten\n- Drehscheibenfunktion zwischen Spital, externem IT-Provider, Projektleitenden und internen Anspruchsgruppen\n- Nachverfolgung von Anforderungen, Aufgaben, Pendenzen, Fristen, Risiken und Eskalationen\n- Abstimmung von Incident-, Problem-, Change- und Request-Prozessen sowie Unterstützung bei Service Reviews und Betriebsübergaben\n- Mitarbeit in der Koordination von ISMS/DSMS mit externem CISO und Datenschutzfunktion (ca. 20%)\n\nRequisiti\n- Fundierte IT-Ausbildung und gute Kenntnisse in IT-Service-Management\n- Erfahrung in Projektkoordination, Changes, IT-Betrieb und Schnittstellenmanagement\n- Verständnis für IT-Infrastrukturen, Applikationen, Schnittstellen und Betriebsprozesse; Erfahrung im Spitalumfeld von Vorteil\n- Verhandlungssicherer Umgang mit IT-Providern, externen Partnern und Lieferanten\n- Strukturierte, dienstleistungsorientierte Persönlichkeit mit Kommunikationsstärke, Durchsetzungsvermögen und Priorisierungskompetenz\n\nCosa offriamo\n- Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n- Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n- Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n- Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n- Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nContatto",
-        "fr": "Mansioni - Coordination des projets informatiques, des changements et des sujets informatiques opérationnels avec les départements, les fournisseurs informatiques et les fournisseurs tiers - Fonction de hub entre l'hôpital, les fournisseurs informatiques externes, les chefs de projet et les parties prenantes internes - Suivi des exigences, des tâches, des attentes, des délais, des risques et des escalades - Coordination des processus d'incidents, de problèmes, de changement et de demande ainsi que soutien aux revues de service et aux transferts opérationnels - Participation à la coordination du RSSI externe ISMS/DSMS et de la fonction de protection des données (environ 20%) Requisiti - Bonne formation informatique et bon connaissance de la gestion des services informatiques - Expérience en coordination de projets, changements, opérations informatiques et gestion des interfaces - Compréhension des infrastructures informatiques, des applications, des interfaces et des processus d'exploitation; Une expérience en milieu hospitalier est un avantage - Capacité à négocier avec des prestataires informatiques, des partenaires externes et des fournisseurs - Personnalité structurée et orientée service avec de fortes compétences en communication, en assertivité et en priorisation Cosa offriamo - Travailler de manière indépendante au sein d'une équipe motivée et collégiale qui se soutient mutuellement. - Un lieu de travail bien desservi par les transports publics, ainsi que des places de parking pour le personnel à moindre coût. - Une infrastructure moderne et un environnement de travail dans lequel vous vous sentirez à l'aise - vue sur le lac incluse. - Une variété d'avantages – depuis des réductions exceptionnelles pour les employés jusqu'à des offres de formation continue. - Une atmosphère de travail agréable dans un endroit attrayant près de Zurich qui a beaucoup à vous offrir tant sur le plan professionnel que privé. Les candidatures physiques ne peuvent être ni prises en compte ni retournées. Contact"
+        "it": "Mansioni - Coordinamento di progetti IT, modifiche e temi IT operativi con dipartimenti, fornitori IT e fornitori terzi - Funzione hub tra ospedale, fornitori IT esterni, project manager e stakeholder interni - Monitoraggio di requisiti, attività, pendenti, scadenze, rischi ed escalation - Coordinamento dei processi di incidenti, problemi, modifiche e richieste, nonché supporto con revisioni dei servizi e passaggi operativi - Partecipazione al coordinamento del CISO esterno ISMS/DSMS e della funzione di protezione dei dati (circa 20%) \n• Requisiti - Solida formazione IT e buona conoscenza della gestione dei servizi IT - Esperienza nel coordinamento di progetti, modifiche, operazioni IT e gestione delle interfacce - Comprensione delle infrastrutture IT, delle applicazioni, delle interfacce e dei processi operativi; L'esperienza in un ambiente ospedaliero è un vantaggio - Capacità di negoziare con fornitori IT, partner esterni e fornitori - Personalità strutturata e orientata al servizio con forti capacità di comunicazione, assertività e capacità di definizione delle priorità \n• Cosa offriamo - Lavorare in modo indipendente in un team motivato e collegiale che si supporta a vicenda. - Un luogo di lavoro con i migliori collegamenti con i trasporti pubblici, nonché parcheggi economici per il personale. - Infrastrutture moderne e un ambiente di lavoro in cui sentirsi a proprio agio, vista lago inclusa. - Una serie di vantaggi: dagli ottimi sconti per i dipendenti alle offerte di formazione continua. - Un'atmosfera di lavoro piacevole in una località attraente vicino a Zurigo che ha molto da offrirti sia a livello professionale che privato. Le domande fisiche non possono essere prese in considerazione o restituite. Contatto",
+        "en": "Mansioni - Coordination of IT projects, changes and operational IT topics with departments, IT providers and third-party suppliers - Hub function between the hospital, external IT providers, project managers and internal stakeholders - Tracking requirements, tasks, pending, deadlines, risks and escalations - Coordination of incident, problem, change and request processes as well as support with service reviews and operational handovers - Participation in the coordination of ISMS/DSMS external CISO and data protection",
+        "de": "Ihr Aufgabengebiet:\n• Koordination von IT-Projekten, Changes und betrieblichen IT-Themen mit Fachbereichen, IT-Provider und Drittlieferanten\n• Drehscheibenfunktion zwischen Spital, externem IT-Provider, Projektleitenden und internen Anspruchsgruppen\n• Nachverfolgung von Anforderungen, Aufgaben, Pendenzen, Fristen, Risiken und Eskalationen\n• Abstimmung von Incident-, Problem-, Change- und Request-Prozessen sowie Unterstützung bei Service Reviews und Betriebsübergaben\n• Mitarbeit in der Koordination von ISMS/DSMS mit externem CISO und Datenschutzfunktion (ca. 20%) Ihr Profil:\n• Fundierte IT-Ausbildung und gute Kenntnisse in IT-Service-Management\n• Erfahrung in Projektkoordination, Changes, IT-Betrieb und Schnittstellenmanagement\n• Verständnis für IT-Infrastrukturen, Applikationen, Schnittstellen und Betriebsprozesse; Erfahrung im Spitalumfeld von Vorteil\n• Verhandlungssicherer Umgang mit IT-Providern, externen Partnern und Lieferanten\n• Strukturierte, dienstleistungsorientierte Persönlichkeit mit Kommunikationsstärke, Durchsetzungsvermögen und Priorisierungskompetenz Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "fr": "Mansioni - Coordination des projets informatiques, des changements et des sujets informatiques opérationnels avec les départements, les fournisseurs informatiques et les fournisseurs tiers - Fonction de hub entre l'hôpital, les fournisseurs informatiques externes, les chefs de projet et les parties prenantes internes - Suivi des exigences, des tâches, des attentes, des délais, des risques et des escalades - Coordination des processus d'incidents, de problèmes, de changement et de demande ainsi que soutien aux revues de service et aux transferts opérationnels - Participation à la coordination du RSSI externe ISMS/DSMS et de la fonction de protection des données (environ 20%) \n• Requisiti - Bonne formation informatique et bon connaissance de la gestion des services informatiques - Expérience en coordination de projets, changements, opérations informatiques et gestion des interfaces - Compréhension des infrastructures informatiques, des applications, des interfaces et des processus d'exploitation; Une expérience en milieu hospitalier est un avantage - Capacité à négocier avec des prestataires informatiques, des partenaires externes et des fournisseurs - Personnalité structurée et orientée service avec de fortes compétences en communication, en assertivité et en priorisation \n• Cosa offriamo - Travailler de manière indépendante au sein d'une équipe motivée et collégiale qui se soutient mutuellement. - Un lieu de travail bien desservi par les transports publics, ainsi que des places de parking pour le personnel à moindre coût. - Une infrastructure moderne et un environnement de travail dans lequel vous vous sentirez à l'aise - vue sur le lac incluse. - Une variété d'avantages – depuis des réductions exceptionnelles pour les employés jusqu'à des offres de formation continue. - Une atmosphère de travail agréable dans un endroit attrayant près de Zurich qui a beaucoup à vous offrir tant sur le plan professionnel que privé. Les candidatures physiques ne peuvent être ni prises en compte ni retournées. Contact"
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1250/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:25:10.907Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:29.046Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3521,7 +3594,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-koordinator-in-projekte-betrieb-see-spital-ch"
+          "it-koordinator-in-projekte-betrieb-see-spital-ch",
+          "coordinatore-it-in-progetti-e-operazioni-see-spital-horgen"
         ],
         "en": [
           "it-koordinator-in-projekte-betrieb-see-spital-ch"
@@ -3577,7 +3651,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-30T12:27:27.633Z",
+      "crawledAt": "2026-06-30T23:20:27.980Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3602,7 +3676,8 @@
       "previousSlugsByLocale": {
         "it": [
           "qualitatsmanager-in-see-spital-ch",
-          "qualitatsmanager-in-see-spital-horgen"
+          "qualitatsmanager-in-see-spital-horgen",
+          "gestione-della-qualita-see-spital-horgen"
         ],
         "en": [
           "qualitatsmanager-in-see-spital-horgen"
@@ -3658,7 +3733,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-30T12:27:26.585Z",
+      "crawledAt": "2026-06-30T23:20:26.969Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3685,7 +3760,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praxisassistent-in-see-spital-ch"
+          "praxisassistent-in-see-spital-ch",
+          "praxisassistent-in-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-06-29T14:13:58.523Z",
@@ -3707,9 +3783,9 @@
       "id": "see-spital-853d3121d24a",
       "slug": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch",
       "slugByLocale": {
-        "de": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch",
         "it": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch",
         "en": "hr-case-officer-with-a-focus-on-education-see-spital-horgen",
+        "de": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch",
         "fr": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch"
       },
       "company": "See-Spital",
@@ -3717,24 +3793,25 @@
       "companyDomain": "see-spital.ch",
       "title": "HR Sachbearbeiter*in mit Schwerpunkt Bildung",
       "titleByLocale": {
-        "de": "HR Sachbearbeiter*in mit Schwerpunkt Bildung",
         "it": "Risorse Umane Sachbearbeiter*in con Schwerpunkt Bildung",
         "en": "HR case officer with a focus on education",
+        "de": "HR Sachbearbeiter*in mit Schwerpunkt Bildung",
         "fr": "Ressources Humaines Sachbearbeiter*in mit Schwerpunkt Bildung"
       },
       "description": "Ihr Aufgabengebiet:\nSie fühlen sich im HR zu Hause und möchten Ihren Schwerpunkt im Bereich Berufsbildung setzen? Dann sind Sie bei uns genau richtig! Zur Verstärkung unseres HR-Teams suchen wir eine engagierte, flexible und dienstleistungsorientierte Persönlichkeit, die unsere Leiterin Bildung tatkräftig unterstützt und gleichzeitig vielfältige Aufgaben im gesamten HR übernimmt.\n• Unterstützung der Leiterin Bildung in sämtlichen administrativen und organisatorischen Belangen\n• Koordination und Begleitung der Lernenden während des gesamten Ausbildungszyklus\n• Planung und Koordination von Ausbildungsterminen sowie Schulungen\n• Pflege und Verwaltung der Ausbildungsdokumentation\n• Ansprechpartner*in für Auszubildende, Berufsbildner*innen und interne Stellen bei administrativen HR-Fragen inkl. Telefondienst\n• Unterstützung des HR-Teams im operativen Tagesgeschäft bei Bedarf\n• Erstellung von diversen personalrelevanten Dokumenten sowie Mitwirkung bei Projekten\n\nIhr Profil:\n\n• Abgeschlossene kaufmännische Grundausbildung, erste HR-Erfahrung oder Weiterbildung als HR-Assistent*in von Vorteil\n• Interesse an der Berufsbildung sowie Freude am Umgang mit jungen Menschen\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Organisationstalent sowie eine hohe Dienstleistungsorientierung\n• Flexibilität und Bereitschaft, bei Bedarf verschiedene HR-Aufgaben zu übernehmen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Durch Ihre zuverlässige, flexible sowie hilfsbereite Art bereichern Sie unser Team\n• Teamfähige, kommunikative und hilfsbereite Persönlichkeit mit hoher IT-Affinität\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Vielfältige Benefits mit tollen Mitarbeitendenrabatten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
-        "de": "Ihr Aufgabengebiet:\nSie fühlen sich im HR zu Hause und möchten Ihren Schwerpunkt im Bereich Berufsbildung setzen? Dann sind Sie bei uns genau richtig! Zur Verstärkung unseres HR-Teams suchen wir eine engagierte, flexible und dienstleistungsorientierte Persönlichkeit, die unsere Leiterin Bildung tatkräftig unterstützt und gleichzeitig vielfältige Aufgaben im gesamten HR übernimmt.\n• Unterstützung der Leiterin Bildung in sämtlichen administrativen und organisatorischen Belangen\n• Koordination und Begleitung der Lernenden während des gesamten Ausbildungszyklus\n• Planung und Koordination von Ausbildungsterminen sowie Schulungen\n• Pflege und Verwaltung der Ausbildungsdokumentation\n• Ansprechpartner*in für Auszubildende, Berufsbildner*innen und interne Stellen bei administrativen HR-Fragen inkl. Telefondienst\n• Unterstützung des HR-Teams im operativen Tagesgeschäft bei Bedarf\n• Erstellung von diversen personalrelevanten Dokumenten sowie Mitwirkung bei Projekten\n\nIhr Profil:\n\n• Abgeschlossene kaufmännische Grundausbildung, erste HR-Erfahrung oder Weiterbildung als HR-Assistent*in von Vorteil\n• Interesse an der Berufsbildung sowie Freude am Umgang mit jungen Menschen\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Organisationstalent sowie eine hohe Dienstleistungsorientierung\n• Flexibilität und Bereitschaft, bei Bedarf verschiedene HR-Aufgaben zu übernehmen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Durch Ihre zuverlässige, flexible sowie hilfsbereite Art bereichern Sie unser Team\n• Teamfähige, kommunikative und hilfsbereite Persönlichkeit mit hoher IT-Affinität\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Vielfältige Benefits mit tollen Mitarbeitendenrabatten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "it": "La vostra area di responsabilità:\nTi senti a casa nelle Risorse Umane e vuoi concentrarti sulla formazione professionale? Allora hai ragione con noi! Per rafforzare il nostro team HR, siamo alla ricerca di una personalità impegnata, flessibile e orientata al servizio che supporta attivamente il nostro Head of Education e allo stesso tempo assume una vasta gamma di compiti in tutto l'HR.\n• Sostegno del Capo dell'Istruzione in tutte le questioni amministrative e organizzative\n• Coordinamento e sostegno degli studenti durante il ciclo di formazione\n• Pianificazione e coordinamento delle date di formazione e dei corsi di formazione\n• Manutenzione e gestione della documentazione di formazione\n• Persona di contatto per i tirocinanti, i formatori professionali e le posizioni interne nelle questioni amministrative HR incl. Servizio telefonico\n• Supporto del team HR nelle operazioni quotidiane, se necessario\n• Preparazione di vari documenti rilevanti per il personale e partecipazione a progetti\n\nIl tuo profilo:\n\n• Completata la formazione commerciale di base, l'esperienza HR iniziale o l'ulteriore formazione come assistente HR* è vantaggioso\n• Interessi della formazione professionale e del godimento dei giovani\n• Metodo di lavoro indipendente, strutturato e affidabile\n• Talenti organizzativi così come un alto orientamento di servizio\n• Flessibilità e volontà di assumere diverse attività HR se necessario\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Arricchito dalla vostra natura affidabile, flessibile e disponibile Tu sei la nostra squadra\n• Personalità collaborativa, comunicativa e disponibile con elevata affinità IT\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economicamente vantaggiosi.\n• Vantaggi diversi con grandi sconti sui dipendenti.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.",
-        "en": "Your area of responsibility:\nDo you feel at home in HR and would like to focus on vocational training? Then you are exactly right with us! To strengthen our HR team, we are looking for a committed, flexible and service-oriented personality who actively supports our Head of Education and at the same time takes on a wide range of tasks throughout HR.\n• Support of the Head of Education in all administrative and organizational matters\n• Coordination and support of learners throughout the training cycle\n• Planning and coordination of training dates and training courses\n• Maintenance and management of training documentation\n• Contact person for trainees, vocational trainers and internal positions in administrative HR issues incl. Telephone service\n• Support of the HR team in day-to-day operations if required\n• Preparation of various personnel-relevant documents and participation in projects\n\nYour profile:\n\n• Completed basic commercial training, initial HR experience or further training as an HR assistant* is advantageous\n• Interest in vocational training and enjoyment of dealing with young people\n• Independent, structured and reliable working method\n• Organizational talent as well as a high service orientation\n• Flexibility and willingness to take on different HR tasks if necessary\n• Very good knowledge of German in word and writing\n• Enriched by your reliable, flexible and helpful nature You are our team\n• Team-capable, communicative and helpful personality with high IT affinity\n\nWhat we offer you:\n\n• Working independently in a motivated and collegial team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Diverse benefits with great employee discounts.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.",
-        "fr": "Votre domaine de responsabilité :\nVous sentez-vous chez vous en RH et souhaitez vous concentrer sur la formation professionnelle? Alors tu as exactement raison avec nous ! Pour renforcer notre équipe RH, nous recherchons une personnalité engagée, flexible et axée sur le service qui soutient activement notre chef de l'éducation tout en assumant un large éventail de tâches tout au long des RH.\n• Appui du chef de l'éducation à toutes les questions administratives et organisationnelles\n• Coordination et soutien des apprenants tout au long du cycle de formation\n• Planification et coordination des dates et des cours de formation\n• Entretien et gestion des documents de formation\n• Personne-ressource pour les stagiaires, les formateurs professionnels et les postes internes dans les questions administratives de RH, y compris Service téléphonique\n• Soutien de l'équipe des RH dans les opérations quotidiennes au besoin\n• Élaboration de divers documents relatifs au personnel et participation à des projets\n\nVotre profil:\n\n• La formation commerciale de base, l'expérience initiale en RH ou la formation continue en tant qu'assistant en RH* est avantageuse\n• Intérêt pour la formation professionnelle et le traitement des jeunes\n• Méthode de travail indépendante, structurée et fiable\n• Des talents organisationnels et une orientation de service élevée\n• Flexibilité et volonté d'assumer des tâches différentes en matière de ressources humaines si nécessaire\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Enrichi par votre nature fiable, flexible et utile Vous êtes notre équipe\n• Personnalité d'équipe, communicative et utile avec une grande affinité informatique\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement économiques pour le personnel.\n• Avantages divers avec de grandes réductions pour les employés.\n• Une ambiance de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées."
+        "it": "La vostra area di responsabilità: Ti senti a casa nelle Risorse Umane e vuoi concentrarti sulla formazione professionale? Allora hai ragione con noi! Per rafforzare il nostro team HR, siamo alla ricerca di una personalità impegnata, flessibile e orientata al servizio che supporta attivamente il nostro Head of Education e allo stesso tempo assume una vasta gamma di compiti in tutto l'HR.\n• Sostegno del Capo dell'Istruzione in tutte le questioni amministrative e organizzative\n• Coordinamento e sostegno degli studenti durante il ciclo di formazione\n• Pianificazione e coordinamento delle date di formazione e dei corsi di formazione\n• Manutenzione e gestione della documentazione di formazione\n• Persona di contatto per i tirocinanti, i formatori professionali e le posizioni interne nelle questioni amministrative HR incl. Servizio telefonico\n• Supporto del team HR nelle operazioni quotidiane, se necessario\n• Preparazione di vari documenti rilevanti per il personale e partecipazione a progetti Il tuo profilo:\n• Completata la formazione commerciale di base, l'esperienza HR iniziale o l'ulteriore formazione come assistente HR* è vantaggioso\n• Interessi della formazione professionale e del godimento dei giovani\n• Metodo di lavoro indipendente, strutturato e affidabile\n• Talenti organizzativi così come un alto orientamento di servizio\n• Flessibilità e volontà di assumere diverse attività HR se necessario\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Arricchito dalla vostra natura affidabile, flessibile e disponibile Tu sei la nostra squadra\n• Personalità collaborativa, comunicativa e disponibile con elevata affinità IT Cosa ti offriamo:\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economicamente vantaggiosi.\n• Vantaggi diversi con grandi sconti sui dipendenti.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.",
+        "en": "Your area of responsibility: Do you feel at home in HR and would like to focus on vocational training? Then you are exactly right with us! To strengthen our HR team, we are looking for a committed, flexible and service-oriented personality who actively supports our Head of Education and at the same time takes on a wide range of tasks throughout HR.\n• Support of the Head of Education in all administrative and organizational matters\n• Coordination and support of learners throughout the training cycle\n• Planning and coordination of training dates and training courses\n• Maintenance and management of training documentation\n• Contact person for trainees, vocational trainers and internal positions in administrative HR issues incl. Telephone service\n• Support of the HR team in day-to-day operations if required\n• Preparation of various personnel-relevant documents and participation in projects Your profile:\n• Completed basic commercial training, initial HR experience or further training as an HR assistant* is advantageous\n• Interest in vocational training and enjoyment of dealing with young people\n• Independent, structured and reliable working method\n• Organizational talent as well as a high service orientation\n• Flexibility and willingness to take on different HR tasks if necessary\n• Very good knowledge of German in word and writing\n• Enriched by your reliable, flexible and helpful nature You are our team\n• Team-capable, communicative and helpful personality with high IT affinity What we offer you:\n• Working independently in a motivated and collegial team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Diverse benefits with great employee discounts.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.",
+        "de": "Ihr Aufgabengebiet: Sie fühlen sich im HR zu Hause und möchten Ihren Schwerpunkt im Bereich Berufsbildung setzen? Dann sind Sie bei uns genau richtig! Zur Verstärkung unseres HR-Teams suchen wir eine engagierte, flexible und dienstleistungsorientierte Persönlichkeit, die unsere Leiterin Bildung tatkräftig unterstützt und gleichzeitig vielfältige Aufgaben im gesamten HR übernimmt.\n• Unterstützung der Leiterin Bildung in sämtlichen administrativen und organisatorischen Belangen\n• Koordination und Begleitung der Lernenden während des gesamten Ausbildungszyklus\n• Planung und Koordination von Ausbildungsterminen sowie Schulungen\n• Pflege und Verwaltung der Ausbildungsdokumentation\n• Ansprechpartner*in für Auszubildende, Berufsbildner*innen und interne Stellen bei administrativen HR-Fragen inkl. Telefondienst\n• Unterstützung des HR-Teams im operativen Tagesgeschäft bei Bedarf\n• Erstellung von diversen personalrelevanten Dokumenten sowie Mitwirkung bei Projekten Ihr Profil:\n• Abgeschlossene kaufmännische Grundausbildung, erste HR-Erfahrung oder Weiterbildung als HR-Assistent*in von Vorteil\n• Interesse an der Berufsbildung sowie Freude am Umgang mit jungen Menschen\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Organisationstalent sowie eine hohe Dienstleistungsorientierung\n• Flexibilität und Bereitschaft, bei Bedarf verschiedene HR-Aufgaben zu übernehmen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Durch Ihre zuverlässige, flexible sowie hilfsbereite Art bereichern Sie unser Team\n• Teamfähige, kommunikative und hilfsbereite Persönlichkeit mit hoher IT-Affinität Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Vielfältige Benefits mit tollen Mitarbeitendenrabatten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "fr": "Votre domaine de responsabilité : Vous sentez-vous chez vous en RH et souhaitez vous concentrer sur la formation professionnelle? Alors tu as exactement raison avec nous ! Pour renforcer notre équipe RH, nous recherchons une personnalité engagée, flexible et axée sur le service qui soutient activement notre chef de l'éducation tout en assumant un large éventail de tâches tout au long des RH.\n• Appui du chef de l'éducation à toutes les questions administratives et organisationnelles\n• Coordination et soutien des apprenants tout au long du cycle de formation\n• Planification et coordination des dates et des cours de formation\n• Entretien et gestion des documents de formation\n• Personne-ressource pour les stagiaires, les formateurs professionnels et les postes internes dans les questions administratives de RH, y compris Service téléphonique\n• Soutien de l'équipe des RH dans les opérations quotidiennes au besoin\n• Élaboration de divers documents relatifs au personnel et participation à des projets Votre profil:\n• La formation commerciale de base, l'expérience initiale en RH ou la formation continue en tant qu'assistant en RH* est avantageuse\n• Intérêt pour la formation professionnelle et le traitement des jeunes\n• Méthode de travail indépendante, structurée et fiable\n• Des talents organisationnels et une orientation de service élevée\n• Flexibilité et volonté d'assumer des tâches différentes en matière de ressources humaines si nécessaire\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Enrichi par votre nature fiable, flexible et utile Vous êtes notre équipe\n• Personnalité d'équipe, communicative et utile avec une grande affinité informatique Ce que nous vous offrons:\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement économiques pour le personnel.\n• Avantages divers avec de grandes réductions pour les employés.\n• Une ambiance de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées."
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1270/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:27:25.570Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-30T23:20:25.926Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3749,11 +3826,10 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1270/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
+      "firstSeenAt": "2026-06-30T12:27:25.570Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3766,8 +3842,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-30T12:27:25.570Z"
+      "addressRegion": "ZH"
     }
   ]
 }
