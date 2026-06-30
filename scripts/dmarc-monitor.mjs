@@ -307,12 +307,16 @@ function createIssue({ title, description, priority }) {
   );
 }
 
-function buildFailBody(a, days, since, policy) {
+export function buildFailBody(a, days, since, policy) {
   // The right reading of a failing source depends on the live enforcement rung:
   // at p=reject a KNOWN sender failing means legit mail is ALREADY being bounced
   // (urgent), while an UNKNOWN one is spoofing that is ALREADY neutralised. At
   // p=none/quarantine the failures are a warning to fix BEFORE tightening.
+  // policy===null means fetchCurrentPolicy failed: treat as unknown — if we default
+  // to the non-reject branch we risk giving "fix before tightening" advice when the
+  // domain is already at p=reject and legitimate mail is being bounced RIGHT NOW.
   const atReject = policy === 'reject';
+  const policyUnknown = policy === null;
   const lines = [
     '## ⚠️ DMARC: una o più sorgenti falliscono in volume',
     '',
@@ -345,20 +349,30 @@ function buildFailBody(a, days, since, policy) {
     '  tuo, configuralo; se non lo riconosci, è la prova che la protezione va alzata.',
     '- **Sorgente NOTA che fallisce in modo sistematico** → un tuo mittente',
     '  legittimo è mal configurato (SPF non allineato e/o DKIM non firmato).',
-    atReject
-      ? '  Con la policy **già a `p=reject`** quella posta viene **rifiutata ADESSO**: è'
-      : '  Con `p=quarantine`/`p=reject` quei messaggi finirebbero in spam o bloccati:',
-    atReject
-      ? '  consegna legittima persa finché non sistemi SPF/DKIM di quel provider (o lo spegni).'
-      : '  sistema SPF/DKIM di quel provider PRIMA di irrigidire la policy.',
+    ...(policyUnknown
+      ? [
+          '  Policy sconosciuta (impossibile leggere `_dmarc`): se sei già a `p=reject` la posta',
+          '  legittima potrebbe essere **rifiutata ADESSO**. Verifica il record DNS urgentemente.',
+        ]
+      : atReject
+        ? [
+            '  Con la policy **già a `p=reject`** quella posta viene **rifiutata ADESSO**: è',
+            '  consegna legittima persa finché non sistemi SPF/DKIM di quel provider (o lo spegni).',
+          ]
+        : [
+            '  Con `p=quarantine`/`p=reject` quei messaggi finirebbero in spam o bloccati:',
+            '  sistema SPF/DKIM di quel provider PRIMA di irrigidire la policy.',
+          ]),
     '',
     '### Azione',
     '1. Identifica ogni sorgente in tabella (l\'IP principale + il suo rDNS aiutano).',
     '2. Mittenti tuoi → allinea SPF (return-path sul dominio) e/o firma DKIM, oppure',
     '   smetti di inviare da quel provider finché non è autenticato.',
-    atReject
-      ? '3. Sorgenti SCONOSCIUTE → `p=reject` le sta già rifiutando: nessun setup da fare, è spoofing neutralizzato.'
-      : '3. Sorgenti che non riconosci e non riesci a giustificare → è spoofing: procedi verso un enforcement più alto per neutralizzarlo.',
+    policyUnknown
+      ? '3. Sorgenti SCONOSCIUTE → policy sconosciuta: verifica il record `_dmarc` DNS. Se sei già a `p=reject` lo spoofing è neutralizzato; altrimenti procedi verso un enforcement più alto.'
+      : atReject
+        ? '3. Sorgenti SCONOSCIUTE → `p=reject` le sta già rifiutando: nessun setup da fare, è spoofing neutralizzato.'
+        : '3. Sorgenti che non riconosci e non riesci a giustificare → è spoofing: procedi verso un enforcement più alto per neutralizzarlo.',
     '',
     '_Aperto automaticamente dal workflow DMARC Monitor. Si auto-aggiorna con un',
     'commento finché la condizione persiste; chiudilo quando hai sistemato._',
