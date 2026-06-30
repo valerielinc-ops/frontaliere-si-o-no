@@ -2312,6 +2312,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'reclutamento-lugano',
+    category: 'pratico',
+    date: '2026-06-30T15:18:32.768Z',
+    image: '/images/blog/reclutamento-lugano.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4318,6 +4318,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lato-oscuro-eldorado-frontalieri-francesi': { name: 'Frontalieri Francia-Svizzera', path: '/articoli-svizzera/lato-oscuro-eldorado-frontalieri-francesi/', parent: 'blog' },
     'blog-offre-fielmann-tariffe-nazionali': { name: 'Offerte', path: '/articoli-svizzera/offre-fielmann-tariffe-nazionali/', parent: 'blog' },
     'blog-dogana-brogeda': { name: 'Dogana Brogeda', path: '/articoli-svizzera/dogana-brogeda/', parent: 'blog' },
+    'blog-reclutamento-lugano': { name: 'Reclutamento', path: '/articoli-svizzera/reclutamento-lugano/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

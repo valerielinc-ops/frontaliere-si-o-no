@@ -772,6 +772,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dogana-brogeda.title': 'Douane Brogeda : Temps d\'attente et procédures',
     'blog.article.dogana-brogeda.excerpt': 'Analyse des temps d\'attente à la douane de Brogeda, avec des détails sur les procédures et les impacts pratiques pour les frontaliers.',
     'blog.article.dogana-brogeda.imageAlt': 'Vue de la douane de Brogeda avec paysage alpin et lac de Lugano',
+    'blog.article.reclutamento-lugano.title': 'Recrutement à Lugano : nouvelles opportunités d\'emploi',
+    'blog.article.reclutamento-lugano.excerpt': 'Lugano se confirme comme le centre névralgique de nouvelles opportunités d\'emploi avec de récents appels à recrutement dans les secteurs privé et public.',
+    'blog.article.reclutamento-lugano.imageAlt': 'Scène photoréaliste de Lugano avec activité de recrutement',
 };
 
 export default blogMetaChFr;

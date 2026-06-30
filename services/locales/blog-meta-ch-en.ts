@@ -772,6 +772,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dogana-brogeda.title': 'Brogeda Customs: Waiting Times and Procedures',
     'blog.article.dogana-brogeda.excerpt': 'Analysis of waiting times at Brogeda customs, with details on procedures and practical impacts for border guards.',
     'blog.article.dogana-brogeda.imageAlt': 'View of Brogeda border crossing with alpine landscape and Lake Lugano',
+    'blog.article.reclutamento-lugano.title': 'Recruitment in Lugano: new job opportunities',
+    'blog.article.reclutamento-lugano.excerpt': 'Lugano is confirmed as the nerve centre of new job opportunities with recent recruitment calls in the private and public sectors.',
+    'blog.article.reclutamento-lugano.imageAlt': 'Photorealistic scene of Lugano with recruitment activity',
 };
 
 export default blogMetaChEn;
