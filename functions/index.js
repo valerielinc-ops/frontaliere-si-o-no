@@ -5,7 +5,6 @@ import {
 } from './src/newsletterResendWebhookCore.js';
 import { handleMailgunWebhookRequest } from './src/newsletterMailgunWebhookCore.js';
 import { handleMailjetWebhookRequest } from './src/newsletterMailjetWebhookCore.js';
-import { handleUnosendWebhookRequest } from './src/newsletterUnosendWebhookCore.js';
 import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCore.js';
 import { handleMailerooWebhookRequest } from './src/newsletterMailerooWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
@@ -323,50 +322,6 @@ export const newsletterMailjetWebhook = onRequest(
  const message = error instanceof Error ? error.message : String(error || 'unknown_error');
  const status = /secret/i.test(message) ? 401 : 500;
  console.error('[newsletterMailjetWebhook] Error:', message);
- res.status(status).json({ ok: false, error: message });
- }
- },
-);
-
-// Unosend delivery event webhooks
-export const newsletterUnosendWebhook = onRequest(
- {
- region: 'europe-west6',
- memory: '256MiB',
- timeoutSeconds: 60,
- cors: true,
- },
- async (req, res) => {
- if (req.method === 'OPTIONS') {
- res.set('Access-Control-Allow-Origin', '*');
- res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
- res.set('Access-Control-Allow-Headers', 'Content-Type, webhook-id, webhook-timestamp, webhook-signature');
- res.status(204).send('');
- return;
- }
- if (req.method !== 'POST') {
- res.status(405).json({ ok: false, error: 'method_not_allowed' });
- return;
- }
-
- const payload = Buffer.isBuffer(req.rawBody)
- ? req.rawBody.toString('utf8')
- : typeof req.rawBody === 'string'
- ? req.rawBody
- : JSON.stringify(req.body || {});
-
- try {
- const signingSecret = await getRemoteConfigValue('UNOSEND_WEBHOOK_SECRET');
- const result = await handleUnosendWebhookRequest({
- payload,
- headers: req.headers,
- signingSecret,
- });
- res.status(200).json({ ok: true, result });
- } catch (error) {
- const message = error instanceof Error ? error.message : String(error || 'unknown_error');
- const status = /signature/i.test(message) ? 401 : 500;
- console.error('[newsletterUnosendWebhook] Error:', message);
  res.status(status).json({ ok: false, error: message });
  }
  },

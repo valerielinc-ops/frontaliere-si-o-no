@@ -21,7 +21,6 @@
  *   MAILJET_SECRET_KEY       — Mailjet API secret
  *   MAILGUN_API_KEY          — Mailgun API key (EU region)
  *   MAILGUN_DOMAIN           — Mailgun sending domain
- *   UNOSEND_API_KEY          — Unosend API key (6000/mo free tier)
  *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier)
  *   MAILEROO_API_KEY         — Maileroo sending key (3000/mo free tier)
  *   RESEND_API_KEY           — Resend API key (fallback only)
@@ -44,12 +43,12 @@ const PROVIDERS = [
   { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
-  // maileroo: DISABLED — its sending domain has no DKIM published for
-  // frontaliereticino.ch, so with DMARC at p=quarantine its mail fails
-  // authentication and lands in spam (Gmail "non autenticato"). Every other
-  // provider is DMARC-aligned (mailgun/resend/mailjet DKIM + mailtrap DKIM CNAMEs
-  // + cloudflare cf2024-1 DKIM). Re-enable only after publishing Maileroo's DKIM
-  // record for the domain (Maileroo dashboard → Domains → DNS).
+  // maileroo: DISABLED by choice (not by a missing record). The DKIM selector
+  // mta._domainkey.frontaliereticino.ch IS now published (added 2026-06-30) and
+  // the domain is at DMARC p=reject, so Maileroo can sign DMARC-aligned mail.
+  // It is kept out of the cascade pending an owner decision + confirmation, over
+  // the next DMARC report window, that Maileroo's mail actually passes alignment.
+  // Re-enable by uncommenting the entry below once that is confirmed.
   // { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
   // Cloudflare Email Service: limit is MONTHLY (3000/mo included on Workers Paid),
   // there is no documented per-day cap. dailyLimit is the 3000/30 ≈ 100/day spread
@@ -57,8 +56,6 @@ const PROVIDERS = [
   // share of the monthly allowance. Placed last: it draws on the paid-plan quota,
   // so prefer the purely-free providers first.
   { id: 'cloudflare', dailyLimit: 100, monthlyLimit: 3000 },
-  // unosend: disabled — re-enable when needed.
-  // { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
 ];
 
 // In-memory daily counters (reset on new UTC day)
@@ -126,20 +123,6 @@ async function fetchMailjetDailyUsage() {
       total += (row.MessageSentCount || 0) + (row.MessageQueuedCount || 0);
     }
     return total;
-  } catch { return 0; }
-}
-
-async function fetchUnosendDailyUsage() {
-  const apiKey = process.env.UNOSEND_API_KEY;
-  if (!apiKey) return 0;
-  try {
-    const today = getTodayUTC();
-    const res = await fetch('https://api.unosend.co/v1/emails?limit=100', {
-      headers: { Authorization: 'Bearer ' + apiKey }
-    });
-    if (!res.ok) return 0;
-    const data = await res.json();
-    return (data.data || []).filter(e => e.sent_at?.startsWith(today)).length;
   } catch { return 0; }
 }
 
@@ -317,11 +300,10 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, mailtrap, unosend, resend, maileroo, cloudflare] = await Promise.all([
+  const [mailgun, mailjet, mailtrap, resend, maileroo, cloudflare] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
     fetchMailtrapDailyUsage(),
-    fetchUnosendDailyUsage(),
     fetchResendDailyUsage(),
     fetchMailerooDailyUsage(),
     fetchCloudflareDailyUsage(),
@@ -331,13 +313,12 @@ async function syncQuotasFromAPIs() {
   _counters.mailgun = mailgun;
   _counters.mailjet = mailjet;
   _counters.mailtrap = mailtrap;
-  _counters.unosend = unosend;
   _counters.resend = resend;
   _counters.maileroo = maileroo;
   _counters.cloudflare = cloudflare;
   _quotasSynced = true;
 
-  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, unosend=${unosend}/200, resend=${resend}/100, maileroo=${maileroo}/100, cloudflare=${cloudflare}/100`);
+  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, resend=${resend}/100, maileroo=${maileroo}/100, cloudflare=${cloudflare}/100`);
 }
 
 // ── Provider availability check ──────────────────────────────
@@ -348,7 +329,6 @@ function isProviderConfigured(providerId) {
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
     case 'mailtrap':   return !!process.env.MAILTRAP_API_TOKEN;
     case 'maileroo':   return !!process.env.MAILEROO_API_KEY;
-    case 'unosend':    return !!process.env.UNOSEND_API_KEY;
     case 'resend':     return !!process.env.RESEND_API_KEY;
     case 'cloudflare': return !!(cloudflareToken() && cloudflareAccountId());
     default: return false;
@@ -445,41 +425,6 @@ async function sendViaMailgun(email) {
 
   const data = await res.json().catch(() => ({}));
   return { messageId: data?.id || `mg-${Date.now()}`, provider: 'mailgun' };
-}
-
-// ── Unosend API (v1) ─────────────────────────────────────────
-// Docs: https://docs.unosend.co/api-reference/emails
-
-async function sendViaUnosend(email) {
-  const apiKey = process.env.UNOSEND_API_KEY;
-  const fromParsed = parseEmailAddress(email.from);
-
-  const body = {
-    from: fromParsed.name ? `${fromParsed.name} <${fromParsed.email}>` : fromParsed.email,
-    to: Array.isArray(email.to) ? email.to : [email.to],
-    subject: email.subject,
-    html: email.html,
-  };
-  if (email.text) body.text = email.text;
-  if (email.tags?.length) body.tags = email.tags;
-  if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
-
-  const res = await fetch('https://api.unosend.co/v1/emails', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!res.ok) {
-    const err = await res.text().catch(() => '');
-    throw new Error(`Unosend ${res.status}: ${err.slice(0, 200)}`);
-  }
-
-  const data = await res.json().catch(() => ({}));
-  return { messageId: data?.id || `unosend-${Date.now()}`, provider: 'unosend' };
 }
 
 // ── Mailtrap Send API ────────────────────────────────────────
@@ -706,7 +651,6 @@ const SEND_FNS = {
   mailjet: sendViaMailjet,
   mailtrap: sendViaMailtrap,
   maileroo: sendViaMaileroo,
-  unosend: sendViaUnosend,
   resend: sendViaResend,
   cloudflare: sendViaCloudflare,
 };
