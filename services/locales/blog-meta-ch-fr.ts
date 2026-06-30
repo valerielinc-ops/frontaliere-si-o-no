@@ -739,6 +739,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stabio-dogana-svizzera.title': 'Stade douanier : passage et procédures à la frontière suisse',
     'blog.article.stabio-dogana-svizzera.excerpt': 'Le col de Stabio représente un point de transit entre la Suisse et l\'Italie. Mise à jour des procédures douanières.',
     'blog.article.stabio-dogana-svizzera.imageAlt': 'Poste frontière de Stabio, symbole de la frontière suisse-italienne.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Douane Chiasso : temps d\'attente et viabilité',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analyse des flux de trafic à la douane routière de Chiasso. Informations mises à jour pour ceux qui transitent quotidiennement entre l\'Italie et la Suisse.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Douane routière de Chiasso aux heures de pointe',
 };
 
 export default blogMetaChFr;

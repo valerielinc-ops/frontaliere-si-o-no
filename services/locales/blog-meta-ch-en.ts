@@ -739,6 +739,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stabio-dogana-svizzera.title': 'Stabio customs: passage and procedures at the Swiss border',
     'blog.article.stabio-dogana-svizzera.excerpt': 'The Stabio crossing is a transit point between Switzerland and Italy. Update on customs procedures.',
     'blog.article.stabio-dogana-svizzera.imageAlt': 'Stabio border crossing, symbol of the Swiss-Italian frontier.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Customs Chiasso: waiting times and viability',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analysis of traffic flows at Chiasso road customs. Updated information for those who transit daily between Italy and Switzerland.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Chiasso road customs crossing during peak hours',
 };
 
 export default blogMetaChEn;

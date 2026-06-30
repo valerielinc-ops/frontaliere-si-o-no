@@ -739,6 +739,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stabio-dogana-svizzera.title': 'Stabio dogana: passaggio e procedure al confine svizzero',
     'blog.article.stabio-dogana-svizzera.excerpt': 'Il valico di Stabio rappresenta un punto di transito tra Svizzera e Italia. Aggiornamento sulle procedure doganali.',
     'blog.article.stabio-dogana-svizzera.imageAlt': 'Valico doganale di Stabio, simbolo del confine svizzero-italiano.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Dogana Chiasso: tempi di attesa e viabilità',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analisi dei flussi di traffico alla dogana stradale di Chiasso. Informazioni aggiornate per chi transita quotidianamente tra Italia e Svizzera.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Dogana stradale di Chiasso durante le ore di punta',
 };
 
 export default blogMetaChIt;

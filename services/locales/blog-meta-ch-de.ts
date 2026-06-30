@@ -739,6 +739,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stabio-dogana-svizzera.title': 'Stabius Customs: Passage und Verfahren an der Schweizer Grenze',
     'blog.article.stabio-dogana-svizzera.excerpt': 'Der Stabio-Pass ist ein Transitpunkt zwischen der Schweiz und Italien. Aktualisierung der Zollverfahren.',
     'blog.article.stabio-dogana-svizzera.imageAlt': 'Zollübergang Stabio, Symbol der Schweizer-italienischen Grenze.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Zoll Chiasso: Wartezeiten und Durchführbarkeit',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analyse der Verkehrsströme am Strassenzoll von Chiasso. Aktuelle Informationen für alle, die täglich zwischen Italien und der Schweiz unterwegs sind.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Grenzübergang Chiasso Straße während der Stoßzeiten',
 };
 
 export default blogMetaChDe;
