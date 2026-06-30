@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-10T10:46:51.651Z",
-    "label": "after",
-    "total": 12016,
-    "needsRetranslation": 3079,
-    "suppressed": 43,
-    "incomplete": 892,
-    "complete": 11124,
-    "missingByLocale": {
-      "it": 669,
-      "en": 581,
-      "de": 505,
-      "fr": 612
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 99
-      },
-      {
-        "company": "Liebherr",
-        "pending": 87
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 75
-      },
-      {
-        "company": "Decathlon",
-        "pending": 71
-      },
-      {
-        "company": "Implenia",
-        "pending": 67
-      },
-      {
-        "company": "Roche",
-        "pending": 46
-      },
-      {
-        "company": "The Swatch Group (España) S.A.",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 26
-      },
-      {
-        "company": "Geberit",
-        "pending": 21
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-10T13:18:34.150Z",
-    "label": "before",
-    "total": 12598,
-    "needsRetranslation": 8509,
-    "suppressed": 40,
-    "incomplete": 1781,
-    "complete": 10817,
-    "missingByLocale": {
-      "it": 1457,
-      "en": 1359,
-      "de": 562,
-      "fr": 1386
-    },
-    "topPending": [
-      {
-        "company": "Hirslanden Klinik",
-        "pending": 417
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 105
-      },
-      {
-        "company": "Richemont",
-        "pending": 95
-      },
-      {
-        "company": "Liebherr",
-        "pending": 88
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 76
-      },
-      {
-        "company": "Decathlon",
-        "pending": 68
-      },
-      {
-        "company": "Implenia",
-        "pending": 66
-      },
-      {
-        "company": "Psychiatrische Universitätsklinik Zürich",
-        "pending": 64
-      },
-      {
-        "company": "Spital Limmattal",
-        "pending": 56
-      },
-      {
-        "company": "Roche",
-        "pending": 46
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-10T15:44:27.079Z",
     "label": "after",
     "total": 12598,
@@ -11396,6 +11282,120 @@
       {
         "company": "Die Schweizerische Post",
         "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-30T05:29:10.071Z",
+    "label": "before",
+    "total": 18226,
+    "needsRetranslation": 3453,
+    "suppressed": 470,
+    "incomplete": 1067,
+    "complete": 17159,
+    "missingByLocale": {
+      "it": 521,
+      "en": 381,
+      "de": 504,
+      "fr": 187
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 899
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Manor AG",
+        "pending": 23
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Alpiq",
+        "pending": 9
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-30T05:57:25.558Z",
+    "label": "after",
+    "total": 18226,
+    "needsRetranslation": 2449,
+    "suppressed": 470,
+    "incomplete": 1069,
+    "complete": 17157,
+    "missingByLocale": {
+      "it": 516,
+      "en": 338,
+      "de": 541,
+      "fr": 163
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 901
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Manor AG",
+        "pending": 23
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Alpiq",
+        "pending": 9
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
       }
     ]
   }
