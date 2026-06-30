@@ -1,57 +1,19 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-06-30T11:09:05.456Z",
+  "generatedAt": "2026-06-30T21:56:48.819Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1840,
-  "avgDurationMs": 1840,
+  "unchangedCount": 2,
+  "durationMs": 2110,
+  "avgDurationMs": 2110,
   "durationHistory": [
-    1840
+    2110
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://recruit.casale.ch/o/junior-software-engineer-internship-program",
-      "applyUrl": "https://recruit.casale.ch/o/junior-software-engineer-internship-program/c/new",
-      "title": "Junior Software Engineer (Internship Program)",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "junior-software-engineer-internship-program-casale-lugano",
-      "category": "engineering",
-      "datePosted": "2026-04-30",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "INTERNSHIP",
-      "experienceLevel": "ENTRY",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "salaryMin": 42640,
-      "salaryMax": 61000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-29T21:57:33.193Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 20
-      }
-    },
     {
       "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
       "applyUrl": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc/c/new",
