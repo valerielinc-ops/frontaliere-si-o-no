@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T10:04:59.555Z",
+  "generatedAt": "2026-06-30T10:02:55.579Z",
   "config": {
     "days": 28,
     "rotateDays": 7,
@@ -27,26 +27,26 @@
     "mode": "exploit",
     "scores": {
       "year_intent": {
-        "samples": 5,
+        "samples": 4,
         "impressions": 85023,
         "clicks": 5252,
         "ctr": 6.177
       },
       "intent_simulation": {
-        "samples": 13,
-        "impressions": 729789,
-        "clicks": 56731,
-        "ctr": 7.774
+        "samples": 14,
+        "impressions": 842954,
+        "clicks": 65118,
+        "ctr": 7.725
       }
     }
   },
   "kpi": {
     "consideredPages": 20,
-    "totalImpressions": 104844,
-    "totalClicks": 8011,
-    "weightedCtr": 7.641,
+    "totalImpressions": 113165,
+    "totalClicks": 8387,
+    "weightedCtr": 7.411,
     "opportunities": 0,
-    "exposures": 5333
+    "exposures": 5654
   },
   "changed": false,
   "published": false
