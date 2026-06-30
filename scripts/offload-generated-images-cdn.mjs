@@ -163,8 +163,10 @@ const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 //      (entry tags, modulepreload, boot <script>s incl. the AdSense loader, CSS
 //      links). renderBuiltUrl already rebased the bundler-INTERNAL refs (JS chunk
 //      imports, CSS url()). dist/assets is deleted later by the deploy verify step.
-//   3. Data base inject: insert `<script>window.__CDN_DATA_BASE__="<CDN>"</script>`
-//      after <head> so cdnDataUrl() resolves runtime /data/ fetches to the CDN.
+//   3. Data base inject: insert a `<link rel="preconnect">` (+ dns-prefetch) to the
+//      CDN host followed by `<script>window.__CDN_DATA_BASE__="<CDN>"</script>`
+//      after <head>, so the cross-origin connection is warm before cdnDataUrl()/
+//      cdnImageUrl() issue the first runtime /data/ or image fetch to the CDN.
 //   4. Collect every literal same-origin /data/ ref (sitemap/href) so those files
 //      stay same-origin (kept), while cdn-only data files are deleted.
 // Then the guarded deletes (og dirs if no leak; cdn-only dist/data files).
@@ -198,7 +200,24 @@ function offloadAll(distDir, cdnBase) {
   // build-plugins/shared/inlineJsonScript.ts (inlined here: this .mjs runs under
   // plain Node and can't import the TS helper). cdnBase is a controlled config
   // URL so the risk is low, but the class fix must be complete.
-  const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase).replace(/</g, '\\u003c')}</script>`;
+  // Resource hint: warm DNS+TLS to the data/image CDN host BEFORE the SPA issues
+  // its first cross-origin fetch. The data CDN (CDN_BASE, e.g. valerielinc-ops
+  // .github.io) is a DISTINCT host from both the origin (frontaliereticino.ch) and
+  // the asset CDN (cdn.frontaliereticino.ch, already preconnected by asyncCssPlugin)
+  // — so without this hint the first `/data/*.json` shard fetch (jobsService) AND
+  // the first cdnImageUrl() logo/brand image (rendered on nearly every page) pay a
+  // cold-connection RTT on the critical path, worst on mobile/high-RTT (~75% of
+  // traffic). `crossorigin` (anonymous) is REQUIRED: the JSON/image fetches are
+  // cross-origin with default `credentials:'same-origin'` → anonymous, and browsers
+  // pool credentialed vs anonymous sockets separately, so a non-crossorigin
+  // preconnect would NOT be reused. dns-prefetch is the legacy fallback. Origin only
+  // (scheme+host) — preconnect ignores the path. Skipped if cdnBase is unparseable.
+  let cdnOrigin = '';
+  try { cdnOrigin = new URL(cdnBase).origin; } catch { cdnOrigin = ''; }
+  const hintTags = cdnOrigin
+    ? `<link rel="preconnect" href="${cdnOrigin}" crossorigin><link rel="dns-prefetch" href="${cdnOrigin}">`
+    : '';
+  const injectTag = `${hintTags}<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase).replace(/</g, '\\u003c')}</script>`;
   // Every file present under dist/data was already pushed to the CDN repo (deploy
   // `cp -r dist/data` runs BEFORE this script), so a same-origin `/data/<rel>`
   // content ref to one of them can be rewritten to ${CDN}/data/<rel> and the file
