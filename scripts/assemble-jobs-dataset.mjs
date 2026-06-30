@@ -337,7 +337,7 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 // `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
 // writes both on a full build; the cache-HIT path must restore both too.
 const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
-const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-05-25-partial-description-flags-v1';
+const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-06-30-canton-pin-inference-override-v1';
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
@@ -1232,6 +1232,7 @@ async function assembleJobs() {
   catch { cantonPins = {}; }
   let cantonPinsFrozen = 0;
   let cantonPinsAdded = 0;
+  let cantonPinsCorrected = 0;
 
   let cantonFixes = 0;
   let cantonFilled = 0;
@@ -1266,7 +1267,22 @@ async function assembleJobs() {
     if (pinId) {
       const pinned = cantonPins[pinId];
       if (pinned) {
-        if (job.canton !== pinned) {
+        // A pin must NOT override the job's own confidently-inferred canton.
+        // buildStableJobIdentity keys on the apply URL, which COLLIDES when a
+        // crawler reuses one listing URL across postings (galenica ships every
+        // role as https://jobs.galenica.com/it/jobs): a single early TI pin then
+        // froze 220 non-TI jobs (Bern/Vaud/ZH…) onto the TI section — wrong
+        // canton + wrong addressRegion + buried in sitemap-jobs-ticino (the
+        // 2026-06 max-bfs-depth regression). The job's location is per-job
+        // authoritative, so when inference confidently resolves a DIFFERENT
+        // canton it wins over the pin. #3144's relocation bridge keeps the
+        // legacy-TI URL alive, so re-sectioning a mis-pinned job no longer 404s
+        // an indexed URL. A city-less job (inferred === null) still honours the
+        // pin, preserving the URL-stability guarantee for jobs whose location
+        // dropped out of this crawl.
+        if (inferred && inferred !== pinned) {
+          cantonPinsCorrected++;
+        } else if (job.canton !== pinned) {
           job.canton = pinned;
           if (job.addressRegion && job.addressRegion.length === 2) job.addressRegion = pinned;
           cantonPinsFrozen++;
@@ -1287,8 +1303,8 @@ async function assembleJobs() {
   if (cantonFixes > 0 || cantonFilled > 0 || lowercaseFixes > 0) {
     console.log(`  🏔️  Canton validation: fixed ${cantonFixes} mismatches, filled ${cantonFilled} empty, ${lowercaseFixes} lowercase codes`);
   }
-  if (cantonPinsFrozen > 0 || cantonPinsAdded > 0) {
-    console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded} (ledger ${Object.keys(cantonPins).length})`);
+  if (cantonPinsFrozen > 0 || cantonPinsAdded > 0 || cantonPinsCorrected > 0) {
+    console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded}, corrected ${cantonPinsCorrected} (location overrode colliding pin) (ledger ${Object.keys(cantonPins).length})`);
   }
 
   // ── Backfill empty description from descriptionByLocale ────────────
