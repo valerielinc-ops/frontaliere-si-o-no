@@ -111,6 +111,79 @@ export function isVersionSkewError(err: unknown): boolean {
 // At most one reload per session total; the value `>= 1` blocks further reloads.
 const BOOTSTRAP_RELOAD_KEY = '_swReloadCount';
 
+// Upper bound on how long the HTTP-cache bust may run before we reload anyway.
+// Asset chunks are small and refetched in parallel; this is only a backstop so a
+// hung/blocked refetch can never strand the user on the error page.
+const BUST_TIMEOUT_MS = 4000;
+
+/**
+ * Overwrite the STALE entries the skewed chunks occupy in the browser's HTTP
+ * disk cache, so the subsequent reload loads a consistent, current chunk set.
+ *
+ * Why this is necessary on top of `caches.delete()` (issue #3097, recurrence of
+ * the #3071/#3131 self-heal): the version-skewed chunks are cross-origin module
+ * scripts served from `cdn.frontaliereticino.ch/assets/*` with
+ * `Cache-Control: max-age=600, must-revalidate`. CacheStorage (`caches.*`) is
+ * EMPTY on this site — no service worker caches `/assets` — so `caches.delete()`
+ * is a no-op, and a plain `location.reload()` re-serves the SAME stale bytes from
+ * the HTTP cache within the 600 s window. The one allowed reload is then wasted
+ * and the error page persists (works in incognito only because there is no
+ * persistent HTTP cache). `fetch(url, { cache: 'reload' })` bypasses the HTTP
+ * cache AND replaces the stored entry with current bytes, breaking the skew.
+ *
+ * Best-effort and time-boxed: every refetch swallows its own error and the whole
+ * batch races a {@link BUST_TIMEOUT_MS} timer, so recovery never hangs. Resolves
+ * once the cache has been refreshed (or the timer fires); the caller then reloads.
+ */
+export async function bustAssetHttpCache(): Promise<void> {
+  if (typeof window === 'undefined' || typeof fetch !== 'function') return;
+
+  let urls: string[] = [];
+  try {
+    const entries =
+      typeof performance !== 'undefined' && typeof performance.getEntriesByType === 'function'
+        ? performance.getEntriesByType('resource')
+        : [];
+    urls = entries
+      .map((e) => (e as PerformanceResourceTiming).name)
+      .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u));
+  } catch {
+    /* Resource Timing unavailable — fall back to a DOM scan below. */
+  }
+  if (urls.length === 0 && typeof document !== 'undefined') {
+    try {
+      document
+        .querySelectorAll<HTMLScriptElement | HTMLLinkElement>(
+          'script[src*="/assets/"], link[href*="/assets/"]',
+        )
+        .forEach((el) => {
+          const u = (el as HTMLScriptElement).src || (el as HTMLLinkElement).href;
+          if (u) urls.push(u);
+        });
+    } catch {
+      /* DOM unavailable */
+    }
+  }
+
+  const unique = Array.from(new Set(urls));
+  if (unique.length === 0) return;
+
+  // `cache: 'reload'` forces a network refetch that overwrites the cache entry.
+  // `mode: 'cors'` + `credentials: 'omit'` match how the <script crossorigin>
+  // module fetches partition the cache, so the reload reuses these fresh bytes.
+  const refetch = Promise.all(
+    unique.map((u) =>
+      fetch(u, { cache: 'reload', mode: 'cors', credentials: 'omit' }).catch(() => {
+        /* one failed refetch must not block the others or the reload */
+      }),
+    ),
+  );
+  await Promise.race([
+    refetch,
+    new Promise<void>((resolve) => setTimeout(resolve, BUST_TIMEOUT_MS)),
+  ]);
+}
+
 /**
  * Clear all CacheStorage entries and reload the page ONCE per session so the
  * browser refetches a CONSISTENT set of stable-named chunks (post-propagation,
@@ -160,6 +233,9 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
       /* cache eviction is best-effort */
     }
   }
+  // The skew lives in the HTTP cache, which `caches.delete()` does not touch —
+  // bust it so the reload loads current bytes rather than the same stale set.
+  await bustAssetHttpCache();
   window.location.reload();
   return true;
 }
@@ -210,14 +286,22 @@ export async function resilientImport<T>(
     } catch (err2) {
       // Chunk truly gone — reload to get fresh HTML with current chunk URLs.
       if (typeof window !== 'undefined') {
+        let shouldReload = false;
         try {
           const rc = parseInt(sessionStorage.getItem(BOOTSTRAP_RELOAD_KEY) || '0', 10) || 0;
           if (rc < 1) {
             sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, String(rc + 1));
-            window.location.reload();
+            shouldReload = true;
           }
         } catch {
           /* sessionStorage unavailable (private mode) — skip reload guard */
+        }
+        if (shouldReload) {
+          // Bust the HTTP cache before reloading: a stale-but-200 chunk (HTML
+          // served for a purged name, or a skewed dependency) would otherwise be
+          // re-served from the disk cache and the one reload wasted.
+          await bustAssetHttpCache();
+          window.location.reload();
         }
       }
       throw err2;

@@ -8,6 +8,7 @@ import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './rout
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
+import { bustAssetHttpCache } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { cdnBlogImage } from './seo/blogImageCdn';
@@ -32,11 +33,14 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  msg.includes('error loading dynamically imported module');
  if (!isChunkError) throw err;
 
- // Clear SW caches and retry once
+ // Clear SW caches and retry once. CacheStorage alone is not enough: the
+ // chunk also lives in the HTTP disk cache (stable-named, max-age=600), which
+ // a bare retry would re-read — bust it so the retry fetches current bytes (#3097).
  if ('caches' in window) {
  const names = await caches.keys();
  await Promise.all(names.map(n => caches.delete(n)));
  }
+ await bustAssetHttpCache();
  try {
  return await factory();
  } catch (retryErr) {
