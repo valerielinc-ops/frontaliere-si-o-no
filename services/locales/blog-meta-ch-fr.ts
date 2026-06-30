@@ -748,6 +748,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guess-stabio-lavoro-merchandiser.title': 'Guess Stabio : opportunités d\'emploi en tant que merchandiseur',
     'blog.article.guess-stabio-lavoro-merchandiser.excerpt': 'Annonce d\'emploi à Stabio : recherche de marchands pour une marque de mode connue avec un contrat à durée déterminée.',
     'blog.article.guess-stabio-lavoro-merchandiser.imageAlt': 'Merchandiser travaillant dans un magasin à Stabio, Suisse',
+    'blog.article.volg-reckingen-2026.title': 'Volg Reckingen : nouveautés et mises à jour 2026',
+    'blog.article.volg-reckingen-2026.excerpt': 'Mises à jour récentes sur le supermarché Volg à Reckingen, nouvelles politiques et horaires pour 2026.',
+    'blog.article.volg-reckingen-2026.imageAlt': 'Paysage suisse avec lac et montagnes au coucher du soleil',
 };
 
 export default blogMetaChFr;

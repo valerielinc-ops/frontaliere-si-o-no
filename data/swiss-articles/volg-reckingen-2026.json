@@ -1,0 +1,40 @@
+{
+  "id": "volg-reckingen-2026",
+  "slug": "volg-reckingen-2026",
+  "publishedAt": "2026-06-30T05:18:29.566Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.802322186996813,
+    "confidence": 0.8,
+    "finalScore": 10.24185774959745,
+    "topK": [
+      {
+        "slug": "corsi-vela-adulti-luino-avav-2026",
+        "cosine": 0.8001451366873008
+      },
+      {
+        "slug": "noleggio-auto-frontalieri-ticino-2026",
+        "cosine": 0.7976063988322944
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.7965322259795197
+      },
+      {
+        "slug": "sportello-lavoro-varese-frontalieri-ticino",
+        "cosine": 0.7943031287527834
+      },
+      {
+        "slug": "gev-ticino-ambiente-2026",
+        "cosine": 0.7940551524283811
+      }
+    ],
+    "score": 10.24185774959745,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
