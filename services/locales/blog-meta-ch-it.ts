@@ -754,6 +754,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fielmann-interlaken-lavoro-svizzera.title': 'Lavorare da Fielmann a Interlaken: opportunità e ricerca posti',
     'blog.article.fielmann-interlaken-lavoro-svizzera.excerpt': 'Panoramica sulle opportunità di lavoro presso Fielmann a Interlaken e come trovare le posizioni aperte disponibili.',
     'blog.article.fielmann-interlaken-lavoro-svizzera.imageAlt': 'Vista del centro di Interlaken con negozio di ottica moderno e passanti.',
+    'blog.article.macchinisti-autisti-lavoro-locarno.title': 'Opportunità per macchinisti e autisti a Locarno: guida al lavoro',
+    'blog.article.macchinisti-autisti-lavoro-locarno.excerpt': 'Annunci di lavoro per macchinisti e conducenti a Locarno: offerta aggiornata, requisiti e possibilità per chi cerca impiego nel settore dei trasporti.',
+    'blog.article.macchinisti-autisti-lavoro-locarno.imageAlt': 'Vista della stazione di Locarno con operatori e conducenti in uniforme.',
 };
 
 export default blogMetaChIt;
