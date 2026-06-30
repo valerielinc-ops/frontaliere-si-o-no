@@ -5440,7 +5440,10 @@
         "vendeur-denner-ag-zurich-1ed56c",
         "venditore-denner-ag-langenthal-hutbop",
         "verkaufer-in-denner-ag-wattwil",
-        "vendeur-denner-ag-wattwil"
+        "vendeur-denner-ag-wattwil",
+        "seller-denner-ag-zurich-1d38ef",
+        "vendeur-denner-ag-zurich",
+        "venditore-denner-ag-zurich"
       ]
     },
     {
@@ -7837,26 +7840,9 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "seller-denner-ag-mohlin",
-          "verkaufer-in-denner-ag-mohlin",
-          "venditore-denner-ag-mohlin",
-          "venditore-denner-ag-wetzikon-douzkp",
-          "seller-denner-ag-wetzikon",
-          "vendeur-denner-ag-wetzikon",
-          "verkaufer-in-denner-ag-wetzikon",
-          "verkaufer-in-denner-ag-wetzikon-douzkp",
-          "seller-denner-ag-wetzikon-8e6f7a",
-          "vendeur-denner-ag-wetzikon-8e6f7a",
-          "venditore-denner-ag-wetzikon-8e6f7a",
-          "venditore-denner-ag-wetzikon",
-          "venditore-denner-ag-frauenfeld-7kk8ni",
-          "seller-denner-ag-frauenfeld-008421",
-          "verkaufer-in-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld-008421"
+          "verkaufer-in-denner-ag-urdorf-56ql1j",
+          "verkaufer-in-denner-ag-urdorf",
+          "venditore-denner-ag-langenthal"
         ],
         "en": [
           "verkaufer-in-denner-ag-urdorf-56ql1j",
@@ -7871,26 +7857,26 @@
         ]
       },
       "previousSlugs": [
-        "seller-denner-ag-mohlin",
-        "verkaufer-in-denner-ag-mohlin",
-        "venditore-denner-ag-mohlin",
-        "venditore-denner-ag-wetzikon-douzkp",
-        "seller-denner-ag-wetzikon",
-        "vendeur-denner-ag-wetzikon",
-        "verkaufer-in-denner-ag-wetzikon",
-        "verkaufer-in-denner-ag-wetzikon-douzkp",
-        "seller-denner-ag-wetzikon-8e6f7a",
-        "vendeur-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon",
-        "venditore-denner-ag-frauenfeld-7kk8ni",
-        "seller-denner-ag-frauenfeld-008421",
-        "verkaufer-in-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld-008421"
+        "verkaufer-in-denner-ag-urdorf-56ql1j",
+        "verkaufer-in-denner-ag-urdorf",
+        "venditore-denner-ag-zurich-fzpktp",
+        "seller-denner-ag-zurich-1d38ef",
+        "verkaufer-in-denner-ag-zurich",
+        "vendeur-denner-ag-zurich",
+        "venditore-denner-ag-zurich-1ed56c",
+        "venditore-denner-ag-zurich-1d38ef",
+        "seller-denner-ag-zurich-1ed56c",
+        "vendeur-denner-ag-zurich-1ed56c",
+        "venditore-denner-ag-zurich",
+        "venditore-denner-ag-langenthal-hutbop",
+        "seller-denner-ag-langenthal-d47c8f",
+        "verkaufer-in-denner-ag-langenthal",
+        "vendeur-denner-ag-langenthal-d47c8f",
+        "seller-denner-ag-langenthal",
+        "vendeur-denner-ag-langenthal-634638",
+        "verkaufer-in-denner-ag-wattwil",
+        "venditore-denner-ag-urdorf",
+        "vendeur-denner-ag-wattwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11684,9 +11670,9 @@
       "firstSeenAt": "2026-06-26T12:06:26.298Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -11733,6 +11719,12 @@
       "postalCode": "8500",
       "country": "CH",
       "previousSlugs": [
+        "seller-denner-ag-frauenfeld-008421",
+        "vendeur-denner-ag-frauenfeld-008421",
+        "venditore-denner-ag-langenthal-oggkv1",
+        "seller-denner-ag-langenthal",
+        "verkaufer-in-denner-ag-langenthal",
+        "venditore-denner-ag-sulgen",
         "venditore-denner-ag-mohlin-0713a1",
         "venditore-a-denner-ag-mohlin",
         "salesperson-denner-ag-mohlin",
@@ -11745,23 +11737,22 @@
         "venditore-denner-ag-ruti-zh-45abe1",
         "seller-denner-ag-mohlin-0713a1",
         "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
-        "verkaufer-in-denner-ag-wattwil",
-        "vendeur-denner-ag-wattwil",
-        "venditore-denner-ag-wattwil-8129f7",
-        "venditore-denner-ag-wattwil",
-        "venditore-denner-ag-ruti-zh-t7zg1v",
-        "venditore-denner-ag-frauenfeld-008421",
-        "verkaufer-in-denner-ag-urdorf-56ql1j",
-        "verkaufer-in-denner-ag-urdorf"
+        "verkaufer-in-denner-ag-frauenfeld",
+        "venditore-denner-ag-frauenfeld-008421"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ],
         "it": [
+          "venditore-denner-ag-langenthal-oggkv1",
+          "seller-denner-ag-langenthal",
+          "verkaufer-in-denner-ag-langenthal",
           "venditore-denner-ag-sulgen",
           "venditore-denner-ag-mohlin-0713a1",
           "venditore-a-denner-ag-mohlin",
@@ -11773,15 +11764,7 @@
           "verkaufer-in-denner-ag-ruti-zh",
           "vendeur-denner-ag-ruti-zh-45abe1",
           "venditore-denner-ag-ruti-zh-45abe1",
-          "seller-denner-ag-mohlin-0713a1",
-          "verkaufer-in-denner-ag-wattwil",
-          "vendeur-denner-ag-wattwil",
-          "venditore-denner-ag-wattwil-8129f7",
-          "venditore-denner-ag-wattwil",
-          "venditore-denner-ag-ruti-zh-t7zg1v",
-          "venditore-denner-ag-frauenfeld-008421",
-          "verkaufer-in-denner-ag-urdorf-56ql1j",
-          "verkaufer-in-denner-ag-urdorf"
+          "seller-denner-ag-mohlin-0713a1"
         ]
       }
     },
@@ -11914,7 +11897,9 @@
         "vendeur-denner-ag-langenthal-634638",
         "verkaufer-in-denner-ag-wattwil",
         "vendeur-denner-ag-wattwil",
-        "venditore-denner-ag-wattwil-8129f7"
+        "venditore-denner-ag-wattwil-8129f7",
+        "seller-denner-ag-zurich-1d38ef",
+        "vendeur-denner-ag-zurich"
       ]
     },
     {
@@ -55526,6 +55511,7 @@
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
+        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur"
       ],
       "salaryMin": 57500,
@@ -60379,7 +60365,8 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
+        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,

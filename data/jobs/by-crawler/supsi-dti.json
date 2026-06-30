@@ -342,7 +342,7 @@
       "titleByLocale": {
         "it": "Ricercatrice / Ricercatore con PhD nell’area del controllo intelligente per sistemi e reti",
         "en": "PostDoc Researcher in the area of intelligent control of networked systems",
-        "de": "Forscher / Forscher mit PhD im Smart Control Bereich für Systeme und Netzwerke",
+        "de": "Forscher/Forscher mit Promotion im Smart Control Bereich für Systeme und Netzwerke",
         "fr": "Chercheur / Chercheur titulaire d'un doctorat dans le domaine du contrôle intelligent des systèmes et des réseaux"
       },
       "descriptionByLocale": {
@@ -354,8 +354,8 @@
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
         "en": "postdoc-researcher-in-the-area-of-intelligent-control-of-networked-systems-supsi-dti-lugano",
-        "de": "forscher-forscher-mit-phd-im-smart-control-bereich-fur-systeme-und-netzwerke-supsi-dti-lugano",
-        "fr": "chercheur-chercheur-titulaire-d-un-doctorat-dans-le-domaine-du-controle-intelligent-des-systemes-et-des-reseaux-supsi"
+        "de": "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
+        "fr": "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -389,11 +389,15 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
+          "forscher-forscher-mit-phd-im-smart-control-bereich-fur-systeme-und-netzwerke-supsi-dti-lugano",
           "forscher-forscher-mit-promotion-im-smart-control-bereich-fur-systeme-und-netzwerke-supsi-dti-lugano"
+        ],
+        "fr": [
+          "chercheur-chercheur-titulaire-d-un-doctorat-dans-le-domaine-du-controle-intelligent-des-systemes-et-des-reseaux-supsi"
         ]
       },
       "previousSlugs": [
-        "forscher-forscher-mit-promotion-im-smart-control-bereich-fur-systeme-und-netzwerke-supsi-dti-lugano"
+        "forscher-forscher-mit-phd-im-smart-control-bereich-fur-systeme-und-netzwerke-supsi-dti-lugano"
       ]
     },
     {
@@ -443,7 +447,7 @@
       "titleByLocale": {
         "it": "Professoressa/Professore associata/o in Governance della sostenibilità e trasformazione sistemica",
         "en": "Associated Professorship in Sustainability Governance and Transformation",
-        "de": "Associate Professor/Professor/oder Governance von Nachhaltigkeit und systemischer Transformation",
+        "de": "Associate Professor / Professor / oder Governance von Nachhaltigkeit und systemischer Transformation",
         "fr": "Professeur associé/professeur/gouvernance de la durabilité et de la transformation systémique"
       },
       "descriptionByLocale": {
@@ -455,8 +459,8 @@
       "slugByLocale": {
         "it": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno",
         "en": "associated-professorship-in-sustainability-governance-and-transformation-supsi-dti-manno",
-        "de": "associate-professor-professor-oder-governance-von-nachhaltigkeit-und-systemischer-transformation-supsi-dti-manno",
-        "fr": "professeur-associe-professeur-gouvernance-de-la-durabilite-et-de-la-transformation-systemique-supsi-dti-manno"
+        "de": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno",
+        "fr": "professoressa-professore-associata-o-in-governance-della-sostenibilita-e-trasformazione-sistemica-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -511,7 +515,15 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "associate-professor-professor-oder-governance-von-nachhaltigkeit-und-systemischer-transformation-supsi-dti-manno"
+        ],
+        "fr": [
+          "professeur-associe-professeur-gouvernance-de-la-durabilite-et-de-la-transformation-systemique-supsi-dti-manno"
+        ]
+      }
     },
     {
       "id": "company-l4s84t",
@@ -564,8 +576,8 @@
       "slugByLocale": {
         "it": "professoressa-professore-associata-o-in-ergoterapia-e-condizioni-croniche-supsi-dti-manno",
         "en": "associated-professorship-in-occupational-therapy-and-chronic-conditions-supsi-dti-manno",
-        "de": "associate-professor-professor-in-ergotherapie-und-chronischen-erkrankungen-supsi-dti-manno",
-        "fr": "professeur-associe-professeur-en-ergotherapie-et-affections-chroniques-supsi-dti-manno"
+        "de": "professoressa-professore-associata-o-in-ergoterapia-e-condizioni-croniche-supsi-dti-manno",
+        "fr": "professoressa-professore-associata-o-in-ergoterapia-e-condizioni-croniche-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -622,7 +634,15 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "associate-professor-professor-in-ergotherapie-und-chronischen-erkrankungen-supsi-dti-manno"
+        ],
+        "fr": [
+          "professeur-associe-professeur-en-ergotherapie-et-affections-chroniques-supsi-dti-manno"
+        ]
+      }
     },
     {
       "id": "company-lr4hby",
@@ -779,8 +799,8 @@
       "slugByLocale": {
         "it": "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano-grado-",
         "en": "scientific-collaborator-in-the-area-of-machine-learning-and-nlp-in-financial-industry-supsi-dti-lugano-grado-d",
-        "de": "wissenschaftlicher-mitarbeiter-wissenschaftlicher-mitarbeiter-im-bereich-machine-learning-und-nlp-fur-den-finanzsektor",
-        "fr": "collaborateur-scientifique-collaborateur-scientifique-dans-le-domaine-de-l-apprentissage-automatique-et-du-nlp-pour-le"
+        "de": "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano-grado-",
+        "fr": "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano-grado-"
       },
       "titleByLocale": {
         "it": "Collaboratrice scientifica / Collaboratore scientifico nell'area del Machine Learning e NLP per il settore finanziario",
@@ -857,12 +877,18 @@
           "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano"
         ],
         "fr": [
-          "collaborateur-scientifique-collaborateur-scientifique-en-apprentissage-automatique-et-nlp-pour-le-secteur-financier"
+          "collaborateur-scientifique-collaborateur-scientifique-en-apprentissage-automatique-et-nlp-pour-le-secteur-financier",
+          "collaborateur-scientifique-collaborateur-scientifique-dans-le-domaine-de-l-apprentissage-automatique-et-du-nlp-pour-le"
+        ],
+        "de": [
+          "wissenschaftlicher-mitarbeiter-wissenschaftlicher-mitarbeiter-im-bereich-machine-learning-und-nlp-fur-den-finanzsektor"
         ]
       },
       "previousSlugs": [
         "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano",
-        "collaborateur-scientifique-collaborateur-scientifique-en-apprentissage-automatique-et-nlp-pour-le-secteur-financier"
+        "collaborateur-scientifique-collaborateur-scientifique-en-apprentissage-automatique-et-nlp-pour-le-secteur-financier",
+        "collaborateur-scientifique-collaborateur-scientifique-dans-le-domaine-de-l-apprentissage-automatique-et-du-nlp-pour-le",
+        "wissenschaftlicher-mitarbeiter-wissenschaftlicher-mitarbeiter-im-bereich-machine-learning-und-nlp-fur-den-finanzsektor"
       ]
     },
     {
@@ -1105,8 +1131,8 @@
       "titleByLocale": {
         "it": "Professore / Professoressa associato/a in Politiche sociali e care",
         "en": "Associate Professor in Social Policy and Care",
-        "de": "Professor / Associate Professor in Sozialpolitik und Pflege",
-        "fr": "Professeur / Professeur associé en politiques sociales et soins sociaux"
+        "de": "Professor / Associate Professor in Sozial- und Pflegepolitik",
+        "fr": "Professeur / Professeur associé en politiques sociales et de soins"
       },
       "descriptionByLocale": {
         "it": "# Professore / Professoressa associato/a in Politiche sociali e care\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\n\n## Professoressa/Professore in Politiche Sociali e care\npresso il\n\n## Centro competenze ricerca sociale (CreS)\ndel Dipartimento economia aziendale, sanità e sociale (DEASS).\nGrado di occupazione: 80%-100%. Entrata in funzione: 1 gennaio o data da convenire.\n\n## Contesto professionale\nIl Centro competenze Ricerca sociale (CReS) svolge attività di ricerca strettamente connesse al contesto istituzionale locale, mantenendo al contempo un dialogo costante con gli sviluppi a livello nazionale e internazionale. Il Centro adotta un approccio multidisciplinare nell’ambito delle scienze sociali, con una prospettiva prevalentemente socio-economica e socio-educativa. Il CReS promuove e realizza attività di ricerca strettamente correlate al lavoro sociale, contribuendo inoltre alla formazione di base e alla formazione continua nel settore.\nLa ricerca del Centro è organizzata in linee tematiche che affrontano le principali dimensioni del cambiamento sociale, tra cui:\n- trasformazioni del lavoro e dell’occupazione,\n- protezione sociale e inclusione nel mercato del lavoro,\n- politiche familiari,\n- uguaglianza di genere e tutela dell’infanzia,\n- economia regionale e servizi pubblici,\n- gioventù, migrazione e partecipazione sociale,\n- dinamiche urbane, cittadinanza e sostenibilità.\n\nAttraverso queste aree tematiche, il Centro promuove la collaborazione interdisciplinare e sviluppa progetti che analizzano le disuguaglianze sociali, le trasformazioni del welfare e l’evoluzione delle istituzioni sociali ed economiche. Mira inoltre a fungere da punto di riferimento per la ricerca sociale applicata e partecipativa, rafforzando il collegamento tra conoscenza accademica, pratica professionale e bisogni delle comunità e degli attori territoriali.\nIl Centro dedica particolare attenzione alle dimensioni relazionali e istituzionali attraverso cui si producono e si sostengono la protezione sociale, la cura, l’inclusione e il benessere. Le politiche sociali e il care si collocano all’intersezione tra le condizioni individuali e quelle strutturali, incluse disuguaglianze, povertà ed esclusione. Il lavoro sociale è centrale in questo ambito, in quanto connette le pratiche quotidiane di cura alle politiche sociali, traducendo i bisogni in diritti e negoziando responsabilità tra individui, famiglie, servizi, mercato e istituzioni pubbliche.\nIn un contesto caratterizzato da profonde trasformazioni dei mercati del lavoro, delle politiche sociali e familiari, delle economie regionali e dei territori locali, il CReS contribuisce allo sviluppo di una società più equa, prospera e sostenibile, promuovendo iniziative volte a sostenere il benessere e la dignità, rafforzare la giustizia sociale e favorire il riconoscimento dei diritti umani.\nIl/La Professore/Professoressa associato/a in Politiche sociali e care contribuirà a queste attività di ricerca, con particolare attenzione alle risposte istituzionali alle sfide sociali contemporanee, incluse le disuguaglianze, le vulnerabilità, le politiche familiari e le questioni legate ai giovani.\n\n## Compiti e responsabilità\n\n## Ricerca e servizi\n- Assumere un ruolo scientifico senior nel campo delle politiche sociali e del care, acquisendo e realizzando progetti di ricerca.\n- Produrre pubblicazioni accademiche di alto livello pertinenti al settore.\n- Acquisire e coordinare mandati di ricerca e di servizio a livello locale, nazionale e internazionale.\n- Promuovere la collaborazione con gli stakeholder del proprio ambito, mantenendo forti legami con le istituzioni locali e con reti accademiche e professionali nazionali e internazionali.\n- Favorire la collaborazione con altri Centri competenze/Dipartimenti della SUPSI, in particolare nell’ambito della ricerca sul care, che attraversa diverse aree del DEASS.\n\n## Formazione\n- Progettare e svolgere attività di insegnamento, contribuendo in modo significativo alla formazione di base e continua.\n- Partecipare attivamente e in modo collegiale allo sviluppo dell’offerta formativa del Dipartimento.\n\n## Conduzione / gestione\n- Assumere la responsabilità di una linea di ricerca.\n- Garantire la sostenibilità finanziaria e il successo operativo dei progetti.\n- Collaborare allo sviluppo delle attività interdisciplinari del CReS, in sinergia con i colleghi.\n- Contribuire attivamente a promuovere collaborazione e coesione all’interno della comunità di ricerca del Centro.\n\n## Profilo di competenze e requisiti necessari\n- Dottorato di ricerca (PhD) in sociologia, scienze politiche, scienze sociali o ambiti affini.\n- Produzione scientifica rilevante per i temi della posizione.\n- Esperienza comprovata nella ricerca qualitativa e partecipativa e in approcci collaborativi, inclusa la partecipazione attiva delle comunità interessate. L’esperienza in metodi quantitativi e/o misti costituisce titolo preferenziale.\n- Esperienza comprovata nella ricerca applicata presso università o scuole universitarie professionali, con acquisizione e gestione di progetti.\n- Esperienza significativa e riconosciuta nell’insegnamento universitario.\n- Aver contribuito, nel proprio percorso professionale, allo sviluppo istituzionale.\n- Esperienza dimostrabile nel trasferimento di conoscenze verso partner socio-economici, nonché partecipazione ad associazioni professionali o scientifiche.\n- Conoscenza di almeno una lingua nazionale svizzera oltre all’italiano e all’inglese.\n- Spiccate competenze comunicative, relazionali e sociali.\n\n## Ulteriori criteri preferenziali\n- Abilitazione didattica (o impegno a conseguirla entro 4 anni dalla nomina).\n- Conoscenza del sistema universitario svizzero e del contesto socio-economico ticinese.\n\n## Offriamo\n- Una posizione accademica presso una scuola universitaria professionale riconosciuta a livello nazionale.\n- Un’attività di ricerca e formazione stimolante, con un elevato grado di autonomia e responsabilità in un ambiente universitario in costante evoluzione.\n- L’interazione con un team di colleghe e colleghi interdisciplinari motivate/i.\n- Un ambiente di lavoro attento alla qualità delle relazioni umane e all’equilibrio tra vita professionale e privata.\n\n## Requisiti della funzione\nI requisiti per la funzione sono pubblicati nelle “Direttive interne SUPSI” e nel “Regolamento del personale SUPSI”, disponibili nella sezione “Documenti ufficiali”.\nSaranno prese in considerazione esclusivamente le candidature presentate entro il\n\n## 30.07.2026\ntramite l’apposito formulario e corredate da:\n- Lettera di motivazione in italiano o in inglese.\n- Curriculum Vitae et studiorum completo.\n- Elenco delle pubblicazioni scientifiche e copie delle 5 più significative.\n- Diplomi formativi e certificati professionali.\n- Riconoscimenti e premi conseguiti.\n- Almeno due lettere recenti di referenza attestanti qualità professionali, scientifiche e didattiche.\n- Presentazione delle attività didattiche svolte a livello universitario con relative valutazioni.\n- Presentazione delle attività svolte in progetti di ricerca.\n\n## Informazioni per la candidatura\nUlteriori informazioni possono essere richieste a:\n\n## Luca Crivelli\n, Direttore DEASS (tel. +41 58 666 64 44).\nSaranno considerate solo le candidature complete inviate entro il\n\n## 30 luglio 2026\ntramite formulario ufficiale. Le candidature incomplete, inviate ad altri indirizzi o oltre il termine non saranno prese in considerazione.",
@@ -1117,8 +1143,8 @@
       "slugByLocale": {
         "it": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno",
         "en": "associate-professor-in-social-policy-and-care-supsi-dti-manno",
-        "de": "professor-associate-professor-in-sozialpolitik-und-pflege-supsi-dti-manno",
-        "fr": "professeur-professeur-associe-en-politiques-sociales-et-soins-sociaux-supsi-dti-manno"
+        "de": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno",
+        "fr": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -1168,15 +1194,17 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
+          "professor-associate-professor-in-sozialpolitik-und-pflege-supsi-dti-manno",
           "professor-associate-professor-in-sozial-und-pflegepolitik-supsi-dti-manno"
         ],
         "fr": [
+          "professeur-professeur-associe-en-politiques-sociales-et-soins-sociaux-supsi-dti-manno",
           "professeur-professeur-associe-en-politiques-sociales-et-de-soins-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "professor-associate-professor-in-sozial-und-pflegepolitik-supsi-dti-manno",
-        "professeur-professeur-associe-en-politiques-sociales-et-de-soins-supsi-dti-manno"
+        "professor-associate-professor-in-sozialpolitik-und-pflege-supsi-dti-manno",
+        "professeur-professeur-associe-en-politiques-sociales-et-soins-sociaux-supsi-dti-manno"
       ]
     },
     {
@@ -1483,8 +1511,8 @@
       "titleByLocale": {
         "it": "Ricercatrice / Ricercatore con PhD nell’area di Elettronica digitale, microelettronica e bioelettronica",
         "en": "Postdoctoral Researcher in the area of Digital Electronics, microelectronics and bioelectronics",
-        "de": "Forscher / PhD Forscher im Bereich Digitale Elektronik, Mikroelektronik und Bioelektronik",
-        "fr": "Chercheur / PhD Chercheur dans le domaine de l'électronique numérique, de la microélectronique et de la bioélectronique"
+        "de": "Forscher / Forscher mit PhD im Bereich Digitale Elektronik, Mikroelektronik und Bioelektronik",
+        "fr": "Chercheur / Chercheur titulaire d'un doctorat en électronique numérique, en microélectronique et en bioélectronique"
       },
       "descriptionByLocale": {
         "it": "# Ricercatrice / Ricercatore con PhD nell’area di Elettronica digitale, microelettronica e bioelettronica\n\nLa Scuola Universitaria Professionale della Svizzera italiana (SUPSI) mette a concorso una posizione come\nRicercatrice/Ricercatore con PhD nell’area di Elettronica digitale, microelettronica e bioelettronica\npresso l’\n\n## Istituto sistemi e elettronica applicata (ISEA)\ndel Dipartimento tecnologie innovative (DTI) con sede a Lugano. In base all’esperienza maturata o al grado di maturità professionale la funzione potrebbe essere adattata a Ricercatrice/Ricercatore senior o Docente-Ricercatrice/Ricercatore senior. Grado d’occupazione dell’80%-100%. Entrata in servizio 1° novembre 2026 o data da convenire.\n\n## Ambito e scopo della posizione\nLa posizione è inserita nelle attività di ricerca e sviluppo dell’ISEA ed è focalizzata sulla progettazione di circuiti integrati digitali e misti, con particolare attenzione allo sviluppo di ASIC e di sistemi basati su FPGA.\nLa persona selezionata contribuirà alla progettazione e implementazione di sensori SPAD (Single Photon Avalanche Diode) per la realizzazione di rilevatori di fotoni destinati ad applicazioni scientifiche.\nL’attività si svolgerà in stretta collaborazione con team interdisciplinari, comprendenti ricercatori accademici, ingegneri di sistemi embedded, ingegneri software e partner industriali, per lo sviluppo di dispositivi innovativi con applicazioni che spaziano dall’analisi dei materiali alla realizzazione di strumenti per l’osservazione solare.\n\n## Responsabilità e attività\nLa persona selezionata entrerà a far parte di un gruppo di ricerca attivo su sistemi digitali ad alte prestazioni basati su FPGA e sulla realizzazione di ASIC, occupandosi in particolare di:\n- attività di ricerca applicata nell’area dell’Elettronica digitale, microelettronica e bioelettronica\n- modellizzazione di sensori basati su diodi SPAD\n- realizzazione di sensori mono- e bidimensionali basati su diodi SPAD\n- trasferimento dei risultati della ricerca alla didattica e contributo allo sviluppo del Corso di laurea in ingegneria elettronica, incluso attività di docenza\n- divulgazione scientifica tramite pubblicazioni e presentazione dei risultati in conferenze internazionali\n\n## Requisiti\nPer ricoprire al meglio questa posizione, sono richiesti i seguenti requisiti.\n- Dottorato di ricerca (PhD) in microelettronica\n- Esperienza comprovata nel design e nella validazione di ASIC digitali e misti (analogico/digitale)\n- Solida esperienza con il tool di progettazione Cadence e tools EDA\n- Ottima padronanza di C/C++, Python e familiarità con sistemi di controllo versione (ad es. Git)\n- Ottima padronanza di tool di simulazione numerica\n- Solida preparazione matematica\n- Capacità di lavorare in autonomia e di gestire scadenze e consegne di progetto\n- Storico di pubblicazioni scientifiche o brevetti nel settore della progettazione di circuiti integrati e in ambiti affini al presente bando\n- Comprovata capacità di lavorare in team interdisciplinari e internazionali\n- Spirito d’iniziativa, flessibilità e attitudine al lavoro in contesti multidisciplinari e multiculturali\n- Ottime capacità relazionali e collaborative\n\n## Offriamo\nSUPSI offre un ambiente stimolante e opportunità uniche per chi desidera crescere professionalmente e contribuire attivamente all’innovazione. In particolare, la posizione offre:\n- Un contratto di durata massima, con possibilità di rinnovo\n- Un salario competitivo, in linea con gli standard svizzeri e l’esperienza del candidato\n- Un lavoro stimolante in un team di ricerca giovane e dinamico, e la partecipazione a progetti di ricerca nazionali ed europei all’avanguardia\n- La possibilità di contribuire attivamente allo sviluppo delle attività di ricerca applicata dell'istituto\n- Una posizione che combina ricerca scientifica e sviluppo tecnologico avanzato, con opportunità di sviluppo professionale e scientifico\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 30.07.2026\ntramite il formulario di candidatura dedicato, corredate da:\n- Curriculum vitae con elenco delle pubblicazioni e (se disponibile) link alla tesi di dottorato\n- Elenco degli esami sostenuti e dei relativi voti conseguiti durante il percorso di laurea triennale e magistrale\n- Elenco di due referenze (con relativi indirizzi e-mail)\n- Lettera di motivazione, comprensiva di una breve descrizione delle esperienze di ricerca precedenti e degli interessi futuri (1–2 pagine)\n\nPer ulteriori informazioni è possibile rivolgersi al\nProf. Dr. Daniele Allegri\n, Direttore Istituto sistemi e elettronica applicata. Non saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
@@ -1495,8 +1523,8 @@
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all",
         "en": "postdoctoral-researcher-in-the-area-of-digital-electronics-microelectronics-and-bioelectronics-supsi-dti-lugano-in-base-all",
-        "de": "forscher-phd-forscher-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano",
-        "fr": "chercheur-phd-chercheur-dans-le-domaine-de-l-electronique-numerique-de-la-microelectronique-et-de-la-bioelectronique"
+        "de": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all",
+        "fr": "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano-in-base-all"
       },
       "requirementsByLocale": {
         "it": [
@@ -1553,15 +1581,19 @@
           "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano"
         ],
         "de": [
+          "forscher-phd-forscher-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano",
           "forscher-forscher-mit-phd-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano"
         ],
         "fr": [
+          "chercheur-phd-chercheur-dans-le-domaine-de-l-electronique-numerique-de-la-microelectronique-et-de-la-bioelectronique",
           "chercheur-chercheur-titulaire-d-un-doctorat-en-electronique-numerique-en-microelectronique-et-en-bioelectronique-supsi"
         ]
       },
       "previousSlugs": [
         "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano",
+        "forscher-phd-forscher-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano",
         "forscher-forscher-mit-phd-im-bereich-digitale-elektronik-mikroelektronik-und-bioelektronik-supsi-dti-lugano",
+        "chercheur-phd-chercheur-dans-le-domaine-de-l-electronique-numerique-de-la-microelectronique-et-de-la-bioelectronique",
         "chercheur-chercheur-titulaire-d-un-doctorat-en-electronique-numerique-en-microelectronique-et-en-bioelectronique-supsi"
       ]
     },
@@ -1991,13 +2023,13 @@
         "it": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "en": "assistant-with-bachelor-s-degree-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "de": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-        "fr": "assistante-au-baccalaureat-es-arts-en-conception-d-interaction-supsi-dti-mendrisio"
+        "fr": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Bachelor in formazione Master of Arts in Interaction design",
         "en": "Assistant with Bachelor's Degree / Master of Arts in Interaction Design",
         "de": "Assistent mit Bachelor of Arts in Interaction Design",
-        "fr": "Assistante au baccalauréat ès arts en conception d'interaction"
+        "fr": "Assistant au baccalauréat ès arts en design d'interaction"
       },
       "descriptionByLocale": {
         "it": "# Assistente con Bachelor in formazione Master of Arts in Interaction design\n\nIl Dipartimento ambiente costruzioni e design, con sede a Mendrisio, mette a concorso una posizione di\n, presso il\n\n## FabLab Laboratorio di fabbricazione digitale\n\n## e\n\n## Istituto Design\n. Entrata in funzione: settembre 2026.Grado di occupazione del 62.50 %.\n\n## Mansioni\n- Partecipare alle attività di gestione organizzativa, di disseminazione e mantenimento del FabLab Laboratorio di Fabbricazione digitale\n- Partecipare e fornire supporto allo sviluppo dei progetti nell’area di ricerca in interaction design\n\n## Requisiti\n- Bachelor in Comunicazione visiva, Architettura d’interni, Architettura, design del prodotto e media interaction design, design engineering o design e tecnologia conseguito da non più di tre anni.\n- Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.\n- Ottima attidudine all’apprendimento di tecnologie per la prototipazione.\n- Auspicabili conoscenze in comunicazione digitale, di linguaggi e tecniche di progettazione web e/o programmazione informatica come pure di tecniche e tecnologie di modellazione 3D e prototipazione rapida (stampa 3D, taglio laser).\n- Attitudini creative, spirito di iniziativa e buone competenze di comunicazione.\n- Precisione e cura dei dettagli.\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di lavorare in autonomia su percorsi progettuali con scadenze stabilite.\n- Disponibilità e flessibilità per il raggiungimento degli obiettivi.\n- Buone conoscenze della lingua inglese. Conoscenza della lingua italiana auspicabile e/o volontà ad imparare la lingua per l’inserimento in un contesto lavorativo italofono. La conoscenza di una seconda lingua nazionale costituisce titolo preferenziale.\n\n## Offriamo\n- Contratto a tempo determinato della durata di 3 anni.\n- Condivisione di attività e collaborazione con un team di ricercatori con vasta esperienza in progetti di ricerca e sviluppo nell'ambito dell’interaction design, della fabbricazione digitale e nelle aree della progettazione tangenti all’interazione.\n- Contatto diretto con professionisti del territorio e internazionali.\n- Opportunità di formare nuove competenze, sia pratiche che teoriche.\n- Inserimento in contesto di lavoro internazionale, giovane, dinamico e in continua evoluzione.\n- Attività stimolante e creativa in ambiente universitario.\n- Percorso di studio flessibile al Master of Arts in Interaction Design\n\n## Informazioni aggiuntive\nLa posizione è strettamente legata alla frequenza del Master in Interaction design (120 ECTS), con frequenza part-time e della durata di 3 anni.\nInformazioni supplementari possono essere richieste a\nMassimo Botta\n. Saranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 5 luglio 2026\ntramite l'apposito formulario.Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.",
@@ -2055,6 +2087,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "fr": [
+          "assistante-au-baccalaureat-es-arts-en-conception-d-interaction-supsi-dti-mendrisio",
           "assistant-au-baccalaureat-es-arts-en-design-d-interaction-supsi-dti-mendrisio"
         ],
         "de": [
@@ -2062,7 +2095,7 @@
         ]
       },
       "previousSlugs": [
-        "assistant-au-baccalaureat-es-arts-en-design-d-interaction-supsi-dti-mendrisio",
+        "assistante-au-baccalaureat-es-arts-en-conception-d-interaction-supsi-dti-mendrisio",
         "assistent-mit-bachelor-of-arts-in-interaction-design-supsi-dti-mendrisio-l4rl59",
         "assistant-with-master-s-degree-for-the-master-of-arts-in-interaction-design-supsi-dti-mendrisio"
       ]
@@ -2767,7 +2800,7 @@
         "it": "Dottorato in Antropologia/Sociologia della salute e della malattia e/o Studi sulla scienza e la tecnologia",
         "en": "PhD Position in Anthropology/Sociology of Health and Illness and/or Science and Technology Studies",
         "de": "PhD in Anthropologie / Soziologie von Gesundheit und Krankheit und / oder Studien über Wissenschaft und Technologie",
-        "fr": "Doctorat en anthropologie/sociologie de la santé et des maladies et/ou études scientifiques et technologiques"
+        "fr": "Doctorat en anthropologie/sociologie de la santé et des maladies et/ou études en science et technologie"
       },
       "descriptionByLocale": {
         "it": "# Dottorato in Antropologia/Sociologia della salute e della malattia e/o Studi sulla scienza e la tecnologia\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\n\n## Dottoranda/Dottorando\npresso il\n\n## Centro di competenza Cura, Salute e Società (CARES)\nall'interno del Dipartimento di Economia aziendale, Sanità e Sociale (DEASS) a Manno, Svizzera.\nIl posto è finanziato dal progetto “\nThe expertisation of patient knowledge: the recognition, institutionalisation and professionalisation of patient expertise in healthcare and society (EPiK)\n” (FNS Grant n° 10.007.607).\nLa persona selezionata lavorerà sotto la supervisione della dott.ssa Giada Danesi, CARES, DEASS-SUPSI, e della prof.ssa Nolwenn Bühler, Laboratorio di Studi della scienza e la tecnologia (STS Lab) dell’Istituto di scienze sociali (ISS) dell’Università di Losanna (UNIL). La persona selezionata sarà iscritta al programma di dottorato dell’Università di Losanna, con la possibilità di partecipare al programma di dottorato CUSO e di aderire al programma di dottorato offerto dalla Swiss School of Public Health (SSPH+).\nGrado di occupazione: 100%\nEntrata in funzione: 1° gennaio 2027 o da convenire\n\n## Contesto professionale\nIl Centro di competenza Cura, Salute e Società (CARES) della SUPSI è un centro di ricerca interdisciplinare che esplora la cura come fenomeno complesso, nelle sue dimensioni cliniche, sociali, etiche, organizzative ed economiche. Integrando le scienze sociali e infermieristiche, il Centro promuove una comprensione olistica della cura e collabora con la società per affrontare le sfide contemporanee dei sistemi di salute e welfare.\nIl Laboratorio di Studi della Scienza e la Tecnologia (STS Lab) dell’Università di Losanna è un laboratorio transdisciplinare che esplora le complesse relazioni tra scienza, tecnologia e società. Esso mobilita metodi delle scienze sociali per affrontare le sfide pratiche, ecologiche e politiche della scienza, dell’innovazione e della tecnologia.\nL’Istituto di Scienze Sociali (ISS) dell’Università di Losanna analizza fenomeni sociali e culturali complessi all’interno di un ambiente accademico favorito dalla collaborazione interdisciplinare e dal dialogo critico.\n\n## Panoramica del progetto\nLa persona selezionata contribuirà a un progetto volto ad analizzare il riconoscimento, l’istituzionalizzazione e la professionalizzazione delle competenze dei pazienti e dei caregiver informali all’interno e all’esterno delle istituzioni sanitarie in Svizzera. La ricerca indaga come le conoscenze dei pazienti diventano competenze e acquisiscono legittimità all’interno del sistema sanitario, aprendo potenzialmente la strada a una carriera professionale in tre settori medici di rilievo e in crescita: 1) salute mentale, 2) diabete e 3) cancro. Il progetto affronta così due fenomeni sociali e scientifici rilevanti in tale contesto: 1) la legittimazione epistemica, ovvero la natura delle competenze dei pazienti riconosciute come autorevoli (o meno) e i processi di istituzionalizzazione e professionalizzazione in diversi ambiti medici, compreso il ruolo della digitalizzazione nel promuovere la legittimazione delle competenze dei pazienti; 2) le disuguaglianze sociali, ovvero i processi di inclusione ed esclusione sociale in relazione all’istituzionalizzazione e professionalizzazione delle competenze dei pazienti.\nLa persona selezionata svolgerà la ricerca relativa a uno dei casi di studio indagati (cancro) e contribuirà al confronto con gli altri due casi di studio indagati (diabete e salute mentale). La ricerca sarà condotta in Svizzera, compresi 6-9 mesi in Svizzera romanda. I metodi utilizzati saranno qualitativi ed etnografici con l’obiettivo di esaminare come i pazienti e/o i caregiver informali diventano e vengono mobilitati come esperti nel campo dei tumori dell'apparato riproduttivo femminile e maschile. La ricerca esplora le dinamiche epistemiche, istituzionali, sociali e digitali in gioco. Al di là di queste dimensioni, il progetto contribuirà a riflessioni interdisciplinari più ampie sulla riorganizzazione dell'assistenza sanitaria all’epoca delle misure di coinvolgimento dei pazienti e del pubblico e della digitalizzazione dell'assistenza sanitaria.\n\n## Compiti e responsabilità\nLa persona selezionata dovrà:\n- Assumersi la responsabilità di tutte le fasi del progetto di ricerca sul caso di studio relativo al cancro, compresa la raccolta di dati in tutta la Svizzera (analisi documentaria, osservazioni etnografiche in diversi contesti e interviste), la gestione dei dati, l’analisi dei dati qualitativi, l’interpretazione dei risultati, la diffusione dei risultati e la redazione di una tesi di dottorato.\n- Garantire il trasferimento e la diffusione delle conoscenze attraverso riunioni di gruppo, presentazioni a conferenze, pubblicazioni scientifiche e il coinvolgimento delle parti interessate.\n- Collaborare attivamente con i membri e i partner del progetto e contribuire al dialogo interdisciplinare.\n- Gestire i compiti amministrativi specifici del progetto con accuratezza e affidabilità.\n- Partecipare alle attività scientifiche e alla vita accademica del CARES presso la SUPSI e del STS Lab presso l’UNIL, inclusi seminari, workshop e iniziative collaborative.\n- La persona selezionata è tenuta a rispettare i requisiti del programma di dottorato dell’Università di Losanna, in termini di condizioni per il conseguimento del titolo. Il titolo di dottore di ricerca sarà conferito dall’Università di Losanna, Istituto di Scienze Sociali, Facoltà di Scienze Sociali e Politiche.\n\n## Profilo e requisiti\n- Laurea magistrale in scienze sociali.\n- Ottima padronanza dell’italiano (parlato e scritto), del francese (parlato e scritto) e dell’inglese (parlato e scritto); la conoscenza del tedesco costituisce titolo preferenziale.\n- Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, incluso la raccolta e l’analisi di dati qualitativi.\n- Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.\n- Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.\n- Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.\n- Flessibilità, entusiasmo e un atteggiamento proattivo al fine di contribuire attivamente al progetto e alla vita scientifica del CARES.\n\n## Offriamo\n- Attività di ricerca e formazione stimolanti, caratterizzate da un elevato grado di autonomia e responsabilità, in un contesto universitario in continua evoluzione.\n- Un tema di ricerca con un impatto concreto nel settore sanitario e nelle politiche pubbliche.\n- Un team interdisciplinare e collaborazioni nazionali e internazionali.\n- Mobilità nazionale e internazionale.\n- Un ambiente di lavoro attento alla qualità delle relazioni umane e all'innovazione.\n- Finanziamenti per conferenze, workshop e opportunità di formazione.\n- Contratto di lavoro a tempo determinato (4 anni).\n\n## Ulteriori informazioni per i candidati\nI requisiti per questa posizione sono pubblicati nelle “Direttive interne SUPSI” e nel “Regolamento del personale SUPSI”, disponibili alla pagina “Documenti ufficiali”. Ulteriori informazioni possono essere richieste a\nDr.ssa Giada Danesi\n, Ricercatrice. Saranno prese in considerazione solo le candidature inviate entro il\n\n## 23 agosto 2026\ntramite l’apposito formulario.\nNon saranno accettate candidature incomplete, inviate ad altri indirizzi o dopo la scadenza del termine.\nOltre ai documenti richiesti in fase di candidatura online (lettera di motivazione in inglese, curriculum vitae, diplomi/certificati, certificati di lavoro, copia della tesi e/o copia di un lavoro di ricerca), potrà essere richiesta ulteriore documentazione in seguito (estratto del casellario giudiziale, copia di un documento d’identità).",
@@ -2800,8 +2833,8 @@
       "slugByLocale": {
         "it": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno",
         "en": "phd-position-in-anthropology-sociology-of-health-and-illness-and-or-science-and-technology-studies-supsi-dti-manno",
-        "de": "phd-in-anthropologie-soziologie-von-gesundheit-und-krankheit-und-oder-studien-uber-wissenschaft-und-technologie-supsi",
-        "fr": "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-scientifiques-et-technologiques-supsi-dti"
+        "de": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno",
+        "fr": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno"
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2825,11 +2858,15 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "fr": [
+          "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-scientifiques-et-technologiques-supsi-dti",
           "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-en-science-et-technologie-supsi-dti-manno"
+        ],
+        "de": [
+          "phd-in-anthropologie-soziologie-von-gesundheit-und-krankheit-und-oder-studien-uber-wissenschaft-und-technologie-supsi"
         ]
       },
       "previousSlugs": [
-        "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-en-science-et-technologie-supsi-dti-manno"
+        "doctorat-en-anthropologie-sociologie-de-la-sante-et-des-maladies-et-ou-etudes-scientifiques-et-technologiques-supsi-dti"
       ]
     },
     {
