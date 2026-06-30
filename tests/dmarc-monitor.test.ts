@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { analyze, isKnown, nextEnforcementStep } from '../scripts/dmarc-monitor.mjs';
+import { analyze, isKnown, nextEnforcementStep, buildFailBody } from '../scripts/dmarc-monitor.mjs';
 
 // Helper: build a GraphQL-shaped source row.
 function row(sourceOrgName: string, total: number, dmarc: number, sourceIP = '1.2.3.4') {
@@ -152,6 +152,37 @@ describe('dmarc-monitor', () => {
     it('suggests nothing when not ready, regardless of policy', () => {
       expect(nextEnforcementStep('none', notReady)).toBeNull();
       expect(nextEnforcementStep('quarantine', notReady)).toBeNull();
+    });
+  });
+
+  describe('buildFailBody — null-policy guard', () => {
+    // A minimal analysis with one failing source to exercise the policy-aware advice.
+    const a = analyze([
+      row('MAILJET SAS', 500, 500),
+      row('Sketchy Spoofer Ltd', 50, 0, '9.9.9.9'),
+    ]);
+    const since = '2026-06-23';
+
+    it('with policy=null gives cautious "policy unknown" advice instead of defaulting to non-reject branch', () => {
+      const body = buildFailBody(a, 7, since, null);
+      // Must acknowledge the uncertainty — not silently treat null as "not reject".
+      expect(body).toContain('sconosciuta');
+      // Must NOT give the (wrong) "fix before tightening" advice that assumes non-reject.
+      expect(body).not.toContain('PRIMA di irrigidire la policy');
+      // Must NOT give the reject-specific "already rejected" text either (we don't know).
+      expect(body).not.toContain('rifiutata ADESSO**: è\n  consegna legittima');
+    });
+
+    it('with policy=reject gives the urgent "already bouncing" advice for a known sender', () => {
+      const body = buildFailBody(a, 7, since, 'reject');
+      expect(body).toContain('rifiutata ADESSO');
+      expect(body).toContain('sta già rifiutando');
+    });
+
+    it('with policy=none gives the "fix before tightening" non-urgent advice', () => {
+      const body = buildFailBody(a, 7, since, 'none');
+      expect(body).toContain('PRIMA di irrigidire la policy');
+      expect(body).not.toContain('rifiutata ADESSO**: è\n  consegna legittima');
     });
   });
 });
