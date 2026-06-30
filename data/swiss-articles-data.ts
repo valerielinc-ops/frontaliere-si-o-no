@@ -2213,6 +2213,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tempi-attesa-dogana-chiasso-strada',
+    category: 'pratico',
+    date: '2026-06-30T00:24:12.899Z',
+    image: '/images/blog/tempi-attesa-dogana-chiasso-strada.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

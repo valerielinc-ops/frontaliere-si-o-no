@@ -9495,6 +9495,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tempi-attesa-dogana-chiasso-strada': {
+    title: 'Dogana Chiasso: tempi di attesa e viabilità | Frontaliere Ticino',
+    description: 'Guida ai tempi di attesa alla dogana stradale di Chiasso. Consigli pratici per gestire i flussi di traffico tra Italia e Svizzera in modo efficiente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dogana, chiasso, tempi, attesa',
+    ogTitle: 'Dogana Chiasso: Tempi di Attesa e Consigli Utili',
+    ogDescription: 'Guida ai tempi di attesa alla dogana stradale di Chiasso. Consigli pratici per gestire i flussi di traffico tra Italia e Svizzera.',
+    canonicalPath: '/articoli-svizzera/tempi-attesa-dogana-chiasso-strada/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dogana Chiasso: tempi di attesa e viabilità",
+      "description": "Guida ai tempi di attesa alla dogana stradale di Chiasso. Consigli pratici per gestire i flussi di traffico tra Italia e Svizzera in modo efficiente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tempi-attesa-dogana-chiasso-strada.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dogana stradale di Chiasso durante le ore di punta"
+      },
+      "datePublished": "2026-06-30T00:24:12+00:00",
+      "dateModified": "2026-06-30T00:24:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tempi-attesa-dogana-chiasso-strada/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
