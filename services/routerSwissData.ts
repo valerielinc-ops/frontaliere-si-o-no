@@ -272,6 +272,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'tempi-attesa-dogana-chiasso-strada': { it: 'tempi-attesa-dogana-chiasso-strada', en: 'chiasso-customs-waiting-times', de: 'wartezeiten-zoll-chiasso-strasse', fr: 'temps-attente-douane-chiasso-route' },
  'benzina-prezzi-svizzera-oggi': { it: 'benzina-prezzi-svizzera-oggi', en: 'switzerland-gasoline-prices-today', de: 'schweiz-benzinpreise-heute', fr: 'prix-essence-suisse-aujourd-hui' },
  'guess-stabio-lavoro-merchandiser': { it: 'guess-stabio-lavoro-merchandiser', en: 'guess-stabio-job-merchandiser', de: 'guess-stabio-job-merchandiser', fr: 'guess-stabio-emploi-merchandiser' },
+ 'volg-reckingen-2026': { it: 'volg-reckingen-2026', en: 'volg-reckingen-2026', de: 'volg-reckingen-2026', fr: 'volg-reckingen-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
