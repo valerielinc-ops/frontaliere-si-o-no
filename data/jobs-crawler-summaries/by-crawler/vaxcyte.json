@@ -1,18 +1,59 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-06-30T12:51:21.901Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-06-30T23:26:00.922Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2701,
-  "avgDurationMs": 2701,
+  "durationMs": 2520,
+  "avgDurationMs": 2520,
   "durationHistory": [
-    2701
+    2520
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "vaxcyte-fb837ce9abee",
+      "slug": "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Senior Manager, Manufacturing Systems & Operations Readiness (Contractor)",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-30T23:25:58.849Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "contract",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
+      "department": "Temporary Opportunities",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "vaxcyte-f558683786d7",
@@ -26,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:51:19.583Z",
+      "crawledAt": "2026-06-30T23:25:58.874Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:51:19.563Z",
+      "crawledAt": "2026-06-30T23:25:58.860Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -108,7 +149,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:51:19.494Z",
+      "crawledAt": "2026-06-30T23:25:58.781Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
