@@ -9,7 +9,7 @@
         "en": "sr-director-of-guest-experience-development-delivery-msc-geneva",
         "it": "sr-director-of-guest-experience-development-delivery-msc-geneva",
         "de": "sr-director-of-guest-experience-development-delivery-msc-geneva",
-        "fr": "sr-director-of-guest-experience-development-delivery-msc-geneva"
+        "fr": "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -258,21 +258,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "previousSlugsByLocale": {
-        "en": [
-          "marketing-full-funnell-analyst-msc-geneva"
-        ]
-      }
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -328,7 +323,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-29T22:58:23.881Z"
+      "firstSeenAt": "2026-06-29T22:58:23.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "de": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "fr": [
+          "travelling-destination-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-destination-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-ae2d4551edb1",
@@ -509,8 +518,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-platforms-manager-msc-geneva",
-          "responsabile-piattaforme-digitali-msc-group-geneva"
+          "digital-platforms-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-06-28T22:14:34.784Z",
@@ -581,8 +589,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
-          "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-06-27T11:26:37.666Z",
@@ -653,8 +660,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-          "travelling-fleet-supervisore-shore-excursions-msc-group-geneva"
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
         ],
         "de": [
           "travelling-fleet-supervisor-shore-excursions-msc-geneva"
@@ -878,8 +884,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "casino-slots-and-technical-operations-manager-msc-geneva",
-          "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+          "casino-slots-and-technical-operations-manager-msc-geneva"
         ],
         "de": [
           "casino-slots-und-technical-operations-manager-msc-group-geneva"
@@ -953,8 +958,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-manager-infrastructure-investments-caribbean-msc-geneva",
-          "senior-project-manager-investimenti-in-infrastrutture-caribico-msc-group-geneva"
+          "senior-project-manager-infrastructure-investments-caribbean-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-06-26T12:03:05.249Z",
@@ -1025,8 +1029,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-acquisition-manager-msc-geneva",
-          "responsabile-acquisizione-digitale-msc-group-geneva"
+          "digital-acquisition-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-06-27T22:34:43.608Z",

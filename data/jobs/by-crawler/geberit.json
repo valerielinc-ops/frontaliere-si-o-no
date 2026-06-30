@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "geberit-1560",
-      "slug": "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch",
+      "slug": "tecnologia-di-stampaggio-ad-iniezione-dell-ingegnere-di-processo-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch",
-        "it": "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch",
-        "en": "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch",
-        "fr": "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch"
+        "it": "tecnologia-di-stampaggio-ad-iniezione-dell-ingegnere-di-processo-a-80-100-geberit-rapperswil-jona",
+        "en": "process-engineer-injection-molding-technology-a-80-100-geberit-rapperswil-jona",
+        "fr": "technique-de-moulage-par-injection-a-80-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.962Z"
+      "firstSeenAt": "2026-06-29T22:42:42.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch"
+        ],
+        "en": [
+          "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch"
+        ],
+        "fr": [
+          "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verfahrenstechniker-spritzgusstechnik-a-80-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1855",
-      "slug": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
+      "slug": "servizio-tecnico-svizzera-occidentale-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "servicetechniker-region-westschweiz-geberit-ch",
-        "it": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
-        "en": "servicetechniker-region-westschweiz-geberit-ch",
-        "fr": "servicetechniker-region-westschweiz-geberit-ch"
+        "it": "servizio-tecnico-svizzera-occidentale-geberit-sales-switzerland",
+        "en": "service-technician-western-switzerland-region-geberit-sales-switzerland",
+        "fr": "technicien-des-services-region-suisse-occidentale-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -118,11 +132,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-region-westschweiz-geberit-ch",
+          "servicetechniker-region-westschweiz-geberit-sales-switzerland"
+        ],
+        "en": [
+          "servicetechniker-region-westschweiz-geberit-ch"
+        ],
+        "fr": [
           "servicetechniker-region-westschweiz-geberit-ch"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-region-westschweiz-geberit-ch"
+        "servicetechniker-region-westschweiz-geberit-ch",
+        "servicetechniker-region-westschweiz-geberit-sales-switzerland"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -140,12 +162,12 @@
     },
     {
       "id": "geberit-1799",
-      "slug": "strategic-project-buyer-a-100-geberit-ch",
+      "slug": "acquirente-di-progetto-strategico-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "strategic-project-buyer-a-100-geberit-ch",
         "en": "strategic-pro-bu-geberit-rapperswil-jona",
-        "it": "strategic-project-buyer-a-100-geberit-ch",
-        "fr": "strategic-project-buyer-a-100-geberit-ch"
+        "it": "acquirente-di-progetto-strategico-a-100-geberit-rapperswil-jona",
+        "fr": "acheteur-de-projet-strategique-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -200,7 +222,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.959Z"
+      "firstSeenAt": "2026-06-29T22:42:42.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-project-buyer-a-100-geberit-ch"
+        ],
+        "fr": [
+          "strategic-project-buyer-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-project-buyer-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1854",
@@ -276,12 +309,12 @@
     },
     {
       "id": "geberit-811",
-      "slug": "praxisintegriertes-bachelor-studium-geberit-ch",
+      "slug": "studi-di-laurea-integrati-nella-pratica-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "praxisintegriertes-bachelor-studium-geberit-ch",
-        "it": "praxisintegriertes-bachelor-studium-geberit-ch",
-        "en": "praxisintegriertes-bachelor-studium-geberit-ch",
-        "fr": "praxisintegriertes-bachelor-studium-geberit-ch"
+        "it": "studi-di-laurea-integrati-nella-pratica-geberit-rapperswil-jona",
+        "en": "practice-integrated-bachelor-studies-geberit-rapperswil-jona",
+        "fr": "baccalaureat-integre-pratique-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -336,16 +369,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.958Z"
+      "firstSeenAt": "2026-06-29T22:42:42.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praxisintegriertes-bachelor-studium-geberit-ch"
+        ],
+        "en": [
+          "praxisintegriertes-bachelor-studium-geberit-ch"
+        ],
+        "fr": [
+          "praxisintegriertes-bachelor-studium-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praxisintegriertes-bachelor-studium-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1818",
-      "slug": "teamleiter-fordertechnik-a-100-geberit-ch",
+      "slug": "tecnologia-di-trasporto-leader-di-squadra-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "teamleiter-fordertechnik-a-100-geberit-ch",
-        "it": "teamleiter-fordertechnik-a-100-geberit-ch",
-        "en": "teamleiter-fordertechnik-a-100-geberit-ch",
-        "fr": "teamleiter-fordertechnik-a-100-geberit-ch"
+        "it": "tecnologia-di-trasporto-leader-di-squadra-a-100-geberit-rapperswil-jona",
+        "en": "team-leader-conveyor-technology-a-100-geberit-rapperswil-jona",
+        "fr": "technologie-de-convoyeur-chef-d-equipe-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -400,7 +447,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.957Z"
+      "firstSeenAt": "2026-06-29T22:42:42.957Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-fordertechnik-a-100-geberit-ch"
+        ],
+        "en": [
+          "teamleiter-fordertechnik-a-100-geberit-ch"
+        ],
+        "fr": [
+          "teamleiter-fordertechnik-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-fordertechnik-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1570",
@@ -623,10 +684,10 @@
     },
     {
       "id": "geberit-1669",
-      "slug": "technician-sanitary-laboratory-a-80-100-geberit-ch",
+      "slug": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "technician-sanitary-laboratory-a-80-100-geberit-ch",
-        "it": "technician-sanitary-laboratory-a-80-100-geberit-ch",
+        "it": "laboratorio-sanitario-tecnico-a-80-100-geberit-rapperswil-jona",
         "en": "technician-sanitary-laboratory-a-80-100-geberit-ch",
         "fr": "technician-sanitary-laboratory-a-80-100-geberit-ch"
       },
@@ -683,7 +744,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.953Z"
+      "firstSeenAt": "2026-06-29T22:42:42.953Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-sanitary-laboratory-a-80-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technician-sanitary-laboratory-a-80-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1918",
@@ -761,12 +830,12 @@
     },
     {
       "id": "geberit-1917",
-      "slug": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
+      "slug": "ingegneria-dei-materiali-di-stage-presso-la-sede-della-toilette-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
         "en": "practical-course-in-materials-technology-at-the-wc-seat-a-100-geberit-rapperswil-jona",
-        "it": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch",
-        "fr": "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch"
+        "it": "ingegneria-dei-materiali-di-stage-presso-la-sede-della-toilette-a-100-geberit-rapperswil-jona",
+        "fr": "ingenierie-des-materiaux-de-stage-au-siege-des-toilettes-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -821,16 +890,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.950Z"
+      "firstSeenAt": "2026-06-29T22:42:42.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch"
+        ],
+        "fr": [
+          "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-werkstofftechnik-am-wc-sitz-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1922",
-      "slug": "automatiker-elektriker-instandhaltung-a-100-geberit-ch",
+      "slug": "manutenzione-automatica-elettrica-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "automatiker-elektriker-instandhaltung-a-100-geberit-ch",
-        "it": "automatiker-elektriker-instandhaltung-a-100-geberit-ch",
-        "en": "automatiker-elektriker-instandhaltung-a-100-geberit-ch",
-        "fr": "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
+        "it": "manutenzione-automatica-elettrica-a-100-geberit-rapperswil-jona",
+        "en": "automatic-electrician-maintenance-a-100-geberit-rapperswil-jona",
+        "fr": "entretien-automatique-electrique-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -885,7 +965,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.949Z"
+      "firstSeenAt": "2026-06-29T22:42:42.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
+        ],
+        "en": [
+          "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
+        ],
+        "fr": [
+          "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-elektriker-instandhaltung-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1949",
@@ -1037,8 +1131,8 @@
       "slugByLocale": {
         "de": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
         "it": "regionalverkaufsleiter-zurich-e-zentralschweiz-a-100-geberit-sales-switzerland",
-        "en": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
-        "fr": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        "en": "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland",
+        "fr": "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1084,6 +1178,12 @@
       "previousSlugsByLocale": {
         "it": [
           "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        ],
+        "en": [
+          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        ],
+        "fr": [
+          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ]
       },
       "previousSlugs": [
@@ -1110,7 +1210,7 @@
         "de": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
         "it": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
         "en": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
-        "fr": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch"
+        "fr": "gestionnaire-des-risques-et-de-la-diligence-raisonnable-approvisionnement-ministeriel-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1170,10 +1270,10 @@
     },
     {
       "id": "geberit-1942",
-      "slug": "quality-claims-manager-a-100-geberit-ch",
+      "slug": "gestione-dei-reclami-di-qualita-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "quality-claims-manager-a-100-geberit-ch",
-        "it": "quality-claims-manager-a-100-geberit-ch",
+        "it": "gestione-dei-reclami-di-qualita-a-100-geberit-rapperswil-jona",
         "en": "quality-claims-manager-a-100-geberit-ch",
         "fr": "quality-claims-manager-a-100-geberit-ch"
       },
@@ -1230,14 +1330,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.934Z"
+      "firstSeenAt": "2026-06-29T22:42:42.934Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-claims-manager-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-claims-manager-a-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-1987",
-      "slug": "service-controller-a-80-100-geberit-ch",
+      "slug": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "service-controller-a-80-100-geberit-ch",
-        "it": "service-controller-a-80-100-geberit-ch",
+        "it": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
         "en": "service-controller-a-80-100-geberit-ch",
         "fr": "service-controller-a-80-100-geberit-ch"
       },
@@ -1294,7 +1402,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.933Z"
+      "firstSeenAt": "2026-06-29T22:42:42.933Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-controller-a-80-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-controller-a-80-100-geberit-ch"
+      ]
     },
     {
       "id": "geberit-2001",
@@ -1370,12 +1486,12 @@
     },
     {
       "id": "geberit-2008",
-      "slug": "technischer-berater-region-aargau-a-100-geberit-ch",
+      "slug": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "it": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "en": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "fr": "technischer-berater-region-aargau-a-100-geberit-ch"
+        "it": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
+        "en": "technical-consultant-region-aargau-a-100-geberit-sales-switzerland",
+        "fr": "consultant-technique-region-argovie-a-100-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1430,7 +1546,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:42:42.918Z"
+      "firstSeenAt": "2026-06-29T22:42:42.918Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-berater-region-aargau-a-100-geberit-ch"
+        ],
+        "en": [
+          "technischer-berater-region-aargau-a-100-geberit-ch"
+        ],
+        "fr": [
+          "technischer-berater-region-aargau-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-berater-region-aargau-a-100-geberit-ch"
+      ]
     }
   ]
 }
