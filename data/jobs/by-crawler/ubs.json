@@ -73,7 +73,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-30T12:37:52.117Z"
+      "firstSeenAt": "2026-06-30T12:37:52.117Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analista-quantitativo-fx-mercati-globali-ubs-zurich-united-kingdom"
+        ],
+        "en": [
+          "associate-director-global-markets-quantitative-analyst-ubs"
+        ],
+        "de": [
+          "fx-quantitativer-analyst-globale-markte-ubs-zurich-united-kingdom"
+        ],
+        "fr": [
+          "analyste-quantitatif-fx-marches-globaux-ubs-zurich-united-kingdom"
+        ]
+      },
+      "previousSlugs": [
+        "analista-quantitativo-fx-mercati-globali-ubs-zurich-united-kingdom",
+        "associate-director-global-markets-quantitative-analyst-ubs",
+        "fx-quantitativer-analyst-globale-markte-ubs-zurich-united-kingdom",
+        "analyste-quantitatif-fx-marches-globaux-ubs-zurich-united-kingdom"
+      ]
     },
     {
       "id": "ubs-b1f981859865",
@@ -149,11 +169,19 @@
       "firstSeenAt": "2026-06-30T12:37:52.108Z",
       "previousSlugsByLocale": {
         "it": [
-          "sr-wealth-strategy-associate-ubs-missouri"
+          "sr-wealth-strategy-associate-ubs-missouri",
+          "associato-senior-strategia-patrimoniale-ubs-missouri"
+        ],
+        "fr": [
+          "associe-senior-en-strategie-patrimoniale-ubs-missouri",
+          "sr-richesse-strategie-associee-ubs-missouri"
         ]
       },
       "previousSlugs": [
-        "sr-wealth-strategy-associate-ubs-missouri"
+        "sr-wealth-strategy-associate-ubs-missouri",
+        "associe-senior-en-strategie-patrimoniale-ubs-missouri",
+        "associato-senior-strategia-patrimoniale-ubs-missouri",
+        "sr-richesse-strategie-associee-ubs-missouri"
       ]
     },
     {
