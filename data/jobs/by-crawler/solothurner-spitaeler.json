@@ -655,6 +655,7 @@
         "healthcare-professional-in-training-somatic-4-years-male-female-solothurner-spitaler-soh-solothurn",
         "specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-solothurn",
         "professionnel-de-sante-en-formation-somatique-4-ans-homme-femme-solothurner-spitaler-soh-solothurn",
+        "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
         "infermiere-infermiere-specializzanda-o-hf-somatica-4-anni-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "nursing-specialist-m-f-d-in-training-4-years-solothurner-spitaler-ag-soh-solothurn",
         "infirmier-infirmier-specialise-e-hf-en-formation-somatique-4-ans-h-f-solothurner-spitaler-ag-soh-solothurn"
@@ -3726,6 +3727,7 @@
         "consultant-principal-m-j-solothurner-spitaler-soh-solothurn",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
+        "hausarztin-hausarzt-w-m-d-soh-ch",
         "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "postgraduate-degree-hf-intensive-care-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "diplome-de-troisieme-cycle-hf-soins-intensifs-f-m-j-solothurner-spitaler-ag-soh-solothurn"
@@ -4748,6 +4750,7 @@
         "projektleiter-m-w-d-solothurner-spitaler-soh-dornach",
         "projektleiter-m-w-solothurner-spitaler-soh-dornach",
         "projektleiter-m-m-solothurner-spitaler-soh-dornach",
+        "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
         "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
         "orthopedics-polyclinic-mpa-m-f-d-solothurner-spitaler-soh-solothurn",
         "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn"
@@ -6238,7 +6241,8 @@
         "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
         "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6440,7 +6444,8 @@
         "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
         "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
         "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8089,7 +8094,8 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
         "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
-        "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn",
+        "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8943,6 +8949,7 @@
         "senior-physician-medicine-m-f-d-solothurner-spitaler-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten-acb83f",
         "medecin-specialiste-en-medecine-interne-h-f-solothurner-spitaler-soh-olten",
+        "oberarztin-oberarzt-medizin-w-m-d-soh-ch-2",
         "medico-specialista-oss-medicina-m-f-d-solothurner-spitaler-ag-soh-olten",
         "senior-physician-in-internal-medicine-m-f-d-solothurner-spitaler-ag-soh-olten",
         "medecin-specialiste-en-medecine-interne-h-f-solothurner-spitaler-ag-soh-olten"
@@ -11637,7 +11644,7 @@
       "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "dipl-infermiere-a-operativa-unita-di-cure-uomo-donna-solothurner-spitaler-ag-soh-olten",
-        "en": "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
+        "en": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "de": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-service-de-soins-operatoires-h-f-solothurner-spitaler-ag-soh-olten"
       },
@@ -11683,8 +11690,6 @@
       "department": "Operative Bettenstation mit Schwerpunkt Chirurgie / Orthopädie",
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
-        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
         "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten",
         "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
@@ -11692,6 +11697,7 @@
         "consultant-principal-m-j-solothurner-spitaler-soh-dornach",
         "senior-consultant-m-d-solothurner-spitaler-soh-dornach",
         "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
+        "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
         "conseiller-principal-m-d-solothurner-spitaler-soh-olten",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
@@ -11701,7 +11707,12 @@
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
         "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten",
-        "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
+        "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf",
+        "expertin-experte-anasthesiepflege-w-m-d-soh-ch",
+        "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
+        "expert-in-anesthesia-care-w-m-d-solothurner-spitaler-soh-dornach",
+        "expert-e-en-soins-d-anesthesie-w-m-d-solothurner-spitaler-soh-dornach",
+        "consulente-senior-m-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11710,17 +11721,22 @@
           "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
           "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten",
           "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
-          "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach"
+          "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach",
+          "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
         ],
         "en": [
           "consultant-principal-m-j-solothurner-spitaler-soh-dornach",
           "senior-consultant-m-d-solothurner-spitaler-soh-dornach",
           "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
-          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
+          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
+          "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
           "conseiller-principal-m-d-solothurner-spitaler-soh-olten"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T14:09:15.137Z",
@@ -12019,7 +12035,8 @@
         "senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
         "postgraduate-training-in-intensive-care-nursing-m-f-d-solothurner-spitaler-soh-olten",
-        "formation-post-diplome-en-soins-intensifs-h-f-solothurner-spitaler-soh-olten"
+        "formation-post-diplome-en-soins-intensifs-h-f-solothurner-spitaler-soh-olten",
+        "consulente-senior-w-m-d-solothurner-spitaler-soh-olten-b83972"
       ],
       "firstSeenAt": "2026-05-22T13:01:59.304Z",
       "salaryMin": 94500,
@@ -12309,7 +12326,8 @@
         "infirmier-ere-en-soins-d-urgence-h-f-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-soh-ch",
-        "projektleiter-m-d-solothurner-spitaler-soh-solothurn"
+        "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
+        "projektleiter-m-d-solothurner-spitaler-soh-olten"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.030Z",
       "salaryMin": 68500,
@@ -12692,17 +12710,17 @@
       "companyDomain": "solothurnerspitaeler.ch",
       "title": "Oberärztin / Oberarzt Neurologie Gangstörung und Schwindel (w/m/d)",
       "titleByLocale": {
-        "it": "Oberärztin / Oberarzt Neurologie Gangstörung e Schwindel (w/m/d)",
-        "en": "Senior physician / senior neurologist gait disorder and dizziness (f/m/d)",
+        "it": "Medico/a senior Neurologia Disturbi della deambulazione e vertigini (w/m/d)",
+        "en": "Senior Physician Neurology Gait Disorder and Vertigo (w/m/d)",
         "de": "Oberärztin / Oberarzt Neurologie Gangstörung und Schwindel (w/m/d)",
-        "fr": "Médecin ou neurologue principal trouble de la démarche et vertiges (f/m/j)"
+        "fr": "Médecin chef/trice Neurologie Troubles de la marche et vertiges (w/m/d)"
       },
       "description": "Aufgaben\n• Selbständige Abklärung und Behandlung ambulanter neurologischer Patientinnen und Patienten mit Schwindel-, Gleichgewichts- und Gangsstörung unter Einschluss der Auswertung und Interpretation otoneurologisch.apparativer Zusatzdiagnostik\n• Konsiliarische Mitbetreuung stationärer Patientinnen und turnusgemäss Sicherstellung des Neurologischen Fachdienstes ausserhalb der regulären Arbeitszeiten\n• Teaching von Assistenzärzten, Medizinstudenten und medizinisch-technischen Assistenten, Beteiligung an internen und externen Weiter- und Fortbildungen\n\nProfil\n• Facharzttitel in Neurologie oder eine gleichwertige Ausbildung mit MEBEKO-Anerkennung sowie praktische Erfahrung in der Diagnostik und Behandlung in einem Schwindelzentrum\n• Zusätzlicher Fähigkeitsausweis, beispielsweise in der zerebrovaskulären Sonographie (SGKN), Elektroneuromyographie (SGKN), Elektroenzephalographie (SGKN) oder Schlafmedizin (SGSSC)\n• Teamorientierte Arbeitsweise sowie Interesse an interdisziplinärer und interprofessioneller Zusammenarbeit\n• Gute Kommunikationsfähigkeiten und eine hohe Sozialkompetenz\n\n• Bereich: Ärzteschaft\n• Abteilung: Bürgerspital Solothurn\n• Pensum: 80% - 100%",
       "descriptionByLocale": {
-        "it": "Compiti\n• Valutazione indipendente e trattamento di pazienti neurologici ambulatoriali con vertigini, disturbi dell'equilibrio e dell'andatura, compresa la valutazione e l'interpretazione di ulteriori sistemi diagnostici dell'apparato otoneurolo\n• Cura consultiva degli inpatici e fornitura regolare del servizio specialistico neurologico al di fuori delle ore di lavoro regolari\n• Insegnamento di assistenti medici, studenti medici e assistenti medici-tecnici, partecipazione a formazione interna ed esterna Profilo\n• Titolo specialistico in neurologia o formazione equivalente con il riconoscimento MEBEKO e l'esperienza pratica nella diagnosi e nel trattamento in un centro di vertigini\n• Certificato aggiuntivo di capacità, ad esempio nella sotografia cerebrovascolare (SGKN), elettroneuromia (SGKN), elettroencefalografica (SGKN) o medicina del sonno (SGSSC)\n• Metodi di lavoro orientati al team e interesse per la cooperazione interdisciplinare e interprofessionale\n• Buone capacità di comunicazione e alte capacità sociali\n• Dominio: professione medica\n• Dipartimento: Bürgerspital Solothurn\n• Pensum: 80% - 100%",
-        "en": "Tasks\n• Independent assessment and treatment of outpatient neurological patients with dizziness, balance and gait disorder including evaluation and interpretation of additional otoneurological apparatus diagnostics\n• Consultative care of inpatients and regular provision of the neurological specialist service outside regular working hours\n• Teaching of assistant doctors, medical students and medical-technical assistants, participation in internal and external further and further training Profile\n• Specialist title in neurology or equivalent training with MEBEKO recognition as well as practical experience in diagnosis and treatment in a vertigo centre\n• Additional certificate of ability, for example in cerebrovascular sonography (SGKN), electroneuromyography (SGKN), electroencephalography (SGKN) or sleep medicine (SGSSC)\n• Team-oriented working methods and interest in interdisciplinary and interprofessional cooperation\n• Good communication skills and high social skills\n• Domain: Medical profession\n• Department: Bürgerspital Solothurn\n• Pensum: 80% - 100%",
-        "de": "Aufgaben Aufgaben\n• Selbständige Abklärung und Behandlung ambulanter neurologischer Patientinnen und Patienten mit Schwindel-, Gleichgewichts- und Gangsstörung unter Einschluss der Auswertung und Interpretation otoneurologisch.apparativer Zusatzdiagnostik\n• Konsiliarische Mitbetreuung stationärer Patientinnen und turnusgemäss Sicherstellung des Neurologischen Fachdienstes ausserhalb der regulären Arbeitszeiten\n• Teaching von Assistenzärzten, Medizinstudenten und medizinisch-technischen Assistenten, Beteiligung an internen und externen Weiter- und Fortbildungen Profil Profil\n• Facharzttitel in Neurologie oder eine gleichwertige Ausbildung mit MEBEKO-Anerkennung sowie praktische Erfahrung in der Diagnostik und Behandlung in einem Schwindelzentrum\n• Zusätzlicher Fähigkeitsausweis, beispielsweise in der zerebrovaskulären Sonographie (SGKN), Elektroneuromyographie (SGKN), Elektroenzephalographie (SGKN) oder Schlafmedizin (SGSSC)\n• Teamorientierte Arbeitsweise sowie Interesse an interdisziplinärer und interprofessioneller Zusammenarbeit\n• Gute Kommunikationsfähigkeiten und eine hohe Sozialkompetenz Kontakt Bei Fragen zur Stelle (Referenz 3320): Herr Dr. med. R. Heinrich Bühler Co-Chefarzt Neurologie Tel: +41 (0)32 627 40 80 Das Bürgerspital Solothurn (BSS) garantiert die erweiterte medizinische Grundversorgung der Stadt und Region Solothurn. Rund 2'000 Mitarbeiterinnen und Mitarbeiter sorgen rund um die Uhr für die medizinische Betreuung und das Wohlergehen der Patientinnen und Patienten. Aufgaben\n• Selbständige Abklärung und Behandlung ambulanter neurologischer Patientinnen und Patienten mit Schwindel-, Gleichgewichts- und Gangsstörung unter Einschluss der Auswertung und Interpretation otoneurologisch.apparativer Zusatzdiagnostik\n• Konsiliarische Mitbetreuung stationärer Patientinnen und turnusgemäss Sicherstellung des Neurologischen Fachdienstes ausserhalb der regulären Arbeitszeiten\n• Teaching von Assistenzärzten, Medizinstudenten und medizinisch-technischen Assistenten, Beteiligung an internen und externen Weiter- und Fortbildungen Profil\n• Facharzttitel in Neurologie oder eine gleichwertige Ausbildung mit MEBEKO-Anerkennung sowie praktische Erfahrung in der Diagnostik und Behandlung in einem Schwindelzentrum\n• Zusätzlicher Fähigkeitsausweis, beispielsweise in der zerebrovaskulären Sonographie (SGKN), Elektroneuromyographie (SGKN), Elektroenzephalographie (SGKN) oder Schlafmedizin (SGSSC)\n• Teamorientierte Arbeitsweise sowie Interesse an interdisziplinärer und interprofessioneller Zusammenarbeit\n• Gute Kommunikationsfähigkeiten und eine hohe Sozialkompetenz",
-        "fr": "Tâche\n• Évaluation indépendante et traitement des patients externes atteints de vertiges, de troubles de l'équilibre et de la démarche, y compris l'évaluation et l'interprétation d'autres appareils otoneurologiques\n• Soins consultatifs des malades hospitalisés et prestation régulière du service neurologique spécialisé en dehors des heures de travail régulières\n• Enseignement de médecins adjoints, d'étudiants en médecine et d'assistants médico-techniques, participation à la formation continue interne et externe Profil\n• Titre de spécialiste en neurologie ou formation équivalente avec reconnaissance MEBEKO ainsi que l'expérience pratique en diagnostic et traitement dans un centre de vertiges\n• Certificat supplémentaire d'aptitude, par exemple en sonographie cérébrovasculaire (SGKN), en électroneuromyographie (SGKN), en électroencéphalographie (SGKN) ou en médecine du sommeil (SGSSC)\n• Méthodes de travail axées sur l'équipe et intérêt pour la coopération interdisciplinaire et interprofessionnelle\n• Bonnes compétences en communication et compétences sociales élevées\n• Domaine: Médecin\n• Département: Bürgerspital Soleure\n• Pensum: 80% - 100%"
+        "it": "Mansioni - Auto-esplicativa e trattamento dei pazienti ambulatoriali di prima necessità: nausea, disturbi dell'equilibrio e dell'andatura, compresa la valutazione e l'interpretazione di otoneurologica.apparato diagnostica supplementare - Assistenza consílica dei pazienti ricoverati e assistenza Turnus relativa al servizio specialistico di primato del diploma al di fuori dell'orario di lavoro regolare - Insegnamento di pazienti ricoverati, studenti di medicina e assistenti medico-tecnici, partecipazione a ulteriori e successivi corsi interni ed esterni\n\no formazione equivalente con riconoscimento MEBEKO, nonché esperienza pratica in diagnostica e trattamento in un centro di vertigini - Scheda di abilità aggiuntiva, ad esempio in sonografia cerebrovascolare (SGKN), elettroeuromiografia (SGKN), elettroencefalografia (SGKN) o medicina del sonno (SGSSC) - metodi di lavoro orientati al team, nonché interesse per la cooperazione interdisciplinare e interprof-sional - Buone capacità comunicative e un'elevata competenza sociale Co offÓ - Area: Medicina - Dipartimento: Bürgerspital Solothurn - Pensum: 80% - 100%",
+        "en": "Mansioni - Self-explanatory and treatment of outpatient neurological patients with dizziness, balance and gait disorders including evaluation and interpretation of otoneurological.apparatus additional diagnostics - Consiliary care of inpatients and turnus-related care of the neurological specialist service outside regular working hours - Teaching of inpatients, medical students and medical-technical assistants, participation in internal and external further and further training Requisiti - specialist title in neurology\n\nor equivalent training with MEBEKO recognition as well as practical experience in diagnostics and treatment in a vertigo centre - Additional ability card, for example in cerebrovascular sonography (SGKN), electroneuromyography (SGKN), electroencephalography (SGKN) or sleep medicine (SGSSC) - team-oriented working methods as well as interest in interdisciplinary and interprof-essional cooperation - Good communication skills and a high social competence Cosa offiamo - Area: Physicianship - Department: Bürgerspital Solothurn - Pensum: 80% - 100%",
+        "de": "Mansioni\n- Selbständige Abklärung und Behandlung ambulanter neurologischer Patientinnen und Patienten mit Schwindel-, Gleichgewichts- und Gangsstörung unter Einschluss der Auswertung und Interpretation otoneurologisch.apparativer Zusatzdiagnostik\n- Konsiliarische Mitbetreuung stationärer Patientinnen und turnusgemäss Sicherstellung des Neurologischen Fachdienstes ausserhalb der regulären Arbeitszeiten\n- Teaching von Assistenzärzten, Medizinstudenten und medizinisch-technischen Assistenten, Beteiligung an internen und externen Weiter- und Fortbildungen\n\nRequisiti\n- Facharzttitel in Neurologie oder eine gleichwertige Ausbildung mit MEBEKO-Anerkennung sowie praktische Erfahrung in der Diagnostik und Behandlung in einem Schwindelzentrum\n- Zusätzlicher Fähigkeitsausweis, beispielsweise in der zerebrovaskulären Sonographie (SGKN), Elektroneuromyographie (SGKN), Elektroenzephalographie (SGKN) oder Schlafmedizin (SGSSC)\n- Teamorientierte Arbeitsweise sowie Interesse an interdisziplinärer und interprofessioneller Zusammenarbeit\n- Gute Kommunikationsfähigkeiten und eine hohe Sozialkompetenz\n\nCosa offriamo\n- Bereich: Ärzteschaft\n- Abteilung: Bürgerspital Solothurn\n- Pensum: 80% - 100%",
+        "fr": "Mansioni - Auto-explication et traitement des patients neurologiques ambulatoires présentant des vertiges, des troubles de l'équilibre et du git, y compris l'évaluation et l'interprétation des diagnostics otoneurologiques.apparatus supplémentaires - Soins consiliaires des malades hospitalisés et des soins liés au tourne du service neurologique spécialisé en dehors des heures normales de travail - Enseignement des patients hospitalisés, des étudiants en médecine et des assistants médicaux-techniques, participation à la formation interne et externe complémentaire et perfectionnement Requisiti - titre spécialisé en neurologie\n\nou formation équivalente avec reconnaissance MEBEKO ainsi que expérience pratique en diagnostic et traitement dans un centre de traitement - carte de compétences supplémentaire, par exemple en sonographie cérébrovasculaire (SGKN), en électroneuromyographie (SGKN), en électroencéphalographie (SGKN) ou en médecine du sommeil (SGSSC) - méthodes de travail axées sur l'équipe ainsi que l'intérêt pour la coopération interdisciplinaire et interprof-professionnelle - Bonnes compétences en communication et une haute compétence sociale Cosa offiamo - Domaine: Physicianship - Département: Bürgerspital Solothurn - Pensum: 80% - 100%"
       },
       "location": "Solothurn",
       "canton": "SO",
@@ -12758,9 +12776,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "solothurner-spitaeler-a9ac43069a47",
