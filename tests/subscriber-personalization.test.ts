@@ -117,4 +117,33 @@ describe('derivePersonalizationPatch', () => {
     });
     expect(patch?.location_interest).toBe('Bellinzona');
   });
+
+  it('explicit category filter beats MANY repeated mis-tagged viewed-job categories (#2993)', () => {
+    // Regression: a nurse who filtered by "health" once but whose 10 viewed EOC
+    // roles are mis-tagged "admin" must derive sector=health, not admin. Passive
+    // repetition is de-duped (distinct viewed category = weight 2) so the explicit
+    // filter (weight 3) wins.
+    const patch = derivePersonalizationPatch({
+      subscriber: {},
+      personalization: {
+        filterUsage: { category: { health: 1 } }, // explicit → weight 1*3 = 3
+        viewedJobs: Array.from({ length: 10 }, () => ({ category: 'admin' })), // de-duped → weight 2
+        searches: [{ query: 'infermiere', ts: 1 }],
+      },
+    });
+    expect(patch?.sector_interest).toBe('health');
+    expect(patch?.job_category).toBe('health');
+  });
+
+  it('de-dups repeated viewed companies so one curiosity employer cannot dominate', () => {
+    const patch = derivePersonalizationPatch({
+      subscriber: {},
+      personalization: {
+        // 5 views of A (de-duped → 1) vs an explicit clicked employer B (weight 5).
+        viewedJobs: Array.from({ length: 5 }, () => ({ company: 'Acme A' })),
+        // no clicked here — distinct-A weight 1 is the only company signal.
+      },
+    });
+    expect(patch?.job_company).toBe('Acme A');
+  });
 });

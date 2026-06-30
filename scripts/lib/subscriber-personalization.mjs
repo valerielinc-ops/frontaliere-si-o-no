@@ -68,6 +68,31 @@ function fromUsageMap(map) {
 }
 
 /**
+ * Collapse repeated identical PASSIVE signals (viewed-job location / category /
+ * company) into a single weighted entry. A subscriber who scrolled past the same
+ * EOC role ten times expressed one interest, not ten — so the repetition must
+ * not out-weigh an EXPLICIT signal like an on-site filter. Without this, the
+ * nurse subscriber reported in issue #2993 got `sector_interest=admin` (≈10
+ * mis-tagged EOC nurse views × weight 2 = 20) instead of `health` (one explicit
+ * `filterUsage.category` × weight 3 = 3). De-duped case-insensitively; the first
+ * occurrence's original casing is kept.
+ * @param {Array<unknown>} values
+ * @param {number} weight
+ * @returns {Array<{value: unknown, weight: number}>}
+ */
+function distinctEntries(values, weight) {
+  const seen = new Set();
+  const out = [];
+  for (const v of values) {
+    const label = String(v || '').trim().toLowerCase();
+    if (!label || seen.has(label)) continue;
+    seen.add(label);
+    out.push({ value: v, weight });
+  }
+  return out;
+}
+
+/**
  * @typedef {object} DeriveInput
  * @property {object|null} subscriber      Flat newsletter_subscribers doc (for no-clobber).
  * @property {object|null} personalization private/personalization subdoc raw.
@@ -99,7 +124,7 @@ export function derivePersonalizationPatch({ subscriber, personalization, alerts
   const locationEntries = [
     ...clickedLocations.map((l) => ({ value: l, weight: CLICK_WEIGHT })),
     ...fromUsageMap(filterUsage.location).map((e) => ({ ...e, weight: e.weight * 3 })),
-    ...viewedJobs.map((v) => ({ value: v?.location, weight: 2 })),
+    ...distinctEntries(viewedJobs.map((v) => v?.location), 2),
     ...alertList.flatMap((a) => [
       ...((a?.locations) || []).map((l) => ({ value: l, weight: 2 })),
       ...((a?.cantonFilter) || []).map((c) => ({ value: c, weight: 1 })),
@@ -107,18 +132,19 @@ export function derivePersonalizationPatch({ subscriber, personalization, alerts
   ];
   const location = topWeighted(locationEntries);
 
-  // ── Sector / category: filter usage > viewed job categories > alert sectors.
+  // ── Sector / category: EXPLICIT filter usage > viewed job categories (de-duped
+  // so repeated mis-tagged views can't dominate) > alert sectors.
   const sectorEntries = [
     ...fromUsageMap(filterUsage.category).map((e) => ({ ...e, weight: e.weight * 3 })),
-    ...viewedJobs.map((v) => ({ value: v?.category, weight: 2 })),
+    ...distinctEntries(viewedJobs.map((v) => v?.category), 2),
     ...alertList.flatMap((a) => ((a?.sectors) || []).map((s) => ({ value: s, weight: 2 }))),
   ];
   const sector = topWeighted(sectorEntries);
 
-  // ── Company: clicked employer (strongest) > most-viewed employer.
+  // ── Company: clicked employer (strongest) > most-viewed employer (de-duped).
   const company = topWeighted([
     { value: clk.company, weight: CLICK_WEIGHT },
-    ...viewedJobs.map((v) => ({ value: v?.company, weight: 1 })),
+    ...distinctEntries(viewedJobs.map((v) => v?.company), 1),
   ]);
 
   // ── Search query: most recent search, else newest viewed-job title-ish, else

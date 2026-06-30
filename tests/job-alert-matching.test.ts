@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
+import {
+  buildAlertProfile,
+  scoreJobForAlert,
+  partitionByGeoPreference,
+  GEO_PREFERENCE_MIN_LOCAL,
+} from '../services/jobAlertMatching.mjs';
 
 /** Minimal job fixture matching the data/jobs.json shape the matcher reads. */
 function job(overrides: Record<string, unknown> = {}) {
@@ -266,5 +271,81 @@ describe('jobAlertMatching — robustness', () => {
     // 'SA' is too short to be a reliable company token → no company boost,
     // and with no other intent signal the job is excluded.
     expect(score(job({ company: 'SA SA', companyKey: 'sa' }), { keywords: [] }, sub)).toBe(0);
+  });
+});
+
+describe('jobAlertMatching — profile geo preference (issue #2993)', () => {
+  // City→canton index built from the jobs dataset by loadJobs(); here we provide
+  // the slice the test needs.
+  const cityToCanton = { bellinzona: 'ti', chiasso: 'ti', mendrisio: 'ti', lugano: 'ti', basel: 'bs' };
+
+  it('derives preferred locations + cantons from home city and explicit on-site filters', () => {
+    const profile = buildAlertProfile(
+      { keywords: ['infermiere'] },
+      { location_interest: 'Bellinzona', geo_city: 'Bellinzona' },
+      { strongLocations: ['chiasso', 'mendrisio'], cityToCanton },
+    );
+    expect(profile.preferredLocations).toEqual(expect.arrayContaining(['bellinzona', 'chiasso', 'mendrisio']));
+    expect(profile.preferredCantons).toEqual(['ti']);
+  });
+
+  it('excludes passive viewed-job cities from the preference (only strong signals)', () => {
+    // The send loop passes filter/clicked/source locations as strongLocations and
+    // keeps passive viewed cities in behaviorLocations — only the former drive the split.
+    const profile = buildAlertProfile(
+      { keywords: ['infermiere'] },
+      { location_interest: 'Bellinzona' },
+      { behaviorLocations: ['herisau', 'windisch'], strongLocations: [], cityToCanton },
+    );
+    expect(profile.preferredLocations).toEqual(['bellinzona']);
+    expect(profile.preferredLocations).not.toContain('herisau');
+  });
+
+  const tiNurse = (i: number) => job({
+    title: 'Infermiere', description: 'reparto', location: 'Lugano', addressLocality: 'Lugano',
+    addressRegion: 'TI', canton: 'TI', company: `Clinica ${i}`, companyKey: `clinica-${i}`,
+  });
+  const baselNurse = (i: number) => job({
+    title: 'Pflegefachperson', description: 'station', location: 'Basel', addressLocality: 'Basel',
+    addressRegion: 'BS', canton: 'BS', company: `Spital ${i}`, companyKey: `spital-${i}`,
+  });
+
+  const tiProfile = () => buildAlertProfile(
+    { keywords: ['infermiere'] },
+    { location_interest: 'Bellinzona', geo_city: 'Bellinzona' },
+    { strongLocations: ['chiasso'], cityToCanton },
+  );
+
+  it('keeps only in-area jobs when at least the local floor is met', () => {
+    const local = Array.from({ length: GEO_PREFERENCE_MIN_LOCAL }, (_, i) => tiNurse(i));
+    const ranked = [baselNurse(0), ...local, baselNurse(1)];
+    const out = partitionByGeoPreference(ranked, tiProfile());
+    expect(out).toHaveLength(GEO_PREFERENCE_MIN_LOCAL);
+    expect(out.every((j) => j.canton === 'TI')).toBe(true);
+  });
+
+  it('pads with out-of-area jobs when local matches are below the floor (no starvation)', () => {
+    const ranked = [tiNurse(0), baselNurse(0), baselNurse(1)];
+    const out = partitionByGeoPreference(ranked, tiProfile());
+    // 1 local (< floor) → keep all, but local first.
+    expect(out).toHaveLength(3);
+    expect(out[0].canton).toBe('TI');
+    expect(out.some((j) => j.canton === 'BS')).toBe(true);
+  });
+
+  it('is a no-op when the alert already scopes geography explicitly', () => {
+    const profile = buildAlertProfile(
+      { keywords: ['infermiere'], locations: ['Basel'] },
+      { location_interest: 'Bellinzona' },
+      { strongLocations: ['chiasso'], cityToCanton },
+    );
+    const ranked = [baselNurse(0), baselNurse(1)];
+    expect(partitionByGeoPreference(ranked, profile)).toEqual(ranked);
+  });
+
+  it('is a no-op when the profile carries no preferred location signal', () => {
+    const profile = buildAlertProfile({ keywords: ['infermiere'] }, {}, { cityToCanton });
+    const ranked = [baselNurse(0), tiNurse(0)];
+    expect(partitionByGeoPreference(ranked, profile)).toEqual(ranked);
   });
 });
