@@ -3063,7 +3063,7 @@ export async function callLLM(messages, opts = {}) {
       if (o.modelUsedRef && typeof o.modelUsedRef === 'object') {
         o.modelUsedRef.model = model;
       }
-      if (_cacheOn && _cacheKey !== null) {
+      if (_cacheOn && _cacheKey !== null && model !== AI_MODELS.LOCAL_FALLBACK) {
         if (_responseCache.size >= RESPONSE_CACHE_MAX) {
           const oldest = _responseCache.keys().next().value;
           if (oldest !== undefined) _responseCache.delete(oldest);
