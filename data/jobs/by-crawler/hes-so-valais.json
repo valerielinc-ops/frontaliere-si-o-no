@@ -1,7 +1,74 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-06-29T22:19:24.641Z",
+  "assembledAt": "2026-06-30T11:57:11.988Z",
   "jobs": [
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
+      "title": "Collaborateur ou collaboratrice Centre Pédagogique Prévention",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Afin de compléter son équipe de spécialistes, la Haute Ecole d’Ingénierie de la HES-SO Valais-Wallis met au concours, pour son institut Systèmes\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+      "descriptionByLocale": {
+        "fr": "Afin de compléter son équipe de spécialistes, la Haute Ecole d’Ingénierie de la HES-SO Valais-Wallis met au concours, pour son institut Systèmes\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+        "de": "Offene Stelle an der HES-SO Wallis in Sion.\nPosition: Collaborateur ou collaboratrice Centre Pédagogique Prévention.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
+        "en": "Open position at HES-SO Valais-Wallis in Sion.\nPosition: Collaborateur ou collaboratrice Centre Pédagogique Prévention.\n\nHES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
+        "it": "Afin de compléter son équipe de spécialistes, la Haute Ecole d’Ingénierie de la HES-SO Valais-Wallis met au concours, pour son institut Systèmes\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
+      },
+      "titleByLocale": {
+        "fr": "Collaborateur ou collaboratrice Centre Pédagogique Prévention",
+        "it": "Collaborateur ou collaboratrice Centre Pédagogique Prévention",
+        "en": "Collaborateur ou collaboratrice Centre Pédagogique Prévention",
+        "de": "Collaborateur ou collaboratrice Centre Pédagogique Prévention"
+      },
+      "slug": "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
+      "slugByLocale": {
+        "fr": "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
+        "it": "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
+        "en": "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais",
+        "de": "collaborateur-ou-collaboratrice-centre-pedagogique-prevention-hes-so-valais"
+      },
+      "category": "research-support",
+      "datePosted": "2026-06-30",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
+        "de": "https://www.hevs.ch/de/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
+        "en": "https://www.hevs.ch/en/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "hes-so-valais-08d472860fc9",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-06-30T11:57:11.987Z"
+    },
     {
       "url": "https://www.hevs.ch/fr/recruitee/adjointe-ou-adjoint-scientifique-hes-50-***-leitender-wissenschaftlicher-mitarbeiter-fh--leitende-wissenschaftliche-mitarbeiterin-fh-50-214690",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/adjointe-ou-adjoint-scientifique-hes-50-***-leitender-wissenschaftlicher-mitarbeiter-fh--leitende-wissenschaftliche-mitarbeiterin-fh-50-214690",
@@ -22,7 +89,7 @@
       "titleByLocale": {
         "it": "Assistente Scientifico HES (50%) * Leitender",
         "en": "Scientific Assistant HES (50%) * Leitender",
-        "de": "Wissenschaftlicher Mitarbeiter HES (50%) * Leitender",
+        "de": "Adjointe ou adjoint scientifique HES (50%) *** Leitender",
         "fr": "Adjointe ou adjoint scientifique HES (50%) *** Leitender"
       },
       "slug": "assistente-scientifico-hes-50-hes-so-valais-wallis-sion",
@@ -83,7 +150,8 @@
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-09T22:30:43.421Z"
+      "firstSeenAt": "2026-06-09T22:30:43.421Z",
+      "needsRetranslation": true
     }
   ]
 }
