@@ -2339,6 +2339,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dogana-chiasso-brogeda-traffico-2024',
+    category: 'novita',
+    date: '2026-06-30T23:05:25.006Z',
+    image: '/images/blog/dogana-chiasso-brogeda-traffico-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

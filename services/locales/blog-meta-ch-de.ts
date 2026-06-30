@@ -781,6 +781,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.volg-binn-novita-2024.title': 'Volg Binn: Nationale Neuheiten für den lokalen Handel',
     'blog.article.volg-binn-novita-2024.excerpt': 'Volg erneuert seine Präsenz in Binn mit neuen Angeboten und Initiativen für Schweizer Konsumenten.',
     'blog.article.volg-binn-novita-2024.imageAlt': 'Fotorealistische Ansicht eines Volg-Geschäfts in einem Schweizer Dorf mit Alpenlandschaft',
+    'blog.article.dogana-chiasso-brogeda-traffico-2024.title': 'Zoll von Chiasso Brogeda: Verkehrsaktualisierungen und Verfahren 2024',
+    'blog.article.dogana-chiasso-brogeda-traffico-2024.excerpt': 'Updates über den Verkehr und die Abläufe am Zoll von Chiasso Brogeda, dem Hotspot für Grenzgänger und internationale Transporte.',
+    'blog.article.dogana-chiasso-brogeda-traffico-2024.imageAlt': 'Blick auf den Zoll Chiasso-Brogeda mit Fahrzeugen und Schweizer Flaggen an der Grenze',
 };
 
 export default blogMetaChDe;
