@@ -9768,6 +9768,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-lugano-sociali': {
+    title: 'Infermieri a Lugano: nuove opportunità negli istituti sociali',
+    description: 'Nuove assunzioni di infermieri a Lugano nel 2024, con procedure semplificate e condizioni migliorate. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, lugano, nuove, opportunità',
+    ogTitle: 'Infermieri a Lugano: nuove opportunità di lavoro',
+    ogDescription: 'Lugano: nuove assunzioni di infermieri negli istituti sociali con condizioni migliorate, scopri come candidarti.',
+    canonicalPath: '/articoli-svizzera/infermieri-lugano-sociali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri a Lugano: nuove opportunità negli istituti sociali",
+      "description": "Nuove assunzioni di infermieri a Lugano nel 2024, con procedure semplificate e condizioni migliorate. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infermieri-lugano-sociali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermieri in un istituto sociale a Lugano, Svizzera"
+      },
+      "datePublished": "2026-06-30T08:44:53+00:00",
+      "dateModified": "2026-06-30T08:44:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/infermieri-lugano-sociali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

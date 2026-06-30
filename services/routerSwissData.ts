@@ -276,6 +276,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'fielmann-interlaken-lavoro-svizzera': { it: 'fielmann-interlaken-lavoro-svizzera', en: 'fielmann-interlaken-jobs-switzerland', de: 'fielmann-interlaken-jobs-schweiz', fr: 'fielmann-interlaken-emploi-suisse' },
  'macchinisti-autisti-lavoro-locarno': { it: 'macchinisti-autisti-lavoro-locarno', en: 'machine-operators-drivers-locarno', de: 'maschinenfuhrer-fahrer-locarno', fr: 'conducteurs-machines-locarno' },
  'volg-wiler-analisi-nazionale': { it: 'volg-wiler-analisi-nazionale', en: 'volg-wiler-supermarkets-switzerland', de: 'volg-wiler-supermaerkte-schweiz', fr: 'volg-wiler-supermarches-suisse' },
+ 'infermieri-lugano-sociali': { it: 'infermieri-lugano-sociali', en: 'nurses-lugano-social-institutions', de: 'pflegepersonal-lugano-soziale-einrichtungen', fr: 'infirmiers-lugano-institutions-sociales' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

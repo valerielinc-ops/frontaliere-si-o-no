@@ -1,0 +1,40 @@
+{
+  "id": "infermieri-lugano-sociali",
+  "slug": "infermieri-lugano-sociali",
+  "publishedAt": "2026-06-30T08:44:57.183Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.36539197603807,
+    "confidence": 0.8,
+    "finalScore": 11.492313580830457,
+    "topK": [
+      {
+        "slug": "infermiere-pratiche-avanzate-ticino-2024",
+        "cosine": 0.8826719689227885
+      },
+      {
+        "slug": "reclutamento-infermieri-lombardia",
+        "cosine": 0.8682314020414437
+      },
+      {
+        "slug": "incendi-nel-luganese-arrestato-un-piromane",
+        "cosine": 0.8633653570020317
+      },
+      {
+        "slug": "ex-pazienti-oncologici-aiutano-malati-ticino",
+        "cosine": 0.862000156641882
+      },
+      {
+        "slug": "mobilita-infermieri-ticino",
+        "cosine": 0.855679589799081
+      }
+    ],
+    "score": 5.746156790415228,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}
