@@ -1723,8 +1723,8 @@
       "slugByLocale": {
         "de": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo",
         "it": "assistente-farmaceutico-o-farmacista-100-eventualmente-anche-in-job-sharing-gzo-spital-wetzikon-wetzikon",
-        "en": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo",
-        "fr": "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo"
+        "en": "pharmaceutical-assistant-or-specialist-pharmacy-100-possibly-also-in-job-sharing-gzo-spital-wetzikon-wetzikon",
+        "fr": "assistant-pharmaceutique-ou-pharmacie-specialisee-100-peut-etre-aussi-en-partage-d-emploi-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1773,6 +1773,12 @@
         "it": [
           "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo",
           "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo-spital-wetzikon"
+        ],
+        "en": [
+          "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo"
+        ],
+        "fr": [
+          "pharma-assistentin-assistent-bzw-fachfrau-mann-apotheke-100-ev-auch-im-jobsharing-gzo"
         ]
       },
       "previousSlugs": [

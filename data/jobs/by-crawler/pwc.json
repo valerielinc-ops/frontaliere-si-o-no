@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-contabile-70-100-pwc-switzerland-basel",
-        "en": "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
+        "en": "personnel-in-accounting-70-100-pwc-switzerland-basel",
         "de": "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
-        "fr": "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
+        "fr": "personnel-en-comptabilite-70-100-pwc-switzerland-basel"
       },
       "id": "pwc-b99b42ece304",
       "salaryMin": 62000,
@@ -61,6 +61,12 @@
       "firstSeenAt": "2026-06-30T11:59:24.986Z",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
+        ],
+        "en": [
+          "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
+        ],
+        "fr": [
           "sachbearbeiter-in-rechnungswesen-70-100-pwc-basel"
         ]
       },
@@ -105,9 +111,9 @@
       },
       "slugByLocale": {
         "it": "avvocato-associato-senior-revisore-regolatorio-in-diritto-dei-mercati-finanziari-focus-sulla-lotta-al-riciclaggio-di",
-        "en": "senior-associate-jurist-in-regulatory-auditor-im-finanzmarktrecht-schwerpunkt-geldwaschereibekampfung-pwc-zurich",
+        "en": "senior-associate-lawy-auditor-in-financial-market-law-focus-on-anti-money-laundering-pwc-switzerland-zurich",
         "de": "senior-associate-jurist-in-regulatory-auditor-im-finanzmarktrecht-schwerpunkt-geldwaschereibekampfung-pwc-zurich",
-        "fr": "senior-associate-jurist-in-regulatory-auditor-im-finanzmarktrecht-schwerpunkt-geldwaschereibekampfung-pwc-switzerland"
+        "fr": "auditeur-juridique-associe-principal-en-droit-des-marches-financiers-focus-sur-la-lutte-contre-le-blanchiment-de"
       },
       "id": "pwc-0c6b8c7f8c44",
       "previousSlugsByLocale": {
@@ -116,6 +122,10 @@
           "senior-associate-jurist-in-regulatory-auditor-im-finanzmarktrecht-schwerpunkt-geldwaschereibekampfung-pwc-switzerland"
         ],
         "fr": [
+          "senior-associate-jurist-in-regulatory-auditor-im-finanzmarktrecht-schwerpunkt-geldwaschereibekampfung-pwc-zurich",
+          "senior-associate-jurist-in-regulatory-auditor-im-finanzmarktrecht-schwerpunkt-geldwaschereibekampfung-pwc-switzerland"
+        ],
+        "en": [
           "senior-associate-jurist-in-regulatory-auditor-im-finanzmarktrecht-schwerpunkt-geldwaschereibekampfung-pwc-zurich"
         ]
       },
@@ -6458,13 +6468,12 @@
         "it": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
         "en": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
         "de": "direktor-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "fr": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
+        "fr": "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
         "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
-        "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+        "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich"
       ],
       "salaryMin": 100500,
       "salaryMax": 136500,
@@ -6495,7 +6504,7 @@
         "fr": [
           "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-          "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+          "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"

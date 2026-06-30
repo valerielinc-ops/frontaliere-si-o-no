@@ -1041,8 +1041,8 @@
       },
       "slugByLocale": {
         "it": "tecnico-a-di-servizio-pac-regione-vaud-m-f-d-hoval-crissier",
-        "en": "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier",
-        "de": "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier",
+        "en": "cap-service-technician-vaud-region-m-f-d-hoval-crissier",
+        "de": "cap-servicetechniker-region-waadt-m-w-d-hoval-crissier",
         "fr": "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier"
       },
       "id": "hoval-839b096165e6",
@@ -1063,6 +1063,12 @@
       "firstSeenAt": "2026-06-30T11:40:27.283Z",
       "previousSlugsByLocale": {
         "it": [
+          "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier"
+        ],
+        "en": [
+          "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier"
+        ],
+        "de": [
           "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier"
         ]
       },

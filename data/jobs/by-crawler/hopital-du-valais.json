@@ -2039,8 +2039,8 @@
       "slugByLocale": {
         "de": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais",
         "it": "formatore-tripode-80-100-reparto-letto-ortopedico-lean-hopital-du-valais-brig",
-        "en": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais",
-        "fr": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais"
+        "en": "practice-trainer-in-tripod-80-100-orthopaedic-lean-bed-department-hopital-du-valais-brig",
+        "fr": "entraineur-d-entrainement-en-trepied-80-100-departement-de-lit-mince-orthopedique-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2100,6 +2100,12 @@
       "firstSeenAt": "2026-06-30T11:34:12.623Z",
       "previousSlugsByLocale": {
         "it": [
+          "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais"
+        ],
+        "en": [
+          "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais"
+        ],
+        "fr": [
           "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais"
         ]
       },
@@ -5700,8 +5706,8 @@
       "slugByLocale": {
         "fr": "aide-infirmier-ere-a-100-pour-une-duree-determinee-de-6-mois-pour-le-service-de-pediatrie",
         "it": "assistenza-infermieristica-al-100-per-un-periodo-determinato-di-6-mesi-per-il-servizio-di-pediatria-hopital-du-valais",
-        "en": "aide-infirmier-ere-a-100-pour-une-duree-determinee-de-6-mois-pour-le-service-de-pediatrie",
-        "de": "aide-infirmier-ere-a-100-pour-une-duree-determinee-de-6-mois-pour-le-service-de-pediatrie"
+        "en": "100-nursing-assistance-for-a-specified-period-of-6-months-for-pediatric-service-hopital-du-valais-sion",
+        "de": "100-pflegehilfe-fur-einen-bestimmten-zeitraum-von-6-monaten-fur-padiatrische-dienstleistung-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5761,6 +5767,12 @@
       "firstSeenAt": "2026-06-30T11:33:56.379Z",
       "previousSlugsByLocale": {
         "it": [
+          "aide-infirmier-ere-a-100-pour-une-duree-determinee-de-6-mois-pour-le-service-de-pediatrie"
+        ],
+        "en": [
+          "aide-infirmier-ere-a-100-pour-une-duree-determinee-de-6-mois-pour-le-service-de-pediatrie"
+        ],
+        "de": [
           "aide-infirmier-ere-a-100-pour-une-duree-determinee-de-6-mois-pour-le-service-de-pediatrie"
         ]
       },

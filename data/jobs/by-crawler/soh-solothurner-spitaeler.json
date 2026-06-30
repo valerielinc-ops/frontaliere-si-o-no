@@ -6197,8 +6197,7 @@
       },
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "ergoterapista-ergoterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn"
+        "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:46.224Z",
       "salaryMin": 62000,
@@ -7923,8 +7922,7 @@
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-ag-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:32.618Z",
       "salaryMin": 62000,
@@ -8108,8 +8106,7 @@
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:30.374Z",
       "salaryMin": 62000,
@@ -12766,8 +12763,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-bettenstation-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "reparto-infermieri-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "pflegefachfrau-pflegefachmann-bettenstation-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "pflegefachfrau-pflegefachmann-bettenstation-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "nursing-professional-nursing-specialist-bed-station-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "poste-de-soins-infirmiers-infirmiers-specialistes-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -12826,6 +12823,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-bettenstation-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-bettenstation-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-bettenstation-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -12838,8 +12841,8 @@
       "slugByLocale": {
         "de": "mpa-mit-berufsbildnerfunktion-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "mpa-mit-berufsbildnerfunktion-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "mpa-mit-berufsbildnerfunktion-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "mpa-mit-berufsbildnerfunktion-w-m-d-soh-solothurner-spitaeler-olten"
+        "en": "mpa-with-apprenticeship-function-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "mpa-avec-fonction-d-apprentissage-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -12902,8 +12905,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "medico-senior-in-radiologia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "oberarztin-oberarzt-radiologie-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "oberarztin-oberarzt-radiologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "senior-physician-senior-physician-radiology-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "medecin-ou-radiologie-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -12961,6 +12964,12 @@
       "firstSeenAt": "2026-06-30T12:49:43.503Z",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-radiologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
           "oberarztin-oberarzt-radiologie-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },

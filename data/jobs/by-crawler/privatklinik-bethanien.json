@@ -552,8 +552,8 @@
       "slugByLocale": {
         "de": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
         "it": "posizionamento-della-sala-operatoria-dell-infermiera-privatklinik-bethanien-zurich",
-        "en": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "fr": "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        "en": "storage-manager-operating-room-privatklinik-bethanien-zurich",
+        "fr": "gestionnaire-de-stockage-salle-d-operation-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -612,6 +612,12 @@
       "firstSeenAt": "2026-06-30T12:03:50.771Z",
       "previousSlugsByLocale": {
         "it": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ],
+        "en": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ],
+        "fr": [
           "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
         ]
       },

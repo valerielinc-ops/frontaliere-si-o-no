@@ -1688,8 +1688,8 @@
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-reha-bellikon-bellikon",
         "it": "assistente-sociale-rehaklinik-bellikon-bellikon",
-        "en": "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon",
-        "fr": "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon"
+        "en": "social-worker-social-worker-rehaklinik-bellikon-bellikon",
+        "fr": "travailleurs-sociaux-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1740,6 +1740,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiterin-sozialarbeiter-reha-bellikon-bellikon",
+          "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon"
+        ],
+        "en": [
+          "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon"
+        ],
+        "fr": [
           "sozialarbeiterin-sozialarbeiter-rehaklinik-bellikon-bellikon"
         ]
       },

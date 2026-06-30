@@ -638,8 +638,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch",
         "it": "infermiere-laureato-in-hf-fh-f-m-d-servizio-permanente-di-servizio-notturno-acute-care-privatklinik-wyss-munchenbuchsee",
-        "en": "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch"
+        "en": "dipl-nurse-hf-fh-f-m-d-continuous-night-service-acute-department-privatklinik-wyss-munchenbuchsee",
+        "fr": "dipl-infirmiere-hf-fh-f-m-j-service-continu-de-nuit-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -700,6 +700,12 @@
       "firstSeenAt": "2026-06-30T12:01:33.940Z",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch"
         ]
       },

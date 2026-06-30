@@ -13035,7 +13035,7 @@
         "it": "risorse-umane-business-partner-sulzer-shanghai",
         "en": "hr-business-partner-sulzer-ch",
         "de": "personalwesen-business-partner-sulzer-shanghai",
-        "fr": "partenaire-operationnel-rh-sulzer-shanghai"
+        "fr": "partenaire-d-affaires-rh-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -13078,7 +13078,7 @@
       "previousSlugs": [
         "hr-business-partner-sulzer-ch",
         "hr-business-partner-sulzer-shanghai",
-        "partenaire-d-affaires-rh-sulzer-shanghai"
+        "partenaire-operationnel-rh-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13089,7 +13089,7 @@
         ],
         "fr": [
           "hr-business-partner-sulzer-shanghai",
-          "partenaire-d-affaires-rh-sulzer-shanghai"
+          "partenaire-operationnel-rh-sulzer-shanghai"
         ]
       },
       "firstSeenAt": "2026-05-28T14:24:07.018Z",
@@ -22252,8 +22252,8 @@
       "slugByLocale": {
         "en": "packaging-welding-worker-sulzer-ch",
         "it": "operaio-per-imballaggi-e-saldatura-sulzer-suzhou",
-        "de": "packaging-welding-worker-sulzer-ch",
-        "fr": "packaging-welding-worker-sulzer-ch"
+        "de": "verpackungs-und-schwei-arbeiter-sulzer-suzhou",
+        "fr": "travailleur-d-emballage-et-de-soudage-sulzer-suzhou"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22311,6 +22311,12 @@
       "firstSeenAt": "2026-06-30T12:52:23.521Z",
       "previousSlugsByLocale": {
         "it": [
+          "packaging-welding-worker-sulzer-ch"
+        ],
+        "de": [
+          "packaging-welding-worker-sulzer-ch"
+        ],
+        "fr": [
           "packaging-welding-worker-sulzer-ch"
         ]
       },
@@ -22465,7 +22471,7 @@
         "en": "regional-sales-manager-zonal-head-chennai-sulzer-ch",
         "it": "responsabile-regionale-vendite-capo-zonale-chennai-sulzer-chennai",
         "de": "regional-sales-manager-zonal-head-chennai-sulzer-ch",
-        "fr": "regional-sales-manager-zonal-head-chennai-sulzer-ch"
+        "fr": "directeur-regional-des-ventes-chef-de-zone-chennai-sulzer-chennai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22523,6 +22529,9 @@
       "firstSeenAt": "2026-06-30T12:52:20.651Z",
       "previousSlugsByLocale": {
         "it": [
+          "regional-sales-manager-zonal-head-chennai-sulzer-ch"
+        ],
+        "fr": [
           "regional-sales-manager-zonal-head-chennai-sulzer-ch"
         ]
       },

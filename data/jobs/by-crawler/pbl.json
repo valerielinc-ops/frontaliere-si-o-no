@@ -3976,8 +3976,8 @@
       "slugByLocale": {
         "de": "physiotherapeut-physiotherapeutin-m-w-d-60-80-pbl-liestal",
         "it": "fisioterapista-lunedi-f-d-60-80-psychiatrie-baselland-liestal",
-        "en": "physiotherapeut-physiotherapeutin-m-w-d-60-80-psychiatrie-baselland-liestal",
-        "fr": "physiotherapeut-physiotherapeutin-m-w-d-60-80-psychiatrie-baselland-liestal"
+        "en": "physiotherapist-m-f-d-60-80-psychiatrie-baselland-liestal",
+        "fr": "physiotherapeute-m-f-j-60-80-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -4023,6 +4023,12 @@
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-physiotherapeutin-m-w-d-60-80-pbl-liestal",
+          "physiotherapeut-physiotherapeutin-m-w-d-60-80-psychiatrie-baselland-liestal"
+        ],
+        "en": [
+          "physiotherapeut-physiotherapeutin-m-w-d-60-80-psychiatrie-baselland-liestal"
+        ],
+        "fr": [
           "physiotherapeut-physiotherapeutin-m-w-d-60-80-psychiatrie-baselland-liestal"
         ]
       },

@@ -10349,9 +10349,9 @@
     },
     {
       "id": "uzh-8c748dfe09b3",
-      "slug": "ict-supporter-in-uzh-zurich",
+      "slug": "supporto-ict-in-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "ict-supporter-in-uzh-zurich",
+        "it": "supporto-ict-in-universitat-zurich-zurich",
         "en": "ict-supporter-in-uzh-zurich",
         "de": "ict-supporter-in-uzh-zurich",
         "fr": "soutien-aux-tic-en-universitat-zurich-zurich"
@@ -10407,7 +10407,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-in-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-in-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-f7a7c1cdfa80",
