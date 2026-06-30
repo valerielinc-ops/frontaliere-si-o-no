@@ -26,7 +26,7 @@ if [ -z "$loc" ] || [ -z "$dist_dir" ]; then
 fi
 
 case "$loc" in
-  it) sub="cerca-lavoro-ticino" ;;
+  it) sub="cerca-lavoro-ticino" ;;  # cathedral-allow: canonical TI legacy section path (bash, cannot import resolveCantonSection)
   en) sub="en/find-jobs-ticino" ;;
   de) sub="de/jobs-im-tessin" ;;
   fr) sub="fr/trouver-emploi-tessin" ;;
