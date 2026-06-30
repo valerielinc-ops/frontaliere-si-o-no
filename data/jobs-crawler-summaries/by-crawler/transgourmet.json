@@ -1,18 +1,19 @@
 {
   "key": "transgourmet",
   "label": "Transgourmet",
-  "generatedAt": "2026-06-29T23:26:16.130Z",
-  "total": 23,
-  "newCount": 23,
-  "updatedCount": 0,
+  "generatedAt": "2026-06-30T12:46:09.463Z",
+  "total": 22,
+  "newCount": 0,
+  "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3226,
-  "avgDurationMs": 3226,
+  "durationMs": 3885,
+  "avgDurationMs": 3885,
   "durationHistory": [
-    3226
+    3885
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "transgourmet-2db6c3b7-33f",
       "slug": "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal",
@@ -25,7 +26,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-metzgerei/2db6c3b7-33f9-45e4-8df2-83dabad40e67",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.909Z",
+      "crawledAt": "2026-06-30T12:46:06.724Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "postedDate": "2026-06-29",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167350",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.909Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-frische/612ee07c-dba5-4789-9658-dcbbcaa6dfee",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.938Z",
+      "crawledAt": "2026-06-30T12:46:06.755Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,11 +81,12 @@
       "postedDate": "2026-06-26",
       "pensum": "15%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167320",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.938Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -99,7 +102,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/41a0f2eb-d0d8-4680-8c90-bfd3505e44c4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.957Z",
+      "crawledAt": "2026-06-30T12:46:06.777Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -116,11 +119,12 @@
       "postedDate": "2026-06-26",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167324",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.957Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -136,7 +140,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/assistant-category-management-non-food/e6c56962-065e-410f-b3e6-2e56c05a83ed",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.958Z",
+      "crawledAt": "2026-06-30T12:46:06.778Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -153,11 +157,12 @@
       "postedDate": "2026-06-25",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167289",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.958Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -173,7 +178,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/key-account-managerin-key-account-manager-care-gastronomie/fa296073-8eac-499f-bd85-f6bc68d23178",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.963Z",
+      "crawledAt": "2026-06-30T12:46:06.783Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -190,11 +195,12 @@
       "postedDate": "2026-06-25",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166168",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.963Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -210,7 +216,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/bf4c1a16-e056-499e-9a2e-9546c01c7b63",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.962Z",
+      "crawledAt": "2026-06-30T12:46:06.782Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -227,11 +233,13 @@
       "postedDate": "2026-06-24",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167224",
-      "_qualityScore": 74,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-29T23:26:13.962Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 20,
         "completeness": 20
       }
     },
@@ -247,7 +255,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/linux-system-administrator/9033597e-bec1-44f7-bb33-6106f26270c4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.960Z",
+      "crawledAt": "2026-06-30T12:46:06.779Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -264,11 +272,12 @@
       "postedDate": "2026-06-23",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=162756",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.960Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -284,7 +293,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/responsable-de-magasin/840e3214-aaed-4280-8f92-491d9aa2699a",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:26:13.965Z",
+      "crawledAt": "2026-06-30T12:46:06.785Z",
       "addressLocality": "Laténa",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -301,11 +310,12 @@
       "postedDate": "2026-06-22",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167169",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.965Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -321,7 +331,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-frische-sl-5-00-8-00-uhr/51bedf91-69fa-4aae-ada8-6013521e9f9d",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.967Z",
+      "crawledAt": "2026-06-30T12:46:06.787Z",
       "addressLocality": "Rüschlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,11 +348,12 @@
       "postedDate": "2026-06-19",
       "pensum": "30-35%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167139",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.967Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -358,7 +369,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-verkauf-innendienst/b00aa5a5-4cc4-47f8-ba91-60f39fe547d2",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.968Z",
+      "crawledAt": "2026-06-30T12:46:06.787Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -375,11 +386,12 @@
       "postedDate": "2026-06-19",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167132",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.968Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -395,7 +407,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/65a15414-dab3-48cc-9c73-3c5462038d4a",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.969Z",
+      "crawledAt": "2026-06-30T12:46:06.789Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -412,11 +424,12 @@
       "postedDate": "2026-06-19",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167130",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.969Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -432,7 +445,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-check-out/f1efb774-e785-4485-a0ec-134d715785f3",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.970Z",
+      "crawledAt": "2026-06-30T12:46:06.790Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -449,11 +462,12 @@
       "postedDate": "2026-06-18",
       "pensum": "50%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166924",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.970Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -469,7 +483,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/key-account-manager/c8f27967-7b16-49a3-92ea-362db31c4338",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:26:13.973Z",
+      "crawledAt": "2026-06-30T12:46:06.792Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -486,11 +500,12 @@
       "postedDate": "2026-06-17",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166583",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.973Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -506,7 +521,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-und-check-out/7460b67b-2fb0-4308-9f68-8b5ffec069c9",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.971Z",
+      "crawledAt": "2026-06-30T12:46:06.791Z",
       "addressLocality": "Heimberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -523,11 +538,12 @@
       "postedDate": "2026-06-14",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166732",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.971Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -543,7 +559,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/marketing-automation-specialist/292bec01-d7db-4b21-aa03-cdbb98728b34",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.980Z",
+      "crawledAt": "2026-06-30T12:46:06.800Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -560,48 +576,12 @@
       "postedDate": "2026-06-11",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166357",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.980Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "transgourmet-5f434bdd-fed",
-      "slug": "mitarbeiterin-mitarbeiter-verkauf-trockensortiment-transgourmet-wilderswil",
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Mitarbeiterin / Mitarbeiter Verkauf Trockensortiment",
-      "location": "Wilderswil",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-trockensortiment/5f434bdd-fed1-44bb-9c6f-5c21fe627c27",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.972Z",
-      "addressLocality": "Wilderswil",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3812",
-      "streetAddress": "Mittelweg 1",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166505",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -617,7 +597,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-allrounder/f961007f-fd26-4a63-96fa-72580419caf5",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.975Z",
+      "crawledAt": "2026-06-30T12:46:06.794Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -634,11 +614,12 @@
       "postedDate": "2026-06-09",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166566",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.975Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -654,7 +635,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-allrounder/93ca857c-ac04-4876-b296-34ace400febb",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.976Z",
+      "crawledAt": "2026-06-30T12:46:06.797Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -671,11 +652,12 @@
       "postedDate": "2026-06-09",
       "pensum": "50%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166569",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.976Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -691,7 +673,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-trockensortiment-food-non-near-food/72c22b24-3224-45af-b38d-70f9303765b7",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.979Z",
+      "crawledAt": "2026-06-30T12:46:06.799Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -708,11 +690,12 @@
       "postedDate": "2026-06-09",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166591",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-06-29T23:26:13.979Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -728,7 +711,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/responsable-adjointe-responsable-adjoint-rayon-boucherie/f0a09cb0-c364-4d71-98a4-0ccb3b46922f",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:26:13.981Z",
+      "crawledAt": "2026-06-30T12:46:06.802Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -745,11 +728,12 @@
       "postedDate": "2026-06-08",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166534",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.981Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -765,7 +749,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/a1f26a7c-4aae-485c-a7b3-210c0a148e10",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.982Z",
+      "crawledAt": "2026-06-30T12:46:06.803Z",
       "addressLocality": "Neuendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -782,11 +766,12 @@
       "postedDate": "2026-06-08",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166521",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.982Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -802,7 +787,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-check-out-biel/81da75ed-9461-47cd-b4cf-6f2abda4daf8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T23:26:13.983Z",
+      "crawledAt": "2026-06-30T12:46:06.804Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -819,11 +804,12 @@
       "postedDate": "2026-06-05",
       "pensum": "40%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166388",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-06-29T23:26:13.983Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -839,7 +825,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-vente-fruits-legumes/c4681e39-1208-4f12-b202-82eaa6141ca6",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-29T23:26:13.984Z",
+      "crawledAt": "2026-06-30T12:46:06.805Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -856,16 +842,16 @@
       "postedDate": "2026-06-01",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166243",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-06-29T23:26:13.984Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
