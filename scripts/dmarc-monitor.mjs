@@ -84,20 +84,33 @@ const FAIL_MIN_VOL = intEnv('DMARC_FAIL_MIN_VOL', 20);
 const READY_MIN_TOTAL = intEnv('DMARC_READY_MIN_TOTAL', 50);
 // Readiness also needs the window-wide failure share at or below this fraction.
 const READY_MAX_FAIL_RATE = floatEnv('DMARC_READY_MAX_FAIL_RATE', 0.01);
+// A KNOWN sender almost always carries a small tail of DMARC-failing messages
+// that is NOT a misconfiguration: forwarded copies (auto-forwards, mailing
+// lists) legitimately break SPF/DKIM alignment and SHOULD fail — that is exactly
+// what enforcement is for. So for a known sender we only alert on a SYSTEMATIC
+// failure (its pass-rate is low → its own direct sends are failing), not on the
+// forwarding tail of an otherwise-healthy one. UNKNOWN sources bypass this floor
+// entirely (always surfaced — could be spoofing). 0.90 keeps a real degradation
+// visible while silencing the perpetual forwarding noise of a bulk ESP (e.g.
+// Mailjet ~96% pass) that would otherwise re-open this issue every single week.
+const KNOWN_SENDER_MIN_PASS_RATE = floatEnv('DMARC_KNOWN_MIN_PASS_RATE', 0.9);
 
 // Orgs we expect to send as frontaliereticino.ch. Matched case-insensitively as
-// substrings of the report's `sourceOrgName`. Used ONLY to annotate findings
-// (known-misconfig vs unknown-source) — it never suppresses an alert, so a new
-// legit provider that starts failing is still surfaced, just labelled "unknown".
+// substrings of the report's `sourceOrgName`. Drives two things: it annotates a
+// finding (known-misconfig vs unknown-source), and it lets a healthy known
+// sender's forwarding tail be treated as background noise (see
+// KNOWN_SENDER_MIN_PASS_RATE) — an UNKNOWN source failing in volume is ALWAYS
+// surfaced regardless, so a brand-new provider that starts failing still shows
+// up (just labelled "unknown"/possible-spoofing).
 const KNOWN_SENDERS = (process.env.DMARC_KNOWN_SENDERS
   ? process.env.DMARC_KNOWN_SENDERS.split(',')
   : [
       'mailjet',          // transactional + newsletter
       'amazon',           // Resend sends via Amazon SES
       'mailgun',          // transactional / inbound MX
-      'maileroo',         // listed in SPF
+      'maileroo',         // listed in SPF (_spf.maileroo.com)
       'sendersrv',        // listed in SPF
-      'constant company', // Vultr — self-hosted sending/relay infra
+      'constant company', // Maileroo's shared MTAs (rDNS mta*.maileroo.com, IPs in _spf.maileroo.com); Constant Company/Vultr is the hosting AS
       'google',           // Gmail forwarders / occasional relays
       'microsoft',        // Outlook/O365 forwarders
       'outlook',
@@ -226,7 +239,18 @@ export function analyze(rows) {
   }
   const totalFail = total - totalPass;
   const failingSources = [...byOrg.values()]
-    .filter((s) => s.fail >= FAIL_MIN_VOL)
+    .filter((s) => {
+      if (s.fail < FAIL_MIN_VOL) return false;
+      // Unknown source failing in volume → always surface (possible spoofing, or
+      // a forgotten service that was never aligned).
+      if (!s.known) return true;
+      // Known sender → only a SYSTEMATIC failure (low pass-rate) is a real
+      // misconfig worth acting on; a small failing tail riding on a healthy
+      // pass-rate is ordinary forwarding/mailing-list breakage, which
+      // enforcement is supposed to drop and which no DNS fix removes.
+      const passRate = s.total > 0 ? s.pass / s.total : 0;
+      return passRate < KNOWN_SENDER_MIN_PASS_RATE;
+    })
     .sort((a, b) => b.fail - a.fail);
   const failRate = total > 0 ? totalFail / total : 0;
   const ready =
@@ -283,12 +307,19 @@ function createIssue({ title, description, priority }) {
   );
 }
 
-function buildFailBody(a, days, since) {
+function buildFailBody(a, days, since, policy) {
+  // The right reading of a failing source depends on the live enforcement rung:
+  // at p=reject a KNOWN sender failing means legit mail is ALREADY being bounced
+  // (urgent), while an UNKNOWN one is spoofing that is ALREADY neutralised. At
+  // p=none/quarantine the failures are a warning to fix BEFORE tightening.
+  const atReject = policy === 'reject';
   const lines = [
     '## ⚠️ DMARC: una o più sorgenti falliscono in volume',
     '',
     `Finestra analizzata: **ultimi ${days} giorni** (dal \`${since}\`), dati dal`,
     'DMARC Management di Cloudflare (dataset `dmarcReportsSourcesAdaptiveGroups`).',
+    '',
+    `Policy DMARC attuale: **p=${policy ?? 'sconosciuta'}**.`,
     '',
     `Messaggi totali: **${a.total}** · passano DMARC: **${a.totalPass}** (${pct(a.totalPass, a.total)}) ·`,
     `falliscono: **${a.totalFail}** (${pct(a.totalFail, a.total)}).`,
@@ -305,19 +336,29 @@ function buildFailBody(a, days, since) {
   }
   lines.push(
     '',
+    '_Sono in tabella solo le sorgenti con un fallimento sistematico: la piccola coda',
+    'di fail di un mittente noto sano (inoltri/mailing-list) è rumore di fondo, ignorata._',
+    '',
     '### Come leggerlo',
     '- **Sorgente SCONOSCIUTA che fallisce** → o qualcuno spoofa il tuo dominio,',
     '  oppure è un servizio legittimo dimenticato e mai allineato (SPF/DKIM). Se è',
     '  tuo, configuralo; se non lo riconosci, è la prova che la protezione va alzata.',
-    '- **Sorgente NOTA che fallisce** → un tuo mittente legittimo è mal configurato:',
-    '  con `p=quarantine`/`p=reject` quei messaggi finirebbero in spam o bloccati.',
-    '  Vai a sistemare SPF/DKIM di quel provider PRIMA di irrigidire la policy.',
+    '- **Sorgente NOTA che fallisce in modo sistematico** → un tuo mittente',
+    '  legittimo è mal configurato (SPF non allineato e/o DKIM non firmato).',
+    atReject
+      ? '  Con la policy **già a `p=reject`** quella posta viene **rifiutata ADESSO**: è'
+      : '  Con `p=quarantine`/`p=reject` quei messaggi finirebbero in spam o bloccati:',
+    atReject
+      ? '  consegna legittima persa finché non sistemi SPF/DKIM di quel provider (o lo spegni).'
+      : '  sistema SPF/DKIM di quel provider PRIMA di irrigidire la policy.',
     '',
     '### Azione',
-    '1. Identifica ogni sorgente in tabella (l\'IP principale aiuta).',
-    '2. Mittenti tuoi → allinea SPF (return-path sul dominio) e/o firma DKIM.',
-    '3. Sorgenti che non riconosci e non riesci a giustificare → è spoofing:',
-    '   procedi verso un livello di enforcement più alto per neutralizzarlo.',
+    '1. Identifica ogni sorgente in tabella (l\'IP principale + il suo rDNS aiutano).',
+    '2. Mittenti tuoi → allinea SPF (return-path sul dominio) e/o firma DKIM, oppure',
+    '   smetti di inviare da quel provider finché non è autenticato.',
+    atReject
+      ? '3. Sorgenti SCONOSCIUTE → `p=reject` le sta già rifiutando: nessun setup da fare, è spoofing neutralizzato.'
+      : '3. Sorgenti che non riconosci e non riesci a giustificare → è spoofing: procedi verso un enforcement più alto per neutralizzarlo.',
     '',
     '_Aperto automaticamente dal workflow DMARC Monitor. Si auto-aggiorna con un',
     'commento finché la condizione persiste; chiudilo quando hai sistemato._',
@@ -419,7 +460,7 @@ async function main() {
   if (a.failingSources.length) {
     createIssue({
       title: FAIL_ISSUE_TITLE,
-      description: buildFailBody(a, opts.days, since),
+      description: buildFailBody(a, opts.days, since, policy),
       priority: 2,
     });
   } else if (step) {
