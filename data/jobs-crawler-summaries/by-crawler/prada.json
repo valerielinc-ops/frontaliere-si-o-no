@@ -1,48 +1,18 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-06-29T23:08:57.969Z",
-  "total": 2,
-  "newCount": 1,
+  "generatedAt": "2026-06-30T12:18:01.800Z",
+  "total": 1,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 9850,
-  "avgDurationMs": 9850,
+  "durationMs": 9394,
+  "avgDurationMs": 9394,
   "durationHistory": [
-    9850
+    9394
   ],
-  "newJobs": [
-    {
-      "id": "prada-3ce781ad83dc",
-      "slug": "prada-stock-manager-sawgrass-outlet-prada-group-sunrise",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "PRADA, Stock Manager, Sawgrass Outlet",
-      "location": "Sunrise",
-      "canton": "TI",
-      "addressLocality": "Sunrise",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://jobs.pradagroup.com/job/Sunrise-PRADA%2C-Stock-Manager%2C-Sawgrass-Outlet-MN/1409544833/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-29T23:08:54.416Z",
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "prada-332f237b0ca4",
@@ -64,7 +34,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T23:08:51.831Z",
+      "crawledAt": "2026-06-30T12:17:55.956Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -75,8 +45,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "prada-3ce781ad83dc",
       "slug": "prada-stock-manager-sawgrass-outlet-prada-group-sunrise",
@@ -98,20 +67,22 @@
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-06-29T23:08:54.416Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 81,
+      "firstSeenAt": "2026-06-29T23:08:54.416Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -132,7 +103,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-29T23:08:51.831Z",
+      "crawledAt": "2026-06-30T12:17:55.956Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
