@@ -592,7 +592,22 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "previousSlugsByLocale": {
+        "en": [
+          "but-m1-m2-m3-m6-m7-pemsa-lausanne"
+        ],
+        "de": [
+          "m1-m2-m3-m6-m7-pemsa-lausanne"
+        ],
+        "fr": [
+          "mais-m1-m2-m3-m6-m7-pemsa-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "but-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "m1-m2-m3-m6-m7-pemsa-lausanne",
+        "mais-m1-m2-m3-m6-m7-pemsa-lausanne"
+      ]
     },
     {
       "title": "Macchinista M2",
@@ -652,7 +667,22 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-06-29T12:00:35.324Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "previousSlugsByLocale": {
+        "en": [
+          "but-m2-line-pemsa-lausanne"
+        ],
+        "de": [
+          "aber-m2-linie-pemsa-lausanne"
+        ],
+        "fr": [
+          "mais-ligne-m2-pemsa-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "but-m2-line-pemsa-lausanne",
+        "aber-m2-linie-pemsa-lausanne",
+        "mais-ligne-m2-pemsa-lausanne"
+      ]
     },
     {
       "title": "Lattoniere-Copritetto",

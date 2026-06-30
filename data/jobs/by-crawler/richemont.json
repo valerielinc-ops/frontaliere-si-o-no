@@ -2992,7 +2992,8 @@
         "assistente-al-salon-manager-a-lange-und-sohne-zurich",
         "payroll-e-social-insurance-specialist-richemont-schaffhausen",
         "assistente-manager-del-salone-a-lange-und-sohne-zurich",
-        "payroll-and-social-insurance-specialist-richemont-schaffhausen"
+        "payroll-and-social-insurance-specialist-richemont-schaffhausen",
+        "payroll-and-social-insurance-specialist-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3018,7 +3019,8 @@
           "assistente-manager-del-salone-a-lange-und-sohne-zurich",
           "payroll-and-social-insurance-specialist-richemont-schaffhausen",
           "payroll-e-social-insurance-specialist-richemont-meyrin",
-          "gestionnaire-paie-et-assurances-sociales-richemont-meyrin"
+          "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
+          "payroll-and-social-insurance-specialist-richemont-meyrin"
         ],
         "de": [
           "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
@@ -4051,8 +4053,6 @@
         ]
       },
       "previousSlugs": [
-        "specialista-hris-cdd-richemont-meyrin",
-        "hospitality-tirocinante-richemont-meyrin",
         "krankenhaus-intern-richemont-meyrin",
         "hris-specialista-cdd-richemont-meyrin",
         "ospitalita-interno-richemont-meyrin",
@@ -4070,7 +4070,9 @@
         "ospitalita-richemont-meyrin",
         "stagiaire-de-reception-richemont-meyrin-505639",
         "stage-in-hospitality-richemont-meyrin",
-        "responsabile-gioielli-europa-richemont-meyrin"
+        "responsabile-gioielli-europa-richemont-meyrin",
+        "gioielli-manager-europa-richemont-meyrin",
+        "manager-giadelli-europe-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4083,7 +4085,9 @@
         ],
         "en": [
           "hospitality-intern-richemont-meyrin",
-          "jewelry-manager-europe-richemont-meyrin"
+          "jewelry-manager-europe-richemont-meyrin",
+          "gioielli-manager-europa-richemont-meyrin",
+          "manager-giadelli-europe-richemont-meyrin"
         ],
         "de": [
           "hospitality-praktikant-richemont-meyrin"
@@ -8523,7 +8527,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "stage-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
           "tirocinante-contenuti-digitali-piaget-plan-les-ouates",
           "digital-content-integration-tirocinante-michelangelo-foundation-geneva",
           "digital-content-integration-intern-richemont-geneva",
@@ -8541,7 +8544,9 @@
           "brand-content-intern-vacheron-constantin-plan-les-ouates",
           "stagista-per-contenuti-digitali-piaget-plan-les-ouates",
           "brand-content-stagiaire-vacheron-constantin-plan-les-ouates",
-          "digital-content-intern-richemont-plan-les-ouates"
+          "digital-content-intern-richemont-plan-les-ouates",
+          "brand-content-praktikant-vacheron-constantin-plan-les-ouates",
+          "brand-content-tirocinante-vacheron-constantin-plan-les-ouates"
         ],
         "de": [
           "digital-content-praktikant-piaget-plan-les-ouates"
@@ -8553,7 +8558,6 @@
         ]
       },
       "previousSlugs": [
-        "stage-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
         "tirocinante-contenuti-digitali-piaget-plan-les-ouates",
         "digital-content-integration-tirocinante-michelangelo-foundation-geneva",
         "digital-content-integration-intern-richemont-geneva",
@@ -8571,7 +8575,9 @@
         "brand-content-intern-vacheron-constantin-plan-les-ouates",
         "stagista-per-contenuti-digitali-piaget-plan-les-ouates",
         "brand-content-stagiaire-vacheron-constantin-plan-les-ouates",
-        "digital-content-intern-richemont-plan-les-ouates"
+        "digital-content-intern-richemont-plan-les-ouates",
+        "brand-content-praktikant-vacheron-constantin-plan-les-ouates",
+        "brand-content-tirocinante-vacheron-constantin-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-18T13:14:11.256Z",
       "salaryMin": 51100,

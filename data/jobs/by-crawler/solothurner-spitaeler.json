@@ -11637,7 +11637,7 @@
       "slug": "consulente-senior-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "dipl-infermiere-a-operativa-unita-di-cure-uomo-donna-solothurner-spitaler-ag-soh-olten",
-        "en": "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
+        "en": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "de": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-service-de-soins-operatoires-h-f-solothurner-spitaler-ag-soh-olten"
       },
@@ -11647,7 +11647,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Operative Bettenstation (w/m/d)",
       "titleByLocale": {
         "it": "Consulente senior (m/d)",
-        "en": "Dipl. Nursing specialist / nursing specialist Operative Bettenstation (f/m/d)",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann Operative Bettenstation (w/m/d)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Operative Bettenstation (w/m/d)",
         "fr": "Conseiller principal (m/d)"
       },
@@ -11658,6 +11658,7 @@
         "de": "Aufgaben\n• Individuelle und ganzheitliche Betreuung und Pflege der Patientinnen und Patienten im Drei-Schicht-Betrieb\n• Engagement bei der Weiterentwicklung des Pflegeprozesses\n• Mitgestaltung einer aktiven und positiven Teamkultur sowie Offenheit gegenüber interdisziplinären Anliegen\n• Förderung und Begleitung von Studierenden und Auszubildenden Profil\n• Dipl. Pflegefachfrau oder Pflegefachmann HF/FH, DN II, AKP (bei ausländischem Diplom mit SRK-Anerkennung)\n• Berufserfahrung auf der Akutabteilung eines Spitals (von Vorteil)\n• Offenheit gegenüber Veränderungen und Freude an einem lebhaften Umfeld\n• Teamfähige, empathische und belastbare Persönlichkeit\n• Bereich: Pflege\n• Standort: Kantonsspital Olten\n• Abteilung: Operative Bettenstation mit Schwerpunkt Chirurgie / Orthopädie\n• Pensum: 80% - 100%",
         "fr": "Tâche\n• Soins individuels et holistiques et soins aux patients en trois équipes\n• Participation au développement du processus de prise en charge\n• Concevoir une culture d'équipe active et positive et une ouverture aux préoccupations interdisciplinaires\n• Promouvoir et soutenir les étudiants et les stagiaires Profil\n• Dipl. Senior Caregiiver HF/FH, DN II, ACP (pour diplôme étranger avec reconnaissance SRK)\n• Expérience professionnelle au service aigu d'un hôpital (d'avantage)\n• Ouverture aux changements et à la joie dans un environnement animé\n• Équipe prête, empathie et personnalité résiliente\n• Domaine: soins\n• Lieu: Hôpital cantonal Olten\n• Département: Poste de lit opérationnel avec accent sur la chirurgie / Orthopédie\n• Pensum: 80% - 100%"
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d/22ab4104-97fe-4554-ae57-e4e2e14e6de5",
@@ -11683,14 +11684,13 @@
       "department": "Operative Bettenstation mit Schwerpunkt Chirurgie / Orthopädie",
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
-        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
         "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten",
         "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
         "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach",
         "consultant-principal-m-j-solothurner-spitaler-soh-dornach",
         "senior-consultant-m-d-solothurner-spitaler-soh-dornach",
+        "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
         "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
         "conseiller-principal-m-d-solothurner-spitaler-soh-olten",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
@@ -11701,7 +11701,9 @@
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
         "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten",
-        "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
+        "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf",
+        "expertin-experte-anasthesiepflege-w-m-d-soh-ch",
+        "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11710,17 +11712,22 @@
           "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
           "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten",
           "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
-          "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach"
+          "esperto-esperta-in-anestesia-w-m-d-solothurner-spitaler-soh-dornach",
+          "expertin-experte-anasthesiepflege-w-m-d-soh-ch"
         ],
         "en": [
           "consultant-principal-m-j-solothurner-spitaler-soh-dornach",
           "senior-consultant-m-d-solothurner-spitaler-soh-dornach",
+          "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
           "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
-          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
+          "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
           "conseiller-principal-m-d-solothurner-spitaler-soh-olten"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T14:09:15.137Z",
@@ -11888,18 +11895,17 @@
           "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
           "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
           "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
-          "consulente-senior-m-d-solothurner-spitaler-soh-olten",
-          "dipl-infermiere-a-operativa-unita-di-cure-uomo-donna-solothurner-spitaler-ag-soh-olten"
+          "consulente-senior-m-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
           "senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
           "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
-          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
+          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
+          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
           "consultant-principal-m-j-solothurner-spitaler-soh-olten",
-          "conseiller-principal-m-d-solothurner-spitaler-soh-olten",
-          "diplome-e-en-soins-infirmiers-service-de-soins-operatoires-h-f-solothurner-spitaler-ag-soh-olten"
+          "conseiller-principal-m-d-solothurner-spitaler-soh-olten"
         ]
       },
       "previousSlugs": [
@@ -11907,11 +11913,9 @@
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
         "esperta-o-di-anestesia-uomo-donna-solothurner-spitaler-soh-olten",
         "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
-        "consulente-senior-m-d-solothurner-spitaler-soh-olten",
         "senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
         "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
-        "conseiller-principal-m-d-solothurner-spitaler-soh-olten",
         "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten",
         "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
@@ -11921,7 +11925,10 @@
         "consulente-senior-m-d-solothurner-spitaler-soh-dornach",
         "senior-consultant-m-d-solothurner-spitaler-soh-dornach",
         "consultant-principal-m-j-solothurner-spitaler-soh-dornach",
-        "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
+        "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
+        "expert-en-soins-anesthesiques-h-f-solothurner-spitaler-soh-olten",
+        "expert-nurse-anesthesia-male-female-solothurner-spitaler-soh-olten",
+        "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten"
       ],
       "firstSeenAt": "2026-05-22T13:01:59.304Z",
       "salaryMin": 68500,
@@ -13242,7 +13249,8 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-ch"
+          "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-ch",
+          "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-m-w-d-solothurner-spitaler-ag-soh-olten"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-ch",
@@ -13256,7 +13264,8 @@
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-ch",
         "employee-employee-maintenance-cleaning-f-m-d-solothurner-spitaler-soh-olten",
-        "nettoyage-d-entretien-des-employes-f-m-d-solothurner-spitaler-soh-olten"
+        "nettoyage-d-entretien-des-employes-f-m-d-solothurner-spitaler-soh-olten",
+        "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
