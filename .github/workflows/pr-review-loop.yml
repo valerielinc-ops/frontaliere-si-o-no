@@ -63,8 +63,8 @@ jobs:
       # Claude / tier minimal. Sorgente unica (AGENTS.md #6: niente regex letterale
       # duplicata tra step). Include lockfile (package-lock/pnpm-lock/yarn.lock),
       # `*.snap`, baseline binarie (png/jpg/webp/gif/svg/ico/woff) — es. una PR di
-      # soli baseline PNG visivi sotto tests/ non deve escalare a opus per "diff
-      # binario".
+      # soli baseline PNG visivi sotto tests/ non deve escalare al tier high per
+      # "diff binario".
       NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock)$|\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     # Gate evento: SOLO `tests` concluso success (vitest verde) E triggerato da
     # un `pull_request` (i `workflow_dispatch` dell'autorebase e i `push` su main
@@ -224,12 +224,12 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           REPO: ${{ github.repository }}
-        # Tier high (opus, max-turns 40, adversarial pass): toccato CODE
+        # Tier high (claude-sonnet-5, max-turns 40, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
         # migrate, assemble dataset, sitemap/canonical/slug/structured-data).
         # Bug in questi path = falso senso di sicurezza che si propaga su ogni
-        # merge, quindi probing opus paga. Tier normal 15->25 (misurato: 13
+        # merge, quindi probing rigoroso paga. Tier normal 15->25 (misurato: 13
         # run/7gg morti `error_max_turns` a num_turns=16 senza postare review,
         # es. run 27345572135/27340191180 - review intera bruciata + PR ferma
         # fino al rescuer). Tier normal (sonnet, max-turns 25) per
@@ -242,7 +242,7 @@ jobs:
         # rigenerati (NONCODE_RE) NON sono reviewabili come code → non escalano il
         # tier e una PR data/docs-only resta normal (sonnet posta comunque
         # `## LGTM` → auto-merge). Questo evita che 50 `data/jobs/*.json`
-        # rigenerati da un crawler trascinino su opus o gonfino il diff.
+        # rigenerati da un crawler trascinino sul tier high o gonfino il diff.
         #
         # Budget 25→40: con l'espansione del contratto (REVIEW.md no-short-circuit
         # su tier high + step 7 perf-claim + escalation ❓ funnel-critical, sopra
@@ -298,11 +298,12 @@ jobs:
           # crawler_parser_only <file-list> → exit 0 se TUTTI i file funnel-critical
           # sono crawler/parser/adapter di UNA singola fonte datore (fetch+parse di un
           # employer). Owner-approved 2026-06-30 (Tier-3 token-lever): questi vanno
-          # reviewati da sonnet (non opus) — bug-class = meno job da una sola fonte, NON
-          # regressione SEO/monetizzazione. RESTANO su opus (NON match qui): SEO-emitter
+          # reviewati dal tier normal/claude-sonnet-4-6 (non tier high) — bug-class =
+          # meno job da una sola fonte, NON regressione SEO/monetizzazione. RESTANO sul
+          # tier high/claude-sonnet-5 (NON match qui): SEO-emitter
           # (sitemap/canonical/slug/structured-data/assemble/backfill/migrate),
           # tests/, .github/workflows/, build-plugins/. Conservativo: anche UN solo file
-          # non-crawler nel set → opus.
+          # non-crawler nel set → tier high.
           crawler_parser_only() {
             local fs="$1" nonmatch
             nonmatch=$(echo "$fs" | grep -vE '^scripts/update-[a-z0-9-]+-jobs\.mjs$|^scripts/lib/[a-z0-9-]+-job-parser\.mjs$|^scripts/lib/ats-clients/|^scripts/crawl-[a-z0-9-]+\.mjs$|^scripts/(scaffold-crawler|generate-company-parser|generate-company-adapter-stubs|generate-crawler-companies|manage-company-adapter|regen-parser-fix-slices|list-job-crawler-company-keys|check-crawler-health)\.mjs$' || true)
@@ -314,8 +315,9 @@ jobs:
           # commit reviewato, non l'intera PR. Il grosso del contributo era già stato
           # reviewato; ri-leggerlo per intero a ogni fix-push brucia token (osservato
           # su #3038: review Opus full ripetute sullo stesso codice). Modello per
-          # criticità del DELTA: funnel-critical → opus (rigore, scope ridotto);
-          # altrimenti sonnet. Prima review / nessun commit precedente / delta vuoto
+          # criticità del DELTA: funnel-critical → tier high/claude-sonnet-5 (rigore,
+          # scope ridotto); altrimenti tier normal/claude-sonnet-4-6. Prima review /
+          # nessun commit precedente / delta vuoto
           # → review piena (sotto). Il fingerprint-skip a monte (guard step) copre già
           # il caso "contributo invariato"; qui il contributo È cambiato, ma in modo
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
@@ -329,7 +331,7 @@ jobs:
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
               if funnel_crit "$delta_code" && ! crawler_parser_only "$delta_code"; then
-                set_tier incremental-high claude-opus-4-8 25
+                set_tier incremental-high claude-sonnet-5 25
               elif funnel_crit "$delta_code"; then
                 # crawler/parser-only funnel-critical delta → sonnet (owner-approved)
                 set_tier incremental-high claude-sonnet-4-6 25
@@ -341,11 +343,12 @@ jobs:
             echo "Nessun delta-code nei file PR dall'ultima review → review piena."
           fi
 
-          # CODE funnel-critical → high (full scope, 40 turni). Modello: opus, salvo
-          # i diff crawler/parser-only → sonnet (owner-approved 2026-06-30, stesso
-          # scope+turni, solo modello più economico). Altrimenti normal (sonnet/25).
+          # CODE funnel-critical → high (full scope, 40 turni). Modello: claude-sonnet-5,
+          # salvo i diff crawler/parser-only → claude-sonnet-4-6 (owner-approved
+          # 2026-06-30, stesso scope+turni, solo modello del tier normal). Altrimenti
+          # normal (claude-sonnet-4-6/25).
           if funnel_crit "$code_files" && ! crawler_parser_only "$code_files"; then
-            set_tier high claude-opus-4-8 40
+            set_tier high claude-sonnet-5 40
           elif funnel_crit "$code_files"; then
             set_tier high claude-sonnet-4-6 40
           else
@@ -386,7 +389,7 @@ jobs:
           # Tool expansion: aggiunti `Bash(rg:*)`, `Bash(git:*)` per consentire
           # cross-file pattern search (REVIEW.md → Reviewer behavior step 5) e
           # navigation history (`git log -L`, `git blame`, `git show`). Tier high
-          # paga il bump opus per probing regex/assertion/idempotency.
+          # paga il bump a claude-sonnet-5 per probing regex/assertion/idempotency.
           claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --allowedTools 'Bash(gh:*),Bash(rg:*),Bash(git:*),Read,Grep,Glob'"
           prompt: |
             Reviewer automatico PR #${{ steps.resolve.outputs.pr_number }} ("${{ steps.resolve.outputs.title }}"). Tier: ${{ steps.tier.outputs.tier }}.

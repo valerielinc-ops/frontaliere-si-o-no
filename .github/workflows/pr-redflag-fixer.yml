@@ -203,13 +203,13 @@ jobs:
             exit 0
           fi
 
-          # Tier (mirror di pr-review-loop / issue-fix): high (opus) se la PR
+          # Tier (mirror di pr-review-loop / issue-fix): high (claude-sonnet-5) se la PR
           # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
           # services/seo*), normal (sonnet) altrimenti.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
           if [ -n "$crit" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-4-8"   >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
