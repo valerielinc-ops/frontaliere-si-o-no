@@ -751,6 +751,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volg-reckingen-2026.title': 'Volg Reckingen: news and updates 2026',
     'blog.article.volg-reckingen-2026.excerpt': 'Recent updates on the Volg supermarket in Reckingen, new policies and schedules for 2026.',
     'blog.article.volg-reckingen-2026.imageAlt': 'Swiss landscape with lake and mountains at sunset',
+    'blog.article.fielmann-interlaken-lavoro-svizzera.title': 'Working from Fielmann to Interlaken: opportunities and job search',
+    'blog.article.fielmann-interlaken-lavoro-svizzera.excerpt': 'Overview of job opportunities at Fielmann in Interlaken and how to find available open positions.',
+    'blog.article.fielmann-interlaken-lavoro-svizzera.imageAlt': 'View of central Interlaken with a modern optical store and passersby.',
 };
 
 export default blogMetaChEn;

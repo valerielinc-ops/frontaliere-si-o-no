@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3030,
+ "numberOfItems": 3031,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7676,7 +7676,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3027, "name": "Dogana Chiasso: tempi di attesa e viabilità", "url": `${BASE_URL}/articoli-frontaliere/tempi-attesa-dogana-chiasso-strada` },
           { "@type": "ListItem", "position": 3028, "name": "Prezzi della benzina in Svizzera oggi", "url": `${BASE_URL}/articoli-frontaliere/benzina-prezzi-svizzera-oggi` },
           { "@type": "ListItem", "position": 3029, "name": "Guess Stabio: opportunità di lavoro come mercha...", "url": `${BASE_URL}/articoli-frontaliere/guess-stabio-lavoro-merchandiser` },
-          { "@type": "ListItem", "position": 3030, "name": "Volg Reckingen: novità e aggiornamenti 2026", "url": `${BASE_URL}/articoli-frontaliere/volg-reckingen-2026` }
+          { "@type": "ListItem", "position": 3030, "name": "Volg Reckingen: novità e aggiornamenti 2026", "url": `${BASE_URL}/articoli-frontaliere/volg-reckingen-2026` },
+          { "@type": "ListItem", "position": 3031, "name": "Lavorare da Fielmann a Interlaken: opportunità ...", "url": `${BASE_URL}/articoli-frontaliere/fielmann-interlaken-lavoro-svizzera` }
  ]
  },
  {
