@@ -817,9 +817,9 @@
     },
     {
       "id": "spitex-ch-accee3612a64",
-      "slug": "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg",
+      "slug": "persona-specializzata-in-salute-afc-con-funzione-di-formatrice-professionale-80-spitex-region-lenzburg-lenzburg",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg",
+        "it": "persona-specializzata-in-salute-afc-con-funzione-di-formatrice-professionale-80-spitex-region-lenzburg-lenzburg",
         "en": "health-professional-efz-with-vocational-trainer-function-80-spitex-region-lenzburg-lenzburg",
         "de": "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg",
         "fr": "efz-professionnel-de-la-sante-avec-fonction-de-formateur-professionnel-80-spitex-region-lenzburg-lenzburg"
@@ -876,7 +876,15 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-mit-berufsbildner-innen-funktion-80-spitex-ch-lenzburg"
+      ]
     },
     {
       "id": "spitex-ch-02513a308804",
@@ -1718,7 +1726,6 @@
         "sante-professionnelle-efz-60-80-spitex-zimmerberg-ag-thalwil",
         "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg",
         "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg",
-        "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-thalwil",
         "fachfrau-mann-gesundheit-fage-cfc-40-100-spitex-mutschellen-reusstal-bremgarten",
         "professional-health-fage-efz-40-100-spitex-mutschellen-reusstal-bremgarten",
         "sante-professionnelle-fage-efz-40-100-spitex-mutschellen-reusstal-bremgarten"
@@ -1886,8 +1893,7 @@
         "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-thalwil",
         "professional-health-efz-60-80-spitex-zimmerberg-ag-thalwil",
         "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil",
-        "sante-professionnelle-efz-60-80-spitex-zimmerberg-ag-thalwil",
-        "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg"
+        "sante-professionnelle-efz-60-80-spitex-zimmerberg-ag-thalwil"
       ],
       "salaryMin": 63200,
       "salaryMax": 107600,
