@@ -8189,6 +8189,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eventi-weekend-ticino.title': 'Eventi del weekend in Ticino: cosa fare sabato e domenica',
     'blog.article.eventi-weekend-ticino.excerpt': 'Eventi in Ticino ogni weekend: concerti, mostre, feste e mercati, comune per comune. Agenda aggiornata ogni giorno.',
     'blog.article.eventi-weekend-ticino.imageAlt': 'Eventi del weekend in Ticino',
+  'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Frontalieri: la sede del datore fuori confine non conta',
+  'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'L\'Agenzia delle Entrate, con l\'interpello 126/2026, chiarisce: se l\'attività è svolta nell\'area di frontiera italiana, la sede del datore fuori zona non preclude il regime dei frontalieri.',
+  'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'Veduta di Mendrisio, città di confine del Canton Ticino, simbolo del lavoro frontaliero tra Italia e Svizzera.',
 };
 
 export default blogMetaIt;

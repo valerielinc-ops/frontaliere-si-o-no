@@ -45314,6 +45314,43 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-sede-datore-fuori-confine': {
+    title: "Frontalieri: la sede del datore fuori confine non conta",
+    description: "Interpello 126/2026 dell'Agenzia delle Entrate: la sede del datore di lavoro fuori dall'area di frontiera non preclude il regime dei frontalieri Italia-Svizzera, se l'attività è svolta nell'area frontaliera.",
+    keywords: 'frontalieri, interpello 126/2026, agenzia delle entrate, accordo italia svizzera, area di frontiera, sede datore di lavoro, frontalieri al contrario, ticino, lombardia',
+    ogTitle: "Frontalieri: irrilevante la sede del datore fuori confine",
+    ogDescription: "L'Agenzia delle Entrate chiarisce: conta dove si svolge l'attività, non dove ha sede l'azienda. Cosa cambia per i frontalieri Italia-Svizzera.",
+    canonicalPath: '/articoli-frontaliere/frontalieri-sede-datore-fuori-area-confine/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: irrilevante la sede del datore fuori dall'area di confine",
+      "description": "Interpello 126/2026 dell'Agenzia delle Entrate: la sede del datore di lavoro fuori dall'area di frontiera non preclude il regime dei frontalieri Italia-Svizzera, se l'attività è svolta nell'area frontaliera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/mendrisio.webp`,
+        "width": 1200,
+        "height": 675
+      },
+      "datePublished": "2026-06-30T08:00:00+00:00",
+      "dateModified": "2026-06-30T08:00:00+00:00",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-sede-datore-fuori-area-confine`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
