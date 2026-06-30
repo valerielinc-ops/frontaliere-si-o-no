@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-06-28T21:48:26.339Z",
+  "assembledAt": "2026-06-29T22:23:08.738Z",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-4fb3e21001e4",
@@ -33,7 +33,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/8fd1ff1bb3e8-technicien-ne-biomedical-e-techniker-in-medizintechnik",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:24.078Z",
+      "crawledAt": "2026-06-29T22:23:06.377Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/5e0e732d3961-stagiaire-communication-et-marketing-90-100-cdd-de-12-mois-praktikant-in-kommunikation-und-marketing-90-100-befristeter-vertrag-12-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:23.483Z",
+      "crawledAt": "2026-06-29T22:23:05.791Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/b23818017759-secretaire-medical-e-80-medizinische-r-sekretar-in-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:22.890Z",
+      "crawledAt": "2026-06-29T22:23:05.201Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -220,15 +220,15 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:05.602Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 54800,
+      "salaryMax": 83200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 54800,
+          "maxValue": 83200,
           "unitText": "YEAR"
         }
       }
@@ -264,7 +264,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/3a34181e1d31-secretaire-medical-e-60-medizinische-r-sekretar-in-60",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:22.293Z",
+      "crawledAt": "2026-06-29T22:23:04.620Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -297,15 +297,15 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:04.968Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 41100,
+      "salaryMax": 62400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 41100,
+          "maxValue": 62400,
           "unitText": "YEAR"
         }
       }
@@ -342,7 +342,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/28d3cd9ec42f-repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des-endoscopes-souples-20-qualitatsbeauftragte-n-fur-endoskophygiene-und-verantwortliche-n-fur-die-aufbereitung-der-flexiblen-endoskope-20",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:21.073Z",
+      "crawledAt": "2026-06-29T22:23:03.438Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -379,15 +379,15 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:52:03.571Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
+      "salaryMin": 22600,
+      "salaryMax": 38400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
+          "minValue": 22600,
+          "maxValue": 38400,
           "unitText": "YEAR"
         }
       }
@@ -423,7 +423,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/02d9a63630e8-psychologue-psychotherapeute-40-psycholog-in-psychotherapeut-in-40",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:20.435Z",
+      "crawledAt": "2026-06-29T22:23:02.820Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -456,15 +456,15 @@
         ]
       },
       "firstSeenAt": "2026-06-24T11:34:02.154Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 27400,
+      "salaryMax": 41600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 27400,
+          "maxValue": 41600,
           "unitText": "YEAR"
         }
       }
@@ -501,7 +501,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/3cfb518d1cf1-psychologue-specialiste-en-neuropsychologie-fsp-ean-taux-a-definir-psychologe-psychologin-mit-spezialisierung-in-neuropsychologie-fsp-ean",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:19.832Z",
+      "crawledAt": "2026-06-29T22:23:02.242Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -580,7 +580,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-28T21:48:19.237Z",
+      "crawledAt": "2026-06-29T22:23:01.473Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -610,15 +610,15 @@
       },
       "externalId": "42355f3111eb",
       "firstSeenAt": "2026-05-19T13:03:35.743Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 34300,
+      "salaryMax": 52000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 34300,
+          "maxValue": 52000,
           "unitText": "YEAR"
         }
       }
@@ -654,7 +654,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:18.640Z",
+      "crawledAt": "2026-06-29T22:23:00.857Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -694,15 +694,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.959Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 75600,
+      "salaryMax": 114400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 75600,
+          "maxValue": 114400,
           "unitText": "YEAR"
         }
       }
@@ -739,7 +739,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:18.037Z",
+      "crawledAt": "2026-06-29T22:23:00.258Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -817,7 +817,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/44db59b90658-oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne-generale-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:17.442Z",
+      "crawledAt": "2026-06-29T22:22:59.670Z",
       "addressLocality": "HFR Meyriez-Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -919,7 +919,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:16.840Z",
+      "crawledAt": "2026-06-29T22:22:59.088Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -991,7 +991,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:16.243Z",
+      "crawledAt": "2026-06-29T22:22:58.501Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1062,7 +1062,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e68a1f267ee-medecin-adjoint-e-80-100-stv-chefarzt-chefarztin-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:15.609Z",
+      "crawledAt": "2026-06-29T22:22:57.913Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1111,7 +1111,7 @@
       "slugByLocale": {
         "it": "medico-capo-reparto-80-100-klinikchefarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
         "en": "chief-medical-officer-80-100-klinikchempart-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
-        "de": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
+        "de": "chefarzt-80-100-klinikchemarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
         "fr": "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1121,7 +1121,7 @@
       "titleByLocale": {
         "it": "Capo di Stato maggiore 80-100% / Klinikchemsarzt/ Klinikchefärztin 80-100%",
         "en": "Chief of Staff 80-100% / Klinikchemsarzt/Klinikchefärztin 80-100%",
-        "de": "Chief Medical Officer 80-100% / Klinikchempart/Klinikchefärztin 80-100%",
+        "de": "Chefarzt 80-100% / Klinikchemarzt/Klinikchefärztin 80-100%",
         "fr": "Médecin chef-fe de service 80-100 % / Klinikchefarzt/Klinikchefärztin 80-100 %"
       },
       "description": "À la suite du départ de l’actuelle titulaire du poste, la Direction médicale de l’hôpital fribourgeois\n recherche un-e\n\nMédecin chef-fe du Service de neurologie\n 80-100 %\n\nVotre mission :\n\n• Assurer la conduite et le développement du Service de neurologie\n\n• Collaborer avec les services ambulatoires et stationnaires de l’HFR et avec le réseau ambulatoire fribourgeois\n\n• Superviser et participer à la formation des chef-fe-s de clinique, médecins assistant-e-s en formation y compris ceux en tournus au sein du service, et candidat-e-s-médecins\n\n• Participer à l'enseignement des étudiants en médecine (Bachelor et Master) de l'Université de Fribourg et autres missions d’enseignement\n\nVotre profil :\n\n• Être en possession d’un titre de spécialiste ISFM en neurologie (ou équivalent, avec reconnaissance Mebeko)\n\n• Etre au bénéfice d’une grande expérience clinique couvrant tous les aspects de la neurologie avec une sous-spécialisation\n\n• Avoir une expérience confirmée de direction, de gestion et de conduite en tant que médecin cadre en hôpital universitaire ou régional d’importance, une formation en management\n\n• Être au bénéfice d’un titre universitaire (au minimum un Privat-docent) ou en voie de l’obtenir rapidement\n\n• Avoir une expérience de recherche et de gestion de fonds de recherche\n\n• Avoir une solide expérience d’enseignement au niveau pré- et postgradué\n\n• Excellentes capacités de communication, d’intégration et de collaboration avec une équipe interprofessionnelle, ainsi qu’avec d’autres professionnels de l’HFR ou les médecins installés\n\n• Personnalité communicative et engagée\n\n• Maîtrise de la langue française ou allemande avec de bonnes connaissances de l'autre langue (niveau B2 minimum)\n\nEntrée en fonction : 1 er octobre 2026 ou date à convenir\n\nRenseignements : Prof. Mario Togni, Médecin-chef du Service de Cardiologie, Président de la Commission de\nNomination Tél. : +41 26 306 20 74\n\nDélai de postulation : 31.07.2026\n\nRef.: HFR-M-262605",
@@ -1136,7 +1136,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/96ce5674d176-medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:14.999Z",
+      "crawledAt": "2026-06-29T22:22:57.331Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1157,8 +1157,7 @@
       "previousSlugs": [
         "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
         "ufficiale-medico-capo-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
-        "chief-medical-officer-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
-        "chefarzt-80-100-klinikchemarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
+        "chief-medical-officer-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1170,7 +1169,7 @@
           "chief-medical-officer-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
         ],
         "de": [
-          "chefarzt-80-100-klinikchemarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
+          "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital"
         ]
       },
       "firstSeenAt": "2026-06-25T11:27:04.647Z",
@@ -1218,7 +1217,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/a8909ddde7c0-medecin-adjoint-e-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt-gefasschirurgie-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:14.382Z",
+      "crawledAt": "2026-06-29T22:22:56.746Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1301,7 +1300,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/993b15e4990b-infirmiers-eres-pour-un-cdd-de-6-mois-80-100-pflegefachfrauen-manner-befristet-fur-6-monate-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:13.786Z",
+      "crawledAt": "2026-06-29T22:22:56.095Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1377,7 +1376,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c4c72a66f509-infirmiers-eres-en-cdd-de-6-mois-pflegefachmann-pflegefachfrau-befristeter-arbeitsvertrag-fur-6-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:13.179Z",
+      "crawledAt": "2026-06-29T22:22:55.442Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1465,7 +1464,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:12.568Z",
+      "crawledAt": "2026-06-29T22:22:54.853Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1511,7 +1510,7 @@
       "slugByLocale": {
         "it": "infermiera-head-care-unit-icus-90-100-stationsleiter-in-90-100-hopital-fribourgeois-hfr-fribourg",
         "en": "nurse-head-care-unit-icus-90-100-stationsleiter-in-90-100-hopital-fribourgeois-hfr-fribourg",
-        "de": "nurse-head-care-unit-icus-90-100-stationsleiter-in-90-100-hopital-fribourgeois-hfr-fribourg",
+        "de": "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital",
         "fr": "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1521,23 +1520,23 @@
       "titleByLocale": {
         "it": "Infermiera Head Care Unit (ICUS) 90% - 100% / Stationsleiter/in 90% - 100%",
         "en": "Nurse Head Care Unit (ICUS) 90% - 100% / Stationsleiter/in 90% - 100%",
-        "de": "Nurse Head Care Unit (ICUS) 90% - 100% / Stationsleiter/in 90% - 100%",
-        "fr": "Infirmier-ère-chef-fe d'unité de soins (ICUS) 90% - 100% / Stationsleiter/in 90% - 100%"
+        "de": "Infirmier-ère-chef-fe d'unité de soins (ICUS) 90% - 100% / Stationsleiter/in 90% - 100%",
+        "fr": "Infirmier-ère-chef-fe d'unité de soins (ICUS) 90% - 100% / Responsable de station / dans 90% - 100%"
       },
-      "description": "En prévision du départ à la retraite du titulaire actuel, la direction des soins recherche pour le service d’anesthésie de l'HFR, un-e\n\nInfirmier-ère-chef-fe d'unité de soins (ICUS)\n 90% - 100%\n\nVotre mission :\n\n• superviser le personnel et organiser les ressources du service d’anesthésie HFR présent sur deux sites en partenariat avec l’autre ICUS\n\n• conduire l’équipe soignante, en autonomie et se positionner comme leader\n\n• collaborer étroitement avec l’équipe de l’encadrement soignante et le corps médical\n\n• participer activement aux soins et assurer la qualité des prestations dispensés aux patient-e-s\n\n• encadrer la formation pratique EPD ES en collaboration avec le centre de formation des soins et le responsable de la formation pratique\n\n• participer activement au travail interprofessionnel dans un esprit constructif et transmettre les informations nécessaires aux membres de l’équipe, à l’infirmier-chef du département et aux médecins afin de garantir une bonne communication\n\n• conduire des projets d’amélioration, en collaboration avec les infirmier-ères clincien-nes, et mener à bien les objectifs du service\n\nVotre profil :\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent et reconnu par la Croix-\n\n• Rouge Suisse\n\n• titre d’expert-te en soins d’anesthésie requis (condition obligatoire)\n\n• expérience confirmée au sein d’un service d’anesthésie (minimum 3 ans)\n\n• diplôme de management de proximité ou formation jugée équivalente ou volonté de l’entreprendre\n\n• avoir un sens des priorités et une capacité à gérer l'imprévu\n\n• qualités relationnelles, sens de la communication et de la négociation\n\n• attitude proactive, dynamique et flexible\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\nPossibilité de bénéficier d’un coaching favorisant votre intégration.\n\nEntrée en fonction : 1er février 2027\n\nRenseignements : \tM. A. Bielmann, Infirmier-chef du Département de Médecine aiguë et Pédiatrie HFR, Tél : +41 26 306 33 20\n\nDélai de postulation : 31 août 2026\n\nRéf : HFR-MTS-262601",
+      "description": "En prévision du départ à la retraite du titulaire actuel, la direction des soins recherche pour le service d’anesthésie de l'HFR, un-e\n\nInfirmier-ère-chef-fe d'unité de soins (ICUS)\n 90% - 100%\n\nVotre mission :\n\n• superviser le personnel et organiser les ressources du service d’anesthésie HFR présent sur deux sites en partenariat avec l’autre ICUS\n\n• conduire l’équipe soignante, en autonomie et se positionner comme leader\n\n• collaborer étroitement avec l’équipe de l’encadrement soignante et le corps médical\n\n• participer activement aux soins et assurer la qualité des prestations dispensés aux patient-e-s\n\n• encadrer la formation pratique EPD ES en collaboration avec le centre de formation des soins et le responsable de la formation pratique\n\n• participer activement au travail interprofessionnel dans un esprit constructif et transmettre les informations nécessaires aux membres de l’équipe, à l’infirmier-chef du département et aux médecins afin de garantir une bonne communication\n\n• conduire des projets d’amélioration, en collaboration avec les infirmier-ères clincien-nes, et mener à bien les objectifs du service\n\nVotre profil :\n\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent et reconnu par la Croix-\n\n• Rouge Suisse\n\n• titre d’expert-te en soins d’anesthésie requis (condition obligatoire)\n\n• expérience confirmée au sein d’un service d’anesthésie (minimum 3 ans)\n\n• diplôme de management de proximité ou formation jugée équivalente ou volonté de l’entreprendre\n\n• avoir un sens des priorités et une capacité à gérer l'imprévu\n\n• qualités relationnelles, sens de la communication et de la négociation\n\n• attitude proactive, dynamique et flexible\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue\n\nPossibilité de bénéficier d’un coaching favorisant votre intégration.\n\nEntrée en fonction : 1er février 2027\n\nRenseignements : \tM. A. Bielmann, Infirmier-chef du Département de Médecine aiguë et Pédiatrie HFR, Tél : +41 26 306 33 20\n\nDélai de postulation : 31 août 2026\n\nRéf : HFR-MTS-262601\n\nIm Hinblick auf die Pensionierung des derzeitigen Stelleninhabers sucht die Pflegedirektion für die Abteilung Anästhesie des HFR eine/n\n\nStationsleiterin/Stationsleiter\n90–100 %\n\nAufgaben\n\n• Sie führen zusammen mit einer zweiten Stationsleiterin/einem zweiten Stationsleiter das Personal und organisieren die Ressourcen der Abteilung Anästhesie, die an zwei Standorten des HFR vertreten ist.\n\n• Sie leiten des Pflegeteam selbstständig und mit Führungsgeschick.\n\n• Sie arbeiten eng mit dem Führungsteam der Pflege und der Ärzteschaft zusammen.\n\n• Sie wirken selbst aktiv in der Pflege mit und übernehmen die Verantwortung für die Qualität der Pflegeleistungen.\n\n• Sie gestalten den praktischen Teil der NDS HF-Ausbildung in Zusammenarbeit mit dem Berufsbildungszentrum Pflege und der Leiterin/dem Leiter Praxisausbildung.\n\n• Sie beteiligen sich konstruktiv und aktiv an der disziplinübergreifenden Tätigkeit und leiten die erforderlichen Informationen an die Teammitglieder, die Departementsleitung Pflege und die Ärzteschaft weiter, um eine reibungslose Kommunikation zu gewährleisten.\n\n• Sie führen in Zusammenarbeit mit den Pflegeexpertinnen und -experten Projekte zur Verbesserung der Abteilung durch und setzen die Ziele der Abteilung um.\n\nProfil\n\n• Bachelor of Science FH in Pflege oder gleichwertiger, vom SRK anerkannter Abschluss\n\n• Dipl. Expertin/Experte Anästhesiepflege (zwingend)\n\n• Ausgewiesene Erfahrung auf einer Anästhesieabteilung (mind. 3 Jahre)\n\n• Management-Grundausbildung oder gleichwertige Ausbildung (bzw. Bereitschaft, die entsprechende Ausbildung zu absolvieren)\n\n• Fähigkeit zur Prioritätensetzung und zur Bewältigung unvorhergesehener Situationen\n\n• Sozialkompetenz, Kommunikations- und Verhandlungsgeschick\n\n• Proaktive und dynamische Einstellung, Flexibilität\n\nDeutsch oder Französisch mit guten Kenntnissen der anderen Sprache\n\nWir bieten Ihnen ein Coaching, um Ihnen den Einstieg in Ihr neues Arbeitsumfeld zu erleichtern.\n\nStellenantritt: 1. Februar 2027\n\nAuskunft: Herr A. Bielmann, Stationsleiter Departement Akutmedizin und Pädiatrie HFR, T 026 306 33 20\n\nBewerbungsfrist: 31. August 2026\n\nRef.: HFR-MTS-262601",
       "descriptionByLocale": {
         "it": "In previsione dell'attuale pensionamento dell'ente, la Direzione dell'assistenza sanitaria sta cercando il servizio di anestesia dell'HFR, Unità per la cura della testa dell'infermiera (ICUS) 90% - 100% La vostra missione:\n• supervisionare il personale e organizzare le risorse del servizio anestesia HFR presente in due siti in collaborazione con l'altro ICUS\n• guidare il team di assistenza, autonomamente e posizionarsi come leader\n• lavorare a stretto contatto con la squadra di cura e la professione medica\n• partecipare attivamente alla cura e garantire la qualità dei servizi del paziente\n• fornire pratica formazione EPD ES in collaborazione con il centro di formazione della cura e la persona responsabile della formazione pratica\n• partecipare attivamente al lavoro interprofessionale in uno spirito costruttivo e fornire le informazioni necessarie ai membri del team, l'infermiera del dipartimento e medici per garantire una buona comunicazione\n• portare progetti di miglioramento, in collaborazione con infermiere cliniche, e raggiungere obiettivi di servizio Il tuo profilo:\n• Bachelor of Science HES-SO in Infermieristica o un titolo ritenuto equivalente e riconosciuto dalla Croce\n• Svizzera rossa\n• come esperto nella cura dell'anestesia richiesta (condizione obbligatoria)\n• esperienza confermata nel servizio anestetico (minimo 3 anni)\n• grado di gestione della comunità o formazione considerata equivalente o volontà di intraprendere\n• avere un senso di priorità e una capacità di gestire l'imprevisto\n• qualità relazionali, significato di comunicazione e negoziazione\n• atteggiamento proattivo, dinamico e flessibile\n• padronanza della lingua francese o tedesca con buona conoscenza dell'altra lingua Possibilità di beneficiare di un coaching per la vostra integrazione. Ingresso in ufficio: 1 febbraio 2027 Informazioni: A. Bielmann, Capo Infermiere, Dipartimento di Medicina e Pediatria HFR, Tel. +41 26 306 33 20 Termine ultimo per l'applicazione: 31 agosto 2026 Rif.: HFR-MTS-262601",
         "en": "In anticipation of the current incumbent's retirement, the Health Care Directorate is looking for the HFR's anaesthesia service, a Nurse Head Care Unit (ICUS) 90% - 100% Your mission:\n• supervise the staff and organize the resources of the HFR anesthesia service present at two sites in partnership with the other ICUS\n• lead the care team, autonomously and position itself as leader\n• working closely with the nursing team and the medical profession\n• actively participate in care and ensure the quality of patient services\n• provide practical EPD ES training in collaboration with the care training centre and the person responsible for practical training\n• actively participate in interprofessional work in a constructive spirit and provide the necessary information to team members, the department's nurse and doctors to ensure good communication\n• lead improvement projects, in collaboration with clinician nurses, and achieve service objectives Your profile:\n• Bachelor of Science HES-SO in Nursing or a title deemed equivalent and recognized by the Cross-\n• Red Switzerland\n• as an expert in anaesthesia care required (mandatory condition)\n• confirmed experience in ananesthetic service (minimum 3 years)\n• community management degree or training deemed equivalent or willingness to undertake\n• have a sense of priorities and an ability to manage the unexpected\n• relational qualities, meaning of communication and negotiation\n• proactive, dynamic and flexible attitude\n• mastery of the French or German language with good knowledge of the other language Possibility to benefit from a coaching for your integration. Entry into office: 1 February 2027 Information: Mr. A. Bielmann, Chief Nurse, Department of Acute Medicine and Pediatrics HFR, Tel: +41 26 306 33 20 Deadline for application: 31 August 2026 Ref : HFR-MTS-262601",
-        "de": "In Erwartung der Pensionierung des derzeitigen Amtsinhabers sucht die Direktion Gesundheitsfürsorge den Anästhesie-Service der HFR, einen Nurse Head Care Unit (ICUS) 90% - 100% Ihre Mission:\n• Beaufsichtigen Sie das Personal und organisieren Sie die Ressourcen des HFR-Anästhesie-Service an zwei Standorten in Partnerschaft mit dem anderen ICUS\n• Führen Sie das Pflegeteam autonom und positionieren Sie sich als Führungskraft\n• Enge Zusammenarbeit mit dem Pflegeteam und der Ärzteschaft\n• sich aktiv an der Pflege beteiligen und die Qualität der Patientendienstleistungen sicherstellen\n• praktisches EPD ES Training in Zusammenarbeit mit dem Care Training Center und der für die praktische Ausbildung verantwortlichen Person anbieten\n• sich in konstruktiver Weise aktiv an der interprofessionellen Arbeit beteiligen und den Teammitgliedern, der Krankenschwester und den Ärzten die notwendigen Informationen zur Verfügung stellen, um eine gute Kommunikation zu gewährleisten\n• Leiten Sie Verbesserungsprojekte in Zusammenarbeit mit Kliniker Krankenschwestern und erreichen Sie Serviceziele Ihr Profil:\n• Bachelor of Science HES-SO in Nursing oder einem Titel als gleichwertig und anerkannt durch die Cross-\n• Rote Schweiz\n• als Experte für Anästhesieversorgung erforderlich (Pflichtbedingung)\n• bestätigte Erfahrung im Anästhetikum (mindestens 3 Jahre)\n• Community Management Grad oder Ausbildung als gleichwertig oder Bereitschaft zu verpflichten\n• haben ein Gefühl von Prioritäten und die Fähigkeit, das Unerwartete zu verwalten\n• Beziehungsqualitäten, Bedeutung von Kommunikation und Verhandlung\n• proaktive, dynamische und flexible Haltung\n• Beherrschung der französischen oder deutschen Sprache mit guten Kenntnissen der anderen Sprache Möglichkeit, von einem Coaching für Ihre Integration zu profitieren. Amtsantritt: 1. Februar 2027 Information: Herr A. Bielmann, Chief Nurse, Department of Acute Medicine and Pediatrics HFR, Tel.: +41 26 306 33 20 Bewerbungsfrist: 31. August 2026 Ref : HFR-MTS-262601",
+        "de": "En prévision du départ à la retraite du titulaire actuel, la direction des soins recherche pour le service d’anesthésie de l'HFR, un-e Infirmier-ère-chef-fe d'unité de soins (ICUS) 90% - 100% Votre mission :\n• superviser le personnel et organiser les ressources du service d’anesthésie HFR présent sur deux sites en partenariat avec l’autre ICUS\n• conduire l’équipe soignante, en autonomie et se positionner comme leader\n• collaborer étroitement avec l’équipe de l’encadrement soignante et le corps médical\n• participer activement aux soins et assurer la qualité des prestations dispensés aux patient-e-s\n• encadrer la formation pratique EPD ES en collaboration avec le centre de formation des soins et le responsable de la formation pratique\n• participer activement au travail interprofessionnel dans un esprit constructif et transmettre les informations nécessaires aux membres de l’équipe, à l’infirmier-chef du département et aux médecins afin de garantir une bonne communication\n• conduire des projets d’amélioration, en collaboration avec les infirmier-ères clincien-nes, et mener à bien les objectifs du service Votre profil :\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent et reconnu par la Croix-\n• Rouge Suisse\n• titre d’expert-te en soins d’anesthésie requis (condition obligatoire)\n• expérience confirmée au sein d’un service d’anesthésie (minimum 3 ans)\n• diplôme de management de proximité ou formation jugée équivalente ou volonté de l’entreprendre\n• avoir un sens des priorités et une capacité à gérer l'imprévu\n• qualités relationnelles, sens de la communication et de la négociation\n• attitude proactive, dynamique et flexible\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue Possibilité de bénéficier d’un coaching favorisant votre intégration. Entrée en fonction : 1er février 2027 Renseignements : M. A. Bielmann, Infirmier-chef du Département de Médecine aiguë et Pédiatrie HFR, Tél : +41 26 306 33 20 Délai de postulation : 31 août 2026 Réf : HFR-MTS-262601            *** Im Hinblick auf die Pensionierung des derzeitigen Stelleninhabers sucht die Pflegedirektion für die Abteilung Anästhesie des HFR eine/n Stationsleiterin/Stationsleiter 90–100 % Aufgaben\n• Sie führen zusammen mit einer zweiten Stationsleiterin/einem zweiten Stationsleiter das Personal und organisieren die Ressourcen der Abteilung Anästhesie, die an zwei Standorten des HFR vertreten ist.\n• Sie leiten des Pflegeteam selbstständig und mit Führungsgeschick.\n• Sie arbeiten eng mit dem Führungsteam der Pflege und der Ärzteschaft zusammen.\n• Sie wirken selbst aktiv in der Pflege mit und übernehmen die Verantwortung für die Qualität der Pflegeleistungen.\n• Sie gestalten den praktischen Teil der NDS HF-Ausbildung in Zusammenarbeit mit dem Berufsbildungszentrum Pflege und der Leiterin/dem Leiter Praxisausbildung.\n• Sie beteiligen sich konstruktiv und aktiv an der disziplinübergreifenden Tätigkeit und leiten die erforderlichen Informationen an die Teammitglieder, die Departementsleitung Pflege und die Ärzteschaft weiter, um eine reibungslose Kommunikation zu gewährleisten.\n• Sie führen in Zusammenarbeit mit den Pflegeexpertinnen und -experten Projekte zur Verbesserung der Abteilung durch und setzen die Ziele der Abteilung um. Profil\n• Bachelor of Science FH in Pflege oder gleichwertiger, vom SRK anerkannter Abschluss\n• Dipl. Expertin/Experte Anästhesiepflege (zwingend)\n• Ausgewiesene Erfahrung auf einer Anästhesieabteilung (mind. 3 Jahre)\n• Management-Grundausbildung oder gleichwertige Ausbildung (bzw. Bereitschaft, die entsprechende Ausbildung zu absolvieren)\n• Fähigkeit zur Prioritätensetzung und zur Bewältigung unvorhergesehener Situationen\n• Sozialkompetenz, Kommunikations- und Verhandlungsgeschick\n• Proaktive und dynamische Einstellung, Flexibilität Deutsch oder Französisch mit guten Kenntnissen der anderen Sprache Wir bieten Ihnen ein Coaching, um Ihnen den Einstieg in Ihr neues Arbeitsumfeld zu erleichtern. Stellenantritt: 1. Februar 2027 Auskunft: Herr A. Bielmann, Stationsleiter Departement Akutmedizin und Pädiatrie HFR, T 026 306 33 20 Bewerbungsfrist: 31. August 2026 Ref.: HFR-MTS-262601",
         "fr": "En prévision du départ à la retraite du titulaire actuel, la direction des soins recherche pour le service d’anesthésie de l'HFR, un-e Infirmier-ère-chef-fe d'unité de soins (ICUS) 90% - 100% Votre mission :\n• superviser le personnel et organiser les ressources du service d’anesthésie HFR présent sur deux sites en partenariat avec l’autre ICUS\n• conduire l’équipe soignante, en autonomie et se positionner comme leader\n• collaborer étroitement avec l’équipe de l’encadrement soignante et le corps médical\n• participer activement aux soins et assurer la qualité des prestations dispensés aux patient-e-s\n• encadrer la formation pratique EPD ES en collaboration avec le centre de formation des soins et le responsable de la formation pratique\n• participer activement au travail interprofessionnel dans un esprit constructif et transmettre les informations nécessaires aux membres de l’équipe, à l’infirmier-chef du département et aux médecins afin de garantir une bonne communication\n• conduire des projets d’amélioration, en collaboration avec les infirmier-ères clincien-nes, et mener à bien les objectifs du service Votre profil :\n• Bachelor of Science HES-SO en soins infirmiers ou titre jugé équivalent et reconnu par la Croix-\n• Rouge Suisse\n• titre d’expert-te en soins d’anesthésie requis (condition obligatoire)\n• expérience confirmée au sein d’un service d’anesthésie (minimum 3 ans)\n• diplôme de management de proximité ou formation jugée équivalente ou volonté de l’entreprendre\n• avoir un sens des priorités et une capacité à gérer l'imprévu\n• qualités relationnelles, sens de la communication et de la négociation\n• attitude proactive, dynamique et flexible\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de l’autre langue Possibilité de bénéficier d’un coaching favorisant votre intégration. Entrée en fonction : 1er février 2027 Renseignements : M. A. Bielmann, Infirmier-chef du Département de Médecine aiguë et Pédiatrie HFR, Tél : +41 26 306 33 20 Délai de postulation : 31 août 2026 Réf : HFR-MTS-262601"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://hopital-fribourgeois.breezy.hr/p/e9d0ec7b1532-infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90--100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:11.974Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-29T22:22:54.271Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1555,20 +1554,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "e9d0ec7b1532",
-      "previousSlugs": [
-        "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "nurse-head-care-unit-icus-90-100-stationsleiter-in-90-100-hopital-fribourgeois-hfr-fribourg"
+        ],
         "it": [
           "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital"
         ],
         "en": [
           "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital"
-        ],
-        "de": [
-          "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital"
         ]
       },
+      "previousSlugs": [
+        "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital",
+        "nurse-head-care-unit-icus-90-100-stationsleiter-in-90-100-hopital-fribourgeois-hfr-fribourg"
+      ],
       "firstSeenAt": "2026-06-24T22:14:01.289Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1614,7 +1614,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:11.384Z",
+      "crawledAt": "2026-06-29T22:22:53.686Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1710,7 +1710,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/8563668bc0d5-infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:10.772Z",
+      "crawledAt": "2026-06-29T22:22:53.089Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1793,7 +1793,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42d58ce39fe3-gestionnaire-rh-70-100-hr-sachbearbeiter-in-70--100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:10.175Z",
+      "crawledAt": "2026-06-29T22:22:52.509Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1864,7 +1864,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:09.590Z",
+      "crawledAt": "2026-06-29T22:22:51.922Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1972,7 +1972,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:08.991Z",
+      "crawledAt": "2026-06-29T22:22:51.317Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2072,7 +2072,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/1bf5b01ff06b-collaborateur-trice-s-intendance-env-20-mitarbeiter-in-hauswirtschaft-ca-20",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:08.405Z",
+      "crawledAt": "2026-06-29T22:22:50.723Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2102,94 +2102,15 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:13:58.176Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 13700,
+      "salaryMax": 20800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hfr-hopital-fribourgeois-3f151bba24b9",
-      "slug": "collaborateur-trice-administratif-ve-60-collaboratore-trice-administration-60-hopital-fribourgeois-hfr-fribourg",
-      "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ve-60-collaboratore-trice-administration-60-hopital-fribourgeois-hfr-fribourg",
-        "en": "administrative-collaborator-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg",
-        "de": "administrativer-mitarbeiter-w-60-mitarbeiter-in-verwaltung-60-hopital-fribourgeois-hfr-fribourg",
-        "fr": "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
-      },
-      "company": "Hôpital fribourgeois (HFR)",
-      "companyKey": "hfr-hopital-fribourgeois",
-      "companyDomain": "h-fr.ch",
-      "title": "Collaborateur-trice administratif-ve 60 % / Mitarbeiter/in Administration 60 %",
-      "titleByLocale": {
-        "it": "Collaborateur-trice administratif-ve 60 % / Collaboratore/trice Administration 60 %",
-        "en": "Administrative Collaborator-W 60% / Mitarbeiter/in Administration 60%",
-        "de": "Administrativer Mitarbeiter-W 60% / Mitarbeiter/in Verwaltung 60%",
-        "fr": "Collaborateur-trice administratif-ve 60 % / Mitarbeiter/in Administration 60 %"
-      },
-      "description": "Afin de compléter son équipe, le service Gestion Administrative du Patient (GAP) de l’hôpital fribourgeois recherche un-e\n\nCollaborateur-trice administratif-ve\n 60 %\n\nVotre mission :\n\n• accomplir les tâches administratives nécessaires à la bonne gestion des dossiers assécurologiques de l'hôpital et en assurer le suivi\n\n• répondre aux demandes et sollicitations des clients et des partenaires contractuels\n\n• coordonner les informations entre les différents services hospitaliers\n\nVotre profil :\n\n• formation commerciale de base (CFC d'employé-e de commerce ou équivalent)\n\n• expérience professionnelle de l’administratrion hospitalière, ou de l'assurance maladie et accidents\n\n• maîtrise des outils informatiques courants (MS Office), Opale un atout\n\n• maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\n• personnalité flexible, organisée, consciencieuse, apte à travailler dans un équipe dynamique et ayant une bonne résistance au stress\n\nEntrée en fonction : 1 er novembre 2026\n\nRenseignements : M. F. Clément, responsable gestion administrative du patient, T. +41 26 306 04 21\n\nDélai de postulation : 28 juin 2026\n\nRéf. : HFR-A-262301\n\nUm ihr Team zu ergänzen, sucht die Patientenadministration des freiburger spitals einen/eine\n\nMitarbeiter/in Administration\n 60 %\n\nAufgaben\n\n• Sie sorgen durch Ihre administrative Tätigkeit für die reibungslose Bearbeitung der Krankenkassen- und Unfallversicherungsdossiers des Spitals und kümmern sich auch um deren Weiterverfolgung.\n\n• Sie beantworten Anfragen von Kunden und Vertragspartnern.\n\n• Sie koordinieren die Informationen zwischen den verschiedenen Spitalabteilungen.\n\nProfil\n\n• Kaufmännische Grundausbildung (Kauffrau/-mann EFZ oder gleichwertige Ausbildung)\n\n• Verwaltungserfahrung im Spitalwesen oder im Bereich Krankenkassen und Unfallversicherungen\n\n• Beherrschen von MS Office, Kenntnisse in Opale von Vorteil\n\n• Französisch mit guten Deutschkenntnissen\n\n• Flexibilität, Organisationsvermögen, Gewissenhaftigkeit, Belastbarkeit und Fähigkeit zur Arbeit in einem dynamischen Team\n\nStellenantritt: 1. November 2026\n\nAuskunft: Herr F. Clément, Leiter Patientenadministration,\nT +41 26 306 04 21\n\nBewerbungsfrist : 28. Juni 2026\n\nRef : HFR-A-262301",
-      "descriptionByLocale": {
-        "it": "Al fine di completare il suo team, il dipartimento di gestione amministrativa del paziente (GAP) dell'ospedale Fribourg sta cercando un Collaboratore amministrativo 60 % La vostra missione:\n• svolgere i compiti amministrativi necessari per la corretta gestione dei registri di cassazione dell'ospedale e monitorarli\n• rispondere a richieste e richieste da parte di clienti e partner contrattuali\n• coordinamento delle informazioni tra diversi servizi ospedalieri Il tuo profilo:\n• formazione aziendale di base (Commercial Employee CFC o equivalente)\n• esperienza lavorativa nell'amministrazione ospedaliera o nell'assicurazione malattia e infortuni\n• padronanza degli strumenti IT comuni (MS Office), Opale un asset\n• padronanza della lingua francese con buona conoscenza della lingua tedesca\n• flessibile, organizzato, coscienzioso, in grado di lavorare in un team dinamico con una buona resistenza allo stress Ingresso in ufficio: 1 novembre 2026 Informazioni: Sig. F. Clément, Responsabile amministrativo del paziente, T. +41 26 306 04 21 Termine ultimo per l'applicazione: 28 giugno 2026 Rif.: HFR-A-262301 Um ihr Team zu ergänzen, sucht die Amministrazione paziente di einen/eine freiburger spitals Mitarbeiter/in Amministrazione 60 % Aufgaben\n• Sie sorgen durch Ihre amministrativo Tätigkeit für die reibungslose Bearbeitung der Krankenkassen- und Unfallversicherungs dossiers of Spitals und kümmern sich auch um deren Weiterverfolgung. Sie beantworten Anfragen von Kunden und Vertragspartnern.\n• Sie koordinien die Informationen zwischen den verschedenen Spitalabteilungen. Profilo\n• Kaufmännische Grundausbildung (Kauffrau/-mann EFZ oder gleichwertige Ausbildung)\n• Verwaltungserfahrung im Spitalwesen oder im Bereich Krankenkassen und Unfallversicherung\n• Beherrschen von MS Office, Kenntnisse in Opale von Vorteil\n• Französisch mit guten Deutschkenntnissen\n• Flexibilität, Organisationsvermögen, Gewissenhaftigkeit, Belastbarkeit und Fähigkeit zur Arbeit in einem dynamischen Team Stellenantritt: 1. novembre 2026 Auskunft: Herr F. Clement, Leiter T +41 26 306 04 21 Bewerbungsfrist: 28. Juni 2026 Rif.: HFR-A-262301",
-        "en": "In order to complete its team, the Administrative Management of the Patient (GAP) department of the Fribourg hospital is looking for a Administrative Collaborator-ve 60 % Your mission:\n• perform the administrative tasks necessary for the proper management of the hospital's cassation records and monitor them\n• respond to requests and requests from clients and contractual partners\n• coordinating information between different hospital services Your profile:\n• basic business training (Commercial Employee CFC or equivalent)\n• work experience in hospital administration or health and accident insurance\n• mastery of common IT tools (MS Office), Opale an asset\n• mastery of the French language with good knowledge of the German language\n• flexible, organized, conscientious, able to work in a dynamic team with good stress resistance Entry into office: 1 November 2026 Information: Mr. F. Clément, Administrative Manager of the patient, T. +41 26 306 04 21 Deadline for application: 28 June 2026 Ref. : HFR-A-262301 Um ihr Team zu ergänzen, sucht die Patienten administration of einen/eine freiburger spitals Mitarbeiter/in Administration 60 % Aufgaben\n• Sie sorgen durch Ihre administrative Tätigkeit für die reibungslose Bearbeitung der Krankenkassen- und Unfallversicherungs dossiers of Spitals und kümmern sich auch um deren Weiterverfolgung.\n• Sie beantworten Anfragen von Kunden und Vertragspartnern.\n• Sie koordinien die Informationen zwischen den verschedenen Spitalabteilungen. Profile\n• Kaufmännische Grundausbildung (Kauffrau/-mann EFZ oder gleichwertige Ausbildung)\n• Verwaltungserfahrung im Spitalwesen oder im Bereich Krankenkassen und Unfallversicherungen\n• Beherrschen von MS Office, Kenntnisse in Opale von Vorteil\n• Französisch mit guten Deutschkenntnissen\n• Flexibilität, Organisationsvermögen, Gewissenhaftigkeit, Belastbarkeit und Fähigkeit zur Arbeit in einem dynamischen Team Stellenantritt: 1. November 2026 Auskunft: Herr F. Clement, Leiter Patientin administration, T +41 26 306 04 21 Bewerbungsfrist: 28. Juni 2026 Ref : HFR-A-262301",
-        "de": "Um sein Team zu vervollständigen, sucht das Verwaltungsmanagement der Patientenabteilung (GAP) des Fribourg Krankenhauses nach einem Verwaltungszusammenarbeit 60 % Ihre Mission:\n• die für die ordnungsgemäße Verwaltung der Kassationsaufzeichnungen des Krankenhauses erforderlichen administrativen Aufgaben wahrnehmen und diese überwachen\n• Antworten auf Anfragen und Anfragen von Kunden und Vertragspartnern\n• Koordinierung von Informationen zwischen verschiedenen Krankenhausdiensten Ihr Profil:\n• Grundausbildung (Kommerzielle Mitarbeiter CFC oder gleichwertig)\n• Arbeitserfahrung in der Krankenhaus- oder Kranken- und Unfallversicherung\n• Beherrschung gemeinsamer IT-Tools (MS Office), Opale a Asset\n• Beherrschung der französischen Sprache mit guter Kenntnis der deutschen Sprache\n• flexibel, organisiert, gewissenhaft, in einem dynamischen Team mit guter Spannungsfestigkeit arbeiten Eingang ins Büro: 1. November 2026 Informationen: Herr F. Clément, Geschäftsführer des Patienten, T. +41 26 306 04 21 Frist für den Antrag: 28. Juni 2026 Ref.: HFR-A-262301 Um Team ihr zu verteilen, sucht die Patienten-Administration eines/eine freiburger spitals Mitarbeiter/in 60 % Aufgaben\n• Sie sorgen durch Ihre administrative Tätigkeit für die vollständige Bearbeitung der Krankenkassen- und Unfallversicherungs dossiers of Spitals und Sorgen sich auch um dieen Weiterverfolgung.\n• Sie antworten von Kunden und Vertragspartnern.\n• Sie koordinien die Informationen zwischen den verschedenen Spitalabteilungen. Profil\n• Kaufmännische Grundausbildung (Kauffrau/-mann EFZ oder sprache Ausbildung)\n• Verwaltungserfahrung im Spitalwesen oder im Bereich Krankenkassen und Unfallversicherungen\n• Beherrschen von MS Office, Kenntnisse in Opale von Vorteil\n• Französisch mit guten Deutschkenntnissen\n• Flexibilität, Organisationvermögen, Gewissenhaftigkeit, Belastbarkeit und Fähigkeit zur Arbeit in einem multinationalen Team Stellenantritt: 1. November 2026 Informationen: Herr F. Clement, Leiter Patientin Administration, T +41 26 306 04 21 Bewerbungsfrist: 28. Juni 2026 Ref.: HFR-A-262301",
-        "fr": "Afin de compléter son équipe, le service Gestion Administrative du Patient (GAP) de l’hôpital fribourgeois recherche un-e Collaborateur-trice administratif-ve 60 % Votre mission :\n• accomplir les tâches administratives nécessaires à la bonne gestion des dossiers assécurologiques de l'hôpital et en assurer le suivi\n• répondre aux demandes et sollicitations des clients et des partenaires contractuels\n• coordonner les informations entre les différents services hospitaliers Votre profil :\n• formation commerciale de base (CFC d'employé-e de commerce ou équivalent)\n• expérience professionnelle de l’administratrion hospitalière, ou de l'assurance maladie et accidents\n• maîtrise des outils informatiques courants (MS Office), Opale un atout\n• maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n• personnalité flexible, organisée, consciencieuse, apte à travailler dans un équipe dynamique et ayant une bonne résistance au stress Entrée en fonction : 1 er novembre 2026 Renseignements : M. F. Clément, responsable gestion administrative du patient, T. +41 26 306 04 21 Délai de postulation : 28 juin 2026 Réf. : HFR-A-262301            * Um ihr Team zu ergänzen, sucht die Patientenadministration des freiburger spitals einen/eine Mitarbeiter/in Administration 60 % Aufgaben\n• Sie sorgen durch Ihre administrative Tätigkeit für die reibungslose Bearbeitung der Krankenkassen- und Unfallversicherungsdossiers des Spitals und kümmern sich auch um deren Weiterverfolgung.\n• Sie beantworten Anfragen von Kunden und Vertragspartnern.\n• Sie koordinieren die Informationen zwischen den verschiedenen Spitalabteilungen. Profil\n• Kaufmännische Grundausbildung (Kauffrau/-mann EFZ oder gleichwertige Ausbildung)\n• Verwaltungserfahrung im Spitalwesen oder im Bereich Krankenkassen und Unfallversicherungen\n• Beherrschen von MS Office, Kenntnisse in Opale von Vorteil\n• Französisch mit guten Deutschkenntnissen\n• Flexibilität, Organisationsvermögen, Gewissenhaftigkeit, Belastbarkeit und Fähigkeit zur Arbeit in einem dynamischen Team Stellenantritt: 1. November 2026 Auskunft: Herr F. Clément, Leiter Patientenadministration, T +41 26 306 04 21 Bewerbungsfrist : 28. Juni 2026 Ref : HFR-A-262301"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://hopital-fribourgeois.breezy.hr/p/df7451e3ad4c-collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60",
-      "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:07.806Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1708",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/df7451e3ad4c-collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "df7451e3ad4c",
-      "previousSlugs": [
-        "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital",
-        "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
-        ],
-        "en": [
-          "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
-        ],
-        "de": [
-          "administrative-mitarbeiter-w-60-mitarbeiter-in-administration-60-hopital-fribourgeois-hfr-fribourg",
-          "collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60-hfr-hopital"
-        ]
-      },
-      "firstSeenAt": "2026-06-05T11:56:11.057Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 13700,
+          "maxValue": 20800,
           "unitText": "YEAR"
         }
       }
@@ -2225,7 +2146,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/3b2f83c38de7-collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:07.199Z",
+      "crawledAt": "2026-06-29T22:22:50.131Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2302,7 +2223,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/947dcfafe2c3-chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:06.611Z",
+      "crawledAt": "2026-06-29T22:22:49.543Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2390,7 +2311,7 @@
       "titleByLocale": {
         "it": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt o stellvertretende/n Oberärztin/Oberarzt",
         "en": "Chief of Clinic or Deputy Chief of Clinic",
-        "de": "Klinikleiter oder stellvertretender Klinikleiter / Oberärztin/Oberarzt oder stellvertretene/n Oberärztin/Oberarzt",
+        "de": "Klinikleiter oder stellvertretender Klinikleiter / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt",
         "fr": "Chef-fe de clinique ou chef-fe de clinique adjoint-e / Oberärztin/Oberarzt oder stellvertretende/n Oberärztin/Oberarzt"
       },
       "description": "Afin de compléter son équipe, la Direction médicale recherche pour le service de gériatrie aigue/réadaptation gériatrique de l'HFR Riaz un-e :\n\nChef-fe de clinique ou chef-fe de clinique adjoint-e\n 60 - 100 %\n\nVotre mission :\n\n• assurer la supervision de l'activité et de la formation des médecins assistants\n\n• dispenser de l'enseignement pour pré- et post-gradué ainsi que pour la formation continue médicale\n\n• participer à l'élaboration de projets de service et de projets scientifiques\n\n• participer au service de garde sur le site\n\nVotre profil :\n\n• vous êtes porteur-se d'un titre de FMH en médecine interne ou générale, ou en voie de l'obtenir, ou formation jugée équivalente\n\n• vous maîtrisez la langue française\n\n• vous êtes motivé-e à contribuer à une bonne atmosphère de travail et appréciez l'échange collégial\n\nEntrée en fonction : 1 er novembre 2026 à convenir\n\nRenseignements : Dr A. Laszlo, Médecin-chef de service, +41 26 306 44 30\n\nHFR-M-260202",
@@ -2405,7 +2326,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:06.014Z",
+      "crawledAt": "2026-06-29T22:22:48.968Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2484,7 +2405,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:05.415Z",
+      "crawledAt": "2026-06-29T22:22:48.387Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2574,7 +2495,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/047455d46006-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100-oberarzt-oberarztin-oder-stv-oberarzt-oberarztin-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-28T21:48:04.787Z",
+      "crawledAt": "2026-06-29T22:22:47.789Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2654,7 +2575,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:04.176Z",
+      "crawledAt": "2026-06-29T22:22:46.852Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2726,7 +2647,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:03.491Z",
+      "crawledAt": "2026-06-29T22:22:46.262Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2797,7 +2718,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/5f82d0f35ac9-chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:02.888Z",
+      "crawledAt": "2026-06-29T22:22:45.679Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2847,6 +2768,85 @@
       }
     },
     {
+      "id": "hfr-hopital-fribourgeois-bc944ec15d6f",
+      "slug": "auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in-pflegeassistent-in-40-hopital-fribourgeois-hfr-fribourg",
+      "slugByLocale": {
+        "fr": "auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in-pflegeassistent-in-40-hfr-hopital",
+        "it": "auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in-pflegeassistent-in-40-hopital-fribourgeois-hfr-fribourg",
+        "en": "care-assistant-caregiver-40-pflegehelfer-in-pflegeassistent-in-40-hopital-fribourgeois-hfr-fribourg",
+        "de": "pflegeassistent-caregiver-40-pflegehelfer-in-pflegeassistent-in-40-hopital-fribourgeois-hfr-fribourg"
+      },
+      "company": "Hôpital fribourgeois (HFR)",
+      "companyKey": "hfr-hopital-fribourgeois",
+      "companyDomain": "h-fr.ch",
+      "title": "Auxiliaire de soins - Aide-soignant-e 40% / Pflegehelfer/in - Pflegeassistent/in 40 %",
+      "titleByLocale": {
+        "fr": "Auxiliaire de soins - Aide-soignant-e 40% / Pflegehelfer/in - Pflegeassistent/in 40 %",
+        "it": "Assistente alla cura - Caregiver 40% / Pflegehelfer/in - Pflegeassistent/in 40%",
+        "en": "Care assistant - Caregiver 40% / Pflegehelfer/in - Pflegeassistent/in 40%",
+        "de": "Pflegeassistent - Caregiver 40% / Pflegehelfer / in - Pflegeassistent / in 40%"
+      },
+      "description": "Suite à un départ à la retraite dans son équipe, la Direction des soins recherche pour le service de cardiologie (cardiologie et salle de cathétérisme) de l’HFR Fribourg – Hôpital cantonal , un-e\n\nAuxiliaire de soins / Aide-soignant-e en cardiologie\n 40%\n\nVotre mission :\n\n• soutenir et aider le personnel soignant diplômé dans les situations de soins simples et complexes\n\n• accompagner les patients dans l'organisation de leur vie quotidienne en situation stable selon les instructions\n\n• mener des actions visant à promouvoir la santé et la prévention chez la personne soignée\n\n• assurer les tâches logistiques et ménagères au sein du service\n\n• collaborer avec l’ICUS dans la gestion des stocks et des besoins en matériel du service\n\n• assurer une certaine autonomie dans la gestion des stocks, d’intendance et de maintenance\n\nVotre profil :\n\n• formation d'auxiliaire de santé CRS ou d’aide soignant-e\n\n• expérience minimale d’une année dans le domaine des soins\n\n• intérêt pour les soins, l'accompagnement et le soutien des personnes ayant besoin de soins\n\n• connaissances informatiques de base\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de la langue partenaire, un atout\n\n• compétences sociales élevées, flexibilité, engagement et fiabilité\n\n• capacités relationnelles et sens de la communication\n\n• intérêt au travail en équipe\n\nEntrée en fonction :\n1 er\noctobre 2026 ou à convenir\n\nRenseignements : Madame Cécile Cusin, ICUS, Service de cardiologie, Monsieur Coelho dos Santos Rui Filipe, ICUS, Service de cardiologie\n\nDélai de postulation : 19 juillet 2026\n\nRéf : HFR-MTS-262701",
+      "descriptionByLocale": {
+        "fr": "Suite à un départ à la retraite dans son équipe, la Direction des soins recherche pour le service de cardiologie (cardiologie et salle de cathétérisme) de l’HFR Fribourg – Hôpital cantonal , un-e\n\nAuxiliaire de soins / Aide-soignant-e en cardiologie\n 40%\n\nVotre mission :\n\n• soutenir et aider le personnel soignant diplômé dans les situations de soins simples et complexes\n\n• accompagner les patients dans l'organisation de leur vie quotidienne en situation stable selon les instructions\n\n• mener des actions visant à promouvoir la santé et la prévention chez la personne soignée\n\n• assurer les tâches logistiques et ménagères au sein du service\n\n• collaborer avec l’ICUS dans la gestion des stocks et des besoins en matériel du service\n\n• assurer une certaine autonomie dans la gestion des stocks, d’intendance et de maintenance\n\nVotre profil :\n\n• formation d'auxiliaire de santé CRS ou d’aide soignant-e\n\n• expérience minimale d’une année dans le domaine des soins\n\n• intérêt pour les soins, l'accompagnement et le soutien des personnes ayant besoin de soins\n\n• connaissances informatiques de base\n\n• maîtrise de la langue française ou allemande avec de bonnes connaissances de la langue partenaire, un atout\n\n• compétences sociales élevées, flexibilité, engagement et fiabilité\n\n• capacités relationnelles et sens de la communication\n\n• intérêt au travail en équipe\n\nEntrée en fonction :\n1 er\noctobre 2026 ou à convenir\n\nRenseignements : Madame Cécile Cusin, ICUS, Service de cardiologie, Monsieur Coelho dos Santos Rui Filipe, ICUS, Service de cardiologie\n\nDélai de postulation : 19 juillet 2026\n\nRéf : HFR-MTS-262701",
+        "it": "A seguito di un pensionamento nel suo team, la Direzione della Ricerca di Cura per il Servizio Cardiologia (sala di cardiologia e cateterizzazione) dell'Ospedale cantonale HFR Fribourg, a-e\n\nAssistente di cura / Carriera di Cardiologia\n 40%\n\nLa vostra missione:\n\n• supporto e supporto ai laureati in situazioni di cura semplici e complesse\n\n• accompagnare i pazienti nell'organizzazione della loro vita quotidiana in una situazione stabile secondo le istruzioni\n\n• intraprendere azioni volte a promuovere la salute e la prevenzione nell'ambito delle cure\n\n• eseguire le attività logistiche e domestiche all'interno del dipartimento\n\n• collaborare con ICUS nella gestione dei requisiti di inventario e attrezzature di servizio\n\n• garantire una certa autonomia nella gestione delle scorte, nella gestione e nella manutenzione\n\nIl tuo profilo:\n\n• CRS/Career Assistant Training\n\n• minima esperienza di cura di un anno\n\n• interesse per la cura, il sostegno e il sostegno delle persone che hanno bisogno di cura\n\n• conoscenza del computer di base\n\n• padronanza della lingua francese o tedesca con buona conoscenza della lingua partner, un bene\n\n• alte competenze sociali, flessibilità, impegno e affidabilità\n\n• capacità relazionali e senso della comunicazione\n\n• interesse per il lavoro di squadra\n\nEntrata in ufficio:\n1°\nOttobre 2026 o concordato\n\nInformazioni: Ms. Cécile Cusin, ICUS, Cardiology Service, Mr. Coelho dos Santos Rui Filipe, ICUS, Cardiology Service\n\nTermine ultimo per l'applicazione: 19 luglio 2026\n\nRif.: HFR-MTS-262701",
+        "en": "Following a retirement in his team, the Directorate of Care Research for the Cardiology Service (cardiology and catheterization room) of the HFR Fribourg – Cantonal Hospital, a-e\n\nCare Assistant / Cardiology Caregiver\n 40%\n\nYour mission:\n\n• support and support graduate caregivers in simple and complex care situations\n\n• accompanying patients in the organisation of their daily life in a stable situation according to instructions\n\n• undertaking actions to promote health and prevention in the cared for\n\n• perform the logistical and household tasks within the department\n\n• collaborate with ICUS in the management of inventory and service equipment requirements\n\n• ensure some autonomy in stock management, stewardship and maintenance\n\nYour profile:\n\n• CRS/Career Assistant Training\n\n• minimum one-year care experience\n\n• interest in the care, support and support of people in need of care\n\n• basic computer knowledge\n\n• mastery of the French or German language with good knowledge of the partner language, an asset\n\n• high social skills, flexibility, commitment and reliability\n\n• relational abilities and sense of communication\n\n• interest in teamwork\n\nEntry into office:\n1st\nOctober 2026 or to be agreed\n\nInformation: Ms. Cécile Cusin, ICUS, Cardiology Service, Mr. Coelho dos Santos Rui Filipe, ICUS, Cardiology Service\n\nDeadline for application: 19 July 2026\n\nRef : HFR-MTS-262701",
+        "de": "Nach einer Pensionierung in seinem Team, die Direktion für Pflegeforschung für die Kardiologie-Service (Kardiologie und Katheterisierung Raum) der HFR Fribourg – Kantonal Hospital, a-e\n\nCare Assistant / Kardiologie Caregiver\n 40%\n\nIhre Mission:\n\n• Unterstützung und Unterstützung von Diplom-Betreuern in einfachen und komplexen Pflegesituationen\n\n• Begleitung von Patienten bei der Organisation ihres täglichen Lebens in einer stabilen Situation nach Anweisungen\n\n• Durchführung von Maßnahmen zur Förderung der Gesundheit und Prävention in der betreuten\n\n• Durchführung der logistischen und Haushaltsaufgaben innerhalb der Abteilung\n\n• Zusammenarbeit mit ICUS bei der Verwaltung von Inventar- und Serviceausrüstungsanforderungen\n\n• Gewährleistung einer gewissen Autonomie bei der Bestandsverwaltung, Verwaltung und Wartung\n\nIhr Profil:\n\n• CRS/Karriereassistenzausbildung\n\n• mindestens einjährige Betreuungserfahrung\n\n• Interesse an Pflege, Unterstützung und Unterstützung von Pflegebedürftigen\n\n• Computer-Grundkenntnisse\n\n• Beherrschung der französischen oder deutschen Sprache mit guten Kenntnissen der Partnersprache, ein Vorteil\n\n• hohe soziale Kompetenzen, Flexibilität, Engagement und Zuverlässigkeit\n\n• relationale Fähigkeiten und Sinn für Kommunikation\n\n• Interesse an Teamwork\n\nAmtsantritt:\n1.\nOktober 2026 oder zu vereinbaren\n\nInformationen: Frau Cécile Cusin, ICUS, Kardiologiedienst, Herr Coelho dos Santos Rui Filipe, ICUS, Kardiologiedienst\n\nBewerbungsfrist: 19. Juli 2026\n\nRef : HFR-MTS-262701"
+      },
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://hopital-fribourgeois.breezy.hr/p/5c440c1be23f-auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in--pflegeassistent-in-40",
+      "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-29T22:22:45.082Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1708",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/5c440c1be23f-auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in--pflegeassistent-in-40",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "externalId": "5c440c1be23f",
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in-pflegeassistent-in-40-hfr-hopital"
+        ],
+        "en": [
+          "auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in-pflegeassistent-in-40-hfr-hopital"
+        ],
+        "de": [
+          "auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in-pflegeassistent-in-40-hfr-hopital"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-soins-aide-soignant-e-40-pflegehelfer-in-pflegeassistent-in-40-hfr-hopital"
+      ],
+      "salaryMin": 27400,
+      "salaryMax": 41600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 27400,
+          "maxValue": 41600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-29T22:22:45.082Z"
+    },
+    {
       "id": "hfr-hopital-fribourgeois-51ff5fed2338",
       "slug": "medico-assistente-100-part-time-o-job-sharing-possibile-hopital-fribourgeois-hfr-hfr-tafers",
       "slugByLocale": {
@@ -2877,7 +2877,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:02.009Z",
+      "crawledAt": "2026-06-29T22:22:44.494Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2966,7 +2966,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:01.127Z",
+      "crawledAt": "2026-06-29T22:22:43.877Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3054,7 +3054,7 @@
         "it": "Assistente tecnica specializzata in sala operatoria (ATSSO) (90 - 100%) / Tecnico/a di sala operatoria (90-100%)",
         "en": "Assistant-e technique spécialisé-e en salle d’opération (ATSSO) (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)",
         "de": "Assistent-e technique spécialisé-e en salle d’opération (ATSSO) (90 - 100%) / Technische Operationsassistentin/Technischen Operationsassistenten (90-100%)",
-        "fr": "Assistant-e technique spécialisé-e en salle d'opération (ATSSO) (90 - 100%) / Assistant technique/Assistant technique (90-100%)"
+        "fr": "Assistant-e technique spécialisée-e en salle d'opération (ATSSO) (90 - 100%) / Assistant d'opération technique/Assistant d'opération technique (90-100%)"
       },
       "description": "Afin de compléter son équipe, la direction médicale de l’hôpital fribourgeois recherche pour les centres opératoires de l'HFR un-e\n\nAssistant-e technique spécialisé-e en salle d’opération (ATSSO)\n\n90 - 100%\n\nVotre mission :\n\n• Assurer la prise en charge du patient au bloc opératoire et les activités de circulant-e\n\n• Assister l’infirmier-ère instrumentiste ou le technicien-ne spécialisé-e en salle d’opération (TSO) pour toutes les interventions chirurgicales\n\n• Préparer, installer et manipuler les dispositifs médicaux et participer à la gestion\n\n• Garantir les activités en lien avec l’hygiène et la sécurité\n\n• Participer aux activités d’intégration des nouveaux collaborateurs-trices et au développement du service\n\nVotre profil :\n\n• Formation d’aide spécialisée en salle d'opération ou CR aide-soignant-e ou équivalent et/ou titulaire du certificat ATSSO niveau 1 ou disposé-e à le faire\n\n• Expérience professionnelle hospitalière\n\n• Maîtrise des outils informatiques usuels\n\n• Maîtrise de la langue française, bonnes connaissances de l’allemand un atout\n\n• Aptitude à travailler en équipe multidisciplinaires, sens de l’organisation, autonomie et sens des responsabilités, sens de la communication\n\n• Grande résistance au stress et flexibilité\n\nEntrée en fonction : de suite ou à convenir\n\nRenseignements : M. Ivan Mellado, Coordinateur des ATSSO et agent-e-s bionettoyage, Tél. +41 26 306 05 69\n\nRéf : HFR-M-240901\n\nUm ihr Team zu ergänzen, sucht die Medizinische Direktion des freiburger spitals für die Operationszentren des HFR eine/n\n\nTechnische Operationsassistentin/Technischen Operationsassistenten\n\nAufgaben\n\n• Sie betreuen die Patientinnen und Patienten im Operationstrakt und bei den Springertätigkeiten.\n\n• Sie assistieren der Pflegefachperson Operationsbereich oder den Fachpersonen Operationstechnik bei allen chirurgischen Eingriffen.\n\n• Sie bereiten die Medizingeräte vor, legen sie bereit, reichen sie weiter und beteiligen sich an der Verwaltung.\n\n• Sie kümmern sich um die Arbeitsschritte im Zusammenhang mit der Hygiene und der Sicherheit.\n\n• Sie beteiligen sich an der Einarbeitung neuer Mitarbeitender und an der Weiterentwicklung der Abteilung.\n\nProfil\n\n• Abschluss als Assistent/in OP oder Pflegehelfer/in SRK bzw. gleichwertige Ausbildung und/oder französischsprachiges Zertifikat als technische/r Operationsassistentin/-assistent Stufe 1 bzw. Bereitschaft, dieses zu absolvieren\n\n• Berufserfahrung im Spitalwesen\n\n• Beherrschen der gängigen Informatikprogramme\n\n• Französisch, gute Deutschkenntnisse von Vorteil\n\n• Mitarbeit in einem interdisziplinären Team, Organisationsvermögen, Selbstständigkeit und Verantwortungsbewusstsein, Kommunikationsgeschick\n\n• Ausgeprägte Belastbarkeit und Flexibilität\n\nStellenantritt : sofort oder nach Vereinbarung\n\nAuskunft : Herr Ivan Mellado, Koordinator der Operationsassistentinnen und -assistenten und der Mitarbeitenden für die biologische Reinigung\n\nT +41 26 306 05 6",
       "descriptionByLocale": {
@@ -3068,7 +3068,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:48:00.506Z",
+      "crawledAt": "2026-06-29T22:22:43.284Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3166,7 +3166,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/4e96cb349c5e-assistant-e-administratif-ve-50-70-verwaltungsassistent-in-50-70",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-28T21:47:57.969Z",
+      "crawledAt": "2026-06-29T22:22:42.650Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3202,15 +3202,15 @@
         ]
       },
       "firstSeenAt": "2026-06-22T14:52:31.979Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 48000,
+      "salaryMax": 72800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 48000,
+          "maxValue": 72800,
           "unitText": "YEAR"
         }
       }

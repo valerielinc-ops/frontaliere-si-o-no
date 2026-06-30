@@ -9456,6 +9456,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stabio-dogana-svizzera': {
+    title: 'Stabio dogana: passaggio e procedure al confine svizzero',
+    description: 'Tutte le informazioni sulle procedure doganali al valico di Stabio. Aggiornamenti e regole per chi attraversa il confine. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, stabio, dogana, passaggio, procedure',
+    ogTitle: 'Stabio dogana: regole e controlli al confine svizzero',
+    ogDescription: 'Procedure e controlli doganali al valico di Stabio, punto di transito tra Svizzera e Italia.',
+    canonicalPath: '/articoli-svizzera/stabio-dogana-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stabio dogana: passaggio e procedure al confine svizzero",
+      "description": "Tutte le informazioni sulle procedure doganali al valico di Stabio. Aggiornamenti e regole per chi attraversa il confine. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stabio-dogana-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico doganale di Stabio, simbolo del confine svizzero-italiano."
+      },
+      "datePublished": "2026-06-29T23:40:14+00:00",
+      "dateModified": "2026-06-29T23:40:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stabio-dogana-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tempi-attesa-dogana-chiasso-strada': {
+    title: 'Dogana Chiasso: tempi di attesa e viabilità | Frontaliere Ticino',
+    description: 'Guida ai tempi di attesa alla dogana stradale di Chiasso. Consigli pratici per gestire i flussi di traffico tra Italia e Svizzera in modo efficiente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dogana, chiasso, tempi, attesa',
+    ogTitle: 'Dogana Chiasso: Tempi di Attesa e Consigli Utili',
+    ogDescription: 'Guida ai tempi di attesa alla dogana stradale di Chiasso. Consigli pratici per gestire i flussi di traffico tra Italia e Svizzera.',
+    canonicalPath: '/articoli-svizzera/tempi-attesa-dogana-chiasso-strada/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dogana Chiasso: tempi di attesa e viabilità",
+      "description": "Guida ai tempi di attesa alla dogana stradale di Chiasso. Consigli pratici per gestire i flussi di traffico tra Italia e Svizzera in modo efficiente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tempi-attesa-dogana-chiasso-strada.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dogana stradale di Chiasso durante le ore di punta"
+      },
+      "datePublished": "2026-06-30T00:24:12+00:00",
+      "dateModified": "2026-06-30T00:24:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tempi-attesa-dogana-chiasso-strada/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-benzina-prezzi-svizzera-oggi': {
+    title: 'Prezzi della benzina in Svizzera oggi | Frontaliere Ticino',
+    description: 'I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante. Ecco i prezzi attuali e come risparmiare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, benzina, oggi, variano',
+    ogTitle: 'Prezzi della benzina in Svizzera oggi',
+    ogDescription: 'I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante.',
+    canonicalPath: '/articoli-svizzera/benzina-prezzi-svizzera-oggi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi della benzina in Svizzera oggi",
+      "description": "I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante. Ecco i prezzi attuali e come risparmiare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-prezzi-svizzera-oggi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Bellinzona con prezzi della benzina"
+      },
+      "datePublished": "2026-06-30T01:11:23+00:00",
+      "dateModified": "2026-06-30T01:11:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-prezzi-svizzera-oggi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

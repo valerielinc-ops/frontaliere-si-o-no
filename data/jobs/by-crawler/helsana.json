@@ -1,88 +1,7 @@
 {
   "crawlerKey": "helsana",
-  "assembledAt": "2026-06-29T13:03:01.573Z",
+  "assembledAt": "2026-06-29T22:12:25.337Z",
   "jobs": [
-    {
-      "id": "helsana-58dbae0c6408",
-      "slug": "consulente-assicurativo-nel-settore-del-servizio-a-80-100-helsana-ticino",
-      "slugByLocale": {
-        "it": "consulente-assicurativo-nel-settore-del-servizio-a-80-100-helsana-ticino",
-        "en": "insurance-consultant-in-the-field-a-80-100-helsana-ticino-b6161b",
-        "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-        "fr": "consultant-en-assurance-dans-le-service-exterieur-a-80-100-helsana-ticino"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Versicherungsberater im Aussendienst (a) 80-100%",
-      "titleByLocale": {
-        "it": "Consulente assicurativo nel settore del servizio (a) 80- 100%",
-        "en": "Insurance consultant in the field service (a) 80- 100%",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100%",
-        "fr": "Consultant en assurance dans le service extérieur (a) 80- 100%"
-      },
-      "description": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Chur & Homeoffice.\n\nHelsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Consulente assicurativo presso il servizio sul campo (a) 80-100% presso Helsana a Chur & HomeOffice. Helsana è un fornitore svizzero di servizi sanitari. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Insurance consultant in the field service (a) 80-100% at Helsana in Chur & HomeOffice. Helsana is an established Swiss health service provider. This position offers a modern working environment, attractive employment conditions and a wide range of further training opportunities.",
-        "de": "Versicherungsberater im Aussendienst (a) 80-100% bei Helsana in Chur & Homeoffice. Helsana ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Consultant en assurance dans le service sur le terrain (a) 80-100% chez Helsana à Chur & HomeOffice. Helsana est un prestataire suisse de services de santé établi. Ce poste offre un environnement de travail moderne, des conditions d'emploi attrayantes et un large éventail de possibilités de formation continue."
-      },
-      "needsRetranslation": false,
-      "location": "Ticino",
-      "canton": "GR",
-      "url": "https://careers.helsana.ch/job/Chur-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1399619433/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:58.807Z",
-      "addressLocality": "Ticino",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1399619433/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-        "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b",
-        "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-b6161b"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-b6161b"
-        ],
-        "en": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice"
-        ],
-        "fr": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-          "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-ticino-b6161b"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:43:19.618Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "helsana-92935a2b2b87",
       "slug": "fornitore-del-servizio-clienti-a-80-100-helsana-dubendorf-stettbach-homeoff",
@@ -115,7 +34,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-%28a%29-80-100/1389900033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:58.109Z",
+      "crawledAt": "2026-06-29T22:12:22.637Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +56,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "fornitore-del-servizio-clienti-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuerin-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -192,7 +112,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Tempor%C3%A4re-Mitarbeiterin-Kundenbetreuung-%28a%29-80-100-befristet-vom-10_08_2026-bis-31_01_2027/1400174933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:57.458Z",
+      "crawledAt": "2026-06-29T22:12:22.086Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -216,7 +136,8 @@
       "previousSlugsByLocale": {
         "it": [
           "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027",
-          "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff"
+          "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff",
+          "assistenza-clienti-dipendente-temporaneo-a-80-100-temporanea-da-10-08-2026-a-31-01-2027-helsana-dubendorf-stettbach"
         ],
         "en": [
           "temporare-mitarbeiterin-kundenbetreuung-a-80-100-befristet-vom-10-08-2026-bis-31-01-2027"
@@ -271,7 +192,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Temporaire-au-Service-Client%C3%A8le-International-FD-%28t%29-80-100-1_-Juillet-%C3%A0-30_-Septembre-2026/1400264333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:56.832Z",
+      "crawledAt": "2026-06-29T22:12:21.540Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -342,7 +263,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Controller-in-der-Vertriebssteuerung-%28a%29-80-100/1400195433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:56.156Z",
+      "crawledAt": "2026-06-29T22:12:21.006Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -364,7 +285,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "regolatore-del-controllo-di-distribuzione-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "controller-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -419,7 +341,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Leistungen-ambulant-%28a%29-80-100/1400327433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:55.412Z",
+      "crawledAt": "2026-06-29T22:12:20.471Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -441,7 +363,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "servizi-di-assistenza-clienti-agguanti-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuerin-leistungen-ambulant-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -496,7 +419,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Bereichsleiterin-Unternehmensgesch%C3%A4ft-Region-Z%C3%BCrich%2C-Zentral-&-Ostschweiz-%28a%29-80-100/1390427433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:54.668Z",
+      "crawledAt": "2026-06-29T22:12:19.951Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +441,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana"
+          "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana",
+          "capo-della-corporate-business-region-zurigo-svizzera-centrale-e-orientale-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "bereichsleiterin-unternehmensgeschaft-region-zurich-zentral-ostschweiz-a-80-100-helsana"
@@ -572,7 +496,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Sachbearbeiter-KTG-&-UVG-Unternehmensgesch%C3%A4ft-%28a%29/1377015033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:54.054Z",
+      "crawledAt": "2026-06-29T22:12:19.425Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -597,7 +521,8 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice",
-          "ktg-uvg-corporate-business-a-helsana-ticino"
+          "ktg-uvg-corporate-business-a-helsana-ticino",
+          "responsabile-ktg-uvg-aziendale-helsana-ticino"
         ],
         "en": [
           "sachbearbeiter-ktg-uvg-unternehmensgeschaft-a-helsana-worblaufen-homeoffice"
@@ -652,7 +577,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Fallmanagement-%28a%29-80/1400830233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:53.360Z",
+      "crawledAt": "2026-06-29T22:12:18.898Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -674,7 +599,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff"
+          "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff",
+          "gestione-dei-casi-a-80-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuerin-fallmanagement-a-80-helsana-dubendorf-stettbach-homeoff"
@@ -729,7 +655,7 @@
       "url": "https://careers.helsana.ch/job/Solothurn-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1278103201/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:52.714Z",
+      "crawledAt": "2026-06-29T22:12:18.378Z",
       "addressLocality": "Ticino",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -752,7 +678,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-1773bb"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-solothurn-homeoffice",
@@ -808,7 +735,7 @@
       "url": "https://careers.helsana.ch/job/St_-Gallen-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Kanton-Graub%C3%BCnden-%28a%29-80-100/1391034133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:52.071Z",
+      "crawledAt": "2026-06-29T22:12:17.872Z",
       "addressLocality": "Ticino",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -833,7 +760,8 @@
       "previousSlugsByLocale": {
         "it": [
           "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen",
-          "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino"
+          "case-manager-servizi-corporate-business-cantone-dei-grigioni-a-80-100-helsana-ticino",
+          "responsabile-gestione-casi-servizi-aziendali-cantone-grigioni-a-80-100-helsana-ticino"
         ],
         "en": [
           "case-manager-leistungen-unternehmensgeschaft-kanton-graubunden-a-80-100-helsana-st-gallen"
@@ -889,7 +817,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Tempor%C3%A4re-Mitarbeit-Kundenbetreuung-%28a%29-80-100-vom-10_8_2026-bis-31_3_2027/1401355333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:51.355Z",
+      "crawledAt": "2026-06-29T22:12:17.341Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -913,7 +841,8 @@
       "previousSlugsByLocale": {
         "it": [
           "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana",
-          "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino"
+          "assistenza-clienti-temporanea-a-80-100-da-10-8-2026-a-31-3-2027-helsana-ticino",
+          "collaboratore-temporaneo-customer-care-a-80-100-dal-10-8-2026-al-31-3-2027-helsana-ticino"
         ],
         "en": [
           "temporare-mitarbeit-kundenbetreuung-a-80-100-vom-10-8-2026-bis-31-3-2027-helsana"
@@ -968,7 +897,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Insights-&-Analytics-Specialist-in-der-Vertriebssteuerung-%28a%29-80-100/1401359633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:50.744Z",
+      "crawledAt": "2026-06-29T22:12:16.821Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -990,7 +919,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "insights-analytics-specialist-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf"
+          "insights-analytics-specialist-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf",
+          "insights-analytics-specialista-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "fr": [
           "insights-analytics-specialist-in-der-vertriebssteuerung-a-80-100-helsana-dubendorf"
@@ -1042,7 +972,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Krankentaggeld-%28a%29-80-100/1382744233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:50.158Z",
+      "crawledAt": "2026-06-29T22:12:16.312Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1069,7 +999,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
-          "servizio-di-assistenza-medica-a-80-100-helsana-ticino"
+          "servizio-di-assistenza-medica-a-80-100-helsana-ticino",
+          "customer-service-per-prestazioni-malattia-a-80-100-helsana-ticino"
         ],
         "en": [
           "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen-homeoffice",
@@ -1125,7 +1056,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Full-Stack-Software-Engineer-C-_NET-React-%28a%29-80-100/1382641433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:49.597Z",
+      "crawledAt": "2026-06-29T22:12:15.781Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1188,7 +1119,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Fachspezialist-Underwriting-Services-%28a%29-80/1378902933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:49.026Z",
+      "crawledAt": "2026-06-29T22:12:15.267Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1210,7 +1141,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff"
+          "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff",
+          "servizi-di-sottoscrizione-specializzati-a-80-helsana-dubendorf-stettbach-homeoff"
         ],
         "fr": [
           "fachspezialist-underwriting-services-a-80-helsana-dubendorf-stettbach-homeoff"
@@ -1262,7 +1194,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Spezialistin-Fachstelle-Unternehmensgesch%C3%A4ft-%28a%29-80-100/1401674733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:48.346Z",
+      "crawledAt": "2026-06-29T22:12:14.744Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1284,7 +1216,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -1339,7 +1272,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Ambulant-%28a%29-80-100/1401940633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:47.756Z",
+      "crawledAt": "2026-06-29T22:12:14.221Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1366,7 +1299,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
-          "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino"
+          "servizi-di-assistenza-clienti-ambulant-a-80-100-helsana-ticino",
+          "assistente-clienti-servizi-ambulatoriali-a-80-100-helsana-ticino"
         ],
         "en": [
           "kundenbetreuer-leistungen-ambulant-a-80-100-helsana-worblaufen-homeoffice",
@@ -1423,7 +1357,7 @@
       "url": "https://careers.helsana.ch/job/Biel-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1372733633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:47.111Z",
+      "crawledAt": "2026-06-29T22:12:13.705Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1449,7 +1383,8 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
-          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116"
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-936116",
+          "consulente-assicurativo-sul-campo-a-80-100-helsana-ticino"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-biel-homeoffice",
@@ -1506,7 +1441,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Fachspezialist-Gesch%C3%A4ftsfeldentwicklung-&-Innovation-%28a%29-80-100/1402391633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:46.494Z",
+      "crawledAt": "2026-06-29T22:12:13.185Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1528,7 +1463,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach"
+          "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach",
+          "specialist-business-area-sviluppo-innovazione-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "fachspezialist-geschaftsfeldentwicklung-innovation-a-80-100-helsana-dubendorf-stettbach"
@@ -1583,7 +1519,7 @@
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Versicherungsmediziner-DF-%28a%29-40-60/1293845001/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:45.798Z",
+      "crawledAt": "2026-06-29T22:12:12.667Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1607,7 +1543,8 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
-          "assicurazione-medico-d-f-a-40-60-helsana-ticino"
+          "assicurazione-medico-d-f-a-40-60-helsana-ticino",
+          "medico-assicurativo-d-f-a-40-60-helsana-ticino"
         ],
         "en": [
           "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice"
@@ -1661,7 +1598,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Versicherungsmediziner-DI-%28a%29-40-60/1293851501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:45.246Z",
+      "crawledAt": "2026-06-29T22:12:12.148Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1683,7 +1620,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice",
+          "assicurazione-medico-d-i-a-40-60-helsana-ticino"
         ],
         "en": [
           "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
@@ -1738,7 +1676,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Medizinischer-Codierer-%28a%29-80-100/1293590601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:44.390Z",
+      "crawledAt": "2026-06-29T22:12:11.631Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1760,7 +1698,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "codificatore-medico-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "medizinischer-codierer-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -1815,7 +1754,7 @@
       "url": "https://careers.helsana.ch/job/Solothurn-&-Homeoffice-Mitarbeiterin-Verkaufssupport-%28a%29-60/1402803133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:43.666Z",
+      "crawledAt": "2026-06-29T22:12:11.115Z",
       "addressLocality": "Ticino",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1840,7 +1779,8 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice",
-          "supporto-commerciale-a-60-helsana-ticino"
+          "supporto-commerciale-a-60-helsana-ticino",
+          "addetta-vendita-supporto-a-60-helsana-ticino"
         ],
         "en": [
           "mitarbeiterin-verkaufssupport-a-60-helsana-solothurn-homeoffice"
@@ -1896,7 +1836,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Retention-%28a%29-80-100/1392844533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:42.956Z",
+      "crawledAt": "2026-06-29T22:12:10.583Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1918,7 +1858,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "manutenzione-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuerin-retention-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -1973,7 +1914,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Case-Manager-%28a%29-80-100/1392720933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:42.366Z",
+      "crawledAt": "2026-06-29T22:12:10.057Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2036,7 +1977,7 @@
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1383716733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:41.708Z",
+      "crawledAt": "2026-06-29T22:12:09.484Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2061,7 +2002,8 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice",
-          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9"
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-6df9b9",
+          "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-6df9b9"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-baden-homeoffice"
@@ -2116,7 +2058,7 @@
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Mitarbeiterin-Verkaufssupport-%28a%29-80-100/1393332533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:41.022Z",
+      "crawledAt": "2026-06-29T22:12:08.961Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2141,7 +2083,8 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice",
-          "supporto-di-vendita-a-80-100-helsana-ticino"
+          "supporto-di-vendita-a-80-100-helsana-ticino",
+          "addetta-support-vendite-a-80-100-helsana-ticino"
         ],
         "en": [
           "mitarbeiterin-verkaufssupport-a-80-100-helsana-baden-homeoffice"
@@ -2197,7 +2140,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-_Net-Azure-Entwickler-%28a%29-80-100/1393480033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:40.296Z",
+      "crawledAt": "2026-06-29T22:12:08.446Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2260,7 +2203,7 @@
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Kundenbetreuerin-Verkaufsstelle-%28a%29-80-100/1403685533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:39.630Z",
+      "crawledAt": "2026-06-29T22:12:07.919Z",
       "addressLocality": "Ticino",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2286,7 +2229,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
-          "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino"
+          "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino",
+          "consulente-vendita-a-80-100-helsana-ticino"
         ],
         "en": [
           "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-baden-homeoffice",
@@ -2342,7 +2286,7 @@
       "url": "https://careers.helsana.ch/job/Group-Controller-%28a%29-80-100/970403401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:39.025Z",
+      "crawledAt": "2026-06-29T22:12:07.403Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2364,7 +2308,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-controller-a-80-100-helsana-dubendorf"
+          "group-controller-a-80-100-helsana-dubendorf",
+          "regolatore-di-gruppo-a-80-100-helsana-dubendorf"
         ],
         "fr": [
           "group-controller-a-80-100-helsana-dubendorf"
@@ -2416,7 +2361,7 @@
       "url": "https://careers.helsana.ch/job/Basel-&-Homeoffice-Kundenbetreuerin-Verkaufsstelle-%28a%29-80-100/1374917633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:38.258Z",
+      "crawledAt": "2026-06-29T22:12:06.877Z",
       "addressLocality": "Ticino",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2442,7 +2387,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
-          "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d"
+          "servizio-clienti-ufficio-vendite-a-80-100-helsana-ticino-ad174d",
+          "responsabile-clienti-punto-vendita-a-80-100-helsana-ticino"
         ],
         "en": [
           "kundenbetreuerin-verkaufsstelle-a-80-100-helsana-basel-homeoffice",
@@ -2499,7 +2445,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Spontanbewerbungen/639608001/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:37.627Z",
+      "crawledAt": "2026-06-29T22:12:06.364Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2521,7 +2467,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff"
+          "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff",
+          "applicazioni-spontanee-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "spontanbewerbungen-helsana-dubendorf-stettbach-homeoff"
@@ -2575,7 +2522,7 @@
       "url": "https://careers.helsana.ch/job/Senior-Test-Engineer-%28a%29-80-100/961278101/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:36.986Z",
+      "crawledAt": "2026-06-29T22:12:05.789Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2597,7 +2544,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-test-engineer-a-80-100-helsana-dubendorf"
+          "senior-test-engineer-a-80-100-helsana-dubendorf",
+          "ingegnere-di-prova-senior-a-80-100-helsana-dubendorf"
         ],
         "fr": [
           "senior-test-engineer-a-80-100-helsana-dubendorf"
@@ -2649,7 +2597,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenberaterin-Contact-Center-mw-%2840-60%29/730311601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:36.365Z",
+      "crawledAt": "2026-06-29T22:12:05.274Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2671,7 +2619,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach"
+          "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach",
+          "consulente-clienti-contatto-centro-m-w-40-60-helsana-dubendorf-stettbach"
         ],
         "en": [
           "kundenberaterin-contact-center-m-w-40-60-helsana-dubendorf-stettbach"
@@ -2726,7 +2675,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenbetreuer-Inkasso-DE-&-IT-wm-%2880-100%29/655242701/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:35.703Z",
+      "crawledAt": "2026-06-29T22:12:04.749Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2748,7 +2697,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach"
+          "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach",
+          "account-manager-de-it-w-m-80-100-helsana-dubendorf-stettbach"
         ],
         "en": [
           "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach"
@@ -2803,7 +2753,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80-100/1405612533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:34.942Z",
+      "crawledAt": "2026-06-29T22:12:04.231Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2826,7 +2776,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
+          "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice",
+          "assistenza-medica-pratica-a-80-100-helsana-ticino"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-100-helsana-zurich-homeoffice"
@@ -2882,7 +2833,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-50/1405612133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:34.256Z",
+      "crawledAt": "2026-06-29T22:12:03.714Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2907,7 +2858,8 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice",
-          "assistenza-medica-a-50-helsana-ticino"
+          "assistenza-medica-a-50-helsana-ticino",
+          "assistente-di-pratica-medica-a-50-helsana-ticino"
         ],
         "en": [
           "medizinische-praxisassistenz-a-50-helsana-zurich-homeoffice"
@@ -2963,7 +2915,7 @@
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80/1405612633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:33.621Z",
+      "crawledAt": "2026-06-29T22:12:03.196Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2988,7 +2940,8 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice",
-          "assistenza-medica-a-80-helsana-ticino"
+          "assistenza-medica-a-80-helsana-ticino",
+          "assistente-di-pratica-medica-80-helsana-ticino"
         ],
         "en": [
           "medizinische-praxisassistenz-a-80-helsana-bern-homeoffice"
@@ -3044,7 +2997,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Conseiller-Service-Client%C3%A8le-International-FRDE-%28t%29-80-100/1405623733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:32.857Z",
+      "crawledAt": "2026-06-29T22:12:02.669Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3066,7 +3019,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-service-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach"
+          "conseiller-service-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach",
+          "servizio-conseiller-clientele-international-fr-de-t-80-100-helsana-dubendorf-stettbach-homeoff"
         ]
       },
       "firstSeenAt": "2026-06-23T11:42:52.920Z",
@@ -3115,7 +3069,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Marketing-Stratege-%28mw%29-%2880-100%29/637016301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:32.133Z",
+      "crawledAt": "2026-06-29T22:12:02.149Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3137,7 +3091,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach"
+          "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach",
+          "strategista-commerciale-m-f-80-100-helsana-dubendorf-stettbach"
         ],
         "fr": [
           "marketing-stratege-m-w-80-100-helsana-dubendorf-stettbach"
@@ -3189,7 +3144,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Partner-und-Kundenbetreuer-Unternehmensgesch%C3%A4ft-%28a%29-80-100/1394891033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:31.437Z",
+      "crawledAt": "2026-06-29T22:12:01.608Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3266,7 +3221,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-Praktikant-Ausbildung-wm/657978401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:30.720Z",
+      "crawledAt": "2026-06-29T22:12:01.058Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3288,7 +3243,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-ausbildung-w-m-helsana-worblaufen"
+          "praktikant-ausbildung-w-m-helsana-worblaufen",
+          "formazione-m-helsana-worblaufen"
         ],
         "en": [
           "praktikant-ausbildung-w-m-helsana-worblaufen"
@@ -3342,7 +3298,7 @@
       "url": "https://careers.helsana.ch/job/Lausanne-Candidature-Spontan%C3%A9e/637828601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:30.132Z",
+      "crawledAt": "2026-06-29T22:12:00.521Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3366,7 +3322,8 @@
       "previousSlugsByLocale": {
         "it": [
           "candidature-spontanee-helsana-lausanne",
-          "candidatura-spontanee-helsana-lausanne"
+          "candidatura-spontanee-helsana-lausanne",
+          "candidatura-spontanea-helsana-lausanne"
         ],
         "en": [
           "candidature-spontanee-helsana-lausanne"
@@ -3418,7 +3375,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Leistungen-Sozialversicherungen-%28a%29-80-100/1406318733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:29.593Z",
+      "crawledAt": "2026-06-29T22:11:59.989Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3440,7 +3397,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach"
+          "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach",
+          "servizi-di-assistenza-clienti-per-la-sicurezza-sociale-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuer-leistungen-sozialversicherungen-a-80-100-helsana-dubendorf-stettbach"
@@ -3495,7 +3453,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Mittelland-%28a%29-80-100/1406355933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:28.898Z",
+      "crawledAt": "2026-06-29T22:11:59.458Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3521,7 +3479,8 @@
       "previousSlugsByLocale": {
         "it": [
           "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen",
-          "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino"
+          "case-manager-servizi-corporate-business-mittelland-a-80-100-helsana-ticino",
+          "case-manager-servizi-aziendali-regione-del-centro-a-80-100-helsana-ticino"
         ],
         "en": [
           "case-manager-leistungen-unternehmensgeschaft-mittelland-a-80-100-helsana-worblaufen"
@@ -3577,7 +3536,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Spezialistin-Fachstelle-Unternehmensgesch%C3%A4ft-%28a%29-80-100/861656201/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:28.225Z",
+      "crawledAt": "2026-06-29T22:11:58.952Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3599,7 +3558,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
+          "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach",
+          "specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach"
         ],
         "en": [
           "spezialistin-fachstelle-unternehmensgeschaft-a-80-100-helsana-dubendorf-stettbach"
@@ -3654,7 +3614,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Fachspezialistin-Partnerschaften-Gesundheitsberatung-wm-%2880-100%29/652014801/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:27.536Z",
+      "crawledAt": "2026-06-29T22:11:58.364Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3676,7 +3636,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf"
+          "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf",
+          "partner-specializzati-consulenza-sanitaria-w-m-80-100-helsana-dubendorf-stettbach"
         ],
         "en": [
           "fachspezialistin-partnerschaften-gesundheitsberatung-w-m-80-100-helsana-dubendorf"
@@ -3731,7 +3692,7 @@
       "url": "https://careers.helsana.ch/job/Thun-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1270807101/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:26.866Z",
+      "crawledAt": "2026-06-29T22:11:57.844Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3756,7 +3717,8 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice",
-          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27"
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-884e27",
+          "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino-884e27"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-thun-homeoffice"
@@ -3811,7 +3773,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Release-und-Test-Engineer-%28a%29-80-100/1386841133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:26.233Z",
+      "crawledAt": "2026-06-29T22:11:57.310Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3833,7 +3795,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "release-und-test-engineer-a-80-100-helsana-zurich-homeoffice"
+          "release-und-test-engineer-a-80-100-helsana-zurich-homeoffice",
+          "release-e-test-ingegnere-a-80-100-helsana-zurich-homeoffice"
         ],
         "fr": [
           "release-und-test-engineer-a-80-100-helsana-zurich-homeoffice"
@@ -3885,7 +3848,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Kundenservice-International-DEENIT-%28a%29-80-100/1396541033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:25.642Z",
+      "crawledAt": "2026-06-29T22:11:56.793Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3907,7 +3870,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach"
+          "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach",
+          "supporto-clienti-internazionale-de-en-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuer-kundenservice-international-de-en-it-a-80-100-helsana-dubendorf-stettbach"
@@ -3962,7 +3926,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuerin-Antragsverarbeitung-%28a%29-80-100/1377417133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:24.955Z",
+      "crawledAt": "2026-06-29T22:11:56.260Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3988,7 +3952,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
-          "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino"
+          "fornitore-di-servizi-clienti-elaborazione-di-applicazioni-a-80-100-helsana-ticino",
+          "addetta-al-trattamento-delle-domande-a-80-100-helsana-ticino"
         ],
         "en": [
           "kundenbetreuerin-antragsverarbeitung-a-80-100-helsana-worblaufen-homeoffice",
@@ -4045,7 +4010,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Formulare-&-Leistungen-%28a%29-80-100-befristet-bis-September-2026/1387426333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:24.221Z",
+      "crawledAt": "2026-06-29T22:11:55.747Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4069,7 +4034,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana",
-          "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana-dubendorf-stettbach-homeoff"
+          "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana-dubendorf-stettbach-homeoff",
+          "forme-e-servizi-di-gestione-clienti-a-80-100-limitata-a-settembre-2026-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuerin-formulare-leistungen-a-80-100-befristet-bis-september-2026-helsana"
@@ -4124,7 +4090,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Lernende-%28a%29-Informatikerin-EFZ-Plattformentwicklung-per-August-2023/840037501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:23.511Z",
+      "crawledAt": "2026-06-29T22:11:55.221Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4146,7 +4112,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-a-informatiker-in-efz-plattformentwicklung-per-august-2023-helsana-dubendorf"
+          "lernende-a-informatiker-in-efz-plattformentwicklung-per-august-2023-helsana-dubendorf",
+          "apprendista-a-informatiker-in-cfc-plattformentwicklung-per-august-2023-helsana-dubendorf-stettbach"
         ],
         "en": [
           "lernende-a-informatiker-in-efz-plattformentwicklung-per-august-2023-helsana-dubendorf"
@@ -4200,7 +4167,7 @@
       "url": "https://careers.helsana.ch/job/Release-und-Test-Engineer-%28a%29-80-100/956343301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:22.861Z",
+      "crawledAt": "2026-06-29T22:11:54.698Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4222,7 +4189,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "release-und-test-engineer-a-80-100-helsana-dubendorf"
+          "release-und-test-engineer-a-80-100-helsana-dubendorf",
+          "release-e-test-ingegnere-a-80-100-helsana-dubendorf"
         ]
       },
       "firstSeenAt": "2026-06-23T11:42:42.976Z",
@@ -4270,7 +4238,7 @@
       "url": "https://careers.helsana.ch/job/Inhouse-Consultant-SAP-HCM-&-Success-Factors-%28a%29-80-100/990259401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:22.196Z",
+      "crawledAt": "2026-06-29T22:11:54.167Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4333,7 +4301,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Senior-Linux-Cloud-Engineer-%28a%29-80-100/791705601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:21.292Z",
+      "crawledAt": "2026-06-29T22:11:53.638Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4396,7 +4364,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-Mitarbeiterin-Impfzentrum-wm-%2880-100%29/668203501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:20.718Z",
+      "crawledAt": "2026-06-29T22:11:53.117Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4420,7 +4388,8 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich",
-          "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich"
+          "centro-di-vaccinazione-dei-dipendenti-w-m-80-100-helsana-zurich",
+          "impiegata-centro-vaccinazioni-f-m-80-100-helsana-zurich"
         ],
         "en": [
           "mitarbeiterin-impfzentrum-w-m-80-100-helsana-zurich"
@@ -4475,7 +4444,7 @@
       "url": "https://careers.helsana.ch/job/Horgen-&-Homeoffice-Verkaufsleiterin-%28a%29-80-100/1407833633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:20.059Z",
+      "crawledAt": "2026-06-29T22:11:52.587Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4497,7 +4466,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice"
+          "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice",
+          "responsabile-vendite-a-80-100-helsana-ticino"
         ],
         "en": [
           "verkaufsleiterin-a-80-100-helsana-horgen-homeoffice"
@@ -4552,7 +4522,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Competence-Center-DEIT-%28a%29-80-100/1393160633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:19.265Z",
+      "crawledAt": "2026-06-29T22:11:52.079Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4574,7 +4544,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "centro-di-competenza-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "fr": [
           "kundenbetreuerin-competence-center-de-it-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -4626,7 +4597,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-IT-Security-Architect-%28a%29-Secure-Development%2C-Threat-&-Vulnerability-Management-80-100/1277473401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:18.657Z",
+      "crawledAt": "2026-06-29T22:11:51.546Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4648,7 +4619,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana"
+          "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana",
+          "it-security-architetto-a-secure-development-threat-vulnerability-management-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "fr": [
           "it-security-architect-a-secure-development-threat-vulnerability-management-80-100-helsana"
@@ -4700,7 +4672,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Trainee-Business-Engineering-%28a%29-80-100-ab-September-2026-f%C3%BCr-18-Monate/1397095933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:18.051Z",
+      "crawledAt": "2026-06-29T22:11:51.042Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4722,7 +4694,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-business-engineering-a-80-100-ab-september-2026-fur-18-monate-helsana-dubendorf"
+          "trainee-business-engineering-a-80-100-ab-september-2026-fur-18-monate-helsana-dubendorf",
+          "apprendista-business-engineering-a-80-100-ab-september-2026-per-18-monate-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "trainee-business-engineering-a-80-100-ab-september-2026-fur-18-monate-helsana-dubendorf"
@@ -4777,7 +4750,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Leiter-Portal-&-Data-Solutions-%28a%29-80-100/1408168833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:17.334Z",
+      "crawledAt": "2026-06-29T22:11:50.520Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4848,7 +4821,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Tempor%C3%A4rer-Kundenbetreuer-Online-Support-%28a%29-80-100-befristet-01_08_2026-bis-31_01_2027/1381603033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:16.704Z",
+      "crawledAt": "2026-06-29T22:11:49.997Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4872,7 +4845,8 @@
       "previousSlugsByLocale": {
         "it": [
           "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027",
-          "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff"
+          "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027-helsana-dubendorf-stettbach-homeoff",
+          "assistenza-clienti-temporanea-online-a-80-100-temporanea-01-08-2026-fino-al-31-01-2027-helsana-dubendorf-stettbach"
         ],
         "en": [
           "temporarer-kundenbetreuer-online-support-a-80-100-befristet-01-08-2026-bis-31-01-2027"
@@ -4927,7 +4901,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Leistungen-Krankentaggeld-%28a%29-80-100/1397747433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:16.124Z",
+      "crawledAt": "2026-06-29T22:11:49.483Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4949,7 +4923,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff"
+          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff",
+          "servizio-di-assistenza-medica-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-dubendorf-stettbach-homeoff"
@@ -5003,7 +4978,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Conseiller-Client%C3%A8le-Service-International-%28t%29-FRDE-80-100/1408744933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:15.543Z",
+      "crawledAt": "2026-06-29T22:11:48.980Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5066,7 +5041,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Teamleiterin-Facility-Management-Deutschschweiz-%28a%29-80-100/1389100733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:14.808Z",
+      "crawledAt": "2026-06-29T22:11:48.443Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5088,7 +5063,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
+          "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach",
+          "team-leader-facility-management-svizzera-tedesca-a-80-100-helsana-dubendorf-stettbach-homeoff"
         ],
         "en": [
           "teamleiterin-facility-management-deutschschweiz-a-80-100-helsana-dubendorf-stettbach"
@@ -5143,7 +5119,7 @@
       "url": "https://careers.helsana.ch/job/Horgen-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1283467901/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:14.250Z",
+      "crawledAt": "2026-06-29T22:11:47.922Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5165,7 +5141,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice",
+          "consulente-assicurativo-in-servizio-esterno-a-80-100-helsana-ticino"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-horgen-homeoffice"
@@ -5220,7 +5197,7 @@
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Fach%C3%A4rztin-Allgemeine-Innere-Medizin-%28a%29-80-100/1286311701/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:13.332Z",
+      "crawledAt": "2026-06-29T22:11:47.393Z",
       "addressLocality": "Ticino",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5242,7 +5219,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice",
+          "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino-882bb5"
         ],
         "en": [
           "facharztin-allgemeine-innere-medizin-a-80-100-helsana-bern-homeoffice"
@@ -5297,7 +5275,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Fach%C3%A4rztin-Allgemeine-Innere-Medizin-%28a%29-80-100/1286296501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:11.983Z",
+      "crawledAt": "2026-06-29T22:11:46.871Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5319,7 +5297,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
+          "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice",
+          "medico-specialista-in-medicina-interna-a-80-100-helsana-ticino"
         ],
         "en": [
           "facharztin-allgemeine-innere-medizin-a-80-100-helsana-zurich-homeoffice"
@@ -5374,7 +5353,7 @@
       "url": "https://careers.helsana.ch/job/Meilen-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1287759401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:02:11.415Z",
+      "crawledAt": "2026-06-29T22:11:46.325Z",
       "addressLocality": "Ticino",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5396,7 +5375,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice",
+          "consulente-assicurativo-in-materia-a-80-100-helsana-ticino"
         ],
         "en": [
           "versicherungsberater-im-aussendienst-a-80-100-helsana-meilen-homeoffice"

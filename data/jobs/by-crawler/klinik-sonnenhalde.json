@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-sonnenhalde",
-  "assembledAt": "2026-06-29T13:49:42.904Z",
+  "assembledAt": "2026-06-29T22:53:53.399Z",
   "jobs": [
     {
       "id": "klinik-sonnenhalde-f74f498d3bb7",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/311/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:40.783Z",
+      "crawledAt": "2026-06-29T22:53:51.057Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -56,7 +56,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
+          "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen",
+          "medico-assistente-klinik-sonnenhalde-riehen"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:41.755Z",
@@ -104,7 +105,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/318/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:39.939Z",
+      "crawledAt": "2026-06-29T22:53:50.460Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -126,7 +127,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen"
+          "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen",
+          "psicologo-specializzato-in-psicoterapia-klinik-sonnenhalde-riehen"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:41.754Z",
@@ -175,7 +177,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/320/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:39.057Z",
+      "crawledAt": "2026-06-29T22:53:49.551Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -201,7 +203,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachpsycholog-in-klinik-sonnenhalde-riehen",
-          "specialista-psicologo-in-klinik-sonnenhalde-riehen"
+          "specialista-psicologo-in-klinik-sonnenhalde-riehen",
+          "psicologo-specializzato-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "specialist-psychologist-in-klinik-sonnenhalde-riehen"
@@ -255,7 +258,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/357/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:38.166Z",
+      "crawledAt": "2026-06-29T22:53:48.725Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -296,7 +299,8 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-stationar-alterspsychiatrie-und-alterspsychotherapie-klinik",
-          "medico-senior-in-psichiatria-stazionaria-e-psicoterapia-di-eta-klinik-sonnenhalde-riehen"
+          "medico-senior-in-psichiatria-stazionaria-e-psicoterapia-di-eta-klinik-sonnenhalde-riehen",
+          "oberin-oberarzio-di-psichiatria-e-psicoterapia-klinik-sonnenhalde-riehen"
         ],
         "fr": [
           "medecin-principal-en-psychiatrie-en-age-stationnaire-et-en-psychotherapie-en-age-klinik-sonnenhalde-riehen"
@@ -312,93 +316,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-sonnenhalde-ca132c018962",
-      "slug": "paramedico-50-100-spital-davos-davos",
-      "slugByLocale": {
-        "it": "paramedico-50-100-spital-davos-davos",
-        "en": "paramedic-50-100-spital-davos-davos",
-        "de": "rettungssanitater-in-50-100-spital-davos-ch",
-        "fr": "samu-50-100-spital-davos-davos"
-      },
-      "company": "Klinik Sonnenhalde",
-      "companyKey": "klinik-sonnenhalde",
-      "companyDomain": "sonnenhalde.ch",
-      "title": "WMS-Praktikant/in",
-      "titleByLocale": {
-        "it": "Tirocinante WMS",
-        "en": "DMS Intern",
-        "de": "WMS-Praktikant/in",
-        "fr": "Stagiaire WMS"
-      },
-      "description": "WMS-Praktikant/in - Sonnenhalde Riehen WMS-Praktikant/in, 100% Standort: Riehen Ab dem 01.08.2026 Gegründet im Jahr 1900, ist die Klinik Sonnenhalde in Riehen heute eine etablierte Privatklinik für Psychiatrie und Psychotherapie in der Schweiz und im südbadischen Raum. Wir verfolgen eine ganzheitliche, menschenzentrierte, milieutherapeutische Psychiatrie, die exzellente fachliche Qualität mit einer christlichen Wertebasis verbindet. Die Klinik verfügt über 68 stationäre Betten, 4 Tageskliniken sowie 4 Ambulatorien. Als eine der ersten Kliniken der Schweiz fördern wir aktiv digitale Therapieangebote, wie Blended-Therapy und Virtual-Reality und haben im Februar 2023 die erste Hybrid-Tagesklinik der Schweiz eröffnet. In dieser vielseitigen Praktikumsstelle unterstützen Sie unser Team in den Bereichen Administration, Finanzen, Patientenabrechnung und Personal und erhalten umfassende Einblicke in die kaufmännischen Abläufe einer Klinik. Ihr Aufgabenbereich Einblick in den administrativen Bereich Unterstützung bei allgemeinen administrativen Tätigkeiten\n\nMithilfe bei der Erstellung und Verteilung von internen Unterlagen\n\nErstellen und Aufbereiten von Statistiken\n\nMithilfe bei der Kassenführung\n\nKontierung und Verbuchung von Kreditorenrechnungen\n\nNachbearbeitung von Kreditkartenabrechnungen inkl. Einholen fehlender Belege\n\nMithilfe bei Monatsabschlüssen im Bereich Kasse und Kreditoren\n\nMitarbeit bei der Fakturierung im ambulanten, stationären und tagesklinischen Bereich\n\n• Bereich: Querschnittsdienste Finanzen, Prozesse und Services\n• Art: Vollzeit\n• Befristung: Befristet",
-      "descriptionByLocale": {
-        "it": "WMS-Praktikant/in - Sonnenhalde Riehen WMS-Praktikant/in, 100% Location: Riehen Fondato nel 1900 dal 01.08.2026, il Klinik Sonnenhalde a Riehen è oggi una clinica privata consolidata per la psichiatria e la psicoterapia in Svizzera e nella regione del Baden meridionale. Perseguiamo una psichiatria olistica, concentrata sull'uomo, milieu-terapeutica che combina un'eccellente qualità professionale con una base di valore cristiano. La clinica ha 68 letti stazionari, 4 cliniche e 4 ambulatori. Come una delle prime cliniche della Svizzera, promuoviamo attivamente offerte di terapia digitale, come la terapia miscelata e la realtà virtuale, e aprì la prima clinica quotidiana ibrida della Svizzera nel febbraio 2023. In questo versatile tirocinio, il nostro team vi supporta nei settori dell'amministrazione, della finanza, della fatturazione dei pazienti e del personale e acquisisce approfondimenti nei processi commerciali di una clinica. Il vostro compito Indagine nell'area amministrativa Sostegno alle attività amministrative generali Assistenza nella preparazione e distribuzione dei documenti interni Creazione e preparazione di statistiche Aiuto con il cash management Conting e prenotazione fatture creditore Post-elaborazione delle bollette della carta di credito incl. Invita i documenti mancanti Sostegno al bilancio mensile in contanti e creditori Partecipazione al settore ambulatoriale, stazionario e giornaliero Area: Servizi di sezione trasversale Finanza, Processi e Servizi Tipo: Tempo pieno Durata: Limitata",
-        "en": "WMS-Praktikant/in - Sonnenhalde Riehen WMS-Praktikant/in, 100% Location: Riehen Founded in 1900 from 01.08.2026, the Klinik Sonnenhalde in Riehen is today an established private clinic for psychiatry and psychotherapy in Switzerland and in the South Baden region. We pursue a holistic, human-centered, milieu-therapeutic psychiatry that combines excellent professional quality with a Christian value base. The clinic has 68 stationary beds, 4 day clinics and 4 outpatients. As one of Switzerland's first clinics, we actively promote digital therapy offerings, such as blended therapy and virtual reality, and opened Switzerland's first hybrid daily clinic in February 2023. In this versatile internship, our team supports you in the fields of administration, finance, patient billing and personnel and gain comprehensive insights into the commercial processes of a clinic. Your task Insight into the administrative area Support for general administrative activities Assistance in the preparation and distribution of internal documents Creating and preparing statistics Help with the cash management Conting and booking creditor bills Post-processing of credit card bills incl. Invite missing documents Support for monthly financial statements in cash and creditors Participation in the outpatient, stationary and day-clinical sector Area: Cross-sectional services Finance, Processes and Services Type: Full time Duration: Limited",
-        "de": "WMS-Praktikant/in - Sonnenhalde Riehen WMS-Praktikant/in, 100% Standort: Riehen Ab dem 01.08.2026 Gegründet im Jahr 1900, ist die Klinik Sonnenhalde in Riehen heute eine etablierte Privatklinik für Psychiatrie und Psychotherapie in der Schweiz und im südbadischen Raum. Wir verfolgen eine ganzheitliche, menschenzentrierte, milieutherapeutische Psychiatrie, die exzellente fachliche Qualität mit einer christlichen Wertebasis verbindet. Die Klinik verfügt über 68 stationäre Betten, 4 Tageskliniken sowie 4 Ambulatorien. Als eine der ersten Kliniken der Schweiz fördern wir aktiv digitale Therapieangebote, wie Blended-Therapy und Virtual-Reality und haben im Februar 2023 die erste Hybrid-Tagesklinik der Schweiz eröffnet. In dieser vielseitigen Praktikumsstelle unterstützen Sie unser Team in den Bereichen Administration, Finanzen, Patientenabrechnung und Personal und erhalten umfassende Einblicke in die kaufmännischen Abläufe einer Klinik. Ihr Aufgabenbereich Einblick in den administrativen Bereich Unterstützung bei allgemeinen administrativen Tätigkeiten Mithilfe bei der Erstellung und Verteilung von internen Unterlagen Erstellen und Aufbereiten von Statistiken Mithilfe bei der Kassenführung Kontierung und Verbuchung von Kreditorenrechnungen Nachbearbeitung von Kreditkartenabrechnungen inkl. Einholen fehlender Belege Mithilfe bei Monatsabschlüssen im Bereich Kasse und Kreditoren Mitarbeit bei der Fakturierung im ambulanten, stationären und tagesklinischen Bereich\n• Bereich: Querschnittsdienste Finanzen, Prozesse und Services\n• Art: Vollzeit\n• Befristung: Befristet",
-        "fr": "WMS-Praktikant/in - Sonnenhalde Riehen WMS-Praktikant/in, 100% Emplacement: Riehen Fondée en 1900 à partir du 01.08.2026, la Klinik Sonnenhalde à Riehen est aujourd'hui une clinique privée établie pour la psychiatrie et la psychothérapie en Suisse et dans la région du sud du Bade. Nous poursuivons une psychiatrie holistique, centrée sur l'homme, milieu-thérapeutique qui combine une excellente qualité professionnelle avec une base de valeur chrétienne. La clinique compte 68 lits fixes, 4 cliniques de jour et 4 consultations externes. En tant que première clinique suisse, nous encourageons activement les offres de thérapie numérique, comme la thérapie mixte et la réalité virtuelle, et avons ouvert la première clinique quotidienne hybride en Suisse en février 2023. Dans ce stage polyvalent, notre équipe vous accompagne dans les domaines de l'administration, des finances, de la facturation des patients et du personnel, et vous permet d'acquérir des connaissances approfondies sur les processus commerciaux d'une clinique. Votre tâche Regard sur le domaine administratif Soutien aux activités administratives générales Aide à la préparation et à la distribution des documents internes Création et préparation de statistiques Aide à la gestion de la trésorerie Factures des créanciers en garantie et en réserve Après traitement des factures de carte de crédit incl. Inviter les documents manquants Appui aux états financiers mensuels en espèces et créanciers Participation aux services ambulatoires, stationnaires et cliniques de jour Secteur : Services intersectoriels Finances, processus et services Type: Temps plein Durée: limitée"
-      },
-      "location": "Riehen",
-      "canton": "BS",
-      "url": "https://recruitingapp-3030.umantis.com/Vacancies/389/Description/1",
-      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:37.289Z",
-      "addressLocality": "Riehen",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4125",
-      "category": "Amministrazione",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/389/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Requisiti - Tipo:"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "wms-praktikant-in-klinik-sonnenhalde-riehen"
-        ],
-        "it": [
-          "wms-praktikant-in-klinik-sonnenhalde-riehen",
-          "tirocinante-wms-klinik-sonnenhalde-riehen"
-        ],
-        "en": [
-          "dms-intern-klinik-sonnenhalde-riehen"
-        ],
-        "fr": [
-          "stagiaire-wms-klinik-sonnenhalde-riehen"
-        ]
-      },
-      "previousSlugs": [
-        "wms-praktikant-in-klinik-sonnenhalde-riehen",
-        "tirocinante-wms-klinik-sonnenhalde-riehen",
-        "dms-intern-klinik-sonnenhalde-riehen",
-        "stagiaire-wms-klinik-sonnenhalde-riehen"
-      ],
-      "firstSeenAt": "2026-05-19T09:58:41.751Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
           "unitText": "YEAR"
         }
       }
@@ -435,7 +352,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/390/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:36.423Z",
+      "crawledAt": "2026-06-29T22:53:47.885Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -479,7 +396,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-          "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen"
+          "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen",
+          "specialista-infermieristico-qualificato-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
@@ -533,7 +451,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/391/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:35.575Z",
+      "crawledAt": "2026-06-29T22:53:47.078Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -564,13 +482,17 @@
         "it": [
           "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
           "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen",
-          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
+          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+          "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen"
         ],
         "fr": [
           "miterbeiter-en-service-recompense-d-heure-klinik-sonnenhalde-riehen"
+        ],
+        "de": [
+          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
         ]
       },
       "previousSlugs": [
@@ -626,7 +548,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/394/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:34.687Z",
+      "crawledAt": "2026-06-29T22:53:46.179Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -656,7 +578,8 @@
         "it": [
           "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
           "personale-in-personale-klinik-sonnenhalde-riehen",
-          "collaboratore-trice-personal-klinik-sonnenhalde-riehen"
+          "collaboratore-trice-personal-klinik-sonnenhalde-riehen",
+          "addetto-a-risorse-umane-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "hr-staff-klinik-sonnenhalde-riehen",
@@ -713,7 +636,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/395/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:33.808Z",
+      "crawledAt": "2026-06-29T22:53:45.322Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -739,7 +662,8 @@
         "it": [
           "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen",
           "personale-in-ceo-office-klinik-sonnenhalde-riehen",
-          "mitarbeiter-in-ceo-office-befristet-bis-zum-31-12-2026-klinik-sonnenhalde-riehen"
+          "mitarbeiter-in-ceo-office-befristet-bis-zum-31-12-2026-klinik-sonnenhalde-riehen",
+          "collaboratore-trice-ceo-office-klinik-sonnenhalde-riehen"
         ],
         "fr": [
           "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen"
@@ -790,7 +714,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/396/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:32.785Z",
+      "crawledAt": "2026-06-29T22:53:44.442Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -812,7 +736,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+          "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
+          "specialista-infermieristico-sss-sup-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
@@ -866,7 +791,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/397/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:31.949Z",
+      "crawledAt": "2026-06-29T22:53:43.596Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -890,7 +815,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen",
-          "infermiere-dipl-sss-sup-40-klinik-sonnenhalde-riehen"
+          "infermiere-dipl-sss-sup-40-klinik-sonnenhalde-riehen",
+          "dipl-specialista-per-l-assistenza-hf-fh-40-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen"
@@ -945,7 +871,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/400/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T13:49:31.087Z",
+      "crawledAt": "2026-06-29T22:53:42.716Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -967,7 +893,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen"
+          "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen",
+          "dipl-servizio-notturno-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen"

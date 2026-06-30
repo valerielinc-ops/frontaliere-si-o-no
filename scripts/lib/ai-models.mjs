@@ -2939,8 +2939,23 @@ export async function callLLM(messages, opts = {}) {
 
   let chain = o.chain || [...DEFAULT_CHAIN];
 
-  // If a specific model is requested, start the chain from that model
-  if (o.model) {
+  // Diagnostic override: AI_MODELS_FORCE_CHAIN=local/fallback,gemini-flash-latest
+  // pins the chain to exactly these models (in order), bypassing DEFAULT_CHAIN,
+  // the o.model start-point, and score sorting. Lets ops validate/measure a
+  // specific provider (e.g. the local fallback) on demand without waiting for the
+  // remote pool to exhaust. Unknown ids are dropped; empty result → ignore override.
+  const _forceChainRaw = (process.env.AI_MODELS_FORCE_CHAIN || '').trim();
+  const _forcedChain = _forceChainRaw
+    ? _forceChainRaw.split(',').map((s) => s.trim()).filter(Boolean)
+    : [];
+  if (_forcedChain.length) {
+    console.warn(`🔧 [ai-models] AI_MODELS_FORCE_CHAIN active — chain pinned to: ${_forcedChain.join(' → ')}`);
+    chain = _forcedChain;
+  }
+
+  // If a specific model is requested, start the chain from that model.
+  // Skipped under a forced chain — the override owns the order verbatim.
+  if (o.model && !_forcedChain.length) {
     const idx = chain.indexOf(o.model);
     if (idx > 0) {
       chain = chain.slice(idx);
@@ -2953,7 +2968,10 @@ export async function callLLM(messages, opts = {}) {
   // Sort by accumulated score — models that are working well come first,
   // models that have been failing are pushed down.
   // The initial call uses DEFAULT_CHAIN order (all scores 0, tiebreak by index).
-  chain = sortChainByScore(chain);
+  // A forced chain keeps its explicit order (no score reshuffle).
+  if (!_forcedChain.length) {
+    chain = sortChainByScore(chain);
+  }
 
   const errors = [];
 

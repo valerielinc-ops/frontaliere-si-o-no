@@ -931,28 +931,42 @@
           }
         }
       }, true);
-      // Catch CROSS-CHUNK VERSION-SKEW TypeErrors thrown OUTSIDE React (event
-      // handlers, async .then callbacks, setTimeout) — React-caught skew is
-      // handled by ErrorBoundary. Chunk FILENAMES are stable but Rollup
-      // re-letters minified cross-chunk exports every build; a client holding a
-      // stale importer chunk binds an old letter to a fresh dependency's new
-      // export → the symbol is the wrong kind of value → TypeError at call time
-      // (e.g. "ls(...).then is not a function", "x is not a constructor").
-      // Both chunks loaded fine, so the resource/import handlers above never
-      // fire. Self-heal: clear caches + reload ONCE (shared _swReloadCount
+      // Catch CROSS-CHUNK VERSION-SKEW errors thrown OUTSIDE React (event
+      // handlers, async .then callbacks, setTimeout, module-graph linking) —
+      // React-caught skew is handled by ErrorBoundary. Chunk FILENAMES are
+      // stable but the bundled chunk SET drifts between deploys, so a client
+      // with a mismatched cached set hits one of two shapes:
+      //  (a) CALL-TIME TypeError: Rollup re-letters minified cross-chunk exports
+      //      every build; a stale importer binds an old letter to a fresh
+      //      dependency's new export → wrong kind of value → TypeError
+      //      ("ls(...).then is not a function", "x is not a constructor").
+      //  (b) LINK-TIME SyntaxError (#3097): the dependency chunk's export SET
+      //      changed (e.g. lucide tree-shaking in vendor-icons.js) so a cached
+      //      importer links a name the stale dependency no longer provides
+      //      ("does not provide an export named 'House'", Firefox "import not
+      //      found", WebKit "Importing binding name ... is not found").
+      // Both chunks loaded fine (HTTP 200), so the resource/import handlers above
+      // never fire. Self-heal: clear caches + reload ONCE (shared _swReloadCount
       // ceiling). Post-propagation the refetched chunk set is consistent.
+      // Keep the message regexes in sync with isVersionSkewError /
+      // isModuleLinkSkewMessage in services/resilientImport.ts (this inline
+      // bootstrap script cannot import that module).
       window.addEventListener('error', function(e) {
         // Resource (script/link) errors are handled by the capture-phase handler
         // above; this non-capture handler only inspects runtime errors.
         if (e.target && e.target !== window && e.target.tagName) return;
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
         var err = e.error;
-        if (!err || err.name !== 'TypeError') return;
-        var m = err.message || '';
-        var skew = / is not a function\b/.test(m) ||
+        // Module-link SyntaxErrors can surface with a null e.error (engine quirk)
+        // — fall back to the event message so (b) is still detected.
+        var name = (err && err.name) || '';
+        var m = (err && err.message) || e.message || '';
+        var skewCall = name === 'TypeError' && (
+                   / is not a function\b/.test(m) ||
                    / is not a constructor\b/.test(m) ||
-                   / is not iterable\b/.test(m);
-        if (!skew) return;
+                   / is not iterable\b/.test(m));
+        var skewLink = /does not provide an export named|import not found|indirect export|Importing binding name/.test(m);
+        if (!skewCall && !skewLink) return;
         var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
         if (reloadCount >= 1) return;
         sessionStorage.setItem('_swReloadCount', String(reloadCount + 1));
@@ -974,14 +988,18 @@
           location.reload();
         }
       });
-      // Catch dynamic import() rejections (React.lazy chunk 404s from stale SW cache).
+      // Catch dynamic import() rejections (React.lazy chunk 404s from stale SW
+      // cache) AND link-time version-skew SyntaxErrors (#3097) from an import()
+      // not wrapped by React.lazy: the chunk fetched fine but a cached importer
+      // links an export the stale dependency no longer provides. Same recovery.
       // Skip in dev mode — Vite HMR can produce transient import failures that resolve on their own.
       window.addEventListener('unhandledrejection', function(e) {
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
         var reason = (e.reason && e.reason.message) || String(e.reason || '');
         if (reason.indexOf('dynamically imported module') === -1 &&
             reason.indexOf('Loading chunk') === -1 &&
-            reason.indexOf('Loading CSS chunk') === -1) return;
+            reason.indexOf('Loading CSS chunk') === -1 &&
+            !/does not provide an export named|import not found|indirect export|Importing binding name/.test(reason)) return;
         var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha/i.test(reason);
 
         try {

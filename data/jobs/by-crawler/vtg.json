@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-06-29T14:24:13.699Z",
+  "assembledAt": "2026-06-29T23:15:21.515Z",
   "jobs": [
     {
       "id": "company-71gebl",
@@ -76,7 +76,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qf6gqz",
@@ -393,7 +394,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qxa6ru",
@@ -1517,7 +1519,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-vvystb",
@@ -2460,7 +2463,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2887,7 +2891,7 @@
     },
     {
       "id": "company-q6f59r",
-      "slug": "projektleiter-m-w-d-swiss-armed-forces-vtg-bern",
+      "slug": "projektleiter-m-w-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Militärisches Kaderspersonal (m/w)",
       "location": "Bern",
@@ -2934,7 +2938,8 @@
         "it": [
           "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern",
           "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
-          "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona"
+          "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona",
+          "projektleiter-m-w-d-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bellinzona",
@@ -2945,6 +2950,7 @@
         "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern",
         "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
         "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona",
+        "projektleiter-m-w-d-swiss-armed-forces-vtg-bern",
         "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bellinzona",
         "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bern"
       ],

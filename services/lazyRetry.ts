@@ -19,6 +19,13 @@ export function lazyRetry<T extends React.ComponentType<any>>(
 ): React.LazyExoticComponent<T> {
  return lazy(() =>
  factory().catch((err: Error) => {
+ // FETCH-failure signature only (chunk 404 / SPA-fallback HTML / parse).
+ // A LINK-TIME version-skew SyntaxError ("does not provide an export
+ // named ...", issue #3097) is a DIFFERENT class: the chunk fetched fine
+ // but a cached importer links a missing export. Not matched here because
+ // retrying re-links the same stale cached dependency. It rethrows to the
+ // ErrorBoundary, whose isVersionSkewError -> recoverFromStaleChunk does the
+ // correct clear-caches + single shared-guard reload.
  const isChunkError =
  err?.message?.includes('Failed to fetch dynamically imported module') ||
  err?.message?.includes('Importing a module script failed') ||

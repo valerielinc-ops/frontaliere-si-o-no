@@ -736,6 +736,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-lombardi-residenza-tendenze.title': 'Où vivent les frontaliers lombards : boom Brianza et numéros officiels',
     'blog.article.frontalieri-lombardi-residenza-tendenze.excerpt': 'Plus de 60 000 frontaliers lombards vivent entre Côme et Varèse ; la Brianza croît de 77 % en dix ans.',
     'blog.article.frontalieri-lombardi-residenza-tendenze.imageAlt': 'Vue panoramique de la zone frontalière entre le Tessin et la Lombardie.',
+    'blog.article.stabio-dogana-svizzera.title': 'Stade douanier : passage et procédures à la frontière suisse',
+    'blog.article.stabio-dogana-svizzera.excerpt': 'Le col de Stabio représente un point de transit entre la Suisse et l\'Italie. Mise à jour des procédures douanières.',
+    'blog.article.stabio-dogana-svizzera.imageAlt': 'Poste frontière de Stabio, symbole de la frontière suisse-italienne.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Douane Chiasso : temps d\'attente et viabilité',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analyse des flux de trafic à la douane routière de Chiasso. Informations mises à jour pour ceux qui transitent quotidiennement entre l\'Italie et la Suisse.',
+    'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Douane routière de Chiasso aux heures de pointe',
+    'blog.article.benzina-prezzi-svizzera-oggi.title': 'Prix de l\'essence en Suisse aujourd\'hui',
+    'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'Les prix de l\'essence en Suisse varient en fonction de la région et du type de carburant. Voici les prix actuels.',
+    'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Station-service à Bellinzona avec prix du carburant actuels',
 };
 
 export default blogMetaChFr;

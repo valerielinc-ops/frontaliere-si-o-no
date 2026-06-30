@@ -272,6 +272,30 @@ describe('parseAldiDetailPage', () => {
     expect(result.requirements).toContain('Warenbereitstellung');
     expect(result.requirements).toContain('Gute Deutschkenntnisse');
   });
+
+  it('does not truncate the body when the description block has nested <div>s', () => {
+    const nestedHtml = `
+<html><body>
+  <h1 class="title">Filialleiter (m/w/d)</h1>
+  <div class="description">
+    <div class="section"><p><b>Aufgaben</b></p>
+      <ul><li>Filialführung</li></ul>
+    </div>
+    <div class="section"><p><b>Profil</b></p>
+      <ul><li>Berufserfahrung im Detailhandel</li></ul>
+    </div>
+    <p>Unser Angebot: attraktive Anstellungsbedingungen.</p>
+  </div>
+</body></html>`;
+    const result = parseAldiDetailPage(nestedHtml);
+    expect(result).not.toBeNull();
+    // First nested </div> must NOT end the capture: later sections survive.
+    expect(result.body).toContain('Aufgaben');
+    expect(result.body).toContain('Profil');
+    expect(result.body).toContain('Unser Angebot');
+    expect(result.requirements).toContain('Filialführung');
+    expect(result.requirements).toContain('Berufserfahrung im Detailhandel');
+  });
 });
 
 // ===================================================================
