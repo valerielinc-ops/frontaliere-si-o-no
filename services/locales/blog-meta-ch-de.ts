@@ -766,6 +766,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.title': 'Die dunkle Seite des Schweizer Eldorado für französische Grenzgänger',
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.excerpt': 'Analyse der Besteuerung und der neuen Regeln für französische Grenzgänger in der Schweiz ab 2024.',
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.imageAlt': 'Panoramablick auf einen Schweizer Grenzübergang mit französischen Grenzgängern bei der Arbeit',
+    'blog.article.offre-fielmann-tariffe-nazionali.title': 'Fielmann-Angebot: neue Preise und Sonderaktionen in der Schweiz',
+    'blog.article.offre-fielmann-tariffe-nazionali.excerpt': 'Entdecken Sie die neuesten Angebote und Aktionen von Fielmann in der Schweiz mit Details zu den Tarifen und Vorteilen für Kunden und Grenzgänger.',
+    'blog.article.offre-fielmann-tariffe-nazionali.imageAlt': 'Fielmann Geschäft in der Schweiz mit Kunden beim Einkaufen',
 };
 
 export default blogMetaChDe;

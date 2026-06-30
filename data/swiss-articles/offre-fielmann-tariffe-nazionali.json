@@ -1,0 +1,40 @@
+{
+  "id": "offre-fielmann-tariffe-nazionali",
+  "slug": "offre-fielmann-tariffe-nazionali",
+  "publishedAt": "2026-06-30T11:44:39.253Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 18.00051665823722,
+    "confidence": 0.8,
+    "finalScore": 14.400413326589778,
+    "topK": [
+      {
+        "slug": "sanita-ticino-tagli-orselina",
+        "cosine": 0.8184892198156047
+      },
+      {
+        "slug": "lamal-cmi-scelta-frontaliere-2026",
+        "cosine": 0.8174227084447371
+      },
+      {
+        "slug": "lavoro-chiasso-opportunita-frontalieri",
+        "cosine": 0.8155780302620266
+      },
+      {
+        "slug": "academy-fnma-autisti-bus-2026",
+        "cosine": 0.8148461280621718
+      },
+      {
+        "slug": "lavoro-educatori-germania-alternativa",
+        "cosine": 0.811828480550187
+      }
+    ],
+    "score": 3.6001033316474444,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

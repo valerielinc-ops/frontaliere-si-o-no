@@ -766,6 +766,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.title': 'Il lato oscuro dell’Eldorado svizzero per i frontalieri francesi',
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.excerpt': 'Analisi dell\'imposizione fiscale e delle nuove regole per i frontalieri francesi in Svizzera dal 2024.',
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.imageAlt': 'Vista panoramica di un valico di frontiera svizzero con frontalieri francesi al lavoro',
+    'blog.article.offre-fielmann-tariffe-nazionali.title': 'Offerta Fielmann: nuove tariffe e promozioni in Svizzera',
+    'blog.article.offre-fielmann-tariffe-nazionali.excerpt': 'Scopri le ultime offerte e promozioni di Fielmann in Svizzera, con dettagli sulle tariffe e vantaggi per clienti e frontalieri.',
+    'blog.article.offre-fielmann-tariffe-nazionali.imageAlt': 'Negozio Fielmann in Svizzera con clienti che fanno acquisti',
 };
 
 export default blogMetaChIt;

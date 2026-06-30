@@ -4316,6 +4316,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-volg-wiler-analisi-nazionale': { name: 'Volg Wiler', path: '/articoli-svizzera/volg-wiler-analisi-nazionale/', parent: 'blog' },
     'blog-infermieri-lugano-sociali': { name: 'Lavoro', path: '/articoli-svizzera/infermieri-lugano-sociali/', parent: 'blog' },
     'blog-lato-oscuro-eldorado-frontalieri-francesi': { name: 'Frontalieri Francia-Svizzera', path: '/articoli-svizzera/lato-oscuro-eldorado-frontalieri-francesi/', parent: 'blog' },
+    'blog-offre-fielmann-tariffe-nazionali': { name: 'Offerte', path: '/articoli-svizzera/offre-fielmann-tariffe-nazionali/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

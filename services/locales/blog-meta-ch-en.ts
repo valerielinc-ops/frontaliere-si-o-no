@@ -766,6 +766,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.title': 'The dark side of the Swiss Eldorado for French frontiersmen',
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.excerpt': 'Analysis of taxation and new rules for French border workers in Switzerland since 2024.',
     'blog.article.lato-oscuro-eldorado-frontalieri-francesi.imageAlt': 'Panoramic view of a Swiss border crossing with French cross-border commuters at work',
+    'blog.article.offre-fielmann-tariffe-nazionali.title': 'Fielmann offer: new rates and promotions in Switzerland',
+    'blog.article.offre-fielmann-tariffe-nazionali.excerpt': 'Discover the latest offers and promotions from Fielmann in Switzerland, including details on rates and benefits for customers and cross-border workers.',
+    'blog.article.offre-fielmann-tariffe-nazionali.imageAlt': 'Fielmann store in Switzerland with customers shopping',
 };
 
 export default blogMetaChEn;
