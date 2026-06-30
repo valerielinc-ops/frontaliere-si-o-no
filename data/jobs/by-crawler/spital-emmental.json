@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-emmental-07f443505944",
-      "slug": "ulteriori-moduli-b-student-bachelor-of-science-in-care-a-spital-emmental-burgdorf-langnau",
+      "slug": "studenti-aggiuntivi-del-modulo-b-laurea-in-scienze-in-infermieristica-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf",
-        "it": "ulteriori-moduli-b-student-bachelor-of-science-in-care-a-spital-emmental-burgdorf-langnau",
-        "en": "additional-module-b-student-bachelor-of-science-in-care-a-spital-emmental-burgdorf-langnau",
-        "fr": "module-supplementaire-b-baccalaureat-etudiant-en-sciences-en-soins-a-spital-emmental-burgdorf-langnau"
+        "it": "studenti-aggiuntivi-del-modulo-b-laurea-in-scienze-in-infermieristica-a-spital-emmental-burgdorf-langnau",
+        "en": "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf",
+        "fr": "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -17,7 +17,7 @@
       "title": "Zusatzmodul B Studierende Bachelor of Science in Pflege (a)",
       "titleByLocale": {
         "de": "Zusatzmodul B Studierende Bachelor of Science in Pflege (a)",
-        "it": "Ulteriori moduli B Student Bachelor of Science in Care (a)",
+        "it": "Studenti aggiuntivi del Modulo B Laurea in Scienze in Infermieristica (a)",
         "en": "Additional Module B Student Bachelor of Science in Care (a)",
         "fr": "Module supplémentaire B Baccalauréat étudiant en sciences en soins (a)"
       },
@@ -73,29 +73,21 @@
       "firstSeenAt": "2026-06-30T12:27:48.620Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf",
-          "studenti-aggiuntivi-del-modulo-b-laurea-in-scienze-in-infermieristica-a-spital-emmental-burgdorf-langnau"
-        ],
-        "en": [
-          "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf"
-        ],
-        "fr": [
           "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf",
-        "studenti-aggiuntivi-del-modulo-b-laurea-in-scienze-in-infermieristica-a-spital-emmental-burgdorf-langnau"
+        "zusatzmodul-b-studierende-bachelor-of-science-in-pflege-a-spital-emmental-burgdorf"
       ]
     },
     {
       "id": "spital-emmental-2ce20c1017eb",
-      "slug": "studenti-bsc-in-nursing-temporary-6-settimane-a-spital-emmental-burgdorf-langnau",
+      "slug": "studenti-con-tirocinio-opzionale-bsc-in-infermieristicalimitato-6-settimane-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental",
-        "it": "studenti-bsc-in-nursing-temporary-6-settimane-a-spital-emmental-burgdorf-langnau",
-        "en": "compulsory-elective-internship-students-bsc-in-nursing-temporary-6-weeks-a-spital-emmental-burgdorf-langnau",
-        "fr": "stage-obligatoire-au-choix-etudiants-bsc-en-soins-infirmiers-temporaire-6-semaines-a-spital-emmental-burgdorf-langnau"
+        "it": "studenti-con-tirocinio-opzionale-bsc-in-infermieristicalimitato-6-settimane-a-spital-emmental-burgdorf-langnau",
+        "en": "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental",
+        "fr": "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -103,7 +95,7 @@
       "title": "Wahlpflichtpraktikum Studierende BSC in PflegeBefristet 6 Wochen (a)",
       "titleByLocale": {
         "de": "Wahlpflichtpraktikum Studierende BSC in PflegeBefristet 6 Wochen (a)",
-        "it": "Studenti BSC in Nursing Temporary 6 settimane (a)",
+        "it": "Studenti con tirocinio opzionale BSC in InfermieristicaLimitato 6 settimane (a)",
         "en": "Compulsory elective internship Students BSC in Nursing Temporary 6 weeks (a)",
         "fr": "Stage obligatoire au choix Étudiants BSC en soins infirmiers Temporaire 6 semaines (a)"
       },
@@ -159,19 +151,11 @@
       "firstSeenAt": "2026-06-30T12:27:47.650Z",
       "previousSlugsByLocale": {
         "it": [
-          "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental",
-          "studenti-con-tirocinio-opzionale-bsc-in-infermieristicalimitato-6-settimane-a-spital-emmental-burgdorf-langnau"
-        ],
-        "en": [
-          "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental"
-        ],
-        "fr": [
           "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental"
         ]
       },
       "previousSlugs": [
-        "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental",
-        "studenti-con-tirocinio-opzionale-bsc-in-infermieristicalimitato-6-settimane-a-spital-emmental-burgdorf-langnau"
+        "wahlpflichtpraktikum-studierende-bsc-in-pflegebefristet-6-wochen-a-spital-emmental"
       ]
     },
     {

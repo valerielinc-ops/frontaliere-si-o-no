@@ -1226,6 +1226,9 @@
         "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch",
         "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch",
         "employe-ikea-bistro-boutique-suedoise-20-50-ikea-st-gallen-sankt-gallen-switzerland",
+        "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach",
+        "employee-ikea-bistro-swedish-shop-20-ikea-spreitenbach",
+        "employe-e-ikea-bistro-boutique-suedoise-20-ikea-spreitenbach",
         "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen"
       ],
       "previousSlugsByLocale": {
@@ -2065,12 +2068,12 @@
     },
     {
       "id": "ikea-cd07063b28cf",
-      "slug": "collaboratore-bistro-sfm-ikea-30-ikea-aubonne-vaud-switzerland",
+      "slug": "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch",
       "slugByLocale": {
         "fr": "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch",
-        "it": "collaboratore-bistro-sfm-ikea-30-ikea-aubonne-vaud-switzerland",
-        "en": "collaborator-bistro-sfm-ikea-30-ikea-aubonne-vaud-switzerland",
-        "de": "mitarbeiter-bistro-sfm-ikea-30-ikea-aubonne-vaud-switzerland"
+        "it": "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch",
+        "en": "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch",
+        "de": "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2078,7 +2081,7 @@
       "title": "Collaborateur:trice Bistro & SFM IKEA, 30%",
       "titleByLocale": {
         "fr": "Collaborateur:trice Bistro & SFM IKEA, 30%",
-        "it": "Collaboratore: Bistro & SFM IKEA, 30%",
+        "it": "Collaboratore:trice Bistro & SFM IKEA, 30%",
         "en": "Collaborator: Bistro & SFM IKEA, 30%",
         "de": "Mitarbeiter: Bistro & SFM IKEA, 30%"
       },
@@ -2125,21 +2128,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T11:38:56.933Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch"
-        ],
-        "en": [
-          "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch"
-        ],
-        "de": [
-          "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch"
-        ]
-      },
-      "previousSlugs": [
-        "collaborateur-trice-bistro-sfm-ikea-30-ikea-ch"
-      ]
+      "firstSeenAt": "2026-06-30T11:38:56.933Z"
     },
     {
       "id": "ikea-fc3fa88531c2",

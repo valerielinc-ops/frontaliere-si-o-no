@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-58e2408a638f",
-      "slug": "ingegneri-di-manutenzione-a-tempo-pieno-eisberg-ag-essert-s-champvent",
+      "slug": "manutentore-a-tempo-pieno-eisberg-ag-essert-s-champvent",
       "slugByLocale": {
         "de": "wartungstechniker-in-vollzeit-hilcona-essert-s-champvent",
-        "it": "ingegneri-di-manutenzione-a-tempo-pieno-eisberg-ag-essert-s-champvent",
-        "en": "maintenance-engineers-full-time-eisberg-ag-essert-s-champvent",
-        "fr": "ingenieurs-de-maintenance-temps-plein-eisberg-ag-essert-s-champvent"
+        "it": "manutentore-a-tempo-pieno-eisberg-ag-essert-s-champvent",
+        "en": "wartungstechniker-in-vollzeit-eisberg-ag-essert-s-champvent",
+        "fr": "wartungstechniker-in-vollzeit-eisberg-ag-essert-s-champvent"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -17,7 +17,7 @@
       "title": "Wartungstechniker In Vollzeit",
       "titleByLocale": {
         "de": "Wartungstechniker In Vollzeit",
-        "it": "Ingegneri di manutenzione a tempo pieno",
+        "it": "Manutentore a tempo pieno",
         "en": "Maintenance engineers Full-time",
         "fr": "Ingénieurs de maintenance Temps plein"
       },
@@ -49,20 +49,12 @@
       "previousSlugsByLocale": {
         "it": [
           "wartungstechniker-in-vollzeit-hilcona-essert-s-champvent",
-          "wartungstechniker-in-vollzeit-eisberg-ag-essert-s-champvent",
-          "manutentore-a-tempo-pieno-eisberg-ag-essert-s-champvent"
-        ],
-        "en": [
-          "wartungstechniker-in-vollzeit-eisberg-ag-essert-s-champvent"
-        ],
-        "fr": [
           "wartungstechniker-in-vollzeit-eisberg-ag-essert-s-champvent"
         ]
       },
       "previousSlugs": [
         "wartungstechniker-in-vollzeit-hilcona-essert-s-champvent",
-        "wartungstechniker-in-vollzeit-eisberg-ag-essert-s-champvent",
-        "manutentore-a-tempo-pieno-eisberg-ag-essert-s-champvent"
+        "wartungstechniker-in-vollzeit-eisberg-ag-essert-s-champvent"
       ],
       "salaryMin": 68000,
       "salaryMax": 92000,
@@ -2044,8 +2036,8 @@
       "slugByLocale": {
         "de": "sicherheitsassistent-in-und-ausbildungsverantwortlicher-in-vollzeit-hilcona-essert-s-champvent",
         "it": "sicherheitsassistent-in-e-ausbildungsverantwortlicher-in-vollzeit-eisberg-ag-essert-s-champvent",
-        "en": "security-assistant-and-training-manager-full-time-eisberg-ag-essert-s-champvent",
-        "fr": "assistant-a-la-securite-et-gestionnaire-de-la-formation-a-temps-plein-eisberg-ag-essert-s-champvent"
+        "en": "sicherheitsassistent-in-und-ausbildungsverantwortlicher-in-vollzeit-hilcona-essert-s-champvent",
+        "fr": "sicherheitsassistent-in-und-ausbildungsverantwortlicher-in-vollzeit-hilcona-essert-s-champvent"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -2084,12 +2076,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsassistent-in-und-ausbildungsverantwortlicher-in-vollzeit-hilcona-essert-s-champvent"
-        ],
-        "en": [
-          "sicherheitsassistent-in-und-ausbildungsverantwortlicher-in-vollzeit-hilcona-essert-s-champvent"
-        ],
-        "fr": [
           "sicherheitsassistent-in-und-ausbildungsverantwortlicher-in-vollzeit-hilcona-essert-s-champvent"
         ]
       },
@@ -8759,7 +8745,7 @@
         "it": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "order-picking-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "kommissionierung-m-w-d-hilcona-ampfing",
-        "fr": "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8797,7 +8783,7 @@
       "previousSlugs": [
         "kommissionierung-m-w-d-hilcona-ampfing",
         "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8809,7 +8795,7 @@
         ],
         "fr": [
           "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
+          "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "firstSeenAt": "2026-06-15T14:30:15.396Z",

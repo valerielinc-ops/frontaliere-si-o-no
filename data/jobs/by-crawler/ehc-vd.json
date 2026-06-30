@@ -2078,7 +2078,7 @@
       "title": "Chef de clinique en pédiatrie (F/H)",
       "titleByLocale": {
         "fr": "Chef de clinique en pédiatrie (F/H)",
-        "it": "Responsabile della Clinica Paediatrica (F/H)",
+        "it": "Capo Clinica in Pediatria (F/H)",
         "en": "Head of Paediatric Clinic (F/H)",
         "de": "Leiterin der Pädiatrischen Klinik (F/H)"
       },
@@ -2150,7 +2150,7 @@
       "title": "Auxiliaire de santé (F/H)",
       "titleByLocale": {
         "fr": "Auxiliaire de santé (F/H)",
-        "it": "Assistente sanitario (F/H)",
+        "it": "Ausiliario sanitario (F/H)",
         "en": "Health assistant (F/H)",
         "de": "Gesundheitsassistent (F/H)"
       },
@@ -2187,18 +2187,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "auxiliaire-de-sante-f-h-ehc-vd-morges"
         ],
         "fr": [
-          "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "auxiliaire-de-sante-f-h-ehc-vd-morges"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-de-sante-f-h-ehc-vd-morges",
-        "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "auxiliaire-de-sante-f-h-ehc-vd-morges"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4288,12 +4284,12 @@
     },
     {
       "id": "ehc-vd-6eccdcc5abea",
-      "slug": "responsabile-della-cura-palliative-e-della-clinica-rtc-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "slug": "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
-        "it": "responsabile-della-cura-palliative-e-della-clinica-rtc-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "en": "head-of-palliative-care-and-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "de": "leiterin-palliative-care-und-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "it": "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
+        "de": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4301,7 +4297,7 @@
       "title": "Chef de clinique soins palliatifs et CTR (F/H)",
       "titleByLocale": {
         "fr": "Chef de clinique soins palliatifs et CTR (F/H)",
-        "it": "Responsabile della cura Palliative e della clinica RTC (F/H)",
+        "it": "Capo clinica cure palliative e CTR (F/H)",
         "en": "Head of Palliative Care and RTC Clinic (F/H)",
         "de": "Leiterin Palliative Care und RTC Clinic (F/H)"
       },
@@ -4351,29 +4347,21 @@
       "firstSeenAt": "2026-06-30T11:19:43.039Z",
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
-          "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
-        ],
-        "en": [
-          "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
-        ],
-        "de": [
           "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
         ]
       },
       "previousSlugs": [
-        "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne",
-        "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
       ]
     },
     {
       "id": "ehc-vd-22e23ff30042",
-      "slug": "responsabile-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "slug": "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne",
-        "it": "responsabile-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "en": "head-of-clinic-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "de": "leiter-der-klinik-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "it": "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne",
+        "de": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4381,7 +4369,7 @@
       "title": "Chef de clinique en CTR (F/H)",
       "titleByLocale": {
         "fr": "Chef de clinique en CTR (F/H)",
-        "it": "Responsabile clinica in CTR (F/H)",
+        "it": "Capo clinica in CTR (F/H)",
         "en": "Head of clinic in CTR (F/H)",
         "de": "Leiter der Klinik in CTR (F/H)"
       },
@@ -4431,19 +4419,11 @@
       "firstSeenAt": "2026-06-30T11:19:43.019Z",
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne",
-          "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
-        ],
-        "en": [
-          "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
-        ],
-        "de": [
           "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
         ]
       },
       "previousSlugs": [
-        "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne",
-        "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
       ]
     }
   ]
