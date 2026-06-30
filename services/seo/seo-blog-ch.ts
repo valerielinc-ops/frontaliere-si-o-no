@@ -9846,6 +9846,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-offre-fielmann-tariffe-nazionali': {
+    title: 'Offerta Fielmann: nuove tariffe e promozioni in Svizzera',
+    description: 'Scopri le nuove tariffe e promozioni di Fielmann in Svizzera, con sconti fino al 30% e vantaggi per frontalieri e residenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, offerta, fielmann, nuove, tariffe',
+    ogTitle: 'Offerte Fielmann in Svizzera | Frontaliere Ticino',
+    ogDescription: 'Approfitta delle promozioni e tariffe speciali di Fielmann in Svizzera, con sconti fino al 30% e servizi di qualità.',
+    canonicalPath: '/articoli-svizzera/offre-fielmann-tariffe-nazionali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Offerta Fielmann: nuove tariffe e promozioni in Svizzera",
+      "description": "Scopri le nuove tariffe e promozioni di Fielmann in Svizzera, con sconti fino al 30% e vantaggi per frontalieri e residenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/offre-fielmann-tariffe-nazionali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozio Fielmann in Svizzera con clienti che fanno acquisti"
+      },
+      "datePublished": "2026-06-30T11:44:35+00:00",
+      "dateModified": "2026-06-30T11:44:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/offre-fielmann-tariffe-nazionali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
