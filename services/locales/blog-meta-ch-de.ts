@@ -745,6 +745,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.benzina-prezzi-svizzera-oggi.title': 'Benzinpreise in der Schweiz heute',
     'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'Die Benzinpreise in der Schweiz variieren je nach Region und Treibstoffart. Hier die aktuellen Preise.',
     'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Tankstelle in Bellinzona mit aktuellen Treibstoffpreisen',
+    'blog.article.guess-stabio-lavoro-merchandiser.title': 'Guess Stabio: Karrieremöglichkeiten als Merchandiser',
+    'blog.article.guess-stabio-lavoro-merchandiser.excerpt': 'Stellenanzeige in Stabio: Merchandiser-Suche nach bekannter Modemarke mit befristetem Vertrag.',
+    'blog.article.guess-stabio-lavoro-merchandiser.imageAlt': 'Merchandiser bei der Arbeit in einem Geschäft in Stabio, Schweiz',
 };
 
 export default blogMetaChDe;

@@ -9573,6 +9573,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guess-stabio-lavoro-merchandiser': {
+    title: 'Guess Stabio: opportunità di lavoro come merchandiser',
+    description: 'Annuncio di lavoro a Stabio: ricerca merchandiser per noto brand di moda con contratto a tempo determinato. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, guess, stabio, opportunità, lavoro',
+    ogTitle: 'Lavoro merchandiser a Stabio | Frontaliere Ticino',
+    ogDescription: 'Offerta di lavoro come merchandiser a Stabio, vicino al confine italiano, con contratto a tempo determinato.',
+    canonicalPath: '/articoli-svizzera/guess-stabio-lavoro-merchandiser/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guess Stabio: opportunità di lavoro come merchandiser",
+      "description": "Annuncio di lavoro a Stabio: ricerca merchandiser per noto brand di moda con contratto a tempo determinato. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guess-stabio-lavoro-merchandiser.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Merchandiser al lavoro in negozio a Stabio, Svizzera"
+      },
+      "datePublished": "2026-06-30T03:59:30+00:00",
+      "dateModified": "2026-06-30T03:59:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guess-stabio-lavoro-merchandiser/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
