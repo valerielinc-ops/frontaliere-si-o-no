@@ -763,6 +763,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.infermieri-lugano-sociali.title': 'Nurses in Lugano: new opportunities in social institutions',
     'blog.article.infermieri-lugano-sociali.excerpt': 'Lugano: new jobs for nurses in social institutions, with wage increases and simplified procedures.',
     'blog.article.infermieri-lugano-sociali.imageAlt': 'Nurses working in a social institution in Lugano, Switzerland',
+    'blog.article.lato-oscuro-eldorado-frontalieri-francesi.title': 'The dark side of the Swiss Eldorado for French frontiersmen',
+    'blog.article.lato-oscuro-eldorado-frontalieri-francesi.excerpt': 'Analysis of taxation and new rules for French border workers in Switzerland since 2024.',
+    'blog.article.lato-oscuro-eldorado-frontalieri-francesi.imageAlt': 'Panoramic view of a Swiss border crossing with French cross-border commuters at work',
 };
 
 export default blogMetaChEn;

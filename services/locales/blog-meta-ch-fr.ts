@@ -763,6 +763,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.infermieri-lugano-sociali.title': 'Infirmières à Lugano : de nouvelles opportunités dans les institutions sociales',
     'blog.article.infermieri-lugano-sociali.excerpt': 'Lugano : nouveaux emplois pour les infirmières dans les institutions sociales, avec des augmentations de salaire et des procédures simplifiées.',
     'blog.article.infermieri-lugano-sociali.imageAlt': 'Infirmiers travaillant dans une institution sociale à Lugano, Suisse',
+    'blog.article.lato-oscuro-eldorado-frontalieri-francesi.title': 'Le côté obscur de l\'Eldorado suisse pour les frontaliers français',
+    'blog.article.lato-oscuro-eldorado-frontalieri-francesi.excerpt': 'Analyse de la fiscalité et des nouvelles règles pour les frontaliers français en Suisse depuis 2024.',
+    'blog.article.lato-oscuro-eldorado-frontalieri-francesi.imageAlt': 'Vue panoramique d\'un point de passage frontalier suisse avec des frontaliers français au travail',
 };
 
 export default blogMetaChFr;
