@@ -164,11 +164,22 @@ function main() {
     return;
   }
 
-  const raw = gh(['issue', 'view', ISSUE, ...repoArgs, '--json', 'number,title,body,labels'], { allowFail: true });
+  const raw = gh(['issue', 'view', ISSUE, ...repoArgs, '--json', 'number,title,body,labels,state'], { allowFail: true });
   if (!raw) { console.log('Issue fetch failed — proceeding.'); setOutput(false); return; }
 
   let iss;
   try { iss = JSON.parse(raw); } catch { console.log('Issue parse failed — proceeding.'); setOutput(false); return; }
+
+  // CLOSED short-circuit (#3116-class): if the issue was already closed (resolved organically,
+  // or by close-recovered-failure-issues) before the `agent:fix` labeled-event reached the
+  // fixer, a Claude run reproduces a closed issue's fix for nothing. Skip with NO side-effects
+  // (no label churn on a closed issue). issue-fix routing already skips non-OPEN; this closes
+  // the race where the close lands between label and run. Proceed-safe: unknown state → fall through.
+  if (String(iss.state || '').toUpperCase() === 'CLOSED') {
+    console.log(`Issue #${ISSUE} is CLOSED — short-circuit, skip Claude fixer (no work on a closed issue).`);
+    setOutput(true);
+    return;
+  }
 
   const labels = (iss.labels || []).map((l) => l.name);
   // Only follow-up issues carry the cited-file / suggested-action structure this matcher
@@ -258,6 +269,33 @@ ${OUTCOME}`;
     shortCircuit(
       `⏭️ **Pre-flight (auto, zero-Claude)**: la PR **#${closer}** (già mergiata) dichiara esplicitamente di chiudere/superare questa issue (\`Closes\`/\`Supersedes #${ISSUE}\`) ma GitHub non l'ha auto-chiusa — probabile **done-but-open** (es. \`Closes #a #b\` multi-issue: chiude solo la prima). Salto il fixer autonomo per non sprecare quota Max OAuth.`,
       `- dichiarata risolta da #${closer} (merged)`,
+    );
+    return;
+  }
+
+  // SIGNAL 1b (own-branch merge): the autonomous fixer names its branch `fix/issue-<N>`
+  // (issue-fix.yml § "Branch isolato"). A MERGED PR on EXACTLY that head means the fixer
+  // already landed this (non-aggregate) follow-up's fix — even when the PR carried no
+  // `Closes #N` keyword (SIGNAL 1 requires one). This is the #3116-class waste: the drainer
+  // re-applies `agent:fix` AFTER the fix merged → a full Claude run reproduces an
+  // already-merged fix and burns shared Max quota (often ending in error_max_turns + a RED
+  // job). Aggregates already returned above (one item merged ≠ all), so this only fires for
+  // single-item follow-ups whose own fix-branch landed. Proceed-safe: unreadable/empty list
+  // → skip this signal, fall through to the token matcher.
+  let mergedOwnBranch = null;
+  try {
+    const ownBranchPrs = JSON.parse(
+      gh(['pr', 'list', '--state', 'merged', '--head', `fix/issue-${ISSUE}`, ...repoArgs,
+          '--json', 'number,mergedAt', '--limit', '5'], { allowFail: true }) || '[]',
+    );
+    const m = ownBranchPrs.find((pr) => pr.mergedAt);
+    mergedOwnBranch = m ? m.number : null;
+  } catch { mergedOwnBranch = null; }
+  if (mergedOwnBranch) {
+    console.log(`Issue #${ISSUE}: the fixer's own branch fix/issue-${ISSUE} already merged in PR #${mergedOwnBranch} → short-circuit, skip Claude fixer.`);
+    shortCircuit(
+      `⏭️ **Pre-flight (auto, zero-Claude)**: il branch del fixer autonomo \`fix/issue-${ISSUE}\` risulta **già mergiato** nella PR **#${mergedOwnBranch}** — il fix per questa follow-up single-item è già landato (anche senza \`Closes #${ISSUE}\`). La re-label \`agent:fix\` (drainer) farebbe ripartire una run Claude che riproduce un fix già fatto (classe #3116). Salto il fixer per non sprecare quota Max OAuth.`,
+      `- fix già mergiato in #${mergedOwnBranch} (branch \`fix/issue-${ISSUE}\`)`,
     );
     return;
   }
