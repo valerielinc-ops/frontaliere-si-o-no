@@ -15353,7 +15353,7 @@
         "it": "ordina-picker-ordine-picker-non-food-m-f-d-40-80-lidl-svizzera-derendingen",
         "en": "order-picker-non-food-m-f-d-40-80-lidl-svizzera-derendingen",
         "de": "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-        "fr": "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
+        "fr": "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -15368,13 +15368,15 @@
         ],
         "fr": [
           "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
-          "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6"
+          "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
+          "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
         ]
       },
       "previousSlugs": [
         "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen",
         "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-        "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
+        "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
+        "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
