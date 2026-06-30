@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medacta-international",
-  "assembledAt": "2026-06-29T22:54:41.131Z",
+  "assembledAt": "2026-06-30T12:18:17.556Z",
   "jobs": [
     {
       "id": "medacta-105719",
@@ -156,7 +156,8 @@
       "postalCode": "6874",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-06-29T22:54:26.933Z"
+      "firstSeenAt": "2026-06-29T22:54:26.933Z",
+      "needsRetranslation": true
     },
     {
       "id": "medacta-92188",
@@ -233,7 +234,8 @@
       "postalCode": "6874",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-06-29T22:54:26.653Z"
+      "firstSeenAt": "2026-06-29T22:54:26.653Z",
+      "needsRetranslation": true
     },
     {
       "id": "medacta-99252",
@@ -688,7 +690,7 @@
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
       "titleByLocale": {
-        "en": "Marketing &amp; Operations Specialist",
+        "en": "Marketing & Operations Specialist",
         "it": "Marketing & Operations Specialista",
         "de": "Marketing & Operations Spezialist",
         "fr": "Marketing & Operations Spécialiste"
@@ -989,7 +991,8 @@
       "postalCode": "6874",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-06-29T22:54:21.017Z"
+      "firstSeenAt": "2026-06-29T22:54:21.017Z",
+      "needsRetranslation": true
     },
     {
       "id": "medacta-104566",
@@ -1098,7 +1101,8 @@
       "postalCode": "6874",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-06-29T22:54:19.930Z"
+      "firstSeenAt": "2026-06-29T22:54:19.930Z",
+      "needsRetranslation": true
     },
     {
       "id": "medacta-104622",
@@ -1225,7 +1229,7 @@
         "it": "tecnico-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p",
         "de": "techniker-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p",
         "fr": "technicien-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p",
-        "en": "tecnico-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p"
+        "en": "technician-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
@@ -1239,8 +1243,7 @@
         ]
       },
       "previousSlugs": [
-        "tecnico-controllo-qualita-3-turni-medacta-castel-san-pietro",
-        "technician-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p"
+        "tecnico-controllo-qualita-3-turni-medacta-castel-san-pietro"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
