@@ -255,10 +255,10 @@
       "id": "clienia-ag-cbed9aa78ec0",
       "slug": "infermiera-laureata-80-90-clienia-ag-pfaffikon",
       "slugByLocale": {
-        "it": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
+        "it": "infermiera-laureata-80-90-clienia-ag-pfaffikon",
         "en": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-        "fr": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -303,17 +303,20 @@
         "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
         "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
         "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
-        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
-        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
           "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-50-90-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
+          "infermiera-laureata-80-90-clienia-ag-pfaffikon"
         ],
         "fr": [
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
+          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
         ]
       },
@@ -381,10 +384,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-pfaffikon"
         ],
         "it": [
-          "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-come-dauernachtwache-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-pfaffikon"
@@ -418,7 +423,7 @@
         "it": "fisioterapista-fisioterapista-60-clienia-ag-pfaffikon-zh",
         "en": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "de": "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
-        "fr": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon"
+        "fr": "physiotherapeute-60-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -463,17 +468,18 @@
         "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
         "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "physiotherapeute-60-clienia-ag-pfaffikon-zh",
-        "physiotherapeute-60-clienia-ag-pfaffikon",
         "physiotherapeutin-physiotherapeutin-60-clienia-ag-pfaffikon",
         "fisioterapista-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
-          "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon"
+          "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
+          "fisioterapista-fisioterapista-60-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
           "physiotherapeute-60-clienia-ag-pfaffikon-zh",
+          "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
           "physiotherapeute-60-clienia-ag-pfaffikon"
         ]
       },
@@ -541,10 +547,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
+          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
+          "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon"
         ],
         "it": [
-          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
+          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
+          "capoclinica-capoclinica-40-60-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "springer-senior-physician-40-60-clienia-ag-pfaffikon-zh"
@@ -632,6 +640,9 @@
         "fr": [
           "medecin-principal-60-100-clienia-ag-pfaffikon-zh",
           "medecin-principal-60-100-clienia-ag-pfaffikon"
+        ],
+        "de": [
+          "oberarztin-oberarzt-60-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
@@ -671,7 +682,7 @@
       "title": "Diplomierte Pflegefachperson (50% - 80%)",
       "titleByLocale": {
         "it": "Diplomata infermiera professionale (50% - 80%)",
-        "en": "Qualified nurse (50% - 80%)",
+        "en": "Certified nurse (50% - 80%)",
         "de": "Diplomierte Pflegefachperson (50% - 80%)",
         "fr": "Infirmier(e) diplômé(e) (50% - 80%)"
       },
@@ -743,7 +754,8 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
-          "infermiere-diplomato-50-80-clienia-ag-pfaffikon"
+          "infermiere-diplomato-50-80-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -841,11 +853,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich"
+          "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich",
+          "springer-oberarztin-oberarzt-40-80-clienia-ag-pfaffikon"
         ],
         "it": [
           "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich",
-          "primario-a-di-psichiatria-40-80-clienia-ag-pfaffikon"
+          "primario-a-di-psichiatria-40-80-clienia-ag-pfaffikon",
+          "psichiatra-responsabile-40-80-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
           "medecin-chef-en-psychiatrie-40-80-clienia-ag-pfaffikon"
@@ -959,11 +973,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich"
+          "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich",
+          "fachverantwortliche-r-pflege-80-90-clienia-ag-pfaffikon"
         ],
         "it": [
           "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich",
-          "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon"
+          "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon",
+          "responsabile-assistenza-infermieristica-80-90-clienia-ag-pfaffikon"
         ],
         "en": [
           "head-nurse-80-90-clienia-ag-pfaffikon"
@@ -1042,11 +1058,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "nachtarztin-nachtarzt-100-clienia-ag-zurich"
+          "nachtarztin-nachtarzt-100-clienia-ag-zurich",
+          "nachtarztin-nachtarzt-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "nachtarztin-nachtarzt-100-clienia-ag-zurich",
-          "medico-di-notte-100-clienia-ag-pfaffikon"
+          "medico-di-notte-100-clienia-ag-pfaffikon",
+          "medico-psichiatra-notturno-100-clienia-ag-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
@@ -1148,11 +1166,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-per-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-per-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon",
+          "operatore-socio-sanitario-per-turni-notturni-nel-pool-di-riserva-10-100-clienia-ag-pfaffikon"
         ],
         "fr": [
           "infirmier-diplome-pour-les-services-de-nuit-dans-le-pool-de-reserve-10-100-clienia-ag-pfaffikon"
@@ -1267,7 +1287,8 @@
         "it": [
           "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
           "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich",
-          "diplomata-infermiera-professionale-in-servizio-diurno-70-80-clienia-ag-pfaffikon"
+          "diplomata-infermiera-professionale-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
+          "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon"
@@ -1368,11 +1389,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-pfaffikon"
         ],
         "it": [
           "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich",
-          "infermiere-diplomata-in-servizio-notturno-e-retribuzione-oraria-10-90-clienia-ag-pfaffikon"
+          "infermiere-diplomata-in-servizio-notturno-e-retribuzione-oraria-10-90-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-in-servizio-notturno-e-a-tempo-parziale-10-90-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "diploma-in-nursing-night-shift-and-hourly-wage-10-90-clienia-ag-pfaffikon"
@@ -1451,11 +1474,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-80-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-80-100-clienia-ag-zurich",
+          "oberarztin-oberarzt-80-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "oberarztin-oberarzt-80-100-clienia-ag-zurich-2",
-          "oberarztin-oberarzt-80-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-80-100-clienia-ag-zurich",
+          "responsabile-di-servizio-psichiatrico-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "oberarztin-oberarzt-80-100-clienia-ag-zurich-2"
@@ -1498,7 +1523,7 @@
       "title": "Diplomierte Pflegefachperson (70% - 80%)",
       "titleByLocale": {
         "it": "Diplomata infermiera professionale (70% - 80%)",
-        "en": "Qualified nurse (70% - 80%)",
+        "en": "Certified nurse (70% - 80%)",
         "de": "Diplomierte Pflegefachperson (70% - 80%)",
         "fr": "Infirmière diplômée (70% - 80%)"
       },
@@ -1580,7 +1605,8 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-70-80-clienia-ag-zurich",
-          "infermiere-diplomata-70-80-clienia-ag-pfaffikon"
+          "infermiere-diplomata-70-80-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-70-80-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "diplomierte-pflegefachperson-70-80-clienia-ag-pfaffikon"
@@ -1610,7 +1636,7 @@
         "it": "infermiere-diplomato-80-90-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-        "fr": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -1653,13 +1679,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-80-90-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
+          "infermiere-diplomato-80-90-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
+          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
         ]
       },
@@ -1758,11 +1786,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich"
+          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich",
+          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich",
-          "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon"
+          "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon",
+          "insegnante-fage-hf-fh-in-assistenza-sanitaria-50-100-clienia-ag-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
@@ -1844,11 +1874,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-come-quer-o-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-come-quer-o-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon",
+          "infermiere-diplomata-come-neolaureato-o-ricollocato-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "qualified-nursing-professional-as-new-or-returning-40-100-clienia-ag-pfaffikon"
@@ -1943,7 +1975,8 @@
       "previousSlugsByLocale": {
         "it": [
           "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10",
-          "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon"
+          "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon",
+          "assistente-sanitaria-e-socio-sanitaria-ags-o-ausiliaria-di-assistenza-srk-10-100-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
           "assistant-e-en-sante-et-services-sociaux-ags-ou-aide-soignant-e-srk-10-100-clienia-ag-pfaffikon"
@@ -2041,7 +2074,8 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-10-100-clienia-ag-zurich",
-          "infermiere-diplomata-hf-10-100-clienia-ag-pfaffikon"
+          "infermiere-diplomata-hf-10-100-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-con-perito-diploma-federale-10-100-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "diplomierte-pflegefachperson-hf-10-100-clienia-ag-pfaffikon"
@@ -2132,11 +2166,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich"
+          "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich",
+          "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich",
-          "assistente-sociale-10-100-clienia-ag-pfaffikon"
+          "assistente-sociale-10-100-clienia-ag-pfaffikon",
+          "educatore-sociale-10-100-clienia-ag-pfaffikon"
         ],
         "fr": [
           "travailleur-social-10-100-clienia-ag-pfaffikon"
@@ -2219,11 +2255,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich"
+          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich",
+          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich",
-          "specialista-della-salute-10-100-clienia-ag-pfaffikon"
+          "specialista-della-salute-10-100-clienia-ag-pfaffikon",
+          "assistente-professionale-sanitaria-10-100-clienia-ag-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
@@ -2311,11 +2349,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich",
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich",
-          "primario-a-di-medicina-psichiatrica-infantile-e-adolescenziale-60-100-clienia-ag-pfaffikon"
+          "primario-a-di-medicina-psichiatrica-infantile-e-adolescenziale-60-100-clienia-ag-pfaffikon",
+          "psichiatra-senior-ambulatorio-per-bambini-e-adolescenti-60-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "senior-physician-in-child-and-adolescent-psychiatry-60-100-clienia-ag-pfaffikon"
@@ -2426,7 +2466,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
-          "dipl-infermiere-a-hf-nel-turno-di-notte-m-f-d-50-70-clienia-ag-pfaffikon"
+          "dipl-infermiere-a-hf-nel-turno-di-notte-m-f-d-50-70-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-hf-nazionale-notturno-50-70-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
@@ -2531,7 +2572,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-m-w-d-80-clienia-ag-zurich",
-          "diplomato-a-in-cure-infermieristica-hf-fh-m-f-d-80-clienia-ag-pfaffikon"
+          "diplomato-a-in-cure-infermieristica-hf-fh-m-f-d-80-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-hf-fh-m-w-d-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-80-clienia-ag-pfaffikon"
@@ -2642,7 +2684,8 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-70-80-clienia-ag-zurich",
-          "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon"
+          "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-con-perito-diploma-federale-70-80-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "diplomierte-pflegefachperson-hf-70-80-clienia-ag-pfaffikon"
@@ -2737,11 +2780,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich"
+          "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich",
+          "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich",
-          "assistente-psichiatra-m-f-d-80-100-clienia-ag-pfaffikon"
+          "assistente-psichiatra-m-f-d-80-100-clienia-ag-pfaffikon",
+          "medico-assistente-m-f-d-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
@@ -2843,10 +2888,12 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich",
+          "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-pfaffikon"
         ],
         "it": [
-          "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich",
+          "medico-assistente-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "assistant-physician-40-100-clienia-ag-pfaffikon"
@@ -2945,10 +2992,12 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "psychologin-psychologe-40-100-clienia-ag-zurich"
+          "psychologin-psychologe-40-100-clienia-ag-zurich",
+          "psychologin-psychologe-40-100-clienia-ag-pfaffikon"
         ],
         "it": [
-          "psychologin-psychologe-40-100-clienia-ag-zurich"
+          "psychologin-psychologe-40-100-clienia-ag-zurich",
+          "psicologo-a-40-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
@@ -3037,11 +3086,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-80-100-clienia-ag-zurich"
+          "fachperson-gesundheit-80-100-clienia-ag-zurich",
+          "fachperson-gesundheit-80-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "fachperson-gesundheit-80-100-clienia-ag-zurich",
-          "specialista-in-salute-80-100-clienia-ag-pfaffikon"
+          "specialista-in-salute-80-100-clienia-ag-pfaffikon",
+          "persona-sanitaria-80-100-clienia-ag-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
@@ -3137,7 +3188,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
-          "facharztin-facharzt-per-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
+          "facharztin-facharzt-per-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
+          "specialista-in-psichiatria-e-psicoterapia-per-adulti-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "specialist-in-adult-psychiatry-and-psychotherapy-40-100-clienia-ag-pfaffikon"
@@ -3392,7 +3444,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facharztinnen-und-facharzte-fur-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100",
-          "psichiatri-e-psicoterapeuti-m-f-d-per-la-psichiatria-dell-adulto-40-100-clienia-ag-pfaffikon"
+          "psichiatri-e-psicoterapeuti-m-f-d-per-la-psichiatria-dell-adulto-40-100-clienia-ag-pfaffikon",
+          "specialisti-in-psichiatria-e-psicoterapia-dell-adulto-m-f-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "specialists-in-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon"
@@ -3473,12 +3526,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich",
+          "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich-2",
           "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon",
-          "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich",
+          "assistente-medico-psichiatrica-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon"
@@ -3576,11 +3631,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich"
+          "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich",
+          "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-pfaffikon"
         ],
         "it": [
           "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich",
-          "specialista-della-salute-in-servizio-notturno-m-f-d-60-80-clienia-ag-pfaffikon"
+          "specialista-della-salute-in-servizio-notturno-m-f-d-60-80-clienia-ag-pfaffikon",
+          "persona-sanitaria-di-notte-m-f-d-60-80-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "healthcare-professional-night-shift-m-f-d-60-80-clienia-ag-pfaffikon"
@@ -3696,7 +3753,8 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
-          "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
+          "medico-specialista-in-psichiatria-e-psicoterapia-per-adulti-m-f-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "senior-psychiatrist-and-psychotherapist-m-f-d-40-100-clienia-ag-pfaffikon"
@@ -3787,11 +3845,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich"
+          "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich",
+          "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich",
-          "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon"
+          "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon",
+          "esperta-esperto-assistenza-sanitaria-turno-giorno-80-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "healthcare-specialist-in-day-service-80-100-clienia-ag-pfaffikon"
@@ -3900,11 +3960,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
+          "assistenzarztin-assistenzarzt-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
-          "medico-specialista-100-clienia-ag-pfaffikon"
+          "medico-specialista-100-clienia-ag-pfaffikon",
+          "assistente-psichiatra-psichiatra-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "resident-physician-100-clienia-ag-pfaffikon"
@@ -4029,7 +4091,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
-          "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon"
+          "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
@@ -4140,7 +4203,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-zurich",
-          "dipl-infermiere-a-hf-fh-m-f-d-per-il-turno-notturno-80-100-clienia-ag-pfaffikon"
+          "dipl-infermiere-a-hf-fh-m-f-d-per-il-turno-notturno-80-100-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-hf-fh-u-m-d-turno-notturno-80-100-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon"
@@ -4249,7 +4313,8 @@
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitenden-arzt-und-stv-chefarztin-stv-chefarzt-m-w-d-80-100-clienia-ag",
-          "responsabile-medico-responsabile-medico-associato-e-vice-direttore-medico-m-f-d-80-100-clienia-ag-pfaffikon"
+          "responsabile-medico-responsabile-medico-associato-e-vice-direttore-medico-m-f-d-80-100-clienia-ag-pfaffikon",
+          "medico-responsabile-e-vice-primario-m-f-d-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:02.370Z",
@@ -4347,14 +4412,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
           "primario-a-60-100-clienia-ag-pfaffikon",
           "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
           "vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon",
-          "adjoint-e-de-direction-de-station-80-100-clienia-ag-pfaffikon"
+          "adjoint-e-de-direction-de-station-80-100-clienia-ag-pfaffikon",
+          "responsabile-medico-m-f-d-60-100-clienia-ag-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
@@ -4549,11 +4616,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich"
+          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich",
+          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich",
-          "specialista-della-salute-40-100-clienia-ag-pfaffikon"
+          "specialista-della-salute-40-100-clienia-ag-pfaffikon",
+          "assistente-sanitaria-specializzata-in-assistenza-psichiatrica-40-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "healthcare-specialist-40-100-clienia-ag-pfaffikon"
@@ -4597,7 +4666,7 @@
       "title": "Dipl. Pflegefachperson HF/FH im Nachtdienst (m/w/d) (45%)",
       "titleByLocale": {
         "it": "Diplomata Infermiera Professionale con Diploma Federale/Higher Education (notturno, m/f/d) (45%)",
-        "en": "Dipl. Care professional HF/FH on night duty (m/f/d) (45%)",
+        "en": "Dipl. Nurse HF/FH on night duty (m/f/d) (45%)",
         "de": "Dipl. Pflegefachperson HF/FH im Nachtdienst (m/w/d) (45%)",
         "fr": "Infirmier(e) diplômé(e) HF/FH en service de nuit (m/f/d) (45%)"
       },
@@ -4657,7 +4726,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich",
-          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon"
+          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-con-diploma-federale-higher-education-notturno-m-f-d-45-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon"
@@ -4744,11 +4814,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-40-100-clienia-ag-zurich"
+          "psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-40-100-clienia-ag-zurich",
+          "psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-40-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-40-100-clienia-ag-zurich",
-          "psychologische-psychotherapeutinnen-e-therapeuten-m-w-d-40-100-clienia-ag-pfaffikon"
+          "psychologische-psychotherapeutinnen-e-therapeuten-m-w-d-40-100-clienia-ag-pfaffikon",
+          "psicoterapisti-psicologici-m-f-d-40-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
@@ -4850,11 +4922,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich"
+          "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich",
+          "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-pfaffikon"
         ],
         "it": [
           "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich",
-          "assistente-a-alla-pratica-medica-60-100-clienia-ag-pfaffikon"
+          "assistente-a-alla-pratica-medica-60-100-clienia-ag-pfaffikon",
+          "assistente-medico-personale-di-assistenza-medica-m-f-d-60-100-clienia-ag-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
@@ -4947,11 +5021,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-zurich"
+          "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-zurich",
+          "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-pfaffikon"
         ],
         "it": [
           "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-zurich",
-          "diplomato-a-in-assistenza-infermieristica-o-assistente-sociale-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
+          "diplomato-a-in-assistenza-infermieristica-o-assistente-sociale-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-o-assistente-sociale-hf-fh-m-w-d-60-90-clienia-ag-pfaffikon"
         ],
         "en": [
           "diploma-in-nursing-or-social-work-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
@@ -5070,11 +5146,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich"
+          "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich",
+          "fachperson-gesundheit-m-w-d-80-clienia-ag-pfaffikon"
         ],
         "it": [
           "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich",
-          "specialista-della-salute-m-f-d-80-clienia-ag-pfaffikon"
+          "specialista-della-salute-m-f-d-80-clienia-ag-pfaffikon",
+          "assistente-sanitaria-m-f-d-80-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
           "specialiste-de-la-sante-m-f-d-80-clienia-ag-pfaffikon"
@@ -5168,7 +5246,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-zurich",
-          "dipl-infermiere-a-hf-fh-vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon"
+          "dipl-infermiere-a-hf-fh-vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon",
+          "diplomata-infermiera-di-alta-formazione-hf-fh-vicecapo-servizio-80-100-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-pfaffikon"
@@ -5267,7 +5346,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
-          "diplomato-a-in-assistenza-infermieristica-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon"
+          "diplomato-a-in-assistenza-infermieristica-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
         ],
         "de": [
           "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
@@ -5305,7 +5385,7 @@
       "title": "Dipl. Pflegefachperson HF/FH im Nachtdienst (m/w/d) (50% - 80%)",
       "titleByLocale": {
         "it": "Diplomata Infermiera Professionale HF/FH Notturno (50% - 80%)",
-        "en": "Dipl. Care professional HF/FH on night duty (m/f/d) (50% - 80%)",
+        "en": "Dipl. Care specialist HF/FH on night duty (m/f/d) (50% - 80%)",
         "de": "Dipl. Pflegefachperson HF/FH im Nachtdienst (m/w/d) (50% - 80%)",
         "fr": "Diplômé(e) Infirmier(ère) Professionnel(le) HF/FH en Service de Soins de Nuit (50% - 80%)"
       },
@@ -5374,7 +5454,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-zurich",
-          "diplomato-a-della-cura-infermieristica-hf-fh-nel-turno-di-notte-m-f-d-50-80-clienia-ag-pfaffikon"
+          "diplomato-a-della-cura-infermieristica-hf-fh-nel-turno-di-notte-m-f-d-50-80-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-hf-fh-notturno-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon"
@@ -5474,7 +5555,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich",
-          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon"
+          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon",
+          "diplomata-infermiera-professionale-con-diploma-federale-m-f-d-70-turno-notturno-clienia-ag-pfaffikon-zh"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-pfaffikon"
@@ -5554,6 +5636,9 @@
         "fr": [
           "consultant-principal-m-m-j-40-80-clienia-ag-pfaffikon-zh",
           "consultant-principal-m-m-j-40-80-clienia-ag-pfaffikon"
+        ],
+        "de": [
+          "kaderarztin-kaderarzt-psychotherapie-m-w-d-40-80-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
@@ -5746,10 +5831,10 @@
       "id": "clienia-ag-48625b9ef432",
       "slug": "psicotherapeutin-psychotherapeutin-m-w-d-60-80-clienia-ag-pfaffikon",
       "slugByLocale": {
-        "it": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon",
+        "it": "psicotherapeutin-psychotherapeutin-m-w-d-60-80-clienia-ag-pfaffikon",
         "en": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon",
         "de": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich",
-        "fr": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon"
+        "fr": "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -5792,13 +5877,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich",
-        "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon"
+        "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich"
+          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich",
+          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon",
+          "psicotherapeutin-psychotherapeutin-m-w-d-60-80-clienia-ag-pfaffikon"
         ],
         "fr": [
+          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon",
           "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon"
         ]
       },
@@ -5877,7 +5965,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-wascherei-80-clienia-ag-zurich"
+          "mitarbeiter-in-wascherei-80-clienia-ag-zurich",
+          "collaboratore-trice-wascherei-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-06-02T12:34:17.359Z",
@@ -6089,7 +6178,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-40-100-clienia-ag"
+          "psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-40-100-clienia-ag",
+          "psicologia-psicoterapeuta-m-w-d-40-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-40-100-clienia-ag"
@@ -6116,10 +6206,10 @@
       "id": "clienia-ag-fd35ffa3d400",
       "slug": "responsabile-di-stazione-dipl-personale-infermieristico-hf-fh-80-100-clienia-ag-pfaffikon",
       "slugByLocale": {
-        "it": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-pfaffikon",
+        "it": "responsabile-di-stazione-dipl-personale-infermieristico-hf-fh-80-100-clienia-ag-pfaffikon",
         "en": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-pfaffikon",
         "de": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-zurich",
-        "fr": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-pfaffikon"
+        "fr": "responsable-de-station-dipl-professionnel-de-soins-hf-fh-80-100-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6162,13 +6252,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-zurich",
-        "responsable-de-station-dipl-professionnel-de-soins-hf-fh-80-100-clienia-ag-pfaffikon"
+        "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-zurich"
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-zurich",
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-pfaffikon",
+          "responsabile-di-stazione-dipl-personale-infermieristico-hf-fh-80-100-clienia-ag-pfaffikon"
         ],
         "fr": [
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-80-100-clienia-ag-pfaffikon",
           "responsable-de-station-dipl-professionnel-de-soins-hf-fh-80-100-clienia-ag-pfaffikon"
         ]
       },
@@ -6462,7 +6555,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-06-08T12:37:24.680Z",
@@ -6609,7 +6703,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-80-100-clienia-ag-zurich",
+          "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-m-w-d-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-06-08T12:37:21.766Z",
@@ -6750,7 +6845,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vikarin-vikar-lehrperson-sekundarstufe-i-80-100-clienia-ag-zurich"
+          "vikarin-vikar-lehrperson-sekundarstufe-i-80-100-clienia-ag-zurich",
+          "vicario-insegnante-di-scuola-secondaria-inferiore-80-100-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
           "vikarin-vikar-lehrperson-sekundarstufe-i-80-100-clienia-ag-zurich"
@@ -6986,7 +7082,8 @@
       "previousSlugsByLocale": {
         "it": [
           "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-zurich",
-          "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon"
+          "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon",
+          "neuropsicologo-neuropsicologo-nella-formazione-ean-60-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon"
@@ -7203,7 +7300,8 @@
       "previousSlugsByLocale": {
         "it": [
           "bewegungstherapeutin-bewegungstherapeut-60-80-clienia-ag-zurich",
-          "bewegungstherapeutin-bewegungstherapeut-60-80-clienia-ag-pfaffikon"
+          "bewegungstherapeutin-bewegungstherapeut-60-80-clienia-ag-pfaffikon",
+          "terapeuta-del-movimento-60-80-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "bewegungstherapeutin-bewegungstherapeut-60-80-clienia-ag-pfaffikon"
@@ -7513,7 +7611,8 @@
       "previousSlugsByLocale": {
         "it": [
           "leitung-patientenadministration-m-w-d-80-100-clienia-ag-zurich",
-          "leitung-patientenadministration-m-w-d-80-100-clienia-ag-pfaffikon"
+          "leitung-patientenadministration-m-w-d-80-100-clienia-ag-pfaffikon",
+          "responsabile-dell-amministrazione-del-paziente-m-f-d-80-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "leitung-patientenadministration-m-w-d-80-100-clienia-ag-pfaffikon"
@@ -7590,7 +7689,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-sekundarstufe-l-60-100-clienia-ag-zurich"
+          "lehrperson-sekundarstufe-l-60-100-clienia-ag-zurich",
+          "insegnante-dell-istruzione-secondaria-60-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "lehrperson-sekundarstufe-l-60-100-clienia-ag-pfaffikon"
@@ -7668,7 +7768,8 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-40-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon",
+          "infermiere-certificata-40-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon"
@@ -7693,12 +7794,12 @@
     },
     {
       "id": "clienia-ag-8cd186900802",
-      "slug": "infermiera-laureata-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+      "slug": "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-        "it": "infermiera-laureata-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
-        "en": "graduated-nurse-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
-        "fr": "infirmiere-diplomee-hf-fh-m-f-j-80-100-clienia-ag-pfaffikon-zh"
+        "it": "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
+        "fr": "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7708,14 +7809,14 @@
         "de": "Diplomierte Pflegefachperson HF/FH (m/w/d) (80% - 100%)",
         "en": "Graduated nurse HF/FH (m/f/d) (80% - 100%)",
         "it": "Infermiera laureata HF/FH (m/f/d) (80% - 100%)",
-        "fr": "Infirmière diplômée HF/FH (m/f/j) (80% - 100%)"
+        "fr": "Infirmière diplômée HF/FH (m/f/j) (80 % - 100 %)"
       },
       "description": "Ihre Aufgaben Zu Ihren Kernaufgaben gehören die individuelle, professionelle Pflege und Betreuung der Patientinnen und Patienten, als Bezugsperson. Sie benutzen die Pflegediagnostik als Arbeitsinstrument, gestalteten das therapeutische Milieu der Station aktiv mit und orientieren sich in Ihrer Arbeitsweise am Stationskonzept. Das abgestimmte und multidisziplinäre Zusammenarbeiten bietet unseren Patientinnen und Patienten einen bestmöglichen Behandlungserfolg. Das Gruppen Leiten gehört zu den \n• Aufgaben, wie auch die interdisziplinäre Abstimmung der Behandlung. Sie arbeiten eng mit dem Sozialdienst zusammen und sind frühzeitig für eine geeignete Nachsorge bemüht. Sie bieten ein professionelles Krisenmanagement und haben Freude, Patientinnen und Patienten in ihrem Genesungsprozess zu unterstützen. \n• Ihr Profil Sie verfügen über eine abgeschlossene Ausbildung zur Dipl. Pflegefachperson HF/FH, bringen Interesse für das psychiatrische Fachgebiet mit. Haben Freude unseren Patientinnen und Patienten auf Augenhöhe zu begegnen und Verständnis für Erwachsene ab dem 18. Lebensjahr, in ihrer spezifischen Problembewältigung. Sie arbeiten mit dem Bezugspersonensystem, kennen die verschiedenen Methoden der pflegerischen Behandlung und Begleitung. Sie orientieren sich an Recovery und haben Interesse an der Weiterentwicklung des Konzepts und des Angebots der Station. Ein qualitativ gutes Angebot ist Ihnen sehr wichtig. Wenn Sie ausserdem eine teamfähige, kommunikative und umsichtige Persönlichkeit sind, nehmen wir Ihre Bewerbung sehr gerne entgegen. Unser Angebot Es erwartet Sie ein angenehmes, kollegiales, offenes, unterstützendes und interdisziplinäres Arbeitsklima. \n• Wir bieten Ihnen eine interessante und anspruchsvolle Aufgabe in einem dynamischen, modernen Umfeld mit fortschrittlichen Anstellungsbedingungen. Wichtig ist uns die sorgfältige Einarbeitung neuer Mitarbeiterinnen und Mitarbeiter. Um Sie in Ihrer fachlichen Entwicklung zu unterstützen werden Sie durch Ihren direkten Vorgesetzten sowie durch spezifische Fort- und Weiterbildungen gefördert. Sie profitieren auch von verschiedenen Vergünstigungen. Für weitere Auskünfte steht Ihnen Ihnen gerne Elisabeth Burtscher, Bereichsleiterin Pflege, Zentrum für Erwachsenenpsychiatrie Akut, +41 71 929 64 05, zur Verfügung. Wir freuen uns auf Ihre Online-Bewerbung! Die Clienia-Gruppe ist die grösste Privatklinikgruppe im Bereich Psychiatrie und Psychotherapie der Deutschschweiz. An verschiedenen Standorten bietet die Clienia für alle Altersgruppen ein vielfältiges Spektrum an psychiatrischen, psychotherapeutischen und psychosomatischen Behandlungsmethoden im ambulanten, teilstationären und stationären Rahmen bis hin zur psychiatrischen Langzeitpflege.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
       "descriptionByLocale": {
         "de": "Ihre Aufgaben Zu Ihren Kernaufgaben gehören die individuelle, professionelle Pflege und Betreuung der Patientinnen und Patienten, als Bezugsperson. Sie benutzen die Pflegediagnostik als Arbeitsinstrument, gestalteten das therapeutische Milieu der Station aktiv mit und orientieren sich in Ihrer Arbeitsweise am Stationskonzept. Das abgestimmte und multidisziplinäre Zusammenarbeiten bietet unseren Patientinnen und Patienten einen bestmöglichen Behandlungserfolg. Das Gruppen Leiten gehört zu den \n• Aufgaben, wie auch die interdisziplinäre Abstimmung der Behandlung. Sie arbeiten eng mit dem Sozialdienst zusammen und sind frühzeitig für eine geeignete Nachsorge bemüht. Sie bieten ein professionelles Krisenmanagement und haben Freude, Patientinnen und Patienten in ihrem Genesungsprozess zu unterstützen. \n• Ihr Profil Sie verfügen über eine abgeschlossene Ausbildung zur Dipl. Pflegefachperson HF/FH, bringen Interesse für das psychiatrische Fachgebiet mit. Haben Freude unseren Patientinnen und Patienten auf Augenhöhe zu begegnen und Verständnis für Erwachsene ab dem 18. Lebensjahr, in ihrer spezifischen Problembewältigung. Sie arbeiten mit dem Bezugspersonensystem, kennen die verschiedenen Methoden der pflegerischen Behandlung und Begleitung. Sie orientieren sich an Recovery und haben Interesse an der Weiterentwicklung des Konzepts und des Angebots der Station. Ein qualitativ gutes Angebot ist Ihnen sehr wichtig. Wenn Sie ausserdem eine teamfähige, kommunikative und umsichtige Persönlichkeit sind, nehmen wir Ihre Bewerbung sehr gerne entgegen. Unser Angebot Es erwartet Sie ein angenehmes, kollegiales, offenes, unterstützendes und interdisziplinäres Arbeitsklima. \n• Wir bieten Ihnen eine interessante und anspruchsvolle Aufgabe in einem dynamischen, modernen Umfeld mit fortschrittlichen Anstellungsbedingungen. Wichtig ist uns die sorgfältige Einarbeitung neuer Mitarbeiterinnen und Mitarbeiter. Um Sie in Ihrer fachlichen Entwicklung zu unterstützen werden Sie durch Ihren direkten Vorgesetzten sowie durch spezifische Fort- und Weiterbildungen gefördert. Sie profitieren auch von verschiedenen Vergünstigungen. Für weitere Auskünfte steht Ihnen Ihnen gerne Elisabeth Burtscher, Bereichsleiterin Pflege, Zentrum für Erwachsenenpsychiatrie Akut, +41 71 929 64 05, zur Verfügung. Wir freuen uns auf Ihre Online-Bewerbung! Die Clienia-Gruppe ist die grösste Privatklinikgruppe im Bereich Psychiatrie und Psychotherapie der Deutschschweiz. An verschiedenen Standorten bietet die Clienia für alle Altersgruppen ein vielfältiges Spektrum an psychiatrischen, psychotherapeutischen und psychosomatischen Behandlungsmethoden im ambulanten, teilstationären und stationären Rahmen bis hin zur psychiatrischen Langzeitpflege.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "it": "I loro compiti Uno dei vostri compiti principali è la cura individuale, professionale e cura dei pazienti come persona di riferimento. Essi utilizzano la diagnostica per l'allattamento come strumento di lavoro, modellano attivamente l'ambiente terapeutico della stazione e si orientano nel loro modo di lavorare sul concetto della stazione. La cooperazione coordinata e multidisciplinare offre ai nostri pazienti il miglior successo di trattamento possibile. Il gruppo è uno di loro.\n• Compiti, così come il coordinamento interdisciplinare del trattamento. Lavorano a stretto contatto con il servizio sociale e sono in una fase iniziale per un'adeguata assistenza. Essi forniscono una gestione professionale della crisi e godono di supporto ai pazienti nel loro processo di recupero.\n• Il tuo profilo Hai completato la formazione per il Dipl. Infermiera HF/FH, sono interessati alla zona psichiatrica. Avere piacere nel incontrare i nostri pazienti a livello degli occhi e la comprensione per gli adulti dal 18 ° anno di vita, nella loro gestione dei problemi specifici. Lavorano con il sistema di caregiver, conoscono i diversi metodi di cura e supporto. Essi sono orientati verso il recupero e sono interessati a sviluppare ulteriormente il concetto e l'offerta della stazione. Una buona offerta di qualità è molto importante per voi. Se sei anche una personalità di gruppo, comunicativa e prudente, accetteremo volentieri la tua applicazione. Una piacevole, collegiale, aperta, solidale e interdisciplinare atmosfera di lavoro vi aspetta.\n• Vi offriamo un compito interessante e stimolante in un ambiente dinamico e moderno con condizioni di lavoro avanzate. È importante per noi formare accuratamente nuovi dipendenti. Per sostenere il vostro sviluppo professionale Siete supportati dal vostro supervisore diretto, nonché da una formazione specifica e da un'ulteriore formazione. Essi beneficiano anche di vari vantaggi. Per ulteriori informazioni, rivolgersi a Elisabeth Burtscher, Head of Care, Centre for Adult Psychiatry Akut, +41 71 929 64 05. Non vediamo l'ora della tua applicazione online! Il Gruppo Clienia è il più grande gruppo ospedaliero privato nel campo della psichiatria e della psicoterapia nella Svizzera tedesca. In varie sedi, Clienia offre una gamma diversificata di metodi di trattamento psichiatrico, psicoterapeutico e psicosomatico per tutti i gruppi di età nell'ambulatorio, semistazionerio e ambulatorio, fino alla cura psichiatrica a lungo termine.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "en": "Their tasks One of your core tasks is the individual, professional care and care of patients as a reference person. They use nursing diagnostics as a working instrument, actively shape the therapeutic environment of the station and orient themselves in their way of working on the station concept. The coordinated and multidisciplinary cooperation offers our patients the best possible treatment success. The group is one of them.\n• Tasks, as well as the interdisciplinary coordination of treatment. They work closely with the social service and are at an early stage for suitable follow-up care. They provide professional crisis management and enjoy supporting patients in their recovery process.\n• Your profile You have completed training for the Dipl. Nurse HF/FH, are interested in the psychiatric area. Have pleasure in meeting our patients at eye level and understanding for adults from the 18th Year of life, in their specific problem management. They work with the caregiver system, know the different methods of nursing treatment and support. They are oriented towards recovery and are interested in further developing the concept and offering of the station. A good quality offer is very important to you. If you are also a team-capable, communicative and prudent personality, we will gladly accept your application. Our offer A pleasant, collegial, open, supportive and interdisciplinary working atmosphere awaits you.\n• We offer you an interesting and challenging task in a dynamic, modern environment with advanced employment conditions. It is important to us to carefully train new employees. To support you in your professional development You are supported by your direct supervisor as well as by specific training and further education. They also benefit from various perks. For further information, please contact Elisabeth Burtscher, Head of Care, Centre for Adult Psychiatry Akut, +41 71 929 64 05. We look forward to your online application! The Clienia Group is the largest private hospital group in the field of psychiatry and psychotherapy in German-speaking Switzerland. At various locations, Clienia offers a diverse spectrum of psychiatric, psychotherapeutic and psychosomatic treatment methods for all age groups in the ambulatory, semi-stationary and inpatient setting up to psychiatric long-term care.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "fr": "Leurs tâches L'une de vos tâches principales est la prise en charge individuelle et professionnelle des patients en tant que personne de référence. Ils utilisent les diagnostics infirmiers comme instrument de travail, façonnent activement l'environnement thérapeutique de la station et s'orientent dans leur façon de travailler sur le concept de la station. La coopération coordonnée et multidisciplinaire offre à nos patients le meilleur succès de traitement possible. Le groupe en fait partie.\n• Les tâches, ainsi que la coordination interdisciplinaire du traitement. Ils travaillent en étroite collaboration avec le service social et sont à un stade précoce pour un suivi approprié. Ils offrent une gestion de crise professionnelle et aiment aider les patients dans leur processus de récupération.\n• Votre profil Vous avez terminé la formation pour le Dipl. L'infirmière HF/FH s'intéresse à la zone psychiatrique. Ayez le plaisir de rencontrer nos patients au niveau des yeux et de la compréhension pour les adultes de la 18ème année de vie, dans leur gestion spécifique des problèmes. Ils travaillent avec le système de soins, connaissent les différentes méthodes de soins infirmiers et de soutien. Ils sont orientés vers la récupération et sont intéressés à développer le concept et l'offre de la station. Une offre de bonne qualité est très importante pour vous. Si vous êtes également une personnalité capable d'équipe, communicative et prudente, nous accepterons volontiers votre candidature. Notre offre Une ambiance de travail agréable, collégiale, ouverte, solidaire et interdisciplinaire vous attend.\n• Nous vous offrons une tâche intéressante et difficile dans un environnement dynamique et moderne avec des conditions d'emploi avancées. Il est important pour nous de bien former les nouveaux employés. Pour vous soutenir dans votre développement professionnel Vous êtes appuyé par votre superviseur direct ainsi que par une formation spécifique et une formation continue. Ils bénéficient également de divers avantages. Pour de plus amples informations, veuillez contacter Elisabeth Burtscher, responsable des soins, Centre de psychiatrie pour adultes Akut, +41 71 929 64 05. Nous nous réjouissons de votre candidature en ligne! Le Groupe Clienia est le plus grand groupe hospitalier privé en psychiatrie et en psychothérapie en Suisse germanophone. À divers endroits, Clienia offre une gamme variée de méthodes de traitement psychiatrique, psychothérapeutique et psychosomatique pour tous les groupes d'âge dans l'établissement ambulatoire, semi-stationnaire et hospitalier jusqu'aux soins psychiatriques de longue durée.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
+        "it": "I loro compiti Uno dei vostri compiti principali è la cura individuale, professionale e cura dei pazienti come persona di riferimento. Essi utilizzano la diagnostica per l'allattamento come strumento di lavoro, modellano attivamente l'ambiente terapeutico della stazione e si orientano nel loro modo di lavorare sul concetto della stazione. La cooperazione coordinata e multidisciplinare offre ai nostri pazienti il miglior successo di trattamento possibile. Il gruppo è uno di loro.\n• Compiti, così come il coordinamento interdisciplinare del trattamento. Lavorano a stretto contatto con il servizio sociale e sono in una fase iniziale per un'adeguata assistenza. Essi forniscono una gestione professionale della crisi e godono di supporto ai pazienti nel loro processo di recupero.\n• Il tuo profilo Hai completato la formazione per il Dipl. Infermiera HF/FH, sono interessati alla zona psichiatrica. Avere piacere nel incontrare i nostri pazienti a livello degli occhi e la comprensione per gli adulti dal 18 ° anno di vita, nella loro gestione dei problemi specifici. Lavorano con il sistema di caregiver, conoscono i diversi metodi di cura e supporto. Essi sono orientati verso il recupero e sono interessati a sviluppare ulteriormente il concetto e l'offerta della stazione. Un'offerta di buona qualità è molto importante per voi. Se siete anche un team capace, comunicativo e personalità prudente, accetteremo volentieri la vostra applicazione. Una piacevole, collegiale, aperta, solidale e interdisciplinare atmosfera di lavoro vi aspetta.\n• Vi offriamo un compito interessante e stimolante in un ambiente dinamico e moderno con condizioni di lavoro avanzate. È importante per noi formare accuratamente nuovi dipendenti. Per sostenere il vostro sviluppo professionale Lei è supportato dal suo supervisore diretto, nonché da una formazione specifica e da un'ulteriore formazione. Essi beneficiano anche di vari vantaggi. Per ulteriori informazioni, rivolgersi a Elisabeth Burtscher, Head of Care, Centre for Adult Psychiatry Akut, +41 71 929 64 05. Non vediamo l'ora della tua applicazione online! Il Gruppo Clienia è il più grande gruppo ospedaliero privato nel campo della psichiatria e della psicoterapia nella Svizzera tedesca. In varie sedi, Clienia offre una gamma diversificata di metodi di trattamento psichiatrico, psicoterapeutico e psicosomatico per tutti i gruppi di età nell'ambulatorio, semistazionerio e ambulatorio che si configurano fino a cure psichiatriche a lungo termine.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "en": "Their tasks One of your core tasks is the individual, professional care and care of patients as a reference person. They use nursing diagnostics as a working instrument, actively shape the therapeutic environment of the station and orient themselves in their way of working on the station concept. The coordinated and multidisciplinary cooperation offers our patients the best possible treatment success. The group is one of them.\n• Tasks, as well as the interdisciplinary coordination of treatment. They work closely with the social service and are at an early stage for suitable follow-up care. They provide professional crisis management and enjoy supporting patients in their recovery process.\n• Your profile You have completed training for the Dipl. Nurse HF/FH, are interested in the psychiatric area. Have pleasure in meeting our patients at eye level and understanding for adults from the 18th Year of life, in their specific problem management. They work with the caregiver system, know the different methods of nursing treatment and support. They are oriented towards recovery and are interested in further developing the concept and offering of the station. A good quality offer is very important to you. If you are also a team capable, communicative and prudent personality, we will gladly accept your application. Our offer A pleasant, collegial, open, supportive and interdisciplinary working atmosphere awaits you.\n• We offer you an interesting and challenging task in a dynamic, modern environment with advanced employment conditions. It is important to us to carefully train new employees. To support you in your professional development You are supported by your direct supervisor as well as by specific training and further education. They also benefit from various perks. For further information, please contact Elisabeth Burtscher, Head of Care, Centre for Adult Psychiatry Akut, +41 71 929 64 05. We look forward to your online application! The Clienia Group is the largest private hospital group in the field of psychiatry and psychotherapy in German-speaking Switzerland. At various locations, Clienia offers a diverse spectrum of psychiatric, psychotherapeutic and psychosomatic treatment methods for all age groups in the ambulatory, semi-stationary and inpatient setting up to psychiatric long-term care.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "fr": "Leurs tâches L'une de vos tâches principales est la prise en charge individuelle et professionnelle des patients en tant que personne de référence. Ils utilisent les diagnostics infirmiers comme instrument de travail, façonnent activement l'environnement thérapeutique de la station et s'orientent dans leur façon de travailler sur le concept de la station. La coopération coordonnée et multidisciplinaire offre à nos patients le meilleur succès de traitement possible. Le groupe en fait partie.\n• Tâches, ainsi que la coordination interdisciplinaire du traitement. Ils travaillent en étroite collaboration avec le service social et sont à un stade précoce pour un suivi approprié. Ils assurent la gestion professionnelle des crises et aiment aider les patients dans leur processus de récupération.\n• Votre profil Vous avez terminé la formation pour le Dipl. L'infirmière HF/FH s'intéresse à la zone psychiatrique. Ayez le plaisir de rencontrer nos patients au niveau des yeux et de la compréhension pour les adultes de la 18e année de vie, dans leur gestion spécifique des problèmes. Ils travaillent avec le système de soins, connaissent les différentes méthodes de traitement et de soutien infirmiers. Ils sont orientés vers la récupération et sont intéressés à développer le concept et l'offre de la station. Une offre de bonne qualité est très importante pour vous. Si vous êtes aussi une équipe capable, communicative et prudente, nous accepterons volontiers votre candidature. Notre offre Une ambiance de travail agréable, collégiale, ouverte, solidaire et interdisciplinaire vous attend.\n• Nous vous offrons une tâche intéressante et difficile dans un environnement dynamique et moderne avec des conditions d'emploi avancées. Il est important pour nous de bien former les nouveaux employés. Pour vous soutenir dans votre développement professionnel Vous êtes soutenu par votre superviseur direct ainsi que par une formation spécifique et une formation continue. Ils bénéficient également de divers avantages. Pour de plus amples informations, veuillez contacter Elisabeth Burtscher, responsable des soins, Centre de psychiatrie pour adultes Akut, +41 71 929 64 05. Nous nous réjouissons de votre candidature en ligne! Le Groupe Clienia est le plus grand groupe hospitalier privé en psychiatrie et en psychothérapie en Suisse germanophone. À différents endroits, Clienia offre un éventail varié de méthodes de traitement psychiatrique, psychothérapeutique et psychosomatique pour tous les groupes d'âge dans les établissements ambulatoires, semi-stationnaires et hospitalisés jusqu'aux soins psychiatriques de longue durée.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
       },
       "location": "Pfäffikon ZH",
       "canton": "ZH",
@@ -7743,19 +7844,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
-        ],
-        "en": [
-          "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
-        ],
-        "fr": [
-          "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7773,12 +7866,12 @@
     },
     {
       "id": "clienia-ag-1d02512b974a",
-      "slug": "medico-specialista-amministrazione-m-f-d-70-clienia-ag-pfaffikon-zh",
+      "slug": "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon",
       "slugByLocale": {
         "de": "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-zurich",
-        "it": "medico-specialista-amministrazione-m-f-d-70-clienia-ag-pfaffikon-zh",
-        "en": "medical-specialist-administration-m-f-d-70-clienia-ag-pfaffikon-zh",
-        "fr": "medical-specialiste-administration-m-f-j-70-clienia-ag-pfaffikon-zh"
+        "it": "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon",
+        "en": "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon",
+        "fr": "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7788,14 +7881,14 @@
         "de": "Medizinische/n Fachangestellte/n Administration (m/w/d) (70%)",
         "it": "Medico/specialista/amministrazione (m/f/d) (70%)",
         "en": "Medical/specialist/administration (m/f/d) (70%)",
-        "fr": "Médical/spécialiste/administration (m/f/j) (70 %)"
+        "fr": "Médical/spécialiste/administration (m/f/j) (70%)"
       },
       "description": "Ihre Aufgaben\n• Empfang unserer Patientinnen und Patienten\n• Telefonmanagement und Terminplanung\n• Pflege der elektronischen Krankenakten\n• Berichtscontrolling und Fakturierung\n• Allgemeine Korrespondenz und Büroorganisation\n• Telefonischer Kontakt mit Zuweisenden, Versicherungen und externen Stellen Ihr Profil\n• Abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in, Arzt-/Spitalsekretär/in oder vergleichbare Ausbildung\n• Sehr gute EDV-Anwenderkenntnisse\n• Stilsicheres Deutsch in Wort und Schrift – weitere Sprachkenntnisse sind von Vorteil\n• Freude an selbstständiger und strukturierter Arbeit\n• Belastbarkeit und ein kühler Kopf auch in turbulenten Momenten\n• Empathischer, professioneller Umgang mit Patientinnen, Patienten und externen Partnern Unser Angebot\n• Diverse Zusatzleistungen und Vergünstigungen (z.B. Lunch-Check)\n• geregelte Arbeitszeiten\n• modernes Arbeitsumfeld\n• interdisziplinäres Team mit kollegialem Arbeitsklima Weitere Auskünfte erteilt Ihnen gerne Luisina Schweizer, Leiterin Ärztesekretariat KiJu ambulant, Tel. +41 71 929 63 35. Wir freuen uns auf Ihre Online-Bewerbung! Die Clienia-Gruppe ist die grösste Privatklinikgruppe im Bereich Psychiatrie und Psychotherapie der Deutschschweiz. An verschiedenen Standorten bietet die Clienia für alle Altersgruppen ein vielfältiges Spektrum an psychiatrischen, psychotherapeutischen und psychosomatischen Behandlungsmethoden im ambulanten, teilstationären und stationären Rahmen bis hin zur psychiatrischen Langzeitpflege.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
       "descriptionByLocale": {
         "de": "Ihre Aufgaben\n• Empfang unserer Patientinnen und Patienten\n• Telefonmanagement und Terminplanung\n• Pflege der elektronischen Krankenakten\n• Berichtscontrolling und Fakturierung\n• Allgemeine Korrespondenz und Büroorganisation\n• Telefonischer Kontakt mit Zuweisenden, Versicherungen und externen Stellen Ihr Profil\n• Abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in, Arzt-/Spitalsekretär/in oder vergleichbare Ausbildung\n• Sehr gute EDV-Anwenderkenntnisse\n• Stilsicheres Deutsch in Wort und Schrift – weitere Sprachkenntnisse sind von Vorteil\n• Freude an selbstständiger und strukturierter Arbeit\n• Belastbarkeit und ein kühler Kopf auch in turbulenten Momenten\n• Empathischer, professioneller Umgang mit Patientinnen, Patienten und externen Partnern Unser Angebot\n• Diverse Zusatzleistungen und Vergünstigungen (z.B. Lunch-Check)\n• geregelte Arbeitszeiten\n• modernes Arbeitsumfeld\n• interdisziplinäres Team mit kollegialem Arbeitsklima Weitere Auskünfte erteilt Ihnen gerne Luisina Schweizer, Leiterin Ärztesekretariat KiJu ambulant, Tel. +41 71 929 63 35. Wir freuen uns auf Ihre Online-Bewerbung! Die Clienia-Gruppe ist die grösste Privatklinikgruppe im Bereich Psychiatrie und Psychotherapie der Deutschschweiz. An verschiedenen Standorten bietet die Clienia für alle Altersgruppen ein vielfältiges Spektrum an psychiatrischen, psychotherapeutischen und psychosomatischen Behandlungsmethoden im ambulanten, teilstationären und stationären Rahmen bis hin zur psychiatrischen Langzeitpflege.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "it": "I loro compiti\n• Ricezione dei nostri pazienti\n• Gestione del telefono e pianificazione\n• Manutenzione dei registri medici elettronici\n• Reporting Controllo e Fatturazione\n• Corrispondenza generale e organizzazione ufficio\n• Contatto telefonico con assegnanti, compagnie di assicurazione e corpi esterni Il tuo profilo\n• Formazione completa come assistente medico, segretario medico/ospedale o formazione comparabile\n• Molto buona conoscenza dell'utente del computer\n• Tedesco stilistico in parola e scrittura – ulteriori competenze linguistiche sono un vantaggio\n• Gioia di lavoro indipendente e strutturato\n• Resilienza e una testa fresca anche in momenti turbolenti\n• Empathetic, trattamento professionale dei pazienti e dei partner esterni La nostra offerta\n• Vari servizi e vantaggi aggiuntivi (ad esempio il controllo del pranzo)\n• Ore lavorative regolari\n• Ambiente di lavoro moderno\n• Un team interdisciplinare con un ambiente di lavoro collegiale Per ulteriori informazioni si prega di consultare Luisina Schweizer, responsabile della Segreteria Medica KiJu ambulant, tel. +41 71 929 63 35. Non vediamo l'ora della tua applicazione online! Il Gruppo Clienia è il più grande gruppo ospedaliero privato nel campo della psichiatria e della psicoterapia nella Svizzera tedesca. In varie sedi, Clienia offre una gamma diversificata di metodi di trattamento psichiatrico, psicoterapeutico e psicosomatico per tutti i gruppi di età nell'ambulatorio, semistazionerio e ambulatorio, fino alla cura psichiatrica a lungo termine.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "en": "Their tasks\n• Reception of our patients\n• Telephone management and scheduling\n• Maintenance of electronic medical records\n• Reporting Controlling and Invoicing\n• General correspondence and office organisation\n• Telephone contact with assignees, insurance companies and external bodies Your profile\n• Completed training as medical assistant, medical/hospital secretary or comparable training\n• Very good computer user knowledge\n• Stylistic German in word and writing – further language skills are an advantage\n• Joy of independent and structured work\n• Resilience and a cool head even in turbulent moments\n• Empathetic, professional treatment of patients and external partners Our offer\n• Various additional services and benefits (e.g. lunch check)\n• Regular working hours\n• Modern working environment\n• An interdisciplinary team with a collegial working environment For more information please see Luisina Schweizer, Head of Medical Secretariat KiJu ambulant, tel. +41 71 929 63 35. We look forward to your online application! The Clienia Group is the largest private hospital group in the field of psychiatry and psychotherapy in German-speaking Switzerland. At various locations, Clienia offers a diverse spectrum of psychiatric, psychotherapeutic and psychosomatic treatment methods for all age groups in the ambulatory, semi-stationary and inpatient setting up to psychiatric long-term care.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "fr": "Leurs tâches\n• Réception de nos patients\n• Gestion et programmation du téléphone\n• Tenue de dossiers médicaux électroniques\n• Contrôle et facturation des rapports\n• Correspondance générale et organisation des bureaux\n• Contact téléphonique avec les cessionnaires, les compagnies d'assurance et les organismes externes Votre profil\n• Formation complète en tant qu'assistant médical, secrétaire médical/hospitalier ou formation comparable\n• Très bonne connaissance de l'utilisateur d'ordinateur\n• Allemand styliste en paroles et en écriture – d'autres compétences linguistiques sont un avantage\n• Joy de travail indépendant et structuré\n• La résilience et une tête fraîche même dans des moments agités\n• Traitement empathique et professionnel des patients et des partenaires externes Notre offre\n• Divers services et avantages supplémentaires (p. ex., vérification du déjeuner)\n• Heures de travail régulières\n• Environnement de travail moderne\n• Une équipe interdisciplinaire avec un environnement de travail collégial Pour plus d'informations, voir Luisina Schweizer, Chef du Secrétariat médical KiJu ambulant, tél. +41 71 929 63 35. Nous nous réjouissons de votre candidature en ligne! Le Groupe Clienia est le plus grand groupe hospitalier privé en psychiatrie et en psychothérapie en Suisse germanophone. À divers endroits, Clienia offre une gamme variée de méthodes de traitement psychiatrique, psychothérapeutique et psychosomatique pour tous les groupes d'âge dans l'établissement ambulatoire, semi-stationnaire et hospitalier jusqu'aux soins psychiatriques de longue durée.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
+        "it": "I loro compiti\n• Ricezione dei nostri pazienti\n• Gestione del telefono e pianificazione\n• Manutenzione dei registri medici elettronici\n• Reporting Controllo e Fatturazione\n• Corrispondenza generale e organizzazione ufficio\n• Contatto telefonico con assegnanti, assicurazioni e corpi esterni Il tuo profilo\n• Formazione completa come assistente medico, segretario medico/ospedale o formazione equivalente\n• Molto buona conoscenza dell'utente del computer\n• Tedesco stilistico in parola e scrittura – ulteriori competenze linguistiche sono un vantaggio\n• Gioia di lavoro indipendente e strutturato\n• Resilienza e una testa fresca anche in momenti turbolenti\n• Empathetic, trattamento professionale di pazienti e partner esterni La nostra offerta\n• Vari servizi e vantaggi aggiuntivi (ad esempio il controllo del pranzo)\n• Ore lavorative regolari\n• Ambiente di lavoro moderno\n• Un team interdisciplinare con un ambiente di lavoro collegiale Per ulteriori informazioni si prega di consultare Luisina Schweizer, responsabile della Segreteria Medica KiJu ambulant, tel. +41 71 929 63 35. Non vediamo l'ora della tua applicazione online! Il Gruppo Clienia è il più grande gruppo ospedaliero privato nel campo della psichiatria e della psicoterapia nella Svizzera tedesca. In varie sedi, Clienia offre una gamma diversificata di metodi di trattamento psichiatrico, psicoterapeutico e psicosomatico per tutti i gruppi di età nell'ambulatorio, semistazionerio e ambulatorio che si configurano fino a cure psichiatriche a lungo termine.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "en": "Their tasks\n• Reception of our patients\n• Telephone management and scheduling\n• Maintenance of electronic medical records\n• Reporting Controlling and Invoicing\n• General correspondence and office organization\n• Telephone contact with assignees, insurance companies and external bodies Your profile\n• Completed training as medical assistant, medical/hospital secretary or equivalent training\n• Very good computer user knowledge\n• Stylistic German in word and writing – further language skills are an advantage\n• Joy of independent and structured work\n• Resilience and a cool head even in turbulent moments\n• Empathetic, professional treatment of patients and external partners Our offer\n• Various additional services and benefits (e.g. lunch check)\n• Regular working hours\n• Modern working environment\n• An interdisciplinary team with a collegial working environment For more information please see Luisina Schweizer, Head of Medical Secretariat KiJu ambulant, tel. +41 71 929 63 35. We look forward to your online application! The Clienia Group is the largest private hospital group in the field of psychiatry and psychotherapy in German-speaking Switzerland. At various locations, Clienia offers a diverse spectrum of psychiatric, psychotherapeutic and psychosomatic treatment methods for all age groups in the ambulatory, semi-stationary and inpatient setting up to psychiatric long-term care.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "fr": "Leurs tâches\n• Réception de nos patients\n• Gestion et programmation du téléphone\n• Tenue de dossiers médicaux électroniques\n• Contrôle et facturation des rapports\n• Correspondance générale et organisation du bureau\n• Contact téléphonique avec les cessionnaires, les compagnies d'assurance et les organismes externes Votre profil\n• Formation complète en tant qu'assistant médical, secrétaire médical/hospitalier ou formation équivalente\n• Très bonne connaissance de l'utilisateur d'ordinateur\n• Allemand styliste en paroles et en écriture – d'autres compétences linguistiques sont un avantage\n• Joy de travail indépendant et structuré\n• Résilience et une tête fraîche même dans des moments agités\n• Traitement empathique et professionnel des patients et des partenaires externes Notre offre\n• Divers services et avantages supplémentaires (p. ex., vérification du déjeuner)\n• Heures de travail régulières\n• Environnement de travail moderne\n• Une équipe interdisciplinaire avec un environnement de travail collégial Pour plus d'informations, voir Luisina Schweizer, Chef du Secrétariat médical KiJu ambulant, tél. +41 71 929 63 35. Nous nous réjouissons de votre candidature en ligne! Le Groupe Clienia est le plus grand groupe hospitalier privé en psychiatrie et en psychothérapie en Suisse germanophone. À différents endroits, Clienia offre un éventail varié de méthodes de traitement psychiatrique, psychothérapeutique et psychosomatique pour tous les groupes d'âge dans les établissements ambulatoires, semi-stationnaires et hospitalisés jusqu'aux soins psychiatriques de longue durée.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
       },
       "location": "Pfäffikon ZH",
       "canton": "ZH",
@@ -7823,19 +7916,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-zurich",
-          "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon"
-        ],
-        "en": [
-          "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon"
-        ],
-        "fr": [
-          "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon"
+          "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-zurich",
-        "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-pfaffikon"
+        "medizinische-n-fachangestellte-n-administration-m-w-d-70-clienia-ag-zurich"
       ],
       "salaryMin": 51500,
       "salaryMax": 78100,
@@ -7853,12 +7938,12 @@
     },
     {
       "id": "clienia-ag-552e5e66f0df",
-      "slug": "cura-responsabile-80-100-clienia-ag-pfaffikon-zh",
+      "slug": "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "de": "fachverantwortliche-r-pflege-80-100-clienia-ag-zurich",
-        "it": "cura-responsabile-80-100-clienia-ag-pfaffikon-zh",
-        "en": "responsible-care-80-100-clienia-ag-pfaffikon-zh",
-        "fr": "prise-en-charge-responsable-80-100-clienia-ag-pfaffikon-zh"
+        "it": "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon",
+        "en": "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon",
+        "fr": "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7868,14 +7953,14 @@
         "de": "Fachverantwortliche/r Pflege (80% - 100%)",
         "it": "Cura responsabile (80% - 100%)",
         "en": "Responsible care (80% - 100%)",
-        "fr": "Prise en charge responsable (80 % - 100 %)"
+        "fr": "Soins responsables (80 % - 100 %)"
       },
       "description": "Ihre Aufgaben Flexibilität und Freude an der Abwechslung sind zentrale Punkte. Denn genau das bedeutet die Arbeit in der Akutpsychiatrie. Falls das auf dich zutrifft, sind hier einige der wichtigsten Aufgaben: - die Verantwortung für die Pflegeentwicklung und Überprüfung der Pflegequalität auf der Station - die Mitarbeit in fachspezifischen Arbeitsgruppen und Projekten - Bezugspersonenarbeit: Wir behandeln unsere Patientinnen und Patienten individuell nach ihren Bedürfnissen und pflegen den Kontakt zu den Angehörigen - Neben den Einzelgesprächen finden Gruppenangebote statt, welche auch durch die Pflege geleitet werden - Unsere interprofessionelle Zusammenarbeit ist eine riesengrosse Stärke und zeichnet uns aus. Aktives Mitgestalten und sich einbringen, sind zentrale Bestandteile dieser Zusammenarbeit. Ihr Profil Für diese spannende Tätigkeit bringst du einen Abschluss Pflege auf HF / FH Stufe und Berufserfahrung im Bereich psychiatrischer Pflege mit. Fachkompetenz, Dienstleitungsorientierung und ganz viel Humor sind die wichtigsten Eigenschaften, welche du mitbringen musst. Mit diesen Eigenschaften erreichen wir die besten Behandlungsergebnisse für unsere Patientinnen und Patienten, und das Team freut sich, dass du ein Teil von ihnen wirst. Unser Angebot\n• Innovativer Arbeitgeber mit einer starken interprofessionellen Zusammenarbeit\n• Sehr gute Entwicklungsmöglichkeiten mit grosszügiger Unterstützung in Fort- und Weiterbildungen\n• Diverse Vergünstigungen (z.B. mit Reka-Checks, gesundheitsfördernde Angebote, ausgewählte Freizeitaktivitäten und Online-Shops)\n• 5 Wochen Ferien, ab dem 50. Lebensjahr 27 Tage und ab dem 60. Lebensjahr 32 Tage\n• Hervorragende Verpflegungsmöglichkeiten zu sehr fairen Preisen und vieles mehr… Gerne stellen wir unsere Benefits für Mitarbeitende in einem Vorstellungsgespräch vor. Fühlst du dich angesprochen? Weitere Auskünfte erteilt dir gerne Lea Kehrein, Stationsleiterin S3, Tel. +41 44 929 86 05 oder Thomas Sutter, Bereichsleiter Pflege, Tel. +41 44 929 82 52. Wir freuen uns auf deine Bewerbung via Bewerbungstool. Dossiers von Personalvermittlungsbüros werden für diese Stelle nicht berücksichtigt. Die Clienia-Gruppe ist die grösste Privatklinikgruppe im Bereich Psychiatrie und Psychotherapie der Deutschschweiz. An verschiedenen Standorten bietet die Clienia für alle Altersgruppen ein vielfältiges Spektrum an psychiatrischen, psychotherapeutischen und psychosomatischen Behandlungsmethoden im ambulanten, teilstationären und stationären Rahmen bis hin zur psychiatrischen Langzeitpflege.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
       "descriptionByLocale": {
         "de": "Ihre Aufgaben Flexibilität und Freude an der Abwechslung sind zentrale Punkte. Denn genau das bedeutet die Arbeit in der Akutpsychiatrie. Falls das auf dich zutrifft, sind hier einige der wichtigsten Aufgaben: - die Verantwortung für die Pflegeentwicklung und Überprüfung der Pflegequalität auf der Station - die Mitarbeit in fachspezifischen Arbeitsgruppen und Projekten - Bezugspersonenarbeit: Wir behandeln unsere Patientinnen und Patienten individuell nach ihren Bedürfnissen und pflegen den Kontakt zu den Angehörigen - Neben den Einzelgesprächen finden Gruppenangebote statt, welche auch durch die Pflege geleitet werden - Unsere interprofessionelle Zusammenarbeit ist eine riesengrosse Stärke und zeichnet uns aus. Aktives Mitgestalten und sich einbringen, sind zentrale Bestandteile dieser Zusammenarbeit. Ihr Profil Für diese spannende Tätigkeit bringst du einen Abschluss Pflege auf HF / FH Stufe und Berufserfahrung im Bereich psychiatrischer Pflege mit. Fachkompetenz, Dienstleitungsorientierung und ganz viel Humor sind die wichtigsten Eigenschaften, welche du mitbringen musst. Mit diesen Eigenschaften erreichen wir die besten Behandlungsergebnisse für unsere Patientinnen und Patienten, und das Team freut sich, dass du ein Teil von ihnen wirst. Unser Angebot\n• Innovativer Arbeitgeber mit einer starken interprofessionellen Zusammenarbeit\n• Sehr gute Entwicklungsmöglichkeiten mit grosszügiger Unterstützung in Fort- und Weiterbildungen\n• Diverse Vergünstigungen (z.B. mit Reka-Checks, gesundheitsfördernde Angebote, ausgewählte Freizeitaktivitäten und Online-Shops)\n• 5 Wochen Ferien, ab dem 50. Lebensjahr 27 Tage und ab dem 60. Lebensjahr 32 Tage\n• Hervorragende Verpflegungsmöglichkeiten zu sehr fairen Preisen und vieles mehr… Gerne stellen wir unsere Benefits für Mitarbeitende in einem Vorstellungsgespräch vor. Fühlst du dich angesprochen? Weitere Auskünfte erteilt dir gerne Lea Kehrein, Stationsleiterin S3, Tel. +41 44 929 86 05 oder Thomas Sutter, Bereichsleiter Pflege, Tel. +41 44 929 82 52. Wir freuen uns auf deine Bewerbung via Bewerbungstool. Dossiers von Personalvermittlungsbüros werden für diese Stelle nicht berücksichtigt. Die Clienia-Gruppe ist die grösste Privatklinikgruppe im Bereich Psychiatrie und Psychotherapie der Deutschschweiz. An verschiedenen Standorten bietet die Clienia für alle Altersgruppen ein vielfältiges Spektrum an psychiatrischen, psychotherapeutischen und psychosomatischen Behandlungsmethoden im ambulanten, teilstationären und stationären Rahmen bis hin zur psychiatrischen Langzeitpflege.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "it": "I vostri compiti di flessibilità e piacere nella varietà sono punti centrali. Perché questo è esattamente ciò che funziona in psichiatria acuta significa. Se questo vale per voi, ecco alcuni dei compiti più importanti: - la responsabilità per lo sviluppo della cura e il controllo della qualità della cura sul reparto - la cooperazione in gruppi di lavoro specializzati e progetti - il lavoro di assistenza: Trattiamo i nostri pazienti individualmente in base alle loro esigenze e manteniamo il contatto con i parenti - Oltre alle singole discussioni, si svolgono offerte di gruppo, che sono anche guidate dalla cura - La nostra cooperazione interprofessionale è una forza enorme e ci distingue. La partecipazione attiva e il coinvolgimento sono componenti centrali di questa cooperazione. Per questa eccitante attività, si porterà un grado di cura a livello HF/FH e esperienza professionale nel campo della cura psichiatrica. Competenza, orientamento di servizio e molto umorismo sono le qualità più importanti che dovete portare. Con queste caratteristiche, raggiungiamo i migliori risultati di trattamento per i nostri pazienti, e il team è felice che tu diventi parte di loro. La nostra offerta\n• Datore di lavoro innovativo con una forte cooperazione interprofessionale\n• Opportunità di sviluppo molto buone con generoso sostegno all'ulteriore istruzione e formazione\n• Vari sconti (ad esempio con i controlli Reka, le offerte di promozione della salute, le attività di svago selezionate e i negozi online)\n• 5 settimane di vacanza, 27 giorni dall'età 50 e 32 giorni dall'età 60\n• Opzioni di cibo eccellenti a prezzi molto equi e molto altro ancora... Siamo lieti di presentare i nostri vantaggi per i dipendenti in un'intervista. Ti senti indirizzato? Ulteriori informazioni possono essere fornite da Lea Kehrein, station manager S3, tel. +41 44 929 86 05 o Thomas Sutter, Head of Division Care, Tel. +41 44 929 82 52. Attendiamo con ansia la vostra applicazione tramite strumento di applicazione. I file degli uffici di reclutamento non sono considerati per questo post. Il Gruppo Clienia è il più grande gruppo ospedaliero privato nel campo della psichiatria e della psicoterapia nella Svizzera tedesca. In varie sedi, Clienia offre una gamma diversificata di metodi di trattamento psichiatrico, psicoterapeutico e psicosomatico per tutti i gruppi di età nell'ambulatorio, semistazionerio e ambulatorio, fino alla cura psichiatrica a lungo termine.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "en": "Your tasks flexibility and pleasure in variety are central points. Because that is exactly what working in acute psychiatry means. If this applies to you, here are some of the most important tasks: - the responsibility for the development of care and checking the quality of care on the ward - the cooperation in specialist working groups and projects - caregiver work: We treat our patients individually according to their needs and maintain contact with the relatives - In addition to the individual discussions, group offers take place, which are also guided by the care - Our interprofessional cooperation is a huge strength and distinguishes us. Active participation and involvement are central components of this cooperation. For this exciting activity, you will bring a degree of care at HF/FH level and professional experience in the field of psychiatric care. Expertise, service orientation and a lot of humor are the most important qualities you have to bring. With these characteristics, we achieve the best treatment outcomes for our patients, and the team is happy that you become a part of them. Our offer\n• Innovative employer with a strong interprofessional cooperation\n• Very good development opportunities with generous support in further education and training\n• Various discounts (e.g. with Reka checks, health-promoting offers, selected leisure activities and online shops)\n• 5 weeks of holiday, 27 days from age 50 and 32 days from age 60\n• Excellent food options at very fair prices and much more... We are happy to present our benefits for employees in an interview. Do you feel addressed? Further information can be provided by Lea Kehrein, station manager S3, tel. +41 44 929 86 05 or Thomas Sutter, Head of Division Care, Tel. +41 44 929 82 52. We look forward to your application via application tool. Files from recruitment offices are not considered for this post. The Clienia Group is the largest private hospital group in the field of psychiatry and psychotherapy in German-speaking Switzerland. At various locations, Clienia offers a diverse spectrum of psychiatric, psychotherapeutic and psychosomatic treatment methods for all age groups in the ambulatory, semi-stationary and inpatient setting up to psychiatric long-term care.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
-        "fr": "La flexibilité et le plaisir dans la variété de vos tâches sont des points centraux. Parce que c'est exactement ce que signifie travailler en psychiatrie aiguë. Si cela s'applique à vous, voici quelques-unes des tâches les plus importantes: - la responsabilité du développement des soins et du contrôle de la qualité des soins dans le service; - la coopération dans les groupes de travail et les projets spécialisés; - le travail de soignant: Nous traitons nos patients individuellement selon leurs besoins et entretenons le contact avec les parents - En plus des discussions individuelles, des offres de groupe ont lieu, qui sont également guidées par le soin - Notre coopération interprofessionnelle est une force énorme et nous distingue. La participation active et la participation sont des éléments centraux de cette coopération. Pour cette activité passionnante, vous apporterez un degré de soins au niveau HF/FH et une expérience professionnelle dans le domaine des soins psychiatriques. Expertise, orientation de service et beaucoup d'humour sont les qualités les plus importantes que vous devez apporter. Avec ces caractéristiques, nous obtenons les meilleurs résultats de traitement pour nos patients, et l'équipe est heureuse que vous deveniez une partie d'eux. Notre offre\n• Un employeur innovant avec une forte coopération interprofessionnelle\n• Très bonnes possibilités de développement avec un soutien généreux en matière d'éducation et de formation continue\n• Divers rabais (par exemple avec des contrôles Reka, des offres de promotion de la santé, des activités de loisirs sélectionnées et des boutiques en ligne)\n• 5 semaines de vacances, 27 jours à partir de 50 ans et 32 jours à partir de 60 ans\n• Excellentes options alimentaires à des prix très justes et bien plus encore... Nous sommes heureux de présenter nos avantages pour les employés lors d'une entrevue. Vous sentez-vous adressé ? Pour plus d'informations, veuillez contacter Lea Kehrein, responsable de la station S3, tél. +41 44 929 86 05 ou Thomas Sutter, Chef de Division Care, tél. +41 44 929 82 52. Nous attendons avec impatience votre application via l'outil d'application. Les dossiers des bureaux de recrutement ne sont pas pris en considération pour ce poste. Le Groupe Clienia est le plus grand groupe hospitalier privé en psychiatrie et en psychothérapie en Suisse germanophone. À divers endroits, Clienia offre une gamme variée de méthodes de traitement psychiatrique, psychothérapeutique et psychosomatique pour tous les groupes d'âge dans l'établissement ambulatoire, semi-stationnaire et hospitalier jusqu'aux soins psychiatriques de longue durée.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
+        "it": "I vostri compiti di flessibilità e piacere nella varietà sono punti centrali. Perché è esattamente ciò che funziona in psichiatria acuta significa. Se questo si applica a voi, ecco alcuni dei compiti più importanti: - la responsabilità per lo sviluppo della cura e il controllo della qualità della cura sul reparto - la cooperazione in gruppi di lavoro specializzati e progetti - il lavoro di assistenza: Trattiamo i nostri pazienti individualmente in base alle loro esigenze e manteniamo il contatto con i parenti - Oltre alle singole discussioni, si svolgono offerte di gruppo, che sono anche guidate dalla cura - La nostra cooperazione interprofessionale è una forza enorme e ci distingue. La partecipazione attiva e il coinvolgimento sono componenti centrali di questa cooperazione. Per questa eccitante attività, si porterà un grado di cura a livello HF/FH e esperienza professionale nel campo della cura psichiatrica. Competenza, orientamento di servizio e molto umorismo sono le qualità più importanti che dovete portare. Con queste caratteristiche, raggiungiamo i migliori risultati di trattamento per i nostri pazienti, e il team è felice che tu diventi parte di loro. La nostra offerta\n• Datore di lavoro innovativo con una forte cooperazione interprofessionale\n• Opportunità di sviluppo molto buone con generoso sostegno all'ulteriore istruzione e formazione\n• Vari sconti (ad esempio con i controlli Reka, le offerte di promozione della salute, le attività di svago selezionate e i negozi online)\n• 5 settimane di vacanza, 27 giorni dall'età 50 e 32 giorni dall'età 60\n• Opzioni di cibo eccellenti a prezzi molto equi e molto altro ancora... Siamo lieti di presentare i nostri vantaggi per i dipendenti in un'intervista. Ti senti in appello? Ulteriori informazioni possono essere fornite da Lea Kehrein, station manager S3, tel. +41 44 929 86 05 o Thomas Sutter, Head of Division Care, Tel. +41 44 929 82 52. Attendiamo con ansia la vostra applicazione tramite strumento di applicazione. I file degli uffici di reclutamento non sono considerati per questo post. Il Gruppo Clienia è il più grande gruppo ospedaliero privato nel campo della psichiatria e della psicoterapia nella Svizzera tedesca. In varie sedi, Clienia offre una gamma diversificata di metodi di trattamento psichiatrico, psicoterapeutico e psicosomatico per tutti i gruppi di età nell'ambulatorio, semistazionerio e ambulatorio che si configurano fino a cure psichiatriche a lungo termine.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "en": "Your tasks flexibility and pleasure in variety are central points. Because that is exactly what working in acute psychiatry means. If this applies to you, here are some of the most important tasks: - the responsibility for the development of care and checking the quality of care on the ward - the cooperation in specialist working groups and projects - caregiver work: We treat our patients individually according to their needs and maintain contact with the relatives - In addition to the individual discussions, group offers take place, which are also guided by the care - Our interprofessional cooperation is a huge strength and distinguishes us. Active participation and involvement are central components of this cooperation. For this exciting activity, you will bring a degree of care at HF/FH level and professional experience in the field of psychiatric care. Expertise, service orientation and a lot of humor are the most important qualities you have to bring. With these characteristics, we achieve the best treatment results for our patients, and the team is happy that you become a part of them. Our offer\n• Innovative employer with a strong interprofessional cooperation\n• Very good development opportunities with generous support in further education and training\n• Various discounts (e.g. with Reka checks, health-promoting offers, selected leisure activities and online shops)\n• 5 weeks of holiday, 27 days from age 50 and 32 days from age 60\n• Excellent food options at very fair prices and much more... We are happy to present our benefits for employees in an interview. Do you feel appealed to? Further information can be provided by Lea Kehrein, station manager S3, tel. +41 44 929 86 05 or Thomas Sutter, Head of Division Care, Tel. +41 44 929 82 52. We look forward to your application via application tool. Files from recruitment offices are not considered for this post. The Clienia Group is the largest private hospital group in the field of psychiatry and psychotherapy in German-speaking Switzerland. At various locations, Clienia offers a diverse spectrum of psychiatric, psychotherapeutic and psychosomatic treatment methods for all age groups in the ambulatory, semi-stationary and inpatient setting up to psychiatric long-term care.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "fr": "La flexibilité de vos tâches et le plaisir dans la variété sont des points centraux. Parce que c'est exactement ce que signifie travailler en psychiatrie aiguë. Si cela s'applique à vous, voici quelques-unes des tâches les plus importantes: - la responsabilité du développement des soins et du contrôle de la qualité des soins dans le service; - la coopération dans les groupes de travail et les projets spécialisés; - le travail de soignant: Nous traitons nos patients individuellement en fonction de leurs besoins et maintenons le contact avec les parents - En plus des discussions individuelles, des offres de groupe ont lieu, qui sont également guidées par le soin - Notre coopération interprofessionnelle est une force énorme et nous distingue. La participation active et la participation sont des éléments centraux de cette coopération. Pour cette activité passionnante, vous apporterez un degré de soins au niveau HF/FH et une expérience professionnelle dans le domaine des soins psychiatriques. Expertise, orientation de service et beaucoup d'humour sont les qualités les plus importantes que vous devez apporter. Avec ces caractéristiques, nous obtenons les meilleurs résultats de traitement pour nos patients, et l'équipe est heureuse que vous deveniez une partie d'eux. Notre offre\n• Un employeur innovant avec une forte coopération interprofessionnelle\n• Très bonnes possibilités de développement avec un soutien généreux en matière d'éducation et de formation continues\n• Divers rabais (par exemple avec les contrôles Reka, les offres de promotion de la santé, certaines activités de loisirs et les boutiques en ligne)\n• 5 semaines de vacances, 27 jours à partir de 50 ans et 32 jours à partir de 60 ans\n• Excellentes options alimentaires à des prix très justes et bien plus encore... Nous sommes heureux de présenter nos avantages pour les employés lors d'une entrevue. Vous sentez - vous attiré? Pour plus d'informations, veuillez contacter Lea Kehrein, responsable de la station S3, tél. +41 44 929 86 05 ou Thomas Sutter, Chef de Division Care, Tél. +41 44 929 82 52. Nous attendons avec impatience votre application via l'outil d'application. Les dossiers des bureaux de recrutement ne sont pas pris en considération pour ce poste. Le Groupe Clienia est le plus grand groupe hospitalier privé en psychiatrie et en psychothérapie en Suisse germanophone. À différents endroits, Clienia offre un éventail varié de méthodes de traitement psychiatrique, psychothérapeutique et psychosomatique pour tous les groupes d'âge dans les établissements ambulatoires, semi-stationnaires et hospitalisés jusqu'aux soins psychiatriques de longue durée.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
       },
       "location": "Pfäffikon ZH",
       "canton": "ZH",
@@ -7903,19 +7988,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-pflege-80-100-clienia-ag-zurich",
-          "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon"
-        ],
-        "en": [
-          "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon"
-        ],
-        "fr": [
-          "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon"
+          "fachverantwortliche-r-pflege-80-100-clienia-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-pflege-80-100-clienia-ag-zurich",
-        "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon"
+        "fachverantwortliche-r-pflege-80-100-clienia-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
