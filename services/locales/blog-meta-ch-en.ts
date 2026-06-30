@@ -781,6 +781,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volg-binn-novita-2024.title': 'Volg Binn: national news for local commerce',
     'blog.article.volg-binn-novita-2024.excerpt': 'Volg renews its presence at Binn with new offers and initiatives for Swiss consumers.',
     'blog.article.volg-binn-novita-2024.imageAlt': 'Photorealistic view of a Volg store in a Swiss village with alpine landscape',
+    'blog.article.dogana-chiasso-brogeda-traffico-2024.title': 'Chiasso Brogeda Customs: traffic updates and procedures 2024',
+    'blog.article.dogana-chiasso-brogeda-traffico-2024.excerpt': 'Updates on traffic and procedures at the Chiasso Brogeda customs office, a crucial point for border workers and international transport.',
+    'blog.article.dogana-chiasso-brogeda-traffico-2024.imageAlt': 'View of Chiasso-Brogeda border customs with vehicles and Swiss flags at the border',
 };
 
 export default blogMetaChEn;

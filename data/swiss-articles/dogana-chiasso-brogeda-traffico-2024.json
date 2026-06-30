@@ -1,0 +1,40 @@
+{
+  "id": "dogana-chiasso-brogeda-traffico-2024",
+  "slug": "dogana-chiasso-brogeda-traffico-2024",
+  "publishedAt": "2026-06-30T23:05:30.274Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.9547968583991615,
+    "confidence": 0.8,
+    "finalScore": 5.563837486719329,
+    "topK": [
+      {
+        "slug": "ascensione-svizzera-viabilit-2026",
+        "cosine": 0.869479843335019
+      },
+      {
+        "slug": "eroina-auto-chiasso-brogeda",
+        "cosine": 0.8676520985370426
+      },
+      {
+        "slug": "lite-dogana-ponte-chiasso-ferito-contuso",
+        "cosine": 0.8640340406756416
+      },
+      {
+        "slug": "dogana-chiasso-centro-tecnologico",
+        "cosine": 0.8637524389746158
+      },
+      {
+        "slug": "due-arresti-brogeda-smuggling-droga-2024",
+        "cosine": 0.8609377095203535
+      }
+    ],
+    "score": 1.3909593716798323,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
