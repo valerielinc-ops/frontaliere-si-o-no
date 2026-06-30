@@ -40,6 +40,7 @@ import {
   upcomingEvents,
   groupByComune,
   slugifyComune,
+  slugifyEvent,
   EVENT_SOURCES,
   EVENTS_BASE_PATH,
   EVENTS_DIGEST_SLUGS,
@@ -383,6 +384,19 @@ function buildAlternates(comune?: string): string {
     .join('\n');
 }
 
+/** Canonical path of a per-event detail page: `<base>/<comune>/<event-slug>/`. */
+export function pathForEventDetail(locale: Locale, comune: string, eventSlug: string): string {
+  return `${BASE_PATH[locale]}/${slugifyComune(comune)}/${eventSlug}/`;
+}
+
+function buildEventAlternates(comune: string, eventSlug: string): string {
+  return LOCALES.map(
+    (locale) => ` <link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathForEventDetail(locale, comune, eventSlug)}">`,
+  )
+    .concat(` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForEventDetail('it', comune, eventSlug)}">`)
+    .join('\n');
+}
+
 function renderMetric(label: string, value: string, detail?: string): string {
   return `<div class="rounded-md border border-edge bg-surface p-4">
     <dt class="text-sm font-medium text-subtle">${esc(label)}</dt>
@@ -442,7 +456,7 @@ export function zurichOffset(isoDate: string): string {
  * validates it only when present. Every other Google-required/recommended
  * Event field is emitted with a safe fallback.
  */
-export function eventLd(event: SiteEvent, locale: Locale): Record<string, unknown> {
+export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   const locality = event.comune || 'Canton Ticino';
   const venueName = event.venue || locality;
   const offset = zurichOffset(event.startDate);
@@ -475,18 +489,31 @@ export function eventLd(event: SiteEvent, locale: Locale): Record<string, unknow
     },
     description: description.length >= 30 ? description : `${description} Evento in Ticino.`,
     image: SITE_IMAGE,
-    url: event.url,
+    // On a detail page `url` is OUR canonical page (the page about the event);
+    // the original source is then surfaced as `sameAs`. On aggregate pages
+    // (no canonicalUrl) we keep the source URL.
+    url: canonicalUrl || event.url,
+    ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
     organizer: { '@type': 'Organization', name: event.sourceName, url: SOURCE.homepage },
     performer: { '@type': 'Organization', name: venueName },
   };
 }
 
-function renderEventCard(event: SiteEvent, locale: Locale): string {
+/**
+ * One event card. When `detailHref` is provided the title links to OUR internal
+ * event detail page (indexable, no nofollow); otherwise it falls back to the
+ * external source URL (nofollow) — used for events without a comune that have no
+ * detail page.
+ */
+function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string | null): string {
   const cat = categoryLabel(event.category, locale);
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const place = event.venue ? `${esc(event.venue)}` : '';
   const comuneTag = event.comune ? `<span class="text-subtle">${esc(event.comune)}</span>` : '';
+  const titleLink = detailHref
+    ? `<a class="text-link hover:text-link-hover" href="${esc(detailHref)}">${esc(event.title)}</a>`
+    : `<a class="text-link hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(event.title)}</a>`;
   return `<article class="rounded-md border border-edge bg-surface p-4">
     <div class="flex flex-wrap items-center gap-2 text-xs">
       <span class="rounded-full border border-info-border bg-info-subtle px-2.5 py-0.5 font-semibold text-info">${esc(cat)}</span>
@@ -494,17 +521,22 @@ function renderEventCard(event: SiteEvent, locale: Locale): string {
       ${comuneTag}
     </div>
     <h3 class="mt-2 text-base font-bold leading-snug text-heading">
-      <a class="text-link hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(event.title)}</a>
+      ${titleLink}
     </h3>
     ${place ? `<p class="mt-1 text-sm text-body">${esc(COPY[locale].at)} ${place}</p>` : ''}
   </article>`;
 }
 
-function renderEventList(events: SiteEvent[], locale: Locale): string {
+/** `detailHref` maps an event to its internal detail-page URL (or null → external). */
+type DetailHref = (event: SiteEvent) => string | null;
+
+function renderEventList(events: SiteEvent[], locale: Locale, detailHref?: DetailHref): string {
   if (events.length === 0) {
     return `<p class="rounded-md border border-edge bg-surface p-4 text-sm text-body">${esc(COPY[locale].noEventsSoon)}</p>`;
   }
-  return `<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${events.map((e) => renderEventCard(e, locale)).join('')}</div>`;
+  return `<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${events
+    .map((e) => renderEventCard(e, locale, detailHref ? detailHref(e) : null))
+    .join('')}</div>`;
 }
 
 function renderCrosslinks(locale: Locale): string {
@@ -542,8 +574,9 @@ function renderHubPage(params: {
   dateStamp: string;
   weekendDays: Set<string>;
   distDir: string;
+  detailHref?: DetailHref;
 }): { urlPath: string; html: string; wordCount: number } {
-  const { locale, events, byComune, dateStamp, weekendDays, distDir } = params;
+  const { locale, events, byComune, dateStamp, weekendDays, distDir, detailHref } = params;
   const copy = COPY[locale];
   const canonicalPath = pathFor(locale);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -585,7 +618,7 @@ function renderHubPage(params: {
 
     <section class="mt-8">
       <h2 class="text-2xl font-bold text-heading">${esc(copy.upcoming)}</h2>
-      <div class="mt-4">${renderEventList(upcoming, locale)}</div>
+      <div class="mt-4">${renderEventList(upcoming, locale, detailHref)}</div>
     </section>
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5">
@@ -661,8 +694,9 @@ function renderComunePage(params: {
   dateStamp: string;
   weekendDays: Set<string>;
   distDir: string;
+  detailHref?: DetailHref;
 }): { urlPath: string; html: string; wordCount: number } {
-  const { locale, comune, events, dateStamp, weekendDays, distDir } = params;
+  const { locale, comune, events, dateStamp, weekendDays, distDir, detailHref } = params;
   const copy = COPY[locale];
   const canonicalPath = pathFor(locale, comune);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -692,7 +726,7 @@ function renderComunePage(params: {
 
     <section class="mt-8">
       <h2 class="text-2xl font-bold text-heading">${esc(copy.eventsIn(comune))}</h2>
-      <div class="mt-4">${renderEventList(list, locale)}</div>
+      <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5">
@@ -754,6 +788,241 @@ function renderComunePage(params: {
     ogLocale: LOCALE_OG[locale],
     bodyHtml: body,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
+  return { urlPath: canonicalPath, html, wordCount };
+}
+
+// ── Per-event detail pages ──────────────────────────────────────────────────
+// One indexable page per event under its comune (/eventi/ticino/<comune>/<slug>/).
+// The comune/hub/digest listings link here (internal) instead of straight to the
+// external source, turning the agenda into a crawlable graph; the source is kept
+// as an outbound "official site" CTA + JSON-LD `sameAs`.
+
+interface DetailCopy {
+  metaTitle: (title: string, comune: string) => string;
+  metaDesc: (title: string, comune: string, when: string) => string;
+  whenLabel: string;
+  whereLabel: string;
+  catLabel: string;
+  comuneLabel: string;
+  lede: (when: string, time: string, venue: string, comune: string) => string;
+  officialSite: string;
+  aboutTitle: string;
+  about: (title: string, comune: string, when: string, cat: string) => string;
+  practicalTitle: string;
+  practical: (comune: string) => string;
+  moreTitle: (comune: string) => string;
+  allInComune: (comune: string) => string;
+  faqQ1: (title: string) => string;
+  faqA1: (comune: string, when: string) => string;
+  faqQ2: (comune: string) => string;
+  faqA2: (comune: string) => string;
+}
+
+const DETAIL_COPY: Record<Locale, DetailCopy> = {
+  it: {
+    metaTitle: (t, c) => `${t} — ${c} (Ticino) | Eventi`,
+    metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Data, orario, luogo e link al sito ufficiale dell'evento.`,
+    whenLabel: 'Quando',
+    whereLabel: 'Dove',
+    catLabel: 'Categoria',
+    comuneLabel: 'Comune',
+    lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, in Ticino.`,
+    officialSite: 'Sito ufficiale dell’evento',
+    aboutTitle: 'Informazioni sull’evento',
+    about: (t, c, w, cat) =>
+      `${t} è un evento di tipo ${cat} in programma ${w} a ${c}, in Ticino. In questa pagina trovi le informazioni essenziali — data, orario e luogo — raccolte dall’agenda del territorio. Per i dettagli completi, l’eventuale biglietteria e gli aggiornamenti dell’ultimo minuto, fai riferimento al sito ufficiale dell’evento.`,
+    practicalTitle: 'Informazioni pratiche',
+    practical: (c) =>
+      `${c} è raggiungibile in auto e con i trasporti pubblici ticinesi. Pianifica l’arrivo con un po’ di anticipo, soprattutto per gli eventi serali e di fine settimana. Verifica sempre eventuali variazioni sul sito ufficiale prima di metterti in viaggio.`,
+    moreTitle: (c) => `Altri eventi a ${c}`,
+    allInComune: (c) => `Tutti gli eventi a ${c}`,
+    faqQ1: (t) => `Quando si svolge ${t}?`,
+    faqA1: (c, w) => `L’evento è in programma ${w} a ${c}, in Ticino. Controlla data e orario aggiornati sul sito ufficiale.`,
+    faqQ2: (c) => `Dove trovo gli altri eventi a ${c}?`,
+    faqA2: (c) => `Nella pagina dedicata a ${c} trovi l’agenda completa degli eventi del comune, aggiornata ogni giorno.`,
+  },
+  en: {
+    metaTitle: (t, c) => `${t} — ${c} (Ticino) | Events`,
+    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. Date, time, venue and a link to the event’s official site.`,
+    whenLabel: 'When',
+    whereLabel: 'Where',
+    catLabel: 'Category',
+    comuneLabel: 'Municipality',
+    lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, Ticino.`,
+    officialSite: 'Event’s official website',
+    aboutTitle: 'About this event',
+    about: (t, c, w, cat) =>
+      `${t} is a ${cat} event taking place ${w} in ${c}, Ticino. This page gathers the essentials — date, time and venue — collected from the local agenda. For full details, ticketing and last-minute updates, refer to the event’s official website.`,
+    practicalTitle: 'Practical information',
+    practical: (c) =>
+      `${c} is reachable by car and by Ticino public transport. Plan to arrive a little early, especially for evening and weekend events, and always check for changes on the official site before setting off.`,
+    moreTitle: (c) => `More events in ${c}`,
+    allInComune: (c) => `All events in ${c}`,
+    faqQ1: (t) => `When does ${t} take place?`,
+    faqA1: (c, w) => `The event takes place ${w} in ${c}, Ticino. Check the current date and time on the official site.`,
+    faqQ2: (c) => `Where can I find other events in ${c}?`,
+    faqA2: (c) => `The ${c} page lists the full agenda of events in the municipality, refreshed daily.`,
+  },
+  de: {
+    metaTitle: (t, c) => `${t} — ${c} (Tessin) | Veranstaltungen`,
+    metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Datum, Uhrzeit, Ort und Link zur offiziellen Website der Veranstaltung.`,
+    whenLabel: 'Wann',
+    whereLabel: 'Wo',
+    catLabel: 'Kategorie',
+    comuneLabel: 'Gemeinde',
+    lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, Tessin.`,
+    officialSite: 'Offizielle Website der Veranstaltung',
+    aboutTitle: 'Über diese Veranstaltung',
+    about: (t, c, w, cat) =>
+      `${t} ist eine ${cat}-Veranstaltung am ${w} in ${c}, Tessin. Diese Seite fasst das Wesentliche zusammen — Datum, Uhrzeit und Ort — aus der regionalen Agenda. Für vollständige Details, Tickets und kurzfristige Änderungen konsultieren Sie die offizielle Website der Veranstaltung.`,
+    practicalTitle: 'Praktische Informationen',
+    practical: (c) =>
+      `${c} ist mit dem Auto und mit dem Tessiner öffentlichen Verkehr erreichbar. Planen Sie etwas Vorlauf ein, besonders bei Abend- und Wochenendveranstaltungen, und prüfen Sie vor der Abreise mögliche Änderungen auf der offiziellen Website.`,
+    moreTitle: (c) => `Weitere Veranstaltungen in ${c}`,
+    allInComune: (c) => `Alle Veranstaltungen in ${c}`,
+    faqQ1: (t) => `Wann findet ${t} statt?`,
+    faqA1: (c, w) => `Die Veranstaltung findet ${w} in ${c}, Tessin, statt. Prüfen Sie Datum und Uhrzeit auf der offiziellen Website.`,
+    faqQ2: (c) => `Wo finde ich weitere Veranstaltungen in ${c}?`,
+    faqA2: (c) => `Auf der Seite zu ${c} finden Sie die vollständige, täglich aktualisierte Veranstaltungsagenda der Gemeinde.`,
+  },
+  fr: {
+    metaTitle: (t, c) => `${t} — ${c} (Tessin) | Événements`,
+    metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Date, heure, lieu et lien vers le site officiel de l’événement.`,
+    whenLabel: 'Quand',
+    whereLabel: 'Où',
+    catLabel: 'Catégorie',
+    comuneLabel: 'Commune',
+    lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, au Tessin.`,
+    officialSite: 'Site officiel de l’événement',
+    aboutTitle: 'À propos de cet événement',
+    about: (t, c, w, cat) =>
+      `${t} est un événement de type ${cat} prévu ${w} à ${c}, au Tessin. Cette page rassemble l’essentiel — date, heure et lieu — à partir de l’agenda régional. Pour tous les détails, la billetterie et les mises à jour de dernière minute, référez-vous au site officiel de l’événement.`,
+    practicalTitle: 'Informations pratiques',
+    practical: (c) =>
+      `${c} est accessible en voiture et par les transports publics tessinois. Prévoyez d’arriver un peu en avance, surtout pour les événements en soirée et le week-end, et vérifiez toujours les changements sur le site officiel avant de partir.`,
+    moreTitle: (c) => `Autres événements à ${c}`,
+    allInComune: (c) => `Tous les événements à ${c}`,
+    faqQ1: (t) => `Quand a lieu ${t} ?`,
+    faqA1: (c, w) => `L’événement a lieu ${w} à ${c}, au Tessin. Vérifiez la date et l’heure sur le site officiel.`,
+    faqQ2: (c) => `Où trouver d’autres événements à ${c} ?`,
+    faqA2: (c) => `La page dédiée à ${c} liste l’agenda complet des événements de la commune, mis à jour chaque jour.`,
+  },
+};
+
+export function renderEventDetailPage(params: {
+  locale: Locale;
+  event: SiteEvent;
+  comune: string;
+  eventSlug: string;
+  sameComuneEvents: SiteEvent[];
+  dateStamp: string;
+  distDir: string;
+  detailHref: DetailHref;
+}): { urlPath: string; html: string; wordCount: number } {
+  const { locale, event, comune, eventSlug, sameComuneEvents, dateStamp, distDir, detailHref } = params;
+  const copy = COPY[locale];
+  const dc = DETAIL_COPY[locale];
+  const canonicalPath = pathForEventDetail(locale, comune, eventSlug);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const comunePath = pathFor(locale, comune);
+  const when = humanDate(event.startDate, locale);
+  const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
+  const cat = categoryLabel(event.category, locale);
+  const others = sameComuneEvents.filter((e) => e.id !== event.id).slice(0, 6);
+
+  const body = `<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
+    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
+      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${pathFor(locale)}">${esc(copy.hubLabel)}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${comunePath}">${esc(comune)}</a>
+      <span class="mx-2">/</span>
+      <span>${esc(event.title)}</span>
+    </nav>
+
+    <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
+      <span class="inline-block rounded-full border border-info-border bg-info-subtle px-2.5 py-0.5 text-xs font-semibold text-info">${esc(cat)}</span>
+      <h1 class="mt-3 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(event.title)}</h1>
+      <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', comune))}</p>
+    </header>
+
+    <dl class="mt-5 grid gap-3 sm:grid-cols-2">
+      ${renderMetric(dc.whenLabel, `${esc(when)}${time}`)}
+      ${renderMetric(dc.whereLabel, esc(event.venue || comune))}
+      ${renderMetric(dc.catLabel, esc(cat))}
+      ${renderMetric(dc.comuneLabel, esc(comune))}
+    </dl>
+
+    <section class="mt-6 flex flex-wrap gap-3">
+      <a class="inline-flex items-center gap-2 rounded-md border border-info-border bg-info-subtle px-4 py-2 text-sm font-semibold text-info hover:bg-info-subtle/80" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
+      <a class="inline-flex items-center gap-2 rounded-md border border-edge px-4 py-2 text-sm font-semibold text-link hover:text-link-hover" href="${comunePath}">${esc(dc.allInComune(comune))} →</a>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold text-heading">${esc(dc.aboutTitle)}</h2>
+      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(event.title, comune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat))}</p>
+    </section>
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+      <h2 class="text-xl font-bold text-heading">${esc(dc.practicalTitle)}</h2>
+      <p class="mt-3 text-sm leading-6 text-body">${esc(dc.practical(comune))}</p>
+    </section>
+
+    ${
+      others.length > 0
+        ? `<section class="mt-8">
+      <h2 class="text-2xl font-bold text-heading">${esc(dc.moreTitle(comune))}</h2>
+      <div class="mt-4">${renderEventList(others, locale, detailHref)}</div>
+    </section>`
+        : ''
+    }
+
+    ${renderCrosslinks(locale)}
+
+    ${renderFaq(
+      [
+        { q: dc.faqQ1(event.title), a: dc.faqA1(comune, when) },
+        { q: dc.faqQ2(comune), a: dc.faqA2(comune) },
+      ],
+      copy.faqTitle,
+    )}
+  </div>`;
+
+  const eventLdScript = inlineScriptJson(eventLd(event, locale, canonicalUrl));
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale)}` },
+      { '@type': 'ListItem', position: 3, name: comune, item: `${BASE_URL}${comunePath}` },
+      { '@type': 'ListItem', position: 4, name: event.title, item: canonicalUrl },
+    ],
+  });
+  const faqLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: dc.faqQ1(event.title), acceptedAnswer: { '@type': 'Answer', text: dc.faqA1(comune, when) } },
+      { '@type': 'Question', name: dc.faqQ2(comune), acceptedAnswer: { '@type': 'Answer', text: dc.faqA2(comune) } },
+    ],
+  });
+
+  const wordCount = countHtmlBodyWords(body);
+  const html = buildSeoPageHtml({
+    locale,
+    title: dc.metaTitle(event.title, comune),
+    description: dc.metaDesc(event.title, comune, when),
+    canonicalUrl,
+    hreflangHtml: buildEventAlternates(comune, eventSlug),
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    ogLocale: LOCALE_OG[locale],
+    bodyHtml: body,
+    jsonLdScripts: [eventLdScript, breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
@@ -889,8 +1158,9 @@ function renderDigestPage(params: {
   events: SiteEvent[];
   dateStamp: string;
   distDir: string;
+  detailHref?: DetailHref;
 }): { urlPath: string; html: string; wordCount: number } {
-  const { def, locale, events, dateStamp, distDir } = params;
+  const { def, locale, events, dateStamp, distDir, detailHref } = params;
   const copy = COPY[locale];
   const dc = def.copy[locale];
   const canonicalPath = pathForDigest(locale, def.slug);
@@ -929,7 +1199,7 @@ function renderDigestPage(params: {
 
     <section class="mt-8">
       <h2 class="text-2xl font-bold text-heading">${esc(dc.h1)}</h2>
-      <div class="mt-4">${renderEventList(list, locale)}</div>
+      <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
     ${
@@ -994,14 +1264,30 @@ function renderDigestPage(params: {
   return { urlPath: canonicalPath, html, wordCount };
 }
 
-function buildSitemap(comuni: string[], dateStamp: string, digests: DigestDef[]): string {
+function buildSitemap(
+  comuni: string[],
+  dateStamp: string,
+  digests: DigestDef[],
+  detailEntries: Array<{ comune: string; slug: string }> = [],
+): string {
   const entries: string[] = [];
   // Hub
   entries.push(sitemapUrl(undefined, dateStamp, '0.7'));
   // Time-window digests (only the indexable ones)
   for (const d of digests) entries.push(digestSitemapUrl(d.slug, dateStamp));
   for (const comune of comuni) entries.push(sitemapUrl(comune, dateStamp, '0.5'));
+  // Per-event detail pages
+  for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.comune, e.slug, dateStamp));
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`;
+}
+
+function eventDetailSitemapUrl(comune: string, slug: string, dateStamp: string): string {
+  const alternates = LOCALES.map(
+    (locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${pathForEventDetail(locale, comune, slug)}" />`,
+  )
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathForEventDetail('it', comune, slug)}" />`)
+    .join('\n');
+  return `  <url>\n    <loc>${BASE_URL}${pathForEventDetail('it', comune, slug)}</loc>\n${alternates}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.4</priority>\n  </url>`;
 }
 
 function digestSitemapUrl(slug: Record<Locale, string>, dateStamp: string): string {
@@ -1079,6 +1365,29 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const byComune = groupByComune(all) as Map<string, SiteEvent[]>;
       const comuni = [...byComune.keys()].sort((a, b) => a.localeCompare(b));
 
+      // Stable, collision-free detail slug per event (scoped to its comune), so
+      // every event gets ONE indexable URL /<base>/<comune>/<slug>/ that listings
+      // link to internally. Built once (locale-independent), then resolved per
+      // locale into a full href for the event cards.
+      const detailSlugs = new Map<string, { comune: string; slug: string }>();
+      for (const [comune, list] of byComune) {
+        const used = new Set<string>();
+        for (const ev of list) {
+          const base = slugifyEvent(ev);
+          let slug = base;
+          let n = 2;
+          while (used.has(slug)) slug = `${base}-${n++}`;
+          used.add(slug);
+          detailSlugs.set(ev.id, { comune, slug });
+        }
+      }
+      const detailHrefFor =
+        (locale: Locale): DetailHref =>
+        (e: SiteEvent) => {
+          const m = detailSlugs.get(e.id);
+          return m ? pathForEventDetail(locale, m.comune, m.slug) : null;
+        };
+
       const collector = new WriteCollector({ distDir, pluginName: 'eventsSeoPagesPlugin' });
       let pagesWritten = 0;
       let thinPages = 0;
@@ -1100,19 +1409,38 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // so all 4 hreflang alternates stay consistent (no noindex straddle).
       const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(all, { todayIso: dateStamp })]));
       for (const locale of LOCALES) {
-        emit(renderHubPage({ locale, events: all, byComune, dateStamp, weekendDays, distDir }));
+        const detailHref = detailHrefFor(locale);
+        emit(renderHubPage({ locale, events: all, byComune, dateStamp, weekendDays, distDir, detailHref }));
         for (const comune of comuni) {
-          emit(renderComunePage({ locale, comune, events: byComune.get(comune)!, dateStamp, weekendDays, distDir }));
+          const list = byComune.get(comune)!;
+          emit(renderComunePage({ locale, comune, events: list, dateStamp, weekendDays, distDir, detailHref }));
+          // One indexable detail page per event under its comune.
+          for (const ev of list) {
+            const eventSlug = detailSlugs.get(ev.id)!.slug;
+            emit(
+              renderEventDetailPage({
+                locale,
+                event: ev,
+                comune,
+                eventSlug,
+                sameComuneEvents: list,
+                dateStamp,
+                distDir,
+                detailHref,
+              }),
+            );
+          }
         }
         // Emitted even when empty (the page degrades to a "no events" notice +
         // comune links) so the URL is stable for FB linking, but noindex.
         for (const def of DIGESTS) {
-          emit(renderDigestPage({ def, locale, events: digestEvents.get(def.key)!, dateStamp, distDir }));
+          emit(renderDigestPage({ def, locale, events: digestEvents.get(def.key)!, dateStamp, distDir, detailHref }));
         }
       }
 
       const sitemapDigests = DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0);
-      const sitemapXml = buildSitemap(comuni, dateStamp, sitemapDigests);
+      const detailEntries = [...detailSlugs.values()];
+      const sitemapXml = buildSitemap(comuni, dateStamp, sitemapDigests, detailEntries);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
 
