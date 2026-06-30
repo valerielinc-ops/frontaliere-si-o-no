@@ -85,8 +85,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-          "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
         ],
         "en": [
           "stellvertretender-filialleiter-m-w-d-aldi-suisse"
@@ -115,9 +114,9 @@
       "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
       "slugByLocale": {
         "it": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "en": "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
+        "en": "deputy-branch-manager-m-f-d-aldi-suisse-glarus",
         "de": "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
-        "fr": "stellvertretender-filialleiter-m-w-d-aldi-suisse-2"
+        "fr": "directeur-adjoint-m-f-d-aldi-suisse-glarus"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -199,6 +198,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stellvertretender-filialleiter-m-w-d-aldi-suisse-2"
+        ],
+        "en": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse-2"
+        ],
+        "fr": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse-2"
         ]
       },
       "previousSlugs": [
@@ -221,12 +226,12 @@
     },
     {
       "id": "aldi-suisse-fce83ebb16db",
-      "slug": "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+      "slug": "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg",
       "slugByLocale": {
-        "it": "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
-        "en": "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
+        "it": "samstagsaushilfe-vendita-m-w-d-aldi-suisse-oberburg",
+        "en": "samstagsaushilfe-sales-m-w-d-aldi-suisse-oberburg",
         "de": "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
-        "fr": "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+        "fr": "samstagsaushilfe-vente-m-w-d-aldi-suisse-oberburg"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -316,7 +321,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-30T10:51:18.342Z"
+      "firstSeenAt": "2026-06-30T10:51:18.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-fcd6a63a458e",
@@ -400,8 +419,7 @@
       "previousSlugsByLocale": {
         "it": [
           "samstagsaushilfe-verkauf-m-w-d-aldi-suisse",
-          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse-2",
-          "samstagsaushilfe-vendita-m-w-d-aldi-suisse-zurich"
+          "samstagsaushilfe-verkauf-m-w-d-aldi-suisse-2"
         ],
         "en": [
           "samstagsaushilfe-verkauf-m-w-d-aldi-suisse"
@@ -504,8 +522,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-dubendorf"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -534,9 +551,9 @@
       "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
       "slugByLocale": {
         "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "en": "sales-associate-m-w-d-aldi-suisse-uster",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-uster"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -615,11 +632,16 @@
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
           "addetto-a-alle-vendite-m-w-d-aldi-suisse-dubendorf"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-dubendorf"
       ],
       "salaryMin": 83000,

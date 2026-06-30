@@ -77,10 +77,10 @@
     },
     {
       "id": "ubs-b1f981859865",
-      "slug": "sr-wealth-strategy-associate-ubs-missouri",
+      "slug": "associato-senior-strategia-di-ricchezza-ubs-missouri",
       "slugByLocale": {
         "en": "sr-wealth-strategy-associate-ubs-missouri",
-        "it": "sr-wealth-strategy-associate-ubs-missouri",
+        "it": "associato-senior-strategia-di-ricchezza-ubs-missouri",
         "de": "sr-wealth-strategy-associate-ubs-missouri",
         "fr": "sr-wealth-strategy-associate-ubs-missouri"
       },
@@ -146,14 +146,22 @@
         }
       },
       "addressRegion": "UR",
-      "firstSeenAt": "2026-06-30T12:37:52.108Z"
+      "firstSeenAt": "2026-06-30T12:37:52.108Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-wealth-strategy-associate-ubs-missouri"
+        ]
+      },
+      "previousSlugs": [
+        "sr-wealth-strategy-associate-ubs-missouri"
+      ]
     },
     {
       "id": "ubs-153149fd7e5c",
       "slug": "event-attendant-contratto-a-ore-ubs-ticino",
       "slugByLocale": {
         "it": "event-attendant-contratto-a-ore-ubs-ticino",
-        "en": "event-attendant-contratto-a-ore-ubs-ticino",
+        "en": "event-attendant-hourly-contract-ubs-ticino",
         "de": "event-attendant-contratto-a-ore-ubs-ticino",
         "fr": "event-attendant-contratto-a-ore-ubs-ticino"
       },
@@ -223,10 +231,10 @@
     },
     {
       "id": "ubs-c759124e8b01",
-      "slug": "finanzplaner-wmch-basel-ubs-nordschweiz",
+      "slug": "consulente-finanziario-wmch-basilea-ubs-nordschweiz",
       "slugByLocale": {
         "de": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "it": "finanzplaner-wmch-basel-ubs-nordschweiz",
+        "it": "consulente-finanziario-wmch-basilea-ubs-nordschweiz",
         "en": "finanzplaner-wmch-basel-ubs-nordschweiz",
         "fr": "finanzplaner-wmch-basel-ubs-nordschweiz"
       },
@@ -291,14 +299,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T12:37:52.065Z"
+      "firstSeenAt": "2026-06-30T12:37:52.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "finanzplaner-wmch-basel-ubs-nordschweiz"
+      ]
     },
     {
       "id": "ubs-28e4d7bafe32",
-      "slug": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
+      "slug": "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz",
       "slugByLocale": {
         "de": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "it": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
+        "it": "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz",
         "en": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
         "fr": "steuerexperte-in-wealth-management-ubs-zentralschweiz"
       },
@@ -363,14 +379,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T12:37:52.063Z"
+      "firstSeenAt": "2026-06-30T12:37:52.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+      ]
     },
     {
       "id": "ubs-4ea375f241aa",
-      "slug": "succession-planner-ubs-zentralschweiz",
+      "slug": "pianificatore-della-successione-ubs-zentralschweiz",
       "slugByLocale": {
         "de": "succession-planner-ubs-zentralschweiz",
-        "it": "succession-planner-ubs-zentralschweiz",
+        "it": "pianificatore-della-successione-ubs-zentralschweiz",
         "en": "succession-planner-ubs-zentralschweiz",
         "fr": "succession-planner-ubs-zentralschweiz"
       },
@@ -435,7 +459,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T12:37:52.062Z"
+      "firstSeenAt": "2026-06-30T12:37:52.062Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "succession-planner-ubs-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "succession-planner-ubs-zentralschweiz"
+      ]
     }
   ]
 }

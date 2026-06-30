@@ -63,8 +63,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fms-praktikum-6-monate-adullam-basel-und-riehen",
-          "fms-praktikum-6-monate-adullam-stiftung-basel-und-riehen",
-          "stage-fms-6-mesi-adullam-stiftung-basel-und-riehen"
+          "fms-praktikum-6-monate-adullam-stiftung-basel-und-riehen"
         ],
         "en": [
           "fms-praktikum-6-monate-adullam-basel-und-riehen"
@@ -92,7 +91,7 @@
       "slug": "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel",
       "slugByLocale": {
         "it": "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel",
-        "en": "qualified-nurse-hf-fh-adullam-stiftung-basel",
+        "en": "certified-nurse-hf-fh-adullam-stiftung-basel",
         "de": "diplomierte-pflegefachperson-hf-fh-adullam-basel",
         "fr": "infirmier-ere-diplome-e-es-hes-adullam-stiftung-basel"
       },
@@ -142,16 +141,15 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fh-adullam-basel",
-        "certified-nurse-hf-fh-adullam-stiftung-basel"
+        "qualified-nurse-hf-fh-adullam-stiftung-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-fh-adullam-basel",
-          "diplomiere-pflegefachperson-hf-fh-adullam-stiftung-basel"
+          "diplomierte-pflegefachperson-hf-fh-adullam-basel"
         ],
         "en": [
-          "certified-nurse-hf-fh-adullam-stiftung-basel",
-          "diplomierte-pflegefachperson-hf-fh-adullam-basel"
+          "diplomierte-pflegefachperson-hf-fh-adullam-basel",
+          "qualified-nurse-hf-fh-adullam-stiftung-basel"
         ],
         "fr": [
           "diplomierte-pflegefachperson-hf-fh-adullam-basel"
@@ -231,8 +229,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-adullam-basel",
-          "dipl-physiotherapeut-physiotherapeutin-adullam-basel",
-          "dipl-fisioterapia-in-adullam-stiftung-basel"
+          "dipl-physiotherapeut-physiotherapeutin-adullam-basel"
         ],
         "en": [
           "dipl-physiotherapeut-in-adullam-basel"
@@ -310,13 +307,11 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-basel",
-          "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel"
+          "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-basel"
         ],
         "it": [
           "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel",
-          "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-basel",
-          "assistent-in-gesundheit-e-soziales-in-der-gerontopsychiatrie-adullam-stiftung-basel"
+          "dipl-pflegefachperson-hf-fh-in-der-gerontopsychiatrie-adullam-basel"
         ],
         "en": [
           "assistant-in-health-and-social-affairs-in-the-gerontopsychiatrie-adullam-stiftung-basel",
@@ -347,12 +342,12 @@
     },
     {
       "id": "adullam-c87d7de18805",
-      "slug": "dipl-pflegefachperson-hf-fh-adullam-basel",
+      "slug": "dipl-cura-professionale-hf-fh-adullam-stiftung-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-adullam-basel",
-        "it": "dipl-pflegefachperson-hf-fh-adullam-basel",
-        "en": "dipl-pflegefachperson-hf-fh-adullam-basel",
-        "fr": "dipl-pflegefachperson-hf-fh-adullam-basel"
+        "it": "dipl-cura-professionale-hf-fh-adullam-stiftung-basel",
+        "en": "dipl-care-professional-hf-fh-adullam-stiftung-basel",
+        "fr": "dipl-soins-professionnels-hf-fh-adullam-stiftung-basel"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -412,7 +407,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T10:48:22.165Z"
+      "firstSeenAt": "2026-06-30T10:48:22.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-adullam-basel"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-adullam-basel"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-adullam-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-adullam-basel"
+      ]
     },
     {
       "id": "adullam-cc3f32ef6ed8",
@@ -473,8 +482,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-m-w-d-fur-die-beatmungsstation-abwechslungsreich-herausfordernd",
-          "dipl-pflegefachfrau-mann-m-w-d-per-la-beatmungsstation-abwechslungsreich-herausfordernd-e-ohne-nachtdienst-adullam-stiftung-basel"
+          "dipl-pflegefachfrau-mann-m-w-d-fur-die-beatmungsstation-abwechslungsreich-herausfordernd"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-m-w-d-fur-die-beatmungsstation-abwechslungsreich-herausfordernd"
@@ -581,12 +589,12 @@
     },
     {
       "id": "adullam-7b61d221f5a0",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-fh-adullam-stiftung-riehen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen"
+        "it": "dipl-infermiera-infermiera-specialista-hf-fh-adullam-stiftung-riehen",
+        "en": "dipl-nurse-nurse-specialist-hf-fh-adullam-stiftung-riehen",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-fh-adullam-stiftung-riehen"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -646,7 +654,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T10:48:20.475Z"
+      "firstSeenAt": "2026-06-30T10:48:20.475Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-adullam-riehen"
+      ]
     },
     {
       "id": "adullam-8464f22eb911",
@@ -791,8 +813,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen",
-          "assistenzarztinnen-assistenzarzte-adullam-stiftung-basel-und-riehen",
-          "medici-assistenti-adullam-stiftung-basel-und-riehen"
+          "assistenzarztinnen-assistenzarzte-adullam-stiftung-basel-und-riehen"
         ],
         "en": [
           "assistenzarztinnen-assistenzarzte-adullam-basel-und-riehen"
