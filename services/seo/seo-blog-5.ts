@@ -45316,7 +45316,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-frontalieri-sede-datore-fuori-confine': {
     title: "Frontalieri: la sede del datore fuori confine non conta",
-    description: "Interpello 126/2026 dell'Agenzia delle Entrate: la sede del datore di lavoro fuori dall'area di frontiera non preclude il regime dei frontalieri Italia-Svizzera, se l'attività è svolta nell'area frontaliera.",
+    description: "Interpello 126/2026 dell'Agenzia delle Entrate: la sede del datore fuori dall'area di frontiera non preclude il regime dei frontalieri Italia-Svizzera.",
     keywords: 'frontalieri, interpello 126/2026, agenzia delle entrate, accordo italia svizzera, area di frontiera, sede datore di lavoro, frontalieri al contrario, ticino, lombardia',
     ogTitle: "Frontalieri: irrilevante la sede del datore fuori confine",
     ogDescription: "L'Agenzia delle Entrate chiarisce: conta dove si svolge l'attività, non dove ha sede l'azienda. Cosa cambia per i frontalieri Italia-Svizzera.",
@@ -45325,7 +45325,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Frontalieri: irrilevante la sede del datore fuori dall'area di confine",
-      "description": "Interpello 126/2026 dell'Agenzia delle Entrate: la sede del datore di lavoro fuori dall'area di frontiera non preclude il regime dei frontalieri Italia-Svizzera, se l'attività è svolta nell'area frontaliera.",
+      "description": "Interpello 126/2026 dell'Agenzia delle Entrate: la sede del datore fuori dall'area di frontiera non preclude il regime dei frontalieri Italia-Svizzera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
