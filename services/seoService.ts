@@ -4304,6 +4304,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stabio-dogana-svizzera': { name: 'Stabio dogana', path: '/articoli-svizzera/stabio-dogana-svizzera/', parent: 'blog' },
     'blog-tempi-attesa-dogana-chiasso-strada': { name: 'Dogana Chiasso', path: '/articoli-svizzera/tempi-attesa-dogana-chiasso-strada/', parent: 'blog' },
     'blog-benzina-prezzi-svizzera-oggi': { name: 'Benzina Svizzera', path: '/articoli-svizzera/benzina-prezzi-svizzera-oggi/', parent: 'blog' },
+    'blog-guess-stabio-lavoro-merchandiser': { name: 'Lavoro Stabio', path: '/articoli-svizzera/guess-stabio-lavoro-merchandiser/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
