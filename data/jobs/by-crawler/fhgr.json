@@ -81,12 +81,10 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch",
-          "bauingenieur-in-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch",
-          "ingegnere-civile-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ]
       },
       "previousSlugs": [
@@ -113,8 +111,8 @@
       "slugByLocale": {
         "de": "studentische-hilfskrafte-als-codierer-innen-fhgr-ch",
         "it": "studentische-hilfskrafte-come-codierer-innen-fachhochschule-graubunden-chur",
-        "en": "studentische-hilfskrafte-als-codierer-innen-fhgr-ch",
-        "fr": "studentische-hilfskrafte-als-codierer-innen-fhgr-ch"
+        "en": "student-assistants-as-coders-fachhochschule-graubunden-chur",
+        "fr": "assistants-etudiants-en-tant-que-codeurs-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -160,6 +158,12 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
+          "studentische-hilfskrafte-als-codierer-innen-fhgr-ch"
+        ],
+        "en": [
+          "studentische-hilfskrafte-als-codierer-innen-fhgr-ch"
+        ],
+        "fr": [
           "studentische-hilfskrafte-als-codierer-innen-fhgr-ch"
         ]
       },
