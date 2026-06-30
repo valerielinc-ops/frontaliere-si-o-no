@@ -11398,5 +11398,119 @@
         "pending": 4
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-30T07:08:31.767Z",
+    "label": "before",
+    "total": 18226,
+    "needsRetranslation": 3451,
+    "suppressed": 470,
+    "incomplete": 1063,
+    "complete": 17163,
+    "missingByLocale": {
+      "it": 521,
+      "en": 381,
+      "de": 504,
+      "fr": 185
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 899
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Manor AG",
+        "pending": 20
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 19
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Alpiq",
+        "pending": 9
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-30T07:46:55.700Z",
+    "label": "after",
+    "total": 18226,
+    "needsRetranslation": 2446,
+    "suppressed": 470,
+    "incomplete": 1065,
+    "complete": 17161,
+    "missingByLocale": {
+      "it": 515,
+      "en": 317,
+      "de": 560,
+      "fr": 158
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 901
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Manor AG",
+        "pending": 20
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 19
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Alpiq",
+        "pending": 9
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 4
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      }
+    ]
   }
 ]
