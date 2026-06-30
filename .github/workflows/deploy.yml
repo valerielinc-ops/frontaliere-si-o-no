@@ -414,6 +414,34 @@ jobs:
       - name: Validate locale shard output
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
+      # ── Ticino shard carve-out (keeps the IT apex under the 10 GB Pages cap) ──
+      # Carve dist/cerca-lavoro-ticino into a tar and strip it from dist BEFORE
+      # deploy-it-pages-prep packs the artifact, so the IT github-pages artifact
+      # drops below the actions/deploy-pages 10 GB hard cap (the limit that failed
+      # the 2026-06-30 deploy). NO-OP (no strip) when SHARD_TICINO_DEPLOY_KEY is
+      # absent → identical to today until the owner provisions the shard. The
+      # carved subtree is RAW; offload runs once in the post-matrix push job.
+      - name: Carve out Ticino subtree (IT → ticino shard)
+        if: matrix.locale == 'it'
+        env:
+          SHARD_TICINO_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DEPLOY_KEY }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+        run: bash scripts/lib/carve-ticino-subtree.sh it dist
+      - name: Upload Ticino subtree artifact (IT)
+        if: matrix.locale == 'it'
+        # Non-essential: a missing/failed upload degrades to the Ticino shard
+        # serving its previous build (stale, not 404), and validate-dist's Ticino
+        # rehydrate falls back to a shard clone. Never block the Pages publish.
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: ticino-shard-it-${{ github.run_id }}
+          # Absent when the split is disabled (no deploy key) → no artifact, no error.
+          path: ${{ runner.temp }}/ticino-shard-it.tar
+          if-no-files-found: ignore
+          compression-level: 1
+          retention-days: 1
+
       # ── IT shard → GitHub Pages + CDN (Pages-serving shard) ──────────────
       # deploy-it-pages-prep.sh runs the monolith's post-build bash IN ORDER:
       # SPA fallback, CDN push (exports CDN_BASE), offload, prune-cdn, drop
@@ -608,6 +636,28 @@ jobs:
           echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
 
       # ── NON-IT shards (en/de/fr) → frontaliere-<loc> shard repos ─────────
+      # Ticino carve-out FIRST (before the offload below) so the locale's Ticino
+      # subtree (find-jobs-ticino / jobs-im-tessin / trouver-emploi-tessin) ships
+      # RAW to the post-matrix push-ticino-shard job (which offloads the whole
+      # assembled tree once) and the locale shard drops below the 10 GB Pages cap.
+      # No-op (no strip) without SHARD_TICINO_DEPLOY_KEY.
+      - name: Carve out Ticino subtree (non-IT → ticino shard)
+        if: matrix.locale != 'it'
+        env:
+          SHARD_TICINO_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DEPLOY_KEY }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+        run: bash scripts/lib/carve-ticino-subtree.sh "${{ matrix.locale }}" dist
+      - name: Upload Ticino subtree artifact (non-IT)
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: ticino-shard-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/ticino-shard-${{ matrix.locale }}.tar
+          if-no-files-found: ignore
+          compression-level: 1
+          retention-days: 1
+
       - name: Offload shard refs to CDN
         if: matrix.locale != 'it'
         continue-on-error: true
@@ -837,3 +887,71 @@ jobs:
             --title "CI Failure (build): ${{ github.workflow }}" \
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  # ── Ticino shard publish (post-matrix) ─────────────────────────────────────
+  # Aggregates the four per-leg Ticino subtrees (uploaded RAW by
+  # carve-ticino-subtree.sh) into one tree, offloads /data refs to the CDN ONCE,
+  # and force-pushes the frontaliere-ticino Pages repo — served from
+  # origin-ticino.frontaliereticino.ch behind the locale-router Worker. Carving
+  # the Ticino section out keeps the IT apex AND every en/de/fr locale shard under
+  # the 10 GB actions/deploy-pages cap that failed the 2026-06-30 IT deploy.
+  #
+  # Whole job is a cheap NO-OP until the owner provisions the shard: with no
+  # ticino-shard-* artifacts (carve skipped without the deploy key) the assemble
+  # loop finds nothing and push-ticino-shard.sh skips. Runs even if a matrix leg
+  # failed (best-effort) but never the whole pipeline — every step is
+  # continue-on-error so a Ticino-publish hiccup cannot block the apex publish
+  # (the shard then serves its previous build: stale, never 404).
+  push-ticino-shard:
+    needs: [matrix-setup, build-locale]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Assemble Ticino subtrees from per-leg artifacts
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          mkdir -p dist
+          found=0
+          for loc in it en de fr; do
+            dl="$RUNNER_TEMP/ticino-dl-$loc"
+            # Same-run artifact download (no API-propagation lag). Absent when the
+            # split is disabled or that leg skipped → continue (best-effort).
+            if gh run download "${{ github.run_id }}" \
+                 --name "ticino-shard-$loc-${{ github.run_id }}" \
+                 --dir "$dl" 2>/dev/null \
+               && [ -f "$dl/ticino-shard-$loc.tar" ]; then
+              tar -C dist -xf "$dl/ticino-shard-$loc.tar"
+              found=1
+              echo "assembled $loc Ticino subtree"
+            else
+              echo "no Ticino artifact for $loc (split disabled or leg skipped) — continuing"
+            fi
+          done
+          echo "TICINO_FOUND=$found" >> "$GITHUB_ENV"
+      - name: Offload Ticino /data refs to CDN
+        if: env.TICINO_FOUND == '1'
+        continue-on-error: true
+        # Single offload over the assembled RAW tree → one window.__CDN_DATA_BASE__
+        # injection and /data refs rewritten to the CDN (the shard hosts only HTML;
+        # /data + /assets are served CDN-absolute, like the apex/locale shards).
+        env:
+          CDN_BASE: 'https://cdn.frontaliereticino.ch'
+        run: node scripts/offload-generated-images-cdn.mjs
+      - name: Push Ticino shard (frontaliere-ticino)
+        if: env.TICINO_FOUND == '1'
+        continue-on-error: true
+        env:
+          SHARD_TICINO_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DEPLOY_KEY }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: bash scripts/lib/push-ticino-shard.sh dist
