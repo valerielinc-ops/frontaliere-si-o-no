@@ -1,53 +1,18 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-06-29T21:52:26.719Z",
+  "generatedAt": "2026-06-30T11:14:11.047Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3761,
-  "avgDurationMs": 3761,
+  "durationMs": 3407,
+  "avgDurationMs": 3407,
   "durationHistory": [
-    3761
+    3407
   ],
-  "newJobs": [
-    {
-      "id": "citta-di-bellinzona-ingegnere-civile-o-tecnico-di-cantiere-con-responsabilita-di-coordinamento-per-bellinzona",
-      "slug": "ingegnere-civile-o-tecnico-di-cantiere-con-responsabilita-di-coordinamento-per-bellinzona",
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Ingegnere Civile o Tecnico di cantiere con responsabilità di coordinamento per il Settore Servizi Tecnici presso l'Azienda Multiservizi Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.bellinzona.ch/assunzioni",
-      "pdfUrl": null,
-      "applyUrl": null,
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-29T21:52:24.304Z",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "citta-di-bellinzona-operai-e-presso-il-settore-servizi-urbani-e-ambiente-bellinzona",
@@ -74,12 +39,48 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=3ab009c9-19a9-45d3-b56e-79792ad7534f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 69,
+      "crawledAt": "2026-06-30T11:14:09.089Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "citta-di-bellinzona-ingegnere-civile-o-tecnico-di-cantiere-con-responsabilita-di-coordinamento-per-bellinzona",
+      "slug": "ingegnere-civile-o-tecnico-di-cantiere-con-responsabilita-di-coordinamento-per-bellinzona",
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Ingegnere Civile o Tecnico di cantiere con responsabilità di coordinamento per il Settore Servizi Tecnici presso l'Azienda Multiservizi Bellinzona",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://www.bellinzona.ch/assunzioni",
+      "pdfUrl": null,
+      "applyUrl": null,
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-06-30T11:14:09.090Z",
+      "firstSeenAt": "2026-06-29T21:52:24.304Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
         "completeness": 20
       }
     }
@@ -111,13 +112,14 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=3ab009c9-19a9-45d3-b56e-79792ad7534f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-29T21:52:24.302Z",
+      "crawledAt": "2026-06-30T11:14:09.089Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "country": "CH",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -146,13 +148,14 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-29T21:52:24.304Z",
+      "crawledAt": "2026-06-30T11:14:09.090Z",
+      "firstSeenAt": "2026-06-29T21:52:24.304Z",
       "country": "CH",
-      "_qualityScore": 73,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
