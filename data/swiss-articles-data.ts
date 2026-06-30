@@ -2285,6 +2285,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lato-oscuro-eldorado-frontalieri-francesi',
+    category: 'fiscale',
+    date: '2026-06-30T10:23:50.296Z',
+    image: '/images/blog/lato-oscuro-eldorado-frontalieri-francesi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

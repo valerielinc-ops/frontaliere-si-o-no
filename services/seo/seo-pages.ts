@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3034,
+ "numberOfItems": 3035,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7680,7 +7680,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3031, "name": "Lavorare da Fielmann a Interlaken: opportunità ...", "url": `${BASE_URL}/articoli-frontaliere/fielmann-interlaken-lavoro-svizzera` },
           { "@type": "ListItem", "position": 3032, "name": "Opportunità per macchinisti e autisti a Locarno...", "url": `${BASE_URL}/articoli-frontaliere/macchinisti-autisti-lavoro-locarno` },
           { "@type": "ListItem", "position": 3033, "name": "Volg Wiler: novità per i supermercati nei villa...", "url": `${BASE_URL}/articoli-frontaliere/volg-wiler-analisi-nazionale` },
-          { "@type": "ListItem", "position": 3034, "name": "Infermieri a Lugano: nuove opportunità negli is...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-lugano-sociali` }
+          { "@type": "ListItem", "position": 3034, "name": "Infermieri a Lugano: nuove opportunità negli is...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-lugano-sociali` },
+          { "@type": "ListItem", "position": 3035, "name": "Il lato oscuro dell’Eldorado svizzero per i fro...", "url": `${BASE_URL}/articoli-frontaliere/lato-oscuro-eldorado-frontalieri-francesi` }
  ]
  },
  {

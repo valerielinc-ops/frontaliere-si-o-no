@@ -9807,6 +9807,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lato-oscuro-eldorado-frontalieri-francesi': {
+    title: 'Il lato oscuro dell’Eldorado svizzero per i frontalieri francesi',
+    description: 'Scopri le nuove regole fiscali per i frontalieri francesi in Svizzera dal 2024 e come gestire imposte e contributi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lato, oscuro, dell, eldorado',
+    ogTitle: 'Il lato oscuro dell’Eldorado svizzero per i frontalieri francesi',
+    ogDescription: 'Analisi approfondita del regime fiscale e contributivo per i frontalieri francesi in Svizzera dal 2024.',
+    canonicalPath: '/articoli-svizzera/lato-oscuro-eldorado-frontalieri-francesi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il lato oscuro dell’Eldorado svizzero per i frontalieri francesi",
+      "description": "Scopri le nuove regole fiscali per i frontalieri francesi in Svizzera dal 2024 e come gestire imposte e contributi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lato-oscuro-eldorado-frontalieri-francesi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di un valico di frontiera svizzero con frontalieri francesi al lavoro"
+      },
+      "datePublished": "2026-06-30T10:23:50+00:00",
+      "dateModified": "2026-06-30T10:23:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lato-oscuro-eldorado-frontalieri-francesi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

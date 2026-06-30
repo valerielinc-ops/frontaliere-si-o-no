@@ -4315,6 +4315,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-macchinisti-autisti-lavoro-locarno': { name: 'Lavoro Locarno', path: '/articoli-svizzera/macchinisti-autisti-lavoro-locarno/', parent: 'blog' },
     'blog-volg-wiler-analisi-nazionale': { name: 'Volg Wiler', path: '/articoli-svizzera/volg-wiler-analisi-nazionale/', parent: 'blog' },
     'blog-infermieri-lugano-sociali': { name: 'Lavoro', path: '/articoli-svizzera/infermieri-lugano-sociali/', parent: 'blog' },
+    'blog-lato-oscuro-eldorado-frontalieri-francesi': { name: 'Frontalieri Francia-Svizzera', path: '/articoli-svizzera/lato-oscuro-eldorado-frontalieri-francesi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
