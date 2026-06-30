@@ -15,7 +15,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from '.
  * token passed as a query parameter in the webhook URL configured on Mailjet.
  * URL format: https://{function-url}?secret={MAILJET_WEBHOOK_SECRET}
  *
- * Firestore paths (same as Resend/Mailgun/Unosend webhooks):
+ * Firestore paths (same as Resend/Mailgun webhooks):
  * newsletter_subscribers/{email}/events/{auto-id}
  * newsletter_subscribers/{email}/campaign_deliveries/{campaign-id}
  * newsletter_subscribers/{email} (status updates: bounced, unsubscribed, etc.)
@@ -86,7 +86,7 @@ export async function persistMailjetEvent(db, eventData) {
  const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
- // Update subscriber-level fields (aligned with Resend/Mailgun/Unosend handlers)
+ // Update subscriber-level fields (aligned with Resend/Mailgun handlers)
  const subscriberUpdate = {
  updated_at: FieldValue.serverTimestamp(),
  };

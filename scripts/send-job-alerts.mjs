@@ -4,7 +4,7 @@
  *
  * Reads active job alerts from Firestore, matches them against jobs
  * added/updated in the last 24h, and sends email notifications via the
- * multi-provider email cascade (Mailgun → Resend → Unosend).
+ * multi-provider email cascade (Mailgun → Resend → Mailjet → Mailtrap → Cloudflare).
  *
  * Retry mechanism: When all providers exhaust their daily quota and emails
  * fail, they are written to the Firestore `job_alert_retry_queue` collection.
