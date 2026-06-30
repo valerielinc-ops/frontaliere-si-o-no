@@ -2708,7 +2708,11 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
     // cache:true — verdict is deterministic (temperature 0); re-checking an
     // unchanged body with the same judge model reuses the result instead of
     // re-running the full fallback cascade.
-    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000, cache: true }
+    // bypassForceChain:true — the verification models are the real quality gate
+    // and must stay independent of AI_MODELS_FORCE_CHAIN. Without this, forcing
+    // generation onto the local model would also force the checker onto it
+    // (the model grading itself), so a forced run could publish unchecked content.
+    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000, cache: true, bypassForceChain: true }
   );
 
   const jsonMatch = raw.match(/\{[\s\S]*\}/);

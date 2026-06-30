@@ -135,4 +135,47 @@ describe('local LLM fallback provider', () => {
       if (prevModel === undefined) delete process.env.LOCAL_LLM_MODEL; else process.env.LOCAL_LLM_MODEL = prevModel;
     }
   });
+
+  // bypassForceChain exempts a call (the fact-check) from AI_MODELS_FORCE_CHAIN, so
+  // forcing generation onto the local model never drags the independent verification
+  // models onto it — the model would otherwise grade its own output and a forced run
+  // could publish unchecked content. Distinguishing setup: force_chain pins to local,
+  // local IS enabled, AND a remote (Gemini) model is available. Without the bypass the
+  // call hits local; WITH the bypass it must start from the remote model instead.
+  it('bypassForceChain routes to the remote model, not the forced local one', async () => {
+    const prevFetch = globalThis.fetch;
+    const prevForce = process.env.AI_MODELS_FORCE_CHAIN;
+    const prevGem = process.env.GEMINI_API_KEY;
+    const prevUrl = process.env.LOCAL_LLM_URL;
+    process.env.LOCAL_LLM_ENABLED = '1';
+    process.env.LOCAL_LLM_URL = 'http://127.0.0.1:11434/v1/chat/completions';
+    process.env.AI_MODELS_FORCE_CHAIN = 'local/fallback';
+    process.env.GEMINI_API_KEY = 'fake-key-for-routing-test';
+    const urls: string[] = [];
+    try {
+      globalThis.fetch = (async (url: string) => {
+        urls.push(String(url));
+        // Gemini uses a different response shape than OpenAI-compatible.
+        return {
+          ok: true,
+          status: 200,
+          text: async () => JSON.stringify({ candidates: [{ content: { parts: [{ text: 'remote-ok' }] } }] }),
+        };
+      }) as unknown as typeof fetch;
+      await callLLM([{ role: 'user', content: 'hi' }], {
+        model: AI_MODELS.GEMINI_FLASH,
+        bypassForceChain: true,
+        maxRetriesPerModel: 1,
+      }).catch(() => { /* shape/parse differences are fine — we only assert routing */ });
+      // The very first call under bypass must be the remote endpoint, never local.
+      expect(urls.length).toBeGreaterThan(0);
+      expect(urls[0]).not.toContain('11434');
+      expect(urls[0]).toContain('googleapis.com');
+    } finally {
+      globalThis.fetch = prevFetch;
+      if (prevForce === undefined) delete process.env.AI_MODELS_FORCE_CHAIN; else process.env.AI_MODELS_FORCE_CHAIN = prevForce;
+      if (prevGem === undefined) delete process.env.GEMINI_API_KEY; else process.env.GEMINI_API_KEY = prevGem;
+      if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
+    }
+  });
 });
