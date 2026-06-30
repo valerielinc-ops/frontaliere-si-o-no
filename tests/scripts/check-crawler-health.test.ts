@@ -164,6 +164,39 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
+  it('clears broken status for impresa-pizzarotti (Swiss-filtered, empty-ok) on a fresh zero-job run (#2979)', () => {
+    // Reproduces the #2979 state: the dedicated Pizzarotti crawler is scoped to
+    // Swiss-located vacancies only; the Italian builder currently lists only
+    // Italy roles, so a healthy crawl legitimately returns 0. It must not stay
+    // flagged broken once added to EMPTY_OK_CRAWLERS.
+    const prev = {
+      lastSuccessfulRunAt: '2026-06-23T22:54:52.257Z',
+      lastNonZeroJobs: 1,
+      consecutiveEmptyRuns: 5,
+      lastFailureReason: '5 consecutive runs returned 0 jobs',
+      status: 'broken',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const { status, state, reason } = nextCrawlerState(
+      prev,
+      {
+        slug: 'impresa-pizzarotti',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+  });
+
   it('flags stale when slice assembledAt is older than 7 days (regardless of empty streak)', () => {
     // heineken-ch fixture: slice from 8d ago.
     const { status, state, reason } = nextCrawlerState(
