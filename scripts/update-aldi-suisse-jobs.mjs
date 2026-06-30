@@ -218,7 +218,7 @@ async function fetchAndParseDetailPages(listings) {
       // the same CH-only gate the Fust crawler uses (never defaulted to TI).
       const canton = inferAnyCanton(location);
       if (!canton) { droppedNoCanton += 1; continue; }
-      const postalCode = listing.zip || TICINO_PLZ[location.toLowerCase()] || HQ.postalCode || '';
+      const postalCode = listing.zip || TICINO_PLZ[location.toLowerCase()] || '';
 
       jobs.push({
         id: `aldi-suisse-${urlHash}`,
