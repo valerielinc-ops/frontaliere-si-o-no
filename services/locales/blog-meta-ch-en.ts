@@ -748,6 +748,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guess-stabio-lavoro-merchandiser.title': 'Guess Stabio: job opportunities as a merchandiser',
     'blog.article.guess-stabio-lavoro-merchandiser.excerpt': 'Job listing in Stabio: search for merchandisers for well-known fashion brands with fixed-term contracts.',
     'blog.article.guess-stabio-lavoro-merchandiser.imageAlt': 'Merchandiser working in a store in Stabio, Switzerland',
+    'blog.article.volg-reckingen-2026.title': 'Volg Reckingen: news and updates 2026',
+    'blog.article.volg-reckingen-2026.excerpt': 'Recent updates on the Volg supermarket in Reckingen, new policies and schedules for 2026.',
+    'blog.article.volg-reckingen-2026.imageAlt': 'Swiss landscape with lake and mountains at sunset',
 };
 
 export default blogMetaChEn;
