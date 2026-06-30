@@ -24,7 +24,7 @@ import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
-import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
+import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference } from '../services/jobAlertMatching.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isAddressSuppressed } from '../services/emailSuppression.mjs';
@@ -435,13 +435,17 @@ async function getFirestoreAdmin() {
 // than the 24h match window — folded into the matcher as a soft location signal
 // so same-area jobs rank to the top of a location-less alert.
 function loadJobs() {
-  if (!fs.existsSync(JOBS_PATH)) return { recent: [], locationIndex: new Map() };
+  if (!fs.existsSync(JOBS_PATH)) return { recent: [], locationIndex: new Map(), cityToCanton: new Map() };
   const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
-  if (!Array.isArray(jobs)) return { recent: [], locationIndex: new Map() };
+  if (!Array.isArray(jobs)) return { recent: [], locationIndex: new Map(), cityToCanton: new Map() };
 
   const cutoff = Date.now() - MATCH_WINDOW_MS;
   const recent = [];
   const locationIndex = new Map();
+  // City → canton index over the FULL dataset, so the graduated geo preference
+  // (#2993) can resolve a subscriber's preferred city (e.g. "bellinzona") to its
+  // canton ("ti") and treat every TI job as in-area — not just exact-city hits.
+  const cityToCanton = new Map();
   for (const j of jobs) {
     const geo = [j.location || j.addressLocality || '', j.canton || ''].filter(Boolean);
     const company = j.company || '';
@@ -451,9 +455,16 @@ function loadJobs() {
         if (key) locationIndex.set(String(key).toLowerCase(), meta);
       }
     }
+    const canton = String(j.canton || '').toLowerCase();
+    if (canton) {
+      for (const city of [j.location, j.addressLocality]) {
+        const c = String(city || '').toLowerCase().trim();
+        if (c && !cityToCanton.has(c)) cityToCanton.set(c, canton);
+      }
+    }
     if (firstParsableMs(j.crawledAt, j.postedDate) >= cutoff) recent.push(j);
   }
-  return { recent, locationIndex };
+  return { recent, locationIndex, cityToCanton };
 }
 
 // Resolve the geography of the job a one-tap alert was created from, via its
@@ -499,20 +510,25 @@ function clickedJobMeta(lastClickedUrl, locationIndex) {
 // use; `searches[].query` + viewed-job categories add intent tokens.
 function behaviorSignals(personalization) {
   if (!personalization || typeof personalization !== 'object') {
-    return { behaviorLocations: [], behaviorTokens: [] };
+    return { behaviorLocations: [], behaviorTokens: [], filterLocations: [] };
   }
   const viewedJobs = Array.isArray(personalization.viewedJobs) ? personalization.viewedJobs : [];
   const searches = Array.isArray(personalization.searches) ? personalization.searches : [];
   const filterLoc = personalization.filterUsage?.location;
+  // Locations the user EXPLICITLY filtered by on-site — the strongest browsing
+  // geo signal. Kept separate from the merged soft set so the graduated geo
+  // preference (#2993) can rely on it without the noise of passive viewed-job
+  // cities (a single curiosity click on a far-away role).
+  const filterLocations = filterLoc && typeof filterLoc === 'object' ? Object.keys(filterLoc) : [];
   const behaviorLocations = [
-    ...(filterLoc && typeof filterLoc === 'object' ? Object.keys(filterLoc) : []),
+    ...filterLocations,
     ...viewedJobs.map((v) => v?.location).filter(Boolean),
   ];
   const behaviorTokens = [
     ...searches.map((s) => s?.query).filter(Boolean),
     ...viewedJobs.map((v) => v?.category).filter(Boolean),
   ];
-  return { behaviorLocations, behaviorTokens };
+  return { behaviorLocations, behaviorTokens, filterLocations };
 }
 
 // ── Matching logic ───────────────────────────────────────────
@@ -1055,7 +1071,7 @@ async function main() {
   }
 
   // 1. Load recent jobs (+ full-dataset geo index for source-job resolution)
-  const { recent: recentJobs, locationIndex } = loadJobs();
+  const { recent: recentJobs, locationIndex, cityToCanton } = loadJobs();
   console.log(`   Recent jobs (last 24h): ${recentJobs.length}`);
   // Diagnostic (#3020): confirm the full-dataset geo index is non-trivially
   // populated. Source-geo recovery for one-tap alerts (sourceJobLocationsFor)
@@ -1227,10 +1243,20 @@ async function main() {
     // The job the subscriber last clicked in an email — fold its geography into
     // the soft location boost (strongest intent; #3025).
     const clicked = clickedJobMeta(lastClickedUrlByEmail.get(alert.email.toLowerCase()), locationIndex);
+    const sourceJobLocations = sourceJobLocationsFor(alert, locationIndex);
     const extras = {
       behaviorLocations: [...(behavior.behaviorLocations || []), ...clicked.locations],
       behaviorTokens: behavior.behaviorTokens || [],
-      sourceJobLocations: sourceJobLocationsFor(alert, locationIndex),
+      sourceJobLocations,
+      // High-confidence geo signals for the graduated geo preference (#2993):
+      // explicit on-site filters + clicked/source job geography. Passive
+      // viewed-job cities are deliberately excluded (see buildAlertProfile).
+      strongLocations: [
+        ...(behavior.filterLocations || []),
+        ...clicked.locations,
+        ...sourceJobLocations,
+      ],
+      cityToCanton,
     };
     const profile = buildAlertProfile(
       alert,
@@ -1274,7 +1300,15 @@ async function main() {
         remainder.push(m.job);
       }
     }
-    const ranked = surfaced.concat(remainder).map((job) => job);
+    const rankedAll = surfaced.concat(remainder).map((job) => job);
+
+    // Graduated geo preference (#2993): for a keyword-only alert with no explicit
+    // location/canton scope, prefer jobs in the subscriber's area (resolved from
+    // their home city + explicit on-site filters + clicked/source job) so a
+    // Ticino nurse stops receiving Basel/Zürich roles — while still falling back
+    // to out-of-area matches when too few local ones exist (never starves a
+    // sparse alert). No-op when the alert already scopes geography itself.
+    const ranked = partitionByGeoPreference(rankedAll, profile);
 
     if (ranked.length === 0) continue;
 

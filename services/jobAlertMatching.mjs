@@ -33,6 +33,30 @@ import { locTokenHit } from './locToken.mjs';
 /** @typedef {Set<string>} TokenSet */
 
 /**
+ * The 26 Swiss canton codes (lowercased). Used to recognize a 2-letter canton
+ * token among the profile's preferred-location signals (a source/clicked job's
+ * geography is stored as `[location, canton]`, so "ti" arrives as a raw signal
+ * and must resolve to itself, not be looked up as a city).
+ *
+ * Deliberately a small local copy, not an import of the canonical
+ * `TARGET_CANTONS` (scripts/lib/crawler-location-config.mjs): that 600-line
+ * crawler-config module would pull a cross-layer (services → scripts/lib)
+ * dependency into the matcher for one fixed fact. The set of cantons is
+ * constant (zero drift risk), so duplication is safe here.
+ */
+const SWISS_CANTONS = new Set([
+  'zh', 'be', 'lu', 'ur', 'sz', 'ow', 'nw', 'gl', 'zg', 'fr', 'so', 'bs', 'bl',
+  'sh', 'ar', 'ai', 'sg', 'gr', 'ag', 'tg', 'ti', 'vd', 'vs', 'ne', 'ge', 'ju',
+]);
+
+/**
+ * Minimum number of in-area matches required before {@link partitionByGeoPreference}
+ * drops out-of-area jobs entirely. Below this floor the email is padded with
+ * out-of-area matches so a subscriber with few local jobs is never starved.
+ */
+export const GEO_PREFERENCE_MIN_LOCAL = 5;
+
+/**
  * @typedef {object} AlertProfile
  * @property {TokenSet}  hardKeywords  Explicit user keywords (hard filter when non-empty).
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.
@@ -46,6 +70,10 @@ import { locTokenHit } from './locToken.mjs';
  * @property {string[]}  contractTypes Lowercased contract-type signals.
  * @property {string[]}  specificJobIds    Exact job ids this alert is pinned to (hard scope).
  * @property {string}    specificCompanyKey Exact companyKey this alert is pinned to ('' when none).
+ * @property {string[]}  preferredLocations High-confidence geo signals (home city + explicit
+ *                                       on-site filters + clicked/source job) for the graduated
+ *                                       geo PREFERENCE — see {@link partitionByGeoPreference}.
+ * @property {string[]}  preferredCantons  Cantons resolved from preferredLocations (graduated preference).
  */
 
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
@@ -96,6 +124,15 @@ function preferenceCities(preferences) {
  *   jobs across all of Switzerland. Folding the source job's geography into the
  *   SOFT location set ranks same-area jobs to the top without hard-dropping the
  *   rest (which could zero out a sparse match set).
+ * @property {string[]} [strongLocations] HIGH-CONFIDENCE geo signals that drive
+ *   the in-area / out-area split in {@link partitionByGeoPreference}: the
+ *   locations the user EXPLICITLY filtered by on-site (`filterUsage.location`
+ *   keys) plus the geography of the job they clicked / one-tap-subscribed from.
+ *   Unlike `behaviorLocations` these exclude passive viewed-job cities, so a
+ *   single curiosity click on a far-away role can't widen the preference.
+ * @property {Record<string,string>|Map<string,string>} [cityToCanton] Lowercased
+ *   city → canton index (built from the full jobs dataset) used to resolve the
+ *   preferred cities to their cantons for the geo-preference split.
  */
 
 /**
@@ -181,10 +218,88 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   );
   const specificCompanyKey = normalizeCompanyToken(a.specificCompanyKey);
 
+  // 7. Profile-derived geo PREFERENCE (issue #2993). When the alert carries no
+  //    explicit location/canton scope, these HIGH-CONFIDENCE signals — the
+  //    subscriber's resolved home city (location_interest / geo_city /
+  //    job_location), the locations they EXPLICITLY filtered by on-site, and the
+  //    geography of the job they clicked / one-tap-subscribed from — let the
+  //    send loop prefer same-area jobs (partitionByGeoPreference). Kept distinct
+  //    from the soft `locations` set above on purpose: that one also folds in
+  //    PASSIVE viewed-job cities (noisier, e.g. a single curiosity click on a
+  //    German-CH role) and only nudges ranking; the preference drives an actual
+  //    in-area / out-area split, so we restrict it to the strong signals.
+  const preferredLocations = uniq([
+    String(sub.location_interest || '').toLowerCase(),
+    String(sub.geo_city || '').toLowerCase(),
+    String(sub.job_location || '').toLowerCase(),
+    ...preferenceCities(sub.preferences),
+    ...(ex.strongLocations || []).map((l) => String(l || '').toLowerCase()),
+  ]);
+  const cityToCanton = ex.cityToCanton && typeof ex.cityToCanton === 'object' ? ex.cityToCanton : {};
+  const lookupCanton = (loc) => {
+    const t = String(loc || '').toLowerCase();
+    if (!t) return '';
+    // A raw 2-letter canton code (from a source/clicked job's geography) resolves
+    // to itself; a city is mapped through the jobs-derived city→canton index.
+    if (t.length === 2 && SWISS_CANTONS.has(t)) return t;
+    const mapped = cityToCanton instanceof Map ? cityToCanton.get(t) : cityToCanton[t];
+    return mapped ? String(mapped).toLowerCase() : '';
+  };
+  const preferredCantons = uniq(preferredLocations.map(lookupCanton));
+
   return {
     hardKeywords, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
-    specificJobIds, specificCompanyKey,
+    specificJobIds, specificCompanyKey, preferredLocations, preferredCantons,
   };
+}
+
+/**
+ * Apply the profile-derived geo PREFERENCE to a ranked job list (issue #2993).
+ *
+ * The matcher hard-filters geography ONLY on the locations/cantons the user set
+ * ON THE ALERT. A keyword-only alert ("infermiere", no location) therefore
+ * surfaced matching jobs across ALL of Switzerland even when the subscriber's
+ * profile clearly pointed at one area (Bellinzona / Chiasso / Mendrisio) — the
+ * "use the location fields for precise alerts" the issue asks for. This adds a
+ * GRADUATED preference (deliberately NOT a hard filter, so a sparse alert is
+ * never starved):
+ *
+ *   • no-op when the alert already has an explicit geo scope (the hard filter
+ *     in scoreJobForAlert already ran — never second-guess an explicit choice);
+ *   • no-op when the profile carries no preferred location/canton signal;
+ *   • otherwise split the ranked jobs into in-area (canton ∈ preferredCantons OR
+ *     location hits a preferredLocation) and the rest, returning in-area FIRST.
+ *     The rest is appended ONLY when fewer than `minLocal` in-area jobs exist,
+ *     so a user with plenty of local matches gets a local-only email while a
+ *     user with few never ends up with an empty / too-thin one.
+ *
+ * Pure (no IO); order WITHIN each partition is preserved (the caller already
+ * sorted by score then recency).
+ *
+ * @param {object[]} jobs        Ranked jobs (best first).
+ * @param {AlertProfile} profile Output of {@link buildAlertProfile}.
+ * @param {{minLocal?: number}} [opts]
+ * @returns {object[]}
+ */
+export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERENCE_MIN_LOCAL } = {}) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  if (!profile) return list;
+  // An explicit alert geo scope is already a HARD filter upstream.
+  if ((profile.alertLocations?.length || 0) > 0 || (profile.cantons?.length || 0) > 0) return list;
+  const prefLoc = profile.preferredLocations || [];
+  const prefCanton = profile.preferredCantons || [];
+  if (prefLoc.length === 0 && prefCanton.length === 0) return list;
+
+  const inArea = [];
+  const rest = [];
+  for (const job of list) {
+    const jobCanton = String(job?.canton || '').toLowerCase();
+    const jobLoc = `${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`.toLowerCase();
+    const hit = (prefCanton.length > 0 && jobCanton && prefCanton.includes(jobCanton))
+      || prefLoc.some((l) => locTokenHit(jobLoc, l));
+    (hit ? inArea : rest).push(job);
+  }
+  return inArea.length >= minLocal ? inArea : inArea.concat(rest);
 }
 
 /**
