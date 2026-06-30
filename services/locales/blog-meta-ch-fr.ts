@@ -775,6 +775,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reclutamento-lugano.title': 'Recrutement à Lugano : nouvelles opportunités d\'emploi',
     'blog.article.reclutamento-lugano.excerpt': 'Lugano se confirme comme le centre névralgique de nouvelles opportunités d\'emploi avec de récents appels à recrutement dans les secteurs privé et public.',
     'blog.article.reclutamento-lugano.imageAlt': 'Scène photoréaliste de Lugano avec activité de recrutement',
+    'blog.article.permesso-g-svizzera-nazionale.title': 'Permis G en Suisse : guide pratique pour les travailleurs frontaliers',
+    'blog.article.permesso-g-svizzera-nazionale.excerpt': 'Le permis G est essentiel pour les frontaliers qui travaillent en Suisse ; voici ce qu\'il faut savoir sur les exigences, la durée et les procédures.',
+    'blog.article.permesso-g-svizzera-nazionale.imageAlt': 'Vue panoramique de Lugano avec des travailleurs frontaliers passant un point de contrôle à la frontière suisse',
 };
 
 export default blogMetaChFr;

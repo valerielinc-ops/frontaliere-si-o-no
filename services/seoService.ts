@@ -4319,6 +4319,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-offre-fielmann-tariffe-nazionali': { name: 'Offerte', path: '/articoli-svizzera/offre-fielmann-tariffe-nazionali/', parent: 'blog' },
     'blog-dogana-brogeda': { name: 'Dogana Brogeda', path: '/articoli-svizzera/dogana-brogeda/', parent: 'blog' },
     'blog-reclutamento-lugano': { name: 'Reclutamento', path: '/articoli-svizzera/reclutamento-lugano/', parent: 'blog' },
+    'blog-permesso-g-svizzera-nazionale': { name: 'Permesso G Svizzera', path: '/articoli-svizzera/permesso-g-svizzera-nazionale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

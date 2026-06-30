@@ -2321,6 +2321,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-g-svizzera-nazionale',
+    category: 'pratico',
+    date: '2026-06-30T19:44:51.647Z',
+    image: '/images/blog/permesso-g-svizzera-nazionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
