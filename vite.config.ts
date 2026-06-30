@@ -451,7 +451,12 @@ export default defineConfig(({ mode }) => {
  !dep.includes('vendor-charts') && 
  !dep.includes('vendor-pdf') &&
  !dep.includes('vendor-maps') &&
- !dep.includes('vendor-firebase') &&
+ // `deps` are EMITTED filenames, which chunkFileNames runs through
+ // adFilterSafeChunkName (firebase→fdb, #2971). Match the sanitized token so
+ // this no-preload guard keeps suppressing the heavy firebase vendor chunks
+ // instead of silently letting them eager-preload on the entry. Sanitising the
+ // logical name inline keeps it readable AND rename-proof if the alias changes.
+ !dep.includes(adFilterSafeChunkName('vendor-firebase')) &&
  !dep.includes('shared-services') &&
  !dep.includes('vendor-icons') &&
  !dep.includes('seoService') &&
