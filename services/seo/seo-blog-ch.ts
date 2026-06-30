@@ -9534,6 +9534,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-prezzi-svizzera-oggi': {
+    title: 'Prezzi della benzina in Svizzera oggi | Frontaliere Ticino',
+    description: 'I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante. Ecco i prezzi attuali e come risparmiare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, benzina, oggi, variano',
+    ogTitle: 'Prezzi della benzina in Svizzera oggi',
+    ogDescription: 'I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante.',
+    canonicalPath: '/articoli-svizzera/benzina-prezzi-svizzera-oggi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi della benzina in Svizzera oggi",
+      "description": "I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante. Ecco i prezzi attuali e come risparmiare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-prezzi-svizzera-oggi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Bellinzona con prezzi della benzina"
+      },
+      "datePublished": "2026-06-30T01:11:23+00:00",
+      "dateModified": "2026-06-30T01:11:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-prezzi-svizzera-oggi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

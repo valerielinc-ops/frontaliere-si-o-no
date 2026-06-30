@@ -1,0 +1,40 @@
+{
+  "id": "benzina-prezzi-svizzera-oggi",
+  "slug": "benzina-prezzi-svizzera-oggi",
+  "publishedAt": "2026-06-30T01:11:28.169Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.572632846229651,
+    "confidence": 0.8,
+    "finalScore": 3.6581062769837214,
+    "topK": [
+      {
+        "slug": "benzina-record-annuale-svizzera-2026",
+        "cosine": 0.9170848217149437
+      },
+      {
+        "slug": "prezzi-benzina-ticino",
+        "cosine": 0.8995475724205835
+      },
+      {
+        "slug": "benzina-cara-ticino",
+        "cosine": 0.8747994383671466
+      },
+      {
+        "slug": "petrolio-inflazione-svizzera-2026",
+        "cosine": 0.8650209030733552
+      },
+      {
+        "slug": "aumento-prezzi-carburanti-maggio-2026",
+        "cosine": 0.8639420608563707
+      }
+    ],
+    "score": 3.6581062769837214,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

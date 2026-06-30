@@ -742,6 +742,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Zoll Chiasso: Wartezeiten und Durchführbarkeit',
     'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analyse der Verkehrsströme am Strassenzoll von Chiasso. Aktuelle Informationen für alle, die täglich zwischen Italien und der Schweiz unterwegs sind.',
     'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Grenzübergang Chiasso Straße während der Stoßzeiten',
+    'blog.article.benzina-prezzi-svizzera-oggi.title': 'Benzinpreise in der Schweiz heute',
+    'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'Die Benzinpreise in der Schweiz variieren je nach Region und Treibstoffart. Hier die aktuellen Preise.',
+    'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Tankstelle in Bellinzona mit aktuellen Treibstoffpreisen',
 };
 
 export default blogMetaChDe;

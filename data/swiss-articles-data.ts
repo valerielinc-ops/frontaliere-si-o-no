@@ -2222,6 +2222,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'benzina-prezzi-svizzera-oggi',
+    category: 'pratico',
+    date: '2026-06-30T01:11:22.995Z',
+    image: '/images/blog/benzina-prezzi-svizzera-oggi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

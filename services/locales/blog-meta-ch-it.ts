@@ -742,6 +742,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Dogana Chiasso: tempi di attesa e viabilità',
     'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analisi dei flussi di traffico alla dogana stradale di Chiasso. Informazioni aggiornate per chi transita quotidianamente tra Italia e Svizzera.',
     'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Dogana stradale di Chiasso durante le ore di punta',
+    'blog.article.benzina-prezzi-svizzera-oggi.title': 'Prezzi della benzina in Svizzera oggi',
+    'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'I prezzi della benzina in Svizzera variano a seconda della regione e del tipo di carburante. Ecco i prezzi attuali.',
+    'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Stazione di servizio a Bellinzona con prezzi della benzina',
 };
 
 export default blogMetaChIt;
