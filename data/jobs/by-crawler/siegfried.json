@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-06-30T12:17:34.197Z",
+  "assembledAt": "2026-06-30T23:09:58.184Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:31.572Z",
+      "crawledAt": "2026-06-30T23:09:55.619Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -57,7 +57,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-siegfried-ch"
+          "operateur-de-production-4-8-siegfried-ch",
+          "operatore-di-produzione-4-8-siegfried-evionnaz"
         ],
         "fr": [
           "operateur-de-production-4-8-siegfried-evionnaz"
@@ -110,7 +111,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:30.820Z",
+      "crawledAt": "2026-06-30T23:09:54.853Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -156,7 +157,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-ad-siegfried-ch"
+          "lab-technician-ad-siegfried-ch",
+          "tecnico-di-laboratorio-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -166,6 +168,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -195,7 +198,7 @@
       "companyDomain": "siegfried.ch",
       "title": "Analytical Data Reviewer",
       "titleByLocale": {
-        "it": "Recensione dati analitica",
+        "it": "Analytical Data Reviewer",
         "en": "Anal Rev",
         "de": "Analytical Data Reviewer",
         "fr": "Chercheur de données analytiques"
@@ -212,7 +215,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:17:30.242Z",
+      "crawledAt": "2026-06-30T23:09:54.185Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,13 +242,15 @@
         "it": [
           "analytical-data-reviewer-siegfried-ch",
           "analytical-data-reviewer-siegfried-zofingen",
-          "revisore-dei-dati-analitico-siegfried-zofingen"
+          "revisore-dei-dati-analitico-siegfried-zofingen",
+          "recensione-dati-analitica-siegfried-zofingen"
         ],
         "de": [
           "analytische-datenprufer-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -292,7 +297,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-DP-Development---Technology_R26_123",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:17:29.620Z",
+      "crawledAt": "2026-06-30T23:09:53.478Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -314,7 +319,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-drug-product-development-technology-siegfried-ch"
+          "global-head-drug-product-development-technology-siegfried-ch",
+          "sviluppo-e-tecnologia-dei-prodotti-della-testa-globale-siegfried-zofingen"
         ],
         "de": [
           "global-head-drug-product-development-technology-siegfried-ch"
@@ -370,7 +376,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Emergency-and-Fire-Services-Coordinator_R26_416",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:28.770Z",
+      "crawledAt": "2026-06-30T23:09:52.773Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -392,13 +398,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "emergency-and-fire-services-coordinator-siegfried-ch"
+          "emergency-and-fire-services-coordinator-siegfried-ch",
+          "coordinatore-servizi-di-emergenza-e-fuoco-siegfried-evionnaz"
         ],
         "de": [
           "emergency-and-fire-services-coordinator-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-06T22:37:48.270Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -429,7 +437,7 @@
       "title": "Betriebsingenieur/in",
       "titleByLocale": {
         "it": "Ingegnere di produzione",
-        "en": "Operational engineer",
+        "en": "Betriebsingenieur/in",
         "de": "Betriebsingenieur/in",
         "fr": "Ingénieur de production"
       },
@@ -445,7 +453,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:17:28.065Z",
+      "crawledAt": "2026-06-30T23:09:52.104Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -469,7 +477,8 @@
       "previousSlugsByLocale": {
         "it": [
           "betriebsingenieur-in-siegfried-ch",
-          "betriebsingenieur-in-siegfried-zofingen"
+          "betriebsingenieur-in-siegfried-zofingen",
+          "ingegnere-di-produzione-siegfried-zofingen"
         ],
         "en": [
           "betriebsingenieur-in-siegfried-zofingen"
@@ -479,6 +488,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -525,7 +535,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:17:27.339Z",
+      "crawledAt": "2026-06-30T23:09:51.460Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -547,13 +557,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-analytics-siegfried-ch"
+          "senior-lab-technician-analytics-siegfried-ch",
+          "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
         ],
         "fr": [
           "senior-lab-technician-analytics-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -600,7 +612,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:26.572Z",
+      "crawledAt": "2026-06-30T23:09:50.786Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -622,10 +634,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-r-d-siegfried-ch"
+          "lab-technician-r-d-siegfried-ch",
+          "laboratorio-tecnico-r-d-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -640,82 +654,6 @@
       },
       "postalCode": "1950",
       "addressRegion": "VS"
-    },
-    {
-      "id": "siegfried-ac6024cfb924",
-      "slug": "assistente-esecutivo-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "assistente-esecutivo-siegfried-zofingen",
-        "en": "executive-assistant-siegfried-ch",
-        "de": "executive-assistant-siegfried-ch",
-        "fr": "assistant-executif-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Executive Assistant",
-      "titleByLocale": {
-        "it": "Assistente esecutivo",
-        "en": "Executive Assistant",
-        "de": "Executive Assistent",
-        "fr": "Assistant exécutif"
-      },
-      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft.\n\n- Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder\n\n- Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement\n\n- Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen\n\n- Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen\n\n- Verantworten der Spesenabrechnung und des Auslagenmanagements\n\n- Organisieren von Kundenanlässen sowie internen Events\n\n- Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten\n\n- Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner\n\n- Allgemeine Korrespondenz in Deutsch und Englisch\n\n- Troubleshooting im Daily Business\n Your Profile:\n\nFachkenntnisse\n\n- Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen\n\n- Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In)\n\n- Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil\n\n- IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen\n\nPersönliche Stärken\n\n- Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative\n\n- Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten\n\n- Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise\n\nYour Benefits:\n - Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n - Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n - Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n - Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n - Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n - Parken können Sie bei uns vergünstigt\n - Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\" personalmente e professionalmente: Siegfried vi aspetta con interessanti sfide e numerosi modi per dimostrare i vostri talenti. Come partner affidabile e rispettato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e allo stesso tempo promuoviamo una cultura che ti consente di avere successo. Diventa parte di un'azienda globale in rapida crescita dove prospettive e esperienze diverse si fondono in un ambiente cooperativo. Qui troverete un lavoro che valuta sia il successo collettivo che i vostri contributi individuali – e vi offre opportunità a lungo termine per sviluppare e fare qualcosa. Il tuo ruolo: Questa funzione estremamente responsabile e varia vi aspetta con un mix emozionante di compiti amministrativi, di coordinamento e organizzativi. Come punto di contatto importante e centrale, forniscono fluidi flussi di lavoro nel lavoro quotidiano e alleviano e sostengono membri completi della gestione e senior management nel business quotidiano. - Sostegno amministrativo e organizzativo dei membri senior e della gestione assegnati - Assicurare un coordinamento completo degli appuntamenti, compresa la gestione del calendario - Organizzazione e prenotazione di viaggi e visite ai clienti - Preparare documenti di riunione, creare presentazioni e eseguire registri - Responsabilità della fatturazione delle merci e della gestione delle spese - Organizzazione di eventi e eventi interni - Principali basi di dati di processo interno e cooperazione nei progetti - Funzione di interfaccia come primo punto di contatto per partner interni ed esterni - Corrispondenza generale in tedesco e inglese - Risoluzione dei problemi nel business quotidiano Il tuo profilo: Competenza - Esperienza pluriennale nel sostegno a livello C in un'azienda internazionale - Formazione commerciale completata con successo o qualificazione comparabile, idealmente con ulteriore formazione nel campo dell'Assistenza Executive (ad es. - Conoscenza molto buona, stilistica del tedesco e dell'inglese in parola e scrittura, francese o spagnolo - IT-affin e molto esperto nella gestione dei programmi MS-Office più comuni Punti di forza personali - Personalità proattiva e orientata al servizio con alta auto-iniziativa - Reti pensando, comunicazione-forte giocatore di squadra con un buon tocco per trattare con personalità diverse - Design organizzativo flessibile con funzionamento orientato alla soluzione I tuoi vantaggi - Fondo pensione: Il fondo pensione della nostra azienda è attraente e contributi individuali - Il piano di acquisto azionario è generoso e individuale - Indennità d'invalidità: Siegfried AG aumenta l'indennitaÁ del 10% rispetto all'approccio cantonale - Reka-Geld: Siegfried AG concede ai dipendenti uno sconto del 20% - Ristorante personale / caffetteria: catering per condizioni preferenziali - Puoi parcheggiare con noi - Posizione centrale: Vicino alla stazione ferroviaria posizione con un ottimo accesso ai trasporti pubblici Fondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale con 13 sedi in tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici nella produzione industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi può combinare lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\" personally and professionally: Siegfried awaits you with exciting challenges and numerous ways to prove your talents. As a trusted and respected partner of the pharmaceutical industry, we maintain the highest standards in the fields of safety, quality and sustainability – and at the same time promote a culture that empowers you to succeed. Become part of a rapidly growing global company where diverse perspectives and experiences come together in a cooperative environment. Here you will find a job that evaluates both collective success and your individual contributions – and offers you long-term opportunities to develop and do something. Your Role: This extremely responsible and varied function awaits you with an exciting mix of administrative, coordination and organizational tasks. As an important and central point of contact, they provide smooth workflows in everyday work and relieve and support comprehensive members of the management and senior management in daily business. - Administrative and organisational support of the assigned senior management and management members - Ensure comprehensive appointment coordination including calendar management - Organizing and booking business trips and customer visits - Prepare meeting documents, create presentations and run logs -\n• Responsibilities of freight billing and the expenses management - Organizing customer events and internal events - Leading internal process databases and cooperation in projects - Interface function as the first point of contact for internal and external partners - General correspondence in German and English - Troubleshooting in Daily Business Your\n• Profile: Expertise - Multiannual experience in C-level support in an international company - Successfully completed commercial training or comparable qualification, ideally with further training in the field of Executive Assistance (e.g. - Very good, stylistic knowledge of German and English in word and writing, French or Spanish - IT-affin and very versed in handling the most common MS-Office programs Personal strengths - Service-oriented, proactive personality with high self-initiative - Networks thinking, communication-strong team player with a good flair for dealing with different personalities - Flexible organizational design with solution-oriented operation Your Benefits - Pension fund: Our company's pension fund is attractive and individual contributions - Stock purchase plan is generous and individual - Child allowance: Siegfried AG increases child allowance by 10% compared to the cantonal legal approach - Reka-Geld: Siegfried AG grants employees a 20% discount - Personal restaurant / cafeteria: catering for preferential conditions - You can park with us - Central location: Near railway station location with very good access to public transport Founded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 13 locations on three continents. With a team of over 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers into industrial production and produce safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and production of active ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trustworthy partner of the pharmaceutical industry Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: In dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen \n• Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft. - Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder - Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement - Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen - Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen - Verantworten der Spesenabrechnung und des Auslagenmanagements - Organisieren von Kundenanlässen sowie internen Events - Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten - Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner - Allgemeine Korrespondenz in Deutsch und Englisch - Troubleshooting im Daily Business Your \n• Profile: Fachkenntnisse - Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen - Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In) - Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil - IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen Persönliche Stärken - Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative - Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten - Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise Your Benefits: - Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar - Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar - Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz - Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt - Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen - Parken können Sie bei uns vergünstigt - Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "\"S'attendre à grandir\" personnellement et professionnellement: Siegfried vous attend avec des défis passionnants et de nombreuses façons de prouver vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous maintenons les normes les plus élevées dans les domaines de la sécurité, de la qualité et de la durabilité, tout en promouvant une culture qui vous donne les moyens de réussir. Devenez membre d'une entreprise mondiale en croissance rapide où des perspectives et des expériences variées se rencontrent dans un environnement coopératif. Vous trouverez ici un emploi qui évalue à la fois la réussite collective et vos contributions individuelles – et vous offre des opportunités à long terme pour développer et faire quelque chose. Votre rôle : Cette fonction extrêmement responsable et variée vous attend avec un mélange passionnant de tâches administratives, de coordination et d'organisation. En tant que point de contact important et central, ils fournissent des flux de travail fluides dans le travail quotidien et soulagent et soutiennent les membres complets de la direction et de la haute direction dans les affaires quotidiennes. - Soutien administratif et organisationnel des cadres supérieurs et des membres de la direction affectés - Assurer une coordination complète des nominations, y compris la gestion du calendrier - Organisation et réservation de voyages d'affaires et de visites de clients - Préparer des documents de réunion, créer des présentations et exécuter des journaux - Responsabilités de la facturation du fret et de la gestion des dépenses - Organisation d'événements clients et d'événements internes - Diriger les bases de données internes et la coopération dans les projets - Fonction d'interface comme premier point de contact pour les partenaires internes et externes - Correspondance générale en allemand et anglais - Dépannage quotidien\n• Votre profil: Expertise - Expérience pluriannuelle en soutien au niveau C dans une entreprise internationale - Une formation commerciale réussie ou une qualification comparable, idéalement avec une formation continue dans le domaine de l'aide aux cadres supérieurs (par exemple : - Très bonne connaissance stylistique de l'allemand et de l'anglais en français et en espagnol - IT-affin et très versé dans la gestion des programmes MS-Office les plus courants Forces personnelles - Personnalité proactive et orientée vers le service avec une grande initiative d'auto-initiative - Réflexion des réseaux, joueur d'équipe de communication forte avec un bon style pour traiter avec différentes personnalités - Conception organisationnelle flexible avec fonctionnement orienté vers la solution Vos avantages - Caisse de retraite : la caisse de retraite de notre société est attrayante et les cotisations individuelles - Plan d'achat d'actions généreux et individuel - Allocation pour enfant: Siegfried AG augmente l'allocation pour enfant de 10% par rapport à l'approche légale cantonale - Reka-Geld: Siegfried AG accorde aux salariés une réduction de 20% - Restaurant personnel / cafétéria: restauration aux conditions préférentielles - Vous pouvez vous garer avec nous - Situation centrale: Près de la gare avec un très bon accès aux transports en commun Fondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial avec 13 emplacements sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et produisons des médicaments sûrs pour les patients dans le monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la production d'ingrédients actifs (API) et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus digne de confiance de l'industrie pharmaceutique Siegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:17:25.882Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_413",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "executive-assistant-siegfried-ch",
-        "executive-assistant-siegfried-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "executive-assistant-siegfried-ch"
-        ],
-        "fr": [
-          "executive-assistant-siegfried-zofingen"
-        ]
-      },
-      "firstSeenAt": "2026-05-12T11:59:11.839Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "5000",
-      "addressRegion": "AG"
     },
     {
       "id": "siegfried-14522a97c162",
@@ -748,7 +686,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-QC_R26_463",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:25.125Z",
+      "crawledAt": "2026-06-30T23:09:50.143Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -774,7 +712,8 @@
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-qc-siegfried-ch",
-          "lab-supervisore-qc-siegfried-evionnaz"
+          "lab-supervisore-qc-siegfried-evionnaz",
+          "controllo-del-laboratorio-qc-siegfried-evionnaz"
         ],
         "en": [
           "lab-supervisor-qc-siegfried-ch"
@@ -834,7 +773,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/OPEX-Lead_R26_432",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:17:24.287Z",
+      "crawledAt": "2026-06-30T23:09:44.847Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -857,7 +796,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "opex-lead-siegfried-ch"
+          "opex-lead-siegfried-ch",
+          "piombo-opex-siegfried-evionnaz"
         ],
         "en": [
           "opex-lead-siegfried-evionnaz"
@@ -916,7 +856,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-of-Sales---Business-Development-Drug-Products_R26_482-2",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:17:23.545Z",
+      "crawledAt": "2026-06-30T23:09:44.298Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -942,7 +882,8 @@
       "previousSlugsByLocale": {
         "it": [
           "head-of-sales-business-development-drug-products-siegfried-ch",
-          "responsabile-sales-business-development-drug-products-siegfried-zofingen"
+          "responsabile-sales-business-development-drug-products-siegfried-zofingen",
+          "responsabile-vendite-e-sviluppo-commerciale-prodotti-farmaceutici-siegfried-zofingen"
         ],
         "de": [
           "head-of-sales-business-development-drug-products-siegfried-ch",
@@ -1000,7 +941,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:17:22.882Z",
+      "crawledAt": "2026-06-30T23:09:43.620Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1026,7 +967,8 @@
         "it": [
           "laborant-in-efz-chemie-siegfried-ch",
           "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen"
+          "laborant-in-cfc-chemie-siegfried-zofingen",
+          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -1082,7 +1024,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:22.115Z",
+      "crawledAt": "2026-06-30T23:09:42.976Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1106,7 +1048,8 @@
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-          "technicien-de-maintenance-electricite-siegfried-ch"
+          "technicien-de-maintenance-electricite-siegfried-ch",
+          "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
         ],
         "en": [
           "technicien-de-maintenance-electricite-siegfried-ch"
@@ -1116,6 +1059,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1162,7 +1106,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Legal-Counsel--80-100--_R26_507",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:17:21.438Z",
+      "crawledAt": "2026-06-30T23:09:42.329Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1184,7 +1128,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-80-100-siegfried-ch"
+          "legal-counsel-80-100-siegfried-ch",
+          "consulente-legale-80-100-siegfried-zofingen"
         ],
         "de": [
           "legal-counsel-80-100-siegfried-ch"
@@ -1240,7 +1185,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:20.725Z",
+      "crawledAt": "2026-06-30T23:09:41.791Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1263,13 +1208,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-process-safety-siegfried-ch"
+          "senior-lab-technician-process-safety-siegfried-ch",
+          "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
         ],
         "de": [
           "senior-lab-techniker-process-safety-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-06-18T13:04:11.702Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1316,7 +1263,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T12:17:20.053Z",
+      "crawledAt": "2026-06-30T23:09:41.123Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1338,7 +1285,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-commercial-excellence-siegfried-ch"
+          "intern-commercial-excellence-siegfried-ch",
+          "tirocinante-commercial-excellence-siegfried-zofingen"
         ],
         "de": [
           "intern-commercial-excellence-siegfried-ch"
@@ -1348,6 +1296,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1394,7 +1343,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_553",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:17:19.395Z",
+      "crawledAt": "2026-06-30T23:09:40.489Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1416,10 +1365,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "process-manager-production-siegfried-ch"
+          "process-manager-production-siegfried-ch",
+          "produzione-di-process-manager-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-23T23:03:52.957Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1466,7 +1417,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-Analytik-QC_R26_465",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T12:17:18.695Z",
+      "crawledAt": "2026-06-30T23:09:39.855Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1488,7 +1439,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chemielaborant-in-analytik-qc-siegfried-ch"
+          "chemielaborant-in-analytik-qc-siegfried-ch",
+          "laboratorio-chimico-analisi-qc-siegfried-zofingen"
         ],
         "en": [
           "chemielaborant-in-analytik-qc-siegfried-ch"
@@ -1544,7 +1496,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/QA-Supervisor_R26_565",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T12:17:17.967Z",
+      "crawledAt": "2026-06-30T23:09:39.052Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1566,13 +1518,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-supervisor-siegfried-ch"
+          "qa-supervisor-siegfried-ch",
+          "qa-supervisore-siegfried-evionnaz"
         ],
         "de": [
           "qa-supervisor-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-06-26T22:42:54.087Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1587,6 +1541,84 @@
       },
       "postalCode": "1950",
       "addressRegion": "VS"
+    },
+    {
+      "id": "siegfried-ac6024cfb924",
+      "slug": "assistente-esecutivo-siegfried-zofingen",
+      "slugByLocale": {
+        "it": "assistente-esecutivo-siegfried-zofingen",
+        "en": "executive-assistant-siegfried-ch",
+        "de": "executive-assistant-siegfried-ch",
+        "fr": "assistant-executif-siegfried-zofingen"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Executive Assistant",
+      "titleByLocale": {
+        "it": "Assistente esecutivo",
+        "en": "Executive Assistant",
+        "de": "Executive Assistent",
+        "fr": "Executive Assistant"
+      },
+      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft.\n\n- Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder\n\n- Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement\n\n- Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen\n\n- Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen\n\n- Verantworten der Spesenabrechnung und des Auslagenmanagements\n\n- Organisieren von Kundenanlässen sowie internen Events\n\n- Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten\n\n- Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner\n\n- Allgemeine Korrespondenz in Deutsch und Englisch\n\n- Troubleshooting im Daily Business\n Your Profile:\n\nFachkenntnisse\n\n- Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen\n\n- Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In)\n\n- Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil\n\n- IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen\n\nPersönliche Stärken\n\n- Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative\n\n- Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten\n\n- Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise\n\nYour Benefits:\n - Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n - Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n - Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n - Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n - Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n - Parken können Sie bei uns vergünstigt\n - Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "it": "\"Aspetta di crescere\" personalmente e professionalmente: Siegfried vi aspetta con interessanti sfide e numerosi modi per dimostrare i vostri talenti. Come partner affidabile e rispettato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e allo stesso tempo promuoviamo una cultura che ti consente di avere successo. Diventa parte di un'azienda globale in rapida crescita dove prospettive e esperienze diverse si fondono in un ambiente cooperativo. Qui troverete un lavoro che valuta sia il successo collettivo che i vostri contributi individuali – e vi offre opportunità a lungo termine per sviluppare e fare qualcosa. Il tuo ruolo: Questa funzione estremamente responsabile e varia vi aspetta con un mix emozionante di compiti amministrativi, di coordinamento e organizzativi. Come punto di contatto importante e centrale, forniscono fluidi flussi di lavoro nel lavoro quotidiano e alleviano e sostengono membri completi della gestione e senior management nel business quotidiano. - Sostegno amministrativo e organizzativo dei membri senior e della gestione assegnati - Assicurare un coordinamento completo degli appuntamenti, compresa la gestione del calendario - Organizzazione e prenotazione di viaggi e visite ai clienti - Preparare documenti di riunione, creare presentazioni e eseguire registri - Responsabilità della fatturazione delle merci e della gestione delle spese - Organizzazione di eventi e eventi interni - Principali basi di dati di processo interno e cooperazione nei progetti - Funzione di interfaccia come primo punto di contatto per partner interni ed esterni - Corrispondenza generale in tedesco e inglese - Risoluzione dei problemi nel business quotidiano Il tuo profilo: Competenza - Esperienza pluriennale nel sostegno a livello C in un'azienda internazionale - Formazione commerciale completata con successo o qualificazione comparabile, idealmente con ulteriore formazione nel campo dell'Assistenza Executive (ad es. - Conoscenza molto buona, stilistica del tedesco e dell'inglese in parola e scrittura, francese o spagnolo - IT-affin e molto esperto nella gestione dei programmi MS-Office più comuni Punti di forza personali - Personalità proattiva e orientata al servizio con alta auto-iniziativa - Reti pensando, comunicazione-forte giocatore di squadra con un buon tocco per trattare con personalità diverse - Design organizzativo flessibile con funzionamento orientato alla soluzione I tuoi vantaggi - Fondo pensione: Il fondo pensione della nostra azienda è attraente e contributi individuali - Il piano di acquisto azionario è generoso e individuale - Indennità d'invalidità: Siegfried AG aumenta l'indennitaÁ del 10% rispetto all'approccio cantonale - Reka-Geld: Siegfried AG concede ai dipendenti uno sconto del 20% - Ristorante personale / caffetteria: catering per condizioni preferenziali - Puoi parcheggiare con noi - Posizione centrale: Vicino alla stazione ferroviaria posizione con un ottimo accesso ai trasporti pubblici Fondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale con 13 sedi in tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici nella produzione industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi può combinare lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\" personally and professionally: Siegfried awaits you with exciting challenges and numerous ways to prove your talents. As a trusted and respected partner of the pharmaceutical industry, we maintain the highest standards in the fields of safety, quality and sustainability – and at the same time promote a culture that empowers you to succeed. Become part of a rapidly growing global company where diverse perspectives and experiences come together in a cooperative environment. Here you will find a job that evaluates both collective success and your individual contributions – and offers you long-term opportunities to develop and do something. Your Role: This extremely responsible and varied function awaits you with an exciting mix of administrative, coordination and organizational tasks. As an important and central point of contact, they provide smooth workflows in everyday work and relieve and support comprehensive members of the management and senior management in daily business. - Administrative and organisational support of the assigned senior management and management members - Ensure comprehensive appointment coordination including calendar management - Organizing and booking business trips and customer visits - Prepare meeting documents, create presentations and run logs -\n• Responsibilities of freight billing and the expenses management - Organizing customer events and internal events - Leading internal process databases and cooperation in projects - Interface function as the first point of contact for internal and external partners - General correspondence in German and English - Troubleshooting in Daily Business Your\n• Profile: Expertise - Multiannual experience in C-level support in an international company - Successfully completed commercial training or comparable qualification, ideally with further training in the field of Executive Assistance (e.g. - Very good, stylistic knowledge of German and English in word and writing, French or Spanish - IT-affin and very versed in handling the most common MS-Office programs Personal strengths - Service-oriented, proactive personality with high self-initiative - Networks thinking, communication-strong team player with a good flair for dealing with different personalities - Flexible organizational design with solution-oriented operation Your Benefits - Pension fund: Our company's pension fund is attractive and individual contributions - Stock purchase plan is generous and individual - Child allowance: Siegfried AG increases child allowance by 10% compared to the cantonal legal approach - Reka-Geld: Siegfried AG grants employees a 20% discount - Personal restaurant / cafeteria: catering for preferential conditions - You can park with us - Central location: Near railway station location with very good access to public transport Founded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 13 locations on three continents. With a team of over 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers into industrial production and produce safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and production of active ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trustworthy partner of the pharmaceutical industry Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: In dieser äusserst verantwortungsvollen und abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen \n• Aufgaben. Sie sorgen als wichtige und zentrale Ansprechperson für reibungslose Abläufe im Arbeitsalltag und entlasten und unterstützen umfassend Mitglieder der Geschäftsleitung und des Senior Management im Tagesgeschäft. - Administrative und organisatorische Unterstützung der zugeteilten Senior Management- und Geschäftsleitungsmitglieder - Sicherstellen einer umfassenden Terminkoordination inklusive Kalendermanagement - Organisieren und Buchen von Geschäftsreisen sowie Kundenbesuchen - Aufbereiten von Meetingunterlagen, Erstellen von Präsentationen und Führen von Protokollen - Verantworten der Spesenabrechnung und des Auslagenmanagements - Organisieren von Kundenanlässen sowie internen Events - Führen von internen Prozessdatenbanken sowie Mitarbeit in Projekten - Schnittstellenfunktion als erste Anlaufstelle für interne und externe Partner - Allgemeine Korrespondenz in Deutsch und Englisch - Troubleshooting im Daily Business Your \n• Profile: Fachkenntnisse - Mehrjährige Erfahrung im C-Level Support in einem internationalen Unternehmen - Erfolgreich abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise mit Weiterbildung im Bereich Executive Assistance (z.B. Direktionsassistent/In) - Sehr gute, stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch oder Spanisch von Vorteil - IT-affin und sehr versiert im Umgang mit den gängigsten MS-Office Programmen Persönliche Stärken - Dienstleistungsorientierte, proaktive Persönlichkeit mit hoher Eigeninitiative - Vernetzt denkender, kommunikationsstarker Teamplayer mit einem guten Flair für den Umgang mit verschiedenen Persönlichkeiten - Flexibles Organisationstalent mit lösungsorientierter Arbeitsweise Your Benefits: - Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar - Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar - Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz - Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt - Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen - Parken können Sie bei uns vergünstigt - Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"S'attendre à grandir\" personnellement et professionnellement: Siegfried vous attend avec des défis passionnants et de nombreuses façons de prouver vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous maintenons les normes les plus élevées dans les domaines de la sécurité, de la qualité et de la durabilité, tout en promouvant une culture qui vous donne les moyens de réussir. Devenez membre d'une entreprise mondiale en croissance rapide où des perspectives et des expériences variées se rencontrent dans un environnement coopératif. Vous trouverez ici un emploi qui évalue à la fois la réussite collective et vos contributions individuelles – et vous offre des opportunités à long terme pour développer et faire quelque chose. Votre rôle : Cette fonction extrêmement responsable et variée vous attend avec un mélange passionnant de tâches administratives, de coordination et d'organisation. En tant que point de contact important et central, ils fournissent des flux de travail fluides dans le travail quotidien et soulagent et soutiennent les membres complets de la direction et de la haute direction dans les affaires quotidiennes. - Soutien administratif et organisationnel des cadres supérieurs et des membres de la direction affectés - Assurer une coordination complète des nominations, y compris la gestion du calendrier - Organisation et réservation de voyages d'affaires et de visites de clients - Préparer des documents de réunion, créer des présentations et exécuter des journaux - Responsabilités de la facturation du fret et de la gestion des dépenses - Organisation d'événements clients et d'événements internes - Diriger les bases de données internes et la coopération dans les projets - Fonction d'interface comme premier point de contact pour les partenaires internes et externes - Correspondance générale en allemand et anglais - Dépannage quotidien\n• Votre profil: Expertise - Expérience pluriannuelle en soutien au niveau C dans une entreprise internationale - Une formation commerciale réussie ou une qualification comparable, idéalement avec une formation continue dans le domaine de l'aide aux cadres supérieurs (par exemple : - Très bonne connaissance stylistique de l'allemand et de l'anglais en français et en espagnol - IT-affin et très versé dans la gestion des programmes MS-Office les plus courants Forces personnelles - Personnalité proactive et orientée vers le service avec une grande initiative d'auto-initiative - Réflexion des réseaux, joueur d'équipe de communication forte avec un bon style pour traiter avec différentes personnalités - Conception organisationnelle flexible avec fonctionnement orienté vers la solution Vos avantages - Caisse de retraite : la caisse de retraite de notre société est attrayante et les cotisations individuelles - Plan d'achat d'actions généreux et individuel - Allocation pour enfant: Siegfried AG augmente l'allocation pour enfant de 10% par rapport à l'approche légale cantonale - Reka-Geld: Siegfried AG accorde aux salariés une réduction de 20% - Restaurant personnel / cafétéria: restauration aux conditions préférentielles - Vous pouvez vous garer avec nous - Situation centrale: Près de la gare avec un très bon accès aux transports en commun Fondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial avec 13 emplacements sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et produisons des médicaments sûrs pour les patients dans le monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la production d'ingrédients actifs (API) et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus digne de confiance de l'industrie pharmaceutique Siegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-30T23:09:38.462Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-12",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "R26_413",
+      "hiringOrganization": "Siegfried AG",
+      "previousSlugs": [
+        "executive-assistant-siegfried-ch",
+        "executive-assistant-siegfried-zofingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-siegfried-ch",
+          "assistente-esecutivo-siegfried-zofingen"
+        ],
+        "fr": [
+          "executive-assistant-siegfried-zofingen"
+        ]
+      },
+      "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5000",
+      "addressRegion": "AG"
     }
   ]
 }
