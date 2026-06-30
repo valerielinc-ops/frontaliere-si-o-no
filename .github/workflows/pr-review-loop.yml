@@ -26,6 +26,16 @@ jobs:
   review:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      # Non-code paths (Tier-2 token-lever): dati/static rigenerati + lockfile +
+      # snapshot + asset binari. Sia il re-review guard sia la tier-decision li
+      # strippano — una PR che tocca SOLO questi non ha CODE reviewabile → skip
+      # Claude / tier minimal. Sorgente unica (AGENTS.md #6: niente regex letterale
+      # duplicata tra step). Aggiunti vs. la versione precedente: lockfile
+      # (package-lock/pnpm-lock/yarn.lock), `*.snap`, baseline binarie
+      # (png/jpg/webp/gif/svg/ico/woff) — es. una PR di soli baseline PNG visivi
+      # sotto tests/ non deve più escalare a opus per "diff binario".
+      NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock)$|\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     # Auth via CLAUDE_CODE_OAUTH_TOKEN da subscription Max (consuma quota piano,
     # non API credits). Verificato zero-cost: nessuna org Anthropic Console,
     # Usage credits $0.00 spent, "Extra usage not enabled". I total_cost_usd nel
@@ -95,7 +105,7 @@ jobs:
           if [ -z "$changed" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Compare vuoto/errore → review piena (conservativo)."; exit 0
           fi
-          code=$(echo "$changed" | grep -vE '^(data/|public/|reports/|_newsletter_variants/|docs/)' || true)
+          code=$(echo "$changed" | grep -vE "$NONCODE_RE" || true)
           if [ -z "$code" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "Delta dall'ultima LGTM = SOLO data/docs (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest gira comunque."
@@ -172,7 +182,7 @@ jobs:
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
-          code_files=$(echo "$files" | grep -vE '^(data/|public/|reports/|_newsletter_variants/|docs/)' || true)
+          code_files=$(echo "$files" | grep -vE "$NONCODE_RE" || true)
           if [ -z "$code_files" ]; then
             # Token-lever: una PR data/docs-only (zero code) non ha contributo
             # code-reviewable — l'unica cosa da verificare è il completeness
@@ -198,6 +208,21 @@ jobs:
             [ -n "$a$b" ]
           }
 
+          # crawler_parser_only <file-list> → exit 0 se TUTTI i file funnel-critical
+          # sono crawler/parser/adapter di UNA singola fonte datore (fetch+parse di un
+          # employer). Owner-approved 2026-06-30 (Tier-3 token-lever): questi vanno
+          # reviewati da sonnet (non opus) — bug-class = meno job da una sola fonte, NON
+          # regressione SEO/monetizzazione. RESTANO su opus (NON match qui): SEO-emitter
+          # (sitemap/canonical/slug/structured-data/assemble/backfill/migrate),
+          # tests/, .github/workflows/, build-plugins/. Conservativo: anche UN solo file
+          # non-crawler nel set → opus (questa PR-class non riceve review Claude per drift
+          # workflow-validation → niente safety-net → bias a opus su qualsiasi dubbio).
+          crawler_parser_only() {
+            local fs="$1" nonmatch
+            nonmatch=$(echo "$fs" | grep -vE '^scripts/update-[a-z0-9-]+-jobs\.mjs$|^scripts/lib/[a-z0-9-]+-job-parser\.mjs$|^scripts/lib/ats-clients/|^scripts/crawl-[a-z0-9-]+\.mjs$|^scripts/(scaffold-crawler|generate-company-parser|generate-company-adapter-stubs|generate-crawler-companies|manage-company-adapter|regen-parser-fix-slices|list-job-crawler-company-keys|check-crawler-health)\.mjs$' || true)
+            [ -z "$nonmatch" ]
+          }
+
           # ── Incremental re-review (token-lever): se esiste GIÀ una review Claude su
           # un commit precedente, valuta SOLO il delta dei file della PR dall'ultimo
           # commit reviewato, non l'intera PR. Il grosso del contributo era già stato
@@ -217,8 +242,11 @@ jobs:
             if [ -n "$delta_code" ]; then
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
-              if funnel_crit "$delta_code"; then
+              if funnel_crit "$delta_code" && ! crawler_parser_only "$delta_code"; then
                 set_tier incremental-high claude-opus-4-8 25
+              elif funnel_crit "$delta_code"; then
+                # crawler/parser-only funnel-critical delta → sonnet (owner-approved)
+                set_tier incremental-high claude-sonnet-4-6 25
               else
                 set_tier incremental claude-sonnet-4-6 15
               fi
@@ -227,9 +255,13 @@ jobs:
             echo "Nessun delta-code nei file PR dall'ultima review → review piena."
           fi
 
-          # CODE funnel-critical → high (full scope). Altrimenti normal (sonnet).
-          if funnel_crit "$code_files"; then
+          # CODE funnel-critical → high (full scope, 40 turni). Modello: opus, salvo
+          # i diff crawler/parser-only → sonnet (owner-approved 2026-06-30, stesso
+          # scope+turni, solo modello più economico). Altrimenti normal (sonnet/25).
+          if funnel_crit "$code_files" && ! crawler_parser_only "$code_files"; then
             set_tier high claude-opus-4-8 40
+          elif funnel_crit "$code_files"; then
+            set_tier high claude-sonnet-4-6 40
           else
             set_tier normal claude-sonnet-4-6 25
           fi
@@ -306,12 +338,17 @@ jobs:
 
       - name: Fail on transient API error (no review posted)
         # claude-code-action can exit 0 even when the model run ABORTED on a
-        # transient Anthropic API error (500/502/503/529/429, "overloaded",
-        # "server_error") WITHOUT posting a review. The job then looks green but
-        # no `## LGTM`/finding was ever written → the PR silently stalls (no
-        # auto-merge, no failure signal; observed PR #2340, API 500 mid-run).
-        # Classify that case from the execution log and FAIL LOUDLY so the run
-        # is visibly red + re-runnable instead of masquerading as a clean pass.
+        # transient Anthropic API error WITHOUT posting a review. The job then
+        # looks green but no `## LGTM`/finding was written → the PR silently
+        # stalls (observed PR #2340, API 500 mid-run). Classify from the exec log:
+        #  - 5xx / overloaded / server_error → FAIL LOUDLY (red + re-runnable):
+        #    the server recovers fast, an immediate re-run is useful.
+        #  - 429 (quota / rate_limit) → do NOT fail (Tier-2 token-lever): a red
+        #    429 triggers a re-run (push / stale-PR rescuer) that re-hits the
+        #    ALREADY-exhausted shared Max quota → self-amplifying storm during a
+        #    burst (custode-measured ~10% of runs). Exit 0 with a warning; the PR
+        #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
+        #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
         if: always() && steps.guard.outputs.skip != 'true'
         env:
@@ -319,14 +356,22 @@ jobs:
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
         run: |
           set -uo pipefail
+          # 429 / rate-limit FIRST: even if outcome=failure, a 429 must NOT fail the
+          # job (Tier-2 lever: avoids re-run amplification of the shared Max quota).
+          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
+             && grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
+             && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*429|"type"[[:space:]]*:[[:space:]]*"rate_limit_error"|rate[ _-]?limit|too many requests' "${EXEC_FILE}"; then
+            echo "::warning::Claude review aborted on a 429 (quota/rate-limit). NOT failing — avoids re-run amplification of the shared Max quota. PR has no ## LGTM (won't auto-merge); it will be re-reviewed on the next push or by the stale-PR rescuer once quota recovers."
+            exit 0
+          fi
           if [ "${REVIEW_OUTCOME}" = "failure" ]; then
             echo "::error::Claude review action failed (outcome=failure) — re-run this job."
             exit 1
           fi
           if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ]; then
             if grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
-               && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*(429|5[0-9][0-9])|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
-              echo "::error::Claude review aborted on a transient Anthropic API error without posting a review — re-run this job."
+               && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*5[0-9][0-9]|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
+              echo "::error::Claude review aborted on a transient 5xx API error without posting a review — re-run this job."
               exit 1
             fi
           fi
