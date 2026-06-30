@@ -1,6 +1,6 @@
 {
   "crawlerKey": "diakoniewerk-neumuenster",
-  "assembledAt": "2026-06-29T22:06:12.813Z",
+  "assembledAt": "2026-06-30T11:17:09.996Z",
   "jobs": [
     {
       "id": "diakoniewerk-neumuenster-51d1a21df735",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2e8d950b-892d-4288-85d1-063c671c05b7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T22:06:10.659Z",
+      "crawledAt": "2026-06-30T11:17:07.654Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -94,7 +94,7 @@
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Piscina professionale",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
         "en": "Dipl. Nursing professional / Dipl. Care professional pool",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Piscine professionnelle de soins"
@@ -106,12 +106,13 @@
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Pool bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "fr": "Dipl. Spécialiste des soins infirmiers et infirmiers à Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Catégorie: professions infirmières. Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=b56dbace-4189-43ab-a884-f889a82d1b30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T22:06:10.659Z",
+      "crawledAt": "2026-06-30T11:17:07.654Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -160,83 +161,6 @@
       }
     },
     {
-      "id": "diakoniewerk-neumuenster-2341edfe8f3b",
-      "slug": "berufsbildner-in-per-dipl-fachfrau-dipl-fachmann-operationstechnik-o-con-wille-per-bb-weiterbildung-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
-      "slugByLocale": {
-        "it": "berufsbildner-in-per-dipl-fachfrau-dipl-fachmann-operationstechnik-o-con-wille-per-bb-weiterbildung-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
-        "en": "vocational-trainer-in-for-dipl-specialist-dipl-professional-surgical-technology-or-with-will-for-bb-further-education",
-        "de": "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb",
-        "fr": "entraineur-professionnel-pour-dipl-specialiste-dipl-technologie-chirurgicale-professionnelle-ou-avec-volonte-pour-la"
-      },
-      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
-      "companyKey": "diakoniewerk-neumuenster",
-      "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche",
-      "titleByLocale": {
-        "it": "Berufsbildner:in per Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (o con Wille per BB Weiterbildung) Medizintechnische Bereiche",
-        "en": "Vocational trainer: in for Dipl. Specialist / Dipl. Professional surgical technology (or with will for BB further education) Medical engineering areas",
-        "de": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche",
-        "fr": "Entraîneur professionnel: pour Dipl. Spécialiste / Dipl. Technologie chirurgicale professionnelle (ou avec volonté pour la formation complémentaire BB) Domaines du génie médical"
-      },
-      "description": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-      "descriptionByLocale": {
-        "it": "Formazione professionale: in per Dipl. Specialista / Dipl. Specialista in tecnologia chirurgica (o con la volontà di formazione continua BB) Aree di ingegneria medica presso Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Applicazione tramite il portale di carriera PI-ASP di Stiftung Diakoniewerk Neumünster.",
-        "en": "Vocational trainer: in for Dipl. Specialist / Dipl. Specialist in surgical technology (or with the will for BB continuing education) Medical engineering areas at Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via the PI-ASP career portal of Stiftung Diakoniewerk Neumünster.",
-        "de": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "fr": "Entraîneur professionnel: pour Dipl. Spécialiste / Dipl. Spécialiste en technologie chirurgicale (ou avec la volonté pour la formation continue BB) Secteurs d'ingénierie médicale à Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg)), Zollikerberg (8125, ZH). Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
-      },
-      "needsRetranslation": false,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=1697d953-6d91-439b-8f30-e25070280c2c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-29T22:06:10.659Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=1697d953-6d91-439b-8f30-e25070280c2c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
-        ],
-        "en": [
-          "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
-        ],
-        "fr": [
-          "berufsbildner-in-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-oder-mit-wille-fur-bb"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "diakoniewerk-neumuenster-f15441ad6697",
       "slug": "professional-professional-health-pool-su-richiesta-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
       "slugByLocale": {
@@ -268,7 +192,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=77a26ab1-b50e-4746-86a8-0187e5da98d9,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T22:06:10.658Z",
+      "crawledAt": "2026-06-30T11:17:07.653Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -346,7 +270,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=cc9597b3-fb8d-4484-a18a-2cffb844c803,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T22:06:10.657Z",
+      "crawledAt": "2026-06-30T11:17:07.652Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -405,7 +329,7 @@
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "en": "Dipl. Nursing professional / Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers"
@@ -417,12 +341,13 @@
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "fr": "Dipl. Spécialiste des soins infirmiers chez Spital Zollikerberg (Diakoniewerk Neumünster (Health World Zollikerberg), Zollikerberg (8125, ZH). Catégorie: professions infirmières. Application via le portail de carrière PI-ASP de Stiftung Diakoniewerk Neumünster."
       },
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d444de1a-3302-48be-aa5b-3a2514c838c5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-29T22:06:10.657Z",
+      "crawledAt": "2026-06-30T11:17:07.652Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -469,6 +394,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "diakoniewerk-neumuenster-ee6986b21fac",
+      "slug": "endoskopie-assistentin-assistent-im-medizinischen-ambulatorium-mit-geregelten",
+      "slugByLocale": {
+        "de": "endoskopie-assistentin-assistent-im-medizinischen-ambulatorium-mit-geregelten",
+        "it": "endoskopie-assistentin-assistent-im-medizinischen-ambulatorium-mit-geregelten",
+        "en": "endoskopie-assistentin-assistent-im-medizinischen-ambulatorium-mit-geregelten",
+        "fr": "endoskopie-assistentin-assistent-im-medizinischen-ambulatorium-mit-geregelten"
+      },
+      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
+      "companyKey": "diakoniewerk-neumuenster",
+      "companyDomain": "diakoniewerk-neumuenster.ch",
+      "title": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten)",
+      "titleByLocale": {
+        "de": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten)",
+        "it": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (con geregelten Arbeitszeiten)",
+        "en": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten)",
+        "fr": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten)"
+      },
+      "description": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten) bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+      "descriptionByLocale": {
+        "de": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten) bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "it": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten) bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "en": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten) bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "fr": "Endoskopie-Assistentin / Assistent im Medizinischen Ambulatorium (mit geregelten Arbeitszeiten) bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=7e3b5e39-b657-420a-bf2d-c8839f18ed41,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-30T11:17:07.651Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=7e3b5e39-b657-420a-bf2d-c8839f18ed41,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T15:19:47.620Z"
     }
   ]
 }
