@@ -43,13 +43,14 @@ const PROVIDERS = [
   { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
-  // maileroo: DISABLED by choice (not by a missing record). The DKIM selector
-  // mta._domainkey.frontaliereticino.ch IS now published (added 2026-06-30) and
-  // the domain is at DMARC p=reject, so Maileroo can sign DMARC-aligned mail.
-  // It is kept out of the cascade pending an owner decision + confirmation, over
-  // the next DMARC report window, that Maileroo's mail actually passes alignment.
-  // Re-enable by uncommenting the entry below once that is confirmed.
-  // { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
+  // maileroo: free tier (100/day). DKIM selector mta._domainkey.frontaliereticino.ch
+  // is published and Maileroo signs DMARC-aligned. Verified 2026-06-30 with a live
+  // test send to Gmail (X-Maileroo-Ref-Id 411800c3...): dkim=pass
+  // header.i=@frontaliereticino.ch s=mta, spf=pass smtp.mailfrom=@frontaliereticino.ch
+  // (return-path on our domain, 85.204.106.x authorized via include:_spf.maileroo.com),
+  // dmarc=pass at p=reject (dis=NONE), delivered to inbox. Placed before cloudflare so
+  // the purely-free providers are preferred over the paid Workers quota.
+  { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
   // Cloudflare Email Service: limit is MONTHLY (3000/mo included on Workers Paid),
   // there is no documented per-day cap. dailyLimit is the 3000/30 ≈ 100/day spread
   // so the in-memory guard keeps a single day from burning a disproportionate
