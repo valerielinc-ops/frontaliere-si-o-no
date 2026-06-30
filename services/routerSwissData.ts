@@ -275,6 +275,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'volg-reckingen-2026': { it: 'volg-reckingen-2026', en: 'volg-reckingen-2026', de: 'volg-reckingen-2026', fr: 'volg-reckingen-2026' },
  'fielmann-interlaken-lavoro-svizzera': { it: 'fielmann-interlaken-lavoro-svizzera', en: 'fielmann-interlaken-jobs-switzerland', de: 'fielmann-interlaken-jobs-schweiz', fr: 'fielmann-interlaken-emploi-suisse' },
  'macchinisti-autisti-lavoro-locarno': { it: 'macchinisti-autisti-lavoro-locarno', en: 'machine-operators-drivers-locarno', de: 'maschinenfuhrer-fahrer-locarno', fr: 'conducteurs-machines-locarno' },
+ 'volg-wiler-analisi-nazionale': { it: 'volg-wiler-analisi-nazionale', en: 'volg-wiler-supermarkets-switzerland', de: 'volg-wiler-supermaerkte-schweiz', fr: 'volg-wiler-supermarches-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

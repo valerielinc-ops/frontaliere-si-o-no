@@ -757,6 +757,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.macchinisti-autisti-lavoro-locarno.title': 'Conducteurs à Locarno',
     'blog.article.macchinisti-autisti-lavoro-locarno.excerpt': 'Annonces de travail pour les conducteurs de train et les conducteurs à Locarno : offre mise à jour, exigences et possibilités pour ceux qui recherchent un emploi dans le secteur des transports.',
     'blog.article.macchinisti-autisti-lavoro-locarno.imageAlt': 'Vue de la gare de Locarno avec opérateurs et conducteurs en uniforme.',
+    'blog.article.volg-wiler-analisi-nazionale.title': 'Volg Wiler : nouveauté pour les supermarchés dans les villages suisses',
+    'blog.article.volg-wiler-analisi-nazionale.excerpt': 'Le point de vente Volg de Wiler est un exemple de distribution alimentaire dans les petites communes suisses. Le rôle local et la présence nationale sont au centre.',
+    'blog.article.volg-wiler-analisi-nazionale.imageAlt': 'Vue d\'une supérette de village en Suisse avec des clients à l\'extérieur',
 };
 
 export default blogMetaChFr;

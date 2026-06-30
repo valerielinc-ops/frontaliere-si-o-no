@@ -757,6 +757,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.macchinisti-autisti-lavoro-locarno.title': 'Opportunities for drivers and drivers in Locarno: guide to work',
     'blog.article.macchinisti-autisti-lavoro-locarno.excerpt': 'Job advertisements for drivers and drivers in Locarno: updated offer, requirements and possibilities for those seeking employment in the transport sector.',
     'blog.article.macchinisti-autisti-lavoro-locarno.imageAlt': 'View of Locarno station with operators and drivers in uniform.',
+    'blog.article.volg-wiler-analisi-nazionale.title': 'Volg Wiler: news for supermarkets in Swiss villages',
+    'blog.article.volg-wiler-analisi-nazionale.excerpt': 'Wiler\'s Volg store is an example of food distribution in small Swiss municipalities. The local role and the national presence are at the centre.',
+    'blog.article.volg-wiler-analisi-nazionale.imageAlt': 'View of a village supermarket in Switzerland with customers outside',
 };
 
 export default blogMetaChEn;

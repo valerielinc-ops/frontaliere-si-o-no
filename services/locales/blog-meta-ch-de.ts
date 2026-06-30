@@ -757,6 +757,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.macchinisti-autisti-lavoro-locarno.title': 'Chancen für Lokführer und Fahrer in Locarno: Anleitung zur Arbeit',
     'blog.article.macchinisti-autisti-lavoro-locarno.excerpt': 'Stellenanzeigen für Lokführer und Fahrer in Locarno: Aktualisiertes Angebot, Anforderungen und Möglichkeiten für Arbeitssuchende im Transportsektor.',
     'blog.article.macchinisti-autisti-lavoro-locarno.imageAlt': 'Blick auf den Bahnhof Locarno mit Bedienern und Fahrern in Uniform.',
+    'blog.article.volg-wiler-analisi-nazionale.title': 'Volg Wiler: Neuheiten für Supermärkte in Schweizer Dörfern',
+    'blog.article.volg-wiler-analisi-nazionale.excerpt': 'Die Verkaufsstelle Volg in Wiler ist ein Beispiel für den Lebensmittelvertrieb in kleinen Schweizer Gemeinden. Lokale Rolle und nationale Präsenz stehen im Mittelpunkt.',
+    'blog.article.volg-wiler-analisi-nazionale.imageAlt': 'Blick auf einen Dorfsupermarkt in der Schweiz mit Kunden davor',
 };
 
 export default blogMetaChDe;
