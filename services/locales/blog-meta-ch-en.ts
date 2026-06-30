@@ -769,6 +769,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.offre-fielmann-tariffe-nazionali.title': 'Fielmann offer: new rates and promotions in Switzerland',
     'blog.article.offre-fielmann-tariffe-nazionali.excerpt': 'Discover the latest offers and promotions from Fielmann in Switzerland, including details on rates and benefits for customers and cross-border workers.',
     'blog.article.offre-fielmann-tariffe-nazionali.imageAlt': 'Fielmann store in Switzerland with customers shopping',
+    'blog.article.dogana-brogeda.title': 'Brogeda Customs: Waiting Times and Procedures',
+    'blog.article.dogana-brogeda.excerpt': 'Analysis of waiting times at Brogeda customs, with details on procedures and practical impacts for border guards.',
+    'blog.article.dogana-brogeda.imageAlt': 'View of Brogeda border crossing with alpine landscape and Lake Lugano',
 };
 
 export default blogMetaChEn;
