@@ -337,7 +337,7 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 // `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
 // writes both on a full build; the cache-HIT path must restore both too.
 const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
-const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-05-25-partial-description-flags-v1';
+const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-06-30-canton-pin-inference-override-v1';
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
