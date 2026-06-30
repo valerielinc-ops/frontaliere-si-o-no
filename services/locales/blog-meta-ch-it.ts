@@ -772,6 +772,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dogana-brogeda.title': 'Dogana Brogeda: Tempi di Attesa e Procedure',
     'blog.article.dogana-brogeda.excerpt': 'Analisi dei tempi di attesa alla dogana di Brogeda, con dettagli su procedure e impatti pratici per i frontalieri.',
     'blog.article.dogana-brogeda.imageAlt': 'Vista della dogana di Brogeda con paesaggio alpino e lago Lugano',
+    'blog.article.reclutamento-lugano.title': 'Reclutamento a Lugano: nuove opportunità di lavoro',
+    'blog.article.reclutamento-lugano.excerpt': 'Lugano si conferma centro nevralgico di nuove opportunità di lavoro con recenti bandi di reclutamento nel settore privato e pubblico.',
+    'blog.article.reclutamento-lugano.imageAlt': 'Scena fotorealistica di Lugano con attività di reclutamento',
 };
 
 export default blogMetaChIt;

@@ -280,6 +280,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lato-oscuro-eldorado-frontalieri-francesi': { it: 'lato-oscuro-eldorado-frontalieri-francesi', en: 'dark-side-swiss-eldorado-french-commuters', de: 'dunkle-seite-schweizer-eldorado-franzoesische-grenzgaenger', fr: 'cote-obscur-eldorado-suisse-frontaliers-francais' },
  'offre-fielmann-tariffe-nazionali': { it: 'offre-fielmann-tariffe-nazionali', en: 'fielmann-offer-pricing', de: 'fielmann-angebot-preise', fr: 'offre-fielmann-tarifs' },
  'dogana-brogeda': { it: 'dogana-brogeda', en: 'brogeda-customs-waiting-times', de: 'brogeda-zollwartezeiten', fr: 'douane-brogeda-delais-attente' },
+ 'reclutamento-lugano': { it: 'reclutamento-lugano', en: 'recruitment-lugano', de: 'rekrutierung-lugano', fr: 'recrutement-lugano' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1,0 +1,40 @@
+{
+  "id": "reclutamento-lugano",
+  "slug": "reclutamento-lugano",
+  "publishedAt": "2026-06-30T15:18:36.238Z",
+  "cluster": "novita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.424454006652068,
+    "confidence": 0.8,
+    "finalScore": 9.139563205321656,
+    "topK": [
+      {
+        "slug": "mezzo-milione-franchi-progetti-luganese-2026",
+        "cosine": 0.8478199762510035
+      },
+      {
+        "slug": "agenzie-interim-lugano-ticino-frontaliere",
+        "cosine": 0.8429074165448611
+      },
+      {
+        "slug": "incendi-nel-luganese-arrestato-un-piromane",
+        "cosine": 0.8384993265061726
+      },
+      {
+        "slug": "turismo-luganese-formazione",
+        "cosine": 0.8271830755685512
+      },
+      {
+        "slug": "moschea-lugano-pregassona-2026",
+        "cosine": 0.8271665568139014
+      }
+    ],
+    "score": 9.139563205321656,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

@@ -772,6 +772,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dogana-brogeda.title': 'Zoll Brogeda: Wartezeiten und Verfahren',
     'blog.article.dogana-brogeda.excerpt': 'Analyse der Wartezeiten am Zoll von Brogeda, mit Details zu Verfahren und praktischen Auswirkungen für Grenzgänger.',
     'blog.article.dogana-brogeda.imageAlt': 'Blick auf die Grenzstation Brogeda mit Alpenlandschaft und Lago Lugano',
+    'blog.article.reclutamento-lugano.title': 'Rekrutierung in Lugano: Neue Beschäftigungsmöglichkeiten',
+    'blog.article.reclutamento-lugano.excerpt': 'Lugano bestätigt sich als neuralgisches Zentrum für neue Beschäftigungsmöglichkeiten mit den jüngsten Rekrutierungsausschreibungen im privaten und öffentlichen Sektor.',
+    'blog.article.reclutamento-lugano.imageAlt': 'Fotorealistische Szene von Lugano mit Rekrutierungsaktivität',
 };
 
 export default blogMetaChDe;
