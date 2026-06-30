@@ -76,7 +76,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "praticanta-praticant-srg-ssr-cuira"
+        "fr": "pratique-pratique-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -245,9 +245,9 @@
     },
     {
       "id": "srg-ssr-7ef2fe2da461",
-      "slug": "auditeur-trice-interne-srg-ssr-bern",
+      "slug": "revisore-interno-srg-ssr-bern",
       "slugByLocale": {
-        "it": "auditeur-trice-interne-srg-ssr-bern",
+        "it": "revisore-interno-srg-ssr-bern",
         "en": "internal-auditor-srg-ssr-bern",
         "de": "interner-auditor-srg-ssr-bern",
         "fr": "auditeur-trice-interne-srg-ssr-bern"
@@ -342,7 +342,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditeur-trice-interne-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "auditeur-trice-interne-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-40befa2f92f1",
@@ -422,8 +430,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-musikredaktion-srg-ssr-zurich",
-          "tirocinante-redazione-musicale-srg-ssr-zurich"
+          "praktikant-in-musikredaktion-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:45.063Z",
@@ -642,8 +649,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
-          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
@@ -741,8 +747,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
-          "tirocinante-economia-tv-online-srg-ssr-zurich"
+          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:37.929Z",
@@ -836,8 +841,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern",
-          "assistente-in-finanza-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:36.085Z",
@@ -1023,9 +1027,9 @@
     },
     {
       "id": "srg-ssr-d9ec5b9a657a",
-      "slug": "service-operator-srg-ssr-bern",
+      "slug": "operatore-di-servizio-srg-ssr-bern",
       "slugByLocale": {
-        "it": "service-operator-srg-ssr-bern",
+        "it": "operatore-di-servizio-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -1128,7 +1132,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "service-operator-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-f48813c3ce84",
@@ -1202,8 +1214,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "online-redakteur-in-srg-ssr-zurich",
-          "redattore-online-in-srg-ssr-zurich"
+          "online-redakteur-in-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:24.650Z",
@@ -1293,8 +1304,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-kanale-tv-srg-ssr-zurich",
-          "tirocinante-in-canali-tv-srg-ssr-zurich"
+          "praktikant-in-kanale-tv-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:21.300Z",
@@ -1390,8 +1400,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
@@ -1484,8 +1493,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-berater-in-srg-ssr-zurich",
-          "consulente-hr-srg-ssr-zurich"
+          "hr-berater-in-srg-ssr-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1879,8 +1887,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektmanager-in-hr-befristet-srg-ssr-bern",
-          "senior-project-manager-hr-a-tempo-determinato-srg-ssr-bern"
+          "senior-projektmanager-in-hr-befristet-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:00.316Z",
@@ -1983,8 +1990,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-kulturplatz-srg-ssr-zurich",
-          "tirocinante-cultura-srg-ssr-zurich"
+          "praktikant-in-kulturplatz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:34:51.184Z",

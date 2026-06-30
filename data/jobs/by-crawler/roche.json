@@ -89461,7 +89461,7 @@
         "en": "end-to-end-business-team-coach-growth-performance-g-p-roche-ch",
         "it": "end-to-end-business-team-coach-growth-performance-g-p-roche-ch",
         "de": "end-to-end-business-team-coach-growth-performance-g-p-roche-ch",
-        "fr": "end-to-end-business-team-coach-growth-performance-g-p-roche-ch"
+        "fr": "coach-de-bout-en-bout-de-l-equipe-d-affaires-croissance-et-rendement-s-et-p-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89525,7 +89525,7 @@
         "en": "senior-communications-business-partner-pred-roche-ch",
         "it": "senior-communications-business-partner-pred-roche-ch",
         "de": "senior-communications-business-partner-pred-roche-ch",
-        "fr": "senior-communications-business-partner-pred-roche-ch"
+        "fr": "partenaire-principal-en-communications-d-affaires-pred-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90002,12 +90002,12 @@
     },
     {
       "id": "roche-678c8d4edb31",
-      "slug": "sales-account-manager-diagnostics-roche-ch-2",
+      "slug": "gestione-account-di-vendita-diagnostics-roche-basel",
       "slugByLocale": {
         "en": "sales-account-manager-diagnostics-roche-ch",
-        "it": "sales-account-manager-diagnostics-roche-ch-2",
+        "it": "gestione-account-di-vendita-diagnostics-roche-basel",
         "de": "sales-account-manager-diagnostics-roche-ch-2",
-        "fr": "sales-account-manager-diagnostics-roche-ch-2"
+        "fr": "gestionnaire-de-compte-de-vente-diagnostics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90062,16 +90062,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:54.519Z"
+      "firstSeenAt": "2026-06-29T23:23:54.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-account-manager-diagnostics-roche-ch-2"
+        ],
+        "fr": [
+          "sales-account-manager-diagnostics-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sales-account-manager-diagnostics-roche-ch-2"
+      ]
     },
     {
       "id": "roche-6152a0131587",
-      "slug": "sales-account-manager-diagnostics-roche-ch-3",
+      "slug": "gestione-account-di-vendita-diagnostics-roche-basel-16ed77",
       "slugByLocale": {
         "en": "sales-account-manager-diagnostics-roche-ch",
-        "it": "sales-account-manager-diagnostics-roche-ch-3",
+        "it": "gestione-account-di-vendita-diagnostics-roche-basel-16ed77",
         "de": "sales-account-manager-diagnostics-roche-ch-3",
-        "fr": "sales-account-manager-diagnostics-roche-ch-3"
+        "fr": "gestionnaire-de-compte-de-vente-diagnostics-roche-basel-16ed77"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90126,16 +90137,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:53.701Z"
+      "firstSeenAt": "2026-06-29T23:23:53.701Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-account-manager-diagnostics-roche-ch-3"
+        ],
+        "fr": [
+          "sales-account-manager-diagnostics-roche-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "sales-account-manager-diagnostics-roche-ch-3"
+      ]
     },
     {
       "id": "roche-b4308745280c",
-      "slug": "regulatory-affairs-project-manager-roche-ch",
+      "slug": "responsabile-del-progetto-per-gli-affari-regolamentari-roche-basel",
       "slugByLocale": {
         "en": "regulatory-affairs-project-manager-roche-ch",
-        "it": "regulatory-affairs-project-manager-roche-ch",
-        "de": "regulatory-affairs-project-manager-roche-ch",
-        "fr": "regulatory-affairs-project-manager-roche-ch"
+        "it": "responsabile-del-progetto-per-gli-affari-regolamentari-roche-basel",
+        "de": "projektmanager-fur-regulatory-affairs-roche-basel",
+        "fr": "gestionnaire-de-projet-des-affaires-reglementaires-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90190,14 +90212,28 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:52.939Z"
+      "firstSeenAt": "2026-06-29T23:23:52.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-affairs-project-manager-roche-ch"
+        ],
+        "de": [
+          "regulatory-affairs-project-manager-roche-ch"
+        ],
+        "fr": [
+          "regulatory-affairs-project-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-affairs-project-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-c9d66d4ceacf",
-      "slug": "regulatory-innovation-sustainment-professional-quality-compliance-roche-ch",
+      "slug": "normativa-innovazione-sviluppo-professionale-qualita-e-conformita-roche-mississauga",
       "slugByLocale": {
         "en": "regulatory-innovation-sustainment-professional-quality-compliance-roche-ch",
-        "it": "regulatory-innovation-sustainment-professional-quality-compliance-roche-ch",
+        "it": "normativa-innovazione-sviluppo-professionale-qualita-e-conformita-roche-mississauga",
         "de": "regulatory-innovation-sustainment-professional-quality-compliance-roche-ch",
         "fr": "regulatory-innovation-sustainment-professional-quality-compliance-roche-ch"
       },
@@ -90254,14 +90290,22 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:52.249Z"
+      "firstSeenAt": "2026-06-29T23:23:52.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-innovation-sustainment-professional-quality-compliance-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-innovation-sustainment-professional-quality-compliance-roche-ch"
+      ]
     },
     {
       "id": "roche-e12fc6dc0a53",
-      "slug": "strategic-quality-partner-roche-ch-2",
+      "slug": "partner-di-qualita-strategica-roche-tucson",
       "slugByLocale": {
         "en": "strategic-quality-partner-roche-ch",
-        "it": "strategic-quality-partner-roche-ch-2",
+        "it": "partner-di-qualita-strategica-roche-tucson",
         "de": "strategic-quality-partner-roche-ch-2",
         "fr": "strategic-quality-partner-roche-ch-2"
       },
@@ -90318,16 +90362,24 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:51.288Z"
+      "firstSeenAt": "2026-06-29T23:23:51.288Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-quality-partner-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-quality-partner-roche-ch-2"
+      ]
     },
     {
       "id": "roche-7a7201cb4319",
-      "slug": "commercialization-capability-partner-learning-development-roche-ch",
+      "slug": "partner-di-capacita-di-commercializzazione-learning-development-roche-mississauga",
       "slugByLocale": {
         "en": "commercialization-capability-partner-learning-development-roche-ch",
-        "it": "commercialization-capability-partner-learning-development-roche-ch",
-        "de": "commercialization-capability-partner-learning-development-roche-ch",
-        "fr": "commercialization-capability-partner-learning-development-roche-ch"
+        "it": "partner-di-capacita-di-commercializzazione-learning-development-roche-mississauga",
+        "de": "kommerzialisierungsfahigkeitspartner-learning-development-roche-mississauga",
+        "fr": "partenaire-de-la-capacite-de-commercialisation-apprentissage-et-developpement-roche-mississauga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90382,16 +90434,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:50.459Z"
+      "firstSeenAt": "2026-06-29T23:23:50.459Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercialization-capability-partner-learning-development-roche-ch"
+        ],
+        "de": [
+          "commercialization-capability-partner-learning-development-roche-ch"
+        ],
+        "fr": [
+          "commercialization-capability-partner-learning-development-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercialization-capability-partner-learning-development-roche-ch"
+      ]
     },
     {
       "id": "roche-995a1f904db7",
-      "slug": "global-study-lead-roche-ch",
+      "slug": "piombo-di-studio-globale-roche-basel",
       "slugByLocale": {
         "en": "global-study-lead-roche-ch",
-        "it": "global-study-lead-roche-ch",
-        "de": "global-study-lead-roche-ch",
-        "fr": "global-study-lead-roche-ch"
+        "it": "piombo-di-studio-globale-roche-basel",
+        "de": "globaler-studienleiter-roche-basel",
+        "fr": "chef-de-file-de-l-etude-mondiale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90446,7 +90512,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:49.701Z"
+      "firstSeenAt": "2026-06-29T23:23:49.701Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-study-lead-roche-ch"
+        ],
+        "de": [
+          "global-study-lead-roche-ch"
+        ],
+        "fr": [
+          "global-study-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-study-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-9e5fa1f320c3",
@@ -90593,12 +90673,12 @@
     },
     {
       "id": "roche-98066373817f",
-      "slug": "specialiste-marketing-laboratoire-central-roche-ch",
+      "slug": "marketing-specialist-laboratorio-centrale-roche-laval",
       "slugByLocale": {
         "fr": "specialiste-marketing-laboratoire-central-roche-ch",
-        "it": "specialiste-marketing-laboratoire-central-roche-ch",
-        "en": "specialiste-marketing-laboratoire-central-roche-ch",
-        "de": "specialiste-marketing-laboratoire-central-roche-ch"
+        "it": "marketing-specialist-laboratorio-centrale-roche-laval",
+        "en": "marketing-specialist-central-laboratory-roche-laval",
+        "de": "marketing-spezialist-zentrallabor-roche-laval"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90653,7 +90733,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-29T23:23:47.235Z"
+      "firstSeenAt": "2026-06-29T23:23:47.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-marketing-laboratoire-central-roche-ch"
+        ],
+        "en": [
+          "specialiste-marketing-laboratoire-central-roche-ch"
+        ],
+        "de": [
+          "specialiste-marketing-laboratoire-central-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-marketing-laboratoire-central-roche-ch"
+      ]
     },
     {
       "id": "roche-7a674a4f1ed9",
