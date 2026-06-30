@@ -1,49 +1,18 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-30T11:40:27.285Z",
-  "total": 18,
-  "newCount": 1,
+  "generatedAt": "2026-06-30T22:31:06.302Z",
+  "total": 17,
+  "newCount": 0,
   "updatedCount": 17,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 22504,
-  "avgDurationMs": 22504,
+  "durationMs": 21809,
+  "avgDurationMs": 21809,
   "durationHistory": [
-    22504
+    21809
   ],
-  "newJobs": [
-    {
-      "title": "Technicien/ne de service PAC - Région Vaud (m/f/d)",
-      "slug": "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier",
-      "url": "https://www.hoval.it/it_IT/job/3989",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3989/Application/New/3?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Crissier",
-      "addressLocality": "Crissier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-06-30",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
@@ -190,43 +159,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Servicetechniker Gas Region Walensee / Linthgebiet / Sargans (m/w/d)",
-      "slug": "servicetechniker-gas-region-walensee-linthgebiet-sargans-m-w-d-hoval-wil-bzw-region-walensee-rheintal",
-      "url": "https://www.hoval.it/it_IT/job/3949",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3949/Application/New/1?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Wil bzw. Region Walensee, Rheintal",
-      "addressLocality": "Wil bzw. Region Walensee, Rheintal",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-30",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "hoval-04ed55471a14",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "9000",
-      "firstSeenAt": "2026-05-27T12:51:49.485Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
         "completeness": 22
       }
     },
@@ -562,6 +494,42 @@
       }
     },
     {
+      "title": "Technicien/ne de service PAC - Région Vaud (m/f/d)",
+      "slug": "technicien-ne-de-service-pac-region-vaud-m-f-d-hoval-crissier",
+      "url": "https://www.hoval.it/it_IT/job/3989",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3989/Application/New/3?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Crissier",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-839b096165e6",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-06-30T11:40:27.283Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Technicien/ne de Vente interne (m/f/d)",
       "slug": "technicien-ne-de-vente-interne-m-f-d-hoval-crissier",
       "url": "https://www.hoval.it/it_IT/job/3973",
@@ -672,6 +640,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Servicetechniker Gas Region Walensee / Linthgebiet / Sargans (m/w/d)",
+      "slug": "tecnico-di-servizio-regione-del-gas-walensee-valle-del-reno-area-linth-lun-f-d-hoval-wil-bzw-region-walensee-rheintal",
+      "url": "https://www.hoval.it/it_IT/job/3949",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3949/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Wil bzw",
+      "addressLocality": "Wil bzw",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-04ed55471a14",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "9000",
+      "firstSeenAt": "2026-05-27T12:51:49.485Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
