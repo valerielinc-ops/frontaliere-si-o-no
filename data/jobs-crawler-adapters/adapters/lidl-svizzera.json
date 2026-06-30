@@ -193,7 +193,6 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-zurich-688121",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-1-1-zurich-705633",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-1-1-zurich-705731",
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-1-baden-673027",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-1-baden-681098",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-1-brugg-702646",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-1-dietikon-691862",
@@ -291,6 +290,7 @@
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-samstagskraft-m-w-d-20-chur-705710",
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-samstagskraft-m-w-d-20-landquart-705694",
     "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-morges-693331",
+    "https://team.lidl.ch/fr/jobs/ch-job-etudiant-etudiante-vente-h-f-d-20-60-aigle-694425",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-20-40-payerne-707132",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-fribourg-696132",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-martigny-693901",
@@ -307,6 +307,7 @@
     "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-martigny-711382",
     "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-noville-710356",
     "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-sierre-710439",
+    "https://team.lidl.ch/fr/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-40-petit-lancy-705752",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-aigle-708471",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-chatel-saint-denis-696171",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-collombey-muraz-709691",
@@ -334,7 +335,7 @@
     "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-1-locarno-703803"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-06-30T12:54:48.510Z",
+  "updatedAt": "2026-06-30T22:45:00.446Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-40-60-1-schaffhausen-705269": {
       "location": "Schaffhausen",
@@ -643,15 +644,6 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-baden-681102": {
-      "location": "Baden",
-      "addressLocality": "Baden",
-      "canton": "AG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-80-1-baden-673027": {
       "location": "Baden",
       "addressLocality": "Baden",
       "canton": "AG",
@@ -3144,6 +3136,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/fr/jobs/ch-job-etudiant-etudiante-vente-h-f-d-20-60-aigle-694425": {
+      "location": "Aigle",
+      "addressLocality": "Aigle",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-gravesano-588243": {
       "location": "Gravesano",
       "addressLocality": "Gravesano",
@@ -3229,6 +3230,15 @@
       "location": "Martigny",
       "addressLocality": "Martigny",
       "canton": "VS",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-40-petit-lancy-705752": {
+      "location": "Petit-Lancy",
+      "addressLocality": "Petit-Lancy",
+      "canton": "GE",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
