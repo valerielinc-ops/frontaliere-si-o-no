@@ -754,6 +754,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fielmann-interlaken-lavoro-svizzera.title': 'Travailler de Fielmann à Interlaken : opportunités et recherche de postes',
     'blog.article.fielmann-interlaken-lavoro-svizzera.excerpt': 'Aperçu des opportunités d\'emploi chez Fielmann à Interlaken et comment trouver les postes vacants disponibles.',
     'blog.article.fielmann-interlaken-lavoro-svizzera.imageAlt': 'Vue du centre d\'Interlaken avec un magasin d\'optique moderne et des passants.',
+    'blog.article.macchinisti-autisti-lavoro-locarno.title': 'Conducteurs à Locarno',
+    'blog.article.macchinisti-autisti-lavoro-locarno.excerpt': 'Annonces de travail pour les conducteurs de train et les conducteurs à Locarno : offre mise à jour, exigences et possibilités pour ceux qui recherchent un emploi dans le secteur des transports.',
+    'blog.article.macchinisti-autisti-lavoro-locarno.imageAlt': 'Vue de la gare de Locarno avec opérateurs et conducteurs en uniforme.',
 };
 
 export default blogMetaChFr;
