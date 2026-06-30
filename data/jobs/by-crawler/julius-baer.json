@@ -4684,10 +4684,10 @@
         "fr": "Contrôleur des risques du marché junior 100 % (f/m/d)",
         "it": "Regolatore di rischio del mercato Junior 100% (f/m/d)"
       },
-      "slug": "junior-market-risk-controller-100-f-m-d-julius-baer",
+      "slug": "regolatore-di-rischio-del-mercato-junior-100-f-m-d-julius-baer-zurich",
       "slugByLocale": {
         "en": "junior-market-risk-controller-100-f-m-d-julius-baer",
-        "it": "junior-market-risk-controller-100-f-m-d-julius-baer",
+        "it": "regolatore-di-rischio-del-mercato-junior-100-f-m-d-julius-baer-zurich",
         "fr": "controleur-des-risques-du-marche-junior-100-f-m-d-julius-baer-zurich",
         "de": "junior-market-risk-controller-100-f-m-d-julius-baer"
       },
@@ -4715,7 +4715,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z"
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-market-risk-controller-100-f-m-d-julius-baer"
+        ]
+      },
+      "previousSlugs": [
+        "junior-market-risk-controller-100-f-m-d-julius-baer"
+      ]
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Data-Scientist-100---f-m-d-_r-18709-1",
