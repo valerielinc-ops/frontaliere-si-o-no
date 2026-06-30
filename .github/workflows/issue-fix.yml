@@ -79,11 +79,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-        # Tier high (opus, max-turns alti): issue funnel-critical — crawler/parser/
+        # Tier high (claude-sonnet-5, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
         # structured-data/seo). Bug lì = rischio propagato su ogni merge → probing
-        # opus paga. Tier normal (sonnet) per il resto. Mirror ESATTO di
+        # rigoroso paga. Tier normal (claude-sonnet-4-6) per il resto. Mirror ESATTO di
         # pr-review-loop: il bare `scripts/` NON escala più (mandava ogni menzione
         # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
         # read-only — a opus@40; osservato 2026-06-04 come tier-breadth waste). Gli
@@ -94,7 +94,7 @@ jobs:
           if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-4-8" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
             # num_turns=41 (es. run 27386343034) = run opus intera bruciata,
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
@@ -249,7 +249,8 @@ jobs:
         # lascia un marker FIX_OUTCOME del fixer → il backstop sotto posta un
         # generico `no-pr-unspecified` che il drainer IGNORA (BACKSTOP_MARKER) →
         # l'item viene trattato come orfano ri-tentabile e ri-accodato fino a
-        # MAX_ATTEMPTS, bruciando ~3 run opus su un item che esaurisce il budget
+        # MAX_ATTEMPTS, bruciando ~3 run del tier high (claude-sonnet-5) su un item
+        # che esaurisce il budget
         # in modo DETERMINISTICO (ri-tentarlo lo riproduce). Questo step rileva
         # SPECIFICAMENTE il subtype `error_max_turns` dall'execution file e posta
         # un marker granulare `max-turns` (senza BACKSTOP_MARKER → il drainer lo
