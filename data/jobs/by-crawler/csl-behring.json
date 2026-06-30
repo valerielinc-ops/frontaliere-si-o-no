@@ -2106,14 +2106,6 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "senior-laboratory-specialist-tech-ops-csl-behring-ch",
-        "scientifique-principal-tech-ops-csl-behring-bern",
-        "senior-wissenschaftler-tech-ops-csl-behring-bern",
-        "ricercatore-senior-tech-ops-csl-behring-bern",
-        "scienziato-senior-tech-ops-csl-behring-bern",
-        "senior-scientist-tech-ops-csl-behring-ch",
-        "leitender-wissenschaftler-tech-ops-csl-behring-bern",
-        "senior-laboratoriumspezialist-tech-ops-csl-behring-bern",
         "chercheur-principal-operations-techniques-csl-behring-bern",
         "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern",
         "specialista-di-laboratorio-tech-ops-csl-behring-bern",
@@ -2124,7 +2116,16 @@
         "chef-de-projet-senior-tech-ops-csl-behring-bern",
         "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern",
         "specialiste-de-laboratoire-operations-techniques-csl-behring-bern",
-        "ricercatore-tech-ops-csl-behring-bern"
+        "ricercatore-tech-ops-csl-behring-bern",
+        "wissenschaftler-tech-ops-csl-behring-bern",
+        "scientifique-tech-ops-csl-behring-bern",
+        "senior-scientist-tech-ops-analitical-testing-csl-behring-bern",
+        "senior-scientist-tech-ops-analytical-testing-csl-behring-ch",
+        "senior-scientist-tech-ops-analytisches-testen-csl-behring-bern",
+        "chercheur-principal-operations-techniques-essais-analytiques-csl-behring-bern",
+        "scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern",
+        "senior-scientist-tech-ops-analytische-tests-csl-behring-bern",
+        "scientist-tech-ops-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2132,7 +2133,16 @@
           "scientifique-principal-tech-ops-csl-behring-bern",
           "senior-wissenschaftler-tech-ops-csl-behring-bern",
           "ricercatore-senior-tech-ops-csl-behring-bern",
-          "scienziato-senior-tech-ops-csl-behring-bern"
+          "scienziato-senior-tech-ops-csl-behring-bern",
+          "wissenschaftler-tech-ops-csl-behring-bern",
+          "scientifique-tech-ops-csl-behring-bern",
+          "senior-scientist-tech-ops-analitical-testing-csl-behring-bern",
+          "senior-scientist-tech-ops-analytical-testing-csl-behring-ch",
+          "senior-scientist-tech-ops-analytisches-testen-csl-behring-bern",
+          "chercheur-principal-operations-techniques-essais-analytiques-csl-behring-bern",
+          "scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern",
+          "senior-scientist-tech-ops-analytische-tests-csl-behring-bern",
+          "scientist-tech-ops-csl-behring-ch"
         ],
         "en": [
           "senior-scientist-tech-ops-csl-behring-ch"
