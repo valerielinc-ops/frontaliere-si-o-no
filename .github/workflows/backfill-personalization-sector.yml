@@ -1,0 +1,93 @@
+name: Backfill Personalization Sector
+
+# Keeps subscriber `sector_interest` aligned to the category each user EXPLICITLY
+# filtered by on-site. The daily enrichment is no-clobber (never re-touches a set
+# field), so once a sector is written it can drift from a user's later explicit
+# filter. This weekly pass corrects ONLY that bug signature (see the script: it
+# moves a sector to an explicitly-filtered category, never re-derives on browsing
+# drift), so it is safe to run unattended. Zero-Claude (pure node).
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'   # Mondays 05:00 UTC, before the 07:00 daily alert send
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Write corrections (true) or dry-run only (false).'
+        required: false
+        default: 'true'
+        type: string
+      email:
+        description: 'Limit to a single subscriber email (optional).'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: backfill-personalization-sector
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write     # for github-issue-creator on failure
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Backfill sector corrections
+        id: backfill
+        continue-on-error: true
+        run: |
+          APPLY_FLAG=""
+          # Scheduled runs always apply; manual runs honor the apply input.
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.apply }}" = "true" ]; then
+            APPLY_FLAG="--apply"
+          fi
+          EMAIL_FLAG=""
+          if [ -n "${{ inputs.email }}" ]; then
+            EMAIL_FLAG="--email ${{ inputs.email }}"
+          fi
+          node scripts/backfill-personalization-sector.mjs $APPLY_FLAG $EMAIL_FLAG
+
+      - name: Report failure to GitHub Issues
+        if: steps.backfill.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## Backfill personalization sector fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
