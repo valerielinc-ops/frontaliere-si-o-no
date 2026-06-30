@@ -124,6 +124,18 @@ describe('events-utils helpers', () => {
     expect(out.map((e: { title: string }) => e.title)).toEqual(['A', 'B']);
   });
 
+  it('upcomingEvents breaks ties on id so slug-collision suffix is stable across crawl insertion order', () => {
+    // Two events with identical title+date: slug base is the same, so the
+    // collision suffix (-2) is assigned by iteration order. The id tiebreaker
+    // pins which event comes first regardless of dataset insertion order.
+    const evA = { id: 'tio-agenda:100', startDate: '2026-08-01', title: 'Sagra', comune: 'Lugano' };
+    const evB = { id: 'tio-agenda:200', startDate: '2026-08-01', title: 'Sagra', comune: 'Lugano' };
+    // Dataset order A,B → A comes first
+    expect(upcomingEvents([evA, evB], '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['tio-agenda:100', 'tio-agenda:200']);
+    // Dataset order B,A (future crawl inserts B before A) → still A first (id sort wins)
+    expect(upcomingEvents([evB, evA], '2026-07-01').map((e: { id: string }) => e.id)).toEqual(['tio-agenda:100', 'tio-agenda:200']);
+  });
+
   it('groupByComune drops events without a comune', () => {
     const g = groupByComune([
       { comune: 'Lugano', title: 'x' },
