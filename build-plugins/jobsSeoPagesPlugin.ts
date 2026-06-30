@@ -9843,6 +9843,16 @@ ${staticAnalyticsHtml}
  // be non-reciprocal and could trip audit-hreflang #4. Declared in the merge
  // scope so the emit loop (same closure, reads `tracking` directly) can read it.
  const cantonDriftCompatSlugs = new Set<string>();
+ // Active-job canton-drift recovery: when the compat-merge below overwrites an
+ // ACTIVE job's locale path with its legacy-TI drift URL, remember the job's
+ // REAL (live) canonical path, keyed by the drift compat path. The self-healing
+ // pass (search activeDriftRealPathByCompat) reads this to emit a relocation
+ // bridge pointing at the live page instead of a "job removed" tombstone — the
+ // job is ALIVE (served at its current canton URL), so the orphan stub was a
+ // soft-404 regression on the indexed legacy-TI URL (e.g. a VS Swiss-Life job
+ // 404-orphaned at /fr/trouver-emploi-tessin/<slug>/ while live at
+ // /fr/trouver-emploi-valais/<slug>/).
+ const activeDriftRealPathByCompat = new Map<string, string>();
  try {
  const compatPaths: string[] = readCompatPaths(rootDir).paths;
  let compatAdded = 0;
@@ -9921,6 +9931,13 @@ ${staticAnalyticsHtml}
  // drifted indexed URL is correct.
  if (known && !currentSlugs.has(slug)) break;
  if (known) cantonDriftCompatSlugs.add(slug);
+ // ACTIVE job whose live canonical path we're about to overwrite with the
+ // drift URL: stash the real path so the self-healing pass emits a relocation
+ // bridge to the live page instead of a "job removed" tombstone (see
+ // activeDriftRealPathByCompat declaration). `known` is the pre-overwrite
+ // ledger path (the job's current canton URL); `compatPath` is the legacy-TI
+ // drift URL that becomes the new tracking value.
+ if (known && currentSlugs.has(slug)) activeDriftRealPathByCompat.set(compatPath, known);
  (tracking[slug] as Record<string, string>)[locale] = compatPath;
  compatAdded++;
  break;
@@ -12037,6 +12054,7 @@ ${staticAnalyticsHtml}
  // This handles edge cases like locale-variant tracking keys that match a
  // currentSlug value but whose locale paths differ from the active job paths.
  let healedCount = 0;
+ let relocatedActiveCount = 0;
  for (const [, paths] of Object.entries(tracking) as [string, Record<string, string>][]) {
  for (const locale of localeList) {
  const relPath = paths?.[locale];
@@ -12049,6 +12067,37 @@ ${staticAnalyticsHtml}
  const absFile = np.join(distDir, relPath.replace(/^\//, ''), 'index.html');
  if (_writtenPaths.has(absFile)) continue;
  const __tSelfHealing = startTimer();
+
+ // Active cross-canton job: this tracking path is the job's legacy-TI drift
+ // URL, overwritten by the compat-merge above (search activeDriftRealPathByCompat).
+ // The job is ALIVE at `driftRealPath` (its current canton page), so emit a
+ // RELOCATION bridge pointing users + Google there, NOT a "job removed"
+ // tombstone. The bridge's canonical/CTA both target the live page, so equity
+ // consolidates to the real canton URL and visitors reach the open offer.
+ const driftRealPath = activeDriftRealPathByCompat.get(relPath);
+ if (driftRealPath) {
+ const realUrl = `${BASE_URL}${withSlash(driftRealPath)}`;
+ const movedCopy = ({
+ it: { title: 'Annuncio spostato', body: 'Questo annuncio è ora pubblicato in un\'altra sezione. Aprilo alla pagina aggiornata qui sotto.', cta: 'Apri l\'annuncio aggiornato' },
+ en: { title: 'Listing moved', body: 'This listing is now published in another section. Open it on the updated page below.', cta: 'Open the updated listing' },
+ de: { title: 'Anzeige verschoben', body: 'Diese Anzeige ist jetzt in einem anderen Bereich veröffentlicht. Öffnen Sie sie auf der aktualisierten Seite unten.', cta: 'Aktualisierte Anzeige öffnen' },
+ fr: { title: 'Offre déplacée', body: 'Cette offre est désormais publiée dans une autre section. Ouvrez-la sur la page à jour ci-dessous.', cta: 'Ouvrir l\'offre à jour' },
+ } as const)[locale] ?? { title: 'Annuncio spostato', body: 'Questo annuncio è ora pubblicato in un\'altra sezione.', cta: 'Apri l\'annuncio aggiornato' };
+ const movedHtml = buildCanonicalBridgePage({
+ canonicalUrl: realUrl,
+ pathLabel: withSlash(driftRealPath),
+ title: `${movedCopy.title} | Frontaliere Ticino`,
+ description: movedCopy.body,
+ body: movedCopy.body,
+ ctaLabel: movedCopy.cta,
+ lang: locale,
+ noindex: true,
+ });
+ writeSoftLandingPage(relPath.replace(/^\//, ''), movedHtml);
+ relocatedActiveCount++;
+ recordEmit('self-healing', __tSelfHealing);
+ continue;
+ }
 
  const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/');
  const listingUrl = `${BASE_URL}${withSlash(listingPath)}`;
@@ -12073,6 +12122,9 @@ ${staticAnalyticsHtml}
  healedCount++;
  recordEmit('self-healing', __tSelfHealing);
  }
+ }
+ if (relocatedActiveCount > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Relocated ${relocatedActiveCount} active cross-canton drift URLs to their live canonical page (no orphan tombstone)`);
  }
  if (healedCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Self-healed ${healedCount} tracking paths with no prior coverage`);
