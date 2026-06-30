@@ -2258,6 +2258,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'macchinisti-autisti-lavoro-locarno',
+    category: 'pratico',
+    date: '2026-06-30T06:37:37.452Z',
+    image: '/images/blog/macchinisti-autisti-lavoro-locarno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -9690,6 +9690,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-macchinisti-autisti-lavoro-locarno': {
+    title: 'Opportunità per macchinisti e autisti a Locarno: guida al lavoro',
+    description: 'Scopri le opportunità di lavoro per macchinisti e autisti a Locarno: requisiti, modalità di candidatura e strumenti utili. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, opportunità, macchinisti, autisti, locarno',
+    ogTitle: 'Offerte lavoro macchinisti e autisti Locarno: guida aggiornata',
+    ogDescription: 'Annunci di lavoro per macchinisti e conducenti a Locarno: requisiti e procedura per candidarsi.',
+    canonicalPath: '/articoli-svizzera/macchinisti-autisti-lavoro-locarno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Opportunità per macchinisti e autisti a Locarno: guida al lavoro",
+      "description": "Scopri le opportunità di lavoro per macchinisti e autisti a Locarno: requisiti, modalità di candidatura e strumenti utili. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/macchinisti-autisti-lavoro-locarno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista della stazione di Locarno con operatori e conducenti in uniforme."
+      },
+      "datePublished": "2026-06-30T06:37:37+00:00",
+      "dateModified": "2026-06-30T06:37:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/macchinisti-autisti-lavoro-locarno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
