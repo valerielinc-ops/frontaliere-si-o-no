@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "transgourmet-c4681e39-120",
-      "slug": "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier",
+      "slug": "collaboratore-venditore-di-frutta-e-verdura-transgourmet-crissier",
       "slugByLocale": {
         "fr": "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier",
-        "it": "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier",
-        "en": "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier",
-        "de": "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier"
+        "it": "collaboratore-venditore-di-frutta-e-verdura-transgourmet-crissier",
+        "en": "collaborator-seller-fruit-vegetables-transgourmet-crissier",
+        "de": "mitarbeiter-verkaufer-obst-gemuse-transgourmet-crissier"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -70,7 +70,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.984Z"
+      "firstSeenAt": "2026-06-29T23:26:13.984Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-vente-fruits-amp-legumes-transgourmet-crissier"
+      ]
     },
     {
       "id": "transgourmet-81da75ed-946",
@@ -155,12 +169,12 @@
     },
     {
       "id": "transgourmet-a1f26a7c-4aa",
-      "slug": "kommissioniererin-kommissionierer-transgourmet-neuendorf",
+      "slug": "ordina-picker-ordine-picker-transgourmet-neuendorf",
       "slugByLocale": {
         "de": "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "it": "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "en": "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "fr": "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+        "it": "ordina-picker-ordine-picker-transgourmet-neuendorf",
+        "en": "order-picker-order-picker-transgourmet-neuendorf",
+        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -221,16 +235,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.982Z"
+      "firstSeenAt": "2026-06-29T23:26:13.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+        ],
+        "en": [
+          "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+        ],
+        "fr": [
+          "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+        ]
+      },
+      "previousSlugs": [
+        "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+      ]
     },
     {
       "id": "transgourmet-f0a09cb0-c36",
-      "slug": "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz",
+      "slug": "capo-aggiunto-capo-aggiunto-del-dipartimento-del-macellaio-transgourmet-rennaz",
       "slugByLocale": {
         "fr": "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz",
-        "it": "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz",
-        "en": "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz",
-        "de": "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz"
+        "it": "capo-aggiunto-capo-aggiunto-del-dipartimento-del-macellaio-transgourmet-rennaz",
+        "en": "deputy-head-deputy-head-of-butcher-s-department-transgourmet-rennaz",
+        "de": "stellvertretender-leiter-stellvertretender-leiter-der-abteilung-metzgerei-transgourmet-rennaz"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -291,7 +319,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.981Z"
+      "firstSeenAt": "2026-06-29T23:26:13.981Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz"
+        ],
+        "en": [
+          "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz"
+        ],
+        "de": [
+          "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-adjointe-responsable-adjoint-rayon-boucherie-transgourmet-rennaz"
+      ]
     },
     {
       "id": "transgourmet-292bec01-d7d",
@@ -608,10 +650,10 @@
     },
     {
       "id": "transgourmet-c8f27967-7b1",
-      "slug": "key-account-manager-transgourmet-rennaz",
+      "slug": "gestione-account-chiave-transgourmet-rennaz",
       "slugByLocale": {
         "fr": "key-account-manager-transgourmet-rennaz",
-        "it": "key-account-manager-transgourmet-rennaz",
+        "it": "gestione-account-chiave-transgourmet-rennaz",
         "en": "key-account-manager-transgourmet-rennaz",
         "de": "key-account-manager-transgourmet-rennaz"
       },
@@ -674,7 +716,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.973Z"
+      "firstSeenAt": "2026-06-29T23:26:13.973Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-transgourmet-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-transgourmet-rennaz"
+      ]
     },
     {
       "id": "transgourmet-5f434bdd-fed",
@@ -844,8 +894,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-check-out-transgourmet-pratteln",
         "it": "mitarbeiterin-collaboratore-trice-check-out-transgourmet-pratteln",
-        "en": "mitarbeiterin-mitarbeiter-check-out-transgourmet-pratteln",
-        "fr": "mitarbeiterin-mitarbeiter-check-out-transgourmet-pratteln"
+        "en": "employee-employee-check-out-transgourmet-pratteln",
+        "fr": "employe-employe-depart-transgourmet-pratteln"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -896,6 +946,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-check-out-transgourmet-pratteln"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-check-out-transgourmet-pratteln"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-check-out-transgourmet-pratteln"
         ]
       },
@@ -1161,11 +1217,11 @@
     },
     {
       "id": "transgourmet-840e3214-aae",
-      "slug": "responsable-de-magasin-transgourmet-latena",
+      "slug": "gestione-del-negozio-transgourmet-latena",
       "slugByLocale": {
         "fr": "responsable-de-magasin-transgourmet-latena",
-        "it": "responsable-de-magasin-transgourmet-latena",
-        "en": "responsable-de-magasin-transgourmet-latena",
+        "it": "gestione-del-negozio-transgourmet-latena",
+        "en": "store-manager-transgourmet-latena",
         "de": "responsable-de-magasin-transgourmet-latena"
       },
       "company": "Transgourmet",
@@ -1227,16 +1283,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.965Z"
+      "firstSeenAt": "2026-06-29T23:26:13.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-magasin-transgourmet-latena"
+        ],
+        "en": [
+          "responsable-de-magasin-transgourmet-latena"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-magasin-transgourmet-latena"
+      ]
     },
     {
       "id": "transgourmet-fa296073-8ea",
-      "slug": "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf",
+      "slug": "gestione-account-chiave-gestione-account-chiave-gastronomia-transgourmet-moosseedorf",
       "slugByLocale": {
         "de": "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf",
-        "it": "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf",
+        "it": "gestione-account-chiave-gestione-account-chiave-gastronomia-transgourmet-moosseedorf",
         "en": "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf",
-        "fr": "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf"
+        "fr": "gestionnaire-de-comptes-cles-gestionnaire-de-comptes-cles-soins-gastronomie-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1297,7 +1364,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.963Z"
+      "firstSeenAt": "2026-06-29T23:26:13.963Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf"
+        ],
+        "fr": [
+          "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-moosseedorf"
+      ]
     },
     {
       "id": "transgourmet-bf4c1a16-e05",
@@ -1377,7 +1455,7 @@
         "de": "linux-system-administrator-transgourmet-moosseedorf",
         "it": "linux-system-administrator-transgourmet-moosseedorf",
         "en": "linux-system-administrator-transgourmet-moosseedorf",
-        "fr": "linux-system-administrator-transgourmet-moosseedorf"
+        "fr": "administrateur-systeme-linux-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1442,12 +1520,12 @@
     },
     {
       "id": "transgourmet-e6c56962-065",
-      "slug": "assistant-category-management-non-food-transgourmet-moosseedorf",
+      "slug": "gestione-aggiuntiva-della-categoria-transgourmet-moosseedorf",
       "slugByLocale": {
         "de": "assistant-category-management-non-food-transgourmet-moosseedorf",
-        "it": "assistant-category-management-non-food-transgourmet-moosseedorf",
+        "it": "gestione-aggiuntiva-della-categoria-transgourmet-moosseedorf",
         "en": "assistant-category-management-non-food-transgourmet-moosseedorf",
-        "fr": "assistant-category-management-non-food-transgourmet-moosseedorf"
+        "fr": "gestion-de-categorie-adjointe-non-alimentaire-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1508,7 +1586,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.958Z"
+      "firstSeenAt": "2026-06-29T23:26:13.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-category-management-non-food-transgourmet-moosseedorf"
+        ],
+        "fr": [
+          "assistant-category-management-non-food-transgourmet-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-category-management-non-food-transgourmet-moosseedorf"
+      ]
     },
     {
       "id": "transgourmet-41a0f2eb-d0d",
@@ -1680,12 +1769,12 @@
     },
     {
       "id": "transgourmet-2db6c3b7-33f",
-      "slug": "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal",
+      "slug": "capo-reparto-capo-reparto-macelleria-transgourmet-langenthal",
       "slugByLocale": {
         "de": "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal",
-        "it": "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal",
-        "en": "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal",
-        "fr": "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal"
+        "it": "capo-reparto-capo-reparto-macelleria-transgourmet-langenthal",
+        "en": "head-of-department-head-of-department-butchery-transgourmet-langenthal",
+        "fr": "chef-de-departement-chef-de-departement-boucherie-transgourmet-langenthal"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1746,7 +1835,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T23:26:13.909Z"
+      "firstSeenAt": "2026-06-29T23:26:13.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal"
+        ],
+        "en": [
+          "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal"
+        ],
+        "fr": [
+          "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiterin-abteilungsleiter-metzgerei-transgourmet-langenthal"
+      ]
     }
   ]
 }

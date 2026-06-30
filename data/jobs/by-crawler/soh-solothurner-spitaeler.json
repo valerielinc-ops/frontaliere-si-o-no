@@ -341,7 +341,7 @@
       "id": "soh-solothurner-spitaeler-189d995333c1",
       "slug": "dipl-infermieristica-professionale-cura-acuta-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-cura-acuta-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "dipl-infermieristica-professionale-cura-acuta-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "dipl-nurse-acute-geriatrics-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d-soh-ch",
         "fr": "infirmier-infirmiere-diplome-e-en-geriatrie-aigue-w-m-d-solothurner-spitaler-ag-soh-solothurn"
@@ -630,7 +630,7 @@
       "id": "soh-solothurner-spitaeler-34c978ef8b98",
       "slug": "dipl-infermiera-medicina-dell-infermiera-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "dipl-infermiera-medicina-dell-infermiera-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "dipl-infermiera-medicina-dell-infermiera-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "dipl-nurse-medicine-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d-soh-ch",
         "fr": "infirmier-infirmiere-dipl-medecine-w-m-d-solothurner-spitaler-ag-soh-solothurn"
@@ -738,7 +738,7 @@
       "id": "soh-solothurner-spitaeler-c7423438b046",
       "slug": "dipl-infermieristica-professionale-infermieristica-piscina-professionale-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-infermieristica-piscina-professionale-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "dipl-infermieristica-professionale-infermieristica-piscina-professionale-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "diploma-in-nursing-pool-male-female-solothurner-spitaler-ag-soh-solothurn",
         "de": "dipl-pflegefachfrau-pflegefachmann-pflegepool-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-du-pool-h-f-solothurner-spitaler-ag-soh-solothurn"
@@ -6891,7 +6891,7 @@
       "id": "soh-solothurner-spitaeler-9ab95d6db983",
       "slug": "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "it": "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-soh-olten",
         "en": "diploma-in-nursing-professional-nurse-hf-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-infirmier-ere-professionnel-le-hf-h-f-d-solothurner-spitaler-ag-soh-olten"
@@ -7311,10 +7311,10 @@
       "id": "soh-solothurner-spitaeler-76d9dcc6cf1e",
       "slug": "anno-di-preparazione-professionale-bvj-cucina-u-m-d-solothurner-spitaler-ag-soh-oltean",
       "slugByLocale": {
-        "it": "anno-di-preparazione-professionale-bvj-cucina-u-m-d-solothurner-spitaler-ag-soh-oltean",
-        "en": "vocational-preparation-year-bvj-kitchen-m-f-d-solothurner-spitaler-ag-soh-oltean",
+        "it": "anno-di-preparazione-professionale-bvj-cucina-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "professional-preparation-year-bvj-kitchen-w-m-d-solothurner-spitaler-soh-olten",
         "de": "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
-        "fr": "annee-de-preparation-professionnelle-bvj-cuisine-h-f-solothurner-spitaler-ag-soh-oltean"
+        "fr": "annee-de-preparation-professionnelle-bvj-cuisine-w-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -7358,7 +7358,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
-        "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-solothurner-spitaeler-oltean"
+        "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-solothurner-spitaeler-oltean",
+        "vocational-preparation-year-bvj-kitchen-m-f-d-solothurner-spitaler-ag-soh-oltean",
+        "annee-de-preparation-professionnelle-bvj-cuisine-h-f-solothurner-spitaler-ag-soh-oltean"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7366,10 +7368,12 @@
           "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-solothurner-spitaeler-oltean"
         ],
         "en": [
-          "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch"
+          "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
+          "vocational-preparation-year-bvj-kitchen-m-f-d-solothurner-spitaler-ag-soh-oltean"
         ],
         "fr": [
-          "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch"
+          "berufsvorbereitungsjahr-bvj-kuche-w-m-d-soh-ch",
+          "annee-de-preparation-professionnelle-bvj-cuisine-h-f-solothurner-spitaler-ag-soh-oltean"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:38.057Z",
@@ -7390,7 +7394,7 @@
       "id": "soh-solothurner-spitaeler-45cf2ce4c920",
       "slug": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "it": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten",
         "en": "diploma-in-nursing-dialysis-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch",
         "fr": "diplome-e-en-soins-infirmiers-dialyse-h-f-solothurner-spitaler-ag-soh-olten"
@@ -8501,7 +8505,7 @@
       "id": "soh-solothurner-spitaeler-782f029ce79a",
       "slug": "coordinatore-clinico-coordinatore-clinico-neurologia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "coordinatore-clinico-coordinatore-clinico-neurologia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "coordinatore-clinico-coordinatore-clinico-neurologia-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "clinical-coordinator-clinical-coordinator-neurology-male-female-solothurner-spitaler-ag-soh-solothurn",
         "de": "klinikkoordinatorin-klinikkoordinator-neurologie-w-m-d-soh-ch",
         "fr": "coordonnateur-clinique-coordonnateur-clinique-neurologie-homme-femme-solothurner-spitaler-ag-soh-solothurn"
@@ -8800,7 +8804,7 @@
       "id": "soh-solothurner-spitaeler-db60d21d6b1e",
       "slug": "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-ag-soh-solothurn",
+        "it": "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn",
         "en": "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
         "de": "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
         "fr": "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn"
@@ -9413,7 +9417,7 @@
       "id": "soh-solothurner-spitaeler-b3b4db87a986",
       "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-soh-solothurn",
         "en": "nuclear-medicine-radiology-technologist-m-f-d-solothurner-spitaler-soh-solothurn",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
         "fr": "technicien-ne-en-radiologie-specialise-e-en-medecine-nucleaire-h-f-solothurner-spitaler-soh-solothurn"
