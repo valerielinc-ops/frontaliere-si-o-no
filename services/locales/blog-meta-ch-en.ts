@@ -742,6 +742,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tempi-attesa-dogana-chiasso-strada.title': 'Customs Chiasso: waiting times and viability',
     'blog.article.tempi-attesa-dogana-chiasso-strada.excerpt': 'Analysis of traffic flows at Chiasso road customs. Updated information for those who transit daily between Italy and Switzerland.',
     'blog.article.tempi-attesa-dogana-chiasso-strada.imageAlt': 'Chiasso road customs crossing during peak hours',
+    'blog.article.benzina-prezzi-svizzera-oggi.title': 'Petrol prices in Switzerland today',
+    'blog.article.benzina-prezzi-svizzera-oggi.excerpt': 'Petrol prices in Switzerland vary depending on the region and fuel type. Here are the current prices.',
+    'blog.article.benzina-prezzi-svizzera-oggi.imageAlt': 'Gas station in Bellinzona with current fuel prices',
 };
 
 export default blogMetaChEn;
