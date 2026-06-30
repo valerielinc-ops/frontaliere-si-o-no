@@ -769,6 +769,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.offre-fielmann-tariffe-nazionali.title': 'Fielmann-Angebot: neue Preise und Sonderaktionen in der Schweiz',
     'blog.article.offre-fielmann-tariffe-nazionali.excerpt': 'Entdecken Sie die neuesten Angebote und Aktionen von Fielmann in der Schweiz mit Details zu den Tarifen und Vorteilen für Kunden und Grenzgänger.',
     'blog.article.offre-fielmann-tariffe-nazionali.imageAlt': 'Fielmann Geschäft in der Schweiz mit Kunden beim Einkaufen',
+    'blog.article.dogana-brogeda.title': 'Zoll Brogeda: Wartezeiten und Verfahren',
+    'blog.article.dogana-brogeda.excerpt': 'Analyse der Wartezeiten am Zoll von Brogeda, mit Details zu Verfahren und praktischen Auswirkungen für Grenzgänger.',
+    'blog.article.dogana-brogeda.imageAlt': 'Blick auf die Grenzstation Brogeda mit Alpenlandschaft und Lago Lugano',
 };
 
 export default blogMetaChDe;
