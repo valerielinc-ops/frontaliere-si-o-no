@@ -2944,8 +2944,14 @@ export async function callLLM(messages, opts = {}) {
   // the o.model start-point, and score sorting. Lets ops validate/measure a
   // specific provider (e.g. the local fallback) on demand without waiting for the
   // remote pool to exhaust. Unknown ids are dropped; empty result → ignore override.
+  //
+  // `opts.bypassForceChain` exempts a call from the override. The fact-check sets
+  // it so that forcing generation onto the local model does NOT also drag the
+  // independent verification models onto it — otherwise the model would grade its
+  // own output (circular self-consensus) and a forced run could publish unchecked
+  // content. With the exemption, generation=local + fact-check=real remote gate.
   const _forceChainRaw = (process.env.AI_MODELS_FORCE_CHAIN || '').trim();
-  const _forcedChain = _forceChainRaw
+  const _forcedChain = (_forceChainRaw && !o.bypassForceChain)
     ? _forceChainRaw.split(',').map((s) => s.trim()).filter(Boolean)
     : [];
   if (_forcedChain.length) {
