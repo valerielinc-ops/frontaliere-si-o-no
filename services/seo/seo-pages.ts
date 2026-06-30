@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3038,
+ "numberOfItems": 3039,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7684,7 +7684,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3035, "name": "Il lato oscuro dell’Eldorado svizzero per i fro...", "url": `${BASE_URL}/articoli-frontaliere/lato-oscuro-eldorado-frontalieri-francesi` },
           { "@type": "ListItem", "position": 3036, "name": "Offerta Fielmann: nuove tariffe e promozioni in...", "url": `${BASE_URL}/articoli-frontaliere/offre-fielmann-tariffe-nazionali` },
           { "@type": "ListItem", "position": 3037, "name": "Dogana Brogeda: Tempi di Attesa e Procedure", "url": `${BASE_URL}/articoli-frontaliere/dogana-brogeda` },
-          { "@type": "ListItem", "position": 3038, "name": "Reclutamento a Lugano: nuove opportunità di lavoro", "url": `${BASE_URL}/articoli-frontaliere/reclutamento-lugano` }
+          { "@type": "ListItem", "position": 3038, "name": "Reclutamento a Lugano: nuove opportunità di lavoro", "url": `${BASE_URL}/articoli-frontaliere/reclutamento-lugano` },
+          { "@type": "ListItem", "position": 3039, "name": "Permesso G in Svizzera: guida pratica per lavor...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-svizzera-nazionale` }
  ]
  },
  {

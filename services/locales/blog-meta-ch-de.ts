@@ -775,6 +775,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reclutamento-lugano.title': 'Rekrutierung in Lugano: Neue Beschäftigungsmöglichkeiten',
     'blog.article.reclutamento-lugano.excerpt': 'Lugano bestätigt sich als neuralgisches Zentrum für neue Beschäftigungsmöglichkeiten mit den jüngsten Rekrutierungsausschreibungen im privaten und öffentlichen Sektor.',
     'blog.article.reclutamento-lugano.imageAlt': 'Fotorealistische Szene von Lugano mit Rekrutierungsaktivität',
+    'blog.article.permesso-g-svizzera-nazionale.title': 'Ausweis G in der Schweiz: Praktischer Leitfaden für Grenzgänger',
+    'blog.article.permesso-g-svizzera-nazionale.excerpt': 'Die G-Bewilligung ist für Grenzgänger, die in der Schweiz arbeiten, unerlässlich. Hier erfahren Sie, was Sie über die Anforderungen, die Dauer und die Verfahren wissen müssen.',
+    'blog.article.permesso-g-svizzera-nazionale.imageAlt': 'Panoramablick auf Lugano mit Grenzgängern an einem Schweizer Grenzkontrollpunkt',
 };
 
 export default blogMetaChDe;

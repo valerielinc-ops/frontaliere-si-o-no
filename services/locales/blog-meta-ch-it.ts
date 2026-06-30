@@ -775,6 +775,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reclutamento-lugano.title': 'Reclutamento a Lugano: nuove opportunità di lavoro',
     'blog.article.reclutamento-lugano.excerpt': 'Lugano si conferma centro nevralgico di nuove opportunità di lavoro con recenti bandi di reclutamento nel settore privato e pubblico.',
     'blog.article.reclutamento-lugano.imageAlt': 'Scena fotorealistica di Lugano con attività di reclutamento',
+    'blog.article.permesso-g-svizzera-nazionale.title': 'Permesso G in Svizzera: guida pratica per lavoratori frontalieri',
+    'blog.article.permesso-g-svizzera-nazionale.excerpt': 'Il permesso G è essenziale per i frontalieri che lavorano in Svizzera; ecco cosa sapere su requisiti, durata e procedure.',
+    'blog.article.permesso-g-svizzera-nazionale.imageAlt': 'Vista panoramica di Lugano con lavoratori frontalieri che attraversano un punto di controllo al confine svizzero',
 };
 
 export default blogMetaChIt;
