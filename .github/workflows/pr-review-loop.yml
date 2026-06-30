@@ -6,13 +6,13 @@ name: PR Review (Claude single-pass)
 # trigger `pull_request` la review Claude (opus@40 8-11min / sonnet@25 ~5min)
 # girava IN PARALLELO a vitest → veniva SPESA anche su PR che poi falliscono i
 # test. auto-merge richiede `## LGTM` E `vitest==success`: a test rossi la review
-# era buttata, l'agent pushava un fix (`synchronize`) e una review PIENA
-# ripartiva da zero (il re-review guard salta Claude solo per delta data/docs-
-# only, NON per un fix-code; un re-review scoped/cheaper è controindicato) →
-# DOPPIO costo quota. Gateando la review sul completamento-success di `tests`,
-# Claude non parte MAI su code rosso: si spende UNA sola review, sull'head già
-# verde. Anche la PRIMA review (non solo la re-review) è risparmiata su una PR
-# che fallisce i test.
+# era buttata, l'agent pushava un fix (`synchronize`) e una review ripartiva (il
+# re-review guard salta Claude solo per delta data/docs-only / contributo
+# invariato, NON per un fix-code) → costo quota raddoppiato. Gateando la review
+# sul completamento-success di `tests`, Claude non parte MAI su code rosso: si
+# spende UNA review, sull'head già verde. Anche la PRIMA review è risparmiata su
+# una PR che fallisce i test. (Sui re-push verdi resta attivo il tier
+# `incremental`/`incremental-high`: si reviewa solo il delta dall'ultima review.)
 #
 # Trade-off: +~6-9min di latenza happy-path (test→review serializzati invece che
 # paralleli). Accettabile perché il vincolo del loop è la quota Max, non il
@@ -56,6 +56,16 @@ jobs:
   review:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      # Non-code paths (Tier-2 token-lever): dati/static rigenerati + lockfile +
+      # snapshot + asset binari. Sia il re-review guard sia la tier-decision li
+      # strippano — una PR che tocca SOLO questi non ha CODE reviewabile → skip
+      # Claude / tier minimal. Sorgente unica (AGENTS.md #6: niente regex letterale
+      # duplicata tra step). Include lockfile (package-lock/pnpm-lock/yarn.lock),
+      # `*.snap`, baseline binarie (png/jpg/webp/gif/svg/ico/woff) — es. una PR di
+      # soli baseline PNG visivi sotto tests/ non deve escalare a opus per "diff
+      # binario".
+      NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock)$|\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     # Gate evento: SOLO `tests` concluso success (vitest verde) E triggerato da
     # un `pull_request` (i `workflow_dispatch` dell'autorebase e i `push` su main
     # sono esclusi — vedi header). Il filtro draft + l'esistenza della PR sono
@@ -155,15 +165,15 @@ jobs:
           node-version: '22'
 
       # Re-review guard: se il delta DALL'ULTIMA review claude-bot `## LGTM` tocca
-      # SOLO file non-code (data/public/reports/_newsletter_variants/docs) NON
-      # ri-eseguiamo Claude — è il token-lever #1: un crawler che rigenera
-      # `data/jobs/*.json` su una PR già LGTM'd faceva ripartire una review (anche
-      # sonnet) a vuoto. L'approvazione regge perché auto-merge-eval usa un
-      # fingerprint CODE-only → carry-forward; vitest è già verde (siamo qui solo
-      # dopo un `tests` success). Conservativo: nessuna LGTM precedente, o compare
-      # vuoto/errore → review piena. (Non c'è più un `ACTION`: ogni invocazione è
-      # un `tests` success su una head; la presenza/assenza di LGTM precedente
-      # determina full-vs-skip — su una PR appena aperta non c'è LGTM → full.)
+      # SOLO file non-code (NONCODE_RE) NON ri-eseguiamo Claude — è il token-lever
+      # #1: un crawler che rigenera `data/jobs/*.json` su una PR già LGTM'd faceva
+      # ripartire una review a vuoto. L'approvazione regge perché auto-merge-eval
+      # usa un fingerprint CODE-only → carry-forward; vitest è già verde (siamo qui
+      # solo dopo un `tests` success). Conservativo: nessuna LGTM precedente, o
+      # compare vuoto/errore → review piena. (Non c'è più un `ACTION`: ogni
+      # invocazione è un `tests` success su una head; la presenza/assenza di LGTM
+      # precedente determina full-vs-skip — su una PR appena aperta non c'è LGTM
+      # → full.)
       - name: Re-review guard (skip Claude when no code changed since last LGTM)
         id: guard
         if: steps.resolve.outputs.should_review == 'true'
@@ -183,12 +193,27 @@ jobs:
           if [ -z "$changed" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Compare vuoto/errore → review piena (conservativo)."; exit 0
           fi
-          code=$(echo "$changed" | grep -vE '^(data/|public/|reports/|_newsletter_variants/|docs/)' || true)
+          code=$(echo "$changed" | grep -vE "$NONCODE_RE" || true)
           if [ -z "$code" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "Delta dall'ultima LGTM = SOLO data/docs (nessun code) → skip Claude; LGTM carry-forward (fingerprint code-only), vitest già verde."
+            exit 0
+          fi
+          # Il compare 2-dot last...HEAD vede ANCHE il code che main ha portato in
+          # un rebase di solo main-merge — ma quel code NON è il contributo della
+          # PR, che resta invariato. Confronta allora il FINGERPRINT del contributo
+          # (3-dot vs merge-base con main, code-only) a HEAD vs all'ultima LGTM: se
+          # uguale, la PR non ha cambiato il proprio code (es. autorebase ha solo
+          # mergiato main) → skip Claude. Stessa funzione che auto-merge-eval usa
+          # per il carry-forward dell'LGTM → niente drift. NULL/incerto → review
+          # piena (conservativo). vitest gira comunque sull'head (safety net).
+          fpHead=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
+          fpLast=$(node scripts/ci/pr-contribution-fingerprint.mjs "$last" 2>/dev/null || echo NULL)
+          if [ -n "$fpHead" ] && [ "$fpHead" != "NULL" ] && [ "$fpHead" = "$fpLast" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Contributo CODE invariato dall'ultima LGTM (fingerprint $fpHead) — solo main-merge nel delta → skip Claude; LGTM carry-forward, vitest gira comunque."
           else
-            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code cambiato dall'ultima LGTM → review piena."
+            echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Code del contributo cambiato dall'ultima LGTM (fpHead=$fpHead fpLast=$fpLast) → review piena."
           fi
 
       - name: Determine review tier
@@ -197,6 +222,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPO: ${{ github.repository }}
         # Tier high (opus, max-turns 40, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
@@ -212,11 +239,10 @@ jobs:
         # → "Tier review".
         #
         # CODE vs DATA: il tier si decide SOLO sui file code. I file dati/static
-        # rigenerati (data/**, public/**, reports/**, _newsletter_variants/**,
-        # docs/**) NON sono reviewabili come code → non escalano il tier e una PR
-        # data/docs-only resta normal (sonnet posta comunque `## LGTM` →
-        # auto-merge). Questo evita che 50 `data/jobs/*.json` rigenerati da un
-        # crawler trascinino su opus o gonfino il diff.
+        # rigenerati (NONCODE_RE) NON sono reviewabili come code → non escalano il
+        # tier e una PR data/docs-only resta normal (sonnet posta comunque
+        # `## LGTM` → auto-merge). Questo evita che 50 `data/jobs/*.json`
+        # rigenerati da un crawler trascinino su opus o gonfino il diff.
         #
         # Budget 25→40: con l'espansione del contratto (REVIEW.md no-short-circuit
         # su tier high + step 7 perf-claim + escalation ❓ funnel-critical, sopra
@@ -243,7 +269,7 @@ jobs:
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
-          code_files=$(echo "$files" | grep -vE '^(data/|public/|reports/|_newsletter_variants/|docs/)' || true)
+          code_files=$(echo "$files" | grep -vE "$NONCODE_RE" || true)
           if [ -z "$code_files" ]; then
             # Token-lever: una PR data/docs-only (zero code) non ha contributo
             # code-reviewable — l'unica cosa da verificare è il completeness
@@ -258,16 +284,70 @@ jobs:
             set_tier minimal claude-sonnet-4-6 8
             exit 0
           fi
-          # CODE funnel-critical → high. Match diretto su test/CI/build-plugin,
-          # più gli script che mutano/emettono l'indice (tutto scripts/ ECCETTO
-          # gli helper non-funnel `{ci,dev,evals}/` e gli audit/report read-only).
-          crit=$(echo "$code_files" | grep -E '^(tests/|\.github/workflows/|build-plugins/)' || true)
-          scripts_crit=$(echo "$code_files" \
-            | grep -E '^scripts/' \
-            | grep -vE '^scripts/(ci|dev|evals)/' \
-            | grep -viE '(audit|analytics|report)' || true)
-          if [ -n "$crit$scripts_crit" ]; then
+          # funnel_crit <file-list> → exit 0 se la lista contiene CODE funnel-critical
+          # (test/CI/build-plugin, o script che mutano/emettono l'indice — tutto
+          # scripts/ ECCETTO gli helper non-funnel {ci,dev,evals}/ e gli audit/report
+          # read-only). Usato sia per il tier full sia per il delta incrementale.
+          funnel_crit() {
+            local fs="$1" a b
+            a=$(echo "$fs" | grep -E '^(tests/|\.github/workflows/|build-plugins/)' || true)
+            b=$(echo "$fs" | grep -E '^scripts/' | grep -vE '^scripts/(ci|dev|evals)/' | grep -viE '(audit|analytics|report)' || true)
+            [ -n "$a$b" ]
+          }
+
+          # crawler_parser_only <file-list> → exit 0 se TUTTI i file funnel-critical
+          # sono crawler/parser/adapter di UNA singola fonte datore (fetch+parse di un
+          # employer). Owner-approved 2026-06-30 (Tier-3 token-lever): questi vanno
+          # reviewati da sonnet (non opus) — bug-class = meno job da una sola fonte, NON
+          # regressione SEO/monetizzazione. RESTANO su opus (NON match qui): SEO-emitter
+          # (sitemap/canonical/slug/structured-data/assemble/backfill/migrate),
+          # tests/, .github/workflows/, build-plugins/. Conservativo: anche UN solo file
+          # non-crawler nel set → opus.
+          crawler_parser_only() {
+            local fs="$1" nonmatch
+            nonmatch=$(echo "$fs" | grep -vE '^scripts/update-[a-z0-9-]+-jobs\.mjs$|^scripts/lib/[a-z0-9-]+-job-parser\.mjs$|^scripts/lib/ats-clients/|^scripts/crawl-[a-z0-9-]+\.mjs$|^scripts/(scaffold-crawler|generate-company-parser|generate-company-adapter-stubs|generate-crawler-companies|manage-company-adapter|regen-parser-fix-slices|list-job-crawler-company-keys|check-crawler-health)\.mjs$' || true)
+            [ -z "$nonmatch" ]
+          }
+
+          # ── Incremental re-review (token-lever): se esiste GIÀ una review Claude su
+          # un commit precedente, valuta SOLO il delta dei file della PR dall'ultimo
+          # commit reviewato, non l'intera PR. Il grosso del contributo era già stato
+          # reviewato; ri-leggerlo per intero a ogni fix-push brucia token (osservato
+          # su #3038: review Opus full ripetute sullo stesso codice). Modello per
+          # criticità del DELTA: funnel-critical → opus (rigore, scope ridotto);
+          # altrimenti sonnet. Prima review / nessun commit precedente / delta vuoto
+          # → review piena (sotto). Il fingerprint-skip a monte (guard step) copre già
+          # il caso "contributo invariato"; qui il contributo È cambiato, ma in modo
+          # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
+          # contesto → le interazioni col code non-toccato restano coglibili.
+          lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
+          if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
+            delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[].filename' 2>/dev/null \
+              | grep -Fxf <(echo "$code_files") || true)
+            if [ -n "$delta_code" ]; then
+              echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
+              echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
+              if funnel_crit "$delta_code" && ! crawler_parser_only "$delta_code"; then
+                set_tier incremental-high claude-opus-4-8 25
+              elif funnel_crit "$delta_code"; then
+                # crawler/parser-only funnel-critical delta → sonnet (owner-approved)
+                set_tier incremental-high claude-sonnet-4-6 25
+              else
+                set_tier incremental claude-sonnet-4-6 15
+              fi
+              exit 0
+            fi
+            echo "Nessun delta-code nei file PR dall'ultima review → review piena."
+          fi
+
+          # CODE funnel-critical → high (full scope, 40 turni). Modello: opus, salvo
+          # i diff crawler/parser-only → sonnet (owner-approved 2026-06-30, stesso
+          # scope+turni, solo modello più economico). Altrimenti normal (sonnet/25).
+          if funnel_crit "$code_files" && ! crawler_parser_only "$code_files"; then
             set_tier high claude-opus-4-8 40
+          elif funnel_crit "$code_files"; then
+            set_tier high claude-sonnet-4-6 40
           else
             set_tier normal claude-sonnet-4-6 25
           fi
@@ -289,6 +369,7 @@ jobs:
           PR_TITLE: ${{ steps.resolve.outputs.title }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
+          INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
@@ -296,11 +377,10 @@ jobs:
           # (hardening #898): mai `*`. `claude[bot]` copre le PR fix-issue;
           # `github-actions[bot]` copre eventuali PR aperte da automation interna
           # (run 26621967484 era exit 1 col precedente vincolo non-human-actor).
-          # `frontaliere-automation[bot]` (App-token, migrazione #2881): col
-          # trigger workflow_run l'actor della review = l'actor del run di `tests`
-          # → su una PR la cui ultima push viene dall'App (autorebase / redflag-
-          # fixer pushano via App) `github.actor` è l'App-bot; senza whitelist la
-          # review abortirebbe "non-human actor". Mirror della lista di issue-fix.
+          # `frontaliere-automation[bot]` (App): sotto workflow_run l'actor della
+          # review = l'actor del run di `tests` → su una PR la cui ultima push
+          # viene dall'App (autorebase / redflag-fixer / issue-fix) `github.actor`
+          # è l'App-bot; senza whitelist la review abortirebbe "non-human actor".
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
           # Tool expansion: aggiunti `Bash(rg:*)`, `Bash(git:*)` per consentire
@@ -318,9 +398,11 @@ jobs:
             2. `AGENTS.md` è grande: NON leggerlo salvo necessità specifica esplicita (un finding richiede di citare un non-negotiable preciso). REVIEW.md basta da solo per il workflow di review — leggere AGENTS.md a ogni run è token sprecato.
             3. Carica PR in UNA call: `gh pr view $PR_NUMBER --json title,body,labels,files`, poi il diff del SOLO code: `gh pr diff $PR_NUMBER -- ':(exclude)data/**' ':(exclude)public/**' ':(exclude)reports/**' ':(exclude)_newsletter_variants/**' ':(exclude)docs/**'`. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
 
+            **Re-review INCREMENTALE (solo se `INCREMENTAL_BASE` è valorizzato, tier `incremental`/`incremental-high`):** i commit fino a `$INCREMENTAL_BASE` sono GIÀ stati reviewati in un pass precedente — NON ri-revieware l'intero contributo. Carica SOLO il delta dei file code dall'ultima review: `gh api repos/${{ github.repository }}/compare/$INCREMENTAL_BASE...$HEAD_SHA --jq '.files[] | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // \"(binary/large)\")"'`. Concentra la review su QUESTE modifiche e sulle loro interazioni. Sei comunque autorizzato (e incoraggiato, se il delta tocca o dipende da code non incluso) a `Read`/`grep` i file pieni per il CONTESTO — l'obiettivo è non ri-spendere token rivalutando code già approvato, non chiudere gli occhi sulle interazioni. Severity e formato invariati. Se il delta è vuoto o solo data/docs → chiudi con `## LGTM` senza inventare finding.
+
             **Esegui workflow di review come specificato in REVIEW.md:**
             - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.
-            - Tier high: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale.
+            - Tier high O incremental-high: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale (per incremental-high: limitate al delta reviewato).
             - **Sezioni mancanti + tier high (REVIEW.md step 4): posta il 🔴 process MA NON terminare.** Prosegui con review sostanziale + `## Adversarial check` completi nello stesso pass — il 🔴 blocca solo l'auto-merge, non un merge manuale, quindi la sostanza deferita evapora. Solo tier normal può terminare al process gate.
             - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier high → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
             - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.
@@ -341,12 +423,17 @@ jobs:
 
       - name: Fail on transient API error (no review posted)
         # claude-code-action can exit 0 even when the model run ABORTED on a
-        # transient Anthropic API error (500/502/503/529/429, "overloaded",
-        # "server_error") WITHOUT posting a review. The job then looks green but
-        # no `## LGTM`/finding was ever written → the PR silently stalls (no
-        # auto-merge, no failure signal; observed PR #2340, API 500 mid-run).
-        # Classify that case from the execution log and FAIL LOUDLY so the run
-        # is visibly red + re-runnable instead of masquerading as a clean pass.
+        # transient Anthropic API error WITHOUT posting a review. The job then
+        # looks green but no `## LGTM`/finding was written → the PR silently
+        # stalls (observed PR #2340, API 500 mid-run). Classify from the exec log:
+        #  - 5xx / overloaded / server_error → FAIL LOUDLY (red + re-runnable):
+        #    the server recovers fast, an immediate re-run is useful.
+        #  - 429 (quota / rate_limit) → do NOT fail (Tier-2 token-lever): a red
+        #    429 triggers a re-run (push / stale-PR rescuer) that re-hits the
+        #    ALREADY-exhausted shared Max quota → self-amplifying storm during a
+        #    burst (custode-measured ~10% of runs). Exit 0 with a warning; the PR
+        #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
+        #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
         if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         env:
@@ -354,14 +441,22 @@ jobs:
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
         run: |
           set -uo pipefail
+          # 429 / rate-limit FIRST: even if outcome=failure, a 429 must NOT fail the
+          # job (Tier-2 lever: avoids re-run amplification of the shared Max quota).
+          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
+             && grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
+             && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*429|"type"[[:space:]]*:[[:space:]]*"rate_limit_error"|rate[ _-]?limit|too many requests' "${EXEC_FILE}"; then
+            echo "::warning::Claude review aborted on a 429 (quota/rate-limit). NOT failing — avoids re-run amplification of the shared Max quota. PR has no ## LGTM (won't auto-merge); it will be re-reviewed on the next push or by the stale-PR rescuer once quota recovers."
+            exit 0
+          fi
           if [ "${REVIEW_OUTCOME}" = "failure" ]; then
             echo "::error::Claude review action failed (outcome=failure) — re-run this job."
             exit 1
           fi
           if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ]; then
             if grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
-               && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*(429|5[0-9][0-9])|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
-              echo "::error::Claude review aborted on a transient Anthropic API error without posting a review — re-run this job."
+               && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*5[0-9][0-9]|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
+              echo "::error::Claude review aborted on a transient 5xx API error without posting a review — re-run this job."
               exit 1
             fi
           fi
