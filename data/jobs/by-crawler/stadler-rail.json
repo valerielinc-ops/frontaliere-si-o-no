@@ -14326,7 +14326,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T12:22:41.581Z"
+      "firstSeenAt": "2026-06-30T12:22:41.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "capo-dipartimento-rams-stadler-rail-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "capo-dipartimento-rams-stadler-rail-wallisellen"
+      ]
     },
     {
       "id": "stadler-rail-a850d674682b",
@@ -14444,7 +14452,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "elektroingenieur-in-stadler-rail-ch"
+          "elektroingenieur-in-stadler-rail-ch",
+          "ingegnere-elettrico-stadler-rail-bussnang"
         ]
       },
       "previousSlugs": [
@@ -14458,7 +14467,8 @@
         "ingegnere-della-protezione-antincendio-stadler-rail-bussnang",
         "fire-protection-engineer-stadler-rail-bussnang",
         "brandschutzingenieur-in-stadler-rail-ch",
-        "ingenieur-en-protection-incendie-stadler-rail-bussnang"
+        "ingenieur-en-protection-incendie-stadler-rail-bussnang",
+        "ingegnere-elettrico-stadler-rail-bussnang"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
