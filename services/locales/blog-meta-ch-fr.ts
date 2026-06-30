@@ -760,6 +760,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.volg-wiler-analisi-nazionale.title': 'Volg Wiler : nouveauté pour les supermarchés dans les villages suisses',
     'blog.article.volg-wiler-analisi-nazionale.excerpt': 'Le point de vente Volg de Wiler est un exemple de distribution alimentaire dans les petites communes suisses. Le rôle local et la présence nationale sont au centre.',
     'blog.article.volg-wiler-analisi-nazionale.imageAlt': 'Vue d\'une supérette de village en Suisse avec des clients à l\'extérieur',
+    'blog.article.infermieri-lugano-sociali.title': 'Infirmières à Lugano : de nouvelles opportunités dans les institutions sociales',
+    'blog.article.infermieri-lugano-sociali.excerpt': 'Lugano : nouveaux emplois pour les infirmières dans les institutions sociales, avec des augmentations de salaire et des procédures simplifiées.',
+    'blog.article.infermieri-lugano-sociali.imageAlt': 'Infirmiers travaillant dans une institution sociale à Lugano, Suisse',
 };
 
 export default blogMetaChFr;

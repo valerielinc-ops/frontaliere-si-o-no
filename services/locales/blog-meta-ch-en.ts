@@ -760,6 +760,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volg-wiler-analisi-nazionale.title': 'Volg Wiler: news for supermarkets in Swiss villages',
     'blog.article.volg-wiler-analisi-nazionale.excerpt': 'Wiler\'s Volg store is an example of food distribution in small Swiss municipalities. The local role and the national presence are at the centre.',
     'blog.article.volg-wiler-analisi-nazionale.imageAlt': 'View of a village supermarket in Switzerland with customers outside',
+    'blog.article.infermieri-lugano-sociali.title': 'Nurses in Lugano: new opportunities in social institutions',
+    'blog.article.infermieri-lugano-sociali.excerpt': 'Lugano: new jobs for nurses in social institutions, with wage increases and simplified procedures.',
+    'blog.article.infermieri-lugano-sociali.imageAlt': 'Nurses working in a social institution in Lugano, Switzerland',
 };
 
 export default blogMetaChEn;
