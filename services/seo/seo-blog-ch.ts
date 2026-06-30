@@ -9651,6 +9651,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fielmann-interlaken-lavoro-svizzera': {
+    title: 'Lavorare da Fielmann a Interlaken: opportunità e ricerca posti',
+    description: 'Scopri come trovare lavoro presso Fielmann a Interlaken: posizioni aperte, modalità di candidatura, opportunità nel settore ottico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, fielmann, interlaken, opportunità',
+    ogTitle: 'Lavoro Fielmann Interlaken: offerte e candidatura',
+    ogDescription: 'Come candidarsi per lavorare da Fielmann a Interlaken. Offerte, procedure e suggerimenti pratici.',
+    canonicalPath: '/articoli-svizzera/fielmann-interlaken-lavoro-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare da Fielmann a Interlaken: opportunità e ricerca posti",
+      "description": "Scopri come trovare lavoro presso Fielmann a Interlaken: posizioni aperte, modalità di candidatura, opportunità nel settore ottico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fielmann-interlaken-lavoro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del centro di Interlaken con negozio di ottica moderno e passanti."
+      },
+      "datePublished": "2026-06-30T05:57:50+00:00",
+      "dateModified": "2026-06-30T05:57:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fielmann-interlaken-lavoro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

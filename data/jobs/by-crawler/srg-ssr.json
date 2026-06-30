@@ -76,7 +76,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "praticanta-praticant-srg-ssr-cuira"
+        "fr": "pratique-pratique-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -86,7 +86,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Praticanta / praticant"
+        "fr": "Pratique / Pratique"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -141,7 +141,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -246,9 +245,9 @@
     },
     {
       "id": "srg-ssr-7ef2fe2da461",
-      "slug": "auditeur-trice-interne-srg-ssr-bern",
+      "slug": "revisore-interno-srg-ssr-bern",
       "slugByLocale": {
-        "it": "auditeur-trice-interne-srg-ssr-bern",
+        "it": "revisore-interno-srg-ssr-bern",
         "en": "internal-auditor-srg-ssr-bern",
         "de": "interner-auditor-srg-ssr-bern",
         "fr": "auditeur-trice-interne-srg-ssr-bern"
@@ -258,7 +257,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Auditeur.trice interne",
       "titleByLocale": {
-        "it": "Auditeur.trice interne",
+        "it": "Revisore interno",
         "en": "Internal Auditor",
         "de": "Interner Auditor",
         "fr": "Auditeur.trice interne"
@@ -331,7 +330,6 @@
         "pensumMax": 50
       },
       "firstSeenAt": "2026-06-29T11:35:46.888Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -344,7 +342,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditeur-trice-interne-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "auditeur-trice-interne-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-40befa2f92f1",
@@ -424,12 +430,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-musikredaktion-srg-ssr-zurich",
-          "tirocinante-redazione-musicale-srg-ssr-zurich"
+          "praktikant-in-musikredaktion-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:45.063Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -539,7 +543,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:42.933Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -646,12 +649,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
-          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -746,12 +747,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
-          "tirocinante-economia-tv-online-srg-ssr-zurich"
+          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:37.929Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -842,12 +841,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern",
-          "assistente-in-finanza-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:36.085Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -933,7 +930,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:33.115Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1015,7 +1011,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:31.189Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1032,9 +1027,9 @@
     },
     {
       "id": "srg-ssr-d9ec5b9a657a",
-      "slug": "service-operator-srg-ssr-bern",
+      "slug": "operatore-di-servizio-srg-ssr-bern",
       "slugByLocale": {
-        "it": "service-operator-srg-ssr-bern",
+        "it": "operatore-di-servizio-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -1044,7 +1039,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Service Operator",
+        "it": "Operatore di servizio",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -1125,7 +1120,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1138,7 +1132,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "service-operator-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-f48813c3ce84",
@@ -1212,12 +1214,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "online-redakteur-in-srg-ssr-zurich",
-          "redattore-online-in-srg-ssr-zurich"
+          "online-redakteur-in-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:24.650Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1304,12 +1304,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-kanale-tv-srg-ssr-zurich",
-          "tirocinante-in-canali-tv-srg-ssr-zurich"
+          "praktikant-in-kanale-tv-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:21.300Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1402,12 +1400,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1497,8 +1493,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-berater-in-srg-ssr-zurich",
-          "consulente-hr-srg-ssr-zurich"
+          "hr-berater-in-srg-ssr-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1631,7 +1626,7 @@
       "title": "Redactura / redactur da musica",
       "titleByLocale": {
         "it": "Redactura / redactur da musica",
-        "en": "Redactura / redactur da musica",
+        "en": "Redactura / redactur from music",
         "de": "Musikredakteur",
         "fr": "Éditeur de musique"
       },
@@ -1704,7 +1699,6 @@
         "pensumMax": 60
       },
       "firstSeenAt": "2026-06-29T11:35:07.581Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1733,7 +1727,7 @@
       "title": "Senior Project Manager RH (CDD, f/h/d)",
       "titleByLocale": {
         "it": "Senior Project Manager RH (CDD, f/m/d)",
-        "en": "Senior Project Manager RH (CDD, f/h/d)",
+        "en": "Senior Project Manager HR (CDD, f/h/d)",
         "de": "Senior Project Manager HR (CDD, f/h/d)",
         "fr": "Senior Project Manager RH (CDD, f/h/d)"
       },
@@ -1797,7 +1791,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:03.601Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1894,12 +1887,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektmanager-in-hr-befristet-srg-ssr-bern",
-          "senior-project-manager-hr-a-tempo-determinato-srg-ssr-bern"
+          "senior-projektmanager-in-hr-befristet-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:00.316Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1999,8 +1990,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-kulturplatz-srg-ssr-zurich",
-          "tirocinante-cultura-srg-ssr-zurich"
+          "praktikant-in-kulturplatz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:34:51.184Z",
