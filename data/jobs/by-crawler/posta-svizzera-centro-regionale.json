@@ -190,12 +190,12 @@
         "en": "Housekeeper: in Bern (headquarters)",
         "fr": "Ménage: à Berne (siège)"
       },
-      "slug": "hauswart-in-bern-hauptsitz-post",
+      "slug": "housekeeper-a-berna-quartiere-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "hauswart-in-bern-hauptsitz-post",
-        "en": "hauswart-in-bern-hauptsitz-post",
+        "it": "housekeeper-a-berna-quartiere-die-schweizerische-post-bern",
+        "en": "housekeeper-in-bern-headquarters-die-schweizerische-post-bern",
         "de": "hauswart-in-bern-hauptsitz-post",
-        "fr": "hauswart-in-bern-hauptsitz-post"
+        "fr": "menage-a-berne-siege-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -230,7 +230,21 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-30T12:17:41.061Z"
+      "firstSeenAt": "2026-06-30T12:17:41.061Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-bern-hauptsitz-post"
+        ],
+        "en": [
+          "hauswart-in-bern-hauptsitz-post"
+        ],
+        "fr": [
+          "hauswart-in-bern-hauptsitz-post"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-bern-hauptsitz-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Key-Account-Manager-Post-Company-Cars-AG/74133-de_DE",
@@ -6617,11 +6631,11 @@
         "en": "SWC Way-up Employee Learning Services and Administration - Valais (FR)",
         "de": "SWC Way-up Employee Learning Services und Administration - Wallis (FR)"
       },
-      "slug": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post",
+      "slug": "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-vallese-fr-la-poste-suisse-vetroz",
       "slugByLocale": {
-        "it": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post",
-        "en": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post",
-        "de": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post",
+        "it": "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-vallese-fr-la-poste-suisse-vetroz",
+        "en": "swc-way-up-employee-learning-services-and-administration-valais-fr-la-poste-suisse-vetroz",
+        "de": "swc-way-up-employee-learning-services-und-administration-wallis-fr-la-poste-suisse-vetroz",
         "fr": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-la-poste-suisse-vetroz"
       },
       "sourceLang": "fr",
@@ -6658,7 +6672,21 @@
       "addressRegion": "VS",
       "addressCountry": "CH",
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-30T12:17:41.061Z"
+      "firstSeenAt": "2026-06-30T12:17:41.061Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post"
+        ],
+        "en": [
+          "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post"
+        ],
+        "de": [
+          "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-valais-fr-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Valais-%28francophone%29/73212-fr_FR",
