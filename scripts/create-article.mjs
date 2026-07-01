@@ -5505,7 +5505,13 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
   const candidateText = `${keyword} ${angle}`;
   const candidateFamily = evergreenTopicFamily(candidateText);
   const candidateTokens = evergreenAngleTokens(candidateText);
-  const PRE_FLIGHT_THRESHOLD = 0.58;
+  // Raised 0.58→0.72 (2026-07-01, PR #3220 review follow-up): this pre-flight
+  // gate runs BEFORE generation and used the exact title-Jaccard-on-shared-
+  // fiscal-vocabulary check that #3220 identified as too aggressive in the
+  // post-generation `checkForDuplicates` TITLE_THRESHOLD — but left this
+  // earlier gate untouched, so candidates could still be rejected here before
+  // ever reaching the loosened post-gen check. Kept in sync with TITLE_THRESHOLD.
+  const PRE_FLIGHT_THRESHOLD = 0.72;
   const FAMILY_TOKEN_OVERLAP_THRESHOLD = 0.50;
   const SATURATED_FAMILIES = new Set(['permesso-g-b', 'lamal-cmi', 'avs-inps', 'telelavoro', 'credito-imposta']);
 
@@ -7860,6 +7866,16 @@ async function main() {
       // "Push prosegue senza nuovo articolo" — the cap, not the pool, was the bottleneck.
       const triedOffsets = new Set([selectedOffset]);
       for (let attempt = 1; attempt <= Math.min(25, totalTopics); attempt++) {
+        // Wall-clock budget guard (2026-07-01, PR #3220 review follow-up): the
+        // sibling news-pool retry loop above (~L7531) checks this every
+        // iteration; this loop didn't, so raising the cap 10→25 risked a
+        // single cron run blowing well past its intended wall-clock budget
+        // (each attempt is ~60-90s plus up to 3×30s fact-check backoff)
+        // instead of falling through gracefully to "prosegue senza nuovo articolo".
+        if (wallBudgetExceeded()) {
+          console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — interrompo i tentativi evergreen; l'articolo è deferito al prossimo run.`);
+          break;
+        }
         try {
           const topic = selectedTopic;
           const isStaticTopic = PRIORITY_EVERGREEN_TOPICS.includes(topic);
