@@ -3604,8 +3604,8 @@
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-maennedorf-ch",
         "it": "assistente-medico-mpa-60-80-lun-f-d-spital-mannedorf-mannedorf",
-        "en": "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf"
+        "en": "medical-practice-assistant-mpa-60-80-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "assistant-de-medecine-mpa-60-80-m-f-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3654,6 +3654,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-maennedorf-ch",
+          "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
           "medizinische-praxisassistentin-mpa-60-80-m-w-d-spital-mannedorf-mannedorf"
         ]
       },

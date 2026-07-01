@@ -10276,8 +10276,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch",
         "it": "collaboratore-trice-per-den-bereich-empfang-kasse-m-w-d-fielmann-group-bern",
-        "en": "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch",
-        "fr": "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
+        "en": "employees-for-the-reception-counter-f-m-d-area-fielmann-group-bern",
+        "fr": "employes-pour-la-zone-reception-compteur-f-m-d-fielmann-group-bern"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -10324,6 +10324,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
+        ],
+        "en": [
+          "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
+        ],
+        "fr": [
+          "mitarbeiter-fur-den-bereich-empfang-kasse-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
@@ -10350,8 +10356,8 @@
       "slugByLocale": {
         "de": "horakustiker-w-m-d-fielmann-ch",
         "it": "acustico-per-apparecchi-acustici-f-m-d-fielmann-group-wil",
-        "en": "horakustiker-w-m-d-fielmann-ch-2",
-        "fr": "horakustiker-w-m-d-fielmann-ch-2"
+        "en": "hearing-acousticians-f-m-d-fielmann-group-wil",
+        "fr": "acousticiens-auditifs-f-m-d-fielmann-group-wil"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -10411,6 +10417,12 @@
       "firstSeenAt": "2026-07-01T11:44:19.047Z",
       "previousSlugsByLocale": {
         "it": [
+          "horakustiker-w-m-d-fielmann-ch-2"
+        ],
+        "en": [
+          "horakustiker-w-m-d-fielmann-ch-2"
+        ],
+        "fr": [
           "horakustiker-w-m-d-fielmann-ch-2"
         ]
       },

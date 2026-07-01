@@ -25,10 +25,11 @@
         "it": "Infermiera",
         "de": "Krankenschwester"
       },
-      "slug": "infirmier-ere-swiss-medical-network",
+      "slug": "infermiera-swiss-medical-network-sion",
       "slugByLocale": {
-        "en": "infirmier-ere-swiss-medical-network",
-        "it": "infirmier-ere-swiss-medical-network"
+        "en": "nurse-swiss-medical-network-sion",
+        "it": "infermiera-swiss-medical-network-sion",
+        "de": "krankenschwester-swiss-medical-network-sion"
       },
       "category": "healthcare",
       "datePosted": "2026-07-01",
@@ -55,7 +56,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T13:12:06.976Z"
+      "firstSeenAt": "2026-07-01T13:12:06.976Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-swiss-medical-network"
+        ],
+        "en": [
+          "infirmier-ere-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134969331-lehrstelle-fachperson-gesundheit",

@@ -6198,8 +6198,7 @@
       },
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "ergoterapista-ergoterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn"
+        "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:46.224Z",
       "salaryMin": 62000,
@@ -7924,8 +7923,7 @@
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-ag-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:32.618Z",
       "salaryMin": 62000,
@@ -8109,8 +8107,7 @@
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn"
+        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:30.374Z",
       "salaryMin": 62000,
@@ -13065,8 +13062,8 @@
       "slugByLocale": {
         "de": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
         "it": "mpa-in-formazione-f-m-d-solothurner-spitaler-ag-soh-dornach",
-        "en": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
-        "fr": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        "en": "mpa-in-training-f-m-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "mpa-en-formation-f-m-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13125,6 +13122,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        ],
+        "en": [
+          "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        ],
+        "fr": [
+          "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
         ]
       },
       "previousSlugs": [
@@ -13137,8 +13140,8 @@
       "slugByLocale": {
         "de": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "mpa-in-formazione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "mpa-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "mpa-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13197,6 +13200,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -13209,8 +13218,8 @@
       "slugByLocale": {
         "de": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "chef-dietetico-in-formazione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "dietetic-cook-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "cuisinier-dietetique-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13269,6 +13278,12 @@
       "previousSlugsByLocale": {
         "it": [
           "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "diatkochin-diatkoch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -13281,8 +13296,8 @@
       "slugByLocale": {
         "de": "kochin-koch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "cuoco-in-formazione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "kochin-koch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "kochin-koch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "cook-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "cuisson-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13340,6 +13355,12 @@
       "firstSeenAt": "2026-07-01T12:38:07.975Z",
       "previousSlugsByLocale": {
         "it": [
+          "kochin-koch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "kochin-koch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
           "kochin-koch-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
@@ -13427,8 +13448,8 @@
       "slugByLocale": {
         "de": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "mpa-in-formazione-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        "en": "mpa-in-training-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "mpa-en-formation-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13487,6 +13508,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "en": [
+          "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "mpa-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
         ]
       },
       "previousSlugs": [
@@ -13499,8 +13526,8 @@
       "slugByLocale": {
         "de": "informatikerin-informatiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "informatico-in-formazione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "informatikerin-informatiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "informatikerin-informatiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "computer-scientist-computer-scientist-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "informatique-informatique-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13559,6 +13586,12 @@
       "previousSlugsByLocale": {
         "it": [
           "informatikerin-informatiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "informatikerin-informatiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "informatikerin-informatiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -13571,8 +13604,8 @@
       "slugByLocale": {
         "de": "praktikantin-praktikant-kindertagesstatte-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "centro-tirocinante-l-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "praktikantin-praktikant-kindertagesstatte-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "praktikantin-praktikant-kindertagesstatte-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "trainee-daycare-intern-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "stage-garderie-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13631,6 +13664,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-kindertagesstatte-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "praktikantin-praktikant-kindertagesstatte-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "praktikantin-praktikant-kindertagesstatte-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -13643,8 +13682,8 @@
       "slugByLocale": {
         "de": "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "chef-dietetico-bp-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "dietetic-cook-diet-chef-bp-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "cuisine-dietetique-chef-dietetique-bp-w-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13703,6 +13742,12 @@
       "previousSlugsByLocale": {
         "it": [
           "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "diatkochin-diatkoch-bp-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -13715,8 +13760,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
         "it": "specialista-in-formazione-nella-manutenzione-aziendale-f-m-d-solothurner-spitaler-ag-soh-dornach",
-        "en": "fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
-        "fr": "fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        "en": "specialist-specialist-company-maintenance-in-training-f-m-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "specialiste-specialiste-entretien-de-l-entreprise-en-formation-f-m-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13774,6 +13819,12 @@
       "firstSeenAt": "2026-07-01T12:38:04.637Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        ],
+        "en": [
+          "fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        ],
+        "fr": [
           "fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
         ]
       },
@@ -13863,8 +13914,8 @@
       "slugByLocale": {
         "de": "kauffrau-kaufmann-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "compromesso-commerciale-in-formazione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "kauffrau-kaufmann-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "kauffrau-kaufmann-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "businesswoman-businessman-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "femme-d-affaires-homme-d-affaires-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13922,6 +13973,12 @@
       "firstSeenAt": "2026-07-01T12:38:03.453Z",
       "previousSlugsByLocale": {
         "it": [
+          "kauffrau-kaufmann-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "kauffrau-kaufmann-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
           "kauffrau-kaufmann-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
@@ -14009,8 +14066,8 @@
       "slugByLocale": {
         "de": "logistikerin-logistiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "logistico-in-formazione-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "logistikerin-logistiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "logistikerin-logistiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        "en": "logistician-logistician-in-training-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "logisticien-logisticien-en-formation-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14057,6 +14114,12 @@
         "it": [
           "logistikerin-logistiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
           "logistikerin-logistiker-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-olten"
+        ],
+        "en": [
+          "logistikerin-logistiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "logistikerin-logistiker-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
         ]
       },
       "previousSlugs": [
@@ -14083,8 +14146,8 @@
       "slugByLocale": {
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-efz-in-ausbildung-w-m-d-soh",
         "it": "medizinproduktetechnologin-medizinproduktetechnologe-efz-in-ausbildung-w-m-d-soh",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-efz-in-ausbildung-w-m-d-soh",
-        "fr": "medizinproduktetechnologin-medizinproduktetechnologe-efz-in-ausbildung-w-m-d-soh"
+        "en": "medical-device-technologist-medical-device-technologist-efz-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-efz-en-formation-f-m-d-solothurner-spitaler-ag"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14147,8 +14210,8 @@
       "slugByLocale": {
         "de": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
         "it": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
-        "en": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
-        "fr": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        "en": "cook-chef-efz-in-training-f-m-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14211,8 +14274,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
         "it": "specialista-in-salute-in-formazione-f-m-d-solothurner-spitaler-ag-soh-dornach",
-        "en": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach",
-        "fr": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        "en": "professional-health-in-education-f-m-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "sante-professionnelle-dans-le-domaine-de-l-education-f-m-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14271,6 +14334,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-dornach"
         ]
       },
       "previousSlugs": [
@@ -14283,8 +14352,8 @@
       "slugByLocale": {
         "de": "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "bp-da-chef-dietetico-in-addestramento-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        "en": "dietetic-cook-diet-chef-bp-in-training-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "cuisine-dietetique-chef-dietetique-bp-en-formation-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14343,6 +14412,12 @@
       "previousSlugsByLocale": {
         "it": [
           "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "en": [
+          "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "diatkochin-diatkoch-bp-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
         ]
       },
       "previousSlugs": [
@@ -14355,8 +14430,8 @@
       "slugByLocale": {
         "de": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        "en": "cook-chef-efz-in-training-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14419,8 +14494,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "specialista-in-salute-in-formazione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "professional-health-in-education-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "sante-professionnelle-dans-le-domaine-de-l-education-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14478,6 +14553,12 @@
       "firstSeenAt": "2026-07-01T12:37:58.570Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },

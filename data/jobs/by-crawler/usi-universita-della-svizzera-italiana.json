@@ -1727,10 +1727,10 @@
         "de": "Verantwortlicher del Trasferimento Tecnologico",
         "fr": "Responsable du transfert technologique"
       },
-      "slug": "responsabile-del-trasferimento-tecnologico-usi-lugano",
+      "slug": "informazioni-sul-trasferimento-usi-universita-della-svizzera-italiana-lugano",
       "slugByLocale": {
         "en": "manager-del-trasferimento-tecnologico-usi-lugano",
-        "it": "responsabile-del-trasferimento-tecnologico-usi-lugano",
+        "it": "informazioni-sul-trasferimento-usi-universita-della-svizzera-italiana-lugano",
         "de": "verantwortlicher-del-trasferimento-tecnologico-usi-lugano",
         "fr": "responsable-du-transfert-technologique-usi-lugano"
       },
@@ -1765,7 +1765,15 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-01T12:53:55.759Z"
+      "firstSeenAt": "2026-07-01T12:53:55.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-del-trasferimento-tecnologico-usi-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-del-trasferimento-tecnologico-usi-lugano"
+      ]
     }
   ]
 }

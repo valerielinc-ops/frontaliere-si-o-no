@@ -7315,8 +7315,8 @@
       "slugByLocale": {
         "en": "administration-logistics-assistant-eth-zurich-ch",
         "it": "junior-administration-logistics-assistant-eth-zurich-ch",
-        "de": "junior-administration-logistik-assistent-eth-zurich-zurich",
-        "fr": "administration-logistics-assistant-eth-zurich-ch"
+        "de": "junior-administration-logistics-assistant-eth-zurich-ch",
+        "fr": "assistant-administratif-et-logistique-junior-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7371,7 +7371,19 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-01T11:34:38.442Z"
+      "firstSeenAt": "2026-07-01T11:34:38.442Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "junior-administration-logistik-assistent-eth-zurich-zurich"
+        ],
+        "fr": [
+          "administration-logistics-assistant-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-administration-logistik-assistent-eth-zurich-zurich",
+        "administration-logistics-assistant-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-88dc14648f17",
@@ -7379,8 +7391,8 @@
       "slugByLocale": {
         "de": "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch",
         "it": "assistenz-im-vizeprasidium-per-forschung-m-w-d-eth-zurich",
-        "en": "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch",
-        "fr": "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
+        "en": "assistant-vice-president-for-research-m-f-d-eth-zurich-zurich",
+        "fr": "vice-president-adjoint-de-la-recherche-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7423,6 +7435,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
         ]
       },
@@ -7530,7 +7548,7 @@
         "en": "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
         "it": "scienziato-fondatore-scoperta-di-anticorpi-nanobody-farmaco-nanone-eth-zurich-basel",
         "de": "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
-        "fr": "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
+        "fr": "chercheur-fondateur-decouverte-de-medicaments-anticorps-et-anticorps-eth-zurich-basel"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7588,6 +7606,9 @@
       "firstSeenAt": "2026-07-01T11:34:36.959Z",
       "previousSlugsByLocale": {
         "it": [
+          "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
+        ],
+        "fr": [
           "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
         ]
       },

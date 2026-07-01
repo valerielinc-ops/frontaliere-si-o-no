@@ -2687,8 +2687,8 @@
       "slugByLocale": {
         "en": "senior-scientist-mechanistic-pharmacology-csl-behring-ch",
         "it": "scienziato-senior-farmacologia-meccanicistica-csl-behring-schlieren",
-        "de": "senior-scientist-mechanistic-pharmacology-csl-behring-ch",
-        "fr": "senior-scientist-mechanistic-pharmacology-csl-behring-ch"
+        "de": "senior-scientist-mechanistische-pharmakologie-csl-behring-schlieren",
+        "fr": "chercheur-principal-pharmacologie-mecaniste-csl-behring-schlieren"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -2747,6 +2747,12 @@
       "firstSeenAt": "2026-07-01T11:27:40.489Z",
       "previousSlugsByLocale": {
         "it": [
+          "senior-scientist-mechanistic-pharmacology-csl-behring-ch"
+        ],
+        "de": [
+          "senior-scientist-mechanistic-pharmacology-csl-behring-ch"
+        ],
+        "fr": [
           "senior-scientist-mechanistic-pharmacology-csl-behring-ch"
         ]
       },

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-ee516bd112ea",
-      "slug": "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
+      "slug": "supporto-vendite-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
       "slugByLocale": {
         "en": "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
-        "it": "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
-        "de": "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
-        "fr": "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour"
+        "it": "supporto-vendite-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
+        "de": "verkaufsunterstutzung-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
+        "fr": "soutien-aux-ventes-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -61,7 +61,21 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-01T12:47:21.919Z"
+      "firstSeenAt": "2026-07-01T12:47:21.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour"
+        ],
+        "de": [
+          "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour"
+        ],
+        "fr": [
+          "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
@@ -107,8 +121,7 @@
       "crawledAt": "2026-07-01T12:47:20.874Z",
       "previousSlugsByLocale": {
         "en": [
-          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz"
         ],
         "it": [
           "miu-miu-store-manager-saint-moritz-prada-mendrisio",

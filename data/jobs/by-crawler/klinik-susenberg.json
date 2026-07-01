@@ -84,8 +84,8 @@
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
         "it": "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
-        "en": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
-        "fr": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
+        "en": "practice-assistant-mpa-80-klinik-susenberg-zurich",
+        "fr": "assistant-a-la-pratique-mpa-80-klinik-susenberg-zurich"
       },
       "company": "Klinik Susenberg",
       "companyKey": "klinik-susenberg",
@@ -145,6 +145,12 @@
       "firstSeenAt": "2026-07-01T12:08:40.045Z",
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
+        ],
+        "fr": [
           "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
         ]
       },

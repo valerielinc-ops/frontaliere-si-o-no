@@ -2869,7 +2869,7 @@
         "en": "junior-institutional-sales-iberia-latam-m-f-x-ubp-ch",
         "it": "junior-institutional-sales-iberia-latam-m-f-x-ubp-ch",
         "de": "junior-institutional-sales-iberia-latam-m-f-x-ubp-ch",
-        "fr": "junior-institutional-sales-iberia-latam-m-f-x-ubp-ch"
+        "fr": "iberia-latam-m-f-x-union-bancaire-privee-madrid-spain"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -2928,12 +2928,12 @@
     },
     {
       "id": "ubp-29633ca93b96",
-      "slug": "wealth-management-assistant-m-f-x-ubp-ch",
+      "slug": "assistente-di-gestione-della-ricchezza-m-f-x-union-bancaire-privee-luxembourg-luxembourg",
       "slugByLocale": {
         "en": "wealth-management-assistant-m-f-x-ubp-ch",
-        "it": "wealth-management-assistant-m-f-x-ubp-ch",
+        "it": "assistente-di-gestione-della-ricchezza-m-f-x-union-bancaire-privee-luxembourg-luxembourg",
         "de": "wealth-management-assistent-m-f-x-union-bancaire-privee-luxembourg-luxembourg",
-        "fr": "wealth-management-assistant-m-f-x-union-bancaire-privee-luxembourg-luxembourg"
+        "fr": "assistant-a-la-gestion-du-patrimoine-m-f-x-union-bancaire-privee-luxembourg-luxembourg"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -2988,16 +2988,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T12:48:40.748Z"
+      "firstSeenAt": "2026-07-01T12:48:40.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wealth-management-assistant-m-f-x-ubp-ch"
+        ],
+        "fr": [
+          "wealth-management-assistant-m-f-x-union-bancaire-privee-luxembourg-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "wealth-management-assistant-m-f-x-ubp-ch",
+        "wealth-management-assistant-m-f-x-union-bancaire-privee-luxembourg-luxembourg"
+      ]
     },
     {
       "id": "ubp-b3b414faa45d",
-      "slug": "wealth-management-assistant-m-f-x-ubp-ch-2",
+      "slug": "assistente-di-gestione-della-ricchezza-m-f-x-union-bancaire-privee-lisboa-portugal",
       "slugByLocale": {
         "en": "wealth-management-assistant-m-f-x-ubp-ch",
-        "it": "wealth-management-assistant-m-f-x-ubp-ch-2",
+        "it": "assistente-di-gestione-della-ricchezza-m-f-x-union-bancaire-privee-lisboa-portugal",
         "de": "wealth-management-assistent-m-f-x-union-bancaire-privee-lisboa-portugal",
-        "fr": "wealth-management-assistant-m-f-x-union-bancaire-privee-lisboa-portugal"
+        "fr": "assistant-a-la-gestion-du-patrimoine-m-f-x-union-bancaire-privee-lisboa-portugal"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3052,7 +3064,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T12:48:40.242Z"
+      "firstSeenAt": "2026-07-01T12:48:40.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wealth-management-assistant-m-f-x-ubp-ch-2"
+        ],
+        "fr": [
+          "wealth-management-assistant-m-f-x-union-bancaire-privee-lisboa-portugal"
+        ]
+      },
+      "previousSlugs": [
+        "wealth-management-assistant-m-f-x-ubp-ch-2",
+        "wealth-management-assistant-m-f-x-union-bancaire-privee-lisboa-portugal"
+      ]
     },
     {
       "id": "ubp-379ae41ced63",
@@ -3060,7 +3084,7 @@
       "slugByLocale": {
         "en": "technical-analyst-ubp-ch",
         "it": "technical-analista-union-bancaire-privee-geneva-switzerland",
-        "de": "technical-analyst-ubp-ch",
+        "de": "technischer-analyst-union-bancaire-privee-geneva-switzerland",
         "fr": "technical-analyste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
@@ -3122,6 +3146,9 @@
           "technical-analyst-ubp-ch"
         ],
         "fr": [
+          "technical-analyst-ubp-ch"
+        ],
+        "de": [
           "technical-analyst-ubp-ch"
         ]
       },

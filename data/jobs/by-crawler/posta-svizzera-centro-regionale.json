@@ -24,12 +24,12 @@
         "en": "Customer Manager: in fleet management Business customers",
         "fr": "Client Manager: dans la gestion du parc de véhicules"
       },
-      "slug": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+      "slug": "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
-        "en": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "it": "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
+        "en": "customer-manager-in-fleet-management-business-customers-die-schweizerische-post-moosseedorf",
         "de": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
-        "fr": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+        "fr": "client-manager-dans-la-gestion-du-parc-de-vehicules-die-schweizerische-post-moosseedorf"
       },
       "sourceLang": "de",
       "department": "",
@@ -64,7 +64,21 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3001",
-      "firstSeenAt": "2026-07-01T13:09:03.861Z"
+      "firstSeenAt": "2026-07-01T13:09:03.861Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+        ],
+        "en": [
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+        ],
+        "fr": [
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Schichtkoordinatorin-Erfassungs-und-Codierzentrum/73788-de_DE",
@@ -91,9 +105,9 @@
       "slug": "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
       "slugByLocale": {
         "it": "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
-        "en": "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
+        "en": "shift-coordinator-in-detection-and-coding-center-die-schweizerische-post-chur",
         "de": "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
-        "fr": "schichtkoordinator-in-erfassungs-und-codierzentrum-post"
+        "fr": "coordinateur-de-poste-dans-le-centre-de-detection-et-de-codage-die-schweizerische-post-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -647,9 +661,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "en": "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -688,19 +702,22 @@
       "previousSlugsByLocale": {
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-          "ticket-controller-in-and-customer-advice-postauto-chur"
+          "ticket-controller-in-and-customer-advice-postauto-chur",
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
         ],
         "de": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
         ],
         "fr": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-          "controleur-de-billetterie-en-et-conseil-client-postauto-chur"
+          "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
         ]
       },
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
         "ticket-controller-in-and-customer-advice-postauto-chur",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
         "controleur-de-billetterie-en-et-conseil-client-postauto-chur"
       ]
     },
@@ -1205,9 +1222,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "en": "ticket-controller-in-and-customer-advice-postauto-chur",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -1228,10 +1245,17 @@
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-post-2"
+        ],
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
         ]
       },
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

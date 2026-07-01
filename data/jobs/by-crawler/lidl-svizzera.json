@@ -41,9 +41,9 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-20-40-sankt-gallen-lidl-svizzera-sankt-gallen",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-sankt-gallen-9tnsdj",
+        "en": "seller-m-f-d-20-40-sankt-gallen-lidl-svizzera-sankt-gallen",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-sankt-gallen-9tnsdj",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-sankt-gallen-9tnsdj"
+        "fr": "vendeur-m-f-j-20-40-sankt-gallen-lidl-svizzera-sankt-gallen"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -51,6 +51,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-sankt-gallen",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-sankt-gallen-9tnsdj"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-sankt-gallen-9tnsdj"
+        ],
+        "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-sankt-gallen-9tnsdj"
         ]
       },
@@ -115,9 +121,9 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807",
+        "en": "seller-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807"
+        "fr": "vendeur-m-f-j-lidl-svizzera-st-moritz"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -125,6 +131,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807"
+        ],
+        "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-7j7807"
         ]
       },
@@ -189,9 +201,9 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-20-40-thusis-lidl-svizzera-thusis",
-        "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu",
+        "en": "seller-m-f-d-20-40-thusis-lidl-svizzera-thusis",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu",
-        "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
+        "fr": "vendeur-m-f-j-lidl-svizzera-thusis"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -199,6 +211,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
+        ],
+        "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-oyadbu"
         ]
       },
@@ -251,8 +269,8 @@
       "firstSeenAt": "2026-07-01T12:24:46.535Z",
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-la-chaux-de-fonds-lidl-svizzera-la-chaux-de-fonds",
-        "en": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds-usxj9i",
-        "de": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds-usxj9i",
+        "en": "assistant-manager-assistant-manager-h-f-d-80-100-la-chaux-de-fonds-lidl-svizzera-la-chaux-de-fonds",
+        "de": "assistant-manager-assistant-manager-h-w-d-80-100-la-chaux-de-fonds-lidl-svizzera-la-chaux-de-fonds",
         "fr": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds-usxj9i"
       },
       "titleByLocale": {
@@ -286,7 +304,18 @@
       "addressRegion": "NE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "2300"
+      "postalCode": "2300",
+      "previousSlugsByLocale": {
+        "en": [
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds-usxj9i"
+        ],
+        "de": [
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds-usxj9i"
+        ]
+      },
+      "previousSlugs": [
+        "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds-usxj9i"
+      ]
     },
     {
       "id": "company-z2rxos",
@@ -327,8 +356,8 @@
       },
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-mont-sur-lausanne-lidl-svizzera-mont-sur-lausanne",
-        "en": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-mont-sur-lausanne-z2rxos",
-        "de": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-mont-sur-lausanne-z2rxos",
+        "en": "assistant-manager-assistant-manager-h-f-d-80-100-mont-sur-lausanne-lidl-svizzera-mont-sur-lausanne",
+        "de": "assistant-manager-assistant-manager-h-w-d-80-100-mont-sur-lausanne-lidl-svizzera-mont-sur-lausanne",
         "fr": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-mont-sur-lausanne-z2rxos"
       },
       "requirementsByLocale": {},
@@ -337,6 +366,12 @@
       "previousSlugsByLocale": {
         "it": [
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-mont-sur-lausanne",
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-mont-sur-lausanne-z2rxos"
+        ],
+        "en": [
+          "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-mont-sur-lausanne-z2rxos"
+        ],
+        "de": [
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-mont-sur-lausanne-z2rxos"
         ]
       },
@@ -461,7 +496,7 @@
       "firstSeenAt": "2026-07-01T12:24:46.535Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
+        "en": "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
       },
@@ -496,7 +531,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
+      ]
     },
     {
       "id": "company-5j5myf",
@@ -537,9 +580,9 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf",
+        "en": "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
         "de": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf"
+        "fr": "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -547,6 +590,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf"
+        ],
+        "fr": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf"
         ]
       },
@@ -611,8 +660,8 @@
       },
       "slugByLocale": {
         "it": "gerant-gerante-de-magasin-m-w-d-80-100-lausanne-lidl-svizzera-lausanne",
-        "en": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep",
-        "de": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep",
+        "en": "manager-store-manager-h-f-d-80-100-lausanne-lidl-svizzera-lausanne",
+        "de": "manager-store-manager-h-w-d-80-100-lausanne-lidl-svizzera-lausanne",
         "fr": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
       },
       "requirementsByLocale": {},
@@ -621,6 +670,12 @@
       "previousSlugsByLocale": {
         "it": [
           "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne",
+          "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
+        ],
+        "en": [
+          "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
+        ],
+        "de": [
           "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
         ]
       },
@@ -673,7 +728,7 @@
       "firstSeenAt": "2026-07-01T12:24:46.535Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
+        "en": "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
       },
@@ -708,7 +763,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugsByLocale": {
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
+      ]
     },
     {
       "id": "company-ehg9v1",
@@ -16053,7 +16116,7 @@
         "it": "ordina-picker-ordine-picker-non-food-m-f-d-40-80-lidl-svizzera-derendingen",
         "en": "order-picker-non-food-m-f-d-40-80-lidl-svizzera-derendingen",
         "de": "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-        "fr": "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen"
+        "fr": "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -16068,14 +16131,13 @@
         ],
         "fr": [
           "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-          "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
-          "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
+          "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
+          "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen"
         ]
       },
       "previousSlugs": [
         "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen",
         "kommissionierer-kommissioniererin-non-food-m-w-d-40-80-lidl-svizzera-derendingen-hx5dt6",
-        "picker-de-commande-picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen",
         "picker-de-commande-non-alimentaire-m-f-d-40-80-lidl-svizzera-derendingen"
       ],
       "baseSalary": {

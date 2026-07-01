@@ -777,7 +777,7 @@
         "it": "system-manager-100-w-m-d-ruag-ag-bern",
         "en": "system-manager-100-w-m-d-ruag-ag-bern",
         "de": "system-manager-100-w-m-d-ruag-ag-bern",
-        "fr": "system-manager-100-w-m-d-ruag-ag-bern"
+        "fr": "gestionnaire-de-systeme-100-w-m-d-ruag-ag-bern"
       },
       "id": "ruag-ag-44a6d6ed4305",
       "salaryMin": 94500,
@@ -839,9 +839,9 @@
       },
       "slugByLocale": {
         "it": "polimeccanico-80-100-f-m-d-ruag-ag-stans",
-        "en": "polymechaniker-80-100-w-m-d-ruag-ag-stans",
+        "en": "polymechanics-80-100-w-m-d-ruag-ag-stans",
         "de": "polymechaniker-80-100-w-m-d-ruag-ag-stans",
-        "fr": "polymechaniker-80-100-w-m-d-ruag-ag-stans"
+        "fr": "polymecanique-80-100-m-j-ruag-ag-stans"
       },
       "id": "ruag-ag-8eb489218f62",
       "salaryMin": 69500,
@@ -861,11 +861,16 @@
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-80-100-w-m-d-ruag-ag-stans"
+        ],
+        "en": [
+          "polymechaniker-80-100-w-m-d-ruag-ag-stans"
+        ],
+        "fr": [
+          "polymechaniker-80-100-w-m-d-ruag-ag-stans"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-80-100-w-m-d-ruag-ag-stans",
-        "polymecanique-80-100-m-j-ruag-ag-stans"
+        "polymechaniker-80-100-w-m-d-ruag-ag-stans"
       ]
     }
   ]

@@ -40,9 +40,9 @@
       },
       "slugByLocale": {
         "it": "meccanica-f-m-d-agie-charmilles-sa-biel-bienne",
-        "en": "mechaniker-w-m-d-agie-charmilles-biel-bienne",
+        "en": "mechanic-f-m-d-agie-charmilles-sa-biel-bienne",
         "de": "mechaniker-w-m-d-agie-charmilles-biel-bienne",
-        "fr": "mechaniker-w-m-d-agie-charmilles-biel-bienne"
+        "fr": "mecanicien-f-m-d-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-a98765a605a6",
       "salaryMin": 77000,
@@ -62,6 +62,12 @@
       "firstSeenAt": "2026-07-01T11:05:52.288Z",
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-w-m-d-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "mechaniker-w-m-d-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "mechaniker-w-m-d-agie-charmilles-biel-bienne"
         ]
       },
@@ -107,15 +113,21 @@
       },
       "slugByLocale": {
         "it": "pianificatore-di-produzione-dispatcher-agie-charmilles-sa-biel",
-        "en": "produktionsplaner-in-disponent-in-agie-charmilles-biel",
+        "en": "production-planner-in-disponent-in-agie-charmilles-sa-biel",
         "de": "produktionsplaner-in-disponent-in-agie-charmilles-biel",
-        "fr": "produktionsplaner-in-disponent-in-agie-charmilles-biel"
+        "fr": "planificateur-de-production-deploiement-agie-charmilles-sa-biel"
       },
       "id": "agie-charmilles-9123cc35c69d",
       "previousSlugsByLocale": {
         "it": [
           "produktionsplaner-in-disponent-in-agie-charmilles-biel",
           "produktionsplaner-in-disponent-in-agie-charmilles-sa-biel"
+        ],
+        "en": [
+          "produktionsplaner-in-disponent-in-agie-charmilles-biel"
+        ],
+        "fr": [
+          "produktionsplaner-in-disponent-in-agie-charmilles-biel"
         ]
       },
       "previousSlugs": [
@@ -252,9 +264,9 @@
       },
       "slugByLocale": {
         "it": "meccanica-agie-charmilles-sa-biel",
-        "en": "mechaniker-agie-charmilles-biel",
+        "en": "mechanics-agie-charmilles-sa-biel",
         "de": "mechaniker-agie-charmilles-biel-bienne",
-        "fr": "mechaniker-agie-charmilles-biel"
+        "fr": "mecanique-agie-charmilles-sa-biel"
       },
       "id": "agie-charmilles-df6ca7c41283",
       "salaryMin": 77000,
@@ -274,6 +286,12 @@
       "firstSeenAt": "2026-07-01T11:05:52.288Z",
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-agie-charmilles-biel"
+        ],
+        "en": [
+          "mechaniker-agie-charmilles-biel"
+        ],
+        "fr": [
           "mechaniker-agie-charmilles-biel"
         ]
       },
@@ -1496,15 +1514,21 @@
       },
       "slugByLocale": {
         "it": "pianificatore-di-produzione-dispatcher-al-100-agie-charmilles-sa-biel-bienne",
-        "en": "produktionsplaner-in-disponent-in-100-agie-charmilles-biel-bienne",
+        "en": "production-planner-in-disponent-in-100-agie-charmilles-sa-biel-bienne",
         "de": "produktionsplaner-in-disponent-in-100-agie-charmilles-biel-bienne",
-        "fr": "produktionsplaner-in-disponent-in-100-agie-charmilles-biel-bienne"
+        "fr": "planificateur-de-production-depliant-en-100-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-514307bd001b",
       "previousSlugsByLocale": {
         "it": [
           "produktionsplaner-in-disponent-in-100-agie-charmilles-biel-bienne",
           "produktionsplaner-in-disponent-in-100-agie-charmilles-sa-biel-bienne"
+        ],
+        "en": [
+          "produktionsplaner-in-disponent-in-100-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
+          "produktionsplaner-in-disponent-in-100-agie-charmilles-biel-bienne"
         ]
       },
       "previousSlugs": [
@@ -1567,7 +1591,7 @@
         "it": "spindle-repair-advisor-service-techniker-2nd-level-spindles-agie-charmilles-biel-bienne",
         "en": "spindle-repair-advisor-service-techniker-2nd-level-spindles-agie-charmilles-biel-bienne",
         "de": "spindle-repair-advisor-service-techniker-2nd-level-spindles-agie-charmilles-biel-bienne",
-        "fr": "spindle-repair-advisor-service-techniker-2nd-level-spindles-agie-charmilles-biel-bienne"
+        "fr": "conseiller-en-reparation-des-broches-technicien-de-service-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-c4613e489507",
       "salaryMin": 77000,

@@ -3305,7 +3305,7 @@
       "slug": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
       "slugByLocale": {
         "it": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
-        "en": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
+        "en": "box-manager-palliative-and-support-care-centre-80-hug-geneve",
         "de": "case-manager-palliative-und-support-care-center-80-hug-geneve",
         "fr": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
       },
@@ -3350,7 +3350,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
-        "box-manager-palliative-and-support-care-centre-80-hug-geneve",
         "box-manager-palliative-und-support-care-center-80-hug-geneve"
       ],
       "previousSlugsByLocale": {
@@ -3358,7 +3357,7 @@
           "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
         ],
         "en": [
-          "box-manager-palliative-and-support-care-centre-80-hug-geneve"
+          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
         ],
         "de": [
           "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
@@ -3463,8 +3462,8 @@
       "slugByLocale": {
         "fr": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve",
         "it": "dietista-mandato-di-sostituzione-40-hug-geneve",
-        "en": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve",
-        "de": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+        "en": "dietitian-or-dietitian-replacement-mandate-40-hug-geneve",
+        "de": "diatassistent-oder-diatassistent-ersatzauftrag-40-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3523,6 +3522,12 @@
       "firstSeenAt": "2026-07-01T11:57:00.920Z",
       "previousSlugsByLocale": {
         "it": [
+          "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+        ],
+        "en": [
+          "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+        ],
+        "de": [
           "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
         ]
       },
@@ -3613,8 +3618,8 @@
       "slugByLocale": {
         "fr": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
         "it": "cura-chirurgica-e-supporto-80-100-hug-geneve",
-        "en": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
-        "de": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        "en": "surgery-care-and-accompaniment-80-to-100-hug-geneve",
+        "de": "chirurgie-und-begleitung-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3674,6 +3679,12 @@
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
         ]
       },
       "previousSlugs": [
@@ -3686,8 +3697,8 @@
       "slugByLocale": {
         "fr": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug",
         "it": "assistenti-sanitari-e-assistenza-comunitari-in-orl-e-ccf-80-al-100-hug-geneve",
-        "en": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug",
-        "de": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+        "en": "community-care-and-health-assistants-in-lro-and-ccf-80-to-100-hug-geneve",
+        "de": "community-care-und-health-assistants-in-lro-und-ccf-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3746,6 +3757,12 @@
       "firstSeenAt": "2026-07-01T11:57:00.909Z",
       "previousSlugsByLocale": {
         "it": [
+          "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+        ],
+        "en": [
+          "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+        ],
+        "de": [
           "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
         ]
       },

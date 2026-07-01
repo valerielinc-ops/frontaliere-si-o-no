@@ -1773,8 +1773,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-40-80-spitex-ch-dietlikon",
         "it": "fachfrau-fachmann-gesundheit-cfc-40-80-spitex-glattal-dietlikon",
-        "en": "fachfrau-fachmann-gesundheit-cfc-40-80-spitex-glattal-dietlikon",
-        "fr": "fachfrau-fachmann-gesundheit-cfc-40-80-spitex-glattal-dietlikon"
+        "en": "professional-health-efz-40-80-spitex-glattal-dietlikon",
+        "fr": "sante-professionnelle-efz-40-80-spitex-glattal-dietlikon"
       },
       "company": "Spitex Glattal",
       "companyKey": "spitex-ch",
@@ -1846,8 +1846,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-m-w-d-60-80-spitex-ch-grosshochstetten",
         "it": "fachperson-gesundheit-efz-m-w-d-60-80-spitex-ch-grosshochstetten",
-        "en": "fachperson-gesundheit-efz-m-w-d-60-80-spitex-ch-grosshochstetten",
-        "fr": "fachperson-gesundheit-efz-m-w-d-60-80-spitex-ch-grosshochstetten"
+        "en": "health-professional-efz-m-f-d-60-80-spitex-region-konolfingen-grosshochstetten",
+        "fr": "professionnels-de-la-sante-efz-m-f-d-60-80-spitex-region-konolfingen-grosshochstetten"
       },
       "company": "SPITEX Region Konolfingen",
       "companyKey": "spitex-ch",
@@ -1911,8 +1911,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
         "it": "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
-        "en": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "fr": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        "en": "health-professional-80-100-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "professionnels-de-la-sante-80-100-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1971,6 +1971,12 @@
       "firstSeenAt": "2026-07-01T12:42:55.955Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ],
+        "fr": [
           "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
         ]
       },
@@ -2055,8 +2061,8 @@
       "slugByLocale": {
         "de": "pflegefachpersonen-hf-mit-fallfuhrung-40-100-spitex-ch-oensingen",
         "it": "pflegefachpersonen-hf-mit-fallfuhrung-40-100-spitex-ch-oensingen",
-        "en": "pflegefachpersonen-hf-mit-fallfuhrung-40-100-spitex-ch-oensingen",
-        "fr": "pflegefachpersonen-hf-mit-fallfuhrung-40-100-spitex-ch-oensingen"
+        "en": "nurses-hf-with-fall-management-40-100-spitex-gau-oensingen",
+        "fr": "infirmieres-hf-avec-gestion-des-chutes-40-100-spitex-gau-oensingen"
       },
       "company": "Spitex Gäu",
       "companyKey": "spitex-ch",
