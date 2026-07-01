@@ -84,9 +84,10 @@ export function isModuleLinkSkewMessage(msg: string): boolean {
  * route here → recoverFromStaleChunk().
  *
  * The predicate is signature-based. A genuine app bug producing the same message
- * costs at most ONE extra reload before the per-session guard blocks further
- * reloads and the error UI is shown — identical to the existing chunk-recovery
- * tradeoff, and far better than a permanent white screen on a real skew.
+ * costs at most MAX_RELOADS extra reloads before the per-session guard blocks
+ * further reloads and the error UI is shown — identical to the existing
+ * chunk-recovery tradeoff, and far better than a permanent white screen on a
+ * real skew.
  */
 export function isVersionSkewError(err: unknown): boolean {
   const e = err as { name?: string; message?: string } | null | undefined;
@@ -108,8 +109,12 @@ export function isVersionSkewError(err: unknown): boolean {
 // Session-wide reload ceiling shared across ALL three recovery surfaces:
 // resilientImport's chunk-load path (below), recoverFromStaleChunk (called by
 // ErrorBoundary + global window-error handler), and index.html bootstrap handlers.
-// At most one reload per session total; the value `>= 1` blocks further reloads.
+// Raised from 1 to 2 (issue: single sessions observed hitting TWO independently
+// stale chunks, e.g. vendor-icons.js then i18n.js — bustAssetHttpCache() only
+// refetches chunks already loaded on the current page, so a second, not-yet-loaded
+// stale chunk can still surface after the first reload and needs its own retry).
 const BOOTSTRAP_RELOAD_KEY = '_swReloadCount';
+export const MAX_RELOADS = 2;
 
 // Upper bound on how long the HTTP-cache bust may run before we reload anyway.
 // Asset chunks are small and refetched in parallel; this is only a backstop so a
@@ -189,9 +194,9 @@ export async function bustAssetHttpCache(): Promise<void> {
  * browser refetches a CONSISTENT set of stable-named chunks (post-propagation,
  * the skew is gone). Called by the ErrorBoundary version-skew recovery; shares
  * the `_swReloadCount` ceiling with the index.html bootstrap recovery so the two
- * skew surfaces (React-caught + global window error) reload at most once total.
- * No-op outside the browser. Returns true if a reload was scheduled, false if
- * the per-session guard blocked it.
+ * skew surfaces (React-caught + global window error) reload at most MAX_RELOADS
+ * times total. No-op outside the browser. Returns true if a reload was
+ * scheduled, false if the per-session guard blocked it.
  */
 export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   if (typeof window === 'undefined') return false;
@@ -205,11 +210,11 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   } catch {
     /* private mode — proceed without the guard */
   }
-  if (reloadCount >= 1) return false;
+  if (reloadCount >= MAX_RELOADS) return false;
   try {
     sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, String(reloadCount + 1));
   } catch {
-    /* private mode — guard unavailable, still attempt one reload below */
+    /* private mode — guard unavailable, still attempt the reload below */
   }
   // Best-effort breadcrumb for Analytics.initGlobalErrorTracking() post-reload.
   try {
@@ -289,7 +294,7 @@ export async function resilientImport<T>(
         let shouldReload = false;
         try {
           const rc = parseInt(sessionStorage.getItem(BOOTSTRAP_RELOAD_KEY) || '0', 10) || 0;
-          if (rc < 1) {
+          if (rc < MAX_RELOADS) {
             sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, String(rc + 1));
             shouldReload = true;
           }
@@ -299,7 +304,7 @@ export async function resilientImport<T>(
         if (shouldReload) {
           // Bust the HTTP cache before reloading: a stale-but-200 chunk (HTML
           // served for a purged name, or a skewed dependency) would otherwise be
-          // re-served from the disk cache and the one reload wasted.
+          // re-served from the disk cache and the reload wasted.
           await bustAssetHttpCache();
           window.location.reload();
         }
