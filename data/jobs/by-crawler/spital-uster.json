@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-uster",
-  "assembledAt": "2026-07-01T12:38:16.164Z",
+  "assembledAt": "2026-07-01T23:16:29.591Z",
   "jobs": [
     {
       "id": "spital-uster-772090f363ef",
@@ -33,7 +33,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/zivildienstler-ersatz-militaerdienst/aa169f75-c82c-4b6c-badd-5583ca81f41a",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.478Z",
+      "crawledAt": "2026-07-01T23:16:27.137Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,10 +78,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstler-ersatz-militardienst-spital-uster-ch"
+          "zivildienstler-ersatz-militardienst-spital-uster-ch",
+          "servizio-civile-sostituzione-servizio-militare-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.974Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -126,7 +128,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-medizin/c24f6423-ef54-48b4-9538-32a595e12e68",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.476Z",
+      "crawledAt": "2026-07-01T23:16:27.135Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,10 +182,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-100-medizin-spital-uster-ch"
+          "unterassistent-in-100-medizin-spital-uster-ch",
+          "assistente-medico-a-100-medicina-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.972Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -228,7 +232,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-chirurgie/1afcd168-7b56-4ad3-a292-3f7855f6c15c",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.475Z",
+      "crawledAt": "2026-07-01T23:16:27.134Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -273,10 +277,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-100-chirurgie-spital-uster-ch"
+          "unterassistent-in-100-chirurgie-spital-uster-ch",
+          "assistente-medico-100-chirurgia-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.971Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -321,7 +327,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studium-hf-pflege-somatik/7aab9779-bb4a-473f-9ff9-821e12db63c3",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.473Z",
+      "crawledAt": "2026-07-01T23:16:27.133Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -366,10 +372,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studium-hf-pflege-somatik-spital-uster-ch"
+          "studium-hf-pflege-somatik-spital-uster-ch",
+          "corso-di-studi-hf-infermieristica-somatica-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.969Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -414,7 +422,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studium-hf-pflege-kjff/9afa70fb-1b76-4473-8469-e247e90ac164",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.472Z",
+      "crawledAt": "2026-07-01T23:16:27.131Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -468,10 +476,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studium-hf-pflege-kjff-spital-uster-ch"
+          "studium-hf-pflege-kjff-spital-uster-ch",
+          "studio-infermieristico-hf-kjff-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.968Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -516,7 +526,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-anaesthesie/d212b97f-842f-40cd-ac4a-394777e8c4d7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.470Z",
+      "crawledAt": "2026-07-01T23:16:27.130Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -558,10 +568,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-100-anasthesie-spital-uster-ch"
+          "unterassistent-in-100-anasthesie-spital-uster-ch",
+          "assistente-medico-100-anestesia-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -606,7 +618,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-orthopaedie/b69c677a-c840-4963-82a1-7d33a84097b3",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.468Z",
+      "crawledAt": "2026-07-01T23:16:27.128Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -662,10 +674,12 @@
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-100-orthopadie-spital-uster-ch",
-          "unterassistent-in-100-orthopala-spital-uster-uster"
+          "unterassistent-in-100-orthopala-spital-uster-uster",
+          "unterassistent-in-100-ortopedia-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.965Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -710,7 +724,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-frauenklinik/5d0a760e-202b-4d1a-bd2d-c4c674d52610",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.466Z",
+      "crawledAt": "2026-07-01T23:16:27.127Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -746,10 +760,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-100-frauenklinik-spital-uster-ch"
+          "unterassistent-in-100-frauenklinik-spital-uster-ch",
+          "sotto-assistente-a-100-ospedale-ginecologico-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.964Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -794,7 +810,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-anaesthesiepflege/6dba62e6-9922-49df-86b8-c9b67a04f636",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.465Z",
+      "crawledAt": "2026-07-01T23:16:27.126Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -848,10 +864,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-nds-hf-anasthesiepflege-spital-uster-ch"
+          "studierende-nds-hf-anasthesiepflege-spital-uster-ch",
+          "studente-nds-hf-assistenza-anestesiologica-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.962Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -879,7 +897,7 @@
       "companyDomain": "spitaluster.ch",
       "title": "Pflegefachpersonen 50-100% – Geriatrische Akutrehabilitation",
       "titleByLocale": {
-        "it": "Professionisti della cura 50-100% – Riabilitazione acuta geriatrica",
+        "it": "Pflegefachpersonen 50-100% – Geriatrische Akutrehabilitation",
         "en": "Nursing Professionals 50-100% – Geriatric Acute Rehabilitation",
         "de": "Pflegefachpersonen 50-100% – Geriatrische Akutrehabilitation",
         "fr": "Professionnels en soins infirmiers 50-100% – Réhabilitation aiguë gériatrique"
@@ -896,7 +914,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachpersonen-geriatrische-akutrehabilitation/49c3cced-a9da-463f-9633-5fb9e597aa0e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.463Z",
+      "crawledAt": "2026-07-01T23:16:27.124Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -940,10 +958,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+          "professionisti-della-cura-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.961Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -971,7 +991,7 @@
       "companyDomain": "spitaluster.ch",
       "title": "Fachpersonen Gesundheit 50-100% – Geriatrische Akutrehabilitation",
       "titleByLocale": {
-        "it": "Professionisti della salute 50-100% – Riabilitazione acuta geriatrica",
+        "it": "Fachpersonen Gesundheit 50-100% – Geriatrische Akutrehabilitation",
         "en": "Healthcare Specialist 50-100% – Geriatric Acute Rehabilitation",
         "de": "Fachpersonen Gesundheit 50-100% – Geriatrische Akutrehabilitation",
         "fr": "Spécialiste en Santé 50-100% – Réhabilitation Gériatrique Aiguë"
@@ -988,7 +1008,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachpersonen-gesundheit-geriatrische-akutrehabilitation/4bca24b6-5e6e-4272-8da4-5e79aa22902d",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.461Z",
+      "crawledAt": "2026-07-01T23:16:27.123Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1033,10 +1053,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+          "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+          "professionisti-della-salute-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.960Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1081,7 +1103,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leitende-aerztin-leitender-arzt-onkologie/dc39791a-5f64-4ddd-ad22-305785894681",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.459Z",
+      "crawledAt": "2026-07-01T23:16:27.121Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1132,10 +1154,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-onkologie-60-100-spital-uster-ch"
+          "leitende-arztin-leitender-arzt-onkologie-60-100-spital-uster-ch",
+          "medico-capo-oncologia-60-100-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.955Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1163,7 +1187,7 @@
       "companyDomain": "spitaluster.ch",
       "title": "Pflegefachpersonen, Pensum variabel – Fixpool",
       "titleByLocale": {
-        "it": "Professionisti infermieri, variabile di carico di lavoro – Fixpool",
+        "it": "Pflegefachpersonen, Pensum variabel – Fixpool",
         "en": "Nursing professionals, variable workload - fixed pool",
         "de": "Pflegefachpersonen, Pensum variabel – Fixpool",
         "fr": "Professionnels de soins infirmiers, charge de travail variable - pool fixe"
@@ -1180,7 +1204,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachpersonen-pensum-variabel-fixpool/2c7c8eb0-763e-443b-b25f-fbf0eaa4465e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.457Z",
+      "crawledAt": "2026-07-01T23:16:27.120Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1235,13 +1259,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch"
+          "pflegefachpersonen-pensum-variabel-fixpool-spital-uster-ch",
+          "professionisti-infermieri-variabile-di-carico-di-lavoro-fixpool-spital-uster-uster"
         ],
         "de": [
           "pflegefachpersonen-pensum-varibel-fixpool-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.953Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1286,7 +1312,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachpersonen-gesundheit-medizin/77765b05-ee18-4b64-baaa-fc5df230da1d",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.456Z",
+      "crawledAt": "2026-07-01T23:16:27.118Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1331,10 +1357,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpersonen-gesundheit-50-100-medizin-spital-uster-ch"
+          "fachpersonen-gesundheit-50-100-medizin-spital-uster-ch",
+          "fachperson-gesundheit-50-100-medizin-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.952Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1379,7 +1407,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-frauenklinik-zueri-ost/269048af-5fa1-4a7a-bc48-0833dfbed4be",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.454Z",
+      "crawledAt": "2026-07-01T23:16:27.116Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1424,10 +1452,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-frauenklinik-zuri-ost-50-100-spital-uster-ch"
+          "oberarztin-oberarzt-frauenklinik-zuri-ost-50-100-spital-uster-ch",
+          "capoclinica-clinica-ginecologica-zuri-ost-50-100-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.951Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1472,7 +1502,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/praktikum-pflege/00cd904e-d99c-4d6b-9c34-8e9b3caa92f0",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.452Z",
+      "crawledAt": "2026-07-01T23:16:27.114Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1514,10 +1544,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-80-100-pflege-spital-uster-ch"
+          "praktikum-80-100-pflege-spital-uster-ch",
+          "stage-80-100-infermieristica-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.949Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1562,7 +1594,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-intensivpflege/3d7b30ff-8eb9-4ad1-bf0e-b53d91d99c2f",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.451Z",
+      "crawledAt": "2026-07-01T23:16:27.111Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1613,10 +1645,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-nds-hf-intensivpflege-spital-uster-ch"
+          "studierende-nds-hf-intensivpflege-spital-uster-ch",
+          "studente-nds-hf-assistenza-intensiva-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.948Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1642,11 +1676,11 @@
       "company": "Spital Uster",
       "companyKey": "spital-uster",
       "companyDomain": "spitaluster.ch",
-      "title": "Oberarzt/Oberärztin 100% - Allgemeine Innere Medizin mit Schwerpunkt Geriatrie",
+      "title": "Oberarzt/Oberärztin oder Leitender Arzt/Leitende Ärztin 80% - 100% Allgemeine Innere Medizin mit Schwerpunkt Geriatrie",
       "titleByLocale": {
         "it": "Medico specialista in medicina interna con specializzazione in geriatria",
         "en": "Senior Physician in Internal Medicine with Focus on Geriatrics",
-        "de": "Oberarzt/Oberärztin 100% - Allgemeine Innere Medizin mit Schwerpunkt Geriatrie",
+        "de": "Oberarzt/Oberärztin oder Leitender Arzt/Leitende Ärztin 80% - 100% Allgemeine Innere Medizin mit Schwerpunkt Geriatrie",
         "fr": "Médecin spécialiste en médecine interne avec spécialisation en gériatrie"
       },
       "description": "Zur Ergänzung des geriatrischen Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sicherstellung der ärztlichen Versorgung von Patienten und Patientinnen innerhalb des Teams der Akutgeriatrie im Spital Uster\n\n• Sicherstellung der hausärztlichen Versorgung der Partnerheime\n\n• Fähigkeit, Patientinnen und Patienten in ihrer medizinischen, sozialen und psychischen Gesamtheit zu erfassen und zu begegnen\n\n• Supervision der Assistenzärzte/ärztinnen\n\n• Mitwirkung an der Weiterbildung der Assistenzärzte/ärztinnen und des Pflegepersonals\n\n• Beteiligung am internistischen Visitendienst (ca. 4 Wochenenden/Jahr bei 100% Anstellung)\n\nAnforderungen:\n• Facharzttitel Allgemeine Innere Medizin, Schwerpunkt Geriatrie\n\n• Bereitschaft zur interdisziplinären Zusammenarbeit, Flexibilität und Einsatzbereitschaft\n\n• Belastbarkeit, hohe soziale Kompetenz und Freude am Teaching von Assistenzärzten/ärztinnen und dem Pflegepersonal\n\nWir bieten:\n• interessante und abwechslungsreiche Tätigkeit in einem hoch motivierten Team\n\n• Erlangung von Routine in einem breiten allgemeinmedizinischen Spektrum innerhalb eines regionalen Schwerpunktspitals\n\n• bei Interesse Rotation auf Innere Medizin oder Beteilgung am internistischen Notfalldienst möglich\n\n• überdurchschnittliche Sozialleistungen\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss\n\n• ZVV-BonusPass oder günstige Parkmöglichkeiten - mit Parkingpay, max. CHF 4.50 pro Tag",
@@ -1658,10 +1692,10 @@
       },
       "location": "Uster",
       "canton": "ZH",
-      "url": "https://jobs.spitaluster.ch/offene-stellen/oberarzt-oberaerztin-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie/84f56a30-7034-4bd0-b4a1-70a5622201bf",
+      "url": "https://jobs.spitaluster.ch/offene-stellen/oberarzt-oberaerztin-oder-leitender-arzt-leitende-aerztin-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie/84f56a30-7034-4bd0-b4a1-70a5622201bf",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.449Z",
+      "crawledAt": "2026-07-01T23:16:27.108Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1695,15 +1729,23 @@
         ]
       },
       "department": "Ärztliches Personal",
-      "previousSlugs": [
-        "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
+          "oberarzt-oberarztin-oder-leitender-arzt-leitende-arztin-80-100-allgemeine-innere-medizin",
           "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster"
+        ],
+        "it": [
+          "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster",
+          "oberarzt-oberarztin-oder-leitender-arzt-leitende-arztin-80-100-allgemeine-innere-medizin",
+          "medico-specialista-in-medicina-interna-con-specializzazione-in-geriatria-spital-uster-uster"
         ]
       },
+      "previousSlugs": [
+        "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster",
+        "oberarzt-oberarztin-oder-leitender-arzt-leitende-arztin-80-100-allgemeine-innere-medizin"
+      ],
       "firstSeenAt": "2026-05-26T14:04:22.946Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1732,7 +1774,7 @@
       "title": "Dipl. Pflegefachperson 50-100% – Medizin",
       "titleByLocale": {
         "it": "Dipl. Infermiere 50-100% – Medicina",
-        "en": "Dipl. Nursing Professional 50-100% – Medicine",
+        "en": "Dipl. Pflegefachperson 50-100% – Medizin",
         "de": "Dipl. Pflegefachperson 50-100% – Medizin",
         "fr": "Dipl. Infirmier 50-100% – Médecine"
       },
@@ -1748,7 +1790,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-medizin/94c71a53-6010-47ea-8989-1874bf97a8a1",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.448Z",
+      "crawledAt": "2026-07-01T23:16:27.105Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1799,13 +1841,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-50-100-medizin-spital-uster-ch"
+          "dipl-pflegefachperson-50-100-medizin-spital-uster-ch",
+          "dipl-infermiere-50-100-medicina-spital-uster-uster"
         ],
         "en": [
           "dipl-pflegefachperson-50-100-medizin-spital-uster-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.943Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1850,7 +1894,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-fachexpertin-fachexperten-anaesthesiepflege-nds-hf/ab65234f-70c1-4628-ad30-b1f0f32d5c22",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.446Z",
+      "crawledAt": "2026-07-01T23:16:27.102Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1901,10 +1945,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachexpertin-fachexperten-anasthesiepflege-nds-hf-80-100-spital-uster-ch"
+          "dipl-fachexpertin-fachexperten-anasthesiepflege-nds-hf-80-100-spital-uster-ch",
+          "dipl-esperta-anestesia-nds-hf-80-100-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.939Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1933,7 +1979,7 @@
       "title": "Fachperson Gesundheit 80-100% – chirurgische Privatstation",
       "titleByLocale": {
         "it": "Assistente Sanitario 80-100% - Stazione Chirurgica Privata",
-        "en": "Health professional 80-100% – private surgical unit",
+        "en": "Fachperson Gesundheit 80-100% – chirurgische Privatstation",
         "de": "Fachperson Gesundheit 80-100% – chirurgische Privatstation",
         "fr": "Assistant de Santé 80-100% - Station Chirurgicale Privée"
       },
@@ -1949,7 +1995,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachperson-gesundheit-chirurgische-privatstation/0947be57-838c-4d0e-bfc9-31de04c20563",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.445Z",
+      "crawledAt": "2026-07-01T23:16:27.101Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1995,7 +2041,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
+          "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch",
+          "assistente-sanitario-80-100-stazione-chirurgica-privata-spital-uster-uster"
         ],
         "en": [
           "fachperson-gesundheit-80-100-chirurgische-privatstation-spital-uster-ch"
@@ -2005,6 +2052,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.934Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2033,7 +2081,7 @@
       "title": "Dipl. Pflegefachperson 60 - 100% – Endoskopie",
       "titleByLocale": {
         "it": "Dipl. Pflegefachperson 60 - 100% – Endoscopia",
-        "en": "Dipl. Care professional 60 - 100% - Endoscopy",
+        "en": "Dipl. Pflegefachperson 60 - 100% – Endoskopie",
         "de": "Dipl. Pflegefachperson 60 - 100% – Endoskopie",
         "fr": "Dipl. Pflegefachperson 60 - 100% – Endoscopie"
       },
@@ -2049,7 +2097,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-endoskopie/248e0e4c-5c12-475a-a016-a4153bf2dc64",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.443Z",
+      "crawledAt": "2026-07-01T23:16:27.099Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2107,7 +2155,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch"
+          "dipl-pflegefachperson-60-100-endoskopie-spital-uster-ch",
+          "dipl-pflegefachperson-60-100-endoscopia-spital-uster-uster"
         ],
         "en": [
           "dipl-caregiver-60-100-endoscopy-spital-uster-uster",
@@ -2115,6 +2164,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.932Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2159,7 +2209,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/sozialarbeiterin-sozialarbeiter-akutspital/3e81433a-a493-40e2-af21-ef041bfa0a96",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.441Z",
+      "crawledAt": "2026-07-01T23:16:27.097Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2203,10 +2253,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiterin-sozialarbeiter-60-100-akutspital-spital-uster-ch"
+          "sozialarbeiterin-sozialarbeiter-60-100-akutspital-spital-uster-ch",
+          "assistente-sociale-assistente-sociale-60-100-ospedale-di-emergenza-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.930Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2251,7 +2303,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/mitarbeiterin-mitarbeiter-spezialreinigung/81e5c373-c0e7-4f45-904e-ea6f4119f6b7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.439Z",
+      "crawledAt": "2026-07-01T23:16:27.095Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2296,10 +2348,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-spezialreinigung-80-100-spital-uster-ch"
+          "mitarbeiterin-mitarbeiter-spezialreinigung-80-100-spital-uster-ch",
+          "addetto-a-alla-pulizia-speciale-80-100-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.928Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2344,7 +2398,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-als-stv-abteilungsleitung-chirurgie/3000d265-c3c5-49f3-a30d-fe7aa958175f",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.437Z",
+      "crawledAt": "2026-07-01T23:16:27.094Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2395,6 +2449,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.926Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2439,7 +2494,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-kardiologie-innere-medizin/1af85520-19da-4e95-ad1f-4e0bb3059507",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.435Z",
+      "crawledAt": "2026-07-01T23:16:27.093Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2480,10 +2535,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-80-100-kardiologie-innere-medizin-spital-uster-ch"
+          "oberarztin-oberarzt-80-100-kardiologie-innere-medizin-spital-uster-ch",
+          "medico-cardiologo-medico-internista-80-100-cardiologia-medicina-interna-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.922Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2528,7 +2585,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/assistenzaerztin-assistenzarzt-altersmedizin-mit-ausbildungsziel-schwerpunkt-geriatrie/cce4b74f-4da5-4295-8b63-6d7d6f92f6ca",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.433Z",
+      "crawledAt": "2026-07-01T23:16:27.091Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2567,10 +2624,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-80-100-altersmedizin-mit-ausbildungsziel-schwerpunkt"
+          "assistenzarztin-assistenzarzt-80-100-altersmedizin-mit-ausbildungsziel-schwerpunkt",
+          "medico-specializzando-in-geriatria-80-100-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.920Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2615,7 +2674,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/arztsekretaer-in-kardiologie-med-ambulatorium/4e9a2e51-a4b7-42e1-8b50-68484c21fdba",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.430Z",
+      "crawledAt": "2026-07-01T23:16:27.089Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2663,10 +2722,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-kardiologie-med-ambulatorium-70-100-spital-uster-ch"
+          "arztsekretar-in-kardiologie-med-ambulatorium-70-100-spital-uster-ch",
+          "segretario-medico-cardiologia-ambulatorio-medico-70-100-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.911Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2711,7 +2772,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/medizinische-r-praxisassistent-in-und-oder-arztsekretaer-in/a581fb89-8400-467b-82be-99803d579c35",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.429Z",
+      "crawledAt": "2026-07-01T23:16:27.087Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2788,7 +2849,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachperson-gesundheit-geriatrische-akutrehabilitation-spaet-und-nachtdienst/9b3952d9-4e49-487b-a832-3670e78d8c8e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.427Z",
+      "crawledAt": "2026-07-01T23:16:27.085Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2808,12 +2869,14 @@
       "department": "Pflege",
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
+          "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
+          "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
         ],
         "it": [
           "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
           "salute-50-100-agopuntura-geriatrica-servizio-notturno-spital-uster-uster",
-          "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
+          "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
+          "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster"
         ],
         "en": [
           "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
@@ -2872,7 +2935,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-geriatrische-akutrehabilitation-spaet-und-nachtdienst/722829b3-eacd-41ab-8a8b-41d5ebf0627e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.425Z",
+      "crawledAt": "2026-07-01T23:16:27.083Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2892,12 +2955,14 @@
       "department": "Pflege",
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
         ],
         "it": [
           "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
           "professionisti-della-cura-50-100-agopuntura-geriatrica-servizio-tardo-e-notte-spital-uster-uster",
-          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster"
         ],
         "en": [
           "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
@@ -2940,7 +3005,7 @@
       "title": "Dipl. Pflegefachperson HF 80-100% – Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Specialista HF 80-100% – Chirurgia",
-        "en": "Dipl. Nurse HF 80-100% – Surgery",
+        "en": "Dipl. Pflegefachperson HF 80-100% – Chirurgie",
         "de": "Dipl. Pflegefachperson HF 80-100% – Chirurgie",
         "fr": "Dipl. Spécialiste des soins HF 80-100% – Chirurgie"
       },
@@ -2956,7 +3021,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-hf-chirurgie/8679ffc8-b652-462a-a211-8f0272ccc0d9",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.424Z",
+      "crawledAt": "2026-07-01T23:16:27.081Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2979,7 +3044,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
+          "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch",
+          "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster"
         ],
         "en": [
           "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
@@ -2989,6 +3055,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:51:56.196Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3033,7 +3100,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leitende-aerztin-leitender-arzt-geburtshilfe-frauenklinik-zueri-ost/ef3d1b43-c62f-4ed5-902a-5ae2630dfc4b",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.422Z",
+      "crawledAt": "2026-07-01T23:16:27.079Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3058,7 +3125,8 @@
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitenden-arzt-geburtshilfe-frauenklinik-zuri-ost-80-100-spital-uster-ch",
-          "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-zuri-ost-80-100-spital-uster-ch"
+          "leitende-arztin-leitender-arzt-geburtshilfe-frauenklinik-zuri-ost-80-100-spital-uster-ch",
+          "dottore-principale-leader-aiuto-di-nascita-zuri-ost-80-100-spital-uster-uster"
         ],
         "en": [
           "leitende-arztin-leitenden-arzt-geburtshilfe-frauenklinik-zuri-ost-80-100-spital-uster-ch"
@@ -3068,6 +3136,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:41:51.773Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3096,7 +3165,7 @@
       "title": "Fachperson Controlling 80-100%",
       "titleByLocale": {
         "it": "Fachperson che controlla l'80-100%",
-        "en": "Specialist Controlling 80-100 %",
+        "en": "Fachperson Controlling 80-100%",
         "de": "Fachperson Controlling 80-100%",
         "fr": "Contrôle de la personne 80-100%"
       },
@@ -3112,7 +3181,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachperson-controlling/f1730c54-a087-4ba8-b251-e50907330d96",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.420Z",
+      "crawledAt": "2026-07-01T23:16:27.077Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3135,10 +3204,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-controlling-80-100-spital-uster-ch"
+          "fachperson-controlling-80-100-spital-uster-ch",
+          "fachperson-che-controlla-l-80-100-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-06-05T12:41:51.794Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3183,7 +3254,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberarzt-oberaerztin-oder-oa-i-v-orthopaedie-und-traumatologie/febabed7-05c4-4dd1-ad1c-27428bafe709",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.418Z",
+      "crawledAt": "2026-07-01T23:16:27.075Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3206,7 +3277,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-oder-oa-i-v-80-100-orthopadie-und-traumatologie-spital-uster-ch"
+          "oberarzt-oberarztin-oder-oa-i-v-80-100-orthopadie-und-traumatologie-spital-uster-ch",
+          "oberarzt-oberarztin-o-oa-i-v-80-100-orthopala-e-traumatologie-spital-uster"
         ],
         "en": [
           "oberarzt-oberarztin-oder-oa-i-v-80-100-orthopadie-und-traumatologie-spital-uster-ch"
@@ -3260,7 +3332,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/hotelfachassistentin-hotelfachassistent/79e62008-4bdd-409f-be45-6e6480e015f7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.417Z",
+      "crawledAt": "2026-07-01T23:16:27.073Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3283,7 +3355,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
+          "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch",
+          "assistente-dell-hotel-60-spital-uster-uster"
         ],
         "en": [
           "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
@@ -3337,7 +3410,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-endokrinologie-diabetologie/0c02e80c-c133-4801-b09c-7e08d0419618",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.415Z",
+      "crawledAt": "2026-07-01T23:16:27.072Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3360,7 +3433,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
+          "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch",
+          "medico-senior-50-60-endocrinologia-diabetologia-spital-uster-uster"
         ],
         "en": [
           "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
@@ -3414,7 +3488,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leiter-in-human-resources/f77889f8-dec7-4291-ab70-802221cc01e2",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.412Z",
+      "crawledAt": "2026-07-01T23:16:27.070Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3437,7 +3511,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-human-resources-80-100-spital-uster-ch"
+          "leiter-in-human-resources-80-100-spital-uster-ch",
+          "responsabile-risorse-umane-80-100-spital-uster"
         ],
         "fr": [
           "leiter-in-human-resources-80-100-spital-uster-ch"
@@ -3488,7 +3563,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leitung-pflegeentwicklung/ea7dccde-a1af-4577-92ef-615038ecf705",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.410Z",
+      "crawledAt": "2026-07-01T23:16:27.068Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3513,7 +3588,8 @@
       "previousSlugsByLocale": {
         "it": [
           "leitung-pflegeentwicklung-spital-uster-ch",
-          "leitung-pflegeentwicklung-80-100-spital-uster-ch"
+          "leitung-pflegeentwicklung-80-100-spital-uster-ch",
+          "responsabile-dello-sviluppo-infermieristico-spital-uster-uster"
         ],
         "en": [
           "leitung-pflegeentwicklung-spital-uster-ch"
@@ -3551,7 +3627,7 @@
       "title": "Pflegefachperson HF/FH 80-100% – Notfallpflege",
       "titleByLocale": {
         "it": "Infermiera HF/FH 80-100% – Pronto Soccorso",
-        "en": "Nursing professional HF/FH 80-100% – Emergency care",
+        "en": "Pflegefachperson HF/FH 80-100% – Notfallpflege",
         "de": "Pflegefachperson HF/FH 80-100% – Notfallpflege",
         "fr": "Infirmière IC/FH 80-100 % – Soins d'urgence"
       },
@@ -3567,7 +3643,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-hf-fh-notfallpflege/d039b572-1e9e-43c2-b5b1-047b84b66877",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.408Z",
+      "crawledAt": "2026-07-01T23:16:27.066Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3592,7 +3668,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch"
+          "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch",
+          "infermiera-hf-fh-80-100-pronto-soccorso-spital-uster-uster"
         ],
         "en": [
           "care-specialist-hf-fh-80-100-emergency-care-spital-uster-uster",
@@ -3604,6 +3681,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:39:38.620Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3648,7 +3726,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-notfallpflege/7b42cd4b-0569-4bb2-a139-54fd9895c5ec",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.406Z",
+      "crawledAt": "2026-07-01T23:16:27.065Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3675,7 +3753,8 @@
       "previousSlugsByLocale": {
         "it": [
           "studierende-nds-hf-notfallpflege-spital-uster-ch",
-          "studenti-nds-hf-assistenza-di-emergenza-spital-uster-uster"
+          "studenti-nds-hf-assistenza-di-emergenza-spital-uster-uster",
+          "studenti-nds-hf-infermieristica-d-emergenza-spital-uster-uster"
         ],
         "en": [
           "studierende-nds-hf-notfallpflege-spital-uster-ch",
@@ -3715,7 +3794,7 @@
       "title": "Leitung Notfallsekretariat 80-100% - Notfallstation",
       "titleByLocale": {
         "it": "Gestione Segreteria di emergenza 80-100% - Dipartimento di emergenza",
-        "en": "Management Emergency Secretariat 80-100% - Emergency department",
+        "en": "Leitung Notfallsekretariat 80-100% - Notfallstation",
         "de": "Leitung Notfallsekretariat 80-100% - Notfallstation",
         "fr": "Secrétariat de gestion des urgences 80-100% - Service des urgences"
       },
@@ -3731,7 +3810,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leitung-notfallsekretariat-notfallstation/0d9e20af-f5d7-422f-b338-97cba19a75ad",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.404Z",
+      "crawledAt": "2026-07-01T23:16:27.063Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3754,7 +3833,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch"
+          "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch",
+          "gestione-segreteria-di-emergenza-80-100-dipartimento-di-emergenza-spital-uster-uster"
         ],
         "en": [
           "leitung-notfallsekretariat-80-100-notfallstation-spital-uster-ch"
@@ -3764,6 +3844,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T23:10:39.121Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3792,7 +3873,7 @@
       "title": "Expertin / Experte NDS 50-100% – Notfallpflege",
       "titleByLocale": {
         "it": "Esperto / esperto NDS 50-100% – Assistenza di emergenza",
-        "en": "Expert / Expert NDS 50-100% – Emergency Care",
+        "en": "Expertin / Experte NDS 50-100% – Notfallpflege",
         "de": "Expertin / Experte NDS 50-100% – Notfallpflege",
         "fr": "Expert / Expert NDS 50-100% – Soins d'urgence"
       },
@@ -3808,7 +3889,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/expertin-experte-nds-notfallpflege/0743ca2a-0f37-446c-a702-89fe5110eead",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.402Z",
+      "crawledAt": "2026-07-01T23:16:27.060Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3831,7 +3912,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch"
+          "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch",
+          "esperto-esperto-nds-50-100-assistenza-di-emergenza-spital-uster-uster"
         ],
         "en": [
           "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch"
@@ -3841,6 +3923,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:59:53.150Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3858,9 +3941,9 @@
       "id": "spital-uster-3d9632dcb014",
       "slug": "apprendistato-fachperson-gesundheit-cfc-spital-uster",
       "slugByLocale": {
-        "de": "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch",
         "it": "apprendistato-fachperson-gesundheit-cfc-spital-uster",
         "en": "apprenticeship-health-efz-spital-uster-uster",
+        "de": "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch",
         "fr": "apprentissage-sante-efz-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -3868,24 +3951,24 @@
       "companyDomain": "spitaluster.ch",
       "title": "Lehrstelle Fachperson Gesundheit EFZ",
       "titleByLocale": {
-        "de": "Lehrstelle Fachperson Gesundheit EFZ",
         "it": "Apprendistato Fachperson Gesundheit CFC",
         "en": "Apprenticeship Health EFZ",
+        "de": "Lehrstelle Fachperson Gesundheit EFZ",
         "fr": "Apprentissage Santé EFZ"
       },
       "description": "<p>Bist du bereit für eine spannende Ausbildung in der Welt der Gesundheit? Ab August 2027 bieten wir folgenden Ausbildungsplatz an:</p>\n\nAufgaben:\n• du betreust und pflegst unterschiedliche Patientinnen und Patienten aller Altersgruppen\n\n• du unterstützt Pflegefachpersonen, Ärzte und Therapeuten bei Behandlungen und therapeutischen Massnahmen\n\n• du hast die Möglichkeit, in verschiedenen Fachbereichen Erfahrungen zu sammeln\n\n• du erhältst praxisnahe Lern- und Einblickstage, die dich optimal auf deine zukünftigen Aufgaben vorbereiten\n\n• ein Team von erfahrenen Pflegefachpersonen, die dich unterstützen und fördern\n\n• diverse Benefits wie z.B. grosszügiger Kostenbeitrag für Schulmaterial, Jokertage für Umkleidezeit sowie Kostenbeteiligung an den Fahrkosten bei den überbetrieblichen Kursen\n\n• Möglichkeit für BMS / bilingualer Unterricht\n\n• Karrierestart nach erfolgreichem Lehrabschluss\n\nAnforderungen:\n• Sekundarabschluss A, B oder C\n\n• Einfühlungsvermögen, Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Teamarbeit und gute Kommunikation sind für dich wesentlich\n\n• du bist flexibel und bereit für unregelmässige Arbeitszeiten (Schichten, Wochenenden)\n\n• du kannst um 06.30 Uhr im Spital Uster sein und kommst um 23.30 Uhr noch nach Hause\n\nWir bieten:\n• Bewerbungsschreiben mit Motivation für die Berufswahl\n\n• Lebenslauf mit Foto\n\n• Zeugnisse ab 1. Oberstufe\n\n• Bestätigung eines mindestens 2-tägigen Schnuppereinsatzes als FaGe\n\n• Stellwerktest und/ oder Multicheck",
       "descriptionByLocale": {
-        "de": "<p>Bist du bereit für eine spannende Ausbildung in der Welt der Gesundheit? Ab August 2027 bieten wir folgenden Ausbildungsplatz an:</p>\n\nAufgaben:\n• du betreust und pflegst unterschiedliche Patientinnen und Patienten aller Altersgruppen\n\n• du unterstützt Pflegefachpersonen, Ärzte und Therapeuten bei Behandlungen und therapeutischen Massnahmen\n\n• du hast die Möglichkeit, in verschiedenen Fachbereichen Erfahrungen zu sammeln\n\n• du erhältst praxisnahe Lern- und Einblickstage, die dich optimal auf deine zukünftigen Aufgaben vorbereiten\n\n• ein Team von erfahrenen Pflegefachpersonen, die dich unterstützen und fördern\n\n• diverse Benefits wie z.B. grosszügiger Kostenbeitrag für Schulmaterial, Jokertage für Umkleidezeit sowie Kostenbeteiligung an den Fahrkosten bei den überbetrieblichen Kursen\n\n• Möglichkeit für BMS / bilingualer Unterricht\n\n• Karrierestart nach erfolgreichem Lehrabschluss\n\nAnforderungen:\n• Sekundarabschluss A, B oder C\n\n• Einfühlungsvermögen, Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Teamarbeit und gute Kommunikation sind für dich wesentlich\n\n• du bist flexibel und bereit für unregelmässige Arbeitszeiten (Schichten, Wochenenden)\n\n• du kannst um 06.30 Uhr im Spital Uster sein und kommst um 23.30 Uhr noch nach Hause\n\nWir bieten:\n• Bewerbungsschreiben mit Motivation für die Berufswahl\n\n• Lebenslauf mit Foto\n\n• Zeugnisse ab 1. Oberstufe\n\n• Bestätigung eines mindestens 2-tägigen Schnuppereinsatzes als FaGe\n\n• Stellwerktest und/ oder Multicheck",
-        "it": "<p> Sei pronto per un'educazione emozionante nel mondo della salute? Dal 2027 agosto offriamo il seguente luogo di allenamento:\n\nCompiti:\n• Si prende cura di diversi pazienti di tutti i gruppi di età\n\n• supporta infermieri, medici e terapisti nei trattamenti e nelle misure terapeutiche\n\n• Hai la possibilità di acquisire esperienza in varie aree\n\n• Riceverai giorni pratici di apprendimento e di comprensione che ti prepareranno in modo ottimale per i tuoi futuri compiti\n\n• Un team di professionisti esperti che ti supportano e ti promuovono\n\n• vari vantaggi, come il generoso contributo dei costi per le forniture scolastiche, giorni per il cambio di tempo, nonché la quota dei costi di viaggio per i corsi intercompany\n\n• Opportunità per BMS / insegnamento bilingue\n\n• Inizio della carriera dopo l'insegnamento di successo\n\nRequisiti\n• Istruzione secondaria A, B o C\n\n• Empatia, responsabilità e affidabilità\n\n• Lavoro di squadra e buona comunicazione sono essenziali per voi\n\n• Sei flessibile e pronto per ore di lavoro irregolari (cambiamenti, fine settimana)\n\n• si può essere all'ospedale Uster alle 06.30 e tornare a casa alle 11.30\n\nOffriamo:\n• Lettera di domanda con motivazione per scelta di carriera\n\n• CV con foto\n\n• Certificati a partire dal 1°\n\n• Conferma di un processo minimo di 2 giorni come FaGe\n\n• Interlocking test e/o multicheck",
-        "en": "<p>Are you ready for an exciting education in the world of health? From August 2027 we offer the following training place:</p>\n\nTasks:\n• You look after and care for different patients of all age groups\n\n• you support nurses, doctors and therapists in treatments and therapeutic measures\n\n• You have the opportunity to gain experience in various areas\n\n• You will receive practical learning and insight days that optimally prepare you for your future tasks\n\n• A team of experienced care professionals who support and promote you\n\n• various benefits such as generous cost contribution for school supplies, joker days for changing time as well as cost share of the travel costs for the intercompany courses\n\n• Opportunity for BMS / bilingual teaching\n\n• Start of career after successful teaching\n\nRequirements\n• Secondary education A, B or C\n\n• Empathy, responsibility and reliability\n\n• Teamwork and good communication are essential for you\n\n• You are flexible and ready for irregular working hours (shifts, weekends)\n\n• you can be at the hospital Uster at 06.30 am and come home at 11.30 pm\n\nWe offer:\n• Application letter with motivation for career choice\n\n• CV with photo\n\n• Certificates from 1st upper secondary\n\n• Confirmation of a minimum 2-day trial as FaGe\n\n• Interlocking test and/or multicheck",
-        "fr": "<p>Êtes-vous prêt pour une éducation passionnante dans le monde de la santé? À partir d'août 2027, nous offrons le lieu de formation suivant:</p>\n\nTâches :\n• Vous prenez soin de différents patients de tous les groupes d'âge\n\n• vous aidez les infirmières, les médecins et les thérapeutes dans les traitements et les mesures thérapeutiques\n\n• Vous avez la possibilité d'acquérir de l'expérience dans différents domaines\n\n• Vous recevrez des journées d'apprentissage et de perspicacité pratiques qui vous prépareront de façon optimale à vos futures tâches.\n\n• Une équipe de professionnels de soins expérimentés qui vous soutiennent et vous font la promotion\n\n• divers avantages tels que la contribution généreuse aux coûts des fournitures scolaires, les journées de plaisanterie pour changer de temps ainsi que la part des coûts des frais de déplacement pour les cours interentreprises\n\n• Possibilité de BMS / enseignement bilingue\n\n• Début de carrière après un enseignement réussi\n\nExigences\n• Enseignement secondaire A, B ou C\n\n• Empathie, responsabilité et fiabilité\n\n• Un travail d'équipe et une bonne communication sont essentiels pour vous\n\n• Vous êtes flexible et prêt pour des heures de travail irrégulières (postes, week-ends)\n\n• vous pouvez être à l'hôpital Uster à 6h30 et revenir à la maison à 23h30\n\nNous offrons:\n• Lettre de candidature avec motivation pour le choix de carrière\n\n• CV avec photo\n\n• Certificats du 1er secondaire supérieur\n\n• Confirmation d'un essai d'au moins deux jours comme FaGe\n\n• Essai de verrouillage et/ou multicontrôle"
+        "it": "<p> Sei pronto per un'educazione emozionante nel mondo della salute? Dal 2027 agosto offriamo il seguente luogo di allenamento: Compiti:\n• Si prende cura di diversi pazienti di tutti i gruppi di età\n• supporta infermieri, medici e terapisti nei trattamenti e nelle misure terapeutiche\n• Hai la possibilità di acquisire esperienza in varie aree\n• Riceverai giorni pratici di apprendimento e di comprensione che ti prepareranno in modo ottimale per i tuoi futuri compiti\n• Un team di professionisti esperti che ti supportano e ti promuovono\n• vari vantaggi, come il generoso contributo dei costi per le forniture scolastiche, giorni per il cambio di tempo, nonché la quota dei costi di viaggio per i corsi intercompany\n• Opportunità per BMS / insegnamento bilingue\n• Inizio della carriera dopo l'insegnamento di successo Requisiti\n• Istruzione secondaria A, B o C\n• Empatia, responsabilità e affidabilità\n• Lavoro di squadra e buona comunicazione sono essenziali per voi\n• Sei flessibile e pronto per ore di lavoro irregolari (cambiamenti, fine settimana)\n• si può essere all'ospedale Uster alle 06.30 e tornare a casa alle 11.30 Offriamo:\n• Lettera di domanda con motivazione per scelta di carriera\n• CV con foto\n• Certificati a partire dal 1°\n• Conferma di un processo minimo di 2 giorni come FaGe\n• Interlocking test e/o multicheck",
+        "en": "<p>Are you ready for an exciting education in the world of health? From August 2027 we offer the following training place:</p> Tasks:\n• You look after and care for different patients of all age groups\n• you support nurses, doctors and therapists in treatments and therapeutic measures\n• You have the opportunity to gain experience in various areas\n• You will receive practical learning and insight days that optimally prepare you for your future tasks\n• A team of experienced care professionals who support and promote you\n• various benefits such as generous cost contribution for school supplies, joker days for changing time as well as cost share of the travel costs for the intercompany courses\n• Opportunity for BMS / bilingual teaching\n• Start of career after successful teaching Requirements\n• Secondary education A, B or C\n• Empathy, responsibility and reliability\n• Teamwork and good communication are essential for you\n• You are flexible and ready for irregular working hours (shifts, weekends)\n• you can be at the hospital Uster at 06.30 am and come home at 11.30 pm We offer:\n• Application letter with motivation for career choice\n• CV with photo\n• Certificates from 1st upper secondary\n• Confirmation of a minimum 2-day trial as FaGe\n• Interlocking test and/or multicheck",
+        "de": "<p>Bist du bereit für eine spannende Ausbildung in der Welt der Gesundheit? Ab August 2027 bieten wir folgenden Ausbildungsplatz an:</p> Aufgaben:\n• du betreust und pflegst unterschiedliche Patientinnen und Patienten aller Altersgruppen\n• du unterstützt Pflegefachpersonen, Ärzte und Therapeuten bei Behandlungen und therapeutischen Massnahmen\n• du hast die Möglichkeit, in verschiedenen Fachbereichen Erfahrungen zu sammeln\n• du erhältst praxisnahe Lern- und Einblickstage, die dich optimal auf deine zukünftigen Aufgaben vorbereiten\n• ein Team von erfahrenen Pflegefachpersonen, die dich unterstützen und fördern\n• diverse Benefits wie z.B. grosszügiger Kostenbeitrag für Schulmaterial, Jokertage für Umkleidezeit sowie Kostenbeteiligung an den Fahrkosten bei den überbetrieblichen Kursen\n• Möglichkeit für BMS / bilingualer Unterricht\n• Karrierestart nach erfolgreichem Lehrabschluss Anforderungen:\n• Sekundarabschluss A, B oder C\n• Einfühlungsvermögen, Verantwortungsbewusstsein und Zuverlässigkeit\n• Teamarbeit und gute Kommunikation sind für dich wesentlich\n• du bist flexibel und bereit für unregelmässige Arbeitszeiten (Schichten, Wochenenden)\n• du kannst um 06.30 Uhr im Spital Uster sein und kommst um 23.30 Uhr noch nach Hause Wir bieten:\n• Bewerbungsschreiben mit Motivation für die Berufswahl\n• Lebenslauf mit Foto\n• Zeugnisse ab 1. Oberstufe\n• Bestätigung eines mindestens 2-tägigen Schnuppereinsatzes als FaGe\n• Stellwerktest und/ oder Multicheck",
+        "fr": "<p>Êtes-vous prêt pour une éducation passionnante dans le monde de la santé? À partir d'août 2027, nous offrons le lieu de formation suivant:</p> Tâches :\n• Vous prenez soin de différents patients de tous les groupes d'âge\n• vous aidez les infirmières, les médecins et les thérapeutes dans les traitements et les mesures thérapeutiques\n• Vous avez la possibilité d'acquérir de l'expérience dans différents domaines\n• Vous recevrez des journées d'apprentissage et de perspicacité pratiques qui vous prépareront de façon optimale à vos futures tâches.\n• Une équipe de professionnels de soins expérimentés qui vous soutiennent et vous font la promotion\n• divers avantages tels que la contribution généreuse aux coûts des fournitures scolaires, les journées de plaisanterie pour changer de temps ainsi que la part des coûts des frais de déplacement pour les cours interentreprises\n• Possibilité de BMS / enseignement bilingue\n• Début de carrière après un enseignement réussi Exigences\n• Enseignement secondaire A, B ou C\n• Empathie, responsabilité et fiabilité\n• Un travail d'équipe et une bonne communication sont essentiels pour vous\n• Vous êtes flexible et prêt pour des heures de travail irrégulières (postes, week-ends)\n• vous pouvez être à l'hôpital Uster à 6h30 et revenir à la maison à 23h30 Nous offrons:\n• Lettre de candidature avec motivation pour le choix de carrière\n• CV avec photo\n• Certificats du 1er secondaire supérieur\n• Confirmation d'un essai d'au moins deux jours comme FaGe\n• Essai de verrouillage et/ou multicontrôle"
       },
       "location": "Uster",
       "canton": "ZH",
       "url": "https://jobs.spitaluster.ch/offene-stellen/lehrstelle-fachperson-gesundheit-efz/1a0872c9-3c0c-438e-9ba5-94cad19f07a7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:38:13.376Z",
+      "crawledAt": "2026-07-01T23:16:27.038Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3901,13 +3984,15 @@
       "postedDate": "2026-06-30",
       "applyUrl": "4894",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Lernende/Studierende/Praktikanten",
+      "previousSlugs": [
+        "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch"
+          "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch",
+          "apprendistato-fachperson-gesundheit-cfc-spital-uster"
         ],
         "en": [
           "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch"
@@ -3916,9 +4001,7 @@
           "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-fachperson-gesundheit-efz-spital-uster-ch"
-      ],
+      "firstSeenAt": "2026-07-01T12:38:13.376Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3930,8 +4013,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-01T12:38:13.376Z"
+      }
     }
   ]
 }
