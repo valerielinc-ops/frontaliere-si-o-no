@@ -2114,7 +2114,12 @@
         ]
       },
       "previousSlugs": [
-        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-renens"
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-renens",
+        "cassiere-multiuso-h-f-d-societe-cooperative-migros-vaud-montreux",
+        "multipurpose-cashier-h-f-d-societe-cooperative-migros-vaud-montreux",
+        "mehrzweck-cashier-h-f-d-societe-cooperative-migros-vaud-montreux",
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-montreux-wksmh0",
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-montreux"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4078,9 +4083,9 @@
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -4130,37 +4135,18 @@
         "seller-denner-ag-frauenfeld-008421",
         "vendeur-denner-ag-frauenfeld-008421",
         "venditore-denner-ag-frauenfeld-008421",
-        "venditore-denner-ag-langenthal-oggkv1",
-        "seller-denner-ag-langenthal",
-        "verkaufer-in-denner-ag-langenthal",
-        "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
-        "verkaufer-in-denner-ag-wattwil",
-        "vendeur-denner-ag-wattwil",
-        "venditore-denner-ag-wattwil-8129f7",
-        "venditore-denner-ag-wattwil",
-        "venditore-denner-ag-ruti-zh-t7zg1v",
-        "verkaufer-in-denner-ag-urdorf-56ql1j",
-        "verkaufer-in-denner-ag-urdorf"
+        "verkaufer-in-denner-ag-frauenfeld",
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
-        ],
-        "it": [
-          "venditore-denner-ag-langenthal-oggkv1",
-          "seller-denner-ag-langenthal",
-          "verkaufer-in-denner-ag-langenthal",
-          "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
-          "verkaufer-in-denner-ag-wattwil",
-          "vendeur-denner-ag-wattwil",
-          "venditore-denner-ag-wattwil-8129f7",
-          "venditore-denner-ag-wattwil",
-          "venditore-denner-ag-ruti-zh-t7zg1v",
-          "verkaufer-in-denner-ag-urdorf-56ql1j",
-          "verkaufer-in-denner-ag-urdorf"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ]
       }
     },
@@ -57991,6 +57977,7 @@
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
+        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur"
       ],
       "salaryMin": 57500,
@@ -62623,7 +62610,8 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
+        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
