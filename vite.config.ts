@@ -278,10 +278,12 @@ export default defineConfig(({ mode }) => {
  // only fills paths with no richer page. Hard MAX_EMIT cap in the plugin.
  cfHot404BridgePlugin(__dirname),
  // Sharded slug→canonical-section map (dist/job-canon/*.json) read by
- // public/404.html to redirect canton-drift orphans to their real page at
- // request time — the only way to recover the EXISTING orphans (not enumerable
- // statically: a 404 URL has no GSC impressions). Pin kills NEW drift; this
- // recovers the indexed ones. Root-level emit (not /data/, which is CDN-offloaded).
+ // public/404.html + the Worker to redirect canton-drift orphans to their real
+ // page at request time — the only way to recover the EXISTING orphans (not
+ // enumerable statically: a 404 URL has no GSC impressions). Pin kills NEW
+ // drift; this recovers the indexed ones. Emitted here into dist, then pushed
+ // to the CDN and deleted from dist by the deploy CDN-offload step (same as
+ // /data and /og — see deploy-it-pages-prep.sh + offload-generated-images-cdn.mjs).
  jobCanonRedirectMapPlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links

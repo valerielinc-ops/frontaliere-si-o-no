@@ -2,7 +2,7 @@
 // offload-generated-images-cdn.mjs
 //
 // Offload BUILD-GENERATED assets out of the GitHub Pages artifact, rewriting
-// their references to the dedicated CDN repo's Pages site (CDN_BASE). Two phases:
+// their references to the dedicated CDN repo's Pages site (CDN_BASE). Three phases:
 //   1. per-job OG cards (dist/og)  — rewrite static og:image refs in HTML
 //   2. all data JSON/CSV (dist/data) — inject runtime CDN base AND rewrite static
 //      same-origin /data/ refs (JSON-LD contentUrl, download hrefs) → CDN in HTML,
@@ -11,6 +11,10 @@
 //      pins its file; robots.txt Allow/Disallow are crawl directives, not content
 //      links, so they no longer pin (they kept 62 MB — incl. 55 MB expired-jobs.json
 //      — in the artifact even though the bytes were already live on the CDN).
+//   3. job-canon canton-drift 404-recovery shard map (dist/job-canon) — no static
+//      HTML ref exists at all (public/404.html and the Worker both fetch it via a
+//      CDN-absolute URL hardcoded at the consumer, not a runtime-injected base), so
+//      this phase is a plain guarded delete once the CDN push has staged it.
 // (The JS/CSS bundle is offloaded separately: ASSET_CDN/renderBuiltUrl rebases it
 //  at build time; the deploy verify step deletes dist/assets fail-safe.)
 //
@@ -196,6 +200,14 @@ function offloadAll(distDir, cdnBase) {
   // data inject + ref-collect + same-origin→CDN rewrite setup.
   const dataDir = path.join(distDir, 'data');
   const hasData = fs.existsSync(dataDir);
+
+  // job-canon (canton-drift 404-recovery shard map): runtime-fetch only, via a
+  // CDN-absolute URL hardcoded in public/404.html and the Worker — unlike
+  // og/data/images there is NO static HTML ref to rewrite or guard (confirmed:
+  // no `/job-canon/` literal exists in any dist HTML), so once the push to the
+  // CDN repo succeeds, the dist copy is simply redundant and can be deleted.
+  const jobCanonDir = path.join(distDir, 'job-canon');
+  const hasJobCanon = fs.existsSync(jobCanonDir);
   // Escape `<` so the inline <script> can't be broken out of — same class as
   // build-plugins/shared/inlineJsonScript.ts (inlined here: this .mjs runs under
   // plain Node and can't import the TS helper). cdnBase is a controlled config
@@ -405,6 +417,17 @@ function offloadAll(distDir, cdnBase) {
       removed++;
     });
     log(`data → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; rewrote /data/ refs in ${dataRefRewritten} HTML ; removed ${removed} files (kept ${kept} still-same-origin) ; freed ${(freed / 1048576).toFixed(0)} MB`);
+  }
+
+  // job-canon: no refs to check — the CDN push (deploy-it-pages-prep.sh
+  // step_push_cdn) already staged it under the SAME payload as og/data before
+  // this script runs, so its presence on the CDN is as certain as theirs.
+  if (!hasJobCanon) {
+    log('no dist/job-canon — skipping job-canon delete');
+  } else {
+    const freed = dirSize(jobCanonDir);
+    fs.rmSync(jobCanonDir, { recursive: true, force: true });
+    log(`job-canon → ${cdnBase} ; freed ${(freed / 1048576).toFixed(0)} MB`);
   }
 
   log(`single-pass offload over ${scanned} HTML/XML/TXT files ; assets: rewrote /assets/ refs in ${assetRewritten} (dist/assets dropped by the deploy verify step)`);

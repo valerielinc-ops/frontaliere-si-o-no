@@ -21,9 +21,11 @@
  * flat `{slug: prefix}` value collapsed to whichever locale wrote first (it), so
  * the en/de/fr Worker 301'd every orphan to the ITALIAN page — a permanent
  * cross-locale redirect that de-indexed the localized canonical. Keying by locale
- * keeps each locale's real section (no transform of the IT one). Emitted at the
- * dist ROOT (not /data/, which is CDN-offloaded → same-origin 404) so the
- * 404.html fetch is same-origin.
+ * keeps each locale's real section (no transform of the IT one). Emitted into
+ * dist here, then pushed to cdn.frontaliereticino.ch and deleted from dist by
+ * the deploy CDN-offload step (deploy-it-pages-prep.sh step_push_cdn +
+ * offload-generated-images-cdn.mjs), same as /data and /og — 404.html and the
+ * Worker both fetch shards via a CDN-absolute URL, not same-origin.
  *
  * Streaming + bounded: one small JSON per shard (a few hundred slugs each), keyed
  * by the localized last segment (identical across all 4 locales), built once from

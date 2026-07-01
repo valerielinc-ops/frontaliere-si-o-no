@@ -43,11 +43,13 @@
     <!-- Canton-drift recovery + SPA redirect. A job slug is globally unique, so an
          orphaned canton-variant 404 (the canton drifted between crawls, leaving the
          already-indexed URL behind) is redirected to the slug's CURRENT canonical
-         page via the sharded map at /job-canon/ (jobCanonRedirectMapPlugin). These
+         page via the sharded map at cdn.frontaliereticino.ch/job-canon/
+         (jobCanonRedirectMapPlugin, CDN-offloaded same as /data and /og). These
          orphans cannot be recovered statically (a 404 URL has no GSC impressions),
          so request-time lookup is the only way. Non-job 404s fall through to the SPA. -->
     <script>
       (function() {
+        var JOB_CANON_CDN = 'https://cdn.frontaliereticino.ch';
         // Paths that are real static files — do NOT redirect (let 404 show)
         var staticExts = /\.(js|css|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|json|xml|txt|map|webmanifest)$/i;
         var pathname = location.pathname;
@@ -132,7 +134,7 @@
         // last-resort sectionRoot fallback only; both run in .then/.catch below,
         // after the fetch has confirmed the slug is not in the canonical map.
         var timer = setTimeout(function() { go(sectionRoot); }, 1500);
-        fetch('/job-canon/' + sk + '.json', { cache: 'force-cache' })
+        fetch(JOB_CANON_CDN + '/job-canon/' + sk + '.json', { cache: 'force-cache' })
           .then(function(r) { return r.ok ? r.json() : null; })
           .then(function(map) {
             var entry = map && map[slug];
