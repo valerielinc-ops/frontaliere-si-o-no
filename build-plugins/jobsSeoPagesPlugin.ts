@@ -10303,8 +10303,24 @@ ${staticAnalyticsHtml}
  // otherwise overwrite the legitimate sector/city hub HTML at
  // /cerca-lavoro-ticino/infermieri/index.html with a thin job soft-landing
  // and break Semrush W2 (Issue 102) + the canonical sector page in SERPs.
+ //
+ // Also exclude HUB-PAGINATION compound keys. `data/all-known-job-slugs.json`
+ // was polluted with ~851 keys of the form `<hub-slug>/page-N` (e.g.
+ // `alle/page-1021`, `tutti/page-1116`) — hub-pagination URLs the GSC-orphan
+ // ingestion misclassified as job slugs (a real job slug is a single path
+ // segment and NEVER contains `/`). Each such entry stored a full 4-locale
+ // cross-product, so the soft-landing loop emitted the localized "all" slug
+ // under EVERY canton section (`/cerca-lavoro-ticino/alle/page-1021`,
+ // `/en/find-jobs-ticino/alle/…`, …) as thin noindex expired shells at wrong
+ // paths — a slug×section leak, not real legacy URLs. The correct per-locale
+ // `…/{tutti|all|alle|tous}/page-N` hubs are emitted separately by
+ // seoHubsPlugin; the retired `…/<hub>/page-N` crawls already resolve through
+ // searchConsoleCompat → listing root, so dropping the shells needs no bridge.
+ // Bare `page-N` (no leading segment) is intentionally NOT matched here — those
+ // two (page-2/page-5) hold GSC traffic and still emit their soft-landing.
+ const HUB_PAGINATION_COMPOUND_KEY_RE = /\/page-\d+$/; // `<hub-slug>/page-N` only (requires a leading segment; bare `page-N` is not matched)
  const expiredSlugs = Object.keys(tracking).filter(
- (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s),
+ (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s) && !HUB_PAGINATION_COMPOUND_KEY_RE.test(s),
  );
 
  const expiredBannerCopy: Record<string, { title: string; banner: string }> = {
