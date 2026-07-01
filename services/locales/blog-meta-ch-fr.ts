@@ -808,6 +808,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.quellensteuer-tarife-2026.title': 'Tarifs Quellensteuer 2026: Actualités',
     'blog.article.quellensteuer-tarife-2026.excerpt': 'Découvrez les nouveaux tarifs Quellensteuer pour 2026 et leurs implications pour les navetteurs transfrontaliers au Tessin, aux Grisons, dans le Valais et à Berne.',
     'blog.article.quellensteuer-tarife-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.strategie-cambio-chf-eur-2026.title': 'Stratégies d’échange CHF-EUR pour les familles avec enfants en 2026',
+    'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Un guide pratique des stratégies d’échange CHF-EUR pour les familles transfrontalières avec enfants en 2026, avec un accent sur le calendrier, le risque et les outils pratiques.',
+    'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Bureau de change à Lugano, Tessin, Suisse',
 };
 
 export default blogMetaChFr;

@@ -808,6 +808,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.quellensteuer-tarife-2026.title': 'Quellensteuer-Tarife 2026: News and Implications for Cross-Border Commuters',
     'blog.article.quellensteuer-tarife-2026.excerpt': 'Find out about the new Quellensteuer rates for 2026 and their implications for cross-border commuters in Ticino, Graubünden, Valais and Bern.',
     'blog.article.quellensteuer-tarife-2026.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.strategie-cambio-chf-eur-2026.title': 'CHF-EUR exchange strategies for families with children in 2026',
+    'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Practical guide to CHF-EUR exchange rate strategies for border families with children in 2026, with a focus on timing, risk and practical tools.',
+    'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Currency exchange in Lugano, Ticino, Switzerland',
 };
 
 export default blogMetaChEn;

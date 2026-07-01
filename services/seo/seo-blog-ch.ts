@@ -10392,6 +10392,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-strategie-cambio-chf-eur-2026': {
+    title: 'Strategie di cambio CHF-EUR per famiglie con figli nel 2026',
+    description: 'Guida pratica alle strategie di cambio CHF-EUR per famiglie frontalieri con figli nel 2026, con focus su timing, rischio e strumenti pratici. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, strategie, cambio, chf-eur, famiglie',
+    ogTitle: 'Strategie di cambio CHF-EUR per frontalieri nel 2026',
+    ogDescription: 'Guida pratica alle strategie di cambio CHF-EUR per famiglie frontalieri con figli nel 2026.',
+    canonicalPath: '/articoli-svizzera/strategie-cambio-chf-eur-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Strategie di cambio CHF-EUR per famiglie con figli nel 2026",
+      "description": "Guida pratica alle strategie di cambio CHF-EUR per famiglie frontalieri con figli nel 2026, con focus su timing, rischio e strumenti pratici. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/strategie-cambio-chf-eur-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cambio valuta a Lugano, Ticino, Svizzera"
+      },
+      "datePublished": "2026-07-01T21:30:27+00:00",
+      "dateModified": "2026-07-01T21:30:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/strategie-cambio-chf-eur-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

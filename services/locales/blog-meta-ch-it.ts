@@ -808,6 +808,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.quellensteuer-tarife-2026.title': 'Quellensteuer-Tarife 2026: Novità e Implicazioni per i Frontalieri',
     'blog.article.quellensteuer-tarife-2026.excerpt': 'Scopri le nuove aliquote della Quellensteuer per il 2026 e le loro implicazioni per i frontalieri in Ticino, Graubünden, Vallese e Berna.',
     'blog.article.quellensteuer-tarife-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.strategie-cambio-chf-eur-2026.title': 'Strategie di cambio CHF-EUR per famiglie con figli nel 2026',
+    'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Guida pratica alle strategie di cambio CHF-EUR per famiglie frontalieri con figli nel 2026, con focus su timing, rischio e strumenti pratici.',
+    'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Cambio valuta a Lugano, Ticino, Svizzera',
 };
 
 export default blogMetaChIt;
