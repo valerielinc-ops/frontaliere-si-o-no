@@ -799,6 +799,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.applicazione-accordi-frontalieri-svizzera.title': 'Mise en œuvre des accords sur frontalier: intérêt Suisse',
     'blog.article.applicazione-accordi-frontalieri-svizzera.excerpt': 'La conseillère fédérale Karin Keller-Sutter a rencontré le ministre italien des Finances Giancarlo Giorgetti pour discuter des questions financières et fiscales internationales.',
     'blog.article.applicazione-accordi-frontalieri-svizzera.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.giornate-soletta-finanza-2026.title': 'Festival du film de Solothurn 2026 : Le défi financier continue',
+    'blog.article.giornate-soletta-finanza-2026.excerpt': 'Le festival du film de Soleure a enregistré 65\'000 spectateurs, mais fait face à des difficultés financières avec un résultat opérationnel de 39\'000 francs en rouge.',
+    'blog.article.giornate-soletta-finanza-2026.imageAlt': 'Vue panoramique des Journées de Soleure avec des spectateurs et des films en projection.',
 };
 
 export default blogMetaChFr;

@@ -4327,6 +4327,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blocco-ristorni-ticino-decisione-partito-liberale-radicale': { name: 'Blocco ristorni', path: '/articoli-svizzera/blocco-ristorni-ticino-decisione-partito-liberale-radicale/', parent: 'blog' },
     'blog-stipendio-frontalieri-6250-mese': { name: 'Frontalieri', path: '/articoli-svizzera/stipendio-frontalieri-6250-mese/', parent: 'blog' },
     'blog-applicazione-accordi-frontalieri-svizzera': { name: 'Frontalieri', path: '/articoli-svizzera/applicazione-accordi-frontalieri-svizzera/', parent: 'blog' },
+    'blog-giornate-soletta-finanza-2026': { name: 'Giornate di Soletta', path: '/articoli-svizzera/giornate-soletta-finanza-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

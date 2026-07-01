@@ -799,6 +799,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.applicazione-accordi-frontalieri-svizzera.title': 'Applicazione accordi su frontalieri è in interesse della Svizzera',
     'blog.article.applicazione-accordi-frontalieri-svizzera.excerpt': 'La consigliera federale Karin Keller-Sutter ha incontrato il ministro delle finanze italiano Giancarlo Giorgetti per discutere delle questioni finanziarie e fiscali internazionali.',
     'blog.article.applicazione-accordi-frontalieri-svizzera.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.giornate-soletta-finanza-2026.title': 'Giornate di Soletta 2026: Continua la Sfida Finanziaria',
+    'blog.article.giornate-soletta-finanza-2026.excerpt': 'Il festival cinematografico di Soletta ha registrato 65\'000 spettatori, ma affronta difficoltà finanziarie con un risultato operativo di 39\'000 franchi in rosso.',
+    'blog.article.giornate-soletta-finanza-2026.imageAlt': 'Vista panoramica delle Giornate di Soletta con spettatori e film in proiezione.',
 };
 
 export default blogMetaChIt;
