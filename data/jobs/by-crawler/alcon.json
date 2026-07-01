@@ -150,8 +150,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "territory-sales-manager-m-w-d-medical-devices-ophthalmology-switzerland-alcon-ch",
-          "territory-sales-manager-m-f-d-dispositivi-medici-oftalmologia-svizzera-alcon-fribourg"
+          "territory-sales-manager-m-w-d-medical-devices-ophthalmology-switzerland-alcon-ch"
         ],
         "de": [
           "gebietsverkaufsleiter-m-w-d-medizinprodukte-augenheilkunde-schweiz-alcon-fribourg"
@@ -174,12 +173,12 @@
     },
     {
       "id": "alcon-153507063163",
-      "slug": "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
+      "slug": "sr-associate-m-f-d-dispositivi-medici-lingua-tedesca-e-inglese-alcon-schaffhausen",
       "slugByLocale": {
         "en": "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-        "it": "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-        "de": "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-        "fr": "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
+        "it": "sr-associate-m-f-d-dispositivi-medici-lingua-tedesca-e-inglese-alcon-schaffhausen",
+        "de": "regulatory-strategy-sr-associate-m-w-d-medizinprodukte-deutsch-englisch-sprechend-alcon-schaffhausen",
+        "fr": "strategie-de-reglementation-sr-associate-m-f-d-instruments-medicaux-allemand-et-anglais-alcon-schaffhausen"
       },
       "company": "Alcon",
       "companyKey": "alcon",
@@ -235,7 +234,21 @@
         }
       },
       "postalCode": "8200",
-      "firstSeenAt": "2026-06-30T21:44:27.009Z"
+      "firstSeenAt": "2026-06-30T21:44:27.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
+        ],
+        "de": [
+          "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
+        ],
+        "fr": [
+          "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
+      ]
     }
   ]
 }

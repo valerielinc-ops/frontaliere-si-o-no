@@ -29,7 +29,7 @@
       "firstSeenAt": "2026-06-30T21:42:53.933Z",
       "slugByLocale": {
         "it": "service-technician-80-100-abb-svizzera-sede-ticino-schaffhausen-3zadsd",
-        "en": "maintenance-operator-abb-svizzera-sede-ticino-uster-zurich-3zadsd",
+        "en": "service-technician-80-100-abb-svizzera-sede-ticino-schaffhausen-3zadsd",
         "de": "service-techniker-80-100-abb-svizzera-sede-ticino-schaffhausen-3zadsd",
         "fr": "service-technicien-80-100-abb-svizzera-sede-ticino-schaffhausen-3zadsd"
       },
@@ -64,7 +64,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8610"
+      "postalCode": "8610",
+      "previousSlugsByLocale": {
+        "en": [
+          "maintenance-operator-abb-svizzera-sede-ticino-uster-zurich-3zadsd"
+        ]
+      },
+      "previousSlugs": [
+        "maintenance-operator-abb-svizzera-sede-ticino-uster-zurich-3zadsd"
+      ]
     },
     {
       "id": "company-twaosl",

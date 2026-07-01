@@ -134,8 +134,7 @@
       "previousSlugsByLocale": {
         "it": [
           "revenue-manager-badrutts-palace-ch",
-          "revenue-manager-m-w-d-badrutts-palace-ch",
-          "responsabile-delle-entrate-badrutt-s-palace-hotel-st-moritz"
+          "revenue-manager-m-w-d-badrutts-palace-ch"
         ],
         "en": [
           "revenue-manager-badrutt-s-palace-hotel-st-moritz",
@@ -159,12 +158,12 @@
     },
     {
       "id": "badrutts-palace-85d89be74139",
-      "slug": "plumber-m-w-d-badrutts-palace-ch",
+      "slug": "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "en": "plumber-m-w-d-badrutts-palace-ch",
-        "it": "plumber-m-w-d-badrutts-palace-ch",
-        "de": "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "plumber-m-w-d-badrutts-palace-ch"
+        "it": "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -220,7 +219,22 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-30T21:51:00.503Z"
+      "firstSeenAt": "2026-06-30T21:51:00.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "plumber-m-w-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "fr": [
+          "plumber-m-w-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "plumber-m-w-d-badrutts-palace-ch",
+        "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ]
     },
     {
       "id": "badrutts-palace-424504011bdd",
@@ -271,12 +285,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "fitness-trainer-m-w-d-badrutts-palace-ch",
-          "fitness-trainer-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "fitness-trainer-m-w-d-badrutts-palace-ch"
         ],
         "it": [
-          "fitness-trainer-m-w-d-badrutts-palace-ch",
-          "istruttore-fitness-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "fitness-trainer-m-w-d-badrutts-palace-ch"
         ]
       },
       "previousSlugs": [
@@ -365,8 +377,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reservations-manager-m-w-d-badrutts-palace-ch",
-          "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "reservations-manager-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
           "reservations-manager-m-w-d-badrutts-palace-ch"
@@ -503,8 +514,7 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-recruiting-assistant-badrutts-palace-ch",
-          "hr-recruiting-assistant-m-w-d-badrutts-palace-ch",
-          "risorse-umane-recruiting-assistant-badrutt-s-palace-hotel-st-moritz"
+          "hr-recruiting-assistant-m-w-d-badrutts-palace-ch"
         ],
         "de": [
           "hr-recruiting-assistant-badrutts-palace-ch"
@@ -577,8 +587,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontaneous-application-badrutts-palace-ch",
-          "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz"
+          "spontaneous-application-badrutts-palace-ch"
         ],
         "fr": [
           "spontaneous-application-badrutts-palace-ch"
