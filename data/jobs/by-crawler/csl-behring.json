@@ -2641,8 +2641,6 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-30T22:10:07.402Z",
       "previousSlugs": [
-        "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
-        "leitender-laborspezialist-tech-ops-csl-behring-bern",
         "specialiste-de-laboratoire-principal-operations-techniques-csl-behring-bern",
         "senior-wissenschaftler-tech-ops-csl-behring-bern",
         "ricercatore-senior-tech-ops-csl-behring-bern",
@@ -2659,17 +2657,25 @@
         "leitender-projektmanager-tech-ops-csl-behring-bern",
         "laborspezialist-tech-ops-csl-behring-bern",
         "specialiste-de-laboratoire-operations-techniques-csl-behring-bern-9a1168",
-        "specialiste-de-laboratoire-operations-techniques-csl-behring-bern"
+        "specialiste-de-laboratoire-operations-techniques-csl-behring-bern",
+        "ricercatore-tech-ops-csl-behring-bern",
+        "senior-laboratory-specialist-tech-ops-csl-behring-ch",
+        "scientifique-principal-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern"
+          "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
+          "ricercatore-tech-ops-csl-behring-bern",
+          "scientifique-principal-tech-ops-csl-behring-bern"
         ],
         "de": [
           "leitender-laborspezialist-tech-ops-csl-behring-bern"
         ],
         "fr": [
           "specialiste-de-laboratoire-principal-operations-techniques-csl-behring-bern"
+        ],
+        "en": [
+          "senior-laboratory-specialist-tech-ops-csl-behring-ch"
         ]
       }
     },

@@ -658,7 +658,23 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "en": [
+          "hvac-ventilation-installer-vd-pemsa-lausanne"
+        ],
+        "de": [
+          "luftungsanlagenmonteur-vd-pemsa-lausanne"
+        ],
+        "fr": [
+          "installateur-de-systemes-de-ventilation-vd-pemsa-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "hvac-ventilation-installer-vd-pemsa-lausanne",
+        "luftungsanlagenmonteur-vd-pemsa-lausanne",
+        "installateur-de-systemes-de-ventilation-vd-pemsa-lausanne"
+      ]
     },
     {
       "title": "Idraulico",
@@ -719,7 +735,23 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "en": [
+          "plumber-pemsa-mendrisio"
+        ],
+        "de": [
+          "klempner-pemsa-mendrisio"
+        ],
+        "fr": [
+          "plombier-pemsa-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "plumber-pemsa-mendrisio",
+        "klempner-pemsa-mendrisio",
+        "plombier-pemsa-mendrisio"
+      ]
     },
     {
       "title": "Elettricista con comprovata esperienza",
@@ -779,7 +811,19 @@
       "postalCode": "1630",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "de": [
+          "elektriker-mit-nachweislicher-erfahrung-pemsa-bulle"
+        ],
+        "fr": [
+          "electricien-avec-experience-confirmee-pemsa-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "elektriker-mit-nachweislicher-erfahrung-pemsa-bulle",
+        "electricien-avec-experience-confirmee-pemsa-bulle"
+      ]
     },
     {
       "title": "Operatore M3 (caricatrice su ruote o cingolata)",
@@ -839,7 +883,23 @@
       "postalCode": "1700",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "en": [
+          "m3-operator-wheel-or-tracked-loader-pemsa-fribourg"
+        ],
+        "de": [
+          "m3-bediener-rad-oder-kettenlader-pemsa-fribourg"
+        ],
+        "fr": [
+          "operateur-m3-chargeur-sur-roues-ou-chenilles-pemsa-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "m3-operator-wheel-or-tracked-loader-pemsa-fribourg",
+        "m3-bediener-rad-oder-kettenlader-pemsa-fribourg",
+        "operateur-m3-chargeur-sur-roues-ou-chenilles-pemsa-fribourg"
+      ]
     },
     {
       "title": "Idraulico Installatore 3",
@@ -903,10 +963,20 @@
         "idraulico-con-esperienza-pemsa-taverne",
         "hydraulic-with-experience-pemsa-taverne",
         "hydraulisch-mit-erfahrung-pemsa-taverne",
-        "hydraulique-avec-experience-pemsa-taverne"
+        "hydraulique-avec-experience-pemsa-taverne",
+        "klempner-installateur-3-pemsa-taverne",
+        "plombier-installateur-3-pemsa-taverne"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "de": [
+          "klempner-installateur-3-pemsa-taverne"
+        ],
+        "fr": [
+          "plombier-installateur-3-pemsa-taverne"
+        ]
+      }
     },
     {
       "title": "Installatore Idraulico",
@@ -967,10 +1037,24 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "previousSlugs": [
-        "installatore-idraulico-pemsa-lugano-170hj2"
+        "installatore-idraulico-pemsa-lugano-170hj2",
+        "plumber-installer-pemsa-lugano",
+        "installateur-heizung-sanitar-pemsa-lugano",
+        "installateur-sanitaire-et-chauffage-pemsa-lugano"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "en": [
+          "plumber-installer-pemsa-lugano"
+        ],
+        "de": [
+          "installateur-heizung-sanitar-pemsa-lugano"
+        ],
+        "fr": [
+          "installateur-sanitaire-et-chauffage-pemsa-lugano"
+        ]
+      }
     },
     {
       "title": "Rullo compattatore per asfalto",
@@ -1030,7 +1114,23 @@
       "postalCode": "1201",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "en": [
+          "asphalt-compactor-roller-pemsa-geneve"
+        ],
+        "de": [
+          "asphaltverdichter-roller-pemsa-geneve"
+        ],
+        "fr": [
+          "compacteur-a-asphalte-pemsa-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "asphalt-compactor-roller-pemsa-geneve",
+        "asphaltverdichter-roller-pemsa-geneve",
+        "compacteur-a-asphalte-pemsa-geneve"
+      ]
     },
     {
       "title": "Macchinista M2-M3",
@@ -1090,7 +1190,23 @@
       "postalCode": "1201",
       "firstSeenAt": "2026-06-30T12:09:55.496Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "en": [
+          "machine-operator-m2-m3-pemsa-geneve"
+        ],
+        "de": [
+          "maschinenfuhrer-m2-m3-pemsa-geneve"
+        ],
+        "fr": [
+          "operateur-machine-m2-m3-pemsa-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "machine-operator-m2-m3-pemsa-geneve",
+        "maschinenfuhrer-m2-m3-pemsa-geneve",
+        "operateur-machine-m2-m3-pemsa-geneve"
+      ]
     },
     {
       "title": "Elettricista – Lavori di integrazione e impianti elettrici",
