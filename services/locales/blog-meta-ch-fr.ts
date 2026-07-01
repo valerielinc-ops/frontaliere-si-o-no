@@ -811,6 +811,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.strategie-cambio-chf-eur-2026.title': 'Stratégies d’échange CHF-EUR pour les familles avec enfants en 2026',
     'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Un guide pratique des stratégies d’échange CHF-EUR pour les familles transfrontalières avec enfants en 2026, avec un accent sur le calendrier, le risque et les outils pratiques.',
     'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Bureau de change à Lugano, Tessin, Suisse',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Navetteurs transfrontaliers : documents et premier jour de travail au Tessin',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Guide pratique des exigences pour le premier jour de travail au Tessin : permis, contrat, autorités fiscales et assurance obligatoire.',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Vue panoramique d\'un bureau moderne à Lugano',
 };
 
 export default blogMetaChFr;

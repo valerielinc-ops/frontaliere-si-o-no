@@ -811,6 +811,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.strategie-cambio-chf-eur-2026.title': 'CHF-EUR-Austauschstrategien für Familien mit Kindern im Jahr 2026',
     'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Ein praktischer Leitfaden zu CHF-EUR-Austauschstrategien für grenzüberschreitende Familien mit Kindern im Jahr 2026, mit Schwerpunkt auf Timing, Risiko und praktischen Werkzeugen.',
     'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Wechselstube in Lugano, Tessin, Schweiz',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Grenzüberschreitende Pendler: Dokumente und erster Arbeitstag im Tessin',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Praktischer Leitfaden zu den Anforderungen für den ersten Arbeitstag in Tessin: Genehmigungen, Verträge, Steuerbefugnisse und Pflichtversicherung.',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Panoramablick auf ein modernes Büro in Lugano',
 };
 
 export default blogMetaChDe;
