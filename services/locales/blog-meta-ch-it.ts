@@ -802,6 +802,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.giornate-soletta-finanza-2026.title': 'Giornate di Soletta 2026: Continua la Sfida Finanziaria',
     'blog.article.giornate-soletta-finanza-2026.excerpt': 'Il festival cinematografico di Soletta ha registrato 65\'000 spettatori, ma affronta difficoltà finanziarie con un risultato operativo di 39\'000 franchi in rosso.',
     'blog.article.giornate-soletta-finanza-2026.imageAlt': 'Vista panoramica delle Giornate di Soletta con spettatori e film in proiezione.',
+    'blog.article.referendum-salari-minimi-ccl.title': 'Lanciato il referendum contro i salari minimi',
+    'blog.article.referendum-salari-minimi-ccl.excerpt': 'Sindacati e partiti politici lanciano un referendum contro la decisione delle Camere federali di privilegiare i CCL sui salari minimi cantonali',
+    'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Parlamento federale svizzero a Berna con un banner sul referendum salario minimo',
 };
 
 export default blogMetaChIt;

@@ -1,0 +1,18 @@
+{
+  "id": "referendum-salari-minimi-ccl",
+  "slug": "referendum-salari-minimi-ccl",
+  "publishedAt": "2026-07-01T11:43:01.965Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "fiscale",
+    "score": 0,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1
+  }
+}

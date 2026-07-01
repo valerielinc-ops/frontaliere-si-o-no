@@ -802,6 +802,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.giornate-soletta-finanza-2026.title': 'Solothurn Film Festival 2026: Die finanzielle Herausforderung geht weiter',
     'blog.article.giornate-soletta-finanza-2026.excerpt': 'Das Solothurner Filmfestival verzeichnete 65.000 Zuschauer, steht jedoch vor finanziellen Schwierigkeiten mit einem Betriebsergebnis von 39.000 Francs im roten Bereich.',
     'blog.article.giornate-soletta-finanza-2026.imageAlt': 'Panoramaansicht der Solothurner Filmtage mit Zuschauern und laufenden Filmen.',
+    'blog.article.referendum-salari-minimi-ccl.title': 'Referendum gegen Mindestlöhne eingeleitet',
+    'blog.article.referendum-salari-minimi-ccl.excerpt': 'Gewerkschaften und politische Parteien führen ein Referendum gegen die Entscheidung der Bundesversammlung ab, Tarifverträgen Vorrang vor kantonalen Mindestlöhnen zu geben.',
+    'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Schweizerisches Bundesparlament in Bern mit einem Banner zum Referendum über Mindestlohn',
 };
 
 export default blogMetaChDe;

@@ -290,6 +290,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'stipendio-frontalieri-6250-mese': { it: 'stipendio-frontalieri-6250-mese', en: 'salary-cross-border-workers-6250-month', de: 'gehalt-grenzgaenger-6250-monat', fr: 'salaire-frontaliers-6250-mois' },
  'applicazione-accordi-frontalieri-svizzera': { it: 'applicazione-accordi-frontalieri-svizzera', en: 'application-of-frontalier-agreements-switzerland', de: 'anwendung-von-grenzganger-vereinbarungen-schweiz', fr: 'application-des-accords-sur-les-frontaliers-suisse' },
  'giornate-soletta-finanza-2026': { it: 'giornate-soletta-finanza-2026', en: 'solothurn-film-days-finance-2026', de: 'solothurner-filmtage-finanz-2026', fr: 'journees-de-soleure-finances-2026' },
+ 'referendum-salari-minimi-ccl': { it: 'referendum-salari-minimi-ccl', en: 'switzerland-minimum-wage-referendum', de: 'referendum-mindestlohn-schweiz', fr: 'referendum-salaire-minimum-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

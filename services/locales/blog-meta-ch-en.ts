@@ -802,6 +802,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.giornate-soletta-finanza-2026.title': 'Solothurn Film Festival 2026: The Financial Challenge Continues',
     'blog.article.giornate-soletta-finanza-2026.excerpt': 'The Solothurn film festival recorded 65,000 spectators, but is facing financial difficulties with an operating result of 39,000 francs in the red.',
     'blog.article.giornate-soletta-finanza-2026.imageAlt': 'Panoramic view of the Solothurn Film Days with spectators and films being screened.',
+    'blog.article.referendum-salari-minimi-ccl.title': 'Referendum against minimum wages launched',
+    'blog.article.referendum-salari-minimi-ccl.excerpt': 'Trade unions and political parties launch referendum against the decision of the Federal Assembly to give priority to collective bargaining agreements over cantonal minimum wages',
+    'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Swiss Federal Parliament in Bern with a banner about minimum wage referendum',
 };
 
 export default blogMetaChEn;
