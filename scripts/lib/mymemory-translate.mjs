@@ -59,7 +59,9 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
   const slot = Math.max(now, nextSlotMs);
   nextSlotMs = slot + 1000;
   const wait = slot - now;
-  if (wait > 0) {
+  // Under Vitest fetch is always mocked, so there's no real API to rate-limit
+  // against — skip the spacing wait to avoid burning real seconds per call.
+  if (wait > 0 && !process.env.VITEST) {
     await new Promise((r) => setTimeout(r, wait));
   }
 

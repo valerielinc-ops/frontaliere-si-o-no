@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, afterEach } from 'vitest';
+import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
 import {
   GEBERIT_KEY,
   GEBERIT_COMPANY_NAME,
@@ -130,7 +130,13 @@ describe('Geberit crawler parser', () => {
 });
 
 describe('fetchAllGeberitJobs (SuccessFactors RMK search API)', () => {
-  afterEach(() => vi.restoreAllMocks());
+  // Skip the real exponential backoff (1s/2s/4s) fetchWithRetry does on
+  // retryable statuses — the 503 test below deliberately triggers it.
+  beforeEach(() => { process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0'; });
+  afterEach(() => {
+    vi.restoreAllMocks();
+    delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+  });
 
   function apiRecord(over = {}) {
     return {

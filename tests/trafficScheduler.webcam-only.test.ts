@@ -138,6 +138,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  vi.useRealTimers();
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
 });
@@ -411,12 +412,20 @@ describe('runTrafficCollection — routes to webcam-only fallback', () => {
     )) as CoreModule;
 
     // hereApiKey present (would normally win) but budget exhausted → must fall back
-    // to TomTom, NOT to webcam-only or a skip.
-    const result = await runTrafficCollection({
+    // to TomTom, NOT to webcam-only or a skip. TomTom routing rate-limits itself
+    // with a real 1s inter-batch setTimeout (25 crossings / batch size 2 = 12
+    // delays = ~12s) to stay under the free-tier QPS cap — fake timers let this
+    // real production delay resolve instantly against the fully-mocked fetch
+    // below, without touching Date (the budget-month check above depends on it).
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'] });
+    const resultPromise = runTrafficCollection({
       hereApiKey: 'here-key',
       tomtomApiKey: 'tt-key',
       enableWebcam: false,
     });
+    await vi.runAllTimersAsync();
+    const result = await resultPromise;
+    vi.useRealTimers();
 
     expect(result.skipped).toBeUndefined(); // did NOT skip the run
     expect(result.source).not.toBe('webcam-only'); // did NOT degrade to webcam-only
