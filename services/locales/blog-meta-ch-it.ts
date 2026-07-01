@@ -784,6 +784,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dogana-chiasso-brogeda-traffico-2024.title': 'Dogana di Chiasso Brogeda: aggiornamenti sul traffico e procedure 2024',
     'blog.article.dogana-chiasso-brogeda-traffico-2024.excerpt': 'Aggiornamenti sul traffico e le procedure alla dogana di Chiasso Brogeda, punto cruciale per frontalieri e trasporti internazionali.',
     'blog.article.dogana-chiasso-brogeda-traffico-2024.imageAlt': 'Vista della dogana di Chiasso-Brogeda con veicoli e bandiere svizzere al confine',
+    'blog.article.stop-ristorni-frontiera.title': 'Stop ai ristorni: Comuni di frontiera chiedono incontro urgente con il Governo',
+    'blog.article.stop-ristorni-frontiera.excerpt': 'Il Canton Ticino blocca i ristorni ai Comuni di frontiera. L\'associazione chiede un incontro urgente con il Governo italiano.',
+    'blog.article.stop-ristorni-frontiera.imageAlt': 'Confine Ticino-Lombardia con cartello blocco ristorni',
 };
 
 export default blogMetaChIt;

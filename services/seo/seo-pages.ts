@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3041,
+ "numberOfItems": 3042,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7687,7 +7687,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3038, "name": "Reclutamento a Lugano: nuove opportunità di lavoro", "url": `${BASE_URL}/articoli-frontaliere/reclutamento-lugano` },
           { "@type": "ListItem", "position": 3039, "name": "Permesso G in Svizzera: guida pratica per lavor...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-svizzera-nazionale` },
           { "@type": "ListItem", "position": 3040, "name": "Volg Binn: novità nazionali per il commercio lo...", "url": `${BASE_URL}/articoli-frontaliere/volg-binn-novita-2024` },
-          { "@type": "ListItem", "position": 3041, "name": "Dogana di Chiasso Brogeda: aggiornamenti sul tr...", "url": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-brogeda-traffico-2024` }
+          { "@type": "ListItem", "position": 3041, "name": "Dogana di Chiasso Brogeda: aggiornamenti sul tr...", "url": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-brogeda-traffico-2024` },
+          { "@type": "ListItem", "position": 3042, "name": "Stop ai ristorni: Comuni di frontiera chiedono ...", "url": `${BASE_URL}/articoli-frontaliere/stop-ristorni-frontiera` }
  ]
  },
  {

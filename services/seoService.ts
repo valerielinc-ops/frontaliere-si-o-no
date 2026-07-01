@@ -4322,6 +4322,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permesso-g-svizzera-nazionale': { name: 'Permesso G Svizzera', path: '/articoli-svizzera/permesso-g-svizzera-nazionale/', parent: 'blog' },
     'blog-volg-binn-novita-2024': { name: 'Volg Binn', path: '/articoli-svizzera/volg-binn-novita-2024/', parent: 'blog' },
     'blog-dogana-chiasso-brogeda-traffico-2024': { name: 'Dogana Chiasso Brogeda', path: '/articoli-svizzera/dogana-chiasso-brogeda-traffico-2024/', parent: 'blog' },
+    'blog-stop-ristorni-frontiera': { name: 'Novità', path: '/articoli-svizzera/stop-ristorni-frontiera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

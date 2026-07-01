@@ -1,0 +1,19 @@
+{
+  "id": "stop-ristorni-frontiera",
+  "slug": "stop-ristorni-frontiera",
+  "publishedAt": "2026-07-01T05:18:59.613Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 144.3576631466667,
+    "confidence": 1,
+    "finalScore": 144.3576631466667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 144.3576631466667,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}
