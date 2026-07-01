@@ -802,6 +802,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.giornate-soletta-finanza-2026.title': 'Festival du film de Solothurn 2026 : Le défi financier continue',
     'blog.article.giornate-soletta-finanza-2026.excerpt': 'Le festival du film de Soleure a enregistré 65\'000 spectateurs, mais fait face à des difficultés financières avec un résultat opérationnel de 39\'000 francs en rouge.',
     'blog.article.giornate-soletta-finanza-2026.imageAlt': 'Vue panoramique des Journées de Soleure avec des spectateurs et des films en projection.',
+    'blog.article.referendum-salari-minimi-ccl.title': 'Lancement du référendum contre les salaires minimums',
+    'blog.article.referendum-salari-minimi-ccl.excerpt': 'Les syndicats et les partis politiques lancent un référendum contre la décision de l’Assemblée fédérale de donner la priorité aux conventions collectives plutôt qu’aux salaires minimums cantonaux',
+    'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Parlement fédéral suisse à Berne avec une bannière sur le référendum sur le salaire minimum',
 };
 
 export default blogMetaChFr;

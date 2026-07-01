@@ -10314,6 +10314,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-salari-minimi-ccl': {
+    title: 'Lanciato il referendum contro i salari minimi | Frontaliere Ticino',
+    description: 'Sindacati e partiti politici lanciano un referendum contro la decisione delle Camere federali di privilegiare i CCL sui salari minimi cantonali. Scopri le',
+    keywords: 'frontalieri, ticino, svizzera, italia, lanciato, referendum, contro, salari',
+    ogTitle: 'Referendum contro i salari minimi in Svizzera',
+    ogDescription: 'Sindacati e partiti politici lanciano un referendum contro la decisione delle Camere federali di privilegiare i CCL sui salari minimi cantonali.',
+    canonicalPath: '/articoli-svizzera/referendum-salari-minimi-ccl/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lanciato il referendum contro i salari minimi",
+      "description": "Sindacati e partiti politici lanciano un referendum contro la decisione delle Camere federali di privilegiare i CCL sui salari minimi cantonali. Scopri le",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/referendum-salari-minimi-ccl.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento federale svizzero a Berna con un banner sul referendum salario minimo"
+      },
+      "datePublished": "2026-07-01T11:42:57+00:00",
+      "dateModified": "2026-07-01T11:42:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-salari-minimi-ccl/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2402,6 +2402,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'referendum-salari-minimi-ccl',
+    category: 'novita',
+    date: '2026-07-01T11:42:57.456Z',
+    image: '/images/blog/referendum-salari-minimi-ccl.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
