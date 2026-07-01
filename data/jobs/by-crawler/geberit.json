@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "geberit-1855",
-      "slug": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
+      "slug": "regione-tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "servicetechniker-region-westschweiz-geberit-ch",
-        "it": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
+        "it": "regione-tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
         "en": "servicetechniker-region-westschweiz-geberit-ch",
         "fr": "servicetechniker-region-westschweiz-geberit-ch"
       },
@@ -55,11 +55,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-region-westschweiz-geberit-ch"
+          "servicetechniker-region-westschweiz-geberit-ch",
+          "servicetechniker-region-westschweiz-geberit-sales-switzerland"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-region-westschweiz-geberit-ch"
+        "servicetechniker-region-westschweiz-geberit-ch",
+        "servicetechniker-region-westschweiz-geberit-sales-switzerland"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1482,10 +1484,10 @@
     },
     {
       "id": "geberit-2008",
-      "slug": "technischer-berater-region-aargau-a-100-geberit-ch",
+      "slug": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "it": "technischer-berater-region-aargau-a-100-geberit-ch",
+        "it": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
         "en": "technischer-berater-region-aargau-a-100-geberit-ch",
         "fr": "technischer-berater-region-aargau-a-100-geberit-ch"
       },
@@ -1543,7 +1545,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T11:51:21.063Z"
+      "firstSeenAt": "2026-07-01T11:51:21.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-berater-region-aargau-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-berater-region-aargau-a-100-geberit-ch"
+      ]
     }
   ]
 }
