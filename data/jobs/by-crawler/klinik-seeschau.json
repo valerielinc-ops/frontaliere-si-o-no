@@ -412,8 +412,8 @@
       "slugByLocale": {
         "de": "sterilisationsassistenz-ab-50-klinik-seeschau-kreuzlingen",
         "it": "assistenza-per-la-sterilizzazione-dal-50-klinik-seeschau-kreuzlingen",
-        "en": "sterilisationsassistenz-ab-50-klinik-seeschau-kreuzlingen",
-        "fr": "sterilisationsassistenz-ab-50-klinik-seeschau-kreuzlingen"
+        "en": "sterilization-assistance-from-50-klinik-seeschau-kreuzlingen",
+        "fr": "aide-a-la-sterilisation-a-partir-de-50-klinik-seeschau-kreuzlingen"
       },
       "company": "Klinik Seeschau",
       "companyKey": "klinik-seeschau",
@@ -471,6 +471,12 @@
       "firstSeenAt": "2026-05-20T06:05:18.214Z",
       "previousSlugsByLocale": {
         "it": [
+          "sterilisationsassistenz-ab-50-klinik-seeschau-kreuzlingen"
+        ],
+        "en": [
+          "sterilisationsassistenz-ab-50-klinik-seeschau-kreuzlingen"
+        ],
+        "fr": [
           "sterilisationsassistenz-ab-50-klinik-seeschau-kreuzlingen"
         ]
       },

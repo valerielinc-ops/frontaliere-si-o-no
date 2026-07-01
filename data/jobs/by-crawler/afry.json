@@ -177,9 +177,9 @@
       },
       "slugByLocale": {
         "it": "ingegnere-di-progetto-fh-hf-sistemi-elettrici-e-tecnici-60-100-zurigo-afry-zurich",
-        "en": "projektingenieur-in-fh-hf-elektro-technische-anlagen-60-100-zurich-afry-zurich",
+        "en": "project-engineer-in-fh-hf-electrical-technical-plants-60-100-zurich-afry-zurich",
         "de": "projektingenieur-in-fh-hf-elektro-technische-anlagen-60-100-zurich-afry-zurich",
-        "fr": "projektingenieur-in-fh-hf-elektro-technische-anlagen-60-100-zurich-afry-zurich"
+        "fr": "ingenieur-de-projet-dans-les-centrales-electriques-et-techniques-fh-hf-60-100-zurich-afry-zurich"
       },
       "id": "afry-dfc203dbea86",
       "salaryMin": 83000,
@@ -199,6 +199,12 @@
       "firstSeenAt": "2026-07-01T11:06:09.986Z",
       "previousSlugsByLocale": {
         "it": [
+          "projektingenieur-in-fh-hf-elektro-technische-anlagen-60-100-zurich-afry-zurich"
+        ],
+        "en": [
+          "projektingenieur-in-fh-hf-elektro-technische-anlagen-60-100-zurich-afry-zurich"
+        ],
+        "fr": [
           "projektingenieur-in-fh-hf-elektro-technische-anlagen-60-100-zurich-afry-zurich"
         ]
       },
@@ -458,7 +464,7 @@
         "it": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
         "en": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
         "de": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
-        "fr": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel"
+        "fr": "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
       },
       "id": "afry-82e64296c5c9",
       "salaryMin": 85500,
@@ -475,15 +481,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-26T10:44:50.376Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
-        ]
-      },
-      "previousSlugs": [
-        "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
-      ]
+      "firstSeenAt": "2026-06-26T10:44:50.376Z"
     },
     {
       "title": "Elektroplaner:in 60-100% - Chur",

@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hilcona-pfaffstatt",
         "it": "contabile-agricolo-impiegato-produzione-avicola-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "en": "case-handler-agriculture-settlement-poultry-production-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "gestionnaire-de-cas-agriculture-settlement-production-de-volaille-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -50,6 +50,12 @@
         "it": [
           "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hilcona-pfaffstatt",
           "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
@@ -79,8 +85,8 @@
       "slugByLocale": {
         "de": "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan",
         "it": "capo-squadra-capo-squadra-approvvigionamento-tecnico-hilcona-ag-schaan",
-        "en": "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan",
-        "fr": "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
+        "en": "team-leader-team-leader-technical-procurement-hilcona-ag-schaan",
+        "fr": "chef-d-equipe-chef-d-equipe-approvisionnement-technique-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -135,6 +141,12 @@
       "firstSeenAt": "2026-07-01T11:51:36.360Z",
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
+        ],
+        "en": [
+          "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
+        ],
+        "fr": [
           "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
         ]
       },
@@ -3923,7 +3935,7 @@
         "de": "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli-na",
         "it": "gestione-distrettuale-sul-campo-servizio-ristorazione-regione-m-w-d-foresta-nera-villingen-schwenningen-rottweil",
         "en": "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli",
-        "fr": "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli"
+        "fr": "gestion-des-districts-dans-le-service-sur-le-terrain-service-alimentaire-m-w-d-region-schwarzwald-villingen-schwenningen"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -3963,6 +3975,9 @@
       "previousSlugsByLocale": {
         "it": [
           "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hilcona-radolfzell",
+          "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli"
+        ],
+        "fr": [
           "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli"
         ]
       },
@@ -8725,7 +8740,7 @@
         "it": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "order-picking-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "kommissionierung-m-w-d-hilcona-ampfing",
-        "fr": "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8763,7 +8778,7 @@
       "previousSlugs": [
         "kommissionierung-m-w-d-hilcona-ampfing",
         "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8775,7 +8790,7 @@
         ],
         "fr": [
           "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
+          "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "firstSeenAt": "2026-06-15T14:30:15.396Z",

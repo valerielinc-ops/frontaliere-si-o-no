@@ -8083,8 +8083,8 @@
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-60-80-clienia-ag-zurich",
         "it": "fh-assistente-sociale-60-80-clienia-ag-pfaffikon-zh",
-        "en": "sozialarbeiterin-sozialarbeiter-fh-60-80-clienia-ag-pfaffikon",
-        "fr": "sozialarbeiterin-sozialarbeiter-fh-60-80-clienia-ag-pfaffikon"
+        "en": "social-worker-social-worker-fh-60-80-clienia-ag-pfaffikon-zh",
+        "fr": "travailleur-social-travailleur-social-fh-60-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8130,6 +8130,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiterin-sozialarbeiter-fh-60-80-clienia-ag-zurich",
+          "sozialarbeiterin-sozialarbeiter-fh-60-80-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "sozialarbeiterin-sozialarbeiter-fh-60-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
           "sozialarbeiterin-sozialarbeiter-fh-60-80-clienia-ag-pfaffikon"
         ]
       },

@@ -10108,7 +10108,7 @@
         "it": "laboratorio-m-f-qc-mammalian-lonza-ch",
         "en": "laboratory-m-f-qc-mammalian-lonza-ch",
         "de": "laborant-m-w-qc-mammalian-lonza-ch",
-        "fr": "laboratoire-m-f-qc-mammalian-lonza-ch"
+        "fr": "laboratoire-m-f-qc-mammalien-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -10150,7 +10150,7 @@
       "jobReqId": "R76800",
       "previousSlugs": [
         "laborant-m-w-qc-mammalian-lonza-ch",
-        "laboratoire-m-f-qc-mammalien-lonza-ch"
+        "laboratoire-m-f-qc-mammalian-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10161,7 +10161,7 @@
         ],
         "fr": [
           "laborant-m-w-qc-mammalian-lonza-ch",
-          "laboratoire-m-f-qc-mammalien-lonza-ch"
+          "laboratoire-m-f-qc-mammalian-lonza-ch"
         ]
       },
       "needsRetranslation": true,
@@ -10336,7 +10336,7 @@
         "it": "senior-laborant-solidi-80-100-m-f-d-lonza-ch",
         "en": "senior-laborant-feststoffe-80-100-m-w-d-lonza-ch",
         "de": "senior-laborant-feststoffe-80-100-m-w-d-lonza-ch",
-        "fr": "solides-pour-travailleurs-ages-de-80-a-100-m-p-j-lonza-ch"
+        "fr": "solides-de-travail-senior-80-100-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -10378,7 +10378,7 @@
       "jobReqId": "R76768",
       "previousSlugs": [
         "senior-laborant-feststoffe-80-100-m-w-d-lonza-ch",
-        "solides-de-travail-senior-80-100-m-m-j-lonza-ch"
+        "solides-pour-travailleurs-ages-de-80-a-100-m-p-j-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10386,7 +10386,7 @@
         ],
         "fr": [
           "senior-laborant-feststoffe-80-100-m-w-d-lonza-ch",
-          "solides-de-travail-senior-80-100-m-m-j-lonza-ch"
+          "solides-pour-travailleurs-ages-de-80-a-100-m-p-j-lonza-ch"
         ]
       },
       "needsRetranslation": true,
@@ -11768,8 +11768,8 @@
       "slugByLocale": {
         "en": "internship-scientist-forensic-chemistry-6-months-contract-80-100-lonza-ch",
         "it": "tirocinio-come-scienziato-in-chimica-forense-contratto-6-mesi-80-100-lonza-ch",
-        "de": "internship-scientist-forensic-chemistry-6-months-contract-80-100-lonza-ch",
-        "fr": "internship-scientist-forensic-chemistry-6-months-contract-80-100-lonza-ch"
+        "de": "praktikum-wissenschaftler-forensische-chemie-6-monate-vertrag-80-100-lonza-ch",
+        "fr": "stage-scientifique-chimie-legale-contrat-de-6-mois-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -11828,6 +11828,12 @@
       "firstSeenAt": "2026-07-01T12:10:22.361Z",
       "previousSlugsByLocale": {
         "it": [
+          "internship-scientist-forensic-chemistry-6-months-contract-80-100-lonza-ch"
+        ],
+        "de": [
+          "internship-scientist-forensic-chemistry-6-months-contract-80-100-lonza-ch"
+        ],
+        "fr": [
           "internship-scientist-forensic-chemistry-6-months-contract-80-100-lonza-ch"
         ]
       },

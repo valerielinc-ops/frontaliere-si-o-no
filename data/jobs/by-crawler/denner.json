@@ -2451,9 +2451,9 @@
       "slug": "vice-direttore-di-filiale-denner-ibach",
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ibach",
-        "en": "stv-filialleiter-in-denner-ibach",
+        "en": "stv-branch-manager-in-denner-ibach",
         "de": "stv-filialleiter-in-denner-ibach",
-        "fr": "stv-filialleiter-in-denner-ibach"
+        "fr": "directeur-de-succursale-stv-in-denner-ibach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2514,11 +2514,18 @@
         "it": [
           "stv-filialleiter-in-denner-2",
           "stv-filialleiter-in-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-ibach"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-ibach"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner-2",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-ibach"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2540,9 +2547,9 @@
       "slug": "venditore-denner-ibach",
       "slugByLocale": {
         "it": "venditore-denner-ibach",
-        "en": "verkaufer-in-denner-ibach",
+        "en": "seller-denner-ibach",
         "de": "verkaufer-in-denner-ibach",
-        "fr": "verkaufer-in-denner-ibach"
+        "fr": "vendeur-denner-ibach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2603,11 +2610,18 @@
         "it": [
           "verkaufer-in-denner-3",
           "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-ibach"
+        ],
+        "fr": [
+          "verkaufer-in-denner-ibach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-3",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-ibach"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

@@ -853,8 +853,8 @@
       "slugByLocale": {
         "fr": "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "it": "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "en": "midwife-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "hebamme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -908,6 +908,12 @@
       "firstSeenAt": "2026-07-01T11:45:55.990Z",
       "previousSlugsByLocale": {
         "it": [
+          "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },

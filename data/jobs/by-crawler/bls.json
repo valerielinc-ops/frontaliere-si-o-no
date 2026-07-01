@@ -97,8 +97,8 @@
       "slugByLocale": {
         "de": "expert-in-flottenmanagement-bls-ch",
         "it": "gestione-esperta-della-flotta-bls-ag-bern",
-        "en": "expert-in-flottenmanagement-bls-ag-bern",
-        "fr": "expert-in-flottenmanagement-bls-ag-bern"
+        "en": "expert-in-fleet-management-bls-ag-bern",
+        "fr": "expert-en-gestion-de-flotte-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -159,6 +159,12 @@
       "previousSlugsByLocale": {
         "it": [
           "expert-in-flottenmanagement-bls-ch",
+          "expert-in-flottenmanagement-bls-ag-bern"
+        ],
+        "en": [
+          "expert-in-flottenmanagement-bls-ag-bern"
+        ],
+        "fr": [
           "expert-in-flottenmanagement-bls-ag-bern"
         ]
       },
@@ -987,8 +993,8 @@
       "slugByLocale": {
         "de": "fachperson-beschriftung-und-grafik-bls-ch",
         "it": "fachperson-beschriftung-e-grafik-bls-ag-bonigen",
-        "en": "fachperson-beschriftung-und-grafik-bls-ch",
-        "fr": "fachperson-beschriftung-und-grafik-bls-ch"
+        "en": "specialist-labelling-and-graphics-bls-ag-bonigen",
+        "fr": "etiquetage-specialise-et-graphiques-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1047,6 +1053,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-beschriftung-und-grafik-bls-ch"
+        ],
+        "en": [
+          "fachperson-beschriftung-und-grafik-bls-ch"
+        ],
+        "fr": [
           "fachperson-beschriftung-und-grafik-bls-ch"
         ]
       },

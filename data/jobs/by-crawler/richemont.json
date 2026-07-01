@@ -3080,7 +3080,7 @@
       "slug": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "it": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
-        "en": "termineur-en-habillage-horloger-richemont-le-sentier",
+        "en": "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "de": "finisher-im-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "fr": "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier"
       },
@@ -3125,8 +3125,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
-          "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier"
+          "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
+          "termineur-en-habillage-horloger-richemont-le-sentier"
         ],
         "it": [
           "termineur-en-habillage-horloger-richemont-le-sentier"
@@ -3136,9 +3136,8 @@
         ]
       },
       "previousSlugs": [
-        "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
-        "termineur-en-habillage-horloger-richemont-le-sentier",
-        "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier"
+        "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
+        "termineur-en-habillage-horloger-richemont-le-sentier"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.724Z",
       "salaryMin": 60500,
@@ -10126,7 +10125,7 @@
       "slug": "responsable-coordination-projets-finanza-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "responsable-coordination-projets-finanza-cartier-manufacture-le-cret-du-locle",
-        "en": "responsable-coordination-projets-finance-richemont-le-cret-du-locle",
+        "en": "project-coordinator-finance-cartier-manufacture-le-cret-du-locle",
         "de": "responsable-coordination-projets-finanzen-cartier-manufacture-le-cret-du-locle",
         "fr": "responsable-coordination-projets-finance-cartier-manufacture-le-cret-du-locle"
       },
@@ -10171,7 +10170,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "project-coordinator-finance-cartier-manufacture-le-cret-du-locle"
+          "responsable-coordination-projets-finance-richemont-le-cret-du-locle"
         ],
         "it": [
           "responsable-coordination-projets-finance-richemont-le-cret-du-locle"
@@ -10181,8 +10180,7 @@
         ]
       },
       "previousSlugs": [
-        "responsable-coordination-projets-finance-richemont-le-cret-du-locle",
-        "project-coordinator-finance-cartier-manufacture-le-cret-du-locle"
+        "responsable-coordination-projets-finance-richemont-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-05-28T14:05:30.864Z",
       "salaryMin": 60500,
@@ -12382,7 +12380,7 @@
         "it": "nuove-fondazioni-responsabile-tecnico-della-trasformazione-s4hana-richemont-meyrin",
         "en": "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin",
         "de": "technischer-leiter-s4hana-transformation-neue-grundlagen-richemont-meyrin",
-        "fr": "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin"
+        "fr": "nouvelles-fondations-s4hana-transformation-gestionnaire-technique-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -12430,8 +12428,7 @@
         "neue-stiftungen-s4hana-transformation-technical-manager-richemont-meyrin",
         "responsable-technique-transformation-sap-s-4hana-new-foundations-richemont-meyrin",
         "nouvelles-fondations-responsable-technique-de-la-transformation-s4hana-richemont-meyrin",
-        "responsable-technique-de-la-transformation-s4hana-nouvelles-fondations-richemont-meyrin",
-        "nouvelles-fondations-s4hana-transformation-gestionnaire-technique-richemont-meyrin"
+        "responsable-technique-de-la-transformation-s4hana-nouvelles-fondations-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12447,7 +12444,7 @@
           "responsable-technique-transformation-sap-s-4hana-new-foundations-richemont-meyrin",
           "nouvelles-fondations-responsable-technique-de-la-transformation-s4hana-richemont-meyrin",
           "responsable-technique-de-la-transformation-s4hana-nouvelles-fondations-richemont-meyrin",
-          "nouvelles-fondations-s4hana-transformation-gestionnaire-technique-richemont-meyrin"
+          "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-06-12T12:57:57.605Z",
@@ -14711,9 +14708,9 @@
     },
     {
       "id": "richemont-97afd78fa509",
-      "slug": "chef-de-produits-richemont-buttes",
+      "slug": "capo-dei-prodotti-valfleurier-buttes",
       "slugByLocale": {
-        "it": "chef-de-produits-richemont-buttes",
+        "it": "capo-dei-prodotti-valfleurier-buttes",
         "en": "head-of-products-valfleurier-buttes",
         "de": "kopf-der-produkte-valfleurier-buttes",
         "fr": "chef-de-produits-richemont-buttes"
@@ -14759,11 +14756,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "capo-dei-prodotti-valfleurier-buttes"
+          "chef-de-produits-richemont-buttes"
         ]
       },
       "previousSlugs": [
-        "capo-dei-prodotti-valfleurier-buttes"
+        "chef-de-produits-richemont-buttes"
       ],
       "firstSeenAt": "2026-06-30T23:17:28.793Z",
       "salaryMin": 83500,
@@ -14863,8 +14860,8 @@
       "slugByLocale": {
         "fr": "planificateur-developpement-richemont-le-cret-du-locle",
         "it": "pianificatore-dello-sviluppo-cartier-manufacture-le-cret-du-locle",
-        "en": "planificateur-developpement-richemont-le-cret-du-locle",
-        "de": "planificateur-developpement-richemont-le-cret-du-locle"
+        "en": "development-planner-cartier-manufacture-le-cret-du-locle",
+        "de": "entwicklungsplaner-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -14923,6 +14920,12 @@
       "firstSeenAt": "2026-07-01T12:44:56.457Z",
       "previousSlugsByLocale": {
         "it": [
+          "planificateur-developpement-richemont-le-cret-du-locle"
+        ],
+        "en": [
+          "planificateur-developpement-richemont-le-cret-du-locle"
+        ],
+        "de": [
           "planificateur-developpement-richemont-le-cret-du-locle"
         ]
       },

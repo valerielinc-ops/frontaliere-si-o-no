@@ -2022,8 +2022,8 @@
       "slugByLocale": {
         "fr": "horloger-atelier-des-etablisseurs-audemars-piguet-le-brassus-vd-switzerland",
         "it": "horloger-atelier-des-etablisseurs-audemars-piguet-le-brassus-vd-switzerland",
-        "en": "horloger-atelier-des-etablisseurs-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "horloger-atelier-des-etablisseurs-audemars-piguet-le-brassus-vd-switzerland"
+        "en": "watch-workshop-of-establishments-audemars-piguet-le-brassus-vd-switzerland",
+        "de": "watch-werkstatt-der-betriebe-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -2164,8 +2164,8 @@
       "slugByLocale": {
         "fr": "technicien-de-maintenance-audemars-piguet-le-locle-ne-switzerland",
         "it": "tecnico-di-manutenzione-audemars-piguet-le-locle-ne-switzerland",
-        "en": "technicien-de-maintenance-audemars-piguet-le-locle-ne-switzerland",
-        "de": "technicien-de-maintenance-audemars-piguet-le-locle-ne-switzerland"
+        "en": "maintenance-technician-audemars-piguet-le-locle-ne-switzerland",
+        "de": "wartungstechniker-audemars-piguet-le-locle-ne-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -2224,6 +2224,12 @@
       "firstSeenAt": "2026-07-01T11:08:32.227Z",
       "previousSlugsByLocale": {
         "it": [
+          "technicien-de-maintenance-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "en": [
+          "technicien-de-maintenance-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "de": [
           "technicien-de-maintenance-audemars-piguet-le-locle-ne-switzerland"
         ]
       },

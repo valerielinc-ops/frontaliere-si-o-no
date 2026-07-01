@@ -12512,7 +12512,7 @@
         "it": "risorse-umane-business-partner-sulzer-shanghai",
         "en": "hr-business-partner-sulzer-ch",
         "de": "personalwesen-business-partner-sulzer-shanghai",
-        "fr": "partenaire-d-affaires-rh-sulzer-shanghai"
+        "fr": "partenaire-operationnel-rh-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -12555,7 +12555,7 @@
       "previousSlugs": [
         "hr-business-partner-sulzer-ch",
         "hr-business-partner-sulzer-shanghai",
-        "partenaire-operationnel-rh-sulzer-shanghai"
+        "partenaire-d-affaires-rh-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12566,7 +12566,7 @@
         ],
         "fr": [
           "hr-business-partner-sulzer-shanghai",
-          "partenaire-operationnel-rh-sulzer-shanghai"
+          "partenaire-d-affaires-rh-sulzer-shanghai"
         ]
       },
       "firstSeenAt": "2026-05-28T14:24:07.018Z",
@@ -22221,12 +22221,12 @@
     },
     {
       "id": "sulzer-49c7fd61863e",
-      "slug": "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
+      "slug": "apprentice-machinist-in-m-f-d-inizio-della-formazione-2027-sulzer-bruchsal",
       "slugByLocale": {
         "de": "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
-        "it": "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
-        "en": "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
-        "fr": "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        "it": "apprentice-machinist-in-m-f-d-inizio-della-formazione-2027-sulzer-bruchsal",
+        "en": "apprentice-machinist-in-m-f-d-start-of-training-2027-sulzer-bruchsal",
+        "fr": "apprentis-machiniste-in-m-f-d-debut-de-la-formation-2027-sulzer-bruchsal"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22281,16 +22281,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-01T13:00:55.688Z"
+      "firstSeenAt": "2026-07-01T13:00:55.688Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        ],
+        "en": [
+          "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        ],
+        "fr": [
+          "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "auszubildende-r-zerspanungsmechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-fc8ed0f72484",
-      "slug": "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
+      "slug": "apprendista-meccanica-industriale-m-f-d-inizio-della-formazione-2027-sulzer-bruchsal",
       "slugByLocale": {
         "de": "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
-        "it": "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
-        "en": "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch",
-        "fr": "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        "it": "apprendista-meccanica-industriale-m-f-d-inizio-della-formazione-2027-sulzer-bruchsal",
+        "en": "apprentice-industrial-mechanic-m-f-d-start-of-training-2027-sulzer-bruchsal",
+        "fr": "apprenti-mecanicien-industriel-m-f-d-debut-de-la-formation-2027-sulzer-bruchsal"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22345,7 +22359,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-01T13:00:54.812Z"
+      "firstSeenAt": "2026-07-01T13:00:54.812Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        ],
+        "en": [
+          "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        ],
+        "fr": [
+          "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "auszubildende-r-industriemechaniker-in-m-w-d-ausbildungsbeginn-2027-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-deb1b06f5618",

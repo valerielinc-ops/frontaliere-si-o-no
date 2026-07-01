@@ -9,7 +9,7 @@
         "it": "corporate-contabile-m-w-d-ameos-schweiz-zurich",
         "en": "corporate-accountant-m-w-d-ameos-zurich",
         "de": "corporate-accountant-m-w-d-ameos-zurich",
-        "fr": "corporate-accountant-m-w-d-ameos-schweiz-zurich"
+        "fr": "comptable-des-entreprises-m-f-d-ameos-schweiz-zurich"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -52,7 +52,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "corporate-accountant-m-w-d-ameos-zurich",
-        "comptable-des-entreprises-m-f-d-ameos-schweiz-zurich"
+        "corporate-accountant-m-w-d-ameos-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -60,7 +60,7 @@
         ],
         "fr": [
           "corporate-accountant-m-w-d-ameos-zurich",
-          "comptable-des-entreprises-m-f-d-ameos-schweiz-zurich"
+          "corporate-accountant-m-w-d-ameos-schweiz-zurich"
         ]
       },
       "firstSeenAt": "2026-05-20T10:54:52.884Z",
@@ -774,8 +774,8 @@
       "slugByLocale": {
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
         "it": "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln",
-        "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-        "fr": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        "en": "physiotherapist-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "physiotherapeute-m-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -821,6 +821,12 @@
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-m-w-d-ameos-einsiedeln",
+          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        ],
+        "en": [
+          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        ],
+        "fr": [
           "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
         ]
       },
