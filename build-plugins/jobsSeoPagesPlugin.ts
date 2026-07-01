@@ -9752,6 +9752,10 @@ ${staticAnalyticsHtml}
  RESERVED_HUB_SLUGS.add(slug);
  }
 
+ // Matches hub-pagination compound keys `<hub-slug>/page-N` (requires a leading
+ // path segment; bare `page-N` is NOT matched). Used by the strip block below.
+ const HUB_PAGINATION_COMPOUND_KEY_RE = /\/page-\d+$/;
+
  // Strip pre-existing reserved-hub keys from tracking BEFORE the file write.
  // Earlier GSC imports leaked "infermieri" into all-known-job-slugs.json and
  // the resulting soft-landing clobbered jobSectorPagesPlugin's hub output.
@@ -9782,6 +9786,29 @@ ${staticAnalyticsHtml}
  }
  if (fixtureKeysRemoved > 0) {
  console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Removed ${fixtureKeysRemoved} fixture-data slug(s) from tracking`);
+ }
+
+ // Strip hub-pagination compound keys `<hub-slug>/page-N` (e.g. `alle/page-1021`,
+ // `tutti/page-1116`) BEFORE the write. The GSC-orphan ingestion misclassified
+ // these hub-pagination URLs as job slugs (a real job slug is a single path
+ // segment and never contains `/`); each stored a 4-locale cross-product, so the
+ // soft-landing loop emitted the localized "all" slug under EVERY canton section
+ // (`/cerca-lavoro-ticino/alle/page-1021`, `/en/find-jobs-ticino/alle/…`, …) as
+ // thin noindex shells at wrong paths. Deleting them from `tracking` (not just
+ // filtering the derived expiredSlugs list) is what stops BOTH the expired loop
+ // AND the self-healing safety-net from re-emitting them. The correct per-locale
+ // hubs are emitted by seoHubsPlugin; retired `<hub>/page-N` crawls resolve via
+ // searchConsoleCompat → listing root, so no bridge is needed. Bare `page-N`
+ // (page-2/page-5, GSC-traffic) has no leading segment → NOT matched → kept.
+ let hubPaginationKeysRemoved = 0;
+ for (const key of Object.keys(tracking)) {
+ if (HUB_PAGINATION_COMPOUND_KEY_RE.test(key)) {
+ delete tracking[key];
+ hubPaginationKeysRemoved++;
+ }
+ }
+ if (hubPaginationKeysRemoved > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Removed ${hubPaginationKeysRemoved} hub-pagination compound key(s) from tracking (cross-locale all-slug soft-landing leak)`);
  }
  fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
@@ -10303,9 +10330,18 @@ ${staticAnalyticsHtml}
  // otherwise overwrite the legitimate sector/city hub HTML at
  // /cerca-lavoro-ticino/infermieri/index.html with a thin job soft-landing
  // and break Semrush W2 (Issue 102) + the canonical sector page in SERPs.
+ // (Hub-pagination compound keys `<hub>/page-N` are removed from `tracking`
+ // itself up at the reserved-hub strip block, so both this list AND the
+ // self-healing safety-net loop skip them — see HUB_PAGINATION_COMPOUND_KEY_RE.)
  const expiredSlugs = Object.keys(tracking).filter(
  (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s),
  );
+ // NB: the hub-pagination compound keys were already `delete`d from `tracking`
+ // up at the reserved-hub strip block (before the tracking write AND before this
+ // expiredSlugs computation), so they are absent from BOTH `expiredSlugs` here
+ // and the self-healing `Object.entries(tracking)` loop below — no second strip
+ // is needed (a duplicate one here would re-declare hubPaginationKeysRemoved and
+ // also runs AFTER expiredSlugs is captured, missing the expired loop anyway).
 
  const expiredBannerCopy: Record<string, { title: string; banner: string }> = {
  it: { title: 'Offerta non più disponibile', banner: 'Questa posizione non è più attiva. Di seguito trovi i dettagli originali e posizioni simili.' },
