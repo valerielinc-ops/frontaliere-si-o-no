@@ -334,6 +334,53 @@ function serializeSources(sources) {
   return out;
 }
 
+/**
+ * Additive, best-effort writeback (issue #3174): stamp analytics.score/clicks/
+ * impressions onto any PUBLISHED journalist_articles doc that also appears in
+ * this run's IT-locale winners/losers rows. Matching is on the IT row's
+ * `slug` because create-article.mjs's registration convention is
+ * `slugs.it === id` for every article registered through the shared pipeline
+ * (journalist articles included — see scripts/publish-journalist-article.mjs).
+ * Wrapped end-to-end so a Firestore hiccup can never change this script's
+ * existing output file, logic, or exit code.
+ */
+async function writeJournalistAnalyticsBack(output) {
+  try {
+    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+    if (!credPath) return; // no Admin SDK credentials available — silently skip
+
+    const itRowById = new Map();
+    for (const row of [...output.winners, ...output.losers]) {
+      if (row.locale === 'it') itRowById.set(row.slug, row);
+    }
+    if (!itRowById.size) return;
+
+    const admin = (await import('firebase-admin')).default;
+    if (!admin.apps?.length) {
+      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+    }
+    const db = admin.firestore();
+
+    const snap = await db.collection('journalist_articles').where('status', '==', 'published').get();
+    const nowIso = new Date().toISOString();
+    let stamped = 0;
+    for (const docSnap of snap.docs) {
+      const row = itRowById.get(docSnap.id);
+      if (!row) continue;
+      await docSnap.ref.update({
+        'analytics.score': row.score ?? null,
+        'analytics.clicks': row.metrics?.clicks ?? null,
+        'analytics.impressions': row.metrics?.impressions ?? null,
+        'analytics.updatedAt': nowIso,
+      });
+      stamped += 1;
+    }
+    if (stamped) console.log(`[perf] journalist analytics writeback: stamped ${stamped} doc(s).`);
+  } catch (err) {
+    console.warn('[perf] journalist analytics writeback failed (non-fatal):', err instanceof Error ? err.message : String(err));
+  }
+}
+
 async function main() {
   console.log(`[perf] window: ${WINDOW_DAYS} days`);
 
@@ -371,6 +418,8 @@ async function main() {
   console.log(
     `[perf] wrote ${outPath} — ${output.articlesScored} scored / ${output.articleCount} total, ${output.winners.length} winners, ${output.losers.length} losers`,
   );
+
+  await writeJournalistAnalyticsBack(output);
 }
 
 // Entry-point gate (so tests can `import` the module without side effects).

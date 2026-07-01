@@ -82,6 +82,38 @@ const TOP_N = 50;
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 
+/**
+ * Additive, best-effort writeback (issue #3174): stamp analytics.views onto
+ * any PUBLISHED journalist_articles doc that also appears in this run's
+ * `entries`. `article_views` is keyed directly by article id (see file
+ * header comment), and journalist articles use that SAME id (Firestore doc
+ * id === pipeline article id — see scripts/publish-journalist-article.mjs),
+ * so matching needs no slug indirection. Uses the full `entries` list (not
+ * just the top-N slice) so a journalist article's view count is captured
+ * even when it doesn't make the top 50. Wrapped end-to-end so a Firestore
+ * hiccup never affects this script's existing trending-file output/exit code.
+ */
+async function writeJournalistAnalyticsBack(db, entries) {
+  try {
+    if (SECTION !== 'frontaliere' || !entries.length) return;
+    const viewsById = new Map(entries.map((e) => [e.id, e.views]));
+    const snap = await db.collection('journalist_articles').where('status', '==', 'published').get();
+    const nowIso = new Date().toISOString();
+    let stamped = 0;
+    for (const docSnap of snap.docs) {
+      if (!viewsById.has(docSnap.id)) continue;
+      await docSnap.ref.update({
+        'analytics.views': viewsById.get(docSnap.id),
+        'analytics.updatedAt': nowIso,
+      });
+      stamped += 1;
+    }
+    if (stamped) console.log(`[trending] journalist analytics writeback: stamped ${stamped} doc(s).`);
+  } catch (err) {
+    console.warn(`[trending] journalist analytics writeback failed (non-fatal): ${err instanceof Error ? err.message : String(err)}`);
+  }
+}
+
 async function main() {
   let admin;
   try {
@@ -147,6 +179,8 @@ async function main() {
     console.log(
       `✅ Wrote top ${top.length} trending articles (of ${entries.length} eligible, ${snap.size} scanned) to ${path.relative(ROOT, OUTPUT_PATH)}`,
     );
+
+    await writeJournalistAnalyticsBack(db, entries);
   } catch (err) {
     console.error(`❌ Firestore read failed: ${err.message}`);
     writeFallback();

@@ -289,5 +289,51 @@ service cloud.firestore {
         );
       // No client update/delete — retention purge handled by a Cloud Function.
     }
+
+    // Journalist role grants. Membership (not content) — a doc existing with
+    // active==true is what gates the /journalist_articles collection below.
+    // Only the manageJournalistRole Cloud Function (Admin SDK, admin-gated)
+    // may create/update these; a journalist may read their own grant to
+    // render the dashboard gate.
+    match /journalists/{uid} {
+      allow read: if isSignedIn() && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    function isActiveJournalist() {
+      return exists(/databases/$(database)/documents/journalists/$(request.auth.uid))
+        && get(/databases/$(database)/documents/journalists/$(request.auth.uid)).data.active == true;
+    }
+
+    // Journalist-authored articles awaiting/after entry into the same
+    // multi-locale generation pipeline used for automated content (see
+    // scripts/publish-journalist-article.mjs). Client (the journalist) may
+    // only ever hand the pipeline a 'draft' or 'queued' doc — the transition
+    // to 'published' / 'failed', and all cross-locale content, is written
+    // exclusively by that script via the Admin SDK.
+    function journalistArticleWriteOk(prev, next) {
+      return next.authorUid == prev.authorUid
+        && next.id == prev.id
+        && (prev.status == 'draft'
+          ? (next.status == 'draft' || next.status == 'queued')
+          : (prev.status == 'failed'
+            ? (next.status == 'failed' || next.status == 'queued')
+            : false));
+    }
+    match /journalist_articles/{articleId} {
+      allow read: if isSignedIn() && request.auth.uid == resource.data.authorUid;
+      allow create: if isSignedIn()
+        && isActiveJournalist()
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.status == 'draft';
+      allow update: if isSignedIn()
+        && request.auth.uid == resource.data.authorUid
+        && journalistArticleWriteOk(resource.data, request.resource.data);
+      // A draft (never submitted) may be deleted by its author; once queued
+      // or beyond, the pipeline/admin own the record's lifecycle.
+      allow delete: if isSignedIn()
+        && request.auth.uid == resource.data.authorUid
+        && resource.data.status == 'draft';
+    }
   }
 }
