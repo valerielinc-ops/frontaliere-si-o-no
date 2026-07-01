@@ -796,6 +796,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stipendio-frontalieri-6250-mese.title': 'Navetteurs transfrontaliers : 6 250 francs par mois suffisent-ils ?',
     'blog.article.stipendio-frontalieri-6250-mese.excerpt': 'Analyse détaillée de la durée de vie d\'un frontalier avec un salaire de 6 250 francs par mois en Suisse.',
     'blog.article.stipendio-frontalieri-6250-mese.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.title': 'Mise en œuvre des accords sur frontalier: intérêt Suisse',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.excerpt': 'La conseillère fédérale Karin Keller-Sutter a rencontré le ministre italien des Finances Giancarlo Giorgetti pour discuter des questions financières et fiscales internationales.',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaChFr;

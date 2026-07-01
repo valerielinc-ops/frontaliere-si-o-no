@@ -2384,6 +2384,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'applicazione-accordi-frontalieri-svizzera',
+    category: 'fiscale',
+    date: '2026-07-01T08:24:09.409Z',
+    image: '/images/blog/applicazione-accordi-frontalieri-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

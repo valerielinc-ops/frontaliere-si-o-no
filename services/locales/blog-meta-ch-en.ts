@@ -796,6 +796,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stipendio-frontalieri-6250-mese.title': 'Frontier workers: 6,250 francs per month is enough?',
     'blog.article.stipendio-frontalieri-6250-mese.excerpt': 'Detailed analysis of how long a cross-border commuter can live on a salary of 6,250 francs per month in Switzerland.',
     'blog.article.stipendio-frontalieri-6250-mese.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.title': 'Implementation of cross-border commuter agreements is in Switzerland\'s interest',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.excerpt': 'Federal Councillor Karin Keller-Sutter met with Italian Finance Minister Giancarlo Giorgetti to discuss international financial and tax issues.',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
 };
 
 export default blogMetaChEn;
