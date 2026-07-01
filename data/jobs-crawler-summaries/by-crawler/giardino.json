@@ -1,18 +1,54 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-07-01T11:48:30.448Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-01T22:17:50.477Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5519,
-  "avgDurationMs": 5519,
+  "durationMs": 5880,
+  "avgDurationMs": 5880,
   "durationHistory": [
-    5519
+    5880
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "giardino-fa048f90699b",
+      "slug": "reservations-front-office-specialist-m-w-giardino-group-champfer",
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Reservations & Front Office Specialist (m/w)",
+      "location": "Champfèr",
+      "canton": "GR",
+      "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-01T22:17:48.134Z",
+      "addressLocality": "Champfèr",
+      "postalCode": "7512",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "giardino-a70fdbb79832",
@@ -26,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T11:48:28.256Z",
+      "crawledAt": "2026-07-01T22:17:48.136Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
