@@ -1,49 +1,18 @@
 {
   "key": "alten-switzerland",
   "label": "ALTEN Switzerland",
-  "generatedAt": "2026-07-01T11:06:19.763Z",
+  "generatedAt": "2026-07-01T21:45:11.785Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17175,
-  "avgDurationMs": 17175,
+  "durationMs": 12153,
+  "avgDurationMs": 12153,
   "durationHistory": [
-    17175
+    12153
   ],
-  "newJobs": [
-    {
-      "title": "Consultant(e) Audit Qualité & Processus",
-      "slug": "consultant-e-audit-qualite-processus-alten-switzerland-switzerland",
-      "url": "https://www.alten.ch/jobs/902-consultant-e-audit-qualite-processus/",
-      "applyUrl": "https://www.alten.ch/jobs/902-consultant-e-audit-qualite-processus/apply",
-      "company": "ALTEN Switzerland",
-      "companyKey": "alten-switzerland",
-      "companyDomain": "alten.ch",
-      "location": "Switzerland",
-      "addressLocality": "Switzerland",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "IT Consulting & Engineering",
-      "source": "alten-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-03-04",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Cloud Engineer – Google Cloud Platform",
@@ -116,22 +85,20 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Java Software Engineer",
-      "slug": "java-software-ingegnere-alten-switzerland-ticino-switzerland-availability-to-work-on-site-is-required-what-we-offer-youa",
-      "url": "https://www.alten.ch/jobs/897-java-ticino-openshift-jboss/",
-      "applyUrl": "https://www.alten.ch/jobs/897-java-ticino-openshift-jboss/apply",
+      "title": "Consultant(e) Audit Qualité & Processus",
+      "slug": "consultant-e-audit-qualite-processus-alten-switzerland-switzerland",
+      "url": "https://www.alten.ch/jobs/902-consultant-e-audit-qualite-processus/",
+      "applyUrl": "https://www.alten.ch/jobs/902-consultant-e-audit-qualite-processus/apply",
       "company": "ALTEN Switzerland",
       "companyKey": "alten-switzerland",
       "companyDomain": "alten.ch",
-      "location": "Ticino, Switzerland",
-      "addressLocality": "Ticino, Switzerland",
-      "addressRegion": "TI",
+      "location": "Switzerland",
+      "addressLocality": "Switzerland",
+      "addressRegion": "BE",
       "addressCountry": "CH",
-      "canton": "TI",
+      "canton": "BE",
       "country": "CH",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -139,14 +106,14 @@
       "sector": "IT Consulting & Engineering",
       "source": "alten-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-03-26",
+      "postedDate": "2026-03-04",
       "validThrough": "",
-      "id": "alten-switzerland-f009be54bc04",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
+      "id": "alten-switzerland-96929cbf7834",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "currency": "CHF",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-05-17T21:00:39.459Z",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-07-01T11:06:19.762Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -156,5 +123,6 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
