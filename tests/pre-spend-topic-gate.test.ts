@@ -287,6 +287,29 @@ describe('pre-spend topic gate — unambiguous-anchor bypass (run 26440805420 fi
     expect(gateBlock).toMatch(/strictAnchorMatched/);
     expect(gateBlock).toMatch(/backstop/i);
   });
+
+  it('INPS + "ticino" alone does NOT bypass classifier (#3226 — "ticino" is geographically ambiguous)', () => {
+    // "Ticino" refers both to Canton Ticino (CH) and the Ticino river/area in
+    // Lombardia (IT). A national INPS bulletin mentioning "Ticino" without a
+    // Swiss context qualifier must NOT bypass the classifier.
+    const ambiguous = [
+      'INPS: misure straordinarie per lavoratori del Ticino',
+      'INPS comunica nuovi coefficienti per pensionati del Ticino',
+      'Ticino: INPS spiega le detrazioni per redditi bassi',
+    ];
+    for (const h of ambiguous) {
+      expect(matchesFrontaliereUnambiguousAnchor(h), `should NOT bypass: ${h}`).toBeNull();
+    }
+    // But INPS + an unambiguous Swiss qualifier still bypasses correctly.
+    // Use acronyms (AVS/AHV) which are exact-word-boundary matches.
+    const unambiguous = [
+      'INPS e AVS: accordo bilaterale aggiornato per frontalieri',
+      'INPS: contribuzioni AHV per lavoratori transfrontalieri',
+    ];
+    for (const h of unambiguous) {
+      expect(matchesFrontaliereUnambiguousAnchor(h), `should bypass: ${h}`).not.toBeNull();
+    }
+  });
 });
 
 describe('pre-spend topic gate — adjective-only "frontaliere" rejection (run #25889568431 regression)', () => {
