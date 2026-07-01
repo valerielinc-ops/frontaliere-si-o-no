@@ -784,6 +784,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dogana-chiasso-brogeda-traffico-2024.title': 'Zoll von Chiasso Brogeda: Verkehrsaktualisierungen und Verfahren 2024',
     'blog.article.dogana-chiasso-brogeda-traffico-2024.excerpt': 'Updates über den Verkehr und die Abläufe am Zoll von Chiasso Brogeda, dem Hotspot für Grenzgänger und internationale Transporte.',
     'blog.article.dogana-chiasso-brogeda-traffico-2024.imageAlt': 'Blick auf den Zoll Chiasso-Brogeda mit Fahrzeugen und Schweizer Flaggen an der Grenze',
+    'blog.article.stop-ristorni-frontiera.title': 'Stop bei Rückerstattungen: Dringendes Treffen gefordert',
+    'blog.article.stop-ristorni-frontiera.excerpt': 'Der Kanton Tessin blockiert Rückschüsse an Grenzgemeinden. Der Verband bittet um ein dringendes Treffen mit der italienischen Regierung.',
+    'blog.article.stop-ristorni-frontiera.imageAlt': 'Grenze zwischen Tessin und Lombardei mit Schild zur Sperrung von ristorni',
 };
 
 export default blogMetaChDe;

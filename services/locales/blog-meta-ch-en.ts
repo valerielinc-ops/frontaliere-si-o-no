@@ -784,6 +784,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dogana-chiasso-brogeda-traffico-2024.title': 'Chiasso Brogeda Customs: traffic updates and procedures 2024',
     'blog.article.dogana-chiasso-brogeda-traffico-2024.excerpt': 'Updates on traffic and procedures at the Chiasso Brogeda customs office, a crucial point for border workers and international transport.',
     'blog.article.dogana-chiasso-brogeda-traffico-2024.imageAlt': 'View of Chiasso-Brogeda border customs with vehicles and Swiss flags at the border',
+    'blog.article.stop-ristorni-frontiera.title': 'Border towns demand urgent govt meeting over refunds',
+    'blog.article.stop-ristorni-frontiera.excerpt': 'The Canton of Ticino blocks rebates to border municipalities. The association asks for an urgent meeting with the Italian government.',
+    'blog.article.stop-ristorni-frontiera.imageAlt': 'Ticino-Lombardy border with sign indicating block of ristorni',
 };
 
 export default blogMetaChEn;
