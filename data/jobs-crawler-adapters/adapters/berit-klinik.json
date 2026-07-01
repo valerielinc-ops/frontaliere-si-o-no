@@ -16,12 +16,11 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_k_chin_koch_100__3caee99d09.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__6db2c5f5c1.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_arztsekret_rin_wattwil_40__70d7b013fb.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachperson_gesundheit_80_100__wattwil_759d5a4b42.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._pflegefachperson_hf_100__wattwil_b4ee69cb65.pdf"
   ],
   "notes": "Dedicated Berit Klinik crawler parses the Next.js careers page and extracts descriptions from CMS-hosted Stelleninserat PDFs.",
-  "updatedAt": "2026-07-01T11:13:59.153Z",
+  "updatedAt": "2026-07-01T21:50:03.144Z",
   "seedMetaByUrl": {
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf": {
       "location": "St. Gallen",
@@ -60,12 +59,6 @@
       "postedDate": "2026-07-01"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__6db2c5f5c1.pdf": {
-      "location": "Wattwil",
-      "canton": "SG",
-      "company": "Berit Klinik",
-      "postedDate": "2026-07-01"
-    },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_arztsekret_rin_wattwil_40__70d7b013fb.pdf": {
       "location": "Wattwil",
       "canton": "SG",
       "company": "Berit Klinik",
