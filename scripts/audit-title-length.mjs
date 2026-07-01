@@ -75,6 +75,12 @@ export function classifyFeature(relPath) {
   if (/(?:^|\/)(?:mercato-lavoro|mercato-lavoro-ticino|job-market|ticino-job-market|arbeitsmarkt|arbeitsmarkt-tessin|marche-emploi|marche-travail|marche-emploi-tessin|marche-travail-tessin)\//.test(p)) return 'job-market-snapshot';
   if (BLOG_SECTION_RX.test(p)) return 'blog';
   if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
+  // Ticino events hub + per-comune pages (all 4 locale section slugs). Split
+  // out so they don't pollute the spa-locale/spa-other catch-all — same
+  // classifier-drift class as #2853/#2910 fuel/svizzera leaks. Mirrors
+  // audit-text-html-ratio.mjs's classifyFeature (kept in sync manually since
+  // the two classifiers intentionally diverge on other buckets).
+  if (/(?:^|\/)(?:eventi\/ticino|events\/ticino|veranstaltungen\/tessin|evenements\/tessin)(?:\/|$)/.test(p)) return 'eventi';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
