@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-30T23:24:46.751Z",
-  "total": 10,
+  "generatedAt": "2026-07-01T12:33:27.160Z",
+  "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 15974,
-  "avgDurationMs": 15974,
+  "unchangedCount": 10,
+  "durationMs": 21873,
+  "avgDurationMs": 21873,
   "durationHistory": [
-    15974
+    21873
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -336,6 +336,42 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "ICT Solution Architekt SAP 80-100% (w/m/d)",
+      "slug": "ict-solution-architekt-sap-80-100-w-m-d-ruag-ag-emmen",
+      "url": "https://jobs.ruag.ch/offene-stellen/ict-solution-architekt-sap/272aa17b-907a-425c-b0f1-7a7e20bc5e8f",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/272aa17b-907a-425c-b0f1-7a7e20bc5e8f",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Emmen",
+      "addressLocality": "Emmen",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "canton": "LU",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-30",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2053-11-13",
+      "id": "ruag-ag-487d22fbd20f",
+      "salaryMin": 78500,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-06-30T23:24:46.749Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
         "completeness": 22
       }
     }
