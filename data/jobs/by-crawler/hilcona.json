@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-4cc0e2881b6e",
-      "slug": "case-handler-agricoltura-settlement-produzione-di-pollame-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "contabile-agricolo-impiegato-produzione-avicola-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hilcona-pfaffstatt",
-        "it": "case-handler-agricoltura-settlement-produzione-di-pollame-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "case-handler-agriculture-settlement-poultry-production-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "gestionnaire-de-cas-agriculture-settlement-production-de-volaille-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "contabile-agricolo-impiegato-produzione-avicola-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -17,7 +17,7 @@
       "title": "Sachbearbeiter Landwirtschaft Abrechnung Gefluegelproduktion M W D",
       "titleByLocale": {
         "de": "Sachbearbeiter Landwirtschaft Abrechnung Gefluegelproduktion M W D",
-        "it": "Case handler Agricoltura Settlement Produzione di pollame M W D",
+        "it": "Contabile Agricolo Impiegato Produzione Avicola M W D",
         "en": "Case handler Agriculture Settlement Poultry production M W D",
         "fr": "Gestionnaire de cas Agriculture Settlement Production de volaille M W D"
       },
@@ -49,20 +49,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hilcona-pfaffstatt",
-          "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "contabile-agricolo-impiegato-produzione-avicola-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
-        ],
-        "en": [
-          "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
-        ],
-        "fr": [
           "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hilcona-pfaffstatt",
-        "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "contabile-agricolo-impiegato-produzione-avicola-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "sachbearbeiter-landwirtschaft-abrechnung-gefluegelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -83,12 +75,12 @@
     },
     {
       "id": "hilcona-8e72cefdaead",
-      "slug": "team-leader-team-leader-appalti-tecnici-hilcona-ag-schaan",
+      "slug": "capo-squadra-capo-squadra-approvvigionamento-tecnico-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan",
-        "it": "team-leader-team-leader-appalti-tecnici-hilcona-ag-schaan",
-        "en": "team-leader-team-leader-technical-procurement-hilcona-ag-schaan",
-        "fr": "chef-d-equipe-chef-d-equipe-approvisionnement-technique-hilcona-ag-schaan"
+        "it": "capo-squadra-capo-squadra-approvvigionamento-tecnico-hilcona-ag-schaan",
+        "en": "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan",
+        "fr": "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -96,7 +88,7 @@
       "title": "Teamleiter Teamleiterin Technische Beschaffung",
       "titleByLocale": {
         "de": "Teamleiter Teamleiterin Technische Beschaffung",
-        "it": "Team Leader Team Leader Appalti tecnici",
+        "it": "Capo squadra Capo squadra Approvvigionamento Tecnico",
         "en": "Team Leader Team Leader Technical Procurement",
         "fr": "Chef d'équipe Chef d'équipe Approvisionnement technique"
       },
@@ -143,19 +135,11 @@
       "firstSeenAt": "2026-07-01T11:51:36.360Z",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan",
-          "capo-squadra-capo-squadra-approvvigionamento-tecnico-hilcona-ag-schaan"
-        ],
-        "en": [
-          "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
-        ],
-        "fr": [
           "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
         ]
       },
       "previousSlugs": [
-        "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan",
-        "capo-squadra-capo-squadra-approvvigionamento-tecnico-hilcona-ag-schaan"
+        "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan"
       ]
     },
     {
@@ -3934,12 +3918,12 @@
     },
     {
       "id": "hilcona-8df9f0f52268",
-      "slug": "gestione-del-territorio-nel-servizio-sul-campo-food-service-m-w-d-regione-schwarzwald-villingen-schwenningen-rottweil",
+      "slug": "gestione-distrettuale-sul-campo-servizio-ristorazione-regione-m-w-d-foresta-nera-villingen-schwenningen-rottweil",
       "slugByLocale": {
         "de": "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli-na",
-        "it": "gestione-del-territorio-nel-servizio-sul-campo-food-service-m-w-d-regione-schwarzwald-villingen-schwenningen-rottweil",
+        "it": "gestione-distrettuale-sul-campo-servizio-ristorazione-regione-m-w-d-foresta-nera-villingen-schwenningen-rottweil",
         "en": "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli",
-        "fr": "gestion-des-districts-dans-le-service-sur-le-terrain-service-alimentaire-m-w-d-region-schwarzwald-villingen-schwenningen"
+        "fr": "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -3947,7 +3931,7 @@
       "title": "Bezirksleitung Im Aussendienst Food Service M W D Region Schwarzwald Villingen Schwenningen Rottweil Tuttlingen",
       "titleByLocale": {
         "de": "Bezirksleitung Im Aussendienst Food Service M W D Region Schwarzwald Villingen Schwenningen Rottweil Tuttlingen",
-        "it": "Gestione del territorio Nel servizio sul campo Food Service M W D Regione Schwarzwald Villingen Schwenningen Rottweil Tuttlingen",
+        "it": "Gestione distrettuale sul campo, Servizio Ristorazione, Regione M W D, Foresta Nera, Villingen, Schwenningen, Rottweil, Tuttlingen",
         "en": "District management In the field service Food Service M W D Region Schwarzwald Villingen Schwenningen Rottweil Tuttlingen",
         "fr": "Gestion des districts Dans le service sur le terrain Service alimentaire M W D Région Schwarzwald Villingen Schwenningen Rottweil Tuttlingen"
       },
@@ -3979,17 +3963,12 @@
       "previousSlugsByLocale": {
         "it": [
           "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hilcona-radolfzell",
-          "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli",
-          "gestione-distrettuale-sul-campo-servizio-ristorazione-regione-m-w-d-foresta-nera-villingen-schwenningen-rottweil"
-        ],
-        "fr": [
           "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli"
         ]
       },
       "previousSlugs": [
         "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hilcona-radolfzell",
-        "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli",
-        "gestione-distrettuale-sul-campo-servizio-ristorazione-regione-m-w-d-foresta-nera-villingen-schwenningen-rottweil"
+        "bezirksleitung-im-aussendienst-food-service-m-w-d-region-schwarzwald-villingen-schwenningen-rottweil-tuttlingen-hugli"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -8746,7 +8725,7 @@
         "it": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "order-picking-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "kommissionierung-m-w-d-hilcona-ampfing",
-        "fr": "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8784,7 +8763,7 @@
       "previousSlugs": [
         "kommissionierung-m-w-d-hilcona-ampfing",
         "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8796,7 +8775,7 @@
         ],
         "fr": [
           "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
+          "cueillette-des-commandes-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "firstSeenAt": "2026-06-15T14:30:15.396Z",

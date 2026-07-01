@@ -7315,8 +7315,8 @@
       "slugByLocale": {
         "en": "administration-logistics-assistant-eth-zurich-ch",
         "it": "junior-administration-logistics-assistant-eth-zurich-ch",
-        "de": "junior-administration-logistics-assistant-eth-zurich-ch",
-        "fr": "assistant-administratif-et-logistique-junior-eth-zurich-zurich"
+        "de": "junior-administration-logistik-assistent-eth-zurich-zurich",
+        "fr": "administration-logistics-assistant-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7371,19 +7371,7 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-01T11:34:38.442Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "administration-logistics-assistant-eth-zurich-ch"
-        ],
-        "de": [
-          "junior-administration-logistik-assistent-eth-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "administration-logistics-assistant-eth-zurich-ch",
-        "junior-administration-logistik-assistent-eth-zurich-zurich"
-      ]
+      "firstSeenAt": "2026-07-01T11:34:38.442Z"
     },
     {
       "id": "eth-zurich-88dc14648f17",
@@ -7391,8 +7379,8 @@
       "slugByLocale": {
         "de": "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch",
         "it": "assistenz-im-vizeprasidium-per-forschung-m-w-d-eth-zurich",
-        "en": "assistant-vice-president-for-research-m-f-d-eth-zurich-zurich",
-        "fr": "vice-president-adjoint-de-la-recherche-m-f-d-eth-zurich-zurich"
+        "en": "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch",
+        "fr": "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7435,12 +7423,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
-        ],
-        "en": [
-          "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
           "assistenz-im-vizeprasidium-fur-forschung-m-w-d-eth-zurich-ch"
         ]
       },
@@ -7543,12 +7525,12 @@
     },
     {
       "id": "eth-zurich-85437926670d",
-      "slug": "scienziato-fondatore-anticorpo-nanobody-drug-discovery-eth-zurich-basel",
+      "slug": "scienziato-fondatore-scoperta-di-anticorpi-nanobody-farmaco-nanone-eth-zurich-basel",
       "slugByLocale": {
         "en": "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
-        "it": "scienziato-fondatore-anticorpo-nanobody-drug-discovery-eth-zurich-basel",
+        "it": "scienziato-fondatore-scoperta-di-anticorpi-nanobody-farmaco-nanone-eth-zurich-basel",
         "de": "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
-        "fr": "chercheur-fondateur-decouverte-de-medicaments-anticorps-et-anticorps-eth-zurich-basel"
+        "fr": "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7556,7 +7538,7 @@
       "title": "Founding Scientist - Antibody/Nanobody Drug Discovery",
       "titleByLocale": {
         "en": "Founding Scientist - Antibody/Nanobody Drug Discovery",
-        "it": "Scienziato fondatore - Anticorpo/Nanobody Drug Discovery",
+        "it": "Scienziato Fondatore - Scoperta di Anticorpi/Nanobody/Farmaco Nanone",
         "de": "Gründungswissenschaftler - Antibody / Nanobody Drug Discovery",
         "fr": "Chercheur fondateur - Découverte de médicaments anticorps et anticorps"
       },
@@ -7606,16 +7588,11 @@
       "firstSeenAt": "2026-07-01T11:34:36.959Z",
       "previousSlugsByLocale": {
         "it": [
-          "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
-          "scienziato-fondatore-scoperta-di-anticorpi-nanobody-farmaco-nanone-eth-zurich-basel"
-        ],
-        "fr": [
           "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch",
-        "scienziato-fondatore-scoperta-di-anticorpi-nanobody-farmaco-nanone-eth-zurich-basel"
+        "founding-scientist-antibody-nanobody-drug-discovery-eth-zurich-ch"
       ]
     }
   ]

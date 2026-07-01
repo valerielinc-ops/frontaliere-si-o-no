@@ -1328,7 +1328,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale HF/FH",
+        "it": "Dipl. Pflegefachmann/-frau HF/FH",
         "en": "Dipl. Care professional",
         "de": "Dipl. Pflegefachmann/-frau HF/FH",
         "fr": "Dipl. Professionnel de soins"
@@ -1365,6 +1365,8 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
+        "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess",
@@ -1381,10 +1383,7 @@
         "dipl-pflegefachmann-frau-med-praxisassistenten-in-con-op-erfahrung-techn-operationsfachmann-frau-urologische-klinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-spital-thurgau-stgag-weinfelden",
         "dipl-pflegefachmann-frau-alkoholentzug-therapie-stgag-ch",
-        "dipl-pflegefachmann-frau-alkoholentzug-therapie-spital-thurgau-stgag-munsterlingen",
-        "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse-ne",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
-        "dipl-infermieristica-donna-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden"
+        "dipl-pflegefachmann-frau-alkoholentzug-therapie-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1401,9 +1400,7 @@
           "dipl-infermieristica-specialista-alcool-ritiro-terapia-spital-thurgau-stgag-munsterlingen",
           "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatr",
           "dipl-specialiste-des-soins-infirmiers-femme-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
-          "hebammes-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse-ne",
-          "dipl-infermieristica-donna-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden"
+          "hebammes-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
@@ -1417,8 +1414,7 @@
           "dipl-pflegefachmann-frau-alkoholentzug-therapie-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-alterstagesklinik-weinfelden-stgag-ch",
           "dipl-pflegefachmann-frau-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
-          "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch",
-          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho"
+          "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
@@ -2735,7 +2731,7 @@
       "title": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
       "titleByLocale": {
         "it": "Infermiere/i diplomato/i in riabilitazione nel pool Springer",
-        "en": "Dipl. Nursing professional/woman Rehabilitation in Springerpool",
+        "en": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
         "de": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
         "fr": "Infirmier/Infirmière diplômé(e) en réadaptation dans le pool Springer"
       },
@@ -5749,7 +5745,7 @@
         "it": "Specialista in radiologia con focus sull'imaging del seno (OA o OAmbF)",
         "en": "Specialist in radiology with focus on breast imaging (OA or OAmbF)",
         "de": "Facharzt/-ärztin für Radiologie mit Schwerpunkt Brustbildgebung (OA oder OAmbF)",
-        "fr": "Spécialiste de radiologie mettant l'accent sur l'imagerie mammaire (OA ou OAmbF)"
+        "fr": "Facharzt/-ärztin für Radiologie mit Schwerpunkt Brustbildgebung (OA oder OAmbF)"
       },
       "description": "Facharzt/-ärztin für Radiologie mit Schwerpunkt Brustbildgebung (OA oder OAmbF) — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Ärztliches Personal\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
       "descriptionByLocale": {
@@ -6676,7 +6672,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau im Pool",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale in piscina",
+        "it": "Dipl. Pflegefachmann/-frau im Pool",
         "en": "Professional health EFZ in the Springerpool",
         "de": "Dipl. Pflegefachmann/-frau im Pool",
         "fr": "Santé professionnelle EFZ dans le Springerpool"
@@ -7278,7 +7274,7 @@
         "it": "Neuropsicologo/a",
         "en": "Neuropsychologist",
         "de": "Neuropsychologen/-in",
-        "fr": "Neuropsychologues"
+        "fr": "Neuropsychologen/-in"
       },
       "description": "Neuropsychologen/-in — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Psychologie\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
       "descriptionByLocale": {
@@ -7468,7 +7464,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
       "titleByLocale": {
         "it": "Dipl. Expertin / Experte Intensivpflege NDS HF con Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
-        "en": "Dipl. Expert / Expert Intensive Care NDS HF with additional function Implementation \"FICUS study\" 70-100 %",
+        "en": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
         "de": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
         "fr": "Dipl. Expert / Expert soins intensifs NDS HF avec fonction supplémentaire Mise en œuvre \"Etude FICUS\" 70-100 %"
       },
@@ -7701,7 +7697,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale/donna",
+        "it": "Dipl. Pflegefachmann/-frau",
         "en": "Dipl. Nursing professional/woman",
         "de": "Dipl. Pflegefachmann/-frau",
         "fr": "Spécialiste diplômé en soins infirmiers"
@@ -8197,7 +8193,7 @@
       "title": "Dipl. Pflegefachmann/-frau Rehabilitation",
       "titleByLocale": {
         "it": "Dipl. Infermieristica riabilitazione specialistica",
-        "en": "Dipl. Nursing professional rehabilitation",
+        "en": "Dipl. Pflegefachmann/-frau Rehabilitation",
         "de": "Dipl. Pflegefachmann/-frau Rehabilitation",
         "fr": "Dipl. Réadaptation professionnelle des soins infirmiers"
       },
@@ -8687,7 +8683,7 @@
       "title": "Pflegeexperten/-in APN Psychiatrie",
       "titleByLocale": {
         "it": "Esperti di infermieristica/in psichiatria APN",
-        "en": "Nursing experts/in APN psychiatry",
+        "en": "Pflegeexperten/-in APN Psychiatrie",
         "de": "Pflegeexperten/-in APN Psychiatrie",
         "fr": "Experts en soins infirmiers/en psychiatrie APN"
       },
@@ -8842,8 +8838,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen-f431a9",
-        "fr": "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen"
+        "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "fr": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -8852,7 +8848,7 @@
       "titleByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik",
         "en": "Dipl. Nursing professional forensics",
-        "it": "Dipl. Infermieristica professionale forense",
+        "it": "Specialista Infermieristico Certificato in Medicina Legale",
         "fr": "Dipl. Services de médecine légale"
       },
       "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
@@ -8892,12 +8888,6 @@
         "it": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch",
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
-        ],
-        "en": [
-          "dipl-pflegefachmann-frau-forensik-stgag-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
         ]
       },
       "previousSlugs": [
@@ -8932,7 +8922,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale HF/FH",
+        "it": "Dipl. Pflegefachmann/-frau HF/FH",
         "en": "Dipl. Nursing Specialist HF/FH",
         "de": "Dipl. Pflegefachmann/-frau HF/FH",
         "fr": "Dipl. Spécialiste en soins infirmiers en HF/FH"
@@ -9099,7 +9089,7 @@
       "slugByLocale": {
         "it": "applikations-manager-in-amministrativo-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "en": "applikations-manager-in-administrative-fachapplikationen-stgag-ch",
-        "de": "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "de": "applikations-manager-in-administrative-fachapplikationen-stgag-ch",
         "fr": "applikations-gestionnaire-en-administration-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -9145,7 +9135,7 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
+          "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "it": [
           "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
@@ -9155,7 +9145,8 @@
         ]
       },
       "previousSlugs": [
-        "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
+        "applikations-manager-in-administrative-fachapplikationen-stgag-ch",
+        "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T13:01:08.730Z",
@@ -9593,7 +9584,7 @@
         "it": "Dipl. Specialista di cura Psichiatria Centro Romanshorn",
         "en": "Dipl. Care specialist Psychiatry Center Romanshorn",
         "de": "Dipl. Pflegefachmann/-frau Psychiatriezentrum Romanshorn",
-        "fr": "Dipl. Spécialiste des soins infirmiers / centre de psychiatrie Romanshorn"
+        "fr": "Dipl. Pflegefachmann/-frau Psychiatriezentrum Romanshorn"
       },
       "description": "Dipl. Pflegefachmann/-frau Psychiatriezentrum Romanshorn — Spital Thurgau (STGAG).\n\n• Standort: Psychiatriezentrum, Romanshorn\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
       "descriptionByLocale": {
@@ -9675,7 +9666,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Radiologiefachmann/-frau HF",
       "titleByLocale": {
-        "it": "Dipl. Specialista di radiologia HF",
+        "it": "Dipl. Radiologiefachmann/-frau HF",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachmann/-frau HF",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -9857,7 +9848,7 @@
         "it": "Specialista in Radiologia",
         "en": "Specialist in Radiology",
         "de": "Facharzt/-ärztin für Radiologie",
-        "fr": "Spécialiste en radiologie"
+        "fr": "Facharzt/-ärztin für Radiologie"
       },
       "description": "Facharzt/-ärztin für Radiologie — Spital Thurgau (STGAG).\n\n• Standort: Radiologisches Diagnosezentrum Belmont, Chur\n• Abteilung: Ärztliches Personal\n• Bereich: Radiologie Südost (Diagnose Zentrum Belmont)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
       "descriptionByLocale": {
@@ -9939,7 +9930,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF",
       "titleByLocale": {
-        "it": "Dipl. Specialista di radiologia HF",
+        "it": "Dipl. Radiologiefachfrau/-mann HF",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann HF",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -10527,7 +10518,7 @@
       "title": "Ergotherapeuten/-in",
       "titleByLocale": {
         "it": "Terapista occupazionale",
-        "en": "Occupational therapists",
+        "en": "Ergotherapeuten/-in",
         "de": "Ergotherapeuten/-in",
         "fr": "ergothérapeutes"
       },
@@ -10781,7 +10772,7 @@
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale forense",
-        "en": "Dipl. Nursing professional forensics",
+        "en": "Dipl. Pflegefachmann/-frau Forensik",
         "de": "Dipl. Pflegefachmann/-frau Forensik",
         "fr": "Spécialiste certifié en sciences infirmières et médico-légales"
       },
@@ -10835,8 +10826,7 @@
         "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
         "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
-        "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen",
-        "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-"
+        "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10861,8 +10851,7 @@
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
           "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag",
           "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
-          "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-"
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch",
@@ -11841,8 +11830,8 @@
       "slugByLocale": {
         "de": "facharztin-arzt-fur-radiologie-stgag-ch",
         "it": "facharztin-arzt-per-radiologie-spital-thurgau-stgag-heerbrugg",
-        "en": "radiology-specialist-spital-thurgau-stgag-heerbrugg",
-        "fr": "specialiste-de-radiologie-spital-thurgau-stgag-heerbrugg"
+        "en": "facharztin-arzt-fur-radiologie-stgag-ch",
+        "fr": "facharztin-arzt-fur-radiologie-stgag-ch"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -11889,12 +11878,6 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-arzt-fur-radiologie-stgag-ch"
-        ],
-        "en": [
-          "facharztin-arzt-fur-radiologie-stgag-ch"
-        ],
-        "fr": [
           "facharztin-arzt-fur-radiologie-stgag-ch"
         ]
       },
@@ -12493,10 +12476,10 @@
       "id": "spital-thurgau-ee800ca61547",
       "slug": "lehrstellen-come-fachfrau-mann-gesundheit-fage-2027-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "de": "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-ch",
+        "de": "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-munsterlingen",
         "it": "lehrstellen-come-fachfrau-mann-gesundheit-fage-2027-spital-thurgau-stgag-munsterlingen",
-        "en": "apprenticeships-as-a-health-professional-fage-2027-spital-thurgau-stgag-munsterlingen",
-        "fr": "apprentissage-comme-professionnel-de-la-sante-fage-2027-spital-thurgau-stgag-munsterlingen"
+        "en": "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-munsterlingen",
+        "fr": "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -12510,10 +12493,10 @@
       },
       "description": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Abteilung: Bildung\n• Bereich: Ausbildung Pflege (Spital Thurgau AG)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027",
       "descriptionByLocale": {
-        "de": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Abteilung: Bildung\n• Bereich: Ausbildung Pflege (Spital Thurgau AG)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027",
-        "it": "Apprendisti come specialista in salute (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Dipartimento: Istruzione\n• Area: Formazione (Spital Thurgau AG)\n• Pensum: a tempo pieno\n• Occupazione: Formazione\n• Data di entrata: 01.08.2027",
-        "en": "Apprenticeships as a specialist in health (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Department: Education\n• Area: Training Care (Spital Thurgau AG)\n• Pensum: Full-time\n• Employment: Training\n• Date of entry: 01.08.2027",
-        "fr": "Apprentissage en tant que spécialiste de la santé (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Département: Éducation\n• Domaine: Soins de formation (Spital Thurgau AG)\n• Pensum: Temps plein\n• Emploi: formation\n• Date d'entrée: 01.08.2027"
+        "de": "Deine Aufgaben Als Fachfrau/-mann Gesundheit (FaGe) EFZ betreust, unterstützt und pflegst du unsere Patient/innen. Dabei arbeitest du eng mit den dipl. Pflegefachpersonen, Fachpersonen Gesundheit, mit dem erweiterten Behandlungsteam und auch den Angehörigen der Patient/innen zusammen.\n\nIn deinem Kompetenzbereich erledigst du Arbeiten selbständig sowie eigenverantwortlich. Dazu gehören pflegerische Tätigkeiten (z. B. unterstützen in der Körperpflege / beim Essen), pflegetechnische Aufträge (z. B. Blutdruck- / Pulskontrollen, Blutentnahme), Alltagsgestaltung sowie hauswirtschaftliche, logistische und administrative Aufgaben.\n\nAls Fachfrau/-mann Gesundheit (FaGe) EFZ leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung des Wohlbefindens unserer Patient/innen.\n\nAbschluss der obligatorischen Schulzeit (Sekundarstufe E oder G) Du arbeitest gerne im Team Du bist zuverlässig und verantwortungsbewusst Du bist körperlich und psychisch belastbar\n\n1007000|20000602|1007004|1007010|20000130|20000132\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. Zudem profitierst du als Lernende/r von: Motivierten Bildungs- und Pflegeteams, die Dich fachkundig begleiten, fördern und unterstützen Einer Lernumgebung, in der Du durch vielseitige Lernaktivitäten das Vernetzen von Theorie und Praxis bestmöglich erlernst Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Ausbildung",
+        "it": "Deine Aufgaben Als Fachfrau/-mann Gesundheit (FaGe) EFZ betreust, unterstützt und pflegst du unsere Patient/innen. Dabei arbeitest du eng mit den dipl. Pflegefachpersonen, Fachpersonen Gesundheit, mit dem erweiterten Behandlungsteam und auch den Angehörigen der Patient/innen zusammen.\n\nIn deinem Kompetenzbereich erledigst du Arbeiten selbständig sowie eigenverantwortlich. Dazu gehören pflegerische Tätigkeiten (z. B. unterstützen in der Körperpflege / beim Essen), pflegetechnische Aufträge (z. B. Blutdruck- / Pulskontrollen, Blutentnahme), Alltagsgestaltung sowie hauswirtschaftliche, logistische und administrative Aufgaben.\n\nAls Fachfrau/-mann Gesundheit (FaGe) EFZ leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung des Wohlbefindens unserer Patient/innen.\n\nAbschluss der obligatorischen Schulzeit (Sekundarstufe E oder G) Du arbeitest gerne im Team Du bist zuverlässig und verantwortungsbewusst Du bist körperlich und psychisch belastbar\n\n1007000|20000602|1007004|1007010|20000130|20000132\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. Zudem profitierst du als Lernende/r von: Motivierten Bildungs- und Pflegeteams, die Dich fachkundig begleiten, fördern und unterstützen Einer Lernumgebung, in der Du durch vielseitige Lernaktivitäten das Vernetzen von Theorie und Praxis bestmöglich erlernst Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Ausbildung",
+        "en": "Deine Aufgaben Als Fachfrau/-mann Gesundheit (FaGe) EFZ betreust, unterstützt und pflegst du unsere Patient/innen. Dabei arbeitest du eng mit den dipl. Pflegefachpersonen, Fachpersonen Gesundheit, mit dem erweiterten Behandlungsteam und auch den Angehörigen der Patient/innen zusammen.\n\nIn deinem Kompetenzbereich erledigst du Arbeiten selbständig sowie eigenverantwortlich. Dazu gehören pflegerische Tätigkeiten (z. B. unterstützen in der Körperpflege / beim Essen), pflegetechnische Aufträge (z. B. Blutdruck- / Pulskontrollen, Blutentnahme), Alltagsgestaltung sowie hauswirtschaftliche, logistische und administrative Aufgaben.\n\nAls Fachfrau/-mann Gesundheit (FaGe) EFZ leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung des Wohlbefindens unserer Patient/innen.\n\nAbschluss der obligatorischen Schulzeit (Sekundarstufe E oder G) Du arbeitest gerne im Team Du bist zuverlässig und verantwortungsbewusst Du bist körperlich und psychisch belastbar\n\n1007000|20000602|1007004|1007010|20000130|20000132\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. Zudem profitierst du als Lernende/r von: Motivierten Bildungs- und Pflegeteams, die Dich fachkundig begleiten, fördern und unterstützen Einer Lernumgebung, in der Du durch vielseitige Lernaktivitäten das Vernetzen von Theorie und Praxis bestmöglich erlernst Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Ausbildung",
+        "fr": "Deine Aufgaben Als Fachfrau/-mann Gesundheit (FaGe) EFZ betreust, unterstützt und pflegst du unsere Patient/innen. Dabei arbeitest du eng mit den dipl. Pflegefachpersonen, Fachpersonen Gesundheit, mit dem erweiterten Behandlungsteam und auch den Angehörigen der Patient/innen zusammen.\n\nIn deinem Kompetenzbereich erledigst du Arbeiten selbständig sowie eigenverantwortlich. Dazu gehören pflegerische Tätigkeiten (z. B. unterstützen in der Körperpflege / beim Essen), pflegetechnische Aufträge (z. B. Blutdruck- / Pulskontrollen, Blutentnahme), Alltagsgestaltung sowie hauswirtschaftliche, logistische und administrative Aufgaben.\n\nAls Fachfrau/-mann Gesundheit (FaGe) EFZ leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung des Wohlbefindens unserer Patient/innen.\n\nAbschluss der obligatorischen Schulzeit (Sekundarstufe E oder G) Du arbeitest gerne im Team Du bist zuverlässig und verantwortungsbewusst Du bist körperlich und psychisch belastbar\n\n1007000|20000602|1007004|1007010|20000130|20000132\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. Zudem profitierst du als Lernende/r von: Motivierten Bildungs- und Pflegeteams, die Dich fachkundig begleiten, fördern und unterstützen Einer Lernumgebung, in der Du durch vielseitige Lernaktivitäten das Vernetzen von Theorie und Praxis bestmöglich erlernst Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Ausbildung"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -12541,11 +12524,15 @@
       },
       "department": "Bildung",
       "contractDuration": "permanent",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-ch"
         ],
         "en": [
+          "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-ch"
+        ],
+        "de": [
           "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-ch"
         ],
         "fr": [

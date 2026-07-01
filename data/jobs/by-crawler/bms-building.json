@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-4e86ad40c7c0",
-      "slug": "100-cucina-tecnico-f-m-d-bms-building-materials-etoy",
+      "slug": "tecnico-cucina-al-100-f-m-d-bms-building-materials-etoy",
       "slugByLocale": {
         "fr": "technicien-cuisines-a-100-f-m-d-bms-building-ch",
-        "it": "100-cucina-tecnico-f-m-d-bms-building-materials-etoy",
-        "en": "100-kitchen-technician-f-m-d-bms-building-materials-etoy",
-        "de": "100-kuchentechniker-w-m-d-bms-building-materials-etoy"
+        "it": "tecnico-cucina-al-100-f-m-d-bms-building-materials-etoy",
+        "en": "technicien-cuisines-a-100-f-m-d-bms-building-ch",
+        "de": "technicien-cuisines-a-100-f-m-d-bms-building-ch"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -17,7 +17,7 @@
       "title": "Technicien Cuisines à 100% (f/m/d)",
       "titleByLocale": {
         "fr": "Technicien Cuisines à 100% (f/m/d)",
-        "it": "100% cucina tecnico (f/m/d)",
+        "it": "Tecnico cucina al 100% (f/m/d)",
         "en": "100% Kitchen Technician (f/m/d)",
         "de": "100% Küchentechniker (w/m/d)"
       },
@@ -99,29 +99,21 @@
       "firstSeenAt": "2026-07-01T11:27:12.549Z",
       "previousSlugsByLocale": {
         "it": [
-          "technicien-cuisines-a-100-f-m-d-bms-building-ch",
-          "tecnico-cucina-al-100-f-m-d-bms-building-materials-etoy"
-        ],
-        "en": [
-          "technicien-cuisines-a-100-f-m-d-bms-building-ch"
-        ],
-        "de": [
           "technicien-cuisines-a-100-f-m-d-bms-building-ch"
         ]
       },
       "previousSlugs": [
-        "technicien-cuisines-a-100-f-m-d-bms-building-ch",
-        "tecnico-cucina-al-100-f-m-d-bms-building-materials-etoy"
+        "technicien-cuisines-a-100-f-m-d-bms-building-ch"
       ]
     },
     {
       "id": "bms-building-5d4e426ce94e",
-      "slug": "100-cucina-tecnico-f-m-d-bms-building-materials-carouge",
+      "slug": "tecnico-cucina-al-100-f-m-d-bms-building-materials-carouge",
       "slugByLocale": {
         "fr": "technicien-cuisines-a-100-f-m-d-bms-building-ch",
-        "it": "100-cucina-tecnico-f-m-d-bms-building-materials-carouge",
-        "en": "100-kitchen-technician-f-m-d-bms-building-materials-carouge",
-        "de": "100-kuchentechniker-w-m-d-bms-building-materials-carouge"
+        "it": "tecnico-cucina-al-100-f-m-d-bms-building-materials-carouge",
+        "en": "technicien-cuisines-a-100-f-m-d-bms-building-ch-2",
+        "de": "technicien-cuisines-a-100-f-m-d-bms-building-ch-2"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -129,7 +121,7 @@
       "title": "Technicien Cuisines à 100% (f/m/d)",
       "titleByLocale": {
         "fr": "Technicien Cuisines à 100% (f/m/d)",
-        "it": "100% cucina tecnico (f/m/d)",
+        "it": "Tecnico cucina al 100% (f/m/d)",
         "en": "100% Kitchen Technician (f/m/d)",
         "de": "100% Küchentechniker (w/m/d)"
       },
@@ -211,19 +203,11 @@
       "firstSeenAt": "2026-07-01T11:27:11.242Z",
       "previousSlugsByLocale": {
         "it": [
-          "technicien-cuisines-a-100-f-m-d-bms-building-ch-2",
-          "tecnico-cucina-al-100-f-m-d-bms-building-materials-carouge"
-        ],
-        "en": [
-          "technicien-cuisines-a-100-f-m-d-bms-building-ch-2"
-        ],
-        "de": [
           "technicien-cuisines-a-100-f-m-d-bms-building-ch-2"
         ]
       },
       "previousSlugs": [
-        "technicien-cuisines-a-100-f-m-d-bms-building-ch-2",
-        "tecnico-cucina-al-100-f-m-d-bms-building-materials-carouge"
+        "technicien-cuisines-a-100-f-m-d-bms-building-ch-2"
       ]
     },
     {
@@ -2148,8 +2132,8 @@
       "slugByLocale": {
         "fr": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch",
         "it": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch",
-        "en": "100-sanitary-shop-sales-advisor-f-h-d-bms-building-materials-martigny",
-        "de": "100-sanitarverkaufsberater-w-h-d-bms-building-materials-martigny"
+        "en": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch",
+        "de": "conseiller-de-vente-shop-sanitaire-a-100-f-h-d-bms-building-ch"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",

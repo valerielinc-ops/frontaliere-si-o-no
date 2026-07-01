@@ -80,12 +80,12 @@
     },
     {
       "id": "klinik-susenberg-3fe420d40510",
-      "slug": "assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
+      "slug": "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
-        "it": "assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
-        "en": "practice-assistant-mpa-80-klinik-susenberg-zurich",
-        "fr": "assistant-a-la-pratique-mpa-80-klinik-susenberg-zurich"
+        "it": "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
+        "en": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
+        "fr": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
       },
       "company": "Klinik Susenberg",
       "companyKey": "klinik-susenberg",
@@ -93,7 +93,7 @@
       "title": "med. Praxisassistentin / Praxisassistent (MPA), 80 %",
       "titleByLocale": {
         "de": "med. Praxisassistentin / Praxisassistent (MPA), 80 %",
-        "it": "Assistente di pratica (MPA), 80%",
+        "it": "med. Assistente di pratica (MPA), 80 %",
         "en": "Practice assistant (MPA), 80%",
         "fr": "Assistant à la pratique (MPA), 80%"
       },
@@ -145,19 +145,11 @@
       "firstSeenAt": "2026-07-01T12:08:40.045Z",
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
-          "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich"
-        ],
-        "en": [
-          "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
-        ],
-        "fr": [
           "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
-        "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich"
+        "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
       ]
     },
     {

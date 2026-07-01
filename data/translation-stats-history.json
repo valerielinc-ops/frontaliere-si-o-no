@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-12T17:07:46.124Z",
-    "label": "after",
-    "total": 16174,
-    "needsRetranslation": 4462,
-    "suppressed": 44,
-    "incomplete": 3214,
-    "complete": 12960,
-    "missingByLocale": {
-      "it": 2858,
-      "en": 2560,
-      "de": 564,
-      "fr": 2552
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1862
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 285
-      },
-      {
-        "company": "Manor AG",
-        "pending": 112
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 101
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 74
-      },
-      {
-        "company": "Roche",
-        "pending": 50
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 45
-      },
-      {
-        "company": "Klubschule Migros",
-        "pending": 44
-      },
-      {
-        "company": "Implenia",
-        "pending": 36
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-12T23:33:52.750Z",
-    "label": "before",
-    "total": 16432,
-    "needsRetranslation": 9718,
-    "suppressed": 44,
-    "incomplete": 3711,
-    "complete": 12721,
-    "missingByLocale": {
-      "it": 3130,
-      "en": 2841,
-      "de": 625,
-      "fr": 2842
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 2027
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 286
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Richemont",
-        "pending": 106
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "Roche",
-        "pending": 82
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 78
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 63
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 52
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-13T05:21:37.132Z",
     "label": "after",
     "total": 16432,
@@ -11510,6 +11396,120 @@
       {
         "company": "Kantonsspital Uri",
         "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-01T17:50:15.979Z",
+    "label": "before",
+    "total": 18304,
+    "needsRetranslation": 7258,
+    "suppressed": 406,
+    "incomplete": 1149,
+    "complete": 17155,
+    "missingByLocale": {
+      "it": 722,
+      "en": 537,
+      "de": 436,
+      "fr": 362
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 825
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 57
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 26
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 22
+      },
+      {
+        "company": "Solothurner Spitäler AG (soH)",
+        "pending": 21
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "VOLG",
+        "pending": 13
+      },
+      {
+        "company": "Schindler",
+        "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-01T17:52:28.249Z",
+    "label": "after",
+    "total": 18304,
+    "needsRetranslation": 2461,
+    "suppressed": 406,
+    "incomplete": 1143,
+    "complete": 17161,
+    "missingByLocale": {
+      "it": 716,
+      "en": 507,
+      "de": 435,
+      "fr": 350
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 821
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 57
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 26
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 22
+      },
+      {
+        "company": "Solothurner Spitäler AG (soH)",
+        "pending": 21
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "VOLG",
+        "pending": 13
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 11
       }
     ]
   }

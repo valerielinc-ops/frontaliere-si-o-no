@@ -1660,7 +1660,7 @@
       "title": "dipl. Pflegefachperson Pflegepool (a)",
       "titleByLocale": {
         "it": "pool di infermieri qualificati (a)",
-        "en": "dipl. Care professional Care pool (a)",
+        "en": "dipl. Pflegefachperson Pflegepool (a)",
         "de": "dipl. Pflegefachperson Pflegepool (a)",
         "fr": "infirmier diplômé Piscine de soins infirmiers (a)"
       },
@@ -2145,7 +2145,7 @@
       "title": "Fachperson Betreuung Kind (a)",
       "titleByLocale": {
         "it": "Cura professionale dei bambini (a)",
-        "en": "Professional child care (a)",
+        "en": "Fachperson Betreuung Kind (a)",
         "de": "Fachperson Betreuung Kind (a)",
         "fr": "Services professionnels de garde d ' enfants a)"
       },
@@ -2570,7 +2570,7 @@
       "title": "dipl. Pflegefachperson (a)",
       "titleByLocale": {
         "it": "infermiera (a)",
-        "en": "dipl. Nurse (a)",
+        "en": "dipl. Pflegefachperson (a)",
         "de": "dipl. Pflegefachperson (a)",
         "fr": "infirmière diplômée a)"
       },
@@ -2901,7 +2901,7 @@
       "title": "dipl. Pflegefachperson (a)",
       "titleByLocale": {
         "it": "dipl. Infermiera (a)",
-        "en": "dipl. Nurse (a)",
+        "en": "dipl. Pflegefachperson (a)",
         "de": "dipl. Pflegefachperson (a)",
         "fr": "dipl. Infirmière (a)"
       },
@@ -3064,7 +3064,7 @@
       "title": "dipl. Pflegefachperson (a)",
       "titleByLocale": {
         "it": "infermiera (a)",
-        "en": "dipl. Nurse (a)",
+        "en": "dipl. Pflegefachperson (a)",
         "de": "dipl. Pflegefachperson (a)",
         "fr": "infirmière a)"
       },
@@ -3148,7 +3148,7 @@
       "title": "dipl. Expertin / Experte Notfallpflege oder dipl. Pflegefachperson (a)",
       "titleByLocale": {
         "it": "dipl. Expertin / Experte Notfallpflege o dipl. Pflegefachperson (a)",
-        "en": "dipl. Expert / Expert Emergency Care or dipl. Nurse (a)",
+        "en": "dipl. Expertin / Experte Notfallpflege oder dipl. Pflegefachperson (a)",
         "de": "dipl. Expertin / Experte Notfallpflege oder dipl. Pflegefachperson (a)",
         "fr": "dipl. Expert / Expert Soins d'urgence ou dipl. Infirmière (a)"
       },
@@ -4043,12 +4043,12 @@
     },
     {
       "id": "spital-emmental-02ebcb93579e",
-      "slug": "medico-n-assistente-di-pratica-in-segretario-medico-in-a-spital-emmental-burgdorf",
+      "slug": "assistente-pratica-medica-segretario-medico-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf",
-        "it": "medico-n-assistente-di-pratica-in-segretario-medico-in-a-spital-emmental-burgdorf",
-        "en": "medical-n-practice-assistant-in-medical-secretary-in-a-spital-emmental-burgdorf",
-        "fr": "assistant-medical-n-cabinet-in-secretaire-medical-in-a-spital-emmental-burgdorf"
+        "it": "assistente-pratica-medica-segretario-medico-a-spital-emmental-burgdorf",
+        "en": "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf",
+        "fr": "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4056,7 +4056,7 @@
       "title": "Medizinische:n Praxisassistent:in / Arztsekretär:in (a)",
       "titleByLocale": {
         "de": "Medizinische:n Praxisassistent:in / Arztsekretär:in (a)",
-        "it": "Medico:n assistente di pratica:in / segretario medico:in (a)",
+        "it": "Assistente Pratica Medica / Segretario Medico (a)",
         "en": "Medical:n practice assistant:in / Medical secretary:in (a)",
         "fr": "Assistant médical:n cabinet:in / Secrétaire médical:in (a)"
       },
@@ -4112,29 +4112,21 @@
       "firstSeenAt": "2026-07-01T12:40:13.354Z",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf",
-          "assistente-pratica-medica-segretario-medico-a-spital-emmental-burgdorf"
-        ],
-        "en": [
-          "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf"
-        ],
-        "fr": [
           "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf",
-        "assistente-pratica-medica-segretario-medico-a-spital-emmental-burgdorf"
+        "medizinische-n-praxisassistent-in-arztsekretar-in-a-spital-emmental-burgdorf"
       ]
     },
     {
       "id": "spital-emmental-d952be72c340",
-      "slug": "salute-professionale-a-endoscopia-della-sala-di-recupero-spital-emmental-burgdorf",
+      "slug": "specialista-sanitario-a-endoscopia-in-sala-recupero-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf",
-        "it": "salute-professionale-a-endoscopia-della-sala-di-recupero-spital-emmental-burgdorf",
-        "en": "health-professional-a-recovery-room-endoscopy-spital-emmental-burgdorf",
-        "fr": "endoscopie-en-salle-de-recuperation-par-un-professionnel-de-la-sante-a-spital-emmental-burgdorf"
+        "it": "specialista-sanitario-a-endoscopia-in-sala-recupero-spital-emmental-burgdorf",
+        "en": "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf",
+        "fr": "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4142,7 +4134,7 @@
       "title": "Fachperson Gesundheit (a) Aufwachraum Endoskopie",
       "titleByLocale": {
         "de": "Fachperson Gesundheit (a) Aufwachraum Endoskopie",
-        "it": "Salute professionale (a) endoscopia della sala di recupero",
+        "it": "Specialista sanitario (a) Endoscopia in sala recupero",
         "en": "Health professional (a) recovery room endoscopy",
         "fr": "Endoscopie en salle de récupération par un professionnel de la santé a)"
       },
@@ -4198,19 +4190,11 @@
       "firstSeenAt": "2026-07-01T12:40:12.632Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf",
-          "specialista-sanitario-a-endoscopia-in-sala-recupero-spital-emmental-burgdorf"
-        ],
-        "en": [
-          "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf"
-        ],
-        "fr": [
           "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf",
-        "specialista-sanitario-a-endoscopia-in-sala-recupero-spital-emmental-burgdorf"
+        "fachperson-gesundheit-a-aufwachraum-endoskopie-spital-emmental-burgdorf"
       ]
     }
   ]
