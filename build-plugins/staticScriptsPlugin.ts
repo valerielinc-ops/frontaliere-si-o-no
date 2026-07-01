@@ -1,6 +1,7 @@
 /**
- * Emits the previously-inline analytics / SPA bootstrap scripts as standalone
- * .js files under dist/assets/ at the end of the build. Used by:
+ * Emits the previously-inline analytics / SPA bootstrap scripts (and, since
+ * the critical-CSS externalization, one stylesheet) as standalone files under
+ * dist/assets/ at the end of the build. Used by:
  *
  *   GTAG_SNIPPET                  → /assets/gtag-init.js
  *   ADSENSE_SNIPPET               → /assets/adsense-loader.js
@@ -8,8 +9,16 @@
  *                                   (concat of dark-mode-init + spa-action-redirect)
  *   POSTHOG_SNIPPET               → /assets/posthog-init.js
  *   FUEL_CHART_SCRIPT             → /assets/fuel-chart.js
+ *   CRITICAL_CSS                  → /assets/critical.css (CRITICAL_CSS_LINK)
  *
- * The two externalised stylesheets (SEO_STATIC_CSS_LINK → /assets/seo-static.css,
+ * critical.css used to be a per-page inline `<style>` block (~4.3 KB ×
+ * 55k+ static SEO pages); it is written here from the same
+ * `shared/criticalCss.ts` constant so there is exactly one source, and
+ * referenced via a render-BLOCKING `<link>` (CRITICAL_CSS_LINK) — not the
+ * media=print async-swap the other externalised stylesheets below use —
+ * because it must still be in effect before first paint.
+ *
+ * The two async-swapped stylesheets (SEO_STATIC_CSS_LINK → /assets/seo-static.css,
  * BRIDGE_CSS_LINK → /assets/bridge.css) need no step here: Vite copies them
  * verbatim from public/assets/ to dist/assets/ under the same STABLE name the
  * page tags reference (constants.ts). They used to be renamed to a hashed copy
@@ -48,6 +57,7 @@ import {
   FUEL_CHART_SCRIPT_CONTENT,
   FUEL_CHART_SCRIPT_FILENAME,
 } from './constants';
+import { CRITICAL_CSS, CRITICAL_CSS_FILENAME } from './shared/criticalCss';
 
 export function staticScriptsPlugin(rootDir: string): Plugin {
   return {
@@ -64,6 +74,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
         [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
         [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
         [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
+        [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
       ];
 
       let totalBytes = 0;
