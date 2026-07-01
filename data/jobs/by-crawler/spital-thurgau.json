@@ -669,7 +669,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
+        "it": "Dipl. Specialista HF/FH Medizin",
         "en": "Dipl. Nursing specialist HF/FH Medizin",
         "de": "Dipl. Pflegefachmann/-frau HF/FH Medizin",
         "fr": "Dipl. Spécialiste des soins infirmiers HF/FH Medizin"
@@ -718,7 +718,8 @@
           "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "dipl-specialista-di-cura-hf-fh-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "specialista-infermieristico-diplomato-in-medicina-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "specialista-infermieristico-diplomato-in-medicina-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "dipl-specialista-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch"
@@ -1247,7 +1248,7 @@
       "title": "Dipl. Pflegefachmann/-frau Palliativstation",
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a in cure palliative",
-        "en": "Dipl. Pflegefachmann/-frau Palliativstation",
+        "en": "Dipl. Nursing professional/woman palliative care unit",
         "de": "Dipl. Pflegefachmann/-frau Palliativstation",
         "fr": "Dipl. Spécialiste des soins/unité de soins palliatifs pour femmes"
       },
@@ -1290,7 +1291,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-palliativstation-stgag-ch",
-          "dipl-pflegefachmann-frau-palliativstation-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "dipl-pflegefachmann-frau-palliativstation-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "infermiere-a-specializzato-a-in-cure-palliative-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-palliativstation-stgag-ch"
@@ -1328,7 +1330,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF/FH",
+        "it": "Dipl. Infermieristica professionale HF/FH",
         "en": "Dipl. Care professional",
         "de": "Dipl. Pflegefachmann/-frau HF/FH",
         "fr": "Dipl. Professionnel de soins"
@@ -1400,7 +1402,8 @@
           "dipl-infermieristica-specialista-alcool-ritiro-terapia-spital-thurgau-stgag-munsterlingen",
           "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatr",
           "dipl-specialiste-des-soins-infirmiers-femme-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
-          "hebammes-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "hebammes-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-d2c559"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
@@ -1421,7 +1424,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T00:37:33.432Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2141,7 +2143,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau Medizin",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau Medizin",
+        "it": "Dipl. Infermieristica professionale / donna medicina",
         "en": "Dipl. Nursing professional/woman medicine",
         "de": "Dipl. Pflegefachmann/-frau Medizin",
         "fr": "Dipl. Médecine des infirmières et des femmes"
@@ -2195,7 +2197,8 @@
           "specialista-infermieristico-certificato-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-specialista-in-allattamento-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-medicina-specialistica-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-infermieristica-professionale-donna-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "dipl-pflegefachmann-frau-medizin-stgag-ch"
@@ -2732,7 +2735,7 @@
       "title": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
       "titleByLocale": {
         "it": "Infermiere/i diplomato/i in riabilitazione nel pool Springer",
-        "en": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
+        "en": "Dipl. Nursing professional/woman Rehabilitation in Springerpool",
         "de": "Dipl. Pflegefachmann/-frau Rehabilitation im Springerpool",
         "fr": "Infirmier/Infirmière diplômé(e) en réadaptation dans le pool Springer"
       },
@@ -2775,7 +2778,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-ch",
-          "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-spital-thurgau-stgag-diessenhofen"
+          "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-spital-thurgau-stgag-diessenhofen",
+          "dipl-specialista-di-cura-riabilitazione-nella-springerpool-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-ch"
@@ -2785,7 +2789,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4552,7 +4555,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF / FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF / FH",
+        "it": "Dipl. Infermieristica professionale HF / FH",
         "en": "Dipl. Nursing professional HF / FH",
         "de": "Dipl. Pflegefachmann/-frau HF / FH",
         "fr": "Dipl. Soins infirmiers professionnels HF / FH"
@@ -4605,7 +4608,8 @@
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
           "dipl-specialista-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "infermiere-a-dipl-sss-sup-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "specialista-infermieristico-dipl-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "specialista-infermieristico-dipl-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
@@ -4687,7 +4691,8 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-orthopadie-stgag-ch",
-          "oberarzt-arztin-orthopadie-mbf-stgag-ch"
+          "oberarzt-arztin-orthopadie-mbf-stgag-ch",
+          "oberarzt-arztin-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "oberarzt-arztin-orthopadie-stgag-ch"
@@ -4697,7 +4702,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -4898,7 +4902,7 @@
         "it": "Facharzt/-ärztin per Radiologie con Schwerpunkt abdominelle Radiologie (OA o OA mbF)",
         "en": "Specialist in radiology with focus on abdominal radiology (OA or OA mbF)",
         "de": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)",
-        "fr": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)"
+        "fr": "Spécialiste en radiologie avec un accent sur la radiologie abdominale (OA ou OA mbF)"
       },
       "description": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF) — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Ärztliches Personal\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {
@@ -4978,7 +4982,7 @@
         "it": "Fachärztin/-arzt per Radiologie con Schwerpunkt muskuloskelettale Radiologie (OA o OAmbF)",
         "en": "Radiology specialist with a focus on musculoskeletal radiology (OA or OAmbF)",
         "de": "Fachärztin/-arzt für Radiologie mit Schwerpunkt muskuloskelettale Radiologie (OA oder OAmbF)",
-        "fr": "Fachärztin/-arzt für Radiologie mit Schwerpunkt muskuloskelettale Radiologie (OA oder OAmbF)"
+        "fr": "Spécialiste de radiologie mettant l'accent sur la radiologie musculo-squelettique (OA ou OAmbF)"
       },
       "description": "Fachärztin/-arzt für Radiologie mit Schwerpunkt muskuloskelettale Radiologie (OA oder OAmbF) — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Ärztliches Personal\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {
@@ -5273,7 +5277,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-in-der-pneumologie-stgag-ch"
+          "oberarzt-arztin-in-der-pneumologie-stgag-ch",
+          "primario-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "oberarzt-arztin-in-der-pneumologie-stgag-ch"
@@ -5283,7 +5288,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -5749,7 +5753,7 @@
         "it": "Specialista in radiologia con focus sull'imaging del seno (OA o OAmbF)",
         "en": "Specialist in radiology with focus on breast imaging (OA or OAmbF)",
         "de": "Facharzt/-ärztin für Radiologie mit Schwerpunkt Brustbildgebung (OA oder OAmbF)",
-        "fr": "Facharzt/-ärztin für Radiologie mit Schwerpunkt Brustbildgebung (OA oder OAmbF)"
+        "fr": "Spécialiste de radiologie mettant l'accent sur l'imagerie mammaire (OA ou OAmbF)"
       },
       "description": "Facharzt/-ärztin für Radiologie mit Schwerpunkt Brustbildgebung (OA oder OAmbF) — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Ärztliches Personal\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
       "descriptionByLocale": {
@@ -5804,7 +5808,6 @@
         ]
       },
       "firstSeenAt": "2026-05-29T00:40:28.280Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6216,12 +6219,14 @@
         "de": [
           "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-stgag-ch",
           "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-befristet-bis-juli-2027-stgag-ch"
+          "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-befristet-bis-juli-2027-stgag-ch",
+          "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-stgag-munsterlingen"
         ],
         "it": [
           "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-stgag-ch",
           "fachfrau-mann-betreuung-fachbereich-kinder-come-springer-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-befristet-bis-juli-2027-stgag-ch"
+          "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-befristet-bis-juli-2027-stgag-ch",
+          "educatore-educatrice-per-l-infanzia-come-supplente-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "fachfrau-mann-betreuung-fachbereich-kinder-als-springer-stgag-ch"
@@ -6237,7 +6242,6 @@
         "fachfrau-mann-betreuung-fachbereich-kinder-come-springer-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "firstSeenAt": "2026-05-18T22:46:00.089Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6348,7 +6352,7 @@
       "title": "Vorpraktikant/-in Physio-/Ergotherapie",
       "titleByLocale": {
         "it": "Tirocinante fisioterapista/ergoterapista",
-        "en": "Vorpraktikant/-in Physio-/Ergotherapie",
+        "en": "Pre-practical/in physio/occupational therapy",
         "de": "Vorpraktikant/-in Physio-/Ergotherapie",
         "fr": "Traitement pré-pratique/inphysiologique/professionnel"
       },
@@ -6390,7 +6394,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorpraktikant-in-physio-ergotherapie-stgag-ch"
+          "vorpraktikant-in-physio-ergotherapie-stgag-ch",
+          "tirocinante-fisioterapista-ergoterapista-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "vorpraktikant-in-physio-ergotherapie-stgag-ch"
@@ -6589,7 +6594,7 @@
       "companyDomain": "stgag.ch",
       "title": "Spitalapotheker/-in FPH Spitalpharmazie / FPH Klinische Pharmazie",
       "titleByLocale": {
-        "it": "Spitalapotheker/-in FPH Spitalpharmazie / FPH Klinische Pharmazie",
+        "it": "Farmacia clinica /-in FPH Spitalpharmacy / farmacia clinica FPH",
         "en": "Hospital pharmacy /-in FPH Spitalpharmacy / FPH Clinical Pharmacy",
         "de": "Spitalapotheker/-in FPH Spitalpharmazie / FPH Klinische Pharmazie",
         "fr": "Pharmaceutique hospitalière/-in FPH Spitalpharmacy / FPH Pharmacie clinique"
@@ -6640,7 +6645,8 @@
           "farmacista-ospedaliero-fph-hospital-pharmacy-fph-clinical-pharmacy-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "spitalapotheker-in-fph-spitalpharmacy-fph-clinical-pharmacy-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "farmacista-ospedaliero-a-fph-farmacia-ospedaliera-fph-farmacia-clinica-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "farmacista-ospedaliero-fph-farmacia-ospedaliera-fph-farmacia-clinica-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "farmacista-ospedaliero-fph-farmacia-ospedaliera-fph-farmacia-clinica-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "farmacia-clinica-in-fph-spitalpharmacy-farmacia-clinica-fph-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch"
@@ -6678,7 +6684,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau im Pool",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau im Pool",
+        "it": "Dipl. Infermieristica professionale in piscina",
         "en": "Professional health EFZ in the Springerpool",
         "de": "Dipl. Pflegefachmann/-frau im Pool",
         "fr": "Santé professionnelle EFZ dans le Springerpool"
@@ -6734,7 +6740,8 @@
           "salute-professionale-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen",
           "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "dipl-professionista-in-piscina-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "dipl-professionista-in-piscina-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "dipl-infermieristica-professionale-in-piscina-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-im-pool-stgag-ch"
@@ -6748,7 +6755,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6777,7 +6783,7 @@
       "title": "Dipl. Experten/-in Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/a dipl. Cure d'emergenza NDS HF",
-        "en": "Dipl. Experten/-in Notfallpflege NDS HF",
+        "en": "Dipl. Experts in Emergency Care NDS HF",
         "de": "Dipl. Experten/-in Notfallpflege NDS HF",
         "fr": "Dipl. Experts en soins d'urgence NDS HF"
       },
@@ -6817,7 +6823,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experten-in-notfallpflege-nds-hf-stgag-ch"
+          "dipl-experten-in-notfallpflege-nds-hf-stgag-ch",
+          "esperto-a-dipl-cure-d-emergenza-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "dipl-experten-in-notfallpflege-nds-hf-stgag-ch"
@@ -7268,8 +7275,8 @@
       "id": "spital-thurgau-e4dcde94c1f6",
       "slug": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-        "en": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
+        "it": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
+        "en": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
         "de": "neuropsychologen-in-stgag-ch",
         "fr": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen"
       },
@@ -7281,7 +7288,7 @@
         "it": "Neuropsicologo/a",
         "en": "Neuropsychologist",
         "de": "Neuropsychologen/-in",
-        "fr": "Neuropsychologen/-in"
+        "fr": "Neuropsychologues"
       },
       "description": "Neuropsychologen/-in — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Psychologie\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
       "descriptionByLocale": {
@@ -7319,7 +7326,7 @@
         "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
         "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
         "psicologo-spital-thurgau-stgag-diessenhofen",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3",
         "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
@@ -7336,14 +7343,16 @@
           "neuropsychologen-in-stgag-ch",
           "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
           "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+          "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
+          "neuropsicologo-a-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
+          "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
           "neuropsychologist-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-12T12:03:26.832Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7472,7 +7481,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
       "titleByLocale": {
         "it": "Dipl. Expertin / Experte Intensivpflege NDS HF con Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
-        "en": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
+        "en": "Dipl. Expert / Expert Intensive Care NDS HF with additional function Implementation \"FICUS study\" 70-100 %",
         "de": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion Implementierung „FICUS-Studie“ 70-100%",
         "fr": "Dipl. Expert / Expert soins intensifs NDS HF avec fonction supplémentaire Mise en œuvre \"Etude FICUS\" 70-100 %"
       },
@@ -7516,7 +7525,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7706,7 +7714,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau",
+        "it": "Dipl. Infermieristica professionale/donna",
         "en": "Dipl. Nursing professional/woman",
         "de": "Dipl. Pflegefachmann/-frau",
         "fr": "Spécialiste diplômé en soins infirmiers"
@@ -7763,7 +7771,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:47:16.696Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7917,7 +7924,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T01:07:44.452Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7945,7 +7951,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Radiologiefachmann/-frau HF",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachmann/-frau HF",
+        "it": "Dipl. Specialista di radiologia HF",
         "en": "Dipl. Radiology specialist HF",
         "de": "Dipl. Radiologiefachmann/-frau HF",
         "fr": "Dipl. Spécialiste en radiologie HF"
@@ -7993,7 +7999,8 @@
           "dipl-radiologiefachmann-frau-hf-stgag-ch",
           "dipl-specialista-della-radiologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "specialista-in-radiologia-dipl-sss-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "specialista-in-radiologia-dipl-sss-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "specialista-diplomatico-in-radiologia-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "dipl-radiologiefachmann-frau-hf-stgag-ch"
@@ -8204,7 +8211,7 @@
       "title": "Dipl. Pflegefachmann/-frau Rehabilitation",
       "titleByLocale": {
         "it": "Dipl. Infermieristica riabilitazione specialistica",
-        "en": "Dipl. Pflegefachmann/-frau Rehabilitation",
+        "en": "Dipl. Nursing professional rehabilitation",
         "de": "Dipl. Pflegefachmann/-frau Rehabilitation",
         "fr": "Dipl. Réadaptation professionnelle des soins infirmiers"
       },
@@ -8246,7 +8253,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-rehabilitation-stgag-ch",
-          "dipl-pflegefachmann-frau-rehabilitation-spital-thurgau-stgag-diessenhofen"
+          "dipl-pflegefachmann-frau-rehabilitation-spital-thurgau-stgag-diessenhofen",
+          "dipl-infermieristica-riabilitazione-specialistica-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-rehabilitation-stgag-ch"
@@ -8256,7 +8264,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8323,7 +8330,8 @@
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
-          "ernahrungsberater-in-hf-bsc-stgag-ch"
+          "ernahrungsberater-in-hf-bsc-stgag-ch",
+          "nutrizionista-in-hf-bsc-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
           "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen"
@@ -8332,7 +8340,8 @@
           "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen"
         ],
         "de": [
-          "ernahrungsberater-in-hf-bsc-stgag-ch"
+          "ernahrungsberater-in-hf-bsc-stgag-ch",
+          "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
@@ -8341,7 +8350,6 @@
         "facharzt-arztin-per-radiologie-con-schwerpunkt-abdominelle-radiologie-oa-o-oa-mbf-spital-thurgau-stgag-kantonsspital-mun"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8417,7 +8425,8 @@
         "it": [
           "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-",
           "pharmaziepraktikanten-innen-4-6-monate-o-pharmazie-studierende-per-la-mantelassistenz-10-wochen-spital-thurgau-stgag-munsterlingen",
-          "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz"
+          "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz",
+          "pharmaziepraktikanten-innen-4-6-monate-o-pharmazie-studierende-per-la-mantelassistenz-10-wochen-spital-thurgau-stgag-mun"
         ],
         "en": [
           "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-"
@@ -8427,7 +8436,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8659,17 +8667,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "unterassistent-in-stgag-ch"
+          "unterassistent-in-stgag-ch",
+          "unterassistent-in-spital-thurgau-stgag-diessenhofen"
         ],
         "it": [
-          "unterassistent-in-stgag-ch"
+          "unterassistent-in-stgag-ch",
+          "sostanze-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-stgag-ch"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.983Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8698,7 +8707,7 @@
       "title": "Pflegeexperten/-in APN Psychiatrie",
       "titleByLocale": {
         "it": "Esperti di infermieristica/in psichiatria APN",
-        "en": "Pflegeexperten/-in APN Psychiatrie",
+        "en": "Nursing experts/in APN psychiatry",
         "de": "Pflegeexperten/-in APN Psychiatrie",
         "fr": "Experts en soins infirmiers/en psychiatrie APN"
       },
@@ -8741,7 +8750,8 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegeexperten-in-apn-psychiatrie-stgag-ch",
-          "esperti-infermieristici-apn-psichiatria-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "esperti-infermieristici-apn-psichiatria-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "esperti-infermieristici-apn-psichiatria-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "pflegeexperten-in-apn-psychiatrie-stgag-ch",
@@ -8755,7 +8765,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:30:56.839Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8863,16 +8872,16 @@
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik",
-        "en": "Dipl. Pflegefachmann/-frau Forensik",
-        "it": "Specialista Infermieristico Certificato in Medicina Legale",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik"
+        "en": "Dipl. Nursing professional forensics",
+        "it": "Dipl. Infermieristica professionale forense",
+        "fr": "Dipl. Services de médecine légale"
       },
       "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
       "descriptionByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
-        "it": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
-        "en": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026"
+        "it": "Dipl. Specialista infermieristica forense — Spital Thurgau (STGAG).\n\n• Ubicazione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (compresa l'ostetrica)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: a tempo pieno\n• Occupazione: permanente\n• Data di entrata: 01.07.2026",
+        "en": "Dipl. Nursing specialist forensics — Spital Thurgau (STGAG).\n\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (including midwife)\n• Area: Psychiatric Services Thurgau\n• Pensum: Full-time\n• Employment: Permanent\n• Date of entry: 01.07.2026",
+        "fr": "Dipl. Spécialiste des soins infirmiers — Spital Thurgau (STGAG).\n\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris la sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: Temps plein\n• Emploi permanent\n• Date d'entrée: 01.07.2026"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -8910,7 +8919,6 @@
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8939,7 +8947,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau HF/FH",
+        "it": "Dipl. Infermieristica professionale HF/FH",
         "en": "Dipl. Nursing Specialist HF/FH",
         "de": "Dipl. Pflegefachmann/-frau HF/FH",
         "fr": "Dipl. Spécialiste en soins infirmiers en HF/FH"
@@ -9003,7 +9011,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T13:01:39.781Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9117,7 +9124,7 @@
       "titleByLocale": {
         "it": "Applikations-Manager/-in amministrativo Fachapplikationen",
         "en": "Applikations-Manager/-in administrative Fachapplikationen",
-        "de": "Applikations-Manager/-in administrative Fachapplikationen",
+        "de": "Anwendungen-Manager/-in administrativen Fachapplikationen",
         "fr": "Applikations-Gestionnaire/-en administration Fachapplikationen"
       },
       "description": "Applikations-Manager/-in administrative Fachapplikationen — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Informatik\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
@@ -9153,10 +9160,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "anwendungen-manager-in-administrativen-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
         ],
         "it": [
-          "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
+          "applikations-manager-in-administrative-fachapplikationen-stgag-ch",
+          "applikations-manager-in-amministrativo-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "fr": [
           "applikations-manager-in-administrative-fachapplikationen-stgag-ch"
@@ -9435,7 +9444,7 @@
       "title": "Dipl. Experten/-in Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/a dipl. Cure d'emergenza NDS HF",
-        "en": "Dipl. Experten/-in Notfallpflege NDS HF",
+        "en": "Dipl. Experts in Emergency Care NDS HF",
         "de": "Dipl. Experten/-in Notfallpflege NDS HF",
         "fr": "Dipl. Experts en soins d'urgence NDS HF"
       },
@@ -9478,7 +9487,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-experten-in-notfallpflege-nds-hf-stgag-ch-2",
-          "dipl-experten-in-notfallpflege-nds-hf-stgag-ch"
+          "dipl-experten-in-notfallpflege-nds-hf-stgag-ch",
+          "esperto-a-dipl-cure-d-emergenza-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "dipl-experten-in-notfallpflege-nds-hf-stgag-munsterlingen"
@@ -9602,7 +9612,7 @@
         "it": "Dipl. Specialista di cura Psichiatria Centro Romanshorn",
         "en": "Dipl. Care specialist Psychiatry Center Romanshorn",
         "de": "Dipl. Pflegefachmann/-frau Psychiatriezentrum Romanshorn",
-        "fr": "Dipl. Pflegefachmann/-frau Psychiatriezentrum Romanshorn"
+        "fr": "Dipl. Spécialiste des soins infirmiers / centre de psychiatrie Romanshorn"
       },
       "description": "Dipl. Pflegefachmann/-frau Psychiatriezentrum Romanshorn — Spital Thurgau (STGAG).\n\n• Standort: Psychiatriezentrum, Romanshorn\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
       "descriptionByLocale": {
@@ -9657,7 +9667,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T13:42:37.321Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9685,7 +9694,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Radiologiefachmann/-frau HF",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachmann/-frau HF",
+        "it": "Dipl. Specialista di radiologia HF",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachmann/-frau HF",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -9735,7 +9744,8 @@
           "dipl-radiologiefachmann-frau-hf-stgag-ch-2",
           "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-specialista-di-radiologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "dipl-radiologiefachmann-frau-hf-stgag-ch"
+          "dipl-radiologiefachmann-frau-hf-stgag-ch",
+          "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen-9a9ff8"
         ],
         "en": [
           "dipl-radiologiefachmann-frau-hf-stgag-ch-2",
@@ -9752,7 +9762,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.616Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9868,7 +9877,7 @@
         "it": "Specialista in Radiologia",
         "en": "Specialist in Radiology",
         "de": "Facharzt/-ärztin für Radiologie",
-        "fr": "Facharzt/-ärztin für Radiologie"
+        "fr": "Spécialiste en radiologie"
       },
       "description": "Facharzt/-ärztin für Radiologie — Spital Thurgau (STGAG).\n\n• Standort: Radiologisches Diagnosezentrum Belmont, Chur\n• Abteilung: Ärztliches Personal\n• Bereich: Radiologie Südost (Diagnose Zentrum Belmont)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
       "descriptionByLocale": {
@@ -9923,7 +9932,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9951,7 +9959,7 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann HF",
+        "it": "Dipl. Specialista di radiologia HF",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann HF",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -9999,7 +10007,8 @@
         "it": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
           "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-chur",
-          "dipl-specialista-di-radiologia-spital-thurgau-stgag-chur"
+          "dipl-specialista-di-radiologia-spital-thurgau-stgag-chur",
+          "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
@@ -10016,7 +10025,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10529,10 +10537,10 @@
       "id": "spital-thurgau-54a9a9a172ab",
       "slug": "terapista-occupazionale-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "ergotherapeuten-in-spital-thurgau-stgag-munsterlingen",
+        "it": "terapista-occupazionale-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "en": "ergotherapeuten-in-spital-thurgau-stgag-munsterlingen",
         "de": "ergotherapeuten-in-stgag-munsterlingen",
-        "fr": "ergotherapeuten-in-spital-thurgau-stgag-munsterlingen"
+        "fr": "ergotherapeutes-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -10540,7 +10548,7 @@
       "title": "Ergotherapeuten/-in",
       "titleByLocale": {
         "it": "Terapista occupazionale",
-        "en": "Ergotherapeuten/-in",
+        "en": "Occupational therapists",
         "de": "Ergotherapeuten/-in",
         "fr": "ergothérapeutes"
       },
@@ -10577,27 +10585,30 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "ergotherapeuten-in-stgag-ch"
+          "ergotherapeuten-in-stgag-ch",
+          "ergotherapeuten-in-stgag-munsterlingen"
         ],
         "it": [
           "ergotherapeuten-in-stgag-ch",
-          "ergotherapeuten-in-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "ergotherapeuten-in-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "ergotherapeuten-in-spital-thurgau-stgag-munsterlingen",
+          "terapista-occupazionale-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "ergotherapeuten-in-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "fr": [
           "ergotherapeuten-in-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "ergotherapeuten-in-spital-thurgau-stgag-munsterlingen",
           "ergotherapeutes-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
       "previousSlugs": [
         "ergotherapeuten-in-stgag-ch",
         "ergotherapeuten-in-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "ergotherapeutes-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "ergotherapeuten-in-spital-thurgau-stgag-munsterlingen"
       ],
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10795,7 +10806,7 @@
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale forense",
-        "en": "Dipl. Pflegefachmann/-frau Forensik",
+        "en": "Dipl. Nursing professional forensics",
         "de": "Dipl. Pflegefachmann/-frau Forensik",
         "fr": "Spécialiste certifié en sciences infirmières et médico-légales"
       },
@@ -10864,7 +10875,8 @@
           "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
           "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen",
           "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
-          "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen"
+          "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
+          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen-7b0100",
@@ -10884,7 +10896,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T22:46:00.094Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10954,7 +10965,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztliche-standortleiterin-arztlichen-standortleiter-gastroenterologie-stgag-ch"
+          "arztliche-standortleiterin-arztlichen-standortleiter-gastroenterologie-stgag-ch",
+          "responsabile-del-sito-medico-responsabile-del-sito-medico-gastroenterologia-spital-thurgau-stgag-kantonsspital"
         ],
         "en": [
           "arztliche-standortleiterin-arztlichen-standortleiter-gastroenterologie-stgag-ch"
@@ -10964,7 +10976,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11034,7 +11045,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-je-nach-qualifikation-oa-mbf-gastroenterologie-stgag-ch"
+          "oberarzt-arztin-je-nach-qualifikation-oa-mbf-gastroenterologie-stgag-ch",
+          "primario-a-seconda-della-qualifica-oa-mbf-gastroenterologia-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
           "oberarzt-arztin-je-nach-qualifikation-oa-mbf-gastroenterologie-stgag-ch"
@@ -11044,7 +11056,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11449,10 +11460,13 @@
       "department": "Administration",
       "contractDuration": "permanent",
       "firstSeenAt": "2026-06-12T13:01:39.781Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mpa-arztsekretarin-stgag-ch"
+          "mpa-arztsekretarin-stgag-ch",
+          "mpa-segretario-medico-spital-thurgau-stgag-chur"
+        ],
+        "de": [
+          "mpa-arztsekretarin-stgag-munsterlingen"
         ],
         "en": [
           "mpa-arztsekretarin-stgag-ch"
@@ -11500,7 +11514,7 @@
       "descriptionByLocale": {
         "it": "Descrizione Per completare il nostro team di operazioni dinamiche, stiamo cercando un /s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s///////s/s/////s/s/s/s/s//s///////////s/s/s/s////s/s/s/s///////s///////////////////s/s/s/s/s///////////////////////////////////// Mansioni - Lei assume la fornitura, il test, il funzionamento e la cura di tutte le attrezzature necessarie in sala operatoria - preparazione e follow-up di strumenti e materiali - assistenza ai pazienti soprattutto in caso di chirurgia in anestesia locale - supporto degli studenti. Tipo: Tempo pieno, tempo parziale possibile - tempo fisso: indefinito",
         "en": "Descrizione To complement our dynamic operations team, we are looking for a graduate/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/s/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/skiller/s/skiller/skiller/s/skiller/s/s/skiller/s/skiller/s/s/s/skiller/s/skiller/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/skiller/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s Mansioni - You take over the provision, testing, operation and care of all equipment required in the operating room - preparation and follow-up of instruments and materials - care of patients especially in cases of surgery in local anesthesia - support of students\n• Requisiti - Diploma as specialist technician/wife Operationstechnik HF, TOA or equivalent training with recognition - joy in a varied operating room everyday life - team skills and flexibility Dettagli - Area: Med.-technisches & Med.-therapeutics Personal - Type: Full-time, part-time possible - fixed term: indefinite",
-        "de": "Dipl. Fachmann/-frau Operationstechnik HF — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Med.-technisches & Med.-therapeutisches Personal\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
+        "de": "Zur Ergänzung unseres dynamischen Operationsteams suchen wir ab sofort oder nach Vereinbarung eine/n Dipl. Fachmann/-frau Operationstechnik HF 80-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt, Wertschätzung und Innovation aus. Du übernimmst Instrumentation und Zudienung von Elektiv- und Notfalloperationen Bereitstellung, Prüfung, Bedienung und Pflege aller im OP benötigten Geräte Vor- und Nachbereitung der Instrumente und Materialien Betreuung der Patienten/-innen insbesondere bei Eingriffen in Lokalanästhesie Mitbetreuung der Studierenden Diplom als Fachfmann/-frau Operationstechnik HF, TOA oder gleichwertige Ausbildung mit Anerkennung Freude an einem abwechslungsreichen OP Alltag Teamfähigkeit und Flexibilität\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
         "fr": "Pour compléter notre équipe d'opérations dynamiques, nous recherchons diplom/skiller/skiller/skiller/skiller/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s Mansioni - Vous prenez en charge la fourniture, le test, le fonctionnement et les soins de tout l'équipement requis dans la salle d'opération - préparation et suivi des instruments et des matériaux - soins des patients en particulier en cas de chirurgie en anesthésie locale - soutien des étudiants\n• Requisiti - Diplôme de technicien spécialiste/femme Operationstechnik HF, TOA ou formation équivalente avec reconnaissance - joie dans une salle d'opération variée quotidien - compétences d'équipe et flexibilité Dettagli - Zone: Med.-technisches & Med.-therapeutics Personnel - Type: Temps plein, temps partiel possible - durée déterminée: indéfini"
       },
       "location": "Kantonsspital Frauenfeld",
@@ -11540,7 +11554,8 @@
           "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
           "dipl-fachmann-frau-operationstechnik-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
-          "specialista-in-tecnica-chirurgica-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "specialista-in-tecnica-chirurgica-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "specialista-diplomato-in-tecnica-chirurgica-dell-inconsanguine-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
@@ -11643,7 +11658,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.977Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11868,15 +11882,15 @@
       "titleByLocale": {
         "de": "Fachärztin/-arzt für Radiologie",
         "it": "Fachärztin/-arzt per Radiologie",
-        "en": "Fachärztin/-arzt für Radiologie",
-        "fr": "Fachärztin/-arzt für Radiologie"
+        "en": "Radiology specialist",
+        "fr": "Spécialiste de radiologie"
       },
       "description": "Fachärztin/-arzt für Radiologie — Spital Thurgau (STGAG).\n\n• Standort: Radiologie Nordost, Heerbrugg\n• Abteilung: Ärztliches Personal\n• Bereich: Radiologie Nordost AG Heerbrugg\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.01.2027",
       "descriptionByLocale": {
         "de": "Fachärztin/-arzt für Radiologie — Spital Thurgau (STGAG).\n\n• Standort: Radiologie Nordost, Heerbrugg\n• Abteilung: Ärztliches Personal\n• Bereich: Radiologie Nordost AG Heerbrugg\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.01.2027",
-        "it": "Fachärztin/-arzt für Radiologie — Spital Thurgau (STGAG).\n\n• Standort: Radiologie Nordost, Heerbrugg\n• Abteilung: Ärztliches Personal\n• Bereich: Radiologie Nordost AG Heerbrugg\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.01.2027",
-        "en": "Fachärztin/-arzt für Radiologie — Spital Thurgau (STGAG).\n\n• Standort: Radiologie Nordost, Heerbrugg\n• Abteilung: Ärztliches Personal\n• Bereich: Radiologie Nordost AG Heerbrugg\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.01.2027",
-        "fr": "Fachärztin/-arzt für Radiologie — Spital Thurgau (STGAG).\n\n• Standort: Radiologie Nordost, Heerbrugg\n• Abteilung: Ärztliches Personal\n• Bereich: Radiologie Nordost AG Heerbrugg\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.01.2027"
+        "it": "Specialista medico per la radiologia — Spital Thurgau (STGAG).\n\n• Ubicazione: Radiologia Northeast, Heerbrugg\n• Dipartimento: Personale medico\n• Divisione: Radiologia Nordost AG Heerbrugg\n• Pensum: tempo pieno, tempo parziale possibile\n• Occupazione: permanente\n• Data di entrata: 01.01.2027",
+        "en": "Medical specialist for radiology — Spital Thurgau (STGAG).\n\n• Location: Radiology Northeast, Heerbrugg\n• Department: Medical staff\n• Division: Radiology Nordost AG Heerbrugg\n• Pensum: full time, part time possible\n• Employment: Permanent\n• Date of entry: 01.01.2027",
+        "fr": "Spécialiste médical en radiologie — Spital Thurgau (STGAG).\n\n• Lieu: Radiologie Nord-Est, Heerbrugg\n• Département : Personnel médical\n• Division: Radiologie Nordost AG Heerbrugg\n• Pensum: temps plein, temps partiel possible\n• Emploi permanent\n• Date d'entrée: 01.01.2027"
       },
       "location": "Heerbrugg",
       "canton": "TG",
@@ -11904,7 +11918,6 @@
       },
       "department": "Ärztliches Personal",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "facharztin-arzt-fur-radiologie-stgag-ch"
@@ -11982,7 +11995,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-orthopadie-stgag-ch"
+          "arztsekretar-in-orthopadie-stgag-ch",
+          "arztsekretar-in-orthopala-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "arztsekretar-in-orthopadie-stgag-ch"
@@ -11992,7 +12006,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:58:00.356Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -12071,7 +12084,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:58:00.357Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -12188,7 +12200,7 @@
       "descriptionByLocale": {
         "it": "Per il nostro team, stiamo cercando un'infermiera dedicata che supporta la gestione della stazione professionale, organizzativa e in termini di personale e, insieme al team, assicura la qualità della cura psichiatrica forense. Se avete competenze di leadership, empatia e una passione per la cura incentrata sul paziente in un ambiente intraprofessionale, non vediamo l'ora della vostra applicazione. Siamo alla ricerca di un vice direttore della stazione presso il Center forensic Psychiatry 90-100% entro il 1o ottobre 2026 o d'accordo Lei lavora alla stazione Forensik 3, dove i pazienti sono principalmente ospitati secondo l'articolo 59 STGB, e se l'indicazione è fatta secondo l'articolo 60 STGB. Stai cercando un ambiente di lavoro che sia più di un semplice luogo di lavoro quotidiano? Con noi si sperimenta un'atmosfera di lavoro stimolante. La nostra cultura aziendale è caratterizzata da coesione, rispetto e apprezzamento. Prendilo. In funzione del deputato, si occupano compiti di gestione delegati e in assenza della gestione della stazione in doppia gestione insieme alla gestione terapeutica responsabile per la gestione organizzativa e operativa della stazione, nonché la gestione professionale del team di assistenza Cura professionale e cura dei nostri pazienti come caregiver Eseguire tutte le fasi del processo di cura dall'ingresso all'uscita. Partecipazione alle decisioni relative alla misura, ad esempio il rilassamento e le regole iniziali Pianificazione e attuazione delle attività milieuterapeutiche Co-design dei processi di trattamento e terapia, documentazione di cura e garanzia di qualità Pianificazione e progettazione dei processi di servizio e delle risorse, organizzazione dei turni e piani operativi Coordinamento dei processi e dei compiti con istituzioni pre e post supervisione o persone\n• Area: Cura (compresa l'ostetrica)\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo",
         "en": "For our team, we are looking for a dedicated nurse who supports the station management professionally, organizationally and in terms of personnel and, together with the team, ensures the quality of forensic psychiatric care. If you have leadership skills, empathy and a passion for patient-centered care in an intraprofessional environment, we look forward to your application. We are looking for a deputy station manager at the Center for Forensic Psychiatry 90-100% by 1 October 2026 or by agreement You work at Station Forensik 3, where patients are mainly accommodated in accordance with Article 59 STGB, and if the indication is made in accordance with Article 60 STGB. Are you looking for a working environment that is more than just a place of daily work? With us you experience an inspiring working atmosphere. Our corporate culture is characterized by cohesion, respect and appreciation. You take over In the function of deputy, you take on delegated management tasks and in the absence of the station management care in dual management together with the responsible therapeutic management responsible for the organizational and operational management of the station as well as the professional management of the care team Professional care and care of our patients as a caregiver Carry out all steps of the care process from admission to exit. Participation in decisions relevant to the measure, e.g. relaxation and initial rules Planning and implementation of milieutherapeutic activities Co-design of treatment and therapy processes, nursing documentation and quality assurance Planning and design of service and resource processes, shift organization and operational plans Coordination of processes and tasks with pre- and post-supervising institutions or Persons\n• Area: Care (including midwife)\n• Type: Full-time, part-time\n• Temporary term: perpetual",
-        "de": "Stellvertretende/-r Stationsleiter/-in im Zentrum für forensische Psychiatrie — Spital Thurgau (STGAG).\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
+        "de": "Für unser Team suchen wir eine engagierte Pflegefachperson, welche die Stationsleitung fachlich, organisatorisch und personell unterstützt und gemeinsam mit dem Team die Qualität der forensisch-psychiatrischen Versorgung sichert. Wenn du Führungsqualitäten, Empathie und eine Leidenschaft für eine patientenzentrierte Pflege in einem intraprofessionellen Umfeld mitbringen, freuen wir uns auf deine Bewerbung. Wir suchen per 1. Oktober 2026 oder nach Vereinbarung eine/n Stellvertretende/-r Stationsleiter/-in im Zentrum für forensische Psychiatrie 90-100% Du arbeitest auf der Station Forensik 3, auf der vorwiegend Patienten/-innen nach Artikel 59 STGB, bei entsprechender Indikationsstellung auch nach Artikel 60 STGB, untergebracht sind. Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst In der Funktion der Stellvertretung übernimmst du delegierte Führungsaufgaben und bist in Abwesenheit der Stationsleitung Pflege in dualer Führung gemeinsam mit der zuständigen Therapeutischen Leitung verantwortlich für die organisatorische und operative Führung der Station sowie die fachliche Führung des Pflegeteams Professionelle Pflege und Betreuung unserer Patientinnen und Patienten als Bezugsperson Durchführung aller Schritte des Pflegeprozesses von Aufnahme bis Austritt. Mitwirkung bei massnahmerelevanten Entscheidungen, z. B. Lockerungen und Ausgangsregelungen Planung und Durchführung milieutherapeutischer Aktivitäten Mitgestaltung von Behandlungs- und Therapieabläufen, Pflegedokumentation und Qualitätssicherung Planung und Gestaltung von Dienst- und Ressourcenabläufen, Schichtorganisation und Einsatzplänen Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen bzw. Personen\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
         "fr": "Pour notre équipe, nous sommes à la recherche d'une infirmière dévouée qui soutient la gestion du poste de façon professionnelle, organisationnelle et en termes de personnel et, avec l'équipe, assure la qualité des soins psychiatriques médico-légaux. Si vous avez des compétences en leadership, de l'empathie et une passion pour les soins axés sur le patient dans un environnement intraprofessionnel, nous attendons avec impatience votre candidature. Nous sommes à la recherche d'un directeur adjoint de station au Centre de psychiatrie légale 90-100% avant le 1er octobre 2026 ou par accord Vous travaillez à la station Forensik 3, où les patients sont principalement logés conformément à l'article 59 STGB, et si l'indication est faite conformément à l'article 60 STGB. Vous cherchez un environnement de travail qui est plus qu'un lieu de travail quotidien? Avec nous, vous vivez une atmosphère de travail inspirante. Notre culture d'entreprise se caractérise par la cohésion, le respect et l'appréciation. Tu prends le relais Dans la fonction d'adjoint, vous assumez des tâches de gestion déléguées et en l'absence des soins de gestion de station dans la double gestion ainsi que la gestion thérapeutique responsable de la gestion organisationnelle et opérationnelle de la station ainsi que la gestion professionnelle de l'équipe de soins Soins professionnels et soins de nos patients en tant que soignant Effectuer toutes les étapes du processus de soins de l'admission à la sortie. Participation aux décisions relatives à la mesure, par exemple assouplissement et règles initiales Planification et mise en œuvre des activités en milieu thérapeutique Co-conception des processus de traitement et de thérapie, documentation infirmière et assurance qualité Planification et conception des processus de services et de ressources, organisation des équipes et plans opérationnels Coordination des processus et des tâches avec les institutions ou les personnes précédant et suivant la supervision\n• Zone: soins (y compris la sage-femme)\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel"
       },
       "location": "Münsterlingen",
@@ -12432,7 +12444,7 @@
       "descriptionByLocale": {
         "it": "Per il corso HF Operationstechnik stiamo cercando uno studente/i/i HF Operationstechnik 100% State cercando una nuova sfida, avete una abilità manuale e vi piace lavorare in squadra? Allora siete esattamente a destra con noi.\n• Stiamo cercando uno studente/i per il corso HF Operationstechnik per l'inizio nell'autunno 2025. Vi sentite indirizzati e interessati? Allora siamo lieti di ricevere la vostra domanda dopo il completamento della procedura di ammissione al Careum Bildungszentrum di Zurigo. Mansioni - Lei assume servizi e strumentazione aggiuntivi secondo il programma quadro - Pre- e post-preparazione per le varie operazioni - Cura e cura dei pazienti: Controllata del gruppo di esperti. I nostri ospedali acuti offrono circa 32.000 pazienti all'anno e offrono una gamma completa di servizi in un'infrastruttura di alta qualità. L'ospedale è uno dei gruppi ospedalieri più grandi e di maggior successo in Svizzera e conta circa 4100 dipendenti in varie sedi aziendali.\n• Offriamo ambienti di lavoro attraenti, cooperazione interdisciplinare e opportunità di sviluppo mirate. Contatto - Preferiamo le domande dirette, i broker di lavoro si prega di astenersi dal contattarci. TUTTE LE NOSTRE STELLE APERTE - Settore: Personale medico-tecnico e med.-terapeutico - Tipo: tempo pieno - Formazione temporanea:",
         "en": "Descrizione For the HF Operationstechnik course we are looking for a student/s student/s HF Operationstechnik 100% Are you looking for a new challenge, have a manual skill and like to work in the team? Then you are exactly right with us. We are looking for a student/s for the HF Operationstechnik course for the start in autumn 2025. Do you feel addressed and interested? Then we are looking forward to your application after the completion of the admission procedure at the Careum Bildungszentrum in Zurich. Mansioni - You take over additional services and instrumentation according to the framework curriculum - Pre- and post-preparation for the various operations - Care and care of patients\n• Requisiti - Completed 3-year vocational education or middle school degree and passed admission - Residence, during the last two years, in Switzerland (foreign applicants are accepted if they finance the vocational school themselves) - Joy at working in the team - Standalone personality Cosa offiamo - The cantonal hospitals Frauenfeld & Münsterlingen belong to the Spital Thurgau AG, a Subsidiary of thurmed Group. Our acute hospitals provide approximately 32,000 inpatients per year and offer a comprehensive range of services in a high-quality infrastructure. The hospital is one of the largest and most successful hospital groups in Switzerland and has around 4,100 employees at various corporate locations.\n• We offer attractive working environments, interdisciplinary cooperation and targeted development opportunities. Become part of our success story! Contatto - We prefer direct applications, job brokers please refrain from contacting us. ALL OUR OPEN STELLES - Area: Med.-technical & med.-therapeutic staff - Type: full-time - Temporary: training",
-        "de": "Studierenden/-e HF Operationstechnik — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Med.-technisches & Med.-therapeutisches Personal\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 14.09.2026",
+        "de": "Für den Bildungsgang HF Operationstechnik suchen wir per 14. September 2026 eine/n Studierenden/-e HF Operationstechnik 100% Suchst du nach einer neuen Herausforderung, verfügst über ein manuelles Geschick und arbeitest gerne im Team? Dann bist du bei uns genau richtig. Wir suchen ein/e Studierende/r für den Bildungsgang HF Operationstechnik für den Start im Herbst 2025. Fühlst du dich angesprochen und bist interessiert? Dann freuen wir uns über deine Bewerbung nach abgeschlossenem Zulassungsverfahren am Careum Bildungszentrum in Zürich. Sie übernehmen Zudienen und Instrumentieren gemäss Rahmenlehrplan Vor- und Nachbereiten für die verschiedenen Operationen Pflege und Betreuung der Patienten/-innen Abgeschlossene 3-jährige Berufslehre oder Mittelschulabschluss und bestandene Zulassung Wohnsitz, während der letzten zwei Jahren, in der Schweiz (ausländische Bewerber/-innen werden angenommen, wenn sie die Berufsschule selber finanzieren) Freude an der Arbeit im Team Aufgestellte Persönlichkeit Die Kantonsspitäler Frauenfeld & Münsterlingen gehören zur Spital Thurgau AG, einer Tochtergesellschaft der thurmed Gruppe. Unsere Akutspitäler versorgen jährlich rund 32'000 stationäre Patientinnen und Patienten und bieten ein umfassendes Leistungsangebot in einer hochwertigen Infrastruktur. Die Spital Thurgau ist eine der grössten und erfolgreichsten Spitalgruppen der Schweiz und zählt rund 4'100 Mitarbeitende an verschiedensten Unternehmensstandorten. Wir bieten attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werden auch Sie Teil unserer Erfolgsgeschichte! Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Vollzeit\n• Befristung: Ausbildung",
         "fr": "Descrizione Pour le cours HF Operationstechnik nous recherchons un étudiant/s HF Operationstechnik 100% Vous cherchez un nouveau défi, avez une compétence manuelle et aimez travailler en équipe? Alors vous avez raison avec nous. Nous recherchons un étudiant/s pour le cours HF Operationstechnik pour le début à l'automne 2025. Vous vous sentez adressé et intéressé? Ensuite, nous attendons avec impatience votre candidature après la fin de la procédure d'admission au Careum Bildungszentrum à Zurich. Mansioni - Vous prenez en charge des services et des instruments supplémentaires selon le programme-cadre - Pré- et post-préparation pour les différentes opérations - Soins et soins des patients\n• Requisiti - Terminé 3 ans d'enseignement professionnel ou de diplôme d'études secondaires et passé l'admission - Résidence, au cours des deux dernières années, en Suisse (les candidats étrangers sont acceptés s'ils financent l'école professionnelle eux-mêmes) - Joy à travailler dans l'équipe - Personnalité autonome Cosa offiamo - Les hôpitaux cantonaux Frauenfeld & Münsterlingen appartiennent à la Spital Thurgau AG, une Filiale du groupe thurmed. Nos hôpitaux actifs offrent environ 32 000 hospitalisations par an et offrent une gamme complète de services dans une infrastructure de haute qualité. L'hôpital est l'un des groupes hospitaliers les plus importants et les plus réussis en Suisse et compte environ 4 100 employés dans divers lieux d'affaires.\n• Nous offrons des environnements de travail attrayants, une coopération interdisciplinaire et des opportunités de développement ciblées. Contatto - Nous préférons les demandes directes, les courtiers d'emploi s'il vous plaît s'abstenir de nous contacter. TOUTES NOS STELLES OUVERTES - Zone: Med.-technique & med.-thérapeutique staff - Type: temps plein - Temporaire: formation"
       },
       "location": "Kantonsspital Frauenfeld",
@@ -12462,12 +12474,14 @@
       "previousSlugsByLocale": {
         "de": [
           "studierenden-e-hf-operationstechnik-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "studierenden-e-hf-operationstechnik-stgag-ch"
+          "studierenden-e-hf-operationstechnik-stgag-ch",
+          "studierenden-e-hf-operationstechnik-stgag-munsterlingen"
         ],
         "it": [
           "studierenden-e-hf-operationstechnik-stgag-ch",
           "studierenden-e-hf-operationstechnik-spital-thurgau-stgag-kantonsspital-frauenfeld",
-          "studenti-e-tecnica-chirurgica-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "studenti-e-tecnica-chirurgica-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "studenti-hf-ingegneria-chirurgica-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "studierenden-e-hf-operationstechnik-spital-thurgau-stgag-kantonsspital-frauenfeld",
@@ -12519,15 +12533,15 @@
       "titleByLocale": {
         "de": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027",
         "it": "Lehrstellen come Fachfrau/-mann Gesundheit (FaGe) 2027",
-        "en": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027",
-        "fr": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027"
+        "en": "Apprenticeships as a Health Professional (FaGe) 2027",
+        "fr": "Apprentissage comme professionnel de la santé (FaGe) 2027"
       },
       "description": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Abteilung: Bildung\n• Bereich: Ausbildung Pflege (Spital Thurgau AG)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027",
       "descriptionByLocale": {
         "de": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Abteilung: Bildung\n• Bereich: Ausbildung Pflege (Spital Thurgau AG)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027",
-        "it": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Abteilung: Bildung\n• Bereich: Ausbildung Pflege (Spital Thurgau AG)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027",
-        "en": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Abteilung: Bildung\n• Bereich: Ausbildung Pflege (Spital Thurgau AG)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027",
-        "fr": "Lehrstellen als Fachfrau/-mann Gesundheit (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Abteilung: Bildung\n• Bereich: Ausbildung Pflege (Spital Thurgau AG)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027"
+        "it": "Apprendisti come specialista in salute (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Dipartimento: Istruzione\n• Area: Formazione (Spital Thurgau AG)\n• Pensum: a tempo pieno\n• Occupazione: Formazione\n• Data di entrata: 01.08.2027",
+        "en": "Apprenticeships as a specialist in health (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Department: Education\n• Area: Training Care (Spital Thurgau AG)\n• Pensum: Full-time\n• Employment: Training\n• Date of entry: 01.08.2027",
+        "fr": "Apprentissage en tant que spécialiste de la santé (FaGe) 2027 — Spital Thurgau (STGAG).\n\n• Département: Éducation\n• Domaine: Soins de formation (Spital Thurgau AG)\n• Pensum: Temps plein\n• Emploi: formation\n• Date d'entrée: 01.08.2027"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -12555,7 +12569,6 @@
       },
       "department": "Bildung",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrstellen-als-fachfrau-mann-gesundheit-fage-2027-stgag-ch"

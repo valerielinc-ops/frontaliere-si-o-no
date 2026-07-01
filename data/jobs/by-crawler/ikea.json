@@ -66,7 +66,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.296Z",
-      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -181,7 +180,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.365Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -719,15 +717,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch",
-        "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen",
         "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch",
-        "employe-ikea-bistro-boutique-suedoise-20-50-ikea-st-gallen-sankt-gallen-switzerland"
+        "employe-ikea-bistro-boutique-suedoise-20-50-ikea-st-gallen-sankt-gallen-switzerland",
+        "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach",
+        "employee-ikea-bistro-swedish-shop-20-ikea-spreitenbach",
+        "employe-e-ikea-bistro-boutique-suedoise-20-ikea-spreitenbach",
+        "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch",
-          "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen",
-          "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach"
+          "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-28T11:10:59.600Z",
@@ -1031,7 +1031,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:29:45.789Z",
-      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "baseSalary": {
@@ -1328,7 +1327,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T11:38:56.919Z",
-      "needsRetranslation": true,
       "salaryMin": 34800,
       "salaryMax": 53000,
       "baseSalary": {
@@ -1400,7 +1398,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.374Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1535,19 +1532,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
-        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
         "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
         "vendeur-trice-en-marche-et-auto-service-100-ikea-lyssach",
         "dipendenti-in-vendita-self-service-hall-100-ikea-st-gallen",
         "employee-sales-self-service-hall-100-ikea-st-gallen",
         "mitarbeiter-in-verkauf-selbstbedienungshalle-100-ikea-ch",
-        "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen"
+        "salle-de-libre-service-des-ventes-des-employes-a-100-ikea-st-gallen",
+        "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland",
+        "employee-sales-self-service-hall-40-ikea-dietlikon",
+        "salle-de-vente-libre-service-des-employes-40-ikea-dietlikon",
+        "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-selbstbedienungshalle-40-ikea-ch",
-          "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
-          "addetto-a-alle-vendite-selbstbedienungshalle-40-ikea-dietlikon-zurich-switzerland"
+          "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach"
         ]
       },
       "firstSeenAt": "2026-06-30T22:37:25.894Z",
@@ -1804,7 +1803,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Cuisine IKEA 40%",
+        "it": "IKEA Cucina Collaboratore 40%",
         "en": "Collaborator: IKEA Cuisine 40%",
         "de": "Mitarbeiter: IKEA Cuisine 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -1850,7 +1849,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.304Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -1878,7 +1876,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Bistro & SFM IKEA-30%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Bistro & SFM IKEA-30%",
+        "it": "Collaboratore*tre Bistro & SFM IKEA-30%",
         "en": "Collaborator: Bistro & SFM IKEA, 30%",
         "de": "Mitarbeiter: Bistro & SFM IKEA, 30%",
         "fr": "Collaborateur*trice Bistro & SFM IKEA-30%"
@@ -1924,7 +1922,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T11:38:56.933Z",
-      "needsRetranslation": true,
       "salaryMin": 18200,
       "salaryMax": 27500,
       "baseSalary": {
