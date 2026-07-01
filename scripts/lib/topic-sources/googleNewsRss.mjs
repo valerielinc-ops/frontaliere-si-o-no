@@ -89,6 +89,16 @@ const SEEDS_FALLBACK = [
   'salari frontalieri Ticino',
   'frontalieri Chiasso permesso lavoro',
   'frontaliere Varese Como Ticino',
+  // 2026-07-01 (issue #3138 Leva #1): angles absent from the pool above —
+  // INPS/Agenzia Entrate procedural news and cross-border life-events —
+  // each seed keeps a frontaliere/Svizzera anchor term so results still
+  // pass the FRONTALIERI_DOMAIN_RE positive filter below.
+  'INPS pensione frontalieri Svizzera Italia',
+  'totalizzazione contributi AVS INPS frontalieri',
+  'Agenzia delle Entrate frontalieri dichiarazione redditi',
+  'successione eredità frontalieri Svizzera Italia',
+  'matrimonio frontalieri Svizzera Italia fiscale',
+  'comuni di confine Ticino frontalieri lavoro',
 ];
 
 const REQUEST_TIMEOUT_MS = 15000;
