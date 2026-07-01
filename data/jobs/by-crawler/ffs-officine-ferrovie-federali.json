@@ -2265,7 +2265,7 @@
         "it": "gestore-immobiliare-con-responsabilita-per-il-partner-management-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "en": "property-manager-with-responsibility-for-partner-management-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "de": "immobilienmanager-mit-verantwortung-fur-das-partnermanagement-m-w-d-ffs-officine-ferrovie-federali-bellinzona",
-        "fr": "gestore-immobiliare-con-responsabilita-per-il-partner-management-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
+        "fr": "gestionnaire-immobilier-responsable-de-la-gestion-des-partenaires-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2319,16 +2319,10 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-06-30T23:33:39.163Z",
       "previousSlugs": [
-        "gestionnaire-immobilier-responsable-de-la-gestion-des-partenaires-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "real-estate-manager-with-responsibility-for-partner-management-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "immobilienmanager-mit-verantwortung-fur-partnermanagement-m-w-d-ffs-officine-ferrovie-federali-bellinzona"
       ],
       "firstSeenAt": "2026-06-23T12:17:00.081Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-immobilier-responsable-de-la-gestion-des-partenaires-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
-        ]
-      },
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -6628,9 +6622,9 @@
     },
     {
       "id": "sbb-582b0eef6e2f",
-      "slug": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "transport-shift-leader-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "transportschichtleiter-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne"
@@ -6688,12 +6682,11 @@
       "crawledAt": "2026-06-30T23:42:19.241Z",
       "previousSlugs": [
         "capo-turno-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-        "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
+        "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "capo-turno-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-          "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
           "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },

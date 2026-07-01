@@ -102,12 +102,12 @@
         "en": "PostBus driver:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-chur",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -142,7 +142,18 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "postalCode": "7000",
-      "firstSeenAt": "2026-06-30T23:30:54.274Z"
+      "firstSeenAt": "2026-06-30T23:30:54.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74057-de_DE",
