@@ -799,6 +799,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.applicazione-accordi-frontalieri-svizzera.title': 'Implementation of cross-border commuter agreements is in Switzerland\'s interest',
     'blog.article.applicazione-accordi-frontalieri-svizzera.excerpt': 'Federal Councillor Karin Keller-Sutter met with Italian Finance Minister Giancarlo Giorgetti to discuss international financial and tax issues.',
     'blog.article.applicazione-accordi-frontalieri-svizzera.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.giornate-soletta-finanza-2026.title': 'Solothurn Film Festival 2026: The Financial Challenge Continues',
+    'blog.article.giornate-soletta-finanza-2026.excerpt': 'The Solothurn film festival recorded 65,000 spectators, but is facing financial difficulties with an operating result of 39,000 francs in the red.',
+    'blog.article.giornate-soletta-finanza-2026.imageAlt': 'Panoramic view of the Solothurn Film Days with spectators and films being screened.',
 };
 
 export default blogMetaChEn;
