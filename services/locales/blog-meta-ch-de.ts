@@ -808,6 +808,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.quellensteuer-tarife-2026.title': 'Quellensteuer-Tarife 2026: News & Auswirkungen',
     'blog.article.quellensteuer-tarife-2026.excerpt': 'Erfahren Sie mehr über die neuen Quellensteuer-Tarife für 2026 und deren Auswirkungen auf grenzüberschreitende Pendler in Tessin, Graubünden, Wallis und Bern.',
     'blog.article.quellensteuer-tarife-2026.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.strategie-cambio-chf-eur-2026.title': 'CHF-EUR-Austauschstrategien für Familien mit Kindern im Jahr 2026',
+    'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Ein praktischer Leitfaden zu CHF-EUR-Austauschstrategien für grenzüberschreitende Familien mit Kindern im Jahr 2026, mit Schwerpunkt auf Timing, Risiko und praktischen Werkzeugen.',
+    'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Wechselstube in Lugano, Tessin, Schweiz',
 };
 
 export default blogMetaChDe;

@@ -292,6 +292,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'giornate-soletta-finanza-2026': { it: 'giornate-soletta-finanza-2026', en: 'solothurn-film-days-finance-2026', de: 'solothurner-filmtage-finanz-2026', fr: 'journees-de-soleure-finances-2026' },
  'referendum-salari-minimi-ccl': { it: 'referendum-salari-minimi-ccl', en: 'switzerland-minimum-wage-referendum', de: 'referendum-mindestlohn-schweiz', fr: 'referendum-salaire-minimum-suisse' },
  'quellensteuer-tarife-2026': { it: 'quellensteuer-tarife-2026', en: 'quellensteuer-tarife-2026', de: 'quellensteuer-tarife-2026', fr: 'quellensteuer-tarife-2026' },
+ 'strategie-cambio-chf-eur-2026': { it: 'strategie-cambio-chf-eur-2026', en: 'chf-eur-exchange-strategies-2026-family-children', de: 'chf-eur-umtausch-strategien-2026-familie-kinder', fr: 'strategies-change-chf-eur-2026-famille-enfants' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
