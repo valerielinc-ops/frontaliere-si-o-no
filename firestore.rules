@@ -324,7 +324,13 @@ service cloud.firestore {
             : false));
     }
     match /journalist_articles/{articleId} {
-      allow read: if isSignedIn() && request.auth.uid == resource.data.authorUid;
+      // `resource == null` (doc doesn't exist yet) must be allowed to read-through
+      // to a clean "not found" — otherwise dereferencing `.data` on a null resource
+      // throws a rules-evaluation error, which Firestore surfaces to the client as
+      // PERMISSION_DENIED. That broke both the new-draft id-collision check in
+      // createDraft() and the dashboard's slug-availability check, since both
+      // call getDoc() on an article id that doesn't exist yet for a brand-new draft.
+      allow read: if isSignedIn() && (resource == null || request.auth.uid == resource.data.authorUid);
       allow create: if isSignedIn()
         && isActiveJournalist()
         && request.resource.data.authorUid == request.auth.uid
