@@ -399,6 +399,37 @@ describe('Router — employer insights companyKey segment', () => {
   });
 });
 
+/* ─────────── Author profile pages (/autori/{slug}/) ─────────── */
+
+describe('Router — author profile slug segment', () => {
+  // Regression: parsePath never had a branch for /autori/{slug}/, so the SPA
+  // fell through to the notFoundPath fallback on hydrate and replaced the
+  // correct static HTML with "Pagina non trovata" for every author page
+  // (reported live for /autori/samuele-valente/, but affected all authors).
+  const cases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/autori/samuele-valente/', locale: 'it' },
+    { path: '/en/authors/samuele-valente/', locale: 'en' },
+    { path: '/de/autoren/samuele-valente/', locale: 'de' },
+    { path: '/fr/auteurs/samuele-valente/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of cases) {
+    it(`parsePath resolves ${path} to activeTab='autore'`, () => {
+      const { route, locale: parsedLocale } = parsePath(path);
+      expect(route.activeTab).toBe('autore');
+      expect(route.author).toBe('samuele-valente');
+      expect(parsedLocale).toBe(locale);
+    });
+  }
+
+  it('buildPath round-trips the author slug for each locale', () => {
+    expect(buildPath({ activeTab: 'autore', author: 'samuele-valente' }, 'it')).toBe('/autori/samuele-valente/');
+    expect(buildPath({ activeTab: 'autore', author: 'samuele-valente' }, 'en')).toBe('/en/authors/samuele-valente/');
+    expect(buildPath({ activeTab: 'autore', author: 'samuele-valente' }, 'de')).toBe('/de/autoren/samuele-valente/');
+    expect(buildPath({ activeTab: 'autore', author: 'samuele-valente' }, 'fr')).toBe('/fr/auteurs/samuele-valente/');
+  });
+});
+
 /* ─────────── parsePath/buildPath round-trip symmetry (issue #2698) ─────────── */
 
 /**
