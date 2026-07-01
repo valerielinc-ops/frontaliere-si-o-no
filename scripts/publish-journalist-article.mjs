@@ -45,7 +45,12 @@ import {
   sanitizeBoldFormatting,
   validateAndEnforceCTA,
   optimizeSeoMetadata,
+  normalizeTitleCasing,
+  splitBodyIntoSections,
+  generateExcerpt,
 } from './create-article.mjs';
+import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
+import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
@@ -97,14 +102,20 @@ async function initDb() {
 }
 
 /** Build the `data` object create-article.mjs's exported functions expect,
- * from a journalist_articles Firestore doc (services/journalistTypes.ts shape). */
+ * from a journalist_articles Firestore doc (services/journalistTypes.ts shape).
+ * The journalist only authors {title, body} — deriveJournalistContent() below
+ * fills in body1/body2/body3/excerpt/faq before the rest of the shared
+ * pipeline (which still expects that shape) runs. */
 function buildPipelineData(docId, doc) {
   const it = doc.content?.it;
-  for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
+  for (const field of ['title', 'body']) {
     if (!it?.[field]) throw new Error(`content.it.${field} is required`);
   }
   const id = slugify(docId) || docId;
   const category = CATEGORIES.includes(doc.category) ? doc.category : 'novita';
+  // Sentence-case normalization is authoritative here (issue #3174 redesign) —
+  // whatever casing the journalist typed, this is the title that gets saved.
+  const title = normalizeTitleCasing(it.title);
 
   return {
     id,
@@ -117,20 +128,17 @@ function buildPipelineData(docId, doc) {
     // auto-generation uses (it never translates alt text either — see its
     // `data.imageAlt = { it/en/de/fr: ... itTitle ... }` fallback block).
     imageAlt: {
-      it: doc.imageAlt || `Immagine editoriale relativa a: ${it.title}`,
-      en: `Editorial image related to: ${it.title}`,
-      de: `Redaktionelles Bild zu: ${it.title}`,
-      fr: `Image éditoriale relative à: ${it.title}`,
+      it: doc.imageAlt || `Immagine editoriale relativa a: ${title}`,
+      en: `Editorial image related to: ${title}`,
+      de: `Redaktionelles Bild zu: ${title}`,
+      fr: `Image éditoriale relative à: ${title}`,
     },
     slugs: { it: id },
     content: {
       it: {
-        title: it.title,
-        excerpt: it.excerpt,
-        body1: it.body1,
-        body2: it.body2,
-        body3: it.body3,
-        faq: Array.isArray(it.faq) ? it.faq : [],
+        title,
+        // excerpt/body1/body2/body3/faq are filled in by
+        // deriveJournalistContent() before optimizeSeoMetadata() runs.
       },
     },
     // Fully computed by optimizeSeoMetadata() below (title/description/ogTitle/
@@ -141,6 +149,26 @@ function buildPipelineData(docId, doc) {
     // that message so the journalist can pick a different title).
     seo: {},
   };
+}
+
+/** Derive body1/body2/body3/excerpt/faq from the journalist's single
+ * free-text body — mirrors what the automated generation pipeline produces
+ * in one combined LLM call, but as separate lightweight steps since the
+ * journalist supplies title+body only (issue #3174 redesign). Must run
+ * before optimizeSeoMetadata()/translateArticle()/etc., which still consume
+ * the body1/body2/body3/excerpt/faq shape. */
+async function deriveJournalistContent(data, rawBody) {
+  console.log('  ✂️  splitting body into sections (splitBodyIntoSections)...');
+  const { body1, body2, body3 } = await splitBodyIntoSections(rawBody, data.content.it.title);
+  data.content.it.body1 = body1;
+  data.content.it.body2 = body2;
+  data.content.it.body3 = body3;
+
+  console.log('  📝 generating excerpt (generateExcerpt)...');
+  data.content.it.excerpt = await generateExcerpt(data.content.it.title, body1, body2, body3);
+
+  console.log('  ❓ generating FAQ (generateFaqIT)...');
+  data.content.it.faq = await generateFaqIT(data.id, rawBody);
 }
 
 /** After translateArticle() has filled content.en/de/fr, derive + sanitize
@@ -160,6 +188,13 @@ function deriveLocaleSlugs(data) {
  * back to the SAME keyword-match / static fallback the AI pipeline uses. */
 async function resolveHeroImage(data, doc) {
   const rawImage = String(doc.image || '').trim();
+  // A catalog pick from the local, non-AI cover-image picker: already an
+  // optimized webp sitting in public/images/blog — reuse it as-is, exactly
+  // like findBestFallbackImage()'s own results below (no download/reprocess).
+  if (/^\/images\//.test(rawImage)) {
+    data._generatedImagePath = rawImage;
+    return { source: 'catalog-pick', path: rawImage };
+  }
   if (/^https?:\/\//i.test(rawImage)) {
     try {
       const res = await fetch(rawImage, { signal: AbortSignal.timeout(20000) });
@@ -185,6 +220,7 @@ async function resolveHeroImage(data, doc) {
         size = await render(quality);
       }
       data._generatedImagePath = `/images/blog/${data.id}.webp`;
+      appendCatalogEntry(data._generatedImagePath);
       return { source: 'journalist-upload', bytes: size };
     } catch (err) {
       console.warn(`  ⚠️  custom hero image download/processing failed (non-fatal): ${err.message}`);
@@ -258,6 +294,8 @@ async function processDoc(db, FieldValue, docSnap) {
       console.warn(`  ⚠️  ${data.id}: id already registered — marked failed.`);
       return { ok: false };
     }
+
+    await deriveJournalistContent(data, doc.content.it.body);
 
     console.log('  🪪 optimizing SEO metadata (optimizeSeoMetadata)...');
     optimizeSeoMetadata(data);
