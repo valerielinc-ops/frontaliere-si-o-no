@@ -2243,6 +2243,14 @@ function isCantonStaticOverlaySlug(slug: string): boolean {
   return false;
 }
 
+/** First-segment word for author profile pages (`/autori/{slug}/`), per locale — mirrors services/seo/seo-authors.ts AUTHOR_SLUG_BY_LOCALE. */
+const AUTHOR_PATH_SEGMENT: Record<Locale, string> = {
+  it: 'autori',
+  en: 'authors',
+  de: 'autoren',
+  fr: 'auteurs',
+};
+
 export function parsePath(pathname: string): ParseResult {
  const path = pathname.replace(/\/$/, '').toLowerCase() || '/';
  const allParts = path.split('/').filter(Boolean);
@@ -2257,6 +2265,16 @@ export function parsePath(pathname: string): ParseResult {
  // it + the token itself. Any non-empty second segment is a valid company key.
  if (parts[0] === 'azienda' && parts[1]) {
    return { route: { activeTab: 'employer-insights', companyKey: decodeURIComponent(parts[1]) }, locale };
+ }
+
+ // Author profile pages (Google News E-E-A-T, PR #3166) — /autori/{slug}/
+ // + locale variants (/en/authors/, /de/autoren/, /fr/auteurs/). This branch
+ // was missing entirely, so the SPA fell through to the final notFoundPath
+ // fallback on hydrate and replaced the correct static HTML with the generic
+ // "Pagina non trovata" screen for every author page (reported live for
+ // /autori/samuele-valente/, but affects all authors, e.g. marco-ferrari).
+ if (parts[0] === AUTHOR_PATH_SEGMENT[locale] && parts[1]) {
+   return { route: { activeTab: 'autore', author: decodeURIComponent(parts[1]) }, locale };
  }
 
  // Fuel-daily static SEO pages (F6) — /prezzi-diesel/oggi/, /en/diesel-price-switzerland/today/, etc.
@@ -3422,6 +3440,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  // (updatePathForLocale → buildPath) doesn't collapse the URL to the
  // empty-key `/azienda/` and break the token-gated read.
  return finish(`${prefix}/azienda/${route.companyKey ? `${encodeURIComponent(route.companyKey)}/` : ''}${hashSuffix}`);
+ case 'autore':
+ return finish(`${prefix}/${AUTHOR_PATH_SEGMENT[lang]}/${route.author ? `${encodeURIComponent(route.author)}/` : ''}${hashSuffix}`);
  case 'partners':
  return finish(`${prefix}/${table.partners}${hashSuffix}`);
  case 'consulting':
