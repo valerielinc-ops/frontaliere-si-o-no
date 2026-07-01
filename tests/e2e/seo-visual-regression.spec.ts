@@ -34,13 +34,14 @@ interface VisualCase {
   // last element to mount; waiting for `domcontentloaded` + fonts is not
   // enough on the live env (CDN + analytics scripts slow first paint).
   readySelector?: string;
-  // Optional per-case override for `maxDiffPixelRatio` (default 0.02, applied
-  // in the loop below for cases that don't set this). `home` and
-  // `salary-calculator` are deliberately kept at the tight default — they
-  // were curated to be sensitive to regressions. Only raise this for a case
-  // with a known source of legitimate, unmaskable pixel drift (see
-  // currency-comparator below).
-  maxDiffPixelRatio?: number;
+  // Optional extra mask selectors, ON TOP of DYNAMIC_REGION_SELECTORS, for
+  // dynamic widgets that only exist on THIS case's page (so adding them to
+  // the global list would be dead weight everywhere else — mask() silently
+  // ignores selectors matching nothing, but a per-page testid still doesn't
+  // belong in a page-agnostic list). E.g. currency-comparator's live
+  // CHF/EUR rate + last-update timestamp: real-world FX values that move
+  // independently of code, same false-positive class as the global list.
+  extraMaskSelectors?: string[];
 }
 
 const CASES: VisualCase[] = [
@@ -70,16 +71,24 @@ const CASES: VisualCase[] = [
   // by the guard in tests/noindex-builders.test.ts), so gating on it forces a
   // deterministic full-comparator capture on both sides.
   //
-  // `maxDiffPixelRatio: 0.04` (vs the 0.02 default): the live FX rate feeding
-  // this comparator drifts continuously, which reflows/redraws the rendered
-  // rate figures above the fold on every run — pixel diff unrelated to any
-  // code regression. `home` and `salary-calculator` have no such live-data
-  // source and stay at the tight default.
+  // `exchange-rate-panel` (extraMaskSelectors) covers the live CHF/EUR
+  // mid-market rate + "Aggiornato: HH:MM:SS" timestamp (useExchangeRate(),
+  // TwelveData → Firestore cache) — a real-world value that ticks
+  // independently of any code change. Unmasked, it produced a real (not
+  // flaky — reproduced identically on both the initial attempt and the
+  // Playwright retry) pixel diff on every deploy where the rate moved
+  // between baseline capture and validate-live (run 28506482095: 26182px /
+  // ratio 0.03, just over the 0.02 threshold). Not in the global
+  // DYNAMIC_REGION_SELECTORS list because that testid only exists on this
+  // one comparator page. A prior fix attempt (#3197, since superseded)
+  // instead raised maxDiffPixelRatio to 0.04 for this case — masking the
+  // actual dynamic region is the correct fix and keeps every case, including
+  // this one, at the tight 0.02 default.
   {
     name: 'currency-comparator',
     url: '/comparatori/cambio-valuta/',
     readySelector: '#exchange-amount',
-    maxDiffPixelRatio: 0.04,
+    extraMaskSelectors: ['[data-testid="exchange-rate-panel"]'],
   },
 ];
 
@@ -185,9 +194,9 @@ for (const c of CASES) {
     // first-paint UX, which is the value visual baselines provide.
     await expect(page).toHaveScreenshot(`${c.name}.png`, {
       fullPage: false,
-      maxDiffPixelRatio: c.maxDiffPixelRatio ?? 0.02,
+      maxDiffPixelRatio: 0.02,
       animations: 'disabled',
-      mask: DYNAMIC_REGION_SELECTORS.map((sel) => page.locator(sel)),
+      mask: [...DYNAMIC_REGION_SELECTORS, ...(c.extraMaskSelectors ?? [])].map((sel) => page.locator(sel)),
     });
   });
 }
