@@ -55,6 +55,10 @@ function readJson(filePath) {
 
 function isValidJobSlug(slug) {
   if (!slug || typeof slug !== 'string' || slug.length < 3) return false;
+  // A real job slug is a single path segment — anything containing a slash
+  // is a multi-segment URL tail (e.g. hub-pagination `<hub>/page-N`), not a
+  // job slug. Rejecting here closes every mining source in one place.
+  if (slug.includes('/')) return false;
   if (NON_JOB_SLUG_PREFIXES.some((p) => slug.startsWith(p))) return false;
   // Filter out clearly corrupted slugs
   if (slug.includes('undefined') || slug.includes('null')) return false;
@@ -71,7 +75,9 @@ function extractSlugFromPath(urlPath) {
   ];
   for (const prefix of allPrefixes) {
     if (urlPath.startsWith(prefix)) {
-      return urlPath.slice(prefix.length).replace(/\/$/, '') || null;
+      const slug = urlPath.slice(prefix.length).replace(/\/$/, '');
+      if (slug && !slug.includes('/')) return slug;
+      return null;
     }
   }
   return null;

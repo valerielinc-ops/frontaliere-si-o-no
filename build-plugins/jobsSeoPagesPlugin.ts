@@ -9755,6 +9755,12 @@ ${staticAnalyticsHtml}
  // Matches hub-pagination compound keys `<hub-slug>/page-N` (requires a leading
  // path segment; bare `page-N` is NOT matched). Used by the strip block below.
  const HUB_PAGINATION_COMPOUND_KEY_RE = /\/page-\d+$/;
+ // Matches bare `page-N` keys (legacy English pagination-word crawls, e.g.
+ // `page-2`, `page-5`). Now that searchConsoleCompat redirects these to their
+ // localized `pagina-N`/`seite-N` twin (real page, real GSC traffic), they
+ // must NOT also get a static expired-job soft-landing page here — that
+ // would serve a thin 200 at the exact path the redirect is meant to own.
+ const BARE_PAGE_NUMBER_KEY_RE = /^page-\d+$/;
 
  // Strip pre-existing reserved-hub keys from tracking BEFORE the file write.
  // Earlier GSC imports leaked "infermieri" into all-known-job-slugs.json and
@@ -9798,17 +9804,24 @@ ${staticAnalyticsHtml}
  // filtering the derived expiredSlugs list) is what stops BOTH the expired loop
  // AND the self-healing safety-net from re-emitting them. The correct per-locale
  // hubs are emitted by seoHubsPlugin; retired `<hub>/page-N` crawls resolve via
- // searchConsoleCompat → listing root, so no bridge is needed. Bare `page-N`
- // (page-2/page-5, GSC-traffic) has no leading segment → NOT matched → kept.
+ // searchConsoleCompat → listing root, so no bridge is needed.
+ //
+ // Also strips bare `page-N` keys (page-2/page-5 — legacy English pagination
+ // word, real GSC traffic). These used to be deliberately kept (no leading
+ // segment → not matched by the regex above) so their soft-landing page stayed
+ // live rather than 404ing; searchConsoleCompat now 301s them to their real
+ // `pagina-N`/`seite-N` twin, so the static soft-landing page must be removed
+ // too — otherwise it would keep serving a thin 200 at the path the redirect
+ // is meant to own.
  let hubPaginationKeysRemoved = 0;
  for (const key of Object.keys(tracking)) {
- if (HUB_PAGINATION_COMPOUND_KEY_RE.test(key)) {
+ if (HUB_PAGINATION_COMPOUND_KEY_RE.test(key) || BARE_PAGE_NUMBER_KEY_RE.test(key)) {
  delete tracking[key];
  hubPaginationKeysRemoved++;
  }
  }
  if (hubPaginationKeysRemoved > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Removed ${hubPaginationKeysRemoved} hub-pagination compound key(s) from tracking (cross-locale all-slug soft-landing leak)`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Removed ${hubPaginationKeysRemoved} hub-pagination/page-number key(s) from tracking (cross-locale all-slug soft-landing leak + bare page-N redirect handoff)`);
  }
  fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
