@@ -286,6 +286,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dogana-chiasso-brogeda-traffico-2024': { it: 'dogana-chiasso-brogeda-traffico-2024', en: 'chiasso-brogeda-customs-traffic-2024', de: 'chiasso-brogeda-zoll-verkehr-2024', fr: 'douane-chiasso-brogeda-trafic-2024' },
  'stop-ristorni-frontiera': { it: 'stop-ristorni-frontiera', en: 'stop-ristorni-frontiera', de: 'stop-ristorni-frontiera', fr: 'stop-ristorni-frontiera' },
  'blocco-ristorni-ticino': { it: 'blocco-ristorni-ticino', en: 'block-ristorni-ticino', de: 'block-ristorni-ticino', fr: 'blocage-ristorni-ticino' },
+ 'blocco-ristorni-ticino-decisione-partito-liberale-radicale': { it: 'blocco-ristorni-ticino-decisione-partito-liberale-radicale', en: 'blocking-returns-ticino-decision-radical-liberal-party', de: 'blockierung-der-ruckerstattungen-tessin-entscheidung-freiheitlich-demokratische-', fr: 'blocage-des-restaurations-tessin-decision-parti-radical-liberal' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
