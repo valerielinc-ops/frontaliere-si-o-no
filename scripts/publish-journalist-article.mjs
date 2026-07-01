@@ -162,7 +162,7 @@ async function resolveHeroImage(data, doc) {
   const rawImage = String(doc.image || '').trim();
   if (/^https?:\/\//i.test(rawImage)) {
     try {
-      const res = await fetch(rawImage);
+      const res = await fetch(rawImage, { signal: AbortSignal.timeout(20000) });
       if (!res.ok) throw new Error(`download failed: HTTP ${res.status}`);
       const buf = Buffer.from(await res.arrayBuffer());
       const sharp = (await import('sharp')).default;
@@ -234,6 +234,7 @@ async function sendPublishedEmail(doc, publishedUrls) {
           `<ul>${linkList}</ul>` +
           `<p>Puoi seguire statistiche e stato pubblicazione dalla tua dashboard.</p>`,
       }),
+      signal: AbortSignal.timeout(15000),
     });
     if (!res.ok) {
       const errText = await res.text().catch(() => '');
