@@ -24,10 +24,11 @@
 #     <locale>    ∈ {it, en, de, fr}
 #     <dist_dir>  build output dir (e.g. "dist")
 #
-# Required env:
-#   SHARD_TICINO_DEPLOY_KEY  — SSH deploy key (write) authorised on ALL FOUR
-#                              frontaliere-ticino-<loc> repos (one key, four deploy
-#                              keys). Missing → skip (exit 0), never an error.
+# Required env (per-locale — GitHub rejects the same deploy key on >1 repo, so
+# each frontaliere-ticino-<loc> has its OWN key, exactly like the locale shards):
+#   SHARD_TICINO_<LOCALE>_DEPLOY_KEY  — e.g. SHARD_TICINO_IT_DEPLOY_KEY. The write
+#                              deploy key for frontaliere-ticino-<loc>. Read via
+#                              indirect expansion. Missing → skip (exit 0).
 # Optional env:
 #   RUNNER_TEMP / SHARD_HISTORY_CAP / GITHUB_SHA / GITHUB_RUN_ID — as the locale shard.
 #
@@ -66,10 +67,12 @@ if [ -z "${RUNNER_TEMP:-}" ]; then
 fi
 
 push_ticino_shard() {
-  local key_val stage stage_src keyfile src_n prev_n rc
-  key_val="${SHARD_TICINO_DEPLOY_KEY:-}"
+  local key_var key_val stage stage_src keyfile src_n prev_n rc
+  # Per-locale deploy key via indirect expansion (mirrors push-locale-shard.sh).
+  key_var="SHARD_TICINO_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
+  key_val="${!key_var:-}"
   if [ -z "$key_val" ]; then
-    echo "no SHARD_TICINO_DEPLOY_KEY secret — skipping $loc Ticino shard push (split disabled)"; return 0
+    echo "no $key_var secret — skipping $loc Ticino shard push (split disabled)"; return 0
   fi
   if [ ! -d "$dist_dir/$sub" ]; then
     echo "$dist_dir/$sub absent — skipping $loc Ticino shard push"; return 0
