@@ -191,7 +191,11 @@ async function postSearch(body, { retries = 3 } = {}) {
     } catch (err) {
       lastErr = err;
       if (attempt < retries) {
-        await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+        // Configurable base delay (matches JOBS_CRAWLER_RETRY_BASE_MS used by
+        // transient-fetch.mjs) so tests that deliberately trigger this retry
+        // path via a 5xx response don't have to eat the real 1s/2s/4s backoff.
+        const baseMs = Number(process.env.JOBS_CRAWLER_RETRY_BASE_MS ?? 1000);
+        await new Promise((r) => setTimeout(r, baseMs * 2 ** attempt));
       }
     }
   }
