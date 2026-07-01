@@ -23,7 +23,7 @@ codex:
       - npx vite build --logLevel error
       - npm run validate:structured-data
     recommended_local_checks:
-      - npx tsc --noEmit
+      - npx -p typescript tsc --noEmit
       - npm run validate:jobs-rich-results
 
   hooks:
