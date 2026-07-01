@@ -2375,6 +2375,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'stipendio-frontalieri-6250-mese',
+    category: 'pratico',
+    date: '2026-07-01T07:33:22.872Z',
+    image: '/images/blog/stipendio-frontalieri-6250-mese.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

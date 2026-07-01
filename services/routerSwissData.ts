@@ -287,6 +287,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'stop-ristorni-frontiera': { it: 'stop-ristorni-frontiera', en: 'stop-ristorni-frontiera', de: 'stop-ristorni-frontiera', fr: 'stop-ristorni-frontiera' },
  'blocco-ristorni-ticino': { it: 'blocco-ristorni-ticino', en: 'block-ristorni-ticino', de: 'block-ristorni-ticino', fr: 'blocage-ristorni-ticino' },
  'blocco-ristorni-ticino-decisione-partito-liberale-radicale': { it: 'blocco-ristorni-ticino-decisione-partito-liberale-radicale', en: 'blocking-returns-ticino-decision-radical-liberal-party', de: 'blockierung-der-ruckerstattungen-tessin-entscheidung-freiheitlich-demokratische-', fr: 'blocage-des-restaurations-tessin-decision-parti-radical-liberal' },
+ 'stipendio-frontalieri-6250-mese': { it: 'stipendio-frontalieri-6250-mese', en: 'salary-cross-border-workers-6250-month', de: 'gehalt-grenzgaenger-6250-monat', fr: 'salaire-frontaliers-6250-mois' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

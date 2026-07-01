@@ -4325,6 +4325,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stop-ristorni-frontiera': { name: 'Novità', path: '/articoli-svizzera/stop-ristorni-frontiera/', parent: 'blog' },
     'blog-blocco-ristorni-ticino': { name: 'Blocco Ristorni', path: '/articoli-svizzera/blocco-ristorni-ticino/', parent: 'blog' },
     'blog-blocco-ristorni-ticino-decisione-partito-liberale-radicale': { name: 'Blocco ristorni', path: '/articoli-svizzera/blocco-ristorni-ticino-decisione-partito-liberale-radicale/', parent: 'blog' },
+    'blog-stipendio-frontalieri-6250-mese': { name: 'Frontalieri', path: '/articoli-svizzera/stipendio-frontalieri-6250-mese/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

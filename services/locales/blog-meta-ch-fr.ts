@@ -793,6 +793,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.title': 'Bloc de remises : le Parti radical suisse approuve la décision',
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.excerpt': 'Le Parti radical suisse a salué le gel des remboursements transfrontaliers, la considérant comme une décision sérieuse et soigneusement réfléchie.',
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.stipendio-frontalieri-6250-mese.title': 'Navetteurs transfrontaliers : 6 250 francs par mois suffisent-ils ?',
+    'blog.article.stipendio-frontalieri-6250-mese.excerpt': 'Analyse détaillée de la durée de vie d\'un frontalier avec un salaire de 6 250 francs par mois en Suisse.',
+    'blog.article.stipendio-frontalieri-6250-mese.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaChFr;
