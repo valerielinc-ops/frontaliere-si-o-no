@@ -107,12 +107,25 @@ jobs:
           # actor bot distinti — entrambi vanno in whitelist o claude-code-action aborta
           # "Workflow initiated by non-human actor":
           #  - `frontaliere-automation[bot]`: actor del path PRIMARIO di cascade
-          #    post-LGTM (`auto-merge-on-lgtm.yml` mergia con APP_TOKEN). Lo schedule
-          #    gira come `github-actions[bot]`, ma manteniamo la whitelist per il path
+          #    post-LGTM (`auto-merge-on-lgtm.yml` mergia con APP_TOKEN). CORREZIONE
+          #    2026-07-01: l'assunzione "lo schedule gira come github-actions[bot]" era
+          #    sbagliata — `triggering_actor` osservato sui run schedulati è
+          #    `frontaliere-automation[bot]` (ultimo autore del commit che ha introdotto
+          #    il cron, PR #3157). Manteniamo comunque la whitelist anche per il path
           #    workflow_dispatch self-invocato e per simmetria coi sibling (issue-fix).
-          #  - `github-actions[bot]`: actor degli eventi `schedule` / dispatch.
+          #  - `github-actions[bot]`: fallback per eventuali dispatch manuali via UI.
           # `claude[bot]` per simmetria coi sibling. Mai `*`.
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
+          # `allowed_bots` bypassa solo il gate "non-human actor" — claude-code-action fa
+          # un secondo check SEPARATO ("does the actor have write access") via l'API
+          # collaborator-permission, che una GitHub App bot NON supera (non è un
+          # collaborator classico anche se ha accesso reale via installation). Root
+          # cause della run schedulata che falliva 100% dal merge di PR #3157 con "User
+          # does not have write access on this repository" (turns=0, $0 — falliva PRIMA
+          # di invocare Claude, zero triage creato da allora). Stessi 3 nomi di
+          # allowed_bots: il job è già scoped Bash(gh:*)-only + `gh issue create`/`gh pr
+          # comment` (niente Write/Edit), quindi il bypass resta a basso rischio.
+          allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
           # max-turns DINAMICO = min(20 + 6*batch_count, 60), floor 20 (era 20 fisso per
           # UNA PR). AGENTS.md vieta di ABBASSARE i turni di post-merge-followup (15→20
