@@ -432,7 +432,10 @@ jobs:
         # never UNSERVED). The shard otherwise keeps serving its previous build.
         continue-on-error: true
         env:
-          SHARD_TICINO_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DEPLOY_KEY }}
+          SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
+          SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
+          SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
+          SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: bash scripts/lib/push-ticino-shard.sh it dist
@@ -646,7 +649,10 @@ jobs:
         if: matrix.locale != 'it'
         continue-on-error: true
         env:
-          SHARD_TICINO_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DEPLOY_KEY }}
+          SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
+          SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
+          SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
+          SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: bash scripts/lib/push-ticino-shard.sh "${{ matrix.locale }}" dist
