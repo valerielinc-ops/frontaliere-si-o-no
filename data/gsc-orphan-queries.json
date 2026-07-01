@@ -1278,18 +1278,6 @@
       "impressions": 1
     }
   ],
-  "responsabile-di-reparto-commesso-food-coop-genossenschaft-murgenthal": [
-    {
-      "query": "commesso lavoro",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "coop offerte di lavoro",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "logistik": [
     {
       "query": "logistik jobs lugano",
@@ -1375,39 +1363,11 @@
       "impressions": 1
     }
   ],
-  "agriculture": [
-    {
-      "query": "lavoro agricolo svizzera canton ticino",
-      "clicks": 0,
-      "impressions": 2
-    }
-  ],
   "pflegeassistenten": [
     {
       "query": "pflegejobs spital schiers",
       "clicks": 0,
       "impressions": 2
-    }
-  ],
-  "commesso-a-food-frische-insel-coop-genossenschaft-mels": [
-    {
-      "query": "commesso lavoro",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "giovani-talenti-dirigenti-retail-1-coop-genossenschaft-glarus": [
-    {
-      "query": "coop ticino lavora con noi",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino": [
-    {
-      "query": "swatch group emploi suisse",
-      "clicks": 0,
-      "impressions": 1
     }
   ],
   "chauffeurs": [
@@ -1441,6 +1401,46 @@
   "restauration": [
     {
       "query": "oui",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "responsabile-di-reparto-commesso-food-coop-genossenschaft-murgenthal": [
+    {
+      "query": "commesso lavoro",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "coop offerte di lavoro",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "agriculture": [
+    {
+      "query": "lavoro agricolo svizzera canton ticino",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
+  "commesso-a-food-frische-insel-coop-genossenschaft-mels": [
+    {
+      "query": "commesso lavoro",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "giovani-talenti-dirigenti-retail-1-coop-genossenschaft-glarus": [
+    {
+      "query": "coop ticino lavora con noi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "automaticien-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino": [
+    {
+      "query": "swatch group emploi suisse",
       "clicks": 0,
       "impressions": 1
     }
@@ -41814,33 +41814,6 @@
       "impressions": 1
     }
   ],
-  "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano": [
-    {
-      "query": "emploi 3 derniers jours temps partiel",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lavoro supsi",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "supsi lavora con noi",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "supsi offerte lavoro",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "supsi posizioni aperte",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "gestionnaire-de-branche-olten-w-m-banca-cler-bellinzona": [
     {
       "query": "banque cler emploi",
@@ -53147,6 +53120,33 @@
     },
     {
       "query": "lavoro ch",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano": [
+    {
+      "query": "emploi 3 derniers jours temps partiel",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavoro supsi",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "supsi lavora con noi",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "supsi offerte lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "supsi posizioni aperte",
       "clicks": 0,
       "impressions": 1
     }
