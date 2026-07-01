@@ -55,8 +55,8 @@ export const FRONTALIERE_STRICT_ANCHORS = [
   /\beur\s*\/\s*chf|chf\s*\/\s*eur/i,
   /\btotalizzazione\s+(?:dei\s+)?contributi\b/i,   // INPS/AVS pension coordination term-of-art
   /\bquadro\s+ce\b/i,                              // 730 foreign-income credit section used by frontalieri
-  /\binps\b.{0,60}\b(?:frontalier|svizzer|ticino|avs|ahv)\b/i,
-  /\b(?:frontalier|svizzer|ticino|avs|ahv)\b.{0,60}\binps\b/i,
+  /\binps\b.{0,60}\b(?:frontalier|svizzer|avs|ahv)\b/i,
+  /\b(?:frontalier|svizzer|avs|ahv)\b.{0,60}\binps\b/i,
   /\bagenzia\s+(?:delle\s+)?entrate\b.{0,60}\bfrontalier/i,
   /\bfrontalier.{0,60}\bagenzia\s+(?:delle\s+)?entrate\b/i,
 ];
@@ -116,8 +116,8 @@ export const FRONTALIERE_UNAMBIGUOUS_ANCHORS = [
   /\bmercato\s+del\s+lavoro\s+ticines/i,
   /\baziende?\s+che\s+assumon[oa]\s+frontalier/i,
   /\beur\s*\/\s*chf|chf\s*\/\s*eur/i,
-  /\binps\b.{0,60}\b(?:frontalier|svizzer|ticino|avs|ahv)\b/i,
-  /\b(?:frontalier|svizzer|ticino|avs|ahv)\b.{0,60}\binps\b/i,
+  /\binps\b.{0,60}\b(?:frontalier|svizzer|avs|ahv)\b/i,
+  /\b(?:frontalier|svizzer|avs|ahv)\b.{0,60}\binps\b/i,
   /\bagenzia\s+(?:delle\s+)?entrate\b.{0,60}\bfrontalier/i,
   /\bfrontalier.{0,60}\bagenzia\s+(?:delle\s+)?entrate\b/i,
 ];
