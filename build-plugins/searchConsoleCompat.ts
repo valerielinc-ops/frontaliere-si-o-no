@@ -30,6 +30,19 @@ const JOB_BOARD_PREFIX_BY_LOCALE: Record<SupportedLocale, string> = {
  fr: '/fr',
 };
 
+// Native pagination-ladder word per locale (matches jobsSeoPagesPlugin's
+// `paginationSlugs` / staticPagesPlugin's ladder). Bare `page-N` under a job
+// board section is a legacy English-word crawl (from before canton listings
+// switched to a localized ladder) — recover it to its live `pagina-N`/`seite-N`
+// twin instead of dropping it as an expired-job slug (real GSC traffic).
+const PAGINATION_WORD_BY_LOCALE: Record<SupportedLocale, string> = {
+ it: 'pagina',
+ en: 'page',
+ de: 'seite',
+ fr: 'page',
+};
+const BARE_PAGE_NUMBER_PATTERN = /^page-(\d+)$/;
+
 const COMPANY_ROUTE_PREFIX_BY_LOCALE: Record<SupportedLocale, string> = {
  it: 'azienda',
  en: 'company',
@@ -303,6 +316,19 @@ export function resolveSearchConsoleCompatTarget(
  const urlSection = jobSectionMatch[2];
  const slug = jobSectionMatch[3];
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
+ // Bare `page-N` (legacy English pagination word, pre-dating the localized
+ // ladder) → redirect to the section's real `pagina-N`/`seite-N` twin. The
+ // canton is already encoded in urlSection, so no slug index lookup needed.
+ const barePageMatch = slug.match(BARE_PAGE_NUMBER_PATTERN);
+ if (barePageMatch) {
+ const pageNum = barePageMatch[1];
+ const word = PAGINATION_WORD_BY_LOCALE[locale];
+ return {
+ canonicalPath: `${prefix}/${urlSection}/${word}-${pageNum}/`.replace(/\/+/g, '/'),
+ kind: 'legacy',
+ locale,
+ };
+ }
  // Canton-drift recovery (the dominant residual-404 cohort): the slug is
  // globally unique, so if it is a KNOWN job whose current canonical path sits
  // under a DIFFERENT section than the one requested, the request is an ORPHANED
