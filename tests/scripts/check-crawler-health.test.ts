@@ -197,6 +197,39 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyRuns).toBe(0);
   });
 
+  it('clears broken status for a-group (InRecruiting tenant, company-wide empty-ok) on a fresh zero-job run (#3198)', () => {
+    // Reproduces the #3198 state: A++ Group's InRecruiting portal currently
+    // has 0 open positions company-wide (verified via both the rendered page
+    // and the underlying AJAX listing endpoint), not a selector/parser break.
+    // It must not stay flagged broken once added to EMPTY_OK_CRAWLERS.
+    const prev = {
+      lastSuccessfulRunAt: '2026-06-27T21:07:06.689Z',
+      lastNonZeroJobs: 1,
+      consecutiveEmptyRuns: 3,
+      lastFailureReason: '3 consecutive runs returned 0 jobs',
+      status: 'broken',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const { status, state, reason } = nextCrawlerState(
+      prev,
+      {
+        slug: 'a-group',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+  });
+
   it('flags stale when slice assembledAt is older than 7 days (regardless of empty streak)', () => {
     // heineken-ch fixture: slice from 8d ago.
     const { status, state, reason } = nextCrawlerState(
