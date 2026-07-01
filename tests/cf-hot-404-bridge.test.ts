@@ -26,6 +26,10 @@ describe('cfHot404BridgePlugin', () => {
       // built for this run (simulates the canton's page count having shrunk
       // below 97 since the original GSC crawl).
       { path: '/cerca-lavoro-argovia/page-97', hits: 4 },
+      // Same case, but en's pagination word is the legacy "page" itself, so
+      // an unresolved target is textually identical to the source path —
+      // must not be dropped as a false self-reference.
+      { path: '/en/find-jobs-zurich/page-88', hits: 3 },
     ],
   };
 
@@ -99,6 +103,18 @@ describe('cfHot404BridgePlugin', () => {
     const html = fs.readFileSync(file, 'utf-8');
     expect(html).toContain('rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-argovia/"');
     expect(html).not.toContain('/cerca-lavoro-argovia/pagina-97/');
+  });
+
+  it('does not drop the bridge as a false self-reference when en/fr share the "page" word', () => {
+    // Before the fallback resolution moved ahead of the self-reference guard,
+    // canonicalPath ('/en/find-jobs-zurich/page-88/') was textually identical
+    // to the source path, so the loop skipped it entirely — no bridge, no
+    // fallback, orphan stayed a blank shell.
+    const file = path.join(tmp, 'dist', rel('/en/find-jobs-zurich/page-88'));
+    expect(fs.existsSync(file)).toBe(true);
+    const html = fs.readFileSync(file, 'utf-8');
+    expect(html).toContain('rel="canonical" href="https://frontaliereticino.ch/en/find-jobs-zurich/"');
+    expect(html).not.toContain('/en/find-jobs-zurich/page-88/');
   });
 });
 

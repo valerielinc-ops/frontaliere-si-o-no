@@ -199,7 +199,22 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
 
         const from = withSlash(rawPath);
         const fromNorm = from.replace(/\/+$/, '');
-        const toNorm = resolution.canonicalPath.replace(/\/+$/, '');
+
+        let to = withSlash(resolution.canonicalPath);
+        // A specific pagination-ladder page (bare `page-N` recovery) can shrink
+        // out of existence between the original GSC crawl and this build — the
+        // SPA has no out-of-range fallback for a missing page (blank shell, not
+        // a 404), so verify the static file is actually on disk before pointing
+        // there; otherwise land on the always-live section listing root. Must
+        // resolve BEFORE the self-reference check below: for en/fr (whose
+        // pagination word is the legacy "page" itself) an unresolved target
+        // is textually identical to `from`, so checking self-reference against
+        // the raw canonicalPath would wrongly skip the whole bridge.
+        if (resolution.fallbackPath) {
+          const pageFile = path.join(distDir, to.slice(1), 'index.html');
+          if (!fs.existsSync(pageFile)) to = withSlash(resolution.fallbackPath);
+        }
+        const toNorm = to.replace(/\/+$/, '');
         if (from === '/' || fromNorm === toNorm) continue; // never self-reference
 
         const outDir = path.join(distDir, from.slice(1));
@@ -207,16 +222,6 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         // soft-landing / jobOrphan or hub bridge) must win.
         if (fs.existsSync(path.join(outDir, 'index.html'))) { skippedExisting++; continue; }
 
-        let to = withSlash(resolution.canonicalPath);
-        // A specific pagination-ladder page (bare `page-N` recovery) can shrink
-        // out of existence between the original GSC crawl and this build — the
-        // SPA has no out-of-range fallback for a missing page (blank shell, not
-        // a 404), so verify the static file is actually on disk before pointing
-        // there; otherwise land on the always-live section listing root.
-        if (resolution.fallbackPath) {
-          const pageFile = path.join(distDir, to.slice(1), 'index.html');
-          if (!fs.existsSync(pageFile)) to = withSlash(resolution.fallbackPath);
-        }
         const kind = resolution.kind;
         // A legacy cluster orphan whose target is verified-live: redirect the
         // user straight there instead of serving the archived compat bridge.
