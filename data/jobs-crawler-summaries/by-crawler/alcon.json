@@ -1,18 +1,19 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-07-01T11:03:24.660Z",
+  "generatedAt": "2026-07-01T21:42:55.190Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6648,
-  "avgDurationMs": 6648,
+  "durationMs": 6000,
+  "avgDurationMs": 6000,
   "durationHistory": [
-    6648
+    6000
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "alcon-7b70732d2937",
       "slug": "senior-associate-regulatory-affairs-strategy-alcon-ch",
@@ -20,13 +21,13 @@
       "companyKey": "alcon",
       "companyDomain": "alcon.com",
       "title": "Senior Associate Regulatory Affairs Strategy",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Associate-Regulatory-Affairs-Strategy_R-2026-48146-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:03:19.685Z",
+      "crawledAt": "2026-07-01T21:42:50.579Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Associate-Regulatory-Affairs-Strategy_R-2026-48146-1",
       "jobReqId": "R-2026-48146",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-01T11:03:19.685Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "alcon-153507063163",
       "slug": "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
@@ -64,7 +64,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Regulatory-Strategy-Sr-Associate--m-f-d----Medical-Devices---German---English-speaking_R-2026-48088-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:03:21.008Z",
+      "crawledAt": "2026-07-01T21:42:51.318Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:03:22.541Z",
+      "crawledAt": "2026-07-01T21:42:52.829Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T11:03:21.778Z",
+      "crawledAt": "2026-07-01T21:42:52.056Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
