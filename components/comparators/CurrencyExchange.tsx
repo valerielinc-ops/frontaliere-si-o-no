@@ -524,7 +524,16 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
 
- <div className="space-y-2">
+ {/* `exchange-rate-panel`: live CHF/EUR mid-market rate + last-update
+     timestamp, sourced from useExchangeRate() (TwelveData → Firestore
+     cache). Both move independently of any code change (real-world FX
+     ticks + refresh cadence), so this is a visual-regression
+     false-positive source on every deploy — same class of problem as
+     DYNAMIC_REGION_SELECTORS in tests/e2e/seo-visual-regression.spec.ts,
+     masked here via the currency-comparator case's `extraMaskSelectors`
+     (this testid isn't in the global list because it only exists on this
+     one comparator page). */}
+ <div className="space-y-2" data-testid="exchange-rate-panel">
  <label htmlFor="exchange-rate" className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-2">
  {t('currency.real_market_rate')}
  <div className="group relative inline-flex items-center cursor-help">
