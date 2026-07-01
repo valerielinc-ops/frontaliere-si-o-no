@@ -34,6 +34,13 @@ interface VisualCase {
   // last element to mount; waiting for `domcontentloaded` + fonts is not
   // enough on the live env (CDN + analytics scripts slow first paint).
   readySelector?: string;
+  // Optional per-case override for `maxDiffPixelRatio` (default 0.02, applied
+  // in the loop below for cases that don't set this). `home` and
+  // `salary-calculator` are deliberately kept at the tight default — they
+  // were curated to be sensitive to regressions. Only raise this for a case
+  // with a known source of legitimate, unmaskable pixel drift (see
+  // currency-comparator below).
+  maxDiffPixelRatio?: number;
 }
 
 const CASES: VisualCase[] = [
@@ -62,7 +69,18 @@ const CASES: VisualCase[] = [
   // hydrated comparator (never in the tombstone nor the static SEO shell — verified
   // by the guard in tests/noindex-builders.test.ts), so gating on it forces a
   // deterministic full-comparator capture on both sides.
-  { name: 'currency-comparator', url: '/comparatori/cambio-valuta/', readySelector: '#exchange-amount' },
+  //
+  // `maxDiffPixelRatio: 0.04` (vs the 0.02 default): the live FX rate feeding
+  // this comparator drifts continuously, which reflows/redraws the rendered
+  // rate figures above the fold on every run — pixel diff unrelated to any
+  // code regression. `home` and `salary-calculator` have no such live-data
+  // source and stay at the tight default.
+  {
+    name: 'currency-comparator',
+    url: '/comparatori/cambio-valuta/',
+    readySelector: '#exchange-amount',
+    maxDiffPixelRatio: 0.04,
+  },
 ];
 
 // Selectors for non-deterministic widgets that auto-rotate or depend on
@@ -167,7 +185,7 @@ for (const c of CASES) {
     // first-paint UX, which is the value visual baselines provide.
     await expect(page).toHaveScreenshot(`${c.name}.png`, {
       fullPage: false,
-      maxDiffPixelRatio: 0.02,
+      maxDiffPixelRatio: c.maxDiffPixelRatio ?? 0.02,
       animations: 'disabled',
       mask: DYNAMIC_REGION_SELECTORS.map((sel) => page.locator(sel)),
     });
