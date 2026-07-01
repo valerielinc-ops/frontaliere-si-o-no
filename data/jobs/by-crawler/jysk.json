@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-07-01T10:27:51.732Z",
+  "assembledAt": "2026-07-01T12:07:33.899Z",
   "jobs": [
     {
       "id": "company-tjd19g",
@@ -1132,7 +1132,7 @@
       "crawledAt": "2026-06-17T13:12:14.598Z",
       "firstSeenAt": "2026-06-17T13:12:14.598Z",
       "titleByLocale": {
-        "it": "Venditore/in (a) 20% nella filiale Biel/Collaborateur/trice 20% dans la filiale Bienne",
+        "it": "Verkäufer/in (a) 20% in der Filiale Biel/ Collaborateur/trice 20% dans la filiale Bienne",
         "de": "Verkäufer/in (a) 20 % in der Branch Biel/ Collaborateur/trice 20% in der Branch Biel",
         "en": "Sales assistant (a) 20% in the Biel branch/ Collaborateur/trice 20% dans la filiale Bienne",
         "fr": "Vendeuse (a) 20 % dans la succursale biaise / Collaborateur / trice 20 % dans la filiale Bienne"
@@ -1177,7 +1177,8 @@
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-a454t1",
