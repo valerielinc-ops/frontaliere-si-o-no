@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
+import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
@@ -121,12 +122,14 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  }
  if (eventType === 'delivered') {
  update.last_delivered_at = admin.firestore.FieldValue.serverTimestamp();
+ Object.assign(update, softBounceRecoveryFields());
  }
  if (eventType === 'open') {
  update.last_open_at = admin.firestore.FieldValue.serverTimestamp();
  update.lastOpenAt = admin.firestore.FieldValue.serverTimestamp();
  update.open_count = FieldValue.increment(1);
  update.openCount = FieldValue.increment(1);
+ Object.assign(update, softBounceRecoveryFields());
  }
  if (eventType === 'click') {
  update.last_click_at = admin.firestore.FieldValue.serverTimestamp();
@@ -135,13 +138,11 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  update.clickCount = FieldValue.increment(1);
  update.last_clicked_url = sanitizeString(data.link_url || data.target_url);
  update.last_clicked_section = sanitizeString(data.section_id);
+ Object.assign(update, softBounceRecoveryFields());
  }
- if (eventType === 'bounce') {
- update.last_bounced_at = admin.firestore.FieldValue.serverTimestamp();
- update.status = 'bounced';
- update.isActive = false;
- update.active = false;
- }
+ // Bounce classification/severity is handled by the caller (needs the raw
+ // provider bounce payload, which this constructed `data` object doesn't
+ // carry) — see the `type === 'bounce'` block right after this call.
  if (eventType === 'complaint') {
  update.last_complained_at = admin.firestore.FieldValue.serverTimestamp();
  update.status = 'complained';
@@ -235,7 +236,25 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  }, currentStatus);
 
  subscriberUpdate.provider = 'resend';
- await db.collection('newsletter_subscribers').doc(email).set(subscriberUpdate, { merge: true });
+
+ let bounceSeverity = null;
+ let bounceReasonText = '';
+ if (type === 'bounce') {
+ bounceSeverity = classifyBounceSeverity({ provider: 'resend', rawEvent: rawEvent?.type, eventData: data });
+ bounceReasonText = sanitizeString(data.bounce?.message) || sanitizeString(data.reason) || '';
+ Object.assign(subscriberUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
+ if (bounceSeverity === 'hard') {
+ subscriberUpdate.isActive = false;
+ subscriberUpdate.active = false;
+ }
+ }
+
+ const subscriberRef = db.collection('newsletter_subscribers').doc(email);
+ await subscriberRef.set(subscriberUpdate, { merge: true });
+
+ if (bounceSeverity === 'soft') {
+ await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
+ }
 
  // Update engagement score after metrics change (FRO-17)
  if (type === 'open' || type === 'click' || type === 'send') {

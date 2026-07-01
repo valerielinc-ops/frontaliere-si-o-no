@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
+import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -91,21 +92,26 @@ export async function persistMailjetEvent(db, eventData) {
  updated_at: FieldValue.serverTimestamp(),
  };
 
+ let bounceSeverity = null;
+ let bounceReasonText = '';
+
  if (type === 'send') {
  subscriberUpdate.last_sent_at = FieldValue.serverTimestamp();
  subscriberUpdate.send_count = FieldValue.increment(1);
  } else if (type === 'open') {
  subscriberUpdate.last_open_at = FieldValue.serverTimestamp();
  subscriberUpdate.open_count = FieldValue.increment(1);
+ Object.assign(subscriberUpdate, softBounceRecoveryFields());
  } else if (type === 'click') {
  subscriberUpdate.last_click_at = FieldValue.serverTimestamp();
  subscriberUpdate.click_count = FieldValue.increment(1);
  subscriberUpdate.last_clicked_url = eventData.url || '';
+ Object.assign(subscriberUpdate, softBounceRecoveryFields());
  } else if (type === 'bounce') {
- subscriberUpdate.status = 'bounced';
- subscriberUpdate.bounced_at = FieldValue.serverTimestamp();
- subscriberUpdate.bounce_reason = eventData.error || '';
+ bounceSeverity = classifyBounceSeverity({ provider: 'mailjet', rawEvent: mjEvent, eventData });
+ bounceReasonText = eventData.error || '';
  subscriberUpdate.bounce_hard = !!eventData.hard_bounce;
+ Object.assign(subscriberUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
  } else if (type === 'unsubscribed') {
  subscriberUpdate.status = 'unsubscribed';
  subscriberUpdate.unsubscribed_at = FieldValue.serverTimestamp();
@@ -116,6 +122,10 @@ export async function persistMailjetEvent(db, eventData) {
 
  if (Object.keys(subscriberUpdate).length > 1) {
  await subscriberRef.set(subscriberUpdate, { merge: true });
+ }
+
+ if (bounceSeverity === 'soft') {
+ await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
  }
 
  // Refresh engagement score after counter changes (FRO-17)

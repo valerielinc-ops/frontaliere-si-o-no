@@ -2,6 +2,7 @@ import admin from 'firebase-admin';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
+import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 
 /**
  * Maileroo webhook handler — receives delivery events and stores them in Firestore.
@@ -146,25 +147,33 @@ export async function persistMailerooEvent(db, event) {
     updated_at: FieldValue.serverTimestamp(),
   };
 
+  let bounceSeverity = null;
+
   if (type === 'delivered') {
     subscriberUpdate.last_delivered_at = FieldValue.serverTimestamp();
+    Object.assign(subscriberUpdate, softBounceRecoveryFields());
   } else if (type === 'open') {
     subscriberUpdate.last_open_at = FieldValue.serverTimestamp();
     subscriberUpdate.open_count = FieldValue.increment(1);
+    Object.assign(subscriberUpdate, softBounceRecoveryFields());
   } else if (type === 'click') {
     subscriberUpdate.last_click_at = FieldValue.serverTimestamp();
     subscriberUpdate.click_count = FieldValue.increment(1);
     subscriberUpdate.last_clicked_url = clickedUrl;
+    Object.assign(subscriberUpdate, softBounceRecoveryFields());
   } else if (type === 'bounce') {
-    subscriberUpdate.status = 'bounced';
-    subscriberUpdate.bounced_at = FieldValue.serverTimestamp();
-    subscriberUpdate.bounce_reason = bounceReason;
+    bounceSeverity = classifyBounceSeverity({ provider: 'maileroo', rawEvent: event.event_type, eventData: data });
+    Object.assign(subscriberUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReason }));
   } else if (type === 'complaint') {
     subscriberUpdate.status = 'complained';
     subscriberUpdate.complained_at = FieldValue.serverTimestamp();
   }
 
   await subscriberRef.set(subscriberUpdate, { merge: true });
+
+  if (bounceSeverity === 'soft') {
+    await maybeEscalateSoftBounce(subscriberRef, bounceReason);
+  }
 
   // Refresh engagement score after counter changes (FRO-17)
   if (type === 'open' || type === 'click' || type === 'send') {

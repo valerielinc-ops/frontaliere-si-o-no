@@ -4,7 +4,7 @@ import { persistMailjetEvent, handleMailjetWebhookRequest } from '../functions/s
 /**
  * Fake Firestore db that captures all set/add calls for assertion.
  */
-function createFakeDb() {
+function createFakeDb(existingDocs: Record<string, Record<string, Record<string, unknown>>> = {}) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
@@ -12,6 +12,13 @@ function createFakeDb() {
     doc: (docId: string) => ({
       set: async (data: Record<string, unknown>, _opts?: unknown) => {
         sets.push({ collection: name, docId, data });
+      },
+      get: async () => {
+        const docData = existingDocs[name]?.[docId];
+        return {
+          exists: !!docData,
+          data: () => docData || {},
+        };
       },
       collection: (subName: string) => {
         const subPath = `${name}/${docId}/${subName}`;

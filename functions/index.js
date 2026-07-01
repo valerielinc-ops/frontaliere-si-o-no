@@ -39,6 +39,7 @@ import {
 import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
+import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
 
 ensureAdminApp();
 
@@ -1019,6 +1020,23 @@ export const forwardPublisherApplication = onDocumentCreated(
  if (!result.ok) console.error('[forwardPublisherApplication]', result.error);
  } catch (error) {
  console.error('[forwardPublisherApplication]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Closes the 522-orphan gap (lead-capture gates write Firestore directly, no
+// Auth account): silently create a shadow Auth user, single site-wide
+// mechanism instead of patching all ~16 capture call sites.
+export const syncNewsletterSubscriberAuth = onDocumentCreated(
+ { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
+ async (event) => {
+ const emailId = event.params.email;
+ if (emailId === '_meta_') return;
+ try {
+ const result = await syncAuthAccountForSubscriber(emailId);
+ if (result.created) console.log(`[syncNewsletterSubscriberAuth] created Auth user for ${emailId}`);
+ } catch (error) {
+ console.error('[syncNewsletterSubscriberAuth]', error instanceof Error ? error.message : String(error));
  }
  },
 );
