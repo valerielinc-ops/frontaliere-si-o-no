@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "leukerbad-clinic-2bcf18b9fd5c",
-      "slug": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+      "slug": "spontancy-leukerbad-clinic-loeche-les-bains",
       "slugByLocale": {
         "fr": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "it": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "it": "spontancy-leukerbad-clinic-loeche-les-bains",
         "en": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "de": "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+        "de": "spontanz-leukerbad-clinic-loeche-les-bains"
       },
       "company": "Leukerbad Clinic",
       "companyKey": "leukerbad-clinic",
@@ -60,7 +60,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T22:44:00.808Z"
+      "firstSeenAt": "2026-06-30T22:44:00.808Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+        ],
+        "de": [
+          "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+      ]
     },
     {
       "id": "leukerbad-clinic-121ff121f549",
