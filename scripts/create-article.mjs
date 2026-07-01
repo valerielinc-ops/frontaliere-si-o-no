@@ -8475,6 +8475,10 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         }
         throw err;
       }
+      if (factResult.unverified) {
+        RUN_REPORT.factCheckUnverified = true;
+        RUN_REPORT.notes.push('fact-check-skipped: all verifier models failed (infra-outage)');
+      }
     } catch (fcErr) {
       // Both fact-check rejections AND all-models-failed errors retry
       if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
@@ -8778,6 +8782,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   RUN_REPORT.article.title = data.content?.it?.title || null;
   RUN_REPORT.article.authorSlug = data.author?.slug || null;
   RUN_REPORT.article.authorName = data.author?.name || null;
+  RUN_REPORT.article.factCheckUnverified = RUN_REPORT.factCheckUnverified || false;
 
   // Write GitHub Actions outputs for downstream steps (Facebook posting, etc.)
   // Always use data.id (not data.slugs.it) — the router key is the article ID.
