@@ -243,6 +243,16 @@ const EMPTY_OK_CRAWLERS = new Set([
   // published. Same legitimately-empty small-employer case as linnea and
   // banca-raiffeisen-vedeggio-cassarate.
   'dxt-commodities',
+  // A++ Group (a2plus, Massagno TI): the dedicated crawler parses the
+  // InRecruiting listing (https://inrecruiting.intervieweb.it/a2plus/en/career)
+  // via `div.vacancy__render` cards — the same selector that still works for
+  // other InRecruiting tenants (impresa-pizzarotti). Both the server-rendered
+  // page and the underlying AJAX listing endpoint
+  // (module=newcareer&ajax=1, act1=vacancyListCareer) currently return
+  // "No vacancies available" company-wide (not just for Swiss-filtered
+  // roles) — the architecture/design firm has 0 open positions right now.
+  // The parser is healthy and re-arms when a vacancy is published (#3198).
+  'a-group',
 ]);
 
 /** Read JSON file, return null on any error. */
