@@ -1,16 +1,16 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-07-01T12:15:54.289Z",
+  "generatedAt": "2026-07-01T22:38:29.017Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7472,
-  "avgDurationMs": 7472,
+  "durationMs": 6165,
+  "avgDurationMs": 6165,
   "durationHistory": [
-    7472
+    6165
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134932699-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:15:52.450Z",
+      "crawledAt": "2026-07-01T22:38:26.723Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -53,47 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "klinik-siloah-8f9bee7f1757",
-      "slug": "salute-specialistica-presso-la-stazione-di-biancheria-da-letto-chirurgica-privatklinik-siloah-gumligen",
-      "company": "Privatklinik Siloah",
-      "companyKey": "klinik-siloah",
-      "companyDomain": "swissmedical.net",
-      "title": "Fachperson Gesundheit auf der chirurgischen Bettenstation",
-      "needsRetranslation": true,
-      "location": "Gümligen",
-      "canton": "BE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129721320-fachperson-gesundheit-auf-der-chirurgischen-bettenstation",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129721320-fachperson-gesundheit-auf-der-chirurgischen-bettenstation",
-      "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-30T22:43:13.218Z",
-      "addressLocality": "Gümligen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3073",
-      "streetAddress": "Worbstrasse 324, 3073 Gümligen",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "datePosted": "2026-06-02",
-      "firstSeenAt": "2026-06-02T13:39:43.026Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
