@@ -811,6 +811,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.strategie-cambio-chf-eur-2026.title': 'CHF-EUR exchange strategies for families with children in 2026',
     'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Practical guide to CHF-EUR exchange rate strategies for border families with children in 2026, with a focus on timing, risk and practical tools.',
     'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Currency exchange in Lugano, Ticino, Switzerland',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Cross-border commuters: documents and first day of work in Ticino',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Practical guide to the requirements for the first day of work in Ticino: permits, contract, tax authorities and compulsory insurance.',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Panoramic view of a modern office in Lugano',
 };
 
 export default blogMetaChEn;

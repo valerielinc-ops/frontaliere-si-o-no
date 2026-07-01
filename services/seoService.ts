@@ -4331,6 +4331,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-referendum-salari-minimi-ccl': { name: 'Riforma salari minimi', path: '/articoli-svizzera/referendum-salari-minimi-ccl/', parent: 'blog' },
     'blog-quellensteuer-tarife-2026': { name: 'Quellensteuer', path: '/articoli-svizzera/quellensteuer-tarife-2026/', parent: 'blog' },
     'blog-strategie-cambio-chf-eur-2026': { name: 'Cambio Valuta', path: '/articoli-svizzera/strategie-cambio-chf-eur-2026/', parent: 'blog' },
+    'blog-documenti-primo-giorno-lavoro-ticino': { name: 'Primo giorno lavoro', path: '/articoli-svizzera/documenti-primo-giorno-lavoro-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -811,6 +811,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.strategie-cambio-chf-eur-2026.title': 'Strategie di cambio CHF-EUR per famiglie con figli nel 2026',
     'blog.article.strategie-cambio-chf-eur-2026.excerpt': 'Guida pratica alle strategie di cambio CHF-EUR per famiglie frontalieri con figli nel 2026, con focus su timing, rischio e strumenti pratici.',
     'blog.article.strategie-cambio-chf-eur-2026.imageAlt': 'Cambio valuta a Lugano, Ticino, Svizzera',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Frontaliere: documenti e primo giorno di lavoro in Ticino',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Guida pratica agli adempimenti necessari per il primo giorno di lavoro in Ticino: permessi, contratto, fisco e assicurazioni obbligatorie.',
+    'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Vista panoramica di un ufficio moderno a Lugano',
 };
 
 export default blogMetaChIt;
