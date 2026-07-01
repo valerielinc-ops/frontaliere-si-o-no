@@ -1,18 +1,19 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-06-30T23:26:00.922Z",
+  "generatedAt": "2026-07-01T13:08:26.729Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2520,
-  "avgDurationMs": 2520,
+  "durationMs": 20151,
+  "avgDurationMs": 20151,
   "durationHistory": [
-    2520
+    20151
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vaxcyte-fb837ce9abee",
       "slug": "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch",
@@ -25,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T23:25:58.849Z",
+      "crawledAt": "2026-07-01T13:08:24.307Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -45,16 +46,15 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-06-30T23:25:58.849Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "vaxcyte-f558683786d7",
       "slug": "staff-engineer-drug-substance-msat-vaxcyte-ch",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T23:25:58.874Z",
+      "crawledAt": "2026-07-01T13:08:24.333Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T23:25:58.860Z",
+      "crawledAt": "2026-07-01T13:08:24.318Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -149,7 +149,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-30T23:25:58.781Z",
+      "crawledAt": "2026-07-01T13:08:24.234Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
