@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-07-01T11:48:51.108Z",
+  "generatedAt": "2026-07-01T22:11:53.109Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 28734,
-  "avgDurationMs": 28734,
+  "durationMs": 20429,
+  "avgDurationMs": 20429,
   "durationHistory": [
-    28734
+    20429
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Büroleiter/in (100%)",
+      "slug": "buroleiter-in-100-engel-voelkers-gstaad",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8404a96b-99fb-4b03-9d13-f0e96f860e37",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/8404a96b-99fb-4b03-9d13-f0e96f860e37",
+      "company": "E&V Gstaad Properties One AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Gstaad",
+      "addressLocality": "Gstaad",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Teamassistenz 50% (m/w) - Aarau",
@@ -47,42 +78,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Büroleiter/in (100%)",
-      "slug": "buroleiter-in-100-engel-voelkers-gstaad",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/828dd4cc-3654-4204-9ff6-0fac6ef955d8",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/828dd4cc-3654-4204-9ff6-0fac6ef955d8",
-      "company": "E&V Gstaad Properties One AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Gstaad",
-      "addressLocality": "Gstaad",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-10b188bda042",
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-24T21:55:16.502Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
         "completeness": 22
       }
     },
@@ -377,6 +372,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Büroleiter/in (100%)",
+      "slug": "responsabile-ufficio-100-e-v-gstaad-properties-one-ag-gstaad",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/828dd4cc-3654-4204-9ff6-0fac6ef955d8",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/828dd4cc-3654-4204-9ff6-0fac6ef955d8",
+      "company": "E&V Gstaad Properties One AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Gstaad",
+      "addressLocality": "Gstaad",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-10b188bda042",
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-24T21:55:16.502Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 23,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
