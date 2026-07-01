@@ -104,8 +104,14 @@ run_nonfatal() {
 
 # ── 1. SPA fallback (GitHub Pages serves 404.html for unknown paths) ──────────
 # deploy.yml: "SPA fallback" — FATAL (plain `run:`).
+# public/404.html (canton-drift recovery + generic SPA redirect-restore — see
+# its own header comment) is already copied to dist/404.html by Vite's default
+# publicDir behavior, so only fall back to the plain index.html copy when it is
+# somehow absent (defensive: public/404.html is git-tracked and should always
+# exist). Previously this unconditionally overwrote dist/404.html, silently
+# discarding the canton-drift recovery script for every IT-locale deploy.
 step_spa_fallback() {
-  cp dist/index.html dist/404.html
+  [ -f dist/404.html ] || cp dist/index.html dist/404.html
 }
 
 # ── R2 publish (Cloudflare R2 via S3 API) — instant PUT, no Pages build ───────
@@ -170,10 +176,11 @@ _publish_cdn_r2() {
     [ -d "$1" ] || return 0
     "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
   }
-  _r2_sync "$stage/assets" assets "public,max-age=31536000,immutable"
-  _r2_sync "$stage/og"     og     "public,max-age=86400"
-  _r2_sync "$stage/images" images "public,max-age=86400"
-  _r2_sync "$stage/data"   data   "public,max-age=600"
+  _r2_sync "$stage/assets"    assets    "public,max-age=31536000,immutable"
+  _r2_sync "$stage/og"        og        "public,max-age=86400"
+  _r2_sync "$stage/images"    images    "public,max-age=86400"
+  _r2_sync "$stage/data"      data      "public,max-age=600"
+  _r2_sync "$stage/job-canon" job-canon "public,max-age=600"
   "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   if [ "$ok" != 1 ]; then
@@ -193,7 +200,8 @@ _publish_cdn_r2() {
 
 # ── 2. Push generated assets to CDN repo (frontaliere-cdn / Pages) ────────────
 # deploy.yml: "Push generated assets to CDN repo" — NON-FATAL (continue-on-error).
-# Stages CDN payload (dist/og, dist/data, dist/assets, public/images/*), then
+# Stages CDN payload (dist/og, dist/data, dist/assets, dist/job-canon,
+# public/images/*), then
 # publishes via CDN_TARGET: 'r2' (S3 sync, default-off) or 'pages' (legacy git
 # force-push to valerielinc-ops/frontaliere-cdn). Exports CDN_BASE on success.
 # Internally non-fatal: every failure path keeps the assets in dist.
@@ -220,6 +228,11 @@ step_push_cdn() {
   [ -d dist/og ]           && cp -r dist/og           "$stage/og"
   [ -d dist/data ]         && cp -r dist/data         "$stage/data"
   [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
+  # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
+  # 400 shards): runtime-fetch only (public/404.html + the Worker), no static
+  # HTML ref to rewrite, so the offload script just deletes dist/job-canon
+  # once this push succeeds (see its job-canon phase).
+  [ -d dist/job-canon ]    && cp -r dist/job-canon    "$stage/job-canon"
   [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
   # Self-hosted brand/logo/author images (#1360): push from the git-tracked
   # public/images/<dir> source to ${CDN}/images/<dir>, so the offload script
@@ -236,7 +249,7 @@ step_push_cdn() {
   # timestamps — not a runtime asset, must not be published).
   find "$stage" -name '.DS_Store' -delete 2>/dev/null || true
   rm -f "$stage/assets/.hash-age.json" 2>/dev/null || true
-  if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ]; then
+  if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ] && [ ! -d "$stage/job-canon" ]; then
     echo "no offloadable assets present — skipping CDN push"; return 0
   fi
   printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"

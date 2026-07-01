@@ -203,13 +203,14 @@ const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 // redirect a path we can't confirm. IT traffic is not routed through this Worker
 // and keeps the soft path — see wrangler.toml.)
 //
-// The slug→{locale: section-prefix} map is emitted at the IT dist root
-// (jobCanonRedirectMapPlugin → /job-canon/<shard>.json) and fetched here from the
-// public apex; that path is outside the Worker's locale routes, so the subrequest
-// flows straight to the IT Pages origin (no Worker re-entry) and is edge-cached
-// (cacheEverything + cacheTtl) so repeat 404s for the same shard don't re-hit the
-// origin. Best-effort throughout: any miss/timeout/parse error returns null and
-// the normal 404 path runs.
+// The slug→{locale: section-prefix} map is emitted by jobCanonRedirectMapPlugin
+// and pushed to cdn.frontaliereticino.ch/job-canon/<shard>.json (CDN-offloaded,
+// same as /data and /og — see deploy-it-pages-prep.sh step_push_cdn). Fetched
+// here as a plain cross-origin subrequest (Workers fetch() is not CORS-bound,
+// unlike public/404.html's browser-context fetch) and edge-cached (cacheEverything
+// + cacheTtl) so repeat 404s for the same shard don't re-hit the CDN. Best-effort
+// throughout: any miss/timeout/parse error returns null and the normal 404 path
+// runs.
 //
 // LOCALE-AWARE (do NOT collapse): the slug segment is IDENTICAL across all 4
 // locales — only the section prefix is localized. The map value is therefore a
@@ -275,6 +276,10 @@ const LEGACY_PAGINATION_RE =
 
 const MAP_FETCH_TIMEOUT_MS = 2000;
 const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
+// CDN-offloaded (see comment above recoverCantonDriftOrphan). MIRRORS the
+// literal in public/404.html — duplicated, not imported, same reason as
+// JOB_DETAIL_RE above (standalone Worker runtime, not part of the Vite bundle).
+const JOB_CANON_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
 // Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
 // shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
@@ -305,7 +310,7 @@ async function recoverCantonDriftOrphan(url, locale) {
   const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
   let map;
   try {
-    const mapUrl = new URL(`/job-canon/${sk}.json`, url.origin);
+    const mapUrl = new URL(`/job-canon/${sk}.json`, JOB_CANON_CDN_BASE);
     const resp = await fetch(mapUrl.toString(), {
       signal: controller.signal,
       cf: { cacheEverything: true, cacheTtl: JOB_CANON_CACHE_TTL },
