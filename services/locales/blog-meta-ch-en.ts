@@ -787,6 +787,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stop-ristorni-frontiera.title': 'Border towns demand urgent govt meeting over refunds',
     'blog.article.stop-ristorni-frontiera.excerpt': 'The Canton of Ticino blocks rebates to border municipalities. The association asks for an urgent meeting with the Italian government.',
     'blog.article.stop-ristorni-frontiera.imageAlt': 'Ticino-Lombardy border with sign indicating block of ristorni',
+    'blog.article.blocco-ristorni-ticino.title': 'Block of rebates, tensions with Ticino',
+    'blog.article.blocco-ristorni-ticino.excerpt': 'The blockade of refreshments by the Canton of Ticino in response to the Italian health tax has generated controversy and tensions.',
+    'blog.article.blocco-ristorni-ticino.imageAlt': 'Panoramic view of Bellinzona with Montebello Castle',
 };
 
 export default blogMetaChEn;
