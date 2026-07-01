@@ -1,18 +1,49 @@
 {
   "key": "allianz-suisse",
   "label": "Allianz Suisse",
-  "generatedAt": "2026-07-01T11:08:52.459Z",
-  "total": 86,
-  "newCount": 0,
+  "generatedAt": "2026-07-01T21:47:45.212Z",
+  "total": 87,
+  "newCount": 1,
   "updatedCount": 86,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 285367,
-  "avgDurationMs": 285367,
+  "durationMs": 288433,
+  "avgDurationMs": 288433,
   "durationHistory": [
-    285367
+    288433
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Lehrstelle als Kauffrau/Kaufmann EFZ, 100%, Sommer 2027",
+      "slug": "lehrstelle-als-kauffrau-kaufmann-efz-100-sommer-2027",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/904/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/904/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "employmentType": "full-time",
+      "contractType": "Unbefristet",
+      "validThrough": "",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Mitarbeiter:in Innendienst, 60-100%, Generalagentur Berner Oberland",
