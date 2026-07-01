@@ -176,10 +176,11 @@ _publish_cdn_r2() {
     [ -d "$1" ] || return 0
     "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
   }
-  _r2_sync "$stage/assets" assets "public,max-age=31536000,immutable"
-  _r2_sync "$stage/og"     og     "public,max-age=86400"
-  _r2_sync "$stage/images" images "public,max-age=86400"
-  _r2_sync "$stage/data"   data   "public,max-age=600"
+  _r2_sync "$stage/assets"    assets    "public,max-age=31536000,immutable"
+  _r2_sync "$stage/og"        og        "public,max-age=86400"
+  _r2_sync "$stage/images"    images    "public,max-age=86400"
+  _r2_sync "$stage/data"      data      "public,max-age=600"
+  _r2_sync "$stage/job-canon" job-canon "public,max-age=600"
   "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   if [ "$ok" != 1 ]; then
