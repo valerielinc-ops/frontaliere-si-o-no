@@ -25,6 +25,7 @@ import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
 import { handleAdminEmployerInsights, assertAdmin } from './src/adminEmployerInsights.js';
 import { handleAdminSendColdEmail } from './src/adminSendColdEmail.js';
+import { handleManageJournalistRole } from './src/journalistRoleCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { Resend } from 'resend';
 import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
@@ -202,6 +203,25 @@ export const adminSendColdEmail = onRequest(
       res.status(status).json(out);
     } catch (error) {
       console.error('[adminSendColdEmail]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Admin-only journalist-role management: GET lists every `journalists/{uid}`
+// doc; POST { action: 'grant'|'revoke', email } resolves the Firebase Auth
+// user by email and flips their role doc, gated by the same admin allowlist
+// as adminEmployerInsights/adminSendColdEmail. The role doc is the sole
+// source of truth for the gated publish dashboard (client can only read its
+// own doc — see firestore.rules — every write goes through here).
+export const manageJournalistRole = onRequest(
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleManageJournalistRole(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[manageJournalistRole]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },

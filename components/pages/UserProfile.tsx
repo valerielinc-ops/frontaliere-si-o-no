@@ -19,12 +19,13 @@ import {
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
  Plus, Trash2, Calculator, BookOpen, ArrowRightLeft, Award,
  AlertCircle, Building2, Navigation, Globe, Banknote,
- Clock, FileCheck, Mail, ExternalLink,
+ Clock, FileCheck, Mail, ExternalLink, Newspaper,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
 import { buildPath, ensureJobSlugMapLoaded } from '@/services/router';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
 import { useAuth, getUserDisplayName, getUserPhotoURL, promptOneTap, renderGoogleButton, cancelOneTap, deleteCurrentUser, signInWithFacebook, reAuthFacebook, getLinkedProviders, getAuthEmail, consumeFacebookProfilePrefill, eagerAuth, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
+import { useJournalistRole } from '@/hooks/useJournalistRole';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import { borderCrossings } from '@/data/borderCrossings';
@@ -460,6 +461,9 @@ const UserProfile: React.FC = () => {
    })();
    return () => { cancelled = true; };
  }, [user]);
+ // Show a "Redazione" shortcut only for accounts granted the journalist role
+ // (managed by an admin from AdminPanel.tsx's "Giornalisti" section).
+ const { isJournalist } = useJournalistRole(user);
  // The user's own applications to sponsored ads (in-house / forward-email apply
  // modes write an `applications` doc carrying the denormalised candidateUid +
  // jobTitle + jobSlug). Only paid/sponsored ads expose the in-house form, so
@@ -1110,6 +1114,15 @@ const UserProfile: React.FC = () => {
  >
  <Briefcase size={13} />
  {t('profile.action.myListings')}
+ </a>
+ )}
+ {isJournalist && (
+ <a
+ href={buildPath({ activeTab: 'journalist-dashboard' }, locale)}
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-info-border hover:text-info transition-[color,border-color] whitespace-nowrap"
+ >
+ <Newspaper size={13} />
+ {t('profile.action.journalistDashboard')}
  </a>
  )}
  </div>

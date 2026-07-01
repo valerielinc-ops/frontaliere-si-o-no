@@ -9,6 +9,7 @@ import { useAuth } from '@/services/authService';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type EmployerInsightsRow, type EmployerOutreachStatus } from '@/services/adminInsights';
+import { fetchJournalistGrants, setJournalistRole, type JournalistGrant } from '@/services/journalistAdminService';
 // Cold-email sequence: single shared source so the admin preview is byte-identical
 // to what send-cold-emails.mjs actually sends (AGENTS.md Non-Negotiable #6).
 import { buildSequence } from '../../scripts/lib/cold-email-sequence.mjs';
@@ -17,7 +18,7 @@ import {
  AlertTriangle, CheckCircle2, Eye,
  Mail, Users, Send, RefreshCw, ToggleLeft, ToggleRight, Database, Activity, Calendar, Terminal,
  Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap,
- Building2, TrendingDown, UserCheck, Pencil, Save, X
+ Building2, TrendingDown, UserCheck, Pencil, Save, X, Newspaper
 } from 'lucide-react';
 
 /* ─── Types ─── */
@@ -314,7 +315,7 @@ export default function AdminPanel() {
  const { user } = useAuth();
  const hasPreloadedWorkflowSnapshots = useRef(false);
  const [copiedCmd, setCopiedCmd] = useState(false);
- const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | WorkflowContext>('jobs');
+ const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | 'journalists' | WorkflowContext>('jobs');
  const [ownerTab] = useState<'overview'>('overview');
  const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
  const [copiedAiPromptFor, setCopiedAiPromptFor] = useState<string | null>(null);
@@ -388,6 +389,13 @@ export default function AdminPanel() {
  const [previewTouch, setPreviewTouch] = useState(1);
  const [sendingTouch, setSendingTouch] = useState(false);
  const [sendMsg, setSendMsg] = useState<{ ok: boolean; text: string } | null>(null);
+ // Giornalisti (journalist role grant/revoke) state
+ const [journalistGrants, setJournalistGrants] = useState<JournalistGrant[]>([]);
+ const [journalistLoading, setJournalistLoading] = useState(false);
+ const [journalistError, setJournalistError] = useState<string | null>(null);
+ const [journalistEmailDraft, setJournalistEmailDraft] = useState('');
+ const [journalistActionPending, setJournalistActionPending] = useState(false);
+ const [journalistActionMsg, setJournalistActionMsg] = useState<{ ok: boolean; text: string } | null>(null);
  // Crawler table filters & expansion
  const [crawlerNameFilter, setCrawlerNameFilter] = useState('');
  const [crawlerChangeFilter, setCrawlerChangeFilter] = useState<'all' | 'new' | 'updated' | 'removed' | 'none'>('all');
@@ -575,6 +583,49 @@ export default function AdminPanel() {
  loadEmployerInsights();
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [activeSection]);
+
+ // Load journalist grants when the "Giornalisti" tab is opened.
+ const loadJournalistGrants = async () => {
+ setJournalistLoading(true);
+ setJournalistError(null);
+ try {
+ const grants = await fetchJournalistGrants(user);
+ setJournalistGrants(grants);
+ } catch (err) {
+ setJournalistError(err instanceof Error ? err.message : 'Errore sconosciuto');
+ } finally {
+ setJournalistLoading(false);
+ }
+ };
+
+ useEffect(() => {
+ if (activeSection !== 'journalists') return;
+ loadJournalistGrants();
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [activeSection]);
+
+ const handleJournalistRoleAction = async (action: 'grant' | 'revoke', email: string) => {
+ const trimmedEmail = email.trim();
+ if (!trimmedEmail || journalistActionPending) return;
+ if (typeof window !== 'undefined') {
+ const confirmText = action === 'grant'
+ ? `Abilitare ${trimmedEmail} come giornalista?`
+ : `Disabilitare ${trimmedEmail} come giornalista?`;
+ if (!window.confirm(confirmText)) return;
+ }
+ setJournalistActionPending(true);
+ setJournalistActionMsg(null);
+ try {
+ await setJournalistRole(user, action, trimmedEmail);
+ setJournalistActionMsg({ ok: true, text: action === 'grant' ? 'Giornalista abilitato.' : 'Giornalista disabilitato.' });
+ setJournalistEmailDraft('');
+ await loadJournalistGrants();
+ } catch (err) {
+ setJournalistActionMsg({ ok: false, text: err instanceof Error ? err.message : 'Errore sconosciuto' });
+ } finally {
+ setJournalistActionPending(false);
+ }
+ };
 
  // ── Contact + email-preview drawer ────────────────────────────────
  const contactModalRow = useMemo(
@@ -3004,6 +3055,7 @@ export default function AdminPanel() {
  { id: 'seo' as const, label: 'SEO/Qualità', icon: Shield },
  { id: 'analytics' as const, label: 'Dati', icon: Database },
  { id: 'insights' as const, label: 'Insights Aziende', icon: Building2 },
+ { id: 'journalists' as const, label: 'Giornalisti', icon: Newspaper },
  { id: 'newsletter' as const, label: 'Newsletter', icon: Mail },
  ].map(tab => {
  const summary = ['jobs', 'content', 'seo', 'analytics'].includes(tab.id)
@@ -3602,6 +3654,119 @@ export default function AdminPanel() {
  </div>
  </div>
  )}
+ </div>
+ )}
+
+ {/* Giornalisti section */}
+ {activeSection === 'journalists' && (
+ <div className="space-y-4">
+ <div className="flex items-center justify-between gap-3 flex-wrap">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
+ <Newspaper size={20} className="text-accent" />
+ Giornalisti
+ </h2>
+ <button
+ onClick={loadJournalistGrants}
+ disabled={journalistLoading}
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors disabled:opacity-60"
+ >
+ {journalistLoading ? <Loader2 size={14} className="animate-spin" /> : <RefreshCw size={14} />}
+ Aggiorna
+ </button>
+ </div>
+
+ <div className="bg-surface rounded-xl border border-edge px-4 py-2">
+ <p className="text-sm text-muted">
+ Abilita o disabilita l&apos;accesso alla dashboard redazionale (bozza articolo, invio in
+ pubblicazione, analytics). La persona deve aver già effettuato l&apos;accesso al sito almeno
+ una volta con questa email.
+ </p>
+ </div>
+
+ <form
+ onSubmit={(e) => { e.preventDefault(); void handleJournalistRoleAction('grant', journalistEmailDraft); }}
+ className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-surface rounded-xl border border-edge p-3"
+ >
+ <input
+ type="email"
+ value={journalistEmailDraft}
+ onChange={(e) => setJournalistEmailDraft(e.target.value)}
+ placeholder="email@esempio.ch"
+ className="flex-1 px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ />
+ <button
+ type="submit"
+ disabled={journalistActionPending || !journalistEmailDraft.trim()}
+ className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors disabled:opacity-60"
+ >
+ {journalistActionPending ? <Loader2 size={14} className="animate-spin" /> : <UserCheck size={14} />}
+ Abilita
+ </button>
+ <button
+ type="button"
+ onClick={() => { void handleJournalistRoleAction('revoke', journalistEmailDraft); }}
+ disabled={journalistActionPending || !journalistEmailDraft.trim()}
+ className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-edge text-subtle hover:text-danger hover:border-danger-border text-sm font-medium transition-colors disabled:opacity-60"
+ >
+ Disabilita
+ </button>
+ </form>
+
+ {journalistActionMsg && (
+ <div className={`rounded-xl border px-4 py-2 text-sm ${journalistActionMsg.ok ? 'bg-success-subtle border-success-border text-success' : 'bg-danger-subtle border-danger-border text-danger'}`}>
+ {journalistActionMsg.text}
+ </div>
+ )}
+
+ {journalistError && (
+ <div className="bg-danger-subtle border border-danger-border rounded-xl px-4 py-2 text-sm text-danger">
+ {journalistError}
+ </div>
+ )}
+
+ <div className="bg-surface rounded-xl border border-edge overflow-x-auto">
+ <table className="w-full text-sm">
+ <thead>
+ <tr className="border-b border-edge text-left text-xs uppercase text-muted">
+ <th className="px-4 py-2">Email</th>
+ <th className="px-4 py-2">Nome</th>
+ <th className="px-4 py-2">Stato</th>
+ <th className="px-4 py-2">Concesso il</th>
+ <th className="px-4 py-2">Da</th>
+ <th className="px-4 py-2" />
+ </tr>
+ </thead>
+ <tbody>
+ {journalistGrants.length === 0 && !journalistLoading && (
+ <tr>
+ <td colSpan={6} className="px-4 py-6 text-center text-muted">Nessun giornalista abilitato finora.</td>
+ </tr>
+ )}
+ {journalistGrants.map((g) => (
+ <tr key={g.uid} className="border-b border-edge last:border-0">
+ <td className="px-4 py-2 text-strong">{g.email}</td>
+ <td className="px-4 py-2 text-subtle">{g.displayName}</td>
+ <td className="px-4 py-2">
+ <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${g.active ? 'bg-success-subtle text-success border-success-border' : 'bg-surface-alt text-muted border-edge'}`}>
+ {g.active ? 'Attivo' : 'Disattivo'}
+ </span>
+ </td>
+ <td className="px-4 py-2 text-subtle">{g.grantedAt ? new Date(g.grantedAt).toLocaleDateString('it-CH') : '—'}</td>
+ <td className="px-4 py-2 text-subtle">{g.grantedBy || '—'}</td>
+ <td className="px-4 py-2 text-right">
+ <button
+ onClick={() => { void handleJournalistRoleAction(g.active ? 'revoke' : 'grant', g.email); }}
+ disabled={journalistActionPending}
+ className="text-xs font-medium text-link hover:underline disabled:opacity-60"
+ >
+ {g.active ? 'Disabilita' : 'Riabilita'}
+ </button>
+ </td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
  </div>
  )}
 

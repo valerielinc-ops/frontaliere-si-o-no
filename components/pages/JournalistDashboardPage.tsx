@@ -1,0 +1,892 @@
+/**
+ * JournalistDashboardPage — self-serve authoring & publish-status dashboard
+ * for accounts granted the journalist role (see hooks/useJournalistRole.ts;
+ * granted/revoked from AdminPanel.tsx's "Giornalisti" section via the
+ * manageJournalistRole Cloud Function).
+ *
+ * Flow:
+ *  1. Auth gate (useAuth) — mirrors PublisherPublishPage.tsx's spinner +
+ *     SocialSignInButtons pattern.
+ *  2. Journalist-role gate (useJournalistRole) — plain "not authorized"
+ *     message when the account has no active `journalists/{uid}` grant.
+ *  3. Dashboard: article list -> create/edit a draft -> submit for
+ *     publishing -> track status/analytics/link-health.
+ *
+ * The journalist authors the IT (source) locale only; EN/DE/FR are produced
+ * server-side by scripts/publish-journalist-article.mjs once a draft is
+ * submitted (status 'queued'). That script (and the resulting 'published' /
+ * 'failed' transition) is out of scope here — this page only reads/writes
+ * via services/journalistArticleService.ts (Firestore/Storage, journalist-owned
+ * writes are restricted to 'draft'/'queued' by firestore.rules).
+ */
+
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  Newspaper,
+  Plus,
+  Trash2,
+  Send,
+  ImagePlus,
+  ArrowLeft,
+  CheckCircle2,
+  AlertTriangle,
+  AlertCircle,
+  ExternalLink,
+  BarChart3,
+  Link2,
+  RotateCcw,
+  Pencil,
+  Clock,
+} from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
+import { useAuth } from '@/services/authService';
+import { buildPath } from '@/services/router';
+import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
+import { useJournalistRole } from '@/hooks/useJournalistRole';
+import { reportCaughtError } from '@/services/errorReporter';
+import {
+  slugifyArticleTitle,
+  createDraft,
+  saveDraft,
+  submitForPublish,
+  deleteDraft,
+  listMyArticles,
+  getArticle,
+  uploadArticleImage,
+} from '@/services/journalistArticleService';
+import {
+  JOURNALIST_STATUS_PILL,
+  JOURNALIST_ARTICLE_CATEGORIES,
+  canEditContent,
+  canSubmit,
+  canDelete,
+} from '@/services/journalistTypes';
+import type {
+  JournalistArticle,
+  JournalistArticleCategory,
+  JournalistArticleFaq,
+  JournalistArticleLocaleContent,
+  ArticleLocale,
+} from '@/services/journalistTypes';
+
+type ViewMode = 'list' | 'article';
+
+const ARTICLE_LOCALES: ArticleLocale[] = ['it', 'en', 'de', 'fr'];
+const LOCALE_LABELS: Record<ArticleLocale, string> = {
+  it: 'Italiano',
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+};
+
+function emptyFaq(): JournalistArticleFaq {
+  return { q: '', a: '' };
+}
+
+function emptyContent(): JournalistArticleLocaleContent {
+  return { title: '', excerpt: '', body1: '', body2: '', body3: '', faq: [] };
+}
+
+function formatDate(iso: string | undefined, locale: string): string {
+  if (!iso) return '';
+  try {
+    return new Date(iso).toLocaleDateString(locale === 'it' ? 'it-CH' : locale, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  } catch {
+    return iso;
+  }
+}
+
+function StatusPill({ status }: { status: JournalistArticle['status'] }): React.ReactElement {
+  const { t } = useTranslation();
+  const meta = JOURNALIST_STATUS_PILL[status];
+  return (
+    <span
+      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap"
+      style={{ color: meta.color, backgroundColor: `${meta.color}1a`, border: `1px solid ${meta.color}40` }}
+    >
+      {t(`journalistDashboard.status.${status}`, meta.label)}
+    </span>
+  );
+}
+
+export default function JournalistDashboardPage(): React.ReactElement {
+  const { t, locale } = useTranslation();
+  const { user, loading: authLoading } = useAuth();
+  const { isJournalist, loading: roleLoading } = useJournalistRole(user);
+
+  const [view, setView] = useState<ViewMode>('list');
+  const [articles, setArticles] = useState<JournalistArticle[] | null>(null);
+  const [listError, setListError] = useState<string | null>(null);
+
+  // ── Editor / detail state for the currently-open article ──────
+  const [draftId, setDraftId] = useState<string | null>(null); // null while composing a brand-new draft
+  const [openArticle, setOpenArticle] = useState<JournalistArticle | null>(null); // full record once persisted
+  const [title, setTitle] = useState('');
+  const [excerpt, setExcerpt] = useState('');
+  const [body1, setBody1] = useState('');
+  const [body2, setBody2] = useState('');
+  const [body3, setBody3] = useState('');
+  const [faq, setFaq] = useState<JournalistArticleFaq[]>([]);
+  const [category, setCategory] = useState<JournalistArticleCategory>(JOURNALIST_ARTICLE_CATEGORIES[0]);
+  const [image, setImage] = useState('');
+  const [imageAlt, setImageAlt] = useState('');
+  const [slugTaken, setSlugTaken] = useState(false);
+  const [checkingSlug, setCheckingSlug] = useState(false);
+
+  const [saving, setSaving] = useState(false);
+  const [saveMsg, setSaveMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  const computedSlug = useMemo(() => slugifyArticleTitle(title), [title]);
+
+  const loadArticles = async (uid: string) => {
+    setListError(null);
+    try {
+      const rows = await listMyArticles(uid);
+      setArticles(rows);
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.list');
+      setListError(t('journalistDashboard.list.error'));
+      setArticles([]);
+    }
+  };
+
+  useEffect(() => {
+    if (user && isJournalist) {
+      void loadArticles(user.uid);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.uid, isJournalist]);
+
+  const resetForm = () => {
+    setDraftId(null);
+    setOpenArticle(null);
+    setTitle('');
+    setExcerpt('');
+    setBody1('');
+    setBody2('');
+    setBody3('');
+    setFaq([]);
+    setCategory(JOURNALIST_ARTICLE_CATEGORIES[0]);
+    setImage('');
+    setImageAlt('');
+    setSlugTaken(false);
+    setSaveMsg(null);
+    setShowSubmitConfirm(false);
+    setShowDeleteConfirm(false);
+  };
+
+  const openNewDraft = () => {
+    resetForm();
+    setView('article');
+  };
+
+  const openExisting = (article: JournalistArticle) => {
+    setDraftId(article.id);
+    setOpenArticle(article);
+    const content = article.content.it;
+    setTitle(content.title);
+    setExcerpt(content.excerpt);
+    setBody1(content.body1);
+    setBody2(content.body2);
+    setBody3(content.body3);
+    setFaq(content.faq || []);
+    setCategory(article.category);
+    setImage(article.image);
+    setImageAlt(article.imageAlt);
+    setSlugTaken(false);
+    setSaveMsg(null);
+    setShowSubmitConfirm(false);
+    setShowDeleteConfirm(false);
+    setView('article');
+  };
+
+  const backToList = () => {
+    setView('list');
+    resetForm();
+    if (user) void loadArticles(user.uid);
+  };
+
+  const handleTitleBlur = async () => {
+    if (draftId || !title.trim()) return; // slug is only re-checked before the article exists
+    setCheckingSlug(true);
+    try {
+      const existing = await getArticle(computedSlug);
+      setSlugTaken(!!existing);
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.slugCheck');
+    } finally {
+      setCheckingSlug(false);
+    }
+  };
+
+  const currentContent = (): JournalistArticleLocaleContent => ({
+    title: title.trim(),
+    excerpt: excerpt.trim(),
+    body1,
+    body2,
+    body3,
+    faq: faq.filter((f) => f.q.trim() && f.a.trim()),
+  });
+
+  const handleSaveDraft = async () => {
+    if (!user || saving) return;
+    if (!title.trim()) {
+      setSaveMsg({ ok: false, text: t('journalistDashboard.editor.titleRequired') });
+      return;
+    }
+    setSaving(true);
+    setSaveMsg(null);
+    try {
+      if (!draftId) {
+        if (slugTaken) {
+          setSaveMsg({ ok: false, text: t('journalistDashboard.editor.slugTaken') });
+          setSaving(false);
+          return;
+        }
+        const id = computedSlug || `articolo-${Date.now()}`;
+        await createDraft({
+          id,
+          authorUid: user.uid,
+          authorName: user.displayName || user.email || 'Redazione',
+          authorEmail: user.email || '',
+          category,
+          imageAlt,
+          content: currentContent(),
+        });
+        setDraftId(id);
+        const fresh = await getArticle(id);
+        if (fresh) setOpenArticle(fresh);
+      } else {
+        await saveDraft(draftId, { category, image, imageAlt, content: currentContent() });
+        const fresh = await getArticle(draftId);
+        if (fresh) setOpenArticle(fresh);
+      }
+      setSaveMsg({ ok: true, text: t('journalistDashboard.editor.saved') });
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.save');
+      setSaveMsg({ ok: false, text: t('journalistDashboard.editor.saveError') });
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleImageUpload = async (file: File) => {
+    if (!user || !draftId) return;
+    setUploadingImage(true);
+    try {
+      const url = await uploadArticleImage(user.uid, draftId, file);
+      setImage(url);
+      await saveDraft(draftId, { image: url });
+      setSaveMsg({ ok: true, text: t('journalistDashboard.editor.imageSaved') });
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.imageUpload');
+      setSaveMsg({ ok: false, text: t('journalistDashboard.editor.imageError') });
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!draftId || submitting) return;
+    setSubmitting(true);
+    try {
+      await submitForPublish(draftId);
+      const fresh = await getArticle(draftId);
+      if (fresh) setOpenArticle(fresh);
+      setShowSubmitConfirm(false);
+      setSaveMsg({ ok: true, text: t('journalistDashboard.editor.submitted') });
+      if (user) void loadArticles(user.uid);
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.submit');
+      setSaveMsg({ ok: false, text: t('journalistDashboard.editor.submitError') });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!draftId || deleting) return;
+    setDeleting(true);
+    try {
+      await deleteDraft(draftId);
+      backToList();
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.delete');
+      setSaveMsg({ ok: false, text: t('journalistDashboard.editor.deleteError') });
+      setDeleting(false);
+    }
+  };
+
+  // ── Auth gate ───────────────────────────────────────────────
+  if (authLoading && !user) {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-24 flex flex-col items-center justify-center text-center">
+        <div
+          className="animate-spin rounded-full h-8 w-8 border-2 border-edge border-t-accent"
+          role="status"
+          aria-label={t('journalistDashboard.loadingAuth')}
+        />
+        <span className="sr-only">{t('journalistDashboard.loadingAuth')}</span>
+      </div>
+    );
+  }
+
+  if (!authLoading && !user) {
+    return (
+      <div className="max-w-md mx-auto px-4 py-12">
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-subtle mb-1">
+            <Newspaper className="w-7 h-7 text-link" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">
+            {t('journalistDashboard.title')}
+          </h1>
+          <p className="text-subtle max-w-sm mx-auto">{t('journalistDashboard.gate.subtitle')}</p>
+        </div>
+        <div className="mt-6 space-y-4">
+          <SocialSignInButtons locale={locale} googleWidth={320} errorContext="journalistDashboard.gate" />
+        </div>
+      </div>
+    );
+  }
+
+  // ── Journalist-role gate ────────────────────────────────────
+  if (roleLoading) {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-24 flex flex-col items-center justify-center text-center">
+        <div
+          className="animate-spin rounded-full h-8 w-8 border-2 border-edge border-t-accent"
+          role="status"
+          aria-label={t('journalistDashboard.loadingRole')}
+        />
+        <span className="sr-only">{t('journalistDashboard.loadingRole')}</span>
+      </div>
+    );
+  }
+
+  if (!isJournalist) {
+    return (
+      <div className="max-w-md mx-auto px-4 py-16 text-center">
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-surface-alt mb-4">
+          <Newspaper className="w-7 h-7 text-muted" />
+        </div>
+        <h1 className="text-xl font-bold font-display text-strong mb-2">
+          {t('journalistDashboard.notAuthorized.title')}
+        </h1>
+        <p className="text-subtle">{t('journalistDashboard.notAuthorized.body')}</p>
+      </div>
+    );
+  }
+
+  // ── List view ───────────────────────────────────────────────
+  if (view === 'list') {
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong">
+              {t('journalistDashboard.title')}
+            </h1>
+            <p className="text-subtle mt-1">{t('journalistDashboard.subtitle')}</p>
+          </div>
+          <button
+            type="button"
+            onClick={openNewDraft}
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors shrink-0"
+          >
+            <Plus className="w-4 h-4" />
+            {t('journalistDashboard.newDraftCta')}
+          </button>
+        </div>
+
+        {articles === null && (
+          <div className="flex justify-center py-12">
+            <div className="animate-spin rounded-full h-8 w-8 border-2 border-accent border-t-transparent" />
+          </div>
+        )}
+
+        {listError && <p className="text-sm text-danger py-8 text-center">{listError}</p>}
+
+        {articles !== null && articles.length === 0 && !listError && (
+          <div className="rounded-3xl border border-dashed border-edge bg-surface-alt px-6 py-14 text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-subtle text-link mb-4">
+              <Newspaper className="w-8 h-8" />
+            </div>
+            <h2 className="text-xl font-bold font-display text-strong mb-1.5">
+              {t('journalistDashboard.empty.title')}
+            </h2>
+            <p className="text-subtle max-w-sm mx-auto mb-6">{t('journalistDashboard.empty.body')}</p>
+            <button
+              type="button"
+              onClick={openNewDraft}
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              {t('journalistDashboard.newDraftCta')}
+            </button>
+          </div>
+        )}
+
+        {articles !== null && articles.length > 0 && (
+          <ul className="space-y-3">
+            {articles.map((a) => (
+              <li key={a.id}>
+                <button
+                  type="button"
+                  onClick={() => openExisting(a)}
+                  className="w-full text-left flex items-center gap-4 p-4 bg-surface border border-edge rounded-2xl hover:border-accent transition-colors"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-strong truncate">
+                      {a.content.it.title || t('journalistDashboard.untitled')}
+                    </p>
+                    <p className="text-xs text-muted mt-0.5">
+                      {t(`journalistDashboard.category.${a.category}`, a.category)}
+                      {' · '}
+                      {t('journalistDashboard.updatedAt', { date: formatDate(a.updatedAt, locale) })}
+                    </p>
+                  </div>
+                  <StatusPill status={a.status} />
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    );
+  }
+
+  // ── Article view (new draft or existing) ───────────────────
+  const editable = !openArticle || canEditContent(openArticle.status);
+  const submittable = !!draftId && !!openArticle && canSubmit(openArticle.status);
+  const deletable = !!draftId && !!openArticle && canDelete(openArticle.status);
+
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-8">
+      <button
+        type="button"
+        onClick={backToList}
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-link hover:text-link-hover mb-6"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        {t('journalistDashboard.backToList')}
+      </button>
+
+      <div className="flex items-center justify-between gap-3 mb-6 flex-wrap">
+        <h1 className="text-xl sm:text-2xl font-bold font-display text-strong">
+          {openArticle ? openArticle.content.it.title || t('journalistDashboard.untitled') : t('journalistDashboard.newDraftCta')}
+        </h1>
+        {openArticle && <StatusPill status={openArticle.status} />}
+      </div>
+
+      {/* ── Status banners ─────────────────────────────────── */}
+      {openArticle?.status === 'failed' && (
+        <div className="flex items-start gap-2.5 p-4 bg-danger-subtle border border-danger-border rounded-xl mb-6">
+          <AlertTriangle className="w-5 h-5 text-danger shrink-0 mt-0.5" />
+          <div>
+            <p className="text-sm font-semibold text-danger">{t('journalistDashboard.detail.failedTitle')}</p>
+            <p className="text-sm text-danger mt-0.5">
+              {openArticle.errorMessage || t('journalistDashboard.detail.failedFallback')}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {openArticle?.status === 'queued' && (
+        <div className="flex items-start gap-2.5 p-4 bg-warning-subtle border border-warning-border rounded-xl mb-6">
+          <Clock className="w-5 h-5 text-warning shrink-0 mt-0.5" />
+          <p className="text-sm text-warning">{t('journalistDashboard.detail.queuedInfo')}</p>
+        </div>
+      )}
+
+      {openArticle?.status === 'published' && (
+        <div className="p-4 bg-success-subtle border border-success-border rounded-xl mb-6">
+          <p className="flex items-center gap-2 text-sm font-semibold text-success mb-2">
+            <CheckCircle2 className="w-5 h-5" />
+            {t('journalistDashboard.detail.publishedTitle')}
+          </p>
+          <ul className="space-y-1">
+            {ARTICLE_LOCALES.map((loc) => {
+              const url = openArticle.publishedUrls?.[loc];
+              return (
+                <li key={loc} className="flex items-center gap-2 text-sm">
+                  <span className="text-muted w-20 shrink-0">{LOCALE_LABELS[loc]}</span>
+                  {url ? (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-link hover:text-link-hover truncate"
+                    >
+                      {url}
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                    </a>
+                  ) : (
+                    <span className="text-muted">{t('journalistDashboard.detail.urlPending')}</span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+
+      {/* ── Analytics + link-check panels (only once the article exists) ── */}
+      {openArticle && (
+        <div className="grid sm:grid-cols-2 gap-4 mb-6">
+          <div className="p-4 bg-surface-alt border border-edge rounded-xl">
+            <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-link mb-3">
+              <BarChart3 className="w-3.5 h-3.5" />
+              {t('journalistDashboard.detail.analyticsHeading')}
+            </p>
+            {openArticle.analytics && Object.keys(openArticle.analytics).length > 0 ? (
+              <dl className="space-y-1.5 text-sm">
+                {openArticle.analytics.views != null && (
+                  <div className="flex justify-between">
+                    <dt className="text-muted">{t('journalistDashboard.detail.analytics.views')}</dt>
+                    <dd className="font-semibold text-strong">{openArticle.analytics.views}</dd>
+                  </div>
+                )}
+                {openArticle.analytics.clicks != null && (
+                  <div className="flex justify-between">
+                    <dt className="text-muted">{t('journalistDashboard.detail.analytics.clicks')}</dt>
+                    <dd className="font-semibold text-strong">{openArticle.analytics.clicks}</dd>
+                  </div>
+                )}
+                {openArticle.analytics.impressions != null && (
+                  <div className="flex justify-between">
+                    <dt className="text-muted">{t('journalistDashboard.detail.analytics.impressions')}</dt>
+                    <dd className="font-semibold text-strong">{openArticle.analytics.impressions}</dd>
+                  </div>
+                )}
+                {openArticle.analytics.score != null && (
+                  <div className="flex justify-between">
+                    <dt className="text-muted">{t('journalistDashboard.detail.analytics.score')}</dt>
+                    <dd className="font-semibold text-strong">{openArticle.analytics.score}</dd>
+                  </div>
+                )}
+                {openArticle.analytics.updatedAt && (
+                  <p className="text-xs text-muted pt-1">
+                    {t('journalistDashboard.updatedAt', { date: formatDate(openArticle.analytics.updatedAt, locale) })}
+                  </p>
+                )}
+              </dl>
+            ) : (
+              <p className="text-sm text-muted">{t('journalistDashboard.detail.analyticsUnavailable')}</p>
+            )}
+          </div>
+
+          <div className="p-4 bg-surface-alt border border-edge rounded-xl">
+            <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-link mb-3">
+              <Link2 className="w-3.5 h-3.5" />
+              {t('journalistDashboard.detail.linkCheckHeading')}
+            </p>
+            <ul className="space-y-2 text-sm">
+              {ARTICLE_LOCALES.map((loc) => {
+                const check = openArticle.linkCheck?.[loc];
+                return (
+                  <li key={loc} className="flex items-start justify-between gap-2">
+                    <span className="text-muted shrink-0">{LOCALE_LABELS[loc]}</span>
+                    {check ? (
+                      <span className={`text-right ${check.brokenLinks ? 'text-danger' : 'text-success'}`}>
+                        {check.brokenLinks
+                          ? t('journalistDashboard.detail.linkCheck.broken', {
+                              broken: check.brokenLinks,
+                              total: check.totalLinks ?? 0,
+                            })
+                          : t('journalistDashboard.detail.linkCheck.ok', { total: check.totalLinks ?? 0 })}
+                      </span>
+                    ) : (
+                      <span className="text-muted">{t('journalistDashboard.detail.linkCheckUnavailable')}</span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* ── Editable form ───────────────────────────────────── */}
+      {editable ? (
+        <div className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium text-strong mb-1.5" htmlFor="jd-title">
+              {t('journalistDashboard.editor.titleLabel')}
+            </label>
+            <input
+              id="jd-title"
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              onBlur={handleTitleBlur}
+              className="w-full px-3.5 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
+              placeholder={t('journalistDashboard.editor.titlePlaceholder')}
+            />
+            {!draftId && title.trim() && (
+              <p className={`text-xs mt-1 ${slugTaken ? 'text-danger' : 'text-muted'}`}>
+                {checkingSlug
+                  ? t('journalistDashboard.editor.checkingSlug')
+                  : slugTaken
+                    ? t('journalistDashboard.editor.slugTaken')
+                    : t('journalistDashboard.editor.slugPreview', { slug: computedSlug })}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-strong mb-1.5" htmlFor="jd-excerpt">
+              {t('journalistDashboard.editor.excerptLabel')}
+            </label>
+            <textarea
+              id="jd-excerpt"
+              value={excerpt}
+              onChange={(e) => setExcerpt(e.target.value)}
+              rows={2}
+              className="w-full px-3.5 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm resize-y"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-strong mb-1.5" htmlFor="jd-category">
+              {t('journalistDashboard.editor.categoryLabel')}
+            </label>
+            <select
+              id="jd-category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value as JournalistArticleCategory)}
+              className="w-full px-3.5 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
+            >
+              {JOURNALIST_ARTICLE_CATEGORIES.map((c) => (
+                <option key={c} value={c}>
+                  {t(`journalistDashboard.category.${c}`, c)}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <p className="text-xs text-muted bg-surface-alt border border-edge rounded-lg p-2.5">
+            {t('journalistDashboard.editor.enrichmentHint')}
+          </p>
+
+          {(['body1', 'body2', 'body3'] as const).map((field, idx) => {
+            const value = field === 'body1' ? body1 : field === 'body2' ? body2 : body3;
+            const setter = field === 'body1' ? setBody1 : field === 'body2' ? setBody2 : setBody3;
+            return (
+              <div key={field}>
+                <label className="block text-sm font-medium text-strong mb-1.5" htmlFor={`jd-${field}`}>
+                  {t('journalistDashboard.editor.bodyLabel', { n: idx + 1 })}
+                </label>
+                <textarea
+                  id={`jd-${field}`}
+                  value={value}
+                  onChange={(e) => setter(e.target.value)}
+                  rows={6}
+                  className="w-full px-3.5 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm resize-y font-mono"
+                />
+              </div>
+            );
+          })}
+
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="block text-sm font-medium text-strong">{t('journalistDashboard.editor.faqLabel')}</label>
+              <button
+                type="button"
+                onClick={() => setFaq((prev) => [...prev, emptyFaq()])}
+                className="inline-flex items-center gap-1 text-xs font-medium text-link hover:text-link-hover"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                {t('journalistDashboard.editor.addFaq')}
+              </button>
+            </div>
+            <div className="space-y-3">
+              {faq.map((item, i) => (
+                <div key={i} className="p-3 bg-surface-alt border border-edge rounded-xl space-y-2">
+                  <input
+                    type="text"
+                    value={item.q}
+                    onChange={(e) =>
+                      setFaq((prev) => prev.map((f, fi) => (fi === i ? { ...f, q: e.target.value } : f)))
+                    }
+                    placeholder={t('journalistDashboard.editor.faqQuestionPlaceholder')}
+                    className="w-full px-3 py-2 bg-surface border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  />
+                  <textarea
+                    value={item.a}
+                    onChange={(e) =>
+                      setFaq((prev) => prev.map((f, fi) => (fi === i ? { ...f, a: e.target.value } : f)))
+                    }
+                    rows={2}
+                    placeholder={t('journalistDashboard.editor.faqAnswerPlaceholder')}
+                    className="w-full px-3 py-2 bg-surface border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent resize-y"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setFaq((prev) => prev.filter((_, fi) => fi !== i))}
+                    className="inline-flex items-center gap-1 text-xs font-medium text-danger hover:opacity-80"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                    {t('journalistDashboard.editor.removeFaq')}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-strong mb-1.5" htmlFor="jd-image">
+              {t('journalistDashboard.editor.imageLabel')}
+            </label>
+            {image && (
+              <img src={image} alt={imageAlt} className="w-full max-w-sm rounded-xl border border-edge mb-2" />
+            )}
+            {draftId ? (
+              <>
+                <input
+                  id="jd-image"
+                  type="file"
+                  accept="image/*"
+                  disabled={uploadingImage}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) void handleImageUpload(file);
+                  }}
+                  className="block w-full text-sm text-subtle file:mr-3 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-accent-subtle file:text-link hover:file:bg-accent-subtle/80"
+                />
+                <input
+                  type="text"
+                  value={imageAlt}
+                  onChange={(e) => setImageAlt(e.target.value)}
+                  placeholder={t('journalistDashboard.editor.imageAltPlaceholder')}
+                  className="w-full mt-2 px-3.5 py-2 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
+                />
+                {uploadingImage && (
+                  <p className="flex items-center gap-1.5 text-xs text-muted mt-1">
+                    <ImagePlus className="w-3.5 h-3.5 animate-pulse" />
+                    {t('journalistDashboard.editor.uploadingImage')}
+                  </p>
+                )}
+              </>
+            ) : (
+              <p className="text-xs text-muted">{t('journalistDashboard.editor.imageNeedsDraft')}</p>
+            )}
+          </div>
+
+          {saveMsg && (
+            <div
+              className={`flex items-start gap-2 p-3 rounded-xl text-sm ${
+                saveMsg.ok ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'
+              }`}
+            >
+              {saveMsg.ok ? (
+                <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+              ) : (
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+              )}
+              <span>{saveMsg.text}</span>
+            </div>
+          )}
+
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <button
+              type="button"
+              onClick={() => { void handleSaveDraft(); }}
+              disabled={saving}
+              className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-link border border-edge rounded-xl hover:bg-surface-alt disabled:opacity-60 transition-colors"
+            >
+              <Pencil className="w-4 h-4" />
+              {saving ? t('journalistDashboard.editor.saving') : t('journalistDashboard.editor.saveCta')}
+            </button>
+
+            {submittable && !showSubmitConfirm && (
+              <button
+                type="button"
+                onClick={() => setShowSubmitConfirm(true)}
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+              >
+                <Send className="w-4 h-4" />
+                {t('journalistDashboard.editor.submitCta')}
+              </button>
+            )}
+
+            {deletable && !showDeleteConfirm && (
+              <button
+                type="button"
+                onClick={() => setShowDeleteConfirm(true)}
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-medium text-danger hover:bg-danger-subtle rounded-xl transition-colors"
+              >
+                <Trash2 className="w-4 h-4" />
+                {t('journalistDashboard.editor.deleteCta')}
+              </button>
+            )}
+          </div>
+
+          {showSubmitConfirm && (
+            <div className="p-4 bg-accent-subtle border border-accent rounded-xl">
+              <p className="text-sm text-strong mb-3">{t('journalistDashboard.editor.submitConfirm')}</p>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => { void handleSubmit(); }}
+                  disabled={submitting}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-lg disabled:opacity-60"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  {submitting ? t('journalistDashboard.editor.submitting') : t('journalistDashboard.editor.submitConfirmYes')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowSubmitConfirm(false)}
+                  className="px-4 py-2 text-sm font-medium text-subtle hover:bg-surface-alt rounded-lg"
+                >
+                  {t('journalistDashboard.editor.cancel')}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {showDeleteConfirm && (
+            <div className="p-4 bg-danger-subtle border border-danger-border rounded-xl">
+              <p className="text-sm text-strong mb-3">{t('journalistDashboard.editor.deleteConfirm')}</p>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => { void handleDelete(); }}
+                  disabled={deleting}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-on-accent bg-danger hover:opacity-90 rounded-lg disabled:opacity-60"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  {deleting ? t('journalistDashboard.editor.deleting') : t('journalistDashboard.editor.deleteConfirmYes')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className="px-4 py-2 text-sm font-medium text-subtle hover:bg-surface-alt rounded-lg"
+                >
+                  {t('journalistDashboard.editor.cancel')}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="p-4 bg-surface-alt border border-edge rounded-xl">
+          <p className="flex items-center gap-1.5 text-sm text-subtle">
+            <RotateCcw className="w-4 h-4 shrink-0" />
+            {t('journalistDashboard.detail.readOnlyNotice')}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}

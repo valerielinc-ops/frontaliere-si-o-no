@@ -8602,6 +8602,13 @@ export function checkArticleIdExists(id) {
 // to the registration path (no copy-paste of the locale-file format — §6).
 export { buildBodyFile };
 
+// Re-exported so the journalist-publish pipeline (scripts/publish-journalist-article.mjs)
+// reuses the SAME translation, internal-link-enrichment, image-fallback and
+// byline-assignment logic as the AI generation path instead of duplicating it
+// (issue #3174 — a manually-authored article must go through the exact same
+// multi-language pipeline as an automated one).
+export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata };
+
 // Only run the AI generation pipeline when invoked directly as a CLI — importing
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.
 const invokedDirectly = (() => {
