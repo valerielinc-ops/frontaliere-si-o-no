@@ -34,10 +34,10 @@ Tutto **dormiente**. Due gate indipendenti (populate-then-strip):
 
 | Gate | Tipo | Abilita |
 |------|------|---------|
-| `SHARD_TICINO_DEPLOY_KEY` | secret | il **push** per-leg (popola gli shard) |
+| `SHARD_TICINO_<LOC>_DEPLOY_KEY` (×4) | secret | il **push** per-leg (popola lo shard `<loc>`) |
 | `TICINO_SHARD_LIVE=true`  | variabile repo | lo **strip** da dist (apex < 10 GB), solo se il push del run ha lasciato l'ok-marker |
 
-Senza il secret ogni step Ticino è un no-op → build identico a oggi.
+Senza i secret ogni step Ticino è un no-op → build identico a oggi.
 
 ---
 
@@ -50,16 +50,16 @@ for loc in it en de fr; do
     --description "Ticino-$loc Pages shard for frontaliereticino.ch (origin-ticino-$loc, Worker-only)"
 done
 
-# 2. UNA coppia di chiavi, autorizzata come deploy key (write) su TUTTI E 4 i repo,
-#    + la chiave privata come UN secret nel repo principale.
-ssh-keygen -t ed25519 -N "" -C "frontaliere-ticino deploy key" -f /tmp/ticino_shard_key
+# 2. UNA coppia di chiavi PER REPO (GitHub rifiuta la stessa deploy key su >1 repo)
+#    + la privata come secret per-locale SHARD_TICINO_<LOC>_DEPLOY_KEY.
 for loc in it en de fr; do
-  gh repo deploy-key add /tmp/ticino_shard_key.pub \
-    --repo valerielinc-ops/frontaliere-ticino-$loc --title "ci-deploy" --allow-write
+  K="$(mktemp -u)"
+  ssh-keygen -t ed25519 -N "" -C "frontaliere-ticino-$loc deploy key" -f "$K"
+  gh repo deploy-key add "$K.pub" --repo valerielinc-ops/frontaliere-ticino-$loc --title "ci-deploy" --allow-write
+  gh secret set "SHARD_TICINO_$(echo $loc|tr a-z A-Z)_DEPLOY_KEY" \
+    --repo valerielinc-ops/frontaliere-si-o-no < "$K"
+  rm -f "$K" "$K.pub"
 done
-gh secret set SHARD_TICINO_DEPLOY_KEY \
-  --repo valerielinc-ops/frontaliere-si-o-no < /tmp/ticino_shard_key
-rm -f /tmp/ticino_shard_key /tmp/ticino_shard_key.pub
 ```
 
 Abilita GitHub Pages su ogni repo (branch `main`) e imposta il custom domain
