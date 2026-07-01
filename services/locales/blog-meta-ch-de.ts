@@ -793,6 +793,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.title': 'Block der Rabatte: Die Schweizer Radikale Partei genehmigt die Entscheidung',
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.excerpt': 'Die Schweizer Radikale Partei begrüßt das Einfrieren grenzüberschreitender Rückerstattungen und betrachtet es als eine ernsthafte und sorgfältig durchdachte Entscheidung.',
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.stipendio-frontalieri-6250-mese.title': 'Grenzüberschreitende Pendler: Reichen 6.250 Francs im Monat aus?',
+    'blog.article.stipendio-frontalieri-6250-mese.excerpt': 'Detaillierte Analyse darüber, wie lange ein grenzüberschreitender Pendler in der Schweiz mit einem Monatsgehalt von 6.250 Franken leben kann.',
+    'blog.article.stipendio-frontalieri-6250-mese.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaChDe;

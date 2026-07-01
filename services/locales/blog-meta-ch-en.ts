@@ -793,6 +793,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.title': 'Blocking refreshments: Swiss Radical Liberal Party approves decision',
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.excerpt': 'The Swiss Radical Liberal Party welcomed the blockade of border restaurants, considering it a serious and carefully considered decision.',
     'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.stipendio-frontalieri-6250-mese.title': 'Frontier workers: 6,250 francs per month is enough?',
+    'blog.article.stipendio-frontalieri-6250-mese.excerpt': 'Detailed analysis of how long a cross-border commuter can live on a salary of 6,250 francs per month in Switzerland.',
+    'blog.article.stipendio-frontalieri-6250-mese.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background',
 };
 
 export default blogMetaChEn;
