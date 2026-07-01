@@ -7837,9 +7837,12 @@ async function main() {
         process.exit(0);
       }
 
-      // Generate article with retry — rotate to next safe keyword on post-generation duplicate
+      // Generate article with retry — rotate to next safe keyword on post-generation duplicate.
+      // Cap raised 10→25 (#3138 follow-up): the widened evergreen pool (#3217) gives more
+      // untried keywords per run than the old cap could exhaust before falling through to
+      // "Push prosegue senza nuovo articolo" — the cap, not the pool, was the bottleneck.
       const triedOffsets = new Set([selectedOffset]);
-      for (let attempt = 1; attempt <= Math.min(10, totalTopics); attempt++) {
+      for (let attempt = 1; attempt <= Math.min(25, totalTopics); attempt++) {
         try {
           const topic = selectedTopic;
           const isStaticTopic = PRIORITY_EVERGREEN_TOPICS.includes(topic);
