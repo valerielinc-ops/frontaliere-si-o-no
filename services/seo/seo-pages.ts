@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3048,
+ "numberOfItems": 3049,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7694,7 +7694,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3045, "name": "Frontalieri: 6.250 franchi al mese bastano?", "url": `${BASE_URL}/articoli-frontaliere/stipendio-frontalieri-6250-mese` },
           { "@type": "ListItem", "position": 3046, "name": "Applicazione accordi su frontalieri è in intere...", "url": `${BASE_URL}/articoli-frontaliere/applicazione-accordi-frontalieri-svizzera` },
           { "@type": "ListItem", "position": 3047, "name": "Giornate di Soletta 2026: Continua la Sfida Fin...", "url": `${BASE_URL}/articoli-frontaliere/giornate-soletta-finanza-2026` },
-          { "@type": "ListItem", "position": 3048, "name": "Lanciato il referendum contro i salari minimi", "url": `${BASE_URL}/articoli-frontaliere/referendum-salari-minimi-ccl` }
+          { "@type": "ListItem", "position": 3048, "name": "Lanciato il referendum contro i salari minimi", "url": `${BASE_URL}/articoli-frontaliere/referendum-salari-minimi-ccl` },
+          { "@type": "ListItem", "position": 3049, "name": "Quellensteuer-Tarife 2026: Novità e Implicazion...", "url": `${BASE_URL}/articoli-frontaliere/quellensteuer-tarife-2026` }
  ]
  },
  {

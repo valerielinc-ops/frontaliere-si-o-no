@@ -4329,6 +4329,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-applicazione-accordi-frontalieri-svizzera': { name: 'Frontalieri', path: '/articoli-svizzera/applicazione-accordi-frontalieri-svizzera/', parent: 'blog' },
     'blog-giornate-soletta-finanza-2026': { name: 'Giornate di Soletta', path: '/articoli-svizzera/giornate-soletta-finanza-2026/', parent: 'blog' },
     'blog-referendum-salari-minimi-ccl': { name: 'Riforma salari minimi', path: '/articoli-svizzera/referendum-salari-minimi-ccl/', parent: 'blog' },
+    'blog-quellensteuer-tarife-2026': { name: 'Quellensteuer', path: '/articoli-svizzera/quellensteuer-tarife-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

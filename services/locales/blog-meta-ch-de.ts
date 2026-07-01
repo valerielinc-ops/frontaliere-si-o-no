@@ -805,6 +805,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.referendum-salari-minimi-ccl.title': 'Referendum gegen Mindestlöhne eingeleitet',
     'blog.article.referendum-salari-minimi-ccl.excerpt': 'Gewerkschaften und politische Parteien führen ein Referendum gegen die Entscheidung der Bundesversammlung ab, Tarifverträgen Vorrang vor kantonalen Mindestlöhnen zu geben.',
     'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Schweizerisches Bundesparlament in Bern mit einem Banner zum Referendum über Mindestlohn',
+    'blog.article.quellensteuer-tarife-2026.title': 'Quellensteuer-Tarife 2026: News & Auswirkungen',
+    'blog.article.quellensteuer-tarife-2026.excerpt': 'Erfahren Sie mehr über die neuen Quellensteuer-Tarife für 2026 und deren Auswirkungen auf grenzüberschreitende Pendler in Tessin, Graubünden, Wallis und Bern.',
+    'blog.article.quellensteuer-tarife-2026.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
 };
 
 export default blogMetaChDe;

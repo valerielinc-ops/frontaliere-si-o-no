@@ -805,6 +805,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.referendum-salari-minimi-ccl.title': 'Referendum against minimum wages launched',
     'blog.article.referendum-salari-minimi-ccl.excerpt': 'Trade unions and political parties launch referendum against the decision of the Federal Assembly to give priority to collective bargaining agreements over cantonal minimum wages',
     'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Swiss Federal Parliament in Bern with a banner about minimum wage referendum',
+    'blog.article.quellensteuer-tarife-2026.title': 'Quellensteuer-Tarife 2026: News and Implications for Cross-Border Commuters',
+    'blog.article.quellensteuer-tarife-2026.excerpt': 'Find out about the new Quellensteuer rates for 2026 and their implications for cross-border commuters in Ticino, Graubünden, Valais and Bern.',
+    'blog.article.quellensteuer-tarife-2026.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
 };
 
 export default blogMetaChEn;
