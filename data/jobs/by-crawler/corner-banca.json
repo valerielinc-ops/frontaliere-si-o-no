@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-07-01T11:31:07.785Z",
+  "assembledAt": "2026-07-01T22:05:54.825Z",
   "jobs": [
     {
       "id": "corner-banca-b69f1f79bbe3",
@@ -64,7 +64,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.625Z",
+      "crawledAt": "2026-07-01T22:05:52.724Z",
       "previousSlugs": [
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
@@ -91,6 +91,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
+      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "baseSalary": {
@@ -161,7 +162,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-01T11:31:05.625Z",
+      "crawledAt": "2026-07-01T22:05:52.724Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -258,7 +259,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-01T11:31:05.624Z",
+      "crawledAt": "2026-07-01T22:05:52.723Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -292,6 +293,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -375,7 +377,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.624Z",
+      "crawledAt": "2026-07-01T22:05:52.723Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -392,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -469,7 +472,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.623Z",
+      "crawledAt": "2026-07-01T22:05:52.722Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
       ],
@@ -480,6 +483,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T11:54:50.675Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -514,7 +518,7 @@
       "titleByLocale": {
         "it": "Team Recupero Dipendenti di Zurigo",
         "en": "Employee Collection Team Zürich",
-        "de": "Mitarbeitersammlung Team Zürich",
+        "de": "Employee Collection Team Zürich",
         "fr": "Équipe de collecte des employés de Zurich"
       },
       "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
@@ -570,7 +574,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.621Z",
+      "crawledAt": "2026-07-01T22:05:52.720Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen"
       ],
@@ -584,6 +588,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T22:29:56.932Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -593,6 +598,112 @@
           "@type": "QuantitativeValue",
           "minValue": 83000,
           "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-4b9d1c5b215f",
+      "slug": "collezione-dei-dipendenti-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "collezione-dei-dipendenti-corner-banca-wallisellen",
+        "en": "employee-front-office-collection-corner-banca-wallisellen",
+        "de": "mitarbeiter-sammlung-front-office-corner-banca-wallisellen",
+        "fr": "collecte-aupres-des-employes-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Front Office Collection",
+      "titleByLocale": {
+        "it": "Collezione dei dipendenti",
+        "en": "Employee Front Office Collection",
+        "de": "Mitarbeiter Sammlung Front Office",
+        "fr": "Employee Front Office Collection"
+      },
+      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\n• Phone-based client communication for credit management and debt collection\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Coordination with external debt collection partners and management of assigned mandates\n\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n\n• Provide administrative and back-office support\n\n• Close collaboration with internal teams\n\n• Commercial apprenticeship (KV) or equivalent diploma\n\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n\n• Proficiency in MS Office\n\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
+      "descriptionByLocale": {
+        "it": "Descrizione Nell'ambito delle nostre crescenti attività a Zurigo, stiamo cercando un professionista dedicato e focalizzato sul cliente per unirsi al nostro team di front office nell'area Dunning & Collection. Questo ruolo offre l'opportunità di contribuire a una gestione efficace del credito, assicurando le interazioni dei clienti di alta qualità. ## Mansioni - Comunicazione clienti basata sul telefono per la gestione del credito e la raccolta del debito - Negoziazione dei piani di rimborso e monitoraggio degli accordi concordati - Coordinamento con i partner esterni di raccolta del debito e gestione dei mandati assegnati - Applicazione dell'ascolto attivo nelle interazioni dei clienti, combinato con la valutazione analitica delle informazioni per identificare e proporre soluzioni appropriate - Fornire supporto amministrativo e back-office - Collaborazione stretta con i team interni ##\n• Requisiti - apprendistato Nessuna informazione fornita. ## Contatto Nessuna informazione fornita.",
+        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions. Key Responsibilities:\n• Phone-based client communication for credit management and debt collection\n• Negotiation of repayment plans and monitoring of agreed arrangements\n• Coordination with external debt collection partners and management of assigned mandates\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n• Provide administrative and back-office support\n• Close collaboration with internal teams\n• Commercial apprenticeship (KV) or equivalent diploma\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n• Proficiency in MS Office\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
+        "de": "Beschreibung Im Rahmen unserer wachsenden Tätigkeit in Zürich suchen wir einen engagierten und kundenorientierten Profi, der sich unserem Front Office Team im Bereich Dunning & Collection anschließt. Diese Rolle bietet die Möglichkeit, zu einem effektiven Kreditmanagement beizutragen und gleichzeitig hochwertige Kundeninteraktionen zu gewährleisten. Mansioni - Telefonbasierte Kundenkommunikation für Kreditmanagement und Schuldenerfassung - Verhandlung von Rückzahlungsplänen und Überwachung von vereinbarten Vereinbarungen - Koordination mit externen Schuldenerfassungspartnern und Verwaltung von zugewiesenen Mandaten - Anwendung von aktivem Zuhören in Kundeninteraktionen, kombiniert mit analytischer Auswertung von Informationen zur Identifizierung und Bereitstellung von administrativen und Backoffice-Unterstützungen - enge Zusammenarbeit mit internen Teams Keine Angaben. (Contatto) Keine Angaben.",
+        "fr": "Descrizione Dans le cadre de nos activités croissantes à Zurich, nous recherchons un professionnel dévoué et axé sur le client pour rejoindre notre équipe de Front Office dans la région de Dunning & Collection. Ce rôle offre la possibilité de contribuer à une gestion efficace du crédit tout en assurant des interactions client de haute qualité. ## Mansioni - Communication client par téléphone pour la gestion du crédit et le recouvrement de la dette - Négociation des plans de remboursement et suivi des arrangements convenus - Coordination avec les partenaires de recouvrement de la dette extérieure et gestion des mandats assignés - Application de l'écoute active dans les interactions avec les clients, combinée à une évaluation analytique de l'information afin d'identifier et de proposer des solutions appropriées - Fournir un soutien administratif et administratif - Collaboration étroite avec les équipes internes ##\n• Requisiti - Apprentissage commercial (KV) ou diplôme équivalent - 1-2 ans d'expérience professionnelle, de préférence dans la gestion des créances (dunning et recouvrement de la dette) ou des services financiers - Langues : allemand / suisse allemand (écrit et parlé) et français (écrit et parlé) sont obligatoires; l'italien est un avantage; des langues supplémentaires sont accueillies - Expérience dans les rôles exigeant une interaction cliente régulière par téléphone (communication interne et sortante) - Excellente capacité de communication et de négociation, combinée à l'écoute active, l'empathie et une approche pragmatique et orientée vers la solution - Compétence en MS Office - Forte orientation de l'équipe, capable de collaborer efficacement dans un environnement dynamique ## Cosa offria Aucune information fournie. Contatto Aucune information fournie."
+      },
+      "requirements": [
+        "Commercial apprenticeship (KV) or equivalent diploma",
+        "1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services",
+        "Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed",
+        "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+        "Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach",
+        "Proficiency in MS Office",
+        "Strong team orientation, with the ability to collaborate effectively in a dynamic environment"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial apprenticeship (KV) or equivalent diploma",
+          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+          "Experience with financial products is considered an advantage",
+          "Affinity for numbers, accuracy, and strong attention to detail",
+          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+          "Strong communication and negotiation skills, particularly in challenging customer situations",
+          "Proficiency in MS Office"
+        ],
+        "en": [
+          "Commercial apprenticeship (KV) or equivalent diploma",
+          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+          "Experience with financial products is considered an advantage",
+          "Affinity for numbers, accuracy, and strong attention to detail",
+          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+          "Strong communication and negotiation skills, particularly in challenging customer situations",
+          "Proficiency in MS Office"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.corner.ch/o/employee-front-office-collection",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-01T22:05:52.719Z",
+      "previousSlugs": [
+        "employee-front-office-collection-corner-banca-wallisellen",
+        "employee-front-office-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-front-office-collection-corner-banca-wallisellen",
+          "employee-front-office-corner-banca-wallisellen",
+          "collezione-dei-dipendenti-corner-banca-wallisellen"
+        ],
+        "de": [
+          "employee-front-office-collection-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "employee-front-office-collection-corner-banca-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 198500,
           "unitText": "YEAR"
         }
       },
@@ -663,7 +774,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.620Z",
+      "crawledAt": "2026-07-01T22:05:52.718Z",
       "previousSlugs": [
         "customer-advisor-60-team-zurich-corner-banca-wallisellen"
       ],
@@ -680,6 +791,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:44:36.978Z",
+      "needsRetranslation": true,
       "salaryMin": 49800,
       "salaryMax": 76500,
       "baseSalary": {
@@ -689,111 +801,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49800,
           "maxValue": 76500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-4b9d1c5b215f",
-      "slug": "collezione-dei-dipendenti-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "collezione-dei-dipendenti-corner-banca-wallisellen",
-        "en": "employee-front-office-collection-corner-banca-wallisellen",
-        "de": "mitarbeiter-sammlung-front-office-corner-banca-wallisellen",
-        "fr": "collecte-aupres-des-employes-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Employee Front Office Collection",
-      "titleByLocale": {
-        "it": "Collezione dei dipendenti",
-        "en": "Employee Front Office Collection",
-        "de": "Mitarbeiter Sammlung Front Office",
-        "fr": "Collecte auprès des employés"
-      },
-      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\n• Phone-based client communication for credit management and debt collection\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Coordination with external debt collection partners and management of assigned mandates\n\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n\n• Provide administrative and back-office support\n\n• Close collaboration with internal teams\n\n• Commercial apprenticeship (KV) or equivalent diploma\n\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n\n• Proficiency in MS Office\n\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
-      "descriptionByLocale": {
-        "it": "Descrizione Nell'ambito delle nostre crescenti attività a Zurigo, stiamo cercando un professionista dedicato e focalizzato sul cliente per unirsi al nostro team di front office nell'area Dunning & Collection. Questo ruolo offre l'opportunità di contribuire a una gestione efficace del credito, assicurando le interazioni dei clienti di alta qualità. ## Mansioni - Comunicazione clienti basata sul telefono per la gestione del credito e la raccolta del debito - Negoziazione dei piani di rimborso e monitoraggio degli accordi concordati - Coordinamento con i partner esterni di raccolta del debito e gestione dei mandati assegnati - Applicazione dell'ascolto attivo nelle interazioni dei clienti, combinato con la valutazione analitica delle informazioni per identificare e proporre soluzioni appropriate - Fornire supporto amministrativo e back-office - Collaborazione stretta con i team interni ##\n• Requisiti - apprendistato Nessuna informazione fornita. ## Contatto Nessuna informazione fornita.",
-        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions. Key Responsibilities:\n• Phone-based client communication for credit management and debt collection\n• Negotiation of repayment plans and monitoring of agreed arrangements\n• Coordination with external debt collection partners and management of assigned mandates\n• Application of active listening in client interactions, combined with analytical evaluation of information to identify and propose appropriate solutions\n• Provide administrative and back-office support\n• Close collaboration with internal teams\n• Commercial apprenticeship (KV) or equivalent diploma\n• 1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services\n• Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n• Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n• Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach\n• Proficiency in MS Office\n• Strong team orientation, with the ability to collaborate effectively in a dynamic environment",
-        "de": "Beschreibung Im Rahmen unserer wachsenden Tätigkeit in Zürich suchen wir einen engagierten und kundenorientierten Profi, der sich unserem Front Office Team im Bereich Dunning & Collection anschließt. Diese Rolle bietet die Möglichkeit, zu einem effektiven Kreditmanagement beizutragen und gleichzeitig hochwertige Kundeninteraktionen zu gewährleisten. Mansioni - Telefonbasierte Kundenkommunikation für Kreditmanagement und Schuldenerfassung - Verhandlung von Rückzahlungsplänen und Überwachung von vereinbarten Vereinbarungen - Koordination mit externen Schuldenerfassungspartnern und Verwaltung von zugewiesenen Mandaten - Anwendung von aktivem Zuhören in Kundeninteraktionen, kombiniert mit analytischer Auswertung von Informationen zur Identifizierung und Bereitstellung von administrativen und Backoffice-Unterstützungen - enge Zusammenarbeit mit internen Teams Keine Angaben. (Contatto) Keine Angaben.",
-        "fr": "Descrizione Dans le cadre de nos activités croissantes à Zurich, nous recherchons un professionnel dévoué et axé sur le client pour rejoindre notre équipe de Front Office dans la région de Dunning & Collection. Ce rôle offre la possibilité de contribuer à une gestion efficace du crédit tout en assurant des interactions client de haute qualité. ## Mansioni - Communication client par téléphone pour la gestion du crédit et le recouvrement de la dette - Négociation des plans de remboursement et suivi des arrangements convenus - Coordination avec les partenaires de recouvrement de la dette extérieure et gestion des mandats assignés - Application de l'écoute active dans les interactions avec les clients, combinée à une évaluation analytique de l'information afin d'identifier et de proposer des solutions appropriées - Fournir un soutien administratif et administratif - Collaboration étroite avec les équipes internes ##\n• Requisiti - Apprentissage commercial (KV) ou diplôme équivalent - 1-2 ans d'expérience professionnelle, de préférence dans la gestion des créances (dunning et recouvrement de la dette) ou des services financiers - Langues : allemand / suisse allemand (écrit et parlé) et français (écrit et parlé) sont obligatoires; l'italien est un avantage; des langues supplémentaires sont accueillies - Expérience dans les rôles exigeant une interaction cliente régulière par téléphone (communication interne et sortante) - Excellente capacité de communication et de négociation, combinée à l'écoute active, l'empathie et une approche pragmatique et orientée vers la solution - Compétence en MS Office - Forte orientation de l'équipe, capable de collaborer efficacement dans un environnement dynamique ## Cosa offria Aucune information fournie. Contatto Aucune information fournie."
-      },
-      "requirements": [
-        "Commercial apprenticeship (KV) or equivalent diploma",
-        "1–2 years of professional experience, preferably in receivables management (dunning and debt collection) or financial services",
-        "Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed",
-        "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
-        "Excellent communication and negotiation skills, combined with active listening, empathy, and a pragmatic, solution-oriented approach",
-        "Proficiency in MS Office",
-        "Strong team orientation, with the ability to collaborate effectively in a dynamic environment"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial apprenticeship (KV) or equivalent diploma",
-          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
-          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
-          "Experience with financial products is considered an advantage",
-          "Affinity for numbers, accuracy, and strong attention to detail",
-          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
-          "Strong communication and negotiation skills, particularly in challenging customer situations",
-          "Proficiency in MS Office"
-        ],
-        "en": [
-          "Commercial apprenticeship (KV) or equivalent diploma",
-          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
-          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
-          "Experience with financial products is considered an advantage",
-          "Affinity for numbers, accuracy, and strong attention to detail",
-          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
-          "Strong communication and negotiation skills, particularly in challenging customer situations",
-          "Proficiency in MS Office"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.corner.ch/o/employee-front-office-collection",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.620Z",
-      "previousSlugs": [
-        "employee-front-office-collection-corner-banca-wallisellen",
-        "employee-front-office-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employee-front-office-collection-corner-banca-wallisellen",
-          "employee-front-office-corner-banca-wallisellen",
-          "collezione-dei-dipendenti-corner-banca-wallisellen"
-        ],
-        "de": [
-          "employee-front-office-collection-corner-banca-wallisellen"
-        ],
-        "fr": [
-          "employee-front-office-collection-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-04-17T09:43:40.223Z",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
           "unitText": "YEAR"
         }
       },
@@ -868,8 +875,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.619Z",
+      "crawledAt": "2026-07-01T22:05:52.718Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -952,7 +960,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.618Z",
+      "crawledAt": "2026-07-01T22:05:52.717Z",
       "previousSlugs": [
         "legal-collection-case-manager-corner-banca-wallisellen"
       ],
@@ -969,6 +977,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:12:50.719Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1048,7 +1057,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.617Z",
+      "crawledAt": "2026-07-01T22:05:52.716Z",
       "previousSlugs": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
@@ -1065,6 +1074,7 @@
         ]
       },
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1156,7 +1166,7 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.616Z",
+      "crawledAt": "2026-07-01T22:05:52.715Z",
       "previousSlugsByLocale": {
         "it": [
           "customer-analytics-officer-corner-banca-lugano",
@@ -1172,6 +1182,7 @@
         "customer-analytics-officer-corner-banca-wallisellen"
       ],
       "firstSeenAt": "2026-06-02T23:12:26.649Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "baseSalary": {
@@ -1265,7 +1276,7 @@
       "url": "https://jobs.corner.ch/o/marketing-project-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.614Z",
+      "crawledAt": "2026-07-01T22:05:52.713Z",
       "previousSlugs": [
         "marketing-project-manager-corner-banca-lugano"
       ],
@@ -1282,6 +1293,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T21:37:06.561Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1364,8 +1376,9 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.613Z",
+      "crawledAt": "2026-07-01T22:05:52.711Z",
       "firstSeenAt": "2026-06-24T21:51:46.198Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -1448,8 +1461,9 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.611Z",
+      "crawledAt": "2026-07-01T22:05:52.710Z",
       "firstSeenAt": "2026-06-24T21:51:46.196Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -1518,7 +1532,7 @@
       "url": "https://jobs.corner.ch/o/sales-solutions-ecash-employee",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T11:31:05.610Z",
+      "crawledAt": "2026-07-01T22:05:52.709Z",
       "previousSlugs": [
         "sales-e-solutions-ecash-employee-corner-banca-lugano"
       ],
@@ -1532,6 +1546,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:09:15.290Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
