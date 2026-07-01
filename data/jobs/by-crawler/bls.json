@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-06-30T21:55:08.243Z",
+  "assembledAt": "2026-07-01T11:16:27.196Z",
   "jobs": [
     {
       "id": "bls-7c039c3d71c3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-flottenmanagement/eaa6dfbf-e56d-4dc8-9c91-1d7a0b5c1736",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:55:05.325Z",
+      "crawledAt": "2026-07-01T11:16:24.481Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:54.694Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -91,6 +92,95 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-3c1a6283641e",
+      "slug": "expert-in-flottenmanagement-bls-ag-bern",
+      "slugByLocale": {
+        "de": "expert-in-flottenmanagement-bls-ch",
+        "it": "expert-in-flottenmanagement-bls-ag-bern",
+        "en": "expert-in-flottenmanagement-bls-ag-bern",
+        "fr": "expert-in-flottenmanagement-bls-ag-bern"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Expert:in Flottenmanagement",
+      "titleByLocale": {
+        "de": "Expert:in Flottenmanagement",
+        "it": "Expert:in Flottenmanagement",
+        "en": "Expert:in Flottenmanagement",
+        "fr": "Expert:in Flottenmanagement"
+      },
+      "description": "Wenn eine Lok in Italien anrollt und am Lötschberg zuverlässig weiterzieht, steckt dein Wirken dahinter. Du begleitest unsere Flotte über ihren gesamten Lebenszyklus, triffst heute Entscheide für die Einsätze von morgen und hältst Technik, Wirtschaftlichkeit und internationale Anforderungen in Balance. So sorgst du dafür, dass Güter sicher, nachhaltig und pünktlich unterwegs sind – Tag für Tag, über Grenzen hinweg.\n\nDas wartet auf dich:\n\n• Du verantwortest das Flottenmanagement über den gesamten Lebenszyklus, sicherst die Zuverlässigkeit\n\n• Du richtest die zugeteilte Flotte strategisch aus und entwickelst die Flottenstrategie in technischen und wirtschaftlichen Belangen mit\n\n• Du verantwortest die Weiterentwicklung des Lok‑Monitoringsystems mit Fokus auf eine optimierte Instandhaltung\n\n• Refit- und Up-Grade Projekte führst du von der Planung bis zur erfolgreichen Umsetzung\n\n• Für die internationale Einsatztauglichkeit der Loks sowie für Vorschriften und Vorgaben trägst du die Verantwortung, koordinierst neue Anforderungen\n\n• Die Interessen von BLS Cargo vertrittst du in Fachgremien und wirkst beim Leistungseinkauf aktiv mit\n\nDas bringst du mit:\n\n• Eine höhere technische Ausbildung FH oder Hochschule in Elektrotechnik oder Maschinenbau bildet deine Basis\n\n• Eine betriebswirtschaftliche Weiterbildung ergänzt dein technisches Verständnis\n\n• Erfahrung im Flottenmanagement oder in interdisziplinären Projekten im Bahnsektor zeichnen dich aus\n\n• Know-how in Flottentechnik, wünschenswert im Bereich ETCS-Sicherungssystemen und Life-Cycle-Kosten bringst du mit\n\n• Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
+      "descriptionByLocale": {
+        "de": "Wenn eine Lok in Italien anrollt und am Lötschberg zuverlässig weiterzieht, steckt dein Wirken dahinter. Du begleitest unsere Flotte über ihren gesamten Lebenszyklus, triffst heute Entscheide für die Einsätze von morgen und hältst Technik, Wirtschaftlichkeit und internationale Anforderungen in Balance. So sorgst du dafür, dass Güter sicher, nachhaltig und pünktlich unterwegs sind – Tag für Tag, über Grenzen hinweg.\n\nDas wartet auf dich:\n\n• Du verantwortest das Flottenmanagement über den gesamten Lebenszyklus, sicherst die Zuverlässigkeit\n\n• Du richtest die zugeteilte Flotte strategisch aus und entwickelst die Flottenstrategie in technischen und wirtschaftlichen Belangen mit\n\n• Du verantwortest die Weiterentwicklung des Lok‑Monitoringsystems mit Fokus auf eine optimierte Instandhaltung\n\n• Refit- und Up-Grade Projekte führst du von der Planung bis zur erfolgreichen Umsetzung\n\n• Für die internationale Einsatztauglichkeit der Loks sowie für Vorschriften und Vorgaben trägst du die Verantwortung, koordinierst neue Anforderungen\n\n• Die Interessen von BLS Cargo vertrittst du in Fachgremien und wirkst beim Leistungseinkauf aktiv mit\n\nDas bringst du mit:\n\n• Eine höhere technische Ausbildung FH oder Hochschule in Elektrotechnik oder Maschinenbau bildet deine Basis\n\n• Eine betriebswirtschaftliche Weiterbildung ergänzt dein technisches Verständnis\n\n• Erfahrung im Flottenmanagement oder in interdisziplinären Projekten im Bahnsektor zeichnen dich aus\n\n• Know-how in Flottentechnik, wünschenswert im Bereich ETCS-Sicherungssystemen und Life-Cycle-Kosten bringst du mit\n\n• Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
+        "it": "Wenn eine Lok in Italien anrollt und am Lötschberg zuverlässig weiterzieht, steckt dein Wirken dahinter. Du begleitest unsere Flotte über ihren gesamten Lebenszyklus, triffst heute Entscheide für die Einsätze von morgen und hältst Technik, Wirtschaftlichkeit und internationale Anforderungen in Balance. So sorgst du dafür, dass Güter sicher, nachhaltig und pünktlich unterwegs sind – Tag für Tag, über Grenzen hinweg.\n\nDas wartet auf dich:\n\n• Du verantwortest das Flottenmanagement über den gesamten Lebenszyklus, sicherst die Zuverlässigkeit\n\n• Du richtest die zugeteilte Flotte strategisch aus und entwickelst die Flottenstrategie in technischen und wirtschaftlichen Belangen mit\n\n• Du verantwortest die Weiterentwicklung des Lok‑Monitoringsystems mit Fokus auf eine optimierte Instandhaltung\n\n• Refit- und Up-Grade Projekte führst du von der Planung bis zur erfolgreichen Umsetzung\n\n• Für die internationale Einsatztauglichkeit der Loks sowie für Vorschriften und Vorgaben trägst du die Verantwortung, koordinierst neue Anforderungen\n\n• Die Interessen von BLS Cargo vertrittst du in Fachgremien und wirkst beim Leistungseinkauf aktiv mit\n\nDas bringst du mit:\n\n• Eine höhere technische Ausbildung FH oder Hochschule in Elektrotechnik oder Maschinenbau bildet deine Basis\n\n• Eine betriebswirtschaftliche Weiterbildung ergänzt dein technisches Verständnis\n\n• Erfahrung im Flottenmanagement oder in interdisziplinären Projekten im Bahnsektor zeichnen dich aus\n\n• Know-how in Flottentechnik, wünschenswert im Bereich ETCS-Sicherungssystemen und Life-Cycle-Kosten bringst du mit\n\n• Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
+        "en": "Wenn eine Lok in Italien anrollt und am Lötschberg zuverlässig weiterzieht, steckt dein Wirken dahinter. Du begleitest unsere Flotte über ihren gesamten Lebenszyklus, triffst heute Entscheide für die Einsätze von morgen und hältst Technik, Wirtschaftlichkeit und internationale Anforderungen in Balance. So sorgst du dafür, dass Güter sicher, nachhaltig und pünktlich unterwegs sind – Tag für Tag, über Grenzen hinweg.\n\nDas wartet auf dich:\n\n• Du verantwortest das Flottenmanagement über den gesamten Lebenszyklus, sicherst die Zuverlässigkeit\n\n• Du richtest die zugeteilte Flotte strategisch aus und entwickelst die Flottenstrategie in technischen und wirtschaftlichen Belangen mit\n\n• Du verantwortest die Weiterentwicklung des Lok‑Monitoringsystems mit Fokus auf eine optimierte Instandhaltung\n\n• Refit- und Up-Grade Projekte führst du von der Planung bis zur erfolgreichen Umsetzung\n\n• Für die internationale Einsatztauglichkeit der Loks sowie für Vorschriften und Vorgaben trägst du die Verantwortung, koordinierst neue Anforderungen\n\n• Die Interessen von BLS Cargo vertrittst du in Fachgremien und wirkst beim Leistungseinkauf aktiv mit\n\nDas bringst du mit:\n\n• Eine höhere technische Ausbildung FH oder Hochschule in Elektrotechnik oder Maschinenbau bildet deine Basis\n\n• Eine betriebswirtschaftliche Weiterbildung ergänzt dein technisches Verständnis\n\n• Erfahrung im Flottenmanagement oder in interdisziplinären Projekten im Bahnsektor zeichnen dich aus\n\n• Know-how in Flottentechnik, wünschenswert im Bereich ETCS-Sicherungssystemen und Life-Cycle-Kosten bringst du mit\n\n• Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten.",
+        "fr": "Wenn eine Lok in Italien anrollt und am Lötschberg zuverlässig weiterzieht, steckt dein Wirken dahinter. Du begleitest unsere Flotte über ihren gesamten Lebenszyklus, triffst heute Entscheide für die Einsätze von morgen und hältst Technik, Wirtschaftlichkeit und internationale Anforderungen in Balance. So sorgst du dafür, dass Güter sicher, nachhaltig und pünktlich unterwegs sind – Tag für Tag, über Grenzen hinweg.\n\nDas wartet auf dich:\n\n• Du verantwortest das Flottenmanagement über den gesamten Lebenszyklus, sicherst die Zuverlässigkeit\n\n• Du richtest die zugeteilte Flotte strategisch aus und entwickelst die Flottenstrategie in technischen und wirtschaftlichen Belangen mit\n\n• Du verantwortest die Weiterentwicklung des Lok‑Monitoringsystems mit Fokus auf eine optimierte Instandhaltung\n\n• Refit- und Up-Grade Projekte führst du von der Planung bis zur erfolgreichen Umsetzung\n\n• Für die internationale Einsatztauglichkeit der Loks sowie für Vorschriften und Vorgaben trägst du die Verantwortung, koordinierst neue Anforderungen\n\n• Die Interessen von BLS Cargo vertrittst du in Fachgremien und wirkst beim Leistungseinkauf aktiv mit\n\nDas bringst du mit:\n\n• Eine höhere technische Ausbildung FH oder Hochschule in Elektrotechnik oder Maschinenbau bildet deine Basis\n\n• Eine betriebswirtschaftliche Weiterbildung ergänzt dein technisches Verständnis\n\n• Erfahrung im Flottenmanagement oder in interdisziplinären Projekten im Bahnsektor zeichnen dich aus\n\n• Know-how in Flottentechnik, wünschenswert im Bereich ETCS-Sicherungssystemen und Life-Cycle-Kosten bringst du mit\n\n• Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS Cargo\n\nWir können keine Berge versetzen, klar. Macht auch nichts. Denn als erfahrene Alpinist:innen im Schienengüterverkehr sehen wir Berge als Herausforderung und nicht als Hindernis. Wir transportieren tonnenschwere Güter von der Nordsee durch die Alpen bis ans Mittelmeer, und das ist eine knifflige Aufgabe. Wir meistern sie im Team mit unseren rund 450 Mitarbeitenden in der Schweiz, in Belgien, Deutschland und Italien. Unsere Kund:innen sind international, unsere Wurzeln lokal. Auch deshalb ist es aussergewöhnlich spannend, für BLS Cargo zu arbeiten."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/expert-in-flottenmanagement/543ebd37-5d31-43f4-9610-f564e7a54c75",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-01T11:16:23.691Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-07-30",
+      "pensum": "60-100%",
+      "salary": "147197",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/543ebd37-5d31-43f4-9610-f564e7a54c75",
+      "requirements": [
+        "Eine höhere technische Ausbildung FH oder Hochschule in Elektrotechnik oder Maschinenbau bildet deine Basis",
+        "Eine betriebswirtschaftliche Weiterbildung ergänzt dein technisches Verständnis",
+        "Erfahrung im Flottenmanagement oder in interdisziplinären Projekten im Bahnsektor zeichnen dich aus",
+        "Know-how in Flottentechnik, wünschenswert im Bereich ETCS-Sicherungssystemen und Life-Cycle-Kosten bringst du mit",
+        "Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Eine höhere technische Ausbildung FH oder Hochschule in Elektrotechnik oder Maschinenbau bildet deine Basis",
+          "Eine betriebswirtschaftliche Weiterbildung ergänzt dein technisches Verständnis",
+          "Erfahrung im Flottenmanagement oder in interdisziplinären Projekten im Bahnsektor zeichnen dich aus",
+          "Know-how in Flottentechnik, wünschenswert im Bereich ETCS-Sicherungssystemen und Life-Cycle-Kosten bringst du mit",
+          "Souveränes Auftreten in Deutsch und Englisch sowie Reisebereitschaft runden dein Profil ab"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-in-flottenmanagement-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expert-in-flottenmanagement-bls-ch"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-07-01T11:16:23.691Z"
     },
     {
       "id": "bls-e89d8290651b",
@@ -123,7 +213,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-avor-fahrzeuge/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:55:04.274Z",
+      "crawledAt": "2026-07-01T11:16:22.905Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,6 +260,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:16.156Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -215,7 +306,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:55:03.358Z",
+      "crawledAt": "2026-07-01T11:16:22.089Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -261,6 +352,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -306,7 +398,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:55:02.581Z",
+      "crawledAt": "2026-07-01T11:16:21.380Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -340,6 +432,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -390,7 +483,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:55:01.704Z",
+      "crawledAt": "2026-07-01T11:16:20.686Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -440,6 +533,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -485,7 +579,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:55:00.859Z",
+      "crawledAt": "2026-07-01T11:16:19.999Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -535,99 +629,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-121b0e9a678b",
-      "slug": "automobilmechatroniker-in-nf-o-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in-bls-ag-langnau-im-emmental",
-      "slugByLocale": {
-        "it": "automobilmechatroniker-in-nf-o-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in-bls-ag-langnau-im-emmental",
-        "en": "automotive-mechatronics-in-nf-or-automobile-expert-woman-nf-truck-mechanic-in-agricultural-machine-mechanic-in-bls-ag",
-        "de": "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in",
-        "fr": "mecatronique-automobile-en-nf-ou-expert-automobile-femme-nf-mecanicien-de-camion-en-mecanicien-de-machine-agricole-en"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Automobilmechatroniker:in NF oder Automobilfachmann:frau NF / Lastwagenmechaniker:in / Landmaschinenmechaniker:in",
-      "titleByLocale": {
-        "it": "Automobilmechatroniker:in NF o Automobilfachmann:frau NF / Lastwagenmechaniker:in / Landmaschinenmechaniker:in",
-        "en": "Automotive mechatronics:in NF or automobile expert:woman NF / truck mechanic:in / agricultural machine mechanic:in",
-        "de": "Automobilmechatroniker:in NF oder Automobilfachmann:frau NF / Lastwagenmechaniker:in / Landmaschinenmechaniker:in",
-        "fr": "Mécatronique automobile:en NF ou expert automobile:femme NF / mécanicien de camion:en / mécanicien de machine agricole:en"
-      },
-      "description": "Der öffentliche Linienbusverkehr ist im Wandel – E-Mobilität und Digitalisierung bei höchstmöglicher Fahrzeugverfügbarkeit und Kundenzufriedenheit sind unsere bevorstehenden Herausforderungen.\nBist du ein:e engagierte:r, leidenschaftliche:r Schrauber und meisterst Herausforderungen mit Leidenschaft und Präzision?\nDann sei du der Schlüssel zur kontinuierlichen Verfügbarkeit und Qualität unserer Fahrzeuge – Werde Teil unseres Werkstatteams Langnau bei der Busland AG.\n\nDas wartet auf dich:\n\n• Ausführen von Diagnose-, Reparatur-, und Wartungsarbeiten an Fahrzeugen der Busland AG sowie an 3. Kunden Fahrzeugen und Anhängern\n\n• Wartungen von Umsystemen\n\n• Reifenservice\n\n• Ausführen von Garantiearbeiten in Auftrag des Fahrzeugherstellers\n\n• Pikett für die Fahrzeuge der Busland AG\n\n• Überführen von Fahrzeugen\n\nDas bringst du mit:\n\n• Abgeschlossene Grundausbildung als Automobilmechatroniker:in NFZ, Automobilfachmann:frau NFZ, Lastwagenmechaniker:in oder Landmaschinenmechaniker:in\n\n• Freude und Begeisterung für die Mobilität und die Nutzfahrzeugbranche\n\n• Selbständige, pflichtbewusste und zuverlässige Arbeitsweise\n\n• Kommunikativ und teamfähig\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie C oder D\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein Halbtaxabo oder Vergünstigungen auf ein GA 1.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Teile deine Arbeitszeit frei ein und arbeite dort, wo es für dich am besten passt, im Homeoffice oder im Büro.\n\n• Du kannst dich auf fünf Wochen Ferien freuen, ab 50-jährig sogar auf sechs Wochen und ab 60-jährig auf sieben Wochen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Es besteht die Möglichkeit, Reka-Geld mit Rabatt zu beziehen\n\nÜber Busland\n\nDie Busland AG erbringt als konzessionierte Transportunternehmung öffentlichen regionalen Personenverkehr und Ortsverkehr im Emmental und Oberaargau. Aus den drei Depots Burgdorf, Langnau und Sumiswald werden 20 Linien mit über 600 Haltestellen bedient. Die 37 modernen Busse der Busland AG ergänzen die Bahn zu einer optimal abgestimmten Mobilitätskette. Der BLS-Wanderbus erschliesst in den Sommermonaten auch touristische Ziele im Emmental. In Langnau i.E. betreibt die Unternehmung die Garage Ilfis, ein Zentrum für Nutzfahrzeuge mit einer LKW-Prüfstrasse. Die Busland AG mit Geschäftssitz in Burgdorf wurde 2006 gegründet und beschäftigt heute rund 150 Mitarbeitende.",
-      "descriptionByLocale": {
-        "it": "Il traffico pubblico degli autobus sta cambiando – la mobilità e la digitalizzazione con la massima disponibilità dei veicoli e la soddisfazione dei clienti sono le nostre prossime sfide. Sei un:e dedicato:r, appassionato:r cacciavite e master sfide con passione e precisione? Quindi siate la chiave per la disponibilità e la qualità dei nostri veicoli – Entrate a far parte del nostro workshop Langnau presso Busland AG.\n• Esecuzione dei lavori di diagnostica, riparazione e manutenzione per i veicoli di Busland AG, nonché per i veicoli 3rd e rimorchi\n• Manutenzione dei sistemi\n• Servizio pneumatici\n• Esecuzione dei lavori di garanzia per conto del produttore del veicolo\n• Pikett per i veicoli di Busland AG\n• Trasferimento dei veicoli\n• Formazione completa di base come operatore automobilistico meccatronico: in NFZ, specialista automobilistico: donna NFZ, meccanico camion Con eventi stagionali e corsi sosteniamo la vostra salute.\n• Condividi il tuo tempo di lavoro liberamente e lavorare dove si adatta meglio, in ufficio o in ufficio.\n• Si può aspettare fino a cinque settimane di vacanza, da 50 anni anche per sei settimane e da 60 anni a sette settimane.\n• Regali generosi di vita di servizio da cinque anni di servizio.\n• C'è la possibilità di ottenere i soldi Reka con lo sconto Su Busland Busland AG fornisce come una società di trasporto concessionario per il trasporto pubblico regionale di passeggeri e trasporto locale in Emmental e Oberaargau. Dai tre depositi Burgdorf, Langnau e Sumiswald, 20 linee sono servite con oltre 600 fermate. I 37 moderni autobus di Busland AG completano il treno per una catena di mobilità ottimale. L'autobus escursionistico BLS offre anche destinazioni turistiche nell'Emmental durante i mesi estivi. A Langnau i.E., la società gestisce il garage Ilfis, un centro per veicoli commerciali con una strada di prova camion. Busland AG, con sede a Burgdorf, è stata fondata nel 2006 e attualmente impiega circa 150 dipendenti.",
-        "en": "Public bus traffic is changing – e-mobility and digitization with the highest possible vehicle availability and customer satisfaction are our upcoming challenges. Are you a:e dedicated:r, passionate:r screwdriver and master challenges with passion and precision? Then be the key to the continuous availability and quality of our vehicles – Become part of our Langnau workshop at Busland AG. This is waiting for you:\n• Executing diagnostic, repair, and maintenance work on vehicles of Busland AG as well as on 3rd customers vehicles and trailers\n• Maintenance of systems\n• Tyre service\n• Executing warranty work on behalf of the vehicle manufacturer\n• Pikett for the vehicles of Busland AG\n• Transfer of vehicles\n• Complete basic training as an automotive mechatronic operator:in NFZ, automobile specialist:woman NFZ, truck mechanic:in or agricultural machine mechanic:in\n• Joy and enthusiasm for mobility and the commercial vehicle industry\n• Self-employed, obligatory and reliable working\n• Communicative and team-ready\n• Very good German language skills in word and writing\n• Guided card category C or D Your advantages – you can look forward to this:\n• Get a GA 2nd class, a half-tax subscription or discounts on a GA 1.\n• With seasonal events and courses we support your health.\n• Share your working time freely and work where it suits you best, in the home office or office.\n• You can look forward to five weeks of vacation, from 50 years even for six weeks and from 60 years to seven weeks.\n• Generous service life gifts from five years of service.\n• There is the possibility to obtain Reka money with discount About Busland Busland AG provides as a concessional transport company for public regional passenger transport and local transport in the Emmental and Oberaargau. From the three Depots Burgdorf, Langnau and Sumiswald, 20 lines are served with over 600 stops. The 37 modern buses of Busland AG complement the train to an optimally matched mobility chain. The BLS hiking bus also offers tourist destinations in the Emmental during the summer months. In Langnau i.E., the company operates the garage Ilfis, a center for commercial vehicles with a truck test road. Busland AG, with its headquarters in Burgdorf, was founded in 2006 and currently employs around 150 employees.",
-        "de": "Der öffentliche Linienbusverkehr ist im Wandel – E-Mobilität und Digitalisierung bei höchstmöglicher Fahrzeugverfügbarkeit und Kundenzufriedenheit sind unsere bevorstehenden Herausforderungen. Bist du ein:e engagierte:r, leidenschaftliche:r Schrauber und meisterst Herausforderungen mit Leidenschaft und Präzision? Dann sei du der Schlüssel zur kontinuierlichen Verfügbarkeit und Qualität unserer Fahrzeuge – Werde Teil unseres Werkstatteams Langnau bei der Busland AG. Das wartet auf dich:\n• Ausführen von Diagnose-, Reparatur-, und Wartungsarbeiten an Fahrzeugen der Busland AG sowie an 3. Kunden Fahrzeugen und Anhängern\n• Wartungen von Umsystemen\n• Reifenservice\n• Ausführen von Garantiearbeiten in Auftrag des Fahrzeugherstellers\n• Pikett für die Fahrzeuge der Busland AG\n• Überführen von Fahrzeugen Das bringst du mit:\n• Abgeschlossene Grundausbildung als Automobilmechatroniker:in NFZ, Automobilfachmann:frau NFZ, Lastwagenmechaniker:in oder Landmaschinenmechaniker:in\n• Freude und Begeisterung für die Mobilität und die Nutzfahrzeugbranche\n• Selbständige, pflichtbewusste und zuverlässige Arbeitsweise\n• Kommunikativ und teamfähig\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Führerausweis Kategorie C oder D Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein Halbtaxabo oder Vergünstigungen auf ein GA 1.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n• Teile deine Arbeitszeit frei ein und arbeite dort, wo es für dich am besten passt, im Homeoffice oder im Büro.\n• Du kannst dich auf fünf Wochen Ferien freuen, ab 50-jährig sogar auf sechs Wochen und ab 60-jährig auf sieben Wochen.\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n• Es besteht die Möglichkeit, Reka-Geld mit Rabatt zu beziehen Über Busland Die Busland AG erbringt als konzessionierte Transportunternehmung öffentlichen regionalen Personenverkehr und Ortsverkehr im Emmental und Oberaargau. Aus den drei Depots Burgdorf, Langnau und Sumiswald werden 20 Linien mit über 600 Haltestellen bedient. Die 37 modernen Busse der Busland AG ergänzen die Bahn zu einer optimal abgestimmten Mobilitätskette. Der BLS-Wanderbus erschliesst in den Sommermonaten auch touristische Ziele im Emmental. In Langnau i.E. betreibt die Unternehmung die Garage Ilfis, ein Zentrum für Nutzfahrzeuge mit einer LKW-Prüfstrasse. Die Busland AG mit Geschäftssitz in Burgdorf wurde 2006 gegründet und beschäftigt heute rund 150 Mitarbeitende.",
-        "fr": "Le trafic d'autobus publics est en train de changer – la mobilité électronique et la numérisation avec la plus grande disponibilité de véhicules possible et la satisfaction des clients sont nos prochains défis. Êtes-vous un:e dédié:r, passionné:r tournevis et maître défis avec passion et précision? Soyez alors la clé de la disponibilité et de la qualité continues de nos véhicules – Devenez membre de notre atelier Langnau à Busland AG. Ceci vous attend:\n• Exécution de travaux de diagnostic, de réparation et d'entretien sur les véhicules de Busland AG ainsi que sur les véhicules et remorques des 3èmes clients\n• Entretien des systèmes\n• Service de pneus\n• Exécution de travaux de garantie pour le compte du constructeur de véhicules\n• Pikett pour les véhicules de Busland AG\n• Transfert de véhicules\n• Formation de base complète en tant qu'opérateur mécatronique automobile:en NFZ, spécialiste automobile:femme NFZ, mécanicien de camion:en ou mécanicien de machine agricole:en\n• Joy et enthousiasme pour la mobilité et l'industrie automobile commerciale\n• Travail indépendant, obligatoire et fiable\n• Communique et prêt à travailler en équipe\n• Très bonne connaissance de la langue allemande en paroles et en écriture\n• Carte guidée catégorie C ou D Vos avantages – vous pouvez attendre avec impatience:\n• Obtenez un GA 2ème classe, un abonnement demi-taxe ou des réductions sur un GA 1.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n• Partagez votre temps de travail librement et travaillez là où il vous convient le mieux, dans le bureau à domicile ou au bureau.\n• Vous pouvez vous attendre à cinq semaines de vacances, de 50 ans même pendant six semaines et de 60 ans à sept semaines.\n• Dons généreux de cinq ans de service.\n• Il y a la possibilité d'obtenir de l'argent Reka avec un rabais À propos de Busland Busland AG fournit comme une société de transport concessionnel pour le transport public régional de passagers et le transport local dans l'Emmental et Oberaargau. Des trois Dépôts Burgdorf, Langnau et Sumiswald, 20 lignes sont desservies avec plus de 600 arrêts. Les 37 bus modernes de Busland AG complètent le train à une chaîne de mobilité parfaitement adaptée. Le bus de randonnée BLS offre également des destinations touristiques dans l'Emmental pendant les mois d'été. À Langnau i.E., la société exploite le garage Ilvis, un centre pour véhicules utilitaires avec une route d'essai de camion. Busland AG, dont le siège est à Burgdorf, a été fondé en 2006 et emploie actuellement environ 150 employés."
-      },
-      "location": "Langnau im Emmental",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in/b902f38a-e2ae-46be-a6f8-d05911ff6585",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:59.904Z",
-      "addressLocality": "Langnau im Emmental",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3550",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "validThrough": "2026-06-30",
-      "pensum": "80-100%",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/b902f38a-e2ae-46be-a6f8-d05911ff6585",
-      "requirements": [
-        "Abgeschlossene Grundausbildung als Automobilmechatroniker:in NFZ, Automobilfachmann:frau NFZ, Lastwagenmechaniker:in oder Landmaschinenmechaniker:in",
-        "Freude und Begeisterung für die Mobilität und die Nutzfahrzeugbranche",
-        "Selbständige, pflichtbewusste und zuverlässige Arbeitsweise",
-        "Kommunikativ und teamfähig",
-        "Sehr gute Deutschkenntnisse in Wort und Schrift",
-        "Führerausweis Kategorie C oder D"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Freude und Begeisterung für die Mobilität und die Nutzfahrzeugbranche",
-          "Selbständige, pflichtbewusste und zuverlässige Arbeitsweise",
-          "Kommunikativ und teamfähig",
-          "Sehr gute Deutschkenntnisse in Wort und Schrift",
-          "Führerausweis Kategorie C oder D"
-        ]
-      },
-      "previousSlugs": [
-        "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
-        ],
-        "en": [
-          "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
-        ],
-        "fr": [
-          "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T22:46:33.211Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -673,7 +675,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:59.171Z",
+      "crawledAt": "2026-07-01T11:16:19.219Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,6 +716,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -759,7 +762,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:58.345Z",
+      "crawledAt": "2026-07-01T11:16:18.515Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -806,6 +809,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -851,7 +855,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/bc80ac8b-54e4-4703-8c22-df0dae662c39",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:57.458Z",
+      "crawledAt": "2026-07-01T11:16:17.689Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -903,6 +907,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:14:02.185Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -948,7 +953,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/3519fa54-3e07-4f66-8a1a-80329d4a5b4c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:56.566Z",
+      "crawledAt": "2026-07-01T11:16:16.860Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -982,6 +987,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:27.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -995,6 +1001,94 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-9c530606b638",
+      "slug": "fachperson-beschriftung-e-grafik-bls-ag-bonigen",
+      "slugByLocale": {
+        "de": "fachperson-beschriftung-und-grafik-bls-ch",
+        "it": "fachperson-beschriftung-e-grafik-bls-ag-bonigen",
+        "en": "fachperson-beschriftung-und-grafik-bls-ch",
+        "fr": "fachperson-beschriftung-und-grafik-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Fachperson Beschriftung und Grafik",
+      "titleByLocale": {
+        "de": "Fachperson Beschriftung und Grafik",
+        "it": "Fachperson Beschriftung e Grafik",
+        "en": "Fachperson Beschriftung und Grafik",
+        "fr": "Fachperson Beschriftung und Grafik"
+      },
+      "description": "Der Schriftzug der S-Bahnfahrzeuge strahlt mit der Abendsonne um die Wette. Das ist dein Verdienst! Bei der letzten Fahrzeugrevision haben deine Kollegen die mechanischen und elektrischen Teile aufgefrischt, während du dich um die fachgerechte Neubeschriftung gekümmert hast. So funktioniert das Fahrzeug nicht nur zuverlässig, sondern erscheint auch in sympathisch neuem Glanz.\n\nDas wartet auf dich:\n\n• Foliendrucke, Schriften und Piktogramme am modernen Plotter entstehen lassen\n\n• Folien millimetergenau auf BLS- und Dritt-Fahrzeugen applizieren – dein präzises Handwerk fährt durchs ganze Netz\n\n• Kreativität ausleben im modern eingerichteten Schriften-Atelier – hier bekommen deine Ideen Raum und Wirkung\n\n• Im direkten Austausch mit internen und externen Kundinnen smarte Ideen zu sichtbaren Lösungen machen\n\n• Den Bereich Beschriftung formen und mit innovativen Ideen neue Einsatzfelder auf die Schiene bringen\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf\n\n• Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten\n\n• Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung\n\n• Ausgeprägte Kundenorientierung und Freude am direkten Austausch\n\n• Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Der Schriftzug der S-Bahnfahrzeuge strahlt mit der Abendsonne um die Wette. Das ist dein Verdienst! Bei der letzten Fahrzeugrevision haben deine Kollegen die mechanischen und elektrischen Teile aufgefrischt, während du dich um die fachgerechte Neubeschriftung gekümmert hast. So funktioniert das Fahrzeug nicht nur zuverlässig, sondern erscheint auch in sympathisch neuem Glanz.\n\nDas wartet auf dich:\n\n• Foliendrucke, Schriften und Piktogramme am modernen Plotter entstehen lassen\n\n• Folien millimetergenau auf BLS- und Dritt-Fahrzeugen applizieren – dein präzises Handwerk fährt durchs ganze Netz\n\n• Kreativität ausleben im modern eingerichteten Schriften-Atelier – hier bekommen deine Ideen Raum und Wirkung\n\n• Im direkten Austausch mit internen und externen Kundinnen smarte Ideen zu sichtbaren Lösungen machen\n\n• Den Bereich Beschriftung formen und mit innovativen Ideen neue Einsatzfelder auf die Schiene bringen\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf\n\n• Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten\n\n• Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung\n\n• Ausgeprägte Kundenorientierung und Freude am direkten Austausch\n\n• Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Der Schriftzug der S-Bahnfahrzeuge strahlt mit der Abendsonne um die Wette. Das ist dein Verdienst! Bei der letzten Fahrzeugrevision haben deine Kollegen die mechanischen und elektrischen Teile aufgefrischt, während du dich um die fachgerechte Neubeschriftung gekümmert hast. So funktioniert das Fahrzeug nicht nur zuverlässig, sondern erscheint auch in sympathisch neuem Glanz.\n\nDas wartet auf dich:\n\n• Foliendrucke, Schriften und Piktogramme am modernen Plotter entstehen lassen\n\n• Folien millimetergenau auf BLS- und Dritt-Fahrzeugen applizieren – dein präzises Handwerk fährt durchs ganze Netz\n\n• Kreativität ausleben im modern eingerichteten Schriften-Atelier – hier bekommen deine Ideen Raum und Wirkung\n\n• Im direkten Austausch mit internen und externen Kundinnen smarte Ideen zu sichtbaren Lösungen machen\n\n• Den Bereich Beschriftung formen und mit innovativen Ideen neue Einsatzfelder auf die Schiene bringen\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf\n\n• Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten\n\n• Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung\n\n• Ausgeprägte Kundenorientierung und Freude am direkten Austausch\n\n• Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Der Schriftzug der S-Bahnfahrzeuge strahlt mit der Abendsonne um die Wette. Das ist dein Verdienst! Bei der letzten Fahrzeugrevision haben deine Kollegen die mechanischen und elektrischen Teile aufgefrischt, während du dich um die fachgerechte Neubeschriftung gekümmert hast. So funktioniert das Fahrzeug nicht nur zuverlässig, sondern erscheint auch in sympathisch neuem Glanz.\n\nDas wartet auf dich:\n\n• Foliendrucke, Schriften und Piktogramme am modernen Plotter entstehen lassen\n\n• Folien millimetergenau auf BLS- und Dritt-Fahrzeugen applizieren – dein präzises Handwerk fährt durchs ganze Netz\n\n• Kreativität ausleben im modern eingerichteten Schriften-Atelier – hier bekommen deine Ideen Raum und Wirkung\n\n• Im direkten Austausch mit internen und externen Kundinnen smarte Ideen zu sichtbaren Lösungen machen\n\n• Den Bereich Beschriftung formen und mit innovativen Ideen neue Einsatzfelder auf die Schiene bringen\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf\n\n• Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten\n\n• Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung\n\n• Ausgeprägte Kundenorientierung und Freude am direkten Austausch\n\n• Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Der Schriftzug der S-Bahnfahrzeuge strahlt mit der Abendsonne um die Wette. Das ist dein Verdienst! Bei der letzten Fahrzeugrevision haben deine Kollegen die mechanischen und elektrischen Teile aufgefrischt, während du dich um die fachgerechte Neubeschriftung gekümmert hast. So funktioniert das Fahrzeug nicht nur zuverlässig, sondern erscheint auch in sympathisch neuem Glanz.\n\nDas wartet auf dich:\n\n• Foliendrucke, Schriften und Piktogramme am modernen Plotter entstehen lassen\n\n• Folien millimetergenau auf BLS- und Dritt-Fahrzeugen applizieren – dein präzises Handwerk fährt durchs ganze Netz\n\n• Kreativität ausleben im modern eingerichteten Schriften-Atelier – hier bekommen deine Ideen Raum und Wirkung\n\n• Im direkten Austausch mit internen und externen Kundinnen smarte Ideen zu sichtbaren Lösungen machen\n\n• Den Bereich Beschriftung formen und mit innovativen Ideen neue Einsatzfelder auf die Schiene bringen\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf\n\n• Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten\n\n• Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung\n\n• Ausgeprägte Kundenorientierung und Freude am direkten Austausch\n\n• Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bönigen",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-01T11:16:16.079Z",
+      "addressLocality": "Bönigen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3806",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-07-30",
+      "pensum": "80-100%",
+      "salary": "95247",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
+      "requirements": [
+        "Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf",
+        "Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten",
+        "Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung",
+        "Ausgeprägte Kundenorientierung und Freude am direkten Austausch",
+        "Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Abgeschlossene Ausbildung in Werbetechnik, Polygrafie, Schriftenmalerei, Grafik oder gleichwertigem Beruf",
+          "Sicherer Umgang mit gängigen Grafikprogrammen und Technik für präzises Arbeiten",
+          "Mehrjährige Erfahrung in Werbetechnik, Beschriftung oder Folienverarbeitung",
+          "Ausgeprägte Kundenorientierung und Freude am direkten Austausch",
+          "Eigenständigkeit, hohe Gewissenhaftigkeit und Offenheit für Einsätze in anderen Werkstattbereichen"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-beschriftung-und-grafik-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-beschriftung-und-grafik-bls-ch"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-07-01T11:16:16.079Z"
     },
     {
       "id": "bls-87df4eda4fd4",
@@ -1027,7 +1121,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/systemingenieur-in-plattformentwicklung/26107236-837f-4c94-8876-f62f2920f44d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:55.704Z",
+      "crawledAt": "2026-07-01T11:16:15.391Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1069,6 +1163,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:25.700Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1098,7 +1193,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -1114,7 +1209,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:54.959Z",
+      "crawledAt": "2026-07-01T11:16:14.670Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1155,6 +1250,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T21:56:35.717Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1200,7 +1296,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/marketing-manager-in-experience/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-30T21:54:54.015Z",
+      "crawledAt": "2026-07-01T11:16:13.748Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1246,6 +1342,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:06.426Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
