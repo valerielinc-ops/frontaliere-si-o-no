@@ -796,6 +796,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stipendio-frontalieri-6250-mese.title': 'Grenzüberschreitende Pendler: Reichen 6.250 Francs im Monat aus?',
     'blog.article.stipendio-frontalieri-6250-mese.excerpt': 'Detaillierte Analyse darüber, wie lange ein grenzüberschreitender Pendler in der Schweiz mit einem Monatsgehalt von 6.250 Franken leben kann.',
     'blog.article.stipendio-frontalieri-6250-mese.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.title': 'Umsetzung Pendlerabkommen im Interesse der Schweiz',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.excerpt': 'Bundesrätin Karin Keller-Sutter traf sich mit dem italienischen Finanzminister Giancarlo Giorgetti, um internationale Finanz- und Steuerfragen zu besprechen.',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
 };
 
 export default blogMetaChDe;

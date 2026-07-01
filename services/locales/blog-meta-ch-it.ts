@@ -796,6 +796,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stipendio-frontalieri-6250-mese.title': 'Frontalieri: 6.250 franchi al mese bastano?',
     'blog.article.stipendio-frontalieri-6250-mese.excerpt': 'Analisi dettagliata su quanto può vivere un frontaliero con uno stipendio di 6.250 franchi al mese in Svizzera.',
     'blog.article.stipendio-frontalieri-6250-mese.imageAlt': 'Vista aerea di Lugano con il Lago Ceresio sullo sfondo',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.title': 'Applicazione accordi su frontalieri è in interesse della Svizzera',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.excerpt': 'La consigliera federale Karin Keller-Sutter ha incontrato il ministro delle finanze italiano Giancarlo Giorgetti per discutere delle questioni finanziarie e fiscali internazionali.',
+    'blog.article.applicazione-accordi-frontalieri-svizzera.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;
