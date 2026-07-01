@@ -7,16 +7,23 @@ main = "locale-router.js"
 compatibility_date = "2026-01-01"
 
 # NOTE: routes carry a `request_limit_fail_open` flag that wrangler.toml CANNOT
-# express (API-only). It MUST be true (over the free 100k/day cap the Worker is
-# bypassed and the CDN cache serves apex-keyed pages instead of error 1027) —
+# express (API-only). It MUST be true (a defence-in-depth fail-open: if the
+# Worker ever errors or a daily cap is hit, the Worker is bypassed and the CDN
+# cache serves apex-keyed pages instead of error 1027) —
 # scripts/cf-locale-failover-setup.mjs asserts it after every deploy
 # (deploy-worker.yml runs it; after a MANUAL `npx wrangler deploy`, run it too).
+# NB: the account is on Workers Paid (10M req/mo included, overage ~$0.30/M), so
+# the old free 100k/day invocation cap no longer binds — Worker-routed traffic
+# volume is no longer a scoping constraint (the Ticino routes below add the IT
+# bulk's busiest section deliberately).
 #
-# Scope the Worker to ONLY the locale paths so the IT bulk (~95% of traffic) is
-# pure Cloudflare passthrough with no Worker subrequest. Three patterns per
-# locale cover the subtree, the bare homepage path, and the .html homepage file
-# without ever matching look-alikes like /enterprise (exact-match routes have no
-# trailing wildcard). The in-code LOCALE_RE is the matching guard.
+# The Worker is scoped to the locale paths PLUS the Ticino section across all four
+# locales. The locale scope uses three exact patterns (subtree /*, bare, .html) so
+# look-alikes like /enterprise never match; the Ticino IT scope uses one wildcard
+# (see its comment below) so query-string hits are covered — a look-alike like
+# /cerca-lavoro-ticino-altro matches that CF route but is rejected in-code. The
+# in-code LOCALE_RE + matchTicino are the authoritative matching guards. Non-Ticino
+# IT paths stay pure Cloudflare passthrough with no Worker subrequest.
 routes = [
   { pattern = "frontaliereticino.ch/en/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en",      zone_name = "frontaliereticino.ch" },
@@ -27,6 +34,22 @@ routes = [
   { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
+  # Ticino section (IT apex prefix) → origin-ticino-it (one shard repo per locale;
+  # see locale-router.js TICINO_ORIGIN). The en/de/fr Ticino subpaths
+  # (/en/find-jobs-ticino, /de/jobs-im-tessin, /fr/trouver-emploi-tessin) already
+  # reach the Worker via the /en|/de|/fr routes above and are re-targeted to
+  # origin-ticino-<loc> in-code (matchTicino), so only the IT prefix needs a new
+  # route here — the IT apex otherwise bypasses the Worker entirely.
+  #
+  # ONE wildcard `…/cerca-lavoro-ticino*` (NOT bare + /* + .html exact routes): a
+  # CF route without a trailing `*` matches only the exact URL with NO query
+  # string (#2611), so the busiest section's `?utm_*`/`?fbclid=` ad/social/
+  # newsletter hits would bypass the Worker and — after the strip flip — 404 at
+  # the apex. The wildcard covers the bare path, /, .html, deep paths, AND query
+  # strings. Look-alikes like /cerca-lavoro-ticino-altro also match the CF route
+  # but matchTicino returns null for them in-code → harmless apex passthrough.
+  # Same pattern as the disiscrivi-* proxies above.
+  { pattern = "frontaliereticino.ch/cerca-lavoro-ticino*", zone_name = "frontaliereticino.ch" },
   # Job-alert one-click unsubscribe (RFC 8058). Deliberate non-locale exception to
   # the "locale paths only" scoping above: the unsubscribe links + List-Unsubscribe
   # header in job-alert emails MUST live on the sending domain (frontaliereticino.ch)
@@ -60,16 +83,19 @@ routes = [
   # free-tier 100k/day cap (the in-code CDN_PATHS branch was already dropped).
 ]
 
-# Workers Logs (Observability) — free tier. Persists per-request logs +
-# console output + the request outcome (status, CPU, errors) to the dashboard
-# (Workers & Pages → frontaliere-locale-router → Logs) with a short retention.
-# Declared HERE (not via a one-off dashboard/API toggle) so every
-# `wrangler deploy` keeps it on — an API PATCH would be wiped on the next deploy.
-# head_sampling_rate = 1 logs 100% of invocations; the Worker only handles the
-# en/de/fr shard traffic (well under the free 100k/day invocation cap), so full
-# sampling stays within the free Workers Logs daily allowance and gives complete
-# visibility into the shard 504 path (whether the origin retry / last-known-good
-# fallback actually fires).
+# Workers Logs (Observability). Persists per-request logs + console output + the
+# request outcome (status, CPU, errors) to the dashboard (Workers & Pages →
+# frontaliere-locale-router → Logs) with a short retention. Declared HERE (not via
+# a one-off dashboard/API toggle) so every `wrangler deploy` keeps it on — an API
+# PATCH would be wiped on the next deploy.
+# head_sampling_rate = 1 logs 100% of invocations. The Worker now handles the
+# en/de/fr shard traffic PLUS the Ticino section across all four locales (a chunk
+# of the former IT bulk), so invocation volume is materially higher than before.
+# 100% sampling is kept deliberately: on Workers Paid the Logs allowance has ample
+# headroom, and full sampling preserves complete visibility into the shard 5xx /
+# stale-if-error path (the exact path involved in the #3178 incident). If Logs
+# volume ever approaches the plan allowance, lower this rate rather than dropping
+# to zero — do NOT lose the 5xx visibility.
 [observability]
 enabled = true
 head_sampling_rate = 1

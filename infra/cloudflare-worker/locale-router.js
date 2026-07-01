@@ -63,6 +63,55 @@ const SHARD_ORIGIN = {
   fr: 'origin-fr.frontaliereticino.ch',
 };
 
+// Ticino-section shards — ONE Pages repo PER LOCALE (frontaliere-ticino-<loc>).
+// The Ticino job section is the single largest subtree in the build: ~4.2 GB /
+// ~222k pages in IT alone (the cross-canton bridge mirrors essentially every
+// active CH job under the legacy TI section), and the bridge runs independently
+// in every locale, so en/de/fr each carry a comparably large Ticino mirror.
+// A SINGLE combined repo would therefore be ~16 GB — over the 10 GB Pages cap
+// itself — so each locale's Ticino subtree gets its OWN ~4 GB shard repo, served
+// from origin-ticino-<loc>.frontaliereticino.ch. This keeps the IT apex AND every
+// en/de/fr locale shard under the actions/deploy-pages 10 GB hard cap (the limit
+// that failed the 2026-06-30 IT deploy: "total size is less than 10GB"). Routing
+// it through the Worker is fine on Workers Paid (10M req/mo, overage ~$0.30/M).
+//   it → /cerca-lavoro-ticino/**        de → /de/jobs-im-tessin/**
+//   en → /en/find-jobs-ticino/**        fr → /fr/trouver-emploi-tessin/**
+const TICINO_ORIGIN = {
+  it: 'origin-ticino-it.frontaliereticino.ch',
+  en: 'origin-ticino-en.frontaliereticino.ch',
+  de: 'origin-ticino-de.frontaliereticino.ch',
+  fr: 'origin-ticino-fr.frontaliereticino.ch',
+};
+
+// Ticino-section path prefixes → which locale's shard + 404-recovery to use.
+// Matched BEFORE LOCALE_RE so an /en|/de|/fr Ticino path resolves to its Ticino
+// shard, not origin-{loc}. The IT prefix (/cerca-lavoro-ticino) is newly routed
+// through the Worker via dedicated wrangler routes (the apex bypasses the Worker
+// for everything else); the three localized prefixes already reach the Worker
+// under the existing /en|/de|/fr routes, so matchTicino re-targets them in-code.
+const TICINO_ROUTES = [
+  { prefix: '/cerca-lavoro-ticino', locale: 'it' },
+  { prefix: '/en/find-jobs-ticino', locale: 'en' },
+  { prefix: '/de/jobs-im-tessin', locale: 'de' },
+  { prefix: '/fr/trouver-emploi-tessin', locale: 'fr' },
+];
+
+// Returns the matching TICINO_ROUTES entry (with its locale) when the path is the
+// Ticino section root, the .html flat root, or anything under it; null otherwise.
+// Anchored so a look-alike section like /cerca-lavoro-ticino-altro never matches.
+function matchTicino(pathname) {
+  for (const route of TICINO_ROUTES) {
+    if (
+      pathname === route.prefix ||
+      pathname === `${route.prefix}.html` ||
+      pathname.startsWith(`${route.prefix}/`)
+    ) {
+      return route;
+    }
+  }
+  return null;
+}
+
 // First path segment must be exactly en|de|fr, followed by end, slash, or the
 // .html locale-homepage file. Anything like /rss-en.xml or /enterprise stays
 // on the main origin. (The Cloudflare route patterns already scope the Worker
@@ -438,6 +487,118 @@ async function serveStaleOnError(url, reason) {
   return null;
 }
 
+// Serve a request from a GitHub Pages shard origin (locale shard or the Ticino
+// shard). Rewrites only the upstream Host to `origin` (the gray-cloud custom
+// domain reachable solely from this Worker); the public URL the user sees never
+// changes. Applies the full shard pipeline: tiered edge cache + one retry,
+// stale-if-error from the apex-keyed Cache API, origin→apex Location rewrite,
+// Cache-Control stamping, apex-keyed fail-open warmup on 200s, and the job-orphan
+// 301 recoveries on 404s. `recoveryLocale` (it|en|de|fr) selects which
+// within-locale recovery map/board to use — for the IT Ticino subtree it is
+// 'it', so only the canton-drift map recovery (which has IT entries) can fire and
+// the en/de/fr-only company/cluster/board recoveries safely no-op.
+async function serveShard(request, url, origin, recoveryLocale, ctx) {
+  const upstream = new URL(request.url);
+  upstream.hostname = origin; // rewrite Host only; path + query preserved
+
+  let resp;
+  try {
+    resp = await fetchOriginWithRetry(upstream, request, {
+      cacheEverything: true,
+      cacheTtl: ORIGIN_CACHE_TTL,
+    });
+  } catch {
+    // Every attempt timed out / threw — no origin response. Prefer a last-good
+    // stale copy (stale-if-error) over an error page.
+    if (request.method === 'GET') {
+      const stale = await serveStaleOnError(url, 'origin-timeout');
+      if (stale) return stale;
+    }
+    return new Response('Shard origin unavailable', {
+      status: 503,
+      headers: { 'Retry-After': '30' },
+    });
+  }
+
+  // Stale-if-error: origin answered but with a 5xx after retries. Serve the
+  // last-good cached copy instead of propagating the error to crawler/user.
+  if (request.method === 'GET' && resp.status >= 500) {
+    const stale = await serveStaleOnError(url, `origin-${resp.status}`);
+    if (stale) return stale;
+  }
+
+  // GitHub Pages 301s a dir path without trailing slash to the slash form. If
+  // that Location is absolute on the hidden origin host, rewrite it back to the
+  // public apex so the user never leaves frontaliereticino.ch and the origin
+  // host is never exposed.
+  const loc = resp.headers.get('location');
+  if (loc) {
+    let locUrl = null;
+    try {
+      locUrl = new URL(loc, upstream); // resolves relative Locations too
+    } catch {
+      locUrl = null; // non-URL Location header → leave untouched
+    }
+    if (locUrl && locUrl.hostname === origin) {
+      locUrl.hostname = url.hostname; // public apex
+      const headers = new Headers(resp.headers);
+      headers.set('location', locUrl.toString());
+      return new Response(resp.body, {
+        status: resp.status,
+        statusText: resp.statusText,
+        headers,
+      });
+    }
+  }
+
+  // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in the
+  // colo cache for the over-cap/stale-if-error fail-open path. Body buffered ONCE
+  // via arrayBuffer and reused — no clone()/stream tee (the #1791/#1814 deadlock
+  // class). Query-string URLs are skipped: not canonical.
+  if (request.method === 'GET' && resp.status === 200) {
+    const headers = new Headers(resp.headers);
+    headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
+    const body = await resp.arrayBuffer();
+    if (ctx && !url.search) {
+      const cacheHeaders = new Headers(resp.headers);
+      cacheHeaders.set('Cache-Control', `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}`);
+      ctx.waitUntil(
+        caches.default
+          .put(
+            new Request(url.toString(), { method: 'GET' }),
+            new Response(body, { status: 200, statusText: resp.statusText, headers: cacheHeaders }),
+          )
+          .catch(() => {}), // best-effort failover warmup — never fail the live response
+      );
+    }
+    return new Response(body, { status: 200, statusText: resp.statusText, headers });
+  }
+
+  // Canton-drift recovery: upgrade a job-detail orphan 404 with a known slug to a
+  // real HTTP 301 (full link-equity transfer) instead of the soft-404+JS path.
+  // Unknown slugs fall through to the soft 404 below.
+  if (request.method === 'GET' && resp.status === 404) {
+    const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
+    if (redirect) return redirect;
+    const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
+    if (companyRedirect) return companyRedirect;
+    const clusterRedirect = recoverLegacySearchCluster(url, recoveryLocale);
+    if (clusterRedirect) return clusterRedirect;
+    const paginationRedirect = recoverLegacyPagination(url);
+    if (paginationRedirect) return paginationRedirect;
+  }
+
+  // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are
+  // absorbed by the edge instead of re-invoking the Worker.
+  if (request.method === 'GET' && resp.status === 404) {
+    const headers = new Headers(resp.headers);
+    headers.set('Cache-Control', NOT_FOUND_CACHE_CONTROL);
+    return new Response(resp.body, { status: 404, statusText: resp.statusText, headers });
+  }
+
+  return resp;
+}
+
 export default {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
@@ -463,6 +624,16 @@ export default {
       }
     }
 
+    // Ticino-section shard — checked BEFORE the locale match so an /en|/de|/fr
+    // Ticino path (e.g. /en/find-jobs-ticino/...) resolves to origin-ticino, the
+    // carved-out shard, instead of origin-{loc}. The IT /cerca-lavoro-ticino
+    // prefix reaches the Worker via its own wrangler routes; all other IT paths
+    // stay a pure apex passthrough (the !match branch below).
+    const tic = matchTicino(url.pathname);
+    if (tic) {
+      return serveShard(request, url, TICINO_ORIGIN[tic.locale], tic.locale, ctx);
+    }
+
     const match = url.pathname.match(LOCALE_RE);
 
     if (!match) {
@@ -480,128 +651,9 @@ export default {
       }
     }
 
-    const origin = SHARD_ORIGIN[match[1]];
-    const upstream = new URL(request.url);
-    upstream.hostname = origin; // rewrite Host only; path + query preserved
-
-    let resp;
-    try {
-      resp = await fetchOriginWithRetry(upstream, request, {
-        cacheEverything: true,
-        cacheTtl: ORIGIN_CACHE_TTL,
-      });
-    } catch {
-      // Every attempt timed out / threw — no origin response. Prefer a last-good
-      // stale copy (stale-if-error) over an error page. Short Retry-After:
-      // measured failure rate at this layer is ~0.02% (50×503/day zone-wide),
-      // and CF's tiered cache absorbs repeats, so a transient blip self-heals.
-      if (request.method === 'GET') {
-        const stale = await serveStaleOnError(url, 'origin-timeout');
-        if (stale) return stale;
-      }
-      return new Response('Shard origin unavailable', {
-        status: 503,
-        headers: { 'Retry-After': '30' },
-      });
-    }
-
-    // Stale-if-error: origin answered but with a 5xx after retries. Serve the
-    // last-good cached copy instead of propagating the error to crawler/user.
-    // Falls through to return the 5xx as-is on a cache MISS.
-    if (request.method === 'GET' && resp.status >= 500) {
-      const stale = await serveStaleOnError(url, `origin-${resp.status}`);
-      if (stale) return stale;
-    }
-
-    // GitHub Pages 301s a dir path without trailing slash (e.g. /en/lavoro ->
-    // /en/lavoro/). If that Location is absolute on the hidden origin host, the
-    // browser would jump to origin-{loc}.frontaliereticino.ch — exposing the
-    // origin and changing the visible URL. Rewrite any such Location back to the
-    // public apex so the user never leaves frontaliereticino.ch. (Indexed paths
-    // use trailing-slash canonicals → 200, no redirect; this covers the edge.)
-    const loc = resp.headers.get('location');
-    if (loc) {
-      let locUrl = null;
-      try {
-        locUrl = new URL(loc, upstream); // resolves relative Locations too
-      } catch {
-        locUrl = null; // non-URL Location header → leave untouched
-      }
-      if (locUrl && locUrl.hostname === origin) {
-        locUrl.hostname = url.hostname; // public apex
-        const headers = new Headers(resp.headers);
-        headers.set('location', locUrl.toString());
-        return new Response(resp.body, {
-          status: resp.status,
-          statusText: resp.statusText,
-          headers,
-        });
-      }
-    }
-
-    // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in
-    // the colo cache for the over-cap fail-open path (see header comment).
-    // The body is buffered ONCE via arrayBuffer and reused for both responses
-    // — deliberately no resp.clone()/stream tee, which is the #1791/#1814
-    // deadlock class (a slow eyeball consumer stalls the cache.put branch).
-    // Shard pages are small HTML (~50-200KB), well within Worker memory.
-    // Query-string URLs are skipped: not canonical, would only pollute the
-    // per-colo cache (e.g. deploy-worker.yml's ?dwcheck= cache-busters).
-    if (request.method === 'GET' && resp.status === 200) {
-      const headers = new Headers(resp.headers);
-      headers.set('Cache-Control', `public, max-age=${CACHE_MAX_AGE}, s-maxage=${CACHE_MAX_AGE}`);
-      const body = await resp.arrayBuffer();
-      if (ctx && !url.search) {
-        const cacheHeaders = new Headers(resp.headers);
-        cacheHeaders.set('Cache-Control', `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}`);
-        ctx.waitUntil(
-          caches.default
-            .put(
-              new Request(url.toString(), { method: 'GET' }),
-              new Response(body, { status: 200, statusText: resp.statusText, headers: cacheHeaders }),
-            )
-            .catch(() => {}), // best-effort failover warmup — never fail the live response
-        );
-      }
-      return new Response(body, { status: 200, statusText: resp.statusText, headers });
-    }
-
-    // Canton-drift recovery: upgrade a job-detail orphan 404 with a known slug
-    // to a real HTTP 301 (full link-equity transfer) instead of the soft-404+JS
-    // redirect. Unknown slugs fall through to the soft 404 below. See
-    // recoverCantonDriftOrphan / NOT_FOUND_CACHE_CONTROL.
-    if (request.method === 'GET' && resp.status === 404) {
-      // match[1] is the request's locale (en|de|fr) — keep the 301 within-locale.
-      const redirect = await recoverCantonDriftOrphan(url, match[1]);
-      if (redirect) return redirect;
-      // Cross-locale company-hub prefix mismatch (e.g. IT `azienda-` prefix on an
-      // /fr route) → within-locale 301 to the canonical prefix. Synchronous, and
-      // runs only AFTER the canton-drift map miss so a real job slug that happens
-      // to start with a prefix word is never hijacked.
-      const companyRedirect = recoverCrossLocaleCompanyPrefix(url, match[1]);
-      if (companyRedirect) return companyRedirect;
-      // Legacy related-search cluster orphan (slug-format migration left a long
-      // tail beyond our GSC snapshot) → 301 to the locale's national job board.
-      // Runs last so the specific canton-drift/company recoveries win first.
-      const clusterRedirect = recoverLegacySearchCluster(url, match[1]);
-      if (clusterRedirect) return clusterRedirect;
-      // Legacy listing-pagination URL (retired `/<filter>/page-N/` format) → 301
-      // to the canton section root. Distinct path shape (multi-segment, ends in
-      // /page-N/) so it never collides with the single-segment job-detail/company
-      // recoveries above; ordering is immaterial. See recoverLegacyPagination.
-      const paginationRedirect = recoverLegacyPagination(url);
-      if (paginationRedirect) return paginationRedirect;
-    }
-
-    // Stamp Cache-Control on 404s too: see NOT_FOUND_CACHE_CONTROL. GitHub
-    // Pages sends no Cache-Control on its 404 page, so without this every
-    // crawler re-fetch of a dead URL re-invokes the Worker.
-    if (request.method === 'GET' && resp.status === 404) {
-      const headers = new Headers(resp.headers);
-      headers.set('Cache-Control', NOT_FOUND_CACHE_CONTROL);
-      return new Response(resp.body, { status: 404, statusText: resp.statusText, headers });
-    }
-
-    return resp;
+    // Locale shard (en|de|fr): rewrite the upstream Host to origin-{loc} and run
+    // the shared shard pipeline. match[1] is the request's locale, used to keep
+    // any 404→301 recovery within-locale.
+    return serveShard(request, url, SHARD_ORIGIN[match[1]], match[1], ctx);
   },
 };
