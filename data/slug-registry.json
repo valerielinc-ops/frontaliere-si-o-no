@@ -16380,8 +16380,8 @@
     "slugByLocale": {
       "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
       "en": "assistant-physician-hospital-physician-eoc-ente-ospedaliero-cantonale-novaggio",
-      "de": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-      "fr": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
+      "de": "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
+      "fr": "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
     },
     "createdAt": "2026-04-01",
     "canton": "TI"
@@ -16402,8 +16402,8 @@
     "slugByLocale": {
       "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
       "en": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio-a34f2a",
-      "de": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-      "fr": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
+      "de": "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
+      "fr": "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio"
     },
     "createdAt": "2026-04-01",
     "canton": "TI"
@@ -16413,8 +16413,8 @@
     "slugByLocale": {
       "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
       "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-      "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-      "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
+      "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+      "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
     },
     "createdAt": "2026-04-01",
     "canton": "TI"
@@ -16424,8 +16424,8 @@
     "slugByLocale": {
       "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
       "en": "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-      "de": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-      "fr": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
+      "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+      "fr": "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
     },
     "createdAt": "2026-04-01",
     "canton": "TI"
@@ -222433,8 +222433,8 @@
     "slugByLocale": {
       "de": "hochschulpraktikant-in-meldestelle-fur-geldwascherei-mros-confederazione-bern",
       "it": "hochschulpraktikant-in-meldestelle-per-geldwascherei-mros-confederazione-svizzera-bern",
-      "en": "hochschulpraktikant-in-meldestelle-fur-geldwascherei-mros-confederazione-bern",
-      "fr": "hochschulpraktikant-in-meldestelle-fur-geldwascherei-mros-confederazione-bern"
+      "en": "university-intern-in-money-laundering-reporting-office-mros-confederazione-svizzera-bern",
+      "fr": "stagiaire-de-l-universite-bureau-de-declaration-du-blanchiment-d-argent-confederazione-svizzera-bern"
     },
     "createdAt": "2026-06-18",
     "canton": "BE"
@@ -265636,7 +265636,7 @@
       "it": "galenica-galenica-ag-stagiaire-marketing-f-h-d-bern",
       "en": "galenica-galenica-ag-stagiaire-marketing-f-h-d-bern",
       "de": "galenica-galenica-ag-stagiaire-marketing-f-h-d-bern",
-      "fr": "galenica-galenica-ag-stagiaire-marketing-f-h-d-bern"
+      "fr": "commercialisation-des-statistiques-f-h-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265646,7 +265646,7 @@
     "slugByLocale": {
       "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
       "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
-      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+      "de": "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern",
       "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
     },
     "createdAt": "2026-06-30",
@@ -265680,7 +265680,7 @@
       "it": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern",
       "en": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern",
       "de": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern",
-      "fr": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern"
+      "fr": "drogistine-drogist-p-m-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265699,10 +265699,10 @@
   "id|galenica.com|3115766": {
     "canonicalSlug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
       "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-      "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265721,10 +265721,10 @@
   "id|galenica.com|3116027": {
     "canonicalSlug": "galenica-galenica-ag-management-assistant-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-management-assistant-w-m-d-bern",
+      "it": "assistente-di-gestione-w-m-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-management-assistant-w-m-d-bern",
-      "de": "galenica-galenica-ag-management-assistant-w-m-d-bern",
-      "fr": "galenica-galenica-ag-management-assistant-w-m-d-bern"
+      "de": "management-assistent-w-m-d-galenica-ag-galenica-bern",
+      "fr": "assistant-de-gestion-m-j-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265732,7 +265732,7 @@
   "id|galenica.com|3116107": {
     "canonicalSlug": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+      "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
       "de": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
       "fr": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
@@ -265746,7 +265746,7 @@
       "it": "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern",
       "en": "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern",
       "de": "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern",
-      "fr": "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern"
+      "fr": "etudiante-auchulfe-w-m-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265776,10 +265776,10 @@
   "id|galenica.com|3116881": {
     "canonicalSlug": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
+      "it": "software-seniorentwickler-softwareentwicklerin-w-m-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
       "de": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern",
-      "fr": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern"
+      "fr": "gestionnaire-de-logiciels-et-gestionnaire-de-logiciels-principal-w-m-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265798,10 +265798,10 @@
   "id|galenica.com|3117496": {
     "canonicalSlug": "galenica-galenica-pharma-assistent-pharma-assistentin-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-pharma-assistent-pharma-assistentin-bern",
+      "it": "farmacia-assistente-farmaci-assistentin-galenica-galenica-bern",
       "en": "galenica-galenica-pharma-assistent-pharma-assistentin-bern",
       "de": "galenica-galenica-pharma-assistent-pharma-assistentin-bern",
-      "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-bern"
+      "fr": "pharma-assistant-pharma-assistant-galenica-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265811,7 +265811,7 @@
     "slugByLocale": {
       "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
       "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
-      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "de": "apotheker-apotherin-w-m-d-galenica-galenica-bern",
       "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
     },
     "createdAt": "2026-06-30",
@@ -265820,10 +265820,10 @@
   "id|galenica.com|3110907": {
     "canonicalSlug": "galenica-galenica-ag-head-of-marketing-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-head-of-marketing-w-m-d-bern",
+      "it": "responsabile-marketing-w-m-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-head-of-marketing-w-m-d-bern",
-      "de": "galenica-galenica-ag-head-of-marketing-w-m-d-bern",
-      "fr": "galenica-galenica-ag-head-of-marketing-w-m-d-bern"
+      "de": "leiter-marketing-w-m-d-galenica-ag-galenica-bern",
+      "fr": "responsable-marketing-w-m-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265831,7 +265831,7 @@
   "id|galenica.com|3114548": {
     "canonicalSlug": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern",
+      "it": "sachbearbeiter-sachbearbeiterin-inchiostro-frontale-teamleitung-w-m-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern",
       "de": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern",
       "fr": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern"
@@ -265878,7 +265878,7 @@
       "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
       "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
       "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
-      "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+      "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-p-m-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265911,7 +265911,7 @@
       "it": "galenica-galenica-ag-corporate-finance-m-a-integration-manager-w-m-d-bern",
       "en": "galenica-galenica-ag-corporate-finance-m-a-integration-manager-w-m-d-bern",
       "de": "galenica-galenica-ag-corporate-finance-m-a-integration-manager-w-m-d-bern",
-      "fr": "galenica-galenica-ag-corporate-finance-m-a-integration-manager-w-m-d-bern"
+      "fr": "gestionnaire-de-l-integration-des-finances-et-des-fusions-acquisitions-p-m-j-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265919,9 +265919,9 @@
   "id|galenica.com|3109910": {
     "canonicalSlug": "galenica-galenica-ag-data-engineer-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-data-engineer-w-m-d-bern",
+      "it": "data-ingegnere-w-m-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-data-engineer-w-m-d-bern",
-      "de": "galenica-galenica-ag-data-engineer-w-m-d-bern",
+      "de": "data-ingenieur-w-m-d-galenica-ag-galenica-bern",
       "fr": "galenica-galenica-ag-data-engineer-w-m-d-bern"
     },
     "createdAt": "2026-06-30",
@@ -265933,7 +265933,7 @@
       "it": "galenica-galenica-ag-collaborateur-parfumerie-collaboratrice-parfumerie-f-h-d-bern",
       "en": "galenica-galenica-ag-collaborateur-parfumerie-collaboratrice-parfumerie-f-h-d-bern",
       "de": "galenica-galenica-ag-collaborateur-parfumerie-collaboratrice-parfumerie-f-h-d-bern",
-      "fr": "galenica-galenica-ag-collaborateur-parfumerie-collaboratrice-parfumerie-f-h-d-bern"
+      "fr": "travailleur-parfumerie-travailleur-parfumerie-f-h-d-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -265941,10 +265941,10 @@
   "id|galenica.com|3111999": {
     "canonicalSlug": "galenica-galenica-ag-communications-manager-m-w-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-communications-manager-m-w-d-bern",
+      "it": "gestione-delle-comunicazioni-m-w-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-communications-manager-m-w-d-bern",
-      "de": "galenica-galenica-ag-communications-manager-m-w-d-bern",
-      "fr": "galenica-galenica-ag-communications-manager-m-w-d-bern"
+      "de": "kommunikationsmanager-m-w-d-galenica-ag-galenica-bern",
+      "fr": "gestionnaire-des-communications-m-p-p-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -266010,7 +266010,7 @@
       "it": "galenica-galenica-ag-apotheker-w-m-d-bern",
       "en": "galenica-galenica-ag-apotheker-w-m-d-bern",
       "de": "apotheker-w-m-d-galenica-ag-galenica-bern",
-      "fr": "galenica-galenica-ag-apotheker-w-m-d-bern"
+      "fr": "epoqueur-m-j-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -266018,10 +266018,10 @@
   "id|galenica.com|3109323": {
     "canonicalSlug": "galenica-galenica-ag-sales-manager-physicians-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-ag-sales-manager-physicians-w-m-d-bern",
+      "it": "responsabile-vendite-medici-w-m-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-sales-manager-physicians-w-m-d-bern",
-      "de": "galenica-galenica-ag-sales-manager-physicians-w-m-d-bern",
-      "fr": "galenica-galenica-ag-sales-manager-physicians-w-m-d-bern"
+      "de": "verkaufsleiter-arzte-w-m-d-galenica-ag-galenica-bern",
+      "fr": "directeur-des-ventes-medecins-m-j-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -266029,10 +266029,10 @@
   "id|galenica.com|3109907": {
     "canonicalSlug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
     "slugByLocale": {
-      "it": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
       "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
       "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-      "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -266065,7 +266065,7 @@
       "it": "assistenzjahr-per-pharmaziestudierende-m-w-d-galenica-ag-galenica-bern",
       "en": "galenica-galenica-ag-assistenzjahr-fur-pharmaziestudierende-w-m-d-bern",
       "de": "galenica-galenica-ag-assistenzjahr-fur-pharmaziestudierende-w-m-d-bern",
-      "fr": "galenica-galenica-ag-assistenzjahr-fur-pharmaziestudierende-w-m-d-bern"
+      "fr": "aidenzjahr-fur-pharmaziestudierende-m-j-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268065,9 +268065,9 @@
     "canonicalSlug": "software-engineer-secure-inter-domain-networking-eth-zurich-ch",
     "slugByLocale": {
       "en": "software-engineer-secure-inter-domain-networking-eth-zurich-ch",
-      "it": "software-engineer-secure-inter-domain-networking-eth-zurich-ch",
-      "de": "software-engineer-secure-inter-domain-networking-eth-zurich-ch",
-      "fr": "software-engineer-secure-inter-domain-networking-eth-zurich-ch"
+      "it": "software-ingegnere-secure-inter-domain-networking-eth-zurich-zurich",
+      "de": "software-ingenieur-secure-inter-domain-networking-eth-zurich-zurich",
+      "fr": "software-ingenieur-secure-inter-domain-networking-eth-zurich-zurich"
     },
     "createdAt": "2026-06-30",
     "canton": "ZH"
@@ -268099,7 +268099,7 @@
     "slugByLocale": {
       "de": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch",
       "it": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch",
-      "en": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch",
+      "en": "hr-case-officer-with-a-focus-on-education-see-spital-horgen",
       "fr": "hr-sachbearbeiter-in-mit-schwerpunkt-bildung-see-spital-ch"
     },
     "createdAt": "2026-06-30",
@@ -268110,7 +268110,7 @@
     "slugByLocale": {
       "en": "senior-underwriter-all-gender-aviation-active-reinsurance-full-time-or-part-time-helvetia",
       "it": "senior-underwriter-all-gender-aviation-active-reinsurance-full-time-or-part-time-helvetia",
-      "de": "senior-underwriter-all-gender-aviation-active-reinsurance-full-time-or-part-time-helvetia",
+      "de": "senior-underwriter-alle-geschlechter-luftfahrt-aktive-ruckversicherung-vollzeit-oder-teilzeit-helvetia-versicherungen",
       "fr": "senior-underwriter-all-gender-aviation-active-reinsurance-full-time-or-part-time-helvetia"
     },
     "createdAt": "2026-06-30",
@@ -268132,8 +268132,8 @@
     "slugByLocale": {
       "de": "leiter-in-ressourcensteuerung-edi-mitglied-der-geschaftsleitung-gs-edi-confederazione-bern",
       "it": "responsabile-ressourcensteuerung-edi-mitglied-der-geschaftsleitung-gs-edi-confederazione-svizzera-bern",
-      "en": "leiter-in-ressourcensteuerung-edi-mitglied-der-geschaftsleitung-gs-edi-confederazione-bern",
-      "fr": "leiter-in-ressourcensteuerung-edi-mitglied-der-geschaftsleitung-gs-edi-confederazione-bern"
+      "en": "head-of-resource-management-edi-member-of-the-executive-board-gs-edi-confederazione-svizzera-bern",
+      "fr": "chef-de-la-gestion-des-ressources-edi-membre-du-directoire-gs-edi-confederazione-svizzera-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268154,8 +268154,8 @@
     "slugByLocale": {
       "de": "wissenschaftliche-r-mitarbeiter-in-agenda-2030-confederazione-bern",
       "it": "wissenschaftliche-r-collaboratore-trice-agenda-2030-confederazione-svizzera-bern",
-      "en": "wissenschaftliche-r-mitarbeiter-in-agenda-2030-confederazione-bern",
-      "fr": "wissenschaftliche-r-mitarbeiter-in-agenda-2030-confederazione-bern"
+      "en": "research-assistant-agenda-2030-confederazione-svizzera-bern",
+      "fr": "assistant-de-recherche-agenda-2030-confederazione-svizzera-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268164,9 +268164,9 @@
     "canonicalSlug": "business-analyst-in-im-kommando-ausbildung-confederazione-bern",
     "slugByLocale": {
       "de": "business-analyst-in-im-kommando-ausbildung-confederazione-bern",
-      "it": "business-analyst-in-im-kommando-ausbildung-confederazione-bern",
-      "en": "business-analyst-in-im-kommando-ausbildung-confederazione-bern",
-      "fr": "business-analyst-in-im-kommando-ausbildung-confederazione-bern"
+      "it": "business-analista-in-im-kommando-ausbildung-confederazione-svizzera-bern",
+      "en": "business-analyst-in-command-training-confederazione-svizzera-bern",
+      "fr": "business-analyste-in-im-kommando-ausbildung-confederazione-svizzera-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268176,8 +268176,8 @@
     "slugByLocale": {
       "de": "chef-in-personalbewirtschaftung-confederazione-bern",
       "it": "responsabile-della-gestione-del-personale-confederazione-svizzera-bern",
-      "en": "chef-in-personalbewirtschaftung-confederazione-bern",
-      "fr": "chef-in-personalbewirtschaftung-confederazione-bern"
+      "en": "head-personnel-management-confederazione-svizzera-bern",
+      "fr": "chef-gestion-du-personnel-confederazione-svizzera-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268187,8 +268187,8 @@
     "slugByLocale": {
       "de": "fachspezialist-in-hauptbuch-confederazione-bern",
       "it": "specialista-libro-mastro-confederazione-svizzera-bern",
-      "en": "fachspezialist-in-hauptbuch-confederazione-bern",
-      "fr": "fachspezialist-in-hauptbuch-confederazione-bern"
+      "en": "specialist-in-ledger-confederazione-svizzera-bern",
+      "fr": "specialiste-en-grand-livre-confederazione-svizzera-bern"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268221,7 +268221,7 @@
       "de": "ict-supporter-in-professional-1214-1299-confederazione-zollikofen",
       "it": "supporto-ict-in-professionista-1214-1299-confederazione-svizzera-zollikofen",
       "en": "ict-supporter-in-professional-1214-1299-confederazione-zollikofen",
-      "fr": "ict-supporter-in-professional-1214-1299-confederazione-zollikofen"
+      "fr": "appui-aux-tic-professionnel-1214-1299-confederazione-svizzera-zollikofen"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268230,9 +268230,9 @@
     "canonicalSlug": "ict-system-ingenieur-in-senior-1257-1258-confederazione-zollikofen",
     "slugByLocale": {
       "de": "ict-system-ingenieur-in-senior-1257-1258-confederazione-zollikofen",
-      "it": "ict-system-ingenieur-in-senior-1257-1258-confederazione-zollikofen",
+      "it": "ingegnere-a-di-sistema-ict-senior-1257-1258-confederazione-svizzera-zollikofen",
       "en": "ict-system-ingenieur-in-senior-1257-1258-confederazione-zollikofen",
-      "fr": "ict-system-ingenieur-in-senior-1257-1258-confederazione-zollikofen"
+      "fr": "ingenieur-ingenieur-principal-du-systeme-informatique-1257-1258-confederazione-svizzera-zollikofen"
     },
     "createdAt": "2026-06-30",
     "canton": "BE"
@@ -268242,8 +268242,8 @@
     "slugByLocale": {
       "de": "sektionskoordinator-in-steuerung-und-koordination-confederazione-genf",
       "it": "sektionskoordinator-in-steuerung-e-koordination-confederazione-svizzera-genf",
-      "en": "sektionskoordinator-in-steuerung-und-koordination-confederazione-genf",
-      "fr": "sektionskoordinator-in-steuerung-und-koordination-confederazione-genf"
+      "en": "section-coordinator-control-and-coordination-confederazione-svizzera-genf",
+      "fr": "coordonnateur-de-la-section-controle-et-coordination-confederazione-svizzera-genf"
     },
     "createdAt": "2026-06-30",
     "canton": "GE"
@@ -268668,7 +268668,7 @@
   "id|coopjobs.ch|188232ae-5acb-4347-b161-bf5d731df7f2": {
     "canonicalSlug": "netzwerk-spezialist-in-coop-basel-stadt",
     "slugByLocale": {
-      "it": "netzwerk-spezialist-in-coop-basel-stadt-w0n4rn",
+      "it": "specialista-di-rete-in-coop-genossenschaft-basel-8de098",
       "en": "netzwerk-spezialist-in-coop-genossenschaft-basel-w0n4rn",
       "de": "netzwerk-spezialist-in-coop-basel-stadt-w0n4rn",
       "fr": "netzwerk-spezialist-in-coop-genossenschaft-basel-w0n4rn"
@@ -268723,10 +268723,10 @@
   "id|coopjobs.ch|ca8a978f-582b-4492-8d48-1dd027041d0e": {
     "canonicalSlug": "teamleiter-in-logistik-fruchte-gemuse-brotkommissionierung-coop-genossenschaft-schafisheim-aargau",
     "slugByLocale": {
-      "it": "teamleiter-in-logistik-fruchte-gemuse-brotkommissionierung-coop-genossenschaft-schafisheim-aargau-z9e9nq",
-      "en": "teamleiter-in-logistik-fruchte-gemuse-brotkommissionierung-coop-genossenschaft-schafisheim-aargau-z9e9nq",
+      "it": "team-leader-nella-logistica-frutta-e-verdura-raccolta-del-pane-coop-genossenschaft-schafisheim",
+      "en": "team-leader-in-logistics-fruits-vegetables-bread-picking-coop-genossenschaft-schafisheim",
       "de": "teamleiter-in-logistik-fruchte-gemuse-brotkommissionierung-coop-genossenschaft-schafisheim-aargau-z9e9nq",
-      "fr": "teamleiter-in-logistik-fruchte-gemuse-brotkommissionierung-coop-genossenschaft-schafisheim-aargau-z9e9nq"
+      "fr": "chef-d-equipe-en-logistique-fruits-et-legumes-cueillette-de-pain-coop-genossenschaft-schafisheim"
     },
     "createdAt": "2026-07-01",
     "canton": "AG"
@@ -269529,7 +269529,7 @@
       "it": "galenica-galenica-ag-senior-category-manager-w-m-d-bern",
       "en": "galenica-galenica-ag-senior-category-manager-w-m-d-bern",
       "de": "galenica-galenica-ag-senior-category-manager-w-m-d-bern",
-      "fr": "galenica-galenica-ag-senior-category-manager-w-m-d-bern"
+      "fr": "gestionnaire-principal-de-categorie-m-j-galenica-ag-galenica-bern"
     },
     "createdAt": "2026-07-01",
     "canton": "BE"
@@ -269780,9 +269780,9 @@
     "canonicalSlug": "senior-researcher-im-bereich-neuromuskulare-elektrostimulation-neurogenes-darmmanagement",
     "slugByLocale": {
       "de": "senior-researcher-im-bereich-neuromuskulare-elektrostimulation-neurogenes-darmmanagement",
-      "it": "senior-researcher-im-bereich-neuromuskulare-elektrostimulation-neurogenes-darmmanagement",
-      "en": "senior-researcher-im-bereich-neuromuskulare-elektrostimulation-neurogenes-darmmanagement",
-      "fr": "senior-researcher-im-bereich-neuromuskulare-elektrostimulation-neurogenes-darmmanagement"
+      "it": "ricercatore-senior-in-neuromuscular-electrostimulation-neurogenic-gut-management-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "senior-researcher-in-neuromuscular-electrostimulation-neurogenic-gut-management-schweizer-paraplegiker-gruppe-nottwil",
+      "fr": "chercheur-principal-en-electrostimulation-neuromusculaire-et-gestion-neurogenique-des-intestins-schweizer-3a5d61"
     },
     "createdAt": "2026-07-01",
     "canton": "LU"
@@ -269792,8 +269792,8 @@
     "slugByLocale": {
       "de": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-spz-nottwil",
       "it": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-zentrum-spz-nottwil",
-      "en": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-spz-nottwil",
-      "fr": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-spz-nottwil"
+      "en": "dipl-nursing-specialist-hf-fh-in-the-intensive-care-unit-schweizer-paraplegiker-gruppe-nottwil",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-dans-l-unite-de-soins-intensifs-schweizer-paraplegiker-gruppe-nottwil"
     },
     "createdAt": "2026-07-01",
     "canton": "LU"
@@ -269804,7 +269804,7 @@
       "en": "scientist-tech-ops-csl-behring-ch",
       "it": "scientist-tech-ops-csl-behring-ch",
       "de": "scientist-tech-ops-csl-behring-ch",
-      "fr": "scientist-tech-ops-csl-behring-ch"
+      "fr": "scientifique-operations-techniques-csl-behring-bern"
     },
     "createdAt": "2026-07-01",
     "canton": "BE"
@@ -270209,11 +270209,154 @@
     "canonicalSlug": "charge-de-projets-formation-continue-h-f-rolex-ch",
     "slugByLocale": {
       "fr": "charge-de-projets-formation-continue-h-f-rolex-ch",
-      "it": "charge-de-projets-formation-continue-h-f-rolex-ch",
-      "en": "charge-de-projets-formation-continue-h-f-rolex-ch",
-      "de": "charge-de-projets-formation-continue-h-f-rolex-ch"
+      "it": "project-manager-formazione-continua-h-f-rolex-geneve",
+      "en": "project-manager-continuing-education-h-f-rolex-geneve",
+      "de": "projektleiter-weiterbildung-h-f-rolex-geneve"
     },
     "createdAt": "2026-07-01",
     "canton": "GE"
+  },
+  "id|unibe.ch|87aba720-a3b2-44c3-9044-93bb622021c4": {
+    "canonicalSlug": "medicina-veterinaria-assistente-medico-secondo-le-qualifiche-l-esperienza-universitat-bern-avenches",
+    "slugByLocale": {
+      "de": "oberarzt-arztin-tiermedizin-assistenzarzt-arztin-nach-qualifikationen-erfahrung-unibe",
+      "it": "medicina-veterinaria-assistente-medico-secondo-le-qualifiche-l-esperienza-universitat-bern-avenches",
+      "en": "senior-physician-veterinary-medicine-assistant-physician-according-to-qualifications-experience-universitat-bern",
+      "fr": "medecin-veterinaire-principal-medecin-adjoint-selon-les-qualifications-l-experience-universitat-bern-avenches"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "VD"
+  },
+  "id|ethz.ch|jopg_ethz_dwwyq3zd9ww5av8bdo": {
+    "canonicalSlug": "ricercatore-post-dottorato-in-biotecnologia-del-lievito-non-saccharomyces-eth-zurich-lausanne",
+    "slugByLocale": {
+      "en": "postdoctoral-researcher-in-biotechnology-of-non-saccharomyces-yeast-eth-zurich-ch",
+      "it": "ricercatore-post-dottorato-in-biotecnologia-del-lievito-non-saccharomyces-eth-zurich-lausanne",
+      "de": "postdoktorand-in-biotechnologie-von-nicht-saccharomyces-hefe-eth-zurich-lausanne",
+      "fr": "chercheur-postdoctoral-en-biotechnologie-des-levures-non-saccharomyces-eth-zurich-lausanne"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "VD"
+  },
+  "id|helvetia.com|28e42752-ee8e-452e-8bba-634dd6f89784": {
+    "canonicalSlug": "kv-apprendistato-bank-m-w-d-2027-solothurn-helvetia-versicherungen-solothurn",
+    "slugByLocale": {
+      "de": "kv-lehrstelle-bank-w-m-d-2027-solothurn-helvetia-solothurn",
+      "it": "kv-apprendistato-bank-m-w-d-2027-solothurn-helvetia-versicherungen-solothurn",
+      "en": "kv-lehrstelle-bank-w-m-d-2027-solothurn-helvetia-solothurn",
+      "fr": "banque-kv-lehrstelle-f-m-j-2027-soleure-helvetia-versicherungen-solothurn"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "SO"
+  },
+  "id|admin.ch|e63995d5-8a54-4589-8c91-6291526dd0e2": {
+    "canonicalSlug": "fachspezialist-in-digitale-transformation-e-anwenderbefahigung-confederazione-svizzera-st-gallen",
+    "slugByLocale": {
+      "de": "fachspezialist-in-digitale-transformation-und-anwenderbefahigung-confederazione-st-gallen",
+      "it": "fachspezialist-in-digitale-transformation-e-anwenderbefahigung-confederazione-svizzera-st-gallen",
+      "en": "specialist-in-digital-transformation-and-user-empowerment-confederazione-svizzera-st-gallen",
+      "fr": "specialiste-de-la-transformation-numerique-et-de-l-autonomisation-des-utilisateurs-confederazione-svizzera-st-gallen"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "SG"
+  },
+  "id|admin.ch|237bb980-d799-442a-aac7-d96ca8b61286": {
+    "canonicalSlug": "responsabile-fachbereich-internationale-beziehungen-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "leiter-in-fachbereich-internationale-beziehungen-confederazione-bern",
+      "it": "responsabile-fachbereich-internationale-beziehungen-confederazione-svizzera-bern",
+      "en": "head-of-department-international-relations-confederazione-svizzera-bern",
+      "fr": "chef-de-departement-relations-internationales-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|59a2a15b-f3ec-455c-a5ee-1376a97e2445": {
+    "canonicalSlug": "responsabile-fuhrungsdienst-luftwaffe-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "leiter-in-fuhrungsdienst-luftwaffe-confederazione-bern",
+      "it": "responsabile-fuhrungsdienst-luftwaffe-confederazione-svizzera-bern",
+      "en": "air-force-commander-confederazione-svizzera-bern",
+      "fr": "commandant-de-la-force-aerienne-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|d28048da-55d7-4050-9bcf-9e0f396164f6": {
+    "canonicalSlug": "responsabile-personaldienst-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "leiter-in-personaldienst-confederazione-bern",
+      "it": "responsabile-personaldienst-confederazione-svizzera-bern",
+      "en": "head-of-personnel-confederazione-svizzera-bern",
+      "fr": "chef-du-personnel-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|ccfb5da8-919e-49aa-b24f-baf6fd729108": {
+    "canonicalSlug": "gestione-dei-servizi-it-operativi-915-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "product-owner-operational-it-service-management-915-confederazione-bern",
+      "it": "gestione-dei-servizi-it-operativi-915-confederazione-svizzera-bern",
+      "en": "product-owner-operational-it-service-management-915-confederazione-bern",
+      "fr": "proprietaire-de-produit-gestion-des-services-informatiques-operationnels-915-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|af8f2742-08b5-476b-be27-4708223f48cd": {
+    "canonicalSlug": "proprietario-del-prodotto-sap-front-end-technology-889-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "de": "product-owner-sap-front-end-technologie-889-confederazione-zollikofen",
+      "it": "proprietario-del-prodotto-sap-front-end-technology-889-confederazione-svizzera-zollikofen",
+      "en": "product-owner-sap-front-end-technologie-889-confederazione-zollikofen",
+      "fr": "proprietaire-du-produit-technologie-de-pointe-sap-889-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|6316dc75-12ee-4ecf-805b-97c7758360e7": {
+    "canonicalSlug": "personale-in-promozione-film-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-filmforderung-confederazione-bern",
+      "it": "personale-in-promozione-film-confederazione-svizzera-bern",
+      "en": "personnel-in-film-promotion-confederazione-svizzera-bern",
+      "fr": "personnel-en-promotion-de-films-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|c408db65-0bb6-47da-a7a9-4a61fddb5f75": {
+    "canonicalSlug": "persona-responsabile-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-confederazione-svizzera-bern",
+      "it": "persona-responsabile-confederazione-svizzera-bern",
+      "en": "person-in-charge-confederazione-svizzera-bern",
+      "fr": "responsable-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|32fad4ea-d7fb-437d-a8e8-a1b64de805f2": {
+    "canonicalSlug": "wissenschaftliche-r-collaboratore-trice-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "de": "wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-ittigen",
+      "it": "wissenschaftliche-r-collaboratore-trice-in-stv-chef-in-kompetenzzentrum-mkm-confederazione-svizzera-ittigen",
+      "en": "scientific-staff-stv-head-in-competence-center-mkm-confederazione-svizzera-ittigen",
+      "fr": "personnel-scientifique-stv-chef-in-centre-de-competences-mkm-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "BE"
+  },
+  "id|admin.ch|2400b96e-746f-4623-a4ae-2b377584ca18": {
+    "canonicalSlug": "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-neuenburg",
+    "slugByLocale": {
+      "de": "wissenschaftliche-r-mitarbeiter-in-confederazione-neuenburg",
+      "it": "wissenschaftliche-r-collaboratore-trice-in-confederazione-svizzera-neuenburg",
+      "en": "scientific-staff-member-confederazione-svizzera-neuenburg",
+      "fr": "personnel-scientifique-confederazione-svizzera-neuenburg"
+    },
+    "createdAt": "2026-07-01",
+    "canton": "NE"
   }
 }
