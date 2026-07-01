@@ -805,6 +805,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.referendum-salari-minimi-ccl.title': 'Lancement du référendum contre les salaires minimums',
     'blog.article.referendum-salari-minimi-ccl.excerpt': 'Les syndicats et les partis politiques lancent un référendum contre la décision de l’Assemblée fédérale de donner la priorité aux conventions collectives plutôt qu’aux salaires minimums cantonaux',
     'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Parlement fédéral suisse à Berne avec une bannière sur le référendum sur le salaire minimum',
+    'blog.article.quellensteuer-tarife-2026.title': 'Tarifs Quellensteuer 2026: Actualités',
+    'blog.article.quellensteuer-tarife-2026.excerpt': 'Découvrez les nouveaux tarifs Quellensteuer pour 2026 et leurs implications pour les navetteurs transfrontaliers au Tessin, aux Grisons, dans le Valais et à Berne.',
+    'blog.article.quellensteuer-tarife-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaChFr;

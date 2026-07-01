@@ -805,6 +805,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.referendum-salari-minimi-ccl.title': 'Lanciato il referendum contro i salari minimi',
     'blog.article.referendum-salari-minimi-ccl.excerpt': 'Sindacati e partiti politici lanciano un referendum contro la decisione delle Camere federali di privilegiare i CCL sui salari minimi cantonali',
     'blog.article.referendum-salari-minimi-ccl.imageAlt': 'Parlamento federale svizzero a Berna con un banner sul referendum salario minimo',
+    'blog.article.quellensteuer-tarife-2026.title': 'Quellensteuer-Tarife 2026: Novità e Implicazioni per i Frontalieri',
+    'blog.article.quellensteuer-tarife-2026.excerpt': 'Scopri le nuove aliquote della Quellensteuer per il 2026 e le loro implicazioni per i frontalieri in Ticino, Graubünden, Vallese e Berna.',
+    'blog.article.quellensteuer-tarife-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;
