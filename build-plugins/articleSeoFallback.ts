@@ -1,3 +1,5 @@
+import { esc } from './htmlTemplate';
+
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
 type ArticleSection = 'frontaliere' | 'svizzera';
@@ -56,18 +58,112 @@ const SVIZZERA_IMPACT_LABEL: Record<Locale, string> = {
  fr: 'Impact concret pour les residents en Suisse',
 };
 
-const stripArticleMarkup = (text: string): string =>
- text
+// Renders inline markdown (links, bold, italic, code) to safe HTML. Escapes the raw text
+// first, then layers markup on top — none of the markdown syntax characters (*[]()`) are
+// HTML-special, so this can't reopen an escaped entity.
+const renderInlineMarkup = (line: string): string =>
+ esc(line)
  .replace(/\[([^\]]+)\]\(nav:[^)]+\)/g, '$1')
- .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
- .replace(/`+/g, '')
- .replace(/\*\*(.*?)\*\*/g, '$1')
- .replace(/\*(.*?)\*/g, '$1')
- .replace(/^#+\s*/gm, '')
- .replace(/^\s*>\s*/gm, '')
- .replace(/^\s*[-*]\s+/gm, '• ')
- .replace(/\n{3,}/g, '\n\n')
- .trim();
+ .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+ .replace(/`([^`]+)`/g, '<code>$1</code>')
+ .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+ .replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+const LIST_LINE_RX = /^[-*]\s+/;
+const QUOTE_LINE_RX = /^>\s?/;
+const HEADING_LINE_RX = /^(#{1,6})\s+(.+)$/;
+
+// Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)
+// into an ordered list of self-contained HTML blocks (one per heading/paragraph/list/quote).
+const buildArticleBodyBlocks = (text: string): string[] => {
+ const lines = text.replace(/\r\n/g, '\n').split('\n');
+ const out: string[] = [];
+ let paragraphBuf: string[] = [];
+
+ const flushParagraph = () => {
+ if (paragraphBuf.length) {
+ out.push(`<p>${renderInlineMarkup(paragraphBuf.join(' '))}</p>`);
+ paragraphBuf = [];
+ }
+ };
+
+ let i = 0;
+ while (i < lines.length) {
+ const trimmed = lines[i].trim();
+
+ if (!trimmed) {
+ flushParagraph();
+ i++;
+ continue;
+ }
+
+ const heading = HEADING_LINE_RX.exec(trimmed);
+ if (heading) {
+ flushParagraph();
+ // Single `#` is rare in body markdown and would collide with the section's own <h2> wrapper
+ // (see articleBodyHtml in ogPagesPlugin.ts), so clamp # and ## to the same h3 level.
+ const level = Math.min(Math.max(heading[1].length, 2) + 1, 4);
+ out.push(`<h${level}>${renderInlineMarkup(heading[2])}</h${level}>`);
+ i++;
+ continue;
+ }
+
+ if (LIST_LINE_RX.test(trimmed)) {
+ flushParagraph();
+ const items: string[] = [];
+ while (i < lines.length && LIST_LINE_RX.test(lines[i].trim())) {
+ items.push(`<li>${renderInlineMarkup(lines[i].trim().replace(LIST_LINE_RX, ''))}</li>`);
+ i++;
+ }
+ out.push(`<ul>${items.join('')}</ul>`);
+ continue;
+ }
+
+ if (QUOTE_LINE_RX.test(trimmed)) {
+ flushParagraph();
+ const quoteLines: string[] = [];
+ while (i < lines.length && QUOTE_LINE_RX.test(lines[i].trim())) {
+ quoteLines.push(lines[i].trim().replace(QUOTE_LINE_RX, ''));
+ i++;
+ }
+ out.push(`<blockquote><p>${renderInlineMarkup(quoteLines.join(' '))}</p></blockquote>`);
+ continue;
+ }
+
+ paragraphBuf.push(trimmed);
+ i++;
+ }
+ flushParagraph();
+ return out;
+};
+
+const stripTags = (html: string): string => html.replace(/<[^>]+>/g, '');
+const HEADING_BLOCK_RX = /^<h[2-6]>/;
+
+// Renders full markdown to HTML, then truncates at whole-block boundaries (never mid-tag/mid-list-item)
+// once the rendered plain-text length crosses maxChars — keeps the same effective content budget as
+// the old plain-text truncation without cutting HTML mid-element or dropping a heading's own content.
+const renderArticleBodyHtml = (text: string, maxChars = 1800): string => {
+ const blocks = buildArticleBodyBlocks(text);
+ const kept: string[] = [];
+ let total = 0;
+
+ for (const block of blocks) {
+ const blockLength = stripTags(block).length;
+ if (total + blockLength > maxChars) {
+ if (!kept.length) {
+ kept.push(block);
+ } else {
+ if (HEADING_BLOCK_RX.test(kept[kept.length - 1])) kept.pop();
+ if (kept.length) kept.push('<p>…</p>');
+ }
+ return kept.join('');
+ }
+ kept.push(block);
+ total += blockLength;
+ }
+ return kept.join('');
+};
 
 const tokenizeTopic = (value: string): string[] =>
  value
@@ -278,7 +374,6 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
 export function cleanupArticleBodySections(sections: Array<string | undefined>): string[] {
  return sections
  .filter((section): section is string => !!section)
- .map(stripArticleMarkup)
- .map((section) => section.length > 1800 ? `${section.slice(0, 1800).trim()}...` : section)
+ .map((section) => renderArticleBodyHtml(section))
  .filter(Boolean);
 }
