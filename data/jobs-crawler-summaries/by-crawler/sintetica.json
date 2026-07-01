@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-01T12:47:36.007Z",
+  "generatedAt": "2026-07-01T23:10:45.340Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 1,
-  "unchangedCount": 3,
-  "durationMs": 7886,
-  "avgDurationMs": 7886,
+  "updatedCount": 5,
+  "removedCount": 0,
+  "unchangedCount": 2,
+  "durationMs": 10009,
+  "avgDurationMs": 10009,
   "durationHistory": [
-    7886
+    10009
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -173,13 +173,11 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "url": "https://app.ncoreplat.com/jobposition/779888/technicien-de-maintenance-site-de-couvet-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/779888/technicien-de-maintenance-site-de-couvet-ch/sintetica",
-      "title": "Technicien de maintenance - Couvet site",
+      "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
+      "title": "Spontaneous application - Couvet Site (Neuchâtel)",
       "company": "Sintetica SA",
       "companyKey": "sintetica",
       "location": "Couvet",
@@ -190,9 +188,9 @@
       "addressCountry": "CH",
       "postalCode": "2108",
       "streetAddress": "Rue de l'Ecluse 28",
-      "slug": "manutenzione-technician-sito-di-copertura-sintetica-sa-couvet",
-      "category": "maintenance",
-      "datePosted": "2026-06-30",
+      "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
+      "category": "general",
+      "datePosted": "2026-07-01",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -201,14 +199,13 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "fr",
+      "sourceLang": "en",
       "crawledAt": "",
-      "id": "sintetica-24a05f372003",
+      "id": "sintetica-4302b766b847",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-27T00:09:57.244Z",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -218,6 +215,7 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -484,17 +482,18 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "crawledAt": "",
       "id": "sintetica-4302b766b847",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 80,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
