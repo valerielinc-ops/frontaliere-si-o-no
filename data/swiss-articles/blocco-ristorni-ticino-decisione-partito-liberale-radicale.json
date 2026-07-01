@@ -1,0 +1,40 @@
+{
+  "id": "blocco-ristorni-ticino-decisione-partito-liberale-radicale",
+  "slug": "blocco-ristorni-ticino-decisione-partito-liberale-radicale",
+  "publishedAt": "2026-07-01T07:01:46.813Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:malpensa24.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.6190218044421196,
+    "confidence": 0.8,
+    "finalScore": 2.095217443553696,
+    "topK": [
+      {
+        "slug": "ristorni-italia-sospesi",
+        "cosine": 0.8730072681473732
+      },
+      {
+        "slug": "ristorni-lombardia-reazione",
+        "cosine": 0.8716961016599314
+      },
+      {
+        "slug": "blocchi-ristorni-berna-italia",
+        "cosine": 0.8700839508313054
+      },
+      {
+        "slug": "blocco-ristorni-ticino-politica-2026",
+        "cosine": 0.86228459203651
+      },
+      {
+        "slug": "ristorni-bloccati-ticino-italia",
+        "cosine": 0.859404283054359
+      }
+    ],
+    "score": 0.523804360888424,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -790,6 +790,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino.title': 'Block of rebates, tensions with Ticino',
     'blog.article.blocco-ristorni-ticino.excerpt': 'The blockade of refreshments by the Canton of Ticino in response to the Italian health tax has generated controversy and tensions.',
     'blog.article.blocco-ristorni-ticino.imageAlt': 'Panoramic view of Bellinzona with Montebello Castle',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.title': 'Blocking refreshments: Swiss Radical Liberal Party approves decision',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.excerpt': 'The Swiss Radical Liberal Party welcomed the blockade of border restaurants, considering it a serious and carefully considered decision.',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaChEn;

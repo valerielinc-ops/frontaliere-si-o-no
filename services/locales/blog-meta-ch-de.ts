@@ -790,6 +790,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino.title': 'Block der Rückerstattungen, Spannungen mit dem Tessin',
     'blog.article.blocco-ristorni-ticino.excerpt': 'Die Blockierung von Rückerstattungen durch den Kanton Tessin als Reaktion auf die italienische Gesundheitssteuer hat Kontroversen und Spannungen ausgelöst.',
     'blog.article.blocco-ristorni-ticino.imageAlt': 'Panoramablick auf Bellinzona mit der Burg Montebello',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.title': 'Block der Rabatte: Die Schweizer Radikale Partei genehmigt die Entscheidung',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.excerpt': 'Die Schweizer Radikale Partei begrüßt das Einfrieren grenzüberschreitender Rückerstattungen und betrachtet es als eine ernsthafte und sorgfältig durchdachte Entscheidung.',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaChDe;
