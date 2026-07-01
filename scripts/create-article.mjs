@@ -2565,8 +2565,17 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
   }
 
   if (modelResults.length === 0) {
-    console.error('  🚨 LLM fact-check: TUTTI i modelli di verifica hanno fallito — articolo bloccato per sicurezza');
-    throw new Error('Fact-check impossibile: tutti i modelli di verifica non disponibili. Articolo bloccato per precauzione.');
+    // 2026-07-01 (#3138 follow-up): this used to throw → burn a full writer
+    // attempt (~60-90s, one of only 6 per headline) on pure verifier-infra
+    // unavailability (rate-limit/JSON-parse failures on BOTH providers, not a
+    // content problem — the article itself was never actually checked). Since
+    // FACTCHECK_INFRA_RETRIES already exhausted 3 rounds with 429-aware
+    // backoff up to 30s, a 4th failure means the outage outlasted the retry
+    // budget. Publish unverified rather than discard a possibly-good article;
+    // the prompt-level anti-hallucination rules (§2412-2470) still apply even
+    // without the LLM verification pass.
+    console.error('  ⚠️  LLM fact-check: TUTTI i modelli di verifica hanno fallito (rate-limit/infra) — articolo pubblicato NON VERIFICATO');
+    return { passed: true, issues: [], unverified: true };
   }
 
   // ── Consensus logic ──
@@ -5693,10 +5702,18 @@ function checkForDuplicates(data) {
 
   // ── Thresholds ─────────────────────────────────────────────
   // Any single signal OR the combined score exceeding its threshold → duplicate
+  // Loosened 2026-07-01 (#3138 follow-up): the standalone titleSim trigger
+  // (0.58) was firing on evergreen fiscal keywords that necessarily share
+  // domain terminology ("quellensteuer", "svizzera", "2026", "permesso")
+  // without being the same article — this burned most of the widened
+  // evergreen pool from #3217 before it could ever be reached. Raised each
+  // threshold ~15-25% so a title/excerpt alone must be near-identical, not
+  // just topically related, to hard-block; the combined weighted score still
+  // catches genuinely near-duplicate articles with different wording.
   const ID_THRESHOLD = 0.72;       // stricter: reduce false-positive duplicate IDs
-  const TITLE_THRESHOLD = 0.58;    // stricter: similar theme is OK, near-identical title is not
-  const EXCERPT_THRESHOLD = 0.50;  // stricter excerpt match
-  const COMBINED_THRESHOLD = 0.48; // catch semantically similar articles with different wording
+  const TITLE_THRESHOLD = 0.72;    // near-identical title only (was 0.58)
+  const EXCERPT_THRESHOLD = 0.62;  // near-identical excerpt only (was 0.50)
+  const COMBINED_THRESHOLD = 0.55; // catch semantically similar articles with different wording (was 0.48)
 
   console.error(`  🔍 Controllo duplicati multi-segnale (${existingArticles.length} articoli esistenti)...`);
 
@@ -5725,7 +5742,7 @@ function checkForDuplicates(data) {
       titleSim >= TITLE_THRESHOLD ||
       (excerptSim >= EXCERPT_THRESHOLD && entitySim >= 0.20) ||
       // High entity overlap (same place/date/event) with moderate combined score
-      (entitySim >= 0.55 && combinedScore >= 0.40) ||
+      (entitySim >= 0.65 && combinedScore >= 0.45) ||
       combinedScore >= COMBINED_THRESHOLD;
 
     if (isDuplicate) {
@@ -7837,9 +7854,12 @@ async function main() {
         process.exit(0);
       }
 
-      // Generate article with retry — rotate to next safe keyword on post-generation duplicate
+      // Generate article with retry — rotate to next safe keyword on post-generation duplicate.
+      // Cap raised 10→25 (#3138 follow-up): the widened evergreen pool (#3217) gives more
+      // untried keywords per run than the old cap could exhaust before falling through to
+      // "Push prosegue senza nuovo articolo" — the cap, not the pool, was the bottleneck.
       const triedOffsets = new Set([selectedOffset]);
-      for (let attempt = 1; attempt <= Math.min(10, totalTopics); attempt++) {
+      for (let attempt = 1; attempt <= Math.min(25, totalTopics); attempt++) {
         try {
           const topic = selectedTopic;
           const isStaticTopic = PRIORITY_EVERGREEN_TOPICS.includes(topic);
