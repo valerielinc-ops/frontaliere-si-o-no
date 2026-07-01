@@ -841,6 +841,15 @@
          Placed before <script type="module"> which is deferred by spec, so these
          handlers are registered before any module JS executes. -->
     <script>
+      // Session-wide reload ceiling shared by every recovery handler below AND
+      // services/resilientImport.ts (mirrored there as MAX_RELOADS — that module
+      // can't be imported here since this bootstrap script runs pre-module).
+      // Raised from 1 to 2: a client can carry more than one independently stale
+      // chunk (e.g. vendor-icons.js AND i18n.js both skewed), and the first
+      // recovery only busts the HTTP cache for chunks already loaded on that
+      // page, so a second, not-yet-loaded stale chunk can still surface after
+      // the first reload and needs its own retry.
+      var FR_MAX_RELOADS = 2;
       // Unregister any leftover service workers from previous deploys.
       // Stale SWs can serve outdated cached assets that reference non-existent chunk hashes.
       if ('serviceWorker' in navigator) {
@@ -939,9 +948,9 @@
           if (!isAsset) return;
           // Skip reload for ad-blocked analytics/tracking chunks
           if (isAdBlocked) return;
-          // Session-level reload counter: allow at most 1 reload per browser session
+          // Session-level reload counter: allow at most FR_MAX_RELOADS reloads per browser session
           var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
-          if (reloadCount >= 1) {
+          if (reloadCount >= FR_MAX_RELOADS) {
             try {
               var blocked = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
               if (blocked.length > 0) blocked[blocked.length - 1].triggeredReload = 'blocked';
@@ -992,8 +1001,8 @@
       //      ("does not provide an export named 'House'", Firefox "import not
       //      found", WebKit "Importing binding name ... is not found").
       // Both chunks loaded fine (HTTP 200), so the resource/import handlers above
-      // never fire. Self-heal: clear caches + reload ONCE (shared _swReloadCount
-      // ceiling). Post-propagation the refetched chunk set is consistent.
+      // never fire. Self-heal: clear caches + reload (shared _swReloadCount /
+      // FR_MAX_RELOADS ceiling). Post-propagation the refetched chunk set is consistent.
       // Keep the message regexes in sync with isVersionSkewError /
       // isModuleLinkSkewMessage in services/resilientImport.ts (this inline
       // bootstrap script cannot import that module).
@@ -1014,7 +1023,7 @@
         var skewLink = /does not provide an export named|import not found|indirect export|Importing binding name/.test(m);
         if (!skewCall && !skewLink) return;
         var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
-        if (reloadCount >= 1) return;
+        if (reloadCount >= FR_MAX_RELOADS) return;
         sessionStorage.setItem('_swReloadCount', String(reloadCount + 1));
         try {
           sessionStorage.setItem('_forceReloadInfo', JSON.stringify({
@@ -1059,7 +1068,7 @@
 
         if (isAdBlocked) return;
         var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
-        if (reloadCount >= 1) {
+        if (reloadCount >= FR_MAX_RELOADS) {
           try {
             var blocked = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
             if (blocked.length > 0) blocked[blocked.length - 1].triggeredReload = 'blocked';
