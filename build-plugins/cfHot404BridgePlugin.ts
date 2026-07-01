@@ -207,7 +207,16 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         // soft-landing / jobOrphan or hub bridge) must win.
         if (fs.existsSync(path.join(outDir, 'index.html'))) { skippedExisting++; continue; }
 
-        const to = withSlash(resolution.canonicalPath);
+        let to = withSlash(resolution.canonicalPath);
+        // A specific pagination-ladder page (bare `page-N` recovery) can shrink
+        // out of existence between the original GSC crawl and this build — the
+        // SPA has no out-of-range fallback for a missing page (blank shell, not
+        // a 404), so verify the static file is actually on disk before pointing
+        // there; otherwise land on the always-live section listing root.
+        if (resolution.fallbackPath) {
+          const pageFile = path.join(distDir, to.slice(1), 'index.html');
+          if (!fs.existsSync(pageFile)) to = withSlash(resolution.fallbackPath);
+        }
         const kind = resolution.kind;
         // A legacy cluster orphan whose target is verified-live: redirect the
         // user straight there instead of serving the archived compat bridge.

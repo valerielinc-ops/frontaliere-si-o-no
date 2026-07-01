@@ -180,6 +180,15 @@ export interface SearchConsoleCompatResolution {
  canonicalPath: string;
  kind: SearchConsoleCompatKind;
  locale: SupportedLocale;
+ // Present only when canonicalPath targets a SPECIFIC pagination-ladder page
+ // number recovered from a legacy bare `page-N` URL. The ladder's length is
+ // recomputed from live job counts on every build and isn't visible to this
+ // pure resolver, so a canton's page N can shrink out of existence between
+ // the original GSC crawl and a later build. The SPA has no out-of-range
+ // handling for a missing page (falls through to a blank shell, not a 404),
+ // so callers with dist/ access should verify canonicalPath's static file
+ // still exists and fall back to this section-listing root if not.
+ fallbackPath?: string;
 }
 
 /**
@@ -327,6 +336,7 @@ export function resolveSearchConsoleCompatTarget(
  canonicalPath: `${prefix}/${urlSection}/${word}-${pageNum}/`.replace(/\/+/g, '/'),
  kind: 'legacy',
  locale,
+ fallbackPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
  };
  }
  // Canton-drift recovery (the dominant residual-404 cohort): the slug is

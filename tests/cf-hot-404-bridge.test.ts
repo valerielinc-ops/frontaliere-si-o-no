@@ -22,6 +22,10 @@ describe('cfHot404BridgePlugin', () => {
       { path: '/cerca-lavoro-argovia/recovered-non-ti-role-acme-aarau', hits: 9 },
       { path: '/en/find-jobs-zurich/recovered-non-ti-role-acme-zurich', hits: 7 },
       { path: '/cerca-lavoro-zurigo/preexisting-richer-role', hits: 5 },
+      // Legacy bare page-N whose specific pagination-ladder page was never
+      // built for this run (simulates the canton's page count having shrunk
+      // below 97 since the original GSC crawl).
+      { path: '/cerca-lavoro-argovia/page-97', hits: 4 },
     ],
   };
 
@@ -81,6 +85,20 @@ describe('cfHot404BridgePlugin', () => {
     expect(html).toContain('noindex');
     // …instead of dead-ending on the archived compat copy.
     expect(html).not.toContain('Pagina archiviata');
+  });
+
+  it('falls back to the section listing root when the specific pagination page was never built', () => {
+    // The resolver would canonicalize to /cerca-lavoro-argovia/pagina-97/, but
+    // that page was never built in this dist (canton page count < 97) — the
+    // bridge must point at the always-live section root instead, never at a
+    // page that doesn't exist on disk.
+    const missingPage = path.join(tmp, 'dist', rel('/cerca-lavoro-argovia/pagina-97'));
+    expect(fs.existsSync(missingPage)).toBe(false);
+    const file = path.join(tmp, 'dist', rel('/cerca-lavoro-argovia/page-97'));
+    expect(fs.existsSync(file)).toBe(true);
+    const html = fs.readFileSync(file, 'utf-8');
+    expect(html).toContain('rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-argovia/"');
+    expect(html).not.toContain('/cerca-lavoro-argovia/pagina-97/');
   });
 });
 
