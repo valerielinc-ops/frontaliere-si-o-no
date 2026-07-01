@@ -2727,15 +2727,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
-          "professionista-60-medicina-6-est-hopital-du-valais-visp"
+          "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
-        "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp",
-        "infermiere-80-100-medicina-3-est-hopital-du-valais-visp",
-        "professionista-60-medicina-6-est-hopital-du-valais-visp"
+        "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4909,12 +4905,12 @@
     },
     {
       "id": "hopital-du-valais-d167325c7028",
-      "slug": "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig",
+      "slug": "medico-senior-80-100-radiologia-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
-        "it": "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig",
-        "en": "senior-doctor-doctor-80-100-radiology-hopital-du-valais-brig",
-        "fr": "senior-docteur-docteur-80-100-radiologie-hopital-du-valais-brig"
+        "it": "medico-senior-80-100-radiologia-hopital-du-valais-brig",
+        "en": "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
+        "fr": "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4922,7 +4918,7 @@
       "title": "Leitende/r Ärztin/Arzt 80-100%, Radiologie",
       "titleByLocale": {
         "de": "Leitende/r Ärztin/Arzt 80-100%, Radiologie",
-        "it": "Senior/doctor/doctor 80-100%, radiologia",
+        "it": "Medico senior 80-100%, radiologia",
         "en": "Senior/doctor/doctor 80-100%, radiology",
         "fr": "Senior/docteur/docteur 80-100%, radiologie"
       },
@@ -4974,19 +4970,11 @@
       "firstSeenAt": "2026-07-01T12:15:57.125Z",
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
-          "medico-senior-80-100-radiologia-hopital-du-valais-brig"
-        ],
-        "en": [
-          "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig"
-        ],
-        "fr": [
           "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig"
         ]
       },
       "previousSlugs": [
-        "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
-        "medico-senior-80-100-radiologia-hopital-du-valais-brig"
+        "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig"
       ]
     }
   ]

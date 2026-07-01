@@ -804,8 +804,8 @@
       "slugByLocale": {
         "fr": "conseiller-conseillere-bancaire-bcvs-sierre",
         "it": "consulente-bancario-banque-cantonale-du-valais-sierre",
-        "en": "banking-consultant-banque-cantonale-du-valais-sierre",
-        "de": "bankberater-banque-cantonale-du-valais-sierre"
+        "en": "conseiller-conseillere-bancaire-bcvs-sierre",
+        "de": "conseiller-conseillere-bancaire-bcvs-sierre"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -813,7 +813,7 @@
       "title": "Conseiller-conseillère bancaire",
       "titleByLocale": {
         "fr": "Conseiller-conseillère bancaire",
-        "it": "Consulente bancario",
+        "it": "Consulente Bancario",
         "en": "Banking consultant",
         "de": "Bankberater"
       },
@@ -876,12 +876,6 @@
       "firstSeenAt": "2026-07-01T11:12:48.710Z",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-bancaire-bcvs-sierre"
-        ],
-        "en": [
-          "conseiller-conseillere-bancaire-bcvs-sierre"
-        ],
-        "de": [
           "conseiller-conseillere-bancaire-bcvs-sierre"
         ]
       },

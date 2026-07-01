@@ -493,7 +493,7 @@
       "title": "Technicien-ne en salle d'opération à 100%",
       "titleByLocale": {
         "fr": "Technicien-ne en salle d'opération à 100%",
-        "it": "100% tecnico sala operatoria",
+        "it": "Tecnico di sala operatoria al 100%",
         "en": "100% operating room technician",
         "de": "100% Operationssaaltechniker"
       },
@@ -3066,11 +3066,11 @@
     },
     {
       "id": "hib-broye-5cbd9a66c489",
-      "slug": "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne",
+      "slug": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
       "slugByLocale": {
         "fr": "infirmier-ere-clinicien-ne-specialise-e-aux-urgences-de-80-a-100-hib-broye-payerne",
-        "it": "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne",
-        "en": "pharmacy-assistant-contract-hours-call-requests-hopital-intercantonal-de-la-broye-hib-payerne",
+        "it": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
+        "en": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
         "de": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -3126,35 +3126,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T11:50:41.916Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
-          "infermieristica-clinica-specialista-nel-pronto-soccorso-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
-        "en": [
-          "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
-          "clinical-nurse-specialist-in-the-emergency-department-from-80-to-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
-        "de": [
-          "klinische-pflegefachkraft-in-der-notaufnahme-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
-        "clinical-nurse-specialist-in-the-emergency-department-from-80-to-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "klinische-pflegefachkraft-in-der-notaufnahme-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "infermieristica-clinica-specialista-nel-pronto-soccorso-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
-      ]
+      "firstSeenAt": "2026-07-01T11:50:41.916Z"
     },
     {
       "id": "hib-broye-afcf0741a61a",
-      "slug": "infermiera-clinica-specializzata-in-terapia-intensiva-da-80-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
+      "slug": "specialista-infermieristico-clinico-in-terapia-intensiva-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "fr": "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne",
-        "it": "infermiera-clinica-specializzata-in-terapia-intensiva-da-80-a-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "en": "clinician-nurse-specialized-in-intensive-care-from-80-to-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "de": "klinikkrankenschwester-spezialisiert-auf-intensivpflege-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "it": "specialista-infermieristico-clinico-in-terapia-intensiva-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne",
+        "de": "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -3162,7 +3143,7 @@
       "title": "Infirmier-ère clinicien-ne spécialisé-e aux soins intensifs de 80 à 100 %",
       "titleByLocale": {
         "fr": "Infirmier-ère clinicien-ne spécialisé-e aux soins intensifs de 80 à 100 %",
-        "it": "Infermiera clinica specializzata in terapia intensiva da 80 a 100%",
+        "it": "Specialista Infermieristico Clinico in Terapia Intensiva 80-100%",
         "en": "Clinician nurse specialized in intensive care from 80 to 100%",
         "de": "Klinikkrankenschwester spezialisiert auf Intensivpflege von 80 bis 100%"
       },
@@ -3212,23 +3193,11 @@
       "firstSeenAt": "2026-07-01T11:50:41.914Z",
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne",
-          "specialista-infermieristico-clinico-in-terapia-intensiva-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
-        "en": [
-          "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne",
-          "intensive-care-clinical-nurse-specialist-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
-        "de": [
-          "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne",
-          "facharzt-fur-klinische-intensivpflege-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
+          "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne"
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne",
-        "specialista-infermieristico-clinico-in-terapia-intensiva-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "intensive-care-clinical-nurse-specialist-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "facharzt-fur-klinische-intensivpflege-80-100-hopital-intercantonal-de-la-broye-hib-payerne"
+        "infirmier-ere-clinicien-ne-specialise-e-aux-soins-intensifs-de-80-a-100-hib-broye-payerne"
       ]
     },
     {

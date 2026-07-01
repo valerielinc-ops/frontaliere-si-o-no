@@ -849,12 +849,12 @@
     },
     {
       "id": "ghol-38f75fa3d049",
-      "slug": "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "midwife-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "hebamme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -862,7 +862,7 @@
       "title": "Sage-femme",
       "titleByLocale": {
         "fr": "Sage-femme",
-        "it": "Mutua",
+        "it": "Ostetrica",
         "en": "Midwife",
         "de": "Hebamme"
       },
@@ -908,19 +908,11 @@
       "firstSeenAt": "2026-07-01T11:45:55.990Z",
       "previousSlugsByLocale": {
         "it": [
-          "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "previousSlugs": [
-        "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ]
     }
   ]

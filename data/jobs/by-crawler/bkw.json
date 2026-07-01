@@ -22252,12 +22252,12 @@
     },
     {
       "id": "bkw-e91e35898b78",
-      "slug": "responsabile-forestale-in-manutenzione-tutti-bkw-wangen-an-der-aare",
+      "slug": "manutenzione-dei-guardiani-forestali-tutti-bkw-wangen-an-der-aare",
       "slugByLocale": {
         "de": "forstwart-in-instandhaltung-alle-bkw-ch",
-        "it": "responsabile-forestale-in-manutenzione-tutti-bkw-wangen-an-der-aare",
-        "en": "forest-manager-in-maintenance-all-bkw-wangen-an-der-aare",
-        "fr": "gestionnaire-forestier-en-entretien-tous-bkw-wangen-an-der-aare"
+        "it": "manutenzione-dei-guardiani-forestali-tutti-bkw-wangen-an-der-aare",
+        "en": "forstwart-in-instandhaltung-alle-bkw-ch",
+        "fr": "forstwart-in-instandhaltung-alle-bkw-ch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22265,7 +22265,7 @@
       "title": "Forstwart:in Instandhaltung (alle)",
       "titleByLocale": {
         "de": "Forstwart:in Instandhaltung (alle)",
-        "it": "Responsabile forestale: in manutenzione (tutti)",
+        "it": "Manutenzione dei guardiani forestali (tutti)",
         "en": "Forest manager: in maintenance (all)",
         "fr": "Gestionnaire forestier: en entretien (tous)"
       },
@@ -22316,19 +22316,11 @@
       "firstSeenAt": "2026-07-01T11:19:04.644Z",
       "previousSlugsByLocale": {
         "it": [
-          "forstwart-in-instandhaltung-alle-bkw-ch",
-          "manutenzione-dei-guardiani-forestali-tutti-bkw-wangen-an-der-aare"
-        ],
-        "en": [
-          "forstwart-in-instandhaltung-alle-bkw-ch"
-        ],
-        "fr": [
           "forstwart-in-instandhaltung-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "forstwart-in-instandhaltung-alle-bkw-ch",
-        "manutenzione-dei-guardiani-forestali-tutti-bkw-wangen-an-der-aare"
+        "forstwart-in-instandhaltung-alle-bkw-ch"
       ]
     },
     {
@@ -22412,12 +22404,12 @@
     },
     {
       "id": "bkw-a93d43dfcca1",
-      "slug": "consulente-di-vendita-esterno-tutti-i-tipi-bkw-lausanne",
+      "slug": "consulente-per-vendite-esterne-di-tutti-i-tipi-bkw-lausanne",
       "slugByLocale": {
         "fr": "conseiller-de-vente-externe-tous-genres-bkw-ch",
-        "it": "consulente-di-vendita-esterno-tutti-i-tipi-bkw-lausanne",
-        "en": "external-sales-advisor-all-kinds-bkw-lausanne",
-        "de": "externer-verkaufsberater-alle-arten-bkw-lausanne"
+        "it": "consulente-per-vendite-esterne-di-tutti-i-tipi-bkw-lausanne",
+        "en": "conseiller-de-vente-externe-tous-genres-bkw-ch",
+        "de": "conseiller-de-vente-externe-tous-genres-bkw-ch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22425,7 +22417,7 @@
       "title": "Conseiller de vente externe (tous genres)",
       "titleByLocale": {
         "fr": "Conseiller de vente externe (tous genres)",
-        "it": "Consulente di vendita esterno (tutti i tipi)",
+        "it": "Consulente per vendite esterne (di tutti i tipi)",
         "en": "External sales advisor (all kinds)",
         "de": "Externer Verkaufsberater (alle Arten)"
       },
@@ -22476,19 +22468,11 @@
       "firstSeenAt": "2026-07-01T11:19:04.636Z",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-externe-tous-genres-bkw-ch",
-          "consulente-per-vendite-esterne-di-tutti-i-tipi-bkw-lausanne"
-        ],
-        "en": [
-          "conseiller-de-vente-externe-tous-genres-bkw-ch"
-        ],
-        "de": [
           "conseiller-de-vente-externe-tous-genres-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "conseiller-de-vente-externe-tous-genres-bkw-ch",
-        "consulente-per-vendite-esterne-di-tutti-i-tipi-bkw-lausanne"
+        "conseiller-de-vente-externe-tous-genres-bkw-ch"
       ]
     }
   ]

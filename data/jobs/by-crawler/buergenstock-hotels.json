@@ -2250,9 +2250,9 @@
     },
     {
       "id": "buergenstock-hotels-4cbfe881fcbb",
-      "slug": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "fr": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
@@ -2296,12 +2296,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-        "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-          "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
+          "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "firstSeenAt": "2026-06-04T14:37:02.016Z",
@@ -2878,9 +2878,9 @@
     },
     {
       "id": "buergenstock-hotels-ae532c990a52",
-      "slug": "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen",
         "de": "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen"
@@ -2933,12 +2933,12 @@
       },
       "previousSlugs": [
         "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-        "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-          "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
+          "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "firstSeenAt": "2026-05-20T06:08:44.230Z",
@@ -2957,12 +2957,12 @@
     },
     {
       "id": "buergenstock-hotels-3423fa7677c7",
-      "slug": "commissione-di-rang-banchetto-100-f-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen",
       "slugByLocale": {
         "de": "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "commissione-di-rang-banchetto-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen",
         "en": "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "banquet-de-la-commission-de-rang-100-f-m-i-burgenstock-hotels-ag-obburgen"
+        "fr": "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -2970,7 +2970,7 @@
       "title": "Commis de Rang Bankett 100% (w/m/i)",
       "titleByLocale": {
         "de": "Commis de Rang Bankett 100% (w/m/i)",
-        "it": "Commissione di Rang banchetto 100% (f/m/i)",
+        "it": "Banchetto del Commis de Rang 100% (f/m/i)",
         "en": "Commis de Rang banquet 100% (f/m/i)",
         "fr": "Banquet de la Commission de Rang 100% (f/m/i)"
       },
@@ -3017,18 +3017,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T11:16:54.545Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen"
-        ],
-        "fr": [
-          "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen"
-        ]
-      },
-      "previousSlugs": [
-        "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen"
-      ]
+      "firstSeenAt": "2026-07-01T11:16:54.545Z"
     }
   ]
 }
