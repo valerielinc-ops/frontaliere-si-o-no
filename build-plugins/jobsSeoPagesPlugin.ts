@@ -774,9 +774,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const entryJs = spaBundle.entryJs;
  const entryCss = spaBundle.entryCss;
  const hasSpaBundle = spaBundle.hasSpaBundle;
- // Job SEO pages have no raw AdSense slots; when the SPA bundle is present,
- // avoid repeating the static analytics/AdSense boot tags on every page.
- const staticAnalyticsHtml = hasSpaBundle ? '' : `\n ${GTAG_SNIPPET}\n ${ADSENSE_SNIPPET}`;
+ // GTAG is skipped when the SPA bundle is present (client-side analytics
+ // takes over post-hydration). ADSENSE_SNIPPET is ALWAYS emitted, though:
+ // it's the only hydration-independent AdSense mechanism on this template
+ // (job SEO pages have no raw <ins> slots, so if the SPA never mounts —
+ // version-skew, JS error, blocked bundle — AdSenseBanner never runs and
+ // there is otherwise zero ad-serving fallback on the highest-traffic
+ // template). Safe to double-emit alongside AdSenseBanner: both the static
+ // loader (ADSENSE_LOADER_CONTENT) and AdSenseBanner guard on an existing
+ // `script[src*=".../adsbygoogle.js"]` before injecting, and both only push
+ // `<ins>` elements lacking `data-adsbygoogle-status`.
+ const staticAnalyticsHtml = `\n ${hasSpaBundle ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}`;
 
  /* ── Per-closeBundle memoization caches ──────────────────────────────
   * Scoped to a single closeBundle invocation so watch-mode rebuilds do not
