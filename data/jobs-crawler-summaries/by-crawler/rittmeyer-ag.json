@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-07-01T12:45:50.846Z",
+  "generatedAt": "2026-07-01T22:56:30.438Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11472,
-  "avgDurationMs": 11472,
+  "durationMs": 9477,
+  "avgDurationMs": 9477,
   "durationHistory": [
-    11472
+    9477
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -348,44 +348,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Projektingenieur (a) Wasserkraftwerke",
-      "slug": "ingegnere-di-progetto-a-centrali-idroelettriche-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/projektingenieur-a-wasserkraftwerke/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "other",
-      "contractType": "other",
-      "validThrough": "",
-      "id": "rittmeyer-ag-3355d6ae490d",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-03T00:50:36.287Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
