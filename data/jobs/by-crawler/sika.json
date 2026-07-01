@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-06-30T23:22:38.936Z",
+  "assembledAt": "2026-07-01T10:44:27.215Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -833,86 +833,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sika-50cac2982cd9",
-      "slug": "tecnico-di-applicazione-sika-widen-aargau-switzerland",
-      "slugByLocale": {
-        "it": "tecnico-di-applicazione-sika-widen-aargau-switzerland",
-        "en": "application-technician-sika-widen-aargau-switzerland",
-        "de": "anwendungstechniker-in-sika-ch",
-        "fr": "technicien-en-application-sika-widen-aargau-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Anwendungstechniker/-in",
-      "titleByLocale": {
-        "it": "Tecnico di applicazione",
-        "en": "Application technician",
-        "de": "Anwendungstechniker/-in",
-        "fr": "Technicien en application"
-      },
-      "description": "Koordination, Durchführung und Auswertung von Laborprüfungen für Klebeprojekte unserer Kunden in verschiedenen Marktsegmenten, von Fahrzeug- und Apparatebau bis zur Verklebung von Glasfassaden, in enger Zusammenarbeit mit dem Team Verkauf Industrie Durchführung von Risiko- und Machbarkeitsanalysen bei neuen Klebeprojekten sowie bei vielfältigen Kundenanfragen Erstellung von Prüfberichten und Klebeanleitungen für unsere Kunden Prüfung unserer Produkte im Labor hinsichtlich neuer Anwendungsmöglichkeiten sowie bei der Aufnahme neuer Produkte in unser Sortiment Durchführung interner und externer Schulungen für Anwender zur fachgerechten Verarbeitung unserer Produkte Verantwortlich für den sicheren und fachgerechten Umgang mit den zur Verfügung stehenden Maschinen und Geräten",
-      "descriptionByLocale": {
-        "it": "Coordinamento, implementazione e valutazione dei test di laboratorio per progetti adesivi dei nostri clienti in vari segmenti di mercato, dalla costruzione di veicoli e apparati all'adesivo incollaggio di facciate di vetro, in stretta collaborazione con il team del settore vendite Attuazione di analisi di rischio e di fattibilità in nuovi progetti adesivi, nonché in varie richieste di clienti Creazione di report di prova e istruzioni adesive per i nostri clienti Test dei nostri prodotti in laboratorio per l'elaborazione di nuove applicazioni e nella nostra gamma di formazione",
-        "en": "Coordination, implementation and evaluation of laboratory tests for adhesive projects of our customers in various market segments, from vehicle and apparatus construction to the adhesive bonding of glass facades, in close cooperation with the sales industry team Implementation of risk and feasibility analyses in new adhesive projects as well as in various customer inquiries Creation of test reports and adhesive instructions for our customers Testing of our products in the laboratory with regard to new applications as well as in the inclusion of new products in our range Implementation of internal and external training for users for the professional processing of our products Responsible for the safe and professional handling of the available machines and devices",
-        "de": "Koordination, Durchführung und Auswertung von Laborprüfungen für Klebeprojekte unserer Kunden in verschiedenen Marktsegmenten, von Fahrzeug- und Apparatebau bis zur Verklebung von Glasfassaden, in enger Zusammenarbeit mit dem Team Verkauf Industrie Durchführung von Risiko- und Machbarkeitsanalysen bei neuen Klebeprojekten sowie bei vielfältigen Kundenanfragen Erstellung von Prüfberichten und Klebeanleitungen für unsere Kunden Prüfung unserer Produkte im Labor hinsichtlich neuer Anwendungsmöglichkeiten sowie bei der Aufnahme neuer Produkte in unser Sortiment Durchführung interner und externer Schulungen für Anwender zur fachgerechten Verarbeitung unserer Produkte Verantwortlich für den sicheren und fachgerechten Umgang mit den zur Verfügung stehenden Maschinen und Geräten",
-        "fr": "Coordination, mise en œuvre et évaluation de tests de laboratoire pour des projets adhésifs de nos clients dans différents segments du marché, de la construction de véhicules et d'appareils à la fixation adhésive des façades de verre, en étroite collaboration avec l'équipe commerciale Mise en œuvre d'analyses de risque et de faisabilité dans de nouveaux projets adhésifs ainsi que dans diverses demandes de clients Création de rapports de test et d'instructions adhésives pour nos clients Mise à l'essai de nos produits en laboratoire pour de nouvelles applications ainsi que pour l'inclusion de nouveaux produits dans notre gamme Mise en œuvre de formations internes et externes pour les utilisateurs pour le traitement professionnel de nos produits Responsable de la manipulation sûre et professionnelle des machines et appareils disponibles"
-      },
-      "location": "Widen, Aargau, Switzerland",
-      "canton": "AG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7524868e-8aaa-4fce-af3c-1fb51b67a8c4.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-30T23:22:24.167Z",
-      "addressLocality": "Widen",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7524868e-8aaa-4fce-af3c-1fb51b67a8c4.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "anwendungstechniker-in-sika-ch",
-        "anwendungstechniker-in-sika-widen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anwendungstechniker-in-sika-ch",
-          "anwendungstechniker-in-sika-widen",
-          "tecnico-di-applicazione-sika-widen-aargau-switzerland"
-        ],
-        "en": [
-          "anwendungstechniker-in-sika-widen"
-        ],
-        "fr": [
-          "anwendungstechniker-in-sika-widen"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T13:57:25.086Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
