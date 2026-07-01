@@ -336,9 +336,17 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const cssHead = `\n ${asyncCssHeadBlock(entryCss)}`;
  const jsScript = entryJs ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
  const hasStaticAdSlot = bodyHtml.includes('adsbygoogle');
- // SPA-backed pages already initialise analytics; keep the static loader only
- // when raw HTML ad slots need the non-React AdSense observer.
- const staticAnalyticsHtml = entryJs && !hasStaticAdSlot ? '' : `\n ${GTAG_SNIPPET}\n ${ADSENSE_SNIPPET}`;
+ // GTAG is skipped on SPA-backed pages without a raw ad slot (client-side
+ // analytics takes over post-hydration). ADSENSE_SNIPPET is ALWAYS emitted,
+ // though: some buildSimplePage callers (e.g. companyHubBridgePlugin,
+ // locationHubBridgePlugin) have no raw <ins> slot and rely entirely on the
+ // client-side AdSenseBanner, which only renders post-hydration — if the SPA
+ // never mounts there would otherwise be zero ad-serving fallback on these
+ // funnel-critical pages. Safe to double-emit alongside AdSenseBanner: both
+ // the static loader (ADSENSE_LOADER_CONTENT) and AdSenseBanner guard on an
+ // existing `script[src*=".../adsbygoogle.js"]` before injecting, and both
+ // only push `<ins>` elements lacking `data-adsbygoogle-status`.
+ const staticAnalyticsHtml = `\n ${entryJs && !hasStaticAdSlot ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}`;
 
  // Body composition — three modes:
  //

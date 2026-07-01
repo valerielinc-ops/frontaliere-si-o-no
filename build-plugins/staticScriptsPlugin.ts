@@ -6,7 +6,8 @@
  *   GTAG_SNIPPET                  → /assets/gtag-init.js
  *   ADSENSE_SNIPPET               → /assets/adsense-loader.js
  *   EARLY_BOOT_SCRIPT             → /assets/early-boot.js
- *                                   (concat of dark-mode-init + spa-action-redirect)
+ *                                   (concat of dark-mode-init + spa-action-redirect
+ *                                   + version-skew self-heal)
  *   POSTHOG_SNIPPET               → /assets/posthog-init.js
  *   FUEL_CHART_SCRIPT             → /assets/fuel-chart.js
  *   CRITICAL_CSS                  → /assets/critical.css (CRITICAL_CSS_LINK)
@@ -37,10 +38,13 @@
  * a rename (the legacy `?v=${BUILD_ID}` query string stays dropped — saves
  * ~75 B/page across ~822k SEO pages).
  *
- * The dark-mode + spa-action-redirect merge collapses two synchronous <script>
- * tags into one, saving another ~80 B/page (~65 MB dist) — dark-mode still
- * runs first because it is concatenated first into the bundle (the constants
- * `EARLY_BOOT_CONTENT` enforces that order at build time).
+ * The dark-mode + spa-action-redirect + self-heal merge collapses what would be
+ * three synchronous <script> tags into one — dark-mode still runs first because
+ * it is concatenated first into the bundle (the constants `EARLY_BOOT_CONTENT`
+ * enforces that order at build time). The self-heal handlers (version-skew
+ * SyntaxError/TypeError recovery) previously existed ONLY inline in the root
+ * index.html; every static SEO page that loads this shared file now gets the
+ * same recovery instead of being permanently stranded on a stale chunk.
  */
 
 import path from 'path';
