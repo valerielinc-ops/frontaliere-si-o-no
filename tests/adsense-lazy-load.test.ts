@@ -142,12 +142,17 @@ describe('AdSense lazy loading — static SEO shell', () => {
     entryCss: 'index-test.css',
   };
 
-  it('omits static analytics snippets on SPA-backed pages without raw ad slots', () => {
+  it('omits gtag but keeps the AdSense loader on SPA-backed pages without raw ad slots', () => {
+    // ADSENSE_SNIPPET must always ship (hydration-independent AdSense
+    // fallback for pages like companyHubBridgePlugin/locationHubBridgePlugin
+    // whose bodyHtml has no raw <ins> slot and relies on AdSenseBanner, which
+    // only renders post-hydration). Only GTAG is skipped here since
+    // client-side analytics takes over once the SPA mounts.
     const html = buildSimplePage({
       ...basePage,
       bodyHtml: '<h1>Test</h1><p>Content</p>',
     });
-    expect(html).not.toContain(ADSENSE_LAZY_LOADER);
+    expect(html).toContain(ADSENSE_LAZY_LOADER);
     expect(html).not.toContain('googletagmanager.com/gtag/js');
   });
 
