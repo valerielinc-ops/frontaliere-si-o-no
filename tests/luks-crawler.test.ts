@@ -137,6 +137,10 @@ describe('Luzerner Kantonsspital (LUKS) crawler parser', () => {
     const realFetch = globalThis.fetch;
 
     beforeEach(() => {
+      // Skip the real exponential backoff (1s/2s/4s) fetchWithRetry does on
+      // retryable statuses — several tests below deliberately return 500/503
+      // to exercise graceful degradation, and don't need the real delay.
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
       // Default: every fetch fails (network down). Override per-test below.
       globalThis.fetch = vi.fn(async () => {
         return new Response('', { status: 500 });
@@ -145,6 +149,7 @@ describe('Luzerner Kantonsspital (LUKS) crawler parser', () => {
 
     afterEach(() => {
       globalThis.fetch = realFetch;
+      delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
     });
 
     it('returns [] when JobAbo not yet reinstated (advertCollection empty)', async () => {

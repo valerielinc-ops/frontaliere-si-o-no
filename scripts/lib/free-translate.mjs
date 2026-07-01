@@ -927,6 +927,11 @@ function chunkText(text, maxChars = 1800) {
 }
 
 function delay(ms) {
+  // Under Vitest every fetch call in this cascade is mocked, so the real
+  // network never benefits from spacing out retries/chunks — skip the wait
+  // to keep failure-cascade tests (empty-translation retries, chunk pacing)
+  // from burning multiple real seconds per assertion.
+  if (process.env.VITEST) return Promise.resolve();
   return new Promise((r) => setTimeout(r, ms));
 }
 

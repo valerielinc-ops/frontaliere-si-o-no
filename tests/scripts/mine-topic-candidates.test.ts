@@ -738,9 +738,13 @@ describe('orchestrator: aggregation + scoring', () => {
 describe('mineTopicCandidates orchestrator', () => {
   it('writes a valid JSON with all sources missing → empty candidates', async () => {
     const out = tempPath('all-missing.json');
-    cleanupPaths.push(out);
+    const vocabOut = tempPath('all-missing-vocab.json');
+    const expOut = tempPath('all-missing-exp.json');
+    cleanupPaths.push(out, vocabOut, expOut);
     const result = await mineTopicCandidates({
       outputPath: out,
+      vocabOutputPath: vocabOut,
+      experimentalOutputPath: expOut,
       blogMetaPath: '/nonexistent/blog-meta.ts',
       articlePerformancePath: '/nonexistent/perf.json',
       gscOrphansImpl: async () => ({
@@ -772,6 +776,8 @@ describe('mineTopicCandidates orchestrator', () => {
         candidates: [],
         reason: 'no FB token',
       }),
+      suggestImpl: async () => ({ ok: false, candidates: [] }),
+      newsRssImpl: async () => ({ ok: false, candidates: [] }),
       now: () => '2026-05-06T22:00:00.000Z',
     });
     expect(result.candidates).toEqual([]);
@@ -838,11 +844,16 @@ describe('mineTopicCandidates orchestrator', () => {
       }),
       redditImpl: async () => ({ ok: false, candidates: [] }),
       facebookImpl: async () => ({ ok: false, candidates: [] }),
+      suggestImpl: async () => ({ ok: false, candidates: [] }),
+      newsRssImpl: async () => ({ ok: false, candidates: [] }),
       now: () => '2026-05-06T22:00:00.000Z',
     });
 
-    await mineTopicCandidates({ outputPath: out1, ...mocks() });
-    await mineTopicCandidates({ outputPath: out2, ...mocks() });
+    const vocabOut = tempPath('deterministic-vocab.json');
+    const expOut = tempPath('deterministic-exp.json');
+    cleanupPaths.push(vocabOut, expOut);
+    await mineTopicCandidates({ outputPath: out1, vocabOutputPath: vocabOut, experimentalOutputPath: expOut, ...mocks() });
+    await mineTopicCandidates({ outputPath: out2, vocabOutputPath: vocabOut, experimentalOutputPath: expOut, ...mocks() });
 
     expect(readFileSync(out1, 'utf-8')).toBe(readFileSync(out2, 'utf-8'));
     const parsed = JSON.parse(readFileSync(out1, 'utf-8'));
@@ -855,7 +866,9 @@ describe('mineTopicCandidates orchestrator', () => {
 
   it('drops candidates with novelty < 0.3', async () => {
     const out = tempPath('novelty-drop.json');
-    cleanupPaths.push(out);
+    const vocabOut = tempPath('novelty-drop-vocab.json');
+    const expOut = tempPath('novelty-drop-exp.json');
+    cleanupPaths.push(out, vocabOut, expOut);
     // Set up a temp blog-meta file with a single title.
     const metaPath = tempPath('blog-meta.ts');
     cleanupPaths.push(metaPath);
@@ -865,6 +878,8 @@ describe('mineTopicCandidates orchestrator', () => {
     );
     const result = await mineTopicCandidates({
       outputPath: out,
+      vocabOutputPath: vocabOut,
+      experimentalOutputPath: expOut,
       blogMetaPath: metaPath,
       articlePerformancePath: '/nope.json',
       gscOrphansImpl: async () => ({
@@ -889,6 +904,8 @@ describe('mineTopicCandidates orchestrator', () => {
       googleTrendsImpl: async () => ({ ok: false, perGeo: {}, candidates: [] }),
       redditImpl: async () => ({ ok: false, candidates: [] }),
       facebookImpl: async () => ({ ok: false, candidates: [] }),
+      suggestImpl: async () => ({ ok: false, candidates: [] }),
+      newsRssImpl: async () => ({ ok: false, candidates: [] }),
       now: () => '2026-05-06T22:00:00.000Z',
     });
     expect(
