@@ -386,11 +386,17 @@ jobs:
           # è l'App-bot; senza whitelist la review abortirebbe "non-human actor".
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
-          # Tool expansion: aggiunti `Bash(rg:*)`, `Bash(git:*)` per consentire
-          # cross-file pattern search (REVIEW.md → Reviewer behavior step 5) e
-          # navigation history (`git log -L`, `git blame`, `git show`). Tier high
-          # paga il bump a claude-sonnet-5 per probing regex/assertion/idempotency.
-          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --allowedTools 'Bash(gh:*),Bash(rg:*),Bash(git:*),Read,Grep,Glob'"
+          # Owner-approved 2026-07-01: `--dangerously-skip-permissions` sostituisce
+          # l'`--allowedTools` scoped precedente. Il reviewer restava bloccato su
+          # probing esplorativo legittimo (es. testare `${!key_var}` indirect
+          # expansion in un tmp script durante la review di PR #3180, bash -n
+          # syntax-check) fuori dall'allowlist gh/rg/git/Read/Grep/Glob — si
+          # arrangiava sempre (review completa comunque postata), ma su richiesta
+          # esplicita si rimuove il vincolo così Claude ha accesso pieno.
+          # Rischio noto e accettato: reviewer gira su OGNI PR (incluse quelle
+          # aperte da bot/automation) con GITHUB_TOKEN pull-requests:write +
+          # issues:write, senza restrizione su Bash/Write/Edit.
+          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Reviewer automatico PR #${{ steps.resolve.outputs.pr_number }} ("${{ steps.resolve.outputs.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
