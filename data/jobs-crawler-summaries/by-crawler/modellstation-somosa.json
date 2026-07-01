@@ -1,18 +1,19 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-07-01T12:17:53.655Z",
+  "generatedAt": "2026-07-01T23:03:51.198Z",
   "total": 4,
-  "newCount": 2,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4388,
-  "avgDurationMs": 4388,
+  "durationMs": 5285,
+  "avgDurationMs": 5285,
   "durationHistory": [
-    4388
+    5285
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "modellstation-somosa-63c8b671b2e5",
       "slug": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur",
@@ -20,13 +21,13 @@
       "companyKey": "modellstation-somosa",
       "companyDomain": "somosa.ch",
       "title": "Teamleitung Tagesstruktur, 90%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:17:50.212Z",
+      "crawledAt": "2026-07-01T23:03:47.169Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-07-01",
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-07-01T12:17:50.212Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -56,13 +58,13 @@
       "companyKey": "modellstation-somosa",
       "companyDomain": "somosa.ch",
       "title": "Psychologie-Praktikum, 80 - 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://www.somosa.ch/offene-stellen-detail/psychologie-praktikum-2",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:17:50.709Z",
+      "crawledAt": "2026-07-01T23:03:47.743Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-07-01",
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/psychologie-praktikum-2",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-01T12:17:50.709Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "modellstation-somosa-f22fe242006f",
       "slug": "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
@@ -100,7 +101,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:17:51.207Z",
+      "crawledAt": "2026-07-01T23:03:48.319Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +138,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/eine-oberaerztin-einen-oberarzt-60-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T12:17:51.705Z",
+      "crawledAt": "2026-07-01T23:03:49.088Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
