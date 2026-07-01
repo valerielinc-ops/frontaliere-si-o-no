@@ -1180,9 +1180,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     de: 'Mehr erfahren · Methodik, Grenzgänger-Kontext und FAQ',
     fr: 'En savoir plus · méthodologie, contexte frontalier et FAQ',
   }[locale];
-  
-  const STRIP_ACTIVE_JOB_PROSE = (process.env.STRIP_ACTIVE_JOB_PROSE ?? '1') !== '0';
-  const proseAccordionHtml = (STRIP_ACTIVE_JOB_PROSE) ? '' : `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(proseSummaryLabel)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${buildHubMethodologyHtml(locale, hubKey)}${buildHubFooterHtml(locale, hubKey)}${buildHubFaqHtml(locale, hubKey)}${buildHubClosingHtml(locale)}</div></details>`;
+  const proseAccordionHtml = `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(proseSummaryLabel)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${buildHubMethodologyHtml(locale, hubKey)}${buildHubFooterHtml(locale, hubKey)}${buildHubFaqHtml(locale, hubKey)}${buildHubClosingHtml(locale)}</div></details>`;
 
   return `<!doctype html>
 <html lang="${locale}">
