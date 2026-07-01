@@ -10080,6 +10080,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stop-ristorni-frontiera': {
+    title: 'Stop ai ristorni: Comuni di frontiera chiedono incontro urgente con il Governo',
+    description: 'Il Canton Ticino blocca i ristorni ai Comuni di frontiera. L\'associazione chiede un incontro urgente con il Governo italiano. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, stop, ristorni, comuni, frontiera',
+    ogTitle: 'Stop ai ristorni, durissima l\'associazione Comuni di frontiera',
+    ogDescription: 'Il Canton Ticino blocca i ristorni ai Comuni di frontiera. L\'associazione chiede un incontro urgente con il Governo italiano.',
+    canonicalPath: '/articoli-svizzera/stop-ristorni-frontiera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stop ai ristorni: Comuni di frontiera chiedono incontro urgente con il Governo",
+      "description": "Il Canton Ticino blocca i ristorni ai Comuni di frontiera. L'associazione chiede un incontro urgente con il Governo italiano. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stop-ristorni-frontiera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confine Ticino-Lombardia con cartello blocco ristorni"
+      },
+      "datePublished": "2026-07-01T05:18:53+00:00",
+      "dateModified": "2026-07-01T05:18:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stop-ristorni-frontiera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

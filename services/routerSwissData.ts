@@ -284,6 +284,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'permesso-g-svizzera-nazionale': { it: 'permesso-g-svizzera-nazionale', en: 'switzerland-permit-g', de: 'schweiz-permit-g', fr: 'permis-g-suisse' },
  'volg-binn-novita-2024': { it: 'volg-binn-novita-2024', en: 'volg-binn-news-2024', de: 'volg-binn-neuigkeiten-2024', fr: 'volg-binn-nouveautes-2024' },
  'dogana-chiasso-brogeda-traffico-2024': { it: 'dogana-chiasso-brogeda-traffico-2024', en: 'chiasso-brogeda-customs-traffic-2024', de: 'chiasso-brogeda-zoll-verkehr-2024', fr: 'douane-chiasso-brogeda-trafic-2024' },
+ 'stop-ristorni-frontiera': { it: 'stop-ristorni-frontiera', en: 'stop-ristorni-frontiera', de: 'stop-ristorni-frontiera', fr: 'stop-ristorni-frontiera' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
