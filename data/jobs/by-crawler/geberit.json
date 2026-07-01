@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "geberit-1855",
-      "slug": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
+      "slug": "tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "servicetechniker-region-westschweiz-geberit-ch",
-        "it": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
-        "en": "servicetechniker-region-westschweiz-geberit-ch",
-        "fr": "servicetechniker-region-westschweiz-geberit-ch"
+        "it": "tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
+        "en": "service-technician-western-switzerland-region-geberit-sales-switzerland",
+        "fr": "technicien-des-services-region-de-suisse-occidentale-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-region-westschweiz-geberit-ch",
+          "servicetechniker-region-westschweiz-geberit-sales-switzerland"
+        ],
+        "en": [
+          "servicetechniker-region-westschweiz-geberit-ch"
+        ],
+        "fr": [
           "servicetechniker-region-westschweiz-geberit-ch"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-region-westschweiz-geberit-ch"
+        "servicetechniker-region-westschweiz-geberit-ch",
+        "servicetechniker-region-westschweiz-geberit-sales-switzerland"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1093,8 +1101,8 @@
       "slugByLocale": {
         "de": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
         "it": "regionalverkaufsleiter-zurich-e-zentralschweiz-a-100-geberit-sales-switzerland",
-        "en": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
-        "fr": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        "en": "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland",
+        "fr": "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1139,6 +1147,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        ],
+        "en": [
+          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        ],
+        "fr": [
           "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ]
       },
@@ -1464,12 +1478,12 @@
     },
     {
       "id": "geberit-2008",
-      "slug": "technischer-berater-region-aargau-a-100-geberit-ch",
+      "slug": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "it": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "en": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "fr": "technischer-berater-region-aargau-a-100-geberit-ch"
+        "it": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
+        "en": "technical-consultant-region-aargau-a-100-geberit-sales-switzerland",
+        "fr": "consultant-technique-region-argovie-a-100-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1524,7 +1538,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T11:51:21.063Z"
+      "firstSeenAt": "2026-07-01T11:51:21.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-berater-region-aargau-a-100-geberit-ch"
+        ],
+        "en": [
+          "technischer-berater-region-aargau-a-100-geberit-ch"
+        ],
+        "fr": [
+          "technischer-berater-region-aargau-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-berater-region-aargau-a-100-geberit-ch"
+      ]
     }
   ]
 }

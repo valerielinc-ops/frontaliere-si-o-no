@@ -55,8 +55,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "corporate-accountant-m-w-d-ameos-zurich",
-          "corporate-contabile-m-w-d-ameos-schweiz-zurich"
+          "corporate-accountant-m-w-d-ameos-zurich"
         ],
         "fr": [
           "corporate-accountant-m-w-d-ameos-zurich"
@@ -670,8 +669,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-geriatrie-hf-fh-m-w-d-80-100-ameos-einsiedeln",
-          "dipl-geriatrician-hf-fh-m-f-d-80-100-ameos-schweiz-einsiedeln"
+          "dipl-pflegefachperson-geriatrie-hf-fh-m-w-d-80-100-ameos-einsiedeln"
         ],
         "fr": [
           "dipl-pflegefachperson-geriatrie-hf-fh-m-w-d-80-100-ameos-einsiedeln"
@@ -770,12 +768,12 @@
     },
     {
       "id": "ameos-ch-1773b4af66d9",
-      "slug": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+      "slug": "fisioterapista-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "it": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-        "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-        "fr": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        "it": "fisioterapista-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "physiotherapist-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "physiotherapeute-m-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -820,11 +818,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-m-w-d-ameos-einsiedeln"
+          "physiotherapeut-m-w-d-ameos-einsiedeln",
+          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        ],
+        "en": [
+          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        ],
+        "fr": [
+          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-m-w-d-ameos-einsiedeln"
+        "physiotherapeut-m-w-d-ameos-einsiedeln",
+        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

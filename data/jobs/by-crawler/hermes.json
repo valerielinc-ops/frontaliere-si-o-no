@@ -58,8 +58,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-sales-associate-gstaad-w-m-hermes-ch",
-          "cdi-addetto-alle-vendite-gstaad-w-m-hermes-gstaad-bern-switzerland"
+          "cdi-sales-associate-gstaad-w-m-hermes-ch"
         ],
         "de": [
           "cdi-sales-associate-gstaad-w-m-hermes-ch"
@@ -144,8 +143,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-sales-advisor-basel-60-w-m-hermes-ch",
-          "cdi-sales-consulente-basel-60-w-m-hermes-basel-stadt-switzerland"
+          "cdi-sales-advisor-basel-60-w-m-hermes-ch"
         ],
         "de": [
           "cdi-sales-berater-basel-60-w-m-hermes-basel-stadt-switzerland",
@@ -224,8 +222,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-and-service-support-coordinator-gstaad-w-m-hermes-ch",
-          "coordinatore-del-servizio-vendite-e-assistenza-gstaad-w-m-hermes-gstaad-bern-switzerland"
+          "sales-and-service-support-coordinator-gstaad-w-m-hermes-ch"
         ],
         "fr": [
           "sales-and-service-support-coordinateur-gstaad-w-m-hermes-gstaad-bern-switzerland"
@@ -298,8 +295,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cx-manager-zurich-w-m-hermes-ch",
-          "cx-manager-zurigo-f-m-hermes-zurich-switzerland"
+          "cx-manager-zurich-w-m-hermes-ch"
         ]
       },
       "firstSeenAt": "2026-06-11T07:53:06.117Z",
@@ -444,8 +440,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-conseiller-de-vente-crans-montana-80-f-h-hermes-ch",
-          "cdi-consulente-commerciale-crans-montana-80-f-h-hermes-crans-montana-valais-switzerland"
+          "cdi-conseiller-de-vente-crans-montana-80-f-h-hermes-ch"
         ],
         "en": [
           "cdi-conseiller-de-vente-crans-montana-80-f-h-hermes-ch"
@@ -630,8 +625,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-floor-manager-lugano-w-m-hermes-ch",
-          "cdi-responsabile-di-sala-lugano-figli-luna-hermes-lugano-ticino-switzerland"
+          "cdi-floor-manager-lugano-w-m-hermes-ch"
         ],
         "fr": [
           "cdi-floor-manager-lugano-w-m-hermes-ch"
@@ -721,8 +715,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-verkaufsberater-experte-art-de-vivre-f-h-hermes-ch",
-          "cdi-consulente-vendite-esperto-art-de-vivre-f-h-hermes-zurich-switzerland"
+          "cdi-verkaufsberater-experte-art-de-vivre-f-h-hermes-ch"
         ],
         "en": [
           "cdi-verkaufsberater-experte-art-de-vivre-f-h-hermes-ch"
@@ -813,8 +806,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdd-maintenance-project-coordinator-f-h-hermes-ch",
-          "cdd-coordinatore-del-progetto-di-manutenzione-f-h-hermes-geneve-geneva-switzerland"
+          "cdd-maintenance-project-coordinator-f-h-hermes-ch"
         ],
         "fr": [
           "cdd-maintenance-project-coordinateur-f-h-hermes-geneve-geneva-switzerland"
@@ -887,8 +879,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-communication-1an-f-h-hermes-ch",
-          "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland"
+          "stage-communication-1an-f-h-hermes-ch"
         ]
       },
       "firstSeenAt": "2026-06-11T07:52:59.019Z",
@@ -959,8 +950,7 @@
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-ehs-hermes-ch",
-          "stagiaire-ehs-h-f-hermes-ch",
-          "ehs-tirocinante-hermes-le-noirmont-jura-switzerland"
+          "stagiaire-ehs-h-f-hermes-ch"
         ],
         "en": [
           "stagiaire-ehs-hermes-ch"
@@ -985,12 +975,12 @@
     },
     {
       "id": "hermes-e57cd70ece0c",
-      "slug": "cdi-retail-manager-zurich-w-m-hermes-ch",
+      "slug": "cdi-responsabile-al-dettaglio-zurich-w-m-hermes-zurich-switzerland",
       "slugByLocale": {
         "en": "cdi-retail-manager-zurich-w-m-hermes-ch",
-        "it": "cdi-retail-manager-zurich-w-m-hermes-ch",
+        "it": "cdi-responsabile-al-dettaglio-zurich-w-m-hermes-zurich-switzerland",
         "de": "cdi-retail-manager-zurich-w-m-hermes-ch",
-        "fr": "cdi-retail-manager-zurich-w-m-hermes-ch"
+        "fr": "cdi-directeur-du-commerce-de-detail-zurich-w-m-hermes-zurich-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -1045,7 +1035,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-01T11:58:35.232Z"
+      "firstSeenAt": "2026-07-01T11:58:35.232Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-retail-manager-zurich-w-m-hermes-ch"
+        ],
+        "fr": [
+          "cdi-retail-manager-zurich-w-m-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-retail-manager-zurich-w-m-hermes-ch"
+      ]
     }
   ]
 }
