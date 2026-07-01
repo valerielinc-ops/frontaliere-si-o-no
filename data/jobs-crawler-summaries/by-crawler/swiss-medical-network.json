@@ -1,18 +1,59 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-07-01T13:12:06.982Z",
-  "total": 57,
-  "newCount": 1,
+  "generatedAt": "2026-07-01T23:24:24.919Z",
+  "total": 56,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 56,
-  "durationMs": 41125,
-  "avgDurationMs": 41125,
+  "durationMs": 37553,
+  "avgDurationMs": 37553,
   "durationHistory": [
-    41125
+    37553
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130763629-it-problem-change-manager",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130763629-it-problem-change-manager?oga=true",
+      "title": "IT Problem & Change Manager",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Genolier",
+      "addressLocality": "Genolier",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "1272",
+      "slug": "it-problem-change-manager-swiss-medical-network",
+      "category": "technology",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Genolier"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 17,
+        "completeness": 17
+      }
+    }
+  ],
+  "unchangedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135169979-infirmier-ere-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135169979-infirmier-ere-?oga=true",
@@ -25,7 +66,7 @@
       "canton": "VS",
       "country": "CH",
       "postalCode": "1950",
-      "slug": "infirmier-ere-swiss-medical-network",
+      "slug": "infermiera-swiss-medical-network-sion",
       "category": "healthcare",
       "datePosted": "2026-07-01",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -38,18 +79,18 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-01T13:12:06.976Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134969331-lehrstelle-fachperson-gesundheit",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134969331-lehrstelle-fachperson-gesundheit?oga=true",
@@ -1117,43 +1158,6 @@
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133077279-sachbearbeiter-in-finanzbuchhaltung",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133077279-sachbearbeiter-in-finanzbuchhaltung?oga=true",
-      "title": "Sachbearbeiter/-in Finanzbuchhaltung",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Solothurn",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "canton": "SO",
-      "country": "CH",
-      "postalCode": "4500",
-      "slug": "personale-in-contabilita-finanziaria-swiss-medical-network-solothurn",
-      "category": "admin",
-      "datePosted": "2026-06-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SO",
-        "location": "Solothurn"
-      },
-      "sourceLang": "de",
-      "addressCountry": "CH",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
         "richness": 18,
         "translation": 21,
         "completeness": 17
