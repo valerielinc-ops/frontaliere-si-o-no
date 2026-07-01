@@ -665,10 +665,10 @@
     },
     {
       "id": "medtronic-161178d61908",
-      "slug": "quality-technician-ii-medtronic-ch",
+      "slug": "tecnologia-di-qualita-ii-medtronic-lausanne",
       "slugByLocale": {
         "fr": "quality-technician-ii-medtronic-ch",
-        "it": "quality-technician-ii-medtronic-ch",
+        "it": "tecnologia-di-qualita-ii-medtronic-lausanne",
         "en": "quality-technician-ii-medtronic-lausanne",
         "de": "qualitat-techniker-ii-medtronic-lausanne"
       },
@@ -726,7 +726,15 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-07-01T12:28:12.594Z"
+      "firstSeenAt": "2026-07-01T12:28:12.594Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-technician-ii-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-technician-ii-medtronic-ch"
+      ]
     }
   ]
 }

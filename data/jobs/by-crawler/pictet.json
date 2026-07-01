@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pictet-9be9098b6bbe",
-      "slug": "compliance-officer-pictet-singapore",
+      "slug": "ufficiale-di-conformita-pictet-group-singapore",
       "slugByLocale": {
         "en": "compliance-officer-pictet-singapore",
-        "it": "compliance-officer-pictet-singapore",
-        "de": "compliance-officer-pictet-singapore",
-        "fr": "compliance-officer-pictet-singapore"
+        "it": "ufficiale-di-conformita-pictet-group-singapore",
+        "de": "compliance-beauftragter-pictet-group-singapore",
+        "fr": "specialiste-du-respect-des-dispositions-pictet-group-singapore"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -65,7 +65,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-01T12:32:46.562Z"
+      "firstSeenAt": "2026-07-01T12:32:46.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-pictet-singapore"
+        ],
+        "de": [
+          "compliance-officer-pictet-singapore"
+        ],
+        "fr": [
+          "compliance-officer-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-pictet-singapore"
+      ]
     },
     {
       "id": "pictet-0e2fea42e0f0",
@@ -278,8 +292,7 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg",
-          "compliance-officer-fixed-term-contract-24-months-pictet-luxembourg",
-          "senior-compliance-officer-contratto-a-tempo-determinato-12-mesi-pictet-group-luxembourg"
+          "compliance-officer-fixed-term-contract-24-months-pictet-luxembourg"
         ],
         "fr": [
           "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -431,8 +444,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-          "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg"
+          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "de": [
           "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"

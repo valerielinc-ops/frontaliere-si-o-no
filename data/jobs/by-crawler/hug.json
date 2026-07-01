@@ -289,8 +289,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-          "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve"
+          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "en": [
           "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
@@ -1768,8 +1767,7 @@
       "previousSlugsByLocale": {
         "it": [
           "educatore-o-educatore-sociale-in-psichiatria-80-hug-thonex",
-          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
-          "educatore-sociale-in-psichiatria-80-hug-thonex"
+          "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
         ],
         "en": [
           "social-educator-in-psychiatry-80-hug-thonex"
@@ -2095,8 +2093,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dieteticien-ou-dieteticienne-40-a-80-hug-geneve",
-          "dietista-40-80-hug-geneve",
-          "dietitian-o-dietitian-40-all-80-hug-geneve"
+          "dietista-40-80-hug-geneve"
         ],
         "en": [
           "dieteticien-ou-dieteticienne-40-a-80-hug-geneve",
@@ -2335,8 +2332,7 @@
       "previousSlugsByLocale": {
         "it": [
           "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva",
-          "servizio-civile-assegnazione-al-centro-dell-innovazione-100-hug-geneva",
-          "servizio-civile-centro-di-innovazione-centrale-100-hug-geneva"
+          "servizio-civile-assegnazione-al-centro-dell-innovazione-100-hug-geneva"
         ],
         "de": [
           "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva"
@@ -3309,7 +3305,7 @@
       "slug": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
       "slugByLocale": {
         "it": "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve",
-        "en": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
+        "en": "box-manager-palliative-and-support-care-centre-80-hug-geneve",
         "de": "case-manager-palliative-und-support-care-center-80-hug-geneve",
         "fr": "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
       },
@@ -3354,16 +3350,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
-        "box-manager-palliative-and-support-care-centre-80-hug-geneve",
         "box-manager-palliative-und-support-care-center-80-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
-          "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve"
+          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
         ],
         "en": [
-          "box-manager-palliative-and-support-care-centre-80-hug-geneve"
+          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
         ],
         "de": [
           "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
@@ -3464,12 +3458,12 @@
     },
     {
       "id": "hug-5b2419234669",
-      "slug": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve",
+      "slug": "dietitian-o-dietitian-mandato-di-sostituzione-40-hug-geneve",
       "slugByLocale": {
         "fr": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve",
-        "it": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve",
-        "en": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve",
-        "de": "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+        "it": "dietitian-o-dietitian-mandato-di-sostituzione-40-hug-geneve",
+        "en": "dietitian-or-dietitian-replacement-mandate-40-hug-geneve",
+        "de": "diatassistent-oder-diatassistent-ersatzauftrag-40-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3525,7 +3519,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-01T11:57:00.920Z"
+      "firstSeenAt": "2026-07-01T11:57:00.920Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+        ],
+        "en": [
+          "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+        ],
+        "de": [
+          "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ou-dieteticienne-mandat-de-remplacement-40-hug-geneve"
+      ]
     },
     {
       "id": "hug-57c464b3f2c7",
@@ -3606,12 +3614,12 @@
     },
     {
       "id": "hug-e9c0cd2295ef",
-      "slug": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
+      "slug": "chirurgia-e-accompagnamento-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
-        "it": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
-        "en": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve",
-        "de": "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        "it": "chirurgia-e-accompagnamento-80-al-100-hug-geneve",
+        "en": "surgery-care-and-accompaniment-80-to-100-hug-geneve",
+        "de": "chirurgie-und-begleitung-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3667,16 +3675,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-01T11:57:00.917Z"
+      "firstSeenAt": "2026-07-01T11:57:00.917Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "aide-en-soins-et-accompagnement-en-chirurgie-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-7ed63fc92230",
-      "slug": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug",
+      "slug": "assistenti-per-la-cura-e-la-salute-della-comunita-in-lro-e-ccf-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug",
-        "it": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug",
-        "en": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug",
-        "de": "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+        "it": "assistenti-per-la-cura-e-la-salute-della-comunita-in-lro-e-ccf-80-al-100-hug-geneve",
+        "en": "community-care-and-health-assistants-in-lro-and-ccf-80-to-100-hug-geneve",
+        "de": "community-care-und-health-assistants-in-lro-und-ccf-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3732,7 +3754,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-01T11:57:00.909Z"
+      "firstSeenAt": "2026-07-01T11:57:00.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+        ],
+        "en": [
+          "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+        ],
+        "de": [
+          "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "assistants-et-assistantes-en-soins-et-sante-communautaire-en-orl-et-ccf-80-a-100-hug"
+      ]
     }
   ]
 }

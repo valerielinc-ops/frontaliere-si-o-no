@@ -2055,10 +2055,10 @@
     },
     {
       "id": "interdiscount-ae815f22-2cc",
-      "slug": "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
+      "slug": "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf",
       "slugByLocale": {
         "de": "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
-        "it": "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
+        "it": "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf",
         "en": "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
         "fr": "junior-chaine-d-approvisionnement-manager-distribution-interdiscount-jegenstorf"
       },
@@ -2121,7 +2121,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T11:58:40.480Z"
+      "firstSeenAt": "2026-07-01T11:58:40.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-supply-chain-manager-distribution-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "junior-supply-chain-manager-distribution-interdiscount-jegenstorf"
+      ]
     }
   ]
 }
