@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-30T22:20:56.335Z",
+  "generatedAt": "2026-07-01T11:35:42.838Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2400,
-  "avgDurationMs": 2400,
+  "unchangedCount": 0,
+  "durationMs": 2068,
+  "avgDurationMs": 2068,
   "durationHistory": [
-    2400
+    2068
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -230,6 +230,49 @@
       }
     },
     {
+      "title": "Senior .NET Engineer (6-months project)",
+      "slug": "senior-net-engineer-6-months-project-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer-6months-Project",
+      "applyUrl": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer-6months-Project",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-11",
+      "validThrough": "2026-09-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260611115624_NDW2YNSD34Y18S7S",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-3a49140b7495",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-06-30T11:21:13.758Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
       "title": "Senior Full Stack Engineer Java/React",
       "slug": "senior-full-stack-engineer-java-react-fincons-group-lugano-ticino-switzerland",
       "url": "https://fincons.applytojob.com/apply/gBD0YbyGAf/Senior-Full-Stack-Engineer-JavaReact",
@@ -317,49 +360,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Senior .NET Engineer (6-months project)",
-      "slug": "senior-net-engineer-6-months-project-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer-6months-Project",
-      "applyUrl": "https://fincons.applytojob.com/apply/tWTOwNLiUk/Senior-NET-Engineer-6months-Project",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-11",
-      "validThrough": "2026-09-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260611115624_NDW2YNSD34Y18S7S",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-3a49140b7495",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-06-30T11:21:13.758Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
