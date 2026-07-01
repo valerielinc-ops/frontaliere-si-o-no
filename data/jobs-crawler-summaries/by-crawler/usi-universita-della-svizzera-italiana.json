@@ -1,40 +1,40 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-06-30T23:23:38.584Z",
+  "generatedAt": "2026-07-01T12:53:55.764Z",
   "total": 22,
   "newCount": 1,
   "updatedCount": 15,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 6,
-  "durationMs": 29122,
-  "avgDurationMs": 29122,
+  "durationMs": 22384,
+  "avgDurationMs": 22384,
   "durationHistory": [
-    29122
+    22384
   ],
   "newJobs": [
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-postdoc-saturna-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-postdoc-saturna-2026.pdf",
-      "title": "Posizione Postdoc",
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-technology-transfer-officer-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-technology-transfer-officer-2026.pdf",
+      "title": "Responsabile del Trasferimento Tecnologico",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-postdoc-usi-lugano",
-      "department": "Institute of Argumentation, Linguistics and Semiotics – Dalle Molle Institute for Artificial Intelligence",
-      "category": "researcher",
-      "datePosted": "2026-06-30",
+      "slug": "responsabile-del-trasferimento-tecnologico-usi-lugano",
+      "department": "USI Transfer",
+      "category": "staff",
+      "datePosted": "2026-07-01",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
+      "experienceLevel": "",
       "sector": "Istruzione e ricerca",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
-      "id": "usi-universita-della-svizzera-italiana-7c10c511fa1a",
+      "id": "usi-universita-della-svizzera-italiana-9fb16e6738bc",
       "sourceLang": "en",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -158,6 +158,46 @@
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-2127129167ca",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-postdoc-saturna-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-postdoc-saturna-2026.pdf",
+      "title": "Posizione Postdoc",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-postdoc-usi-lugano",
+      "department": "Institute of Argumentation, Linguistics and Semiotics – Dalle Molle Institute for Artificial Intelligence",
+      "category": "researcher",
+      "datePosted": "2026-06-30",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-7c10c511fa1a",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-06-30T23:23:38.579Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -447,46 +487,6 @@
       }
     },
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-sxs-coordinator-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-sxs-coordinator-2026.pdf",
-      "title": "SXS Career Coordinatore",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "sxs-career-coordinatore-usi-lugano",
-      "department": "Servizio carriere e alumni",
-      "category": "staff",
-      "datePosted": "2026-05-11",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-66202afae5cf",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-11T23:09:10.787Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-modellistica-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-modellistica-2026.pdf",
       "title": "Coordinatore/Coordinatrice per la Modellistica",
@@ -647,7 +647,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-sxs-coordinator-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-sxs-coordinator-2026.pdf",
+      "title": "SXS Career Coordinatore",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "sxs-career-coordinatore-usi-lugano",
+      "department": "Servizio carriere e alumni",
+      "category": "staff",
+      "datePosted": "2026-05-11",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-66202afae5cf",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-11T23:09:10.787Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
