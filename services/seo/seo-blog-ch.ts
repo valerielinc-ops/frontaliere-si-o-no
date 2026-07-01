@@ -10158,6 +10158,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blocco-ristorni-ticino-decisione-partito-liberale-radicale': {
+    title: 'Blocco dei ristorni: il Partito Liberale Radicale Svizzero approva la decisione',
+    description: 'Il Partito Liberale Radicale Svizzero ha accolto con favore il blocco dei ristorni frontalieri, considerandolo una decisione seria e attentamente ponderata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, partito, liberale',
+    ogTitle: 'Blocco dei ristorni: il Partito Liberale Radicale Svizzero approva la decisione',
+    ogDescription: 'Il Partito Liberale Radicale Svizzero ha accolto con favore il blocco dei ristorni frontalieri, considerandolo una decisione seria e attentamente ponderata.',
+    canonicalPath: '/articoli-svizzera/blocco-ristorni-ticino-decisione-partito-liberale-radicale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blocco dei ristorni: il Partito Liberale Radicale Svizzero approva la decisione",
+      "description": "Il Partito Liberale Radicale Svizzero ha accolto con favore il blocco dei ristorni frontalieri, considerandolo una decisione seria e attentamente ponderata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocco-ristorni-ticino-decisione-partito-liberale-radicale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-07-01T07:01:41+00:00",
+      "dateModified": "2026-07-01T07:01:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/blocco-ristorni-ticino-decisione-partito-liberale-radicale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

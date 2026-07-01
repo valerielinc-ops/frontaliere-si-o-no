@@ -790,6 +790,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino.title': 'Blocco ristorni, tensioni con il Ticino',
     'blog.article.blocco-ristorni-ticino.excerpt': 'Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni.',
     'blog.article.blocco-ristorni-ticino.imageAlt': 'Vista panoramica di Bellinzona con il Castello di Montebello',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.title': 'Blocco dei ristorni: il Partito Liberale Radicale Svizzero approva la decisione',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.excerpt': 'Il Partito Liberale Radicale Svizzero ha accolto con favore il blocco dei ristorni frontalieri, considerandolo una decisione seria e attentamente ponderata.',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;

@@ -2366,6 +2366,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'blocco-ristorni-ticino-decisione-partito-liberale-radicale',
+    category: 'novita',
+    date: '2026-07-01T07:01:41.579Z',
+    image: '/images/blog/blocco-ristorni-ticino-decisione-partito-liberale-radicale.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

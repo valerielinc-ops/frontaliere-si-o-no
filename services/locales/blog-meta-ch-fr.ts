@@ -790,6 +790,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino.title': 'Bloc de remises, tensions avec le Tessin',
     'blog.article.blocco-ristorni-ticino.excerpt': 'Le blocage des repromotions par le canton du Tessin en réponse à la taxe sanitaire italienne a suscité controverse et tensions.',
     'blog.article.blocco-ristorni-ticino.imageAlt': 'Vue panoramique de Bellinzona avec le château de Montebello',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.title': 'Bloc de remises : le Parti radical suisse approuve la décision',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.excerpt': 'Le Parti radical suisse a salué le gel des remboursements transfrontaliers, la considérant comme une décision sérieuse et soigneusement réfléchie.',
+    'blog.article.blocco-ristorni-ticino-decisione-partito-liberale-radicale.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaChFr;
