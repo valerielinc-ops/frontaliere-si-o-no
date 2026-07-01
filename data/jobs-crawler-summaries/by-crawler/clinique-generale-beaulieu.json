@@ -1,18 +1,19 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-06-30T22:07:41.068Z",
+  "generatedAt": "2026-07-01T11:26:17.160Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8327,
-  "avgDurationMs": 8327,
+  "durationMs": 8166,
+  "avgDurationMs": 8166,
   "durationHistory": [
-    8327
+    8166
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clinique-generale-beaulieu-dd4750afef34",
       "slug": "aide-soignant-e-bloc-operatoire-clinique-generale-beaulieu",
@@ -20,14 +21,14 @@
       "companyKey": "clinique-generale-beaulieu",
       "companyDomain": "swissmedical.net",
       "title": "Aide soignant(e) bloc opératoire",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Genève",
       "canton": "GE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135076878-aide-soignant-e-bloc-operatoire",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135076878-aide-soignant-e-bloc-operatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T22:07:36.931Z",
+      "crawledAt": "2026-07-01T11:26:12.954Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-06-30",
       "datePosted": "2026-06-30",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-06-30T22:07:36.931Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "clinique-generale-beaulieu-666b139ade89",
       "slug": "technicien-ne-en-radiologie-medicale-en-medecine-nucleaire-clinique-generale-beaulieu",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133644019-technicien-ne-en-radiologie-medicale-en-medecine-nucleaire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T22:07:37.918Z",
+      "crawledAt": "2026-07-01T11:26:14.080Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000126682308-apprenti-e-technologue-en-dispositif-medicaux",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-30T22:07:38.868Z",
+      "crawledAt": "2026-07-01T11:26:15.056Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
