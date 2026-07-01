@@ -3863,8 +3863,6 @@
         ]
       },
       "previousSlugs": [
-        "specialista-hris-cdd-richemont-meyrin",
-        "hospitality-tirocinante-richemont-meyrin",
         "krankenhaus-intern-richemont-meyrin",
         "hris-specialista-cdd-richemont-meyrin",
         "ospitalita-interno-richemont-meyrin",
@@ -3882,7 +3880,9 @@
         "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin",
         "activations-specialist-cdd-richemont-meyrin",
         "aktivist-cdd-jaeger-lecoultre-meyrin",
-        "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin"
+        "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin",
+        "stagista-hospitality-richemont-meyrin",
+        "ospitalita-interno-richemont-meyrin-101774"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3895,7 +3895,9 @@
           "stage-in-hospitality-richemont-meyrin",
           "responsabile-gioielli-europa-richemont-meyrin",
           "ospitalita-richemont-meyrin",
-          "stagiaire-de-reception-richemont-meyrin-505639"
+          "stagiaire-de-reception-richemont-meyrin-505639",
+          "stagista-hospitality-richemont-meyrin",
+          "ospitalita-interno-richemont-meyrin-101774"
         ],
         "en": [
           "hospitality-intern-richemont-meyrin",
@@ -8008,7 +8010,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "tirocinante-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
           "praktikum-fur-digitale-inhaltsintegration-michelangelo-foundation-geneva",
           "interno-di-integrazione-dei-contenuti-digitali-michelangelo-foundation-geneva",
           "crimpatura-piaget-plan-les-ouates",
@@ -8026,7 +8027,9 @@
           "brand-content-tirocinante-vacheron-constantin-plan-les-ouates",
           "stage-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
           "tirocinante-contenuti-digitali-piaget-plan-les-ouates",
-          "digital-content-intern-richemont-plan-les-ouates"
+          "digital-content-intern-richemont-plan-les-ouates",
+          "digital-content-integration-intern-richemont-geneva",
+          "digital-content-integration-tirocinante-michelangelo-foundation-geneva"
         ],
         "de": [
           "digital-content-praktikant-piaget-plan-les-ouates"
@@ -8038,8 +8041,6 @@
         ]
       },
       "previousSlugs": [
-        "tirocinante-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
-        "praktikum-fur-digitale-inhaltsintegration-michelangelo-foundation-geneva",
         "interno-di-integrazione-dei-contenuti-digitali-michelangelo-foundation-geneva",
         "crimpatura-piaget-plan-les-ouates",
         "digital-content-integration-intern-michelangelo-foundation-geneva",
@@ -8057,7 +8058,9 @@
         "stage-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
         "tirocinante-contenuti-digitali-piaget-plan-les-ouates",
         "digital-content-intern-richemont-plan-les-ouates",
-        "digital-content-praktikant-piaget-plan-les-ouates"
+        "digital-content-praktikant-piaget-plan-les-ouates",
+        "digital-content-integration-intern-richemont-geneva",
+        "digital-content-integration-tirocinante-michelangelo-foundation-geneva"
       ],
       "firstSeenAt": "2026-05-18T13:14:11.256Z",
       "needsRetranslation": true,
@@ -11142,12 +11145,14 @@
         "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin",
         "activations-specialist-cdd-richemont-meyrin",
         "aktivist-cdd-jaeger-lecoultre-meyrin",
-        "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin"
+        "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin",
+        "stagista-hospitality-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hospitality-intern-richemont-meyrin-2",
-          "hris-specialist-cdd-richemont-meyrin"
+          "hris-specialist-cdd-richemont-meyrin",
+          "stagista-hospitality-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-06-30T23:17:28.843Z",
