@@ -71,7 +71,7 @@ const renderInlineMarkup = (line: string): string =>
 
 const LIST_LINE_RX = /^[-*]\s+/;
 const QUOTE_LINE_RX = /^>\s?/;
-const HEADING_LINE_RX = /^(#{2,6})\s+(.+)$/;
+const HEADING_LINE_RX = /^(#{1,6})\s+(.+)$/;
 
 // Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)
 // into an ordered list of self-contained HTML blocks (one per heading/paragraph/list/quote).
@@ -100,7 +100,9 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  const heading = HEADING_LINE_RX.exec(trimmed);
  if (heading) {
  flushParagraph();
- const level = Math.min(heading[1].length + 1, 4);
+ // Single `#` is rare in body markdown and would collide with the section's own <h2> wrapper
+ // (see articleBodyHtml in ogPagesPlugin.ts), so clamp # and ## to the same h3 level.
+ const level = Math.min(Math.max(heading[1].length, 2) + 1, 4);
  out.push(`<h${level}>${renderInlineMarkup(heading[2])}</h${level}>`);
  i++;
  continue;

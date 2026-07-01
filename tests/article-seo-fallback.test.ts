@@ -40,4 +40,10 @@ describe('article SEO fallback builder', () => {
 
     expect(sections).toEqual(['<p>Tom &amp; Jerry &lt;script&gt;alert(1)&lt;/script&gt;</p>']);
   });
+
+  it('renders single-# headings (used by some articles) as h3, not literal text', () => {
+    const sections = cleanupArticleBodySections(['# Titolo principale\nTesto del paragrafo.']);
+
+    expect(sections).toEqual(['<h3>Titolo principale</h3><p>Testo del paragrafo.</p>']);
+  });
 });

@@ -2031,3 +2031,17 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .ft-blog-article code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--color-surface-alt);padding:.15em .4em;border-radius:4px}
 .ft-blog-article a{color:var(--color-link);text-decoration:underline;text-underline-offset:2px;font-weight:500}
 .ft-blog-article a:hover{text-decoration-thickness:2px}
+
+/* Blog article body (staticPagesPlugin.ts <div class="s-6z0aHu ft-blog-body">): this template already
+   has its own classes for h1/h2/section/p (s-lHdmvf/s-pIiivc/s-Zua2Uq/s-F2hp6o), so only style the tags
+   the markdown-to-HTML renderer newly introduces here — h3/h4/ul/li/blockquote/code/a and bare <p>. */
+.ft-blog-body h3{font-size:1.05rem;font-weight:700;color:var(--color-heading);margin:18px 0 8px;padding-left:10px;border-left:3px solid var(--color-accent)}
+.ft-blog-body h4{font-size:.95rem;font-weight:600;color:var(--color-heading);margin:12px 0 6px}
+.ft-blog-body p{margin:0 0 12px}
+.ft-blog-body ul{margin:0 0 12px;padding:0 0 0 22px}
+.ft-blog-body li{margin:0 0 6px;line-height:1.6}
+.ft-blog-body li strong{color:var(--color-heading)}
+.ft-blog-body blockquote{margin:0 0 12px;padding:8px 14px;border-left:3px solid var(--color-accent);background:var(--color-surface-alt);border-radius:0 8px 8px 0;color:var(--color-subtle)}
+.ft-blog-body blockquote p{margin:0}
+.ft-blog-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--color-surface-alt);padding:.15em .4em;border-radius:4px}
+.ft-blog-body a{color:var(--color-link);text-decoration:underline;text-underline-offset:2px;font-weight:500}

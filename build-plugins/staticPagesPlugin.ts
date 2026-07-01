@@ -4359,23 +4359,24 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  seoData.desc,
  '',
  );
- const bodyWordCount = blogBodySections.join(' ').split(/\s+/).filter(Boolean).length;
+ // blogBodySections are already-rendered HTML (headings/lists/links) from cleanupArticleBodySections;
+ // blogFallbackSections carry plain prose paragraphs that still need escaping + <p> wrapping.
+ const bodyWordCount = blogBodySections.join(' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+ const blogBodyDerivedSections = blogBodySections.map((bodyHtml, index) => ({
+ heading: bodyHeadingByLocale[localeKey][index] ?? bodyHeadingByLocale[localeKey][2],
+ html: bodyHtml,
+ }));
+ const blogFallbackDerivedSections = blogFallbackSections.map((section) => ({
+ heading: section.heading,
+ html: section.paragraphs.map((paragraph) => `<p class="s-F2hp6o">${esc(paragraph)}</p>`).join(''),
+ }));
  const blogSectionData = !blogBodySections.length
- ? blogFallbackSections
+ ? blogFallbackDerivedSections
  : (bodyWordCount < 360
- ? [
- ...blogBodySections.map((body, index) => ({
- heading: bodyHeadingByLocale[localeKey][index] ?? bodyHeadingByLocale[localeKey][2],
- paragraphs: [body],
- })),
- ...blogFallbackSections,
- ]
- : blogBodySections.map((body, index) => ({
- heading: bodyHeadingByLocale[localeKey][index] ?? bodyHeadingByLocale[localeKey][2],
- paragraphs: [body],
- })));
+ ? [...blogBodyDerivedSections, ...blogFallbackDerivedSections]
+ : blogBodyDerivedSections);
  const blogArticleHtml = blogSectionData
- .map((section) => `<section class="s-Zua2Uq"><h2 class="s-pIiivc">${esc(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="s-F2hp6o">${esc(paragraph)}</p>`).join('')}</section>`)
+ .map((section) => `<section class="s-Zua2Uq"><h2 class="s-pIiivc">${esc(section.heading)}</h2>${section.html}</section>`)
  .join('');
 
  // Build skeleton-matching HTML for #root to minimize CLS at hydration
@@ -4420,7 +4421,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Heights match AdSenseBanner's placeholderMinHeight values.
  const adPlaceholder = `<div class="s-1zvlaE" aria-hidden="true"></div>`;
  rootHtml = isBlogDetailPage
- ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
+ ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {
  // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
  const blogListSlug = firstSeg;
