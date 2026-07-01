@@ -9,7 +9,7 @@
         "en": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
         "it": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
         "de": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
-        "fr": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich"
+        "fr": "strategiste-des-affaires-bureau-strategique-en-chef-de-l-ubs-gwm-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -79,9 +79,9 @@
       "slug": "event-attendant-contratto-a-ore-ubs-ticino",
       "slugByLocale": {
         "it": "event-attendant-contratto-a-ore-ubs-ticino",
-        "en": "event-attendant-contratto-a-ore-ubs-ticino",
-        "de": "event-attendant-contratto-a-ore-ubs-ticino",
-        "fr": "event-attendant-contratto-a-ore-ubs-ticino"
+        "en": "event-waitant-contract-at-hours-ubs-ticino",
+        "de": "event-waitant-vertrag-nach-stunden-ubs-ticino",
+        "fr": "attendant-evenement-contrat-a-heures-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -149,27 +149,23 @@
         "en": [
           "event-attendant-hourly-contract-ubs-ticino"
         ],
-        "de": [
-          "event-waitant-vertrag-nach-stunden-ubs-ticino"
-        ],
         "fr": [
           "attendant-de-l-evenement-contrat-en-heures-ubs-ticino"
         ]
       },
       "previousSlugs": [
         "event-attendant-hourly-contract-ubs-ticino",
-        "event-waitant-vertrag-nach-stunden-ubs-ticino",
         "attendant-de-l-evenement-contrat-en-heures-ubs-ticino"
       ]
     },
     {
       "id": "ubs-c759124e8b01",
-      "slug": "finanzplaner-wmch-basel-ubs-nordschweiz",
+      "slug": "pianificatore-finanziario-wmch-basel-ubs-nordschweiz",
       "slugByLocale": {
         "de": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "it": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "en": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "fr": "finanzplaner-wmch-basel-ubs-nordschweiz"
+        "it": "pianificatore-finanziario-wmch-basel-ubs-nordschweiz",
+        "en": "financial-planner-wmch-basel-ubs-nordschweiz",
+        "fr": "planificateur-financier-wmch-basel-ubs-nordschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -234,29 +230,31 @@
       "firstSeenAt": "2026-06-30T23:27:25.621Z",
       "previousSlugsByLocale": {
         "it": [
-          "consulente-finanziario-wmch-basilea-ubs-nordschweiz"
+          "consulente-finanziario-wmch-basilea-ubs-nordschweiz",
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
         ],
         "en": [
-          "financial-planner-wmch-basel-ubs-nordschweiz"
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
         ],
         "fr": [
-          "planificateur-financier-wmch-bale-ubs-nordschweiz"
+          "planificateur-financier-wmch-bale-ubs-nordschweiz",
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
         ]
       },
       "previousSlugs": [
         "consulente-finanziario-wmch-basilea-ubs-nordschweiz",
-        "financial-planner-wmch-basel-ubs-nordschweiz",
+        "finanzplaner-wmch-basel-ubs-nordschweiz",
         "planificateur-financier-wmch-bale-ubs-nordschweiz"
       ]
     },
     {
       "id": "ubs-28e4d7bafe32",
-      "slug": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
+      "slug": "esperto-fiscale-gestione-della-ricchezza-ubs-zentralschweiz",
       "slugByLocale": {
         "de": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "it": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "en": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "fr": "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        "it": "esperto-fiscale-gestione-della-ricchezza-ubs-zentralschweiz",
+        "en": "tax-expert-wealth-management-ubs-zentralschweiz",
+        "fr": "expert-fiscal-gestion-de-la-masse-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -321,29 +319,29 @@
       "firstSeenAt": "2026-06-30T23:27:25.620Z",
       "previousSlugsByLocale": {
         "it": [
-          "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz"
+          "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz",
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
         ],
         "en": [
-          "tax-expert-wealth-management-ubs-zentralschweiz"
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
         ],
         "fr": [
-          "expert-fiscal-gestion-de-la-masse-ubs-zentralschweiz"
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
         ]
       },
       "previousSlugs": [
         "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz",
-        "tax-expert-wealth-management-ubs-zentralschweiz",
-        "expert-fiscal-gestion-de-la-masse-ubs-zentralschweiz"
+        "steuerexperte-in-wealth-management-ubs-zentralschweiz"
       ]
     },
     {
       "id": "ubs-4ea375f241aa",
-      "slug": "succession-planner-ubs-zentralschweiz",
+      "slug": "progettisti-di-successione-ubs-zentralschweiz",
       "slugByLocale": {
         "de": "succession-planner-ubs-zentralschweiz",
-        "it": "succession-planner-ubs-zentralschweiz",
-        "en": "succession-planner-ubs-zentralschweiz",
-        "fr": "succession-planner-ubs-zentralschweiz"
+        "it": "progettisti-di-successione-ubs-zentralschweiz",
+        "en": "succession-planners-ubs-zentralschweiz",
+        "fr": "planificateurs-de-releve-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -408,29 +406,29 @@
       "firstSeenAt": "2026-06-30T23:27:25.618Z",
       "previousSlugsByLocale": {
         "it": [
-          "pianificatore-della-successione-ubs-zentralschweiz"
+          "pianificatore-della-successione-ubs-zentralschweiz",
+          "succession-planner-ubs-zentralschweiz"
         ],
         "en": [
-          "succession-planners-ubs-zentralschweiz"
+          "succession-planner-ubs-zentralschweiz"
         ],
         "fr": [
-          "planificateurs-de-releve-ubs-zentralschweiz"
+          "succession-planner-ubs-zentralschweiz"
         ]
       },
       "previousSlugs": [
         "pianificatore-della-successione-ubs-zentralschweiz",
-        "succession-planners-ubs-zentralschweiz",
-        "planificateurs-de-releve-ubs-zentralschweiz"
+        "succession-planner-ubs-zentralschweiz"
       ]
     },
     {
       "id": "ubs-8b91a7a03ed4",
-      "slug": "investor-relations-real-assets-unified-global-alternatives-ubs-zurich",
+      "slug": "investor-relations-real-assets-alternative-globali-unificate-ubs-zurich",
       "slugByLocale": {
         "en": "investor-relations-real-assets-unified-global-alternatives-ubs-zurich",
-        "it": "investor-relations-real-assets-unified-global-alternatives-ubs-zurich",
+        "it": "investor-relations-real-assets-alternative-globali-unificate-ubs-zurich",
         "de": "investor-relations-real-assets-unified-global-alternatives-ubs-zurich",
-        "fr": "investor-relations-real-assets-unified-global-alternatives-ubs-zurich"
+        "fr": "relations-avec-les-investisseurs-biens-reels-solutions-globales-unifiees-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -493,7 +491,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-30T23:27:25.614Z"
+      "firstSeenAt": "2026-06-30T23:27:25.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investor-relations-real-assets-unified-global-alternatives-ubs-zurich"
+        ],
+        "fr": [
+          "investor-relations-real-assets-unified-global-alternatives-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "investor-relations-real-assets-unified-global-alternatives-ubs-zurich"
+      ]
     }
   ]
 }

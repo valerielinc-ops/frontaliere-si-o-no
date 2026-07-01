@@ -2735,10 +2735,10 @@
       "id": "denner-0f10fe381a74",
       "slug": "venditore-con-salario-orario-denner-gossau-sg",
       "slugByLocale": {
-        "it": "venditore-con-salario-orario-denner-gossau-sg",
-        "en": "salesperson-on-an-hourly-wage-denner-gossau-sg",
+        "it": "venditore-denner-ag-gossau-sg",
+        "en": "seller-denner-ag-gossau-sg",
         "de": "verkaufer-in-denner-rubigen",
-        "fr": "vendeur-a-salaire-horaire-denner-gossau-sg"
+        "fr": "vendeur-denner-ag-gossau-sg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2802,20 +2802,24 @@
         ],
         "en": [
           "verkaufer-in-denner-gossau-sg",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "salesperson-on-an-hourly-wage-denner-gossau-sg"
         ],
         "de": [
           "verkaufer-in-denner-gossau-sg"
         ],
         "fr": [
           "verkaufer-in-denner-gossau-sg",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "vendeur-a-salaire-horaire-denner-gossau-sg"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-3",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-gossau-sg"
+        "verkaufer-in-denner-gossau-sg",
+        "salesperson-on-an-hourly-wage-denner-gossau-sg",
+        "vendeur-a-salaire-horaire-denner-gossau-sg"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2836,10 +2840,10 @@
       "id": "denner-16edf27b0787",
       "slug": "stv-branch-manager-in-denner-davos",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-davos",
-        "en": "stv-filialleiter-in-denner-davos",
+        "it": "stv-branch-manager-in-denner-ag-davos",
+        "en": "stv-branch-manager-in-denner-davos",
         "de": "stv-filialleiter-in-denner-davos",
-        "fr": "directeur-de-succursale-stv-denner-davos"
+        "fr": "directeur-de-succursale-stv-denner-ag-davos"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2902,13 +2906,18 @@
           "stv-filialleiter-in-denner"
         ],
         "fr": [
+          "stv-filialleiter-in-denner-davos",
+          "directeur-de-succursale-stv-denner-davos"
+        ],
+        "en": [
           "stv-filialleiter-in-denner-davos"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner-2",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-davos"
+        "stv-filialleiter-in-denner-davos",
+        "directeur-de-succursale-stv-denner-davos"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,

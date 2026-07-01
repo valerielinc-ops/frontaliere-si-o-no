@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rolex-e63391c4efa7",
-      "slug": "charge-de-projets-formation-continue-h-f-rolex-ch",
+      "slug": "project-manager-formazione-continua-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "charge-de-projets-formation-continue-h-f-rolex-ch",
-        "it": "charge-de-projets-formation-continue-h-f-rolex-ch",
-        "en": "charge-de-projets-formation-continue-h-f-rolex-ch",
-        "de": "charge-de-projets-formation-continue-h-f-rolex-ch"
+        "it": "project-manager-formazione-continua-h-f-rolex-geneve",
+        "en": "project-manager-continuing-education-h-f-rolex-geneve",
+        "de": "projektleiter-weiterbildung-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -63,7 +63,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T23:32:30.775Z"
+      "firstSeenAt": "2026-06-30T23:32:30.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-formation-continue-h-f-rolex-ch"
+        ],
+        "en": [
+          "charge-de-projets-formation-continue-h-f-rolex-ch"
+        ],
+        "de": [
+          "charge-de-projets-formation-continue-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-formation-continue-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-db0040e9c358",
@@ -117,8 +131,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "planificateur-s-op-rolex-ch",
-          "planner-s-op-rolex-geneve"
+          "planificateur-s-op-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:57.133Z",
@@ -187,8 +200,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-en-supply-chain-h-f-rolex-ch",
-          "responsabile-progetto-della-supply-chain-m-f-rolex-geneve"
+          "charge-de-projets-en-supply-chain-h-f-rolex-ch"
         ],
         "de": [
           "charge-de-projets-en-supply-chain-h-f-rolex-ch"
@@ -259,8 +271,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-methodes-h-f-rolex-ch",
-          "rispondente-metodi-m-f-rolex-bienne"
+          "repondant-methodes-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:53.100Z",
@@ -329,8 +340,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "formateur-mecanicien-h-f-rolex-ch",
-          "allenatore-meccanico-m-f-rolex-bienne"
+          "formateur-mecanicien-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:55.122Z",
@@ -400,8 +410,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mecanicien-regleur-d-assemblage-h-f-rolex-ch",
-          "meccanico-di-assemblaggio-m-f-rolex-geneve"
+          "mecanicien-regleur-d-assemblage-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:54.109Z",
@@ -470,8 +479,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-materiaux-h-f-rolex-ch",
-          "responsabile-del-progetto-dei-materiali-h-f-rolex-geneve"
+          "charge-de-projets-materiaux-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:52.101Z",
@@ -539,8 +547,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-cfao-h-f-rolex-ch",
-          "analista-aziendale-cad-cam-m-f-rolex-bienne"
+          "business-analyst-cfao-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:51.065Z",
@@ -609,8 +616,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-pmo-rolex-ch",
-          "responsabile-del-progetto-pmo-rolex-bienne"
+          "charge-de-projets-pmo-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:50.036Z",
@@ -680,8 +686,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "modeliste-h-f-rolex-ch",
-          "modellista-m-f-rolex-geneve"
+          "modeliste-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:48.989Z",
@@ -750,8 +755,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-d-atelier-h-f-rolex-ch",
-          "responsabile-del-laboratorio-m-f-rolex-geneve"
+          "gestionnaire-d-atelier-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:47.958Z",
@@ -821,8 +825,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-iam-h-f-rolex-ch",
-          "ingegnere-iam-m-f-rolex-geneve"
+          "ingenieur-iam-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:46.950Z",
@@ -891,8 +894,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
-          "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve"
+          "chef-de-projets-nouveaux-produits-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:45.930Z",
@@ -960,8 +962,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-intendance-h-f-rolex-ch",
-          "dipendente-di-gestione-m-f-rolex-fribourg"
+          "employe-intendance-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:44.903Z",
@@ -1031,8 +1032,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch",
-          "attrezzature-e-infrastrutture-di-project-manager-h-f-rolex-geneve"
+          "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:43.877Z",
@@ -1101,8 +1101,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metteur-au-point-en-outillage-et-etampage-h-f-rolex-ch",
-          "utensile-e-punto-di-timbratura-h-f-rolex-geneve"
+          "metteur-au-point-en-outillage-et-etampage-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:42.888Z",
@@ -1171,8 +1170,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-qualite-h-f-rolex-ch",
-          "responsabile-del-progetto-di-qualita-h-f-rolex-geneve"
+          "charge-de-projets-qualite-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:41.873Z",
@@ -1241,8 +1239,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-metier-referentiel-de-donnees-plm-sap-mes-h-f-rolex-ch",
-          "ingegnere-aziendale-repository-dati-plm-sap-mes-m-f-rolex-geneve"
+          "ingenieur-metier-referentiel-de-donnees-plm-sap-mes-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:40.861Z",
@@ -1312,8 +1309,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-master-data-h-f-rolex-ch",
-          "business-analista-master-data-h-f-rolex-geneve"
+          "business-analyst-master-data-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:39.860Z",
@@ -1386,8 +1382,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch",
-          "attrezzature-e-infrastrutture-di-project-manager-h-f-rolex-geneve-cc4e15"
+          "charge-de-projets-equipements-et-infrastructures-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:38.866Z",
@@ -1456,8 +1451,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-methodes-repondant-maintenance-a-l-investissement-h-f-rolex-ch",
-          "responsabile-del-progetto-metodi-rispondente-mantenimento-degli-investimenti-m-f-rolex-geneve"
+          "charge-de-projets-methodes-repondant-maintenance-a-l-investissement-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:37.858Z",
@@ -1531,8 +1525,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-technique-h-f-rolex-ch",
-          "coordinatore-tecnico-m-f-rolex-geneve"
+          "coordinateur-technique-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:35.830Z",
@@ -1601,8 +1594,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch",
-          "programma-di-dottorato-in-sistemi-informativi-analista-di-business-plm-m-f-rolex-geneve"
+          "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
         ],
         "en": [
           "programme-jeunes-diplomes-systemes-d-information-business-analyst-plm-h-f-rolex-ch"
@@ -1674,8 +1666,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-bim-cvse-h-f-rolex-ch",
-          "coordinatore-bim-cvse-m-f-rolex-geneve"
+          "coordinateur-bim-cvse-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:32.796Z",
@@ -1744,8 +1735,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-qualite-nouveaux-produits-h-f-rolex-ch",
-          "responsabile-progetti-qualita-nuovi-prodotti-m-f-rolex-geneve"
+          "charge-de-projets-qualite-nouveaux-produits-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:31.786Z",
@@ -1814,8 +1804,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-r-d-h-f-prototypes-cadran-rolex-ch",
-          "r-d-technician-h-f-prototipi-dial-rolex-geneve"
+          "technicien-r-d-h-f-prototypes-cadran-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:30.783Z",
@@ -1884,8 +1873,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-de-gestion-h-f-rolex-ch",
-          "controllore-di-gestione-h-f-rolex-geneve"
+          "controleur-de-gestion-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:29.762Z",
@@ -1953,8 +1941,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "decolleteur-h-f-rolex-ch",
-          "tornitore-di-barra-m-f-rolex-bienne"
+          "decolleteur-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:28.728Z",
@@ -2026,8 +2013,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "formateur-mecanicien-h-f-rolex-ch",
-          "allenatore-meccanico-m-f-rolex-bienne-ae3616"
+          "formateur-mecanicien-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:27.710Z",
@@ -2096,8 +2082,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "support-applications-h-f-rolex-ch",
-          "supporto-applicazioni-m-f-rolex-bienne"
+          "support-applications-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:26.697Z",
@@ -2166,8 +2151,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-bim-h-f-rolex-ch",
-          "bim-coordinator-m-f-rolex-bienne"
+          "coordinateur-bim-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:24.670Z",
@@ -2236,8 +2220,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regleur-h-f-rolex-ch",
-          "regolatore-m-f-rolex-bienne"
+          "regleur-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:23.602Z",
@@ -2307,8 +2290,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-industrialisation-h-f-rolex-ch",
-          "project-manager-industrializzazione-m-f-rolex-geneve"
+          "charge-de-projets-industrialisation-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:22.584Z",
@@ -2377,8 +2359,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch",
-          "apprendistato-di-praticien-ne-in-meccanica-afp-rolex-geneve"
+          "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:21.573Z",
@@ -2448,8 +2429,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch",
-          "apprendistato-operatore-trice-di-macchine-automatizzate-afc-rolex-geneve"
+          "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:20.531Z",
@@ -2517,8 +2497,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-anlagenfuhrer-in-efz-rolex-ch",
-          "apprendistato-come-operatore-di-impianti-efz-rolex-bienne"
+          "lehrstelle-als-anlagenfuhrer-in-efz-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:17.483Z",
@@ -2587,8 +2566,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-decouverte-futur-apprentissage-rolex-ch",
-          "stage-di-scoperta-futuro-apprendimento-rolex-bienne"
+          "stage-decouverte-futur-apprentissage-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:16.467Z",
@@ -2658,8 +2636,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch",
-          "apprendistato-di-operatore-trice-di-macchine-automatizzate-cfc-rolex-bienne"
+          "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:15.453Z",
@@ -2728,8 +2705,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-polyvalent-d-usinage-h-f-rolex-ch",
-          "operatore-di-lavorazione-multiuso-m-f-rolex-fribourg"
+          "operateur-polyvalent-d-usinage-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:14.435Z",
@@ -2798,8 +2774,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "termineur-h-f-rolex-ch",
-          "polisher-h-f-rolex-bienne"
+          "termineur-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:13.430Z",
@@ -2869,8 +2844,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-r-d-h-f-construction-mouvement-rolex-ch",
-          "responsabile-di-progetti-r-d-h-f-costruzione-movimento-rolex-geneve"
+          "charge-de-projets-r-d-h-f-construction-mouvement-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:12.433Z",
@@ -2939,8 +2913,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-du-service-industrialisation-h-f-rolex-ch",
-          "manager-del-servizio-industrializzazione-h-f-rolex-geneve"
+          "manager-du-service-industrialisation-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:11.437Z",
@@ -3009,8 +2982,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-controle-qualite-en-production-h-f-rolex-ch",
-          "specialista-controllo-qualita-in-produzione-h-f-rolex-geneve"
+          "specialiste-controle-qualite-en-production-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:10.458Z",
@@ -3079,8 +3051,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-usinage-h-f-rolex-ch",
-          "specialista-lavorazione-m-f-rolex-geneve"
+          "specialiste-usinage-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:09.445Z",
@@ -3148,8 +3119,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-soutenir-les-activites-de-restauration-rolex-ch",
-          "tirocinio-supporto-alle-attivita-di-ristorazione-rolex-bienne"
+          "stage-soutenir-les-activites-de-restauration-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:08.441Z",
@@ -3219,8 +3189,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projeteur-en-techniques-du-batiment-cvcs-h-f-rolex-ch",
-          "progettista-di-tecniche-edilizie-cvcs-h-f-rolex-geneve"
+          "projeteur-en-techniques-du-batiment-cvcs-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:07.455Z",
@@ -3289,8 +3258,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-master-data-management-h-f-rolex-ch",
-          "responsabile-di-progetto-master-data-management-h-f-rolex-geneve"
+          "charge-de-projets-master-data-management-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:06.446Z",
@@ -3359,8 +3327,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-a-la-protection-des-donnees-dpo-h-f-rolex-ch",
-          "consulente-per-la-protezione-dei-dati-dpo-h-f-rolex-geneve"
+          "conseiller-a-la-protection-des-donnees-dpo-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:05.440Z",
@@ -3428,8 +3395,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "micromecanicien-h-f-rolex-ch",
-          "micromecanicista-h-f-rolex-bienne"
+          "micromecanicien-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:04.432Z",
@@ -3499,8 +3465,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-cao-h-f-rolex-ch",
-          "ingegnere-cad-h-f-rolex-geneve"
+          "ingenieur-cao-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:03.431Z",
@@ -3569,8 +3534,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistants-de-direction-h-f-rolex-ch",
-          "assistenti-di-direzione-m-f-rolex-geneve"
+          "assistants-de-direction-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:02.417Z",
@@ -3639,8 +3603,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-d-exploitation-h-f-rolex-ch",
-          "tecnico-di-produzione-h-f-rolex-geneve"
+          "technicien-d-exploitation-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:01.417Z",
@@ -3709,8 +3672,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-qualite-fournisseurs-h-f-rolex-ch",
-          "incaricato-qualita-fornitori-m-f-rolex-geneve"
+          "charge-de-qualite-fournisseurs-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:00.406Z",
@@ -3780,8 +3742,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-bi-sap-bw-bo-h-f-rolex-ch",
-          "amministratore-bi-sap-bw-bo-h-f-rolex-geneve"
+          "administrateur-bi-sap-bw-bo-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:59.385Z",
@@ -3850,8 +3811,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-systeme-h-f-rolex-ch",
-          "ingegnere-di-sistema-h-f-rolex-geneve"
+          "ingenieur-systeme-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:58.386Z",
@@ -3920,8 +3880,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-metier-nouveaux-produits-h-f-rolex-ch",
-          "ingegnere-di-prodotto-nuovo-h-f-rolex-geneve"
+          "ingenieur-metier-nouveaux-produits-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:57.364Z",
@@ -3998,8 +3957,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "termineur-h-f-rolex-ch",
-          "termine-h-f-rolex-geneve"
+          "termineur-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:56.351Z",
@@ -4067,8 +4025,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electroplaste-h-f-rolex-ch",
-          "elettroplasto-m-f-rolex-bienne"
+          "electroplaste-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:55.314Z",
@@ -4137,8 +4094,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-cvcs-mcr-h-f-rolex-ch",
-          "impiegato-cvcs-mcr-h-f-rolex-fribourg"
+          "employe-cvcs-mcr-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:54.302Z",
@@ -4208,8 +4164,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-productivite-intelligence-artificielle-60-h-f-rolex-ch",
-          "project-manager-produttivita-e-intelligenza-artificiale-60-m-f-rolex-geneve"
+          "charge-de-projets-productivite-intelligence-artificielle-60-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:52.274Z",
@@ -4278,8 +4233,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "architecte-securite-ics-ot-h-f-rolex-ch",
-          "ics-ot-security-architect-h-f-rolex-geneve"
+          "architecte-securite-ics-ot-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:51.265Z",
@@ -4348,8 +4302,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-methodes-terminaison-automatique-h-f-rolex-ch",
-          "tecnico-metodi-di-terminazione-automatica-h-f-rolex-geneve"
+          "technicien-methodes-terminaison-automatique-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:50.261Z",
@@ -4418,8 +4371,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-d-exploitation-h-f-rolex-ch",
-          "tecnico-operativo-h-f-rolex-geneve"
+          "technicien-d-exploitation-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:49.255Z",
@@ -4488,8 +4440,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-industrialisation-senior-h-f-rolex-ch",
-          "senior-project-manager-di-industrializzazione-m-f-rolex-geneve"
+          "charge-de-projets-industrialisation-senior-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:48.251Z",
@@ -4558,8 +4509,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cadranographe-tampographe-h-f-rolex-ch",
-          "quadrante-tampografo-h-f-rolex-geneve"
+          "cadranographe-tampographe-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:47.237Z",
@@ -4628,8 +4578,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-d-equipe-horloger-h-f-rolex-ch",
-          "responsabile-di-team-orologiaio-h-f-rolex-geneve"
+          "manager-d-equipe-horloger-h-f-rolex-ch"
         ],
         "en": [
           "manager-d-equipe-horloger-h-f-rolex-ch"
@@ -4701,8 +4650,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employe-logistique-h-f-rolex-ch",
-          "dipendente-logistica-m-f-rolex-geneve"
+          "employe-logistique-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:45.218Z",
@@ -4771,8 +4719,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mecanicien-regleur-robotique-h-f-rolex-ch",
-          "meccanico-robotico-tagliacapelli-m-f-rolex-geneve"
+          "mecanicien-regleur-robotique-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:44.195Z",
@@ -4841,8 +4788,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-achats-h-f-rolex-ch",
-          "analista-aziendale-achats-h-f-rolex-geneve"
+          "business-analyst-achats-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:43.176Z",
@@ -4910,8 +4856,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-en-fabrication-additive-h-f-rolex-ch",
-          "tecnologia-additiva-di-fabbricazione-h-f-rolex-bienne"
+          "technicien-en-fabrication-additive-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:42.161Z",
@@ -4977,13 +4922,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "technicien-salle-blanche-r-d-h-f-rolex-ch",
-          "technicien-r-d-h-f-rolex-ch"
+          "technicien-salle-blanche-r-d-h-f-rolex-ch"
         ],
         "it": [
           "technicien-r-d-h-f-rolex-ch",
-          "technicien-salle-blanche-r-d-h-f-rolex-ch",
-          "r-d-technician-h-f-rolex-bienne"
+          "technicien-salle-blanche-r-d-h-f-rolex-ch"
         ],
         "de": [
           "technicien-r-d-h-f-rolex-ch"
@@ -5064,8 +5007,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-projets-industrialisation-logistique-h-f-rolex-ch",
-          "responsabile-del-progetto-di-industrializzazione-della-logistica-h-f-rolex-geneve"
+          "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
         ],
         "en": [
           "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
@@ -5139,8 +5081,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-h-f-rolex-ch",
-          "project-manager-h-f-rolex-bienne"
+          "charge-de-projets-h-f-rolex-ch"
         ],
         "en": [
           "charge-de-projets-h-f-rolex-ch"
@@ -5216,8 +5157,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "previsionniste-adv-h-f-rolex-ch",
-          "previsione-adv-h-f-rolex-geneve"
+          "previsionniste-adv-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:46.801Z",
@@ -5307,8 +5247,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conducteur-h-f-rolex-ch",
-          "conducente-h-f-rolex-bienne"
+          "conducteur-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:37.391Z",
@@ -5406,8 +5345,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-d-ordonnancement-h-f-rolex-ch",
-          "responsabile-della-pianificazione-h-f-rolex-geneve"
+          "gestionnaire-d-ordonnancement-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:39.739Z",
@@ -5501,8 +5439,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-electricien-h-f-rolex-ch",
-          "controllore-elettricista-h-f-rolex-geneve"
+          "controleur-electricien-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:40.909Z",
@@ -5593,8 +5530,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "planificateur-de-production-rolex-ch",
-          "pianificatore-di-produzione-rolex-geneve"
+          "planificateur-de-production-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:38.546Z",
@@ -5663,8 +5599,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-qualite-h-f-rolex-ch",
-          "responsabile-qualita-m-f-rolex-geneve"
+          "gestionnaire-qualite-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:50.319Z",
@@ -5761,8 +5696,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polisseur-h-f-rolex-ch",
-          "lappatore-h-f-rolex-geneve"
+          "polisseur-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:49.117Z",
@@ -5856,8 +5790,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-methodes-h-f-rolex-ch",
-          "responsabile-di-progetti-metodi-h-f-rolex-geneve"
+          "charge-de-projets-methodes-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:44.464Z",
@@ -5957,8 +5890,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tech-lead-h-f-rolex-ch",
-          "responsabile-tecnico-h-f-rolex-geneve"
+          "tech-lead-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:43.298Z",
@@ -6053,8 +5985,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-d-equipe-en-supply-chain-h-f-rolex-ch",
-          "responsabile-di-team-supply-chain-h-f-rolex-geneve"
+          "manager-d-equipe-en-supply-chain-h-f-rolex-ch"
         ],
         "de": [
           "supply-chain-team-manager-m-f-rolex-geneve"
@@ -6123,13 +6054,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "technicien-methodes-h-f-rolex-ch",
-          "technicien-methodes-ceramique-h-f-rolex-ch"
+          "technicien-methodes-h-f-rolex-ch"
         ],
         "it": [
           "technicien-methodes-ceramique-h-f-rolex-ch",
-          "technicien-methodes-h-f-rolex-ch",
-          "tecnico-dei-metodi-ceramici-m-f-rolex-geneve"
+          "technicien-methodes-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
@@ -6201,8 +6130,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-microfabrication-silicium-rolex-ch",
-          "ingegnere-di-microfabbricazione-silicium-rolex-bienne"
+          "ingenieur-microfabrication-silicium-rolex-ch"
         ],
         "en": [
           "ingenieur-microfabrication-silicium-rolex-ch"
@@ -6277,8 +6205,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-methodes-etampage-h-f-rolex-ch",
-          "rispondere-ai-metodi-di-stampatura-m-f-rolex-bienne"
+          "repondant-methodes-etampage-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:32.677Z",
@@ -6348,8 +6275,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-planification-ordonnancement-h-f-rolex-ch",
-          "gestione-pianificazione-e-ordini-h-f-rolex-geneve"
+          "gestionnaire-planification-ordonnancement-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:31.509Z",
@@ -6443,8 +6369,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-metrologue-h-f-rolex-ch",
-          "tecnico-di-metrologia-h-f-rolex-geneve"
+          "technicien-metrologue-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:26.821Z",
@@ -6540,8 +6465,7 @@
       "previousSlugsByLocale": {
         "it": [
           "electroplaste-h-f-rolex-ch-2",
-          "electroplaste-h-f-rolex-ch",
-          "elettroplasti-m-f-rolex-geneve"
+          "electroplaste-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.983Z",
@@ -6635,8 +6559,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-qualite-production-h-f-rolex-ch",
-          "responsabile-della-qualita-di-produzione-h-f-rolex-geneve"
+          "manager-qualite-production-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:25.652Z",
@@ -6727,8 +6650,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "space-planner-h-f-rolex-ch",
-          "space-planner-h-f-rolex-geneve"
+          "space-planner-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:19.759Z",
@@ -6830,8 +6752,7 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-de-proximite-infrastructure-critique-systemes-mes-h-f-rolex-ch",
-          "manager-infrastructure-critique-systemes-mes-h-f-rolex-ch",
-          "responsabile-di-prossimita-infrastruttura-critica-e-sistemi-mes-h-f-rolex-geneve"
+          "manager-infrastructure-critique-systemes-mes-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:29.166Z",
@@ -6899,8 +6820,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-prototypiste-h-f-rolex-ch",
-          "tecnico-prototipista-m-f-rolex-fribourg"
+          "technicien-prototypiste-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.599Z",
@@ -7003,8 +6923,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-finance-it-epm-h-f-rolex-ch",
-          "business-analyst-finanza-it-epm-h-f-rolex-geneve"
+          "business-analyst-finance-it-epm-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:24.413Z",
@@ -7073,8 +6992,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-production-h-f-rolex-ch",
-          "responsabile-di-produzione-m-f-rolex-geneve"
+          "responsable-de-production-h-f-rolex-ch"
         ],
         "en": [
           "responsable-de-production-h-f-rolex-ch"
@@ -7148,8 +7066,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-developpement-d-outils-de-coupe-speciaux-rolex-ch",
-          "tirocinio-sviluppo-di-strumenti-speciali-per-il-taglio-rolex-bienne"
+          "stage-developpement-d-outils-de-coupe-speciaux-rolex-ch"
         ],
         "en": [
           "stage-developpement-d-outils-de-coupe-speciaux-rolex-ch"
@@ -7232,8 +7149,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-h-f-rolex-ch",
-          "project-manager-m-f-rolex-bienne"
+          "charge-de-projets-h-f-rolex-ch"
         ],
         "en": [
           "charge-de-projets-h-f-rolex-ch"
@@ -7309,8 +7225,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-projets-en-excellence-operationnelle-h-f-rolex-ch",
-          "project-manager-in-eccellenza-operativa-m-f-rolex-geneve"
+          "chef-de-projets-en-excellence-operationnelle-h-f-rolex-ch"
         ],
         "en": [
           "chef-de-projets-en-excellence-operationnelle-h-f-rolex-ch"
@@ -7385,8 +7300,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "planificateur-pdp-rolex-ch",
-          "pds-planner-rolex-geneve"
+          "planificateur-pdp-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:15.075Z",
@@ -7486,8 +7400,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-de-production-h-f-rolex-ch",
-          "responsabile-di-produzione-h-f-rolex-geneve"
+          "manager-de-production-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.749Z",
@@ -7556,8 +7469,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "graduate-program-manager-junior-h-f-rolex-ch",
-          "corso-di-laurea-junior-manager-h-f-rolex-geneve"
+          "graduate-program-manager-junior-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:13.905Z",
@@ -7629,8 +7541,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-groupe-garnissage-h-f-rolex-ch",
-          "garnissage-group-manager-h-f-rolex-bienne"
+          "responsable-de-groupe-garnissage-h-f-rolex-ch"
         ],
         "en": [
           "responsable-de-groupe-garnissage-h-f-rolex-ch"
@@ -7706,8 +7617,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-support-production-h-f-rolex-ch",
-          "supporto-tecnico-per-la-produzione-h-f-rolex-geneve"
+          "technicien-support-production-h-f-rolex-ch"
         ],
         "de": [
           "technicien-support-production-h-f-rolex-ch"
@@ -7779,8 +7689,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-sap-sd-tm-h-f-rolex-ch",
-          "business-analista-sap-sd-tm-h-f-rolex-geneve"
+          "business-analyst-sap-sd-tm-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:05.736Z",
@@ -7853,8 +7762,7 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-logistique-h-f-rolex-ch-2",
-          "gestionnaire-logistique-h-f-rolex-ch",
-          "gestione-logistica-h-f-rolex-geneve"
+          "gestionnaire-logistique-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.058Z",
@@ -7923,8 +7831,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-qualite-h-f-rolex-ch",
-          "controller-di-qualita-m-f-rolex-geneve"
+          "controleur-qualite-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:11.569Z",
@@ -7993,8 +7900,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-gestion-h-f-rolex-ch",
-          "gestione-del-project-manager-m-f-rolex-geneve"
+          "charge-de-projets-gestion-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:04.559Z",
@@ -8063,8 +7969,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-d-entreprise-h-f-rolex-ch",
-          "infermiere-aziendale-m-f-rolex-geneve"
+          "infirmier-d-entreprise-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:06.889Z",
@@ -8133,8 +8038,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-des-espaces-vegetalises-h-f-rolex-ch",
-          "responsabile-degli-spazi-verdi-m-f-rolex-geneve"
+          "gestionnaire-des-espaces-vegetalises-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.395Z",
@@ -8203,8 +8107,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-methodes-constructeur-outillages-h-f-rolex-ch",
-          "tecnico-metodi-costruttore-di-utensili-m-f-rolex-geneve"
+          "technicien-methodes-constructeur-outillages-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:09.226Z",
@@ -8272,8 +8175,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-methodes-usinage-h-f-rolex-ch",
-          "metodi-tecnici-di-lavorazione-h-f-rolex-fribourg"
+          "technicien-methodes-usinage-h-f-rolex-ch"
         ],
         "en": [
           "technicien-methodes-usinage-h-f-rolex-ch"
@@ -8348,8 +8250,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-d-industrialisation-h-f-rolex-ch",
-          "charge-d-industrialisation-h-f-rolex-bienne"
+          "charge-d-industrialisation-h-f-rolex-ch"
         ],
         "de": [
           "charge-d-industrialisation-h-f-rolex-ch"
@@ -8422,8 +8323,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-supply-chain-h-f-rolex-ch",
-          "coordinatore-della-catena-di-fornitura-h-f-rolex-geneve"
+          "coordinateur-supply-chain-h-f-rolex-ch"
         ],
         "de": [
           "coordinateur-supply-chain-h-f-rolex-ch"
@@ -8495,8 +8395,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-logistique-h-f-rolex-ch",
-          "coordinatore-della-logistica-m-f-rolex-geneve"
+          "coordinateur-logistique-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:59.901Z",
@@ -8572,8 +8471,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-metrologie-h-f-rolex-ch",
-          "coordinatore-metrologia-m-f-rolex-geneve"
+          "coordinateur-metrologie-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:02.244Z",
@@ -8642,8 +8540,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-geneve-h-f-rolex-ch",
-          "tirocinio-ginevra-m-f-rolex-geneve"
+          "stage-geneve-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:01.094Z",
@@ -8712,8 +8609,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-methodes-nouveaux-produits-h-f-rolex-ch",
-          "metodi-di-project-manager-nuovi-prodotti-h-f-rolex-geneve"
+          "charge-de-projets-methodes-nouveaux-produits-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:16.351Z",
@@ -8782,8 +8678,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-pmo-h-f-rolex-ch",
-          "pmo-project-manager-h-f-rolex-geneve"
+          "charge-de-projets-pmo-h-f-rolex-ch"
         ],
         "en": [
           "charge-de-projets-pmo-h-f-rolex-ch"
@@ -8858,8 +8753,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-automatisation-des-stocks-h-f-rolex-ch",
-          "project-manager-automazione-dell-inventario-m-f-rolex-geneve"
+          "charge-de-projets-automatisation-des-stocks-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:14.332Z",
@@ -8928,8 +8822,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-de-production-h-f-rolex-ch",
-          "coordinatore-di-produzione-m-f-rolex-geneve"
+          "coordinateur-de-production-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:13.332Z",
@@ -8997,8 +8890,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-methodes-outils-de-coupe-h-f-rolex-ch",
-          "tecnico-dei-metodi-per-utensili-da-taglio-m-f-rolex-fribourg"
+          "technicien-methodes-outils-de-coupe-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:10.267Z",
@@ -9067,8 +8959,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-rolex-ch",
-          "tirocinio-rolex-bienne"
+          "stage-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:07.196Z",
@@ -9138,8 +9029,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-projets-transverses-h-f-rolex-ch",
-          "responsabile-di-progetto-cross-funzionale-m-f-rolex-geneve"
+          "charge-de-projets-transverses-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:06.193Z",
@@ -9208,8 +9098,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-logistique-evenements-h-f-rolex-ch",
-          "tecnico-di-logistica-eventi-m-f-rolex-geneve"
+          "technicien-logistique-evenements-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:08.230Z",
@@ -9278,8 +9167,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-cloud-d365-h-f-rolex-ch",
-          "cloud-engineer-d365-m-f-rolex-geneve"
+          "ingenieur-cloud-d365-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:09.251Z",
@@ -9347,8 +9235,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-methodes-decolletage-h-f-rolex-ch",
-          "metodi-di-rotazione-della-barra-di-risposta-m-f-rolex-bienne"
+          "repondant-methodes-decolletage-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:11.303Z",
@@ -9419,8 +9306,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-sirh-h-f-rolex-ch",
-          "business-analista-sirh-h-f-rolex-geneve"
+          "business-analyst-sirh-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:04.215Z",
@@ -9488,8 +9374,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-developper-la-simulation-d-empilements-de-couches-minces-rolex-ch",
-          "fase-sviluppare-la-simulazione-di-stack-di-strati-sottili-rolex-bienne"
+          "stage-developper-la-simulation-d-empilements-de-couches-minces-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:03.199Z",
@@ -9559,8 +9444,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "architecte-d-interieur-h-f-rolex-ch",
-          "interior-designer-m-f-rolex-geneve"
+          "architecte-d-interieur-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:05.200Z",
@@ -9628,8 +9512,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-postes-clients-h-f-rolex-ch",
-          "ufficiale-post-cliente-h-f-rolex-bienne"
+          "administrateur-postes-clients-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:59.175Z",
@@ -9698,8 +9581,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-decouverte-fribourg-h-f-rolex-ch",
-          "corso-scoperta-friburgo-m-f-rolex-fribourg"
+          "stage-decouverte-fribourg-h-f-rolex-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:02.204Z",
@@ -9846,8 +9728,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-h-f-rolex-ch",
-          "assistente-h-f-rolex-geneve"
+          "assistant-h-f-rolex-ch"
         ],
         "en": [
           "assistant-h-f-rolex-ch"
@@ -9920,8 +9801,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-sap-pp-eppds-h-f-rolex-ch",
-          "business-analista-sap-pp-eppds-h-f-rolex-geneve"
+          "business-analyst-sap-pp-eppds-h-f-rolex-ch"
         ],
         "de": [
           "business-analyst-sap-pp-eppds-h-f-rolex-ch"

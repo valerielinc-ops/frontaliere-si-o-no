@@ -918,8 +918,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg",
         "it": "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-kilchberg",
-        "en": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg",
-        "fr": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
+        "en": "professional-health-efz-60-80-spitex-zimmerberg-ag-kilchberg",
+        "fr": "sante-professionnelle-efz-60-80-spitex-zimmerberg-ag-kilchberg"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -965,6 +965,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-kilchberg"
         ]
       },
@@ -1738,8 +1744,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-spitex-ch-ilanz",
         "it": "fachperson-gesundheit-efz-spitex-ch-ilanz",
-        "en": "fachperson-gesundheit-efz-spitex-ch-ilanz",
-        "fr": "fachperson-gesundheit-efz-spitex-ch-ilanz"
+        "en": "health-professional-efz-spitex-foppa-ilanz",
+        "fr": "professionnels-de-la-sante-efz-spitex-foppa-ilanz"
       },
       "company": "Spitex Foppa",
       "companyKey": "spitex-ch",
@@ -1879,8 +1885,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-hinwil-spitex-ch-hinwil",
         "it": "pflegefachfrau-mann-hf-per-den-stutzpunkt-hinwil-spitex-bachtel-ag-hinwil",
-        "en": "pflegefachfrau-mann-hf-per-den-stutzpunkt-hinwil-spitex-bachtel-ag-hinwil",
-        "fr": "pflegefachfrau-mann-hf-per-den-stutzpunkt-hinwil-spitex-bachtel-ag-hinwil"
+        "en": "hf-49-60-in-late-service-for-the-hinwil-center-spitex-bachtel-ag-hinwil",
+        "fr": "hf-49-60-en-service-tardif-pour-le-centre-hinwil-spitex-bachtel-ag-hinwil"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
