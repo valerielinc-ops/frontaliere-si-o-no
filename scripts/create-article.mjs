@@ -1116,6 +1116,20 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'quellensteuer schweiz tarife 2026', angle: 'Quellensteuer-Tarife alle Kantone: Tessin, Graubünden, Wallis, Bern. Berechnung, Abzüge, NOV-Schwelle 120k CHF', locale: 'de', searchVolume: 880 },
   { keyword: 'grenzgänger schweiz steuern 2026', angle: 'Steuerliche Pflichten für Grenzgänger nach neuem Abkommen: alte vs neue Grenzgänger, Italien-Steuer, Beispielrechnungen', locale: 'de', searchVolume: 260 },
   { keyword: 'g bewilligung antrag 2026', angle: 'G-Bewilligung Antrag Schritt für Schritt: Dokumente, Migrationsamt, Kosten 65 CHF, 5-Jahres-Gültigkeit, Verlängerung', locale: 'de', searchVolume: 110 },
+  // 2026-07-01 (issue #3138 Leva #2): sub-angles absent from the pool above —
+  // border-municipality life, extra professions, cross-border life-events,
+  // INPS/Agenzia Entrate procedure. Widens the pool so fewer candidates
+  // collapse into near-duplicates of the fiscal/pension/health core above.
+  { keyword: 'vivere a Como e lavorare in Ticino da frontaliere', angle: 'Pendolarismo Como-Chiasso: tempi di percorrenza, costo della vita a confronto, quartieri consigliati, treno vs auto' },
+  { keyword: 'vivere a Varese e lavorare in Ticino da frontaliere', angle: 'Pendolarismo Varese-Lugano: collegamenti, costo della vita, scuole per i figli, comunità di frontalieri' },
+  { keyword: 'totalizzazione contributi AVS INPS domanda come funziona', angle: 'Procedura di totalizzazione dei contributi tra AVS svizzera e INPS italiana: modulistica, tempistiche, calcolo della pensione risultante' },
+  { keyword: 'quadro RW dichiarazione conto corrente svizzero Agenzia Entrate', angle: 'Obblighi di monitoraggio fiscale (quadro RW) per il conto bancario svizzero del frontaliere: IVAFE, sanzioni per omessa dichiarazione, casi pratici' },
+  { keyword: 'matrimonio frontaliere italiano cittadino svizzero regime fiscale', angle: 'Cosa cambia fiscalmente e a livello di permesso quando un frontaliere sposa un cittadino svizzero o residente in Svizzera' },
+  { keyword: 'successione eredità frontaliere conto svizzero Italia', angle: 'Successione transfrontaliera: come si tassa un conto o un immobile svizzero ereditato da un frontaliere residente in Italia, doppia imposizione e convenzioni' },
+  { keyword: 'divorzio frontaliere assegno mantenimento Svizzera Italia', angle: 'Separazione e divorzio quando un coniuge è frontaliere: giurisdizione competente, calcolo dell\'assegno di mantenimento su stipendio svizzero, riconoscimento della sentenza' },
+  { keyword: 'frontaliere infermiere Ticino stipendio requisiti', angle: 'Lavorare come infermiere in Ticino da frontaliere: stipendio, riconoscimento titolo di studio italiano, permesso G, differenze con l\'Italia' },
+  { keyword: 'frontaliere operaio edile Ticino contratto CCL', angle: 'Lavoro edile in Ticino per frontalieri: contratto collettivo (CCL), salario minimo, sicurezza sul lavoro, differenze con i cantieri italiani' },
+  { keyword: 'frontaliere autista camionista Ticino permesso', angle: 'Diventare autista/camionista frontaliere in Ticino: patenti riconosciute, tempi di guida, stipendio, permesso G per il settore trasporti' },
 ];
 
 // ── News sources to auto-scan ───────────────────────────────
@@ -1208,6 +1222,13 @@ const NEWS_SOURCES = [
   'https://www.varesenoi.it/?s=frontalieri',               // varesenoi WP search for frontalieri (HTML, dead sub-category replacement)
   // swissinfo.ch RSS removed — 410 Gone (FRO-415, re-confirmed 2026-05-13 — HTML home page added above as replacement)
   // admin.ch RSS removed — WAF challenge blocks scraping (FRO-415)
+  // 2026-07-01 (issue #3138 Leva #1): Italian institutional feeds, national
+  // scope but heavily pension/fiscal — filtered downstream by the same
+  // FRONTALIERI_DOMAIN_RE relevance gate as every other source. Both
+  // curl-verified live before adding (INPS/Agenzia Entrate have no
+  // frontaliere-scoped feed, only site-wide news).
+  'https://www.inps.it/it/it.rss.news.xml',                // INPS — pensioni/AVS-INPS/NASpI national news
+  'https://www.agenziaentrate.gov.it/portale/c/portal/rss/entrate?idrss=0753fcb1-1a42-4f8c-f40d-02793c6aefb4', // Agenzia Entrate — comunicati (730, quadro CE, dichiarazioni)
 ];
 
 // Fallback: when an RSS feed yields 0 recent items, scrape the base HTML site instead
