@@ -103,6 +103,15 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # `allowed_non_write_users` (sotto) funziona SOLO con `github_token` esplicito,
+          # non con la sola GitHub App auth di `claude_code_oauth_token` (docs/security.md
+          # anthropics/claude-code-action: "Only works when github_token is provided as
+          # input"). Senza questo il bypass del gate write-access è un no-op silenzioso e
+          # la run continua a fallire con lo stesso errore che questo file dichiara di
+          # risolvere (trovato in review PR #3182). Token auto-generato, scope limitato ai
+          # `permissions:` del job (pull-requests/issues write), scade a fine job — NON un
+          # PAT statico.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # Il merge che alimenta questo workflow è fatto da automation interna con DUE
           # actor bot distinti — entrambi vanno in whitelist o claude-code-action aborta
           # "Workflow initiated by non-human actor":
