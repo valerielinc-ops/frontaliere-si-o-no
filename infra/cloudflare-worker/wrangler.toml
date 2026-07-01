@@ -7,16 +7,22 @@ main = "locale-router.js"
 compatibility_date = "2026-01-01"
 
 # NOTE: routes carry a `request_limit_fail_open` flag that wrangler.toml CANNOT
-# express (API-only). It MUST be true (over the free 100k/day cap the Worker is
-# bypassed and the CDN cache serves apex-keyed pages instead of error 1027) —
+# express (API-only). It MUST be true (a defence-in-depth fail-open: if the
+# Worker ever errors or a daily cap is hit, the Worker is bypassed and the CDN
+# cache serves apex-keyed pages instead of error 1027) —
 # scripts/cf-locale-failover-setup.mjs asserts it after every deploy
 # (deploy-worker.yml runs it; after a MANUAL `npx wrangler deploy`, run it too).
+# NB: the account is on Workers Paid (10M req/mo included, overage ~$0.30/M), so
+# the old free 100k/day invocation cap no longer binds — Worker-routed traffic
+# volume is no longer a scoping constraint (the Ticino routes below add the IT
+# bulk's busiest section deliberately).
 #
-# Scope the Worker to ONLY the locale paths so the IT bulk (~95% of traffic) is
-# pure Cloudflare passthrough with no Worker subrequest. Three patterns per
-# locale cover the subtree, the bare homepage path, and the .html homepage file
-# without ever matching look-alikes like /enterprise (exact-match routes have no
-# trailing wildcard). The in-code LOCALE_RE is the matching guard.
+# The Worker is scoped to the locale paths PLUS the Ticino section across all four
+# locales. Three patterns per scope cover the subtree, the bare path, and the
+# .html flat file without ever matching look-alikes (exact-match routes have no
+# trailing wildcard; e.g. /enterprise, /cerca-lavoro-ticino-altro never match).
+# The in-code LOCALE_RE + matchTicino are the matching guards. Non-Ticino IT
+# paths stay pure Cloudflare passthrough with no Worker subrequest.
 routes = [
   { pattern = "frontaliereticino.ch/en/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en",      zone_name = "frontaliereticino.ch" },
@@ -27,6 +33,15 @@ routes = [
   { pattern = "frontaliereticino.ch/fr/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
+  # Ticino section (IT apex prefix) → origin-ticino-it (one shard repo per locale;
+  # see locale-router.js TICINO_ORIGIN). The en/de/fr Ticino subpaths
+  # (/en/find-jobs-ticino, /de/jobs-im-tessin, /fr/trouver-emploi-tessin) already
+  # reach the Worker via the /en|/de|/fr routes above and are re-targeted to
+  # origin-ticino-<loc> in-code (matchTicino), so only the IT prefix needs new
+  # routes here — the IT apex otherwise bypasses the Worker entirely.
+  { pattern = "frontaliereticino.ch/cerca-lavoro-ticino/*",    zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-ticino",      zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/cerca-lavoro-ticino.html", zone_name = "frontaliereticino.ch" },
   # Job-alert one-click unsubscribe (RFC 8058). Deliberate non-locale exception to
   # the "locale paths only" scoping above: the unsubscribe links + List-Unsubscribe
   # header in job-alert emails MUST live on the sending domain (frontaliereticino.ch)
