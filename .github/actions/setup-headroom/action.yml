@@ -37,7 +37,14 @@ runs:
           echo "::warning::headroom not installed — skipping compression (Claude runs direct)."
           exit 0
         fi
+        # --no-ccr-inject-tool/--no-ccr-marker: claude-code-action is a
+        # streaming client that can't resolve a dynamically-injected
+        # `headroom_retrieve` tool — without these flags Claude tries to call
+        # it on any compressed output and gets "No such tool available"
+        # (observed run 28503800274/job 84487138871). Compression-only mode
+        # still saves tokens, just without the retrieve-more round trip.
         nohup headroom proxy --port "${{ inputs.port }}" --stateless \
+          --no-ccr-inject-tool --no-ccr-marker \
           > "$RUNNER_TEMP/headroom-proxy.log" 2>&1 &
         for _ in $(seq 1 30); do
           if curl -sf "http://127.0.0.1:${{ inputs.port }}/readyz" >/dev/null 2>&1; then
