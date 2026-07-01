@@ -54,7 +54,7 @@ service cloud.firestore {
 
     // Feedback — owned by authenticated user
     match /feedback/{docId} {
-      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow read: if request.auth != null && (resource == null || request.auth.uid == resource.data.userId);
       allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
       allow delete: if request.auth != null && request.auth.uid == resource.data.userId;
     }
@@ -213,7 +213,7 @@ service cloud.firestore {
     // Publisher job ads. Read = owner (dashboard); the public surface is the
     // CDN-offloaded overlay file, not a live Firestore read.
     match /publisher_jobs/{jobId} {
-      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      allow read: if isSignedIn() && (resource == null || request.auth.uid == resource.data.publisherUid);
       allow create: if isSignedIn()
         && request.auth.uid == request.resource.data.publisherUid
         && clientJobWriteOk(request.resource.data);
@@ -238,7 +238,7 @@ service cloud.firestore {
     // state transitions (paid, renewed, cancelled, refunded) written by the
     // Stripe webhook via Admin SDK (bypasses rules).
     match /orders/{orderId} {
-      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      allow read: if isSignedIn() && (resource == null || request.auth.uid == resource.data.publisherUid);
       allow create: if isSignedIn() && request.auth.uid == request.resource.data.publisherUid;
       // No client update/delete — Admin SDK only.
     }
