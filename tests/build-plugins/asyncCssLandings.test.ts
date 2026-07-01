@@ -1,15 +1,20 @@
 /**
- * Regression gate (issue #1991, follow-up of PR #1984): static SEO landing
- * pages emitted through the shared `buildSeoPageHtml` / `buildSimplePage` shell
- * MUST load their CSS NON-render-blocking — both the Vite entry stylesheet AND
- * the s-* utility sheet `seo-static.css` — while inlining the first-paint
- * `CRITICAL_CSS` block so there is no FOUC.
+ * Regression gate (issue #1991, follow-up of PR #1984; updated 2026-07 for
+ * the critical-CSS externalization): static SEO landing pages emitted
+ * through the shared `buildSeoPageHtml` / `buildSimplePage` shell MUST load
+ * the Vite entry stylesheet AND the s-* utility sheet `seo-static.css`
+ * NON-render-blocking, while the first-paint critical CSS is loaded via a
+ * render-BLOCKING `<link>` to `/assets/critical.css` ({@link CRITICAL_CSS_LINK})
+ * so there is no FOUC. critical.css used to be an inline `<style>` block;
+ * it is now an external, same-origin, browser-cached file (written by
+ * `staticScriptsPlugin.ts`) — the ONLY synchronous stylesheet this path may
+ * emit.
  *
  * Why this matters: render-blocking CSS delays LCP, a Core Web Vital that
  * feeds Google organic ranking — the site's traffic funnel. PR #1984 added the
  * CDN preconnect but left the sheets blocking; this gate locks the async swap
  * in so the buildSimplePage path cannot silently drift back to a synchronous
- * `<link rel="stylesheet">`.
+ * `<link rel="stylesheet">` for the entry/seo-static sheets.
  *
  * The async pattern is the same one the sibling static emitters already use:
  *   - `<link rel="preload" as="style">`  (start download immediately)
@@ -19,7 +24,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { buildSimplePage, asyncCssHeadBlock, asyncCssLink } from '../../build-plugins/htmlTemplate';
-import { CRITICAL_CSS } from '../../build-plugins/shared/criticalCss';
+import { CRITICAL_CSS_LINK } from '../../build-plugins/shared/criticalCss';
 import { SEO_STATIC_CSS_FILENAME } from '../../build-plugins/constants';
 
 const SEO_STATIC_HREF = `/assets/${SEO_STATIC_CSS_FILENAME}`;
@@ -43,10 +48,10 @@ describe('asyncCssLink', () => {
 });
 
 describe('asyncCssHeadBlock', () => {
-  it('inlines CRITICAL_CSS and async-loads both entry CSS and seo-static.css', () => {
+  it('loads critical.css via a blocking link and async-loads both entry CSS and seo-static.css', () => {
     const out = asyncCssHeadBlock('index-deadbeef.css');
-    // First-paint critical CSS is inlined (stable paint → no FOUC).
-    expect(out).toContain(`<style>${CRITICAL_CSS}</style>`);
+    // First-paint critical CSS is a blocking <link> (stable paint → no FOUC).
+    expect(out).toContain(CRITICAL_CSS_LINK);
     // Entry sheet async.
     expect(out).toContain('href="/assets/index-deadbeef.css" media="print"');
     // seo-static.css async.
@@ -61,7 +66,7 @@ describe('asyncCssHeadBlock', () => {
 
   it('omits the entry sheet when no SPA bundle is present but still async-loads seo-static.css', () => {
     const out = asyncCssHeadBlock(undefined);
-    expect(out).toContain(`<style>${CRITICAL_CSS}</style>`);
+    expect(out).toContain(CRITICAL_CSS_LINK);
     expect(out).toContain(`href="${SEO_STATIC_HREF}" media="print"`);
     expect(out).not.toContain('index-');
   });
@@ -79,16 +84,18 @@ describe('buildSimplePage · non-render-blocking CSS', () => {
     entryJs: 'index-cafef00d.js',
   };
 
-  it('inlines critical CSS and never emits a synchronous stylesheet for the entry or seo-static sheets', () => {
+  it('loads critical.css via a blocking link and never emits another synchronous stylesheet for the entry or seo-static sheets', () => {
     const html = buildSimplePage(baseOpts);
-    expect(html).toContain(`<style>${CRITICAL_CSS}</style>`);
+    expect(html).toContain(CRITICAL_CSS_LINK);
     // Both sheets ride the media=print swap.
     expect(html).toContain('href="/assets/index-cafef00d.css" media="print"');
     expect(html).toContain(`href="${SEO_STATIC_HREF}" media="print"`);
-    // The only synchronous <link rel="stylesheet"> tags are the <noscript>
-    // fallbacks — strip them and assert nothing render-blocking remains.
+    // The only synchronous <link rel="stylesheet"> tags are critical.css and the
+    // <noscript> fallbacks — strip the noscript blocks and critical.css itself,
+    // then assert nothing else render-blocking remains.
     const withoutNoscript = html.replace(/<noscript>.*?<\/noscript>/g, '');
-    const syncStylesheets = withoutNoscript.match(/<link rel="stylesheet"(?![^>]*media="print")[^>]*>/g) || [];
+    const withoutCriticalCss = withoutNoscript.replace(CRITICAL_CSS_LINK, '');
+    const syncStylesheets = withoutCriticalCss.match(/<link rel="stylesheet"(?![^>]*media="print")[^>]*>/g) || [];
     expect(syncStylesheets, `unexpected render-blocking stylesheet(s): ${syncStylesheets.join(', ')}`).toHaveLength(0);
   });
 

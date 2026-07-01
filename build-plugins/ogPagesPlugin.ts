@@ -18,7 +18,7 @@ import { truncateCodeUnits } from './shared/safeTruncate';
 import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { CRITICAL_CSS } from './shared/criticalCss';
+import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
@@ -650,13 +650,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  ].filter(Boolean).join('');
  const preloadTag = corePreloads ? '\n ' + corePreloads : '';
 
- // Critical CSS (first-paint, non-render-blocking) — single source of truth in
- // shared/criticalCss.ts, shared with staticPagesPlugin. This used to be a
- // hand-copied literal that had drifted (missing the font-metric overrides
- // staticPages/index.html carry → no font CLS stabilization on OG pages); the
- // shared constant makes that drift impossible (#1586).
- const criticalCSS = CRITICAL_CSS;
-
  // ── Build related articles helper for cross-linking (SEO: inter-article links) ──
  const relatedArticlesLabel: Record<string, string> = {
  it: 'Articoli correlati', en: 'Related articles', de: 'Verwandte Artikel', fr: 'Articles connexes',
@@ -1099,7 +1092,7 @@ ${href}
 ${headTags}
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${blogPreloads}
  <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${inlineScriptJson(localizedTitle)}</script>
- <style>${criticalCSS}</style>
+ ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">

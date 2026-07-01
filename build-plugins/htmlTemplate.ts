@@ -10,7 +10,7 @@
 import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
 import { escapeInlineScript } from './shared/inlineJsonScript';
 import { clampMetaDescription } from './shared/titleSuffix';
-import { CRITICAL_CSS } from './shared/criticalCss';
+import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { railGutters } from './shared/railGutters';
 
 /**
@@ -25,9 +25,10 @@ import { railGutters } from './shared/railGutters';
  *  - `data-clarity-unmask="true"` so Microsoft Clarity keeps the href in
  *    session recordings.
  *
- * First paint is rendered from the inline {@link CRITICAL_CSS} block, so the
- * static SEO content (rendered immediately, not behind a skeleton) does not
- * FOUC while the full sheet streams in. This is the SAME pattern the sibling
+ * First paint is rendered from the render-blocking {@link CRITICAL_CSS_LINK}
+ * (`/assets/critical.css`), so the static SEO content (rendered immediately,
+ * not behind a skeleton) does not FOUC while the full sheet streams in. This
+ * is the SAME pattern the sibling
  * static emitters already use (`staticPagesPlugin.ts`, `ogPagesPlugin.ts`,
  * `asyncCssPlugin.ts`, and the hand-rolled job-detail head in
  * `jobsSeoPagesPlugin.ts`) — kept in one helper here so the buildSimplePage
@@ -65,8 +66,9 @@ export const ASYNC_CSS_FALLBACK_SCRIPT =
   `<script>setTimeout(function(){var ls=document.querySelectorAll('link[media="print"][href*="/assets/"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
 
 /**
- * Full non-render-blocking CSS `<head>` block for static SEO landing pages:
- *   1. inline `<style>` with the first-paint {@link CRITICAL_CSS},
+ * Full CSS `<head>` block for static SEO landing pages:
+ *   1. render-BLOCKING `<link>` to the first-paint {@link CRITICAL_CSS_LINK}
+ *      (`/assets/critical.css`),
  *   2. async-swapped Vite entry stylesheet (optional — only when a SPA bundle
  *      is present for the page),
  *   3. async-swapped `seo-static.css` (the s-* utility sheet),
@@ -82,7 +84,7 @@ export function asyncCssHeadBlock(entryCss?: string): string {
   const entryCssHref = entryCss ? (/^https?:\/\//.test(entryCss) ? entryCss : `/assets/${entryCss}`) : '';
   const entryLink = entryCssHref ? `\n    ${asyncCssLink(entryCssHref)}` : '';
   return (
-    `<style>${CRITICAL_CSS}</style>` +
+    CRITICAL_CSS_LINK +
     `${entryLink}\n    ${asyncCssLink(`/assets/${SEO_STATIC_CSS_FILENAME}`)}` +
     `\n    ${ASYNC_CSS_FALLBACK_SCRIPT}`
   );
@@ -137,7 +139,7 @@ export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
  * header, `h-14 md:h-20` = 56/80px) INTO `#root`, which — starting empty — would
  * shove that sibling content down by the header height on mount (live: ~0.08
  * desktop CLS on `/cerca-lavoro-*`). The `.ft-hdr-reserve` spacer (height pinned
- * in {@link CRITICAL_CSS} via `ROOT_HEADER_RESERVE_CSS`) holds the header height
+ * in `shared/criticalCss.ts`'s `ROOT_HEADER_RESERVE_CSS`) holds the header height
  * from first paint so nothing jumps. `createRoot().render()` REPLACES #root's
  * children (client render, not hydration), so the spacer leaves no residue and
  * the real same-height header takes its place shift-free.
@@ -320,10 +322,10 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // every plugin that renders via this shell / seoPageShell.
  const ldTags = jsonLdScripts.map(ld => ` <script type="application/ld+json">${escapeInlineScript(ld)}</script>`).join('\n');
  // Both the Vite entry sheet AND seo-static.css are loaded NON-render-blocking
- // via the `media="print"` swap, with first paint rendered from the inline
- // CRITICAL_CSS block (see {@link asyncCssHeadBlock}). Static SEO content is
- // shown immediately (not behind a skeleton), so the inline critical CSS keeps
- // first paint stable while the full sheets stream in — no FOUC. Issue #1991 /
+ // via the `media="print"` swap, with first paint rendered from the render-
+ // blocking /assets/critical.css link (see {@link asyncCssHeadBlock}). Static
+ // SEO content is shown immediately (not behind a skeleton), so critical.css
+ // keeps first paint stable while the full sheets stream in — no FOUC. Issue #1991 /
  // follow-up of PR #1984: removes the last render-blocking CSS on the
  // buildSimplePage static-landing path (LCP/CWV → organic ranking).
  //
@@ -373,7 +375,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // (`h-14 md:h-20` = 56/80px) fills `#root` and shoves the sibling content (rail
  // grid / `main.seo-static-content`) down by the header height — live: rail-grid
  // +75px @944ms ≈ 0.08 CLS on city-hub, same residual on landings. The
- // `.ft-hdr-reserve` spacer (height pinned in CRITICAL_CSS) holds that height
+ // `.ft-hdr-reserve` spacer (height pinned in shared/criticalCss.ts) holds that height
  // from first paint so nothing jumps, AND makes index.tsx's `hasStaticContent()`
  // true so its mount-time `#root` min-height floor engages, covering the
  // createRoot()-empties-#root collapse too. `createRoot()` REPLACES #root's
