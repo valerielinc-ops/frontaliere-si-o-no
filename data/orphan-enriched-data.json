@@ -107613,7 +107613,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "verkaufsberater-in-kosmetik-coop-genossenschaft-zurich-bvmy5q",
+      "en": "verkaufsberater-in-kosmetik-coop-genossenschaft-zurich-bvmy5q",
+      "de": "verkaufsberater-in-kosmetik-coop-genossenschaft-zurich-bvmy5q",
+      "fr": "verkaufsberater-in-kosmetik-coop-genossenschaft-zurich-bvmy5q"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-zurigo/verkaufsberater-in-kosmetik-coop-genossenschaft-zurich",
       "en": "/en/find-jobs-zurich/verkaufsberater-in-kosmetik-coop-genossenschaft-zurich",
@@ -107626,6 +107631,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
