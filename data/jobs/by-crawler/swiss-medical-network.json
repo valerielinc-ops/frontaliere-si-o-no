@@ -1,7 +1,59 @@
 {
   "crawlerKey": "swiss-medical-network",
-  "assembledAt": "2026-06-30T23:33:24.591Z",
+  "assembledAt": "2026-07-01T13:12:06.978Z",
   "jobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135169979-infirmier-ere-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135169979-infirmier-ere-?oga=true",
+      "title": "Infirmier(ère)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Sion",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "canton": "VS",
+      "country": "CH",
+      "postalCode": "1950",
+      "description": "• Etre un(e) praticien(ne) réflexive de santé qui a la responsabilité de prodiguer au patient des soins de qualité sur prescription médicale ou selon les critères de son rôle autonome\n\n• Être au bénéfice d’un diplôme d’infirmier(ère) HES ou formation jugée équivalente reconnue par la Croix-Rouge\n\n• Expérience dans un service de chirurgie, un atout\n\n• Vous maîtrisez la langue française ou allemande, avec des bonnes connaissances de la langue partenaire\n\n• Aptitude à s’intégrer dans un groupe et esprit d’équipe\n\n• Grande conscience professionnelle, motivation, flexibilité et dynamisme\n\n• Capacité à gérer le stress\n\n• Être autonome et savoir prendre des initiatives\n\n• Une travail varié (plusieurs disciplines médicales), motivant au sein d’une équipe dynamique et engagée\n\n• Un cadre de travail agréable\n\n• Un salaire et des conditions sociales intéressantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nSwiss Visio Network est un réseau de centres d’ophtalmologie à la pointe des techniques médicales traitant toutes les pathologies oculaires. Nos équipes garantissent des soins personnalisés et de première qualité aux patients, en les plaçant au centre des attentions. Swiss Visio se distingue par son environnement de travail agréable et son esprit entrepreneurial. Le réseau compte aujourd’hui 18 centres en Suisse romande, 3 en Suisse alémanique et 1 au Tessin et poursuit son expansion sur le territoire helvétique.&#xa0;",
+      "descriptionByLocale": {
+        "en": "• Etre un(e) praticien(ne) réflexive de santé qui a la responsabilité de prodiguer au patient des soins de qualité sur prescription médicale ou selon les critères de son rôle autonome\n\n• Être au bénéfice d’un diplôme d’infirmier(ère) HES ou formation jugée équivalente reconnue par la Croix-Rouge\n\n• Expérience dans un service de chirurgie, un atout\n\n• Vous maîtrisez la langue française ou allemande, avec des bonnes connaissances de la langue partenaire\n\n• Aptitude à s’intégrer dans un groupe et esprit d’équipe\n\n• Grande conscience professionnelle, motivation, flexibilité et dynamisme\n\n• Capacité à gérer le stress\n\n• Être autonome et savoir prendre des initiatives\n\n• Une travail varié (plusieurs disciplines médicales), motivant au sein d’une équipe dynamique et engagée\n\n• Un cadre de travail agréable\n\n• Un salaire et des conditions sociales intéressantes\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nSwiss Visio Network est un réseau de centres d’ophtalmologie à la pointe des techniques médicales traitant toutes les pathologies oculaires. Nos équipes garantissent des soins personnalisés et de première qualité aux patients, en les plaçant au centre des attentions. Swiss Visio se distingue par son environnement de travail agréable et son esprit entrepreneurial. Le réseau compte aujourd’hui 18 centres en Suisse romande, 3 en Suisse alémanique et 1 au Tessin et poursuit son expansion sur le territoire helvétique.&#xa0;",
+        "it": "Posizione aperta: Infirmier(ère) presso Swiss Medical Network a Sion, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. Offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti."
+      },
+      "titleByLocale": {
+        "en": "Infirmier(ère)"
+      },
+      "slug": "infirmier-ere-swiss-medical-network",
+      "slugByLocale": {
+        "en": "infirmier-ere-swiss-medical-network",
+        "it": "infirmier-ere-swiss-medical-network"
+      },
+      "category": "healthcare",
+      "datePosted": "2026-07-01",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-01T13:12:06.976Z"
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134969331-lehrstelle-fachperson-gesundheit",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134969331-lehrstelle-fachperson-gesundheit?oga=true",
