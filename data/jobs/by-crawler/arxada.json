@@ -57,8 +57,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
-          "elettroinstallateur-in-efz-arxada-visp",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-arxada-visp"
+          "elettroinstallateur-in-efz-arxada-visp"
         ],
         "en": [
           "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
@@ -136,8 +135,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-assistant-in-junior-chemist-r-t-arxada-ch",
-          "assistente-in-laboratorio-junior-chemist-r-t-arxada-visp"
+          "lab-assistant-in-junior-chemist-r-t-arxada-ch"
         ],
         "en": [
           "lab-assistant-in-junior-chemist-r-t-arxada-ch"
@@ -245,8 +243,7 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch",
-          "elektroinstallateur-automatiker-in-ab-august-2026-arxada-visp",
-          "installatore-trice-elettrico-a-automatiker-in-ab-august-2026-arxada-visp"
+          "elektroinstallateur-automatiker-in-ab-august-2026-arxada-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:07.022Z",
@@ -348,8 +345,7 @@
         "it": [
           "anlageningenieur-in-arxada-ch",
           "anlage-ingenieur-in-arxada-ch",
-          "anlageningenieur-in-arxada-visp",
-          "metallbauer-in-cfc-arxada-visp"
+          "anlageningenieur-in-arxada-visp"
         ],
         "de": [
           "metallbauer-in-efz-arxada-ch",
@@ -357,8 +353,7 @@
           "anlagen-und-apparatebauer-in-arxada-visp",
           "metallbauer-in-efz-arxada-visp",
           "anlage-ingenieur-in-arxada-visp",
-          "anlageningenieur-in-arxada-ch",
-          "anlage-ingenieur-in-arxada-ch"
+          "anlageningenieur-in-arxada-ch"
         ]
       },
       "firstSeenAt": "2026-04-13T09:58:58.686Z",
@@ -430,8 +425,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-site-logistics-projects-visp-arxada-ch",
-          "responsabile-del-sito-logistica-progetti-visp-arxada-visp"
+          "head-of-site-logistics-projects-visp-arxada-ch"
         ],
         "de": [
           "head-of-site-logistics-projects-visp-arxada-ch"
@@ -510,8 +504,7 @@
       "previousSlugsByLocale": {
         "it": [
           "deputy-shift-supervisor-arxada-ch",
-          "deputy-shift-supervisore-arxada-visp",
-          "vice-supervisore-del-turno-arxada-visp"
+          "deputy-shift-supervisore-arxada-visp"
         ],
         "fr": [
           "deputy-shift-supervisor-arxada-ch"
@@ -587,8 +580,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "shift-teamlead-arxada-ch",
-          "teamlead-shift-arxada-visp"
+          "shift-teamlead-arxada-ch"
         ]
       },
       "firstSeenAt": "2026-06-15T22:31:23.654Z",
@@ -689,12 +681,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-online-prozessanalytik-arxada-ch",
-          "tecnico-laboratorio-analisi-processo-online-arxada-visp"
+          "laborant-in-online-prozessanalytik-arxada-ch"
         ],
         "de": [
-          "labor-in-online-prozessanalytik-arxada-visp",
-          "laborant-in-online-prozessanalytik-arxada-ch"
+          "labor-in-online-prozessanalytik-arxada-visp"
         ],
         "fr": [
           "laborant-in-online-prozessanalytik-arxada-ch"
@@ -792,12 +782,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rangierdienst-spezialist-in-arxada-ch",
-          "specialista-in-servizio-di-manovra-arxada-visp"
+          "rangierdienst-spezialist-in-arxada-ch"
         ],
         "de": [
-          "rangierdienst-spezialist-in-arxada-visp",
-          "rangierdienst-spezialist-in-arxada-ch"
+          "rangierdienst-spezialist-in-arxada-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
@@ -819,10 +807,10 @@
     },
     {
       "id": "arxada-194727c187a2",
-      "slug": "manufacturing-manager-production-engineering-arxada-ch",
+      "slug": "responsabile-della-produzione-e-ingegneria-di-produzione-arxada-visp",
       "slugByLocale": {
         "de": "manufacturing-manager-production-engineering-arxada-ch",
-        "it": "manufacturing-manager-production-engineering-arxada-ch",
+        "it": "responsabile-della-produzione-e-ingegneria-di-produzione-arxada-visp",
         "en": "manufacturing-manager-production-engineering-arxada-ch",
         "fr": "manufacturing-manager-production-engineering-arxada-ch"
       },
@@ -881,7 +869,15 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-01T11:10:50.624Z"
+      "firstSeenAt": "2026-07-01T11:10:50.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-manager-production-engineering-arxada-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-manager-production-engineering-arxada-ch"
+      ]
     }
   ]
 }

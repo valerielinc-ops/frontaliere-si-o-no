@@ -75,9 +75,6 @@
         ],
         "de": [
           "leiter-der-agentur-assistant-im-kapitalmanagement-banque-cantonale-du-valais-crans-montana"
-        ],
-        "fr": [
-          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-banque-cantonale-du-valais-crans-montana"
         ]
       },
       "previousSlugs": [
@@ -169,9 +166,6 @@
         ],
         "de": [
           "fachhandel-wahrung-banque-cantonale-du-valais-sion"
-        ],
-        "fr": [
-          "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
         ]
       },
       "previousSlugs": [
@@ -274,9 +268,6 @@
         ],
         "de": [
           "berater-fur-das-management-von-kapital-banque-cantonale-du-valais-martigny"
-        ],
-        "fr": [
-          "conseiller-conseillere-en-gestion-de-fortune-banque-cantonale-du-valais-martigny"
         ]
       },
       "previousSlugs": [
@@ -361,8 +352,7 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
-          "gestionnaire-economat-courrier-et-ged-bcvs-sion",
-          "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion"
+          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
         ],
         "en": [
           "economy-manager-mail-and-gol-banque-cantonale-du-valais-sion"
@@ -371,8 +361,7 @@
           "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion"
         ],
         "fr": [
-          "gestionnaire-economat-courrier-et-ged-bcvs-sion",
-          "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion"
+          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
         ]
       },
       "previousSlugs": [
@@ -462,9 +451,6 @@
         ],
         "de": [
           "assistentin-des-managements-banque-cantonale-du-valais-sion"
-        ],
-        "fr": [
-          "assistant-e-asset-management-banque-cantonale-du-valais-sion"
         ]
       },
       "previousSlugs": [
@@ -545,8 +531,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-e-immobilier-senior-bcvs-sion",
-          "senior-immobiliare-esperto-banque-cantonale-du-valais-sion"
+          "expert-e-immobilier-senior-bcvs-sion"
         ],
         "de": [
           "expert-e-immobilier-senior-bcvs-sion"
@@ -631,8 +616,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-customer-center-bcvs-sion",
-          "consulente-centro-clienti-banque-cantonale-du-valais-sion"
+          "berater-in-customer-center-bcvs-sion"
         ],
         "fr": [
           "berater-in-customer-center-bcvs-sion"
@@ -709,8 +693,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
-          "personale-credito-back-office-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
@@ -798,8 +781,7 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-fichier-central-bcvs-sion",
-          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion",
-          "gestione-file-centrale-banque-cantonale-du-valais-sion"
+          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "gestionnaire-fichier-central-bcvs-sion"
@@ -826,10 +808,10 @@
     },
     {
       "id": "bcvs-f4c0a5a4a5f1",
-      "slug": "conseiller-conseillere-bancaire-bcvs-sierre",
+      "slug": "consulente-bancario-banque-cantonale-du-valais-sierre",
       "slugByLocale": {
         "fr": "conseiller-conseillere-bancaire-bcvs-sierre",
-        "it": "conseiller-conseillere-bancaire-bcvs-sierre",
+        "it": "consulente-bancario-banque-cantonale-du-valais-sierre",
         "en": "conseiller-conseillere-bancaire-bcvs-sierre",
         "de": "conseiller-conseillere-bancaire-bcvs-sierre"
       },
@@ -900,7 +882,15 @@
         }
       },
       "postalCode": "3960",
-      "firstSeenAt": "2026-07-01T11:12:48.710Z"
+      "firstSeenAt": "2026-07-01T11:12:48.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-bancaire-bcvs-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-bancaire-bcvs-sierre"
+      ]
     }
   ]
 }

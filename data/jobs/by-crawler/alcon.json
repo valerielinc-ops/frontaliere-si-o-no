@@ -152,8 +152,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "territory-sales-manager-m-w-d-medical-devices-ophthalmology-switzerland-alcon-ch",
-          "territory-sales-manager-m-f-d-dispositivi-medici-oftalmologia-svizzera-alcon-fribourg"
+          "territory-sales-manager-m-w-d-medical-devices-ophthalmology-switzerland-alcon-ch"
         ],
         "de": [
           "gebietsverkaufsleiter-m-w-d-medizinprodukte-augenheilkunde-schweiz-alcon-fribourg"
@@ -228,8 +227,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch",
-          "sr-associate-m-f-d-dispositivi-medici-lingua-tedesca-e-inglese-alcon-schaffhausen"
+          "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
         ],
         "de": [
           "regulatory-strategy-sr-associate-m-f-d-medical-devices-german-english-speaking-alcon-ch"
@@ -255,10 +253,10 @@
     },
     {
       "id": "alcon-7b70732d2937",
-      "slug": "senior-associate-regulatory-affairs-strategy-alcon-ch",
+      "slug": "strategia-per-gli-affari-regolatori-senior-associate-alcon-fribourg",
       "slugByLocale": {
         "en": "senior-associate-regulatory-affairs-strategy-alcon-ch",
-        "it": "senior-associate-regulatory-affairs-strategy-alcon-ch",
+        "it": "strategia-per-gli-affari-regolatori-senior-associate-alcon-fribourg",
         "de": "senior-associate-regulatory-affairs-strategy-alcon-ch",
         "fr": "senior-associate-regulatory-affairs-strategy-alcon-ch"
       },
@@ -317,7 +315,15 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-01T11:03:19.685Z"
+      "firstSeenAt": "2026-07-01T11:03:19.685Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-associate-regulatory-affairs-strategy-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-associate-regulatory-affairs-strategy-alcon-ch"
+      ]
     }
   ]
 }

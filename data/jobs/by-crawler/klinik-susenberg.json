@@ -62,8 +62,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich",
-          "assistente-medico-ottobre-dicembre-2026-klinik-susenberg-zurich"
+          "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:08.486Z",
@@ -82,10 +81,10 @@
     },
     {
       "id": "klinik-susenberg-3fe420d40510",
-      "slug": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
+      "slug": "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
-        "it": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
+        "it": "med-assistente-di-pratica-mpa-80-klinik-susenberg-zurich",
         "en": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich",
         "fr": "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
       },
@@ -145,7 +144,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T12:08:40.045Z"
+      "firstSeenAt": "2026-07-01T12:08:40.045Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistentin-praxisassistent-mpa-80-klinik-susenberg-zurich"
+      ]
     },
     {
       "id": "klinik-susenberg-d1cf2c5c78f2",
@@ -203,8 +210,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
-          "fachmann-fachfrau-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich"
+          "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
         ],
         "en": [
           "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"

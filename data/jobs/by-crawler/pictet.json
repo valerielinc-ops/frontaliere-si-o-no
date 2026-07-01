@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "pictet-9be9098b6bbe",
-      "slug": "compliance-officer-pictet-singapore",
+      "slug": "responsabile-della-conformita-pictet-group-singapore",
       "slugByLocale": {
         "en": "compliance-officer-pictet-singapore",
-        "it": "compliance-officer-pictet-singapore",
+        "it": "responsabile-della-conformita-pictet-group-singapore",
         "de": "compliance-officer-pictet-singapore",
         "fr": "compliance-officer-pictet-singapore"
       },
@@ -66,7 +66,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-01T12:32:46.562Z"
+      "firstSeenAt": "2026-07-01T12:32:46.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-pictet-singapore"
+      ]
     },
     {
       "id": "pictet-0e2fea42e0f0",
@@ -121,8 +129,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-pictet-taipei",
-          "responsabile-vendite-pictet-group-taipei"
+          "sales-manager-pictet-taipei"
         ],
         "de": [
           "sales-manager-pictet-taipei"
@@ -200,8 +207,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-register-specialist-pictet-luxembourg",
-          "client-register-specialista-pictet-group-luxembourg"
+          "client-register-specialist-pictet-luxembourg"
         ],
         "de": [
           "client-register-specialist-pictet-luxembourg"
@@ -281,8 +287,7 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg",
-          "compliance-officer-fixed-term-contract-24-months-pictet-luxembourg",
-          "senior-compliance-officer-contratto-a-tempo-determinato-12-mesi-pictet-group-luxembourg"
+          "compliance-officer-fixed-term-contract-24-months-pictet-luxembourg"
         ],
         "fr": [
           "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -357,8 +362,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "economist-pictet-tokyo",
-          "economista-pictet-group-tokyo"
+          "economist-pictet-tokyo"
         ],
         "de": [
           "economist-pictet-tokyo"
@@ -436,8 +440,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-          "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg"
+          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "de": [
           "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -644,8 +647,7 @@
       "previousSlugsByLocale": {
         "it": [
           "strategic-project-manager-pictet-geneva",
-          "responsabile-del-progetto-strategico-pictet-group-geneva",
-          "responsabile-strategico-di-progetto-pictet-group-geneva"
+          "responsabile-del-progetto-strategico-pictet-group-geneva"
         ],
         "de": [
           "strategic-project-manager-pictet-geneva"
