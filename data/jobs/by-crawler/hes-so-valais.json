@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-06-30T22:27:35.208Z",
+  "assembledAt": "2026-07-01T11:47:20.579Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-centre-pedagogique-prevention-seisme-cpps-50-***-mitarbeiterin-oder-mitarbeiter-fur-das-bildungszentrum-fur-erdbebenpravention-cpps-50-214815",
@@ -104,7 +104,7 @@
       "titleByLocale": {
         "it": "Assistente Scientifico HES (50%) * Leitender",
         "en": "Scientific Assistant HES (50%) * Leitender",
-        "de": "Wissenschaftlicher Mitarbeiter HES (50%) * Leitender",
+        "de": "Adjointe ou adjoint scientifique HES (50%) *** Leitender",
         "fr": "Adjointe ou adjoint scientifique HES (50%) *** Leitender"
       },
       "slug": "assistente-scientifico-hes-50-hes-so-valais-wallis-sion",
@@ -165,7 +165,8 @@
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-09T22:30:43.421Z"
+      "firstSeenAt": "2026-06-09T22:30:43.421Z",
+      "needsRetranslation": true
     }
   ]
 }
