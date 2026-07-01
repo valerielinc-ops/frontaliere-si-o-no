@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-07-01T11:20:59.189Z",
+  "generatedAt": "2026-07-01T21:55:59.728Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 53220,
-  "avgDurationMs": 53220,
+  "durationMs": 49566,
+  "avgDurationMs": 49566,
   "durationHistory": [
-    53220
+    49566
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,11 +48,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 14,
+        "translation": 23,
         "completeness": 25
       }
     },
