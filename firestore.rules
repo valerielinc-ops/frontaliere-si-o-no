@@ -314,6 +314,9 @@ service cloud.firestore {
     function journalistArticleWriteOk(prev, next) {
       return next.authorUid == prev.authorUid
         && next.id == prev.id
+        // Cross-locale content is written exclusively by the Admin-SDK publish
+        // pipeline (translateArticle) — a client must never be able to set it.
+        && !('en' in next.content) && !('de' in next.content) && !('fr' in next.content)
         && (prev.status == 'draft'
           ? (next.status == 'draft' || next.status == 'queued')
           : (prev.status == 'failed'
@@ -328,6 +331,7 @@ service cloud.firestore {
         && request.resource.data.status == 'draft';
       allow update: if isSignedIn()
         && request.auth.uid == resource.data.authorUid
+        && isActiveJournalist()
         && journalistArticleWriteOk(resource.data, request.resource.data);
       // A draft (never submitted) may be deleted by its author; once queued
       // or beyond, the pipeline/admin own the record's lifecycle.

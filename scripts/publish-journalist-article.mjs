@@ -42,6 +42,9 @@ import {
   enforceStrongInternalLinks,
   findBestFallbackImage,
   pickAuthorForTopic,
+  sanitizeBoldFormatting,
+  validateAndEnforceCTA,
+  optimizeSeoMetadata,
 } from './create-article.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -102,8 +105,6 @@ function buildPipelineData(docId, doc) {
   }
   const id = slugify(docId) || docId;
   const category = CATEGORIES.includes(doc.category) ? doc.category : 'novita';
-  const shortTitle = String(it.title).slice(0, 57);
-  const shortDesc = String(it.excerpt || it.title || '').slice(0, 160);
 
   return {
     id,
@@ -132,15 +133,13 @@ function buildPipelineData(docId, doc) {
         faq: Array.isArray(it.faq) ? it.faq : [],
       },
     },
-    seo: {
-      title: `${shortTitle} | Frontaliere Ticino`,
-      description: shortDesc,
-      keywords: `frontalieri, ticino, ${category}, svizzera, italia`,
-      ogTitle: shortTitle,
-      ogDescription: shortDesc,
-      headline: shortTitle,
-      breadcrumbName: shortTitle.split(/[:.–—]/)[0].trim().slice(0, 40),
-    },
+    // Fully computed by optimizeSeoMetadata() below (title/description/ogTitle/
+    // headline/breadcrumbName/keywords) — identical to the automated pipeline,
+    // including its title-collision guard (throws 'DUPLICATO: ...' when the
+    // journalist's headline matches an existing article; caught by the
+    // per-doc try/catch in processDoc() and stamped as a 'failed' status with
+    // that message so the journalist can pick a different title).
+    seo: {},
   };
 }
 
@@ -259,6 +258,12 @@ async function processDoc(db, FieldValue, docSnap) {
       return { ok: false };
     }
 
+    console.log('  🪪 optimizing SEO metadata (optimizeSeoMetadata)...');
+    optimizeSeoMetadata(data);
+
+    console.log('  ✂️  sanitizing bold formatting (sanitizeBoldFormatting, pre-translation)...');
+    sanitizeBoldFormatting(data);
+
     data.author = pickAuthorForTopic(
       [data.category, data.seo.keywords, data.seo.headline, data.content.it.title, data.id].join(' '),
       data.id,
@@ -271,6 +276,16 @@ async function processDoc(db, FieldValue, docSnap) {
     await translateArticle(data);
 
     deriveLocaleSlugs(data);
+
+    // Re-run after translation: sanitizes bold/`nav:` formatting the MT step
+    // may have introduced into the newly-filled en/de/fr content (mirrors
+    // create-article.mjs's own main(), which calls this both before AND
+    // after translateArticle()).
+    console.log('  ✂️  sanitizing bold formatting (sanitizeBoldFormatting, post-translation)...');
+    sanitizeBoldFormatting(data);
+
+    console.log('  📣 enforcing CTA presence (validateAndEnforceCTA)...');
+    validateAndEnforceCTA(data);
 
     console.log('  🔗 enforcing internal links (enforceStrongInternalLinks)...');
     enforceStrongInternalLinks(data);
