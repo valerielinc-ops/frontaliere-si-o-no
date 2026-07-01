@@ -2483,6 +2483,10 @@ const App: React.FC = () => {
  <div>
  <Metodologia />
  </div>
+ ) : activeTab === 'autore' ? (
+ <div>
+ <AutorePage slug={author || ''} />
+ </div>
  ) : activeTab === 'data-deletion' ? (
  <div>
  <DataDeletion />
