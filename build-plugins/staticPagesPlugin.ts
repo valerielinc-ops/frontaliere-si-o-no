@@ -14,7 +14,7 @@ import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
 import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
-import { CRITICAL_CSS } from './shared/criticalCss';
+import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
@@ -1693,11 +1693,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  return tags.length ? '\n ' + tags.join('\n ') : '';
  };
-
- // Critical CSS (first-paint, non-render-blocking) — single source of truth in
- // shared/criticalCss.ts, shared with ogPagesPlugin. See that module for why it
- // stays inline (render-blocking-by-design) rather than externalized (#1586).
- const criticalCSS = CRITICAL_CSS;
 
  /* ── 1. Parse sitemap sub-files for all URLs with hreflang ── */
  let sitemapSrc: string;
@@ -4678,7 +4673,7 @@ ${hubChromeSplit.bodyHtml}
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  ${DARK_MODE_SCRIPT}
- <style>${criticalCSS}</style>
+ ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}

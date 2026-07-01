@@ -1,17 +1,33 @@
 /**
- * Single source of truth for the first-paint CRITICAL CSS inlined as a
- * `<style>` block by the SEO static-page emitters (`staticPagesPlugin` and
- * `ogPagesPlugin`).
+ * Single source of truth for the first-paint CRITICAL CSS served to every
+ * static SEO page as `/assets/critical.css` (written by
+ * `staticScriptsPlugin.ts` from {@link CRITICAL_CSS} at build time) and
+ * linked via the render-BLOCKING {@link CRITICAL_CSS_LINK} — NOT the
+ * `media="print"` async-swap trick used for `seo-static.css`/the entry sheet.
  *
- * Why this lives here (and is NOT externalized into `seo-static.css`):
- * this block is render-blocking-by-design — it carries the `@font-face`
- * declaration (with font-metric overrides for CLS prevention), the global
- * `*,::after,::before` border-box reset and the `body{}` rules that must paint
- * BEFORE the async Tailwind stylesheet (`media="print"` swap) arrives. Moving
- * it into the shared sheet would make it render-blocking and globalize the
- * resets onto every page that links the sheet — a site-wide FCP/LCP/CWV
- * regression. PR #1587 deliberately left it inline for exactly this reason; see
- * that PR body. So it stays an inline block, but the STRING is defined once.
+ * Why it must stay render-blocking (unchanged from when it was an inline
+ * `<style>` block, PR #1587): it carries the `@font-face` declaration (with
+ * font-metric overrides for CLS prevention), the global `*,::after,::before`
+ * border-box reset, the `body{}` rules and every CLS-reservation block below
+ * — all of it must be in effect BEFORE the async Tailwind stylesheet
+ * (`media="print"` swap) arrives, or the swap itself causes the reflow this
+ * file exists to prevent.
+ *
+ * Why externalizing it (issue: move inline styles/scripts to CDN-served
+ * files, 2026-07) does not reintroduce the #1587 regression: #1587 was about
+ * making the block ASYNC (media=print-swapped, i.e. arriving AFTER first
+ * paint) — that's a correctness bug, not a bytes-on-the-wire one. A
+ * synchronous same-origin `<link rel="stylesheet">`, discovered by the HTML
+ * parser near the top of `<head>`, still blocks first paint exactly like the
+ * inline block did; the only change is one extra same-origin request
+ * (HTTP/2, no new connection) instead of the bytes already sitting in the
+ * document. That's the part with no offline proof — full local SEO builds
+ * OOM (AGENTS.md), so this trade is shipped as an explicitly UNVALIDATED
+ * perf claim with a stated revert trigger (see the PR). `/assets/critical.css`
+ * is root-relative/same-origin like every other file `staticScriptsPlugin.ts`
+ * emits (`early-boot.js`, `gtag-init.js`, …) — not pushed onto the separate
+ * `cdn.frontaliereticino.ch` host, which would add a cross-origin
+ * connection for no benefit on a render-blocking resource.
  *
  * Heading font (`Space Grotesk`, issue #2659): article/OG cold-loads showed a
  * dominant ~0.32 layout shift (live PerformanceObserver, 2026-06-23) because
@@ -322,3 +338,20 @@ export const CRITICAL_CSS =
   SEO_STATIC_HERO_RESERVE_CSS +
   SEO_SEARCH_HUB_RESERVE_CSS +
   ROOT_HEADER_RESERVE_CSS;
+
+/**
+ * Filename `staticScriptsPlugin.ts` writes {@link CRITICAL_CSS} to under
+ * `dist/assets/` — STABLE (no content hash), like every other file that
+ * plugin emits, so it revalidates via the `/assets/*` `max-age=600` header
+ * instead of a rename on every content change.
+ */
+export const CRITICAL_CSS_FILENAME = 'critical.css';
+
+/**
+ * Render-blocking `<link>` for {@link CRITICAL_CSS_FILENAME} — deliberately
+ * NOT the `media="print"` async-swap `asyncCssLink()` (`htmlTemplate.ts`)
+ * uses for `seo-static.css`/the entry sheet, because this stylesheet must
+ * still be in effect at first paint (see the file header comment).
+ */
+export const CRITICAL_CSS_LINK =
+  `<link rel="stylesheet" href="/assets/${CRITICAL_CSS_FILENAME}" data-clarity-unmask="true">`;
