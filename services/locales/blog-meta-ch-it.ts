@@ -787,6 +787,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stop-ristorni-frontiera.title': 'Stop ai ristorni: Comuni di frontiera chiedono incontro urgente con il Governo',
     'blog.article.stop-ristorni-frontiera.excerpt': 'Il Canton Ticino blocca i ristorni ai Comuni di frontiera. L\'associazione chiede un incontro urgente con il Governo italiano.',
     'blog.article.stop-ristorni-frontiera.imageAlt': 'Confine Ticino-Lombardia con cartello blocco ristorni',
+    'blog.article.blocco-ristorni-ticino.title': 'Blocco ristorni, tensioni con il Ticino',
+    'blog.article.blocco-ristorni-ticino.excerpt': 'Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni.',
+    'blog.article.blocco-ristorni-ticino.imageAlt': 'Vista panoramica di Bellinzona con il Castello di Montebello',
 };
 
 export default blogMetaChIt;

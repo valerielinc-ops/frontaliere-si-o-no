@@ -787,6 +787,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stop-ristorni-frontiera.title': 'Stop bei Rückerstattungen: Dringendes Treffen gefordert',
     'blog.article.stop-ristorni-frontiera.excerpt': 'Der Kanton Tessin blockiert Rückschüsse an Grenzgemeinden. Der Verband bittet um ein dringendes Treffen mit der italienischen Regierung.',
     'blog.article.stop-ristorni-frontiera.imageAlt': 'Grenze zwischen Tessin und Lombardei mit Schild zur Sperrung von ristorni',
+    'blog.article.blocco-ristorni-ticino.title': 'Block der Rückerstattungen, Spannungen mit dem Tessin',
+    'blog.article.blocco-ristorni-ticino.excerpt': 'Die Blockierung von Rückerstattungen durch den Kanton Tessin als Reaktion auf die italienische Gesundheitssteuer hat Kontroversen und Spannungen ausgelöst.',
+    'blog.article.blocco-ristorni-ticino.imageAlt': 'Panoramablick auf Bellinzona mit der Burg Montebello',
 };
 
 export default blogMetaChDe;

@@ -4323,6 +4323,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-volg-binn-novita-2024': { name: 'Volg Binn', path: '/articoli-svizzera/volg-binn-novita-2024/', parent: 'blog' },
     'blog-dogana-chiasso-brogeda-traffico-2024': { name: 'Dogana Chiasso Brogeda', path: '/articoli-svizzera/dogana-chiasso-brogeda-traffico-2024/', parent: 'blog' },
     'blog-stop-ristorni-frontiera': { name: 'Novità', path: '/articoli-svizzera/stop-ristorni-frontiera/', parent: 'blog' },
+    'blog-blocco-ristorni-ticino': { name: 'Blocco Ristorni', path: '/articoli-svizzera/blocco-ristorni-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

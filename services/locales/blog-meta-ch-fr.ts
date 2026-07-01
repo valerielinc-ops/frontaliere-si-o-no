@@ -787,6 +787,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stop-ristorni-frontiera.title': 'Arrêt des remises : réunion urgente demandée',
     'blog.article.stop-ristorni-frontiera.excerpt': 'Le canton du Tessin bloque les remises aux municipalités frontalières. L’association demande une réunion urgente avec le gouvernement italien.',
     'blog.article.stop-ristorni-frontiera.imageAlt': 'Frontière entre le Tessin et la Lombardie avec panneau indiquant le blocage des ristorni',
+    'blog.article.blocco-ristorni-ticino.title': 'Bloc de remises, tensions avec le Tessin',
+    'blog.article.blocco-ristorni-ticino.excerpt': 'Le blocage des repromotions par le canton du Tessin en réponse à la taxe sanitaire italienne a suscité controverse et tensions.',
+    'blog.article.blocco-ristorni-ticino.imageAlt': 'Vue panoramique de Bellinzona avec le château de Montebello',
 };
 
 export default blogMetaChFr;
