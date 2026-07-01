@@ -114,7 +114,7 @@ export function isVersionSkewError(err: unknown): boolean {
 // refetches chunks already loaded on the current page, so a second, not-yet-loaded
 // stale chunk can still surface after the first reload and needs its own retry).
 const BOOTSTRAP_RELOAD_KEY = '_swReloadCount';
-const MAX_RELOADS = 2;
+export const MAX_RELOADS = 2;
 
 // Upper bound on how long the HTTP-cache bust may run before we reload anyway.
 // Asset chunks are small and refetched in parallel; this is only a backstop so a

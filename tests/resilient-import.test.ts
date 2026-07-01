@@ -6,6 +6,7 @@ import {
   isModuleLinkSkewMessage,
   recoverFromStaleChunk,
   bustAssetHttpCache,
+  MAX_RELOADS,
 } from '@/services/resilientImport';
 
 /**
@@ -14,7 +15,7 @@ import {
  *  2. import() resolves but the module is missing expected exports (version
  *     skew: stable-named chunks where a cached entry pulls a fresh chunk whose
  *     export shape differs → "n.getApp is not a function" on a minified name).
- * Both clear caches, retry once, then reload (guarded to once per session).
+ * Both clear caches, retry once, then reload (guarded to MAX_RELOADS per session).
  */
 describe('resilientImport', () => {
   beforeEach(() => {
@@ -58,7 +59,7 @@ describe('resilientImport', () => {
     expect((globalThis as any).caches.delete).toHaveBeenCalledTimes(2); // c1 + c2
   });
 
-  it('reloads at most once per session when the chunk is truly gone', async () => {
+  it('reloads up to MAX_RELOADS times per session when the chunk is truly gone', async () => {
     const reload = vi.fn();
     Object.defineProperty(window, 'location', {
       configurable: true,
@@ -76,7 +77,15 @@ describe('resilientImport', () => {
     // Uses the shared _swReloadCount key — same ceiling as recoverFromStaleChunk + index.html.
     expect(sessionStorage.getItem('_swReloadCount')).toBe('1');
 
-    // A subsequent failure must NOT reload again (guard holds across callers).
+    // A second, independently-stale chunk in the same session still has budget left.
+    for (let n = 2; n <= MAX_RELOADS; n++) {
+      reload.mockClear();
+      await expect(resilientImport(factory)).rejects.toThrow();
+      expect(reload).toHaveBeenCalledTimes(1);
+      expect(sessionStorage.getItem('_swReloadCount')).toBe(String(n));
+    }
+
+    // Once the ceiling is reached, a further failure must NOT reload again.
     reload.mockClear();
     await expect(resilientImport(factory)).rejects.toThrow();
     expect(reload).not.toHaveBeenCalled();
@@ -195,20 +204,28 @@ describe('recoverFromStaleChunk', () => {
     expect(sessionStorage.getItem('_swReloadCount')).toBe('1');
   });
 
-  it('honours a reload already triggered by the index.html bootstrap recovery', async () => {
+  it('honours the reload ceiling already reached by the index.html bootstrap recovery', async () => {
     const reload = setHostname('frontaliereticino.ch');
     // index.html's resource/import/skew handlers set this same counter.
-    sessionStorage.setItem('_swReloadCount', '1');
+    sessionStorage.setItem('_swReloadCount', String(MAX_RELOADS));
     const scheduled = await recoverFromStaleChunk('after-bootstrap-reload');
     expect(scheduled).toBe(false);
     expect(reload).not.toHaveBeenCalled();
   });
 
-  it('is guarded to a single reload per session', async () => {
+  it('is guarded to at most MAX_RELOADS reloads per session', async () => {
     const reload = setHostname('frontaliereticino.ch');
-    await recoverFromStaleChunk('first');
+
+    for (let n = 1; n <= MAX_RELOADS; n++) {
+      reload.mockClear();
+      const scheduled = await recoverFromStaleChunk(`attempt-${n}`);
+      expect(scheduled).toBe(true);
+      expect(reload).toHaveBeenCalledTimes(1);
+    }
+
+    // Ceiling reached — a further failure must NOT reload again.
     reload.mockClear();
-    const scheduled = await recoverFromStaleChunk('second');
+    const scheduled = await recoverFromStaleChunk('over-the-limit');
     expect(scheduled).toBe(false);
     expect(reload).not.toHaveBeenCalled();
   });
