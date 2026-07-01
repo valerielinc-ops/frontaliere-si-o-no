@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-07-01T13:08:26.727Z",
+  "assembledAt": "2026-07-01T23:26:41.219Z",
   "jobs": [
     {
       "id": "vaxcyte-f558683786d7",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T13:08:24.333Z",
+      "crawledAt": "2026-07-01T23:26:39.067Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -71,6 +71,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -115,7 +116,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T13:08:24.318Z",
+      "crawledAt": "2026-07-01T23:26:39.053Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -197,7 +198,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T13:08:24.307Z",
+      "crawledAt": "2026-07-01T23:26:39.047Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -219,18 +220,19 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "firstSeenAt": "2026-06-30T23:25:58.849Z",
+      "previousSlugs": [
+        "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch"
+          "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch",
+          "senior-manager-manufacturing-systems-operations-readiness-contrattore-vaxcyte-visp"
         ],
         "de": [
           "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-manager-manufacturing-systems-operations-readiness-contractor-vaxcyte-ch"
-      ],
+      "firstSeenAt": "2026-06-30T23:25:58.849Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -275,7 +277,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5252592008?gh_jid=5252592008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T13:08:24.234Z",
+      "crawledAt": "2026-07-01T23:26:38.994Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
