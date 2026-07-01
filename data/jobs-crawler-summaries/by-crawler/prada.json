@@ -1,21 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-01T12:47:25.962Z",
+  "generatedAt": "2026-07-01T22:51:57.145Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7988,
-  "avgDurationMs": 7988,
+  "durationMs": 7875,
+  "avgDurationMs": 7875,
   "durationHistory": [
-    7988
+    7875
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-ee516bd112ea",
-      "slug": "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
+      "slug": "supporto-vendite-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -33,17 +34,16 @@
       "url": "https://jobs.pradagroup.com/job/Miami-Sales-Support-Miu-Miu-Bal-Harbour-OH/1399979033/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T12:47:21.919Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-01T22:51:52.716Z",
+      "firstSeenAt": "2026-07-01T12:47:21.919Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -64,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T12:47:20.874Z",
+      "crawledAt": "2026-07-01T22:51:52.160Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -79,7 +79,7 @@
   "unchangedJobs": [
     {
       "id": "prada-ee516bd112ea",
-      "slug": "sales-support-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
+      "slug": "supporto-vendite-miu-miu-bal-harbour-prada-group-miami-sales-support-miu-miu-bal-harbour",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -97,18 +97,18 @@
       "url": "https://jobs.pradagroup.com/job/Miami-Sales-Support-Miu-Miu-Bal-Harbour-OH/1399979033/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T12:47:21.919Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-01T22:51:52.716Z",
+      "firstSeenAt": "2026-07-01T12:47:21.919Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -132,7 +132,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T12:47:20.874Z",
+      "crawledAt": "2026-07-01T22:51:52.160Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
