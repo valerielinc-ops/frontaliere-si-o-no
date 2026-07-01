@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-11T09:33:41.995Z",
-    "label": "after",
-    "total": 14293,
-    "needsRetranslation": 5265,
-    "suppressed": 44,
-    "incomplete": 3048,
-    "complete": 11245,
-    "missingByLocale": {
-      "it": 2494,
-      "en": 2321,
-      "de": 763,
-      "fr": 2360
-    },
-    "topPending": [
-      {
-        "company": "UFA AG",
-        "pending": 430
-      },
-      {
-        "company": "Hirslanden Klinik",
-        "pending": 417
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 291
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 274
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 123
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 104
-      },
-      {
-        "company": "Liebherr",
-        "pending": 90
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 86
-      },
-      {
-        "company": "Roche",
-        "pending": 79
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-11T09:38:44.663Z",
-    "label": "before",
-    "total": 14306,
-    "needsRetranslation": 5226,
-    "suppressed": 43,
-    "incomplete": 2973,
-    "complete": 11333,
-    "missingByLocale": {
-      "it": 2414,
-      "en": 2243,
-      "de": 700,
-      "fr": 2329
-    },
-    "topPending": [
-      {
-        "company": "UFA AG",
-        "pending": 427
-      },
-      {
-        "company": "Hirslanden Klinik",
-        "pending": 417
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 291
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 274
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 123
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 104
-      },
-      {
-        "company": "Liebherr",
-        "pending": 90
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 86
-      },
-      {
-        "company": "Roche",
-        "pending": 79
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-11T11:45:07.748Z",
-    "label": "after",
-    "total": 14306,
-    "needsRetranslation": 4930,
-    "suppressed": 43,
-    "incomplete": 2707,
-    "complete": 11599,
-    "missingByLocale": {
-      "it": 2154,
-      "en": 1984,
-      "de": 699,
-      "fr": 2069
-    },
-    "topPending": [
-      {
-        "company": "UFA AG",
-        "pending": 427
-      },
-      {
-        "company": "Hirslanden Klinik",
-        "pending": 417
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 274
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 123
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 104
-      },
-      {
-        "company": "Liebherr",
-        "pending": 90
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 86
-      },
-      {
-        "company": "Roche",
-        "pending": 79
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 76
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-11T12:46:10.092Z",
-    "label": "before",
-    "total": 14200,
-    "needsRetranslation": 5807,
-    "suppressed": 44,
-    "incomplete": 2062,
-    "complete": 12138,
-    "missingByLocale": {
-      "it": 1441,
-      "en": 1213,
-      "de": 467,
-      "fr": 1335
-    },
-    "topPending": [
-      {
-        "company": "UFA AG",
-        "pending": 413
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 272
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 100
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 86
-      },
-      {
-        "company": "Roche",
-        "pending": 79
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 76
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 60
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 50
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 46
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-11T14:57:29.021Z",
     "label": "after",
     "total": 14200,
@@ -11510,6 +11282,120 @@
       {
         "company": "Bürgenstock Hotels AG",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-01T00:56:46.226Z",
+    "label": "before",
+    "total": 18297,
+    "needsRetranslation": 5722,
+    "suppressed": 463,
+    "incomplete": 948,
+    "complete": 17349,
+    "missingByLocale": {
+      "it": 449,
+      "en": 309,
+      "de": 456,
+      "fr": 161
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 780
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 56
+      },
+      {
+        "company": "Manor AG",
+        "pending": 26
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-01T01:14:47.756Z",
+    "label": "after",
+    "total": 18297,
+    "needsRetranslation": 2299,
+    "suppressed": 464,
+    "incomplete": 948,
+    "complete": 17349,
+    "missingByLocale": {
+      "it": 448,
+      "en": 297,
+      "de": 461,
+      "fr": 158
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 780
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 56
+      },
+      {
+        "company": "Manor AG",
+        "pending": 26
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
       }
     ]
   }
