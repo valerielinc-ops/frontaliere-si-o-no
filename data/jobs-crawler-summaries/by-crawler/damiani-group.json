@@ -1,18 +1,49 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-07-01T11:41:04.841Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-07-01T22:08:15.322Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4280,
-  "avgDurationMs": 4280,
+  "durationMs": 5938,
+  "avgDurationMs": 5938,
   "durationHistory": [
-    4280
+    5938
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Consolidation & Reporting Specialist",
+      "slug": "consolidation-reporting-specialist-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Consolidation-&-Reporting-Specialist/1359074255/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1359074255/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-07-01",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Specialista Customer Service - lingua araba o russa",
