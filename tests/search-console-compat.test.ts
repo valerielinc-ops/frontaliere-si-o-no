@@ -254,6 +254,38 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // Bare `page-N` (legacy English pagination word crawls, real GSC traffic) →
+  // 301 to the section's real localized pagination-ladder twin, derived from
+  // the canton already encoded in the URL. IT/DE use a different word
+  // ("pagina"/"seite"); EN/FR already use "page" natively, so the canonical
+  // target is the same word with a normalized trailing slash.
+  it('redirects bare page-N leaves to their localized pagination-ladder twin, with a section-root fallback', () => {
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-friburgo/page-12')).toEqual({
+      canonicalPath: '/cerca-lavoro-friburgo/pagina-12/',
+      kind: 'legacy',
+      locale: 'it',
+      fallbackPath: '/cerca-lavoro-friburgo/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-in-freiburg/page-9')).toEqual({
+      canonicalPath: '/de/jobs-in-freiburg/seite-9/',
+      kind: 'legacy',
+      locale: 'de',
+      fallbackPath: '/de/jobs-in-freiburg/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/find-jobs-vaud/page-21')).toEqual({
+      canonicalPath: '/en/find-jobs-vaud/page-21/',
+      kind: 'legacy',
+      locale: 'en',
+      fallbackPath: '/en/find-jobs-vaud/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/trouver-emploi-fribourg/page-9')).toEqual({
+      canonicalPath: '/fr/trouver-emploi-fribourg/page-9/',
+      kind: 'legacy',
+      locale: 'fr',
+      fallbackPath: '/fr/trouver-emploi-fribourg/',
+    });
+  });
+
   it('routes expired job-detail leaves with a trailing numeric id to the listing', () => {
     expect(
       resolveSearchConsoleCompatTarget(
