@@ -1,49 +1,18 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-07-01T13:10:04.733Z",
+  "generatedAt": "2026-07-01T23:19:55.666Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1123,
-  "avgDurationMs": 1123,
+  "durationMs": 1363,
+  "avgDurationMs": 1363,
   "durationHistory": [
-    1123
+    1363
   ],
-  "newJobs": [
-    {
-      "title": "Impiegato/a amministrativo-contabile",
-      "slug": "impiegato-a-amministrativo-contabile-tinext-lugano-backoffthb",
-      "url": "https://tinext.kenjo.io/backoffthb",
-      "applyUrl": "https://tinext.kenjo.io/backoffthb",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Morbio",
-      "addressLocality": "Morbio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "IT & Digital Transformation",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-01",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 63,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Security & Network Engineer",
@@ -81,14 +50,12 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Senior B2B Marketing & Communication Specialist",
-      "slug": "senior-marketing-communication-specialist-tinext-lugano-senmrkt",
-      "url": "https://tinext.kenjo.io/senmrkt",
-      "applyUrl": "https://tinext.kenjo.io/senmrkt",
+      "title": "Impiegato/a amministrativo-contabile",
+      "slug": "impiegato-a-amministrativo-contabile-tinext-lugano-backoffthb",
+      "url": "https://tinext.kenjo.io/backoffthb",
+      "applyUrl": "https://tinext.kenjo.io/backoffthb",
       "company": "Tinext SA",
       "companyKey": "tinext",
       "companyDomain": "tinext.com",
@@ -98,21 +65,21 @@
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "Marketing & Communication",
+      "category": "IT & Digital Transformation",
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-07-01",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "tinext-a9b5b8a332b2",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
+      "id": "tinext-02ce24a236a5",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Cantonale 18",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-30T12:47:57.066Z",
+      "firstSeenAt": "2026-07-01T13:10:04.732Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -122,5 +89,6 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
