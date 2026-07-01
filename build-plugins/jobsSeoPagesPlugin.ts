@@ -10336,6 +10336,22 @@ ${staticAnalyticsHtml}
  const expiredSlugs = Object.keys(tracking).filter(
  (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s),
  );
+ // Also strip these keys from `tracking` itself — mirrors the RESERVED_HUB_SLUGS
+ // strip above (L9755-9768). Filtering only the derived `expiredSlugs` array left
+ // the compound keys sitting in `tracking`, so the self-healing safety net
+ // (`Object.entries(tracking)` below) resurrected them as generic "Offerta di
+ // lavoro aggiornata" tombstones at the exact cross-locale paths this filter was
+ // meant to eliminate.
+ let hubPaginationKeysRemoved = 0;
+ for (const key of Object.keys(tracking)) {
+ if (HUB_PAGINATION_COMPOUND_KEY_RE.test(key)) {
+ delete tracking[key];
+ hubPaginationKeysRemoved++;
+ }
+ }
+ if (hubPaginationKeysRemoved > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Removed ${hubPaginationKeysRemoved} hub-pagination compound key(s) from tracking (self-healing safety net)`);
+ }
 
  const expiredBannerCopy: Record<string, { title: string; banner: string }> = {
  it: { title: 'Offerta non più disponibile', banner: 'Questa posizione non è più attiva. Di seguito trovi i dettagli originali e posizioni simili.' },
