@@ -3,32 +3,32 @@
     {
       "query": "case anziani ticino offerte di lavoro",
       "clicks": 36,
-      "impressions": 438
+      "impressions": 444
     },
     {
       "query": "offerte di lavoro casa di riposo svizzera",
-      "clicks": 19,
-      "impressions": 249
+      "clicks": 20,
+      "impressions": 255
     },
     {
       "query": "offerte lavoro casa di riposo svizzera",
       "clicks": 18,
-      "impressions": 233
+      "impressions": 238
     },
     {
       "query": "case anziani lugano posti di lavoro",
-      "clicks": 10,
-      "impressions": 143
+      "clicks": 11,
+      "impressions": 145
     },
     {
       "query": "offerte di lavoro casa anziani ticino",
       "clicks": 13,
-      "impressions": 78
+      "impressions": 81
     },
     {
       "query": "casa anziani paradiso offerta lavoro",
       "clicks": 1,
-      "impressions": 65
+      "impressions": 67
     },
     {
       "query": "offerte lavoro casa anziani ticino",
@@ -37,23 +37,23 @@
     },
     {
       "query": "casa anziani comunale bellinzona offerte di lavoro",
-      "clicks": 2,
-      "impressions": 50
+      "clicks": 3,
+      "impressions": 52
     },
     {
       "query": "casa anziani mendrisio lavoro",
       "clicks": 1,
-      "impressions": 42
+      "impressions": 45
     },
     {
       "query": "casa anziani chiasso lavoro",
       "clicks": 7,
-      "impressions": 41
+      "impressions": 44
     },
     {
       "query": "case di riposo ticino lavora con noi",
       "clicks": 4,
-      "impressions": 36
+      "impressions": 38
     },
     {
       "query": "casa anziani offerte di lavoro",
@@ -63,7 +63,12 @@
     {
       "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
       "clicks": 0,
-      "impressions": 19
+      "impressions": 27
+    },
+    {
+      "query": "offerte lavoro assistente di cura ticino",
+      "clicks": 3,
+      "impressions": 13
     },
     {
       "query": "offerte di lavoro casa di riposo per anziani",
@@ -72,11 +77,6 @@
     },
     {
       "query": "casa anziani giornico lavoro",
-      "clicks": 1,
-      "impressions": 9
-    },
-    {
-      "query": "offerte lavoro assistente di cura ticino",
       "clicks": 1,
       "impressions": 9
     },
@@ -108,21 +108,123 @@
       "impressions": 1
     }
   ],
-  "nurses": [
+  "educatori": [
     {
-      "query": "nursing jobs",
-      "clicks": 0,
-      "impressions": 164
+      "query": "offerte di lavoro educatrice svizzera italiana",
+      "clicks": 8,
+      "impressions": 21
     },
     {
-      "query": "what nursing jobs are open in the zurich region?",
+      "query": "offerte lavoro educatore ticino",
+      "clicks": 1,
+      "impressions": 19
+    },
+    {
+      "query": "educatore sociale offerte lavoro ticino",
+      "clicks": 3,
+      "impressions": 17
+    },
+    {
+      "query": "educatrice ticino lavoro",
+      "clicks": 1,
+      "impressions": 13
+    },
+    {
+      "query": "offerte di lavoro educatore ticino",
+      "clicks": 3,
+      "impressions": 11
+    },
+    {
+      "query": "offerte lavoro educatrice ticino",
+      "clicks": 1,
+      "impressions": 9
+    },
+    {
+      "query": "lavoro insegnante canton ticino",
+      "clicks": 0,
+      "impressions": 9
+    },
+    {
+      "query": "offerte lavoro educatore canton ticino",
+      "clicks": 0,
+      "impressions": 9
+    },
+    {
+      "query": "lavoro educatrice ticino",
+      "clicks": 2,
+      "impressions": 8
+    },
+    {
+      "query": "educatore ticino",
+      "clicks": 0,
+      "impressions": 8
+    },
+    {
+      "query": "offerte di lavoro educatrice ticino",
       "clicks": 0,
       "impressions": 7
     },
     {
-      "query": "nursing job opportunities in switzerland",
+      "query": "offerte lavoro educatore",
+      "clicks": 0,
+      "impressions": 7
+    },
+    {
+      "query": "offerte lavoro educatore svizzera",
+      "clicks": 0,
+      "impressions": 7
+    },
+    {
+      "query": "offerte di lavoro educatore svizzera italiana",
+      "clicks": 1,
+      "impressions": 5
+    },
+    {
+      "query": "educatore mendrisio lavoro",
+      "clicks": 0,
+      "impressions": 5
+    },
+    {
+      "query": "educatore svizzera",
+      "clicks": 1,
+      "impressions": 4
+    },
+    {
+      "query": "offerte di lavoro centri diurni ticino",
       "clicks": 0,
       "impressions": 4
+    },
+    {
+      "query": "offerte lavoro sociale ticino",
+      "clicks": 1,
+      "impressions": 3
+    },
+    {
+      "query": "concorsi educatore ticino",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "lavoro educatore ticino",
+      "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "nurses": [
+    {
+      "query": "nursing jobs",
+      "clicks": 0,
+      "impressions": 174
+    },
+    {
+      "query": "what nursing jobs are open in the zurich region?",
+      "clicks": 0,
+      "impressions": 8
+    },
+    {
+      "query": "nursing job opportunities in switzerland",
+      "clicks": 0,
+      "impressions": 5
     },
     {
       "query": "english speaking nursing jobs in switzerland",
@@ -151,6 +253,11 @@
     },
     {
       "query": "nursing jobs in switzerland for foreigners",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "registered nurse jobs",
       "clicks": 0,
       "impressions": 2
     },
@@ -203,113 +310,6 @@
       "query": "netti?",
       "clicks": 0,
       "impressions": 1
-    },
-    {
-      "query": "nurse",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "educatori": [
-    {
-      "query": "offerte di lavoro educatrice svizzera italiana",
-      "clicks": 7,
-      "impressions": 20
-    },
-    {
-      "query": "educatore sociale offerte lavoro ticino",
-      "clicks": 3,
-      "impressions": 16
-    },
-    {
-      "query": "offerte lavoro educatore ticino",
-      "clicks": 1,
-      "impressions": 16
-    },
-    {
-      "query": "educatrice ticino lavoro",
-      "clicks": 0,
-      "impressions": 11
-    },
-    {
-      "query": "offerte di lavoro educatore ticino",
-      "clicks": 3,
-      "impressions": 9
-    },
-    {
-      "query": "lavoro insegnante canton ticino",
-      "clicks": 0,
-      "impressions": 9
-    },
-    {
-      "query": "offerte lavoro educatore canton ticino",
-      "clicks": 0,
-      "impressions": 9
-    },
-    {
-      "query": "lavoro educatrice ticino",
-      "clicks": 2,
-      "impressions": 8
-    },
-    {
-      "query": "educatore ticino",
-      "clicks": 0,
-      "impressions": 8
-    },
-    {
-      "query": "offerte lavoro educatrice ticino",
-      "clicks": 1,
-      "impressions": 7
-    },
-    {
-      "query": "offerte di lavoro educatrice ticino",
-      "clicks": 0,
-      "impressions": 7
-    },
-    {
-      "query": "offerte lavoro educatore",
-      "clicks": 0,
-      "impressions": 7
-    },
-    {
-      "query": "offerte lavoro educatore svizzera",
-      "clicks": 0,
-      "impressions": 7
-    },
-    {
-      "query": "offerte di lavoro educatore svizzera italiana",
-      "clicks": 1,
-      "impressions": 5
-    },
-    {
-      "query": "educatore svizzera",
-      "clicks": 1,
-      "impressions": 4
-    },
-    {
-      "query": "offerte di lavoro centri diurni ticino",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "offerte lavoro sociale ticino",
-      "clicks": 1,
-      "impressions": 3
-    },
-    {
-      "query": "lavoro educatore ticino",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "offerte di lavoro educatore",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "offerte di lavoro educatore svizzera",
-      "clicks": 0,
-      "impressions": 3
     }
   ],
   "lugano": [
@@ -388,7 +388,7 @@
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 80
+      "impressions": 81
     },
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
@@ -500,6 +500,11 @@
       "impressions": 2
     },
     {
+      "query": "gastroticino offerte di lavoro",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
       "query": "offerte lavoro ristorazione svizzera",
       "clicks": 0,
       "impressions": 2
@@ -533,18 +538,13 @@
       "query": "cuoco ticino",
       "clicks": 0,
       "impressions": 1
-    },
-    {
-      "query": "gastroticino offerte di lavoro",
-      "clicks": 0,
-      "impressions": 1
     }
   ],
   "locarno": [
     {
       "query": "agence pour l emploi locarno",
       "clicks": 0,
-      "impressions": 3
+      "impressions": 4
     },
     {
       "query": "job locarno",
@@ -566,12 +566,12 @@
     {
       "query": "software house ticino",
       "clicks": 0,
-      "impressions": 12
+      "impressions": 13
     },
     {
       "query": "software house canton ticino",
       "clicks": 0,
-      "impressions": 11
+      "impressions": 12
     },
     {
       "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
@@ -589,12 +589,12 @@
       "impressions": 7
     },
     {
-      "query": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "query": "software ticino",
       "clicks": 0,
-      "impressions": 5
+      "impressions": 6
     },
     {
-      "query": "software ticino",
+      "query": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
       "clicks": 0,
       "impressions": 5
     },
@@ -668,7 +668,7 @@
     {
       "query": "enterprise suche für entwickler",
       "clicks": 0,
-      "impressions": 16
+      "impressions": 17
     },
     {
       "query": "softwareentwicklung jobs lugano",
@@ -682,6 +682,11 @@
     },
     {
       "query": "jobs flash entwickler",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "softwareentwickler",
       "clicks": 0,
       "impressions": 1
     },
@@ -705,7 +710,7 @@
     {
       "query": "pflegejobs spital schiers",
       "clicks": 0,
-      "impressions": 4
+      "impressions": 5
     },
     {
       "query": "pflegedienst tessin",
@@ -1086,7 +1091,7 @@
     {
       "query": "hire developers in switzerland",
       "clicks": 0,
-      "impressions": 10
+      "impressions": 11
     },
     {
       "query": "web developer ticino",
@@ -1368,6 +1373,20 @@
       "query": "pflegejobs spital schiers",
       "clicks": 0,
       "impressions": 2
+    }
+  ],
+  "formateur-trice-en-centre-de-formation-swatch-group-100-la-chaux-de-fonds-eta-sa-manufacture-horlogere-suisse-ticino": [
+    {
+      "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "electricians": [
+    {
+      "query": "find a job as an electrician in the canton of vaud",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "chauffeurs": [
