@@ -18,6 +18,18 @@ service firebase.storage {
       allow read: if false;
     }
 
+    // Journalist hero-image uploads for draft/queued articles (see
+    // firestore.rules `journalist_articles`). Only the owning journalist may
+    // write or read their own path; the publish pipeline reads via the Admin
+    // SDK, which bypasses these rules entirely.
+    match /journalist-uploads/{uid}/{articleId}/{file} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
     // Default deny: any path not matched above is inaccessible.
     match /{allPaths=**} {
       allow read, write: if false;

@@ -1,0 +1,103 @@
+name: Publish Journalist Articles (queued → live pipeline)
+
+# Picks up journalist_articles docs flipped to status:'queued' by the gated
+# journalist dashboard (services/journalistArticleService.ts submitForPublish)
+# and runs them through the SAME multi-language registration pipeline
+# automated content uses (scripts/create-article.mjs), then checks the live
+# internal links of everything already published. Mirrors
+# publisher-jobs-sync.yml's shape (schedule + dispatch, bot commit + rebase-
+# retry push to main), reusing the exact same secrets — no new ones needed.
+
+on:
+  schedule:
+    # Every 15 minutes — a journalist expects to see their article go live
+    # soon after hitting "Submit", not on the next daily cron.
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  # Serialize: never two concurrent commits from this pipeline to main.
+  group: publish-journalist-articles
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  publish-journalist-articles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"; exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      # Loaded BEFORE the publish step (unlike publisher-jobs-sync.yml, which
+      # loads it after the commit): translateArticle()/the free-MT cascade and
+      # the "article is live" email both need RESEND_API_KEY / MT provider
+      # keys from Remote Config while the pipeline itself is running, not
+      # only for a post-commit deploy trigger.
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Publish queued journalist articles
+        run: node scripts/publish-journalist-article.mjs
+
+      - name: Check live internal links of published journalist articles
+        run: node scripts/check-journalist-article-links.mjs
+
+      - name: Commit registered article files (test-gated) + push with rebase-retry
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No journalist-article changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "📰 Publish journalist article(s)"
+            bash scripts/lib/git-push-with-retry.sh
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.has_changes == 'true'
+        run: bash scripts/lib/trigger-deploy.sh || true
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

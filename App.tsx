@@ -72,6 +72,7 @@ const CommunityForum = lazyRetry(() => import('@/components/community/CommunityF
 const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
 const PublisherPublishPage = lazyRetry(() => import('@/components/pages/PublisherPublishPage'));
 const PublisherDashboardPage = lazyRetry(() => import('@/components/pages/PublisherDashboardPage'));
+const JournalistDashboardPage = lazyRetry(() => import('@/components/pages/JournalistDashboardPage'));
 const ForEmployersPage = lazyRetry(() => import('@/components/pages/ForEmployersPage'));
 const EmployerInsightsPage = lazyRetry(() => import('@/components/pages/EmployerInsightsPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
@@ -2517,6 +2518,10 @@ const App: React.FC = () => {
  ) : activeTab === 'publisher-dashboard' ? (
  <div className="max-w-7xl mx-auto">
  <PublisherDashboardPage />
+ </div>
+ ) : activeTab === 'journalist-dashboard' ? (
+ <div className="max-w-7xl mx-auto">
+ <JournalistDashboardPage />
  </div>
  ) : activeTab === 'for-employers' ? (
  <div className="max-w-7xl mx-auto">
