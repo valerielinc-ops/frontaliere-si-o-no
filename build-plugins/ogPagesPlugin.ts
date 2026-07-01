@@ -451,6 +451,16 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  .replace(/\\t/g, ' ')
  .replace(/\\\\/g, '\\');
 
+ // Preserves \n as actual newlines (needed for body markdown structure: headings/lists/FAQ).
+ const unescapeTsStringRaw = (value: string): string =>
+ value
+ .replace(/\\'/g, '\'')
+ .replace(/\\"/g, '"')
+ .replace(/\\n/g, '\n')
+ .replace(/\\r/g, '')
+ .replace(/\\t/g, ' ')
+ .replace(/\\\\/g, '\\');
+
  const parseBlogMetaLocale = (locale: 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
@@ -482,7 +492,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  while ((m = rx.exec(src)) !== null) {
  const articleId = m[1];
  const field = m[2];
- const value = unescapeTsString(m[3]);
+ const value = unescapeTsStringRaw(m[3]);
  if (!out[articleId]) out[articleId] = {};
  out[articleId][field] = value;
  }
@@ -515,45 +525,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  en: parseBlogBodyLocale('en'),
  de: parseBlogBodyLocale('de'),
  fr: parseBlogBodyLocale('fr'),
- } as const;
-
- // Raw body parser preserving \n as actual newlines (for FAQ markdown extraction)
- const unescapeTsStringRaw = (value: string): string =>
- value
- .replace(/\\'/g, '\'')
- .replace(/\\"/g, '"')
- .replace(/\\n/g, '\n')
- .replace(/\\r/g, '')
- .replace(/\\t/g, ' ')
- .replace(/\\\\/g, '\\');
-
- const parseBlogBodyRawLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
- const out: Record<string, Record<string, string>> = {};
- const dir = np.resolve(rootDir, 'services', 'locales', SECTION.bodyDir, locale);
- let files: string[] = [];
- try { files = fs.readdirSync(dir); } catch { return out; }
- const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
- for (const file of files) {
- if (!file.endsWith('.ts')) continue;
- let src = '';
- try { src = fs.readFileSync(np.join(dir, file), 'utf-8'); } catch { continue; }
- let m: RegExpExecArray | null;
- while ((m = rx.exec(src)) !== null) {
- const articleId = m[1];
- const field = m[2];
- const value = unescapeTsStringRaw(m[3]);
- if (!out[articleId]) out[articleId] = {};
- out[articleId][field] = value;
- }
- }
- return out;
- };
-
- const blogBodyRawByLocale = {
- it: parseBlogBodyRawLocale('it'),
- en: parseBlogBodyRawLocale('en'),
- de: parseBlogBodyRawLocale('de'),
- fr: parseBlogBodyRawLocale('fr'),
  } as const;
 
  const normalizeDateTime = (value: string): string => {
@@ -771,7 +742,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  }
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
- const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
+ const allBodyKeys = localizedBody ? Object.keys(localizedBody).filter(k => /^body\d+$/.test(k)).sort((a, b) => {
  const na = parseInt(a.replace('body', ''), 10);
  const nb = parseInt(b.replace('body', ''), 10);
  return na - nb;
@@ -968,7 +939,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
  // Try structured FAQ from body data first (new articles with AI-generated FAQ)
  let faqPairsFromData: Array<{ question: string; answer: string }> | null = null;
- const articleBodyData = blogBodyRawByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyRawByLocale.it?.[en.articleId];
+ const articleBodyData = blogBodyByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyByLocale.it?.[en.articleId];
  if (articleBodyData) {
  const faqRaw = articleBodyData['faq'];
  if (faqRaw) {
@@ -987,7 +958,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  // Use structured FAQ if available, otherwise fall back to heuristic for evergreen articles
  const useFaqPairs = faqPairsFromData ?? (() => {
  if (!EVERGREEN_CATEGORIES.has(articleCategory)) return null;
- const rawBody = blogBodyRawByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyRawByLocale.it?.[en.articleId];
+ const rawBody = blogBodyByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyByLocale.it?.[en.articleId];
  if (!rawBody) return null;
  const rawBodyKeys = Object.keys(rawBody).sort((a, b) => {
  const na = parseInt(a.replace(/\D/g, ''), 10);
@@ -1068,23 +1039,24 @@ ${href}
  en.keywords,
  SECTION.name,
  );
- const bodyWordCount = bodySections.join(' ').split(/\s+/).filter(Boolean).length;
+ const bodyWordCount = countWords(bodySections.join(' '));
+ // bodySections are already-rendered HTML (headings/lists/links) from cleanupArticleBodySections;
+ // fallbackSections carry plain prose paragraphs that still need escaping + <p> wrapping.
+ const bodyDerivedSections = bodySections.map((bodyHtml, i) => ({
+ heading: i === 0 ? 'Contesto' : i === 1 ? 'Dettagli operativi' : 'Punti chiave',
+ html: bodyHtml,
+ }));
+ const fallbackDerivedSections = fallbackSections.map((section) => ({
+ heading: section.heading,
+ html: section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join(''),
+ }));
  const sectionSource = !bodySections.length
- ? fallbackSections
+ ? fallbackDerivedSections
  : (bodyWordCount < 360
- ? [
- ...bodySections.map((body, i) => ({
- heading: i === 0 ? 'Contesto' : i === 1 ? 'Dettagli operativi' : 'Punti chiave',
- paragraphs: [body],
- })),
- ...fallbackSections,
- ]
- : bodySections.map((body, i) => ({
- heading: i === 0 ? 'Contesto' : i === 1 ? 'Dettagli operativi' : 'Punti chiave',
- paragraphs: [body],
- })));
+ ? [...bodyDerivedSections, ...fallbackDerivedSections]
+ : bodyDerivedSections);
  const articleBodyHtml = sectionSource
- .map((section) => `<section><h2>${esc(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}</section>`)
+ .map((section) => `<section><h2>${esc(section.heading)}</h2>${section.html}</section>`)
  .join('');
  return `<!DOCTYPE html>
 <html lang="${locale}">
@@ -1105,7 +1077,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1128,7 +1100,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
  </body>
 </html>`;
  };

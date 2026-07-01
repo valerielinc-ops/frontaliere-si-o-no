@@ -22,7 +22,7 @@ describe('article SEO fallback builder', () => {
     expect(allText).toContain('imposta');
   });
 
-  it('cleans markdown-like article body sections before rendering', () => {
+  it('renders markdown-like article body sections into semantic HTML', () => {
     const sections = cleanupArticleBodySections([
       '## Titolo\n**Testo** con [link](https://example.com) e `code`',
       undefined,
@@ -30,8 +30,14 @@ describe('article SEO fallback builder', () => {
     ]);
 
     expect(sections).toEqual([
-      'Titolo\nTesto con link e code',
-      '• punto uno\n• punto due',
+      '<h3>Titolo</h3><p><strong>Testo</strong> con <a href="https://example.com">link</a> e <code>code</code></p>',
+      '<ul><li>punto uno</li><li>punto due</li></ul>',
     ]);
+  });
+
+  it('escapes HTML-special characters in body markdown before adding markup', () => {
+    const sections = cleanupArticleBodySections(['Tom & Jerry <script>alert(1)</script>']);
+
+    expect(sections).toEqual(['<p>Tom &amp; Jerry &lt;script&gt;alert(1)&lt;/script&gt;</p>']);
   });
 });
