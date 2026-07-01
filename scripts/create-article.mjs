@@ -128,6 +128,7 @@ import { matchesFrontaliereAnchor, matchesFrontaliereUnambiguousAnchor } from '.
 import { isNonItalianScript, nonItalianScriptRatio } from './lib/itLanguageCheck.mjs';
 import { checkSemanticNearDuplicate } from './lib/scoring/semanticDedup.mjs';
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
+import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -1975,6 +1976,226 @@ function capBlogDescription(rawDesc, maxLen = BLOG_DESCRIPTION_MAX) {
   const originalLength = s.length;
   if (originalLength <= maxLen) return { value: s, truncated: false, originalLength };
   return { value: truncateAtWordBoundary(s, maxLen), truncated: true, originalLength };
+}
+
+// Swiss cantons (Italian names), major Ticino cities, and neighbouring
+// countries — commonly capitalized mid-sentence in this site's Italian
+// journalism and NOT to be lowercased by normalizeTitleCasing below, even
+// though they aren't fully-uppercase acronyms (issue #3174 follow-up:
+// "Nuove Regole Per Il Ticino" was becoming "...per il ticino").
+const TITLE_CASING_PROPER_NOUNS = new Set([
+  'ticino', 'zurigo', 'berna', 'ginevra', 'basilea', 'argovia', 'turgovia',
+  'sciaffusa', 'soletta', 'lucerna', 'uri', 'svitto', 'untervaldo', 'glarona',
+  'zugo', 'friburgo', 'vaud', 'vallese', 'neuchâtel', 'giura', 'grigioni',
+  'appenzello', 'sangallo', 'lugano', 'bellinzona', 'locarno', 'chiasso',
+  'mendrisio', 'losanna', 'svizzera', 'italia', 'germania', 'francia',
+  'austria', 'liechtenstein',
+]);
+
+/**
+ * Normalize a journalist-typed title from Title Case to sentence case: only
+ * the first letter of the title is capitalized, every other word is
+ * lowercased — UNLESS the journalist already typed it fully uppercase
+ * (treated as an acronym, e.g. AVS/IVA/CHF/COVID-19) or it's a known Swiss
+ * canton/city/country proper noun (TITLE_CASING_PROPER_NOUNS), either of
+ * which is preserved as-is. No-op if the title doesn't look Title-Cased to
+ * begin with (issue #3174 follow-up — "redazione" title casing).
+ */
+function normalizeTitleCasing(rawTitle) {
+  const s = String(rawTitle || '').replace(/\s+/g, ' ').trim();
+  if (!s) return s;
+  const words = s.split(' ');
+  const looksTitleCase = words.filter((w) => /^[A-ZÀ-Ý]/.test(w)).length >= Math.ceil(words.length * 0.6);
+  if (!looksTitleCase) return s;
+  return words
+    .map((w, idx) => {
+      const isAcronym = w.length > 1 && w === w.toUpperCase() && w !== w.toLowerCase();
+      if (isAcronym) return w;
+      const bareLower = w.replace(/^[^A-Za-zÀ-ÿ]+|[^A-Za-zÀ-ÿ]+$/g, '').toLowerCase();
+      if (TITLE_CASING_PROPER_NOUNS.has(bareLower)) return w;
+      const lower = w.toLowerCase();
+      return idx === 0 ? lower.charAt(0).toUpperCase() + lower.slice(1) : lower;
+    })
+    .join(' ');
+}
+
+/**
+ * Generate a short excerpt/meta-description from a full IT article body via a
+ * lightweight, single-purpose LLM call (NOT the full callGemini() generation
+ * call — this only needs 1-2 sentences, so it skips the body2/body3-length
+ * retry machinery). Never throws: on any failure it falls back to the first
+ * ~160 chars of the body via capBlogDescription so publishing is never
+ * blocked on this step (issue #3174 follow-up — auto-generated excerpt).
+ */
+async function generateExcerpt(title, body1, body2, body3) {
+  const bodyText = [body1, body2, body3].filter(Boolean).join('\n\n');
+  try {
+    const messages = [
+      {
+        role: 'system',
+        content:
+          'Sei un redattore SEO italiano. Scrivi un riassunto breve (1-2 frasi, massimo 160 caratteri) ' +
+          'per un articolo di blog, adatto come meta-description. Rispondi SOLO con il testo del riassunto, ' +
+          'senza virgolette né markdown.',
+      },
+      { role: 'user', content: `Titolo: ${title}\n\nCorpo dell'articolo:\n${bodyText.slice(0, 4000)}` },
+    ];
+    const raw = await _aiCallLLM(messages, { temperature: 0.5, maxTokens: 200, timeout: 30_000 });
+    const excerpt = String(raw || '').replace(/^["'“”]+|["'“”]+$/g, '').trim();
+    if (excerpt) return capBlogDescription(excerpt).value;
+  } catch (err) {
+    console.warn(`  ⚠️  generateExcerpt fallito, uso fallback troncato: ${err.message}`);
+  }
+  return capBlogDescription(bodyText).value;
+}
+
+/**
+ * Split a single free-text article body (as authored by a journalist in the
+ * redazione dashboard) into the fixed body1/body2/body3 shape the rest of
+ * the pipeline (REQUIRED_IT_BODY_FIELDS, validateItalianPayload,
+ * translateArticle, enforceStrongInternalLinks, ...) already expects. An LLM
+ * call decides the split points (issue #3174 follow-up — the journalist's
+ * explicit choice over a blank-line heuristic) so it can balance section
+ * length instead of cutting mid-thought.
+ */
+async function splitBodyIntoSections(fullBody, title) {
+  const text = String(fullBody || '').trim();
+  if (!text) throw new Error('splitBodyIntoSections: corpo vuoto');
+
+  const schema = {
+    name: 'body_split',
+    schema: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['body1', 'body2', 'body3'],
+      properties: {
+        body1: { type: 'string' },
+        body2: { type: 'string' },
+        body3: { type: 'string' },
+      },
+    },
+  };
+  const messages = [
+    {
+      role: 'system',
+      content:
+        'Sei un redattore italiano. Dividi il testo fornito in ESATTAMENTE 3 sezioni bilanciate ' +
+        '(body1, body2, body3) senza aggiungere, riassumere o rimuovere contenuto — solo suddividere ' +
+        'nei punti più naturali. Preserva ESATTAMENTE la formattazione markdown esistente (grassetto ' +
+        '**testo**, elenchi, e link interni nel formato [testo](nav:azione)). Rispondi SOLO in JSON.',
+    },
+    { role: 'user', content: `Titolo: ${title}\n\nTesto da dividere:\n${text}` },
+  ];
+
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const raw = await _aiCallLLM(messages, {
+        temperature: 0.3,
+        maxTokens: 4000,
+        timeout: 60_000,
+        jsonMode: true,
+        jsonSchema: schema,
+      });
+      const parsed = JSON.parse(repairLlmJson(raw));
+      if (parsed?.body1 && parsed?.body2 && parsed?.body3 && parsed.body2.trim().length >= 40) {
+        return { body1: parsed.body1.trim(), body2: parsed.body2.trim(), body3: parsed.body3.trim() };
+      }
+    } catch (err) {
+      console.warn(`  ⚠️  splitBodyIntoSections tentativo ${attempt} fallito: ${err.message}`);
+    }
+  }
+  throw new Error('splitBodyIntoSections: impossibile ottenere una suddivisione valida dopo 3 tentativi');
+}
+
+/**
+ * Read-only variant of generateArticleImage()'s Wikimedia/Pixabay/Pexels
+ * search: returns candidate image URLs for a picker UI WITHOUT downloading
+ * or writing any file (no sharp/fs writes) — download + webp conversion
+ * happens later, at draft-save time, through the existing resolveHeroImage()
+ * path in publish-journalist-article.mjs (any https:// URL is handled
+ * identically whether it came from a Storage upload or a picked URL here).
+ */
+async function findStockImageCandidates(data, count = 4) {
+  const candidates = [];
+
+  try {
+    const query = _buildWikimediaQueries(data)[0];
+    if (query) {
+      const wikiUrl =
+        `https://commons.wikimedia.org/w/api.php?action=query&generator=search` +
+        `&gsrsearch=${encodeURIComponent(query)}&gsrnamespace=6&gsrlimit=8` +
+        `&prop=imageinfo&iiprop=url|size|mime&iiurlwidth=1280&format=json`;
+      const res = await fetch(wikiUrl, {
+        signal: AbortSignal.timeout(15000),
+        headers: { 'User-Agent': 'FrontaliereBot/1.0 (https://frontaliereticino.ch; blog image)' },
+      });
+      if (res.ok) {
+        const json = await res.json();
+        const pages = Object.values(json.query?.pages || {});
+        for (const p of pages) {
+          const info = p.imageinfo?.[0];
+          const mime = (info?.mime || '').toLowerCase();
+          if (info?.thumburl && (mime.startsWith('image/jpeg') || mime.startsWith('image/png'))) {
+            candidates.push({ url: info.thumburl, source: 'wikimedia', attribution: p.title || null });
+          }
+          if (candidates.length >= count) break;
+        }
+      }
+    }
+  } catch (err) {
+    console.warn(`  ⚠️  findStockImageCandidates/Wikimedia fallito: ${err.message}`);
+  }
+
+  const pixabayKey = process.env.PIXABAY_API_KEY;
+  if (candidates.length < count && pixabayKey) {
+    try {
+      const query = _buildWikimediaQueries(data)[0] || 'ticino switzerland';
+      const category = _inferPixabayCategory(data);
+      const res = await fetch(
+        `https://pixabay.com/api/?key=${pixabayKey}&q=${encodeURIComponent(query)}` +
+          `${category ? `&category=${encodeURIComponent(category)}` : ''}` +
+          `&image_type=photo&orientation=horizontal&per_page=20&min_width=1280&safesearch=true`,
+        { signal: AbortSignal.timeout(15000) },
+      );
+      if (res.ok) {
+        const json = await res.json();
+        const relevant = (json.hits || []).filter((h) => _isImageRelevant(h.tags, data));
+        for (const hit of relevant) {
+          const url = hit.largeImageURL || hit.webformatURL;
+          if (url) candidates.push({ url, source: 'pixabay', attribution: hit.user || null });
+          if (candidates.length >= count) break;
+        }
+      }
+    } catch (err) {
+      console.warn(`  ⚠️  findStockImageCandidates/Pixabay fallito: ${err.message}`);
+    }
+  }
+
+  const pexelsKey = process.env.PEXELS_API_KEY;
+  if (candidates.length < count && pexelsKey) {
+    try {
+      const query = _buildWikimediaQueries(data)[0] || 'ticino switzerland';
+      const res = await fetch(
+        `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&orientation=landscape&size=large&per_page=20`,
+        { headers: { Authorization: pexelsKey }, signal: AbortSignal.timeout(15000) },
+      );
+      if (res.ok) {
+        const json = await res.json();
+        const relevant = (json.photos || []).filter((p) =>
+          _isImageRelevant((p.alt || '').replace(/\s+/g, ','), data),
+        );
+        for (const photo of relevant) {
+          const url = photo.src?.large2x || photo.src?.large || photo.src?.original;
+          if (url) candidates.push({ url, source: 'pexels', attribution: photo.photographer || null });
+          if (candidates.length >= count) break;
+        }
+      }
+    } catch (err) {
+      console.warn(`  ⚠️  findStockImageCandidates/Pexels fallito: ${err.message}`);
+    }
+  }
+
+  return candidates.slice(0, count);
 }
 
 const REQUIRED_IT_BODY_FIELDS = ['title', 'excerpt', 'body1', 'body2', 'body3'];
@@ -6046,7 +6267,9 @@ async function generateArticleImage(data) {
       // sharp not available — image stays as-is (acceptable in rare CI edge cases)
     }
 
-    return `/images/blog/${data.id}.webp`;
+    const generatedPath = `/images/blog/${data.id}.webp`;
+    appendCatalogEntry(generatedPath);
+    return generatedPath;
   }
 
   // ── Strategy 1: Gemini native image generation (free tier) ──
@@ -8665,6 +8888,11 @@ export { buildBodyFile };
 // (issue #3174 — a manually-authored article must go through the exact same
 // multi-language pipeline as an automated one).
 export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata };
+
+// Redazione redesign (issue #3174 follow-up): the journalist now authors only
+// {title, body}; these derive the title-casing/excerpt/body1-3/cover-image
+// candidates the shared pipeline above still expects.
+export { normalizeTitleCasing, generateExcerpt, splitBodyIntoSections, findStockImageCandidates };
 
 // Only run the AI generation pipeline when invoked directly as a CLI — importing
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.

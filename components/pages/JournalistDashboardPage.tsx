@@ -20,7 +20,7 @@
  * writes are restricted to 'draft'/'queued' by firestore.rules).
  */
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Newspaper,
   Plus,
@@ -37,6 +37,8 @@ import {
   RotateCcw,
   Pencil,
   Clock,
+  Bold,
+  Sparkles,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -64,10 +66,10 @@ import {
 import type {
   JournalistArticle,
   JournalistArticleCategory,
-  JournalistArticleFaq,
   JournalistArticleLocaleContent,
   ArticleLocale,
 } from '@/services/journalistTypes';
+import { searchImageCatalog, type CatalogImageCandidate } from '@/services/journalistImageCatalog';
 
 type ViewMode = 'list' | 'article';
 
@@ -79,12 +81,40 @@ const LOCALE_LABELS: Record<ArticleLocale, string> = {
   fr: 'Français',
 };
 
-function emptyFaq(): JournalistArticleFaq {
-  return { q: '', a: '' };
-}
+// Kept in sync with scripts/create-article.mjs's TITLE_CASING_PROPER_NOUNS.
+const TITLE_CASING_PROPER_NOUNS = new Set([
+  'ticino', 'zurigo', 'berna', 'ginevra', 'basilea', 'argovia', 'turgovia',
+  'sciaffusa', 'soletta', 'lucerna', 'uri', 'svitto', 'untervaldo', 'glarona',
+  'zugo', 'friburgo', 'vaud', 'vallese', 'neuchâtel', 'giura', 'grigioni',
+  'appenzello', 'sangallo', 'lugano', 'bellinzona', 'locarno', 'chiasso',
+  'mendrisio', 'losanna', 'svizzera', 'italia', 'germania', 'francia',
+  'austria', 'liechtenstein',
+]);
 
-function emptyContent(): JournalistArticleLocaleContent {
-  return { title: '', excerpt: '', body1: '', body2: '', body3: '', faq: [] };
+/**
+ * Client-side preview of scripts/create-article.mjs's normalizeTitleCasing()
+ * — kept as a small, deliberately-duplicated pure-string function rather than
+ * a shared import: importing from scripts/*.mjs into the Vite client bundle
+ * would drag in Node-only dependencies (fs/sharp/firebase-admin) transitively
+ * pulled in by that file. The server-side copy is authoritative at publish
+ * time; this is purely a "here's what will be saved" hint for the journalist.
+ */
+function normalizeTitleCasingPreview(rawTitle: string): string {
+  const s = rawTitle.replace(/\s+/g, ' ').trim();
+  if (!s) return s;
+  const words = s.split(' ');
+  const looksTitleCase = words.filter((w) => /^[A-ZÀ-Ý]/.test(w)).length >= Math.ceil(words.length * 0.6);
+  if (!looksTitleCase) return s;
+  return words
+    .map((w, idx) => {
+      const isAcronym = w.length > 1 && w === w.toUpperCase() && w !== w.toLowerCase();
+      if (isAcronym) return w;
+      const bareLower = w.replace(/^[^A-Za-zÀ-ÿ]+|[^A-Za-zÀ-ÿ]+$/g, '').toLowerCase();
+      if (TITLE_CASING_PROPER_NOUNS.has(bareLower)) return w;
+      const lower = w.toLowerCase();
+      return idx === 0 ? lower.charAt(0).toUpperCase() + lower.slice(1) : lower;
+    })
+    .join(' ');
 }
 
 function formatDate(iso: string | undefined, locale: string): string {
@@ -126,16 +156,15 @@ export default function JournalistDashboardPage(): React.ReactElement {
   const [draftId, setDraftId] = useState<string | null>(null); // null while composing a brand-new draft
   const [openArticle, setOpenArticle] = useState<JournalistArticle | null>(null); // full record once persisted
   const [title, setTitle] = useState('');
-  const [excerpt, setExcerpt] = useState('');
-  const [body1, setBody1] = useState('');
-  const [body2, setBody2] = useState('');
-  const [body3, setBody3] = useState('');
-  const [faq, setFaq] = useState<JournalistArticleFaq[]>([]);
+  const [body, setBody] = useState('');
+  const bodyRef = useRef<HTMLTextAreaElement | null>(null);
   const [category, setCategory] = useState<JournalistArticleCategory>(JOURNALIST_ARTICLE_CATEGORIES[0]);
   const [image, setImage] = useState('');
   const [imageAlt, setImageAlt] = useState('');
   const [slugTaken, setSlugTaken] = useState(false);
   const [checkingSlug, setCheckingSlug] = useState(false);
+  const [imageCandidates, setImageCandidates] = useState<CatalogImageCandidate[] | null>(null);
+  const [suggestingImages, setSuggestingImages] = useState(false);
 
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -170,11 +199,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
     setDraftId(null);
     setOpenArticle(null);
     setTitle('');
-    setExcerpt('');
-    setBody1('');
-    setBody2('');
-    setBody3('');
-    setFaq([]);
+    setBody('');
     setCategory(JOURNALIST_ARTICLE_CATEGORIES[0]);
     setImage('');
     setImageAlt('');
@@ -182,6 +207,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
     setSaveMsg(null);
     setShowSubmitConfirm(false);
     setShowDeleteConfirm(false);
+    setImageCandidates(null);
   };
 
   const openNewDraft = () => {
@@ -194,11 +220,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
     setOpenArticle(article);
     const content = article.content.it;
     setTitle(content.title);
-    setExcerpt(content.excerpt);
-    setBody1(content.body1);
-    setBody2(content.body2);
-    setBody3(content.body3);
-    setFaq(content.faq || []);
+    setBody(content.body);
     setCategory(article.category);
     setImage(article.image);
     setImageAlt(article.imageAlt);
@@ -206,6 +228,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
     setSaveMsg(null);
     setShowSubmitConfirm(false);
     setShowDeleteConfirm(false);
+    setImageCandidates(null);
     setView('article');
   };
 
@@ -230,11 +253,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
 
   const currentContent = (): JournalistArticleLocaleContent => ({
     title: title.trim(),
-    excerpt: excerpt.trim(),
-    body1,
-    body2,
-    body3,
-    faq: faq.filter((f) => f.q.trim() && f.a.trim()),
+    body,
   });
 
   const handleSaveDraft = async () => {
@@ -292,6 +311,51 @@ export default function JournalistDashboardPage(): React.ReactElement {
       setSaveMsg({ ok: false, text: t('journalistDashboard.editor.imageError') });
     } finally {
       setUploadingImage(false);
+    }
+  };
+
+  /** Wraps the current textarea selection in `**...**` (or inserts an empty pair at the caret). No rich-text lib in this repo — plain markdown, same convention splitBodyIntoSections() preserves server-side. */
+  const handleBoldToggle = () => {
+    const el = bodyRef.current;
+    if (!el) return;
+    const { selectionStart, selectionEnd, value } = el;
+    const selected = value.slice(selectionStart, selectionEnd);
+    const next = `${value.slice(0, selectionStart)}**${selected}**${value.slice(selectionEnd)}`;
+    setBody(next);
+    const newStart = selectionStart + 2;
+    const newEnd = newStart + selected.length;
+    requestAnimationFrame(() => {
+      el.focus();
+      el.setSelectionRange(newStart, newEnd);
+    });
+  };
+
+  const handleSearchCatalog = async () => {
+    if (suggestingImages || !title.trim()) return;
+    setSuggestingImages(true);
+    setImageCandidates(null);
+    try {
+      const candidates = await searchImageCatalog(title, body);
+      setImageCandidates(candidates);
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.searchCatalog');
+      setSaveMsg({ ok: false, text: t('journalistDashboard.editor.suggestImagesError') });
+    } finally {
+      setSuggestingImages(false);
+    }
+  };
+
+  const handlePickCatalogImage = async (path: string) => {
+    setImage(path);
+    setImageCandidates(null);
+    if (draftId) {
+      try {
+        await saveDraft(draftId, { image: path });
+        setSaveMsg({ ok: true, text: t('journalistDashboard.editor.imageSaved') });
+      } catch (err) {
+        reportCaughtError(err, 'journalistDashboard.imageUpload');
+        setSaveMsg({ ok: false, text: t('journalistDashboard.editor.imageError') });
+      }
     }
   };
 
@@ -641,19 +705,11 @@ export default function JournalistDashboardPage(): React.ReactElement {
                     : t('journalistDashboard.editor.slugPreview', { slug: computedSlug })}
               </p>
             )}
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-strong mb-1.5" htmlFor="jd-excerpt">
-              {t('journalistDashboard.editor.excerptLabel')}
-            </label>
-            <textarea
-              id="jd-excerpt"
-              value={excerpt}
-              onChange={(e) => setExcerpt(e.target.value)}
-              rows={2}
-              className="w-full px-3.5 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm resize-y"
-            />
+            {title.trim() && normalizeTitleCasingPreview(title.trim()) !== title.trim() && (
+              <p className="text-xs mt-1 text-muted">
+                {t('journalistDashboard.editor.titleCasingHint', { title: normalizeTitleCasingPreview(title.trim()) })}
+              </p>
+            )}
           </div>
 
           <div>
@@ -678,69 +734,28 @@ export default function JournalistDashboardPage(): React.ReactElement {
             {t('journalistDashboard.editor.enrichmentHint')}
           </p>
 
-          {(['body1', 'body2', 'body3'] as const).map((field, idx) => {
-            const value = field === 'body1' ? body1 : field === 'body2' ? body2 : body3;
-            const setter = field === 'body1' ? setBody1 : field === 'body2' ? setBody2 : setBody3;
-            return (
-              <div key={field}>
-                <label className="block text-sm font-medium text-strong mb-1.5" htmlFor={`jd-${field}`}>
-                  {t('journalistDashboard.editor.bodyLabel', { n: idx + 1 })}
-                </label>
-                <textarea
-                  id={`jd-${field}`}
-                  value={value}
-                  onChange={(e) => setter(e.target.value)}
-                  rows={6}
-                  className="w-full px-3.5 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm resize-y font-mono"
-                />
-              </div>
-            );
-          })}
-
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <label className="block text-sm font-medium text-strong">{t('journalistDashboard.editor.faqLabel')}</label>
+              <label className="block text-sm font-medium text-strong" htmlFor="jd-body">
+                {t('journalistDashboard.editor.bodyLabel')}
+              </label>
               <button
                 type="button"
-                onClick={() => setFaq((prev) => [...prev, emptyFaq()])}
-                className="inline-flex items-center gap-1 text-xs font-medium text-link hover:text-link-hover"
+                onClick={handleBoldToggle}
+                title={t('journalistDashboard.editor.boldTooltip')}
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg border border-edge text-subtle hover:bg-surface-alt hover:text-strong transition-colors"
               >
-                <Plus className="w-3.5 h-3.5" />
-                {t('journalistDashboard.editor.addFaq')}
+                <Bold className="w-3.5 h-3.5" />
               </button>
             </div>
-            <div className="space-y-3">
-              {faq.map((item, i) => (
-                <div key={i} className="p-3 bg-surface-alt border border-edge rounded-xl space-y-2">
-                  <input
-                    type="text"
-                    value={item.q}
-                    onChange={(e) =>
-                      setFaq((prev) => prev.map((f, fi) => (fi === i ? { ...f, q: e.target.value } : f)))
-                    }
-                    placeholder={t('journalistDashboard.editor.faqQuestionPlaceholder')}
-                    className="w-full px-3 py-2 bg-surface border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                  />
-                  <textarea
-                    value={item.a}
-                    onChange={(e) =>
-                      setFaq((prev) => prev.map((f, fi) => (fi === i ? { ...f, a: e.target.value } : f)))
-                    }
-                    rows={2}
-                    placeholder={t('journalistDashboard.editor.faqAnswerPlaceholder')}
-                    className="w-full px-3 py-2 bg-surface border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent resize-y"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setFaq((prev) => prev.filter((_, fi) => fi !== i))}
-                    className="inline-flex items-center gap-1 text-xs font-medium text-danger hover:opacity-80"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    {t('journalistDashboard.editor.removeFaq')}
-                  </button>
-                </div>
-              ))}
-            </div>
+            <textarea
+              id="jd-body"
+              ref={bodyRef}
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              rows={16}
+              className="w-full px-3.5 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm resize-y font-mono"
+            />
           </div>
 
           <div>
@@ -752,17 +767,50 @@ export default function JournalistDashboardPage(): React.ReactElement {
             )}
             {draftId ? (
               <>
-                <input
-                  id="jd-image"
-                  type="file"
-                  accept="image/*"
-                  disabled={uploadingImage}
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) void handleImageUpload(file);
-                  }}
-                  className="block w-full text-sm text-subtle file:mr-3 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-accent-subtle file:text-link hover:file:bg-accent-subtle/80"
-                />
+                <div className="flex flex-wrap items-center gap-2">
+                  <input
+                    id="jd-image"
+                    type="file"
+                    accept="image/*"
+                    disabled={uploadingImage}
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) void handleImageUpload(file);
+                    }}
+                    className="block text-sm text-subtle file:mr-3 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-accent-subtle file:text-link hover:file:bg-accent-subtle/80"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => { void handleSearchCatalog(); }}
+                    disabled={suggestingImages || !title.trim()}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-link border border-edge rounded-xl hover:bg-surface-alt disabled:opacity-60 transition-colors"
+                  >
+                    <Sparkles className="w-3.5 h-3.5" />
+                    {suggestingImages
+                      ? t('journalistDashboard.editor.suggestingImages')
+                      : t('journalistDashboard.editor.suggestImages')}
+                  </button>
+                </div>
+                {imageCandidates && (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2">
+                    {imageCandidates.length === 0 ? (
+                      <p className="text-xs text-muted col-span-full">
+                        {t('journalistDashboard.editor.suggestImagesEmpty')}
+                      </p>
+                    ) : (
+                      imageCandidates.map((candidate) => (
+                        <button
+                          key={candidate.path}
+                          type="button"
+                          onClick={() => { void handlePickCatalogImage(candidate.path); }}
+                          className="relative rounded-xl overflow-hidden border border-edge hover:ring-2 hover:ring-accent transition-shadow"
+                        >
+                          <img src={candidate.path} alt="" className="w-full h-20 object-cover" />
+                        </button>
+                      ))
+                    )}
+                  </div>
+                )}
                 <input
                   type="text"
                   value={imageAlt}

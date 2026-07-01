@@ -20,18 +20,16 @@ export type JournalistArticleCategory = 'fiscale' | 'pratico' | 'novita' | 'pens
 
 export type JournalistArticleStatus = 'draft' | 'queued' | 'published' | 'failed';
 
-export interface JournalistArticleFaq {
-  q: string;
-  a: string;
-}
-
+/**
+ * The journalist authors only title + a single free-text body. Sentence-case
+ * title normalization, excerpt, paragraph split (body1/body2/body3), and FAQ
+ * are all derived server-side by scripts/publish-journalist-article.mjs at
+ * publish time (deriveJournalistContent(), reusing the same generation
+ * helpers as the automated article pipeline).
+ */
 export interface JournalistArticleLocaleContent {
   title: string;
-  excerpt: string;
-  body1: string;
-  body2: string;
-  body3: string;
-  faq: JournalistArticleFaq[];
+  body: string;
 }
 
 export type ArticleLocale = 'it' | 'en' | 'de' | 'fr';

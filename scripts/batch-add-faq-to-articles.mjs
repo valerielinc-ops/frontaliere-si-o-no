@@ -484,7 +484,7 @@ Scrivi ora il testo:`;
   return text;
 }
 
-async function generateFaqIT(articleId, bodyText) {
+export async function generateFaqIT(articleId, bodyText) {
   const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera ESATTAMENTE 5 coppie FAQ (domanda/risposta) in italiano. Il MINIMO ASSOLUTO è 3 coppie.
 
 REGOLE:
@@ -1065,8 +1065,14 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error(`\n💥 Fatal error: ${err.message}`);
-  console.error(err.stack);
-  process.exit(1);
-});
+// Only auto-run the batch job when this file is executed directly (`node
+// batch-add-faq-to-articles.mjs`) — NOT when it's imported elsewhere just to
+// reuse `generateFaqIT` (e.g. publish-journalist-article.mjs), which would
+// otherwise trigger the entire batch scan as an import side effect.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch(err => {
+    console.error(`\n💥 Fatal error: ${err.message}`);
+    console.error(err.stack);
+    process.exit(1);
+  });
+}
