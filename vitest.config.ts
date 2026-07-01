@@ -67,6 +67,7 @@ const JSDOM_TS_FILES = [
   'tests/authGateExperiment.test.ts',
   'tests/behavior-tracker.test.ts',
   'tests/bot-gate-parity.test.ts',
+  'tests/build-plugins/earlyBootSelfHeal.test.ts',
   'tests/build-plugins/logo-fallback-script.test.ts',
   'tests/cdn-image-base.test.ts',
   'tests/dist-salary-hub-footer-portal.test.ts',
