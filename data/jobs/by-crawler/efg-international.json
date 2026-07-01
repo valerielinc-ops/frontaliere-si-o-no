@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-06-30T22:10:55.571Z",
+  "assembledAt": "2026-07-01T11:40:33.482Z",
   "jobs": [
     {
       "id": "efg-6266",
@@ -83,7 +83,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.976Z",
+      "crawledAt": "2026-07-01T11:40:30.625Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -126,7 +126,8 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -215,7 +216,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.974Z",
+      "crawledAt": "2026-07-01T11:40:30.624Z",
       "slugByLocale": {
         "it": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -303,7 +304,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.973Z",
+      "crawledAt": "2026-07-01T11:40:30.623Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -346,7 +347,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -369,7 +371,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -397,7 +399,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.971Z",
+      "crawledAt": "2026-07-01T11:40:30.621Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
@@ -439,7 +441,8 @@
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -490,7 +493,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.971Z",
+      "crawledAt": "2026-07-01T11:40:30.620Z",
       "slugByLocale": {
         "it": "client-support-officer-efg-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -528,7 +531,8 @@
           "funzionario-dell-assistenza-clienti-efg-international-ag-st"
         ]
       },
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -654,7 +658,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.969Z",
+      "crawledAt": "2026-07-01T11:40:30.619Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -699,7 +703,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -852,7 +857,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.968Z",
+      "crawledAt": "2026-07-01T11:40:30.618Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1080,7 +1085,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.967Z",
+      "crawledAt": "2026-07-01T11:40:30.617Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1215,7 +1220,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.965Z",
+      "crawledAt": "2026-07-01T11:40:30.615Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1257,6 +1262,102 @@
         "it-data-service-manager-efg-geneve"
       ],
       "country": "CH"
+    },
+    {
+      "id": "efg-6064",
+      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Cybersecurity Internal Penetration Tester",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Cybersecurity Internal Penetration Tester",
+        "it": "Tester di penetrazione interna della sicurezza informatica",
+        "de": "Cybersecurity intern Penetration Tester",
+        "fr": "Cybersécurité Testeur interne de pénétration"
+      },
+      "descriptionByLocale": {
+        "en": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
+        "it": "Informazioni generali\n- No.\nDipartimento: Sicurezza dell'informazione e BCM\n- No.\nTempo di lavoro Percentuale: 100%\n- No.\nUbicazione: Ginevra (preferito), Zurigo o Lugano\n\nDescrizione del lavoro\n\nContext\n- The Information Security & BCM, sotto la guida del Group Chief Information Security Officer (CISO) e parte dell'organizzazione Chief Operating Officer (COO), definisce, guida e coordina gli sforzi di sicurezza delle informazioni in EFG International e le sue entità a livello globale. Esso delinea la strategia di sicurezza delle informazioni, identifica e gestisce iniziative di sicurezza e definisce gli standard.\n\nPer supportare il Quadro di Gestione dei Rischi ICT, nel rispetto dei requisiti normativi (FINMA, DORA e relativi regolamenti finanziari), stiamo cercando un Tester di Penetrazione Intermal Cybersecurity.\n\nIl candidato di successo sarà responsabile per l’esecuzione di valutazioni di sicurezza offensive in-house delle infrastrutture, applicazioni e controlli della Banca.\n\nQuesto ruolo combina l'esperienza tecnica pratica conducendo test di penetrazione e simulando gli esercizi di attacchi del mondo reale sugli ambienti aziendali, con una stretta collaborazione con i team di sicurezza, IT, sviluppo e rischio per identificare, sfruttare e consigliare proattivamente la bonifica delle vulnerabilità nei sistemi bancari critici.\n\nLe responsabilità chiave includono\n- No.\nPianifica, portata ed esegue test di penetrazione interni su piattaforme core banking e applicazioni aziendali, con una forte attenzione ai servizi che supportano funzioni critiche e importanti\n- No.\nScenari di prova di progettazione allineati con realistici modelli di minaccia di cottura (fraud, esfiltrazione dei dati, escalation privilegio, movimenti laterali a sistemi critici,...) e valutazioni di rischio interne\n- No.\nEseguire test pratici contro reti interne, server, endpoint, applicazioni web, API, carichi di lavoro cloud, AD e altri sistemi di infrastruttura core\n- No.\nRisultati dei documenti in rapporti chiari e basati sui rischi con le prove e le indicazioni di bonifica per il pubblico tecnico e non tecnico\n- No.\nLavorare a stretto contatto con le infrastrutture, lo sviluppo, DevOps e i team di rischio per sostenere i piani di bonifica e ri-testing, assicurando che i risultati critici siano rintracciati alla chiusura all'interno dei processi di rischio e di governance ICT.\n- No.\nSviluppare e mantenere metodologie di test interni, cartelle di gioco e strumenti per sostenere valutazioni ripetibili ed efficienti\n- No.\nCollabora con SOC su esercizi di stile viola-team per testare e migliorare le capacità di rilevamento e risposta\n- No.\nRimanere attuali sulle minacce emergenti, vulnerabilità, TTP, ecc, e incorporare in test interni\n\nCompetenze ed esperienza\n- No.\nSfondo in sicurezza informatica, informatica o campi correlati\n- No.\n3-5 anni di test di penetrazione pratico o esperienza red-team, con lavoro dimostrabile su rete interna, applicazioni web e API; esperienza di servizi bancari o finanziari è un forte plus\n- No.\nForte comprensione dei protocolli di rete, sistemi operativi (Windows, Linux), tecnologie web e cloud; la familiarità con le architetture core banking è un plus\n- No.\nProficienza con strumenti e tecniche offensive comuni (ad esempio Burp Suite, Metasploit, Cobalt Strike-like framework, Kali-based tooling) e capacità di eseguire test manuali oltre gli strumenti\n- No.\nConoscenza solida dei concetti di codifica sicura e delle vulnerabilità delle applicazioni comuni (ad esempio OWASP Top 10) per valutare gli obiettivi web e API\n- No.\nCertificazioni professionali come OCSP, GXPN, o simili credenziali di sicurezza offensive in buona posizione\n- No.\nForte capacità di comunicazione e capacità di spiegare complessi risultati tecnici al pubblico tecnico e non tecnico\n\nI nostri valori\n- No.\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- No.\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- No.\nPassionato: Impegnarsi e lottare per l'eccellenza\n- No.\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- No.\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nApplicazione\n\nSi prega di assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.",
+        "de": "Allgemeine Info\n- Ja.\nAbteilung : Informationssicherheit & BCM\n- Ja.\nArbeitszeit Prozentsatz: 100%\n- Ja.\nStandort : Genf (vorgezogen), Zürich oder Lugano\n\nJob Description\n\nKontext\n- Die Informationssicherheit & BCM, unter der Leitung des Group Chief Information Security Officer (CISO) und eines Teils der Chief Operating Officer (COO) Organisation, definiert, führt und koordiniert Informationssicherheitsbemühungen über EFG International und seine Einrichtungen weltweit. Sie beschreibt die Strategie zur Informationssicherheit, identifiziert und betreibt Sicherheitsinitiativen und setzt Maßstäbe.\n\nZur Unterstützung des ICT-Risikomanagement-Rahmens unter Einhaltung regulatorischer Anforderungen (FINMA, DORA und relevante Finanzsektorverordnungen) suchen wir einen Cybersecurity Intermal Penetration Tester.\n\nDer erfolgreiche Kandidat wird dafür verantwortlich sein, laufende, hausinterne Offensive-Sicherheitsbewertungen der Infrastruktur, Anwendungen und Kontrollen der Bank durchzuführen.\n\nDiese Rolle verbindet praktische technische Erfahrung mit Penetrationstests und Simulation von Echtzeit-Angriffsübungen auf Unternehmensumgebungen, mit enger Zusammenarbeit mit Sicherheits-, IT-, Entwicklungs- und Risikoteams, um die Schwachstellen in kritischen Bankensystemen proaktiv zu identifizieren, auszunutzen und zu beraten.\n\nZu den wichtigsten Aufgaben gehören\n- Ja.\nPlanen, Umfang und Durchführung interner Penetrationstests auf Kernbank-Plattformen und Business-Anwendungen, mit einem starken Fokus auf Dienstleistungen, die kritische und wichtige Funktionen unterstützen\n- Ja.\nDesign-Testszenarien, die mit realistischen Back-Drohungsmodellen (Betrug, Data Exfiltration, Privileg Escalation, laterale Bewegungen zu kritischen Systemen,...) und internen Risikobewertungen ausgerichtet sind\n- Ja.\nFühren Sie die manuellen Tests gegen interne Netzwerke, Server, Endpunkte, Web-Anwendungen, APIs, Cloud-Workloads, AD und andere Kerninfrastruktursysteme aus\n- Ja.\nDokumentenermittlungen in klaren, risikobasierten Berichten mit Beweis- und handlungsfähigen Beratungsleistungen für technische und nichttechnische Publikum\n- Ja.\nArbeiten Sie eng mit Infrastruktur-, Entwicklungs-, DevOps- und Risikoteams zusammen, um Sanierungspläne und Retests zu unterstützen und kritische Befunde zu gewährleisten, werden in den IKT-Risiko- und Governance-Prozessen erfasst.\n- Ja.\nEntwicklung und Aufrechterhaltung interner Testmethoden, Playbooks und Tools zur Unterstützung wiederholbarer und effizienter Bewertungen\n- Ja.\nZusammenarbeit mit SOC auf lila-team-Stil Übungen zu testen und zu verbessern Erkennung und Reaktionsfähigkeit\n- Ja.\nBleiben Sie aktuell bei aufstrebenden Bedrohungen, Schwachstellen, TTPs, etc. und integrieren in interne Tests\n\nFähigkeiten und Erfahrung\n- Ja.\nHintergrund in Cybersicherheit, Informatik oder verwandten Bereichen\n- Ja.\n3-5 Jahre praktische Penetrationstests oder Rot-Dampf-Erfahrung, mit demonstrable Arbeit an internen Netzwerken, Web-Anwendungen und API; Bank- oder Finanzdienstleistungen Erfahrung ist ein starkes Plus\n- Ja.\nStarkes Verständnis von Netzwerkprotokollen, Betriebssystemen (Windows, Linux), Web- und Cloud-Technologien; Vertrautheit mit Kernbankenarchitekturen ist ein Plus\n- Ja.\nProficiency with common offensive tools and technologys (z.B. Burp Suite, Metasploit, Cobalt Strike-ähnliche Frameworks, Kali-basiertes Tooling) und Fähigkeit, manuelle Tests über Werkzeuge durchzuführen\n- Ja.\nSolides Wissen über sichere Codierungskonzepte und gemeinsame Anwendungslücken (z.B. OWASP Top 10) zur Bewertung von Web- und API-Zielen\n- Ja.\nProfessionelle Zertifizierungen wie OCSP, GXPN oder ähnliche offensive Sicherheits-Anmeldeinformationen im guten Stand\n- Ja.\nStarke Kommunikationsfähigkeiten und die Fähigkeit, komplexe technische Erkenntnisse dem technischen und nichttechnischen Publikum zu erklären\n\nUnsere Werte\n- Ja.\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Ja.\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n- Ja.\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n- Ja.\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n- Ja.\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n\nAnwendung\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.",
+        "fr": "Informations générales\n- Oui.\nDépartement : Sécurité de l'information et BCM\n- Oui.\nTemps de travail Pourcentage : 100%\n- Oui.\nLieu : Genève (préféré), Zurich ou Lugano\n\nDescription de l'emploi\n\nContexte\n- La Sécurité de l'information et la BCM, sous la direction du chef de la sécurité de l'information du groupe (CISO) et d'une partie de l'organisation du chef de l'exploitation (COO), définit, dirige et coordonne les efforts de sécurité de l'information dans l'ensemble de EFG International et de ses entités à l'échelle mondiale. Il décrit la stratégie de sécurité de l'information, identifie et dirige des initiatives de sécurité et établit des normes.\n\nPour soutenir le Cadre de gestion des risques TIC, conformément aux exigences réglementaires (FINMA, DORA et règlements pertinents du secteur financier), nous recherchons un testeur de pénétration intermale de cybersécurité.\n\nLe candidat retenu sera chargé d'effectuer des évaluations de sécurité offensives continues et internes de l'infrastructure, des applications et des contrôles de la Banque.\n\nCe rôle combine une expérience technique pratique en matière d'essais de pénétration et de simulation d'exercices d'attaques dans le monde réel sur des environnements d'entreprise, avec une collaboration étroite avec des équipes de sécurité, de TI, de développement et de risque pour identifier, exploiter et conseiller proactifs sur l'assainissement des vulnérabilités dans les systèmes bancaires critiques.\n\nLes principales responsabilités comprennent :\n- Oui.\nPlanifier, étendre et exécuter des tests de pénétration interne sur les plateformes bancaires centrales et les applications commerciales, en mettant fortement l'accent sur les services qui soutiennent des fonctions essentielles et importantes\n- Oui.\nScénarios d'essai de conception alignés sur des modèles réalistes de menaces de cuisson (fraude, exfiltration de données, escalade des privilèges, mouvements latéraux vers des systèmes critiques,...) et évaluations internes des risques\n- Oui.\nExécuter des tests pratiques sur les réseaux internes, les serveurs, les terminaux, les applications web, les API, les charges de travail en nuage, les systèmes AD et autres systèmes d'infrastructure de base\n- Oui.\nDocumenter les constatations dans des rapports clairs et fondés sur les risques, avec des preuves et des lignes directrices sur la remise en état à l'intention des publics techniques et non techniques\n- Oui.\nTravailler en étroite collaboration avec les équipes d'infrastructure, de développement, de développement et de gestion des risques afin d'appuyer les plans d'assainissement et de re-test, en veillant à ce que les constatations critiques soient suivies jusqu'à la clôture des processus de gestion des risques et de gouvernance des TIC.\n- Oui.\nÉlaborer et tenir à jour des méthodes d'essai internes, des livres de lecture et des outils pour appuyer les évaluations répétables et efficaces\n- Oui.\nCollaborer avec SOC sur des exercices de style pourpre-équipe pour tester et améliorer les capacités de détection et de réponse\n- Oui.\nRestez à jour sur les menaces émergentes, les vulnérabilités, les TTP, etc., et intégrer dans les tests internes\n\nCompétences et expérience\n- Oui.\nContexte en matière de cybersécurité, d'informatique ou de domaines connexes\n- Oui.\n3-5 ans de tests de pénétration pratique ou d'expérience en équipe rouge, avec un travail démontrable sur le réseau interne, les applications Web et l'API; l'expérience des services bancaires ou financiers est un plus fort\n- Oui.\nUne bonne compréhension des protocoles réseau, des systèmes d'exploitation (Windows, Linux), des technologies web et cloud; la connaissance des architectures bancaires de base est un plus\n- Oui.\nCompétence avec des outils et des techniques offensifs communs (p. ex. Burp Suite, Metasploit, frameworks Cobalt Strike-like, outillage basé sur Kali) et capacité à effectuer des tests manuels au-delà des outils\n- Oui.\nConnaissance approfondie des concepts de codage sécurisé et vulnérabilités communes (p. ex., OWASP Top 10) pour évaluer les cibles Web et API\n- Oui.\nCertifications professionnelles telles que OCSP, GXPN ou titres de créance de sécurité offensifs similaires en règle\n- Oui.\nFortes compétences en communication et capacité d'expliquer les découvertes techniques complexes à l'auditoire technique et non technique\n\nNos valeurs\n- Oui.\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n- Oui.\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n- Oui.\nPassionné : Être engagé et chercher l'excellence\n- Oui.\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n- Oui.\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nDemande\n\nVeuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-07-01T11:40:30.614Z",
+      "slugByLocale": {
+        "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
+        "en": "cybersecurity-internal-penetration-tester-efg-geneve",
+        "de": "cybersecurity-intern-penetration-tester-efg-international-ag-geneve",
+        "fr": "cybersecurite-testeur-interne-de-penetration-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-07",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cybersecurity-internal-penetration-tester-efg-geneve",
+          "client-services-officer-geneva-talent-pool-efg-geneve"
+        ],
+        "fr": [
+          "cybersecurity-internal-penetration-tester-efg-geneve"
+        ],
+        "de": [
+          "cybersecurity-internal-penetration-tester-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "cybersecurity-internal-penetration-tester-efg-geneve",
+        "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
+        "client-services-officer-geneva-talent-pool-efg-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6066",
@@ -1397,7 +1498,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.964Z",
+      "crawledAt": "2026-07-01T11:40:30.614Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1435,102 +1536,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6064",
-      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Cybersecurity Internal Penetration Tester",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Cybersecurity Internal Penetration Tester",
-        "it": "Tester di penetrazione interna della sicurezza informatica",
-        "de": "Cybersecurity intern Penetration Tester",
-        "fr": "Cybersécurité Testeur interne de pénétration"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
-        "it": "Informazioni generali\n- No.\nDipartimento: Sicurezza dell'informazione e BCM\n- No.\nTempo di lavoro Percentuale: 100%\n- No.\nUbicazione: Ginevra (preferito), Zurigo o Lugano\n\nDescrizione del lavoro\n\nContext\n- The Information Security & BCM, sotto la guida del Group Chief Information Security Officer (CISO) e parte dell'organizzazione Chief Operating Officer (COO), definisce, guida e coordina gli sforzi di sicurezza delle informazioni in EFG International e le sue entità a livello globale. Esso delinea la strategia di sicurezza delle informazioni, identifica e gestisce iniziative di sicurezza e definisce gli standard.\n\nPer supportare il Quadro di Gestione dei Rischi ICT, nel rispetto dei requisiti normativi (FINMA, DORA e relativi regolamenti finanziari), stiamo cercando un Tester di Penetrazione Intermal Cybersecurity.\n\nIl candidato di successo sarà responsabile per l’esecuzione di valutazioni di sicurezza offensive in-house delle infrastrutture, applicazioni e controlli della Banca.\n\nQuesto ruolo combina l'esperienza tecnica pratica conducendo test di penetrazione e simulando gli esercizi di attacchi del mondo reale sugli ambienti aziendali, con una stretta collaborazione con i team di sicurezza, IT, sviluppo e rischio per identificare, sfruttare e consigliare proattivamente la bonifica delle vulnerabilità nei sistemi bancari critici.\n\nLe responsabilità chiave includono\n- No.\nPianifica, portata ed esegue test di penetrazione interni su piattaforme core banking e applicazioni aziendali, con una forte attenzione ai servizi che supportano funzioni critiche e importanti\n- No.\nScenari di prova di progettazione allineati con realistici modelli di minaccia di cottura (fraud, esfiltrazione dei dati, escalation privilegio, movimenti laterali a sistemi critici,...) e valutazioni di rischio interne\n- No.\nEseguire test pratici contro reti interne, server, endpoint, applicazioni web, API, carichi di lavoro cloud, AD e altri sistemi di infrastruttura core\n- No.\nRisultati dei documenti in rapporti chiari e basati sui rischi con le prove e le indicazioni di bonifica per il pubblico tecnico e non tecnico\n- No.\nLavorare a stretto contatto con le infrastrutture, lo sviluppo, DevOps e i team di rischio per sostenere i piani di bonifica e ri-testing, assicurando che i risultati critici siano rintracciati alla chiusura all'interno dei processi di rischio e di governance ICT.\n- No.\nSviluppare e mantenere metodologie di test interni, cartelle di gioco e strumenti per sostenere valutazioni ripetibili ed efficienti\n- No.\nCollabora con SOC su esercizi di stile viola-team per testare e migliorare le capacità di rilevamento e risposta\n- No.\nRimanere attuali sulle minacce emergenti, vulnerabilità, TTP, ecc, e incorporare in test interni\n\nCompetenze ed esperienza\n- No.\nSfondo in sicurezza informatica, informatica o campi correlati\n- No.\n3-5 anni di test di penetrazione pratico o esperienza red-team, con lavoro dimostrabile su rete interna, applicazioni web e API; esperienza di servizi bancari o finanziari è un forte plus\n- No.\nForte comprensione dei protocolli di rete, sistemi operativi (Windows, Linux), tecnologie web e cloud; la familiarità con le architetture core banking è un plus\n- No.\nProficienza con strumenti e tecniche offensive comuni (ad esempio Burp Suite, Metasploit, Cobalt Strike-like framework, Kali-based tooling) e capacità di eseguire test manuali oltre gli strumenti\n- No.\nConoscenza solida dei concetti di codifica sicura e delle vulnerabilità delle applicazioni comuni (ad esempio OWASP Top 10) per valutare gli obiettivi web e API\n- No.\nCertificazioni professionali come OCSP, GXPN, o simili credenziali di sicurezza offensive in buona posizione\n- No.\nForte capacità di comunicazione e capacità di spiegare complessi risultati tecnici al pubblico tecnico e non tecnico\n\nI nostri valori\n- No.\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- No.\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- No.\nPassionato: Impegnarsi e lottare per l'eccellenza\n- No.\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- No.\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nApplicazione\n\nSi prega di assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.",
-        "de": "Allgemeine Info\n- Ja.\nAbteilung : Informationssicherheit & BCM\n- Ja.\nArbeitszeit Prozentsatz: 100%\n- Ja.\nStandort : Genf (vorgezogen), Zürich oder Lugano\n\nJob Description\n\nKontext\n- Die Informationssicherheit & BCM, unter der Leitung des Group Chief Information Security Officer (CISO) und eines Teils der Chief Operating Officer (COO) Organisation, definiert, führt und koordiniert Informationssicherheitsbemühungen über EFG International und seine Einrichtungen weltweit. Sie beschreibt die Strategie zur Informationssicherheit, identifiziert und betreibt Sicherheitsinitiativen und setzt Maßstäbe.\n\nZur Unterstützung des ICT-Risikomanagement-Rahmens unter Einhaltung regulatorischer Anforderungen (FINMA, DORA und relevante Finanzsektorverordnungen) suchen wir einen Cybersecurity Intermal Penetration Tester.\n\nDer erfolgreiche Kandidat wird dafür verantwortlich sein, laufende, hausinterne Offensive-Sicherheitsbewertungen der Infrastruktur, Anwendungen und Kontrollen der Bank durchzuführen.\n\nDiese Rolle verbindet praktische technische Erfahrung mit Penetrationstests und Simulation von Echtzeit-Angriffsübungen auf Unternehmensumgebungen, mit enger Zusammenarbeit mit Sicherheits-, IT-, Entwicklungs- und Risikoteams, um die Schwachstellen in kritischen Bankensystemen proaktiv zu identifizieren, auszunutzen und zu beraten.\n\nZu den wichtigsten Aufgaben gehören\n- Ja.\nPlanen, Umfang und Durchführung interner Penetrationstests auf Kernbank-Plattformen und Business-Anwendungen, mit einem starken Fokus auf Dienstleistungen, die kritische und wichtige Funktionen unterstützen\n- Ja.\nDesign-Testszenarien, die mit realistischen Back-Drohungsmodellen (Betrug, Data Exfiltration, Privileg Escalation, laterale Bewegungen zu kritischen Systemen,...) und internen Risikobewertungen ausgerichtet sind\n- Ja.\nFühren Sie die manuellen Tests gegen interne Netzwerke, Server, Endpunkte, Web-Anwendungen, APIs, Cloud-Workloads, AD und andere Kerninfrastruktursysteme aus\n- Ja.\nDokumentenermittlungen in klaren, risikobasierten Berichten mit Beweis- und handlungsfähigen Beratungsleistungen für technische und nichttechnische Publikum\n- Ja.\nArbeiten Sie eng mit Infrastruktur-, Entwicklungs-, DevOps- und Risikoteams zusammen, um Sanierungspläne und Retests zu unterstützen und kritische Befunde zu gewährleisten, werden in den IKT-Risiko- und Governance-Prozessen erfasst.\n- Ja.\nEntwicklung und Aufrechterhaltung interner Testmethoden, Playbooks und Tools zur Unterstützung wiederholbarer und effizienter Bewertungen\n- Ja.\nZusammenarbeit mit SOC auf lila-team-Stil Übungen zu testen und zu verbessern Erkennung und Reaktionsfähigkeit\n- Ja.\nBleiben Sie aktuell bei aufstrebenden Bedrohungen, Schwachstellen, TTPs, etc. und integrieren in interne Tests\n\nFähigkeiten und Erfahrung\n- Ja.\nHintergrund in Cybersicherheit, Informatik oder verwandten Bereichen\n- Ja.\n3-5 Jahre praktische Penetrationstests oder Rot-Dampf-Erfahrung, mit demonstrable Arbeit an internen Netzwerken, Web-Anwendungen und API; Bank- oder Finanzdienstleistungen Erfahrung ist ein starkes Plus\n- Ja.\nStarkes Verständnis von Netzwerkprotokollen, Betriebssystemen (Windows, Linux), Web- und Cloud-Technologien; Vertrautheit mit Kernbankenarchitekturen ist ein Plus\n- Ja.\nProficiency with common offensive tools and technologys (z.B. Burp Suite, Metasploit, Cobalt Strike-ähnliche Frameworks, Kali-basiertes Tooling) und Fähigkeit, manuelle Tests über Werkzeuge durchzuführen\n- Ja.\nSolides Wissen über sichere Codierungskonzepte und gemeinsame Anwendungslücken (z.B. OWASP Top 10) zur Bewertung von Web- und API-Zielen\n- Ja.\nProfessionelle Zertifizierungen wie OCSP, GXPN oder ähnliche offensive Sicherheits-Anmeldeinformationen im guten Stand\n- Ja.\nStarke Kommunikationsfähigkeiten und die Fähigkeit, komplexe technische Erkenntnisse dem technischen und nichttechnischen Publikum zu erklären\n\nUnsere Werte\n- Ja.\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Ja.\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n- Ja.\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n- Ja.\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n- Ja.\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n\nAnwendung\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.",
-        "fr": "Informations générales\n- Oui.\nDépartement : Sécurité de l'information et BCM\n- Oui.\nTemps de travail Pourcentage : 100%\n- Oui.\nLieu : Genève (préféré), Zurich ou Lugano\n\nDescription de l'emploi\n\nContexte\n- La Sécurité de l'information et la BCM, sous la direction du chef de la sécurité de l'information du groupe (CISO) et d'une partie de l'organisation du chef de l'exploitation (COO), définit, dirige et coordonne les efforts de sécurité de l'information dans l'ensemble de EFG International et de ses entités à l'échelle mondiale. Il décrit la stratégie de sécurité de l'information, identifie et dirige des initiatives de sécurité et établit des normes.\n\nPour soutenir le Cadre de gestion des risques TIC, conformément aux exigences réglementaires (FINMA, DORA et règlements pertinents du secteur financier), nous recherchons un testeur de pénétration intermale de cybersécurité.\n\nLe candidat retenu sera chargé d'effectuer des évaluations de sécurité offensives continues et internes de l'infrastructure, des applications et des contrôles de la Banque.\n\nCe rôle combine une expérience technique pratique en matière d'essais de pénétration et de simulation d'exercices d'attaques dans le monde réel sur des environnements d'entreprise, avec une collaboration étroite avec des équipes de sécurité, de TI, de développement et de risque pour identifier, exploiter et conseiller proactifs sur l'assainissement des vulnérabilités dans les systèmes bancaires critiques.\n\nLes principales responsabilités comprennent :\n- Oui.\nPlanifier, étendre et exécuter des tests de pénétration interne sur les plateformes bancaires centrales et les applications commerciales, en mettant fortement l'accent sur les services qui soutiennent des fonctions essentielles et importantes\n- Oui.\nScénarios d'essai de conception alignés sur des modèles réalistes de menaces de cuisson (fraude, exfiltration de données, escalade des privilèges, mouvements latéraux vers des systèmes critiques,...) et évaluations internes des risques\n- Oui.\nExécuter des tests pratiques sur les réseaux internes, les serveurs, les terminaux, les applications web, les API, les charges de travail en nuage, les systèmes AD et autres systèmes d'infrastructure de base\n- Oui.\nDocumenter les constatations dans des rapports clairs et fondés sur les risques, avec des preuves et des lignes directrices sur la remise en état à l'intention des publics techniques et non techniques\n- Oui.\nTravailler en étroite collaboration avec les équipes d'infrastructure, de développement, de développement et de gestion des risques afin d'appuyer les plans d'assainissement et de re-test, en veillant à ce que les constatations critiques soient suivies jusqu'à la clôture des processus de gestion des risques et de gouvernance des TIC.\n- Oui.\nÉlaborer et tenir à jour des méthodes d'essai internes, des livres de lecture et des outils pour appuyer les évaluations répétables et efficaces\n- Oui.\nCollaborer avec SOC sur des exercices de style pourpre-équipe pour tester et améliorer les capacités de détection et de réponse\n- Oui.\nRestez à jour sur les menaces émergentes, les vulnérabilités, les TTP, etc., et intégrer dans les tests internes\n\nCompétences et expérience\n- Oui.\nContexte en matière de cybersécurité, d'informatique ou de domaines connexes\n- Oui.\n3-5 ans de tests de pénétration pratique ou d'expérience en équipe rouge, avec un travail démontrable sur le réseau interne, les applications Web et l'API; l'expérience des services bancaires ou financiers est un plus fort\n- Oui.\nUne bonne compréhension des protocoles réseau, des systèmes d'exploitation (Windows, Linux), des technologies web et cloud; la connaissance des architectures bancaires de base est un plus\n- Oui.\nCompétence avec des outils et des techniques offensifs communs (p. ex. Burp Suite, Metasploit, frameworks Cobalt Strike-like, outillage basé sur Kali) et capacité à effectuer des tests manuels au-delà des outils\n- Oui.\nConnaissance approfondie des concepts de codage sécurisé et vulnérabilités communes (p. ex., OWASP Top 10) pour évaluer les cibles Web et API\n- Oui.\nCertifications professionnelles telles que OCSP, GXPN ou titres de créance de sécurité offensifs similaires en règle\n- Oui.\nFortes compétences en communication et capacité d'expliquer les découvertes techniques complexes à l'auditoire technique et non technique\n\nNos valeurs\n- Oui.\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n- Oui.\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n- Oui.\nPassionné : Être engagé et chercher l'excellence\n- Oui.\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n- Oui.\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nDemande\n\nVeuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-30T22:10:52.963Z",
-      "slugByLocale": {
-        "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
-        "en": "cybersecurity-internal-penetration-tester-efg-geneve",
-        "de": "cybersecurity-intern-penetration-tester-efg-international-ag-geneve",
-        "fr": "cybersecurite-testeur-interne-de-penetration-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-07",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.894Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "cybersecurity-internal-penetration-tester-efg-geneve",
-          "client-services-officer-geneva-talent-pool-efg-geneve"
-        ],
-        "fr": [
-          "cybersecurity-internal-penetration-tester-efg-geneve"
-        ],
-        "de": [
-          "cybersecurity-internal-penetration-tester-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "cybersecurity-internal-penetration-tester-efg-geneve",
-        "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
-        "client-services-officer-geneva-talent-pool-efg-geneve"
-      ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1581,7 +1588,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.962Z",
+      "crawledAt": "2026-07-01T11:40:30.612Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1624,7 +1631,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6040",
@@ -1675,7 +1683,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.961Z",
+      "crawledAt": "2026-07-01T11:40:30.611Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -1718,7 +1726,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -1869,7 +1878,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.960Z",
+      "crawledAt": "2026-07-01T11:40:30.610Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2086,7 +2095,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.959Z",
+      "crawledAt": "2026-07-01T11:40:30.609Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2146,7 +2155,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-4543",
@@ -2179,7 +2189,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2313,7 +2323,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.958Z",
+      "crawledAt": "2026-07-01T11:40:30.607Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2351,7 +2361,174 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6334",
+      "slug": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Senior Compliance Officer Onboarding & Periodic Reviews",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Job Description\n\nIn Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must.\n\n## Main Responsibilities\n\n- Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;\n\n- Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;\n\n- Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;\n\n- Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);\n\n- Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;\n\n- Management of other requests (e.g. enquiries from other departments or third parties,  overrides);\n\n- Support the tasks regarding internal and externaI Audit upon request;\n\n- Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);\n\n- Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments.\n\n## Skills and experience\n\n- Professional English required.\n\n- 5+ years prior experience in role\n\n- Principled, autonomous and strong team player/collaborative personality.\n\n- Capable of expressing oneself clearly both speaking and in writing.\n\n- Strong knowledge of industry best practices.\n\n- Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.\n\n- Strong time management and organizational skills to meet tight deadlines.\n\n## Our values\n\n- Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [
+        "Professional English required.",
+        "5+ years prior experience in role",
+        "Principled, autonomous and strong team player/collaborative personality.",
+        "Capable of expressing oneself clearly both speaking and in writing.",
+        "Strong knowledge of industry best practices.",
+        "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
+        "Strong time management and organizational skills to meet tight deadlines."
+      ],
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6334",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Senior Compliance Officer Onboarding & Periodic Reviews",
+        "it": "Senior Compliance Officer Onboarding & Recensioni periodiche",
+        "de": "Senior Compliance Officer Onboarding & Periodic Reviews",
+        "fr": "Agent principal de conformité à bord et examens périodiques"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nIn Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must.\n\n## Main Responsibilities\n\n- Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;\n\n- Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;\n\n- Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;\n\n- Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);\n\n- Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;\n\n- Management of other requests (e.g. enquiries from other departments or third parties,  overrides);\n\n- Support the tasks regarding internal and externaI Audit upon request;\n\n- Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);\n\n- Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments.\n\n## Skills and experience\n\n- Professional English required.\n\n- 5+ years prior experience in role\n\n- Principled, autonomous and strong team player/collaborative personality.\n\n- Capable of expressing oneself clearly both speaking and in writing.\n\n- Strong knowledge of industry best practices.\n\n- Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.\n\n- Strong time management and organizational skills to meet tight deadlines.\n\n## Our values\n\n- Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "## Descrizione del lavoro\n\nIn Compliance, per il nostro team Onboarding & Periodic Recensioni di 21 Compliance Officer in Svizzera stiamo cercando un esperto Senior Compliance Officer Onboarding & Periodic Recensioni in grado di affrontare clienti complessi. Precedente consolidata esperienza in Private Banking richiesto e buona conoscenza dei mercati internazionali. L'inglese fluente è un must.\n\n- Preparazione di analisi complete di conformità e raccomandazioni nuovi conti sia per gli individui che per gli enti legali; valutazioni di accuratezza KYC, completezza e plausibilità della documentazione KYC che assicurano che i rischi siano adeguatamente identificati e mitigati;\n\n- Revisione olistica completa delle relazioni esistenti consistenti in conti multipli di varie strutture, aggiornamento su due diligence e classificazione dei rischi, analisi del flusso dei fondi, analisi del profilo delle informazioni del cliente in vista del comportamento transazionale, valutazione della conformità fiscale e valutazione di eventuali cambiamenti nelle circostanze;\n\n- Presentazione di alcuni casi al comitato di accettazione del cliente che fornisce valutazioni di rischio pertinenti e raccomandazioni chiare di conformità;\n\n- Consigliare e sostenere l'ufficio di presidenza in materia di Anti-Money Laundering (AML), conoscere il vostro cliente (KYC) e l'accordo sul codice di condotta delle banche svizzere nel contesto dell'esercizio di due diligence (CDB 20);\n\n- Valutazioni della conformità fiscale dei clienti, compresi i moduli FATCA e CRS, e altri elementi rilevanti, documentazione di tali valutazioni;\n\n- Gestione di altre richieste (ad esempio richieste di altri dipartimenti o di terzi, override);\n\n- Sostenere i compiti relativi all'audit interno ed esterno su richiesta;\n\n- Escalare casi potenzialmente sospetti all'unità di intelligenza finanziaria (FIU);\n\n- Lavorare in coordinamento con altre unità quando necessario, come il team di Sanzioni, il dipartimento legale, la documentazione contabile e altri reparti pertinenti, per garantire valutazioni approfondite dei clienti.\n\n## Competenze ed esperienza\n\n- Inglese professionale richiesto.\n\n- 5+ anni prima esperienza nel ruolo\n\n- Principiato, autonomo e forte giocatore di squadra / personalità collaborativa.\n\n- Capace di esprimersi chiaramente sia parlando che per iscritto.\n\n- Forte conoscenza delle migliori pratiche del settore.\n\n- Eccellente capacità analitiche, attenzione ai dettagli e capacità di interpretare con precisione documenti o strutture complesse.\n\n- Forte gestione del tempo e competenze organizzative per soddisfare scadenze strette.\n\n## I nostri valori\n\n- Responsabilità: Assumere la proprietà per le attività e le sfide e cercare un miglioramento continuo\n\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\n- Passionato: Impegnarsi e lottare per l'eccellenza\n\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole\n\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "## Stellenbeschreibung\n\nIm Bereich Compliance suchen wir für unser Team Onboarding & Periodic Reviews von 21 Compliance Officers in der Schweiz einen erfahrenen Senior Compliance Officer Onboarding & Periodic Reviews, der mit komplexen Kunden umgehen kann. Vorherige konsolidierte Erfahrung im Private Banking erforderlich sowie gute Kenntnisse der internationalen Märkte. fließendes Englisch ist ein Muss.\n\n- Erstellung einer umfassenden Compliance-Analyse und Empfehlungen für neue Konten sowohl für Einzelpersonen als auch für juristische Personen; Bewertung der Genauigkeit, Vollständigkeit und Plausibilität der KYC-Dokumentation, um sicherzustellen, dass die Risiken angemessen erkannt und gemindert werden;\n\n- Umfassende ganzheitliche Überprüfung der bestehenden Beziehungen, die aus mehreren Konten verschiedener Strukturen bestehen, Aktualisierung der Sorgfaltspflicht und Risikoklassifizierung, Analyse des Geldflusses, Analyse des Kundeninformationsprofils im Hinblick auf das Transaktionsverhalten, Bewertung der Steuerkonformität und Bewertung etwaiger Änderungen der Umstände;\n\n- Präsentation bestimmter Fälle vor dem Client Acceptance Committee mit relevanten Risikobewertungen und klaren Compliance-Empfehlungen;\n\n- Beratung und Unterstützung des Front Office in Fragen der Geldwäschebekämpfung (AML), Know Your Customer (KYC) und Vereinbarung des Verhaltenskodex der Schweizer Banken im Rahmen der Ausübung der Sorgfaltspflicht (CDB 20);\n\n- Beurteilungen der Steuerkonformität von Kunden, einschließlich FATCA- und CRS-Formularen und anderer relevanter Elemente, Dokumentation solcher Beurteilungen;\n\n- Verwaltung anderer Anfragen (z. B. Anfragen von anderen Abteilungen oder Dritten, Overrides);\n\n- Unterstützung der Aufgaben im Zusammenhang mit internen und externen Audits auf Anfrage;\n\n- Eskalation potenziell verdächtiger Fälle an die Financial Intelligence Unit (FIU);\n\n- Arbeiten Sie bei Bedarf in Abstimmung mit anderen Einheiten, wie dem Sanktionsteam, der Rechtsabteilung, der Buchführung und anderen relevanten Abteilungen, um eine gründliche Beurteilung der Kunden sicherzustellen.\n\n## Fähigkeiten und Erfahrung\n\n- Professionelles Englisch erforderlich.\n\n- 5+ Jahre Erfahrung in der Rolle\n\n- Prinzipientreue, autonome und starke Teamplayer / kollaborative Persönlichkeit.\n\n- Fähig, sich sowohl mündlich als auch schriftlich klar auszudrücken.\n\n- Starkes Wissen über Best Practices der Branche.\n\n- Hervorragende analytische Fähigkeiten, Aufmerksamkeit für Details und die Fähigkeit, komplexe Dokumente oder Strukturen genau zu interpretieren.\n\n- Starkes Zeitmanagement und organisatorische Fähigkeiten, um enge Fristen einzuhalten.\n\n## Unsere Werte\n\n- Rechenschaftspflicht: Verantwortung für Aufgaben und Herausforderungen übernehmen und kontinuierliche Verbesserung anstreben\n\n- Hands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben\n\n- Lösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise\n\n- Partnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.",
+        "fr": "## Description de l'emploi\n\nEn conformité, pour notre équipe Inboarding & Périodique Reviews of 21 Compliance Officers in Switzerland, nous recherchons un Senior Compliance Officer expérimenté Inboarding & Périodique Reviews capable de traiter avec des clients complexes. Expérience consolidée antérieure en banque privée requise ainsi qu'une bonne connaissance des marchés internationaux. L'anglais est un must.\n\n- Élaboration d'une analyse complète de la conformité et de recommandations de nouveaux comptes pour les personnes physiques et morales; évaluation de l'exactitude, de l'exhaustivité et de la plausibilité de la documentation du KYC pour s'assurer que les risques sont adéquatement identifiés et atténués;\n\n- Examen global complet des relations existantes, consistant en de multiples comptes de diverses structures, mise à jour sur la diligence raisonnable et la classification des risques, analyse des flux de fonds, analyse du profil d'information client en vue du comportement transactionnel, évaluation de la conformité fiscale et évaluation de tout changement de circonstances;\n\n- Présentation de certains cas au comité d'acceptation du client, qui fournit des évaluations des risques pertinentes et des recommandations claires en matière de conformité;\n\n- Conseiller et soutenir le front office sur les questions relatives à la lutte contre le blanchiment de capitaux (AML), Connaître votre client (KYC) et l'accord sur le code de conduite des banques suisses dans le cadre de l'exercice de la diligence raisonnable (CDB 20);\n\n- les évaluations de la conformité fiscale des clients, y compris les formulaires de la FATCA et du CS Ex, et d'autres éléments pertinents, la documentation de ces évaluations;\n\n- Gestion d'autres demandes (p. ex., demandes de renseignements d'autres ministères ou de tiers, surpassement);\n\n- soutenir les tâches concernant l'audit interne et externe sur demande;\n\n- e) Inclure des cas potentiellement suspects dans le service de renseignement financier;\n\n- Travailler en coordination avec d'autres services au besoin, comme l'Équipe des sanctions, le service juridique, la documentation des comptes et d'autres services compétents, afin d'assurer une évaluation approfondie des clients.\n\n## Compétences et expérience\n\n- Anglais professionnel requis.\n\n- 5 ans et plus d'expérience dans le rôle\n\n- Principe, autonomie et force de l'équipe/personnalité collaborative.\n\n- Capable de s'exprimer clairement à la fois par la parole et par écrit.\n\n- Bonne connaissance des pratiques exemplaires de l'industrie.\n\n- Excellentes compétences analytiques, attention aux détails et capacité d'interpréter avec précision des documents ou des structures complexes.\n\n- Forte capacité de gestion du temps et d'organisation pour respecter des délais serrés.\n\n## Nos valeurs\n\n- Responsabilité : Prendre en main les tâches et les défis et chercher à les améliorer continuellement\n\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n\n- Passionné : être engagé et rechercher l'excellence\n\n- Une solution axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques\n\n- Orientation vers le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Professional English required.",
+          "5+ years prior experience in role",
+          "Principled, autonomous and strong team player/collaborative personality.",
+          "Capable of expressing oneself clearly both speaking and in writing.",
+          "Strong knowledge of industry best practices.",
+          "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
+          "Strong time management and organizational skills to meet tight deadlines."
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "In Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must."
+            ],
+            "responsibilities": [
+              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
+              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
+              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
+              "Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);",
+              "Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;",
+              "Management of other requests (e.g. enquiries from other departments or third parties, overrides);",
+              "Support the tasks regarding internal and externaI Audit upon request;",
+              "Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);",
+              "Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments."
+            ],
+            "requirements": [
+              "Professional English required.",
+              "5+ years prior experience in role",
+              "Principled, autonomous and strong team player/collaborative personality.",
+              "Capable of expressing oneself clearly both speaking and in writing.",
+              "Strong knowledge of industry best practices.",
+              "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
+              "Strong time management and organizational skills to meet tight deadlines."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
+              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
+              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
+              "Professional English required.",
+              "5+ years prior experience in role",
+              "Principled, autonomous and strong team player/collaborative personality.",
+              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Professional English required.",
+              "5+ years prior experience in role",
+              "Principled",
+              "Capable of expressing oneself clearly both speaking and in writing.",
+              "Strong knowledge of industry best practices.",
+              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities",
+              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures",
+              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations",
+              "Advise and support to front office on matters relating to Anti-Money Laundering (AML)"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-01T11:40:30.606Z",
+      "slugByLocale": {
+        "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
+        "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
+        "de": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
+        "fr": "agent-principal-de-conformite-a-bord-et-examens-periodiques-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-06-23",
+      "salaryMin": 174500,
+      "salaryMax": 306000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 174500,
+          "maxValue": 306000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1204",
+      "country": "CH",
+      "firstSeenAt": "2026-06-23T22:12:49.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -2373,7 +2550,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -2401,7 +2578,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.957Z",
+      "crawledAt": "2026-07-01T11:40:30.604Z",
       "slugByLocale": {
         "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -2458,7 +2635,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6336",
@@ -2654,7 +2832,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.956Z",
+      "crawledAt": "2026-07-01T11:40:30.602Z",
       "slugByLocale": {
         "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -2680,172 +2858,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-25T22:13:58.906Z"
-    },
-    {
-      "id": "efg-6334",
-      "slug": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Senior Compliance Officer Onboarding & Periodic Reviews",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nIn Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must.\n\n## Main Responsibilities\n\n- Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;\n\n- Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;\n\n- Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;\n\n- Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);\n\n- Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;\n\n- Management of other requests (e.g. enquiries from other departments or third parties,  overrides);\n\n- Support the tasks regarding internal and externaI Audit upon request;\n\n- Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);\n\n- Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments.\n\n## Skills and experience\n\n- Professional English required.\n\n- 5+ years prior experience in role\n\n- Principled, autonomous and strong team player/collaborative personality.\n\n- Capable of expressing oneself clearly both speaking and in writing.\n\n- Strong knowledge of industry best practices.\n\n- Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.\n\n- Strong time management and organizational skills to meet tight deadlines.\n\n## Our values\n\n- Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "Professional English required.",
-        "5+ years prior experience in role",
-        "Principled, autonomous and strong team player/collaborative personality.",
-        "Capable of expressing oneself clearly both speaking and in writing.",
-        "Strong knowledge of industry best practices.",
-        "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
-        "Strong time management and organizational skills to meet tight deadlines."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6334",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Senior Compliance Officer Onboarding & Periodic Reviews",
-        "it": "Senior Compliance Officer Onboarding & Recensioni periodiche",
-        "de": "Senior Compliance Officer Onboarding & Periodic Reviews",
-        "fr": "Agent principal de conformité à bord et examens périodiques"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nIn Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must.\n\n## Main Responsibilities\n\n- Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;\n\n- Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;\n\n- Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;\n\n- Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);\n\n- Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;\n\n- Management of other requests (e.g. enquiries from other departments or third parties,  overrides);\n\n- Support the tasks regarding internal and externaI Audit upon request;\n\n- Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);\n\n- Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments.\n\n## Skills and experience\n\n- Professional English required.\n\n- 5+ years prior experience in role\n\n- Principled, autonomous and strong team player/collaborative personality.\n\n- Capable of expressing oneself clearly both speaking and in writing.\n\n- Strong knowledge of industry best practices.\n\n- Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.\n\n- Strong time management and organizational skills to meet tight deadlines.\n\n## Our values\n\n- Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "## Descrizione del lavoro\n\nIn Compliance, per il nostro team Onboarding & Periodic Recensioni di 21 Compliance Officer in Svizzera stiamo cercando un esperto Senior Compliance Officer Onboarding & Periodic Recensioni in grado di affrontare clienti complessi. Precedente consolidata esperienza in Private Banking richiesto e buona conoscenza dei mercati internazionali. L'inglese fluente è un must.\n\n- Preparazione di analisi complete di conformità e raccomandazioni nuovi conti sia per gli individui che per gli enti legali; valutazioni di accuratezza KYC, completezza e plausibilità della documentazione KYC che assicurano che i rischi siano adeguatamente identificati e mitigati;\n\n- Revisione olistica completa delle relazioni esistenti consistenti in conti multipli di varie strutture, aggiornamento su due diligence e classificazione dei rischi, analisi del flusso dei fondi, analisi del profilo delle informazioni del cliente in vista del comportamento transazionale, valutazione della conformità fiscale e valutazione di eventuali cambiamenti nelle circostanze;\n\n- Presentazione di alcuni casi al comitato di accettazione del cliente che fornisce valutazioni di rischio pertinenti e raccomandazioni chiare di conformità;\n\n- Consigliare e sostenere l'ufficio di presidenza in materia di Anti-Money Laundering (AML), conoscere il vostro cliente (KYC) e l'accordo sul codice di condotta delle banche svizzere nel contesto dell'esercizio di due diligence (CDB 20);\n\n- Valutazioni della conformità fiscale dei clienti, compresi i moduli FATCA e CRS, e altri elementi rilevanti, documentazione di tali valutazioni;\n\n- Gestione di altre richieste (ad esempio richieste di altri dipartimenti o di terzi, override);\n\n- Sostenere i compiti relativi all'audit interno ed esterno su richiesta;\n\n- Escalare casi potenzialmente sospetti all'unità di intelligenza finanziaria (FIU);\n\n- Lavorare in coordinamento con altre unità quando necessario, come il team di Sanzioni, il dipartimento legale, la documentazione contabile e altri reparti pertinenti, per garantire valutazioni approfondite dei clienti.\n\n## Competenze ed esperienza\n\n- Inglese professionale richiesto.\n\n- 5+ anni prima esperienza nel ruolo\n\n- Principiato, autonomo e forte giocatore di squadra / personalità collaborativa.\n\n- Capace di esprimersi chiaramente sia parlando che per iscritto.\n\n- Forte conoscenza delle migliori pratiche del settore.\n\n- Eccellente capacità analitiche, attenzione ai dettagli e capacità di interpretare con precisione documenti o strutture complesse.\n\n- Forte gestione del tempo e competenze organizzative per soddisfare scadenze strette.\n\n## I nostri valori\n\n- Responsabilità: Assumere la proprietà per le attività e le sfide e cercare un miglioramento continuo\n\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\n- Passionato: Impegnarsi e lottare per l'eccellenza\n\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole\n\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "## Stellenbeschreibung\n\nIm Bereich Compliance suchen wir für unser Team Onboarding & Periodic Reviews von 21 Compliance Officers in der Schweiz einen erfahrenen Senior Compliance Officer Onboarding & Periodic Reviews, der mit komplexen Kunden umgehen kann. Vorherige konsolidierte Erfahrung im Private Banking erforderlich sowie gute Kenntnisse der internationalen Märkte. fließendes Englisch ist ein Muss.\n\n- Erstellung einer umfassenden Compliance-Analyse und Empfehlungen für neue Konten sowohl für Einzelpersonen als auch für juristische Personen; Bewertung der Genauigkeit, Vollständigkeit und Plausibilität der KYC-Dokumentation, um sicherzustellen, dass die Risiken angemessen erkannt und gemindert werden;\n\n- Umfassende ganzheitliche Überprüfung der bestehenden Beziehungen, die aus mehreren Konten verschiedener Strukturen bestehen, Aktualisierung der Sorgfaltspflicht und Risikoklassifizierung, Analyse des Geldflusses, Analyse des Kundeninformationsprofils im Hinblick auf das Transaktionsverhalten, Bewertung der Steuerkonformität und Bewertung etwaiger Änderungen der Umstände;\n\n- Präsentation bestimmter Fälle vor dem Client Acceptance Committee mit relevanten Risikobewertungen und klaren Compliance-Empfehlungen;\n\n- Beratung und Unterstützung des Front Office in Fragen der Geldwäschebekämpfung (AML), Know Your Customer (KYC) und Vereinbarung des Verhaltenskodex der Schweizer Banken im Rahmen der Ausübung der Sorgfaltspflicht (CDB 20);\n\n- Beurteilungen der Steuerkonformität von Kunden, einschließlich FATCA- und CRS-Formularen und anderer relevanter Elemente, Dokumentation solcher Beurteilungen;\n\n- Verwaltung anderer Anfragen (z. B. Anfragen von anderen Abteilungen oder Dritten, Overrides);\n\n- Unterstützung der Aufgaben im Zusammenhang mit internen und externen Audits auf Anfrage;\n\n- Eskalation potenziell verdächtiger Fälle an die Financial Intelligence Unit (FIU);\n\n- Arbeiten Sie bei Bedarf in Abstimmung mit anderen Einheiten, wie dem Sanktionsteam, der Rechtsabteilung, der Buchführung und anderen relevanten Abteilungen, um eine gründliche Beurteilung der Kunden sicherzustellen.\n\n## Fähigkeiten und Erfahrung\n\n- Professionelles Englisch erforderlich.\n\n- 5+ Jahre Erfahrung in der Rolle\n\n- Prinzipientreue, autonome und starke Teamplayer / kollaborative Persönlichkeit.\n\n- Fähig, sich sowohl mündlich als auch schriftlich klar auszudrücken.\n\n- Starkes Wissen über Best Practices der Branche.\n\n- Hervorragende analytische Fähigkeiten, Aufmerksamkeit für Details und die Fähigkeit, komplexe Dokumente oder Strukturen genau zu interpretieren.\n\n- Starkes Zeitmanagement und organisatorische Fähigkeiten, um enge Fristen einzuhalten.\n\n## Unsere Werte\n\n- Rechenschaftspflicht: Verantwortung für Aufgaben und Herausforderungen übernehmen und kontinuierliche Verbesserung anstreben\n\n- Hands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben\n\n- Lösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise\n\n- Partnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.",
-        "fr": "## Description de l'emploi\n\nEn conformité, pour notre équipe Inboarding & Périodique Reviews of 21 Compliance Officers in Switzerland, nous recherchons un Senior Compliance Officer expérimenté Inboarding & Périodique Reviews capable de traiter avec des clients complexes. Expérience consolidée antérieure en banque privée requise ainsi qu'une bonne connaissance des marchés internationaux. L'anglais est un must.\n\n- Élaboration d'une analyse complète de la conformité et de recommandations de nouveaux comptes pour les personnes physiques et morales; évaluation de l'exactitude, de l'exhaustivité et de la plausibilité de la documentation du KYC pour s'assurer que les risques sont adéquatement identifiés et atténués;\n\n- Examen global complet des relations existantes, consistant en de multiples comptes de diverses structures, mise à jour sur la diligence raisonnable et la classification des risques, analyse des flux de fonds, analyse du profil d'information client en vue du comportement transactionnel, évaluation de la conformité fiscale et évaluation de tout changement de circonstances;\n\n- Présentation de certains cas au comité d'acceptation du client, qui fournit des évaluations des risques pertinentes et des recommandations claires en matière de conformité;\n\n- Conseiller et soutenir le front office sur les questions relatives à la lutte contre le blanchiment de capitaux (AML), Connaître votre client (KYC) et l'accord sur le code de conduite des banques suisses dans le cadre de l'exercice de la diligence raisonnable (CDB 20);\n\n- les évaluations de la conformité fiscale des clients, y compris les formulaires de la FATCA et du CS Ex, et d'autres éléments pertinents, la documentation de ces évaluations;\n\n- Gestion d'autres demandes (p. ex., demandes de renseignements d'autres ministères ou de tiers, surpassement);\n\n- soutenir les tâches concernant l'audit interne et externe sur demande;\n\n- e) Inclure des cas potentiellement suspects dans le service de renseignement financier;\n\n- Travailler en coordination avec d'autres services au besoin, comme l'Équipe des sanctions, le service juridique, la documentation des comptes et d'autres services compétents, afin d'assurer une évaluation approfondie des clients.\n\n## Compétences et expérience\n\n- Anglais professionnel requis.\n\n- 5 ans et plus d'expérience dans le rôle\n\n- Principe, autonomie et force de l'équipe/personnalité collaborative.\n\n- Capable de s'exprimer clairement à la fois par la parole et par écrit.\n\n- Bonne connaissance des pratiques exemplaires de l'industrie.\n\n- Excellentes compétences analytiques, attention aux détails et capacité d'interpréter avec précision des documents ou des structures complexes.\n\n- Forte capacité de gestion du temps et d'organisation pour respecter des délais serrés.\n\n## Nos valeurs\n\n- Responsabilité : Prendre en main les tâches et les défis et chercher à les améliorer continuellement\n\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n\n- Passionné : être engagé et rechercher l'excellence\n\n- Une solution axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques\n\n- Orientation vers le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "Professional English required.",
-          "5+ years prior experience in role",
-          "Principled, autonomous and strong team player/collaborative personality.",
-          "Capable of expressing oneself clearly both speaking and in writing.",
-          "Strong knowledge of industry best practices.",
-          "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
-          "Strong time management and organizational skills to meet tight deadlines."
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "In Compliance, for our team Onboarding & Periodic Reviews of 21 Compliance Officers in Switzerland we are looking for an experienced Senior Compliance Officer Onboarding & Periodic Reviews able to deal with complex clients. Previous consolidated experience in Private Banking required as well as good knowledge of international markets. Fluent English is a must."
-            ],
-            "responsibilities": [
-              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
-              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
-              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
-              "Advise and support to front office on matters relating to Anti-Money Laundering (AML), Know Your customer (KYC) and agreement on the Swiss banks' code of conduct in the context of the exercise of due diligence (CDB 20);",
-              "Assessments of clients' tax compliance, including FATCA and CRS forms, and other relevant elements, documentation of such assessments;",
-              "Management of other requests (e.g. enquiries from other departments or third parties, overrides);",
-              "Support the tasks regarding internal and externaI Audit upon request;",
-              "Escalate potentially suspicious cases to the Financial Intelligence unit (FIU);",
-              "Work in coordination with other units when required, such as the Sanctions Team, Legal department, Account Documentation, and other relevant departments, to ensure thorough clients assessments."
-            ],
-            "requirements": [
-              "Professional English required.",
-              "5+ years prior experience in role",
-              "Principled, autonomous and strong team player/collaborative personality.",
-              "Capable of expressing oneself clearly both speaking and in writing.",
-              "Strong knowledge of industry best practices.",
-              "Excellent analytical skills, attention to details and ability to accurately interpret complex documents or structures.",
-              "Strong time management and organizational skills to meet tight deadlines."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities; assessments of KYC accuracy, completeness, and plausibility of KYC documentation ensuring that risks are adequately identified and mitigated;",
-              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures, update on due diligence and risk classification, analysis of the flow of funds, analysis of client information profile in view of the transactional behavior, evaluation of tax compliance, and assessment of any changes in circumstances;",
-              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations;",
-              "Professional English required.",
-              "5+ years prior experience in role",
-              "Principled, autonomous and strong team player/collaborative personality.",
-              "Accountability: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Professional English required.",
-              "5+ years prior experience in role",
-              "Principled",
-              "Capable of expressing oneself clearly both speaking and in writing.",
-              "Strong knowledge of industry best practices.",
-              "Preparation of comprehensive compliance analysis and recommendations new accounts for both individuals and legal entities",
-              "Comprehensive holistic review of existing relationships consisting of multiple accounts of various structures",
-              "Presentation of certain cases to the client Acceptance committee providing relevant risk assessments and clear compliance recommendations",
-              "Advise and support to front office on matters relating to Anti-Money Laundering (AML)"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-30T22:10:52.953Z",
-      "slugByLocale": {
-        "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
-        "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
-        "de": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
-        "fr": "agent-principal-de-conformite-a-bord-et-examens-periodiques-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-06-23",
-      "salaryMin": 174500,
-      "salaryMax": 306000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 174500,
-          "maxValue": 306000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1204",
-      "country": "CH",
-      "firstSeenAt": "2026-06-23T22:12:49.483Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      "firstSeenAt": "2026-06-25T22:13:58.906Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2896,7 +2910,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-30T22:10:52.950Z",
+      "crawledAt": "2026-07-01T11:40:30.598Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -3104,7 +3118,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -3287,7 +3302,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3605,7 +3621,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -3887,7 +3904,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -4088,7 +4106,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -4298,7 +4317,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -4923,7 +4943,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6101",
@@ -5256,7 +5277,7 @@
         "fr": "Apprenti Commercial"
       },
       "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank?\n\nIf this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you.\n\nYou will be working at the main Swiss offices of EFG Bank in the centre of Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity.\n\nDuring the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nIn addition to training in the company, in which you will be followed by a tutor dedicated to each team, you will attend the commercial professional school (CPC) of your interest and the courses at the banking competence center (CYP) along with all the business apprentices branch bank of the Canton.\n\nEFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship.\n\nDuring the course you can develop different professional skills, including:\n\n- analysis of the financial market and credit\n\n- knowledge of banking products\n\n- processing and verification of documents\n\n- schedule and priority management\n\n- use of financial IT systems\n\n## Requirements\n\n- Passion for the economy and banking world\n\n- High school license with excellent results\n\n- Expiced relational capabilities and ease to adapt to different working scenarios\n\n- Good computer knowledge\n\n- English Language Knowledge\n\nIf you are motivated, thanks to attach to the online application: a letter of motivation, CV, the three most recent school reports and the middle school license.",
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "de": "Sind Sie Abschluss der Mittelschule und daran interessiert, ein Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank der EFG Bank das, was sie für Sie tut.\n\nSie arbeiten am Schweizer Hauptsitz der EFG Bank im Zentrum von Lugano von August 2026 bis August 2029, wenn Sie das Federal Certificate of Capacity erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsteams erleben, die auf nationaler und internationaler Ebene arbeiten, z. B. Private Banking, Compliance, Kreditkarten, Central Filing, Credit, Business Risk Management, Asset Management usw.\n\nNeben der Ausbildung im Unternehmen, bei der Sie von einem Tutor begleitet werden, der jedem Team gewidmet ist, besuchen Sie die kaufmännische Berufsschule (CPC) Ihres Interesses und die Kurse im Bankenkompetenzzentrum (CYP) zusammen mit allen kaufmännischen Lehrlingen Zweigbank des Kantons.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsausbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung sicherzustellen.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich:\n- Analyse von Finanzmarkt und Kredit\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Priority Management\n- Nutzung von Finanz-IT-Systemen\n\nAnforderungen\n- Leidenschaft für Wirtschaft und Bankenwelt\n- High School Lizenz mit hervorragenden Ergebnissen\n\nErklären Sie die relationalen Fähigkeiten und die einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Kenntnisse der englischen Sprache\n\nWenn Sie motiviert sind, danken Sie für das Anfügen an die Online-Bewerbung: ein Motivationsschreiben, Lebenslauf, die drei neuesten Schulberichte und die Mittelschullizenz.",
         "fr": "Finissez-vous le collège et souhaitez-vous devenir un professionnel à la banque ?\n\nSi tel est votre souhait, la Banque d'apprentissage commercial d'EFG est ce qu'elle fait pour vous.\n\nVous travaillerez au siège social suisse de la Banque EFG dans le centre de Lugano, entre août 2026 et août 2029, lorsque vous recevrez le Certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple Private Banking, Compliance, Credit Cards, Central Fileing, Credit, Business Risk Management, Asset Management, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétences bancaires (CYP) avec tous les apprentis d'affaires de la banque du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée afin de garantir une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des délais et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence de lycée avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de la langue anglaise\n\nSi vous êtes motivé, merci d'avoir joint à la demande en ligne : une lettre de motivation, un CV, les trois derniers rapports scolaires et la licence du collège."
@@ -5390,7 +5411,8 @@
         "apprenti-banquier-afc-chez-efg-bank-a-lugano-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
