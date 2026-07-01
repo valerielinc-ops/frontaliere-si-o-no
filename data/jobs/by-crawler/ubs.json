@@ -146,7 +146,23 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-06-30T23:27:25.630Z"
+      "firstSeenAt": "2026-06-30T23:27:25.630Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "event-attendant-hourly-contract-ubs-ticino"
+        ],
+        "de": [
+          "event-waitant-vertrag-nach-stunden-ubs-ticino"
+        ],
+        "fr": [
+          "attendant-de-l-evenement-contrat-en-heures-ubs-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "event-attendant-hourly-contract-ubs-ticino",
+        "event-waitant-vertrag-nach-stunden-ubs-ticino",
+        "attendant-de-l-evenement-contrat-en-heures-ubs-ticino"
+      ]
     },
     {
       "id": "ubs-c759124e8b01",
@@ -218,7 +234,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T23:27:25.621Z"
+      "firstSeenAt": "2026-06-30T23:27:25.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-finanziario-wmch-basilea-ubs-nordschweiz"
+        ],
+        "en": [
+          "financial-planner-wmch-basel-ubs-nordschweiz"
+        ],
+        "fr": [
+          "planificateur-financier-wmch-bale-ubs-nordschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-finanziario-wmch-basilea-ubs-nordschweiz",
+        "financial-planner-wmch-basel-ubs-nordschweiz",
+        "planificateur-financier-wmch-bale-ubs-nordschweiz"
+      ]
     },
     {
       "id": "ubs-28e4d7bafe32",
@@ -290,7 +322,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T23:27:25.620Z"
+      "firstSeenAt": "2026-06-30T23:27:25.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz"
+        ],
+        "en": [
+          "tax-expert-wealth-management-ubs-zentralschweiz"
+        ],
+        "fr": [
+          "expert-fiscal-gestion-de-la-masse-ubs-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz",
+        "tax-expert-wealth-management-ubs-zentralschweiz",
+        "expert-fiscal-gestion-de-la-masse-ubs-zentralschweiz"
+      ]
     },
     {
       "id": "ubs-4ea375f241aa",
@@ -362,7 +410,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-30T23:27:25.618Z"
+      "firstSeenAt": "2026-06-30T23:27:25.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pianificatore-della-successione-ubs-zentralschweiz"
+        ],
+        "en": [
+          "succession-planners-ubs-zentralschweiz"
+        ],
+        "fr": [
+          "planificateurs-de-releve-ubs-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "pianificatore-della-successione-ubs-zentralschweiz",
+        "succession-planners-ubs-zentralschweiz",
+        "planificateurs-de-releve-ubs-zentralschweiz"
+      ]
     },
     {
       "id": "ubs-8b91a7a03ed4",

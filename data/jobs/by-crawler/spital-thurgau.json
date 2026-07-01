@@ -793,11 +793,6 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
-        "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess",
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interesse-an-psychosomatik-spital-thurgau-stgag-munsterlingen",
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und",
         "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse",
@@ -811,7 +806,13 @@
         "dipl-pflegefachmann-frau-alkoholentzug-therapie-spital-thurgau-stgag-munsterlingen",
         "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse-ne",
         "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
-        "dipl-infermieristica-donna-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden"
+        "dipl-infermieristica-donna-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+        "dipl-nursing-specialist-woman-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+        "dipl-pflegefachmann-frau-alterstagesklinik-weinfelden-stgag-ch",
+        "dipl-specialiste-des-soins-infirmiers-femme-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+        "dipl-pflegefachmann-frau-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+        "hebammes-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -826,17 +827,23 @@
           "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
           "dipl-specialista-di-cura-servizio-psichiatrico-esterno-weinfelden-spital-thurgau-stgag-weinfelden",
           "dipl-infermieristica-specialista-alcool-ritiro-terapia-spital-thurgau-stgag-munsterlingen",
-          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatr"
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatr",
+          "dipl-specialiste-des-soins-infirmiers-femme-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+          "hebammes-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "en": [
-          "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
+          "dipl-nursing-specialist-woman-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden"
         ],
         "de": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
           "dipl-pflegefachmann-frau-med-praxisassistenten-in-con-op-erfahrung-techn-operationsfachmann-frau-urologische-klinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-spital-thurgau-stgag-weinfelden",
           "dipl-pflegefachmann-frau-alkoholentzug-therapie-stgag-ch",
-          "dipl-pflegefachmann-frau-alkoholentzug-therapie-spital-thurgau-stgag-munsterlingen"
+          "dipl-pflegefachmann-frau-alkoholentzug-therapie-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-alterstagesklinik-weinfelden-stgag-ch",
+          "dipl-pflegefachmann-frau-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+          "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
@@ -10648,7 +10655,6 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster",
         "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-f431a9",
         "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag",
         "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100",
@@ -10666,7 +10672,9 @@
         "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
         "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen",
         "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen",
-        "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-"
+        "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-",
+        "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10689,7 +10697,9 @@
         ],
         "de": [
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
-          "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag"
+          "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag",
+          "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch",

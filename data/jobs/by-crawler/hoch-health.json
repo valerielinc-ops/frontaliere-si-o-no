@@ -1208,7 +1208,8 @@
         "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen"
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1220,7 +1221,8 @@
         "de": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
           "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o"
         ]
       },
       "firstSeenAt": "2026-06-03T23:51:56.903Z",
@@ -1305,13 +1307,29 @@
         "oberarztin-arzt-mbf-100-hoch-health-st-gallen",
         "oberarztin-arzt-mbf-100-hoch-health-uznach",
         "primario-di-anestesia-mbf-100-hoch-health-ostschweiz-uznach",
-        "medecin-chef-en-anesthesiologie-mbf-100-hoch-health-ostschweiz-st-gallen"
+        "medecin-chef-en-anesthesiologie-mbf-100-hoch-health-ostschweiz-st-gallen",
+        "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
+        "senior-physician-in-anesthesiology-50-100-hoch-health-ostschweiz-st-gallen",
+        "oberarztin-arzt-50-100-hoch-health-wil",
+        "medecin-senior-en-anesthesiologie-50-100-hoch-health-ostschweiz-wil",
+        "oberarztin-arzt-50-100-hoch-health-st-gallen",
+        "medico-senior-50-100-hoch-health-ostschweiz-wil",
+        "senior-doctor-50-100-hoch-health-ostschweiz-wil",
+        "medecin-senior-en-anesthesiologie-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-arzt-mbf-100-hoch-health-st-gallen",
           "oberarztin-arzt-mbf-100-hoch-health-uznach",
-          "primario-di-anestesia-mbf-100-hoch-health-ostschweiz-uznach"
+          "primario-di-anestesia-mbf-100-hoch-health-ostschweiz-uznach",
+          "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
+          "senior-physician-in-anesthesiology-50-100-hoch-health-ostschweiz-st-gallen",
+          "oberarztin-arzt-50-100-hoch-health-wil",
+          "medecin-senior-en-anesthesiologie-50-100-hoch-health-ostschweiz-wil",
+          "oberarztin-arzt-50-100-hoch-health-st-gallen",
+          "medico-senior-50-100-hoch-health-ostschweiz-wil",
+          "senior-doctor-50-100-hoch-health-ostschweiz-wil",
+          "medecin-senior-en-anesthesiologie-50-100-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [
           "oberarztin-arzt-mbf-100-hoch-health-st-gallen"
@@ -7322,13 +7340,27 @@
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen-2",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-        "dipl-pflegefachfrau-mann-40-60-hoch-health-st-gallen"
+        "dipl-pflegefachfrau-mann-40-60-hoch-health-st-gallen",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-ky3n3r",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-mu6a0o",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen-2",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-ky3n3r",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-mu6a0o",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2"
         ]
       },
       "firstSeenAt": "2026-06-03T23:51:26.072Z",
@@ -11636,16 +11668,36 @@
       "previousSlugs": [
         "stationsleiter-in-80-100-hoch-health-st-gallen",
         "stationsleiter-in-80-100-hoch-health-uznach",
-        "capo-di-stazione-80-100-hoch-health-ostschweiz-uznach"
+        "capo-di-stazione-80-100-hoch-health-ostschweiz-uznach",
+        "addetto-a-di-sala-responsabile-di-servizio-100-hoch-health-ostschweiz-st-gallen",
+        "head-waiter-waitress-service-manager-100-hoch-health-ostschweiz-st-gallen",
+        "gastgeber-in-chef-de-service-100-hoch-health-st-gallen",
+        "responsable-de-salle-chef-de-service-100-hoch-health-ostschweiz-st-gallen",
+        "capo-del-centro-80-100-hoch-health-ostschweiz-st-gallen",
+        "centre-manager-in-family-medicine-80-100-hoch-health-ostschweiz-st-gallen",
+        "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen",
+        "directeur-de-centre-en-medecine-familiale-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stationsleiter-in-80-100-hoch-health-st-gallen",
           "stationsleiter-in-80-100-hoch-health-uznach",
-          "capo-di-stazione-80-100-hoch-health-ostschweiz-uznach"
+          "capo-di-stazione-80-100-hoch-health-ostschweiz-uznach",
+          "addetto-a-di-sala-responsabile-di-servizio-100-hoch-health-ostschweiz-st-gallen",
+          "capo-del-centro-80-100-hoch-health-ostschweiz-st-gallen",
+          "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen",
+          "directeur-de-centre-en-medecine-familiale-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [
           "stationsleiter-in-80-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "head-waiter-waitress-service-manager-100-hoch-health-ostschweiz-st-gallen",
+          "centre-manager-in-family-medicine-80-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "gastgeber-in-chef-de-service-100-hoch-health-st-gallen",
+          "responsable-de-salle-chef-de-service-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T14:38:17.176Z",
@@ -14145,17 +14197,25 @@
       "previousSlugs": [
         "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
         "fallmanager-in-zentrales-patientenmanagement-80-100-hoch-health-ostschweiz-st-gallen",
-        "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-ostschweiz-st-gallen"
+        "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-ostschweiz-st-gallen",
+        "collaboratore-trice-zentrales-patientenmanagement-60-100-hoch-health-ostschweiz-st-gallen",
+        "employee-central-patient-management-60-100-hoch-health-ostschweiz-st-gallen",
+        "mitarbeiter-in-zentrales-patientenmanagement-60-100-hoch-health-st-gallen",
+        "gestion-des-employes-centrale-des-patients-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen"
+          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
+          "collaboratore-trice-zentrales-patientenmanagement-60-100-hoch-health-ostschweiz-st-gallen",
+          "employee-central-patient-management-60-100-hoch-health-ostschweiz-st-gallen",
+          "gestion-des-employes-centrale-des-patients-60-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen"
         ],
         "de": [
-          "fallmanager-in-zentrales-patientenmanagement-80-100-hoch-health-ostschweiz-st-gallen"
+          "fallmanager-in-zentrales-patientenmanagement-80-100-hoch-health-ostschweiz-st-gallen",
+          "mitarbeiter-in-zentrales-patientenmanagement-60-100-hoch-health-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T14:38:02.119Z",
@@ -15987,16 +16047,24 @@
         "addetto-a-cucina-al-100-hoch-health-ostschweiz-st-gallen",
         "100-kitchen-staff-hoch-health-ostschweiz-st-gallen",
         "mitarbeiter-in-kuche-100-hoch-health-st-gallen",
-        "employe-e-de-cuisine-100-hoch-health-ostschweiz-st-gallen"
+        "employe-e-de-cuisine-100-hoch-health-ostschweiz-st-gallen",
+        "collaboratore-trice-histopathologie-100-hoch-health-ostschweiz-st-gallen",
+        "employee-histopathology-100-hoch-health-ostschweiz-st-gallen",
+        "mitarbeiter-in-histopathologie-100-hoch-health-st-gallen",
+        "employe-histopathologie-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen",
           "sachbearbeiter-in-aufnahme-60-hoch-health-grabs",
-          "addetto-a-al-ricevimento-60-hoch-health-ostschweiz-grabs"
+          "addetto-a-al-ricevimento-60-hoch-health-ostschweiz-grabs",
+          "collaboratore-trice-histopathologie-100-hoch-health-ostschweiz-st-gallen",
+          "employee-histopathology-100-hoch-health-ostschweiz-st-gallen",
+          "employe-histopathologie-100-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [
-          "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen"
+          "sachbearbeiter-in-aufnahme-60-hoch-health-st-gallen",
+          "mitarbeiter-in-histopathologie-100-hoch-health-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:50.410Z",

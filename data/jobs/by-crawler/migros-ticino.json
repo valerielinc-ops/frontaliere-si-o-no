@@ -3107,7 +3107,8 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf",
-          "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j"
+          "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j",
+          "employe-en-logistique-intralogistique-migros-online-regensdorf"
         ],
         "en": [
           "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j"
@@ -3117,7 +3118,6 @@
         ]
       },
       "previousSlugs": [
-        "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf",
         "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j",
         "addetto-a-alla-logistica-turno-notturno-migros-online-regensdorf",
         "logistics-employee-night-shift-migros-online-regensdorf",
@@ -3136,7 +3136,8 @@
         "mitarbeiter-in-logistik-intralogistik-migros-online-regensdorf-xbk3h6",
         "employe-logistique-intralogistique-migros-online-regensdorf",
         "mitarbeiter-in-logistik-intralogistik-migros-online-regensdorf",
-        "collaboratore-trice-in-logistik-intralogistik-migros-online-regensdorf-xbk3h6"
+        "collaboratore-trice-in-logistik-intralogistik-migros-online-regensdorf-xbk3h6",
+        "employe-en-logistique-intralogistique-migros-online-regensdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4128,7 +4129,18 @@
       "previousSlugs": [
         "seller-denner-ag-frauenfeld-008421",
         "vendeur-denner-ag-frauenfeld-008421",
-        "venditore-denner-ag-frauenfeld-008421"
+        "venditore-denner-ag-frauenfeld-008421",
+        "venditore-denner-ag-langenthal-oggkv1",
+        "seller-denner-ag-langenthal",
+        "verkaufer-in-denner-ag-langenthal",
+        "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
+        "verkaufer-in-denner-ag-wattwil",
+        "vendeur-denner-ag-wattwil",
+        "venditore-denner-ag-wattwil-8129f7",
+        "venditore-denner-ag-wattwil",
+        "venditore-denner-ag-ruti-zh-t7zg1v",
+        "verkaufer-in-denner-ag-urdorf-56ql1j",
+        "verkaufer-in-denner-ag-urdorf"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -4136,6 +4148,19 @@
         ],
         "fr": [
           "vendeur-denner-ag-frauenfeld-008421"
+        ],
+        "it": [
+          "venditore-denner-ag-langenthal-oggkv1",
+          "seller-denner-ag-langenthal",
+          "verkaufer-in-denner-ag-langenthal",
+          "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
+          "verkaufer-in-denner-ag-wattwil",
+          "vendeur-denner-ag-wattwil",
+          "venditore-denner-ag-wattwil-8129f7",
+          "venditore-denner-ag-wattwil",
+          "venditore-denner-ag-ruti-zh-t7zg1v",
+          "verkaufer-in-denner-ag-urdorf-56ql1j",
+          "verkaufer-in-denner-ag-urdorf"
         ]
       }
     },
@@ -12440,25 +12465,26 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "venditore-denner-ag-mohlin",
-          "venditore-denner-ag-wetzikon-douzkp",
-          "seller-denner-ag-wetzikon",
-          "vendeur-denner-ag-wetzikon",
-          "verkaufer-in-denner-ag-wetzikon",
-          "verkaufer-in-denner-ag-wetzikon-douzkp",
-          "seller-denner-ag-wetzikon-8e6f7a",
-          "vendeur-denner-ag-wetzikon-8e6f7a",
-          "venditore-denner-ag-wetzikon-8e6f7a",
-          "venditore-denner-ag-wetzikon",
-          "venditore-denner-ag-frauenfeld-7kk8ni",
-          "seller-denner-ag-frauenfeld-008421",
-          "verkaufer-in-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld-008421",
-          "venditore-denner-ag-langenthal"
+          "venditore-denner-ag-zurich-fzpktp",
+          "seller-denner-ag-zurich-1d38ef",
+          "verkaufer-in-denner-ag-zurich",
+          "vendeur-denner-ag-zurich",
+          "venditore-denner-ag-zurich-1ed56c",
+          "venditore-denner-ag-zurich-1d38ef",
+          "seller-denner-ag-zurich-1ed56c",
+          "vendeur-denner-ag-zurich-1ed56c",
+          "venditore-denner-ag-zurich",
+          "venditore-denner-ag-langenthal-hutbop",
+          "seller-denner-ag-langenthal-d47c8f",
+          "verkaufer-in-denner-ag-langenthal",
+          "vendeur-denner-ag-langenthal-d47c8f",
+          "verkaufer-in-denner-ag-wattwil",
+          "vendeur-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-mohlin",
+          "seller-denner-ag-wattwil",
+          "venditore-denner-ag-langenthal-634638",
+          "venditore-denner-ag-mohlin-fxzsgw",
+          "seller-denner-ag-mohlin"
         ],
         "en": [
           "verkaufer-in-denner-ag-urdorf-56ql1j",
@@ -12473,26 +12499,26 @@
         ]
       },
       "previousSlugs": [
-        "venditore-denner-ag-mohlin",
-        "venditore-denner-ag-wetzikon-douzkp",
-        "seller-denner-ag-wetzikon",
-        "vendeur-denner-ag-wetzikon",
-        "verkaufer-in-denner-ag-wetzikon",
-        "verkaufer-in-denner-ag-wetzikon-douzkp",
-        "seller-denner-ag-wetzikon-8e6f7a",
-        "vendeur-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon-8e6f7a",
-        "venditore-denner-ag-wetzikon",
-        "venditore-denner-ag-frauenfeld-7kk8ni",
-        "seller-denner-ag-frauenfeld-008421",
-        "verkaufer-in-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-langenthal",
-        "vendeur-denner-ag-langenthal-634638"
+        "venditore-denner-ag-zurich-fzpktp",
+        "seller-denner-ag-zurich-1d38ef",
+        "verkaufer-in-denner-ag-zurich",
+        "vendeur-denner-ag-zurich",
+        "venditore-denner-ag-zurich-1ed56c",
+        "venditore-denner-ag-zurich-1d38ef",
+        "seller-denner-ag-zurich-1ed56c",
+        "vendeur-denner-ag-zurich-1ed56c",
+        "venditore-denner-ag-zurich",
+        "venditore-denner-ag-langenthal-hutbop",
+        "seller-denner-ag-langenthal-d47c8f",
+        "verkaufer-in-denner-ag-langenthal",
+        "vendeur-denner-ag-langenthal-d47c8f",
+        "verkaufer-in-denner-ag-wattwil",
+        "vendeur-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-mohlin",
+        "seller-denner-ag-wattwil",
+        "venditore-denner-ag-langenthal-634638",
+        "venditore-denner-ag-mohlin-fxzsgw",
+        "seller-denner-ag-mohlin"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -34110,26 +34136,26 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "venditore-denner-ag-mohlin-68d2c2",
-          "vendeur-denner-ag-mohlin-68d2c2",
-          "venditore-denner-ag-wetzikon-8q0wha",
-          "venditore-denner-ag-wetzikon",
-          "venditore-denner-ag-frauenfeld-m4pjdx",
-          "seller-denner-ag-frauenfeld",
-          "verkaufer-in-denner-ag-frauenfeld",
-          "vendeur-denner-ag-frauenfeld",
-          "verkaufer-in-denner-ag-wilderswil-8uju7p",
-          "verkaufer-in-denner-ag-wilderswil-2",
-          "verkaufer-in-denner-ag-chur-s710og",
-          "verkaufer-in-denner-ag-chur-2",
-          "verkaufer-in-denner-ag-wattwil-v6p61a",
-          "verkaufer-in-denner-ag-wattwil-2",
-          "verkaufer-in-denner-ag-allschwil-2",
-          "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-          "venditore-denner-ag-allschwil-5b4844",
-          "salesperson-denner-ag-langenthal",
-          "venditore-denner-ag-wattwil",
-          "venditore-denner-ag-ruti-zh-t7zg1v"
+          "venditore-denner-ag-ruti-zh-45abe1",
+          "seller-denner-ag-mohlin-0713a1",
+          "vendeur-denner-ag-mohlin-0713a1",
+          "venditore-denner-ag-mohlin-0713a1",
+          "venditore-a-denner-ag-mohlin",
+          "salesperson-denner-ag-mohlin",
+          "vendeur-vendeuse-denner-ag-mohlin",
+          "venditore-denner-ag-langenthal-oggkv1",
+          "seller-denner-ag-langenthal",
+          "verkaufer-in-denner-ag-langenthal",
+          "vendeur-denner-ag-langenthal-634638",
+          "venditore-denner-ag-langenthal-634638",
+          "venditore-denner-ag-langenthal",
+          "venditore-denner-ag-frauenfeld",
+          "verkaufer-in-denner-ag-urdorf",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-urdorf-56ql1j",
+          "venditore-denner-ag-zurich-fzpktp",
+          "venditore-denner-ag-urdorf",
+          "venditore-denner-ag-wattwil-8129f7"
         ],
         "en": [
           "verkaufer-in-denner-ag-sulgen-ylgjxe",
@@ -34146,26 +34172,26 @@
         ]
       },
       "previousSlugs": [
-        "venditore-denner-ag-mohlin-68d2c2",
-        "vendeur-denner-ag-mohlin-68d2c2",
-        "venditore-denner-ag-wetzikon-8q0wha",
-        "venditore-denner-ag-wetzikon",
-        "venditore-denner-ag-frauenfeld-m4pjdx",
-        "seller-denner-ag-frauenfeld",
-        "verkaufer-in-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld",
-        "verkaufer-in-denner-ag-wilderswil-8uju7p",
-        "verkaufer-in-denner-ag-wilderswil-2",
-        "verkaufer-in-denner-ag-chur-s710og",
-        "verkaufer-in-denner-ag-chur-2",
-        "verkaufer-in-denner-ag-wattwil-v6p61a",
-        "verkaufer-in-denner-ag-wattwil-2",
-        "verkaufer-in-denner-ag-allschwil-2",
-        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "venditore-denner-ag-allschwil-5b4844",
-        "salesperson-denner-ag-langenthal",
-        "venditore-denner-ag-wattwil",
-        "venditore-denner-ag-ruti-zh-t7zg1v"
+        "venditore-denner-ag-ruti-zh-45abe1",
+        "seller-denner-ag-mohlin-0713a1",
+        "vendeur-denner-ag-mohlin-0713a1",
+        "venditore-denner-ag-mohlin-0713a1",
+        "venditore-a-denner-ag-mohlin",
+        "salesperson-denner-ag-mohlin",
+        "vendeur-vendeuse-denner-ag-mohlin",
+        "venditore-denner-ag-langenthal-oggkv1",
+        "seller-denner-ag-langenthal",
+        "verkaufer-in-denner-ag-langenthal",
+        "vendeur-denner-ag-langenthal-634638",
+        "venditore-denner-ag-langenthal-634638",
+        "venditore-denner-ag-langenthal",
+        "venditore-denner-ag-frauenfeld",
+        "verkaufer-in-denner-ag-urdorf",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-urdorf-56ql1j",
+        "venditore-denner-ag-zurich-fzpktp",
+        "venditore-denner-ag-urdorf",
+        "venditore-denner-ag-wattwil-8129f7"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -34269,7 +34295,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "directeur-adjoint-de-la-succursale-denner-ag-zurich-b9428d",
           "stv-filialleiter-in-denner-ag-zurich-4",
           "vice-direttore-di-filiale-denner-ag-zurich-3e601b",
           "stv-filialleiter-in-denner-ag-zurich-2zbait",
@@ -34288,7 +34313,8 @@
           "stv-filialleiter-in-denner-ag-zurich-iwlyck",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
           "stv-filialleiter-in-denner-ag-zurich-3",
-          "vice-direttore-di-filiale-denner-ag-zurich-b9428d"
+          "vice-direttore-di-filiale-denner-ag-zurich-b9428d",
+          "stv-filialleiter-in-denner-ag-zurich-r5knfa"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-appenzell-3o9h68",
@@ -34303,7 +34329,6 @@
         ]
       },
       "previousSlugs": [
-        "deputy-branch-manager-denner-ag-zurich-5450de",
         "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-5450de",
         "stv-filialleiter-in-denner-ag-zurich-6",
@@ -34322,7 +34347,8 @@
         "stv-filialleiter-in-denner-ag-zurich-iwlyck",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
         "stv-filialleiter-in-denner-ag-zurich-3",
-        "vice-direttore-di-filiale-denner-ag-zurich-b9428d"
+        "vice-direttore-di-filiale-denner-ag-zurich-b9428d",
+        "stv-filialleiter-in-denner-ag-zurich-r5knfa"
       ],
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -37217,17 +37243,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-ag-basel-68m8tl",
-          "verkaufer-in-denner-ag-zurich-fzpktp",
-          "verkaufer-in-denner-ag-zurich-2",
-          "verkaufer-in-denner-ag-basel-2",
-          "verkaufer-in-denner-ag-basel",
-          "verkaufer-in-denner-ag-wilderswil-8uju7p",
-          "verkaufer-in-denner-ag-wilderswil-2",
-          "verkaufer-in-denner-ag-wilderswil",
-          "verkaufer-in-denner-ag-chur-s710og",
-          "verkaufer-in-denner-ag-chur-2",
-          "verkaufer-in-denner-ag-chur",
           "verkaufer-in-denner-ag-wattwil-v6p61a",
           "verkaufer-in-denner-ag-wattwil-2",
           "verkaufer-in-denner-ag-wattwil",
@@ -37236,7 +37251,18 @@
           "verkaufer-in-denner-ag-allschwil",
           "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
           "verkaufer-in-denner-ag-ruti-zh-2",
-          "verkaufer-in-denner-ag-ruti-zh"
+          "verkaufer-in-denner-ag-ruti-zh",
+          "verkaufer-in-denner-ag-mohlin-ynz3u9",
+          "verkaufer-in-denner-ag-mohlin-2",
+          "verkaufer-in-denner-ag-mohlin",
+          "verkaufer-in-denner-ag-zurich",
+          "verkaufer-in-denner-ag-langenthal-oggkv1",
+          "verkaufer-in-denner-ag-langenthal-3",
+          "verkaufer-in-denner-ag-langenthal",
+          "venditore-denner-ag-frick",
+          "verkaufer-in-denner-ag-interlaken-vz3gdz",
+          "verkaufer-in-denner-ag-interlaken-2",
+          "verkaufer-in-denner-ag-interlaken"
         ],
         "en": [
           "verkaufer-in-denner-ag-frick-7j5ksm",
@@ -37253,17 +37279,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-basel-68m8tl",
-        "verkaufer-in-denner-ag-zurich-fzpktp",
-        "verkaufer-in-denner-ag-zurich-2",
-        "verkaufer-in-denner-ag-basel-2",
-        "verkaufer-in-denner-ag-basel",
-        "verkaufer-in-denner-ag-wilderswil-8uju7p",
-        "verkaufer-in-denner-ag-wilderswil-2",
-        "verkaufer-in-denner-ag-wilderswil",
-        "verkaufer-in-denner-ag-chur-s710og",
-        "verkaufer-in-denner-ag-chur-2",
-        "verkaufer-in-denner-ag-chur",
         "verkaufer-in-denner-ag-wattwil-v6p61a",
         "verkaufer-in-denner-ag-wattwil-2",
         "verkaufer-in-denner-ag-wattwil",
@@ -37272,7 +37287,18 @@
         "verkaufer-in-denner-ag-allschwil",
         "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
         "verkaufer-in-denner-ag-ruti-zh-2",
-        "verkaufer-in-denner-ag-ruti-zh"
+        "verkaufer-in-denner-ag-ruti-zh",
+        "verkaufer-in-denner-ag-mohlin-ynz3u9",
+        "verkaufer-in-denner-ag-mohlin-2",
+        "verkaufer-in-denner-ag-mohlin",
+        "verkaufer-in-denner-ag-zurich",
+        "verkaufer-in-denner-ag-langenthal-oggkv1",
+        "verkaufer-in-denner-ag-langenthal-3",
+        "verkaufer-in-denner-ag-langenthal",
+        "venditore-denner-ag-frick",
+        "verkaufer-in-denner-ag-interlaken-vz3gdz",
+        "verkaufer-in-denner-ag-interlaken-2",
+        "verkaufer-in-denner-ag-interlaken"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
