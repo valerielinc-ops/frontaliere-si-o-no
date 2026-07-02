@@ -2395,9 +2395,15 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
       if (e.nonRetryable) throw e;
       // Re-throw on last attempt
       if (attempt >= opts.maxRetriesPerModel) throw e;
-      // Timeout errors: retry only once (model is likely overloaded, not transiently failing)
+      // Timeout errors: never retry within this call. A hang against the full
+      // opts.timeout budget (default 90s) means the model is dead/overloaded,
+      // not transiently failing — retrying burns a second full timeout for
+      // near-zero payoff (observed 0/19 timeout retries succeeding in run
+      // 28611052353, which spent ~62min re-waiting on already-hung models).
+      // The outer callLLM() cascade already marks the model exhausted after a
+      // single failure and moves on, so bailing here just lets that happen sooner.
       const isTimeout = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(e.message || '');
-      if (isTimeout && attempt >= 2) throw e;
+      if (isTimeout) throw e;
       // Otherwise retry
       _stats.retries++;
       const waitMs = attempt * opts.backoffMs;
