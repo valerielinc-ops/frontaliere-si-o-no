@@ -838,6 +838,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'Assurance accident UVG 2026 : couverture et rapports',
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Découvrez tout sur la couverture UVG pour les navetteurs transfrontaliers en Suisse en 2026, comment signaler un accident et les différences avec une maladie professionnelle.',
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.nascita-figlio-frontaliere-2026.title': 'Naissance 2026 : Checklist pour frontalier',
+    'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Guide complet pour les familles transfrontalières sur la naissance d’un enfant en Suisse en 2026 : état civil, allocations familiales et procédures consulaires.',
+    'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Famille frontalier avec nouveau-né en Suisse',
 };
 
 export default blogMetaChFr;

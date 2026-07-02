@@ -838,6 +838,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'Assicurazione infortuni LAINF 2026: copertura e denunce',
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.',
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.nascita-figlio-frontaliere-2026.title': 'Nascita 2026: Checklist per frontaliere',
+    'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.',
+    'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Famiglia frontaliera con neonato in Svizzera',
 };
 
 export default blogMetaChIt;
