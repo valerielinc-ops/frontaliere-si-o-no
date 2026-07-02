@@ -7,8 +7,15 @@
  *
  * Flow:
  *   1. GET the search page to obtain session cookies + CSRF token (RFT)
- *   2. POST /TgNewUI/Search/Ajax/MatchedJobs with city facet filter
- *      for Valais-area cities (Brig, Visp, Sion, Martigny, etc.)
+ *   2. POST /TgNewUI/Search/Ajax/ProcessSortAndShowMoreJobs with `pageNumber`
+ *      (1-indexed) for each page of the full tenant result set. The sibling
+ *      /TgNewUI/Search/Ajax/MatchedJobs endpoint (used by the site's own UI
+ *      only for the very first render) accepts `StartRow`/`EndRow` but the
+ *      live tenant silently ignores them and always returns page 1 — using
+ *      it for pagination collapsed every "page" onto the same ~8 Swiss jobs
+ *      (issue #3259). ProcessSortAndShowMoreJobs is what the site's own
+ *      "show more" / page-number UI calls, confirmed against the shipped
+ *      Angular bundle (TGNewUI search.min.js, `sortJobs()`).
  *   3. Parse the Jobs.Job[] array from the response
  *
  * Each job in the search results includes: reqid, jobtitle, jobdescription,
@@ -37,8 +44,18 @@ export const UBS_COMPANY_DOMAIN = 'ubs.com';
 const SEARCH_PAGE_URL =
   'https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=searchResults';
 
-/** Taleo MatchedJobs endpoint */
+/** Taleo MatchedJobs endpoint — first-page search only (see ShowMore note below). */
 const MATCHED_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/MatchedJobs';
+
+/**
+ * Taleo pagination endpoint — the site's own "page N" / "show more" UI posts
+ * here with a 1-indexed `pageNumber`, NOT to MatchedJobs with StartRow/EndRow
+ * (which the live tenant ignores, always returning page 1; issue #3259).
+ */
+const SHOW_MORE_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/ProcessSortAndShowMoreJobs';
+
+/** Deterministic sort so page boundaries stay stable across requests. */
+const SORT_TYPE = 'LastUpdated';
 
 /** Taleo partner/site identifiers */
 const PARTNER_ID = '25008';
@@ -346,20 +363,22 @@ async function bootstrapSession() {
 /* ── API Client ────────────────────────────────────────────── */
 
 /**
- * Call the Taleo MatchedJobs endpoint with optional pagination.
+ * Call the Taleo MatchedJobs endpoint — the FIRST page of results only.
  *
  * Cathedral CH-wide expansion (2026-05-10): no city facet is applied —
  * the unfiltered result on jobs.ubs.com siteid=5012 is the full Swiss
  * UBS tenant across 26 cantons.
  *
+ * NOTE (issue #3259): this endpoint accepts `StartRow`/`EndRow` but the
+ * live tenant ignores them and always returns the same first page — it
+ * must NOT be used to paginate past page 1. Use searchMoreJobs() (real
+ * pagination via ProcessSortAndShowMoreJobs) for subsequent pages.
+ *
  * @param {string} cookies - Session cookies from bootstrapSession
  * @param {string} rft - CSRF token from bootstrapSession
- * @param {object} [options]
- * @param {number} [options.startRow=0] First (0-indexed) row to return
- * @param {number} [options.endRow=25]  Last (exclusive) row to return
  * @returns {Promise<{jobs: object[], totalCount: number}>}
  */
-async function searchJobs(cookies, rft, { startRow = 0, endRow = 25 } = {}) {
+async function searchJobs(cookies, rft) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -378,8 +397,8 @@ async function searchJobs(cookies, rft, { startRow = 0, endRow = 25 } = {}) {
     Longitude: 0,
     PowerSearchOptions: { PowerSearchOption: [] },
     encryptedsessionvalue: '',
-    StartRow: startRow,
-    EndRow: endRow,
+    StartRow: 0,
+    EndRow: 50,
   };
 
   try {
@@ -407,6 +426,70 @@ async function searchJobs(cookies, rft, { startRow = 0, endRow = 25 } = {}) {
     // wrapper, error body, single non-array object) now warns instead of silently
     // yielding []. The `|| []` also returned a truthy non-array as-is — the helper
     // skips that and warns.
+    const jobList = assertJsonListShapeMultiKey(data, { keys: ['Jobs.Job'], source: 'ubs' });
+    const totalCount = data?.JobsCount || 0;
+
+    return { jobs: jobList, totalCount };
+  } catch (err) {
+    clearTimeout(timer);
+    throw err;
+  }
+}
+
+/**
+ * Call the Taleo ProcessSortAndShowMoreJobs endpoint — real pagination,
+ * 1-indexed `pageNumber`. This is what the site's own "show more" / page
+ * links call (confirmed against the shipped TGNewUI Angular bundle); unlike
+ * MatchedJobs it actually advances through the full result set (#3259).
+ *
+ * @param {string} cookies - Session cookies from bootstrapSession
+ * @param {string} rft - CSRF token from bootstrapSession
+ * @param {number} pageNumber - 1-indexed page to fetch (page 1 == first 50)
+ * @returns {Promise<{jobs: object[], totalCount: number}>}
+ */
+async function searchMoreJobs(cookies, rft, pageNumber) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  const requestBody = {
+    partnerId: PARTNER_ID,
+    siteId: SITE_ID,
+    keyword: '',
+    location: '',
+    keywordCustomSolrFields: '',
+    locationCustomSolrFields: '',
+    facetfilterfields: { Facet: [] },
+    linkId: '',
+    Latitude: 0,
+    Longitude: 0,
+    powersearchoptions: { PowerSearchOption: [] },
+    SortType: SORT_TYPE,
+    pageNumber,
+    encryptedSessionValue: '',
+  };
+
+  try {
+    const res = await fetch(SHOW_MORE_JOBS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        Accept: 'application/json',
+        Cookie: cookies,
+        RFT: rft,
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+      body: JSON.stringify(requestBody),
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+
+    if (!res.ok) {
+      throw new Error(`Taleo ProcessSortAndShowMoreJobs API returned HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
     const jobList = assertJsonListShapeMultiKey(data, { keys: ['Jobs.Job'], source: 'ubs' });
     const totalCount = data?.JobsCount || 0;
 
@@ -525,27 +608,42 @@ export async function fetchAllUbsJobs() {
   console.log('  ✅ Session established\n');
 
   // Step 2: Paginated walk of the whole Swiss tenant.
+  //
+  // MAX_PAGES is a hard cap, not the expected page count — the loop stops
+  // as soon as a page comes back short/empty or we've collected >= the
+  // API-reported total. 60 pages * 50/page = 3,000 jobs of headroom above
+  // the observed ~550-600 global tenant size.
   console.log('  📄 Searching for all Swiss UBS jobs (paginated)...');
-  const PAGE_SIZE = 25;
-  const MAX_PAGES = 100; // Hard cap = 2,500 jobs (UBS Switzerland posts ~700-1,200 simultaneously).
+  const MAX_PAGES = 60;
   const allTaleoJobs = [];
+  const seenReqIds = new Set();
   let total = 0;
   for (let page = 0; page < MAX_PAGES; page += 1) {
-    const startRow = page * PAGE_SIZE;
-    const endRow = startRow + PAGE_SIZE;
+    const pageNumber = page + 1; // Taleo pagination is 1-indexed.
     let res;
     try {
       // eslint-disable-next-line no-await-in-loop
-      res = await searchJobs(cookies, rft, { startRow, endRow });
+      res = page === 0 ? await searchJobs(cookies, rft) : await searchMoreJobs(cookies, rft, pageNumber);
     } catch (err) {
-      console.warn(`  ⚠️ Page ${page} (rows ${startRow}-${endRow}) failed: ${err?.message || err}`);
+      console.warn(`  ⚠️ Page ${pageNumber} failed: ${err?.message || err}`);
       break;
     }
     const { jobs: pageJobs, totalCount } = res;
     if (page === 0) total = totalCount;
     if (!pageJobs.length) break;
-    allTaleoJobs.push(...pageJobs);
-    console.log(`    page ${page + 1}: +${pageJobs.length} (running total ${allTaleoJobs.length}/${total || '?'})`);
+    // Defensive dedup by reqid — guards the merge/diff pipeline against any
+    // future recurrence of the page-repeat bug (#3259) silently collapsing
+    // distinct jobs downstream instead of surfacing as a shrink-guard trip.
+    let newCount = 0;
+    for (const taleoJob of pageJobs) {
+      const reqId = getField(taleoJob?.Questions, 'reqid');
+      if (reqId && seenReqIds.has(reqId)) continue;
+      if (reqId) seenReqIds.add(reqId);
+      allTaleoJobs.push(taleoJob);
+      newCount += 1;
+    }
+    console.log(`    page ${pageNumber}: +${newCount} (running total ${allTaleoJobs.length}/${total || '?'})`);
+    if (newCount === 0) break; // No new jobs discovered — stop instead of looping to MAX_PAGES.
     if (allTaleoJobs.length >= total && total > 0) break;
     // Polite delay between pages.
     // eslint-disable-next-line no-await-in-loop
