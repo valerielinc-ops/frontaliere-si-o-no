@@ -826,6 +826,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Evaluating Residency in Italy or Switzerland 2026',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'A practical guide to assessing costs, travel times, healthcare and taxation between Italy and Switzerland in 2026.',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Person evaluating residence in Italy or Switzerland with maps and tax documents',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Border workers with children: A practical guide to Ticino kindergartens',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Everything you need to know about costs, waiting lists and Italian alternatives for cross-border commuters with children in Switzerland.',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Frontalier family with children in Swiss kindergarten',
 };
 
 export default blogMetaChEn;

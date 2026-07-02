@@ -826,6 +826,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Frontaliere: Come Valutare Residenza in Italia o Svizzera nel 2026',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'Guida pratica per valutare i costi, tempi di viaggio, sanità e fiscalità tra Italia e Svizzera nel 2026.',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Persona che valuta residenza Italia o Svizzera con mappe e documenti fiscali',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Frontaliere con figli: Guida pratica agli asili nido ticinesi',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Tutto quello che devi sapere su costi, liste d\'attesa e alternative italiane per i frontalieri con figli in Svizzera.',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Famiglia frontaliera con figli in asilo nido svizzero',
 };
 
 export default blogMetaChIt;

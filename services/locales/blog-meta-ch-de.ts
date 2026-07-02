@@ -826,6 +826,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Pendler: Bewertung in Italien/Schweiz 2026',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'Praktischer Leitfaden zur Bewertung der Kosten, Reisezeiten, des Gesundheitswesens und der Besteuerung zwischen Italien und der Schweiz im Jahr 2026.',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Person, die die Residenz in Italien oder der Schweiz mit Karten und Steuerdokumenten bewertet',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Grenzpendler mit Kindern: Asylnido im Tessin',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Alles, was Sie über Kosten, Wartelisten und italienische Alternativen für grenzüberschreitende Pendler mit Kindern in der Schweiz wissen müssen.',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Frontalierfamilie mit Kindern in Schweizer Kindergarten',
 };
 
 export default blogMetaChDe;
