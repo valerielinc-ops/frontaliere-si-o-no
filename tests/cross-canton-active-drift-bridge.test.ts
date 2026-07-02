@@ -42,10 +42,14 @@ describe('Cross-canton active-job drift URL → relocation bridge (not orphan)',
     // The self-healing pass must consult the stash by the tracking path...
     expect(jobsSeoSrc).toMatch(/const driftRealPath = activeDriftRealPathByCompat\.get\(relPath\);/);
     // ...and build a canonical bridge whose canonicalUrl is the live page (BASE_URL +
-    // the real canton path), NOT the section listing root.
-    expect(jobsSeoSrc).toMatch(/const realUrl = `\$\{BASE_URL\}\$\{withSlash\(driftRealPath\)\}`;/);
+    // the real canton path) — UNLESS the tracking path falls inside the reserved
+    // company-hub namespace (issue #2976, 6th call site), in which case canonicalUrl
+    // is the Swiss aggregator instead (see cathedral-sector-hubs.test.ts). The CTA
+    // (pathLabel) always targets the real page regardless.
+    expect(jobsSeoSrc).toMatch(/const namespaceCollision = isCompanyHubNamespaceSlug\(relSlug, locale\);/);
+    expect(jobsSeoSrc).toMatch(/const realUrl = namespaceCollision\s*\n?\s*\?[^:]*AGGREGATE_KEY[^:]*\n?\s*:\s*`\$\{BASE_URL\}\$\{withSlash\(driftRealPath\)\}`;/);
     const branchIdx = jobsSeoSrc.indexOf('const driftRealPath = activeDriftRealPathByCompat.get(relPath);');
-    const branch = jobsSeoSrc.slice(branchIdx, branchIdx + 1600);
+    const branch = jobsSeoSrc.slice(branchIdx, branchIdx + 2900);
     expect(branch).toContain('canonicalUrl: realUrl');
     expect(branch).toContain('pathLabel: withSlash(driftRealPath)');
     // Must short-circuit before the orphan tombstone below.
@@ -54,7 +58,7 @@ describe('Cross-canton active-job drift URL → relocation bridge (not orphan)',
 
   it('relocation bridge carries a "moved" message in all four locales (not "removed")', () => {
     const branchIdx = jobsSeoSrc.indexOf('const driftRealPath = activeDriftRealPathByCompat.get(relPath);');
-    const branch = jobsSeoSrc.slice(branchIdx, branchIdx + 1600);
+    const branch = jobsSeoSrc.slice(branchIdx, branchIdx + 2900);
     // One entry per locale, framed as a relocation rather than a removal.
     expect(branch).toMatch(/it:\s*\{[^}]*Annuncio spostato/);
     expect(branch).toMatch(/en:\s*\{[^}]*Listing moved/);

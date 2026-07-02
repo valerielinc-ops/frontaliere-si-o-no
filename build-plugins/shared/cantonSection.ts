@@ -48,3 +48,23 @@ export function resolveJobCanton(job: { canton?: string; location?: string }): s
 }
 
 export const ALL_CANTON_CODES: readonly string[] = resolvers.ALL_CANTON_CODES;
+
+// `/{section}/azienda-{slug}/` (and per-locale equivalents) is the RESERVED
+// company-hub namespace. tests/seo/cathedral-sector-hubs.test.ts requires every
+// entry under the TI legacy section to self-canonicalize to TI (or the
+// Switzerland aggregator) — never a foreign-canton canonical. Any plugin that
+// mirrors a job/orphan slug into that namespace must skip slugs that merely
+// *start with* this prefix (e.g. a Vaud job once titled "Azienda di
+// consulenza…") or it reintroduces issue #2976 (recurred as a 5th, unguarded
+// call site in jobOrphanBridgePlugin.ts — PR validate-dist-structural-reliability
+// follow-up). Single source of truth so every emitter shares one definition.
+export const COMPANY_ROUTE_PREFIX: Record<CantonLocale, string> = {
+  it: 'azienda',
+  en: 'company',
+  de: 'unternehmen',
+  fr: 'entreprise',
+};
+
+export function isCompanyHubNamespaceSlug(slug: string, locale: CantonLocale): boolean {
+  return slug.startsWith(`${COMPANY_ROUTE_PREFIX[locale]}-`);
+}

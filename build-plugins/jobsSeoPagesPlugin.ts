@@ -153,6 +153,8 @@ import {
   resolveCantonSection as sharedResolveCantonSection,
   resolveJobCanton as sharedResolveJobCanton,
   ALL_CANTON_CODES as SHARED_ALL_CANTON_CODES,
+  COMPANY_ROUTE_PREFIX,
+  isCompanyHubNamespaceSlug,
 } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 
@@ -2206,24 +2208,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return relatedPool;
  };
 
- const companyRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'azienda',
- en: 'company',
- de: 'unternehmen',
- fr: 'entreprise',
- };
- // `/cerca-lavoro-ticino/azienda-{slug}/` (and per-locale equivalents) is the
- // RESERVED company-hub namespace. The cathedral SEO gate
- // (tests/seo/cathedral-sector-hubs.test.ts) requires every entry there to be a
- // real company hub that self-canonicalizes to TI (or the Swiss aggregator) —
- // never a foreign-canton canonical. A cross-canton job bridge whose slug merely
- // *starts with* `azienda-`/`company-`/… (e.g. a Vaud job once titled "Azienda di
- // consulenza…") must therefore NOT be mirrored into that namespace: it would
- // carry the job's live non-TI canonical and turn the gate red on every deploy
- // (issue #2976 recurring). The legacy-TI mirrors below skip such slugs; the job
- // stays fully covered under its own canton-aware section and previousSlug bridge.
- const isCompanyHubNamespaceSlug = (slug: string, loc: 'it' | 'en' | 'de' | 'fr'): boolean =>
-   slug.startsWith(`${companyRoutePrefix[loc]}-`);
+ // `companyRoutePrefix` / `isCompanyHubNamespaceSlug` now live in
+ // `./shared/cantonSection` (COMPANY_ROUTE_PREFIX / isCompanyHubNamespaceSlug)
+ // so jobOrphanBridgePlugin.ts can share the exact same reserved-namespace
+ // guard instead of drifting a second copy (issue #2976 5th-site recurrence).
+ const companyRoutePrefix = COMPANY_ROUTE_PREFIX;
  const slugifyCompanyBuild = (value: string): string =>
  String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
@@ -12148,7 +12137,25 @@ ${staticAnalyticsHtml}
  // consolidates to the real canton URL and visitors reach the open offer.
  const driftRealPath = activeDriftRealPathByCompat.get(relPath);
  if (driftRealPath) {
- const realUrl = `${BASE_URL}${withSlash(driftRealPath)}`;
+ // Reserved company-hub namespace guard (issue #2976, 6th call site): when
+ // `relPath`'s slug starts with the company-hub prefix (e.g. an old TI-legacy
+ // job whose title literally begins "Azienda di consulenza…"), this
+ // relocation bridge would otherwise sit inside the reserved
+ // `/cerca-lavoro-ticino/azienda-*` namespace while canonicalizing to the
+ // job's REAL foreign-canton page — the exact drift
+ // tests/seo/cathedral-sector-hubs.test.ts guards against. The active-job
+ // and previousSlug bridges (~line 3413, ~11959, ~12096) already skip
+ // writing full content there for this reason, which is precisely why this
+ // path falls through to self-healing in the first place. Keep the CTA
+ // pointing at the real page (still useful to visitors) but point the
+ // canonical at the Swiss aggregator instead of the foreign-canton URL —
+ // same consolidation target companyHubBridgePlugin uses for unmatched
+ // cross-canton company URLs.
+ const relSlug = relPath.replace(/^\/+|\/+$/g, '').split('/').pop() || '';
+ const namespaceCollision = isCompanyHubNamespaceSlug(relSlug, locale);
+ const realUrl = namespaceCollision
+ ? `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, AGGREGATE_KEY)}`.replace(/\/+/g, '/'))}`
+ : `${BASE_URL}${withSlash(driftRealPath)}`;
  const movedCopy = ({
  it: { title: 'Annuncio spostato', body: 'Questo annuncio è ora pubblicato in un\'altra sezione. Aprilo alla pagina aggiornata qui sotto.', cta: 'Apri l\'annuncio aggiornato' },
  en: { title: 'Listing moved', body: 'This listing is now published in another section. Open it on the updated page below.', cta: 'Open the updated listing' },
