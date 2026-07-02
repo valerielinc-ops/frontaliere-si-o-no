@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-07-01T21:52:30.659Z",
+  "assembledAt": "2026-07-02T10:43:59.434Z",
   "jobs": [
     {
       "id": "bls-7c039c3d71c3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-flottenmanagement/eaa6dfbf-e56d-4dc8-9c91-1d7a0b5c1736",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:28.057Z",
+      "crawledAt": "2026-07-02T10:43:56.824Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:54.694Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -123,7 +124,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/expert-in-flottenmanagement/543ebd37-5d31-43f4-9610-f564e7a54c75",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:27.327Z",
+      "crawledAt": "2026-07-02T10:43:56.075Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -166,8 +167,8 @@
         "it": [
           "expert-in-flottenmanagement-bls-ch",
           "expert-in-flottenmanagement-bls-ag-bern",
-          "gestione-esperta-della-flotta-bls-ag-bern",
-          "esperto-nella-gestione-della-flotta-bls-ag-bern"
+          "esperto-nella-gestione-della-flotta-bls-ag-bern",
+          "gestione-esperta-della-flotta-bls-ag-bern"
         ],
         "en": [
           "expert-in-flottenmanagement-bls-ag-bern"
@@ -177,6 +178,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:23.691Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -222,7 +224,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-avor-fahrzeuge/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:26.595Z",
+      "crawledAt": "2026-07-02T10:43:55.340Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,6 +271,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:16.156Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -314,7 +317,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:25.829Z",
+      "crawledAt": "2026-07-02T10:43:54.555Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -360,6 +363,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -373,90 +377,6 @@
         }
       },
       "addressRegion": "BE"
-    },
-    {
-      "id": "bls-11fa0b1a921e",
-      "slug": "lokomotiven-instandhalter-in-bls-ch",
-      "slugByLocale": {
-        "it": "lokomotiven-instandhalter-in-bls-ch",
-        "en": "lokomotiven-instandhalter-in-bls-ch",
-        "de": "lokomotiven-instandhalter-in-bls-ag-spiez",
-        "fr": "lokomotiven-instandhalter-in-bls-ch"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Lokomotiven-Instandhalter:in",
-      "titleByLocale": {
-        "it": "Supporto locomotivo: in",
-        "en": "Locomotive holder:in",
-        "de": "Lokomotiven-Instandhalter:in",
-        "fr": "Titulaire de la locomotive:in"
-      },
-      "description": "Du hältst unsere Lokomotiven zuverlässig in Fahrt, welche quer durch Europa verkehren und in Spiez stoppen für den Service. Mit deinem geschulten Blick erkennst du Störungen früh, führst präzise Instandhaltungsarbeiten aus und gibst Loks sicher wieder frei. So bleiben Güter und Menschen pünktlich unterwegs und unsere Flotte sturmfest auf der Schiene.\n\nDas wartet auf dich:\n\n• Störungen an Lokomotiven und Komponenten diagnostizieren und analysieren\n\n• Anspruchsvolle Reparatur- und Wartungsarbeiten an Lokomotiven und Komponenten ausführen\n\n• Instandhaltungsdaten erfassen\n\n• Aufträge vor Ort disponieren\n\nDas bringst du mit:\n\n• Abgeschlossene Lehre als Automatiker:in EFZ, Automechatroniker:in, Landmaschinenmechaniker:in EFZ, Polymechaniker EFZ mit Flair fürs Elektrische oder vergleichbar\n\n• Freude an der Kombination elektrischer und mechanischer Arbeiten\n\n• Sehr gute Deutschkenntnisse sowie gute EDV-Anwenderkenntnisse\n\n• Du arbeitest zuverlässig, selbstständig und übernimmst Verantwortung\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten, Spätdienst und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Tieni le nostre locomotive in pista, che attraversano l'Europa e si fermano a Spiez per il servizio. Con la vostra vista addestrata, riconoscerete i disturbi in anticipo, eseguire lavori di manutenzione precisi e rilasciare Loks in modo sicuro. Così, beni e persone rimangono in tempo e la nostra flotta rimane sulla ferrovia. Questo ti aspetta:\n• diagnosticare e analizzare i guasti in locomotive e componenti\n• eseguire lavori di riparazione e manutenzione impegnativi su locomotive e componenti\n• Inserimento dei dati di manutenzione\n• insegnamento completo come automatico: in EFZ, automeccatronico: in EFZ, meccanica della macchina agricola: in EFZ, EFZ polimeccanico con flair per elettrici o comparabili\n• piacere nel combinare le competenze elettriche e meccaniche\n• Si lavora in modo affidabile, indipendente e si assume responsabilità\n• Essere preparati per ore di lavoro irregolari, servizio tardivo e lavoro di fine settimana I vostri vantaggi – si può aspettare a:\n• Promuoviamo la pianificazione più flessibile dei vostri tour e strati\n• Ottenere un GA 2nd class, un GA 1st class o un abbonamento a metà-tax.\n• Hai tempo libero quando gli altri lavorano. Ci sono supplementi per le penne nella notte e nel fine settimana.\n• C'è la possibilità di acquistare cinque a dieci giorni di vacanza all'anno in aggiunta.\n• Il supporto finanziario per la formazione esterna e un'emozionante offerta di apprendimento interno e corsi sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute Circa la BLS Con quasi 4000 dipendenti, la BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "You keep our locomotives on track, which cross Europe and stop in Spiez for service. With your trained view, you will recognize disturbances early, perform precise maintenance work and release Loks safely. Thus, goods and people stay on time and our fleet stays on the rail. This is waiting for you:\n• diagnose and analyse faults in locomotives and components\n• perform demanding repair and maintenance work on locomotives and components\n• Entering maintenance data\n• • Complete teaching as an automatic:in EFZ, automechatronic:in, agricultural machine mechanic:in EFZ, polymechanic EFZ with flair for electric or comparable\n• pleasure in combining electrical and mechanical work\n• Very good knowledge of German and good computer skills\n• You work reliably, independently and take responsibility\n• Be prepared for irregular working hours, late service and weekend work Your advantages – you can look forward to:\n• We promote the most flexible planning of your tours and layers\n• Get a GA 2nd class, a GA 1st class or a half-tax subscription.\n• You have free time when others work. There are surcharges for pens in the night and weekend.\n• There is the possibility to buy five to ten holiday days a year in addition.\n• Financial support for external training and an exciting internal learning and course offer are available to you.\n• With seasonal events and courses we support your health About the BLS With almost 4000 employees, the BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
-        "de": "Du hältst unsere Lokomotiven zuverlässig in Fahrt, welche quer durch Europa verkehren und in Spiez stoppen für den Service. Mit deinem geschulten Blick erkennst du Störungen früh, führst präzise Instandhaltungsarbeiten aus und gibst Loks sicher wieder frei. So bleiben Güter und Menschen pünktlich unterwegs und unsere Flotte sturmfest auf der Schiene. Das wartet auf dich:\n• Störungen an Lokomotiven und Komponenten diagnostizieren und analysieren\n• Anspruchsvolle Reparatur- und Wartungsarbeiten an Lokomotiven und Komponenten ausführen\n• Instandhaltungsdaten erfassen\n• Aufträge vor Ort disponieren Das bringst du mit:\n• Abgeschlossene Lehre als Automatiker:in EFZ, Automechatroniker:in, Landmaschinenmechaniker:in EFZ, Polymechaniker EFZ mit Flair fürs Elektrische oder vergleichbar\n• Freude an der Kombination elektrischer und mechanischer Arbeiten\n• Sehr gute Deutschkenntnisse sowie gute EDV-Anwenderkenntnisse\n• Du arbeitest zuverlässig, selbstständig und übernimmst Verantwortung\n• Bereitschaft zu unregelmässigen Arbeitszeiten, Spätdienst und Wochenendarbeit Deine Vorteile – darauf kannst du dich freuen:\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Vous gardez nos locomotives sur la voie, qui traversent l'Europe et s'arrêtent à Spiez pour le service. Avec votre vue entraînée, vous reconnaîtrez les perturbations tôt, effectuez des travaux d'entretien précis et relâchez Loks en toute sécurité. Ainsi, les marchandises et les gens restent à temps et notre flotte reste sur le rail. Cela vous attend:\n• diagnostiquer et analyser les défauts des locomotives et des composants\n• effectuer des travaux de réparation et d'entretien exigeants sur les locomotives et les composants\n• entrer les données d'entretien\n• • enseigner complètement comme automatique:dans EFZ, automécatronique:dans, mécanicien de machines agricoles:dans EFZ, polymécanique EFZ avec flair pour électrique ou comparable\n• plaisir à combiner travail électrique et mécanique\n• Très bonne connaissance de l'allemand et de bonnes compétences informatiques\n• Vous travaillez de manière fiable, indépendante et prenez vos responsabilités\n• Soyez prêt pour les horaires irréguliers, le service tardif et le travail de week-end Vos avantages – vous pouvez vous attendre à:\n• Nous promouvons la planification la plus flexible de vos visites et couches\n• Obtenez un GA 2ème classe, un GA 1ère classe ou un abonnement demi-taxe.\n• Vous avez du temps libre quand les autres travaillent. Il ya des suppléments pour les stylos dans la nuit et le week-end.\n• Il y a la possibilité d'acheter cinq à dix jours de vacances par an en plus.\n• Un soutien financier pour la formation externe et une offre de cours et d'apprentissage interne passionnante sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.À propos du BLS Avec près de 4000 employés, le BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Spiez",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:25.147Z",
-      "addressLocality": "Spiez",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3700",
-      "streetAddress": "Krattigstrasse 1A",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "validThrough": "2036-01-30",
-      "pensum": "80-100%",
-      "salary": "88242",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/53e51727-64ed-4a52-9d94-ca5b435e8848",
-      "requirements": [
-        "Abgeschlossene Lehre als Automatiker:in EFZ, Automechatroniker:in, Landmaschinenmechaniker:in EFZ, Polymechaniker EFZ mit Flair fürs Elektrische oder vergleichbar",
-        "Freude an der Kombination elektrischer und mechanischer Arbeiten",
-        "Sehr gute Deutschkenntnisse sowie gute EDV-Anwenderkenntnisse",
-        "Du arbeitest zuverlässig, selbstständig und übernimmst Verantwortung",
-        "Bereitschaft zu unregelmässigen Arbeitszeiten, Spätdienst und Wochenendarbeit"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Freude an der Kombination elektrischer und mechanischer Arbeiten",
-          "Sehr gute Deutschkenntnisse sowie gute EDV-Anwenderkenntnisse",
-          "Du arbeitest zuverlässig, selbstständig und übernimmst Verantwortung",
-          "Bereitschaft zu unregelmässigen Arbeitszeiten, Spätdienst und Wochenendarbeit"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T22:46:38.653Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "previousSlugsByLocale": {
-        "de": [
-          "lokomotiven-instandhalter-in-bls-ag-spiez"
-        ]
-      }
     },
     {
       "id": "bls-a8219df2137c",
@@ -489,7 +409,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:24.474Z",
+      "crawledAt": "2026-07-02T10:43:53.884Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -539,6 +459,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -584,7 +505,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:23.810Z",
+      "crawledAt": "2026-07-02T10:43:53.066Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -634,6 +555,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -679,7 +601,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:23.079Z",
+      "crawledAt": "2026-07-02T10:43:52.331Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -720,6 +642,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -765,7 +688,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:22.391Z",
+      "crawledAt": "2026-07-02T10:43:51.651Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -812,6 +735,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -857,7 +781,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/bc80ac8b-54e4-4703-8c22-df0dae662c39",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:21.649Z",
+      "crawledAt": "2026-07-02T10:43:50.919Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -909,6 +833,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:14:02.185Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -954,7 +879,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/3519fa54-3e07-4f66-8a1a-80329d4a5b4c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:20.925Z",
+      "crawledAt": "2026-07-02T10:43:50.159Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -988,6 +913,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:27.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1033,7 +959,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:20.191Z",
+      "crawledAt": "2026-07-02T10:43:49.423Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1081,6 +1007,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:16.079Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1126,7 +1053,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/systemingenieur-in-plattformentwicklung/26107236-837f-4c94-8876-f62f2920f44d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:19.507Z",
+      "crawledAt": "2026-07-02T10:43:48.761Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1168,6 +1095,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T13:46:25.700Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1197,7 +1125,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -1213,7 +1141,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:18.837Z",
+      "crawledAt": "2026-07-02T10:43:48.034Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1254,6 +1182,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T21:56:35.717Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1299,7 +1228,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/marketing-manager-in-experience/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T21:52:18.084Z",
+      "crawledAt": "2026-07-02T10:43:47.263Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1345,6 +1274,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:06.426Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
