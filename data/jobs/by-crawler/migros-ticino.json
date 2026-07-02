@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-2q24yi",
-      "slug": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi",
+      "slug": "aiuto-versatile-societe-cooperative-migros-neuchatel-fribourg-avenches",
       "company": "Société coopérative Migros Neuchâtel-Fribourg",
       "title": "Aide polyvalent/e",
       "location": "Avenches",
@@ -63,7 +63,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi",
+        "it": "aiuto-versatile-societe-cooperative-migros-neuchatel-fribourg-avenches",
         "en": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi",
         "de": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi",
         "fr": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi"
@@ -85,11 +85,13 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches"
+          "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches",
+          "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi"
         ]
       },
       "previousSlugs": [
-        "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches"
+        "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches",
+        "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -112,7 +114,7 @@
     },
     {
       "id": "company-ach2e5",
-      "slug": "verkaufer-in-denner-ag-stein-ag",
+      "slug": "venditore-denner-ag-stein-ag",
       "company": "Denner AG",
       "title": "Verkäufer*in",
       "location": "Stein AG",
@@ -171,7 +173,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-denner-ag-stein-ag",
+        "it": "venditore-denner-ag-stein-ag",
         "en": "verkaufer-in-denner-ag-stein-ag",
         "de": "verkaufer-in-denner-ag-stein-ag",
         "fr": "verkaufer-in-denner-ag-stein-ag"
@@ -192,7 +194,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-ag-stein-ag-ach2e5"
+          "verkaufer-in-denner-ag-stein-ag-ach2e5",
+          "verkaufer-in-denner-ag-stein-ag"
         ],
         "en": [
           "verkaufer-in-denner-ag-stein-ag-ach2e5"
@@ -205,7 +208,8 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-stein-ag-ach2e5"
+        "verkaufer-in-denner-ag-stein-ag-ach2e5",
+        "verkaufer-in-denner-ag-stein-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -228,7 +232,7 @@
     },
     {
       "id": "company-wnd0cc",
-      "slug": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc",
+      "slug": "venditore-con-salario-orario-denner-ag-stein-ag",
       "company": "Denner AG",
       "title": "Verkäufer*in im Stundenlohn",
       "location": "Stein AG",
@@ -287,7 +291,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc",
+        "it": "venditore-con-salario-orario-denner-ag-stein-ag",
         "en": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc",
         "fr": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc"
@@ -308,11 +312,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-ag-stein-ag"
+          "verkaufer-in-im-stundenlohn-denner-ag-stein-ag",
+          "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-ag-stein-ag"
+        "verkaufer-in-im-stundenlohn-denner-ag-stein-ag",
+        "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -431,7 +437,7 @@
     },
     {
       "id": "company-hs7and",
-      "slug": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau",
+      "slug": "tecnico-di-assistenza-genossenschaft-migros-ostschweiz-gossau",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Servicetechniker*in",
       "location": "Gossau",
@@ -484,7 +490,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau",
+        "it": "tecnico-di-assistenza-genossenschaft-migros-ostschweiz-gossau",
         "en": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
         "de": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
         "fr": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and"
@@ -504,11 +510,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and"
+          "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
+          "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and"
+        "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
+        "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -629,7 +637,7 @@
     },
     {
       "id": "company-8vmolt",
-      "slug": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt",
+      "slug": "capo-dei-servizi-genossenschaft-migros-ostschweiz-winterthur",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Bereichsleiter*in Dienste/Services",
       "location": "Winterthur",
@@ -685,7 +693,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt",
+        "it": "capo-dei-servizi-genossenschaft-migros-ostschweiz-winterthur",
         "en": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt",
         "de": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt",
         "fr": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt"
@@ -703,11 +711,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur"
+          "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur",
+          "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt"
         ]
       },
       "previousSlugs": [
-        "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur"
+        "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur",
+        "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1133,7 +1143,7 @@
     },
     {
       "id": "company-veiyu1",
-      "slug": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1",
+      "slug": "consulenti-per-clienti-privati-tutti-migros-bank-frauenfeld",
       "company": "Migros Bank",
       "title": "Privatkundenberater (alle)",
       "location": "Frauenfeld",
@@ -1187,7 +1197,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1",
+        "it": "consulenti-per-clienti-privati-tutti-migros-bank-frauenfeld",
         "en": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1",
         "de": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1",
         "fr": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1"
@@ -1208,11 +1218,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-alle-migros-bank-frauenfeld"
+          "privatkundenberater-alle-migros-bank-frauenfeld",
+          "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1"
         ]
       },
       "previousSlugs": [
-        "privatkundenberater-alle-migros-bank-frauenfeld"
+        "privatkundenberater-alle-migros-bank-frauenfeld",
+        "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -1442,7 +1454,7 @@
     },
     {
       "id": "company-5acx9k",
-      "slug": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
+      "slug": "meccanico-di-carrello-elevatore-genossenschaft-migros-zurich-zurich",
       "company": "Genossenschaft Migros Zürich",
       "title": "Stapler-Mechaniker*in",
       "location": "Zürich",
@@ -1498,7 +1510,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
+        "it": "meccanico-di-carrello-elevatore-genossenschaft-migros-zurich-zurich",
         "en": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
         "de": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
         "fr": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
@@ -1519,11 +1531,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stapler-mechaniker-in-genossenschaft-migros-zurich"
+          "stapler-mechaniker-in-genossenschaft-migros-zurich",
+          "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
         ]
       },
       "previousSlugs": [
-        "stapler-mechaniker-in-genossenschaft-migros-zurich"
+        "stapler-mechaniker-in-genossenschaft-migros-zurich",
+        "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1546,7 +1560,7 @@
     },
     {
       "id": "company-ck264c",
-      "slug": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
+      "slug": "venditore-fresco-genossenschaft-migros-ostschweiz-uzwil",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Verkäufer*in Frische",
       "location": "Uzwil",
@@ -1599,7 +1613,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
+        "it": "venditore-fresco-genossenschaft-migros-ostschweiz-uzwil",
         "en": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
         "de": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
         "fr": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c"
@@ -1618,11 +1632,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil"
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil",
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil"
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil",
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1645,7 +1661,7 @@
     },
     {
       "id": "company-6u8n9s",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s",
+      "slug": "istruttore-di-fitness-f-m-d-activ-fitness-thun-8906b5",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Thun",
@@ -1701,7 +1717,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-thun-8906b5",
         "en": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s",
         "de": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s",
         "fr": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s"
@@ -1724,11 +1740,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-thun"
+          "fitness-instructor-m-w-d-activ-fitness-thun",
+          "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-thun"
+        "fitness-instructor-m-w-d-activ-fitness-thun",
+        "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1751,7 +1769,7 @@
     },
     {
       "id": "company-zav0b",
-      "slug": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b",
+      "slug": "capo-squadra-logistica-pezzi-di-grandi-dimensioni-f-m-d-galaxus-wohlen",
       "company": "Galaxus",
       "title": "Teamleader Grossteile Logistik (w/m/d)",
       "location": "Wohlen",
@@ -1809,7 +1827,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b",
+        "it": "capo-squadra-logistica-pezzi-di-grandi-dimensioni-f-m-d-galaxus-wohlen",
         "en": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b",
         "de": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b",
         "fr": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b"
@@ -1830,11 +1848,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen"
+          "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen",
+          "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b"
         ]
       },
       "previousSlugs": [
-        "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen"
+        "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen",
+        "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1858,7 +1878,7 @@
     },
     {
       "id": "company-z7wjvg",
-      "slug": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg",
+      "slug": "responsabile-comunicazione-m-f-d-fitnesspark-oerlikon",
       "company": "Fitnesspark",
       "title": "Communications Manager (m/w/d)",
       "location": "Oerlikon",
@@ -1920,7 +1940,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg",
+        "it": "responsabile-comunicazione-m-f-d-fitnesspark-oerlikon",
         "en": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg",
         "de": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg",
         "fr": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg"
@@ -1941,11 +1961,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "communications-manager-m-w-d-fitnesspark-oerlikon"
+          "communications-manager-m-w-d-fitnesspark-oerlikon",
+          "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg"
         ]
       },
       "previousSlugs": [
-        "communications-manager-m-w-d-fitnesspark-oerlikon"
+        "communications-manager-m-w-d-fitnesspark-oerlikon",
+        "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1968,7 +1990,7 @@
     },
     {
       "id": "company-g17p7l",
-      "slug": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l",
+      "slug": "autista-autista-ce-genossenschaft-migros-zurich-zurich",
       "company": "Genossenschaft Migros Zürich",
       "title": "Chauffeur*Chauffeurin CE",
       "location": "Zürich",
@@ -2026,7 +2048,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l",
+        "it": "autista-autista-ce-genossenschaft-migros-zurich-zurich",
         "en": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l",
         "de": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l",
         "fr": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l"
@@ -2049,11 +2071,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich"
+          "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich",
+          "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l"
         ]
       },
       "previousSlugs": [
-        "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich"
+        "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich",
+        "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2076,7 +2100,7 @@
     },
     {
       "id": "company-8px27z",
-      "slug": "communications-manager-m-w-d-activ-fitness-zurich-8px27z",
+      "slug": "responsabile-comunicazione-m-f-d-activ-fitness-zurich",
       "company": "ACTIV FITNESS",
       "title": "Communications Manager (m/w/d)",
       "location": "Zürich",
@@ -2137,7 +2161,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "communications-manager-m-w-d-activ-fitness-zurich-8px27z",
+        "it": "responsabile-comunicazione-m-f-d-activ-fitness-zurich",
         "en": "communications-manager-m-w-d-activ-fitness-zurich-8px27z",
         "de": "communications-manager-m-w-d-activ-fitness-zurich-8px27z",
         "fr": "communications-manager-m-w-d-activ-fitness-zurich-8px27z"
@@ -2158,11 +2182,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "communications-manager-m-w-d-activ-fitness-zurich"
+          "communications-manager-m-w-d-activ-fitness-zurich",
+          "communications-manager-m-w-d-activ-fitness-zurich-8px27z"
         ]
       },
       "previousSlugs": [
-        "communications-manager-m-w-d-activ-fitness-zurich"
+        "communications-manager-m-w-d-activ-fitness-zurich",
+        "communications-manager-m-w-d-activ-fitness-zurich-8px27z"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -6365,8 +6391,6 @@
         "venditore-denner-ag-frauenfeld-m4pjdx",
         "seller-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld",
-        "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421",
         "venditore-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-ag-gossau-sg-66bf93",
@@ -6525,10 +6549,7 @@
         "verkaufer-in-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-7kk8ni",
         "seller-denner-ag-zurich-1d38ef",
-        "vendeur-denner-ag-zurich",
-        "venditore-denner-ag-zurich-e89fe9",
-        "seller-denner-ag-zurich",
-        "vendeur-denner-ag-zurich-e89fe9"
+        "vendeur-denner-ag-zurich"
       ]
     },
     {
@@ -15350,7 +15371,7 @@
     },
     {
       "id": "company-vtqcro",
-      "slug": "epic-owner-sap-domain-migros-genossenschafts-bund-zurich-vtqcro",
+      "slug": "responsabile-epic-dominio-sap-migros-genossenschafts-bund-zurich",
       "company": "Migros-Genossenschafts-Bund",
       "title": "Epic Owner SAP Domain (w/m/d)",
       "location": "Zürich",
@@ -15394,7 +15415,7 @@
       "crawledAt": "2026-06-29T14:19:58.281Z",
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
       "slugByLocale": {
-        "it": "epic-owner-sap-domain-migros-genossenschafts-bund-zurich-vtqcro",
+        "it": "responsabile-epic-dominio-sap-migros-genossenschafts-bund-zurich",
         "en": "epic-owner-sap-domain-migros-genossenschafts-bund-zurich-vtqcro",
         "de": "epic-owner-sap-domain-migros-genossenschafts-bund-zurich-vtqcro",
         "fr": "domaine-sap-du-proprietaire-epic-migros-genossenschafts-bund-zurich"
@@ -15442,7 +15463,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "epic-owner-sap-domain-migros-genossenschafts-bund-zurich-vtqcro"
+        ]
+      },
+      "previousSlugs": [
+        "epic-owner-sap-domain-migros-genossenschafts-bund-zurich-vtqcro"
+      ]
     },
     {
       "id": "company-gm3ni3",
@@ -16482,7 +16511,6 @@
         "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
         "venditore-denner-ag-allschwil-5b4844",
         "salesperson-denner-ag-langenthal",
-        "venditore-denner-ag-wattwil",
         "venditore-denner-ag-sulgen"
       ]
     },
@@ -35208,7 +35236,7 @@
         "it": "senior-applied-ai-data-ingegnere-m-w-d-migros-genossenschafts-bund-zurich-5wt00o",
         "en": "senior-applied-ai-data-engineer-m-w-d-migros-genossenschafts-bund-zurich-5wt00o",
         "de": "senior-applied-ai-data-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-5wt00o",
-        "fr": "senior-applied-ai-data-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-5wt00o"
+        "fr": "ingenieur-en-intelligence-artificielle-appliquee-et-donnees-m-f-d-migros-genossenschafts-bund-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -35229,12 +35257,12 @@
           "senior-applied-ai-data-engineer-m-w-d-migros-genossenschafts-bund-zurich"
         ],
         "fr": [
-          "ingenieur-en-intelligence-artificielle-appliquee-et-donnees-m-f-d-migros-genossenschafts-bund-zurich"
+          "senior-applied-ai-data-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-5wt00o"
         ]
       },
       "previousSlugs": [
         "senior-applied-ai-data-engineer-m-w-d-migros-genossenschafts-bund-zurich",
-        "ingenieur-en-intelligence-artificielle-appliquee-et-donnees-m-f-d-migros-genossenschafts-bund-zurich"
+        "senior-applied-ai-data-ingenieur-m-w-d-migros-genossenschafts-bund-zurich-5wt00o"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -35905,7 +35933,7 @@
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
-        "fr": "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a"
+        "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a"
       },
       "requirementsByLocale": {
         "it": [],
@@ -35933,6 +35961,7 @@
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-baar",
         "vice-direttore-del-fitness-club-lunedi-venerdi-activ-fitness-baar",
+        "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a",
         "club-de-remise-en-forme-m-f-d-activ-fitness-baar"
       ],
       "salaryMin": 96000,
@@ -62120,7 +62149,6 @@
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
-        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur"
       ],
       "salaryMin": 57500,
@@ -66441,8 +66469,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,

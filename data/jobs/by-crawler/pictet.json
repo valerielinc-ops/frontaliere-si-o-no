@@ -57,8 +57,7 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg",
-          "compliance-officer-fixed-term-contract-24-months-pictet-luxembourg",
-          "senior-compliance-officer-contratto-a-tempo-determinato-12-mesi-pictet-group-luxembourg"
+          "compliance-officer-fixed-term-contract-24-months-pictet-luxembourg"
         ],
         "fr": [
           "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -133,8 +132,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "economist-pictet-tokyo",
-          "economista-pictet-group-tokyo"
+          "economist-pictet-tokyo"
         ],
         "de": [
           "economist-pictet-tokyo"
@@ -212,8 +210,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg",
-          "responsabile-fatturazione-e-pagamenti-contratto-a-tempo-determinato-di-12-mesi-pictet-group-luxembourg"
+          "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "de": [
           "billing-payments-officer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -420,8 +417,7 @@
       "previousSlugsByLocale": {
         "it": [
           "strategic-project-manager-pictet-geneva",
-          "responsabile-del-progetto-strategico-pictet-group-geneva",
-          "responsabile-strategico-di-progetto-pictet-group-geneva"
+          "responsabile-del-progetto-strategico-pictet-group-geneva"
         ],
         "de": [
           "strategic-project-manager-pictet-geneva"
@@ -524,12 +520,12 @@
     },
     {
       "id": "pictet-9a9cbad81469",
-      "slug": "financial-analyst-pictet-singapore",
+      "slug": "financial-analista-pictet-group-singapore",
       "slugByLocale": {
         "en": "financial-analyst-pictet-singapore",
-        "it": "financial-analyst-pictet-singapore",
+        "it": "financial-analista-pictet-group-singapore",
         "de": "financial-analyst-pictet-singapore",
-        "fr": "financial-analyst-pictet-singapore"
+        "fr": "financial-analyste-pictet-group-singapore"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -586,14 +582,25 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T12:01:04.328Z"
+      "firstSeenAt": "2026-07-02T12:01:04.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-analyst-pictet-singapore"
+        ],
+        "fr": [
+          "financial-analyst-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "financial-analyst-pictet-singapore"
+      ]
     },
     {
       "id": "pictet-b1a4862a9496",
-      "slug": "business-compliance-manager-pictet-geneva",
+      "slug": "responsabile-della-conformita-aziendale-pictet-group-geneva",
       "slugByLocale": {
         "en": "business-compliance-manager-pictet-geneva",
-        "it": "business-compliance-manager-pictet-geneva",
+        "it": "responsabile-della-conformita-aziendale-pictet-group-geneva",
         "de": "business-compliance-manager-pictet-geneva",
         "fr": "business-compliance-manager-pictet-geneva"
       },
@@ -652,16 +659,24 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T12:01:03.683Z"
+      "firstSeenAt": "2026-07-02T12:01:03.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-compliance-manager-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "business-compliance-manager-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-da9d6b44cd69",
-      "slug": "investment-specialist-pictet-hong-kong",
+      "slug": "investment-specialista-pictet-group-hong-kong",
       "slugByLocale": {
         "en": "investment-specialist-pictet-hong-kong",
-        "it": "investment-specialist-pictet-hong-kong",
-        "de": "investment-specialist-pictet-hong-kong",
-        "fr": "investment-specialist-pictet-hong-kong"
+        "it": "investment-specialista-pictet-group-hong-kong",
+        "de": "investment-spezialist-pictet-group-hong-kong",
+        "fr": "investment-specialiste-pictet-group-hong-kong"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -718,7 +733,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T12:01:02.596Z"
+      "firstSeenAt": "2026-07-02T12:01:02.596Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-specialist-pictet-hong-kong"
+        ],
+        "de": [
+          "investment-specialist-pictet-hong-kong"
+        ],
+        "fr": [
+          "investment-specialist-pictet-hong-kong"
+        ]
+      },
+      "previousSlugs": [
+        "investment-specialist-pictet-hong-kong"
+      ]
     },
     {
       "id": "pictet-0e2fea42e0f0",
@@ -773,8 +802,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-pictet-taipei",
-          "responsabile-vendite-pictet-group-taipei"
+          "sales-manager-pictet-taipei"
         ],
         "de": [
           "sales-manager-pictet-taipei"
@@ -853,8 +881,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-register-specialist-pictet-luxembourg",
-          "client-register-specialista-pictet-group-luxembourg"
+          "client-register-specialist-pictet-luxembourg"
         ],
         "de": [
           "client-register-specialist-pictet-luxembourg"

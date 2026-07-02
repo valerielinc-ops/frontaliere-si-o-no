@@ -66,12 +66,12 @@
     },
     {
       "id": "prada-acdbbadffeac",
-      "slug": "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd",
+      "slug": "client-consulente-m-f-d-prada-group-roermond-client-advisor-mfd",
       "slugByLocale": {
         "en": "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd",
-        "it": "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd",
-        "de": "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd",
-        "fr": "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd"
+        "it": "client-consulente-m-f-d-prada-group-roermond-client-advisor-mfd",
+        "de": "client-berater-m-f-d-prada-group-roermond-client-advisor-mfd",
+        "fr": "client-conseiller-m-f-d-prada-group-roermond-client-advisor-mfd"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -124,7 +124,21 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-02T11:38:59.881Z"
+      "firstSeenAt": "2026-07-02T11:38:59.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd"
+        ],
+        "de": [
+          "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd"
+        ],
+        "fr": [
+          "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd"
+      ]
     },
     {
       "id": "prada-ef469ffe20a6",
@@ -132,7 +146,7 @@
       "slugByLocale": {
         "en": "stock-assistant-prada-group-fidenza-stock-assistant",
         "it": "stock-assistant-prada-group-fidenza-stock-assistant",
-        "de": "stock-assistant-prada-group-fidenza-stock-assistant",
+        "de": "stock-assistent-prada-group-fidenza-stock-assistant",
         "fr": "stock-assistant-prada-group-fidenza-stock-assistant"
       },
       "company": "Prada Group",
@@ -232,8 +246,7 @@
       "crawledAt": "2026-07-02T11:38:57.145Z",
       "previousSlugsByLocale": {
         "en": [
-          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz"
         ],
         "it": [
           "miu-miu-store-manager-saint-moritz-prada-mendrisio",
