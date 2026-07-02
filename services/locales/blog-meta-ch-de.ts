@@ -832,6 +832,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Rückerstattungen blockiert: Alfieri und Artoni fordern Abschaffung der Gesundheitssteuer',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'Der Schweizer Staatsrat hat die Grenzrückerstattungen für die Lombardei gestoppt. Alfieri und Artoni fordern die Abschaffung der Gesundheitsabgabe.',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Panoramablick auf Bellinzona, Schweiz, mit der Burg im Vordergrund und Bergen im Hintergrund.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': 'Leitfaden 2026: Jobwechsel für Grenzgänger',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Erfahren Sie, wie Sie 2026 in der Schweiz den Arbeitgeber wechseln können: Kündigungsfrist, Verlängerung der G-Bewilligung, Kontinuität der Sozialversicherungsbeiträge und zu aktualisierende Unterlagen.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'Ein Grenzgänger überquert die Grenze zwischen der Schweiz und Italien, mit einem Blick auf Lugano im Hintergrund.',
 };
 
 export default blogMetaChDe;

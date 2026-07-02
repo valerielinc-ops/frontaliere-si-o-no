@@ -832,6 +832,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Ristorni bloccati: Alfieri e Artoni chiedono l\'abolizione della tassa salute',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'Il Consiglio di Stato elvetico ha bloccato i ristorni frontalieri per la Lombardia. Alfieri e Artoni chiedono l\'abolizione della tassa salute.',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Vista panoramica di Bellinzona, Svizzera, con il castello in primo piano e le montagne sullo sfondo.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': 'Guida 2026: Cambio lavoro per frontalieri',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Scopri come cambiare datore di lavoro in Svizzera nel 2026: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'Una persona frontaliera che attraversa il confine Svizzera-Italia, con un\'immagine di Lugano sullo sfondo.',
 };
 
 export default blogMetaChIt;
