@@ -45390,6 +45390,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione': {
+    title: 'Ristorni frontalieri: Berna deplora lo stop del cantone ma vuole una soluzione',
+    description: 'La consigliera federale svizzera Karin Keller-Sutter ha incontrato il ministro dell’Economia e delle Finanze Giancarlo Giorgetti per discutere la sospensione',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, berna, deplora, stop',
+    ogTitle: 'Ristorni frontalieri: Berna deplora lo stop del cantone ma vuole una soluzione',
+    ogDescription: 'La consigliera federale svizzera Karin Keller-Sutter ha incontrato il ministro dell’Economia e delle Finanze Giancarlo Giorgetti per discutere la sospensione',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni frontalieri: Berna deplora lo stop del cantone ma vuole una soluzione",
+      "description": "La consigliera federale svizzera Karin Keller-Sutter ha incontrato il ministro dell’Economia e delle Finanze Giancarlo Giorgetti per discutere la sospensione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro tra la consigliera federale svizzera Karin Keller-Sutter e il ministro dell’Economia e delle Finanze Giancarlo Giorgetti a Roma."
+      },
+      "datePublished": "2026-07-02T07:04:26+00:00",
+      "dateModified": "2026-07-02T07:04:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

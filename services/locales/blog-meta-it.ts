@@ -8195,6 +8195,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro&#8221;',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'Il deputato e sindaco di Luino sostiene la linea del Ministero dell\'Economia per risolvere la situazione di stallo sui ristorni.',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Ristorni frontalieri: Berna deplora lo stop del cantone ma vuole una soluzione',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'La consigliera federale svizzera Karin Keller-Sutter ha incontrato il ministro dell’Economia e delle Finanze Giancarlo Giorgetti per discutere la sospensione dei ristorni alla Lombardia.',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Incontro tra la consigliera federale svizzera Karin Keller-Sutter e il ministro dell’Economia e delle Finanze Giancarlo Giorgetti a Roma.',
 };
 
 export default blogMetaIt;

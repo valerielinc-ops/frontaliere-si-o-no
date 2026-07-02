@@ -8193,6 +8193,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Grenzrabatte, Pellicini: „Sofort einen Arbeitskreis einberufen“',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'Der Abgeordnete und Bürgermeister von Luino unterstützt den Kurs des Wirtschaftsministeriums, um den Stillstand bei den Rückvergütungen zu überwinden.',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Grenzüberschreitende Rückerstattungen: Bern will Lösung trotz Stopp',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'Die Schweizer Bundesrätin Karin Keller-Sutter traf sich mit dem Wirtschafts- und Finanzminister Giancarlo Giorgetti, um die Aussetzung der Rückerstattungen an die Lombardei zu besprechen.',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Treffen zwischen der Schweizer Bundesrätin Karin Keller-Sutter und dem italienischen Wirtschafts- und Finanzminister Giancarlo Giorgetti in Rom.',
 };
 
 export default blogMetaDe;
