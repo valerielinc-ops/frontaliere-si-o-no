@@ -868,6 +868,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mutuo-italia-frontalieri-guida.title': 'Hypothek in Italien für Schweizer Frontalier',
     'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Erfahren Sie, wie Sie in Italien mit Schweizer Gehalt eine Hypothek erhalten: Dokumente, Garantien und spezialisierte Banken.',
     'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Luftaufnahme einer Schweizerisch-Italienischen Grenzstadt mit einem See und Häusern, die das grenzüberschreitende Leben symbolisiert.',
+    'blog.article.vivere-come-lavorare-ticino.title': 'Leben in Como und Arbeit im Tessin als grenzüberschreitender Pendler',
+    'blog.article.vivere-come-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für alle, die in Como leben und in Tessin arbeiten: Reisezeiten, Lebenshaltungskosten, empfohlene Wohngebiete und Vergleich zwischen Zug und Auto.',
+    'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Luftaufnahme der Stadt Como mit dem Comer See im Hintergrund, die den Kontrast zwischen städtischem Leben und natürlicher Schönheit zeigt.',
 };
 
 export default blogMetaChDe;

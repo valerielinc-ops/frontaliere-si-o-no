@@ -868,6 +868,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mutuo-italia-frontalieri-guida.title': 'Guide prêt immobilier Italie pour frontaliers suisses',
     'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Découvrez comment obtenir un prêt immobilier en Italie avec un salaire suisse : documents, garanties et banques spécialisées.',
     'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Vue aérienne d\'une ville frontalière suisse-italienne avec un lac et des maisons, symbolisant la vie transfrontalière.',
+    'blog.article.vivere-come-lavorare-ticino.title': 'Vivre à Còm et travailler au Tessin en tant que navetteur transfrontalier',
+    'blog.article.vivere-come-lavorare-ticino.excerpt': 'Guide complet pour ceux qui vivent à Côme et travaillent au Tessin : temps de trajet, coût de la vie, quartiers recommandés et comparaison entre train et voiture.',
+    'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Vue aérienne de la ville de Côme avec le lac de Côme en arrière-plan, montrant le contraste entre la vie urbaine et la beauté naturelle.',
 };
 
 export default blogMetaChFr;

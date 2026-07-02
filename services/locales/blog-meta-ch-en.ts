@@ -868,6 +868,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mutuo-italia-frontalieri-guida.title': 'Mortgage in Italy for cross-border commuters: complete guide with Swiss salary',
     'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Find out how to get a mortgage in Italy with a Swiss salary: documents, guarantees and specialized banks.',
     'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Aerial view of a Swiss-Italian border town with a lake and houses, symbolizing cross-border living.',
+    'blog.article.vivere-come-lavorare-ticino.title': 'Living in Como and working in Ticino as a cross-border commuter',
+    'blog.article.vivere-come-lavorare-ticino.excerpt': 'Complete guide for those who live in Como and work in Ticino: journey times, cost of living, recommended neighbourhoods and comparison between train and car.',
+    'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Aerial view of Como city with Lake Como in the background, showing the contrast between urban life and natural beauty.',
 };
 
 export default blogMetaChEn;
