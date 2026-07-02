@@ -25957,6 +25957,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'ristorni-frontalieri-pellicini-tavolo-lavoro',
+ category: 'fiscale',
+ date: '2026-07-02T06:36:22.382Z',
+ image: '/images/blog/ristorni-frontalieri-pellicini-tavolo-lavoro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
