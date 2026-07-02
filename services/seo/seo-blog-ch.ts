@@ -10860,6 +10860,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km': {
+    title: 'Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km',
+    description: 'Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziamento, diritti, preavviso, indennità',
+    ogTitle: 'Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km',
+    ogDescription: 'Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026.',
+    canonicalPath: '/articoli-svizzera/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km",
+      "description": "Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliero al confine Italia-Svizzera nel 2026"
+      },
+      "datePublished": "2026-07-02T09:16:40+00:00",
+      "dateModified": "2026-07-02T09:16:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

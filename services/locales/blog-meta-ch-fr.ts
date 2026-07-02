@@ -844,6 +844,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Licenciement frontalier 2026 : conditions et droits',
     'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Découvrez les droits des travailleurs frontaliers en cas de licenciement en 2026, avec les délais de préavis et indemnités prévus.',
     'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Travailleur frontalier à la frontière Suisse-Italie',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Licenciement frontalier : droits, avis, indemnité',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Découvrez les droits, les délais de préavis et les allocations pour les travailleurs transfrontaliers dans un rayon de 20 km autour de la frontière en 2026.',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Travailleur frontalier à la frontière entre l\'Italie et la Suisse en 2026',
 };
 
 export default blogMetaChFr;

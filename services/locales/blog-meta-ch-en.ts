@@ -844,6 +844,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Cross-border dismissal 2026: terms and rights',
     'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Discover the rights of frontier workers in the event of dismissal in 2026, with notice and compensation terms provided.',
     'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Frontalier worker at the Switzerland-Italy border',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Cross-border dismissal: rights, notice and compensation within 20 km',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Find out about the rights, notice periods and allowances for cross-border workers within 20 km of the border in 2026.',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Frontalier worker at the Italy-Switzerland border in 2026',
 };
 
 export default blogMetaChEn;
