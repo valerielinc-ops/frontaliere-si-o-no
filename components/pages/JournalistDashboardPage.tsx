@@ -39,6 +39,7 @@ import {
   Clock,
   Bold,
   Sparkles,
+  LayoutGrid,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
@@ -69,12 +70,13 @@ import type {
   JournalistArticleLocaleContent,
   ArticleLocale,
 } from '@/services/journalistTypes';
-import { searchImageCatalog, type CatalogImageCandidate } from '@/services/journalistImageCatalog';
+import { searchImageCatalog, listAllCatalogImages, type CatalogImageCandidate } from '@/services/journalistImageCatalog';
 import { cdnBlogImage } from '@/services/seo/blogImageCdn';
 
 type ViewMode = 'list' | 'article';
 
 const ARTICLE_LOCALES: ArticleLocale[] = ['it', 'en', 'de', 'fr'];
+const CATALOG_PAGE_SIZE = 60;
 const LOCALE_LABELS: Record<ArticleLocale, string> = {
   it: 'Italiano',
   en: 'English',
@@ -166,6 +168,10 @@ export default function JournalistDashboardPage(): React.ReactElement {
   const [checkingSlug, setCheckingSlug] = useState(false);
   const [imageCandidates, setImageCandidates] = useState<CatalogImageCandidate[] | null>(null);
   const [suggestingImages, setSuggestingImages] = useState(false);
+  const [allCatalogImages, setAllCatalogImages] = useState<CatalogImageCandidate[] | null>(null);
+  const [browsingCatalog, setBrowsingCatalog] = useState(false);
+  const [loadingCatalog, setLoadingCatalog] = useState(false);
+  const [visibleCatalogCount, setVisibleCatalogCount] = useState(CATALOG_PAGE_SIZE);
 
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -351,6 +357,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
     if (suggestingImages || !title.trim()) return;
     setSuggestingImages(true);
     setImageCandidates(null);
+    setBrowsingCatalog(false);
     try {
       const candidates = await searchImageCatalog(title, body);
       setImageCandidates(candidates);
@@ -362,11 +369,34 @@ export default function JournalistDashboardPage(): React.ReactElement {
     }
   };
 
+  const handleToggleBrowseCatalog = async () => {
+    if (browsingCatalog) {
+      setBrowsingCatalog(false);
+      return;
+    }
+    setImageCandidates(null);
+    setBrowsingCatalog(true);
+    setVisibleCatalogCount(CATALOG_PAGE_SIZE);
+    if (allCatalogImages) return;
+    setLoadingCatalog(true);
+    try {
+      const all = await listAllCatalogImages();
+      setAllCatalogImages(all);
+    } catch (err) {
+      reportCaughtError(err, 'journalistDashboard.browseCatalog');
+      setSaveMsg({ ok: false, text: t('journalistDashboard.editor.suggestImagesError') });
+      setBrowsingCatalog(false);
+    } finally {
+      setLoadingCatalog(false);
+    }
+  };
+
   const handlePickCatalogImage = async (path: string) => {
     const autoAlt = withAutoImageAlt(imageAlt);
     setImage(path);
     if (autoAlt !== imageAlt) setImageAlt(autoAlt);
     setImageCandidates(null);
+    setBrowsingCatalog(false);
     if (draftId) {
       try {
         await saveDraft(draftId, { image: path, imageAlt: autoAlt });
@@ -376,6 +406,30 @@ export default function JournalistDashboardPage(): React.ReactElement {
         setSaveMsg({ ok: false, text: t('journalistDashboard.editor.imageError') });
       }
     }
+  };
+
+  /** Shared thumbnail button for both keyword-suggested and browse-all-catalog grids. */
+  const renderCatalogImageButton = (candidate: CatalogImageCandidate) => {
+    const isSelected = candidate.path === image;
+    return (
+      <button
+        key={candidate.path}
+        type="button"
+        onClick={() => { void handlePickCatalogImage(candidate.path); }}
+        aria-label={t('journalistDashboard.editor.selectImage')}
+        aria-pressed={isSelected}
+        className={`relative rounded-xl overflow-hidden border transition-shadow ${
+          isSelected ? 'border-accent ring-2 ring-accent' : 'border-edge hover:ring-2 hover:ring-accent'
+        }`}
+      >
+        <img src={cdnBlogImage(candidate.path)} alt="" loading="lazy" className="w-full h-20 object-cover" />
+        {isSelected && (
+          <span className="absolute top-1 right-1 rounded-full bg-accent text-on-accent p-0.5">
+            <CheckCircle2 className="w-4 h-4" />
+          </span>
+        )}
+      </button>
+    );
   };
 
   const handleSubmit = async () => {
@@ -809,6 +863,20 @@ export default function JournalistDashboardPage(): React.ReactElement {
                       ? t('journalistDashboard.editor.suggestingImages')
                       : t('journalistDashboard.editor.suggestImages')}
                   </button>
+                  <button
+                    type="button"
+                    onClick={() => { void handleToggleBrowseCatalog(); }}
+                    disabled={loadingCatalog}
+                    aria-pressed={browsingCatalog}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-link border border-edge rounded-xl hover:bg-surface-alt disabled:opacity-60 transition-colors"
+                  >
+                    <LayoutGrid className="w-3.5 h-3.5" />
+                    {loadingCatalog
+                      ? t('journalistDashboard.editor.loadingCatalog')
+                      : browsingCatalog
+                        ? t('journalistDashboard.editor.hideCatalog')
+                        : t('journalistDashboard.editor.browseCatalog')}
+                  </button>
                 </div>
                 {imageCandidates && (
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2">
@@ -817,28 +885,26 @@ export default function JournalistDashboardPage(): React.ReactElement {
                         {t('journalistDashboard.editor.suggestImagesEmpty')}
                       </p>
                     ) : (
-                      imageCandidates.map((candidate) => {
-                        const isSelected = candidate.path === image;
-                        return (
-                          <button
-                            key={candidate.path}
-                            type="button"
-                            onClick={() => { void handlePickCatalogImage(candidate.path); }}
-                            aria-label={t('journalistDashboard.editor.selectImage')}
-                            aria-pressed={isSelected}
-                            className={`relative rounded-xl overflow-hidden border transition-shadow ${
-                              isSelected ? 'border-accent ring-2 ring-accent' : 'border-edge hover:ring-2 hover:ring-accent'
-                            }`}
-                          >
-                            <img src={cdnBlogImage(candidate.path)} alt="" className="w-full h-20 object-cover" />
-                            {isSelected && (
-                              <span className="absolute top-1 right-1 rounded-full bg-accent text-on-accent p-0.5">
-                                <CheckCircle2 className="w-4 h-4" />
-                              </span>
-                            )}
-                          </button>
-                        );
-                      })
+                      imageCandidates.map(renderCatalogImageButton)
+                    )}
+                  </div>
+                )}
+                {browsingCatalog && allCatalogImages && (
+                  <div className="mt-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 max-h-96 overflow-y-auto p-0.5">
+                      {allCatalogImages.slice(0, visibleCatalogCount).map(renderCatalogImageButton)}
+                    </div>
+                    {visibleCatalogCount < allCatalogImages.length && (
+                      <button
+                        type="button"
+                        onClick={() => setVisibleCatalogCount((n) => n + CATALOG_PAGE_SIZE)}
+                        className="mt-2 w-full text-sm font-semibold text-link border border-edge rounded-xl py-2 hover:bg-surface-alt transition-colors"
+                      >
+                        {t('journalistDashboard.editor.loadMoreImages', {
+                          shown: String(Math.min(visibleCatalogCount, allCatalogImages.length)),
+                          total: String(allCatalogImages.length),
+                        })}
+                      </button>
                     )}
                   </div>
                 )}
