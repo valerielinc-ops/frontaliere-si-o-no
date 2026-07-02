@@ -1977,6 +1977,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, []);
  const [searchQuery, setSearchQuery] = useState(() => parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
+ // Search input is uncontrolled (defaultValue, no `value` prop): keystrokes paint
+ // natively in the DOM with zero React involvement, so typing never waits on this
+ // ~8500-line monolith's render (profiled at 400-500ms/keystroke under throttled
+ // CPU — one giant Fiber, no child boundary to interrupt mid-render). `searchQuery`
+ // itself only updates 200ms after typing pauses, driving the (already-deferred)
+ // filtering and secondary chrome (clear button, chip highlight). Non-typing
+ // writers (chips, clear button, autocomplete, URL sync) go through
+ // `applySearchQuery` so a stale pending debounce can't clobber their change; the
+ // sync effect below reflects any of these back into the input's DOM value.
+ const applySearchQuery = useCallback((value: React.SetStateAction<string>) => {
+ if (searchDebounceTimerRef.current) {
+ clearTimeout(searchDebounceTimerRef.current);
+ searchDebounceTimerRef.current = null;
+ }
+ setSearchQuery(value);
+ }, []);
+ useEffect(() => {
+ return () => {
+ if (searchDebounceTimerRef.current) clearTimeout(searchDebounceTimerRef.current);
+ };
+ }, []);
+ useEffect(() => {
+ if (searchInputRef.current && searchInputRef.current.value !== searchQuery) {
+ searchInputRef.current.value = searchQuery;
+ }
+ }, [searchQuery]);
  // Post-auth prompt trigger effect: see definition below, after
  // `bestRelatedSearchKeyword` is in scope (needs selectedJob + sortedJobs +
  // indexedQueryMatch, all declared further down).
@@ -2006,6 +2032,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredShowNewOnly = useDeferredValue(showNewOnly);
  const [filtersExpanded, setFiltersExpanded] = useState(false);
  const searchInputRef = useRef<HTMLInputElement>(null);
+ const searchDebounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
@@ -2094,7 +2121,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setSelectedLocation(initialFilterParams.location);
  }
  if (initialFilterParams.query) {
- setSearchQuery(initialFilterParams.query);
+ applySearchQuery(initialFilterParams.query);
  }
  // Signal to parent that params have been consumed so they aren't re-applied
  onFilterParamsConsumed?.();
@@ -2149,7 +2176,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly]);
 
  const resetAllFilters = useCallback(() => {
- setSearchQuery('');
+ applySearchQuery('');
  setSelectedCategory('all');
  setSelectedContract('all');
  setSelectedCompany('all');
@@ -2212,7 +2239,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  const syncFromUrl = () => {
  const next = parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl();
- setSearchQuery((prev) => (prev === next ? prev : next));
+ applySearchQuery((prev) => (prev === next ? prev : next));
  setPage(readPageFromUrl());
  setAdRefreshKey((k) => k + 1);
  };
@@ -2222,7 +2249,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  const next = searchSlugFilter || readSearchQueryFromUrl();
- setSearchQuery((prev) => (prev === next ? prev : next));
+ applySearchQuery((prev) => (prev === next ? prev : next));
  }, [searchSlugFilter, initialJobSlug]);
 
  /**
@@ -5125,7 +5152,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const navigateToRelatedSearch = useCallback((keyword: string) => {
  const searchSlug = buildSearchSlug(keyword, locale);
- setSearchQuery(keyword);
+ applySearchQuery(keyword);
  // Keyword search hubs are Switzerland-wide (aggregate), mirroring the
  // related-search anchor hrefs (jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE);
  // without it the SPA nav would collapse onto the legacy TI section.
@@ -6638,7 +6665,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  href={gateLocationHref}
  onClick={(e) => {
  e.preventDefault();
- setSearchQuery('');
+ applySearchQuery('');
  // Soft-nav via onJobRouteChange keeps staticOverlay false so the canton
  // city hub / canton list renders in React without a blank-page flash.
  onJobRouteChange?.(gateCityHub ? gateCitySlug : '', gateJobCanton);
@@ -7417,7 +7444,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  href={detailLocationHref}
  onClick={(e) => {
  e.preventDefault();
- setSearchQuery('');
+ applySearchQuery('');
  // Soft-nav via onJobRouteChange keeps staticOverlay false so the canton
  // city hub / canton list renders in React without a blank-page flash.
  onJobRouteChange?.(detailCityHub ? detailCitySlug : '', detailJobCanton);
@@ -7832,15 +7859,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ref={searchInputRef}
  type="text"
  placeholder={t('jobBoard.searchPlaceholder')}
- value={searchQuery}
- onChange={(e) => setSearchQuery(e.target.value)}
+ defaultValue={searchQuery}
+ onChange={(e) => {
+ const next = e.target.value;
+ if (searchDebounceTimerRef.current) clearTimeout(searchDebounceTimerRef.current);
+ searchDebounceTimerRef.current = setTimeout(() => setSearchQuery(next), 200);
+ }}
  className="flex-1 px-3 py-3.5 sm:py-4 text-base sm:text-lg bg-transparent text-heading placeholder:text-muted focus:outline-none"
  aria-label={t('jobBoard.searchPlaceholder')}
  />
  {searchQuery && (
  <button
  type="button"
- onClick={() => setSearchQuery('')}
+ onClick={() => applySearchQuery('')}
  className="p-2 mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-muted hover:text-body hover:bg-surface-raised transition-colors"
  aria-label="Clear search"
  >
@@ -7865,7 +7896,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  key={s}
  type="button"
- onClick={() => setSearchQuery(s)}
+ onClick={() => applySearchQuery(s)}
  className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {s}
@@ -7908,9 +7939,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Row 2: Roles & Categories */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
  {([
- { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
  { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
  { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
  { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
