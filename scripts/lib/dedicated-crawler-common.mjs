@@ -23,7 +23,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { WORKDAY_HOST_RE, workdayReqFromLeaf } from './job-url-key.mjs';
 import { recordSlugMutation } from './slug-history-journal.mjs';
-import { isAcceptableTranslation } from './translation-quality.mjs';
+import { isAcceptableTranslation, hasConcatenatedWords } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
@@ -1958,9 +1958,9 @@ export function htmlToStructuredTextDCC(html, cleanFn) {
 //   ctx.callLLM(messages, opts)
 //   ctx.isAnyModelAvailable()
 //   ctx.extractRequirements(desc)
-//   ctx.structureJobDescription(rawText)
+//   ctx.structureJobDescription(rawText, sourceLang)
 //   ctx.htmlToStructuredText(html)
-//   ctx.aiEnrichThinDescription(job)
+//   ctx.aiEnrichThinDescription(job, sourceLang)
 //   ctx.aiLocalizationCalls (getter/setter via ctx.getAiLocalizationCalls() / ctx.incrAiLocalizationCalls())
 //   ctx.deeplFallbackToLlm (getter/setter via ctx.getDeeplFallbackToLlm() / ctx.incrDeeplFallbackToLlm())
 
@@ -2506,6 +2506,11 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     .some((locale) => {
       const localizedTitle = nsFn(titleByLocale[locale] || '');
       if (!localizedTitle) return true;
+      // Glued-together words (e.g. "Direttoredifiliale") never self-correct:
+      // the checks below all treat a non-empty, non-source-copy title as
+      // "already translated", so a static garbled title stays flagged here
+      // on every run until a fresh translation replaces it.
+      if (hasConcatenatedWords(localizedTitle, locale)) return true;
       if (sourceTitle && localizedTitle.toLowerCase() === sourceTitle.toLowerCase()) {
         // Cross-locale guard: if at least one other non-source locale has a title that
         // differs from the source, the job title is genuinely multilingual (e.g. an English
@@ -2613,7 +2618,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         currentByLocale[sourceLang] = structuredFromHtml;
       }
     } else if (strDesc) {
-      const structured = await strDesc(rawDesc);
+      const structured = await strDesc(rawDesc, sourceLang);
       if (structured !== rawDesc) {
         out.description = structured;
         currentByLocale[sourceLang] = structured;
@@ -2628,7 +2633,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     (Array.isArray(out._migrosBenefits) && out._migrosBenefits.length > 0) ||
     (Array.isArray(out.requirements) && out.requirements.length > 0);
   if (shouldRunDescriptionLocalization && currentDesc.length < 500 && hasExtractedData && canUseAi && enrichThin) {
-    const enrichedDesc = await enrichThin(out);
+    const enrichedDesc = await enrichThin(out, sourceLang);
     if (enrichedDesc && enrichedDesc !== out.description && enrichedDesc.length > currentDesc.length) {
       out.description = enrichedDesc;
       currentByLocale[sourceLang] = enrichedDesc;
