@@ -8201,6 +8201,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-lombardia.title': 'Blocage des restaurants, tensions avec le Tessin',
     'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'Le blocage des remises par le canton du Tessin a suscité controverse et réactions. Jonny Crosio, secrétaire fédéral adjoint du parti Pacte pour le Nord, critique cette décision comme arbitraire et paradoxale.',
     'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'Vue de Bellinzona avec le Château de Montebello',
+    'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Remboursements bloqués: Reina (Iv Varese) «L’État en jeu»',
+    'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, secrétaire provincial d’Italia Viva, critique le blocage des remises transfrontalières et met en garde contre les risques pour la crédibilité de l’État.',
+    'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Un journaliste écrit sur un ordinateur portable dans un café à Bellinzona, avec le Monte San Salvatore en arrière-plan.',
 };
 
 export default blogMetaFr;

@@ -8200,6 +8200,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-lombardia.title': 'Blocking refreshments, tensions with Ticino',
     'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'The blocking of rebates by the Canton of Ticino has generated controversy and reactions. Jonny Crosio, Deputy Federal Secretary of the Pact for the North party, criticizes the decision as arbitrary and paradoxical.',
     'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'View of Bellinzona with Montebello Castle',
+    'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Cross-border rebates blocked: Reina (Iv Varese) warns of state credibility risk',
+    'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, provincial secretary of Italia Viva, criticizes the blocking of cross-border rebates and warns of the risks to the credibility of the state.',
+    'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'A journalist writing on a laptop in a café in Bellinzona, with Monte San Salvatore in the background.',
 };
 
 export default blogMetaEn;
