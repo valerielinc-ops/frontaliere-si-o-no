@@ -835,6 +835,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': '2026 Guide: Changing Jobs for Cross-Border Workers',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Find out how to change employers in Switzerland in 2026: notice period, G permit renewal, contribution continuity, and documents to update.',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'A frontier worker crossing the Switzerland-Italy border, with a view of Lugano in the background.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'UVG accident insurance 2026: coverage and reports',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Find out everything about UVG coverage for cross-border commuters in Switzerland in 2026, how to report an accident and the differences with an occupational disease.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
 };
 
 export default blogMetaChEn;

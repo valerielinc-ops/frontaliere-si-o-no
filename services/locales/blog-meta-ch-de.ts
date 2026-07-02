@@ -835,6 +835,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': 'Leitfaden 2026: Jobwechsel für Grenzgänger',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Erfahren Sie, wie Sie 2026 in der Schweiz den Arbeitgeber wechseln können: Kündigungsfrist, Verlängerung der G-Bewilligung, Kontinuität der Sozialversicherungsbeiträge und zu aktualisierende Unterlagen.',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'Ein Grenzgänger überquert die Grenze zwischen der Schweiz und Italien, mit einem Blick auf Lugano im Hintergrund.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'UVG-Unfallversicherung 2026: Deckung und Berichte',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Erfahren Sie alles über die UVG-Abdeckung für Grenzpendler in der Schweiz im Jahr 2026, wie man einen Unfall meldet und welche Unterschiede es mit einer Berufskrankheit gibt.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
 };
 
 export default blogMetaChDe;

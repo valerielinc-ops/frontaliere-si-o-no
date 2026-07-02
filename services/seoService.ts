@@ -4341,6 +4341,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ristorni-frontalieri-pellicini-tavolo-lavoro': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro', parent: 'blog' },
     'blog-frontaliere-cambio-datore-lavoro-procedura-permesso-2026': { name: 'Guida 2026', path: '/articoli-svizzera/frontaliere-cambio-datore-lavoro-procedura-permesso-2026/', parent: 'blog' },
     'blog-ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione', parent: 'blog' },
+    'blog-assicurazione-infortuni-lainf-frontalieri-2026': { name: 'Assicurazione infortuni LAINF', path: '/articoli-svizzera/assicurazione-infortuni-lainf-frontalieri-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

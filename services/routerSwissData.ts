@@ -301,6 +301,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-figli-asilo-nido-svizzera': { it: 'frontaliere-figli-asilo-nido-svizzera', en: 'frontalier-children-swiss-kindergarten', de: 'frontalier-kinder-schweizer-kindergarten', fr: 'frontalier-enfants-garderie-suisse' },
  'ristorni-frontalieri-bloccati-alfieri-pd': { it: 'ristorni-frontalieri-bloccati-alfieri-pd', en: 'frontier-workers-compensation-blocked-alfieri-pd', de: 'grenzgaenger-entschaedigungen-gesperrt-alfieri-pd', fr: 'indemnites-frontaliers-bloquees-alfieri-pd' },
  'frontaliere-cambio-datore-lavoro-procedura-permesso-2026': { it: 'frontaliere-cambio-datore-lavoro-procedura-permesso-2026', en: 'frontier-worker-job-change-procedure-permit-2026', de: 'grenzgaenger-arbeitsplatzwechsel-verfahren-genehmigung-2026', fr: 'travailleur-frontalier-changement-demployeur-procedure-permis-2026' },
+ 'assicurazione-infortuni-lainf-frontalieri-2026': { it: 'assicurazione-infortuni-lainf-frontalieri-2026', en: 'work-injury-insurance-lainf-cross-border-workers-2026', de: 'unfallversicherung-lainf-grenzgaenger-2026', fr: 'assurance-accidents-lainf-frontaliers-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
