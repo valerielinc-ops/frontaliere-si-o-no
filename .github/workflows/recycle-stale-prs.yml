@@ -69,13 +69,25 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
+      # auto-mints, no expiry babysit, and the re-queue label push re-triggers
+      # issue-fix.yml just like the PAT (issue-fix.yml's sender gate already
+      # allowlists the App slug). Falls back to env.GITHUB_PAT (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
       # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -85,7 +97,7 @@ jobs:
       - name: Recycle deeply-stale stale-review PRs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PAT: ${{ env.GITHUB_PAT }}
+          PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
           # Posture: lo SCHEDULE agisce (false) — è l'intento autonomo; il
           # DISPATCH manuale resta safe-by-default (input default true) per test.
