@@ -371,9 +371,15 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
  ];
 }
 
-export function cleanupArticleBodySections(sections: Array<string | undefined>): string[] {
+export type ArticleBodySectionInput = { key: string; text: string | undefined };
+export type ArticleBodySectionRendered = { key: string; html: string };
+
+// Keeps each rendered body paired with its source key (body1/body2/body3, ...)
+// through both filter passes below, so a caller pairing a heading to `key`
+// never shifts onto the wrong body when an intermediate section is empty.
+export function cleanupArticleBodySections(sections: ArticleBodySectionInput[]): ArticleBodySectionRendered[] {
  return sections
- .filter((section): section is string => !!section)
- .map((section) => renderArticleBodyHtml(section))
- .filter(Boolean);
+ .filter((section): section is { key: string; text: string } => !!section.text)
+ .map((section) => ({ key: section.key, html: renderArticleBodyHtml(section.text) }))
+ .filter((section) => !!section.html);
 }

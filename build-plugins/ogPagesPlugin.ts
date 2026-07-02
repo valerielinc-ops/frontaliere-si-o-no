@@ -747,7 +747,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const nb = parseInt(b.replace('body', ''), 10);
  return na - nb;
  }) : [];
- const bodySections = cleanupArticleBodySections(allBodyKeys.map(k => localizedBody?.[k]));
+ const bodySections = cleanupArticleBodySections(allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })));
  const canonicalPath = withTrailingSlash(urlPath);
  const full = `${BASE_URL}${canonicalPath}`;
  const imgU = `${BASE_URL}${en.img}`;
@@ -900,7 +900,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  ldObj.dateModified = normalizeDateTime(en.dateMod || en.datePub || todayIso);
 
  // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
- const fullBodyHtml = bodySections.join('\n');
+ const fullBodyHtml = bodySections.map((s) => s.html).join('\n');
  const excerpt = extractExcerpt(fullBodyHtml, 500);
  if (excerpt) {
  ldObj.articleBody = excerpt;
@@ -1039,13 +1039,18 @@ ${href}
  en.keywords,
  SECTION.name,
  );
- const bodyWordCount = countWords(bodySections.join(' '));
+ const bodyWordCount = countWords(bodySections.map((s) => s.html).join(' '));
  // bodySections are already-rendered HTML (headings/lists/links) from cleanupArticleBodySections;
  // fallbackSections carry plain prose paragraphs that still need escaping + <p> wrapping.
- const bodyDerivedSections = bodySections.map((bodyHtml, i) => ({
- heading: i === 0 ? 'Contesto' : i === 1 ? 'Dettagli operativi' : 'Punti chiave',
- html: bodyHtml,
- }));
+ // Pair each rendered body with its heading by stable key (bodyN, not post-filter
+ // array index) — an empty body2 must not shift body3's html onto body2's heading.
+ const bodyDerivedSections = bodySections.map(({ key, html }) => {
+ const n = parseInt(key.replace(/^body/, ''), 10);
+ return {
+ heading: n === 1 ? 'Contesto' : n === 2 ? 'Dettagli operativi' : 'Punti chiave',
+ html,
+ };
+ });
  const fallbackDerivedSections = fallbackSections.map((section) => ({
  heading: section.heading,
  html: section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join(''),
