@@ -1,12 +1,19 @@
 #!/usr/bin/env node
-// Zero-Claude check: validates BLOG_SLUGS ↔ sitemap-blog.xml / sitemap-news.xml sync.
+// Zero-Claude check: validates BLOG_SLUGS ↔ sitemap-blog.xml / sitemap-news.xml
+// AND SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync.
 // Usage: node scripts/ci/check-blog-slugs-sitemap-sync.mjs
 // Exit 0 = in sync. Exit 1 = divergence detected.
 //
-// sitemap-blog.xml structure:
+// sitemap-blog.xml / sitemap-blog-ch.xml structure:
 //   <loc> = Italian canonical URL only (one per article)
 //   <xhtml:link hreflang="en|de|fr" href="..."> = other locale URLs
-// Both are checked bidirectionally against BLOG_SLUGS.
+// Both are checked bidirectionally against the section's slug registry.
+//
+// sitemap-news.xml is SHARED across both sections — checked backward only
+// (sitemap → registry), once per registry. This is the gate that catches a
+// swiss article whose hreflang alternates were resolved from the wrong
+// registry (routerBlogData instead of routerSwissData), the class of bug
+// fixed manually in PR #3116 (#3120 follow-up hardening).
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,10 +35,24 @@ const BLOG_LOC_PATTERNS = {
   fr: /^https:\/\/frontaliereticino\.ch\/fr\/articles-frontalier\/([^/]+)\/$/,
 };
 
+const SWISS_URL_BASE = {
+  it: 'https://frontaliereticino.ch/articoli-svizzera/',
+  en: 'https://frontaliereticino.ch/en/swiss-articles/',
+  de: 'https://frontaliereticino.ch/de/schweiz-artikel/',
+  fr: 'https://frontaliereticino.ch/fr/articles-suisse/',
+};
+
+const SWISS_LOC_PATTERNS = {
+  it: /^https:\/\/frontaliereticino\.ch\/articoli-svizzera\/([^/]+)\/$/,
+  en: /^https:\/\/frontaliereticino\.ch\/en\/swiss-articles\/([^/]+)\/$/,
+  de: /^https:\/\/frontaliereticino\.ch\/de\/schweiz-artikel\/([^/]+)\/$/,
+  fr: /^https:\/\/frontaliereticino\.ch\/fr\/articles-suisse\/([^/]+)\/$/,
+};
+
 // Uses the same regex as ogPagesPlugin.ts (single source of truth for parsing).
-function parseBlogSlugs() {
-  const src = readFileSync(resolve(root, 'services/routerBlogData.ts'), 'utf-8');
-  const block = src.match(/const BLOG_SLUGS[\s\S]*?\n\};/m)?.[0] ?? '';
+function parseSlugsConst(file, constName) {
+  const src = readFileSync(resolve(root, file), 'utf-8');
+  const block = src.match(new RegExp(`const ${constName}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
   const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
   const slugs = {};
   let m;
@@ -39,6 +60,14 @@ function parseBlogSlugs() {
     slugs[m[1]] = { it: m[2], en: m[3], de: m[4], fr: m[5] };
   }
   return slugs;
+}
+
+function parseBlogSlugs() {
+  return parseSlugsConst('services/routerBlogData.ts', 'BLOG_SLUGS');
+}
+
+function parseSwissSlugs() {
+  return parseSlugsConst('services/routerSwissData.ts', 'SWISS_SLUGS');
 }
 
 function extractSitemapUrls(xml) {
@@ -64,16 +93,17 @@ function buildValidSlugSets(slugs) {
   return sets;
 }
 
-function checkSitemap(label, xml, blogSlugs) {
+// registryLabel is used only in log/error messages (e.g. "BLOG_SLUGS" / "SWISS_SLUGS").
+function checkSitemap(label, xml, slugs, urlBase, locPatterns, registryLabel) {
   const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
-  const validSlugs = buildValidSlugSets(blogSlugs);
+  const validSlugs = buildValidSlugSets(slugs);
   let ok = true;
 
-  // Forward: every BLOG_SLUG must be in the sitemap
+  // Forward: every registry slug must be in the sitemap
   const missing = [];
-  for (const [articleId, slugMap] of Object.entries(blogSlugs)) {
+  for (const [articleId, slugMap] of Object.entries(slugs)) {
     for (const [locale, slug] of Object.entries(slugMap)) {
-      const base = BLOG_URL_BASE[locale];
+      const base = urlBase[locale];
       if (!base) continue;
       const url = `${base}${slug}/`;
       const present = locale === 'it' ? locUrls.has(url) : hreflangUrls.get(locale)?.has(url);
@@ -81,31 +111,18 @@ function checkSitemap(label, xml, blogSlugs) {
     }
   }
   if (missing.length) {
-    console.error(`\n❌ ${label}: BLOG_SLUGS entries missing (${missing.length}):`);
+    console.error(`\n❌ ${label}: ${registryLabel} entries missing (${missing.length}):`);
     missing.forEach(l => console.error(l));
     ok = false;
   } else {
-    console.log(`✅ ${label}: all BLOG_SLUGS present`);
+    console.log(`✅ ${label}: all ${registryLabel} present`);
   }
 
-  // Backward: every blog URL in sitemap must correspond to a current BLOG_SLUG
-  const stale = [];
-  for (const url of locUrls) {
-    const match = url.match(BLOG_LOC_PATTERNS.it);
-    if (match && !validSlugs.it.has(match[1])) stale.push(`  [it] <loc>: ${url}`);
-  }
-  for (const [locale, urls] of hreflangUrls) {
-    const pattern = BLOG_LOC_PATTERNS[locale];
-    if (!pattern) continue;
-    for (const url of urls) {
-      const match = url.match(pattern);
-      if (match && !validSlugs[locale]?.has(match[1])) {
-        stale.push(`  [${locale}] hreflang href: ${url}`);
-      }
-    }
-  }
+  // Backward: every URL of this registry's hub shape in the sitemap must
+  // correspond to a current registry slug.
+  const stale = checkNewsStale(locUrls, hreflangUrls, validSlugs, locPatterns);
   if (stale.length) {
-    console.error(`\n❌ ${label}: stale URLs not in BLOG_SLUGS (${stale.length}):`);
+    console.error(`\n❌ ${label}: stale URLs not in ${registryLabel} (${stale.length}):`);
     stale.forEach(l => console.error(l));
     ok = false;
   } else {
@@ -115,44 +132,70 @@ function checkSitemap(label, xml, blogSlugs) {
   return ok;
 }
 
+// Backward-only check (sitemap → registry). Shared by the per-section
+// sitemap check above and the shared sitemap-news.xml check below — a swiss
+// article whose hreflang alternates resolve to the WRONG registry (or a
+// stale slug after rename) shows up here as an unmatched URL under that
+// registry's hub shape (#3120: catches the class of bug behind PR #3116's
+// 3 dead sitemap-news.xml URLs).
+function checkNewsStale(locUrls, hreflangUrls, validSlugs, locPatterns) {
+  const stale = [];
+  for (const url of locUrls) {
+    const match = url.match(locPatterns.it);
+    if (match && !validSlugs.it.has(match[1])) stale.push(`  [it] <loc>: ${url}`);
+  }
+  for (const [locale, urls] of hreflangUrls) {
+    const pattern = locPatterns[locale];
+    if (!pattern) continue;
+    for (const url of urls) {
+      const match = url.match(pattern);
+      if (match && !validSlugs[locale]?.has(match[1])) {
+        stale.push(`  [${locale}] hreflang href: ${url}`);
+      }
+    }
+  }
+  return stale;
+}
+
 const blogSlugs = parseBlogSlugs();
 console.log(`Parsed ${Object.keys(blogSlugs).length} articles from services/routerBlogData.ts`);
+const swissSlugs = parseSwissSlugs();
+console.log(`Parsed ${Object.keys(swissSlugs).length} articles from services/routerSwissData.ts`);
 
 let exitCode = 0;
 
 const blogXml = readFileSync(resolve(root, 'public/sitemap-blog.xml'), 'utf-8');
-if (!checkSitemap('sitemap-blog.xml', blogXml, blogSlugs)) exitCode = 1;
+if (!checkSitemap('sitemap-blog.xml', blogXml, blogSlugs, BLOG_URL_BASE, BLOG_LOC_PATTERNS, 'BLOG_SLUGS')) exitCode = 1;
 
+const swissXml = readFileSync(resolve(root, 'public/sitemap-blog-ch.xml'), 'utf-8');
+if (!checkSitemap('sitemap-blog-ch.xml', swissXml, swissSlugs, SWISS_URL_BASE, SWISS_LOC_PATTERNS, 'SWISS_SLUGS')) exitCode = 1;
+
+// sitemap-news.xml is SHARED across both sections — checked backward only,
+// once per registry, against that registry's own hub URL shape.
 const newsXml = readFileSync(resolve(root, 'public/sitemap-news.xml'), 'utf-8');
-// News sitemap is a subset: only check backward (sitemap → BLOG_SLUGS)
 const { locUrls: newsLoc, hreflangUrls: newsHref } = extractSitemapUrls(newsXml);
-const validSlugs = buildValidSlugSets(blogSlugs);
-const newsStale = [];
-for (const url of newsLoc) {
-  const match = url.match(BLOG_LOC_PATTERNS.it);
-  if (match && !validSlugs.it.has(match[1])) newsStale.push(`  [it] <loc>: ${url}`);
-}
-for (const [locale, urls] of newsHref) {
-  const pattern = BLOG_LOC_PATTERNS[locale];
-  if (!pattern) continue;
-  for (const url of urls) {
-    const match = url.match(pattern);
-    if (match && !validSlugs[locale]?.has(match[1])) {
-      newsStale.push(`  [${locale}] hreflang href: ${url}`);
-    }
-  }
-}
-if (newsStale.length) {
-  console.error(`\n❌ sitemap-news.xml: stale URLs not in BLOG_SLUGS (${newsStale.length}):`);
-  newsStale.forEach(l => console.error(l));
+
+const blogNewsStale = checkNewsStale(newsLoc, newsHref, buildValidSlugSets(blogSlugs), BLOG_LOC_PATTERNS);
+if (blogNewsStale.length) {
+  console.error(`\n❌ sitemap-news.xml: stale URLs not in BLOG_SLUGS (${blogNewsStale.length}):`);
+  blogNewsStale.forEach(l => console.error(l));
   exitCode = 1;
 } else {
-  console.log(`✅ sitemap-news.xml: no stale URLs`);
+  console.log(`✅ sitemap-news.xml: no stale BLOG_SLUGS URLs`);
+}
+
+const swissNewsStale = checkNewsStale(newsLoc, newsHref, buildValidSlugSets(swissSlugs), SWISS_LOC_PATTERNS);
+if (swissNewsStale.length) {
+  console.error(`\n❌ sitemap-news.xml: stale URLs not in SWISS_SLUGS (${swissNewsStale.length}):`);
+  swissNewsStale.forEach(l => console.error(l));
+  exitCode = 1;
+} else {
+  console.log(`✅ sitemap-news.xml: no stale SWISS_SLUGS URLs`);
 }
 
 if (exitCode === 0) {
-  console.log('\n✅ BLOG_SLUGS ↔ sitemap sync OK');
+  console.log('\n✅ BLOG_SLUGS + SWISS_SLUGS ↔ sitemap sync OK');
 } else {
-  console.error('\n❌ BLOG_SLUGS ↔ sitemap DIVERGENCE — fix routerBlogData.ts or regenerate sitemaps');
+  console.error('\n❌ registry ↔ sitemap DIVERGENCE — fix routerBlogData.ts/routerSwissData.ts or regenerate sitemaps');
 }
 process.exit(exitCode);
