@@ -8225,6 +8225,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Heures non payées : le scandale ébranle le Tessin',
     'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'Un ancien employé d’un restaurant à Locarno a obtenu plus de trois mille francs en arriéré. Le syndicat Unia dénonce une pratique répandue.',
     'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'Vue du lac de Locarno avec des tables de restaurant et des travailleurs en uniforme',
+    'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Le Tessin bloque 50,2 millions de remises à la Lombardie : tensions et dialogue',
+    'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'Le canton du Tessin conserve 50,2 millions de francs destinés à la Lombardie. Rome et Berne cherchent une solution diplomatique.',
+    'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Vue aérienne du lac de Lugano au coucher du soleil avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
