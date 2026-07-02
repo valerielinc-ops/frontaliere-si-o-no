@@ -76,7 +76,7 @@ import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
-import { stripCodeFences, fixJsonStringBody } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT } from './lib/llm-json-repair.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
@@ -4307,6 +4307,8 @@ REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo 
 
 QUANDO LA FONTE NON CONTIENE UN DATO: scrivi "non ancora specificato", "in fase di definizione", o ometti il dettaglio. NON inventare numeri, date o riferimenti normativi per riempire il testo.
 
+${JSON_QUOTE_SAFETY_RULE_IT}
+
 Rispondi SOLO con JSON valido, senza markdown.` },
     // Phase 3 prior: inject winner-fingerprint as additive system context.
     // Skipped when data/article-performance.json is missing or empty so the
@@ -4387,7 +4389,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
       try {
         const retryRaw = await callLLM(
           [
-            { role: 'system', content: 'Sei un giornalista finanziario esperto. Rispondi SOLO con JSON valido senza markdown.' },
+            { role: 'system', content: `Sei un giornalista finanziario esperto. Rispondi SOLO con JSON valido senza markdown.\n\n${JSON_QUOTE_SAFETY_RULE_IT}` },
             {
               role: 'user',
               content: `Riformula il seguente titolo in italiano per il sito Frontaliere Ticino.\n\nTITOLO ATTUALE (${firstCap.originalLength} caratteri, troppo lungo):\n${itContent.title}\n\nVINCOLI OBBLIGATORI:\n- MASSIMO 60 caratteri totali (target 50-55).\n- NON includere il suffisso " | Frontaliere Ticino" (verrà aggiunto automaticamente).\n- Mantieni la keyword principale e il significato.\n- Stile giornalistico, niente clickbait.\n\nRispondi con JSON: {"title": "..."}`,
@@ -4617,8 +4619,9 @@ async function translateContentFreeMt(sourceLang, targetLang, targetLabel, sourc
 
 async function translateArticle(data) {
   async function callWithRetry(prompt, maxTokens, label) {
+    const safePrompt = `${prompt}\n\n${JSON_QUOTE_SAFETY_RULE_IT}`;
     const raw = await callLLM(
-      [{ role: 'user', content: prompt }],
+      [{ role: 'user', content: safePrompt }],
       { temperature: 0.5, maxTokens, jsonMode: true },
     );
     try {
@@ -4631,7 +4634,7 @@ async function translateArticle(data) {
       const retry1Tokens = isTruncation ? Math.max(maxTokens * 3, 12000) : maxTokens + 4000;
       console.error(`  🔄 Retry ${label} con maxTokens=${retry1Tokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
       const raw2 = await callLLM(
-        [{ role: 'user', content: prompt }],
+        [{ role: 'user', content: safePrompt }],
         { temperature: 0.5, maxTokens: retry1Tokens, jsonMode: true },
       );
       try {
@@ -4643,7 +4646,7 @@ async function translateArticle(data) {
         // Third attempt with maximum tokens
         const retry2Tokens = 16000;
         const raw3 = await callLLM(
-          [{ role: 'user', content: prompt }],
+          [{ role: 'user', content: safePrompt }],
           { temperature: 0.3, maxTokens: retry2Tokens, jsonMode: true },
         );
         try {
