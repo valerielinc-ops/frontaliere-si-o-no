@@ -8220,6 +8220,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-lombardia-ticino.title': 'Restaurants, Schweiz bedroht die Lombardei: Ziehen Sie die Steuer zurück',
     'blog.article.ristorni-lombardia-ticino.excerpt': 'Der Varese-Senator der PD, Alessandro Alfieri, fordert die Region Lombardei auf, die Gesundheitssteuer zurückzuziehen, um die Blockierung von Rückerstattungen durch die Schweiz zu vermeiden.',
     'blog.article.ristorni-lombardia-ticino.imageAlt': 'Panoramablick auf Castelgrande in Bellinzona',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Unbezahlte Stunden erschüttern Tessiner Gastronomie',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'Ein ehemaliger Mitarbeiter eines Restaurants in Locarno hat über dreitausend Francs im Rückstand erhalten. Die Gewerkschaft Unia verurteilt eine weit verbreitete Praxis.',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'Blick auf die Seepromenade von Locarno mit Restauranttischen und Arbeitern in Uniform',
 };
 
 export default blogMetaDe;
