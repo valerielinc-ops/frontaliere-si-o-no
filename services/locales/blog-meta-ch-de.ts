@@ -856,6 +856,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-ai-prospettive-finanziarie.title': 'Die finanziellen Aussichten für AHV und IV verschlechtern sich',
     'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'Gemäss Bsv werden die Defizite der Alters- und Hinterlassenenversicherung sowie der Invalidenversicherung in den nächsten Jahren zunehmen.',
     'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Luftaufnahme des Luganer Sees mit den Schweizer Alpen im Hintergrund',
+    'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Erhöhung der IV-Renten bringt die Versicherung in finanzielle Schwierigkeiten',
+    'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'Der starke Anstieg der neuen IV-Renten bringt die Invalidenversicherung in finanzielle Schwierigkeiten.',
+    'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Panoramablick auf Bern mit dem Bundesparlament und dem Bundesamt für Sozialversicherungen.',
 };
 
 export default blogMetaChDe;

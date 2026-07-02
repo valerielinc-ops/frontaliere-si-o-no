@@ -856,6 +856,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-ai-prospettive-finanziarie.title': 'Peggiorano le prospettive finanziarie di AVS e AI',
     'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità.',
     'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi Svizzere sullo sfondo',
+    'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Aumento delle rendite AI mette l\'assicurazione in difficoltà finanziarie',
+    'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'Il forte aumento delle nuove rendite AI mette l\'assicurazione invalidità in difficoltà finanziarie.',
+    'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Vista panoramica di Berna con il Parlamento federale e l\'Ufficio federale delle assicurazioni sociali.',
 };
 
 export default blogMetaChIt;

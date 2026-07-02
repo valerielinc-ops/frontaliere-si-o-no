@@ -2564,6 +2564,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'aumento-rendite-ai-avs-difficolta',
+    category: 'fiscale',
+    date: '2026-07-02T10:53:32.279Z',
+    image: '/images/blog/aumento-rendite-ai-avs-difficolta.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

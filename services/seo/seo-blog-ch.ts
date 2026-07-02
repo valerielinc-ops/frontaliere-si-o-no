@@ -11016,6 +11016,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-rendite-ai-avs-difficolta': {
+    title: 'Aumento delle rendite AI mette l\'assicurazione in difficoltà finanziarie',
+    description: 'Il forte aumento delle nuove rendite AI mette l\'assicurazione invalidità in difficoltà finanziarie. Scopri le implicazioni per l\'AVS e le prospettive future.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, rendite, mette, assicurazione',
+    ogTitle: 'Aumento delle rendite AI mette l\'assicurazione in difficoltà finanziarie',
+    ogDescription: 'Il forte aumento delle nuove rendite AI mette l\'assicurazione invalidità in difficoltà finanziarie. Scopri le implicazioni per l\'AVS e le prospettive future.',
+    canonicalPath: '/articoli-svizzera/aumento-rendite-ai-avs-difficolta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento delle rendite AI mette l'assicurazione in difficoltà finanziarie",
+      "description": "Il forte aumento delle nuove rendite AI mette l'assicurazione invalidità in difficoltà finanziarie. Scopri le implicazioni per l'AVS e le prospettive future.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-rendite-ai-avs-difficolta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Berna con il Parlamento federale e l'Ufficio federale delle assicurazioni sociali."
+      },
+      "datePublished": "2026-07-02T10:53:32+00:00",
+      "dateModified": "2026-07-02T10:53:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aumento-rendite-ai-avs-difficolta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
