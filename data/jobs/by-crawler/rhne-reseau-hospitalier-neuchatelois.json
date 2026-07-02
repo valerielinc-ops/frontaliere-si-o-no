@@ -480,8 +480,8 @@
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-100-service-de-cardiologie-rhne",
         "it": "capo-di-clinica-o-vice-capo-di-clinica-al-100-dipartimento-di-cardiologia-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-100-service-de-cardiologie-rhne",
-        "de": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-100-service-de-cardiologie-rhne"
+        "en": "head-of-clinic-or-head-of-clinic-100-assistant-cardiology-service-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "leiter-der-klinik-oder-leiter-der-klinik-100-assistent-kardiologie-service-reseau-hospitalier-neuchatelois-rhne"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
@@ -529,6 +529,12 @@
         "it": [
           "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-100-service-de-cardiologie-rhne",
           "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-100-service-de-cardiologie-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+        ],
+        "en": [
+          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-100-service-de-cardiologie-rhne"
+        ],
+        "de": [
+          "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-100-service-de-cardiologie-rhne"
         ]
       },
       "previousSlugs": [

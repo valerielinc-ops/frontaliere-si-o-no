@@ -2357,7 +2357,7 @@
       "id": "ubs-4f78a16a464c",
       "slug": "specialista-in-logistica-ubs-zurich",
       "slugByLocale": {
-        "en": "speditionsfachfrau-mann-ubs-zurich",
+        "en": "logistics-specialist-ubs-zurich",
         "it": "specialista-in-logistica-ubs-zurich",
         "de": "speditionsfachfrau-mann-ubs-zurich",
         "fr": "speditionsfachfrau-mann-ubs-zurich"
@@ -2412,6 +2412,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "speditionsfachfrau-mann-ubs-zurich"
+        ],
+        "en": [
           "speditionsfachfrau-mann-ubs-zurich"
         ]
       },
@@ -3183,12 +3186,12 @@
     },
     {
       "id": "ubs-45b9c96f2769",
-      "slug": "consulente-te-clienti-al-dettaglio-cite-ubs-suisse-romande",
+      "slug": "client-consulente-retail-cite-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "client-advisor-retail-cite-ubs-suisse-romande",
-        "it": "consulente-te-clienti-al-dettaglio-cite-ubs-suisse-romande",
+        "it": "client-consulente-retail-cite-ubs-suisse-romande",
         "en": "client-advisor-retail-cite-ubs-suisse-romande",
-        "de": "kundenberater-einzelhandel-cite-ubs-suisse-romande"
+        "de": "client-berater-retail-cite-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3240,11 +3243,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "client-advisor-retail-cite-ubs-suisse-romande"
+          "client-advisor-retail-cite-ubs-suisse-romande",
+          "consulente-te-clienti-al-dettaglio-cite-ubs-suisse-romande"
+        ],
+        "de": [
+          "kundenberater-einzelhandel-cite-ubs-suisse-romande"
         ]
       },
       "previousSlugs": [
-        "client-advisor-retail-cite-ubs-suisse-romande"
+        "client-advisor-retail-cite-ubs-suisse-romande",
+        "consulente-te-clienti-al-dettaglio-cite-ubs-suisse-romande",
+        "kundenberater-einzelhandel-cite-ubs-suisse-romande"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3500,7 +3509,7 @@
         "it": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
         "en": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
         "de": "geschaftsstratege-ubs-chief-strategy-office-gwm-ubs-zurich",
-        "fr": "strategiste-des-affaires-bureau-strategique-en-chef-de-l-ubs-gwm-ubs-zurich"
+        "fr": "stratege-commercial-bureau-directeur-de-la-strategie-ubs-gwm-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3561,7 +3570,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "fr": [
+          "strategiste-des-affaires-bureau-strategique-en-chef-de-l-ubs-gwm-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "strategiste-des-affaires-bureau-strategique-en-chef-de-l-ubs-gwm-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-c759124e8b01",
@@ -3626,8 +3643,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-finanziario-wmch-basilea-ubs-nordschweiz",
-          "finanzplaner-wmch-basel-ubs-nordschweiz",
-          "pianificatore-finanziario-wmch-basel-ubs-nordschweiz"
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
         ],
         "en": [
           "finanzplaner-wmch-basel-ubs-nordschweiz"
@@ -3713,8 +3729,7 @@
       "previousSlugsByLocale": {
         "it": [
           "esperti-fiscali-nella-gestione-patrimoniale-ubs-zentralschweiz",
-          "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-          "esperto-fiscale-gestione-della-ricchezza-ubs-zentralschweiz"
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
         ],
         "en": [
           "steuerexperte-in-wealth-management-ubs-zentralschweiz"
@@ -3799,8 +3814,7 @@
       "previousSlugsByLocale": {
         "it": [
           "pianificatore-della-successione-ubs-zentralschweiz",
-          "succession-planner-ubs-zentralschweiz",
-          "progettisti-di-successione-ubs-zentralschweiz"
+          "succession-planner-ubs-zentralschweiz"
         ],
         "en": [
           "succession-planner-ubs-zentralschweiz"
@@ -3883,8 +3897,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich",
-          "vendite-a-reddito-fisso-ugm-clienti-professionali-di-accesso-al-mercato-wm-ubs-zurich"
+          "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich"
         ],
         "de": [
           "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich"
@@ -3968,8 +3981,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "outbound-sales-agent-zurich-40-60-ubs-zurich",
-          "agente-vendite-in-uscita-zurigo-40-60-ubs-zurich"
+          "outbound-sales-agent-zurich-40-60-ubs-zurich"
         ],
         "fr": [
           "outbound-sales-agent-zurich-40-60-ubs-zurich"
@@ -4080,7 +4092,7 @@
       "slugByLocale": {
         "it": "esperto-di-audit-per-servizi-di-esecuzione-ib-ubs-zurich",
         "en": "audit-expert-ib-execution-services-ubs-zurich",
-        "de": "prufungsexperte-ib-execution-services-ubs-zurich",
+        "de": "prufungsexperte-fur-ib-ausfuhrungsdienstleistungen-ubs-zurich",
         "fr": "audit-expert-ib-execution-services-ubs-zurich"
       },
       "company": "UBS",
@@ -4133,10 +4145,14 @@
       "previousSlugsByLocale": {
         "it": [
           "audit-expert-ib-execution-services-ubs-zurich"
+        ],
+        "de": [
+          "prufungsexperte-ib-execution-services-ubs-zurich"
         ]
       },
       "previousSlugs": [
-        "audit-expert-ib-execution-services-ubs-zurich"
+        "audit-expert-ib-execution-services-ubs-zurich",
+        "prufungsexperte-ib-execution-services-ubs-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4158,7 +4174,7 @@
       "slugByLocale": {
         "en": "client360-product-manager-ubs-zurich-united-states-new-york",
         "it": "client360-product-manager-ubs-zurich-united-states-new-york",
-        "de": "client360-product-manager-ubs-zurich-united-states-new-york",
+        "de": "client360-produktmanager-ubs-zurich-united-states-new-york",
         "fr": "chef-de-produit-client360-ubs-zurich-united-states-new-york"
       },
       "company": "UBS",

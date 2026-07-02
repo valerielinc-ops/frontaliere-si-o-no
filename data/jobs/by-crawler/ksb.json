@@ -7635,8 +7635,8 @@
       "slugByLocale": {
         "de": "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch",
         "it": "berufsbildungsverantwortliche-r-cure-d-emergenza-60-100-kantonsspital-baden-ksb-baden",
-        "en": "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch",
-        "fr": "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
+        "en": "vocational-training-manager-emergency-care-60-100-kantonsspital-baden-ksb-baden",
+        "fr": "gestionnaire-de-la-formation-professionnelle-soins-d-urgence-60-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7695,6 +7695,12 @@
       "previousSlugsByLocale": {
         "it": [
           "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
+        ],
+        "en": [
+          "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
+        ],
+        "fr": [
+          "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
         ]
       },
       "previousSlugs": [
@@ -7707,8 +7713,8 @@
       "slugByLocale": {
         "de": "ict-fachmann-frau-i-a-ksb-ch",
         "it": "specialista-ict-i-a-kantonsspital-baden-ksb-baden",
-        "en": "ict-fachmann-frau-i-a-ksb-ch",
-        "fr": "ict-fachmann-frau-i-a-ksb-ch"
+        "en": "ict-specialist-woman-i-a-kantonsspital-baden-ksb-baden",
+        "fr": "specialiste-des-tic-femme-i-a-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7755,6 +7761,12 @@
         "it": [
           "ict-fachmann-frau-i-a-ksb-ch",
           "ict-fachmann-frau-i-a-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "ict-fachmann-frau-i-a-ksb-ch"
+        ],
+        "fr": [
+          "ict-fachmann-frau-i-a-ksb-ch"
         ]
       },
       "previousSlugs": [
@@ -7860,8 +7872,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch",
         "it": "dipl-pflegefachfau-mann-50-100-imc-per-interdisziplinares-notfallzentrum-kantonsspital-baden-ksb-baden",
-        "en": "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch",
-        "fr": "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
+        "en": "dipl-nursing-specialist-50-100-imc-for-interdisciplinary-emergency-center-kantonsspital-baden-ksb-baden",
+        "fr": "dipl-specialiste-des-soins-infirmiers-50-100-imc-pour-centre-interdisciplinaire-d-urgence-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7906,6 +7918,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
         ]
       },

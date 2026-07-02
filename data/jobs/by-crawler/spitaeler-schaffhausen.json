@@ -4278,8 +4278,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen",
         "it": "infermiera-certificata-hf-fh-sostituzione-per-maternita-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
+        "en": "dipl-care-specialist-hf-fh-maternity-representation-spitaler-schaffhausen-schaffhausen",
+        "fr": "dipl-specialiste-des-soins-hf-fh-representation-de-la-maternite-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4325,6 +4325,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen",
+          "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaler-schaffhausen-schaffhausen"
         ]
       },

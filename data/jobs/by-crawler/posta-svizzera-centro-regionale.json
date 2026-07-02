@@ -27,9 +27,9 @@
       "slug": "consulente-clienti-die-schweizerische-post-stans",
       "slugByLocale": {
         "it": "consulente-clienti-die-schweizerische-post-stans",
-        "en": "kundenberater-in-die-schweizerische-post-stans",
+        "en": "customer-advisor-in-die-schweizerische-post-stans",
         "de": "kundenberater-in-die-schweizerische-post-stans",
-        "fr": "kundenberater-in-die-schweizerische-post-stans"
+        "fr": "conseiller-client-in-die-schweizerische-post-stans"
       },
       "sourceLang": "de",
       "department": "",
@@ -67,10 +67,17 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-stans"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-stans"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-post"
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-stans"
       ]
     },
     {
@@ -178,9 +185,9 @@
       "slug": "impiegato-nella-gestione-immobiliare-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "impiegato-nella-gestione-immobiliare-die-schweizerische-post-bern",
-        "en": "sachbearbeiter-in-immobilienbewirtschaftung-die-schweizerische-post-bern",
+        "en": "personnel-in-real-estate-management-die-schweizerische-post-bern",
         "de": "sachbearbeiter-in-immobilienbewirtschaftung-die-schweizerische-post-bern",
-        "fr": "sachbearbeiter-in-immobilienbewirtschaftung-die-schweizerische-post-bern"
+        "fr": "personnel-dans-la-gestion-immobiliere-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -219,10 +226,17 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-immobilienbewirtschaftung-post"
+        ],
+        "en": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-die-schweizerische-post-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-die-schweizerische-post-bern"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-immobilienbewirtschaftung-post"
+        "sachbearbeiter-in-immobilienbewirtschaftung-post",
+        "sachbearbeiter-in-immobilienbewirtschaftung-die-schweizerische-post-bern"
       ]
     },
     {
@@ -321,9 +335,9 @@
       "slug": "autista-postbus-postauto-sarnen",
       "slugByLocale": {
         "it": "autista-postbus-postauto-sarnen",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-sarnen",
         "de": "postauto-fahrer-in-postauto-sarnen",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-sarnen"
       },
       "sourceLang": "de",
       "department": "",
@@ -361,6 +375,12 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post"
+        ],
+        "en": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
         ]
       },
       "previousSlugs": [
@@ -392,9 +412,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wattenwil",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wattenwil",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-wattenwil",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-wattenwil"
       },
       "sourceLang": "de",
       "department": "",
@@ -432,6 +452,12 @@
       "firstSeenAt": "2026-07-02T12:11:29.437Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -1106,9 +1132,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "en": "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -1148,7 +1174,6 @@
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-          "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
           "ticket-controller-in-and-customer-advice-postauto-chur"
         ],
         "de": [
@@ -1158,17 +1183,14 @@
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
           "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-          "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag",
           "controleur-de-billetterie-in-et-conseil-client-postauto-chur"
         ]
       },
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
         "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
-        "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag",
         "ticket-controller-in-and-customer-advice-postauto-chur",
+        "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-chur"
       ]
     },
@@ -1673,9 +1695,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "en": "ticket-controller-in-and-customer-advice-postauto-chur",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -1696,10 +1718,17 @@
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-post-2"
+        ],
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
         ]
       },
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6609,8 +6638,8 @@
       "slug": "coordinatore-della-gestione-delle-strutture-fm-la-poste-suisse-crissier",
       "slugByLocale": {
         "it": "coordinatore-della-gestione-delle-strutture-fm-la-poste-suisse-crissier",
-        "en": "coordinatrice-coordinateur-facility-management-fm-post",
-        "de": "coordinatrice-coordinateur-facility-management-fm-post",
+        "en": "coordinator-coordinator-facility-management-fm-la-poste-suisse-crissier",
+        "de": "koordinator-koordinator-facility-management-fm-la-poste-suisse-crissier",
         "fr": "coordinatrice-coordinateur-facility-management-fm-la-poste-suisse-crissier"
       },
       "sourceLang": "fr",
@@ -6649,6 +6678,12 @@
       "firstSeenAt": "2026-07-02T12:11:29.437Z",
       "previousSlugsByLocale": {
         "it": [
+          "coordinatrice-coordinateur-facility-management-fm-post"
+        ],
+        "en": [
+          "coordinatrice-coordinateur-facility-management-fm-post"
+        ],
+        "de": [
           "coordinatrice-coordinateur-facility-management-fm-post"
         ]
       },

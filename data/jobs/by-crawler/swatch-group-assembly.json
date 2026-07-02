@@ -37,7 +37,7 @@
       "slugByLocale": {
         "it": "consulente-legale-the-swatch-group-ltd-ticino",
         "en": "legal-counsel-the-swatch-group-ltd-job-location-rue-nicolas-g-hayek-strasse-2502-biel-bienne-ber-7ubf73",
-        "de": "legal-counsel-the-swatch-group-ltd-job-location-rue-nicolas-g-hayek-strasse-2502-biel-bienne-ber-7ubf73",
+        "de": "rechtsberatung-the-swatch-group-ltd-ticino",
         "fr": "legal-counsel-the-swatch-group-ltd-job-location-rue-nicolas-g-hayek-strasse-2502-biel-bienne-ber-7ubf73"
       },
       "requirementsByLocale": {},
@@ -45,6 +45,9 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-the-swatch-group-ltd-job-location-rue-nicolas-g-hayek-strasse-2502-biel-bienne-ber",
+          "legal-counsel-the-swatch-group-ltd-job-location-rue-nicolas-g-hayek-strasse-2502-biel-bienne-ber-7ubf73"
+        ],
+        "de": [
           "legal-counsel-the-swatch-group-ltd-job-location-rue-nicolas-g-hayek-strasse-2502-biel-bienne-ber-7ubf73"
         ]
       },
@@ -107,13 +110,16 @@
         "it": "associato-di-vendita-50-100-zurich-swatch-ltd-ticino",
         "en": "sales-associate-50-100-zurich-swatch-ltd-8001-zurich-switzerland-company-address-swatch-ltd-nicolas-g-7ubf74",
         "de": "sales-associate-50-100-zurich-swatch-ltd-8001-zurich-switzerland-company-address-swatch-ltd-nicolas-g-7ubf74",
-        "fr": "sales-associate-50-100-zurich-swatch-ltd-8001-zurich-switzerland-company-address-swatch-ltd-nicolas-g-7ubf74"
+        "fr": "adresse-associee-des-ventes-50-100-swatch-ltd-ticino"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-50-100-zurich-swatch-ltd-8001-zurich-switzerland-company-address-swatch-ltd-nicolas-g",
+          "sales-associate-50-100-zurich-swatch-ltd-8001-zurich-switzerland-company-address-swatch-ltd-nicolas-g-7ubf74"
+        ],
+        "fr": [
           "sales-associate-50-100-zurich-swatch-ltd-8001-zurich-switzerland-company-address-swatch-ltd-nicolas-g-7ubf74"
         ]
       },
