@@ -699,7 +699,7 @@ jobs:
       # the full rationale (git-clone fallback was ~12min wall across the 4
       # legs combined, run 28564001685).
       - name: Pack Ticino shard dist (tar) for post-deploy validation
-        if: vars.TICINO_SHARD_LIVE == 'true'
+        if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
         continue-on-error: true
         run: |
           set -euo pipefail

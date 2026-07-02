@@ -11603,7 +11603,10 @@ ${staticAnalyticsHtml}
  if (!slugByLocale || typeof slugByLocale !== 'object') continue;
  // Sibling guard, same rationale as the active-jobs cross-locale bridge
  // below (PR #3052, isCompanyHubNamespaceSlug / issue #2976 recurrence).
- const ejCantonForCrossLocale = String((ej as { canton?: string })?.canton || DEFAULT_CANTON);
+ // expired-jobs records carry no `canton` field (only location/addressLocality),
+ // so resolve via the shared location→canton lookup like the other 3 call sites
+ // — a raw `ej.canton` read always falls back to DEFAULT_CANTON and never fires.
+ const ejCantonForCrossLocale = sharedResolveJobCanton(ej as { canton?: string; location?: string });
  for (const baseLocale of localeList) {
  const baseSlug = slugByLocale[baseLocale];
  if (!baseSlug) continue;
