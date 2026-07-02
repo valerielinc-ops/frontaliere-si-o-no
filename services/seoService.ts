@@ -4343,6 +4343,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione', parent: 'blog' },
     'blog-assicurazione-infortuni-lainf-frontalieri-2026': { name: 'Assicurazione infortuni LAINF', path: '/articoli-svizzera/assicurazione-infortuni-lainf-frontalieri-2026/', parent: 'blog' },
     'blog-blocco-ristorni-ticino-lombardia': { name: 'Fiscale', path: '/articoli-frontaliere/blocco-ristorni-ticino-lombardia', parent: 'blog' },
+    'blog-nascita-figlio-frontaliere-2026': { name: 'Nascita figlio', path: '/articoli-svizzera/nascita-figlio-frontaliere-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

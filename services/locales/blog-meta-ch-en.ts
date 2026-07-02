@@ -838,6 +838,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'UVG accident insurance 2026: coverage and reports',
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Find out everything about UVG coverage for cross-border commuters in Switzerland in 2026, how to report an accident and the differences with an occupational disease.',
     'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.nascita-figlio-frontaliere-2026.title': 'Birth 2026: Checklist for cross-border commuters',
+    'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Complete guide for border families on the birth of a child in Switzerland in 2026: personal registration, family allowances and consular practices.',
+    'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Frontalier family with newborn in Switzerland',
 };
 
 export default blogMetaChEn;

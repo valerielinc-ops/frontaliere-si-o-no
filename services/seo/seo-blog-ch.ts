@@ -10782,6 +10782,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nascita-figlio-frontaliere-2026': {
+    title: 'Nascita 2026: Checklist per frontaliere | Frontaliere Ticino',
+    description: 'Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nascita, checklist, completa, famiglie',
+    ogTitle: 'Nascita di un figlio per famiglie frontaliere nel 2026',
+    ogDescription: 'Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.',
+    canonicalPath: '/articoli-svizzera/nascita-figlio-frontaliere-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nascita 2026: Checklist per frontaliere",
+      "description": "Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nascita-figlio-frontaliere-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia frontaliera con neonato in Svizzera"
+      },
+      "datePublished": "2026-07-02T08:12:15+00:00",
+      "dateModified": "2026-07-02T08:12:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nascita-figlio-frontaliere-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
