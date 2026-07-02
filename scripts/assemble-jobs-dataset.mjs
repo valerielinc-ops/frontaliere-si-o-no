@@ -535,6 +535,22 @@ const CONTENT_HEADINGS_RE = /\b(COMPITI|PROFILO|Responsabilit[aà]|Requisiti|Qua
 const BOILERPLATE_THRESHOLD = 0.5; // 50%
 const MIN_UNIQUE_WORDS = 30;
 
+// Sample-size floor (Diakoniewerk-Neumünster incident, 2026-07-02, issue #3254):
+// a low-volume dedicated crawler can have as few as 1-2 jobs ELIGIBLE for the
+// boilerplate check on a given run (fresh discoveries are excluded via
+// `needsRetranslation` — see detectBoilerplateDescriptions below). At n=2 a
+// single genuinely-short-but-legitimate description (e.g. a synthesized
+// fallback for a JS-only ATS, or a naturally terse listing) trips the 50%
+// ratio the same way 25/50 boilerplate jobs would on a large crawler — the
+// ratio alone can't tell "one short job" from "systemic parser break" below
+// a minimum sample. Mirrors the identical floor already applied to the
+// sibling thin-source guard in validateDedicatedLocaleCoverage
+// (dedicated-crawler-common.mjs SYSTEMIC_MIN_TOTAL/absolute-count floor): a
+// genuine parser regression manifests across MANY jobs, not one or two, so
+// below this floor the signal is too weak to justify bricking the whole run.
+const BOILERPLATE_MIN_ELIGIBLE = Number(process.env.JOBS_BOILERPLATE_MIN_ELIGIBLE) || 4;
+const BOILERPLATE_MIN_COUNT = Number(process.env.JOBS_BOILERPLATE_MIN_COUNT) || 2;
+
 // Anti-shrink guard thresholds (axa-svizzera incident, 2026-07-01): only
 // guard crawlers with a meaningful baseline, and only trigger on a drop deep
 // enough to be clearly abnormal — observed normal 15-day churn never dropped
@@ -635,6 +651,63 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
     boilerplateCount: boilerplateJobs.length,
     ratio,
   };
+}
+
+/**
+ * Whether a detectBoilerplateDescriptions() report represents a SYSTEMIC
+ * boilerplate failure — i.e. a signal reliable enough to hard-fail the
+ * crawler run — as opposed to one or two naturally-short descriptions on a
+ * low-volume crawler crossing the ratio threshold by chance.
+ *
+ * Requires BOTH the ratio to meet BOILERPLATE_THRESHOLD AND an absolute
+ * sample-size floor (>= BOILERPLATE_MIN_ELIGIBLE eligible jobs and
+ * >= BOILERPLATE_MIN_COUNT boilerplate jobs). See the floor constants above
+ * for rationale (issue #3254).
+ *
+ * @param {{ratio:number, boilerplateCount:number, totalJobs:number}} report
+ * @returns {boolean}
+ */
+export function isSystemicBoilerplateFailure(report) {
+  return (
+    report.ratio >= BOILERPLATE_THRESHOLD &&
+    report.boilerplateCount >= BOILERPLATE_MIN_COUNT &&
+    report.totalJobs >= BOILERPLATE_MIN_ELIGIBLE
+  );
+}
+
+/**
+ * Remove confirmed-boilerplate jobs from the array about to be persisted.
+ *
+ * Mirrors the sibling thin-source quarantine in dedicated-crawler-common.mjs
+ * (validateDedicatedLocaleCoverage's `quarantineSlugs`/non-systemic path,
+ * L4248-4265): below the systemic floor the guard must not hard-fail the
+ * run (see isSystemicBoilerplateFailure), but confirmed marker-phrase
+ * boilerplate must still never reach the committed dataset. GDPR/privacy-
+ * notice boilerplate (BOILERPLATE_MARKER_PHRASES, e.g. "Pursuant to
+ * Article 13") easily runs past 50 words, long enough to sail past the
+ * build's <50-word sitemap/noindex filter — the only other safety net — so
+ * warn-and-keep would let it publish and get indexed indefinitely on a
+ * permanently low-volume crawler.
+ *
+ * ONLY quarantines reason === 'marker_phrases' (Condition A). Condition B
+ * (`low_unique_words`, <30 words) is deliberately EXCLUDED: it's the exact
+ * pattern this guard's own sample-size floor exists to protect (issue
+ * #3254, Diakoniewerk "Berufsbildnerin" — a legitimate naturally-short
+ * description from a JS-only ATS detail page that lands on either side of
+ * the 30-word threshold run to run). Condition B jobs are by construction
+ * <30 words, already below the build's <50-word noindex/sitemap-exclude
+ * filter, so quarantining them adds zero SEO protection while silently and
+ * permanently dropping real short listings with no GitHub issue filed.
+ *
+ * @param {object[]} jobs
+ * @param {Array<{slug:string, reason:string}>} boilerplateJobs - bpReport.boilerplateJobs
+ * @returns {object[]} jobs with the marker-phrase boilerplate entries dropped
+ */
+export function quarantineBoilerplateJobs(jobs, boilerplateJobs) {
+  const markerPhraseJobs = (boilerplateJobs || []).filter(bj => bj.reason === 'marker_phrases');
+  if (markerPhraseJobs.length === 0) return jobs;
+  const quarantineSlugs = new Set(markerPhraseJobs.map(bj => bj.slug));
+  return jobs.filter(j => !quarantineSlugs.has(j?.slug || j?.title || 'unknown'));
 }
 
 /**
@@ -818,12 +891,35 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   // Boilerplate guard: detect parsers that silently fell back to generic descriptions.
   if (!process.env.SKIP_BOILERPLATE_GUARD) {
     const bpReport = detectBoilerplateDescriptions(jobs, crawlerKey);
-    if (bpReport.boilerplateCount > 0 && bpReport.ratio < BOILERPLATE_THRESHOLD) {
+    const systemic = isSystemicBoilerplateFailure(bpReport);
+
+    if (bpReport.boilerplateCount > 0 && !systemic) {
       for (const bj of bpReport.boilerplateJobs) {
         console.log(`[boilerplate-guard] ${bj.slug}: ${bj.reason} (${bj.uniqueWords} unique words)`);
       }
+      if (bpReport.ratio >= BOILERPLATE_THRESHOLD) {
+        console.warn(
+          `⚠️  [boilerplate-guard] ${crawlerKey}: ${bpReport.boilerplateCount}/${bpReport.totalJobs} jobs (${(bpReport.ratio * 100).toFixed(0)}%) meet the boilerplate ratio, ` +
+          `but the eligible sample is below the reliability floor (needs >=${BOILERPLATE_MIN_ELIGIBLE} eligible jobs and >=${BOILERPLATE_MIN_COUNT} boilerplate jobs to be a systemic signal) — not failing the run. ` +
+          `A genuine parser regression shows up across many jobs, not one or two naturally-short ones.`
+        );
+      }
+      // Non-systemic: quarantine the marker-phrase boilerplate jobs from the
+      // slice rather than only warning (mirrors dedicated-crawler-common.mjs's
+      // quarantineSlugs on its non-systemic path — see quarantineBoilerplateJobs
+      // above, which deliberately excludes low_unique_words). The good jobs
+      // (including legitimate naturally-short low_unique_words ones) still
+      // commit unchanged.
+      const beforeQuarantine = jobs.length;
+      jobs = quarantineBoilerplateJobs(jobs, bpReport.boilerplateJobs);
+      if (jobs.length < beforeQuarantine) {
+        console.warn(
+          `🧹 [boilerplate-guard] ${crawlerKey} quarantined ${beforeQuarantine - jobs.length} marker-phrase boilerplate job(s) from the slice (${beforeQuarantine} → ${jobs.length}) — never persisted/indexed.`
+        );
+      }
     }
-    if (bpReport.ratio >= BOILERPLATE_THRESHOLD) {
+
+    if (systemic) {
       console.error(`\n🚨 Boilerplate guard FAILED for ${crawlerKey}`);
       console.error(`   ${bpReport.boilerplateCount}/${bpReport.totalJobs} jobs (${(bpReport.ratio * 100).toFixed(0)}%) have boilerplate-only descriptions\n`);
       console.error('   Affected jobs:');
