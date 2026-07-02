@@ -850,6 +850,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Vorruhestand für Grenzgänger: Auswirkungen auf AHV und 2. Säule',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Erfahren Sie, wie sich die Frühpensionierung auf das AHV und die zweite Säule für Grenzpendler auswirkt, die mehr als 20 km von der Grenze entfernt wohnen.',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.formazione-professionale-frontaliere-2026.title': 'Berufsausbildung und Umschulung für grenzüberschreitende Pendler im Jahr 2026',
+    'blog.article.formazione-professionale-frontaliere-2026.excerpt': 'Mit Blick auf das Jahr 2026 stehen anerkannte Kurse und Finanzierungen für die Ausbildung von Grenzgängern mit neuen Möglichkeiten und Verfahren im Fokus.',
+    'blog.article.formazione-professionale-frontaliere-2026.imageAlt': 'Schweizer Szene mit Grenzpendlern in Ausbildung',
 };
 
 export default blogMetaChDe;

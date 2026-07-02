@@ -10938,6 +10938,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-professionale-frontaliere-2026': {
+    title: 'Formazione professionale e riqualifica per frontalieri nel 2026',
+    description: 'Scopri come i frontalieri possono accedere a corsi riconosciuti e finanziamenti nel 2026, con procedure e strumenti pratici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, professionale, riqualifica, vista',
+    ogTitle: 'Formazione frontalieri 2026: corsi e incentivi',
+    ogDescription: 'Guida alle opportunità di formazione e riqualifica per i frontalieri nel 2026, con dettagli su corsi riconosciuti e procedure.',
+    canonicalPath: '/articoli-svizzera/formazione-professionale-frontaliere-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione professionale e riqualifica per frontalieri nel 2026",
+      "description": "Scopri come i frontalieri possono accedere a corsi riconosciuti e finanziamenti nel 2026, con procedure e strumenti pratici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-professionale-frontaliere-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena svizzera con frontaliere in formazione professionale"
+      },
+      "datePublished": "2026-07-02T10:03:12+00:00",
+      "dateModified": "2026-07-02T10:03:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/formazione-professionale-frontaliere-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
