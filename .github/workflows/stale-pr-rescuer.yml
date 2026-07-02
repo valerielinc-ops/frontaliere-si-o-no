@@ -36,6 +36,7 @@ on:
 
 permissions:
   contents: read
+  checks: read # serve per commits/{sha}/check-runs (tests sull'head reale della PR)
   pull-requests: write
   issues: write
 
@@ -77,10 +78,21 @@ jobs:
             UPD_S=$(date -u -d "$UPD" +%s 2>/dev/null || echo "$NOW")
             if [ $((NOW - UPD_S)) -lt $AGE_MIN_S ]; then echo "PR #$N fresca (<2h) — skip"; continue; fi
 
-            # Ultimo run pr-review-loop sul branch.
-            run=$(gh run list --repo "$REPO" --workflow=pr-review-loop.yml \
-              --branch "$BRANCH" --limit 1 --json conclusion,headSha 2>/dev/null || echo '[]')
-            RV_CONCL=$(echo "$run" | jq -r '.[0].conclusion // "none"')
+            # NB: NON si può risalire al run pr-review-loop di QUESTA PR via
+            # `gh run list --workflow=pr-review-loop.yml --branch/--json headSha`.
+            # Verificato via API diretta: per run workflow_run-triggered, sia
+            # `head_branch` SIA il `head_sha` di TOP-LIVELLO che GitHub espone in
+            # lista riportano il branch/commit di `main` al momento del trigger
+            # (qualunque commit fosse HEAD lì, spesso un push bot scollegato),
+            # MAI l'head della PR — un filtro `--branch "$BRANCH"` non trova mai
+            # nulla (RV_CONCL sempre "none", Classe A dead code) e filtrare su
+            # `head_sha == $HEAD` è ugualmente inutile (nessun run lo riporta mai,
+            # anche quando la review È stata effettivamente postata su quell'head).
+            # Segnale affidabile invece: il check-run di `tests.yml` (trigger
+            # `pull_request`, quindi SI attacca correttamente all'head reale della
+            # PR) + la review API (il suo `commit_id` è anch'esso corretto).
+            checks=$(gh api "repos/$REPO/commits/$HEAD/check-runs" 2>/dev/null || echo '{}')
+            TESTS_CONCL=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)")] | last | .conclusion // "none"')
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
             reviews=$(gh api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
@@ -88,16 +100,18 @@ jobs:
             LAST_CID=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("claude";"i"))] | last | .commit_id // ""')
 
             REASON=""; RESCUE=""
-            if [ "$RV_CONCL" = "failure" ] && { [ -z "$LAST_BODY" ] || [ "$LAST_CID" != "$HEAD" ]; }; then
-              # Classe A: review fallita senza body valido sull'head corrente.
-              REASON="workflow-validation drift (pr-review-loop=failure, review body assente per l'head corrente)"
-              RESCUE="\`git fetch origin main && git merge origin/main\` nel branch \`$BRANCH\` poi push (allinea i workflow file → review re-run con app-token valido). Vedi AGENTS.md → \"Workflow-validation drift\"."
+            if [ "$TESTS_CONCL" = "success" ] && [ "$LAST_CID" != "$HEAD" ]; then
+              # Classe A: tests verdi sull'head corrente da >2h ma nessuna review
+              # l'ha mai coperto (workflow-validation drift o coda congestionata —
+              # non distinguibili via API, stesso fix per entrambe).
+              REASON="tests verdi sull'head corrente da >2h ma nessuna review pr-review-loop l'ha coperto"
+              RESCUE="\`git fetch origin main && git merge origin/main\` nel branch \`$BRANCH\` poi push (allinea i workflow file, sana un eventuale app-token 401). Se il merge non serve, attendi ancora — può essere coda congestionata. Vedi AGENTS.md → \"Workflow-validation drift\"."
             elif echo "$LAST_BODY" | grep -q "🔴" && [ "$LAST_CID" = "$HEAD" ]; then
               # Classe B: 🔴 sull'head corrente, non ripreso.
               REASON="🔴 Important non ripreso (review sull'head corrente $HEAD, auto-merge skipped, nessun commit nuovo)"
               RESCUE="applica il fix del 🔴 in un nuovo commit sullo stesso branch \`$BRANCH\` → re-review automatica. Vedi la review più recente sulla PR."
             else
-              echo "PR #$N nessuno stallo noto (review=$RV_CONCL) — skip"; continue
+              echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL) — skip"; continue
             fi
 
             echo "::warning::PR #$N STALLED — $REASON"
