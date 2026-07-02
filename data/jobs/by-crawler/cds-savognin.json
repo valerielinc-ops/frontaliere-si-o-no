@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-07-02T10:43:50.617Z",
+  "assembledAt": "2026-07-02T21:29:13.261Z",
   "jobs": [
     {
       "id": "cds-savognin-405-9cf102943bc6",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T10:43:48.601Z",
+      "crawledAt": "2026-07-02T21:29:11.169Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/410.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T10:43:48.599Z",
+      "crawledAt": "2026-07-02T21:29:11.167Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       "title": "Dipl. Pflegefachperson (m/w) HF/FH",
       "titleByLocale": {
         "it": "Dipl. Infermiera (m/f) HF/FH",
-        "en": "Dipl. Nurse (m/f) HF/FH",
+        "en": "Dipl. Pflegefachperson (m/w) HF/FH",
         "de": "Dipl. Pflegefachperson (m/w) HF/FH",
         "fr": "Infirmière diplômée (m/f) HF/FH"
       },
@@ -185,12 +185,13 @@
         "de": "Beschäftigungsumfang: ca. 50% - 80%, Jobsharing möglich, Stellenantritt per sofort oder nach Vereinbarung Beachte auch das Stelleninserat (unten aufgeführt). Bist du interessiert? Für weitere Auskünfte steht dir Frau Beatrice Dedual, Stationsleitung Akutabteilung E-Mail: beatrice.dedual@spital-savognin.ch Telefon: 081 669 14 00, gerne zur Verfügung. Wir freuen uns über deine schriftliche Bewerbung an Frau Beatrice Dedual, Stationsleitung Akutabteilung E-Mail: beatrice.dedual@spital-savognin.ch Online Bewerbungsformular Dipl. Pflegefachperson (m/w) HF/FH beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
         "fr": "Portée de l'emploi: environ 50% - 80%, partage d'emploi possible Ouverture d'emploi: immédiatement ou par accord Remarquez également l'annonce d'emploi (énumérée ci-dessous) Ça t'intéresse ? Pour plus d'informations, vous Mme Beatrice Dedual, Direction des soins actifs Courriel: beatrice.dedual@spital-savognin.ch Téléphone : 081 669 14 00, est disponible. Nous attendons avec impatience votre candidature écrite Formulaire de demande en ligne Infirmière diplômée (m/f) HF/FH au Centre da Sanadad Savognin à Savognin, Canton des Grisons. Le Centre da Sanadad Savognin (CDS) est le centre de santé régional pour les Surses et les environs avec service aigu, réhabilitation et soins.\n• Nous offrons des soins médicaux de base dans un environnement alpin et valorisons une équipe collégiale et des soins individuels."
       },
+      "needsRetranslation": true,
       "location": "Savognin",
       "canton": "GR",
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T10:43:48.597Z",
+      "crawledAt": "2026-07-02T21:29:11.163Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -241,6 +242,78 @@
       }
     },
     {
+      "id": "cds-savognin-270-1dc201a15dcc",
+      "slug": "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin",
+      "slugByLocale": {
+        "it": "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin",
+        "en": "co-chief-doctor-co-chief-doctor-with-option-chief-doctor-chief-internal-medicine-center-da-sanadad-savognin-savognin",
+        "de": "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
+        "fr": "co-chef-medecin-co-chef-medecin-avec-option-chef-medecin-chef-de-la-medecine-interne-center-da-sanadad-savognin-savognin"
+      },
+      "company": "Center da Sanadad Savognin",
+      "companyKey": "cds-savognin",
+      "companyDomain": "cds-savognin.ch",
+      "title": "Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin",
+      "titleByLocale": {
+        "it": "Co-Chefarzt / Co-Chefärztin con Option Chefarzt / Chefärztin innere Medizin",
+        "en": "Co-Chief doctor / Co-Chief doctor with option Chief doctor / Chief internal medicine",
+        "de": "Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin",
+        "fr": "Co-chef médecin / Co-chef médecin avec option Chef médecin / Chef de la médecine interne"
+      },
+      "description": "Beschäftigungsumfang: ca. 80 - 100%\nStellenantritt: nach Vereinbarung\nBeachten Sie auch das Stelleninserat (unten aufgeführt)\n\nSind Sie interessiert an dieser Herausforderung?\n Für weitere Auskünfte steht Ihnen\nStefano Corra, Chefarzt\n(Tel.: 081 669 14 00), gerne zur Verfügung.\n Wir freuen uns auf Ihre schriftliche Bewerbung mit Foto an\nStefano Corra, Chefarzt\nE-Mail: stefano.corra@spital-savognin.ch\n Online Bewerbungsformular\n\nCo-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+      "descriptionByLocale": {
+        "it": "Ambito di lavoro: circa 80 - 100% Lavoro: su appuntamento Vedi anche l'elenco dei lavori (elenco qui sotto) Sei interessato a questa sfida? Per ulteriori informazioni, siete Stefano Corra, Chief Medical Officer (tel: 081 669 14 00), a vostra disposizione. Attendiamo con ansia la vostra applicazione scritta con foto Stefano Corra, Chief Medical Officer Email: stefano.corra@spital-savognin.ch Modulo di domanda online medico co-capo con opzione medico capo / medicina interna capo al Center da Sanadad Savognin a Savognin, Canton Grigioni. Il Center da Sanadad Savognin (CDS) è il centro sanitario regionale per Surses e dintorni con reparto acuto, riabilitazione e cura.\n• Offriamo assistenza medica di base in un ambiente alpino e valutiamo un team collegiale e la cura individuale del paziente.",
+        "en": "Scope of employment: approximately 80 - 100% Job: by appointment See also the job listing (listed below) Are you interested in this challenge? For further information, you are Stefano Corra, Chief Medical Officer (tel: 081 669 14 00), at your disposal. We look forward to your written application with photo Stefano Corra, Chief Medical Officer Email: stefano.corra@spital-savognin.ch Online application form Co-Chief physician with option Chief physician / Chief internal medicine at the Center da Sanadad Savognin in Savognin, Canton of Graubünden. The Center da Sanadad Savognin (CDS) is the regional health center for Surses and surroundings with acute, rehabilitation and care department.\n• We offer basic medical care in an alpine environment and value a collegial team and individual patient care.",
+        "de": "Beschäftigungsumfang: ca. 80 - 100% Stellenantritt: nach Vereinbarung Beachten Sie auch das Stelleninserat (unten aufgeführt) Sind Sie interessiert an dieser Herausforderung? Für weitere Auskünfte steht Ihnen Stefano Corra, Chefarzt (Tel.: 081 669 14 00), gerne zur Verfügung. Wir freuen uns auf Ihre schriftliche Bewerbung mit Foto an Stefano Corra, Chefarzt E-Mail: stefano.corra@spital-savognin.ch Online Bewerbungsformular Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+        "fr": "Portée de l'emploi: environ 80 - 100% Emploi: sur rendez-vous Voir aussi la liste des emplois (voir ci-dessous) Êtes-vous intéressé par ce défi? Pour plus d'informations, vous êtes Stefano Corra, médecin-chef (tél. : 081 669 14 00), à votre disposition. Nous attendons avec impatience votre candidature écrite avec photo Stefano Corra, médecin-chef Courriel: stefano.corra@spital-savognin.ch Formulaire de demande en ligne Co-médecin en chef avec option Médecin en chef / Médecin en chef interne au Centre da Sanadad Savognin à Savognin, Canton des Grisons. Le Centre da Sanadad Savognin (CDS) est le centre de santé régional pour les Surses et les environs avec service aigu, réhabilitation et soins.\n• Nous offrons des soins médicaux de base dans un environnement alpin et valorisons une équipe collégiale et des soins individuels."
+      },
+      "needsRetranslation": false,
+      "location": "Savognin",
+      "canton": "GR",
+      "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
+      "source": "CDS Savognin Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-02T21:29:11.142Z",
+      "addressLocality": "Savognin",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7460",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-27",
+      "applyUrl": "https://cds-savognin.ch/uploads/files/chefarzt_aerztin_mitqr-code.pdf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
+          "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin"
+        ]
+      },
+      "firstSeenAt": "2026-06-27T10:16:30.022Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "cds-savognin-413-da45d8e30829",
       "slug": "pflegehilfsperson-srk-50-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
       "slugByLocale": {
@@ -259,11 +332,11 @@
         "de": "Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren",
         "fr": "Assistante en soins infirmiers CSR (50-100%) ou assistante en soins infirmiers prête à suivre le cours CSR"
       },
-      "description": "Beschäftigungsumfang: ca. 50% - 100%, Stellenantritt per sofort oder nach Vereinbarung\n\nBeachte auch das Stelleninserat (unten aufgeführt). Bist du interessiert?\n Nähere Auskünfte erteilt dir gerne\nFrau Beatrice Dedual\nE-Mail: beatrice.dedual@spital-savognin.ch\nTelefon: 081 669 14 00\n Wir freuen uns über deine schriftliche Bewerbung an\nFrau Beatrice Dedual\nE-Mail: beatrice.dedual@spital-savognin.ch\n Online Bewerbungsformular\n\nPflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+      "description": "Beschäftigungsumfang: ca. 50% - 100%, Stellenantritt per sofort oder nach Vereinbarung\n\nBeachte auch das Stelleninserat (unten aufgeführt). Bist du interessiert?\n Nähere Auskünfte erteilt dir gerne\nFrau Beatrice Dedual\nE-Mail: beatrice.dedual@spital-savognin.ch\nTelefon: 081 669 14 00\n Wir freuen uns über deine schriftliche Bewerbung an\nFrau Beatrice Dedual\nE-Mail: beatrice.dedual@spital-savognin.ch\n Online Bewerbungsformular\n\nPflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung.\n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
       "descriptionByLocale": {
         "it": "Ambito di lavoro: circa 50% - 100% Apertura del lavoro: immediatamente o per accordo Vedi anche l'elenco dei lavori (elenco qui sotto) Sei interessato? Si prega di fornire ulteriori informazioni. Signora Beatrice Dedual Email: beatrice.dedual@spital-savognin.ch Telefono: 081 669 14 00 Attendiamo con ansia la vostra applicazione scritta Modulo di domanda online Assistente infermieristico SRK (50-100%) o assistente infermieristico disposto a completare il corso SRK al Center da Sanadad Savognin a Savognin, Cantone dei Grigioni. Il Center da Sanadad Savognin (CDS) è il centro sanitario regionale per Surses e dintorni con reparto acuto, riabilitazione e cura.\n• Offriamo assistenza medica di base in un ambiente alpino e valutiamo un team collegiale e la cura individuale del paziente.",
         "en": "Scope of employment: approximately 50% - 100% Job opening: immediately or by agreement See also the job listing (listed below) Are you interested? Please provide further information. Ms Beatrice Dedual Email: beatrice.dedual@spital-savognin.ch Telephone: 081 669 14 00 We look forward to your written application Online application form Nursing assistant SRK (50-100%) or nursing assistant willing to complete the SRK course at the Center da Sanadad Savognin in Savognin, Canton of Graubünden. The Center da Sanadad Savognin (CDS) is the regional health center for Surses and surroundings with acute, rehabilitation and care department.\n• We offer basic medical care in an alpine environment and value a collegial team and individual patient care.",
-        "de": "Beschäftigungsumfang: ca. 50% - 100%, Stellenantritt per sofort oder nach Vereinbarung Beachte auch das Stelleninserat (unten aufgeführt). Bist du interessiert? Nähere Auskünfte erteilt dir gerne Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Telefon: 081 669 14 00 Wir freuen uns über deine schriftliche Bewerbung an Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Online Bewerbungsformular Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
+        "de": "Beschäftigungsumfang: ca. 50% - 100%, Stellenantritt per sofort oder nach Vereinbarung Beachte auch das Stelleninserat (unten aufgeführt). Bist du interessiert? Nähere Auskünfte erteilt dir gerne Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Telefon: 081 669 14 00 Wir freuen uns über deine schriftliche Bewerbung an Frau Beatrice Dedual E-Mail: beatrice.dedual@spital-savognin.ch Online Bewerbungsformular Pflegehilfsperson SRK (50-100%) oder Pflegehilfsperson mit Bereitschaft, den SRK-Kurs zu absolvieren beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung.\n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
         "fr": "Portée de l'emploi: environ 50% - 100% Ouverture d'emploi: immédiatement ou par accord Voir aussi la liste des emplois (voir ci-dessous) Ça t'intéresse ? Veuillez fournir des renseignements complémentaires. Mme Beatrice DEDUAL Courriel: beatrice.dedual@spital-savognin.ch Téléphone : 081 669 14 00 Nous attendons avec impatience votre candidature écrite Formulaire de demande en ligne Assistante infirmière SRK (50-100%) ou assistante infirmière prête à suivre le cours SRK au Centre da Sanadad Savognin à Savognin, Canton des Grisons. Le Centre da Sanadad Savognin (CDS) est le centre de santé régional pour les Surses et les environs avec service aigu, réhabilitation et soins.\n• Nous offrons des soins médicaux de base dans un environnement alpin et valorisons une équipe collégiale et des soins individuels."
       },
       "needsRetranslation": false,
@@ -315,79 +388,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "cds-savognin-270-1dc201a15dcc",
-      "slug": "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin",
-      "slugByLocale": {
-        "it": "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin",
-        "en": "co-chief-doctor-co-chief-doctor-with-option-chief-doctor-chief-internal-medicine-center-da-sanadad-savognin-savognin",
-        "de": "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
-        "fr": "co-chef-medecin-co-chef-medecin-avec-option-chef-medecin-chef-de-la-medecine-interne-center-da-sanadad-savognin-savognin"
       },
-      "company": "Center da Sanadad Savognin",
-      "companyKey": "cds-savognin",
-      "companyDomain": "cds-savognin.ch",
-      "title": "Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin",
-      "titleByLocale": {
-        "it": "Co-Chefarzt / Co-Chefärztin con Option Chefarzt / Chefärztin innere Medizin",
-        "en": "Co-Chief doctor / Co-Chief doctor with option Chief doctor / Chief internal medicine",
-        "de": "Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin",
-        "fr": "Co-chef médecin / Co-chef médecin avec option Chef médecin / Chef de la médecine interne"
-      },
-      "description": "Beschäftigungsumfang: ca. 80 - 100%\nStellenantritt: nach Vereinbarung\nBeachten Sie auch das Stelleninserat (unten aufgeführt)\n\nSind Sie interessiert an dieser Herausforderung?\n Für weitere Auskünfte steht Ihnen\nStefano Corra, Chefarzt\n(Tel.: 081 669 14 00), gerne zur Verfügung.\n Wir freuen uns auf Ihre schriftliche Bewerbung mit Foto an\nStefano Corra, Chefarzt\nE-Mail: stefano.corra@spital-savognin.ch\n Online Bewerbungsformular\n\nCo-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden.\n\nDas Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
-      "descriptionByLocale": {
-        "it": "Ambito di lavoro: circa 80 - 100% Lavoro: su appuntamento Vedi anche l'elenco dei lavori (elenco qui sotto) Sei interessato a questa sfida? Per ulteriori informazioni, siete Stefano Corra, Chief Medical Officer (tel: 081 669 14 00), a vostra disposizione. Attendiamo con ansia la vostra applicazione scritta con foto Stefano Corra, Chief Medical Officer Email: stefano.corra@spital-savognin.ch Modulo di domanda online medico co-capo con opzione medico capo / medicina interna capo al Center da Sanadad Savognin a Savognin, Canton Grigioni. Il Center da Sanadad Savognin (CDS) è il centro sanitario regionale per Surses e dintorni con reparto acuto, riabilitazione e cura.\n• Offriamo assistenza medica di base in un ambiente alpino e valutiamo un team collegiale e la cura individuale del paziente.",
-        "en": "Scope of employment: approximately 80 - 100% Job: by appointment See also the job listing (listed below) Are you interested in this challenge? For further information, you are Stefano Corra, Chief Medical Officer (tel: 081 669 14 00), at your disposal. We look forward to your written application with photo Stefano Corra, Chief Medical Officer Email: stefano.corra@spital-savognin.ch Online application form Co-Chief physician with option Chief physician / Chief internal medicine at the Center da Sanadad Savognin in Savognin, Canton of Graubünden. The Center da Sanadad Savognin (CDS) is the regional health center for Surses and surroundings with acute, rehabilitation and care department.\n• We offer basic medical care in an alpine environment and value a collegial team and individual patient care.",
-        "de": "Beschäftigungsumfang: ca. 80 - 100% Stellenantritt: nach Vereinbarung Beachten Sie auch das Stelleninserat (unten aufgeführt) Sind Sie interessiert an dieser Herausforderung? Für weitere Auskünfte steht Ihnen Stefano Corra, Chefarzt (Tel.: 081 669 14 00), gerne zur Verfügung. Wir freuen uns auf Ihre schriftliche Bewerbung mit Foto an Stefano Corra, Chefarzt E-Mail: stefano.corra@spital-savognin.ch Online Bewerbungsformular Co-Chefarzt / Co-Chefärztin mit Option Chefarzt / Chefärztin innere Medizin beim Center da Sanadad Savognin in Savognin, Kanton Graubünden. Das Center da Sanadad Savognin (CDS) ist das regionale Gesundheitszentrum für Surses und Umgebung mit Akut-, Reha- und Pflegeabteilung. \n• Wir bieten medizinische Grundversorgung in einem alpinen Umfeld und legen Wert auf ein kollegiales Team und individuelle Patientenbetreuung.",
-        "fr": "Portée de l'emploi: environ 80 - 100% Emploi: sur rendez-vous Voir aussi la liste des emplois (voir ci-dessous) Êtes-vous intéressé par ce défi? Pour plus d'informations, vous êtes Stefano Corra, médecin-chef (tél. : 081 669 14 00), à votre disposition. Nous attendons avec impatience votre candidature écrite avec photo Stefano Corra, médecin-chef Courriel: stefano.corra@spital-savognin.ch Formulaire de demande en ligne Co-médecin en chef avec option Médecin en chef / Médecin en chef interne au Centre da Sanadad Savognin à Savognin, Canton des Grisons. Le Centre da Sanadad Savognin (CDS) est le centre de santé régional pour les Surses et les environs avec service aigu, réhabilitation et soins.\n• Nous offrons des soins médicaux de base dans un environnement alpin et valorisons une équipe collégiale et des soins individuels."
-      },
-      "needsRetranslation": false,
-      "location": "Savognin",
-      "canton": "GR",
-      "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
-      "source": "CDS Savognin Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T10:43:48.573Z",
-      "addressLocality": "Savognin",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7460",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-27",
-      "applyUrl": "https://cds-savognin.ch/uploads/files/chefarzt_aerztin_mitqr-code.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
-          "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin"
-        ]
-      },
-      "firstSeenAt": "2026-06-27T10:16:30.022Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
