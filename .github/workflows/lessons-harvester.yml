@@ -93,10 +93,12 @@ jobs:
           # aborterebbe "non-human actor". Mai `*`.
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
-          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
-          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
-          # fix, evita drift tra copie duplicate).
-          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --dangerously-skip-permissions"
+          # 2026-07-02: ROLLBACK di --dangerously-skip-permissions (rationale completo:
+          # post-merge-followup.yml claude_args comment) — issue #3269: sui trigger
+          # schedule/workflow_dispatch il flag non produce mai bypassPermissions
+          # (permissionMode resta "default", quasi ogni Bash bloccato); i workflow con
+          # trigger workflow_run/issues invece funzionano con la stessa config identica.
+          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
           prompt: |
             Sei l'agent di **auto-improvement** dei doc-contract per agenti. Obiettivo: dai pattern RICORRENTI rilevati, proporre miglioramenti CHIRURGICI alle istruzioni (AGENTS.md / ISSUES.md / REVIEW.md / FOLLOWUP.md) così che reviewer/fixer smettano di ripetere lo stesso problema → turnaround più basso.
 
