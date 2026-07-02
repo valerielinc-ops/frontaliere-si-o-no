@@ -2537,6 +2537,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-pensionamento-anticipato-2026-oltre-20km',
+    category: 'fiscale',
+    date: '2026-07-02T09:33:30.738Z',
+    image: '/images/blog/frontaliere-pensionamento-anticipato-2026-oltre-20km.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
