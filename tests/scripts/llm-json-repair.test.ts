@@ -66,6 +66,28 @@ describe('fixJsonStringBody', () => {
     const repaired = fixJsonStringBody(valid, { fixAsterisks: true });
     expect(JSON.parse(repaired).a).toBe('**bold** markdown');
   });
+
+  it('does not mistake a prose comma after a quoted phrase for a property separator', () => {
+    const broken = '{"a":"L\'articolo menziona "tassa sulla salute", che è controversa."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('L\'articolo menziona "tassa sulla salute", che è controversa.');
+  });
+
+  it('does not mistake a prose colon after a quoted phrase for a key:value separator', () => {
+    const broken = '{"a":"Il termine "tassa": significa imposta."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('Il termine "tassa": significa imposta.');
+  });
+
+  it('still treats a comma followed by a real next key as a genuine separator', () => {
+    const broken = '{"a":"contains "quoted" text","b":"next"}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('contains "quoted" text');
+    expect(parsed.b).toBe('next');
+  });
 });
 
 describe('stripCodeFences', () => {

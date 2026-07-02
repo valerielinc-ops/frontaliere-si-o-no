@@ -39,12 +39,20 @@ export function findMatchingClose(src, openIdx) {
  *  - (optional) stray markdown-bold `*`/`**` OUTSIDE strings -> `,`
  *
  * Unescaped-quote handling: once inside a string, a `"` only closes it if
- * the next non-whitespace char is a structural JSON token (`,` `}` `]` `:`)
- * or end of input — otherwise it's a literal quote the model forgot to
- * escape (common when source text already contains a quoted phrase, e.g.
- * a title like `..."tassa sulla salute"...` echoed into a generated
- * answer) and gets escaped instead of prematurely terminating the string
- * and desyncing the rest of the parse (`Unterminated string in JSON`).
+ * the next non-whitespace char is a structural JSON token (`}` `]`) or end
+ * of input — otherwise it's a literal quote the model forgot to escape
+ * (common when source text already contains a quoted phrase, e.g. a title
+ * like `..."tassa sulla salute"...` echoed into a generated answer) and
+ * gets escaped instead of prematurely terminating the string and
+ * desyncing the rest of the parse (`Unterminated string in JSON`).
+ *
+ * `,` and `:` are NOT trustworthy closers on their own: Italian prose
+ * routinely follows a quoted phrase with a comma or colon (`..."tassa
+ * sulla salute", che è controversa.` or `..."tassa": significa...`), which
+ * looks identical to a real property/array separator. For those two, also
+ * check that what follows looks like the start of an actual JSON token
+ * (a key/value start, or a closer) rather than a lowercase prose word —
+ * only then is the comma/colon trusted as structural.
  */
 export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
   let out = '';
@@ -63,8 +71,17 @@ export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
       let j = i + 1;
       while (j < input.length && /\s/.test(input[j])) j++;
       const next = input[j];
-      const closes = next === undefined || next === ',' || next === '}' || next === ']' || next === ':'
+      let closes = next === undefined || next === '}' || next === ']'
         || (fixAsterisks && next === '*');
+      if (!closes && (next === ',' || next === ':')) {
+        let k = j + 1;
+        while (k < input.length && /\s/.test(input[k])) k++;
+        const rest = input.slice(k);
+        closes = rest === ''
+          || /^["{}[\]]/.test(rest)
+          || /^-?\d/.test(rest)
+          || /^(true|false|null)\b/.test(rest);
+      }
       if (closes) {
         inStr = false;
         out += ch;
