@@ -10743,6 +10743,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-infortuni-lainf-frontalieri-2026': {
+    title: 'Assicurazione infortuni LAINF 2026: copertura e denunce',
+    description: 'Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, infortuni, lainf, copertura',
+    ogTitle: 'Assicurazione infortuni LAINF per frontalieri nel 2026',
+    ogDescription: 'Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.',
+    canonicalPath: '/articoli-svizzera/assicurazione-infortuni-lainf-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione infortuni LAINF 2026: copertura e denunce",
+      "description": "Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-infortuni-lainf-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-07-02T07:18:33+00:00",
+      "dateModified": "2026-07-02T07:18:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-infortuni-lainf-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nascita-figlio-frontaliere-2026': {
+    title: 'Nascita 2026: Checklist per frontaliere | Frontaliere Ticino',
+    description: 'Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nascita, checklist, completa, famiglie',
+    ogTitle: 'Nascita di un figlio per famiglie frontaliere nel 2026',
+    ogDescription: 'Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.',
+    canonicalPath: '/articoli-svizzera/nascita-figlio-frontaliere-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nascita 2026: Checklist per frontaliere",
+      "description": "Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nascita-figlio-frontaliere-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia frontaliera con neonato in Svizzera"
+      },
+      "datePublished": "2026-07-02T08:12:15+00:00",
+      "dateModified": "2026-07-02T08:12:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nascita-figlio-frontaliere-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-licenziamento-diritti-2026': {
+    title: 'Licenziamento frontalieri 2026: termini e diritti',
+    description: 'Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziamento, termini, diritti, scopri',
+    ogTitle: 'Licenziamento del lavoratore frontaliero nel 2026: termini di preavviso, indennità e diritti',
+    ogDescription: 'Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti.',
+    canonicalPath: '/articoli-svizzera/frontaliere-licenziamento-diritti-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenziamento frontalieri 2026: termini e diritti",
+      "description": "Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-licenziamento-diritti-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliero al confine Svizzera-Italia"
+      },
+      "datePublished": "2026-07-02T08:48:41+00:00",
+      "dateModified": "2026-07-02T08:48:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-licenziamento-diritti-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km': {
+    title: 'Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km',
+    description: 'Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziamento, diritti, preavviso, indennità',
+    ogTitle: 'Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km',
+    ogDescription: 'Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026.',
+    canonicalPath: '/articoli-svizzera/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km",
+      "description": "Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliero al confine Italia-Svizzera nel 2026"
+      },
+      "datePublished": "2026-07-02T09:16:40+00:00",
+      "dateModified": "2026-07-02T09:16:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

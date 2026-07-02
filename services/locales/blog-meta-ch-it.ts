@@ -835,6 +835,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': 'Guida 2026: Cambio lavoro per frontalieri',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Scopri come cambiare datore di lavoro in Svizzera nel 2026: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'Una persona frontaliera che attraversa il confine Svizzera-Italia, con un\'immagine di Lugano sullo sfondo.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'Assicurazione infortuni LAINF 2026: copertura e denunce',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.nascita-figlio-frontaliere-2026.title': 'Nascita 2026: Checklist per frontaliere',
+    'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Guida completa per famiglie frontaliere sulla nascita di un figlio in Svizzera nel 2026: iscrizione anagrafica, assegni familiari e pratiche consolari.',
+    'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Famiglia frontaliera con neonato in Svizzera',
+    'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Licenziamento frontalieri 2026: termini e diritti',
+    'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti.',
+    'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Lavoratore frontaliero al confine Svizzera-Italia',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026.',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Lavoratore frontaliero al confine Italia-Svizzera nel 2026',
 };
 
 export default blogMetaChIt;

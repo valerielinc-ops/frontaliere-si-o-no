@@ -8198,6 +8198,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Remboursements transfrontaliers: Berne déplore l\'arrêt du canton',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'La conseillère fédérale suisse Karin Keller-Sutter a rencontré le ministre de l’Économie et des Finances Giancarlo Giorgetti pour discuter de la suspension des remises à destination de la Lombardie.',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Rencontre entre la conseillère fédérale suisse Karin Keller-Sutter et le ministre italien de l\'Économie et des Finances Giancarlo Giorgetti à Rome.',
+    'blog.article.blocco-ristorni-ticino-lombardia.title': 'Blocage des restaurants, tensions avec le Tessin',
+    'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'Le blocage des remises par le canton du Tessin a suscité controverse et réactions. Jonny Crosio, secrétaire fédéral adjoint du parti Pacte pour le Nord, critique cette décision comme arbitraire et paradoxale.',
+    'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'Vue de Bellinzona avec le Château de Montebello',
+    'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Remboursements bloqués: Reina (Iv Varese) «L’État en jeu»',
+    'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, secrétaire provincial d’Italia Viva, critique le blocage des remises transfrontalières et met en garde contre les risques pour la crédibilité de l’État.',
+    'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Un journaliste écrit sur un ordinateur portable dans un café à Bellinzona, avec le Monte San Salvatore en arrière-plan.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Frontaliers italiens en Suisse : plainte à l\'OIT',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Une plainte auprès de l’OIT dénonce la discrimination à l’encontre des travailleurs transfrontaliers italiens en Suisse. Apprenez les détails et les implications.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Travailleurs frontaliers italiens en Suisse devant le bureau de l\'OIL avec une banderole contre la discrimination',
 };
 
 export default blogMetaFr;

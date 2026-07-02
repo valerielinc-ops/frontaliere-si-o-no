@@ -835,6 +835,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': '2026 Guide: Changing Jobs for Cross-Border Workers',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Find out how to change employers in Switzerland in 2026: notice period, G permit renewal, contribution continuity, and documents to update.',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'A frontier worker crossing the Switzerland-Italy border, with a view of Lugano in the background.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'UVG accident insurance 2026: coverage and reports',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Find out everything about UVG coverage for cross-border commuters in Switzerland in 2026, how to report an accident and the differences with an occupational disease.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.nascita-figlio-frontaliere-2026.title': 'Birth 2026: Checklist for cross-border commuters',
+    'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Complete guide for border families on the birth of a child in Switzerland in 2026: personal registration, family allowances and consular practices.',
+    'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Frontalier family with newborn in Switzerland',
+    'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Cross-border dismissal 2026: terms and rights',
+    'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Discover the rights of frontier workers in the event of dismissal in 2026, with notice and compensation terms provided.',
+    'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Frontalier worker at the Switzerland-Italy border',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Cross-border dismissal: rights, notice and compensation within 20 km',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Find out about the rights, notice periods and allowances for cross-border workers within 20 km of the border in 2026.',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Frontalier worker at the Italy-Switzerland border in 2026',
 };
 
 export default blogMetaChEn;

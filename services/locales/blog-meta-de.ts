@@ -8196,6 +8196,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Grenzüberschreitende Rückerstattungen: Bern will Lösung trotz Stopp',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'Die Schweizer Bundesrätin Karin Keller-Sutter traf sich mit dem Wirtschafts- und Finanzminister Giancarlo Giorgetti, um die Aussetzung der Rückerstattungen an die Lombardei zu besprechen.',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Treffen zwischen der Schweizer Bundesrätin Karin Keller-Sutter und dem italienischen Wirtschafts- und Finanzminister Giancarlo Giorgetti in Rom.',
+    'blog.article.blocco-ristorni-ticino-lombardia.title': 'Block der Rückerstattungen, Spannungen mit dem Tessin',
+    'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'Die Blockade der Rückerstattungen durch den Kanton Tessin hat zu Kontroversen und Reaktionen geführt. Jonny Crosio, stellvertretender Bundessekretär der Partei Pakt für den Norden, kritisiert die Entscheidung als willkürlich und paradox.',
+    'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'Ansicht von Bellinzona mit der Burg Montebello',
+    'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Rückerstattungen blockiert: Reina (Iv Varese) «Staat in Gefahr»',
+    'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, Provinzsekretär von Italia Viva, kritisiert die Blockierung grenzüberschreitender Rückschüsse und warnt vor den Risiken für die Glaubwürdigkeit des Staates.',
+    'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Ein Journalist schreibt in einem Café in Bellinzona an einem Laptop, mit dem Monte San Salvatore im Hintergrund.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Italienische Grenzarbeiter in der Schweiz: Beschwerde bei der ILO gegen Diskriminierung',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Eine Beschwerde bei der ILO verurteilt Diskriminierung italienischer Grenzarbeiter in der Schweiz. Erfahren Sie die Details und Implikationen.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Italienische Grenzgänger in der Schweiz vor dem OIL-Büro mit einem Banner gegen Diskriminierung',
 };
 
 export default blogMetaDe;

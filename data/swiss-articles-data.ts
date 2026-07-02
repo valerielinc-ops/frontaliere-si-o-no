@@ -2501,6 +2501,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assicurazione-infortuni-lainf-frontalieri-2026',
+    category: 'pratico',
+    date: '2026-07-02T07:18:33.010Z',
+    image: '/images/blog/assicurazione-infortuni-lainf-frontalieri-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'nascita-figlio-frontaliere-2026',
+    category: 'pratico',
+    date: '2026-07-02T08:12:15.234Z',
+    image: '/images/blog/nascita-figlio-frontaliere-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontaliere-licenziamento-diritti-2026',
+    category: 'pratico',
+    date: '2026-07-02T08:48:41.623Z',
+    image: '/images/blog/frontaliere-licenziamento-diritti-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km',
+    category: 'pratico',
+    date: '2026-07-02T09:16:40.191Z',
+    image: '/images/blog/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

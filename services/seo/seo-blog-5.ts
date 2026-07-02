@@ -45300,7 +45300,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Eventi del weekend in Ticino"
       },
       "datePublished": "2026-06-29T23:19:06+02:00",
-      "dateModified": "2026-07-01T00:00:00+02:00",
+      "dateModified": "2026-07-02T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -45425,6 +45425,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-blocco-ristorni-ticino-lombardia': {
+    title: 'Blocco ristorni, tensioni con Ticino | Frontaliere Ticino',
+    description: 'Il blocco dei ristorni da parte del Canton Ticino ha generato polemiche e reazioni. Jonny Crosio, Vice Segretario Federale del partito Patto per il Nord',
+    keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, tensioni, parte',
+    ogTitle: 'Blocco dei ristorni, rapporti tesissimi con il Ticino',
+    ogDescription: 'Il blocco dei ristorni da parte del Canton Ticino ha generato polemiche e reazioni. Jonny Crosio, Vice Segretario Federale del partito Patto per il Nord',
+    canonicalPath: '/articoli-frontaliere/blocco-ristorni-ticino-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blocco ristorni, tensioni con Ticino",
+      "description": "Il blocco dei ristorni da parte del Canton Ticino ha generato polemiche e reazioni. Jonny Crosio, Vice Segretario Federale del partito Patto per il Nord",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocco-ristorni-ticino-lombardia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Bellinzona con il Castello di Montebello"
+      },
+      "datePublished": "2026-07-02T07:34:48+00:00",
+      "dateModified": "2026-07-02T07:34:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ristorni-frontalieri-bloccati-reina': {
+    title: 'Ristorni frontalieri bloccati: Reina (Iv Varese) «A rischio credibilità dello Stato»',
+    description: 'Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, bloccati, reina, varese',
+    ogTitle: 'Ristorni frontalieri bloccati, Reina (Iv Varese): «A rischio credibilità dello Stato»',
+    ogDescription: 'Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-bloccati-reina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni frontalieri bloccati: Reina (Iv Varese) «A rischio credibilità dello Stato»",
+      "description": "Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-bloccati-reina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giornalista che scrive su un computer portatile in un caffè di Bellinzona, con il Monte San Salvatore in sfondo."
+      },
+      "datePublished": "2026-07-02T08:21:18+00:00",
+      "dateModified": "2026-07-02T08:21:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-reina`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-esposto-oil-discriminazioni': {
+    title: 'Frontalieri italiani in Svizzera: un esposto all’OIL contro le discriminazioni',
+    description: 'Un esposto all’OIL denuncia discriminazioni contro i frontalieri italiani in Svizzera. Scopri i dettagli e le implicazioni. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, italiani, esposto, contro, discriminazioni',
+    ogTitle: 'Frontalieri italiani in Svizzera: un esposto all’OIL contro le discriminazioni',
+    ogDescription: 'Un esposto all’OIL denuncia discriminazioni contro i frontalieri italiani in Svizzera. Scopri i dettagli e le implicazioni.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-esposto-oil-discriminazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri italiani in Svizzera: un esposto all’OIL contro le discriminazioni",
+      "description": "Un esposto all’OIL denuncia discriminazioni contro i frontalieri italiani in Svizzera. Scopri i dettagli e le implicazioni. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-esposto-oil-discriminazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri italiani in Svizzera davanti all'ufficio OIL con uno striscione contro le discriminazioni"
+      },
+      "datePublished": "2026-07-02T09:00:37+00:00",
+      "dateModified": "2026-07-02T09:00:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-esposto-oil-discriminazioni`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

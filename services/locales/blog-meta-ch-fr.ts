@@ -835,6 +835,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': 'Guide 2026 : Changement d\'emploi pour les frontaliers',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Découvrez comment changer d\'employeur en Suisse en 2026 : préavis, renouvellement du permis G, continuité des cotisations et documents à mettre à jour.',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'Un travailleur frontalier traverse la frontière entre la Suisse et l\'Italie, avec une vue sur Lugano en arrière-plan.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'Assurance accident UVG 2026 : couverture et rapports',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Découvrez tout sur la couverture UVG pour les navetteurs transfrontaliers en Suisse en 2026, comment signaler un accident et les différences avec une maladie professionnelle.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.nascita-figlio-frontaliere-2026.title': 'Naissance 2026 : Checklist pour frontalier',
+    'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Guide complet pour les familles transfrontalières sur la naissance d’un enfant en Suisse en 2026 : état civil, allocations familiales et procédures consulaires.',
+    'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Famille frontalier avec nouveau-né en Suisse',
+    'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Licenciement frontalier 2026 : conditions et droits',
+    'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Découvrez les droits des travailleurs frontaliers en cas de licenciement en 2026, avec les délais de préavis et indemnités prévus.',
+    'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Travailleur frontalier à la frontière Suisse-Italie',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Licenciement frontalier : droits, avis, indemnité',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Découvrez les droits, les délais de préavis et les allocations pour les travailleurs transfrontaliers dans un rayon de 20 km autour de la frontière en 2026.',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Travailleur frontalier à la frontière entre l\'Italie et la Suisse en 2026',
 };
 
 export default blogMetaChFr;

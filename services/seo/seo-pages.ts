@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3060,
+ "numberOfItems": 3067,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7706,7 +7706,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3057, "name": "Ristorni bloccati: Alfieri e Artoni chiedono l'...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-alfieri-pd` },
           { "@type": "ListItem", "position": 3058, "name": "Ristorni frontalieri, Pellicini: &#8220;Subito ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro` },
           { "@type": "ListItem", "position": 3059, "name": "Guida 2026: Cambio lavoro per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-datore-lavoro-procedura-permesso-2026` },
-          { "@type": "ListItem", "position": 3060, "name": "Ristorni frontalieri: Berna deplora lo stop del...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione` }
+          { "@type": "ListItem", "position": 3060, "name": "Ristorni frontalieri: Berna deplora lo stop del...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione` },
+          { "@type": "ListItem", "position": 3061, "name": "Assicurazione infortuni LAINF 2026: copertura e...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-infortuni-lainf-frontalieri-2026` },
+          { "@type": "ListItem", "position": 3062, "name": "Blocco ristorni, tensioni con Ticino", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-lombardia` },
+          { "@type": "ListItem", "position": 3063, "name": "Nascita 2026: Checklist per frontaliere", "url": `${BASE_URL}/articoli-frontaliere/nascita-figlio-frontaliere-2026` },
+          { "@type": "ListItem", "position": 3064, "name": "Ristorni frontalieri bloccati: Reina (Iv Varese...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-reina` },
+          { "@type": "ListItem", "position": 3065, "name": "Licenziamento frontalieri 2026: termini e diritti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-diritti-2026` },
+          { "@type": "ListItem", "position": 3066, "name": "Frontalieri italiani in Svizzera: un esposto al...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-esposto-oil-discriminazioni` },
+          { "@type": "ListItem", "position": 3067, "name": "Licenziamento frontalieri: diritti, preavviso e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km` }
  ]
  },
  {

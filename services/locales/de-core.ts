@@ -3503,6 +3503,8 @@ Regeln:
   'journalistDashboard.editor.imageLabel': 'Titelbild',
   'journalistDashboard.editor.imageNeedsDraft': 'Speichere zuerst den Entwurf, um ein Bild hochladen zu können.',
   'journalistDashboard.editor.imageAltPlaceholder': 'Alternativtext des Bildes',
+  'journalistDashboard.editor.imageAltAuto': 'Redaktionelles Bild zu: {title}',
+  'journalistDashboard.editor.selectImage': 'Bild auswählen',
   'journalistDashboard.editor.uploadingImage': 'Bild wird hochgeladen...',
   'journalistDashboard.editor.imageSaved': 'Bild hochgeladen und gespeichert.',
   'journalistDashboard.editor.imageError': 'Bild-Upload fehlgeschlagen. Bitte versuche es erneut.',

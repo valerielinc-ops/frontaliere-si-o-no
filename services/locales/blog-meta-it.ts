@@ -8198,6 +8198,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Ristorni frontalieri: Berna deplora lo stop del cantone ma vuole una soluzione',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'La consigliera federale svizzera Karin Keller-Sutter ha incontrato il ministro dell’Economia e delle Finanze Giancarlo Giorgetti per discutere la sospensione dei ristorni alla Lombardia.',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Incontro tra la consigliera federale svizzera Karin Keller-Sutter e il ministro dell’Economia e delle Finanze Giancarlo Giorgetti a Roma.',
+    'blog.article.blocco-ristorni-ticino-lombardia.title': 'Blocco ristorni, tensioni con Ticino',
+    'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'Il blocco dei ristorni da parte del Canton Ticino ha generato polemiche e reazioni. Jonny Crosio, Vice Segretario Federale del partito Patto per il Nord, critica la decisione come arbitraria e paradossale.',
+    'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'Vista di Bellinzona con il Castello di Montebello',
+    'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Ristorni frontalieri bloccati: Reina (Iv Varese) «A rischio credibilità dello Stato»',
+    'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.',
+    'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Un giornalista che scrive su un computer portatile in un caffè di Bellinzona, con il Monte San Salvatore in sfondo.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Frontalieri italiani in Svizzera: un esposto all’OIL contro le discriminazioni',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Un esposto all’OIL denuncia discriminazioni contro i frontalieri italiani in Svizzera. Scopri i dettagli e le implicazioni.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Frontalieri italiani in Svizzera davanti all\'ufficio OIL con uno striscione contro le discriminazioni',
 };
 
 export default blogMetaIt;

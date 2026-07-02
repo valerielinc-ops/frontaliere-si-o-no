@@ -4341,6 +4341,13 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ristorni-frontalieri-pellicini-tavolo-lavoro': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro', parent: 'blog' },
     'blog-frontaliere-cambio-datore-lavoro-procedura-permesso-2026': { name: 'Guida 2026', path: '/articoli-svizzera/frontaliere-cambio-datore-lavoro-procedura-permesso-2026/', parent: 'blog' },
     'blog-ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione', parent: 'blog' },
+    'blog-assicurazione-infortuni-lainf-frontalieri-2026': { name: 'Assicurazione infortuni LAINF', path: '/articoli-svizzera/assicurazione-infortuni-lainf-frontalieri-2026/', parent: 'blog' },
+    'blog-blocco-ristorni-ticino-lombardia': { name: 'Fiscale', path: '/articoli-frontaliere/blocco-ristorni-ticino-lombardia', parent: 'blog' },
+    'blog-nascita-figlio-frontaliere-2026': { name: 'Nascita figlio', path: '/articoli-svizzera/nascita-figlio-frontaliere-2026/', parent: 'blog' },
+    'blog-ristorni-frontalieri-bloccati-reina': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-bloccati-reina', parent: 'blog' },
+    'blog-frontaliere-licenziamento-diritti-2026': { name: 'Licenziamento Frontaliere', path: '/articoli-svizzera/frontaliere-licenziamento-diritti-2026/', parent: 'blog' },
+    'blog-frontalieri-esposto-oil-discriminazioni': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-esposto-oil-discriminazioni', parent: 'blog' },
+    'blog-frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km': { name: 'Licenziamento Frontalieri', path: '/articoli-svizzera/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8197,6 +8197,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Cross-border rebates: Bern deplores the canton\'s stop but wants a solution',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'Swiss Federal Councillor Karin Keller-Sutter met with the Minister of Economy and Finance Giancarlo Giorgetti to discuss the suspension of rebates to Lombardy.',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Meeting between Swiss Federal Councillor Karin Keller-Sutter and Italian Minister of Economy and Finance Giancarlo Giorgetti in Rome.',
+    'blog.article.blocco-ristorni-ticino-lombardia.title': 'Blocking refreshments, tensions with Ticino',
+    'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'The blocking of rebates by the Canton of Ticino has generated controversy and reactions. Jonny Crosio, Deputy Federal Secretary of the Pact for the North party, criticizes the decision as arbitrary and paradoxical.',
+    'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'View of Bellinzona with Montebello Castle',
+    'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Cross-border rebates blocked: Reina (Iv Varese) warns of state credibility risk',
+    'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, provincial secretary of Italia Viva, criticizes the blocking of cross-border rebates and warns of the risks to the credibility of the state.',
+    'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'A journalist writing on a laptop in a café in Bellinzona, with Monte San Salvatore in the background.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Italian cross-border workers complain to ILO',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'A complaint to the ILO denounces discrimination against Italian cross-border workers in Switzerland. Learn the details and implications.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Italian cross-border workers in Switzerland in front of the OIL office with a banner against discrimination',
 };
 
 export default blogMetaEn;

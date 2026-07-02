@@ -835,6 +835,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': 'Leitfaden 2026: Jobwechsel für Grenzgänger',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Erfahren Sie, wie Sie 2026 in der Schweiz den Arbeitgeber wechseln können: Kündigungsfrist, Verlängerung der G-Bewilligung, Kontinuität der Sozialversicherungsbeiträge und zu aktualisierende Unterlagen.',
     'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'Ein Grenzgänger überquert die Grenze zwischen der Schweiz und Italien, mit einem Blick auf Lugano im Hintergrund.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.title': 'UVG-Unfallversicherung 2026: Deckung und Berichte',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.excerpt': 'Erfahren Sie alles über die UVG-Abdeckung für Grenzpendler in der Schweiz im Jahr 2026, wie man einen Unfall meldet und welche Unterschiede es mit einer Berufskrankheit gibt.',
+    'blog.article.assicurazione-infortuni-lainf-frontalieri-2026.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.nascita-figlio-frontaliere-2026.title': 'Geburt 2026: Checkliste für grenzüberschreitende Pendler',
+    'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Vollständiger Leitfaden für Grenzfamilien zur Geburt eines Kindes in der Schweiz im Jahr 2026: Meldeamt, Familienzulagen und konsularische Angelegenheiten.',
+    'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Frontalierfamilie mit Neugeborenem in der Schweiz',
+    'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Entlassung Grenzgänger 2026: Fristen und Rechte',
+    'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Informieren Sie sich über die Rechte von Grenzgängern im Falle einer Entlassung im Jahr 2026, mit Kündigungsfristen und Entschädigungen.',
+    'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Grenzarbeiter an der Grenze zwischen der Schweiz und Italien',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Frontalieri: Rechte, Kündigung, Entschädigung',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Informieren Sie sich über Rechte, Kündigungsfristen und Zulagen für Grenzarbeiter innerhalb von 20 km um die Grenze im Jahr 2026.',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Grenzarbeiter an der Grenze zwischen Italien und der Schweiz im Jahr 2026',
 };
 
 export default blogMetaChDe;
