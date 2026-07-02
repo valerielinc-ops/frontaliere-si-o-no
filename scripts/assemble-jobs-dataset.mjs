@@ -1431,6 +1431,14 @@ async function assembleJobs() {
   let cantonFilled = 0;
   let lowercaseFixes = 0;
   let cantonOffTargetSkipped = 0;
+  // Issue #2772 item 2: self-heal (fill above) only re-pins a canton when the
+  // location signal is still inferable at assemble time. A job whose city text
+  // disappeared from the crawl entirely (canton "" AND no location text at all)
+  // can never self-heal — it stays orphaned silently, indistinguishable in the
+  // logs from a job that simply never had a canton fixed yet. Track and surface
+  // this residual explicitly so it's visible/countable instead of silent.
+  let cantonEmptyNoSignal = 0;
+  const cantonEmptyNoSignalSamples = [];
   for (const job of swissValidated) {
     // Fix lowercase canton codes
     if (job.canton && job.canton !== job.canton.toUpperCase()) {
@@ -1448,6 +1456,12 @@ async function assembleJobs() {
     if (rawInferred && !inferred) {
       cantonOffTargetSkipped++;
       console.warn(`  🚧 Canton off-target: inferred "${rawInferred}" for "${city}" has no funnel URL section — left as-is for triage (${job.url || job.id || '?'})`);
+    }
+    if (!job.canton && !hasCity) {
+      cantonEmptyNoSignal++;
+      if (cantonEmptyNoSignalSamples.length < 10) {
+        cantonEmptyNoSignalSamples.push(job.url || job.id || job.slug || '(no id)');
+      }
     }
     // Apply the inferred canton whenever it differs from the stored one —
     // INCLUDING when the stored canton is empty. The old `&& job.canton` guard
@@ -1511,6 +1525,12 @@ async function assembleJobs() {
   }
   if (cantonPinsFrozen > 0 || cantonPinsAdded > 0 || cantonPinsCorrected > 0) {
     console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded}, corrected ${cantonPinsCorrected} (location overrode colliding pin) (ledger ${Object.keys(cantonPins).length})`);
+  }
+  if (cantonEmptyNoSignal > 0) {
+    // #2772 item 2: these jobs cannot self-heal next assemble either — their
+    // location signal is gone, not just currently unresolved — so they need
+    // manual triage (bad crawler field mapping) rather than silently persisting.
+    console.warn(`  ⚠️  Canton no-signal orphans: ${cantonEmptyNoSignal} job(s) with empty canton AND no location text at all (cannot self-heal) — sample: ${cantonEmptyNoSignalSamples.join(', ')}`);
   }
 
   // ── Backfill empty description from descriptionByLocale ────────────
