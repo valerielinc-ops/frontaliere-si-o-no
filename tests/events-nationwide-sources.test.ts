@@ -63,12 +63,12 @@ describe('loadAllComuni', () => {
 
 describe('resolveComuneNationwide', () => {
   it('resolves a comune nationwide without a canton hint', () => {
-    const r = resolveComuneNationwide({ venue: 'Stadthaus Winterthur', title: 'Konzert' });
+    const r = resolveComuneNationwide({ venue: 'Stadthaus Winterthur', title: 'Konzert', region: undefined });
     expect(r).toEqual({ comune: 'Winterthur', canton: 'ZH', method: 'exact-nationwide' });
   });
 
   it('scopes to the hinted canton first (exact TI match, same as resolveComune)', () => {
-    const r = resolveComuneNationwide({ venue: 'Teatro Sociale Bellinzona', title: 'Concerto' }, 'TI');
+    const r = resolveComuneNationwide({ venue: 'Teatro Sociale Bellinzona', title: 'Concerto', region: undefined }, 'TI');
     expect(r).toEqual({ comune: 'Bellinzona', canton: 'TI', method: 'exact' });
   });
 
@@ -84,7 +84,7 @@ describe('resolveComuneNationwide', () => {
   });
 
   it('returns null comune when nothing matches', () => {
-    const r = resolveComuneNationwide({ venue: 'Somewhere unresolvable', title: 'Nothing here' });
+    const r = resolveComuneNationwide({ venue: 'Somewhere unresolvable', title: 'Nothing here', region: undefined });
     expect(r).toEqual({ comune: null, canton: null, method: null });
   });
 });

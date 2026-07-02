@@ -48,6 +48,7 @@ import {
   weekWindow,
   overlapsWindow,
 } from '../scripts/lib/events-utils.mjs';
+import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -80,6 +81,20 @@ interface SiteEvent {
   // resolveItalianFrontierComuni in events-utils.mjs) — attached at assemble
   // time so a frontaliere on the Italian side can find "eventi vicino a te".
   italianFrontierComuni?: string[];
+  // Some sources (guidle, myswitzerland — #3125) expose real per-locale
+  // translations instead of a single source-language string. Optional and
+  // partial: any locale missing from the map falls back to `title`/
+  // `description` via localizedTitle/localizedDescription below.
+  titleByLocale?: Partial<Record<Locale, string>>;
+  descriptionByLocale?: Partial<Record<Locale, string>>;
+}
+
+function localizedTitle(event: SiteEvent, locale: Locale): string {
+  return event.titleByLocale?.[locale] || event.title;
+}
+
+function localizedDescription(event: SiteEvent, locale: Locale): string | undefined {
+  return event.descriptionByLocale?.[locale] || event.description;
 }
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
@@ -470,7 +485,8 @@ export function zurichOffset(isoDate: string): string {
  * Event field is emitted with a safe fallback.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
-  const locality = event.comune || 'Canton Ticino';
+  const cantonName = getCantonLabel(event.canton || 'TI', locale as CantonLocale);
+  const locality = event.comune || cantonName;
   const venueName = event.venue || locality;
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
@@ -480,20 +496,22 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const endIso = hasMultiDay ? (event.endDate as string) : startIso;
   const cat = categoryLabel(event.category, locale);
   const when = humanDate(event.startDate, locale);
+  const title = localizedTitle(event, locale);
   const synthDescription =
-    `${event.title} — ${cat} ${COPY[locale].at} ${venueName} (${locality}, Ticino), ${when}` +
+    `${title} — ${cat} ${COPY[locale].at} ${venueName} (${locality}, ${cantonName}), ${when}` +
     `${event.startTime ? ` ${event.startTime}` : ''}. ${event.sourceName}.`;
   // Nationwide sources (guidle, myswitzerland) crawl a real description —
   // prefer it over the synthesized one when it clears the >=30 char gate
   // validate-structured-data-completeness.mjs enforces.
+  const rawDescription = localizedDescription(event, locale);
   const description =
-    event.description && event.description.trim().length >= 30 ? event.description.trim() : synthDescription;
+    rawDescription && rawDescription.trim().length >= 30 ? rawDescription.trim() : synthDescription;
   // organizer is per-EVENT_SOURCES entry, not the single tio-agenda constant
   // (§6 — one registry, no per-file duplicate of source metadata).
   const organizerSource = EVENT_SOURCES[event.sourceKey] || SOURCE;
   return {
     '@type': 'Event',
-    name: event.title,
+    name: title,
     startDate: startIso,
     endDate: endIso,
     eventStatus: 'https://schema.org/EventScheduled',
@@ -506,14 +524,14 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         ...(event.address?.street ? { streetAddress: event.address.street } : {}),
         ...(event.address?.postalCode ? { postalCode: event.address.postalCode } : {}),
         addressLocality: locality,
-        addressRegion: 'TI',
+        addressRegion: event.canton || 'TI',
         addressCountry: 'CH',
       },
       ...(event.geo
         ? { geo: { '@type': 'GeoCoordinates', latitude: event.geo.lat, longitude: event.geo.lng } }
         : {}),
     },
-    description: description.length >= 30 ? description : `${description} Evento in Ticino.`,
+    description: description.length >= 30 ? description : `${description} Evento in ${cantonName}.`,
     image: event.imageUrl ? absoluteImageUrl(event.imageUrl) : SITE_IMAGE,
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
@@ -559,9 +577,10 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const place = event.venue ? `${esc(event.venue)}` : '';
   const comuneTag = event.comune ? `<span class="text-subtle">${esc(event.comune)}</span>` : '';
+  const cardTitle = localizedTitle(event, locale);
   const titleLink = detailHref
-    ? `<a class="text-link hover:text-link-hover" href="${esc(detailHref)}">${esc(event.title)}</a>`
-    : `<a class="text-link hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(event.title)}</a>`;
+    ? `<a class="text-link hover:text-link-hover" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
+    : `<a class="text-link hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
   return `<article class="rounded-md border border-edge bg-surface p-4">
     <div class="flex flex-wrap items-center gap-2 text-xs">
       <span class="rounded-full border border-info-border bg-info-subtle px-2.5 py-0.5 font-semibold text-info">${esc(cat)}</span>
@@ -971,6 +990,7 @@ export function renderEventDetailPage(params: {
   detailHref: DetailHref;
 }): { urlPath: string; html: string; wordCount: number } {
   const { locale, event, comune, eventSlug, sameComuneEvents, dateStamp, distDir, detailHref } = params;
+  const title = localizedTitle(event, locale);
   const copy = COPY[locale];
   const dc = DETAIL_COPY[locale];
   const canonicalPath = pathForEventDetail(locale, comune, eventSlug);
@@ -989,12 +1009,12 @@ export function renderEventDetailPage(params: {
       <span class="mx-2">/</span>
       <a class="text-link hover:text-link-hover" href="${comunePath}">${esc(comune)}</a>
       <span class="mx-2">/</span>
-      <span>${esc(event.title)}</span>
+      <span>${esc(title)}</span>
     </nav>
 
     <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
       <span class="inline-block rounded-full border border-info-border bg-info-subtle px-2.5 py-0.5 text-xs font-semibold text-info">${esc(cat)}</span>
-      <h1 class="mt-3 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(event.title)}</h1>
+      <h1 class="mt-3 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(title)}</h1>
       <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', comune))}</p>
     </header>
 
@@ -1012,7 +1032,7 @@ export function renderEventDetailPage(params: {
 
     <section class="mt-8">
       <h2 class="text-2xl font-bold text-heading">${esc(dc.aboutTitle)}</h2>
-      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(event.title, comune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat))}</p>
+      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(title, comune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat))}</p>
     </section>
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5">
@@ -1033,7 +1053,7 @@ export function renderEventDetailPage(params: {
 
     ${renderFaq(
       [
-        { q: dc.faqQ1(event.title), a: dc.faqA1(comune, when) },
+        { q: dc.faqQ1(title), a: dc.faqA1(comune, when) },
         { q: dc.faqQ2(comune), a: dc.faqA2(comune) },
       ],
       copy.faqTitle,
@@ -1048,14 +1068,14 @@ export function renderEventDetailPage(params: {
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
       { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale)}` },
       { '@type': 'ListItem', position: 3, name: comune, item: `${BASE_URL}${comunePath}` },
-      { '@type': 'ListItem', position: 4, name: event.title, item: canonicalUrl },
+      { '@type': 'ListItem', position: 4, name: title, item: canonicalUrl },
     ],
   });
   const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      { '@type': 'Question', name: dc.faqQ1(event.title), acceptedAnswer: { '@type': 'Answer', text: dc.faqA1(comune, when) } },
+      { '@type': 'Question', name: dc.faqQ1(title), acceptedAnswer: { '@type': 'Answer', text: dc.faqA1(comune, when) } },
       { '@type': 'Question', name: dc.faqQ2(comune), acceptedAnswer: { '@type': 'Answer', text: dc.faqA2(comune) } },
     ],
   });
@@ -1063,8 +1083,8 @@ export function renderEventDetailPage(params: {
   const wordCount = countHtmlBodyWords(body);
   const html = buildSeoPageHtml({
     locale,
-    title: dc.metaTitle(event.title, comune),
-    description: dc.metaDesc(event.title, comune, when),
+    title: dc.metaTitle(title, comune),
+    description: dc.metaDesc(title, comune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(comune, eventSlug),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
