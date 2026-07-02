@@ -96,6 +96,12 @@ const TARGETS = [
   { dir: ['images', 'logos'], url: '/images/logos/' },
   { dir: ['images', 'authors'], url: '/images/authors/' },
   { dir: ['images', 'publisher'], url: '/images/publisher/' },
+  // Nationwide events feature (issue #3125): no-hotlink mirrored source images
+  // (scripts/lib/events-utils.mjs mirrorEventImage -> public/images/events/).
+  // MUST stay in sync with CDN_OFFLOADED_IMAGE_PREFIXES in
+  // services/cdnImageBase.ts, the deploy-it-pages-prep.sh CDN-push staging
+  // loop, and ensure-image-cdn-redirect.mjs OFFLOADED_PREFIXES.
+  { dir: ['images', 'events'], url: '/images/events/' },
 ];
 
 function log(msg) {
