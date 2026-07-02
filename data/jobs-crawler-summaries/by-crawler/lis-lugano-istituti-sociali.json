@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-07-01T23:00:40.776Z",
+  "generatedAt": "2026-07-02T11:37:25.827Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 41517,
-  "avgDurationMs": 41517,
+  "durationMs": 50779,
+  "avgDurationMs": 50779,
   "durationHistory": [
-    41517
+    50779
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "country": "CH",
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-25",
+      "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
@@ -372,6 +372,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
