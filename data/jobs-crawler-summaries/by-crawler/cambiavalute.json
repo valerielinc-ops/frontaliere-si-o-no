@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-07-02T10:41:31.843Z",
+  "generatedAt": "2026-07-02T21:26:55.690Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 47017,
-  "avgDurationMs": 47017,
+  "durationMs": 161007,
+  "avgDurationMs": 161007,
   "durationHistory": [
-    47017
+    161007
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,6 +47,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -89,6 +90,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -176,6 +178,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
