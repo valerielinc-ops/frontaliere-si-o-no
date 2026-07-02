@@ -1,6 +1,6 @@
 {
   "crawlerKey": "villa-im-park",
-  "assembledAt": "2026-07-02T12:21:47.637Z",
+  "assembledAt": "2026-07-02T23:07:50.867Z",
   "jobs": [
     {
       "id": "villa-im-park-080744ccf7ea",
@@ -17,7 +17,7 @@
       "title": "Studium zur Dipl. Pflegefachperson HF",
       "titleByLocale": {
         "it": "Diploma di Infermiere/a HF",
-        "en": "Studying for Dipl. Care professional HF",
+        "en": "Studium zur Dipl. Pflegefachperson HF",
         "de": "Studium zur Dipl. Pflegefachperson HF",
         "fr": "Diplômé en soins infirmiers HF"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000123906949-studium-zur-dipl-pflegefachperson-hf?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:21:45.308Z",
+      "crawledAt": "2026-07-02T23:07:48.725Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -51,6 +51,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000123906949-studium-zur-dipl-pflegefachperson-hf?oga=true",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "studium-zur-dipl-pflegefachperson-hf-villa-im-park-rothrist",
         "studium-zur-dipl-pflegefachperson-hf-privatklinik-villa-im-park-rothrist",
@@ -114,7 +115,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:21:44.827Z",
+      "crawledAt": "2026-07-02T23:07:48.265Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -187,7 +188,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133073891-dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:21:44.347Z",
+      "crawledAt": "2026-07-02T23:07:47.817Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -321,7 +322,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
