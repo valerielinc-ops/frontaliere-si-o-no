@@ -43,17 +43,6 @@ export function lazyRetry<T extends React.ComponentType<any>>(
 
  if (!isChunkError) throw err;
 
- if (!consumeReloadBudget(err?.message || 'chunk_load')) {
- // This signature already spent its budget (or the session hit the total
- // reload ceiling) — let ErrorBoundary handle it.
- import('@/services/analytics').then(m => m.Analytics.trackChunkRetry({
- outcome: 'failure',
- errorMessage: `Guard blocked: ${err?.message || 'unknown'}`,
- pagePath: window.location.pathname + window.location.search,
- })).catch(() => {});
- throw err;
- }
-
  const clearCaches = async () => {
  if ('caches' in window) {
  const names = await caches.keys();
@@ -81,14 +70,26 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  .then(result => { trackRetry('success', err?.message || ''); resolve(result); })
  .catch(() => {
  // All retries failed — the old chunk hash is gone.
- // Reload the page to get the new entry module with new chunk refs.
  trackRetry('failure', err?.message || 'unknown');
+ // Only spend the shared budget HERE, once retries are exhausted — NOT
+ // up front. Spending it before the retry attempt would burn a slot on
+ // every chunk-load error even when the retry succeeds (the common
+ // case), starving the OTHER recovery surfaces that share this budget
+ // (index.html / recoverFromStaleChunk / resilientImport) of attempts
+ // for unrelated, still-recoverable chunks (recurrence of #3097).
+ const blocked = !consumeReloadBudget(err?.message || 'chunk_load');
  import('@/services/analytics').then(m => m.Analytics.trackForceReload({
  source: 'lazyRetry',
  reason: 'chunk_retries_exhausted',
  pagePath: window.location.pathname + window.location.search,
- blocked: false,
+ blocked,
  })).catch(() => {});
+ if (blocked) {
+ // This signature already spent its budget (or the session hit the
+ // total reload ceiling) — let ErrorBoundary handle it instead.
+ reject(err);
+ return;
+ }
  // Bust the HTTP cache (not just CacheStorage) before reloading: a stale-but-200
  // chunk (SPA-fallback HTML for a .js, or a cached module the retries kept
  // re-linking) would otherwise be re-served from the disk cache and this one
