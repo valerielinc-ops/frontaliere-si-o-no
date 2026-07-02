@@ -53,13 +53,41 @@ interface PbjsSlotDef {
 }
 
 let scriptRequested = false;
+let scriptFailed = false;
 let configured = false;
+
+// Auctions currently parked waiting on either `bidsBackHandler` or the
+// wall-clock guard. If `/assets/prebid.js` 404s (or errors for any other
+// reason) the bundle never evaluates, so `pbjs.que` never drains — without
+// this, every parked auction would sit unresolved until its own wall-clock
+// guard eventually fired. `handleScriptLoadError` resolves all of them the
+// moment the browser reports the load failure, instead of waiting it out.
+interface PendingAuction {
+  done: () => void;
+  guard: number;
+}
+const pendingAuctions = new Set<PendingAuction>();
 
 function pbjs(): Record<string, unknown> & { que: Array<() => void> } {
   const w = window as unknown as { pbjs?: Record<string, unknown> & { que?: Array<() => void> } };
   const p = (w.pbjs = w.pbjs || {});
   p.que = p.que || [];
   return p as Record<string, unknown> & { que: Array<() => void> };
+}
+
+/**
+ * Fires on the `<script>` tag's `error` event (404, network failure, blocked
+ * request, etc.). The Prebid bundle never evaluated, so `pbjs.que` will never
+ * be drained by it — give up immediately for every in-flight and future
+ * auction rather than relying solely on the wall-clock guard.
+ */
+function handleScriptLoadError(): void {
+  scriptFailed = true;
+  for (const auction of pendingAuctions) {
+    window.clearTimeout(auction.guard);
+    auction.done();
+  }
+  pendingAuctions.clear();
 }
 
 function ensurePrebidScript(): void {
@@ -70,6 +98,7 @@ function ensurePrebidScript(): void {
   const s = document.createElement('script');
   s.src = PREBID_SCRIPT_SRC;
   s.async = true;
+  s.onerror = handleScriptLoadError;
   document.head.appendChild(s);
 }
 
@@ -125,17 +154,45 @@ export function requestHeaderBids(slot: PbjsSlotDef, timeoutMs: number = DEFAULT
   const sizes = slot.sizes.filter((s): s is [number, number] => Array.isArray(s));
   if (!bids.length || !sizes.length) return Promise.resolve();
 
+  return runAuction(slot, timeoutMs, bids, sizes);
+}
+
+/**
+ * Core auction plumbing, split out from `requestHeaderBids` so the
+ * script-load-error guard can be exercised directly in tests without
+ * flipping the (intentionally hardcoded) `PREBID_ENABLED` master flag.
+ */
+function runAuction(
+  slot: PbjsSlotDef,
+  timeoutMs: number,
+  bids: ReturnType<typeof bidsForAdUnit>,
+  sizes: [number, number][],
+): Promise<void> {
+  // The script tag already failed to load in a previous call (e.g. a prior
+  // slot on the same page already observed the 404) — don't bother queueing
+  // another callback that will never run; give up right away.
+  if (scriptFailed) return Promise.resolve();
+
   return new Promise<void>((resolve) => {
     let settled = false;
-    const done = (): void => {
-      if (settled) return;
-      settled = true;
-      resolve();
+    const auction: PendingAuction = {
+      done: () => {
+        if (settled) return;
+        settled = true;
+        pendingAuctions.delete(auction);
+        resolve();
+      },
+      // Hard wall-clock guard: if prebid.js never loads or bidsBackHandler
+      // never fires, resolve anyway so GPT still serves. A touch above the
+      // auction timeout so a normal auction always wins the race.
+      // `handleScriptLoadError` (wired to the script tag's `error` event)
+      // resolves `done` immediately on a load failure, well before this
+      // backstop would otherwise elapse.
+      guard: window.setTimeout(() => auction.done(), timeoutMs + 500),
     };
-    // Hard wall-clock guard: if prebid.js never loads or bidsBackHandler never
-    // fires, resolve anyway so GPT still serves. A touch above the auction
-    // timeout so a normal auction always wins the race.
-    const guard = window.setTimeout(done, timeoutMs + 500);
+    pendingAuctions.add(auction);
+    const done = auction.done;
+    const guard = auction.guard;
 
     pbjs().que.push(() => {
       try {
@@ -166,3 +223,24 @@ export function requestHeaderBids(slot: PbjsSlotDef, timeoutMs: number = DEFAULT
     });
   });
 }
+
+/**
+ * Exposed only for tests. `PREBID_ENABLED` is hardcoded `false` until
+ * go-live (see module docstring) so the normal `requestHeaderBids` gate
+ * can't be exercised in unit tests — these internals let tests drive the
+ * script-load / script-load-error plumbing directly.
+ */
+export const __testing = {
+  ensurePrebidScript,
+  runAuction,
+  isScriptFailed: (): boolean => scriptFailed,
+  resetForTests(): void {
+    scriptRequested = false;
+    scriptFailed = false;
+    configured = false;
+    pendingAuctions.clear();
+    if (typeof document !== 'undefined') {
+      document.querySelectorAll(`script[src="${PREBID_SCRIPT_SRC}"]`).forEach((el) => el.remove());
+    }
+  },
+};

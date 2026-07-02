@@ -83,6 +83,7 @@ const JSDOM_TS_FILES = [
   'tests/hooks/useSimulationState.test.ts',
   'tests/hooks/useUIState.test.ts',
   'tests/hooks/useUserState.test.ts',
+  'tests/header-bidding-script-error.test.ts',
   'tests/hospital-html-helpers-css-leak.test.ts',
   'tests/i18n-guard.test.ts',
   'tests/i18n.test.ts',
