@@ -152,7 +152,11 @@ _publish_cdn_r2() {
   local rtmp="${RUNNER_TEMP:-/tmp}"
   if ! command -v rclone >/dev/null 2>&1; then
     echo "[r2] rclone not found — installing static binary…"
-    if curl -fsSL https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip" \
+    # --retry: a bare Recv-failure/Connection-reset on this single-shot download
+    # (transient network blip, e.g. #run-28599750786) previously failed the
+    # WHOLE deploy prep step (no fallback) even though nothing else was wrong.
+    if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors \
+         https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip" \
        && unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin"; then
       chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null || true
       export PATH="$rtmp/rclone-bin:$PATH"
