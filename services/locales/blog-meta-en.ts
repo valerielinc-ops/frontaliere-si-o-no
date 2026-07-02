@@ -8203,6 +8203,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Cross-border rebates blocked: Reina (Iv Varese) warns of state credibility risk',
     'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, provincial secretary of Italia Viva, criticizes the blocking of cross-border rebates and warns of the risks to the credibility of the state.',
     'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'A journalist writing on a laptop in a café in Bellinzona, with Monte San Salvatore in the background.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Italian cross-border workers complain to ILO',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'A complaint to the ILO denounces discrimination against Italian cross-border workers in Switzerland. Learn the details and implications.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Italian cross-border workers in Switzerland in front of the OIL office with a banner against discrimination',
 };
 
 export default blogMetaEn;

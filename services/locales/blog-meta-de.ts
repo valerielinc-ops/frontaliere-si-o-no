@@ -8202,6 +8202,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Rückerstattungen blockiert: Reina (Iv Varese) «Staat in Gefahr»',
     'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, Provinzsekretär von Italia Viva, kritisiert die Blockierung grenzüberschreitender Rückschüsse und warnt vor den Risiken für die Glaubwürdigkeit des Staates.',
     'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Ein Journalist schreibt in einem Café in Bellinzona an einem Laptop, mit dem Monte San Salvatore im Hintergrund.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Italienische Grenzarbeiter in der Schweiz: Beschwerde bei der ILO gegen Diskriminierung',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Eine Beschwerde bei der ILO verurteilt Diskriminierung italienischer Grenzarbeiter in der Schweiz. Erfahren Sie die Details und Implikationen.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Italienische Grenzgänger in der Schweiz vor dem OIL-Büro mit einem Banner gegen Diskriminierung',
 };
 
 export default blogMetaDe;
