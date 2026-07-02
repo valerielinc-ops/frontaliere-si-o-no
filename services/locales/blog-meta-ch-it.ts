@@ -853,6 +853,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.formazione-professionale-frontaliere-2026.title': 'Formazione professionale e riqualifica per frontalieri nel 2026',
     'blog.article.formazione-professionale-frontaliere-2026.excerpt': 'In vista del 2026, i corsi riconosciuti e i finanziamenti per la formazione dei frontalieri sono al centro di attenzione, con nuove opportunità e procedure.',
     'blog.article.formazione-professionale-frontaliere-2026.imageAlt': 'Scena svizzera con frontaliere in formazione professionale',
+    'blog.article.avs-ai-prospettive-finanziarie.title': 'Peggiorano le prospettive finanziarie di AVS e AI',
+    'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità.',
+    'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi Svizzere sullo sfondo',
 };
 
 export default blogMetaChIt;
