@@ -166,7 +166,13 @@ push_ticino_shard() {
   )
   rc=$?
   rm -f "$keyfile"
-  rm -rf "$stage_src"
+  # NOTE: stage_src is intentionally NOT removed here. It holds the already
+  # CDN-offloaded copy of this locale's Ticino subtree — byte-identical to
+  # what was just force-pushed to the shard repo. The caller (deploy.yml,
+  # "Pack Ticino shard dist" step) packs it into a same-run tar artifact for
+  # post-deploy-validate-dist's rehydrate fast path (mirrors the locale-shard
+  # tar artifact), then removes it. Runners are ephemeral — leaving it behind
+  # when the caller doesn't consume it is a no-op cleanup-wise.
   if [ "$rc" -eq 0 ]; then
     touch "$RUNNER_TEMP/shard-ok-ticino-$loc"   # consumed by the strip step
     echo "✅ pushed ticino-$loc shard"

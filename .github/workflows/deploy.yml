@@ -439,6 +439,43 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: bash scripts/lib/push-ticino-shard.sh it dist
+
+      # Same-run tar artifact for post-deploy-validate-dist's Ticino rehydrate
+      # fast path — mirrors "Pack locale shard dist (tar)" below. Previously
+      # validate-dist rehydrated each Ticino subtree by `git clone --depth 1`
+      # of the ~4 GB shard repo, one locale at a time (~12min wall on run
+      # 28564001685). push-ticino-shard.sh already builds an offloaded staged
+      # copy at $RUNNER_TEMP/ticino-src-it/dist/$sub (byte-identical to what it
+      # just force-pushed) and now leaves it in place instead of deleting it —
+      # pack that into one tar (same stack-overflow-avoidance reason as the
+      # locale tar: upload-artifact enumerates every file, so a raw ~220k-file
+      # tree would fail the same way). validate-dist still falls back to the
+      # git clone when this artifact is missing/corrupt.
+      - name: Pack Ticino shard dist (tar) for post-deploy validation
+        if: matrix.locale == 'it' && vars.TICINO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          sub="cerca-lavoro-ticino"
+          src="$RUNNER_TEMP/ticino-src-it/dist"
+          if [ ! -d "$src/$sub" ]; then
+            echo "no staged ticino-it subtree (push skipped/failed) — validate-dist will fall back to git clone"
+            exit 0
+          fi
+          tar -C "$src" -cf "$RUNNER_TEMP/ticino-dist-it.tar" "$sub"
+          ls -lh "$RUNNER_TEMP/ticino-dist-it.tar"
+          rm -rf "$src"
+      - name: Upload Ticino shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.TICINO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: ticino-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/ticino-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+
       - name: Strip Ticino subtree (IT)
         if: matrix.locale == 'it'
         env:
@@ -656,6 +693,41 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: bash scripts/lib/push-ticino-shard.sh "${{ matrix.locale }}" dist
+
+      # Same-run tar artifact for post-deploy-validate-dist's Ticino rehydrate
+      # fast path — see the IT leg's "Pack Ticino shard dist" step above for
+      # the full rationale (git-clone fallback was ~12min wall across the 4
+      # legs combined, run 28564001685).
+      - name: Pack Ticino shard dist (tar) for post-deploy validation
+        if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          case "${{ matrix.locale }}" in
+            en) sub="en/find-jobs-ticino" ;;
+            de) sub="de/jobs-im-tessin" ;;
+            fr) sub="fr/trouver-emploi-tessin" ;;
+            *) echo "::error::unsupported locale '${{ matrix.locale }}'"; exit 1 ;;
+          esac
+          src="$RUNNER_TEMP/ticino-src-${{ matrix.locale }}/dist"
+          if [ ! -d "$src/$sub" ]; then
+            echo "no staged ticino-${{ matrix.locale }} subtree (push skipped/failed) — validate-dist will fall back to git clone"
+            exit 0
+          fi
+          tar -C "$src" -cf "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar" "$sub"
+          ls -lh "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar"
+          rm -rf "$src"
+      - name: Upload Ticino shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: ticino-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/ticino-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+
       - name: Strip Ticino subtree (non-IT)
         if: matrix.locale != 'it'
         env:
