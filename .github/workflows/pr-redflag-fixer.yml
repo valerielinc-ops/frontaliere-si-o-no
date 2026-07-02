@@ -290,14 +290,9 @@ jobs:
           # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
           # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run
           # opus senza commit e lascia il rosso alla escalation needs-human.
-          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped,
-          # stesso fix di pr-review-loop.yml (owner-approved 2026-07-01) e
-          # post-merge-followup.yml (stesso giorno). Lo scoped Bash(...) fa validazione
-          # statica del comando e abortiva su sintassi shell legittima ("Contains shell
-          # syntax that cannot be statically analyzed", "Newline followed by # inside a
-          # quoted argument can hide arguments from path validation"). Preventivo qui
-          # (nessun fallimento osservato nelle run recenti), ma stesso costrutto
-          # sibling — owner ha approvato l'estensione preventiva a tutta la classe.
+          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # fix, evita drift tra copie duplicate).
           claude_args: "--max-turns 45 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.

@@ -190,14 +190,9 @@ jobs:
           # `github-actions[bot]` (re-label interno). Il PAT user `valerielinc-ops`
           # è un account umano → bypassa `allowed_bots`, già coperto dal gate `if`.
           allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
-          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped,
-          # stesso fix di pr-review-loop.yml (owner-approved 2026-07-01) e
-          # post-merge-followup.yml (stesso giorno). Lo scoped Bash(...) fa validazione
-          # statica del comando e abortiva su sintassi shell legittima ("Contains shell
-          # syntax that cannot be statically analyzed", "Newline followed by # inside a
-          # quoted argument can hide arguments from path validation"). Preventivo qui
-          # (nessun fallimento osservato nelle run recenti), ma stesso costrutto
-          # sibling — owner ha approvato l'estensione preventiva a tutta la classe.
+          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # fix, evita drift tra copie duplicate).
           claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
