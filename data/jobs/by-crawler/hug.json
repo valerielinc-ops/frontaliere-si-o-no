@@ -437,8 +437,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-          "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve"
+          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
         ],
         "en": [
           "head-of-clinic-with-or-without-specialty-title-fellowship-in-paediatric-intensive-medicine-100-hug-geneve",
@@ -2009,8 +2008,7 @@
       "previousSlugsByLocale": {
         "it": [
           "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva",
-          "servizio-civile-assegnazione-al-centro-dell-innovazione-100-hug-geneva",
-          "servizio-civile-centro-di-innovazione-centrale-100-hug-geneva"
+          "servizio-civile-assegnazione-al-centro-dell-innovazione-100-hug-geneva"
         ],
         "de": [
           "service-civil-affectation-au-centre-de-l-innovation-100-hug-geneva"
@@ -2796,8 +2794,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve",
-          "case-manager-centro-di-cure-palliative-e-cure-di-supporto-80-hug-geneve"
+          "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
         ],
         "en": [
           "case-manager-centre-de-soins-palliatifs-et-soins-de-support-80-hug-geneve"
@@ -3449,12 +3446,12 @@
     },
     {
       "id": "hug-2c8cec049e59",
-      "slug": "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve",
+      "slug": "impiegato-amministrativo-studente-heg-in-occupazione-60-hug-geneve",
       "slugByLocale": {
         "fr": "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve",
-        "it": "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve",
-        "en": "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve",
-        "de": "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve"
+        "it": "impiegato-amministrativo-studente-heg-in-occupazione-60-hug-geneve",
+        "en": "administrative-clerk-heg-student-in-employment-60-hug-geneve",
+        "de": "verwaltungsangestellter-heg-student-in-beschaftigung-60-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3510,7 +3507,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-02T11:34:28.696Z"
+      "firstSeenAt": "2026-07-02T11:34:28.696Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve"
+        ],
+        "en": [
+          "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve"
+        ],
+        "de": [
+          "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "commis-ou-commise-administrative-etudiant-ou-etudiante-heg-en-emploi-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-5ae9eb8a7205",
@@ -3591,12 +3602,12 @@
     },
     {
       "id": "hug-60628bb8d656",
-      "slug": "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve",
+      "slug": "strumentista-tecnico-o-tecnico-tso-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve",
-        "it": "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve",
-        "en": "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve",
-        "de": "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve"
+        "it": "strumentista-tecnico-o-tecnico-tso-80-al-100-hug-geneve",
+        "en": "instrumentist-technician-or-operating-room-technician-tso-80-to-100-hug-geneve",
+        "de": "instrumentist-techniker-oder-operationssaaltechniker-tso-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3652,16 +3663,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-02T11:34:28.693Z"
+      "firstSeenAt": "2026-07-02T11:34:28.693Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "instrumentiste-technicien-ou-technicienne-en-salle-d-operation-tso-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-ccc099a1c0c4",
-      "slug": "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve",
+      "slug": "infermiera-clinica-specialista-in-salute-mentale-e-psichiatria-90-hug-geneve",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve",
-        "it": "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve",
-        "en": "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve",
-        "de": "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve"
+        "it": "infermiera-clinica-specialista-in-salute-mentale-e-psichiatria-90-hug-geneve",
+        "en": "nurse-clinical-specialist-in-mental-health-and-psychiatry-90-hug-geneve",
+        "de": "krankenschwester-klinischer-spezialist-fur-psychische-gesundheit-und-psychiatrie-90-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3717,16 +3742,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-02T11:34:28.692Z"
+      "firstSeenAt": "2026-07-02T11:34:28.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-specialiste-clinique-en-sante-mentale-et-psychiatrie-90-hug-geneve"
+      ]
     },
     {
       "id": "hug-2af1d072ee1f",
-      "slug": "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve",
+      "slug": "dietitian-o-dietitian-sito-di-trois-chene-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve",
-        "it": "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve",
+        "it": "dietitian-o-dietitian-sito-di-trois-chene-80-al-100-hug-geneve",
         "en": "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve",
-        "de": "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve"
+        "de": "diatetiker-oder-diatetiker-standort-trois-chene-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3782,7 +3821,18 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-07-02T11:34:28.680Z"
+      "firstSeenAt": "2026-07-02T11:34:28.680Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ou-dieteticienne-site-de-trois-chene-80-a-100-hug-geneve"
+      ]
     }
   ]
 }

@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-fh-hf-als-gipsfachperson-oder-medizinische-gipsfachfrau-mann-40-90",
         "it": "dipl-pflegefachperson-fh-hf-come-gipsfachperson-o-medizinische-gipsfachfrau-mann-40-90-spital-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-fh-hf-als-gipsfachperson-oder-medizinische-gipsfachfrau-mann-40-90",
-        "fr": "dipl-pflegefachperson-fh-hf-als-gipsfachperson-oder-medizinische-gipsfachfrau-mann-40-90"
+        "en": "dipl-nurse-fh-hf-as-a-plaster-specialist-or-medical-plaster-specialist-40-90-spital-limmattal-schlieren",
+        "fr": "dipl-infirmiere-fh-hf-specialiste-du-platre-ou-specialiste-du-platre-medical-40-90-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -57,6 +57,12 @@
       "pensum": "40 - 90%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-fh-hf-als-gipsfachperson-oder-medizinische-gipsfachfrau-mann-40-90"
+        ],
+        "en": [
+          "dipl-pflegefachperson-fh-hf-als-gipsfachperson-oder-medizinische-gipsfachfrau-mann-40-90"
+        ],
+        "fr": [
           "dipl-pflegefachperson-fh-hf-als-gipsfachperson-oder-medizinische-gipsfachfrau-mann-40-90"
         ]
       },
