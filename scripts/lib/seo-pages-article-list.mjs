@@ -1,0 +1,169 @@
+/**
+ * scripts/lib/seo-pages-article-list.mjs
+ *
+ * Comma-safe helpers for editing the "Articoli Frontaliere" breadcrumb
+ * ItemList in services/seo/seo-pages.ts.
+ *
+ * Incident (issue #2834, hotfixed by PR #2833): a foreign in-place
+ * slug-rename edit string-spliced this array directly and left the OLD-slug
+ * ListItem entry behind, with NO trailing comma between it and its neighbor
+ * (`} {`). esbuild then failed to transform seo-pages.ts
+ * ("Expected \"]\" but found \"{\""), which broke every test/suite importing
+ * services/seoService.ts and turned the vitest gate RED on main for every
+ * branch.
+ *
+ * Both helpers below always rebuild the ONE entry (and its own trailing
+ * comma) they touch from regex capture groups — never a blind substring
+ * splice that assumes where a comma belongs — so this class of
+ * missing-comma corruption is structurally impossible for code that goes
+ * through this module. Every match is additionally bounded to the
+ * "Articoli Frontaliere" `itemListElement` block only (see
+ * locateItemListBlock below) — seo-pages.ts is a ~10k-line file with
+ * several other unrelated ItemList/HowTo-step arrays sharing the same
+ * single-line `{ ... "url": ... }` shape; an unbounded regex can match one
+ * of THOSE first and corrupt unrelated structured data (this was caught in
+ * PR review of this very fix, against the real committed file, before an
+ * earlier unbounded version merged). `upsertArticleListItem` is the
+ * rename-safe entry point: any future slug-rename/migration tooling MUST
+ * use it (with `renameFromUrl`) instead of hand-rolled regex/string-splice,
+ * so a rename REPLACES the existing entry in place rather than leaving a
+ * duplicate.
+ */
+
+function escapeRegex(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Raw control-code points (0..31, plus DEL=127), built from charCodes
+// rather than a literal backslash-escape range written directly in this
+// source file's regex literal.
+const CONTROL_CHARS_RE = new RegExp(
+  '[' +
+    Array.from({ length: 33 }, (_, i) => (i === 32 ? 127 : i))
+      .map((c) => String.fromCharCode(c))
+      .join('') +
+    ']+',
+);
+
+// Strips raw control characters (newline/tab/etc.) from a string before it
+// is embedded as a JSON string value inside the single-line JS/JSON-LD
+// object literals this module emits. A JS template literal tolerates a raw
+// newline (esbuild parses it fine), but the emitted text is JSON-LD later
+// parsed as strict JSON by browsers/crawlers, where an unescaped control
+// character is invalid. Article headlines/titles are single-line by
+// contract, so stripping (not backslash-escaping) is the correct fix.
+function escapeJsonString(s) {
+  return String(s)
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(CONTROL_CHARS_RE, ' ')
+    .trim();
+}
+
+const NUMBER_OF_ITEMS_RE = /("name": "Articoli Frontaliere",\s*"numberOfItems": )(\d+)/;
+
+/**
+ * Locate the "Articoli Frontaliere" `itemListElement` array within the full
+ * seo-pages.ts source, so every regex match below can be bounded to it
+ * instead of scanning the whole file. Returns `{ blockStart, blockEnd }` —
+ * the array's items live in `pagesSrc.slice(blockStart, blockEnd)` — or
+ * `null` if the header (and thus the whole ItemList) can't be found.
+ *
+ * Relies on the array's known, consistent shape (verified against the real
+ * committed file): every ListItem entry is a single line ending in `}` or
+ * `},`, with no nested arrays/multi-line objects inside an entry, so the
+ * first line after the header that is *only* a closing bracket (optionally
+ * with trailing `,`/`;`) is unambiguously the array's own closing `]` — the
+ * same single-line-entry assumption the original inline regex in
+ * scripts/create-article.mjs already relied on, just now made explicit and
+ * bounded instead of implicit and unbounded.
+ */
+function locateItemListBlock(pagesSrc) {
+  const headerMatch = pagesSrc.match(NUMBER_OF_ITEMS_RE);
+  if (!headerMatch) return null;
+  const blockStart = headerMatch.index + headerMatch[0].length;
+  const closeMatch = /\n[ \t]*\][,;]?/.exec(pagesSrc.slice(blockStart));
+  if (!closeMatch) return null;
+  const blockEnd = blockStart + closeMatch.index + closeMatch[0].length;
+  return { blockStart, blockEnd };
+}
+
+// Matches the LAST ListItem entry in the array — i.e. one immediately
+// followed (modulo whitespace) by the closing `]` of `itemListElement`.
+// Applied only within the bounds returned by locateItemListBlock() below —
+// never against the full file — so it cannot match an unrelated array
+// elsewhere in seo-pages.ts.
+const LAST_ITEM_RE = /("url": `[^`]*` \})\s*\n(\s*\])/;
+
+/**
+ * Append a new ListItem at the end of the array, incrementing
+ * numberOfItems. Returns the new full source string, or `null` if the
+ * ItemList shape could not be found — callers MUST treat `null` as "left
+ * untouched" and log a warning rather than silently dropping the write.
+ *
+ * @param {string} pagesSrc - current services/seo/seo-pages.ts source
+ * @param {{ name: string, url: string }} item - `url` is the raw template-
+ *   literal body, e.g. `` `${BASE_URL}/articoli-frontaliere/my-slug` ``
+ *   (without the surrounding backticks).
+ */
+export function appendArticleListItem(pagesSrc, { name, url }) {
+  const countMatch = pagesSrc.match(NUMBER_OF_ITEMS_RE);
+  if (!countMatch) return null;
+  const newCount = parseInt(countMatch[2], 10) + 1;
+  let next = pagesSrc.replace(NUMBER_OF_ITEMS_RE, `$1${newCount}`);
+
+  const block = locateItemListBlock(next);
+  if (!block) return null;
+  const blockSrc = next.slice(block.blockStart, block.blockEnd);
+  if (!LAST_ITEM_RE.test(blockSrc)) return null;
+
+  const newListItem = `          { "@type": "ListItem", "position": ${newCount}, "name": "${escapeJsonString(name)}", "url": \`${url}\` }`;
+  const newBlockSrc = blockSrc.replace(LAST_ITEM_RE, `$1,\n${newListItem}\n$2`);
+  next = next.slice(0, block.blockStart) + newBlockSrc + next.slice(block.blockEnd);
+  return next;
+}
+
+/**
+ * Rename-safe insert-or-replace. If a ListItem whose url === renameFromUrl
+ * exists (searched only within the "Articoli Frontaliere" ItemList block —
+ * see locateItemListBlock), REPLACE it in place — same position, same
+ * trailing comma (or lack thereof) read directly off the matched entry,
+ * never assumed — so renaming an article can never leave a duplicate
+ * old-slug entry behind, and can never mistakenly rewrite an unrelated
+ * `"url": ...` occurrence elsewhere in the file that happens to share the
+ * same string. If the old entry can't be found within the block (already
+ * cleaned up / never existed), falls back to appendArticleListItem so the
+ * item is never silently dropped.
+ *
+ * @param {string} pagesSrc
+ * @param {{ name: string, url: string, renameFromUrl?: string }} item
+ * @returns {string|null} new source, or null if the ItemList shape wasn't found
+ */
+export function upsertArticleListItem(pagesSrc, { name, url, renameFromUrl }) {
+  if (renameFromUrl) {
+    const block = locateItemListBlock(pagesSrc);
+    if (block) {
+      const findRe = new RegExp(
+        '\\{\\s*"@type":\\s*"ListItem",\\s*"position":\\s*(\\d+),\\s*"name":\\s*"(?:[^"\\\\]|\\\\.)*",\\s*"url":\\s*`' +
+          escapeRegex(renameFromUrl) +
+          '`\\s*\\}(,?)'
+      );
+      const blockSrc = pagesSrc.slice(block.blockStart, block.blockEnd);
+      const m = blockSrc.match(findRe);
+      if (m) {
+        const position = m[1];
+        const trailingComma = m[2] || '';
+        const replacement = `{ "@type": "ListItem", "position": ${position}, "name": "${escapeJsonString(name)}", "url": \`${url}\` }${trailingComma}`;
+        const absoluteIndex = block.blockStart + m.index;
+        return (
+          pagesSrc.slice(0, absoluteIndex) +
+          replacement +
+          pagesSrc.slice(absoluteIndex + m[0].length)
+        );
+      }
+    }
+    // Old entry not found (or block not located) — fall through to append
+    // so the rename is never silently dropped.
+  }
+  return appendArticleListItem(pagesSrc, { name, url });
+}

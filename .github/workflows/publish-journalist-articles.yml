@@ -67,6 +67,13 @@ jobs:
       - name: Check live internal links of published journalist articles
         run: node scripts/check-journalist-article-links.mjs
 
+      # This pipeline runs registerArticleFiles() (scripts/create-article.mjs)
+      # — the SAME writer of services/seo/seo-pages.ts as generate-article.yml
+      # — so it needs the same pre-commit parse gate (issue #2834): a broken
+      # seo-pages.ts must never be pushed straight to main unvalidated.
+      - name: Validate seo-pages.ts syntax (pre-commit parse gate)
+        run: node scripts/ci/check-seo-pages-syntax.mjs
+
       - name: Commit registered article files (test-gated) + push with rebase-retry
         id: commit
         run: |
