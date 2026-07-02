@@ -847,6 +847,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Frontalieri: Rechte, Kündigung, Entschädigung',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Informieren Sie sich über Rechte, Kündigungsfristen und Zulagen für Grenzarbeiter innerhalb von 20 km um die Grenze im Jahr 2026.',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Grenzarbeiter an der Grenze zwischen Italien und der Schweiz im Jahr 2026',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Vorruhestand für Grenzgänger: Auswirkungen auf AHV und 2. Säule',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Erfahren Sie, wie sich die Frühpensionierung auf das AHV und die zweite Säule für Grenzpendler auswirkt, die mehr als 20 km von der Grenze entfernt wohnen.',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaChDe;

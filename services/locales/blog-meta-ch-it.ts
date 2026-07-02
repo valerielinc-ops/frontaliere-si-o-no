@@ -847,6 +847,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Licenziamento frontalieri: diritti, preavviso e indennità entro 20 km',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Scopri i diritti, i termini di preavviso e le indennità per i lavoratori frontalieri entro 20 km dal confine nel 2026.',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Lavoratore frontaliero al confine Italia-Svizzera nel 2026',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Scopri come il pensionamento anticipato influenzerà l\'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine.',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;

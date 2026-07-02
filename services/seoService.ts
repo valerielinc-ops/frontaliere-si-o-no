@@ -4349,6 +4349,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-esposto-oil-discriminazioni': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-esposto-oil-discriminazioni', parent: 'blog' },
     'blog-frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km': { name: 'Licenziamento Frontalieri', path: '/articoli-svizzera/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km/', parent: 'blog' },
     'blog-blocco-ristorni-ticino-pd-reazione': { name: 'Blocco Ristorni', path: '/articoli-frontaliere/blocco-ristorni-ticino-pd-reazione', parent: 'blog' },
+    'blog-frontaliere-pensionamento-anticipato-2026-oltre-20km': { name: 'Pensionamento anticipato', path: '/articoli-svizzera/frontaliere-pensionamento-anticipato-2026-oltre-20km/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

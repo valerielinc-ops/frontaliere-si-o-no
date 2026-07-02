@@ -847,6 +847,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Cross-border dismissal: rights, notice and compensation within 20 km',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Find out about the rights, notice periods and allowances for cross-border workers within 20 km of the border in 2026.',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Frontalier worker at the Italy-Switzerland border in 2026',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Early retirement for border workers: impact on AVS and second pillar',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Find out how early retirement will affect the AHV and the second pillar for cross-border commuters who live more than 20 km from the border.',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaChEn;
