@@ -8197,6 +8197,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Cross-border rebates: Bern deplores the canton\'s stop but wants a solution',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'Swiss Federal Councillor Karin Keller-Sutter met with the Minister of Economy and Finance Giancarlo Giorgetti to discuss the suspension of rebates to Lombardy.',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Meeting between Swiss Federal Councillor Karin Keller-Sutter and Italian Minister of Economy and Finance Giancarlo Giorgetti in Rome.',
+    'blog.article.blocco-ristorni-ticino-lombardia.title': 'Blocking refreshments, tensions with Ticino',
+    'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'The blocking of rebates by the Canton of Ticino has generated controversy and reactions. Jonny Crosio, Deputy Federal Secretary of the Pact for the North party, criticizes the decision as arbitrary and paradoxical.',
+    'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'View of Bellinzona with Montebello Castle',
 };
 
 export default blogMetaEn;

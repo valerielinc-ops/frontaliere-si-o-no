@@ -8198,6 +8198,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Ristorni frontalieri: Berna deplora lo stop del cantone ma vuole una soluzione',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'La consigliera federale svizzera Karin Keller-Sutter ha incontrato il ministro dell’Economia e delle Finanze Giancarlo Giorgetti per discutere la sospensione dei ristorni alla Lombardia.',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Incontro tra la consigliera federale svizzera Karin Keller-Sutter e il ministro dell’Economia e delle Finanze Giancarlo Giorgetti a Roma.',
+    'blog.article.blocco-ristorni-ticino-lombardia.title': 'Blocco ristorni, tensioni con Ticino',
+    'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'Il blocco dei ristorni da parte del Canton Ticino ha generato polemiche e reazioni. Jonny Crosio, Vice Segretario Federale del partito Patto per il Nord, critica la decisione come arbitraria e paradossale.',
+    'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'Vista di Bellinzona con il Castello di Montebello',
 };
 
 export default blogMetaIt;
