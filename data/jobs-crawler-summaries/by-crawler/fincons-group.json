@@ -1,56 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-07-01T22:14:45.077Z",
-  "total": 9,
-  "newCount": 1,
+  "generatedAt": "2026-07-02T11:03:44.976Z",
+  "total": 8,
+  "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2609,
-  "avgDurationMs": 2609,
+  "durationMs": 1574,
+  "avgDurationMs": 1574,
   "durationHistory": [
-    2609
+    1574
   ],
-  "newJobs": [
-    {
-      "title": "Office Assistant (Finance Department Support)",
-      "slug": "office-assistant-finance-department-support-fincons-group-lugano-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/694lDk6XQb/Office-Assistant-Finance-Department-Support",
-      "applyUrl": "https://fincons.applytojob.com/apply/694lDk6XQb/Office-Assistant-Finance-Department-Support",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-01",
-      "validThrough": "2026-09-29",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260701134630_Y7EJFPEORRFIJLHQ",
-        "listingLocation": "Lugano, Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Angular Software Engineer",
@@ -397,6 +359,50 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Office Assistant (Finance Department Support)",
+      "slug": "office-assistant-finance-department-support-fincons-group-lugano-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/694lDk6XQb/Office-Assistant-Finance-Department-Support",
+      "applyUrl": "https://fincons.applytojob.com/apply/694lDk6XQb/Office-Assistant-Finance-Department-Support",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-09-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260701134630_Y7EJFPEORRFIJLHQ",
+        "listingLocation": "Lugano, Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-d9243e72e400",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-07-01T22:14:45.075Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
