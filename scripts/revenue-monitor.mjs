@@ -478,6 +478,11 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
 // Compact append-only summary written to the committed HISTORY_FILE. Mirrors
 // the shape of data/ai-visibility-history.jsonl: one JSON object per line,
 // enough to reconstruct a trend without needing the full (gitignored) report.
+//
+// NOTE: on a push race, scripts/lib/resolve-append-conflicts.sh resolves the
+// conflict by keeping both sides' lines rather than deduping by date — same
+// limitation as data/ai-visibility-history.jsonl. Worst case is a harmless
+// duplicate date line in the history; not worth a bespoke dedupe pass here.
 export function buildHistoryEntry(current, rows, dateStr) {
   const regressions = rows
     .filter((r) => r.verdict.startsWith('🔴') || r.verdict.startsWith('⚠️'))
