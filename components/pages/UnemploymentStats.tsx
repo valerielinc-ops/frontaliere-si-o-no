@@ -273,7 +273,7 @@ const UnemploymentStats: React.FC = () => {
  </h3>
  <div className="h-[320px] w-full">
  {trendData.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 1, height: 1 }}>
  <LineChart
  data={trendData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
@@ -323,7 +323,7 @@ const UnemploymentStats: React.FC = () => {
  </h3>
  <div className="h-[260px] w-full">
  {yearlyData.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 1, height: 1 }}>
  <BarChart
  data={yearlyData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}

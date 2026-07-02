@@ -300,7 +300,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  <div className="flex-1 flex flex-col items-center relative">
  <h4 className="text-xs font-bold uppercase text-muted mb-2">{t('chart.resident_ch')}</h4>
  <div className="w-full h-full relative">
- <ResponsiveContainer>
+ <ResponsiveContainer initialDimension={{ width: 1, height: 1 }}>
  <PieChart>
  <Pie data={pieDataCH} cx="50%" cy="50%" innerRadius={50} outerRadius={70} paddingAngle={2} dataKey="value">
  {pieDataCH.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} strokeWidth={0} />)}
@@ -317,7 +317,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  <div className="flex-1 flex flex-col items-center relative border-t md:border-t-0 md:border-l border-dashed border-edge pt-4 md:pt-0">
  <h4 className="text-xs font-bold uppercase text-muted mb-2">{t('chart.frontier_worker')}</h4>
  <div className="w-full h-full relative">
- <ResponsiveContainer>
+ <ResponsiveContainer initialDimension={{ width: 1, height: 1 }}>
  <PieChart>
  <Pie data={pieDataIT} cx="50%" cy="50%" innerRadius={50} outerRadius={70} paddingAngle={2} dataKey="value">
  {pieDataIT.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} strokeWidth={0} />)}

@@ -484,7 +484,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  </h3>
  <div className="h-[320px] w-full">
  {data.history.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 1, height: 1 }}>
  <ComposedChart
  data={data.history}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
