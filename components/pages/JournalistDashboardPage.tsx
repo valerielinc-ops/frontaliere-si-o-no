@@ -220,7 +220,17 @@ export default function JournalistDashboardPage(): React.ReactElement {
     setOpenArticle(article);
     const content = article.content.it;
     setTitle(content.title);
-    setBody(content.body);
+    // Backward-compat: pre-PR#3222 drafts stored {title, excerpt, body1, body2, body3, faq}
+    // instead of {title, body}. content.body is absent at runtime on those documents even though
+    // the type says string — reconstruct from old fields to prevent silent data loss on open+save.
+    const rawBody: string | undefined = content.body as string | undefined;
+    const legacy = content as Record<string, unknown>;
+    setBody(
+      rawBody ||
+        [legacy['excerpt'], legacy['body1'], legacy['body2'], legacy['body3']]
+          .filter((s): s is string => typeof s === 'string' && s.length > 0)
+          .join('\n\n'),
+    );
     setCategory(article.category);
     setImage(article.image);
     setImageAlt(article.imageAlt);
