@@ -820,6 +820,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.title': 'Pensione 2026: coordinamento AVS/INPS',
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.excerpt': 'Scopri come il coordinamento AVS/INPS e la totalizzazione influenzeranno la pensione dei frontalieri entro 20 km dal confine.',
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.title': 'Quanto costa vivere a Lugano da frontaliere?',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.excerpt': 'Analisi dettagliata dei costi reali per un frontaliere che valuta il trasferimento a Lugano.',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;

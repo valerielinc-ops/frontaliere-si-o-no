@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3053,
+ "numberOfItems": 3054,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7699,7 +7699,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3050, "name": "Strategie di cambio CHF-EUR per famiglie con fi...", "url": `${BASE_URL}/articoli-frontaliere/strategie-cambio-chf-eur-2026` },
           { "@type": "ListItem", "position": 3051, "name": "Frontaliere: documenti e primo giorno di lavoro...", "url": `${BASE_URL}/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino` },
           { "@type": "ListItem", "position": 3052, "name": "Tassa sulla salute e meno ristorni: l'obiettivo...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-ristorni-ticino` },
-          { "@type": "ListItem", "position": 3053, "name": "Pensione 2026: coordinamento AVS/INPS", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-entro-20km` }
+          { "@type": "ListItem", "position": 3053, "name": "Pensione 2026: coordinamento AVS/INPS", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-entro-20km` },
+          { "@type": "ListItem", "position": 3054, "name": "Quanto costa vivere a Lugano da frontaliere?", "url": `${BASE_URL}/articoli-frontaliere/quanto-costa-vivere-lugano-frontaliere` }
  ]
  },
  {

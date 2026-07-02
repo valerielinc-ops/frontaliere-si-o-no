@@ -820,6 +820,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.title': 'Pension 2026 : coordination AHV/INPS',
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.excerpt': 'Découvrez comment la coordination et l’agrégation AHV/INPS affecteront la retraite des travailleurs transfrontaliers situés dans un rayon de 20 km autour de la frontière.',
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.title': 'Combien coûte la vie à Lugano en tant que navetteur transfrontalier ?',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.excerpt': 'Analyse détaillée des coûts réels pour un navetteur transfrontalier en envisageant le transfert vers Lugano.',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaChFr;
