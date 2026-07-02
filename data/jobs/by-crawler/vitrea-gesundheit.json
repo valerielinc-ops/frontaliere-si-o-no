@@ -1,84 +1,7 @@
 {
   "crawlerKey": "vitrea-gesundheit",
-  "assembledAt": "2026-07-01T23:33:41.841Z",
+  "assembledAt": "2026-07-02T12:16:45.027Z",
   "jobs": [
-    {
-      "id": "vitrea-gesundheit-b6dd1cc722ba",
-      "slug": "dipl-assistenza-sanitaria-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-      "slugByLocale": {
-        "it": "dipl-assistenza-sanitaria-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "en": "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "de": "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "fr": "dipl-assistant-de-sante-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Dipl. Pflegefachperson HF (a) 80-100%",
-      "titleByLocale": {
-        "it": "Dipl. Assistenza Sanitaria HF (a) 80-100%",
-        "en": "Dipl. Nurse HF (a) 80-100 %",
-        "de": "Dipl. Pflegefachperson HF (a) 80-100%",
-        "fr": "Dipl. Assistant de Santé HF (a) 80-100%"
-      },
-      "description": "Dipl. Pflegefachperson HF (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seewis im Prättigau, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Seewis im Prättigau\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Descrizione Infermiera HF (a) 80-100% a Vitrea Health (ex VAMED Svizzera), Seewis im Prättigau, Svizzera. Orario di lavoro: tempo pieno Posizione: Seewis nel Prättigau Area: Servizi di riabilitazione e assistenza - Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
-        "en": "Descrizione Dipl. Nurse HF (a) 80-100% at Vitrea Health (formerly VAMED Switzerland), Seewis im Prättigau, Switzerland. Working time: full time Location: Seewis in the Prättigau Area: Rehabilitation and care services - Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
-        "de": "Dipl. Pflegefachperson HF (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seewis im Prättigau, Schweiz.\n• Arbeitszeit: Vollzeit\n• Standort: Seewis im Prättigau\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Descrizione Dipl. Infirmière HF (a) 80-100% à Vitrea Health (anciennement VAMED Suisse), Seewis im Prättigau, Suisse. Temps de travail: temps plein Lieu: Seewis dans le Prättigau Domaine: Services de réadaptation et de soins - Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Gesundheit"
-      },
-      "location": "Seewis im Prättigau",
-      "canton": "GR",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/xyg85mmxmjs0i0ag0tnrus09ij54fmn",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:39.328Z",
-      "addressLocality": "Seewis im Prättigau",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/xyg85mmxmjs0i0ag0tnrus09ij54fmn",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "dipl-auxiliaire-de-sante-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-          "dipl-assistenza-sanitaria-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-          "dipl-auxiliaire-de-sante-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
-        ]
-      },
-      "firstSeenAt": "2026-06-08T14:00:45.765Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "vitrea-gesundheit-8a5fd70a1c3b",
       "slug": "dipl-pflegefachperson-hf-20-100-per-das-parkinson-zentrum-la-neurorehabilitation-e-den-pflegepool-vitrea-gesundheit-tschugg",
@@ -111,7 +34,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fpk5ifrnwt03a95e8w5955lj5xxus1f",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:37.881Z",
+      "crawledAt": "2026-07-02T12:16:42.873Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -189,7 +112,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fm3pk0tcmcn1doy4ipmocp7trf3jcpo",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:36.407Z",
+      "crawledAt": "2026-07-02T12:16:41.634Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -267,7 +190,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/pop9fv4abvypxd7itthskh4tkoekmk7",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:35.360Z",
+      "crawledAt": "2026-07-02T12:16:40.382Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -345,7 +268,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ylv2yis7kx04l0kd4x39q8p5fmsr09b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:33.860Z",
+      "crawledAt": "2026-07-02T12:16:39.150Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -417,12 +340,13 @@
         "de": "Nachtwache Schlaflabor / Epileptologie 20-40% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n• Arbeitszeit: Teilzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
         "fr": "Night Watch Sleep Laboratory / Epileptology 20-40% à Vitrea Health (anciennement VAMED Suisse), Tschugg, Suisse.\n• Temps de travail: temps partiel\n• Lieu: Tschugg\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
       },
+      "needsRetranslation": true,
       "location": "Tschugg",
       "canton": "GR",
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/9z1e3ycaquag6fe26lu7puy0d4s8gc8",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:31.903Z",
+      "crawledAt": "2026-07-02T12:16:38.187Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -503,7 +427,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/h8qjo1txifk5d7git4xyw6l7qc0jgsl",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:29.971Z",
+      "crawledAt": "2026-07-02T12:16:36.900Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -582,7 +506,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/4jy5ehqpnw3o4s3r8fbjl38v3bkk351",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:28.495Z",
+      "crawledAt": "2026-07-02T12:16:35.132Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -660,7 +584,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/op1qimdk92leupri5lcsn275buoanxl",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:26.575Z",
+      "crawledAt": "2026-07-02T12:16:34.208Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -721,7 +645,7 @@
       "title": "Dipl. Pflegefachperson (a) HF/FH 40-100%",
       "titleByLocale": {
         "it": "Infermiera (a) HF/FH 40-100 %",
-        "en": "Dipl. Nurse (a) HF/FH 40-100 %",
+        "en": "Dipl. Pflegefachperson (a) HF/FH 40-100%",
         "de": "Dipl. Pflegefachperson (a) HF/FH 40-100%",
         "fr": "Infirmière diplômée a) HF/FH 40-100 %"
       },
@@ -732,12 +656,13 @@
         "de": "Dipl. Pflegefachperson (a) HF/FH 40-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
         "fr": "Dipl. Infirmière (a) HF/FH 40-100% à Vitrea Gesundheit (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n• Heures de travail: temps partiel / temps plein\n• Lieu: Zihlschlacht-Sitterdorf\n• Domaine : Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
       },
+      "needsRetranslation": true,
       "location": "Zihlschlacht-Sitterdorf",
       "canton": "GR",
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/0pwg2psl3lrxu0m6nbejbysqxw5m5qj",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T23:33:24.632Z",
+      "crawledAt": "2026-07-02T12:16:32.656Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -780,6 +705,158 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "vitrea-gesundheit-ce2b2b049b4a",
+      "slug": "collaboratore-trice-in-empfang-40-80-vitrea-gesundheit-tschugg",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-empfang-40-80-vitrea-gesundheit-tschugg",
+        "it": "collaboratore-trice-in-empfang-40-80-vitrea-gesundheit-tschugg",
+        "en": "mitarbeiter-in-empfang-40-80-vitrea-gesundheit-tschugg",
+        "fr": "mitarbeiter-in-empfang-40-80-vitrea-gesundheit-tschugg"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Mitarbeiter/-in Empfang 40-80%",
+      "titleByLocale": {
+        "de": "Mitarbeiter/-in Empfang 40-80%",
+        "it": "Collaboratore/trice/-in Empfang 40-80%",
+        "en": "Mitarbeiter/-in Empfang 40-80%",
+        "fr": "Mitarbeiter/-in Empfang 40-80%"
+      },
+      "description": "Mitarbeiter/-in Empfang 40-80% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "Mitarbeiter/-in Empfang 40-80% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "Mitarbeiter/-in Empfang 40-80% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Mitarbeiter/-in Empfang 40-80% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Mitarbeiter/-in Empfang 40-80% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Tschugg",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/sdy5pv23b83euk7rgnyj59fpa6cmqod",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-02T12:16:31.057Z",
+      "addressLocality": "Tschugg",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/sdy5pv23b83euk7rgnyj59fpa6cmqod",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-empfang-40-80-vitrea-gesundheit-tschugg"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-empfang-40-80-vitrea-gesundheit-tschugg"
+      ],
+      "salaryMin": 46000,
+      "salaryMax": 69600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46000,
+          "maxValue": 69600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-02T12:16:31.057Z"
+    },
+    {
+      "id": "vitrea-gesundheit-b6dd1cc722ba",
+      "slug": "dipl-assistenza-sanitaria-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+      "slugByLocale": {
+        "it": "dipl-assistenza-sanitaria-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "en": "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "de": "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "fr": "dipl-assistant-de-sante-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Dipl. Pflegefachperson HF (a) 80-100%",
+      "titleByLocale": {
+        "it": "Dipl. Assistenza Sanitaria HF (a) 80-100%",
+        "en": "Dipl. Pflegefachperson HF (a) 80-100%",
+        "de": "Dipl. Pflegefachperson HF (a) 80-100%",
+        "fr": "Dipl. Assistant de Santé HF (a) 80-100%"
+      },
+      "description": "Dipl. Pflegefachperson HF (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seewis im Prättigau, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Seewis im Prättigau\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "it": "Descrizione Infermiera HF (a) 80-100% a Vitrea Health (ex VAMED Svizzera), Seewis im Prättigau, Svizzera. Orario di lavoro: tempo pieno Posizione: Seewis nel Prättigau Area: Servizi di riabilitazione e assistenza - Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
+        "en": "Descrizione Dipl. Nurse HF (a) 80-100% at Vitrea Health (formerly VAMED Switzerland), Seewis im Prättigau, Switzerland. Working time: full time Location: Seewis in the Prättigau Area: Rehabilitation and care services - Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
+        "de": "Dipl. Pflegefachperson HF (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seewis im Prättigau, Schweiz.\n• Arbeitszeit: Vollzeit\n• Standort: Seewis im Prättigau\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Descrizione Dipl. Infirmière HF (a) 80-100% à Vitrea Health (anciennement VAMED Suisse), Seewis im Prättigau, Suisse. Temps de travail: temps plein Lieu: Seewis dans le Prättigau Domaine: Services de réadaptation et de soins - Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Gesundheit"
+      },
+      "location": "Seewis im Prättigau",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/xyg85mmxmjs0i0ag0tnrus09ij54fmn",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-01T23:33:39.328Z",
+      "addressLocality": "Seewis im Prättigau",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/xyg85mmxmjs0i0ag0tnrus09ij54fmn",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "dipl-auxiliaire-de-sante-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+          "dipl-assistenza-sanitaria-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+          "dipl-auxiliaire-de-sante-hf-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+        ]
+      },
+      "firstSeenAt": "2026-06-08T14:00:45.765Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
