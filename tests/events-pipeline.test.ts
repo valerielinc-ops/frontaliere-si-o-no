@@ -6,11 +6,11 @@
  * data/events.json to main, so a malformed agenda parse can never poison the
  * dataset / turn main red (AGENTS.md: data-refresh = same gate as a PR).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { parseDayHtml } from '../scripts/crawl-tio-agenda.mjs';
+import { parseDayHtml, warnIfLowConfidenceComuneShare } from '../scripts/crawl-tio-agenda.mjs';
 import {
   resolveComune,
   slugifyComune,
@@ -100,6 +100,43 @@ describe('events-utils helpers', () => {
   it('resolveComune: longer comune name wins over a shorter substring', () => {
     // "Riva San Vitale" must win over "Riviera" for a Riva San Vitale venue.
     expect(resolveComune({ venue: 'Centro Riva San Vitale', title: '', region: '' }).comune).toBe('Riva San Vitale');
+  });
+
+  it('resolveComune: ambiguous multi-candidate match still resolves (longest wins) but warns (#3036 item 4)', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // Venue text names two comuni — the card parses fine but which one it
+    // "belongs to" is genuinely uncertain; must not fail silently.
+    const r = resolveComune({ venue: 'Tour itinerante Lugano e Bellinzona', title: '', region: '' });
+    expect(r).toEqual({ comune: 'Bellinzona', method: 'exact' });
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy.mock.calls[0][0]).toMatch(/uncertain match/);
+    expect(warnSpy.mock.calls[0][0]).toMatch(/Lugano/);
+    warnSpy.mockRestore();
+  });
+
+  it('resolveComune: unambiguous match does not warn', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    resolveComune({ venue: 'Palazzo dei Congressi Lugano', title: '', region: '' });
+    expect(warnSpy).not.toHaveBeenCalled();
+    warnSpy.mockRestore();
+  });
+
+  it('warnIfLowConfidenceComuneShare: warns when region fallback dominates a large-enough sample (#3036 item 4)', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(warnIfLowConfidenceComuneShare({ exact: 3, region: 12 }, 15)).toBe(true);
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy.mock.calls[0][0]).toMatch(/low-confidence comune attribution/);
+    warnSpy.mockRestore();
+  });
+
+  it('warnIfLowConfidenceComuneShare: stays silent below the sample floor or the ratio threshold', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // High ratio but too few resolved events to be meaningful.
+    expect(warnIfLowConfidenceComuneShare({ exact: 0, region: 5 }, 5)).toBe(false);
+    // Enough sample, but region share below the warn threshold.
+    expect(warnIfLowConfidenceComuneShare({ exact: 8, region: 4 }, 12)).toBe(false);
+    expect(warnSpy).not.toHaveBeenCalled();
+    warnSpy.mockRestore();
   });
 
   it('slugifyComune is ascii, lowercase, hyphenated', () => {

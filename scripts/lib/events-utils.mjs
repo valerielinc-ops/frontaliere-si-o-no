@@ -231,14 +231,62 @@ export function loadCantonComuni(canton = EVENTS_CANTON) {
   return list;
 }
 
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Scan `haystack` for every entry in `ranked` (already longest-name-first)
+ * whose name appears as a whole word/token. Shared by `resolveComune` and
+ * `resolveComuneNationwide` so the word-boundary regex and the "which
+ * candidate wins" rule can't drift between the canton-scoped and nationwide
+ * matchers (AGENTS.md §6 — one construct, one place).
+ *
+ * Returns ALL matches, not just the winner: callers use `hits[0]` as the
+ * chosen comune (existing longest-wins behavior) and `hits.length > 1` to
+ * detect an ambiguous card (the venue/title text names more than one comune).
+ */
+function matchComuneNames(haystack, ranked, nameOf = (entry) => entry) {
+  const hits = [];
+  for (const entry of ranked) {
+    const norm = normalizeText(nameOf(entry));
+    if (!norm) continue;
+    const re = new RegExp(`(^|[^a-z0-9])${escapeRegExp(norm)}([^a-z0-9]|$)`);
+    if (re.test(haystack)) hits.push(entry);
+  }
+  return hits;
+}
+
+/**
+ * Log an "uncertain match" warning when a card's venue/title text names more
+ * than one comune (ambiguous — item 4 of issue #3036: a card that parses fine
+ * but could plausibly be assigned the wrong comune). Caps the listed
+ * candidates so a pathological card can't flood the log.
+ */
+function warnIfAmbiguousComuneMatch({ venue, title }, hits, nameOf = (entry) => entry) {
+  if (hits.length <= 1) return;
+  const chosen = nameOf(hits[0]);
+  const others = hits.slice(1, 4).map(nameOf);
+  console.warn(
+    `[events] resolveComune: uncertain match — chose "${chosen}" over ${others.length} other ` +
+      `candidate(s) [${others.join(', ')}] for venue="${venue || ''}" title="${title || ''}"`,
+  );
+}
+
 /**
  * Resolve an event to a canonical comune name.
  *
  * Strategy (highest confidence first):
  *   1. exact — a comune name token appears as a word in `venue`/`title`
- *      (e.g. "Teatro Sociale Bellinzona" → Bellinzona).
+ *      (e.g. "Teatro Sociale Bellinzona" → Bellinzona). If more than one
+ *      comune name matches (ambiguous card), the longest name still wins but
+ *      a warning is logged so the case is observable/countable, not silent.
  *   2. region — the tio.ch region adjective maps to a main comune
- *      (e.g. region "Luganese" → Lugano).
+ *      (e.g. region "Luganese" → Lugano). Lower confidence: the venue/title
+ *      text never named a specific comune, so events genuinely local to a
+ *      smaller comune in the region get attributed to the region's main
+ *      comune instead. The crawler entrypoint aggregates this method's share
+ *      across a run and warns when it dominates (see crawl-tio-agenda.mjs).
  *   3. null — no confident attribution (event shown on the canton hub only).
  *
  * Returns `{ comune, method }` where method is 'exact' | 'region' | null.
@@ -247,12 +295,10 @@ export function resolveComune({ venue, title, region }, comuni = loadCantonComun
   const haystack = `${normalizeText(venue)} ${normalizeText(title)}`;
   // Longest names first so "Riva San Vitale" wins over "Riviera".
   const ranked = [...comuni].sort((a, b) => b.length - a.length);
-  for (const name of ranked) {
-    const norm = normalizeText(name);
-    if (!norm) continue;
-    // Word-boundary match on the normalized comune token.
-    const re = new RegExp(`(^|[^a-z0-9])${escapeRegExp(norm)}([^a-z0-9]|$)`);
-    if (re.test(haystack)) return { comune: name, method: 'exact' };
+  const hits = matchComuneNames(haystack, ranked);
+  if (hits.length) {
+    warnIfAmbiguousComuneMatch({ venue, title }, hits);
+    return { comune: hits[0], method: 'exact' };
   }
   const regionKey = normalizeText(region);
   if (regionKey && REGION_TO_COMUNE[regionKey]) {
@@ -260,10 +306,6 @@ export function resolveComune({ venue, title, region }, comuni = loadCantonComun
     if (comuni.includes(mapped)) return { comune: mapped, method: 'region' };
   }
   return { comune: null, method: null };
-}
-
-function escapeRegExp(s) {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 // ── Nationwide comuni (all 26 cantons) ────────────────────────
@@ -322,11 +364,11 @@ export function resolveComuneNationwide({ venue, title, region }, cantonHint) {
 
   const haystack = `${normalizeText(venue)} ${normalizeText(title)}`;
   const ranked = [...loadAllComuni()].sort((a, b) => b.name.length - a.name.length);
-  for (const { name, canton } of ranked) {
-    const norm = normalizeText(name);
-    if (!norm) continue;
-    const re = new RegExp(`(^|[^a-z0-9])${escapeRegExp(norm)}([^a-z0-9]|$)`);
-    if (re.test(haystack)) return { comune: name, canton, method: 'exact-nationwide' };
+  const hits = matchComuneNames(haystack, ranked, (entry) => entry.name);
+  if (hits.length) {
+    warnIfAmbiguousComuneMatch({ venue, title }, hits, (entry) => entry.name);
+    const winner = hits[0];
+    return { comune: winner.name, canton: winner.canton, method: 'exact-nationwide' };
   }
 
   if (!hint || hint === 'TI') {

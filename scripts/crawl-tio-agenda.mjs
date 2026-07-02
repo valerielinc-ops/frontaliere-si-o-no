@@ -125,6 +125,34 @@ export function parseDayHtml(html, compact) {
   return events;
 }
 
+// Thresholds for the low-confidence comune-attribution warning below.
+const REGION_FALLBACK_WARN_RATIO = 0.5;
+const REGION_FALLBACK_MIN_SAMPLE = 10;
+
+/**
+ * Warn when the 'region' resolveComune() path (lower confidence — the
+ * venue/title text never named a specific comune, so the event is
+ * attributed to the region's main comune instead) dominates a run's
+ * resolved events (issue #3036 item 4). This doesn't break anything
+ * visibly, but it silently concentrates per-comune SEO content on a few
+ * main comuni, so a dominant share is worth surfacing — countable
+ * run-over-run instead of buried in the plain summary log line above.
+ * Skipped below `REGION_FALLBACK_MIN_SAMPLE` so a small/fixture run can't
+ * false-positive on ratio alone.
+ */
+export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
+  if (resolved < REGION_FALLBACK_MIN_SAMPLE) return false;
+  const regionShare = (byMethod.region || 0) / resolved;
+  if (regionShare <= REGION_FALLBACK_WARN_RATIO) return false;
+  console.warn(
+    `[tio-agenda] low-confidence comune attribution: ${byMethod.region || 0}/${resolved} ` +
+      `(${Math.round(regionShare * 100)}%) resolved via region fallback, not an exact venue/` +
+      `title match — per-comune SEO pages may over-concentrate on each region's main comune; ` +
+      `see resolveComune() jsdoc in scripts/lib/events-utils.mjs`,
+  );
+  return true;
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
@@ -172,6 +200,8 @@ async function main() {
       `(${pagesOk} pages ok, ${pagesFail} failed) — comune resolved ${resolved}/${events.length} ` +
       `(exact ${byMethod.exact || 0}, region ${byMethod.region || 0}, none ${byMethod.none || 0})`,
   );
+
+  warnIfLowConfidenceComuneShare(byMethod, resolved);
 
   if (dryRun) {
     console.log('🏃 dry-run — slice not written');
