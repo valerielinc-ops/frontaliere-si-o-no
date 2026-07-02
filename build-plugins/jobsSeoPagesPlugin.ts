@@ -9900,7 +9900,7 @@ ${staticAnalyticsHtml}
  // en → '/en/find-jobs-ticino/', de → '/de/jobs-im-tessin/',
  // fr → '/fr/trouver-emploi-tessin/' — four distinct literal prefixes, one
  // per locale (en/de/fr each carry the `/${locale}/` segment; it's prefix
- // is the IT-only literal 'cerca-lavoro-ticino'). None is a prefix of any
+ // is the IT-only literal 'cerca-lavoro-ticino'). None is a prefix of any // cathedral-allow: documentation comment describing existing COMPAT_JOB_PATTERNS prefix, not a new hardcode
  // other (they diverge at the first character after the leading '/'), so
  // no slug can make two different-locale prefixes concatenate to the same
  // compatPath either. `compatPath` alone is therefore unambiguous today —
