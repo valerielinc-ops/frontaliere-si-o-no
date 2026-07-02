@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-07-01T22:02:34.351Z",
+  "generatedAt": "2026-07-02T10:50:43.311Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7541,
-  "avgDurationMs": 7541,
+  "durationMs": 7413,
+  "avgDurationMs": 7413,
   "durationHistory": [
-    7541
+    7413
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135076878-aide-soignant-e-bloc-operatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-01T22:02:31.022Z",
+      "crawledAt": "2026-07-02T10:50:39.934Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000126682308-apprenti-e-technologue-en-dispositif-medicaux",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-01T22:02:32.027Z",
+      "crawledAt": "2026-07-02T10:50:41.034Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -91,46 +91,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-generale-beaulieu-666b139ade89",
-      "slug": "radiologia-medica-nucleare-technician-clinique-generale-beaulieu-geneve",
-      "company": "Clinique Générale-Beaulieu",
-      "companyKey": "clinique-generale-beaulieu",
-      "companyDomain": "swissmedical.net",
-      "title": "Technicien(ne) en radiologie médicale en médecine nucléaire",
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133644019-technicien-ne-en-radiologie-medicale-en-medecine-nucleaire",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133644019-technicien-ne-en-radiologie-medicale-en-medecine-nucleaire",
-      "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-01T11:26:14.080Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1206",
-      "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "datePosted": "2026-06-23",
-      "firstSeenAt": "2026-06-23T22:06:22.104Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
