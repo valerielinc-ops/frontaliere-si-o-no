@@ -26065,6 +26065,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'grigioni-frontalieri-italiani-1-6-milioni',
+ category: 'novita',
+ date: '2026-07-02T14:02:01.208Z',
+ image: '/images/blog/grigioni-frontalieri-italiani-1-6-milioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

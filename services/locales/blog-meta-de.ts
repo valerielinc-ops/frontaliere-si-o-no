@@ -8226,6 +8226,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Tessin blockiert 50,2 Mio. Rückerstattungen an Lombardei',
     'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'Der Kanton Tessin behält 50,2 Millionen Francs, die für die Lombardei bestimmt sind. Rom und Bern suchen nach einer diplomatischen Lösung.',
     'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Luftaufnahme des Luganer Sees bei Sonnenuntergang mit der Stadt Lugano im Hintergrund',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Graubünden: 1,6 Millionen von 1.479 neuen italienischen Grenzpendlern',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'Der Kanton Graubünden verzeichnete einen deutlichen Anstieg der italienischen Grenzpendler mit einem wirtschaftlichen Beitrag von 1,6 Millionen.',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Grigioni Landschaft mit italienischen Grenzgängern, die zur Grenze gehen',
 };
 
 export default blogMetaDe;

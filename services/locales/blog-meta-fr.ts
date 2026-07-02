@@ -8228,6 +8228,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Le Tessin bloque 50,2 millions de remises à la Lombardie : tensions et dialogue',
     'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'Le canton du Tessin conserve 50,2 millions de francs destinés à la Lombardie. Rome et Berne cherchent une solution diplomatique.',
     'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Vue aérienne du lac de Lugano au coucher du soleil avec la ville de Lugano en arrière-plan',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Grisons : 1,6 million sur 1 479 nouveaux navetteurs italiens transfrontaliers',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'Le canton des Grisons a enregistré une augmentation significative du nombre de navetteurs italiens transfrontaliers, avec une contribution économique de 1,6 million.',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Paysage des Grisons avec des travailleurs transfrontaliers italiens marchant vers la frontière',
 };
 
 export default blogMetaFr;
