@@ -12,11 +12,83 @@ import { ALL_BLOG_ARTICLE_IDS, BLOG_SLUGS } from '@/services/routerBlogData';
 import { ARTICLES } from '@/data/blog-articles-data';
 import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
 import { SWISS_ARTICLES } from '@/data/swiss-articles-data';
+import { ARTICLE_SECTIONS, type ArticleSection } from '@/services/articleSections';
 
 const root = resolve(__dirname, '..');
 
 function readProjectFile(p: string): string {
   return readFileSync(resolve(root, p), 'utf-8');
+}
+
+// ── Hreflang alternate integrity helpers ─────────────────────────────────────
+//
+// The IT-<loc>-only checks below (both Blog and Swiss blocks) are blind to a
+// stale/cross-registry EN/DE/FR `<xhtml:link hreflang>` alternate — the exact
+// #3116/#3120 bug class, just on the non-IT locales. These helpers mirror the
+// IT <loc> validation logic per locale, deriving the URL path segments from
+// the canonical `services/articleSections.ts` registry (not a copy-pasted
+// literal) so the two sections can't drift apart (#3304, follow-up of #3292).
+
+const ALT_LOCALES = ['en', 'de', 'fr'] as const;
+type AltLocale = typeof ALT_LOCALES[number];
+
+function hreflangBase(section: ArticleSection, locale: AltLocale): string {
+  return `https://frontaliereticino.ch/${locale}/${ARTICLE_SECTIONS[section].indexSlug[locale]}/`;
+}
+
+function extractHreflangSlugs(xml: string, section: ArticleSection, locale: AltLocale): string[] {
+  const base = hreflangBase(section, locale);
+  const escapedBase = base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(`hreflang="${locale}"\\s+href="${escapedBase}([^/"]+)/"`, 'g');
+  return [...xml.matchAll(pattern)].map(m => m[1]);
+}
+
+// Registers, for each of EN/DE/FR, the same two-directional checks already
+// applied to the IT <loc>: (1) every hreflang alternate present in the
+// sitemap must resolve to a real article slug (catches stale/dead
+// alternates), and (2) every article's locale slug must have a matching
+// hreflang alternate in the sitemap (catches missing ones).
+function registerHreflangIntegrityChecks(opts: {
+  section: ArticleSection;
+  sitemapLabel: string;
+  sitemapXml: string;
+  articleIds: readonly string[];
+  slugs: Record<string, Record<string, string>>;
+}): void {
+  const { section, sitemapLabel, sitemapXml, articleIds, slugs } = opts;
+
+  for (const locale of ALT_LOCALES) {
+    const hreflangSlugs = extractHreflangSlugs(sitemapXml, section, locale);
+    const localeSlugToArticleId = new Map<string, string>();
+    for (const id of articleIds) {
+      const slug = slugs[id]?.[locale];
+      if (slug) localeSlugToArticleId.set(slug, id);
+    }
+
+    describe(`every ${sitemapLabel} ${locale} hreflang alternate maps to a real article`, () => {
+      for (const slug of hreflangSlugs) {
+        it(`[${locale}] slug "${slug}" → has article ID`, () => {
+          expect(
+            localeSlugToArticleId.has(slug),
+            `${sitemapLabel} hreflang[${locale}] references ${hreflangBase(section, locale)}${slug}/ but no slug map entry has this ${locale} slug`
+          ).toBe(true);
+        });
+      }
+    });
+
+    describe(`every article has a ${locale} hreflang alternate in ${sitemapLabel}`, () => {
+      for (const id of articleIds) {
+        it(`article "${id}" → has ${locale} slug present as hreflang in ${sitemapLabel}`, () => {
+          const slug = slugs[id]?.[locale];
+          expect(slug, `Article "${id}" has no ${locale} slug`).toBeTruthy();
+          expect(
+            hreflangSlugs.includes(slug!),
+            `Article "${id}" (${locale} slug: ${slug}) is missing its hreflang alternate from ${sitemapLabel}`
+          ).toBe(true);
+        });
+      }
+    });
+  }
 }
 
 // ── Data sources ─────────────────────────────────────────────────────────────
@@ -100,6 +172,16 @@ describe('Blog sitemap slug integrity', () => {
         }
       });
     }
+  });
+});
+
+describe('Blog sitemap hreflang alternate integrity (EN/DE/FR)', () => {
+  registerHreflangIntegrityChecks({
+    section: 'frontaliere',
+    sitemapLabel: 'sitemap-blog.xml',
+    sitemapXml: blogSitemap,
+    articleIds: ALL_BLOG_ARTICLE_IDS,
+    slugs: BLOG_SLUGS,
   });
 });
 
@@ -198,6 +280,16 @@ describe('Swiss article sitemap slug integrity', () => {
         }
       });
     }
+  });
+});
+
+describe('Swiss article sitemap hreflang alternate integrity (EN/DE/FR)', () => {
+  registerHreflangIntegrityChecks({
+    section: 'svizzera',
+    sitemapLabel: 'sitemap-blog-ch.xml',
+    sitemapXml: swissSitemap,
+    articleIds: ALL_SWISS_ARTICLE_IDS,
+    slugs: SWISS_SLUGS,
   });
 });
 
