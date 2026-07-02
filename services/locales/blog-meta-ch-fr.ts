@@ -841,6 +841,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nascita-figlio-frontaliere-2026.title': 'Naissance 2026 : Checklist pour frontalier',
     'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Guide complet pour les familles transfrontalières sur la naissance d’un enfant en Suisse en 2026 : état civil, allocations familiales et procédures consulaires.',
     'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Famille frontalier avec nouveau-né en Suisse',
+    'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Licenciement frontalier 2026 : conditions et droits',
+    'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Découvrez les droits des travailleurs frontaliers en cas de licenciement en 2026, avec les délais de préavis et indemnités prévus.',
+    'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Travailleur frontalier à la frontière Suisse-Italie',
 };
 
 export default blogMetaChFr;

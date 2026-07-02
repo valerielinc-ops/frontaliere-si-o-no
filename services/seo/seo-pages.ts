@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3064,
+ "numberOfItems": 3065,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7710,7 +7710,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3061, "name": "Assicurazione infortuni LAINF 2026: copertura e...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-infortuni-lainf-frontalieri-2026` },
           { "@type": "ListItem", "position": 3062, "name": "Blocco ristorni, tensioni con Ticino", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-lombardia` },
           { "@type": "ListItem", "position": 3063, "name": "Nascita 2026: Checklist per frontaliere", "url": `${BASE_URL}/articoli-frontaliere/nascita-figlio-frontaliere-2026` },
-          { "@type": "ListItem", "position": 3064, "name": "Ristorni frontalieri bloccati: Reina (Iv Varese...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-reina` }
+          { "@type": "ListItem", "position": 3064, "name": "Ristorni frontalieri bloccati: Reina (Iv Varese...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-reina` },
+          { "@type": "ListItem", "position": 3065, "name": "Licenziamento frontalieri 2026: termini e diritti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-diritti-2026` }
  ]
  },
  {

@@ -841,6 +841,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nascita-figlio-frontaliere-2026.title': 'Geburt 2026: Checkliste für grenzüberschreitende Pendler',
     'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Vollständiger Leitfaden für Grenzfamilien zur Geburt eines Kindes in der Schweiz im Jahr 2026: Meldeamt, Familienzulagen und konsularische Angelegenheiten.',
     'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Frontalierfamilie mit Neugeborenem in der Schweiz',
+    'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Entlassung Grenzgänger 2026: Fristen und Rechte',
+    'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Informieren Sie sich über die Rechte von Grenzgängern im Falle einer Entlassung im Jahr 2026, mit Kündigungsfristen und Entschädigungen.',
+    'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Grenzarbeiter an der Grenze zwischen der Schweiz und Italien',
 };
 
 export default blogMetaChDe;

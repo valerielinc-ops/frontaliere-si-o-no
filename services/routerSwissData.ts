@@ -303,6 +303,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-cambio-datore-lavoro-procedura-permesso-2026': { it: 'frontaliere-cambio-datore-lavoro-procedura-permesso-2026', en: 'frontier-worker-job-change-procedure-permit-2026', de: 'grenzgaenger-arbeitsplatzwechsel-verfahren-genehmigung-2026', fr: 'travailleur-frontalier-changement-demployeur-procedure-permis-2026' },
  'assicurazione-infortuni-lainf-frontalieri-2026': { it: 'assicurazione-infortuni-lainf-frontalieri-2026', en: 'work-injury-insurance-lainf-cross-border-workers-2026', de: 'unfallversicherung-lainf-grenzgaenger-2026', fr: 'assurance-accidents-lainf-frontaliers-2026' },
  'nascita-figlio-frontaliere-2026': { it: 'nascita-figlio-frontaliere-2026', en: 'birth-child-frontalier-2026', de: 'geburt-kind-frontalier-2026', fr: 'naissance-enfant-frontalier-2026' },
+ 'frontaliere-licenziamento-diritti-2026': { it: 'frontaliere-licenziamento-diritti-2026', en: 'frontalier-termination-rights-2026', de: 'grenzgaenger-kuendigung-rechte-2026', fr: 'frontalier-licenciement-droits-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -841,6 +841,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nascita-figlio-frontaliere-2026.title': 'Birth 2026: Checklist for cross-border commuters',
     'blog.article.nascita-figlio-frontaliere-2026.excerpt': 'Complete guide for border families on the birth of a child in Switzerland in 2026: personal registration, family allowances and consular practices.',
     'blog.article.nascita-figlio-frontaliere-2026.imageAlt': 'Frontalier family with newborn in Switzerland',
+    'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Cross-border dismissal 2026: terms and rights',
+    'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Discover the rights of frontier workers in the event of dismissal in 2026, with notice and compensation terms provided.',
+    'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Frontalier worker at the Switzerland-Italy border',
 };
 
 export default blogMetaChEn;
