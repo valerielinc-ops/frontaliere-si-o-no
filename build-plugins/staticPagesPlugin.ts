@@ -4359,7 +4359,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localizedBody = articleId
  ? blogBodyByLocale[localeKey as 'it' | 'en' | 'de' | 'fr'][articleId] ?? blogBodyByLocale.it[articleId]
  : undefined;
- const blogBodySections = cleanupArticleBodySections([localizedBody?.body1, localizedBody?.body2, localizedBody?.body3]);
+ const blogBodySections = cleanupArticleBodySections([
+ { key: 'body1', text: localizedBody?.body1 },
+ { key: 'body2', text: localizedBody?.body2 },
+ { key: 'body3', text: localizedBody?.body3 },
+ ]);
  const blogFallbackSections = buildArticleSeoSections(
  localeKey as 'it' | 'en' | 'de' | 'fr',
  seoData.ogT,
@@ -4368,10 +4372,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  );
  // blogBodySections are already-rendered HTML (headings/lists/links) from cleanupArticleBodySections;
  // blogFallbackSections carry plain prose paragraphs that still need escaping + <p> wrapping.
- const bodyWordCount = blogBodySections.join(' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
- const blogBodyDerivedSections = blogBodySections.map((bodyHtml, index) => ({
- heading: bodyHeadingByLocale[localeKey][index] ?? bodyHeadingByLocale[localeKey][2],
- html: bodyHtml,
+ const bodyWordCount = blogBodySections.map((s) => s.html).join(' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+ // Pair each rendered body with its heading by stable key (not post-filter array
+ // index) — an empty body2 must not shift body3's html onto body2's heading.
+ const bodyKeyHeadingIndex: Record<string, number> = { body1: 0, body2: 1, body3: 2 };
+ const blogBodyDerivedSections = blogBodySections.map(({ key, html }) => ({
+ heading: bodyHeadingByLocale[localeKey][bodyKeyHeadingIndex[key] ?? 2] ?? bodyHeadingByLocale[localeKey][2],
+ html,
  }));
  const blogFallbackDerivedSections = blogFallbackSections.map((section) => ({
  heading: section.heading,
