@@ -1,18 +1,132 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-01T22:15:35.090Z",
-  "total": 37,
-  "newCount": 0,
+  "generatedAt": "2026-07-02T11:05:02.159Z",
+  "total": 38,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 35,
-  "durationMs": 25331,
-  "avgDurationMs": 25331,
+  "durationMs": 22743,
+  "avgDurationMs": 22743,
   "durationHistory": [
-    25331
+    22743
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6326",
+      "slug": "cash-reconciliation-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Cash Reconciliation Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6326",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span>",
+              "<span>Monitor, check, and investigate cash differences on a daily basis</span>",
+              "<span>Communicate effectively in English, both orally and in writing</span>"
+            ],
+            "responsibilities": [
+              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
+              "<span>Manually input statements from correspondents not automatically reconciled</span>",
+              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
+              "<span>Establish and maintain a list of pending cash amounts</span>",
+              "<span>Manage treatment and follow-up of current files</span>",
+              "<span>Claim and recover missing statements from counterparties</span>",
+              "<span>Investigation on Customer Wires</span>",
+              "<span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span>",
+              "<span>Understand the roles of each counterparty involved in wire payments</span>",
+              "<span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span>",
+              "<span>Take responsibility for managing investigations from start to finish</span>",
+              "<span>Apply familiarity with compliance requirements throughout investigations</span>",
+              "<p><span>Communicate effectively in English, both orally and in writing</span></p><p> </p>"
+            ],
+            "requirements": [
+              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
+              "<span>General understanding of Back-Office operations within banking </span>",
+              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
+              "<span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span>",
+              "<span>Proficient in MS Office suite </span>",
+              "<span>Solution-oriented, pragmatic, and precise </span>",
+              "<span>Strong team player, comfortable working in open space environments </span>",
+              "<span>Resilient under pressure, flexible, and adaptable </span>",
+              "<span>Proactive with excellent attention to detail</span>"
+            ],
+            "benefits": [
+              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
+              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>",
+              "<span>Passionate: Being committed and striving for excellence</span>",
+              "<span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span>",
+              "<span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span>"
+            ],
+            "process": [
+              "<span>Should you wish to apply for this position use this link to apply.</span>"
+            ],
+            "highlights": [
+              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
+              "<span>Manually input statements from correspondents not automatically reconciled</span>",
+              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
+              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
+              "<span>General understanding of Back-Office operations within banking </span>",
+              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
+              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
+              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>"
+            ],
+            "keywords": [
+              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
+              "<span>General understanding of Back-Office operations within banking </span>",
+              "<span>French mother tongue and fluent English (spoken and written)",
+              "<span>Knowledge of GTMatch",
+              "<span>Proficient in MS Office suite </span>",
+              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
+              "<span>Manually input statements from correspondents not automatically reconciled</span>",
+              "<p><span>Monitor",
+              "<span>Establish and maintain a list of pending cash amounts</span>"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<span><strong>Our Purpose and Mission</strong></span>",
+                  "<span>Empowering entrepreneurial minds to create value – today and for the future.</span>",
+                  "<span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-02T11:04:59.203Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-07-02",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "efg-6056",
@@ -216,7 +330,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.189Z",
+      "crawledAt": "2026-07-02T11:04:59.230Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -309,7 +423,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.188Z",
+      "crawledAt": "2026-07-02T11:04:59.228Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -363,7 +477,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.187Z",
+      "crawledAt": "2026-07-02T11:04:59.227Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -418,7 +532,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.185Z",
+      "crawledAt": "2026-07-02T11:04:59.226Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -472,7 +586,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.184Z",
+      "crawledAt": "2026-07-02T11:04:59.225Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -602,7 +716,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.183Z",
+      "crawledAt": "2026-07-02T11:04:59.223Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -703,7 +817,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.182Z",
+      "crawledAt": "2026-07-02T11:04:59.221Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -821,7 +935,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.181Z",
+      "crawledAt": "2026-07-02T11:04:59.221Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -876,7 +990,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.179Z",
+      "crawledAt": "2026-07-02T11:04:59.219Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -888,61 +1002,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-28T12:24:37.370Z",
       "country": "CH",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6064",
-      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Cybersecurity Internal Penetration Tester",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-07-01T22:15:32.178Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-07",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.894Z",
-      "country": "CH",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1055,7 +1114,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.178Z",
+      "crawledAt": "2026-07-02T11:04:59.218Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1072,6 +1131,61 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6064",
+      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Cybersecurity Internal Penetration Tester",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-07-02T11:04:59.217Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-07",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.894Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -1110,7 +1224,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.176Z",
+      "crawledAt": "2026-07-02T11:04:59.216Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1165,7 +1279,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.175Z",
+      "crawledAt": "2026-07-02T11:04:59.215Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1276,7 +1390,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.174Z",
+      "crawledAt": "2026-07-02T11:04:59.214Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1404,7 +1518,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.173Z",
+      "crawledAt": "2026-07-02T11:04:59.213Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1554,7 +1668,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.172Z",
+      "crawledAt": "2026-07-02T11:04:59.212Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1671,7 +1785,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.170Z",
+      "crawledAt": "2026-07-02T11:04:59.211Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-23",
@@ -1724,7 +1838,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.169Z",
+      "crawledAt": "2026-07-02T11:04:59.209Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1744,6 +1858,59 @@
         "richness": 22,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5892",
+      "slug": "data-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Data Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5892",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><p><span>Department: IT Data Department</span><br><span>Work time Percentage: 100%</span><br><span>Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Introduction to the Team</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Data Ops Services’ mission is to ensure adequate servicing of all data interfaces supported by our data platform. It covers a large spectrum of interfaces, from very critical order processing to more regular analytical systems.</span></li><li><span>The Data Ops team is supporting global systems serving the entire group worldwide.</span></li><li><span>As our platform and data landscape evolve, we would like to strengthen our team with a skilled Data Engineer specialised in Talend and enterprise‑grade ETL / ESB integrations.</span></li><li><span>As the technological landscape continues to evolve, our integration framework is modernising likewise. Microservices, API gateway management and Kafka are all technologies at the centre of this team.</span></li></ul><p> </p><p><span><strong>Main Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Design, implement and maintain ETL/ELT data pipelines (batch and near real time) using Qlik Talend and related integration components.</span></li><li><span>Develop and operate ESB‑style integrations between core banking systems, data platforms and downstream applications, ensuring robustness, scalability and reusability.</span></li><li><span>Take operational ownership of Talend (change management, data quality management, SLA monitoring, SOPs and runbooks).</span></li><li><span>Monitor and ensure the smooth operation of critical data pipelines, including incident analysis, root cause identification and implementation of preventive measures.</span></li><li><span>Apply CI/CD practices using the existing framework to automate and streamline deployments and configuration changes.</span></li><li><span>Implement controls using the observability framework, ensuring service continuity and accuracy.</span></li><li><span>Create, maintain and improve documentation and operational procedures for the data integrations under your ownership.</span></li><li><span>Collaborate with cross‑functional teams (application owners, architects, business analysts, data consumers) to design integration patterns and improve governance around data flows.</span></li><li><span>Contribute to the standardisation and industrialisation of integration patterns, promoting convergence, normalisation and reusability across projects.</span></li><li><span>Stay current with advancements in data engineering, ETL/ESB technologies and cloud‑based integration platforms to support continuous improvement of our DataOps capabilities.</span></li></ul><p> </p><p><span><strong>Skills and Experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of proven hands‑on experience in data engineering and data integration, with a strong focus on ETL/ELT pipelines and ESB‑style integrations.</span></li><li><span>Solid experience with Qlik Talend ETL and ESB on‑premise, including job design, orchestration, error handling and performance optimisation.</span></li><li><span>Strong ETL / data modelling skills, including handling of large datasets, complex transformations and integration of heterogeneous data sources.</span></li><li><span>Good knowledge of SQL and experience working with relational databases and/or cloud data platforms.</span></li><li><span>Experience with CI/CD practices and tools in a hybrid environment (e.g. Azure DevOps, GitHub Actions) applied to data integration components.</span></li><li><span>Familiarity with ESB concepts, API‑based integrations, messaging and event‑driven patterns is a strong plus.</span></li><li><span>Experience with data quality, metadata management and data lineage tools or frameworks is an asset.</span></li><li><span>Enjoy providing operational support on Talend jobs and data integration workflows (incident analysis, troubleshooting).</span></li><li><span>Good communication and collaboration skills, able to work closely with both technical and business stakeholders.</span></li><li><span>Rigorous and methodical in documentation, process creation and change management.</span></li><li><span>High interest in standardisation, convergence and reusability of integration components.</span></li><li><span>Curious, enthusiastic and proactive, with a hands‑on mindset and a strong desire to learn and grow in a demanding environment.</span></li><li><span>Passionate about data processing and integration technologies.</span></li><li><span>Fluent in spoken and written English; French is an asset.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results.</span></li><li><span>Passionate: Being committed and striving for excellence.</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><br> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-07-02T11:04:59.208Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-06-24",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1204",
+      "country": "CH",
+      "firstSeenAt": "2026-06-24T11:14:17.928Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1891,7 +2058,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-01T22:15:32.168Z",
+      "crawledAt": "2026-07-02T11:04:59.206Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -1908,59 +2075,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-5892",
-      "slug": "data-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5892",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>Department: IT Data Department</span><br><span>Work time Percentage: 100%</span><br><span>Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Introduction to the Team</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Data Ops Services’ mission is to ensure adequate servicing of all data interfaces supported by our data platform. It covers a large spectrum of interfaces, from very critical order processing to more regular analytical systems.</span></li><li><span>The Data Ops team is supporting global systems serving the entire group worldwide.</span></li><li><span>As our platform and data landscape evolve, we would like to strengthen our team with a skilled Data Engineer specialised in Talend and enterprise‑grade ETL / ESB integrations.</span></li><li><span>As the technological landscape continues to evolve, our integration framework is modernising likewise. Microservices, API gateway management and Kafka are all technologies at the centre of this team.</span></li></ul><p> </p><p><span><strong>Main Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Design, implement and maintain ETL/ELT data pipelines (batch and near real time) using Qlik Talend and related integration components.</span></li><li><span>Develop and operate ESB‑style integrations between core banking systems, data platforms and downstream applications, ensuring robustness, scalability and reusability.</span></li><li><span>Take operational ownership of Talend (change management, data quality management, SLA monitoring, SOPs and runbooks).</span></li><li><span>Monitor and ensure the smooth operation of critical data pipelines, including incident analysis, root cause identification and implementation of preventive measures.</span></li><li><span>Apply CI/CD practices using the existing framework to automate and streamline deployments and configuration changes.</span></li><li><span>Implement controls using the observability framework, ensuring service continuity and accuracy.</span></li><li><span>Create, maintain and improve documentation and operational procedures for the data integrations under your ownership.</span></li><li><span>Collaborate with cross‑functional teams (application owners, architects, business analysts, data consumers) to design integration patterns and improve governance around data flows.</span></li><li><span>Contribute to the standardisation and industrialisation of integration patterns, promoting convergence, normalisation and reusability across projects.</span></li><li><span>Stay current with advancements in data engineering, ETL/ESB technologies and cloud‑based integration platforms to support continuous improvement of our DataOps capabilities.</span></li></ul><p> </p><p><span><strong>Skills and Experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of proven hands‑on experience in data engineering and data integration, with a strong focus on ETL/ELT pipelines and ESB‑style integrations.</span></li><li><span>Solid experience with Qlik Talend ETL and ESB on‑premise, including job design, orchestration, error handling and performance optimisation.</span></li><li><span>Strong ETL / data modelling skills, including handling of large datasets, complex transformations and integration of heterogeneous data sources.</span></li><li><span>Good knowledge of SQL and experience working with relational databases and/or cloud data platforms.</span></li><li><span>Experience with CI/CD practices and tools in a hybrid environment (e.g. Azure DevOps, GitHub Actions) applied to data integration components.</span></li><li><span>Familiarity with ESB concepts, API‑based integrations, messaging and event‑driven patterns is a strong plus.</span></li><li><span>Experience with data quality, metadata management and data lineage tools or frameworks is an asset.</span></li><li><span>Enjoy providing operational support on Talend jobs and data integration workflows (incident analysis, troubleshooting).</span></li><li><span>Good communication and collaboration skills, able to work closely with both technical and business stakeholders.</span></li><li><span>Rigorous and methodical in documentation, process creation and change management.</span></li><li><span>High interest in standardisation, convergence and reusability of integration components.</span></li><li><span>Curious, enthusiastic and proactive, with a hands‑on mindset and a strong desire to learn and grow in a demanding environment.</span></li><li><span>Passionate about data processing and integration technologies.</span></li><li><span>Fluent in spoken and written English; French is an asset.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results.</span></li><li><span>Passionate: Being committed and striving for excellence.</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><br> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-07-01T22:15:32.163Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-06-24",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1204",
-      "country": "CH",
-      "firstSeenAt": "2026-06-24T11:14:17.928Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
         "completeness": 22
       }
     },
