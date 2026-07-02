@@ -471,14 +471,22 @@ async function collectEventUrls(limit) {
   return { entries: limit ? entries.slice(0, limit) : entries, shardsOk, shardsFailed };
 }
 
+/**
+ * Returns `{ htmlOk, data }` — `htmlOk` is true whenever real HTML came back
+ * (independent of parse outcome) and is the signal callers use to tell
+ * "page genuinely unreachable" (htmlOk=false, safe to treat as gone) apart
+ * from "page loaded fine but our parser couldn't extract anything from it"
+ * (htmlOk=true, data=null — a structural-drift signal, NOT evidence the
+ * event is gone; must never feed into `goneIds`).
+ */
 async function fetchLocaleData(pathSuffix, locale) {
   const url = `${SITE_ORIGIN}/${locale}${pathSuffix}`;
   const html = await fetchText(url);
   await sleep(DETAIL_DELAY_MS);
-  if (!html) return null;
+  if (!html) return { htmlOk: false, data: null };
   detailFetchesOk += 1; // positive success signal — HTML came back, independent of parse outcome
   const mapped = mapDetailPageToLocaleData(html, locale);
-  return mapped ? { ...mapped, url } : null;
+  return { htmlOk: true, data: mapped ? { ...mapped, url } : null };
 }
 
 function parseArgs(argv) {
@@ -511,6 +519,7 @@ async function main() {
   const events = [];
   const goneIds = [];
   let goneEverywhere = 0;
+  let driftSuspected = 0;
   let resolvedComune = 0;
   let visited = 0;
   let cursor = startIndex;
@@ -525,14 +534,25 @@ async function main() {
 
     const [code, pathSuffix] = entries[cursor];
     const localeResults = {};
+    let anyHtmlOk = false;
     for (const locale of LOCALES) {
-      localeResults[locale] = await fetchLocaleData(pathSuffix, locale);
+      const { htmlOk, data } = await fetchLocaleData(pathSuffix, locale);
+      if (htmlOk) anyHtmlOk = true;
+      localeResults[locale] = data;
     }
 
     const mapped = mapGuidleEvent(code, localeResults);
     if (!mapped) {
-      goneEverywhere += 1;
-      goneIds.push(eventStableId(SOURCE.key, code));
+      if (anyHtmlOk) {
+        // Real HTML came back for at least one locale but nothing parsed —
+        // a drift signal, not evidence the event is gone. Leave it out of
+        // this run's contribution (neither added nor removed); the
+        // aggregate detailFetchesOk-based guard below surfaces the drift.
+        driftSuspected += 1;
+      } else {
+        goneEverywhere += 1;
+        goneIds.push(eventStableId(SOURCE.key, code));
+      }
     } else {
       const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
       const { comune, canton } = resolveComuneNationwide(
@@ -551,9 +571,14 @@ async function main() {
   }
 
   console.log(
-    `[guidle] visited ${visited}/${entries.length} event(s) this run — ${events.length} mapped (${goneEverywhere} expired/gone) — ` +
-      `comune resolved ${resolvedComune}/${events.length}`,
+    `[guidle] visited ${visited}/${entries.length} event(s) this run — ${events.length} mapped (${goneEverywhere} expired/gone, ` +
+      `${driftSuspected} suspected drift) — comune resolved ${resolvedComune}/${events.length}`,
   );
+  if (driftSuspected > 0) {
+    console.warn(
+      `[guidle] ${driftSuspected} event(s) returned real HTML but failed to parse — left untouched in the slice this run, check JSON-LD/DOM selectors for partial drift`,
+    );
+  }
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
