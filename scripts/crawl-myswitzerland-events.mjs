@@ -31,15 +31,26 @@
  * once via `mirrorEventImage` (see scripts/lib/events-utils.mjs) — the output
  * slice NEVER references a myswitzerland.com/cloudfront image URL directly.
  *
- * No artificial cap: a real run walks the ENTIRE catalog (tens of thousands of
- * records across ~20 Algolia buckets x 4 locales, then one detail-page fetch
- * per unique event). That detail-page pass is the slow part — at the polite
- * per-request delay below, a full run is a long-lived, scheduled crawl (hours,
- * not minutes), by design (issue #3125: "no pilot batch, must be complete").
+ * No artificial cap: the full catalog (tens of thousands of records across
+ * ~20 Algolia buckets x 4 locales, then one detail-page fetch per unique
+ * event) is walked across MANY scheduled runs, not one. Index enumeration
+ * (bounded, ~dozens-to-hundreds of Algolia calls) still runs in full every
+ * time, but the slow part — one detail-page fetch per unique event — is
+ * bounded per run by MYSWITZERLAND_CRAWL_BUDGET_MS (default 8 minutes, well
+ * inside crawl-events.yml's shared 35-minute job timeout): each run walks a
+ * slice of the enumerated records starting at a persisted cursor
+ * (data/events/checkpoints/myswitzerland.json, see
+ * scripts/lib/crawl-checkpoint.mjs) and wraps back to the start once the
+ * whole catalog has been visited. Each run MERGES what it found into the
+ * existing on-disk slice instead of overwriting it wholesale, so a run that
+ * stops at its time budget never loses prior runs' progress — coverage of
+ * the full catalog accrues over many scheduled runs (issue #3125: "no pilot
+ * batch, must be complete" — no permanent cap on total events ever
+ * crawled). Same design used for crawl-guidle-events.mjs.
  *
  * Usage:
- *   node scripts/crawl-myswitzerland-events.mjs                # full catalog
- *   node scripts/crawl-myswitzerland-events.mjs --limit=5      # fast local test
+ *   node scripts/crawl-myswitzerland-events.mjs                # one time-budgeted, checkpointed slice of the catalog
+ *   node scripts/crawl-myswitzerland-events.mjs --limit=5      # fast local test (bypasses the checkpoint)
  *   node scripts/crawl-myswitzerland-events.mjs --dry-run      # parse + report, no write
  *
  * Exit code is always 0 unless an unexpected crash occurs, EXCEPT when Algolia
@@ -48,7 +59,6 @@
  * silently stale (same soft/hard-fail distinction as crawl-tio-agenda.mjs).
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
@@ -59,6 +69,7 @@ import {
   resolveItalianFrontierComuni,
   mirrorEventImage,
 } from './lib/events-utils.mjs';
+import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
 const SOURCE = EVENT_SOURCES.myswitzerland;
 
@@ -78,6 +89,7 @@ const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://
 const FETCH_TIMEOUT_MS = 20000;
 const ALGOLIA_DELAY_MS = 120; // between Algolia queries (index enumeration)
 const DETAIL_DELAY_MS = 500; // between myswitzerland.com origin detail-page fetches
+const RUN_BUDGET_MS = Number(process.env.MYSWITZERLAND_CRAWL_BUDGET_MS) || 8 * 60_000; // per-run wall-clock cap
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -444,6 +456,7 @@ function parseArgs(argv) {
 async function main() {
   const { dryRun, limit } = parseArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
+  const deadline = Date.now() + RUN_BUDGET_MS;
 
   const localeMaps = {};
   for (const locale of LOCALES) {
@@ -454,14 +467,29 @@ async function main() {
   }
 
   let records = groupHitsByObjectId(localeMaps);
-  console.log(`[myswitzerland] ${records.length} unique event(s) merged across ${LOCALES.length} locales`);
+  console.log(`[myswitzerland] ${records.length} unique event(s) in catalog across ${LOCALES.length} locales`);
   if (limit) records = records.slice(0, limit);
+
+  const startIndex = limit ? 0 : loadCursor(SOURCE.key) % Math.max(records.length, 1);
+  if (!limit && startIndex > 0) {
+    console.log(`[myswitzerland] resuming from checkpoint index ${startIndex}/${records.length}`);
+  }
 
   const events = [];
   let detailOk = 0;
   let detailFail = 0;
-  for (let i = 0; i < records.length; i += 1) {
-    const rec = records[i];
+  let visited = 0;
+  let cursor = startIndex;
+
+  while (visited < records.length) {
+    if (!limit && Date.now() >= deadline) {
+      console.log(
+        `[myswitzerland] time budget (${RUN_BUDGET_MS}ms) reached after ${visited}/${records.length} event(s) — stopping, will resume next run`,
+      );
+      break;
+    }
+
+    const rec = records[cursor];
     const enrichment = await fetchDetailEnrichment(rec.perLocaleHits);
     if (enrichment) detailOk += 1;
     else detailFail += 1;
@@ -481,48 +509,59 @@ async function main() {
       events.push(event);
     }
 
-    if (i < records.length - 1) await sleep(DETAIL_DELAY_MS);
+    visited += 1;
+    cursor = (cursor + 1) % records.length;
+    if (visited < records.length) await sleep(DETAIL_DELAY_MS);
   }
 
   const resolved = events.filter((e) => e.comune).length;
   console.log(
-    `[myswitzerland] ${events.length} events written — detail-page enrichment ${detailOk} ok / ${detailFail} fallback ` +
-      `(index-only fields) — comune resolved ${resolved}/${events.length}`,
+    `[myswitzerland] visited ${visited}/${records.length} event(s) this run — ${events.length} mapped — ` +
+      `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields) — comune resolved ${resolved}/${events.length}`,
   );
 
   if (dryRun) {
-    console.log('🏃 dry-run — slice not written');
+    console.log('🏃 dry-run — slice/checkpoint not written');
     console.log(JSON.stringify(events.slice(0, 3), null, 2));
     return;
   }
 
+  if (!limit && records.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
+
   if (events.length === 0) {
-    // Never overwrite a good slice with an empty one. Distinguish two causes:
+    // Never overwrite a good slice with an empty run. Distinguish three causes:
+    //  - the time budget ran out during Algolia enumeration itself, before any
+    //    record was even visited (visited===0) → transient, soft-exit 0. This
+    //    is expected on a slow run and NOT a drift signal: we never got far
+    //    enough to learn anything about mapEventRecord/JSON-LD health.
     //  - Algolia queries themselves failed (network/WAF) → transient, soft-exit 0.
-    //  - Algolia queries succeeded but nothing mapped to a valid event → likely
+    //  - records were actually visited this run and none mapped → likely
     //    index/key/facet drift; exit non-zero so crawl-events.yml opens a
     //    failure issue instead of letting the dataset go silently stale.
-    console.log('[myswitzerland] 0 events parsed — leaving existing slice untouched');
-    if (algoliaFailures > 0) {
+    console.log('[myswitzerland] 0 events mapped this run — leaving existing slice untouched');
+    if (visited === 0) {
+      console.log('[myswitzerland] time budget exhausted before any record was visited — transient, soft-exit 0');
+    } else if (algoliaFailures > 0) {
       console.log(`[myswitzerland] ${algoliaFailures} Algolia request(s) failed — transient, soft-exit 0`);
     } else {
-      console.error('[myswitzerland] Algolia queries succeeded but yielded 0 events — check ALGOLIA_APP_ID/ALGOLIA_SEARCH_KEY/LOCALE_INDEX for drift');
+      console.error(
+        `[myswitzerland] ${visited} record(s) visited this run but 0 mapped — check ALGOLIA_APP_ID/ALGOLIA_SEARCH_KEY/LOCALE_INDEX for drift`,
+      );
       process.exitCode = 1;
     }
     return;
   }
 
-  mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
-  const slice = {
-    schemaVersion: 1,
+  const total = mergeEventsIntoSlice({
+    slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    assembledAt: crawledAt,
-    events,
-  };
-  writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-  console.log(`[myswitzerland] wrote ${events.length} events → ${path.relative(process.cwd(), slicePath)}`);
+    freshEvents: events,
+    goneIds: [],
+    crawledAt,
+  });
+  console.log(`[myswitzerland] merged ${events.length} event(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-myswitzerland-events.mjs`),

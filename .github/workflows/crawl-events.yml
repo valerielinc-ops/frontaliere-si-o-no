@@ -105,6 +105,11 @@ jobs:
           # actually mirrored at least one image this run — `git add` on a
           # missing path errors under `set -e` and would abort the commit.
           [ -d public/images/events ] && git add public/images/events/ || true
+          # Cross-run cursors for the checkpointed nationwide crawlers
+          # (scripts/lib/crawl-checkpoint.mjs) — must persist between
+          # scheduled runs so guidle/myswitzerland resume instead of
+          # restarting the catalog walk from 0 every day.
+          [ -d data/events/checkpoints ] && git add data/events/checkpoints/ || true
           if git diff --cached --quiet; then
             echo "No events diff, skipping commit"
             exit 0

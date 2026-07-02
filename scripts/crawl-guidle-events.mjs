@@ -60,10 +60,20 @@
  *     and 404/410 on fetch — skipped per-locale (and the whole event is
  *     skipped if EVERY locale 404s/410s).
  *
- * No artificial cap: a real run walks the ENTIRE sitemap (119k+ events × up to
- * 4 locale fetches each). That is a long-lived, scheduled crawl (hours, not
- * minutes) by design (issue #3125: "no pilot batch, must be complete") — same
- * trade-off already accepted for crawl-myswitzerland-events.mjs.
+ * No artificial cap: the full sitemap (119k+ events × up to 4 locale fetches
+ * each) is walked across MANY scheduled runs, not one. A single run is
+ * bounded by GUIDLE_CRAWL_BUDGET_MS (default 8 minutes, well inside
+ * crawl-events.yml's shared 35-minute job timeout) — it re-derives the full
+ * ordered event list from the sitemap every run (cheap: 6 shard fetches),
+ * then walks a slice of it starting at a persisted cursor
+ * (data/events/checkpoints/guidle.json, see scripts/lib/crawl-checkpoint.mjs)
+ * and wraps back to the start once the whole catalog has been visited.
+ * Each run MERGES what it found into the existing on-disk slice instead of
+ * overwriting it wholesale, so a run that stops at its time budget never
+ * loses prior runs' progress — coverage of the full catalog accrues over
+ * many scheduled runs (issue #3125: "no pilot batch, must be complete" — no
+ * permanent cap on total events ever crawled). Same design used for
+ * crawl-myswitzerland-events.mjs.
  *
  * Respectful, non-evasive crawling: plain `fetch`, no headless browser, no
  * bot-identity spoofing, a clearly identifying User-Agent (matches the
@@ -73,18 +83,17 @@
  * guidle.com/imagekit.io image URL directly.
  *
  * Usage:
- *   node scripts/crawl-guidle-events.mjs                # full catalog
- *   node scripts/crawl-guidle-events.mjs --limit=5      # fast local test
+ *   node scripts/crawl-guidle-events.mjs                # one time-budgeted, checkpointed slice of the catalog
+ *   node scripts/crawl-guidle-events.mjs --limit=5      # fast local test (bypasses the checkpoint)
  *   node scripts/crawl-guidle-events.mjs --dry-run      # parse + report, no write
  *
- * Exit code is always 0 unless an unexpected crash occurs, EXCEPT when the
- * sitemap itself is reachable but yields zero events (structural drift) —
- * that exits 1 so crawl-events.yml can open a failure issue instead of the
- * dataset going silently stale (same soft/hard-fail distinction as the other
- * two crawlers).
+ * Exit code is always 0 unless an unexpected crash occurs, EXCEPT when this
+ * run's detail-page fetches succeeded (real HTML came back) but yielded zero
+ * mapped events (structural drift) — that exits 1 so crawl-events.yml can
+ * open a failure issue instead of the dataset going silently stale (same
+ * soft/hard-fail distinction as the other two crawlers).
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { gunzipSync } from 'node:zlib';
@@ -96,6 +105,7 @@ import {
   resolveComuneNationwide,
   mirrorEventImage,
 } from './lib/events-utils.mjs';
+import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 
 const SOURCE = EVENT_SOURCES.guidle;
 const SITE_ORIGIN = 'https://www.guidle.com';
@@ -106,10 +116,11 @@ const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://
 const FETCH_TIMEOUT_MS = 20000;
 const SITEMAP_DELAY_MS = 300; // between sitemap shard fetches
 const DETAIL_DELAY_MS = 400; // between guidle.com origin detail-page fetches
+const RUN_BUDGET_MS = Number(process.env.GUIDLE_CRAWL_BUDGET_MS) || 8 * 60_000; // per-run wall-clock cap
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-let originFailures = 0;
+let detailFetchesOk = 0;
 
 async function fetchText(url) {
   const controller = new AbortController();
@@ -119,7 +130,6 @@ async function fetchText(url) {
     if (!res.ok) return null;
     return await res.text();
   } catch {
-    originFailures += 1;
     return null;
   } finally {
     clearTimeout(timer);
@@ -135,7 +145,6 @@ async function fetchGzipText(url) {
     const buf = Buffer.from(await res.arrayBuffer());
     return gunzipSync(buf).toString('utf-8');
   } catch {
-    originFailures += 1;
     return null;
   } finally {
     clearTimeout(timer);
@@ -467,6 +476,7 @@ async function fetchLocaleData(pathSuffix, locale) {
   const html = await fetchText(url);
   await sleep(DETAIL_DELAY_MS);
   if (!html) return null;
+  detailFetchesOk += 1; // positive success signal — HTML came back, independent of parse outcome
   const mapped = mapDetailPageToLocaleData(html, locale);
   return mapped ? { ...mapped, url } : null;
 }
@@ -488,15 +498,32 @@ function parseArgs(argv) {
 async function main() {
   const { dryRun, limit } = parseArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
+  const deadline = Date.now() + RUN_BUDGET_MS;
 
   const { entries, shardsOk, shardsFailed } = await collectEventUrls(limit);
-  console.log(`[guidle] sitemap: ${shardsOk} shard(s) ok, ${shardsFailed} failed, ${entries.length} unique event(s) to fetch`);
+  console.log(`[guidle] sitemap: ${shardsOk} shard(s) ok, ${shardsFailed} failed, ${entries.length} unique event(s) in catalog`);
+
+  const startIndex = limit ? 0 : loadCursor(SOURCE.key) % Math.max(entries.length, 1);
+  if (!limit && startIndex > 0) {
+    console.log(`[guidle] resuming from checkpoint index ${startIndex}/${entries.length}`);
+  }
 
   const events = [];
+  const goneIds = [];
   let goneEverywhere = 0;
   let resolvedComune = 0;
+  let visited = 0;
+  let cursor = startIndex;
 
-  for (const [code, pathSuffix] of entries) {
+  while (visited < entries.length) {
+    if (!limit && Date.now() >= deadline) {
+      console.log(
+        `[guidle] time budget (${RUN_BUDGET_MS}ms) reached after ${visited}/${entries.length} event(s) — stopping, will resume next run`,
+      );
+      break;
+    }
+
+    const [code, pathSuffix] = entries[cursor];
     const localeResults = {};
     for (const locale of LOCALES) {
       localeResults[locale] = await fetchLocaleData(pathSuffix, locale);
@@ -505,60 +532,69 @@ async function main() {
     const mapped = mapGuidleEvent(code, localeResults);
     if (!mapped) {
       goneEverywhere += 1;
-      continue;
+      goneIds.push(eventStableId(SOURCE.key, code));
+    } else {
+      const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
+      const { comune, canton } = resolveComuneNationwide(
+        { venue: [event.venue, addressLocality].filter(Boolean).join(' '), title: event.title, region: undefined },
+        cantonHint,
+      );
+      event.comune = comune || undefined;
+      event.canton = canton || cantonHint || '';
+      if (event.comune) resolvedComune += 1;
+      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
+      events.push(event);
     }
 
-    const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
-    const { comune, canton } = resolveComuneNationwide(
-      { venue: [event.venue, addressLocality].filter(Boolean).join(' '), title: event.title, region: undefined },
-      cantonHint,
-    );
-    event.comune = comune || undefined;
-    event.canton = canton || cantonHint || '';
-    if (event.comune) resolvedComune += 1;
-    event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
-    events.push(event);
+    visited += 1;
+    cursor = (cursor + 1) % entries.length;
   }
 
   console.log(
-    `[guidle] ${events.length} events written (${goneEverywhere} fully expired/gone) — ` +
+    `[guidle] visited ${visited}/${entries.length} event(s) this run — ${events.length} mapped (${goneEverywhere} expired/gone) — ` +
       `comune resolved ${resolvedComune}/${events.length}`,
   );
 
   if (dryRun) {
-    console.log('🏃 dry-run — slice not written');
+    console.log('🏃 dry-run — slice/checkpoint not written');
     console.log(JSON.stringify(events.slice(0, 3), null, 2));
     return;
   }
 
-  if (events.length === 0) {
-    // Never overwrite a good slice with an empty one. Distinguish two causes:
-    //  - the sitemap/origin itself failed to load (network/WAF) → transient, soft-exit 0.
-    //  - the sitemap loaded fine but nothing mapped to a valid event → likely
+  if (!limit && entries.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
+
+  if (events.length === 0 && goneIds.length === 0) {
+    // Never overwrite a good slice with an empty run. Distinguish two causes:
+    //  - no detail page returned real HTML this run (network/WAF) → transient, soft-exit 0.
+    //  - detail pages loaded fine but nothing mapped to a valid event → likely
     //    structural drift (JSON-LD/DOM markup changed); exit non-zero so
     //    crawl-events.yml opens a failure issue instead of the dataset going
-    //    silently stale.
-    console.log('[guidle] 0 events parsed — leaving existing slice untouched');
-    if (shardsOk === 0 || originFailures > 0) {
-      console.log(`[guidle] sitemap/origin fetch failures detected — transient, soft-exit 0`);
+    //    silently stale. Mirrors crawl-tio-agenda.mjs's pagesOk>0 pattern —
+    //    a positive success signal, not a cumulative failure counter (a
+    //    cumulative counter is almost always >0 at guidle's real scale even
+    //    when everything works, since some per-locale fetches always miss).
+    console.log('[guidle] 0 events mapped this run — leaving existing slice untouched');
+    if (detailFetchesOk === 0) {
+      console.log('[guidle] no detail pages loaded successfully this run — transient, soft-exit 0');
     } else {
-      console.error('[guidle] sitemap loaded but yielded 0 events — check JSON-LD/DOM selectors for drift');
+      console.error(`[guidle] ${detailFetchesOk} detail page(s) returned HTML but yielded 0 events — check JSON-LD/DOM selectors for drift`);
       process.exitCode = 1;
     }
     return;
   }
 
-  mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
-  const slice = {
-    schemaVersion: 1,
+  const total = mergeEventsIntoSlice({
+    slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    assembledAt: crawledAt,
-    events,
-  };
-  writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-  console.log(`[guidle] wrote ${events.length} events → ${path.relative(process.cwd(), slicePath)}`);
+    freshEvents: events,
+    goneIds,
+    crawledAt,
+  });
+  console.log(
+    `[guidle] merged ${events.length} event(s) (${goneIds.length} removed) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,
+  );
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-guidle-events.mjs`),
