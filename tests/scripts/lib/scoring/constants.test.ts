@@ -34,8 +34,13 @@ describe('computeAdaptiveNearDupCosine', () => {
     expect(relaxed).toBeLessThanOrEqual(0.94);
   });
 
-  it('never exceeds the ceiling even for a very large corpus', () => {
-    expect(computeAdaptiveNearDupCosine(10_000_000)).toBe(EMBEDDING_NEAR_DUP_COSINE_CEILING);
+  it('never exceeds the effective ceiling (max of hardcoded ceiling and env base) for a very large corpus', () => {
+    // When NEAR_DUP_COSINE env is not set (default 0.86 < 0.95 ceiling) the
+    // result is exactly the hardcoded ceiling. When an operator sets
+    // NEAR_DUP_COSINE > 0.95, the effective ceiling is that override value
+    // so the env override is not silently clamped back to 0.95 (#3241 fix).
+    const effectiveCeiling = Math.max(EMBEDDING_NEAR_DUP_COSINE_CEILING, EMBEDDING_NEAR_DUP_COSINE);
+    expect(computeAdaptiveNearDupCosine(10_000_000)).toBe(effectiveCeiling);
   });
 
   it('never drops below the baseline for a tiny/new corpus', () => {
