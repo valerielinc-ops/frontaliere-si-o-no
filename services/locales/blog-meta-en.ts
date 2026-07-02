@@ -8224,6 +8224,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Unpaid hours dispute shakes Ticino restaurant industry',
     'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'A former employee of a restaurant in Locarno has obtained over three thousand francs in arrears. The Unia trade union denounces a widespread practice.',
     'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'View of Locarno\'s lakeside with restaurant tables and workers in uniform',
+    'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Ticino blocks 50.2 million in rebates to Lombardy: tensions and dialogue',
+    'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'The Canton of Ticino retains 50.2 million francs intended for Lombardy. Rome and Bern are looking for a diplomatic solution.',
+    'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Aerial view of Lake Lugano at sunset with the city of Lugano in the background',
 };
 
 export default blogMetaEn;

@@ -8225,6 +8225,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Ore non pagate e clausole contestate: il caso scuote la ristorazione ticinese',
     'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'Un ex dipendente di un ristorante di Locarno ha ottenuto oltre tremila franchi di arretrati. Il sindacato Unia denuncia una pratica diffusa.',
     'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'Vista del lungolago di Locarno con tavolini di ristoranti e lavoratori in divisa',
+    'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Ticino blocca 50,2 milioni di ristorni alla Lombardia: tensioni e dialogo',
+    'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'Il Canton Ticino trattiene 50,2 milioni di franchi destinati alla Lombardia. Roma e Berna cercano una soluzione diplomatica.',
+    'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Vista aerea del Lago di Lugano al tramonto con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

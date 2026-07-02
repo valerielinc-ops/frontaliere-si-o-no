@@ -45780,6 +45780,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-blocca-ristorni-roma-berna': {
+    title: 'Ticino blocca 50,2 milioni di ristorni alla Lombardia: tensioni e dialogo',
+    description: 'Il Canton Ticino trattiene 50,2 milioni di franchi destinati alla Lombardia. Roma e Berna cercano una soluzione diplomatica. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, blocca, milioni, ristorni, alla',
+    ogTitle: 'Ticino blocca 50,2 milioni di ristorni alla Lombardia: tensioni e dialogo',
+    ogDescription: 'Il Canton Ticino trattiene 50,2 milioni di franchi destinati alla Lombardia. Roma e Berna cercano una soluzione diplomatica.',
+    canonicalPath: '/articoli-frontaliere/ticino-blocca-ristorni-roma-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino blocca 50,2 milioni di ristorni alla Lombardia: tensioni e dialogo",
+      "description": "Il Canton Ticino trattiene 50,2 milioni di franchi destinati alla Lombardia. Roma e Berna cercano una soluzione diplomatica. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticino-blocca-ristorni-roma-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano al tramonto con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-07-02T12:54:28+00:00",
+      "dateModified": "2026-07-02T12:54:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-blocca-ristorni-roma-berna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
