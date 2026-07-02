@@ -64,6 +64,10 @@ jobs:
           WINDOW_DAYS: ${{ inputs.window_days || '15' }}
         run: |
           set -euo pipefail
+          if ! [[ "$WINDOW_DAYS" =~ ^[0-9]+$ ]]; then
+            echo "window_days must be a positive integer, got: $WINDOW_DAYS" >&2
+            exit 1
+          fi
           SINCE=$(date -u -d "$((WINDOW_DAYS + 5)) days ago" +%Y-%m-%d)
           git fetch --shallow-since="$SINCE" origin main || git fetch --unshallow origin main
 
@@ -95,6 +99,11 @@ jobs:
           WINDOW_DAYS: ${{ inputs.window_days || '15' }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # github_token required alongside claude_code_oauth_token: without it
+          # allowed_non_write_users is a silent no-op (post-merge-followup.yml,
+          # PR #3182 — every scheduled run failed "User does not have write
+          # access", zero turns, zero cost, until this line was added there).
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # Schedule → triggering_actor is frontaliere-automation[bot] (same
           # correction as post-merge-followup.yml, PR #3157). Whitelist mirrors
           # every other scheduled Claude workflow. Never `*`.
