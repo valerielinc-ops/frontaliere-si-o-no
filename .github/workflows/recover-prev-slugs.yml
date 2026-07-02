@@ -83,8 +83,12 @@ jobs:
             --out /tmp/prev-slug-recovery/recoverable.json \
             --events-out /tmp/prev-slug-recovery/events.jsonl \
             | tee /tmp/prev-slug-recovery/scan-report.txt
-          # Extract counts for downstream steps
-          total_lost=$(jq -r '.totalLost // 0' <<<"$(grep -E '^\s*"totalLost"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//')") || total_lost=0
+          # Extract counts for downstream steps. sed already isolates the bare
+          # number from the "totalLost": N, line — piping that through
+          # `jq '.totalLost'` (a JSON-object accessor) errors on a bare
+          # number and silently falls back to total_lost=0 via the `||`,
+          # which permanently disabled the tripwire below.
+          total_lost=$(grep -E '^\s*"totalLost"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//') || total_lost=0
           recoverable_jobs=$(jq 'length' /tmp/prev-slug-recovery/recoverable.json)
           recoverable_slugs=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable.json)
           echo "total_lost=${total_lost}" >> "$GITHUB_OUTPUT"

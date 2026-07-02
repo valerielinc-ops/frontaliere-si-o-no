@@ -853,6 +853,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.formazione-professionale-frontaliere-2026.title': 'Berufsausbildung und Umschulung für grenzüberschreitende Pendler im Jahr 2026',
     'blog.article.formazione-professionale-frontaliere-2026.excerpt': 'Mit Blick auf das Jahr 2026 stehen anerkannte Kurse und Finanzierungen für die Ausbildung von Grenzgängern mit neuen Möglichkeiten und Verfahren im Fokus.',
     'blog.article.formazione-professionale-frontaliere-2026.imageAlt': 'Schweizer Szene mit Grenzpendlern in Ausbildung',
+    'blog.article.avs-ai-prospettive-finanziarie.title': 'Die finanziellen Aussichten für AHV und IV verschlechtern sich',
+    'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'Gemäss Bsv werden die Defizite der Alters- und Hinterlassenenversicherung sowie der Invalidenversicherung in den nächsten Jahren zunehmen.',
+    'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Luftaufnahme des Luganer Sees mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;

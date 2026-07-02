@@ -10977,6 +10977,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-ai-prospettive-finanziarie': {
+    title: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    description: 'L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, peggiorano, prospettive, finanziarie, secondo',
+    ogTitle: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    ogDescription: 'L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più.',
+    canonicalPath: '/articoli-svizzera/avs-ai-prospettive-finanziarie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Peggiorano le prospettive finanziarie di AVS e AI",
+      "description": "L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-ai-prospettive-finanziarie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le Alpi Svizzere sullo sfondo"
+      },
+      "datePublished": "2026-07-02T10:25:21+00:00",
+      "dateModified": "2026-07-02T10:25:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-ai-prospettive-finanziarie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
