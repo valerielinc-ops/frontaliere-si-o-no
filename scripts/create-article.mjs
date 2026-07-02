@@ -1479,6 +1479,8 @@ CRITERI DI SELEZIONE (in ordine di priorità):
 6. NO SPORT: Evita risultati sportivi, partite, campionati
 7. SPECIFICITÀ TICINO: La notizia deve riguardare il Canton Ticino o la regione di confine
 
+${JSON_QUOTE_SAFETY_RULE_IT}
+
 Rispondi con un JSON object (no markdown, no code fences):
 {
   "selectedIndex": <numero dell'headline scelta>,
@@ -1507,6 +1509,8 @@ CRITERI DI SELEZIONE (in ordine di priorità):
 6. NO INTRATTENIMENTO: Evita gossip, spettacolo, celebrità senza rilevanza politico-economica
 7. RESPIRO NAZIONALE: La notizia può riguardare qualsiasi cantone o le istituzioni federali; non limitarti al Ticino.
 8. ⚠️ NO TEMI FRONTALIERI (CRITICO): SCARTA le headline il cui ARGOMENTO PRINCIPALE è esclusivamente frontaliero (permesso G/B/C, ristorni Ticino-Italia, imposta alla fonte frontalieri, dogane/valichi e pendolarismo IT-CH, telelavoro frontalieri, accordo frontalieri IT-CH, soglia 20 km). Appartengono alla sezione frontalieri separata; qui sarebbero duplicati fuori scopo. ATTENZIONE: una riforma o statistica NAZIONALE (es. AVS/LPP, LAMal, mercato del lavoro, Consiglio federale) che menziona i frontalieri come categoria tra quelle impattate è RILEVANTE — il tema principale è nazionale, non frontaliero. Scegli temi a interesse nazionale generale.
+
+${JSON_QUOTE_SAFETY_RULE_IT}
 
 Rispondi con un JSON object (no markdown, no code fences):
 {
@@ -2728,6 +2732,8 @@ CRITERI DI GIUDIZIO:
 - PASS = nessun fatto verificabilmente falso, al massimo minor e fino a 2 major
 
 ATTENZIONE: se hai dubbi su un fatto, è MEGLIO segnalarlo come "major" che ignorarlo. Un falso positivo (segnalare un fatto vero come sospetto) è preferibile a un falso negativo (non segnalare un fatto falso).
+
+${JSON_QUOTE_SAFETY_RULE_IT}
 
 Rispondi SOLO in JSON valido:
 {
