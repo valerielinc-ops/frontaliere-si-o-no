@@ -9,7 +9,11 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { detectBoilerplateDescriptions } from '@/scripts/assemble-jobs-dataset.mjs';
+import {
+  detectBoilerplateDescriptions,
+  isSystemicBoilerplateFailure,
+  quarantineBoilerplateJobs,
+} from '@/scripts/assemble-jobs-dataset.mjs';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -282,6 +286,157 @@ describe('detectBoilerplateDescriptions — guard gate thresholds', () => {
     expect(report.totalJobs).toBe(10);
     expect(report.ratio).toBe(0.5);
     expect(report.ratio).toBeGreaterThanOrEqual(0.5);
+  });
+});
+
+// ─── Sample-Size Floor Tests (isSystemicBoilerplateFailure) ────────────────────
+// Regression coverage for issue #3254 (Diakoniewerk Neumünster, 2026-07-02):
+// a low-volume dedicated crawler had only 2 jobs eligible for the boilerplate
+// check; 1 of them was a naturally-short-but-legitimate description, which hit
+// the 50% ratio and hard-failed the whole run (discarding 6 well-localized
+// jobs). isSystemicBoilerplateFailure() adds an absolute sample-size floor on
+// top of the ratio so a tiny sample can no longer brick the run by itself.
+
+describe('isSystemicBoilerplateFailure — sample-size floor', () => {
+  it('reproduces the #3254 Diakoniewerk incident: 1/2 (50%) is NOT systemic', () => {
+    const report = { ratio: 0.5, boilerplateCount: 1, totalJobs: 2 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('1/1 (100%) on a single-job crawler is NOT systemic (below both floors)', () => {
+    const report = { ratio: 1, boilerplateCount: 1, totalJobs: 1 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('2/3 (67%) is NOT systemic (totalJobs below the eligible-jobs floor)', () => {
+    const report = { ratio: 2 / 3, boilerplateCount: 2, totalJobs: 3 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('2/4 (50%) meets both floors: IS systemic', () => {
+    const report = { ratio: 0.5, boilerplateCount: 2, totalJobs: 4 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(true);
+  });
+
+  it('5/10 (50%) on a large crawler: IS systemic (unchanged from pre-floor behavior)', () => {
+    const report = { ratio: 0.5, boilerplateCount: 5, totalJobs: 10 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(true);
+  });
+
+  it('4/10 (40%) below the ratio threshold: NOT systemic regardless of sample size', () => {
+    const report = { ratio: 0.4, boilerplateCount: 4, totalJobs: 10 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('a single boilerplate job on a large crawler (1/20 = 5%) stays below ratio: NOT systemic', () => {
+    const report = { ratio: 0.05, boilerplateCount: 1, totalJobs: 20 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('integration: detectBoilerplateDescriptions output for the #3254 shape is NOT systemic', () => {
+    const jobs = [
+      makeJob('eligible-good', RICH_DESCRIPTION),
+      makeJob('eligible-thin', wordsDesc(29)),
+      // 4 freshly-discovered jobs excluded from the eligible sample, mirroring
+      // the real run (needsRetranslation=true until AI localization clears it).
+      ...Array.from({ length: 4 }, (_, i) =>
+        makeJob(`fresh-${i}`, wordsDesc(5), { needsRetranslation: true }),
+      ),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
+    expect(report.totalJobs).toBe(2);
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.ratio).toBe(0.5);
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+});
+
+// ─── Below-Floor Quarantine Tests (quarantineBoilerplateJobs) ──────────────────
+// Regression coverage for the PR #3267 review findings: below the systemic
+// floor, isSystemicBoilerplateFailure() correctly refuses to hard-fail the
+// run (see the #3254 tests above), but marker-phrase boilerplate (Condition
+// A) must still never reach the persisted slice — only warning-and-keeping
+// it let GDPR/privacy-notice boilerplate (long enough to beat the build's
+// <50-word noindex net) publish and get indexed indefinitely on a low-volume
+// crawler.
+//
+// Condition B (`low_unique_words`) is deliberately NOT quarantined: it's the
+// exact pattern issue #3254 exists to protect — a legitimate naturally-short
+// description (e.g. the Diakoniewerk "Berufsbildnerin" job) that lands on
+// either side of the 30-word threshold run to run. Quarantining it would add
+// zero SEO protection (already <50 words, already noindexed by the build)
+// while silently and permanently dropping real short listings.
+
+describe('quarantineBoilerplateJobs — below-floor quarantine', () => {
+  it('drops confirmed marker-phrase boilerplate jobs while keeping good jobs, mirroring the #3254 shape', () => {
+    const jobs = [
+      makeJob('eligible-good', RICH_DESCRIPTION),
+      makeJob('eligible-boilerplate', BOILERPLATE_2_MARKERS),
+      ...Array.from({ length: 4 }, (_, i) =>
+        makeJob(`fresh-${i}`, wordsDesc(5), { needsRetranslation: true }),
+      ),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
+    expect(isSystemicBoilerplateFailure(report)).toBe(false); // below-floor: must not hard-fail
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('marker_phrases');
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toHaveLength(jobs.length - 1);
+    expect(kept.some(j => j.slug === 'eligible-boilerplate')).toBe(false); // marker-phrase job dropped
+    expect(kept.some(j => j.slug === 'eligible-good')).toBe(true); // good job kept
+    expect(kept.filter(j => j.needsRetranslation)).toHaveLength(4); // fresh jobs untouched
+  });
+
+  it('does NOT quarantine low_unique_words (Condition B) jobs — legitimate naturally-short listings survive', () => {
+    const jobs = [
+      makeJob('eligible-good', RICH_DESCRIPTION),
+      makeJob('eligible-thin', wordsDesc(29)), // naturally short, e.g. #3254 Diakoniewerk shape
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('low_unique_words');
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toBe(jobs); // no marker-phrase jobs found → same array, untouched
+    expect(kept).toHaveLength(2);
+    expect(kept.some(j => j.slug === 'eligible-thin')).toBe(true); // thin-but-legitimate job kept
+  });
+
+  it('returns the same array unchanged when there is nothing to quarantine', () => {
+    const jobs = [makeJob('good-1', RICH_DESCRIPTION), makeJob('good-2', RICH_DESCRIPTION)];
+    const kept = quarantineBoilerplateJobs(jobs, []);
+    expect(kept).toBe(jobs);
+    expect(kept).toHaveLength(2);
+  });
+
+  it('drops only the marker-phrase job, keeping both the good job and the low_unique_words job', () => {
+    const jobs = [
+      makeJob('bp-1', BOILERPLATE_2_MARKERS), // reason: marker_phrases
+      makeJob('bp-2', wordsDesc(10)), // reason: low_unique_words — must survive
+      makeJob('good-1', RICH_DESCRIPTION),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'test-co');
+    expect(report.boilerplateCount).toBe(2);
+    expect(report.boilerplateJobs.map(bj => bj.reason).sort()).toEqual(['low_unique_words', 'marker_phrases']);
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toEqual([jobs[1], jobs[2]]);
+  });
+
+  it('falls back to title, then "unknown", when matching marker-phrase jobs without a slug', () => {
+    const jobs = [
+      { title: 'No Slug Job', descriptionByLocale: { it: BOILERPLATE_2_MARKERS } },
+      makeJob('good-job', RICH_DESCRIPTION),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'test-co');
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('marker_phrases');
+    expect(report.boilerplateJobs[0].slug).toBe('No Slug Job'); // slug fallback to title
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toHaveLength(1);
+    expect(kept[0].title).toBe('good-job');
   });
 });
 
