@@ -3075,7 +3075,16 @@ async function callLLM(messages, opts = {}) {
     // covers a legit large generation (≤8000 tokens) on any responsive free-tier
     // model; it only abandons true hangs ~30s sooner. Callers that need more pass
     // an explicit `timeout` via opts (it wins over this default through ...opts).
-    const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, ...opts, modelUsedRef });
+    //
+    // deadlineMs (2026-07-02): apply the same RUN_WALL_BUDGET_MS the outer
+    // headline-retry loop already enforces (see wallBudgetExceeded()) *inside*
+    // the model cascade walk too — otherwise a single callLLM() invocation can
+    // burn most of the budget internally (walking the whole ~180-model chain
+    // across up to 5 body2-validation retries) before the outer between-attempt
+    // check ever gets a chance to run. See run 28611052353 (109min, single
+    // attempt consumed nearly all of it). ...opts still wins if a caller passes
+    // its own deadlineMs (or explicit null to opt out of the cap entirely).
+    const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
     if (isBody2Check) {
       let itContent = null;
       try {
