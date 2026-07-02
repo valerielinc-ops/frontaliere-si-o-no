@@ -2118,7 +2118,8 @@ async function splitBodyIntoSections(fullBody, title) {
         'Sei un redattore italiano. Dividi il testo fornito in ESATTAMENTE 3 sezioni bilanciate ' +
         '(body1, body2, body3) senza aggiungere, riassumere o rimuovere contenuto — solo suddividere ' +
         'nei punti più naturali. Preserva ESATTAMENTE la formattazione markdown esistente (grassetto ' +
-        '**testo**, elenchi, e link interni nel formato [testo](nav:azione)). Rispondi SOLO in JSON.',
+        '**testo**, elenchi, e link interni nel formato [testo](nav:azione)). Rispondi SOLO in JSON.\n\n' +
+        JSON_QUOTE_SAFETY_RULE_IT,
     },
     { role: 'user', content: `Titolo: ${title}\n\nTesto da dividere:\n${text}` },
   ];
