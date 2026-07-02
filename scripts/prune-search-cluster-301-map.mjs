@@ -18,12 +18,12 @@
  * target un-flagged" pattern), applied to this map's own generated store
  * instead of the seo-404-compat store.
  *
- * NOTE (issue #2918 item 3, second half — periodic regeneration): this
- * script implements the PRUNE PASS only. Wiring this (and a periodic re-run
- * of build-search-cluster-301-map.mjs itself) into a scheduled GitHub
- * Actions workflow (cron) is a follow-up, out of reach for a code-only
- * worktree agent to provision/validate live — see the PR/commit message.
- * Run manually for now, in this order:
+ * Periodic regeneration + prune (issue #2918 item 3, second half): wired
+ * into .github/workflows/refresh-search-cluster-301-map.yml, which runs
+ * build-search-cluster-301-map.mjs then this prune pass in sequence on a
+ * weekly cron (and on workflow_dispatch), committing the result back to
+ * main if changed. Can still be run manually in the same order for local
+ * verification:
  *   node scripts/build-search-cluster-301-map.mjs   # regenerate from current live sitemaps
  *   node scripts/prune-search-cluster-301-map.mjs   # drop now-stale "specific" entries
  *

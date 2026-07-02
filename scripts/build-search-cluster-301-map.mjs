@@ -418,8 +418,10 @@ async function main() {
 
 // Only build the map + hit the network when run as a CLI. Importing this
 // module (e.g. the unit tests for `legacyClusterUrls`/`resolveLegacyUrlsArray`/
-// `nationalSlugBody`, or the prune pass in scripts/prune-search-cluster-301-map.mjs)
-// must NOT trigger the live sitemap fetch or overwrite the committed map.
+// `nationalSlugBody`, or the prune pass in scripts/prune-search-cluster-301-map.mjs,
+// which needs its exported OUT/LOCALES/LOCALE_CONFIG/sectionRoot/
+// fetchLiveClusterSet/loadLiveFromFile building blocks) must NOT trigger the
+// live sitemap fetch or overwrite the committed map.
 const invokedDirectly = (() => {
   try {
     return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
