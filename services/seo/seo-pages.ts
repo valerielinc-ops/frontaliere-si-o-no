@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3070,
+ "numberOfItems": 3071,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7716,7 +7716,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3067, "name": "Licenziamento frontalieri: diritti, preavviso e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km` },
           { "@type": "ListItem", "position": 3068, "name": "Blocco Ristorni Ticino: La Reazione del PD", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-pd-reazione` },
           { "@type": "ListItem", "position": 3069, "name": "Pensionamento anticipato per frontalieri: impat...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pensionamento-anticipato-2026-oltre-20km` },
-          { "@type": "ListItem", "position": 3070, "name": "Ristorni Ticino-Lombardia: Sertori rassicura i ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-ticino-lombardia-soluzione` }
+          { "@type": "ListItem", "position": 3070, "name": "Ristorni Ticino-Lombardia: Sertori rassicura i ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-ticino-lombardia-soluzione` },
+          { "@type": "ListItem", "position": 3071, "name": "Formazione professionale e riqualifica per fron...", "url": `${BASE_URL}/articoli-frontaliere/formazione-professionale-frontaliere-2026` }
  ]
  },
  {
