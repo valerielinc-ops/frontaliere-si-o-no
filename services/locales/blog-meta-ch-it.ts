@@ -823,6 +823,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.quanto-costa-vivere-lugano-frontaliere.title': 'Quanto costa vivere a Lugano da frontaliere?',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.excerpt': 'Analisi dettagliata dei costi reali per un frontaliere che valuta il trasferimento a Lugano.',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Frontaliere: Come Valutare Residenza in Italia o Svizzera nel 2026',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'Guida pratica per valutare i costi, tempi di viaggio, sanità e fiscalità tra Italia e Svizzera nel 2026.',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Persona che valuta residenza Italia o Svizzera con mappe e documenti fiscali',
 };
 
 export default blogMetaChIt;

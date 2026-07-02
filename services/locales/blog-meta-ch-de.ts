@@ -823,6 +823,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.quanto-costa-vivere-lugano-frontaliere.title': 'Wie viel kostet es, als grenzüberschreitender Pendler in Lugano zu leben?',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.excerpt': 'Detaillierte Analyse der tatsächlichen Kosten für einen grenzüberschreitenden Pendler im Zusammenhang mit dem Umzug nach Lugano.',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Pendler: Bewertung in Italien/Schweiz 2026',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'Praktischer Leitfaden zur Bewertung der Kosten, Reisezeiten, des Gesundheitswesens und der Besteuerung zwischen Italien und der Schweiz im Jahr 2026.',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Person, die die Residenz in Italien oder der Schweiz mit Karten und Steuerdokumenten bewertet',
 };
 
 export default blogMetaChDe;

@@ -4335,6 +4335,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-ristorni-ticino': { name: 'Fiscalità', path: '/articoli-svizzera/tassa-salute-ristorni-ticino/', parent: 'blog' },
     'blog-frontaliere-pensione-avs-inps-2026-entro-20km': { name: 'Pensione', path: '/articoli-svizzera/frontaliere-pensione-avs-inps-2026-entro-20km/', parent: 'blog' },
     'blog-quanto-costa-vivere-lugano-frontaliere': { name: 'Frontalieri', path: '/articoli-svizzera/quanto-costa-vivere-lugano-frontaliere/', parent: 'blog' },
+    'blog-frontaliere-2026-residenza-italia-svizzera': { name: 'Frontaliere', path: '/articoli-svizzera/frontaliere-2026-residenza-italia-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
