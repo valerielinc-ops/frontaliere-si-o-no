@@ -281,11 +281,23 @@ function parseCompanyHubUrl(rawUrl: string): ParsedCompanyHubUrl | null {
  * `jobsSeoPagesPlugin`; the bridge's existing `fs.existsSync` guard skips
  * any auto-discovered slug whose canonical HTML was already written.
  */
-function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
+export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
   const seen = new Map<string, HubEntry>(); // key = `${locale}::${companySlug}`
   const displayNameByItSlug = new Map<string, string>();
 
-  // (4) Crawler universe — also seeds display names for matching IT slugs.
+  // (4) Crawler universe — seeds display names for matching IT slugs and,
+  // critically, seeds a bridge entry for EVERY locale (not just IT).
+  //
+  // Previously this only registered `it::${slug}`, so a company whose jobs
+  // never surfaced in `data/gsc-job-urls.json` / `data/orphan-pages-audit.json`
+  // (issue #3310) got an IT bridge page but no en/de/fr equivalent — a real
+  // 404 on JobBoard.tsx's own company-filter links, which render identically
+  // in every locale. The company-hub URL shape is locale-symmetric
+  // (`buildHubPath` / `COMP_PREFIX` / `SECTION_SLUG` all key on the same 4
+  // locales), so the crawler universe must seed all 4, matching the coverage
+  // GSC/orphan-audit already prove exists for these URLs (e.g. the historical
+  // `/en|de|fr/.../company|unternehmen|entreprise-*` hits in
+  // `data/evidence-index.json` and `data/cf-hot-404s.json`).
   const crawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler');
   if (fs.existsSync(crawlerDir)) {
     for (const file of fs.readdirSync(crawlerDir)) {
@@ -298,16 +310,18 @@ function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
         const slug = slugifyCompanyName(sample.company);
         if (!slug) continue;
         displayNameByItSlug.set(slug, sample.company);
-        const key = `it::${slug}`;
-        if (!seen.has(key)) {
-          seen.set(key, {
-            locale: 'it',
-            companySlug: slug,
-            url: `${BASE_URL}${buildHubPath('it', slug)}`,
-            kind: 'unmatched',
-            displayName: sample.company,
-            jobCount: 0,
-          });
+        for (const locale of Object.keys(LOCALE_PREFIX) as Locale[]) {
+          const key = `${locale}::${slug}`;
+          if (!seen.has(key)) {
+            seen.set(key, {
+              locale,
+              companySlug: slug,
+              url: `${BASE_URL}${buildHubPath(locale, slug)}`,
+              kind: 'unmatched',
+              displayName: sample.company,
+              jobCount: 0,
+            });
+          }
         }
       } catch { /* skip malformed crawler file */ }
     }
