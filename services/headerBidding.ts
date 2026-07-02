@@ -42,6 +42,15 @@ export const PREBID_ENABLED = false;
 // generic CDN bundle (it lacks our adapters and bloats the critical path).
 const PREBID_SCRIPT_SRC = '/assets/prebid.js';
 const DEFAULT_TIMEOUT_MS = 1000;
+// TCF consent wait MUST fit inside the requestBids auction window: Prebid core
+// delays the auction internally until either the CMP responds or this timeout
+// elapses. It previously stood at 3000ms — well past the runAuction wall-clock
+// guard (`timeoutMs + 500` = 1500ms, see below) — so on EU/CH traffic with a
+// slow `__tcfapi`, the guard could call gt.display() before the auction (gated
+// on consent) ever got to run requestBids, i.e. zero header-bid demand for the
+// primary audience. Tied to DEFAULT_TIMEOUT_MS (never greater) so the guard's
+// 1500ms wall-clock ceiling for CH/EU users never regresses. See issue #2860.
+const CONSENT_TIMEOUT_MS = DEFAULT_TIMEOUT_MS;
 
 interface PbjsSlotDef {
   /** GPT div element id — Prebid matches the auction back to this GPT slot. */
@@ -67,6 +76,26 @@ interface PendingAuction {
   guard: number;
 }
 const pendingAuctions = new Set<PendingAuction>();
+
+// Ad-unit codes (== the GPT div id, see PbjsSlotDef.code) that have already
+// run at least one auction. `useBidCache: true` (configurePrebid below) plus
+// Prebid's own adUnits/bidsReceived registries are keyed by this code and
+// persist for the life of the page — they are NOT scoped to a route. This app
+// is a hand-rolled-router SPA (services/router.ts) with no full page reload
+// between routes, so if a GPT slot's div id (and therefore its Prebid ad-unit
+// code) were ever reused for a *different* adUnitPath/creative after an SPA
+// navigation, a stale cached bid (hb_adid / hb_size) from the previous route's
+// auction could be replayed onto the new route's differently-sized/targeted
+// slot. `runAuction` purges any prior ad-unit definition for a reused code
+// before re-adding it (belt-and-braces even though today's callers mint a
+// fresh, monotonically-increasing div id per component mount — see
+// GptAdSlot's `slotSeq` — so no code is currently reused within one SPA
+// session); `invalidateHeaderBiddingOnNavigation` (wired into the same
+// pushState/popstate/hashchange navigation hook hooks/useUIState.ts already
+// uses for pageview tracking) additionally purges every known code on each
+// route change, so no stale registration can ever outlive the route it was
+// requested for. See issue #2860 item 3.
+const knownAdUnitCodes = new Set<string>();
 
 function pbjs(): Record<string, unknown> & { que: Array<() => void> } {
   const w = window as unknown as { pbjs?: Record<string, unknown> & { que?: Array<() => void> } };
@@ -116,7 +145,9 @@ function configurePrebid(): void {
         // Choices (Google's CMP, already loaded) provides it; Prebid reads it
         // from the standard __tcfapi CMP interface.
         consentManagement: {
-          gdpr: { cmpApi: 'iab', timeout: 3000, defaultGdprScope: true },
+          // <= CONSENT_TIMEOUT_MS keeps the consent wait inside the runAuction
+          // wall-clock guard (timeoutMs + 500) — see CONSENT_TIMEOUT_MS above.
+          gdpr: { cmpApi: 'iab', timeout: CONSENT_TIMEOUT_MS, defaultGdprScope: true },
         },
         // Forward the GAM slot name to bidders for reporting / targeting.
         gptPreAuction: { enabled: true },
@@ -198,9 +229,23 @@ function runAuction(
       try {
         const p = pbjs() as unknown as {
           addAdUnits: (u: unknown) => void;
+          removeAdUnit: (code: string) => void;
           requestBids: (o: unknown) => void;
           setTargetingForGPTAsync: (codes: string[]) => void;
         };
+        // Purge any previous ad-unit definition (and its cached bids) for this
+        // code before re-adding it. A fresh code (the common case — see
+        // knownAdUnitCodes docstring) makes this a no-op; it only matters if a
+        // code is ever reused, in which case it stops a stale bid from a prior
+        // adUnitPath/creative leaking into this auction via useBidCache.
+        if (knownAdUnitCodes.has(slot.code)) {
+          try {
+            p.removeAdUnit(slot.code);
+          } catch {
+            /* fail-soft */
+          }
+        }
+        knownAdUnitCodes.add(slot.code);
         p.addAdUnits([{ code: slot.code, mediaTypes: { banner: { sizes } }, bids }]);
         p.requestBids({
           timeout: timeoutMs,
@@ -225,6 +270,38 @@ function runAuction(
 }
 
 /**
+ * Call on every SPA route change (no full page reload happens between routes
+ * — services/router.ts) to purge every ad-unit code any slot has ever run an
+ * auction for. Defense-in-depth alongside the reuse-guard in `runAuction`:
+ * even if a future caller ends up reusing a GPT div id / Prebid code across a
+ * navigation, this guarantees no stale bid/adUnit definition from the
+ * previous route survives into the new one. Fail-soft and a no-op when no
+ * auction has ever run (nothing in `knownAdUnitCodes`) or the header-bidding
+ * script never loaded. Wired into the same pushState/popstate/hashchange
+ * navigation hook hooks/useUIState.ts already uses for pageview tracking.
+ * See issue #2860 item 3.
+ */
+export function invalidateHeaderBiddingOnNavigation(): void {
+  if (knownAdUnitCodes.size === 0 || scriptFailed || typeof window === 'undefined') return;
+  const codes = Array.from(knownAdUnitCodes);
+  knownAdUnitCodes.clear();
+  pbjs().que.push(() => {
+    try {
+      const p = pbjs() as unknown as { removeAdUnit: (code: string) => void };
+      for (const code of codes) {
+        try {
+          p.removeAdUnit(code);
+        } catch {
+          /* fail-soft */
+        }
+      }
+    } catch {
+      /* fail-soft */
+    }
+  });
+}
+
+/**
  * Exposed only for tests. `PREBID_ENABLED` is hardcoded `false` until
  * go-live (see module docstring) so the normal `requestHeaderBids` gate
  * can't be exercised in unit tests — these internals let tests drive the
@@ -232,13 +309,18 @@ function runAuction(
  */
 export const __testing = {
   ensurePrebidScript,
+  configurePrebid,
   runAuction,
   isScriptFailed: (): boolean => scriptFailed,
+  knownAdUnitCodeCount: (): number => knownAdUnitCodes.size,
+  CONSENT_TIMEOUT_MS,
+  DEFAULT_TIMEOUT_MS,
   resetForTests(): void {
     scriptRequested = false;
     scriptFailed = false;
     configured = false;
     pendingAuctions.clear();
+    knownAdUnitCodes.clear();
     if (typeof document !== 'undefined') {
       document.querySelectorAll(`script[src="${PREBID_SCRIPT_SRC}"]`).forEach((el) => el.remove());
     }
