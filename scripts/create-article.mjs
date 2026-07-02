@@ -76,6 +76,7 @@ import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
+import { stripCodeFences, fixJsonStringBody } from './lib/llm-json-repair.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
@@ -3038,36 +3039,21 @@ async function _runSingleFactCheck(model, prompt, opts = {}) {
 // Why: GitHub Models / Groq / Mistral occasionally emit markdown bold
 // markers (`**` / `***`) between JSON properties instead of commas, or
 // wrap the payload in ```json fences, or stick a preamble before the
-// opening `{`. The bare `JSON.parse(raw.replace(/^```.../).trim())`
-// pattern that previously guarded the IT-generation parse and the
-// body2-validation loop blew up at attempts × N when the model wrote
-// `"value"***"nextKey"`. The repair walks the string once, preserves
-// asterisks INSIDE quoted strings (markdown bold in body1/body2 is
-// load-bearing), and replaces runs of stray `*` OUTSIDE strings with a
-// single comma. Truncated payloads still throw — callers detect that
+// opening `{`, or echo a quoted phrase from the source text unescaped
+// (e.g. a title like `..."tassa sulla salute"...`) which desyncs naive
+// quote-toggle string tracking into `Unterminated string in JSON`. The
+// string-repair walk (preserve asterisks INSIDE quoted strings — markdown
+// bold in body1/body2 is load-bearing — replace stray `*` OUTSIDE strings
+// with a comma, escape unescaped inner quotes) lives in
+// ./lib/llm-json-repair.mjs, shared with batch-add-faq-to-articles.mjs's
+// repairJsonArray. Truncated payloads still throw — callers detect that
 // via `parseErr.message` and retry with a larger `maxTokens`.
 function repairLlmJson(raw) {
-  let c = String(raw).replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
+  let c = stripCodeFences(raw);
   const start = c.indexOf('{');
   const end = c.lastIndexOf('}');
   if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
-  let out = '';
-  let inStr = false;
-  let esc = false;
-  for (let i = 0; i < c.length; i++) {
-    const ch = c[i];
-    if (esc) { out += ch; esc = false; continue; }
-    if (ch === '\\') { out += ch; esc = true; continue; }
-    if (ch === '"') { inStr = !inStr; out += ch; continue; }
-    if (inStr && ch === '\n') { out += '\\n'; continue; }
-    if (inStr && ch === '\r') { continue; }
-    if (!inStr && ch === '*') {
-      while (i + 1 < c.length && c[i + 1] === '*') i++;
-      out += ',';
-      continue;
-    }
-    out += ch;
-  }
+  const out = fixJsonStringBody(c, { fixAsterisks: true });
   return out.replace(/,(\s*,)+/g, ',').replace(/,(\s*[}\]])/g, '$1');
 }
 
