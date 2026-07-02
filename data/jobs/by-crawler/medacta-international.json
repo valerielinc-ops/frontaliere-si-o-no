@@ -25,7 +25,7 @@
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
       "titleByLocale": {
-        "en": "Electronic maintenance",
+        "en": "Electromechanical Maintenance Technician",
         "it": "Manutentore Elettromeccanico",
         "de": "Elektronische Wartung",
         "fr": "Entretien électronique"
@@ -40,9 +40,9 @@
       "crawledAt": "2026-07-02T11:37:18.544Z",
       "slugByLocale": {
         "it": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
-        "en": "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate",
-        "de": "elektronische-wartung-medacta-international-sa-castel-san-pietro-rancate",
-        "fr": "entretien-electronique-medacta-international-sa-castel-san-pietro-rancate"
+        "en": "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
+        "de": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
+        "fr": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro/Rancate",
@@ -50,14 +50,10 @@
       "previousSlugsByLocale": {
         "it": [
           "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate"
-        ],
-        "en": [
-          "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate"
         ]
       },
       "previousSlugs": [
-        "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate",
-        "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate"
+        "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -100,7 +96,7 @@
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
       "titleByLocale": {
-        "en": "Demand Planner",
+        "en": "Demand planning",
         "it": "Demand Planner",
         "de": "Demand Planner",
         "fr": "Planificateur de demande"
@@ -115,9 +111,9 @@
       "crawledAt": "2026-07-02T11:37:18.256Z",
       "slugByLocale": {
         "it": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
-        "en": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
+        "en": "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio",
         "de": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
-        "fr": "planificateur-de-demande-medacta-international-sa-castel-san-pietro-mendrisio"
+        "fr": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro, Mendrisio",
@@ -125,22 +121,10 @@
       "previousSlugsByLocale": {
         "it": [
           "demand-planner-medacta-castel-san-pietro-mendrisio"
-        ],
-        "de": [
-          "bedarfsplaner-medacta-international-sa-castel-san-pietro-mendrisio",
-          "anfrage-planer-medacta-international-sa-castel-san-pietro-mendrisio",
-          "demand-planer-medacta-international-sa-castel-san-pietro-mendrisio"
-        ],
-        "en": [
-          "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio"
         ]
       },
       "previousSlugs": [
-        "demand-planner-medacta-castel-san-pietro-mendrisio",
-        "bedarfsplaner-medacta-international-sa-castel-san-pietro-mendrisio",
-        "anfrage-planer-medacta-international-sa-castel-san-pietro-mendrisio",
-        "demand-planer-medacta-international-sa-castel-san-pietro-mendrisio",
-        "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio"
+        "demand-planner-medacta-castel-san-pietro-mendrisio"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -185,7 +169,7 @@
       "titleByLocale": {
         "en": "Thesis R&D Orthopedics",
         "it": "Thesis R&D Orthopedics",
-        "de": "Thesis R&D Orthopädie",
+        "de": "Dissertation F&E Orthopädie",
         "fr": "Thèse Orthopédie R & D"
       },
       "descriptionByLocale": {
@@ -208,16 +192,10 @@
       "previousSlugsByLocale": {
         "it": [
           "thesis-r-d-orthopedics-medacta-rancate"
-        ],
-        "de": [
-          "forschung-und-entwicklung-medacta-international-sa-rancate",
-          "thesis-r-d-orthopadie-medacta-international-sa-rancate"
         ]
       },
       "previousSlugs": [
-        "thesis-r-d-orthopedics-medacta-rancate",
-        "forschung-und-entwicklung-medacta-international-sa-rancate",
-        "thesis-r-d-orthopadie-medacta-international-sa-rancate"
+        "thesis-r-d-orthopedics-medacta-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -284,13 +262,11 @@
       "addressCountry": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "r-d-project-engineer-hip-medacta-rancate",
-          "r-d-project-engineer-hip-medacta-international-sa-rancate"
+          "r-d-project-engineer-hip-medacta-rancate"
         ]
       },
       "previousSlugs": [
-        "r-d-project-engineer-hip-medacta-rancate",
-        "r-d-project-engineer-hip-medacta-international-sa-rancate"
+        "r-d-project-engineer-hip-medacta-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -357,13 +333,11 @@
       "addressCountry": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "r-d-project-engineer-spine-medacta-rancate",
-          "r-d-project-engineer-spine-medacta-international-sa-rancate"
+          "r-d-project-engineer-spine-medacta-rancate"
         ]
       },
       "previousSlugs": [
-        "r-d-project-engineer-spine-medacta-rancate",
-        "r-d-project-engineer-spine-medacta-international-sa-rancate"
+        "r-d-project-engineer-spine-medacta-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -406,7 +380,7 @@
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
       "titleByLocale": {
-        "en": "R&D Project Manager Shoulder SportsMed",
+        "en": "R & D Pro Manager",
         "it": "R&D Project Manager Shoulder SportsMed",
         "de": "R&D Projektmanager Schulter SportsMed",
         "fr": "Gestionnaire de projet de R-D Épaule SportsMed"
@@ -421,9 +395,9 @@
       "crawledAt": "2026-07-02T11:37:15.787Z",
       "slugByLocale": {
         "it": "r-d-project-manager-shoulder-sportsmed-medacta-international-sa-rancate-i8n3s8",
-        "en": "r-d-project-manager-shoulder-sportsmed-medacta-international-sa-rancate-i8n3s8",
-        "de": "r-d-projektmanager-schulter-sportsmed-medacta-international-sa-rancate",
-        "fr": "gestionnaire-de-projet-de-r-d-epaule-sportsmed-medacta-international-sa-rancate"
+        "en": "r-d-pro-manager-medacta-international-sa-rancate",
+        "de": "r-d-project-manager-shoulder-sportsmed-medacta-international-sa-rancate-i8n3s8",
+        "fr": "r-d-project-manager-shoulder-sportsmed-medacta-international-sa-rancate-i8n3s8"
       },
       "sourceLang": "it",
       "addressLocality": "Rancate",
@@ -431,14 +405,10 @@
       "previousSlugsByLocale": {
         "it": [
           "r-d-project-manager-shoulder-sportsmed-medacta-rancate"
-        ],
-        "en": [
-          "r-d-pro-manager-medacta-international-sa-rancate"
         ]
       },
       "previousSlugs": [
-        "r-d-project-manager-shoulder-sportsmed-medacta-rancate",
-        "r-d-pro-manager-medacta-international-sa-rancate"
+        "r-d-project-manager-shoulder-sportsmed-medacta-rancate"
       ],
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -931,43 +901,11 @@
       "addressCountry": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "tornitore-medacta-castel-san-pietro-rancate",
-          "tornitore-medacta-international-sa-castel-san-pietro-rancate",
-          "operatore-smerigliatura-e-lucidatura-3-turni-medacta-international-sa-castel-san-pietro",
-          "schleif-und-polierarbeiter-3-schichten-medacta-international-sa-castel-san-pietro",
-          "operatore-smerigliatura-e-lucidatura-3-turni-medacta-castel-san-pietro",
-          "schleif-und-polieroper-3-drehungen-medacta-international-sa-castel-san-pietro"
-        ],
-        "en": [
-          "lathe-operator-medacta-international-sa-castel-san-pietro-rancate",
-          "lathe-operator-medacta-international-sa-castel-san-pietro",
-          "grinding-and-polishing-operator-3-shifts-medacta-international-sa-castel-san-pietro"
-        ],
-        "de": [
-          "dreher-medacta-international-sa-castel-san-pietro-rancate",
-          "dreher-medacta-international-sa-castel-san-pietro"
-        ],
-        "fr": [
-          "operateur-de-meulage-et-polissage-3-equipes-medacta-international-sa-castel-san-pietro",
-          "operateur-de-broyage-et-de-polissage-3-tours-medacta-international-sa-castel-san-pietro",
-          "operateur-de-polissage-3-tours-medacta-international-sa-castel-san-pietro"
+          "tornitore-medacta-castel-san-pietro-rancate"
         ]
       },
       "previousSlugs": [
-        "tornitore-medacta-castel-san-pietro-rancate",
-        "tornitore-medacta-international-sa-castel-san-pietro-rancate",
-        "lathe-operator-medacta-international-sa-castel-san-pietro-rancate",
-        "lathe-operator-medacta-international-sa-castel-san-pietro",
-        "dreher-medacta-international-sa-castel-san-pietro-rancate",
-        "dreher-medacta-international-sa-castel-san-pietro",
-        "operatore-smerigliatura-e-lucidatura-3-turni-medacta-international-sa-castel-san-pietro",
-        "grinding-and-polishing-operator-3-shifts-medacta-international-sa-castel-san-pietro",
-        "schleif-und-polierarbeiter-3-schichten-medacta-international-sa-castel-san-pietro",
-        "operateur-de-meulage-et-polissage-3-equipes-medacta-international-sa-castel-san-pietro",
-        "operatore-smerigliatura-e-lucidatura-3-turni-medacta-castel-san-pietro",
-        "schleif-und-polieroper-3-drehungen-medacta-international-sa-castel-san-pietro",
-        "operateur-de-broyage-et-de-polissage-3-tours-medacta-international-sa-castel-san-pietro",
-        "operateur-de-polissage-3-tours-medacta-international-sa-castel-san-pietro"
+        "tornitore-medacta-castel-san-pietro-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -1012,7 +950,7 @@
       "titleByLocale": {
         "en": "Associate Designer",
         "it": "Associate Designer",
-        "de": "Associate Designer",
+        "de": "Assoziierter Designer",
         "fr": "Designer associé"
       },
       "descriptionByLocale": {
@@ -1026,29 +964,19 @@
       "slugByLocale": {
         "it": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
         "en": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
-        "de": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5",
-        "fr": "designer-associe-medacta-international-sa-castel-san-pietro"
+        "de": "assoziierter-designer-medacta-international-sa-castel-san-pietro",
+        "fr": "associate-designer-medacta-international-sa-castel-san-pietro-0z6nr5"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "associate-designer-medacta-castel-san-pietro",
-          "designer-associato-medacta-international-sa-castel-san-pietro"
-        ],
-        "de": [
-          "assistenten-designer-medacta-international-sa-castel-san-pietro",
-          "partner-designer-medacta-international-sa-castel-san-pietro",
-          "assoziierter-designer-medacta-international-sa-castel-san-pietro"
+          "associate-designer-medacta-castel-san-pietro"
         ]
       },
       "previousSlugs": [
-        "associate-designer-medacta-castel-san-pietro",
-        "assistenten-designer-medacta-international-sa-castel-san-pietro",
-        "partner-designer-medacta-international-sa-castel-san-pietro",
-        "designer-associato-medacta-international-sa-castel-san-pietro",
-        "assoziierter-designer-medacta-international-sa-castel-san-pietro"
+        "associate-designer-medacta-castel-san-pietro"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -1093,7 +1021,7 @@
       "titleByLocale": {
         "en": "Measuring Instruments Responsible",
         "it": "Measuring Instruments Responsible",
-        "de": "Zuständige Messgeräte",
+        "de": "Messinstrumente verantwortlich",
         "fr": "Instruments de mesure responsables"
       },
       "descriptionByLocale": {
@@ -1107,8 +1035,8 @@
       "slugByLocale": {
         "it": "measuring-instruments-responsible-medacta-international-sa-castel-san-pietro-m4s3bt",
         "en": "measuring-instruments-responsible-medacta-international-sa-castel-san-pietro-m4s3bt",
-        "de": "zustandige-messgerate-medacta-international-sa-castel-san-pietro",
-        "fr": "instruments-de-mesure-responsables-medacta-international-sa-castel-san-pietro"
+        "de": "messinstrumente-verantwortlich-medacta-international-sa-castel-san-pietro",
+        "fr": "measuring-instruments-responsible-medacta-international-sa-castel-san-pietro-m4s3bt"
       },
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
@@ -1116,48 +1044,10 @@
       "previousSlugsByLocale": {
         "it": [
           "measuring-instruments-responsible-medacta-castel-san-pietro"
-        ],
-        "de": [
-          "verantwortlicher-fur-messinstrumente-medacta-international-sa-castel-san-pietro",
-          "messinstrumente-verantwortung-medacta-international-sa-castel-san-pietro",
-          "messinstrumente-verantwortlich-medacta-international-sa-castel-san-pietro"
-        ],
-        "fr": [
-          "responsable-des-instruments-de-mesure-medacta-international-sa-castel-san-pietro"
-        ],
-        "en": [
-          "measurement-instruments-manager-medacta-international-sa-castel-san-pietro",
-          "think-okay-let-s-tackle-this-translation-the-job-title-is-measuring-instruments-responsible-first-i-need-to-make-sure-i",
-          "measuring-instruments-manager-medacta-international-sa-castel-san-pietro",
-          "user-safety-safe-medacta-international-sa-castel-san-pietro",
-          "measurement-tools-manager-medacta-international-sa-castel-san-pietro",
-          "mesuradores-responsaveis-medacta-international-sa-castel-san-pietro",
-          "instrument-measurement-responsible-medacta-international-sa-castel-san-pietro",
-          "responsable-d-instruments-de-mesure-medacta-international-sa-castel-san-pietro",
-          "instrumentos-de-medicion-responsable-medacta-international-sa-castel-san-pietro",
-          "instrumentsos-de-medicion-responsables-medacta-international-sa-castel-san-pietro",
-          "responsable-de-instrumentos-de-medicion-medacta-international-sa-castel-san-pietro",
-          "instrumentos-de-medicao-responsaveis-medacta-international-sa-castel-san-pietro"
         ]
       },
       "previousSlugs": [
-        "measuring-instruments-responsible-medacta-castel-san-pietro",
-        "verantwortlicher-fur-messinstrumente-medacta-international-sa-castel-san-pietro",
-        "messinstrumente-verantwortung-medacta-international-sa-castel-san-pietro",
-        "responsable-des-instruments-de-mesure-medacta-international-sa-castel-san-pietro",
-        "measurement-instruments-manager-medacta-international-sa-castel-san-pietro",
-        "think-okay-let-s-tackle-this-translation-the-job-title-is-measuring-instruments-responsible-first-i-need-to-make-sure-i",
-        "measuring-instruments-manager-medacta-international-sa-castel-san-pietro",
-        "user-safety-safe-medacta-international-sa-castel-san-pietro",
-        "measurement-tools-manager-medacta-international-sa-castel-san-pietro",
-        "mesuradores-responsaveis-medacta-international-sa-castel-san-pietro",
-        "instrument-measurement-responsible-medacta-international-sa-castel-san-pietro",
-        "responsable-d-instruments-de-mesure-medacta-international-sa-castel-san-pietro",
-        "instrumentos-de-medicion-responsable-medacta-international-sa-castel-san-pietro",
-        "instrumentsos-de-medicion-responsables-medacta-international-sa-castel-san-pietro",
-        "responsable-de-instrumentos-de-medicion-medacta-international-sa-castel-san-pietro",
-        "instrumentos-de-medicao-responsaveis-medacta-international-sa-castel-san-pietro",
-        "messinstrumente-verantwortlich-medacta-international-sa-castel-san-pietro"
+        "measuring-instruments-responsible-medacta-castel-san-pietro"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -1224,25 +1114,11 @@
       "addressCountry": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "fresatore-medacta-castel-san-pietro-rancate",
-          "fresatore-medacta-international-sa-castel-san-pietro"
-        ],
-        "en": [
-          "milling-operator-medacta-international-sa-castel-san-pietro-rancate"
-        ],
-        "de": [
-          "fraser-medacta-international-sa-castel-san-pietro"
-        ],
-        "fr": [
-          "fraiseur-medacta-international-sa-castel-san-pietro"
+          "fresatore-medacta-castel-san-pietro-rancate"
         ]
       },
       "previousSlugs": [
-        "fresatore-medacta-castel-san-pietro-rancate",
-        "fresatore-medacta-international-sa-castel-san-pietro",
-        "milling-operator-medacta-international-sa-castel-san-pietro-rancate",
-        "fraser-medacta-international-sa-castel-san-pietro",
-        "fraiseur-medacta-international-sa-castel-san-pietro"
+        "fresatore-medacta-castel-san-pietro-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -1310,14 +1186,10 @@
       "previousSlugsByLocale": {
         "it": [
           "tecnico-controllo-qualita-3-turni-medacta-castel-san-pietro"
-        ],
-        "en": [
-          "technician-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p"
         ]
       },
       "previousSlugs": [
-        "tecnico-controllo-qualita-3-turni-medacta-castel-san-pietro",
-        "technician-controllo-qualita-3-turni-medacta-international-sa-castel-san-pietro-smod8p"
+        "tecnico-controllo-qualita-3-turni-medacta-castel-san-pietro"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,

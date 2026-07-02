@@ -3909,8 +3909,7 @@
           "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
           "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st",
           "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st",
-          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
-          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen-7cx2li"
+          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
@@ -5642,8 +5641,7 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-100-hoch-health-grabs",
-          "logistiker-in-100-hoch-health-ostschweiz-grabs",
-          "logistiker-in-100-hoch-health-ostschweiz-st-gallen-lbobuy"
+          "logistiker-in-100-hoch-health-ostschweiz-grabs"
         ],
         "en": [
           "logistiker-in-100-hoch-health-grabs"
@@ -6251,7 +6249,7 @@
       "title": "Unterassistent/in 2027",
       "titleByLocale": {
         "de": "Unterassistent/in 2027",
-        "it": "Sub-assistante/in 2027",
+        "it": "Sotto-Assistente 2027",
         "en": "Sub-assistant/in 2027",
         "fr": "Sous-assistant/en 2027"
       },
@@ -13879,7 +13877,7 @@
       "title": "Fachfrau/-mann Gesundheit 60-100%",
       "titleByLocale": {
         "de": "Fachfrau/-mann Gesundheit 60-100%",
-        "it": "Salute professionale 60-100 %",
+        "it": "Professionista sanitario: 60-100%",
         "en": "Professional Health 60-100 %",
         "fr": "Santé professionnelle 60-100 %"
       },
@@ -13951,7 +13949,7 @@
       "title": "Gruppenleiter/in Operationspflege 100%",
       "titleByLocale": {
         "de": "Gruppenleiter/in Operationspflege 100%",
-        "it": "Gruppo leader / in chirurgia cura 100%",
+        "it": "Capo Gruppo Infermieristica Chirurgica al 100%",
         "en": "Group leader/in surgery care 100%",
         "fr": "Chef de groupe/en chirurgie 100%"
       },
@@ -14182,7 +14180,7 @@
       "title": "Kaderärztin/-arzt Gefässchirurgie 100%",
       "titleByLocale": {
         "de": "Kaderärztin/-arzt Gefässchirurgie 100%",
-        "it": "Certificato medico chirurgia vascolare 100%",
+        "it": "Chirurgia vascolare come medico senior al 100%",
         "en": "Certificate physician vascular surgery 100%",
         "fr": "Certificat médecin chirurgie vasculaire 100%"
       },
@@ -16259,12 +16257,12 @@
     },
     {
       "id": "hoch-health-b481ba17c9fd",
-      "slug": "med-assistente-pratico-in-50-100-hoch-health-ostschweiz-wil",
+      "slug": "assistente-medico-50-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "med-praxisassistent-in-50-100-hoch-health-wil",
-        "it": "med-assistente-pratico-in-50-100-hoch-health-ostschweiz-wil",
-        "en": "med-practical-assistant-in-50-100-hoch-health-ostschweiz-wil",
-        "fr": "med-assistant-pratique-en-50-100-hoch-health-ostschweiz-wil"
+        "it": "assistente-medico-50-100-hoch-health-ostschweiz-wil",
+        "en": "med-praxisassistent-in-50-100-hoch-health-wil",
+        "fr": "med-praxisassistent-in-50-100-hoch-health-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16272,7 +16270,7 @@
       "title": "Med. Praxisassistent/in 50-100%",
       "titleByLocale": {
         "de": "Med. Praxisassistent/in 50-100%",
-        "it": "Med. Assistente pratico/in 50-100 %",
+        "it": "Assistente medico 50-100%",
         "en": "Med. Practical assistant/in 50-100 %",
         "fr": "Med. Assistant pratique/en 50-100 %"
       },
@@ -16322,29 +16320,21 @@
       "firstSeenAt": "2026-07-02T11:13:26.288Z",
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-50-100-hoch-health-wil",
-          "assistente-medico-50-100-hoch-health-ostschweiz-wil"
-        ],
-        "en": [
-          "med-praxisassistent-in-50-100-hoch-health-wil"
-        ],
-        "fr": [
           "med-praxisassistent-in-50-100-hoch-health-wil"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-50-100-hoch-health-wil",
-        "assistente-medico-50-100-hoch-health-ostschweiz-wil"
+        "med-praxisassistent-in-50-100-hoch-health-wil"
       ]
     },
     {
       "id": "hoch-health-94256535df65",
-      "slug": "studio-infermiera-coordinatore-in-60-80-hoch-health-ostschweiz-grabs",
+      "slug": "infermiere-di-studio-coordinatore-dello-studio-60-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "study-nurse-studienkoordinator-in-60-80-hoch-health-grabs",
-        "it": "studio-infermiera-coordinatore-in-60-80-hoch-health-ostschweiz-grabs",
+        "it": "infermiere-di-studio-coordinatore-dello-studio-60-80-hoch-health-ostschweiz-grabs",
         "en": "study-nurse-studienkoordinator-in-60-80-hoch-health-grabs",
-        "fr": "infirmiere-coordonnatrice-de-l-etude-dans-60-80-hoch-health-ostschweiz-grabs"
+        "fr": "study-nurse-studienkoordinator-in-60-80-hoch-health-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16352,7 +16342,7 @@
       "title": "Study Nurse / Studienkoordinator/in 60-80%",
       "titleByLocale": {
         "de": "Study Nurse / Studienkoordinator/in 60-80%",
-        "it": "Studio Infermiera/Coordinatore/in 60-80 %",
+        "it": "Infermiere di studio / Coordinatore dello studio 60-80%",
         "en": "Study Nurse / Study Coordinator/in 60-80 %",
         "fr": "Infirmière / Coordonnatrice de l'étude/dans 60-80 %"
       },
@@ -16402,26 +16392,21 @@
       "firstSeenAt": "2026-07-02T11:13:25.732Z",
       "previousSlugsByLocale": {
         "it": [
-          "study-nurse-studienkoordinator-in-60-80-hoch-health-grabs",
-          "infermiere-di-studio-coordinatore-dello-studio-60-80-hoch-health-ostschweiz-grabs"
-        ],
-        "fr": [
           "study-nurse-studienkoordinator-in-60-80-hoch-health-grabs"
         ]
       },
       "previousSlugs": [
-        "study-nurse-studienkoordinator-in-60-80-hoch-health-grabs",
-        "infermiere-di-studio-coordinatore-dello-studio-60-80-hoch-health-ostschweiz-grabs"
+        "study-nurse-studienkoordinator-in-60-80-hoch-health-grabs"
       ]
     },
     {
       "id": "hoch-health-d7d535d6b282",
-      "slug": "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-2d29d0",
+      "slug": "infermiere-certificato-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-        "it": "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-2d29d0",
-        "en": "dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-2d29d0",
-        "fr": "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-2d29d0"
+        "it": "infermiere-certificato-80-100-hoch-health-ostschweiz-st-gallen",
+        "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
+        "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16429,7 +16414,7 @@
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
-        "it": "Dipl. Infermieristica professionale 80-100 %",
+        "it": "Infermiere Certificato 80-100%",
         "en": "Dipl. Nursing professional 80-100 %",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
       },
@@ -16467,20 +16452,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
-          "infermiere-certificato-80-100-hoch-health-ostschweiz-st-gallen"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
-        "infermiere-certificato-80-100-hoch-health-ostschweiz-st-gallen"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -9541,12 +9541,12 @@
     },
     {
       "id": "rolex-c8de64ff0973",
-      "slug": "operatore-multiuso-h-f-rolex-fribourg",
+      "slug": "operatore-multiuso-m-f-rolex-fribourg",
       "slugByLocale": {
         "fr": "operateur-polyvalent-h-f-rolex-ch",
-        "it": "operatore-multiuso-h-f-rolex-fribourg",
-        "en": "multipurpose-operator-h-f-rolex-fribourg",
-        "de": "mehrzweckbetreiber-h-f-rolex-fribourg"
+        "it": "operatore-multiuso-m-f-rolex-fribourg",
+        "en": "operateur-polyvalent-h-f-rolex-ch",
+        "de": "operateur-polyvalent-h-f-rolex-ch"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9554,7 +9554,7 @@
       "title": "Opérateur polyvalent (H/F)",
       "titleByLocale": {
         "fr": "Opérateur polyvalent (H/F)",
-        "it": "Operatore multiuso (H/F)",
+        "it": "Operatore Multiuso (M/F)",
         "en": "Multipurpose operator (H/F)",
         "de": "Mehrzweckbetreiber (H/F)"
       },
@@ -9603,29 +9603,21 @@
       "firstSeenAt": "2026-07-02T11:50:08.491Z",
       "previousSlugsByLocale": {
         "it": [
-          "operateur-polyvalent-h-f-rolex-ch",
-          "operatore-multiuso-m-f-rolex-fribourg"
-        ],
-        "en": [
-          "operateur-polyvalent-h-f-rolex-ch"
-        ],
-        "de": [
           "operateur-polyvalent-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
-        "operateur-polyvalent-h-f-rolex-ch",
-        "operatore-multiuso-m-f-rolex-fribourg"
+        "operateur-polyvalent-h-f-rolex-ch"
       ]
     },
     {
       "id": "rolex-07a0cc3c7244",
-      "slug": "personale-di-gestione-h-f-rolex-fribourg",
+      "slug": "dipendente-della-direzione-m-f-rolex-fribourg",
       "slugByLocale": {
         "fr": "employe-de-gestion-h-f-rolex-ch",
-        "it": "personale-di-gestione-h-f-rolex-fribourg",
-        "en": "management-staff-h-f-rolex-fribourg",
-        "de": "verwaltungspersonal-h-f-rolex-fribourg"
+        "it": "dipendente-della-direzione-m-f-rolex-fribourg",
+        "en": "employe-de-gestion-h-f-rolex-ch",
+        "de": "employe-de-gestion-h-f-rolex-ch"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9633,7 +9625,7 @@
       "title": "Employé de gestion (H/F)",
       "titleByLocale": {
         "fr": "Employé de gestion (H/F)",
-        "it": "Personale di gestione (H/F)",
+        "it": "Dipendente della direzione (M/F)",
         "en": "Management staff (H/F)",
         "de": "Verwaltungspersonal (H/F)"
       },
@@ -9682,19 +9674,11 @@
       "firstSeenAt": "2026-07-02T11:50:07.117Z",
       "previousSlugsByLocale": {
         "it": [
-          "employe-de-gestion-h-f-rolex-ch",
-          "dipendente-della-direzione-m-f-rolex-fribourg"
-        ],
-        "en": [
-          "employe-de-gestion-h-f-rolex-ch"
-        ],
-        "de": [
           "employe-de-gestion-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
-        "employe-de-gestion-h-f-rolex-ch",
-        "dipendente-della-direzione-m-f-rolex-fribourg"
+        "employe-de-gestion-h-f-rolex-ch"
       ]
     },
     {

@@ -9,7 +9,7 @@
         "de": "projektleiter-real-estate-development-80-100-implenia-ch",
         "it": "project-manager-sviluppo-immobiliare-80-100-implenia-glattpark-opfikon",
         "en": "projektleiter-real-estate-development-80-100-implenia-ch",
-        "fr": "gestionnaire-de-projet-developpement-immobilier-80-100-implenia-glattpark-opfikon"
+        "fr": "projektleiter-real-estate-development-80-100-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -56,9 +56,6 @@
         "it": [
           "projektleiter-real-estate-development-80-100-implenia-ch",
           "projektleiter-real-estate-development-80-100-implenia-glattpark-opfikon"
-        ],
-        "fr": [
-          "projektleiter-real-estate-development-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -3152,12 +3149,12 @@
     },
     {
       "id": "implenia-a5c540f63921",
-      "slug": "conversione-del-responsabile-del-progetto-f-m-d-implenia-glattpark-opfikon",
+      "slug": "conversione-project-manager-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "projektmanager-umbau-w-m-d-implenia-ch",
-        "it": "conversione-del-responsabile-del-progetto-f-m-d-implenia-glattpark-opfikon",
-        "en": "project-manager-conversion-f-m-d-implenia-glattpark-opfikon",
-        "fr": "transformation-du-gestionnaire-de-projet-f-m-d-implenia-glattpark-opfikon"
+        "it": "conversione-project-manager-f-m-d-implenia-glattpark-opfikon",
+        "en": "projektmanager-umbau-w-m-d-implenia-ch",
+        "fr": "projektmanager-umbau-w-m-d-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3165,7 +3162,7 @@
       "title": "Projektmanager Umbau (w/m/d)",
       "titleByLocale": {
         "de": "Projektmanager Umbau (w/m/d)",
-        "it": "Conversione del responsabile del progetto (f/m/d)",
+        "it": "Conversione Project Manager (f/m/d)",
         "en": "Project manager conversion (f/m/d)",
         "fr": "Transformation du gestionnaire de projet (f/m/d)"
       },
@@ -3215,29 +3212,21 @@
       "firstSeenAt": "2026-07-02T11:29:53.730Z",
       "previousSlugsByLocale": {
         "it": [
-          "projektmanager-umbau-w-m-d-implenia-ch",
-          "conversione-project-manager-f-m-d-implenia-glattpark-opfikon"
-        ],
-        "en": [
-          "projektmanager-umbau-w-m-d-implenia-ch"
-        ],
-        "fr": [
           "projektmanager-umbau-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "projektmanager-umbau-w-m-d-implenia-ch",
-        "conversione-project-manager-f-m-d-implenia-glattpark-opfikon"
+        "projektmanager-umbau-w-m-d-implenia-ch"
       ]
     },
     {
       "id": "implenia-c9519875b0da",
-      "slug": "conversione-del-direttore-di-costruzione-f-m-d-implenia-glattpark-opfikon",
+      "slug": "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "bauleiter-umbau-w-m-d-implenia-ch",
-        "it": "conversione-del-direttore-di-costruzione-f-m-d-implenia-glattpark-opfikon",
-        "en": "construction-manager-conversion-f-m-d-implenia-glattpark-opfikon",
-        "fr": "transformation-du-gestionnaire-de-construction-f-m-d-implenia-glattpark-opfikon"
+        "it": "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon",
+        "en": "bauleiter-umbau-w-m-d-implenia-ch",
+        "fr": "bauleiter-umbau-w-m-d-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3245,7 +3234,7 @@
       "title": "Bauleiter Umbau (w/m/d)",
       "titleByLocale": {
         "de": "Bauleiter Umbau (w/m/d)",
-        "it": "Conversione del direttore di costruzione (f/m/d)",
+        "it": "Conversione Construction Manager (f/m/d)",
         "en": "Construction manager conversion (f/m/d)",
         "fr": "Transformation du gestionnaire de construction (f/m/d)"
       },
@@ -3283,20 +3272,12 @@
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-umbau-w-m-d-implenia-ch",
-          "bauleiter-umbau-m-w-d-implenia-glattpark-opfikon",
-          "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon"
-        ],
-        "en": [
-          "bauleiter-umbau-w-m-d-implenia-ch"
-        ],
-        "fr": [
-          "bauleiter-umbau-w-m-d-implenia-ch"
+          "bauleiter-umbau-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
         "bauleiter-umbau-w-m-d-implenia-ch",
-        "bauleiter-umbau-m-w-d-implenia-glattpark-opfikon",
-        "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon"
+        "bauleiter-umbau-m-w-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3314,12 +3295,12 @@
     },
     {
       "id": "implenia-adacb649a488",
-      "slug": "hvac-m-f-d-80-100-implenia-glattpark-opfikon",
+      "slug": "acquirente-principale-hvac-lunedi-venedi-d-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
-        "it": "hvac-m-f-d-80-100-implenia-glattpark-opfikon",
+        "it": "acquirente-principale-hvac-lunedi-venedi-d-80-100-implenia-glattpark-opfikon",
         "en": "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
-        "fr": "acheteur-de-plomb-cvc-m-f-d-80-100-implenia-glattpark-opfikon"
+        "fr": "lead-buyer-hlks-m-w-d-80-100-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3328,7 +3309,7 @@
       "titleByLocale": {
         "de": "Lead Buyer HLKS (m/w/d) 80-100%",
         "en": "Lead Buyer HVAC (m/f/d) 80-100 %",
-        "it": "HVAC (m/f/d) 80-100 %",
+        "it": "Acquirente principale HVAC (lunedì/venedì/d) 80-100%",
         "fr": "Acheteur de plomb CVC (m/f/d) 80-100 %"
       },
       "description": "Als führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com",
@@ -3377,16 +3358,11 @@
       "firstSeenAt": "2026-07-02T11:29:53.480Z",
       "previousSlugsByLocale": {
         "it": [
-          "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
-          "acquirente-principale-hvac-lunedi-venedi-d-80-100-implenia-glattpark-opfikon"
-        ],
-        "fr": [
           "lead-buyer-hlks-m-w-d-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
-        "acquirente-principale-hvac-lunedi-venedi-d-80-100-implenia-glattpark-opfikon"
+        "lead-buyer-hlks-m-w-d-80-100-implenia-ch"
       ]
     },
     {
@@ -3467,8 +3443,8 @@
       "slugByLocale": {
         "de": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch",
         "it": "polier-im-lehrgerust-e-bruckenbau-100-m-w-d-implenia-glattpark-opfikon",
-        "en": "polisher-in-teaching-scaffolding-and-bridge-construction-100-f-m-implenia-glattpark-opfikon",
-        "fr": "polonais-dans-l-enseignement-de-l-echafaudage-et-la-construction-de-ponts-100-f-m-implenia-glattpark-opfikon"
+        "en": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch",
+        "fr": "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3514,12 +3490,6 @@
       "previousSlugsByLocale": {
         "it": [
           "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
-        ],
-        "en": [
-          "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
-        ],
-        "fr": [
-          "polier-im-lehrgerust-und-bruckenbau-100-w-m-implenia-ch"
         ]
       },
       "previousSlugs": [
@@ -3541,12 +3511,12 @@
     },
     {
       "id": "implenia-e3abbef746d2",
-      "slug": "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+      "slug": "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-        "it": "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
-        "en": "construction-manager-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
-        "fr": "directeur-de-la-construction-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon"
+        "it": "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "en": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
+        "fr": "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3554,7 +3524,7 @@
       "title": "Bauleiter GU/TU Zürich (w/m/d)",
       "titleByLocale": {
         "de": "Bauleiter GU/TU Zürich (w/m/d)",
-        "it": "Responsabile costruzione GU/TU Zurich (f/m/d)",
+        "it": "Responsabile Costruzioni Imprenditore Generale/TU Zurich (f/m/d)",
         "en": "Construction manager GU/TU Zurich (f/m/d)",
         "fr": "Directeur de la construction GU/TU Zurich (f/m/d)"
       },
@@ -3592,20 +3562,12 @@
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
-          "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon"
-        ],
-        "en": [
-          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
-        ],
-        "fr": [
-          "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
+          "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
         "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
-        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
-        "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon"
+        "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3623,12 +3585,12 @@
     },
     {
       "id": "implenia-842c33471f75",
-      "slug": "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
+      "slug": "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
-        "it": "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
-        "en": "planning-manager-of-the-renovation-project-jelmoli-f-m-d-implenia-glattpark-opfikon",
-        "fr": "responsable-de-la-planification-du-projet-de-renovation-jelmoli-f-m-d-implenia-glattpark-opfikon"
+        "it": "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon",
+        "en": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
+        "fr": "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3636,7 +3598,7 @@
       "title": "Planungsleiter Umbauprojekt Jelmoli (w/m/d)",
       "titleByLocale": {
         "de": "Planungsleiter Umbauprojekt Jelmoli (w/m/d)",
-        "it": "Responsabile del progetto di ristrutturazione Jelmoli (f/m/d)",
+        "it": "Responsabile della Pianificazione Progetto di Conversione Jelmoli (f/m/d)",
         "en": "Planning manager of the renovation project Jelmoli (f/m/d)",
         "fr": "Responsable de la planification du projet de rénovation Jelmoli (f/m/d)"
       },
@@ -3686,19 +3648,11 @@
       "firstSeenAt": "2026-07-02T11:29:52.639Z",
       "previousSlugsByLocale": {
         "it": [
-          "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
-          "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon"
-        ],
-        "en": [
-          "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
-        ],
-        "fr": [
           "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
-        "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon"
+        "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
       ]
     },
     {
@@ -4071,12 +4025,12 @@
     },
     {
       "id": "implenia-23486558f35e",
-      "slug": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
+      "slug": "impiegato-del-fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "it": "fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
-        "en": "pension-fund-m-f-d-bern-40-60-implenia-glattpark-opfikon",
-        "fr": "caisse-de-retraite-m-f-j-berne-40-60-implenia-glattpark-opfikon"
+        "it": "impiegato-del-fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon",
+        "en": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
+        "fr": "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4084,7 +4038,7 @@
       "title": "Sachbearbeiter Pensionkasse (m/w/d), Bern, 40-60%",
       "titleByLocale": {
         "de": "Sachbearbeiter Pensionkasse (m/w/d), Bern, 40-60%",
-        "it": "Fondo pensione (m/f/d), Berna, 40-60 %",
+        "it": "Impiegato del Fondo Pensione (m/f/d), Berna, 40-60%",
         "en": "Pension fund (m/f/d), Bern, 40-60 %",
         "fr": "Caisse de retraite (m/f/j), Berne, 40-60 %"
       },
@@ -4134,19 +4088,11 @@
       "firstSeenAt": "2026-07-02T11:29:50.325Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-          "impiegato-del-fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon"
-        ],
-        "en": [
-          "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
-        ],
-        "fr": [
           "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch",
-        "impiegato-del-fondo-pensione-m-f-d-berna-40-60-implenia-glattpark-opfikon"
+        "sachbearbeiter-pensionkasse-m-w-d-bern-40-60-implenia-ch"
       ]
     },
     {
@@ -4164,7 +4110,7 @@
       "title": "Ingenieur Holzbau, (m/w/d) 80-100%",
       "titleByLocale": {
         "de": "Ingenieur Holzbau, (m/w/d) 80-100%",
-        "it": "Ingegnere Holzbau, (m/f/d) 80-100 %",
+        "it": "Ingegnere Costruzioni del Legname, (M/F/D) 80-100%",
         "en": "Engineer Holzbau, (m/f/d) 80-100 %",
         "fr": "Ingénieur Holzbau, (m/f/d) 80-100 %"
       },
@@ -4223,10 +4169,10 @@
     },
     {
       "id": "implenia-95ef097ca0d2",
-      "slug": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "de": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
-        "it": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+        "it": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
         "en": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
       },
@@ -4236,7 +4182,7 @@
       "title": "Bauführer Holzbau, (m/w/d), 80-100%",
       "titleByLocale": {
         "de": "Bauführer Holzbau, (m/w/d), 80-100%",
-        "it": "Bauführer Holzbau, (m/f/d), 80-100 %",
+        "it": "Foreman Timber Construction, (m/f/d), 80-100%",
         "en": "Bauführer Holzbau, (m/f/d), 80-100 %",
         "fr": "Bauführer Holzbau, (m/f/j), 80-100 %"
       },
@@ -4286,19 +4232,19 @@
       "firstSeenAt": "2026-07-02T11:29:50.022Z",
       "previousSlugsByLocale": {
         "it": [
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
+          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
+        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
       ]
     },
     {
       "id": "implenia-41afb0f1832c",
-      "slug": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
       "slugByLocale": {
         "de": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "it": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
+        "it": "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
         "en": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
       },
@@ -4308,7 +4254,7 @@
       "title": "Senior Kalkulator Holzbau, (m/w/d), 80-100%",
       "titleByLocale": {
         "de": "Senior Kalkulator Holzbau, (m/w/d), 80-100%",
-        "it": "Calcolatore senior Holzbau, (m/f/d), 80-100 %",
+        "it": "Calcolatrice Senior Costruzioni in Legno, (lun/vended/g), 80-100%",
         "en": "Senior calculator Holzbau, (m/f/d), 80-100 %",
         "fr": "Calculatrice senior Holzbau, (m/f/d), 80-100 %"
       },
@@ -4358,11 +4304,11 @@
       "firstSeenAt": "2026-07-02T11:29:49.791Z",
       "previousSlugsByLocale": {
         "it": [
-          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+        "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
       ]
     },
     {
@@ -4513,12 +4459,12 @@
     },
     {
       "id": "implenia-3e012d993f5a",
-      "slug": "senior-amministratore-immobiliare-commerciale-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
+      "slug": "senior-gestore-immobiliare-commerciale-f-f-d-zug-lucerne-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
       "slugByLocale": {
         "de": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "it": "senior-amministratore-immobiliare-commerciale-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
-        "en": "senior-managor-of-commercial-real-estate-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
-        "fr": "aine-managor-de-biens-immobiliers-commerciaux-m-f-d-zug-luzern-60-80-implenia-zihlmattweg-46-postfach-6002-luzern"
+        "it": "senior-gestore-immobiliare-commerciale-f-f-d-zug-lucerne-60-80-implenia-zihlmattweg-46-postfach-6002-luzern",
+        "en": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
+        "fr": "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4526,7 +4472,7 @@
       "title": "(Senior) Bewirtschafter Gewerbeimmobilien (m/w/d), Zug/Luzern, 60-80%",
       "titleByLocale": {
         "de": "(Senior) Bewirtschafter Gewerbeimmobilien (m/w/d), Zug/Luzern, 60-80%",
-        "it": "(Senior) Amministratore immobiliare commerciale (m/f/d), Zug/Luzern, 60-80 %",
+        "it": "(Senior) Gestore Immobiliare Commerciale (f/f/d), Zug/Lucerne, 60-80%",
         "en": "(Senior) Managor of commercial real estate (m/f/d), Zug/Luzern, 60-80 %",
         "fr": "(Aîné) Managor de biens immobiliers commerciaux (m/f/d), Zug/Luzern, 60-80 %"
       },
@@ -4576,19 +4522,11 @@
       "firstSeenAt": "2026-07-02T11:29:48.700Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-          "senior-gestore-immobiliare-commerciale-f-f-d-zug-lucerne-60-80-implenia-zihlmattweg-46-postfach-6002-luzern"
-        ],
-        "en": [
-          "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
-        ],
-        "fr": [
           "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch",
-        "senior-gestore-immobiliare-commerciale-f-f-d-zug-lucerne-60-80-implenia-zihlmattweg-46-postfach-6002-luzern"
+        "senior-bewirtschafter-gewerbeimmobilien-m-w-d-zug-luzern-60-80-implenia-ch"
       ]
     },
     {

@@ -401,12 +401,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-e957ff653084",
-      "slug": "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+      "slug": "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
       "slugByLocale": {
         "de": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-        "en": "specialist-road-surface-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-        "fr": "surface-routiere-specialisee-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+        "it": "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "en": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
+        "fr": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -414,7 +414,7 @@
       "title": "Fachspezialist Fahrbahn (m/w/d)",
       "titleByLocale": {
         "de": "Fachspezialist Fahrbahn (m/w/d)",
-        "it": "Superficie stradale specialistica (m/f/d)",
+        "it": "Specialista stradale (lunedì/f/d)",
         "en": "Specialist road surface (m/f/d)",
         "fr": "Surface routière spécialisée (m/f/d)"
       },
@@ -483,19 +483,11 @@
       "firstSeenAt": "2026-07-02T11:38:46.882Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
-        ],
-        "en": [
-          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "fr": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
       ]
     },
     {
@@ -605,8 +597,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "installatore-trice-elettrico-a-m-w-d-matterhorn-gotthard-bahn-andermatt-sedrun",
-        "en": "electrical-installer-m-f-d-matterhorn-gotthard-bahn-andermatt-sedrun",
-        "fr": "installateur-electrique-m-f-d-matterhorn-gotthard-bahn-andermatt-sedrun"
+        "en": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
+        "fr": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -671,12 +663,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "en": [
-          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "fr": [
           "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },

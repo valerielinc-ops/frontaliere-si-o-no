@@ -7631,12 +7631,12 @@
     },
     {
       "id": "ksb-742f009f1d6a",
-      "slug": "formazione-professionale-gestione-dell-emergenza-60-100-kantonsspital-baden-ksb-baden",
+      "slug": "berufsbildungsverantwortliche-r-cure-d-emergenza-60-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch",
-        "it": "formazione-professionale-gestione-dell-emergenza-60-100-kantonsspital-baden-ksb-baden",
-        "en": "vocational-training-manager-emergency-care-60-100-kantonsspital-baden-ksb-baden",
-        "fr": "gestionnaire-de-la-formation-professionnelle-soins-d-urgence-60-100-kantonsspital-baden-ksb-baden"
+        "it": "berufsbildungsverantwortliche-r-cure-d-emergenza-60-100-kantonsspital-baden-ksb-baden",
+        "en": "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch",
+        "fr": "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7644,7 +7644,7 @@
       "title": "Berufsbildungsverantwortliche_r Notfallpflege (60–100 %)",
       "titleByLocale": {
         "de": "Berufsbildungsverantwortliche_r Notfallpflege (60–100 %)",
-        "it": "Formazione professionale Gestione dell'emergenza (60-100%)",
+        "it": "Berufsbildungsverantwortliche_r Cure d'emergenza (60-100%)",
         "en": "Vocational Training Manager Emergency Care (60-100%)",
         "fr": "Gestionnaire de la formation professionnelle Soins d'urgence (60-100%)"
       },
@@ -7694,29 +7694,21 @@
       "firstSeenAt": "2026-07-02T11:36:09.848Z",
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch",
-          "berufsbildungsverantwortliche-r-cure-d-emergenza-60-100-kantonsspital-baden-ksb-baden"
-        ],
-        "en": [
-          "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
-        ],
-        "fr": [
           "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
         ]
       },
       "previousSlugs": [
-        "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch",
-        "berufsbildungsverantwortliche-r-cure-d-emergenza-60-100-kantonsspital-baden-ksb-baden"
+        "berufsbildungsverantwortliche-r-notfallpflege-60-100-ksb-ch"
       ]
     },
     {
       "id": "ksb-8523c0cc9ccd",
-      "slug": "specialista-donna-ict-i-a-kantonsspital-baden-ksb-baden",
+      "slug": "specialista-ict-i-a-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "ict-fachmann-frau-i-a-ksb-ch",
-        "it": "specialista-donna-ict-i-a-kantonsspital-baden-ksb-baden",
-        "en": "ict-specialist-woman-i-a-kantonsspital-baden-ksb-baden",
-        "fr": "specialiste-des-tic-femme-i-a-kantonsspital-baden-ksb-baden"
+        "it": "specialista-ict-i-a-kantonsspital-baden-ksb-baden",
+        "en": "ict-fachmann-frau-i-a-ksb-ch",
+        "fr": "ict-fachmann-frau-i-a-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7724,7 +7716,7 @@
       "title": "ICT-Fachmann/frau i.A.",
       "titleByLocale": {
         "de": "ICT-Fachmann/frau i.A.",
-        "it": "Specialista/donna ICT i.A.",
+        "it": "Specialista ICT i.A.",
         "en": "ICT specialist/woman i.A.",
         "fr": "Spécialiste des TIC/femme i.A."
       },
@@ -7762,20 +7754,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ict-fachmann-frau-i-a-ksb-ch",
-          "ict-fachmann-frau-i-a-kantonsspital-baden-ksb-baden",
-          "specialista-ict-i-a-kantonsspital-baden-ksb-baden"
-        ],
-        "en": [
-          "ict-fachmann-frau-i-a-ksb-ch"
-        ],
-        "fr": [
-          "ict-fachmann-frau-i-a-ksb-ch"
+          "ict-fachmann-frau-i-a-kantonsspital-baden-ksb-baden"
         ]
       },
       "previousSlugs": [
         "ict-fachmann-frau-i-a-ksb-ch",
-        "ict-fachmann-frau-i-a-kantonsspital-baden-ksb-baden",
-        "specialista-ict-i-a-kantonsspital-baden-ksb-baden"
+        "ict-fachmann-frau-i-a-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7876,8 +7860,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch",
         "it": "dipl-pflegefachfau-mann-50-100-imc-per-interdisziplinares-notfallzentrum-kantonsspital-baden-ksb-baden",
-        "en": "dipl-nursing-specialist-50-100-imc-for-interdisciplinary-emergency-center-kantonsspital-baden-ksb-baden",
-        "fr": "dipl-specialiste-des-soins-infirmiers-50-100-imc-pour-centre-interdisciplinaire-d-urgence-kantonsspital-baden-ksb-baden"
+        "en": "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch",
+        "fr": "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7922,12 +7906,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
-        ],
-        "en": [
-          "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
-        ],
-        "fr": [
           "dipl-pflegefachfau-mann-50-100-imc-fur-interdisziplinares-notfallzentrum-ksb-ch"
         ]
       },

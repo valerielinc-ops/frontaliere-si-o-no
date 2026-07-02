@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "six-group-551407f40a76",
-      "slug": "operazioni-sic-degli-studenti-di-lavoro-60-70-six-group-zurich",
+      "slug": "operazioni-sic-per-studenti-lavoratori-60-70-six-group-zurich",
       "slugByLocale": {
         "de": "working-student-sic-operations-six-group-zurich",
-        "it": "operazioni-sic-degli-studenti-di-lavoro-60-70-six-group-zurich",
+        "it": "operazioni-sic-per-studenti-lavoratori-60-70-six-group-zurich",
         "en": "working-student-sic-operations-six-group-zurich",
-        "fr": "exploitation-des-sic-des-etudiants-en-travail-60-70-six-group-zurich"
+        "fr": "working-student-sic-operations-60-70-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "de": "Working Student SIC Operations 60-70%",
         "en": "Working Student SIC Operations 60-70 %",
-        "it": "Operazioni SIC degli studenti di lavoro 60-70 %",
+        "it": "Operazioni SIC per studenti lavoratori: 60-70%",
         "fr": "Exploitation des SIC des étudiants en travail 60-70 %"
       },
       "description": "Working Student SIC Operations 60-70% bei SIX Group in Zurich.\n\nSIX Group ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
@@ -67,16 +67,11 @@
       "firstSeenAt": "2026-07-02T11:59:13.308Z",
       "previousSlugsByLocale": {
         "it": [
-          "working-student-sic-operations-60-70-six-group-zurich",
-          "operazioni-sic-per-studenti-lavoratori-60-70-six-group-zurich"
-        ],
-        "fr": [
           "working-student-sic-operations-60-70-six-group-zurich"
         ]
       },
       "previousSlugs": [
-        "working-student-sic-operations-60-70-six-group-zurich",
-        "operazioni-sic-per-studenti-lavoratori-60-70-six-group-zurich"
+        "working-student-sic-operations-60-70-six-group-zurich"
       ]
     },
     {
@@ -6869,8 +6864,8 @@
       "slugByLocale": {
         "en": "system-controller-six-group-madrid",
         "it": "controller-di-sistema-six-group-madrid",
-        "de": "systemcontroller-six-group-madrid",
-        "fr": "controleur-systeme-six-group-madrid"
+        "de": "system-controller-six-group-madrid",
+        "fr": "system-controller-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6879,7 +6874,7 @@
       "titleByLocale": {
         "en": "System Controller",
         "fr": "Contrôleur système",
-        "it": "Controller di sistema",
+        "it": "Controller di Sistema",
         "de": "Systemcontroller"
       },
       "description": "BME - Bolsas y Mercados Españoles - drives the transformation of financial markets and belongs to SIX, the third largest exchange group in Europe.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSystem Controller\n\nMadrid |  Working from home up to 40% | Reference 8099\n\nBME is part of the SIX group (with headquarter in Zurich, Switzerland) and forms a critical part of the Spanish financial infrastructure. Are you enthusiastic about exciting projects in the financial industry and would like to work in a self-organized environment where collaboration, trust, and innovation are paramount? Then become part of our Post Trade IT Operations department. We are looking for a bright mind to help us move forward in giving best support as a System Controller who will work in a global environment joining our multicultural team which provides first and second level support to our Business Unit applications.\n\nWhat You Will Do\n\n• Provide 1st level support (monitoring, triage, software deployment, etc.)\n\n• Provide 2nd level support (application troubleshooting)\n\n• Implement automation for specific tasks and processes\n\n• Interact with IT application and Business teams\n\nWhat You Bring\n\n• Bachelor Degree or Higher Education Certificate in Information Technology or similar\n\n• Advanced OS knowledge (linux and windows)\n\n• Containerized application management (OCP/K8S)\n\n• DevOps practices and tools understanding will be valuable\n\n• Automation experience (Ansible, CI/CD, etc.) will also be positively considered\n\n• Willingness to work on a rotating schedule, including morning to afternoon shifts\n\n• Effective oral and written communication skills in English and Spanish\n\nIf you have any questions, check out our FAQ page or call Sara Perez de la Cuesta  at +34 91 709 56 80 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
@@ -6928,12 +6923,6 @@
       "firstSeenAt": "2026-07-02T11:58:06.556Z",
       "previousSlugsByLocale": {
         "it": [
-          "system-controller-six-group-madrid"
-        ],
-        "de": [
-          "system-controller-six-group-madrid"
-        ],
-        "fr": [
           "system-controller-six-group-madrid"
         ]
       },
