@@ -9,7 +9,13 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
-import { resolveCantonSection, resolveJobCanton, type CantonLocale } from './shared/cantonSection';
+import {
+ resolveCantonSection,
+ resolveJobCanton,
+ isCompanyHubNamespaceSlug,
+ AGGREGATE_KEY,
+ type CantonLocale,
+} from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
@@ -317,6 +323,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  let count = 0;
  let compatCount = 0;
  let cathedralCount = 0;
+ // `/cerca-lavoro-ticino/azienda-{slug}/` (and per-locale equivalents) is the
+ // RESERVED company-hub namespace (see isCompanyHubNamespaceSlug). A job whose
+ // OWN slug happens to start with that prefix must not get a cathedral bridge
+ // page canonicalizing to its foreign-canton URL there — same invariant as the
+ // other 6 call sites fixed for issue #2976 (PR validate-dist-company-hub-namespace-6th-site).
+ // Fall back to the Switzerland aggregator canonical; the redirect target/CTA
+ // still points at the real page, so UX is unaffected.
+ const redirectCanonicalOverride = new Map<string, string>();
 
  // Build hreflang lookup from sitemaps so legacy pages can point to locale variants
  const hreflangMap = buildHreflangMap(rootDir);
@@ -350,6 +364,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  if (!redirects[from]) {
  redirects[from] = to;
  cathedralCount++;
+ if (isCompanyHubNamespaceSlug(slug, locale)) {
+ const aggregatorSection = resolveCantonSection(locale, AGGREGATE_KEY);
+ const aggregatorPath = `${localePrefix[locale]}/${aggregatorSection}/`.replace(/\/+/g, '/');
+ redirectCanonicalOverride.set(from, `${BASE_URL}${aggregatorPath}`);
+ }
  }
  }
  }
@@ -403,7 +422,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  inLanguage: 'it',
  });
  const html = buildCanonicalBridgePage({
- canonicalUrl: `${BASE_URL}${to}`,
+ canonicalUrl: redirectCanonicalOverride.get(fromRaw) ?? `${BASE_URL}${to}`,
  pathLabel: to,
  title: 'Pagina spostata',
  description: 'Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.',
