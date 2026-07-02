@@ -10743,6 +10743,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-infortuni-lainf-frontalieri-2026': {
+    title: 'Assicurazione infortuni LAINF 2026: copertura e denunce',
+    description: 'Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, infortuni, lainf, copertura',
+    ogTitle: 'Assicurazione infortuni LAINF per frontalieri nel 2026',
+    ogDescription: 'Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.',
+    canonicalPath: '/articoli-svizzera/assicurazione-infortuni-lainf-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione infortuni LAINF 2026: copertura e denunce",
+      "description": "Scopri tutto sulla copertura LAINF per frontalieri in Svizzera nel 2026, come denunciare un infortunio e le differenze con la malattia professionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-infortuni-lainf-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-07-02T07:18:33+00:00",
+      "dateModified": "2026-07-02T07:18:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-infortuni-lainf-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
