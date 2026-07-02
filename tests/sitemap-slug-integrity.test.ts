@@ -10,6 +10,8 @@ import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import { ALL_BLOG_ARTICLE_IDS, BLOG_SLUGS } from '@/services/routerBlogData';
 import { ARTICLES } from '@/data/blog-articles-data';
+import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
+import { SWISS_ARTICLES } from '@/data/swiss-articles-data';
 
 const root = resolve(__dirname, '..');
 
@@ -113,6 +115,102 @@ describe('BlogArticles ARTICLES array ↔ ALL_BLOG_ARTICLE_IDS consistency', () 
   it('every ALL_BLOG_ARTICLE_IDS entry has a matching ARTICLES entry', () => {
     const missing = ALL_BLOG_ARTICLE_IDS.filter(id => !articlesComponentIds.has(id));
     expect(missing, `ALL_BLOG_ARTICLE_IDS entries not in ARTICLES: ${missing.join(', ')}`).toEqual([]);
+  });
+});
+
+// ── Swiss Article Slug Integrity (mirrors Blog block above — #3120) ──────────
+//
+// This mirrors "Blog sitemap slug integrity" / "BlogArticles ARTICLES array
+// ↔ ALL_BLOG_ARTICLE_IDS consistency" above, but for the svizzera section.
+// Before this block, this file only ever scanned public/sitemap-blog.xml and
+// BLOG_SLUGS/ALL_BLOG_ARTICLE_IDS — a stale, missing, or cross-registry swiss
+// article slug (SWISS_SLUGS vs public/sitemap-blog-ch.xml) passed this gate
+// silently, the same blind spot fixed for sitemap-news.xml in
+// tests/blog-slugs-sitemap-sync.test.ts (#3116/#3120 bug class).
+
+// Swiss article sitemap (static, checked into repo)
+const swissSitemap = readProjectFile('public/sitemap-blog-ch.xml');
+
+// Extract all Italian <loc> slugs from the swiss article sitemap
+// Pattern: /articoli-svizzera/{slug}/
+const swissSitemapSlugs = [...swissSitemap.matchAll(/<loc>[^<]*\/articoli-svizzera\/([^/<]+)\/?<\/loc>/g)]
+  .map(m => m[1]);
+
+// Build reverse lookup: IT slug → article ID
+const itSlugToSwissArticleId = new Map<string, string>();
+for (const id of ALL_SWISS_ARTICLE_IDS) {
+  const slugMap = SWISS_SLUGS[id];
+  if (slugMap?.it) itSlugToSwissArticleId.set(slugMap.it, id);
+}
+
+// Build set of article IDs from swiss-articles-data.ts SWISS_ARTICLES array
+const swissArticlesComponentIds = new Set(SWISS_ARTICLES.map(a => a.id));
+
+describe('Swiss article sitemap slug integrity', () => {
+  it('sitemap-blog-ch.xml has at least 1 article', () => {
+    expect(swissSitemapSlugs.length).toBeGreaterThan(0);
+  });
+
+  describe('every sitemap-blog-ch.xml slug maps to a real article in SWISS_SLUGS', () => {
+    for (const slug of swissSitemapSlugs) {
+      it(`slug "${slug}" → has article ID in SWISS_SLUGS`, () => {
+        expect(
+          itSlugToSwissArticleId.has(slug),
+          `Sitemap references /articoli-svizzera/${slug}/ but no article ID maps to this IT slug in SWISS_SLUGS`
+        ).toBe(true);
+      });
+    }
+  });
+
+  describe('every sitemap-blog-ch.xml slug article exists in ALL_SWISS_ARTICLE_IDS', () => {
+    for (const slug of swissSitemapSlugs) {
+      const articleId = itSlugToSwissArticleId.get(slug);
+      if (!articleId) continue; // covered by test above
+      it(`article "${articleId}" → is in ALL_SWISS_ARTICLE_IDS`, () => {
+        expect(
+          ALL_SWISS_ARTICLE_IDS.includes(articleId as any),
+          `SWISS_SLUGS maps slug "${slug}" to "${articleId}" but that ID is not in ALL_SWISS_ARTICLE_IDS`
+        ).toBe(true);
+      });
+    }
+  });
+
+  describe('every article in ALL_SWISS_ARTICLE_IDS has a sitemap entry', () => {
+    for (const id of ALL_SWISS_ARTICLE_IDS) {
+      it(`article "${id}" → has IT slug in sitemap-blog-ch.xml`, () => {
+        const itSlug = SWISS_SLUGS[id]?.it;
+        expect(itSlug, `Article "${id}" has no IT slug in SWISS_SLUGS`).toBeTruthy();
+        expect(
+          swissSitemapSlugs.includes(itSlug!),
+          `Article "${id}" (slug: ${itSlug}) is missing from sitemap-blog-ch.xml`
+        ).toBe(true);
+      });
+    }
+  });
+
+  describe('every SWISS_SLUGS entry has all 4 locale slugs', () => {
+    for (const id of ALL_SWISS_ARTICLE_IDS) {
+      it(`article "${id}" → has it/en/de/fr slugs`, () => {
+        const slugMap = SWISS_SLUGS[id];
+        expect(slugMap, `No SWISS_SLUGS entry for ${id}`).toBeDefined();
+        for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+          expect(slugMap[locale], `Article "${id}" missing ${locale} slug`).toBeTruthy();
+        }
+      });
+    }
+  });
+});
+
+describe('SwissArticles SWISS_ARTICLES array ↔ ALL_SWISS_ARTICLE_IDS consistency', () => {
+  it('every SWISS_ARTICLES entry has a matching ALL_SWISS_ARTICLE_IDS entry', () => {
+    const routerIds = new Set<string>(ALL_SWISS_ARTICLE_IDS);
+    const missing = SWISS_ARTICLES.filter(a => !routerIds.has(a.id)).map(a => a.id);
+    expect(missing, `SWISS_ARTICLES entries not in ALL_SWISS_ARTICLE_IDS: ${missing.join(', ')}`).toEqual([]);
+  });
+
+  it('every ALL_SWISS_ARTICLE_IDS entry has a matching SWISS_ARTICLES entry', () => {
+    const missing = ALL_SWISS_ARTICLE_IDS.filter(id => !swissArticlesComponentIds.has(id));
+    expect(missing, `ALL_SWISS_ARTICLE_IDS entries not in SWISS_ARTICLES: ${missing.join(', ')}`).toEqual([]);
   });
 });
 
