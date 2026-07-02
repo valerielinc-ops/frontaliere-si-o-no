@@ -8208,6 +8208,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-pd-reazione.title': 'Tessiner Rabattblock: Die Reaktion der PD',
     'blog.article.blocco-ristorni-ticino-pd-reazione.excerpt': 'Der Kanton Tessin blockiert Rückerstattungen an die Lombardei, die PD erhebt sich und bittet um ein dringendes Treffen mit der Regierung.',
     'blog.article.blocco-ristorni-ticino-pd-reazione.imageAlt': 'Panoramablick auf Bellinzona mit der Burg Montebello',
+    'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Tessin-Lombardei-Rabatte: Sertori beruhigt die Gemeinden',
+    'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'Der lombardische Stadtrat Sertori versichert den Gemeinden, dass der Rückzahlungsstopp keine unmittelbaren Auswirkungen habe, und hofft auf eine diplomatische Lösung.',
+    'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;
