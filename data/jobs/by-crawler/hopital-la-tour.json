@@ -137,8 +137,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-urgentiste-senior-hopital-la-tour-meyrin",
-          "medico-di-emergenza-senior-hopital-de-la-tour-meyrin"
+          "medecin-urgentiste-senior-hopital-la-tour-meyrin"
         ],
         "en": [
           "medecin-urgentiste-senior-hopital-la-tour-meyrin"
@@ -214,8 +213,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin",
-          "segretario-medico-servizi-di-emergenza-cdi-70-hopital-de-la-tour-meyrin"
+          "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
         ],
         "en": [
           "secretaire-medicale-au-service-des-urgences-cdi-70-hopital-la-tour-meyrin"
@@ -292,8 +290,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin",
-          "infermiera-pediatrica-hom-9-mesi-80-hopital-de-la-tour-meyrin"
+          "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
         ],
         "en": [
           "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
@@ -370,8 +367,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin",
-          "infermiera-pediatrica-cdi-50-hopital-de-la-tour-meyrin"
+          "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
         ],
         "en": [
           "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
@@ -448,8 +444,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin",
-          "assistente-ospedaliero-in-medicina-2-cdm-6-mesi-al-70-hopital-de-la-tour-meyrin"
+          "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin"
         ],
         "en": [
           "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin"
@@ -526,8 +521,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeute-en-cdi-80-hopital-la-tour-meyrin",
-          "ergoterapista-in-cdi-80-hopital-de-la-tour-meyrin"
+          "ergotherapeute-en-cdi-80-hopital-la-tour-meyrin"
         ],
         "en": [
           "ergotherapeute-en-cdi-80-hopital-la-tour-meyrin"
@@ -603,8 +597,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medicale-en-endoscopie-a-100-cdi-hopital-la-tour-meyrin",
-          "segretario-medico-in-endoscopia-100-cdi-hopital-de-la-tour-meyrin"
+          "secretaire-medicale-en-endoscopie-a-100-cdi-hopital-la-tour-meyrin"
         ],
         "en": [
           "secretaire-medicale-en-endoscopie-a-100-cdi-hopital-la-tour-meyrin"
@@ -681,8 +674,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ict-cdm-6-mois-hopital-la-tour-meyrin",
-          "ict-technician-hom-6-mesi-hopital-de-la-tour-meyrin"
+          "technicien-ict-cdm-6-mois-hopital-la-tour-meyrin"
         ],
         "en": [
           "technicien-ict-cdm-6-mois-hopital-la-tour-meyrin"
@@ -707,12 +699,12 @@
     },
     {
       "id": "hopital-la-tour-25f49eb00646",
-      "slug": "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin",
+      "slug": "100-coordinatore-della-manutenzione-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin",
-        "it": "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin",
+        "it": "100-coordinatore-della-manutenzione-hopital-de-la-tour-meyrin",
         "en": "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin",
-        "de": "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin"
+        "de": "100-wartungskoordinator-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -767,7 +759,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T22:24:51.279Z"
+      "firstSeenAt": "2026-07-01T22:24:51.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-de-maintenance-a-100-hopital-la-tour-meyrin"
+      ]
     }
   ]
 }

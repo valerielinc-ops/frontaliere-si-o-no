@@ -272,12 +272,12 @@
     },
     {
       "id": "msc-cargo-2e9827752273",
-      "slug": "copywriter-6-months-contract-msc-geneva",
+      "slug": "copywriter-6-mesi-msc-group-geneva",
       "slugByLocale": {
         "en": "copywriter-6-months-contract-msc-geneva",
-        "it": "copywriter-6-months-contract-msc-geneva",
-        "de": "copywriter-6-months-contract-msc-geneva",
-        "fr": "copywriter-6-months-contract-msc-geneva"
+        "it": "copywriter-6-mesi-msc-group-geneva",
+        "de": "texter-6-monate-vertrag-msc-group-geneva",
+        "fr": "redacteur-contrat-de-6-mois-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -333,7 +333,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-01T22:47:54.745Z"
+      "firstSeenAt": "2026-07-01T22:47:54.745Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "copywriter-6-months-contract-msc-geneva"
+        ],
+        "de": [
+          "copywriter-6-months-contract-msc-geneva"
+        ],
+        "fr": [
+          "copywriter-6-months-contract-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "copywriter-6-months-contract-msc-geneva"
+      ]
     }
   ]
 }
