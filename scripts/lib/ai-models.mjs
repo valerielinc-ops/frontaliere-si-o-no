@@ -1134,7 +1134,14 @@ function _decayScore(score, lastUsedISO) {
 // a plain string. The model does not support text input."). Both matched the bare
 // "nemotron" token in NVIDIA_ALLOW_FAMILY_RE but are not chat models. `embed` /
 // `rerank` (the other non-chat types) were already covered above.
-const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank|reranking|\breward\b|\bparse\b|stable-diffusion|sdxl|\bflux\b|nemoretriever/i;
+// `content-safety` added 2026-07-02 (run 28611052353): nvidia/nemotron-3-content-safety,
+// nemotron-3.5-content-safety, nemotron-content-safety-reasoning-4b are MODERATION
+// CLASSIFIERS (single-turn safety-label output), not chat models — they always
+// 400 "Conversation roles must alternate user/assistant/...". Same
+// broad-"nemotron"-match slip-through as the reward/parse case above; these three
+// got retried on every one of ~30 cascade passes in the run, costing real wall-clock
+// for a call type that can never succeed.
+const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank|reranking|\breward\b|\bparse\b|content-safety|stable-diffusion|sdxl|\bflux\b|nemoretriever/i;
 
 // NVIDIA's /v1/models lists its ENTIRE historical NIM catalog with no
 // free/served flag, and the bulk of it (legacy + vision + code-only families:
@@ -2051,6 +2058,15 @@ function classifyNonRetryableError(status, bodyText = '') {
   if (b.includes('unavailable_model') || b.includes('unavailable model')) {
     return { nonRetryable: true, markExhausted: false };
   }
+  // Model structurally incompatible with chat-completion turn format (e.g. a
+  // moderation/classifier model that slipped past NON_CHAT_MODEL_RE under a
+  // name discovery didn't recognize). This is a fixed property of the model,
+  // not a per-request fluke — retrying the identical prompt always fails the
+  // same way, so mark exhausted immediately rather than re-trying it on every
+  // cascade pass for the rest of the run. See run 28611052353.
+  if (b.includes('conversation roles must alternate')) {
+    return { nonRetryable: true, markExhausted: true };
+  }
   // Provider-side deprecation/removal — retrying the same model is always useless
   if (
     b.includes('decommissioned') ||
@@ -2826,9 +2842,10 @@ async function _callGeminiRaw(model, messages, opts) {
       if (e.message?.includes('Daily quota')) throw e;
       if (e.nonRetryable) throw e;
       if (attempt >= opts.maxRetriesPerModel) throw e;
-      // Timeout errors: retry only once (model is likely overloaded)
+      // Timeout errors: never retry within this call — see matching comment in
+      // _callOpenAICompatible (same rationale, sibling pattern kept in sync).
       const isTimeout = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(e.message || '');
-      if (isTimeout && attempt >= 2) throw e;
+      if (isTimeout) throw e;
       _stats.retries++;
       const waitMs = attempt * opts.backoffMs;
       console.warn(`⚠️  [${model}] Error retry ${attempt}/${opts.maxRetriesPerModel}: ${e.message?.slice(0, 150)}`);
@@ -2997,6 +3014,20 @@ export async function callLLM(messages, opts = {}) {
 
   for (let i = 0; i < chain.length; i++) {
     const model = chain[i];
+
+    // Optional caller-supplied wall-clock deadline (absolute epoch ms). Lets a
+    // caller with its own overall time budget (e.g. create-article.mjs's
+    // RUN_WALL_BUDGET_MS) bail out of a single cascade walk early instead of
+    // unconditionally trying every remaining model in chain. Closes a gap
+    // where a budget checked only *between* calls to callLLM() never fires
+    // because one call itself walks the whole ~180-model chain — run
+    // 28611052353: a single such walk alone consumed most of a 109min run
+    // before any between-call check got a chance to run. No-op unless the
+    // caller opts in via opts.deadlineMs.
+    if (o.deadlineMs && Date.now() > o.deadlineMs) {
+      errors.push(`${model}: skipped — wall-clock deadline exceeded, aborting remaining chain (${chain.length - i} models left)`);
+      break;
+    }
 
     // Skip exhausted models. Log each exhausted model at most once per process
     // to avoid log floods like "[mistral/nemo] Skipped — exhausted" repeated
