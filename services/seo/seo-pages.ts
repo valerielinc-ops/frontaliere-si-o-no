@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3080,
+ "numberOfItems": 3081,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7726,7 +7726,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3077, "name": "Formazione 2026: Corsi e finanziamenti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-formazione-2026` },
           { "@type": "ListItem", "position": 3078, "name": "Ore non pagate e clausole contestate: il caso s...", "url": `${BASE_URL}/articoli-frontaliere/ristorazione-ticinese-ore-non-pagate` },
           { "@type": "ListItem", "position": 3079, "name": "Pensionamento anticipato frontalieri 2026: guid...", "url": `${BASE_URL}/articoli-frontaliere/pensionamento-anticipato-frontalieri-2026` },
-          { "@type": "ListItem", "position": 3080, "name": "Ticino blocca 50,2 milioni di ristorni alla Lom...", "url": `${BASE_URL}/articoli-frontaliere/ticino-blocca-ristorni-roma-berna` }
+          { "@type": "ListItem", "position": 3080, "name": "Ticino blocca 50,2 milioni di ristorni alla Lom...", "url": `${BASE_URL}/articoli-frontaliere/ticino-blocca-ristorni-roma-berna` },
+          { "@type": "ListItem", "position": 3081, "name": "Mutuo in Italia per frontalieri: guida completa...", "url": `${BASE_URL}/articoli-frontaliere/mutuo-italia-frontalieri-guida` }
  ]
  },
  {

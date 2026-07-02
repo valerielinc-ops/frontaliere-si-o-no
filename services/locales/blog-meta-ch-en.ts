@@ -865,6 +865,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Early retirement for cross-border commuters 2026: complete guide',
     'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Find out how early retirement works for cross-border commuters in 2026, with a focus on AHV, second pillar and planning over 20 km.',
     'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'A serene view of Lake Lugano at sunset, with a person sitting on a bench looking at the water.',
+    'blog.article.mutuo-italia-frontalieri-guida.title': 'Mortgage in Italy for cross-border commuters: complete guide with Swiss salary',
+    'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Find out how to get a mortgage in Italy with a Swiss salary: documents, guarantees and specialized banks.',
+    'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Aerial view of a Swiss-Italian border town with a lake and houses, symbolizing cross-border living.',
 };
 
 export default blogMetaChEn;
