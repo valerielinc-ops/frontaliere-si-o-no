@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-13T05:21:37.132Z",
-    "label": "after",
-    "total": 16432,
-    "needsRetranslation": 4670,
-    "suppressed": 43,
-    "incomplete": 3540,
-    "complete": 12892,
-    "missingByLocale": {
-      "it": 3031,
-      "en": 2742,
-      "de": 612,
-      "fr": 2733
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 2020
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 286
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "Roche",
-        "pending": 82
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 63
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 51
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Implenia",
-        "pending": 40
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-13T07:11:01.680Z",
-    "label": "before",
-    "total": 16458,
-    "needsRetranslation": 4680,
-    "suppressed": 43,
-    "incomplete": 3570,
-    "complete": 12888,
-    "missingByLocale": {
-      "it": 3061,
-      "en": 2773,
-      "de": 612,
-      "fr": 2763
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 2045
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 286
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "Roche",
-        "pending": 82
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 63
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 51
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Implenia",
-        "pending": 40
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-13T12:39:39.463Z",
-    "label": "after",
-    "total": 16458,
-    "needsRetranslation": 4591,
-    "suppressed": 75,
-    "incomplete": 3384,
-    "complete": 13074,
-    "missingByLocale": {
-      "it": 2813,
-      "en": 2271,
-      "de": 925,
-      "fr": 2260
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1889
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 286
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "Roche",
-        "pending": 82
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 51
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 49
-      },
-      {
-        "company": "UBS",
-        "pending": 47
-      },
-      {
-        "company": "Implenia",
-        "pending": 40
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-13T23:05:00.219Z",
-    "label": "before",
-    "total": 16428,
-    "needsRetranslation": 9612,
-    "suppressed": 44,
-    "incomplete": 3605,
-    "complete": 12823,
-    "missingByLocale": {
-      "it": 2820,
-      "en": 2541,
-      "de": 760,
-      "fr": 2521
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 2005
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 286
-      },
-      {
-        "company": "Manor AG",
-        "pending": 113
-      },
-      {
-        "company": "Richemont",
-        "pending": 103
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 96
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 76
-      },
-      {
-        "company": "Roche",
-        "pending": 71
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 51
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 49
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-14T04:52:46.883Z",
     "label": "after",
     "total": 16428,
@@ -11510,6 +11282,120 @@
       {
         "company": "SUPSI / DTI",
         "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-02T01:51:30.847Z",
+    "label": "before",
+    "total": 18376,
+    "needsRetranslation": 5836,
+    "suppressed": 406,
+    "incomplete": 956,
+    "complete": 17420,
+    "missingByLocale": {
+      "it": 520,
+      "en": 362,
+      "de": 401,
+      "fr": 189
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 785
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 57
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-02T01:54:14.847Z",
+    "label": "after",
+    "total": 18376,
+    "needsRetranslation": 2355,
+    "suppressed": 406,
+    "incomplete": 956,
+    "complete": 17420,
+    "missingByLocale": {
+      "it": 520,
+      "en": 359,
+      "de": 401,
+      "fr": 188
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 785
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 57
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
       }
     ]
   }
