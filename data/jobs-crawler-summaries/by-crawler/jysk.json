@@ -1,21 +1,51 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-07-01T22:30:39.778Z",
-  "total": 45,
-  "newCount": 2,
-  "updatedCount": 6,
+  "generatedAt": "2026-07-02T11:55:12.609Z",
+  "total": 46,
+  "newCount": 1,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 37,
-  "durationMs": 52103,
-  "avgDurationMs": 52103,
+  "durationMs": 45230,
+  "avgDurationMs": 45230,
   "durationHistory": [
-    52103
+    45230
   ],
   "newJobs": [
     {
+      "id": "company-8axud",
+      "slug": "stellvertretende-filialleitung-a-80-100-in-der-filiale-solothurn-jysk-solothurn-08axud",
+      "company": "JYSK",
+      "title": "Stellvertretende Filialleitung (a) 80-100% in der Filiale Solothurn",
+      "location": "Solothurn",
+      "canton": "SO",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/stellvertretende-filialleitung-80-100-der-filiale-solothurn",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-07-02T11:55:11.527Z",
+      "firstSeenAt": "2026-07-02T11:55:11.527Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
       "id": "company-p3h768",
-      "slug": "stellvertretende-filialleitung-a-80-100-in-der-region-thun-jysk-heimberg-p3h768",
+      "slug": "gestione-del-ramo-aggiunto-a-80-100-nella-regione-thun-jysk-heimberg",
       "company": "JYSK",
       "title": "Stellvertretende Filialleitung (a) 80-100% in der Region Thun",
       "location": "Heimberg",
@@ -31,14 +61,19 @@
       "companyDomain": "jysk.ch",
       "crawledAt": "2026-07-01T22:30:38.680Z",
       "firstSeenAt": "2026-07-01T22:30:38.680Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "addressLocality": "Heimberg",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "BE",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -60,16 +95,22 @@
       "crawledAt": "2026-07-01T22:30:38.680Z",
       "firstSeenAt": "2026-07-01T22:30:38.680Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "addressLocality": "Langnau im Emmental",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "BE",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-74579r",
       "slug": "filialleiter-in-con-potential-a-100-in-der-filiale-chur-jysk-chur-74579r",
@@ -210,7 +251,7 @@
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Seewen-Schwyz",
       "location": "Seewen-Schwyz",
-      "canton": "SO",
+      "canton": "SZ",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
