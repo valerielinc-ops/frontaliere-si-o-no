@@ -3590,6 +3590,8 @@ Regole:
   'journalistDashboard.editor.imageLabel': 'Immagine di copertina',
   'journalistDashboard.editor.imageNeedsDraft': 'Salva prima la bozza per poter caricare un\'immagine.',
   'journalistDashboard.editor.imageAltPlaceholder': 'Testo alternativo dell\'immagine',
+  'journalistDashboard.editor.imageAltAuto': 'Immagine editoriale relativa a: {title}',
+  'journalistDashboard.editor.selectImage': 'Seleziona immagine',
   'journalistDashboard.editor.uploadingImage': 'Caricamento immagine in corso...',
   'journalistDashboard.editor.imageSaved': 'Immagine caricata e salvata.',
   'journalistDashboard.editor.imageError': 'Caricamento immagine non riuscito. Riprova.',
