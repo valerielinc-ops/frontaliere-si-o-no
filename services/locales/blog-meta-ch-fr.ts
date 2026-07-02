@@ -856,6 +856,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-ai-prospettive-finanziarie.title': 'Les perspectives financières pour la VVA et la perfusion se détériorent',
     'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'Selon la FSIO, les déficits dans l’assurance vieillesse et survivants ainsi que dans l’assurance invalidité augmenteront dans les années à venir.',
     'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Vue aérienne du Lac de Lugano avec les Alpes suisses en arrière-plan',
+    'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Augmentation des pensions IV: Difficultés financières pour les assureurs',
+    'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'La forte augmentation des nouvelles retraites IV met l’assurance invalidité en difficulté financière.',
+    'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Vue panoramique de Berne avec le Parlement fédéral et l\'Office fédéral des assurances sociales.',
 };
 
 export default blogMetaChFr;

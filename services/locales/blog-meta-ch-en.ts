@@ -856,6 +856,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-ai-prospettive-finanziarie.title': 'The financial outlook for AHV and IV worsens',
     'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'According to the FSIO, the deficits in the Old-Age and Survivors\' Insurance and the Disability Insurance will increase in the coming years.',
     'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Aerial view of Lake Lugano with the Swiss Alps in the background',
+    'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Increased IV pensions put insurance companies in financial difficulty',
+    'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'The sharp increase in new IV pensions is putting disability insurance in financial difficulty.',
+    'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Panoramic view of Bern with the Federal Parliament and the Federal Social Insurance Office.',
 };
 
 export default blogMetaChEn;
