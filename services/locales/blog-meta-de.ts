@@ -8196,6 +8196,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Grenzüberschreitende Rückerstattungen: Bern will Lösung trotz Stopp',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'Die Schweizer Bundesrätin Karin Keller-Sutter traf sich mit dem Wirtschafts- und Finanzminister Giancarlo Giorgetti, um die Aussetzung der Rückerstattungen an die Lombardei zu besprechen.',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Treffen zwischen der Schweizer Bundesrätin Karin Keller-Sutter und dem italienischen Wirtschafts- und Finanzminister Giancarlo Giorgetti in Rom.',
+    'blog.article.blocco-ristorni-ticino-lombardia.title': 'Block der Rückerstattungen, Spannungen mit dem Tessin',
+    'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'Die Blockade der Rückerstattungen durch den Kanton Tessin hat zu Kontroversen und Reaktionen geführt. Jonny Crosio, stellvertretender Bundessekretär der Partei Pakt für den Norden, kritisiert die Entscheidung als willkürlich und paradox.',
+    'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'Ansicht von Bellinzona mit der Burg Montebello',
 };
 
 export default blogMetaDe;
