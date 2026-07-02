@@ -9,7 +9,11 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { detectBoilerplateDescriptions, isSystemicBoilerplateFailure } from '@/scripts/assemble-jobs-dataset.mjs';
+import {
+  detectBoilerplateDescriptions,
+  isSystemicBoilerplateFailure,
+  quarantineBoilerplateJobs,
+} from '@/scripts/assemble-jobs-dataset.mjs';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -344,6 +348,69 @@ describe('isSystemicBoilerplateFailure — sample-size floor', () => {
     expect(report.boilerplateCount).toBe(1);
     expect(report.ratio).toBe(0.5);
     expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+});
+
+// ─── Below-Floor Quarantine Tests (quarantineBoilerplateJobs) ──────────────────
+// Regression coverage for the PR #3267 review finding: below the systemic
+// floor, isSystemicBoilerplateFailure() correctly refuses to hard-fail the
+// run (see the #3254 tests above), but the confirmed-boilerplate jobs must
+// still never reach the persisted slice — only warning-and-keeping them let
+// GDPR/privacy-notice boilerplate (long enough to beat the build's <50-word
+// noindex net) publish and get indexed indefinitely on a low-volume crawler.
+
+describe('quarantineBoilerplateJobs — below-floor quarantine', () => {
+  it('drops confirmed-boilerplate jobs while keeping good jobs, mirroring the #3254 shape', () => {
+    const jobs = [
+      makeJob('eligible-good', RICH_DESCRIPTION),
+      makeJob('eligible-thin', wordsDesc(29)),
+      ...Array.from({ length: 4 }, (_, i) =>
+        makeJob(`fresh-${i}`, wordsDesc(5), { needsRetranslation: true }),
+      ),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
+    expect(isSystemicBoilerplateFailure(report)).toBe(false); // below-floor: must not hard-fail
+    expect(report.boilerplateCount).toBe(1);
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toHaveLength(jobs.length - 1);
+    expect(kept.some(j => j.slug === 'eligible-thin')).toBe(false); // boilerplate job dropped
+    expect(kept.some(j => j.slug === 'eligible-good')).toBe(true); // good job kept
+    expect(kept.filter(j => j.needsRetranslation)).toHaveLength(4); // fresh jobs untouched
+  });
+
+  it('returns the same array unchanged when there is nothing to quarantine', () => {
+    const jobs = [makeJob('good-1', RICH_DESCRIPTION), makeJob('good-2', RICH_DESCRIPTION)];
+    const kept = quarantineBoilerplateJobs(jobs, []);
+    expect(kept).toBe(jobs);
+    expect(kept).toHaveLength(2);
+  });
+
+  it('drops multiple confirmed-boilerplate jobs, keeping only the good ones', () => {
+    const jobs = [
+      makeJob('bp-1', BOILERPLATE_2_MARKERS),
+      makeJob('bp-2', wordsDesc(10)),
+      makeJob('good-1', RICH_DESCRIPTION),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'test-co');
+    expect(report.boilerplateCount).toBe(2);
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toEqual([jobs[2]]);
+  });
+
+  it('falls back to title, then "unknown", when matching jobs without a slug', () => {
+    const jobs = [
+      { title: 'No Slug Job', descriptionByLocale: { it: wordsDesc(5) } },
+      makeJob('good-job', RICH_DESCRIPTION),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'test-co');
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].slug).toBe('No Slug Job'); // slug fallback to title
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toHaveLength(1);
+    expect(kept[0].title).toBe('good-job');
   });
 });
 

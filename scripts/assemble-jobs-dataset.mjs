@@ -676,6 +676,30 @@ export function isSystemicBoilerplateFailure(report) {
 }
 
 /**
+ * Remove confirmed-boilerplate jobs from the array about to be persisted.
+ *
+ * Mirrors the sibling thin-source quarantine in dedicated-crawler-common.mjs
+ * (validateDedicatedLocaleCoverage's `quarantineSlugs`/non-systemic path,
+ * L4248-4265): below the systemic floor the guard must not hard-fail the
+ * run (see isSystemicBoilerplateFailure), but the confirmed-boilerplate jobs
+ * still must never reach the committed dataset. GDPR/privacy-notice
+ * boilerplate (BOILERPLATE_MARKER_PHRASES, e.g. "Pursuant to Article 13")
+ * easily runs past 50 words, long enough to sail past the build's <50-word
+ * sitemap/noindex filter — the only other safety net — so warn-and-keep
+ * would let it publish and get indexed indefinitely on a permanently
+ * low-volume crawler.
+ *
+ * @param {object[]} jobs
+ * @param {Array<{slug:string}>} boilerplateJobs - bpReport.boilerplateJobs
+ * @returns {object[]} jobs with the boilerplate-only entries dropped
+ */
+export function quarantineBoilerplateJobs(jobs, boilerplateJobs) {
+  if (!Array.isArray(boilerplateJobs) || boilerplateJobs.length === 0) return jobs;
+  const quarantineSlugs = new Set(boilerplateJobs.map(bj => bj.slug));
+  return jobs.filter(j => !quarantineSlugs.has(j?.slug || j?.title || 'unknown'));
+}
+
+/**
  * Create or update a GitHub Issue for a boilerplate guard failure.
  * Best-effort: failures are logged but do not suppress the guard error.
  */
@@ -867,6 +891,17 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
           `⚠️  [boilerplate-guard] ${crawlerKey}: ${bpReport.boilerplateCount}/${bpReport.totalJobs} jobs (${(bpReport.ratio * 100).toFixed(0)}%) meet the boilerplate ratio, ` +
           `but the eligible sample is below the reliability floor (needs >=${BOILERPLATE_MIN_ELIGIBLE} eligible jobs and >=${BOILERPLATE_MIN_COUNT} boilerplate jobs to be a systemic signal) — not failing the run. ` +
           `A genuine parser regression shows up across many jobs, not one or two naturally-short ones.`
+        );
+      }
+      // Non-systemic: quarantine the confirmed-boilerplate jobs from the slice
+      // rather than only warning (mirrors dedicated-crawler-common.mjs's
+      // quarantineSlugs on its non-systemic path — see quarantineBoilerplateJobs
+      // above). The good jobs still commit unchanged.
+      const beforeQuarantine = jobs.length;
+      jobs = quarantineBoilerplateJobs(jobs, bpReport.boilerplateJobs);
+      if (jobs.length < beforeQuarantine) {
+        console.warn(
+          `🧹 [boilerplate-guard] ${crawlerKey} quarantined ${beforeQuarantine - jobs.length} confirmed-boilerplate job(s) from the slice (${beforeQuarantine} → ${jobs.length}) — never persisted/indexed.`
         );
       }
     }
