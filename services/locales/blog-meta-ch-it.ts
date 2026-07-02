@@ -865,6 +865,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Pensionamento anticipato frontalieri 2026: guida completa',
     'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Scopri come funziona il pensionamento anticipato per i frontalieri nel 2026, con focus su AVS, secondo pilastro e pianificazione oltre 20 km.',
     'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'Vista serena del Lago di Lugano al tramonto, con una persona seduta su una panchina che guarda l\'acqua.',
+    'blog.article.mutuo-italia-frontalieri-guida.title': 'Mutuo in Italia per frontalieri: guida completa con stipendio svizzero',
+    'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Scopri come ottenere un mutuo in Italia con stipendio svizzero: documenti, garanzie e banche specializzate.',
+    'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Vista aerea di una città di confine svizzero-italiana con un lago e case, che simboleggia la vita transfrontaliera.',
 };
 
 export default blogMetaChIt;
