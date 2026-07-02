@@ -283,6 +283,13 @@ jobs:
       # broke main) never ran any syntax check. Run it unconditionally here,
       # BEFORE the commit, so a broken file never gets pushed in the first
       # place.
+      #
+      # `has_changes` (step "Check for changes", above) can't false-negative
+      # this away: it's a blanket `git diff --quiet` over the WHOLE working
+      # tree, computed after the "Generate article" step already wrote
+      # seo-pages.ts — so has_changes is true on this run whenever
+      # seo-pages.ts (or anything else) was modified, and false only when
+      # nothing was generated at all (nothing to gate or commit either way).
       - name: Validate seo-pages.ts syntax (pre-commit parse gate)
         if: steps.changes.outputs.has_changes == 'true'
         run: node scripts/ci/check-seo-pages-syntax.mjs

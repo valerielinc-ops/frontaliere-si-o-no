@@ -41,7 +41,72 @@ function countOccurrences(src: string, needle: string): number {
   return src.split(needle).length - 1;
 }
 
+// Wraps a fixture (built by makeFixture) with an EARLIER, unrelated array
+// that shares the exact same single-line `{ ... "url": `...` }` shape —
+// e.g. a HowTo `step` list — followed (modulo whitespace) by its own
+// closing `]`. Reproduces the real services/seo/seo-pages.ts layout, where
+// several such arrays exist before the "Articoli Frontaliere" ItemList.
+// Regression coverage for a PR-review finding: an earlier, unbounded
+// version of LAST_ITEM_RE matched THIS kind of array first (against the
+// real committed file) instead of the intended block, and would have
+// corrupted unrelated structured data.
+function withLeadingUnrelatedArray(fixture: string): string {
+  const decoy = `export const OTHER_PAGE = {
+ "@type": "HowTo",
+ "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Passo uno", "url": \`\${BASE_URL}/calcola-stipendio/passo-uno\` }
+ ]
+};
+`;
+  return decoy + fixture;
+}
+
 describe('seo-pages-article-list — comma-safe ItemList helpers', () => {
+  it('never touches an unrelated earlier array with the same single-line-entry shape (bounded to the Articoli Frontaliere block only)', async () => {
+    const fixture = withLeadingUnrelatedArray(
+      makeFixture([
+        { position: 1, name: 'Articolo uno', url: '${BASE_URL}/articoli-frontaliere/articolo-uno' },
+      ]),
+    );
+
+    const result = appendArticleListItem(fixture, {
+      name: 'Articolo due',
+      url: '${BASE_URL}/articoli-frontaliere/articolo-due',
+    });
+
+    expect(result).not.toBeNull();
+    // The decoy HowTo step array must be byte-identical — untouched.
+    expect(result).toContain(
+      '{ "@type": "HowToStep", "position": 1, "name": "Passo uno", "url": `${BASE_URL}/calcola-stipendio/passo-uno` }\n ]',
+    );
+    expect(countOccurrences(result as string, '"@type": "HowToStep"')).toBe(1);
+    // The real Articoli Frontaliere ItemList gained the new entry.
+    expect(result).toContain('"numberOfItems": 2');
+    expect(result).toContain('articolo-due');
+    await assertParses(result as string);
+  });
+
+  it('rename-replace never touches an unrelated earlier array with the same shape', async () => {
+    const oldUrl = '${BASE_URL}/articoli-frontaliere/vecchio-slug';
+    const newUrl = '${BASE_URL}/articoli-frontaliere/nuovo-slug';
+    const fixture = withLeadingUnrelatedArray(
+      makeFixture([{ position: 1, name: 'Titolo vecchio', url: oldUrl }]),
+    );
+
+    const result = upsertArticleListItem(fixture, {
+      name: 'Titolo rinominato',
+      url: newUrl,
+      renameFromUrl: oldUrl,
+    });
+
+    expect(result).not.toBeNull();
+    expect(countOccurrences(result as string, '"@type": "HowToStep"')).toBe(1);
+    expect(result).toContain('passo-uno');
+    expect(result).not.toContain('vecchio-slug');
+    expect(result).toContain('nuovo-slug');
+    await assertParses(result as string);
+  });
+
   it('appendArticleListItem adds a new entry, bumps numberOfItems, and stays parseable', async () => {
     const fixture = makeFixture([
       { position: 1, name: 'Articolo uno', url: '${BASE_URL}/articoli-frontaliere/articolo-uno' },
