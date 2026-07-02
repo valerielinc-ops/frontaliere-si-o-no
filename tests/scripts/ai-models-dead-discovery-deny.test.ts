@@ -41,11 +41,24 @@ const NVIDIA_DEAD_IDS = [
 ];
 
 // Live NVIDIA chat ids that share tokens with the dead ones and MUST keep flowing.
+// NOTE: nvidia/nemotron-3.5-content-safety was removed from this list 2026-07-02
+// (run 28611052353) — it isn't actually a usable chat sibling, it's a moderation
+// classifier that always 400s "Conversation roles must alternate". See the
+// dedicated content-safety-exclusion test below.
 const NVIDIA_LIVE_SIBLINGS = [
   'nvidia/llama-3.3-nemotron-super-49b-v1',
-  'nvidia/nemotron-3.5-content-safety',
   'meta/llama-3.1-70b-instruct',
   'meta/llama-3.1-8b-instruct',
+];
+
+// NVIDIA moderation/classifier ids that share the "nemotron" family token and
+// slipped through NVIDIA_ALLOW_FAMILY_RE (same failure mode as the
+// reward/parse case, 2026-06-15) — they always 400 "Conversation roles must
+// alternate" on the chat endpoint (run 28611052353) and must be denied.
+const NVIDIA_CONTENT_SAFETY_IDS = [
+  'nvidia/nemotron-3-content-safety',
+  'nvidia/nemotron-3.5-content-safety',
+  'nvidia/nemotron-content-safety-reasoning-4b',
 ];
 
 describe('dead-model discovery deny-lists (2026-06-22)', () => {
@@ -60,6 +73,13 @@ describe('dead-model discovery deny-lists (2026-06-22)', () => {
     const { pick } = provider('NVIDIA');
     for (const id of NVIDIA_LIVE_SIBLINGS) {
       expect(pick({ id }), `expected live NVIDIA id to pass: ${id}`).toBe(id);
+    }
+  });
+
+  it('NVIDIA rejects content-safety classifier ids (not chat-capable, run 28611052353)', () => {
+    const { pick } = provider('NVIDIA');
+    for (const id of NVIDIA_CONTENT_SAFETY_IDS) {
+      expect(pick({ id }), `expected content-safety id rejected: ${id}`).toBeNull();
     }
   });
 
