@@ -850,6 +850,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Pensionnement anticipé pour frontalier: impact sur AVS',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Découvrez comment la retraite anticipée affectera l’AHV et le deuxième pilier pour les navetteurs transfrontaliers vivant à plus de 20 km de la frontière.',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.formazione-professionale-frontaliere-2026.title': 'Formation et reconversion pour frontalier 2026',
+    'blog.article.formazione-professionale-frontaliere-2026.excerpt': 'En vue de 2026, les cours reconnus et le financement de la formation des navetteurs transfrontaliers sont au centre, avec de nouvelles opportunités et procédures.',
+    'blog.article.formazione-professionale-frontaliere-2026.imageAlt': 'Scène suisse montrant des frontaliers en formation professionnelle',
+    'blog.article.avs-ai-prospettive-finanziarie.title': 'Les perspectives financières pour la VVA et la perfusion se détériorent',
+    'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'Selon la FSIO, les déficits dans l’assurance vieillesse et survivants ainsi que dans l’assurance invalidité augmenteront dans les années à venir.',
+    'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Vue aérienne du Lac de Lugano avec les Alpes suisses en arrière-plan',
 };
 
 export default blogMetaChFr;

@@ -850,6 +850,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Scopri come il pensionamento anticipato influenzerà l\'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine.',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.formazione-professionale-frontaliere-2026.title': 'Formazione professionale e riqualifica per frontalieri nel 2026',
+    'blog.article.formazione-professionale-frontaliere-2026.excerpt': 'In vista del 2026, i corsi riconosciuti e i finanziamenti per la formazione dei frontalieri sono al centro di attenzione, con nuove opportunità e procedure.',
+    'blog.article.formazione-professionale-frontaliere-2026.imageAlt': 'Scena svizzera con frontaliere in formazione professionale',
+    'blog.article.avs-ai-prospettive-finanziarie.title': 'Peggiorano le prospettive finanziarie di AVS e AI',
+    'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità.',
+    'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi Svizzere sullo sfondo',
 };
 
 export default blogMetaChIt;

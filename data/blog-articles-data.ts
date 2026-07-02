@@ -26020,6 +26020,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'avs-ai-prospettive-finanziarie-peggiorano',
+ category: 'fiscale',
+ date: '2026-07-02T10:16:35.920Z',
+ image: '/images/blog/avs-ai-prospettive-finanziarie-peggiorano.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

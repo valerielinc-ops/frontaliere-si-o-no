@@ -306,6 +306,8 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-licenziamento-diritti-2026': { it: 'frontaliere-licenziamento-diritti-2026', en: 'frontalier-termination-rights-2026', de: 'grenzgaenger-kuendigung-rechte-2026', fr: 'frontalier-licenciement-droits-2026' },
  'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km': { it: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km', en: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km', de: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km', fr: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km' },
  'frontaliere-pensionamento-anticipato-2026-oltre-20km': { it: 'frontaliere-pensionamento-anticipato-2026-oltre-20km', en: 'frontaliers-early-retirement-planning-2026-over-20km', de: 'grenzgaenger-fruehzeitige-rentenplanung-2026-ueber-20km', fr: 'frontaliers-planification-retraite-anticipee-2026-plus-20km' },
+ 'formazione-professionale-frontaliere-2026': { it: 'formazione-professionale-frontaliere-2026', en: 'professional-training-cross-border-2026', de: 'berufsausbildung-grenzgaenger-2026', fr: 'formation-professionnelle-frontaliers-2026' },
+ 'avs-ai-prospettive-finanziarie': { it: 'avs-ai-prospettive-finanziarie', en: 'avs-ai-financial-prospects', de: 'avs-ai-finanzielle-aussichten', fr: 'avs-ai-perspectives-financieres' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

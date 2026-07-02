@@ -1,0 +1,40 @@
+{
+  "id": "avs-ai-prospettive-finanziarie",
+  "slug": "avs-ai-prospettive-finanziarie",
+  "publishedAt": "2026-07-02T10:25:24.822Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.748122302189893,
+    "confidence": 0.8,
+    "finalScore": 10.998497841751915,
+    "topK": [
+      {
+        "slug": "avs-dati-digitale-frontalieri",
+        "cosine": 0.8592576438868683
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8479572687318744
+      },
+      {
+        "slug": "tredicesima-avs-finanziamento-contributi",
+        "cosine": 0.8469799259794848
+      },
+      {
+        "slug": "tredicesima-avs-soluzione-mista-stati",
+        "cosine": 0.8466200879549276
+      },
+      {
+        "slug": "aumento-beneficiari-rendite-avs-ticino",
+        "cosine": 0.8462124055543254
+      }
+    ],
+    "score": 5.499248920875957,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

@@ -850,6 +850,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Early retirement for border workers: impact on AVS and second pillar',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Find out how early retirement will affect the AHV and the second pillar for cross-border commuters who live more than 20 km from the border.',
     'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.formazione-professionale-frontaliere-2026.title': 'Vocational training and retraining for border workers in 2026',
+    'blog.article.formazione-professionale-frontaliere-2026.excerpt': 'In view of 2026, recognized courses and funding for the training of cross-border commuters are in focus, with new opportunities and procedures.',
+    'blog.article.formazione-professionale-frontaliere-2026.imageAlt': 'Swiss scene showing cross-border workers in training',
+    'blog.article.avs-ai-prospettive-finanziarie.title': 'The financial outlook for AHV and IV worsens',
+    'blog.article.avs-ai-prospettive-finanziarie.excerpt': 'According to the FSIO, the deficits in the Old-Age and Survivors\' Insurance and the Disability Insurance will increase in the coming years.',
+    'blog.article.avs-ai-prospettive-finanziarie.imageAlt': 'Aerial view of Lake Lugano with the Swiss Alps in the background',
 };
 
 export default blogMetaChEn;
