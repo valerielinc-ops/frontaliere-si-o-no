@@ -1004,6 +1004,7 @@ function captureDuplicateReasons(errorMessage = '') {
   if (msg.includes('Lo slug "') && msg.includes('esiste già')) addDuplicateReason('slug_exists');
 
   const signalLine = msg.match(/Segnali:\s*(.+)/);
+  const cosineLine = msg.match(/Cosine:\s*([\d.]+)\s*≥/);
   if (signalLine?.[1]) {
     addDuplicateReason('multi_signal');
     const parts = signalLine[1].split('|').map((x) => x.trim().toLowerCase());
@@ -1014,9 +1015,30 @@ function captureDuplicateReasons(errorMessage = '') {
       else if (p.startsWith('combinato:')) addDuplicateReason('signal_combined');
       else addDuplicateReason('signal_other');
     }
+  } else if (cosineLine?.[1]) {
+    // checkSemanticNearDuplicate() rejection (#3138 follow-up) — previously
+    // fell into the generic 'other' bucket because this branch only
+    // recognized the lexical checkForDuplicates() "Segnali:" format, making
+    // semantic rejections invisible in the run's own summary.
+    addDuplicateReason('semantic_cosine');
   } else {
     addDuplicateReason('other');
   }
+}
+
+// Short, log-friendly reason tag for a DUPLICATO error, so the retry/
+// exhaustion console lines say WHY (semantic vs lexical vs id/slug) instead
+// of just "duplicato rilevato" — the semantic gate's cosine detail used to
+// be thrown but never printed anywhere, making it undiagnosable from CI
+// logs (#3138 follow-up).
+function duplicateReasonTag(errorMessage = '') {
+  const msg = String(errorMessage || '');
+  const cosineLine = msg.match(/Cosine:\s*([\d.]+)\s*≥\s*([\d.]+)/);
+  if (cosineLine) return `semantico, cosine=${cosineLine[1]} ≥ ${cosineLine[2]}`;
+  const signalLine = msg.match(/Segnali:\s*(.+)/);
+  if (signalLine?.[1]) return `lessicale (${signalLine[1].trim()})`;
+  if (msg.includes('esiste già')) return 'id/slug già esistente';
+  return 'motivo non riconosciuto';
 }
 
 function finalizeRunReport(status, extra = {}) {
@@ -7966,12 +7988,12 @@ async function main() {
             const isDuplicate = e.message.includes('DUPLICATO');
             if (isDuplicate) captureDuplicateReasons(e.message);
             if (isDuplicate && attempt < MAX_DUPLICATE_RETRIES) {
-              console.error(`\n🔄 Duplicato rilevato, riprovo con un altro articolo... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
+              console.error(`\n🔄 Duplicato rilevato (${duplicateReasonTag(e.message)}), riprovo con un altro articolo... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
               url = null; // Reset for next iteration
               continue;
             }
             if (isDuplicate && attempt >= MAX_DUPLICATE_RETRIES) {
-              console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati.`);
+              console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati (ultimo: ${duplicateReasonTag(e.message)}).`);
               break; // try next pool, then evergreen
             }
             // Fact-check / quality failures → skip this article, try next.
@@ -8178,7 +8200,7 @@ async function main() {
           } else if (isQualityReject) {
             console.error(`\n⚠️  Articolo evergreen rigettato per qualità — cerco prossima keyword...\n`);
           } else {
-            console.error(`\n🔄 Duplicato post-generazione, cerco prossima keyword sicura...\n`);
+            console.error(`\n🔄 Duplicato post-generazione (${duplicateReasonTag(e.message)}), cerco prossima keyword sicura...\n`);
           }
 
           // Find next safe keyword we haven't tried yet

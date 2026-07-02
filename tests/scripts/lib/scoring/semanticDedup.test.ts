@@ -117,4 +117,39 @@ describe('checkSemanticNearDuplicate', () => {
     });
     expect(out).toBe(data);
   });
+
+  // #3138 follow-up: without an explicit opts.threshold, the gate must scale
+  // with THIS store's own count (real per-section corpus size), not the flat
+  // 0.86 default — that flat default is what made the gate reject ~100% of
+  // frontaliere candidates once its corpus grew past svizzera's by 10x.
+  describe('corpus-size-adaptive default threshold (no explicit opts.threshold)', () => {
+    it('rejects at cosine 0.876 for a small store (store.count == baseline, unchanged behaviour)', async () => {
+      const { store, meta } = makeStore(published);
+      store.count = 300; // EMBEDDING_NEAR_DUP_CORPUS_BASELINE
+      const embedFn = vi.fn().mockResolvedValue(Float32Array.from(vecAtCosine(0.876)));
+      const data = article('x', 'Aumento salari in Svizzera: +1.5-2% nel 2024, ma solo per gli specialisti');
+      await expect(
+        checkSemanticNearDuplicate(data, { store, meta, embedFn, log: () => {} }),
+      ).rejects.toThrow(/DUPLICATO SEMANTICO/);
+    });
+
+    it('ALLOWS the same cosine 0.876 pair once the store is frontaliere-scale (large corpus)', async () => {
+      const { store, meta } = makeStore(published);
+      store.count = 2728; // measured frontaliere store size
+      const embedFn = vi.fn().mockResolvedValue(Float32Array.from(vecAtCosine(0.876)));
+      const data = article('x', 'Aumento salari in Svizzera: +1.5-2% nel 2024, ma solo per gli specialisti');
+      const out = await checkSemanticNearDuplicate(data, { store, meta, embedFn, log: () => {} });
+      expect(out).toBe(data);
+    });
+
+    it('an explicit opts.threshold always wins over the corpus-size default', async () => {
+      const { store, meta } = makeStore(published);
+      store.count = 2728;
+      const embedFn = vi.fn().mockResolvedValue(Float32Array.from(vecAtCosine(0.876)));
+      const data = article('x', 'Aumento salari in Svizzera: +1.5-2% nel 2024, ma solo per gli specialisti');
+      await expect(
+        checkSemanticNearDuplicate(data, { store, meta, embedFn, threshold: 0.86, log: () => {} }),
+      ).rejects.toThrow(/DUPLICATO SEMANTICO/);
+    });
+  });
 });

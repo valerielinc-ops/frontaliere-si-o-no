@@ -67,6 +67,15 @@ const { normalizeFactCheckIssues } = factRunner() as {
   normalizeFactCheckIssues: (issues: any[], opts?: { isEvergreen?: boolean }) => any[];
 };
 
+const dupReasonBlock = src.match(/function addDuplicateReason\(key\) \{[\s\S]*?\n\}\n\nfunction finalizeRunReport/);
+if (!dupReasonBlock) throw new Error('Duplicate-reason classifier block not found');
+
+const dupReasonRunner = new Function(
+  'RUN_REPORT',
+  `${dupReasonBlock[0].replace(/\n\nfunction finalizeRunReport[\s\S]*$/, '')}
+return { captureDuplicateReasons, duplicateReasonTag };`,
+);
+
 describe('create-article gate helpers', () => {
   it('resolves Google News RSS wrappers to a direct proven-source headline', () => {
     const resolved = resolveGoogleNewsHeadline(
@@ -143,5 +152,70 @@ describe('create-article gate helpers', () => {
 
     expect(normalized).toHaveLength(1);
     expect(normalized[0].category).toBe('date');
+  });
+});
+
+// #3138 follow-up: checkSemanticNearDuplicate() rejections were thrown with
+// full detail (Cosine: X ≥ threshold) but captureDuplicateReasons() only
+// recognized the lexical checkForDuplicates() "Segnali:" format, so a
+// semantic rejection fell into the generic 'other' bucket — making the
+// actual dominant blocker on frontaliere invisible in the run's own
+// duplicate-reason summary. These tests pin the classifier + its log tag.
+describe('captureDuplicateReasons / duplicateReasonTag (#3138)', () => {
+  function freshRunReport() {
+    return { duplicateReasonBreakdown: {} as Record<string, number> };
+  }
+
+  it('classifies a semantic cosine rejection as semantic_cosine, not other', () => {
+    const RUN_REPORT = freshRunReport();
+    const { captureDuplicateReasons } = dupReasonRunner(RUN_REPORT) as {
+      captureDuplicateReasons: (msg: string) => void;
+    };
+    captureDuplicateReasons(
+      '❌ DUPLICATO SEMANTICO RILEVATO:\n'
+      + '   Nuovo:     "X" [id]\n'
+      + '   Esistente: [other-slug]\n'
+      + '   Cosine:    0.887 ≥ 0.86 (near-duplicate)\n'
+      + '   Stessa notizia con parole diverse.',
+    );
+    expect(RUN_REPORT.duplicateReasonBreakdown).toEqual({ semantic_cosine: 1 });
+  });
+
+  it('still classifies a lexical multi-signal rejection as before', () => {
+    const RUN_REPORT = freshRunReport();
+    const { captureDuplicateReasons } = dupReasonRunner(RUN_REPORT) as {
+      captureDuplicateReasons: (msg: string) => void;
+    };
+    captureDuplicateReasons('❌ DUPLICATO RILEVATO:\n   Segnali:   titolo: 0.80 | excerpt: 0.65');
+    expect(RUN_REPORT.duplicateReasonBreakdown).toEqual({
+      multi_signal: 1,
+      signal_title: 1,
+      signal_excerpt: 1,
+    });
+  });
+
+  it('is a no-op for a non-duplicate error message', () => {
+    const RUN_REPORT = freshRunReport();
+    const { captureDuplicateReasons } = dupReasonRunner(RUN_REPORT) as {
+      captureDuplicateReasons: (msg: string) => void;
+    };
+    captureDuplicateReasons('some unrelated infrastructure error');
+    expect(RUN_REPORT.duplicateReasonBreakdown).toEqual({});
+  });
+
+  it('duplicateReasonTag surfaces the cosine value for semantic rejections', () => {
+    const { duplicateReasonTag } = dupReasonRunner(freshRunReport()) as {
+      duplicateReasonTag: (msg: string) => string;
+    };
+    const tag = duplicateReasonTag('❌ DUPLICATO SEMANTICO RILEVATO:\n   Cosine:    0.887 ≥ 0.86 (near-duplicate)');
+    expect(tag).toBe('semantico, cosine=0.887 ≥ 0.86');
+  });
+
+  it('duplicateReasonTag surfaces the signal line for lexical rejections', () => {
+    const { duplicateReasonTag } = dupReasonRunner(freshRunReport()) as {
+      duplicateReasonTag: (msg: string) => string;
+    };
+    const tag = duplicateReasonTag('❌ DUPLICATO RILEVATO:\n   Segnali:   titolo: 0.80');
+    expect(tag).toBe('lessicale (titolo: 0.80)');
   });
 });
