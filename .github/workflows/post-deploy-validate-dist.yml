@@ -303,10 +303,22 @@ jobs:
         # deploy.yml strips dist/<ticino-subtree> from the apex/locale artifacts
         # (strip-ticino-subtree.sh) and publishes ONE Pages repo PER LOCALE
         # (frontaliere-ticino-<loc>, push-ticino-shard.sh). Restore each subtree
-        # by cloning its shard repo so validators that walk dist for the Ticino
-        # URLs don't false-flag them missing. (No tar artifact: the push is
-        # per-leg direct, so the published shard repo is the source of truth.)
+        # so validators that walk dist for the Ticino URLs don't false-flag
+        # them missing.
+        #
+        # PRIMARY: same-run per-locale tar artifact (`ticino-dist-<loc>-<run>`,
+        # "Pack Ticino shard dist" step in deploy.yml) built from
+        # push-ticino-shard.sh's already-offloaded staged copy — byte-identical
+        # to what was force-pushed. Fetched via `gh run download` (same-run, no
+        # API lag), same pattern as the locale rehydrate above. FALLBACK: full
+        # `git clone` of the shard repo when the artifact is missing/corrupt —
+        # a locale is NEVER silently un-validated. Before the tar artifact
+        # existed, all 4 legs paid the git-clone path unconditionally: ~12min
+        # combined wall on run 28564001685 (~250k files/clone × 4, sequential).
         if: ${{ vars.TICINO_SHARD_LIVE == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
         run: |
           set -uo pipefail
           declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
@@ -316,6 +328,26 @@ jobs:
               echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
               continue
             fi
+
+            dl="$RUNNER_TEMP/ticino-dist-$loc"
+            rm -rf "$dl"; mkdir -p "$dl"
+            if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
+              mkdir -p "dist/$(dirname "$sub")"
+              rm -rf "dist/$sub"
+              # `|| true`: a corrupt/truncated tar must fall through to the
+              # git-clone fallback below, not abort under `set -e`.
+              tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
+              rm -rf "$dl"
+              if [ -d "dist/$sub" ]; then
+                echo "rehydrated Ticino $loc from tar artifact: $(find "dist/$sub" -type f | wc -l) files"
+                continue
+              fi
+              echo "[rehydrate] ticino-$loc tar present but no $sub subtree after extract — falling back to git clone"
+            else
+              rm -rf "$dl"
+              echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
+            fi
+
             tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
             rm -rf "$tmp"
             if ! git clone --depth 1 --single-branch --branch main \
