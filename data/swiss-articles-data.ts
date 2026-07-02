@@ -2456,6 +2456,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'quanto-costa-vivere-lugano-frontaliere',
+    category: 'pratico',
+    date: '2026-07-02T02:45:04.088Z',
+    image: '/images/blog/quanto-costa-vivere-lugano-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

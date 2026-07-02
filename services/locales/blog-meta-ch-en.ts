@@ -820,6 +820,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.title': 'Pension 2026: AHV/INPS coordination',
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.excerpt': 'Find out how AHV/INPS coordination and aggregation will affect the pension of cross-border commuters within 20 km of the border.',
     'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.title': 'How much does it cost to live in Lugano as a cross-border commuter?',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.excerpt': 'Detailed analysis of the real costs for a cross-border commuter considering the transfer to Lugano.',
+    'blog.article.quanto-costa-vivere-lugano-frontaliere.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaChEn;
