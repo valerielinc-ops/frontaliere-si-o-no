@@ -859,6 +859,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Aumento delle rendite AI mette l\'assicurazione in difficoltà finanziarie',
     'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'Il forte aumento delle nuove rendite AI mette l\'assicurazione invalidità in difficoltà finanziarie.',
     'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Vista panoramica di Berna con il Parlamento federale e l\'Ufficio federale delle assicurazioni sociali.',
+    'blog.article.frontaliere-formazione-2026.title': 'Formazione 2026: Corsi e finanziamenti',
+    'blog.article.frontaliere-formazione-2026.excerpt': 'Scopri i corsi di formazione professionale e riqualifica per frontalieri entro 20 km nel 2026, i finanziamenti disponibili e come valutare il ritorno pratico.',
+    'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontalieri in formazione professionale in una città svizzera',
 };
 
 export default blogMetaChIt;

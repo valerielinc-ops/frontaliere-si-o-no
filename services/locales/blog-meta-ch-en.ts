@@ -859,6 +859,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Increased IV pensions put insurance companies in financial difficulty',
     'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'The sharp increase in new IV pensions is putting disability insurance in financial difficulty.',
     'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Panoramic view of Bern with the Federal Parliament and the Federal Social Insurance Office.',
+    'blog.article.frontaliere-formazione-2026.title': 'Training 2026: Courses and funding',
+    'blog.article.frontaliere-formazione-2026.excerpt': 'Find out about vocational training and retraining courses for cross-border commuters within 20 km in 2026, the funding available and how to assess the practical return.',
+    'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontalieri in professional training in a Swiss city',
 };
 
 export default blogMetaChEn;

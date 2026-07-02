@@ -859,6 +859,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Augmentation des pensions IV: Difficultés financières pour les assureurs',
     'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'La forte augmentation des nouvelles retraites IV met l’assurance invalidité en difficulté financière.',
     'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Vue panoramique de Berne avec le Parlement fédéral et l\'Office fédéral des assurances sociales.',
+    'blog.article.frontaliere-formazione-2026.title': 'Formation 2026 : Cours et financement',
+    'blog.article.frontaliere-formazione-2026.excerpt': 'Découvrez en 2026 les formations professionnelles et les cours de reconversion pour les navetteurs transfrontaliers dans un rayon de 20 km, les financements disponibles et comment évaluer le rendement pratique.',
+    'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontaliers en formation professionnelle dans une ville suisse',
 };
 
 export default blogMetaChFr;
