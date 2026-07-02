@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-07-01T21:50:03.328Z",
+  "generatedAt": "2026-07-02T10:38:38.006Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5701,
-  "avgDurationMs": 5701,
+  "durationMs": 4014,
+  "avgDurationMs": 4014,
   "durationHistory": [
-    5701
+    4014
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -348,46 +348,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mpa Arztsekret Rin Wattwil 40%",
-      "slug": "mpa-segretario-medico-rin-wattwil-40-berit-klinik-wattwil",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_arztsekret_rin_wattwil_40__70d7b013fb.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Wattwil",
-      "addressLocality": "Wattwil",
-      "addressRegion": "SG",
-      "postalCode": "9630",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "_meta": {
-        "sourceFilename": "stelleninserat_mpa_arztsekret_rin_wattwil_40__70d7b013fb.pdf"
-      },
-      "id": "berit-klinik-b5f5dfcffd62",
-      "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 32600,
-      "salaryMax": 45600,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
