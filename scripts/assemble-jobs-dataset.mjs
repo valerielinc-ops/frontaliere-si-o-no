@@ -49,7 +49,7 @@ import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -561,6 +561,26 @@ const SHRINK_GUARD_RATIO = 0.4;
 /** Whether writeJobsCrawlerSlice should refuse to persist a shrink from priorCount to newCount jobs. */
 export function shouldBlockShrink(priorCount, newCount) {
   return priorCount >= SHRINK_GUARD_MIN_BASELINE && newCount < priorCount * SHRINK_GUARD_RATIO;
+}
+
+/**
+ * Decide whether a raw `inferAnyCanton()` result may be used to fill/correct
+ * a job's canton. `inferAnyCanton` scans all 26 Swiss cantons (BFS-backed),
+ * not just TARGET_CANTONS — the funnel's set of cantons that actually have a
+ * live `/cerca-lavoro-<canton>/` URL section (currently all 26, but this is a
+ * configured subset, not a given). Filling a job with an off-target canton
+ * would silently turn a recognizable orphan-empty job into a harder-to-spot
+ * orphan-non-target (canton set, but no URL section to place it in) — worse
+ * than leaving it empty. Returns `rawInferred` unchanged if accepted, or
+ * `null` if it must be rejected (caller keeps the existing/empty canton).
+ * Exported for unit testing.
+ *
+ * @param {string|null|undefined} rawInferred - raw inferAnyCanton() output.
+ * @returns {string|null}
+ */
+export function acceptInferredCantonForFill(rawInferred) {
+  if (!rawInferred) return null;
+  return TARGET_CANTONS.includes(rawInferred) ? rawInferred : null;
 }
 
 /**
@@ -1410,6 +1430,7 @@ async function assembleJobs() {
   let cantonFixes = 0;
   let cantonFilled = 0;
   let lowercaseFixes = 0;
+  let cantonOffTargetSkipped = 0;
   for (const job of swissValidated) {
     // Fix lowercase canton codes
     if (job.canton && job.canton !== job.canton.toUpperCase()) {
@@ -1418,7 +1439,16 @@ async function assembleJobs() {
     }
     const city = String(job.addressLocality || job.location || '').trim();
     const hasCity = city.length >= 2 && city !== 'CH';
-    const inferred = hasCity ? inferAnyCanton(city) : null;
+    const rawInferred = hasCity ? inferAnyCanton(city) : null;
+    // Guard: only accept the inference if it lands in a canton the funnel
+    // actually serves (has a URL section). Otherwise leave the canton as-is
+    // (empty stays empty — recognizable — rather than silently becoming an
+    // off-funnel orphan-non-target). See acceptInferredCantonForFill above.
+    const inferred = acceptInferredCantonForFill(rawInferred);
+    if (rawInferred && !inferred) {
+      cantonOffTargetSkipped++;
+      console.warn(`  🚧 Canton off-target: inferred "${rawInferred}" for "${city}" has no funnel URL section — left as-is for triage (${job.url || job.id || '?'})`);
+    }
     // Apply the inferred canton whenever it differs from the stored one —
     // INCLUDING when the stored canton is empty. The old `&& job.canton` guard
     // skipped empty-canton jobs, so a job with a perfectly inferable location
@@ -1475,6 +1505,9 @@ async function assembleJobs() {
   }
   if (cantonFixes > 0 || cantonFilled > 0 || lowercaseFixes > 0) {
     console.log(`  🏔️  Canton validation: fixed ${cantonFixes} mismatches, filled ${cantonFilled} empty, ${lowercaseFixes} lowercase codes`);
+  }
+  if (cantonOffTargetSkipped > 0) {
+    console.log(`  🚧 Canton off-target: skipped ${cantonOffTargetSkipped} inferred-but-off-funnel canton(s) (left as-is — see warnings above for triage)`);
   }
   if (cantonPinsFrozen > 0 || cantonPinsAdded > 0 || cantonPinsCorrected > 0) {
     console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded}, corrected ${cantonPinsCorrected} (location overrode colliding pin) (ledger ${Object.keys(cantonPins).length})`);
