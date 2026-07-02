@@ -29,14 +29,22 @@
  * resolver can abort the push before a corrupted tree reaches main.
  *
  * Scope notes (deliberately narrow to stay false-positive-free on a clean main):
- *  - Only SWISS_SLUGS (routerSwissData.ts) is slug-uniqueness-checked. The
- *    FRONTALIERE map (routerBlogData.ts) already carries many tolerated
- *    duplicate localized slugs on main and has no equivalent round-trip test,
- *    so checking it would block valid appends.
+ *  - Both SWISS_SLUGS (routerSwissData.ts) and BLOG_SLUGS/FRONTALIERE
+ *    (routerBlogData.ts) are slug-uniqueness-checked (see follow-up #2837).
+ *    BLOG_SLUGS used to carry ~36 tolerated pre-existing duplicate localized
+ *    slugs (last-write-wins on REVERSE_BLOG, same round-trip break as SWISS);
+ *    those were deduplicated in #3012, so this check is now false-positive-free
+ *    on a clean main and can guard the FRONTALIERE map going forward too.
  *  - The merged-entry / duplicate-id .ts shape is already covered by the
  *    per-file esbuild guard in resolve-append-conflicts.sh; not duplicated here.
  *  - The sitemap index (sitemap.xml — <sitemap> blocks, zero <url>) is skipped;
  *    only url-sitemaps (those that actually contain <url>) are balance-checked.
+ *    Verified 1:1 <loc>-per-<url> (both aggregate AND per-block) on all 6
+ *    non-news url-sitemaps in public/ (sitemap-blog-ch, sitemap-blog,
+ *    sitemap-glossario, sitemap-guides, sitemap-jobs, sitemap-pages) in
+ *    addition to sitemap-news.xml — see #2837. The per-block check below
+ *    (not just the aggregate count) is what actually enforces the invariant,
+ *    so a corrupted block can't hide behind a compensating miss elsewhere.
  *
  * Exit 0 = all invariants hold. Exit 1 = at least one violation (caller MUST
  * abort the push). Pure Node built-ins; no dependencies, no network.
@@ -53,12 +61,13 @@ function read(rel) {
   return existsSync(p) ? readFileSync(p, 'utf8') : null;
 }
 
-// ── 1. Duplicate localized slug in SWISS_SLUGS ───────────────────────────────
-// Shape: `'id': { it: '…', en: '…', de: '…', fr: '…' }`. The file holds only the
-// literal map (+ a derived REVERSE_SWISS with no `<loc>: '…'` literals), so
-// locale-keyed string literals belong solely to the map.
-function checkSwissSlugUniqueness() {
-  const rel = 'services/routerSwissData.ts';
+// ── 1. Duplicate localized slug in SWISS_SLUGS / BLOG_SLUGS ─────────────────
+// Shape (both files): `'id': { it: '…', en: '…', de: '…', fr: '…' }`. Each file
+// holds only the literal map (+ a derived REVERSE_* with no `<loc>: '…'`-style
+// literals), so locale-keyed string literals belong solely to the map — a
+// plain regex scan of the whole file is safe without needing to fence the
+// map's start/end.
+function checkSlugUniqueness(rel, reverseMapName) {
   const src = read(rel);
   if (src === null) return;
   const entryRx = /(^|\n)\s*'([^']+)'\s*:\s*\{([^}]*)\}/g;
@@ -74,7 +83,7 @@ function checkSwissSlugUniqueness() {
       if (seen && seen !== id) {
         fail(
           `${rel}: duplicate ${loc.toUpperCase()} slug "${slug}" maps to both ` +
-            `"${seen}" and "${id}" — REVERSE_SWISS collides (round-trip breaks). ` +
+            `"${seen}" and "${id}" — ${reverseMapName} collides (round-trip breaks). ` +
             `Almost always a duplicate article: drop one of the two.`,
         );
       } else {
@@ -84,9 +93,28 @@ function checkSwissSlugUniqueness() {
   }
 }
 
+function checkSwissSlugUniqueness() {
+  checkSlugUniqueness('services/routerSwissData.ts', 'REVERSE_SWISS');
+}
+
+function checkBlogSlugUniqueness() {
+  checkSlugUniqueness('services/routerBlogData.ts', 'REVERSE_BLOG');
+}
+
 // ── 2. url-sitemap <url>/<loc>/<image:image> balance ─────────────────────────
 // A merged <url> block carries two <loc> (and an unbalanced <image:image>) —
 // well-formed XML, but these counts catch it. Skip index sitemaps (no <url>).
+//
+// Two layers, deliberately both kept:
+//  - Aggregate counts (cheap, catches most shapes, gives a single clear count).
+//  - Per-block <loc> count (below): the aggregate alone has a blind spot — if
+//    one merge fuses two <loc> into a single <url> block while another block
+//    elsewhere is missing its <loc> entirely, the totals can still coincide
+//    and the aggregate check passes despite real corruption. The per-block
+//    scan asserts the invariant directly (exactly one <loc> per <url> block)
+//    so that blind spot can't hide a violation. Verified 1:1 on every <url>
+//    block, aggregate AND per-block, across all 7 sitemap-*.xml url-sitemaps
+//    on a clean main (sitemap-news.xml + the 6 others) — see #2837.
 function checkSitemapBalance(rel) {
   const xml = read(rel);
   if (xml === null) return;
@@ -109,10 +137,23 @@ function checkSitemapBalance(rel) {
   if (imgOpen !== imgClose) {
     fail(`${rel}: <image:image> open/close imbalance (${imgOpen} vs ${imgClose}) — malformed merge.`);
   }
+
+  // Per-block check: guards against the aggregate blind spot described above.
+  const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) || [];
+  for (let i = 0; i < blocks.length; i++) {
+    const blockLoc = (blocks[i].match(/<loc>/g) || []).length;
+    if (blockLoc !== 1) {
+      fail(
+        `${rel}: <url> block #${i + 1} has ${blockLoc} <loc> entries (expected exactly 1) — ` +
+          `concurrent-append merge fused entries into one block.`,
+      );
+    }
+  }
 }
 
 // ── Run ──────────────────────────────────────────────────────────────────────
 checkSwissSlugUniqueness();
+checkBlogSlugUniqueness();
 
 const publicDir = join(ROOT, 'public');
 if (existsSync(publicDir)) {
@@ -130,4 +171,6 @@ if (violations.length) {
   );
   process.exit(1);
 }
-console.log('✅ article-append integrity: SWISS slug-uniqueness + url-sitemap balance OK');
+console.log(
+  '✅ article-append integrity: SWISS + BLOG slug-uniqueness + url-sitemap balance OK',
+);
