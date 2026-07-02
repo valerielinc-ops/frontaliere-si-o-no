@@ -8206,6 +8206,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Italian cross-border workers complain to ILO',
     'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'A complaint to the ILO denounces discrimination against Italian cross-border workers in Switzerland. Learn the details and implications.',
     'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Italian cross-border workers in Switzerland in front of the OIL office with a banner against discrimination',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.title': 'Ticino Rebate Block: The Reaction of the PD',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.excerpt': 'The Canton of Ticino blocks rebates to Lombardy, the PD rises up and asks for an urgent meeting with the Government.',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.imageAlt': 'Panoramic view of Bellinzona with Montebello Castle',
 };
 
 export default blogMetaEn;
