@@ -67,6 +67,19 @@ interface SiteEvent {
   imageUrl?: string;
   sourceKey: string;
   sourceName: string;
+  // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
+  // fields the original tio-agenda MVP never had. All optional: tio-agenda
+  // slices (and any future thin source) simply omit them and every render
+  // path below degrades to the pre-existing MVP behavior.
+  description?: string;
+  price?: { amount: number | null; currency: string; isFree: boolean };
+  address?: { street?: string; postalCode?: string };
+  geo?: { lat: number; lng: number };
+  recurring?: boolean;
+  // Nearby Italian border comuni (haversine geo-link, see
+  // resolveItalianFrontierComuni in events-utils.mjs) — attached at assemble
+  // time so a frontaliere on the Italian side can find "eventi vicino a te".
+  italianFrontierComuni?: string[];
 }
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
@@ -467,9 +480,17 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const endIso = hasMultiDay ? (event.endDate as string) : startIso;
   const cat = categoryLabel(event.category, locale);
   const when = humanDate(event.startDate, locale);
-  const description =
+  const synthDescription =
     `${event.title} — ${cat} ${COPY[locale].at} ${venueName} (${locality}, Ticino), ${when}` +
     `${event.startTime ? ` ${event.startTime}` : ''}. ${event.sourceName}.`;
+  // Nationwide sources (guidle, myswitzerland) crawl a real description —
+  // prefer it over the synthesized one when it clears the >=30 char gate
+  // validate-structured-data-completeness.mjs enforces.
+  const description =
+    event.description && event.description.trim().length >= 30 ? event.description.trim() : synthDescription;
+  // organizer is per-EVENT_SOURCES entry, not the single tio-agenda constant
+  // (§6 — one registry, no per-file duplicate of source metadata).
+  const organizerSource = EVENT_SOURCES[event.sourceKey] || SOURCE;
   return {
     '@type': 'Event',
     name: event.title,
@@ -482,21 +503,48 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
       name: venueName,
       address: {
         '@type': 'PostalAddress',
+        ...(event.address?.street ? { streetAddress: event.address.street } : {}),
+        ...(event.address?.postalCode ? { postalCode: event.address.postalCode } : {}),
         addressLocality: locality,
         addressRegion: 'TI',
         addressCountry: 'CH',
       },
+      ...(event.geo
+        ? { geo: { '@type': 'GeoCoordinates', latitude: event.geo.lat, longitude: event.geo.lng } }
+        : {}),
     },
     description: description.length >= 30 ? description : `${description} Evento in Ticino.`,
-    image: SITE_IMAGE,
+    image: event.imageUrl ? absoluteImageUrl(event.imageUrl) : SITE_IMAGE,
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    organizer: { '@type': 'Organization', name: event.sourceName, url: SOURCE.homepage },
+    organizer: { '@type': 'Organization', name: event.sourceName, url: organizerSource.homepage },
     performer: { '@type': 'Organization', name: venueName },
+    // offers is optional per validate-structured-data-completeness.mjs (many
+    // sources never expose price) — emit ONLY when we have a confident
+    // price/free signal, and always the FULL required shape together
+    // (price+priceCurrency+availability+validFrom+url) so a partial offers
+    // object never trips the "offers.field missing" gate.
+    ...(event.price
+      ? {
+          offers: {
+            '@type': 'Offer',
+            price: event.price.isFree ? '0' : String(event.price.amount ?? '0'),
+            priceCurrency: event.price.currency || 'CHF',
+            availability: 'https://schema.org/InStock',
+            validFrom: event.startDate,
+            url: canonicalUrl || event.url,
+          },
+        }
+      : {}),
   };
+}
+
+/** Site-relative event image path → absolute URL (structured data needs a full URL). */
+function absoluteImageUrl(imageUrl: string): string {
+  return /^https?:\/\//i.test(imageUrl) ? imageUrl : `${BASE_URL}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
 }
 
 /**

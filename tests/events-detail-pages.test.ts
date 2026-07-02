@@ -69,6 +69,77 @@ describe('eventLd canonical', () => {
   });
 });
 
+describe('eventLd nationwide fields (#3125)', () => {
+  it('uses the per-EVENT_SOURCES organizer, not a single hardcoded source', () => {
+    const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
+    const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
+    expect(ld.organizer.url).toBe('https://www.guidle.com');
+    expect(ld.organizer.name).toBe('Guidle');
+  });
+
+  it('falls back to the tio-agenda source when sourceKey is unknown (defensive)', () => {
+    const unknownSource = { ...EVENT, sourceKey: 'does-not-exist' };
+    const ld = eventLd(unknownSource as never, 'it') as Record<string, any>;
+    expect(ld.organizer.url).toBe('https://www.tio.ch/agenda');
+  });
+
+  it('prefers a real crawled description over the synthesized one when long enough', () => {
+    const withDescription = {
+      ...EVENT,
+      description: 'Una serata di grande musica sinfonica con orchestra internazionale al LAC di Lugano.',
+    };
+    const ld = eventLd(withDescription as never, 'it') as Record<string, any>;
+    expect(ld.description).toBe(withDescription.description);
+  });
+
+  it('emits location.geo when the event has coordinates', () => {
+    const withGeo = { ...EVENT, geo: { lat: 46.005, lng: 8.951 } };
+    const ld = eventLd(withGeo as never, 'it') as Record<string, any>;
+    expect(ld.location.geo).toEqual({ '@type': 'GeoCoordinates', latitude: 46.005, longitude: 8.951 });
+  });
+
+  it('emits address.streetAddress/postalCode when known', () => {
+    const withAddress = { ...EVENT, address: { street: 'Piazza Bernardino Luini 6', postalCode: '6900' } };
+    const ld = eventLd(withAddress as never, 'it') as Record<string, any>;
+    expect(ld.location.address.streetAddress).toBe('Piazza Bernardino Luini 6');
+    expect(ld.location.address.postalCode).toBe('6900');
+  });
+
+  it('omits offers entirely when price is unknown (never a partial offers object)', () => {
+    const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
+    expect(ld.offers).toBeUndefined();
+  });
+
+  it('emits a complete offers object for a free event', () => {
+    const freeEvent = { ...EVENT, price: { amount: null, currency: 'CHF', isFree: true } };
+    const ld = eventLd(freeEvent as never, 'it') as Record<string, any>;
+    expect(ld.offers).toMatchObject({
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: EVENT.startDate,
+    });
+    expect(ld.offers.url).toBeTruthy();
+  });
+
+  it('emits a complete offers object for a paid event', () => {
+    const paidEvent = { ...EVENT, price: { amount: 25, currency: 'CHF', isFree: false } };
+    const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
+    expect(ld.offers.price).toBe('25');
+    expect(ld.offers.priceCurrency).toBe('CHF');
+  });
+
+  it('uses the local mirrored image path for image (absolute-ized), falling back to the site image', () => {
+    const withImage = { ...EVENT, imageUrl: '/images/events/guidle-abc.jpg' };
+    const ldWithImage = eventLd(withImage as never, 'it') as Record<string, any>;
+    expect(ldWithImage.image).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
+
+    const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
+    expect(withoutImage.image).toBe('https://frontaliereticino.ch/og-image.png');
+  });
+});
+
 describe('renderEventDetailPage', () => {
   const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-detail-'));
   const detailHref = (e: { id: string }) =>
