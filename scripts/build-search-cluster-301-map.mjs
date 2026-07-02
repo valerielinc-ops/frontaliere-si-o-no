@@ -55,7 +55,10 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RELATED_SEARCH_JUNK_TERMS } from '../services/relatedSearchJunkTerms.mjs';
-import { stripSearchQueryBoilerplate } from '../services/searchQueryBoilerplate.mjs';
+import {
+  stripSearchQueryBoilerplate,
+  SEARCH_QUERY_BOILERPLATE_TOKENS,
+} from '../services/searchQueryBoilerplate.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -235,8 +238,21 @@ export function legacyClusterUrls(indexedPath) {
  * legacy slugs end in the English "-switzerland" rather than "-schweiz"; the
  * shared helper strips either regardless of which locale is being processed)
  * and leading junk search-terms, until stable.
+ *
+ * `stripSearchQueryBoilerplate()` itself deliberately NEVER empties its input
+ * (see services/searchQueryBoilerplate.mjs — shared with display-facing
+ * callers, e.g. tests/related-search-clusters.test.ts:193-196 pins
+ * `stripSearchQueryBoilerplate('lavoro') === 'lavoro'` so a search box is
+ * never left blank), so a body that IS entirely boilerplate words (e.g. the
+ * legacy `/ricerca-lavoro/` slug) comes back unchanged instead of empty.
+ * The pre-extraction `LEADING_BOILERPLATE` logic this replaced (#2917/#2924)
+ * special-cased exactly this: `body === p → body = ''`, so the map-builder
+ * falls through to the city/board fallback instead of treating a bare
+ * boilerplate word as a "specific" cluster body. That all-boilerplate check
+ * has to live HERE (the redirect-map call site), not inside the shared
+ * helper, so it stays scoped to this caller only.
  */
-function nationalSlugBody(legacyPath, locale) {
+export function nationalSlugBody(legacyPath, locale) {
   const m = legacyPath.match(LOCALE_CONFIG[locale].legacyBodyRx);
   if (!m) return null;
   let body = m[1];
@@ -245,6 +261,16 @@ function nationalSlugBody(legacyPath, locale) {
   while (changed && guard++ < 8) {
     changed = false;
     const query = body.replace(/-/g, ' ');
+    const queryTokens = query.split(' ').filter(Boolean);
+    if (
+      queryTokens.length > 0 &&
+      queryTokens.every((t) => SEARCH_QUERY_BOILERPLATE_TOKENS.has(t.toLowerCase()))
+    ) {
+      // Every remaining token is boilerplate noise (e.g. "lavoro", or
+      // "offerte di lavoro") — no specific signal left, mirror the old
+      // `body === p → body = ''` behavior instead of returning it unchanged.
+      return null;
+    }
     const strippedBody = stripSearchQueryBoilerplate(query).replace(/\s+/g, '-');
     if (strippedBody && strippedBody !== body) {
       body = strippedBody;
@@ -374,8 +400,9 @@ async function main() {
 }
 
 // Only build the map + hit the network when run as a CLI. Importing this
-// module (e.g. the unit tests for `legacyClusterUrls`/`resolveLegacyUrlsArray`)
-// must NOT trigger the live sitemap fetch or overwrite the committed map.
+// module (e.g. the unit tests for `legacyClusterUrls`/`resolveLegacyUrlsArray`/
+// `nationalSlugBody`) must NOT trigger the live sitemap fetch or overwrite the
+// committed map.
 const invokedDirectly = (() => {
   try {
     return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
