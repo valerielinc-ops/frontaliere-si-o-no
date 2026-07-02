@@ -133,7 +133,7 @@ const StatsViewInner: React.FC = () => {
  </h3>
  <div className="h-[300px] w-full">
  {historicalData.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 1, height: 1 }}>
  <AreaChart
  data={historicalData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
@@ -170,7 +170,7 @@ const StatsViewInner: React.FC = () => {
  </h3>
  <div className="h-[250px] w-full">
  {ageData.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 1, height: 1 }}>
  <BarChart
  data={ageData}
  layout="vertical"
@@ -204,7 +204,7 @@ const StatsViewInner: React.FC = () => {
  </h3>
  <div className="h-[250px] w-full">
  {genderTrendData.length > 0 ? (
- <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+ <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 1, height: 1 }}>
  <LineChart
  data={genderTrendData}
  margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
