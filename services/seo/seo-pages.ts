@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3078,
+ "numberOfItems": 3079,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7724,7 +7724,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3075, "name": "Aumento delle rendite AI mette l'assicurazione ...", "url": `${BASE_URL}/articoli-frontaliere/aumento-rendite-ai-avs-difficolta` },
           { "@type": "ListItem", "position": 3076, "name": "Ristorni, Svizzera minaccia Lombardia: ritiri l...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-lombardia-ticino` },
           { "@type": "ListItem", "position": 3077, "name": "Formazione 2026: Corsi e finanziamenti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-formazione-2026` },
-          { "@type": "ListItem", "position": 3078, "name": "Ore non pagate e clausole contestate: il caso s...", "url": `${BASE_URL}/articoli-frontaliere/ristorazione-ticinese-ore-non-pagate` }
+          { "@type": "ListItem", "position": 3078, "name": "Ore non pagate e clausole contestate: il caso s...", "url": `${BASE_URL}/articoli-frontaliere/ristorazione-ticinese-ore-non-pagate` },
+          { "@type": "ListItem", "position": 3079, "name": "Pensionamento anticipato frontalieri 2026: guid...", "url": `${BASE_URL}/articoli-frontaliere/pensionamento-anticipato-frontalieri-2026` }
  ]
  },
  {

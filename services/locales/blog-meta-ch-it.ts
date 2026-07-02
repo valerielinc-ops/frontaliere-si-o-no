@@ -862,6 +862,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-formazione-2026.title': 'Formazione 2026: Corsi e finanziamenti',
     'blog.article.frontaliere-formazione-2026.excerpt': 'Scopri i corsi di formazione professionale e riqualifica per frontalieri entro 20 km nel 2026, i finanziamenti disponibili e come valutare il ritorno pratico.',
     'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontalieri in formazione professionale in una città svizzera',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Pensionamento anticipato frontalieri 2026: guida completa',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Scopri come funziona il pensionamento anticipato per i frontalieri nel 2026, con focus su AVS, secondo pilastro e pianificazione oltre 20 km.',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'Vista serena del Lago di Lugano al tramonto, con una persona seduta su una panchina che guarda l\'acqua.',
 };
 
 export default blogMetaChIt;

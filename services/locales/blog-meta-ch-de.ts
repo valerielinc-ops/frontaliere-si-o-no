@@ -862,6 +862,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-formazione-2026.title': 'Schulung 2026: Kurse und Finanzierung',
     'blog.article.frontaliere-formazione-2026.excerpt': 'Informieren Sie sich über die Berufsbildungs- und Umschulungskurse für Grenzgänger innerhalb von 20 km im Jahr 2026, die verfügbaren Finanzmittel und wie Sie die praktische Rückkehr bewerten können.',
     'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontalieri in beruflicher Weiterbildung in einer Schweizer Stadt',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Frühpensionierung für grenzüberschreitende Pendler 2026: vollständiger Leitfaden',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Erfahren Sie, wie die Vorruhestandsregelung für Grenzgänger im Jahr 2026 funktioniert, mit Fokus auf AHV, 2. Säule und Planung über 20 km.',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'Eine ruhige Ansicht des Luganer Sees bei Sonnenuntergang, mit einer Person, die auf einer Bank sitzt und auf das Wasser schaut.',
 };
 
 export default blogMetaChDe;
