@@ -1,18 +1,49 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-07-01T21:41:35.104Z",
-  "total": 11,
-  "newCount": 0,
+  "generatedAt": "2026-07-02T10:28:15.023Z",
+  "total": 12,
+  "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 970,
-  "avgDurationMs": 970,
+  "durationMs": 1192,
+  "avgDurationMs": 1192,
   "durationHistory": [
-    970
+    1192
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Responsabile Stazione sperimentale Orticoltura (collaboratore/trice tecnico-scientifico/a)",
+      "slug": "responsabile-stazione-sperimentale-orticoltura-collaboratore-trice-tecnico-scientifico-a-agroscope-ins",
+      "url": "https://jobs.admin.ch/posti-vacanti/responsabile-stazione-sperimentale-orticoltura-collaboratore-trice-tecnico-scientifico-a/bfebcb8c-f57e-4433-89ed-abb0818726ae",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Ins, Svizzera",
+      "addressLocality": "Ins",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-08-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Post-dottorando/a Valutazione del sistema alimentare basata su modelli",
