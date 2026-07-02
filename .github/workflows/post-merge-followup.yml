@@ -142,17 +142,19 @@ jobs:
           # Se una sessione satura il cap (batch grande) → error_max_turns → run NON
           # success → watermark non avanza → la prossima run schedulata ri-copre la
           # finestra; l'idempotenza salta le PR già commentate, riprende le restanti.
-          # 2026-07-02: `--dangerously-skip-permissions` sostituisce l'`--allowedTools`
-          # scoped precedente, stesso fix di pr-review-loop.yml (owner-approved
-          # 2026-07-01). Lo scoped `Bash(gh:*)` fa validazione statica del comando e
-          # abortiva su sintassi shell legittima ("Contains shell syntax that cannot
-          # be statically analyzed", "Newline followed by # inside a quoted argument
-          # can hide arguments from path validation") durante il triage batch, run
-          # perse senza summary comment postato (watermark non avanza, prossima run
-          # schedulata ri-tenta). Rischio noto e accettato, stesso di pr-review-loop:
-          # il prompt resta constraint a `gh issue create`/`gh pr comment` read-only,
-          # ma il processo Claude ora ha accesso Bash/Write/Edit pieno.
-          claude_args: "--max-turns ${{ steps.collect.outputs.max_turns }} --model claude-sonnet-4-6 --dangerously-skip-permissions"
+          # 2026-07-02: ROLLBACK di `--dangerously-skip-permissions` (adottato la
+          # mattina stessa) — issue #3269: run schedulati/workflow_dispatch (questo
+          # workflow gira su `schedule`) risolvono `permissionMode` a "default"
+          # nonostante il flag, bloccando quasi ogni Bash con "requires approval"
+          # (confermato sul run 28594653701 di oggi, 13:43Z: 36 blocchi, zero
+          # comment postato). pr-review-loop.yml (trigger `workflow_run`) e
+          # issue-fix.yml (trigger `issues`) invece OTTENGONO bypassPermissions
+          # regolarmente con la stessa config — il pattern correla con
+          # l'event_name del trigger (schedule/workflow_dispatch → sempre bloccato,
+          # anche con actor umano), non con settings/claude_args. Torniamo allo
+          # scoped `--allowedTools` precedente (problema noto ma minore: rifiuta
+          # a volte sintassi shell non staticamente analizzabile, non blocca TUTTO).
+          claude_args: "--max-turns ${{ steps.collect.outputs.max_turns }} --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}

@@ -110,17 +110,19 @@ jobs:
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
-          # Redundant with --dangerously-skip-permissions below: 2 live runs
-          # (28593412005, 28594828826, 2026-07-02) resolved permissionMode to
-          # "default" despite that flag being present in claude_args, blocking
-          # every Bash/gh call with "This command requires approval" (issue
-          # #3269) — a byte-identical pr-review-loop.yml run the same day got
-          # bypassPermissions fine, so it's a claude_args string-parsing flake,
-          # not a config error here. `settings` sets defaultMode via structured
-          # JSON, a different code path in the action — kept alongside the CLI
-          # flag as a fallback in case the flag drops again.
-          settings: '{"permissions":{"defaultMode":"bypassPermissions"}}'
-          claude_args: "--max-turns 40 --model claude-sonnet-5 --dangerously-skip-permissions"
+          # 2026-07-02: `--dangerously-skip-permissions` (+ `settings` JSON fallback,
+          # PR #3277) tried and failed across 3 live runs (28593412005, 28594828826,
+          # 28599900446) — permissionMode resolves to "default" every time on this
+          # workflow's schedule/workflow_dispatch trigger, blocking ~75% of Bash calls
+          # incl. the actual audit script ("requires approval", issue #3269). Confirmed
+          # NOT specific to this workflow: post-merge-followup.yml's own `schedule` run
+          # the same day (28594653701) hit the identical wall. workflow_run/issues-
+          # triggered siblings (pr-review-loop, issue-fix) get real bypassPermissions
+          # with the same config — the differentiator is event_name, not settings, not
+          # actor (confirmed with both a human and a bot actor on the broken side).
+          # Falling back to scoped --allowedTools (read-only audit: no Edit/Write
+          # needed) until the upstream root cause is understood.
+          claude_args: "--max-turns 40 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob'"
           prompt: |
             Audit qualità dati crawler, settimanale. Finestra lookback: ${{ env.WINDOW_DAYS }} giorni.
 
