@@ -523,7 +523,7 @@
       "slugByLocale": {
         "en": "financial-analyst-pictet-singapore",
         "it": "financial-analista-pictet-group-singapore",
-        "de": "financial-analyst-pictet-singapore",
+        "de": "finanzanalyst-pictet-group-singapore",
         "fr": "financial-analyste-pictet-group-singapore"
       },
       "company": "Pictet Group",
@@ -587,6 +587,9 @@
         ],
         "fr": [
           "financial-analyst-pictet-singapore"
+        ],
+        "de": [
+          "financial-analyst-pictet-singapore"
         ]
       },
       "previousSlugs": [
@@ -600,7 +603,7 @@
         "en": "business-compliance-manager-pictet-geneva",
         "it": "responsabile-della-conformita-aziendale-pictet-group-geneva",
         "de": "business-compliance-manager-pictet-geneva",
-        "fr": "business-compliance-manager-pictet-geneva"
+        "fr": "gestionnaire-de-la-conformite-des-entreprises-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -659,6 +662,9 @@
       "firstSeenAt": "2026-07-02T12:01:03.683Z",
       "previousSlugsByLocale": {
         "it": [
+          "business-compliance-manager-pictet-geneva"
+        ],
+        "fr": [
           "business-compliance-manager-pictet-geneva"
         ]
       },

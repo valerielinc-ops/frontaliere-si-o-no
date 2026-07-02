@@ -140,12 +140,12 @@
     },
     {
       "id": "prada-ef469ffe20a6",
-      "slug": "stock-assistant-prada-group-fidenza-stock-assistant",
+      "slug": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
       "slugByLocale": {
         "en": "stock-assistant-prada-group-fidenza-stock-assistant",
-        "it": "stock-assistant-prada-group-fidenza-stock-assistant",
+        "it": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
         "de": "stock-assistent-prada-group-fidenza-stock-assistant",
-        "fr": "stock-assistant-prada-group-fidenza-stock-assistant"
+        "fr": "assistant-aux-stocks-prada-group-fidenza-stock-assistant"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -197,7 +197,18 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-02T11:38:58.340Z"
+      "firstSeenAt": "2026-07-02T11:38:58.340Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stock-assistant-prada-group-fidenza-stock-assistant"
+        ],
+        "fr": [
+          "stock-assistant-prada-group-fidenza-stock-assistant"
+        ]
+      },
+      "previousSlugs": [
+        "stock-assistant-prada-group-fidenza-stock-assistant"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",

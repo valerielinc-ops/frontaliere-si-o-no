@@ -78,8 +78,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch",
-          "formazione-complementare-automatiker-o-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
+          "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "zusatzlehre-automatiker-oder-automatikmonteur-m-w-d-matterhorn-gotthard-bahn-brig"
@@ -175,8 +174,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
-          "manutenzione-dei-dipendenti-dell-officina-ggb-m-f-d-matterhorn-gotthard-bahn-zermatt"
+          "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -280,8 +278,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch",
-          "responsabile-vendite-m-f-d-80-matterhorn-gotthard-bahn-brig"
+          "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch"
         ],
         "fr": [
           "sales-manager-m-w-d-80-matterhorn-gotthard-bahn-ch"
@@ -378,8 +375,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -405,12 +401,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-e957ff653084",
-      "slug": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
       "slugByLocale": {
         "de": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "superficie-stradale-specialistica-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "en": "specialist-road-surface-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "fr": "surface-routiere-specialisee-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -484,7 +480,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-02T11:38:46.882Z"
+      "firstSeenAt": "2026-07-02T11:38:46.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-062e2c43af0e",
@@ -563,8 +573,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
-          "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
+          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
         ],
         "en": [
           "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
@@ -594,8 +603,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "installatore-trice-elettrico-a-m-w-d-matterhorn-gotthard-bahn-andermatt-sedrun",
-        "en": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+        "en": "electrical-installer-m-f-d-matterhorn-gotthard-bahn-andermatt-sedrun",
+        "fr": "installateur-electrique-m-f-d-matterhorn-gotthard-bahn-andermatt-sedrun"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -660,6 +669,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
