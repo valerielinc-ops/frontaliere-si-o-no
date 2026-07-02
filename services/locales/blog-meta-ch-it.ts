@@ -868,6 +868,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mutuo-italia-frontalieri-guida.title': 'Mutuo in Italia per frontalieri: guida completa con stipendio svizzero',
     'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Scopri come ottenere un mutuo in Italia con stipendio svizzero: documenti, garanzie e banche specializzate.',
     'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Vista aerea di una città di confine svizzero-italiana con un lago e case, che simboleggia la vita transfrontaliera.',
+    'blog.article.vivere-come-lavorare-ticino.title': 'Vivere a Como e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-come-lavorare-ticino.excerpt': 'Guida completa per chi vive a Como e lavora in Ticino: tempi di percorrenza, costo della vita, quartieri consigliati e confronto tra treno e auto.',
+    'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Vista aerea di Como con il lago di Como sullo sfondo, mostrando il contrasto tra vita urbana e bellezza naturale.',
 };
 
 export default blogMetaChIt;
