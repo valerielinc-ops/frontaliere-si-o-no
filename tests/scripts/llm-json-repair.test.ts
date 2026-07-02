@@ -125,6 +125,28 @@ describe('fixJsonStringBody', () => {
     expect(parsed.a).toBe('contains "quoted" text');
     expect(parsed.ok).toBe(true);
   });
+
+  it('does not mistake a prose colon-then-quoted-definition after a quoted term for a key:value separator (round-3 regression)', () => {
+    const broken = '{"a":"Il termine "tassa": "un tributo" imposto dallo stato."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('Il termine "tassa": "un tributo" imposto dallo stato.');
+  });
+
+  it('does not mistake a prose comma-then-quoted-aside after a quoted term for an array/property separator', () => {
+    const broken = '{"a":"il termine "tassa", "un tributo", e discusso."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('il termine "tassa", "un tributo", e discusso.');
+  });
+
+  it('still treats a comma followed by a real next key with its own embedded quote as a genuine separator', () => {
+    const broken = '{"a":"Il termine "extra" qui.","b":"Anche "questo" qui."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('Il termine "extra" qui.');
+    expect(parsed.b).toBe('Anche "questo" qui.');
+  });
 });
 
 describe('stripCodeFences', () => {
