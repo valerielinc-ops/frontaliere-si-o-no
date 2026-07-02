@@ -93,7 +93,10 @@ jobs:
           # aborterebbe "non-human actor". Mai `*`.
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
-          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
+          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # fix, evita drift tra copie duplicate).
+          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di **auto-improvement** dei doc-contract per agenti. Obiettivo: dai pattern RICORRENTI rilevati, proporre miglioramenti CHIRURGICI alle istruzioni (AGENTS.md / ISSUES.md / REVIEW.md / FOLLOWUP.md) così che reviewer/fixer smettano di ripetere lo stesso problema → turnaround più basso.
 

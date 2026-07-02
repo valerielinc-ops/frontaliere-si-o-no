@@ -190,7 +190,10 @@ jobs:
           # `github-actions[bot]` (re-label interno). Il PAT user `valerielinc-ops`
           # è un account umano → bypassa `allowed_bots`, già coperto dal gate `if`.
           allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
-          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --allowedTools 'Bash(gh:*),Bash(git:*),Bash(npm:*),Bash(node:*),Bash(rg:*),Bash(ls:*),Bash(cat:*),Read,Grep,Glob,Edit,Write'"
+          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # fix, evita drift tra copie duplicate).
+          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
