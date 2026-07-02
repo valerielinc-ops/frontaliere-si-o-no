@@ -8204,6 +8204,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Remboursements bloqués: Reina (Iv Varese) «L’État en jeu»',
     'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, secrétaire provincial d’Italia Viva, critique le blocage des remises transfrontalières et met en garde contre les risques pour la crédibilité de l’État.',
     'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Un journaliste écrit sur un ordinateur portable dans un café à Bellinzona, avec le Monte San Salvatore en arrière-plan.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Frontaliers italiens en Suisse : plainte à l\'OIT',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Une plainte auprès de l’OIT dénonce la discrimination à l’encontre des travailleurs transfrontaliers italiens en Suisse. Apprenez les détails et les implications.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Travailleurs frontaliers italiens en Suisse devant le bureau de l\'OIL avec une banderole contre la discrimination',
 };
 
 export default blogMetaFr;

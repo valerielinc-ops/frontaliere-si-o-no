@@ -25993,6 +25993,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-esposto-oil-discriminazioni',
+ category: 'fiscale',
+ date: '2026-07-02T09:00:37.817Z',
+ image: '/images/blog/frontalieri-esposto-oil-discriminazioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

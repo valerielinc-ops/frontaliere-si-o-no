@@ -8204,6 +8204,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Ristorni frontalieri bloccati: Reina (Iv Varese) «A rischio credibilità dello Stato»',
     'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.',
     'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Un giornalista che scrive su un computer portatile in un caffè di Bellinzona, con il Monte San Salvatore in sfondo.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Frontalieri italiani in Svizzera: un esposto all’OIL contro le discriminazioni',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Un esposto all’OIL denuncia discriminazioni contro i frontalieri italiani in Svizzera. Scopri i dettagli e le implicazioni.',
+    'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Frontalieri italiani in Svizzera davanti all\'ufficio OIL con uno striscione contro le discriminazioni',
 };
 
 export default blogMetaIt;

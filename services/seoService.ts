@@ -4346,6 +4346,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nascita-figlio-frontaliere-2026': { name: 'Nascita figlio', path: '/articoli-svizzera/nascita-figlio-frontaliere-2026/', parent: 'blog' },
     'blog-ristorni-frontalieri-bloccati-reina': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-bloccati-reina', parent: 'blog' },
     'blog-frontaliere-licenziamento-diritti-2026': { name: 'Licenziamento Frontaliere', path: '/articoli-svizzera/frontaliere-licenziamento-diritti-2026/', parent: 'blog' },
+    'blog-frontalieri-esposto-oil-discriminazioni': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-esposto-oil-discriminazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
