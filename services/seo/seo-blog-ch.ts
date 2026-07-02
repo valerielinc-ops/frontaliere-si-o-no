@@ -10821,6 +10821,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-licenziamento-diritti-2026': {
+    title: 'Licenziamento frontalieri 2026: termini e diritti',
+    description: 'Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziamento, termini, diritti, scopri',
+    ogTitle: 'Licenziamento del lavoratore frontaliero nel 2026: termini di preavviso, indennità e diritti',
+    ogDescription: 'Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti.',
+    canonicalPath: '/articoli-svizzera/frontaliere-licenziamento-diritti-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenziamento frontalieri 2026: termini e diritti",
+      "description": "Scopri i diritti dei lavoratori frontalieri in caso di licenziamento nel 2026, con termini di preavviso e indennità previsti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-licenziamento-diritti-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliero al confine Svizzera-Italia"
+      },
+      "datePublished": "2026-07-02T08:48:41+00:00",
+      "dateModified": "2026-07-02T08:48:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-licenziamento-diritti-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
