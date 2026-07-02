@@ -106,6 +106,15 @@ export const EXPERIMENTAL_RATIO_DEFAULT = 0.10;
 export const EVERGREEN_QUOTA_DEFAULT = 0.30;
 export const EVERGREEN_COUNTER_PATH = 'data/topic-candidates-evergreen-counter.json';
 
+// Cross-run memory of evergreen keywords confirmed duplicate post-generation
+// (#3138 follow-up, 2026-07-02). Without this, a saturated corpus (e.g.
+// frontaliere, 2728 articles) makes the SAME evergreen pool neighborhood
+// get re-attempted on every 30-min cron run — each run "forgets" what the
+// previous run already proved is a duplicate. Persisted here so the next
+// run can skip known-rejected keywords for free (no wasted generation).
+export const EVERGREEN_REJECTED_PATH = 'data/topic-candidates-evergreen-rejected.json';
+export const EVERGREEN_REJECTED_MAX_IDS = 500;
+
 // Scoring weights — per design doc.
 export const SCORE_WEIGHT_DEMAND = 0.6;
 export const SCORE_WEIGHT_DIVERSITY = 0.2;
@@ -919,6 +928,56 @@ export function shouldForceEvergreen(count, ratio = EVERGREEN_QUOTA_DEFAULT) {
   return ((Math.max(0, Math.floor(count)) % bucket) < threshold);
 }
 
+/**
+ * Load the evergreen-rejected tracker from disk. Returns `{keywords: []}`
+ * on any read/parse failure or missing file — byte-identical to today's
+ * behavior when the file has never been written.
+ */
+export function loadEvergreenRejectedTracker(opts = {}) {
+  const path = (opts && opts.path) || EVERGREEN_REJECTED_PATH;
+  const raw = loadJsonSafe(path);
+  if (!raw || typeof raw !== 'object' || !Array.isArray(raw.keywords)) {
+    return { keywords: [] };
+  }
+  return { keywords: raw.keywords.filter((x) => typeof x === 'string') };
+}
+
+/** Whether `keyword` was already confirmed a duplicate in a previous run. */
+export function isEvergreenRejected(tracker, keyword) {
+  if (!tracker || !Array.isArray(tracker.keywords) || !keyword) return false;
+  return tracker.keywords.includes(keyword);
+}
+
+/**
+ * Append a confirmed-duplicate keyword to the tracker (dedup, FIFO-capped
+ * at `EVERGREEN_REJECTED_MAX_IDS`, oldest evicted first). Pure — caller
+ * persists the returned tracker.
+ */
+export function appendEvergreenRejected(tracker, keyword, opts = {}) {
+  const maxIds = (opts && opts.maxIds) || EVERGREEN_REJECTED_MAX_IDS;
+  const keywords = Array.isArray(tracker?.keywords) ? tracker.keywords.slice() : [];
+  if (keyword && !keywords.includes(keyword)) keywords.push(keyword);
+  while (keywords.length > maxIds) keywords.shift();
+  return { keywords };
+}
+
+/** Persist the evergreen-rejected tracker to disk. */
+export function persistEvergreenRejectedTracker(tracker, opts = {}) {
+  const path = (opts && opts.path) || EVERGREEN_REJECTED_PATH;
+  try {
+    mkdirSync(dirname(path), { recursive: true });
+    writeFileSync(
+      path,
+      JSON.stringify({ keywords: Array.isArray(tracker?.keywords) ? tracker.keywords : [] }, null, 2) + '\n',
+      'utf-8',
+    );
+    return true;
+  } catch (e) {
+    console.warn(`[generator] could not write evergreen-rejected tracker to ${path}: ${e.message}`);
+    return false;
+  }
+}
+
 // ── Top-level orchestrator ────────────────────────────────────────
 
 /**
@@ -1188,4 +1247,10 @@ export default {
   persistExperimentalCounter,
   shouldUseExperimentalTier,
   rankAndSelectHeadlines,
+  EVERGREEN_REJECTED_PATH,
+  EVERGREEN_REJECTED_MAX_IDS,
+  loadEvergreenRejectedTracker,
+  isEvergreenRejected,
+  appendEvergreenRejected,
+  persistEvergreenRejectedTracker,
 };

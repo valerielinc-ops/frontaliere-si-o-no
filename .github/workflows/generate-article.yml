@@ -353,7 +353,17 @@ jobs:
               git commit -m "$COMMIT_SUBJECT"
             fi
           else
-            git commit -m "📰 Auto-generated blog article"
+            # No article published this run (evergreen pool exhausted /
+            # wall-budget hit) but tracker state still changed — e.g. the
+            # evergreen-rejected cross-run memory (#3138). The old generic
+            # "Auto-generated blog article" message would misleadingly label
+            # a state-only commit as an article publish.
+            CHANGED_PATHS="$(git diff --cached --name-only)"
+            if ! echo "$CHANGED_PATHS" | grep -qE '^data/(blog|swiss)-articles-data\.ts$'; then
+              git commit -m "chore(article-gen): update run-state tracker (nessun articolo questo run)"
+            else
+              git commit -m "📰 Auto-generated blog article"
+            fi
           fi
 
           # Push with centralized rebase-retry helper. The append-only files
