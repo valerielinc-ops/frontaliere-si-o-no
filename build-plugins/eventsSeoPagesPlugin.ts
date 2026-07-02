@@ -1076,7 +1076,17 @@ interface DetailCopy {
   lede: (when: string, time: string, venue: string, comune: string) => string;
   officialSite: string;
   aboutTitle: string;
-  about: (title: string, comune: string, when: string, cat: string) => string;
+  // `venue` (item 2 of #3141): the tio-agenda MVP source never carries a real
+  // per-event description (verified: 0/136 live events have one — tio.ch's
+  // detail markup only exposes it behind a client-rendered widget, not in the
+  // static HTML a plain fetch sees), so the "about" paragraph is otherwise
+  // templated boilerplate shared by every event in the same comune+category.
+  // `venue` is present on ~98% of events (133/136) and highly distinct even
+  // within one comune (44 distinct venues among Lugano's 63 events) — folding
+  // it into the sentence gives near-duplicate detection a real, data-backed
+  // per-page differentiator without inventing content. Optional: falls back
+  // to the pre-existing wording when a source ever omits venue.
+  about: (title: string, comune: string, when: string, cat: string, venue?: string) => string;
   practicalTitle: string;
   practical: (comune: string) => string;
   moreTitle: (comune: string) => string;
@@ -1107,8 +1117,8 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, in Ticino.`,
     officialSite: 'Sito ufficiale dell’evento',
     aboutTitle: 'Informazioni sull’evento',
-    about: (t, c, w, cat) =>
-      `${t} è un evento di tipo ${cat} in programma ${w} a ${c}, in Ticino. In questa pagina trovi le informazioni essenziali — data, orario e luogo — raccolte dall’agenda del territorio. Per i dettagli completi, l’eventuale biglietteria e gli aggiornamenti dell’ultimo minuto, fai riferimento al sito ufficiale dell’evento.`,
+    about: (t, c, w, cat, venue) =>
+      `${t} è un evento di tipo ${cat} in programma ${w} a ${c}${venue ? ` – ${venue}` : ''}, in Ticino. In questa pagina trovi le informazioni essenziali — data, orario e luogo — raccolte dall’agenda del territorio. Per i dettagli completi, l’eventuale biglietteria e gli aggiornamenti dell’ultimo minuto, fai riferimento al sito ufficiale dell’evento.`,
     practicalTitle: 'Informazioni pratiche',
     practical: (c) =>
       `${c} è raggiungibile in auto e con i trasporti pubblici ticinesi. Pianifica l’arrivo con un po’ di anticipo, soprattutto per gli eventi serali e di fine settimana. Verifica sempre eventuali variazioni sul sito ufficiale prima di metterti in viaggio.`,
@@ -1135,8 +1145,8 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, Ticino.`,
     officialSite: 'Event’s official website',
     aboutTitle: 'About this event',
-    about: (t, c, w, cat) =>
-      `${t} is a ${cat} event taking place ${w} in ${c}, Ticino. This page gathers the essentials — date, time and venue — collected from the local agenda. For full details, ticketing and last-minute updates, refer to the event’s official website.`,
+    about: (t, c, w, cat, venue) =>
+      `${t} is a ${cat} event taking place ${w} in ${c}${venue ? ` – ${venue}` : ''}, Ticino. This page gathers the essentials — date, time and venue — collected from the local agenda. For full details, ticketing and last-minute updates, refer to the event’s official website.`,
     practicalTitle: 'Practical information',
     practical: (c) =>
       `${c} is reachable by car and by Ticino public transport. Plan to arrive a little early, especially for evening and weekend events, and always check for changes on the official site before setting off.`,
@@ -1163,8 +1173,8 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, Tessin.`,
     officialSite: 'Offizielle Website der Veranstaltung',
     aboutTitle: 'Über diese Veranstaltung',
-    about: (t, c, w, cat) =>
-      `${t} ist eine ${cat}-Veranstaltung am ${w} in ${c}, Tessin. Diese Seite fasst das Wesentliche zusammen — Datum, Uhrzeit und Ort — aus der regionalen Agenda. Für vollständige Details, Tickets und kurzfristige Änderungen konsultieren Sie die offizielle Website der Veranstaltung.`,
+    about: (t, c, w, cat, venue) =>
+      `${t} ist eine ${cat}-Veranstaltung am ${w} in ${c}${venue ? ` – ${venue}` : ''}, Tessin. Diese Seite fasst das Wesentliche zusammen — Datum, Uhrzeit und Ort — aus der regionalen Agenda. Für vollständige Details, Tickets und kurzfristige Änderungen konsultieren Sie die offizielle Website der Veranstaltung.`,
     practicalTitle: 'Praktische Informationen',
     practical: (c) =>
       `${c} ist mit dem Auto und mit dem Tessiner öffentlichen Verkehr erreichbar. Planen Sie etwas Vorlauf ein, besonders bei Abend- und Wochenendveranstaltungen, und prüfen Sie vor der Abreise mögliche Änderungen auf der offiziellen Website.`,
@@ -1191,8 +1201,8 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     lede: (w, ti, v, c) => `${w}${ti} — ${v ? `${v}, ` : ''}${c}, au Tessin.`,
     officialSite: 'Site officiel de l’événement',
     aboutTitle: 'À propos de cet événement',
-    about: (t, c, w, cat) =>
-      `${t} est un événement de type ${cat} prévu ${w} à ${c}, au Tessin. Cette page rassemble l’essentiel — date, heure et lieu — à partir de l’agenda régional. Pour tous les détails, la billetterie et les mises à jour de dernière minute, référez-vous au site officiel de l’événement.`,
+    about: (t, c, w, cat, venue) =>
+      `${t} est un événement de type ${cat} prévu ${w} à ${c}${venue ? ` – ${venue}` : ''}, au Tessin. Cette page rassemble l’essentiel — date, heure et lieu — à partir de l’agenda régional. Pour tous les détails, la billetterie et les mises à jour de dernière minute, référez-vous au site officiel de l’événement.`,
     practicalTitle: 'Informations pratiques',
     practical: (c) =>
       `${c} est accessible en voiture et par les transports publics tessinois. Prévoyez d’arriver un peu en avance, surtout pour les événements en soirée et le week-end, et vérifiez toujours les changements sur le site officiel avant de partir.`,
@@ -1229,7 +1239,7 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
     metaTitle: (t: string, c: string) => sub(base.metaTitle(t, c)),
     metaDesc: (t: string, c: string, w: string) => sub(base.metaDesc(t, c, w)),
     lede: (w: string, ti: string, v: string, c: string) => sub(base.lede(w, ti, v, c)),
-    about: (t: string, c: string, w: string, cat: string) => sub(base.about(t, c, w, cat)),
+    about: (t: string, c: string, w: string, cat: string, venue?: string) => sub(base.about(t, c, w, cat, venue)),
     practical: (c: string) => sub(base.practical(c)),
     faqA1: (c: string, w: string) => sub(base.faqA1(c, w)),
   };
@@ -1323,7 +1333,7 @@ export function renderEventDetailPage(params: {
 
     <section class="mt-8">
       <h2 class="text-2xl font-bold text-heading">${esc(dc.aboutTitle)}</h2>
-      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(title, comune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat))}</p>
+      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(title, comune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
       ${description ? `<h3 class="mt-4 text-lg font-semibold text-heading">${esc(dc.descriptionTitle)}</h3><p class="mt-2 text-base leading-7 text-body">${esc(description)}</p>` : ''}
     </section>
 

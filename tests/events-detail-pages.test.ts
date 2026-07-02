@@ -498,3 +498,74 @@ describe('renderHubPage / renderComunePage generalize to a non-TI canton (#3125 
     expect(tiPage.html).toContain('in Ticino');
   });
 });
+
+// #3141 item 2: the tio-agenda MVP source never crawls a real per-event
+// description, so the "about" paragraph is templated boilerplate shared by
+// every event in the same comune+category — a near-duplicate/thin-content
+// risk that grows with event volume per comune. `venue` is present on ~98%
+// of live events and highly distinct even within one comune, so folding it
+// into the sentence gives each page a real, data-backed differentiator.
+describe('renderEventDetailPage about-paragraph venue differentiation (#3141 item 2)', () => {
+  const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-detail-venue-'));
+
+  it('includes the venue in the about paragraph when present', () => {
+    const page = renderEventDetailPage({
+      locale: 'it',
+      event: EVENT as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(page.html).toContain('è un evento di tipo');
+    expect(page.html).toContain('LAC Lugano Arte e Cultura');
+  });
+
+  it('produces a different about paragraph for two otherwise-identical events at different venues (collision case)', () => {
+    const eventA = { ...EVENT, id: 'tio-agenda:100', venue: 'Teatro Cittadella' };
+    const eventB = { ...EVENT, id: 'tio-agenda:200', venue: 'Piazza Riforma' };
+    const pageA = renderEventDetailPage({
+      locale: 'it',
+      event: eventA as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(eventA),
+      sameComuneEvents: [eventA] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const pageB = renderEventDetailPage({
+      locale: 'it',
+      event: eventB as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(eventB),
+      sameComuneEvents: [eventB] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(pageA.html).toContain('Teatro Cittadella');
+    expect(pageB.html).toContain('Piazza Riforma');
+    expect(pageA.html).not.toContain('Piazza Riforma');
+    expect(pageB.html).not.toContain('Teatro Cittadella');
+  });
+
+  it('falls back gracefully (no dangling separator) when venue is missing', () => {
+    const noVenueEvent = { ...EVENT, venue: undefined };
+    const page = renderEventDetailPage({
+      locale: 'it',
+      event: noVenueEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(noVenueEvent),
+      sameComuneEvents: [noVenueEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(page.html).toContain('a Lugano, in Ticino');
+    expect(page.html).not.toContain('a Lugano – ');
+    expect(page.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+  });
+});
