@@ -2438,6 +2438,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassa-salute-ristorni-ticino',
+    category: 'fiscale',
+    date: '2026-07-02T00:16:26.027Z',
+    image: '/images/blog/tassa-salute-ristorni-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

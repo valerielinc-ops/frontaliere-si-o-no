@@ -814,6 +814,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Navetteurs transfrontaliers : documents et premier jour de travail au Tessin',
     'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Guide pratique des exigences pour le premier jour de travail au Tessin : permis, contrat, autorités fiscales et assurance obligatoire.',
     'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Vue panoramique d\'un bureau moderne à Lugano',
+    'blog.article.tassa-salute-ristorni-ticino.title': 'Taxe santé et réduction des repromotions : l’objectif du Tessin',
+    'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, conseiller national, propose d’utiliser la nouvelle taxe sanitaire italienne pour réduire les remboursements aux travailleurs transfrontaliers.',
+    'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaChFr;

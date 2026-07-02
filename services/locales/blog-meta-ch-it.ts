@@ -814,6 +814,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Frontaliere: documenti e primo giorno di lavoro in Ticino',
     'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Guida pratica agli adempimenti necessari per il primo giorno di lavoro in Ticino: permessi, contratto, fisco e assicurazioni obbligatorie.',
     'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Vista panoramica di un ufficio moderno a Lugano',
+    'blog.article.tassa-salute-ristorni-ticino.title': 'Tassa sulla salute e meno ristorni: l\'obiettivo del Ticino',
+    'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, consigliere nazionale, propone di utilizzare la nuova tassa sanitaria italiana per ridurre i ristorni ai frontalieri.',
+    'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaChIt;
