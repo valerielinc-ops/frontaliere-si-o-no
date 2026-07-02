@@ -13,6 +13,14 @@ function loadSelfHeal(): void {
   new Function(SELF_HEAL_SCRIPT_CONTENT)();
 }
 
+// _swReloadCount is a JSON map { [signature]: attempts }, not a flat counter —
+// each distinct stale chunk/message gets its own budget (see resilientImport.ts
+// consumeReloadBudget, which this script mirrors).
+function reloadBudgetTotal(): number {
+  const budget: Record<string, number> = JSON.parse(sessionStorage.getItem('_swReloadCount') || '{}');
+  return Object.values(budget).reduce((a, b) => a + Number(b), 0);
+}
+
 describe('SELF_HEAL_SCRIPT_CONTENT', () => {
   // Registers the window/unhandledrejection listeners exactly once — the IIFE
   // must not be re-run per test, since jsdom's window (and its listeners)
@@ -40,7 +48,7 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     const err = Object.assign(new SyntaxError("Importing binding name 'r' is not found."), {});
     window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
 
-    await vi.waitFor(() => expect(sessionStorage.getItem('_swReloadCount')).toBe('1'));
+    await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
     const info = JSON.parse(sessionStorage.getItem('_forceReloadInfo') || '{}');
     expect(info.source).toBe('index_html_skew');
   });
@@ -49,14 +57,14 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     const err = Object.assign(new SyntaxError("does not provide an export named 'getApp'"), {});
     window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
 
-    await vi.waitFor(() => expect(sessionStorage.getItem('_swReloadCount')).toBe('1'));
+    await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
   });
 
   it('reloads on a call-time version-skew TypeError ("is not a function")', async () => {
     const err = Object.assign(new TypeError('n.getApp is not a function'), {});
     window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
 
-    await vi.waitFor(() => expect(sessionStorage.getItem('_swReloadCount')).toBe('1'));
+    await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
   });
 
   it('ignores unrelated TypeErrors that are not version-skew signatures', async () => {
@@ -72,7 +80,7 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     const ev = Object.assign(new Event('unhandledrejection'), { reason });
     window.dispatchEvent(ev);
 
-    await vi.waitFor(() => expect(sessionStorage.getItem('_swReloadCount')).toBe('1'));
+    await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
     const info = JSON.parse(sessionStorage.getItem('_forceReloadInfo') || '{}');
     expect(info.source).toBe('index_html_import');
   });
@@ -89,12 +97,24 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     expect(sessionStorage.getItem('_swReloadCount')).toBeNull();
   });
 
-  it('stops reloading once the per-session ceiling (2) is reached', async () => {
-    sessionStorage.setItem('_swReloadCount', '2');
+  it('stops reloading once a signature\'s own ceiling (2) is reached', async () => {
     const err = Object.assign(new TypeError('n.getApp is not a function'), {});
+    // Seed THIS exact message's budget as already exhausted.
+    sessionStorage.setItem('_swReloadCount', JSON.stringify({ [err.message]: 2 }));
     window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
 
     await new Promise((r) => setTimeout(r, 0));
-    expect(sessionStorage.getItem('_swReloadCount')).toBe('2');
+    expect(reloadBudgetTotal()).toBe(2);
+  });
+
+  it('still reloads a DIFFERENT signature after another one already reached its ceiling', async () => {
+    // A flat session-wide counter would block this too — the exact bug that
+    // stranded a live user after two unrelated stale chunks on earlier pages
+    // (#3097 recurrence, jul02).
+    sessionStorage.setItem('_swReloadCount', JSON.stringify({ 'some-other-signature': 2 }));
+    const err = Object.assign(new TypeError('n.getApp is not a function'), {});
+    window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
+
+    await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(3));
   });
 });
