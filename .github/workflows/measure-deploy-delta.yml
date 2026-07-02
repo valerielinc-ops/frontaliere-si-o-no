@@ -5,6 +5,24 @@ name: Measure Deploy Delta
 # sync actually push per deploy". Read-only, no checkout of the site, no commit.
 # Manual trigger; pick two deploy runs or let it auto-pick the last two with a
 # non-expired github-pages artifact.
+#
+# NOTE on the locale-shard rehydrate pattern (issue #3104 sibling-fix sweep):
+# this workflow was flagged as a possible sibling of the seed-*-baseline.yml
+# "github-pages-only download" gap, but it is a FALSE POSITIVE for the
+# verbatim rehydrate-steps fix applied there. Those workflows extract ONE
+# run's artifact into a `dist/` tree and then walk it with a Node auditor;
+# `measure-dist-delta.py` here never materializes a `dist/` tree at all — it
+# streams two whole `artifact.tar` files directly (`A/artifact.tar`,
+# `B/artifact.tar`) and diffs their members by content hash in place. Bolting
+# on the "Rehydrate locale/Ticino shards into dist/" steps would require a
+# different, larger change: pulling the matching locale/Ticino shard tars for
+# BOTH run_a and run_b and diffing each shard pair separately, then merging
+# those deltas into the report — not a copy-paste of the two rehydrate steps.
+# The `github-pages`-only download here is a real completeness gap (the
+# reported delta undercounts churn once LOCALE_SHARDS_LIVE/TICINO_SHARD_LIVE
+# strip locales into shard repos) but it is a distinct, larger fix left
+# out of scope for this sweep; this tool is diagnostic/measurement-only (not
+# a validation-gate baseline), so the gap does not silently weaken a ratchet.
 
 on:
   workflow_dispatch:

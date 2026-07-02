@@ -20,6 +20,21 @@ name: Seed title-length + title-no-disambig-hash baselines
 # Mirrors `seed-bfs-depth-baseline.yml` exactly — same flow, two
 # baselines instead of one.
 #
+# Full-dist rehydrate (sibling fix for issue #3104, mirrors
+# seed-text-html-ratio-baseline.yml's fix)
+# -----------------------------------------------------------------------
+# The `github-pages` artifact downloaded below is the IT-only monolith: once
+# LOCALE_SHARDS_LIVE is on, `en`/`de`/`fr` (and, once TICINO_SHARD_LIVE is on,
+# the Ticino per-locale subtrees) are stripped from it and published to
+# separate `frontaliere-<locale>` / `frontaliere-ticino-<locale>` shard repos
+# instead. Scanning the artifact alone would silently undercount ~77% of the
+# site's HTML files, so the "Rehydrate locale/Ticino shards" steps below
+# reuse the identical rehydrate logic `post-deploy-validate-dist.yml` runs
+# for every deploy (same artifact names, same git-clone fallback) so this
+# workflow always scans the COMPLETE logical site before seeding the ratchet
+# baselines — otherwise the committed baseline would silently drop coverage
+# for those locales (forbidden by AGENTS.md: never lower a validation gate).
+#
 # Usage
 # -----
 # 1. Trigger via "Run workflow" in the GitHub UI (workflow_dispatch).
@@ -41,10 +56,28 @@ permissions:
 jobs:
   seed:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Was 15 — the locale/Ticino shard rehydrate below can fall back to
+    # sequential git clones (~14min/locale, ~12min combined for the 4 Ticino
+    # legs per post-deploy-validate-dist.yml's own measured worst case) when
+    # the same-run tar artifacts are missing, so give it the same headroom
+    # (mirrors seed-text-html-ratio-baseline.yml's fix for issue #3104).
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
+      # Reclaim disk before rehydrating the full multi-locale dist (~27 GB
+      # once all locale/Ticino shards are restored, per
+      # post-deploy-validate-dist.yml's own "Free disk space on runner" step,
+      # mirrored verbatim here for the same reason).
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
 
       - name: Set up Node.js
         uses: actions/setup-node@v5
@@ -87,6 +120,116 @@ jobs:
           echo ""
           echo "Total HTML files:"
           find dist -name '*.html' | wc -l
+
+      # Rehydrate stripped en/de/fr locale subtrees so dist/ is the COMPLETE
+      # logical site before the audit runs — otherwise the baselines below
+      # would silently drop ratchet coverage for 3 of 4 locales (issue
+      # #3104, same sibling fix as seed-text-html-ratio-baseline.yml). Copied
+      # verbatim from post-deploy-validate-dist.yml's "Rehydrate locale
+      # shards into dist/ (when sharding active)" step — same artifact names
+      # (`locale-dist-<loc>-<run>`), same git-clone fallback — so both
+      # workflows reconstruct byte-identical dist/ trees from the same
+      # deploy run.
+      - name: Rehydrate locale shards into dist/ (when sharding active)
+        if: ${{ vars.LOCALE_SHARDS_LIVE == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ steps.latest.outputs.run_id }}
+        run: |
+          set -euo pipefail
+          for loc in en de fr; do
+            if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
+              echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
+              continue
+            fi
+
+            dl="$RUNNER_TEMP/locale-dist-$loc"
+            rm -rf "$dl"; mkdir -p "$dl"
+            if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+              rm -rf "dist/$loc" "dist/$loc.html"
+              tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
+              rm -rf "$dl"
+              if [ -d "dist/$loc" ]; then
+                echo "rehydrated $loc from tar artifact: $(find "dist/$loc" -type f | wc -l) files"
+                continue
+              fi
+              echo "[rehydrate] $loc tar present but no $loc/ subtree after extract — falling back to git clone"
+            else
+              rm -rf "$dl"
+              echo "[rehydrate] $loc artifact absent — falling back to git clone"
+            fi
+
+            tmp="$RUNNER_TEMP/rehydrate-$loc"
+            rm -rf "$tmp"
+            git clone --depth 1 --single-branch --branch main \
+              "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
+            [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
+            rm -rf "dist/$loc"
+            cp -r "$tmp/$loc" "dist/$loc"
+            if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
+            echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
+            rm -rf "$tmp"
+          done
+          df -h / | tail -1
+
+      # Mirrors the locale rehydrate above for the carved-out Ticino section,
+      # copied verbatim from post-deploy-validate-dist.yml's "Rehydrate
+      # Ticino shards into dist/ (when Ticino split active)" step.
+      - name: Rehydrate Ticino shards into dist/ (when Ticino split active)
+        if: ${{ vars.TICINO_SHARD_LIVE == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ steps.latest.outputs.run_id }}
+        run: |
+          set -uo pipefail
+          declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
+          for loc in it en de fr; do
+            sub="${TICINO_SUB[$loc]}"
+            if [ -d "dist/$sub" ]; then
+              echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
+              continue
+            fi
+
+            dl="$RUNNER_TEMP/ticino-dist-$loc"
+            rm -rf "$dl"; mkdir -p "$dl"
+            if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
+              mkdir -p "dist/$(dirname "$sub")"
+              rm -rf "dist/$sub"
+              tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
+              rm -rf "$dl"
+              if [ -d "dist/$sub" ]; then
+                echo "rehydrated Ticino $loc from tar artifact: $(find "dist/$sub" -type f | wc -l) files"
+                continue
+              fi
+              echo "[rehydrate] ticino-$loc tar present but no $sub subtree after extract — falling back to git clone"
+            else
+              rm -rf "$dl"
+              echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
+            fi
+
+            tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
+            rm -rf "$tmp"
+            if ! git clone --depth 1 --single-branch --branch main \
+                 "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
+              echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
+              continue
+            fi
+            if [ -d "$tmp/$sub" ]; then
+              mkdir -p "dist/$(dirname "$sub")"
+              rm -rf "dist/$sub"
+              cp -r "$tmp/$sub" "dist/$sub"
+              echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
+            else
+              echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
+            fi
+            rm -rf "$tmp"
+          done
+          df -h / | tail -1
+
+      - name: Report full rehydrated dist/ size
+        run: |
+          echo "Full dist/ after rehydrate: $(find dist -type f | wc -l) files; HTML: $(find dist -name '*.html' | wc -l)"
+          df -h / | tail -1
 
       - name: Generate title-length baseline
         run: |
