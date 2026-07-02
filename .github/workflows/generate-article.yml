@@ -274,6 +274,19 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: node scripts/generate-image-thumbnails.mjs
 
+      # Pre-commit parse gate for services/seo/seo-pages.ts (issue #2834,
+      # hotfixed by PR #2833): a prior in-place edit left a missing-comma
+      # ItemList array that reached `main` unvalidated and turned the
+      # vitest gate RED for every branch. `resolve-append-conflicts.sh`
+      # already esbuild-checks conflicted files during rebase, but the
+      # common CLEAN commit path (no conflict — the scenario that actually
+      # broke main) never ran any syntax check. Run it unconditionally here,
+      # BEFORE the commit, so a broken file never gets pushed in the first
+      # place.
+      - name: Validate seo-pages.ts syntax (pre-commit parse gate)
+        if: steps.changes.outputs.has_changes == 'true'
+        run: node scripts/ci/check-seo-pages-syntax.mjs
+
       # Do not run `npm run build:prod` here. This workflow commits generated
       # article source and dispatches deploy.yml, which already assembles the
       # jobs dataset and performs the full Vite/GitHub Pages build. Running the
