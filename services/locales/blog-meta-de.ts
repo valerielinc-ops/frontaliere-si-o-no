@@ -8214,6 +8214,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.title': 'Die finanziellen Aussichten für AHV und IV verschlechtern sich',
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.excerpt': 'Laut FSIO werden die Defizite bei der Alters- und Hinterbliebenenversicherung sowie in der Invaliditätsversicherung in den kommenden Jahren zunehmen.',
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.avs-ai-difficolta-finanziarie.title': 'Starke Rentenerhöhung bringt IV in finanzielle Schwierigkeiten',
+    'blog.article.avs-ai-difficolta-finanziarie.excerpt': 'Der starke Anstieg der neuen IV-Renten bringt die Invalidenversicherung in finanzielle Schwierigkeiten. Für die AHV führt die erste Auszahlung des 13. Monatslohns zu einem negativen Ergebnis.',
+    'blog.article.avs-ai-difficolta-finanziarie.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
 };
 
 export default blogMetaDe;

@@ -8216,6 +8216,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.title': 'Les perspectives financières pour la VVA et la perfusion se détériorent',
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.excerpt': 'Selon la FSIO, les déficits dans l’assurance vieillesse et survivants ainsi que dans l’assurance invalidité augmenteront dans les années à venir.',
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.avs-ai-difficolta-finanziarie.title': 'La forte augmentation des nouvelles retraites met l’IV en difficulté financière',
+    'blog.article.avs-ai-difficolta-finanziarie.excerpt': 'La forte augmentation des nouvelles retraites IV met l’assurance invalidité en difficulté financière. Pour le CVA, le premier paiement du 13e mois donne un résultat négatif.',
+    'blog.article.avs-ai-difficolta-finanziarie.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;
