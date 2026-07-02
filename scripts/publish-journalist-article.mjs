@@ -48,6 +48,7 @@ import {
   normalizeTitleCasing,
   splitBodyIntoSections,
   generateExcerpt,
+  checkTranslatedSlugCollisions,
 } from './create-article.mjs';
 import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
@@ -315,6 +316,16 @@ async function processDoc(db, FieldValue, docSnap) {
     await translateArticle(data);
 
     deriveLocaleSlugs(data);
+
+    // #3010: deriveLocaleSlugs() above derives en/de/fr from the (translated)
+    // title via slugify() — auto-generated, same as the AI path — but until
+    // this check, nothing validated them against the registry. The IT slug
+    // is fixed to data.id (see deriveLocaleSlugs()) and already covered by
+    // checkArticleIdExists() above; this closes the EN/DE/FR gap using the
+    // exact same collision guard as the AI generation path (reused, not
+    // reimplemented) so a colliding translation fails this doc loudly instead
+    // of silently poisoning the registry.
+    checkTranslatedSlugCollisions(data);
 
     // Re-run after translation: sanitizes bold/`nav:` formatting the MT step
     // may have introduced into the newly-filled en/de/fr content (mirrors

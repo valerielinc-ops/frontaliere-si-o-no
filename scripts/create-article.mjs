@@ -6034,24 +6034,41 @@ function checkForDuplicates(data) {
     }
   }
 
-  // 3. Also check slug overlap (different title, same slug concept). Scoped to
-  // the ACTIVE section's slug-data file — slugs only collide within a section's
-  // URL space (`/articoli-frontaliere/{slug}` vs `/articoli-svizzera/{slug}`
-  // are distinct hubs). `routerSrc` here was a dangling reference left by the
-  // section refactor (it is a local of modifyRouterTs), which threw
-  // "routerSrc is not defined" and broke EVERY generation run.
+  // 3. Also check slug overlap (different title, same slug concept), across
+  // EVERY locale — see checkTranslatedSlugCollisions() below for the
+  // rationale (#3010: this is exactly how the svizzera near-duplicate pairs
+  // collided). Extracted into its own exported function so non-AI generation
+  // paths that derive their own translated slugs (e.g.
+  // publish-journalist-article.mjs's deriveLocaleSlugs()) reuse this SAME
+  // guard instead of re-implementing (and potentially forgetting) it.
+  checkTranslatedSlugCollisions(data);
+
+  console.error('  ✅ Nessun duplicato rilevato');
+  return data;
+}
+
+/**
+ * Guards slug uniqueness for EVERY locale (it/en/de/fr) against the ACTIVE
+ * section's slug-data file — slugs only collide within a section's URL space
+ * (`/articoli-frontaliere/{slug}` vs `/articoli-svizzera/{slug}` are distinct
+ * hubs). The registry stores one localized slug per locale-slot (`'id': {
+ * it: '…', en: '…', de: '…', fr: '…' }`) and REVERSE_SWISS/REVERSE_BLOG are
+ * last-write-wins: two articles sharing the same EN/DE/FR slug make the
+ * earlier one unreachable in that locale (its buildPath → parsePath
+ * round-trip resolves to the sibling). The IT slug is human-authored (or, for
+ * the journalist path, fixed to the article id) and typically already
+ * unique; the EN/DE/FR slugs are auto-translated and historically went
+ * UNCHECKED here — that is exactly how the svizzera pairs collided (de-duped
+ * by data fix #3000) and how 36 frontaliere pairs still collide. Guard each
+ * locale against its OWN slot so a colliding translation fails generation
+ * loudly instead of poisoning the registry and surfacing later as main-red
+ * on the routing round-trip test.
+ */
+function checkTranslatedSlugCollisions(data) {
+  // `routerSrc` here was previously a dangling reference left by the section
+  // refactor (it was a local of modifyRouterTs), which threw "routerSrc is
+  // not defined" and broke EVERY generation run.
   const sectionSlugSrc = readSectionSlugData();
-  // Check EVERY locale, not just `it`. The registry stores one localized slug
-  // per locale-slot (`'id': { it: '…', en: '…', de: '…', fr: '…' }`) and
-  // REVERSE_SWISS/REVERSE_BLOG are last-write-wins: two articles sharing the
-  // same EN/DE/FR slug make the earlier one unreachable in that locale (its
-  // buildPath → parsePath round-trip resolves to the sibling). The IT slug is
-  // human-authored and already unique; the EN/DE/FR slugs are auto-translated
-  // and historically went UNCHECKED here — that is exactly how the svizzera
-  // pairs collided (de-duped by data fix #3000) and how 36 frontaliere pairs
-  // still collide. Guard each locale against its OWN slot so a colliding
-  // translation fails generation loudly instead of poisoning the registry and
-  // surfacing later as main-red on the routing round-trip test.
   for (const locale of ['it', 'en', 'de', 'fr']) {
     const newSlug = data.slugs[locale];
     // A nullish slug builds a degenerate regex (`escapeRegex(undefined)` → '')
@@ -6076,9 +6093,6 @@ function checkForDuplicates(data) {
       throw new Error(`❌ DUPLICATO: Lo slug ${locale} "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
     }
   }
-
-  console.error('  ✅ Nessun duplicato rilevato');
-  return data;
 }
 
 // ── Image search helpers ──
@@ -8957,8 +8971,12 @@ export { buildBodyFile };
 // reuses the SAME translation, internal-link-enrichment, image-fallback and
 // byline-assignment logic as the AI generation path instead of duplicating it
 // (issue #3174 — a manually-authored article must go through the exact same
-// multi-language pipeline as an automated one).
-export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata };
+// multi-language pipeline as an automated one). checkTranslatedSlugCollisions
+// is re-exported for the same reason (#3010): the journalist path derives its
+// own en/de/fr slugs (deriveLocaleSlugs()) but, before this fix, never
+// validated them against the registry — the same gap that historically only
+// existed for the IT slug in the AI path.
+export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata, checkTranslatedSlugCollisions };
 
 // Redazione redesign (issue #3174 follow-up): the journalist now authors only
 // {title, body}; these derive the title-casing/excerpt/body1-3/cover-image
