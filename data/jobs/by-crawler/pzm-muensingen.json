@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pzm-muensingen-ff675d67a9c1",
-      "slug": "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen",
+      "slug": "stv-gestione-stazione-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
         "de": "stv-stationsleitung-pzm-muensingen-munsingen",
-        "it": "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen",
-        "en": "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen",
-        "fr": "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen"
+        "it": "stv-gestione-stazione-psychiatriezentrum-munsingen-munsingen",
+        "en": "stv-station-management-psychiatriezentrum-munsingen-munsingen",
+        "fr": "gestion-de-la-station-stv-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleitung-pzm-muensingen-munsingen"
+          "stv-stationsleitung-pzm-muensingen-munsingen",
+          "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "previousSlugs": [
-        "stv-stationsleitung-pzm-muensingen-munsingen"
+        "stv-stationsleitung-pzm-muensingen-munsingen",
+        "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

@@ -79,8 +79,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
-          "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz"
+          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
         ],
         "en": [
           "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
@@ -179,8 +178,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
-          "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz"
+          "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
         ],
         "en": [
           "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
@@ -278,8 +276,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-audio-video-100-somedia-ch",
-          "responsabile-audio-video-100-somedia-ag-chur"
+          "leiter-in-audio-video-100-somedia-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T15:13:56.684Z",
@@ -394,12 +391,12 @@
     },
     {
       "id": "somedia-c8076f14d76c",
-      "slug": "verlagsleiter-in-80-100-somedia-ch",
+      "slug": "direttore-editoriale-80-100-somedia-ag-chur-glarus",
       "slugByLocale": {
         "de": "verlagsleiter-in-80-100-somedia-ch",
-        "it": "verlagsleiter-in-80-100-somedia-ch",
-        "en": "verlagsleiter-in-80-100-somedia-ch",
-        "fr": "verlagsleiter-in-80-100-somedia-ch"
+        "it": "direttore-editoriale-80-100-somedia-ag-chur-glarus",
+        "en": "publishing-manager-80-100-somedia-ag-chur-glarus",
+        "fr": "directeur-de-l-edition-80-100-somedia-ag-chur-glarus"
       },
       "company": "Somedia AG",
       "companyKey": "somedia",
@@ -477,7 +474,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-01T23:21:43.552Z"
+      "firstSeenAt": "2026-07-01T23:21:43.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verlagsleiter-in-80-100-somedia-ch"
+        ],
+        "en": [
+          "verlagsleiter-in-80-100-somedia-ch"
+        ],
+        "fr": [
+          "verlagsleiter-in-80-100-somedia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verlagsleiter-in-80-100-somedia-ch"
+      ]
     }
   ]
 }

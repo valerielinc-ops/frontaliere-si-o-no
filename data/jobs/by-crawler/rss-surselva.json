@@ -1145,12 +1145,12 @@
     },
     {
       "id": "rss-surselva-bbadb45b45fd",
-      "slug": "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
+      "slug": "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
-        "it": "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
+        "it": "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
         "en": "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
-        "fr": "dipl-hebamme-hf-fh-60-80-rss-surselva-ch"
+        "fr": "dipl-sage-femme-hf-fh-60-80-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -1210,16 +1210,27 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-01T23:20:14.448Z"
+      "firstSeenAt": "2026-07-01T23:20:14.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-hebamme-hf-fh-60-80-rss-surselva-ch"
+        ],
+        "fr": [
+          "dipl-hebamme-hf-fh-60-80-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-hebamme-hf-fh-60-80-rss-surselva-ch"
+      ]
     },
     {
       "id": "rss-surselva-168bae711834",
-      "slug": "arztsekretar-in-100-rss-surselva-ch",
+      "slug": "segretario-medico-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "arztsekretar-in-100-rss-surselva-ch",
-        "it": "arztsekretar-in-100-rss-surselva-ch",
-        "en": "arztsekretar-in-100-rss-surselva-ch",
-        "fr": "arztsekretar-in-100-rss-surselva-ch"
+        "it": "segretario-medico-100-regionalspital-surselva-ilanz",
+        "en": "medical-secretary-100-regionalspital-surselva-ilanz",
+        "fr": "secretaire-medical-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -1279,7 +1290,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-01T23:20:14.320Z"
+      "firstSeenAt": "2026-07-01T23:20:14.320Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-100-rss-surselva-ch"
+        ],
+        "en": [
+          "arztsekretar-in-100-rss-surselva-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-100-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-100-rss-surselva-ch"
+      ]
     },
     {
       "id": "rss-surselva-bdaa5477cbaa",

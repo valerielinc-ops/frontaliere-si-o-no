@@ -22384,12 +22384,12 @@
     },
     {
       "id": "sulzer-66c759991c94",
-      "slug": "manual-machinist-sulzer-mobile",
+      "slug": "macchinista-manuale-sulzer-mobile",
       "slugByLocale": {
         "en": "manual-machinist-sulzer-ch",
-        "it": "manual-machinist-sulzer-mobile",
-        "de": "manual-machinist-sulzer-ch-4",
-        "fr": "manual-machinist-sulzer-ch-4"
+        "it": "macchinista-manuale-sulzer-mobile",
+        "de": "manueller-maschinist-sulzer-mobile",
+        "fr": "machiniste-manuel-sulzer-mobile"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22432,11 +22432,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "manual-machinist-sulzer-ch-4",
+          "manual-machinist-sulzer-mobile"
+        ],
+        "de": [
+          "manual-machinist-sulzer-ch-4"
+        ],
+        "fr": [
           "manual-machinist-sulzer-ch-4"
         ]
       },
       "previousSlugs": [
-        "manual-machinist-sulzer-ch-4"
+        "manual-machinist-sulzer-ch-4",
+        "manual-machinist-sulzer-mobile"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -22531,12 +22539,12 @@
     },
     {
       "id": "sulzer-741815aaa4a1",
-      "slug": "production-manager-sulzer-ch-2",
+      "slug": "responsabile-della-produzione-sulzer-pasadena",
       "slugByLocale": {
         "en": "production-manager-sulzer-ch",
-        "it": "production-manager-sulzer-ch-2",
-        "de": "production-manager-sulzer-ch-2",
-        "fr": "production-manager-sulzer-ch-2"
+        "it": "responsabile-della-produzione-sulzer-pasadena",
+        "de": "produktionsleiter-sulzer-pasadena",
+        "fr": "directeur-de-la-production-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22591,7 +22599,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-01T23:34:03.783Z"
+      "firstSeenAt": "2026-07-01T23:34:03.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-manager-sulzer-ch-2"
+        ],
+        "de": [
+          "production-manager-sulzer-ch-2"
+        ],
+        "fr": [
+          "production-manager-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "production-manager-sulzer-ch-2"
+      ]
     }
   ]
 }
