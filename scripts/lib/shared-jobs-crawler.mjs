@@ -4053,6 +4053,16 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
         removed += 1;
         continue;
       }
+      if (fp && job?.crawlerMissStreak) {
+        // Job reappeared this run — clear a streak left by a prior miss so
+        // the grace period counts CONSECUTIVE misses, not cumulative ones.
+        // Without this, mergeAndDeduplicate's `{ ...prev, ...next }` spread
+        // downstream would carry the stale count forward forever, since the
+        // freshly-scraped `next` job never has this field to overwrite it.
+        const { crawlerMissStreak, ...rest } = job;
+        prunedExisting.push(rest);
+        continue;
+      }
     }
     prunedExisting.push(job);
   }
