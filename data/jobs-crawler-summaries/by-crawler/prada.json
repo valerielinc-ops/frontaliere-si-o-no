@@ -1,21 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-02T11:39:02.490Z",
+  "generatedAt": "2026-07-02T22:56:10.986Z",
   "total": 5,
-  "newCount": 3,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8815,
-  "avgDurationMs": 8815,
+  "durationMs": 8648,
+  "avgDurationMs": 8648,
   "durationHistory": [
-    8815
+    8648
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-ef469ffe20a6",
-      "slug": "stock-assistant-prada-group-fidenza-stock-assistant",
+      "slug": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -33,18 +34,19 @@
       "url": "https://jobs.pradagroup.com/job/Fidenza-Stock-Assistant/1390412633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:38:58.340Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-02T22:56:06.084Z",
+      "firstSeenAt": "2026-07-02T11:38:58.340Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
     {
       "id": "prada-acdbbadffeac",
-      "slug": "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd",
+      "slug": "client-consulente-m-f-d-prada-group-roermond-client-advisor-mfd",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -62,12 +64,13 @@
       "url": "https://jobs.pradagroup.com/job/Roermond-Client-Advisor-%28mfd%29/1400295233/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:38:59.881Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-02T22:56:07.679Z",
+      "firstSeenAt": "2026-07-02T11:38:59.881Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -91,17 +94,16 @@
       "url": "https://jobs.pradagroup.com/job/Miami-Client-Advisor-Bal-Harbour-OH/1400505533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:39:00.428Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-02T22:56:08.199Z",
+      "firstSeenAt": "2026-07-02T11:39:00.428Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -122,7 +124,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:38:57.145Z",
+      "crawledAt": "2026-07-02T22:56:05.546Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -155,24 +157,24 @@
       "url": "https://jobs.pradagroup.com/job/Miami-Client-Advisor-Bal-Harbour-OH/1400505533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:39:00.428Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-02T22:56:08.199Z",
+      "firstSeenAt": "2026-07-02T11:39:00.428Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
     {
       "id": "prada-acdbbadffeac",
-      "slug": "client-advisor-m-f-d-prada-group-roermond-client-advisor-mfd",
+      "slug": "client-consulente-m-f-d-prada-group-roermond-client-advisor-mfd",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -190,24 +192,24 @@
       "url": "https://jobs.pradagroup.com/job/Roermond-Client-Advisor-%28mfd%29/1400295233/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:38:59.881Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-02T22:56:07.679Z",
+      "firstSeenAt": "2026-07-02T11:38:59.881Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
     {
       "id": "prada-ef469ffe20a6",
-      "slug": "stock-assistant-prada-group-fidenza-stock-assistant",
+      "slug": "assistente-di-borsa-prada-group-fidenza-stock-assistant",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -225,18 +227,19 @@
       "url": "https://jobs.pradagroup.com/job/Fidenza-Stock-Assistant/1390412633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:38:58.340Z",
+      "crawledAt": "2026-07-02T22:56:06.084Z",
+      "firstSeenAt": "2026-07-02T11:38:58.340Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 84,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -260,7 +263,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T11:38:57.145Z",
+      "crawledAt": "2026-07-02T22:56:05.546Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -302,7 +305,7 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
