@@ -3714,8 +3714,6 @@
         ]
       },
       "previousSlugs": [
-        "specialista-hris-cdd-richemont-meyrin",
-        "hospitality-tirocinante-richemont-meyrin",
         "krankenhaus-intern-richemont-meyrin",
         "hris-specialista-cdd-richemont-meyrin",
         "ospitalita-interno-richemont-meyrin",
@@ -3733,7 +3731,9 @@
         "hospitality-praktikant-richemont-meyrin",
         "stagiaire-en-hotellerie-richemont-meyrin",
         "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin",
-        "activations-specialist-cdd-richemont-meyrin"
+        "activations-specialist-cdd-richemont-meyrin",
+        "aktivist-cdd-jaeger-lecoultre-meyrin",
+        "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3748,7 +3748,9 @@
           "ospitalita-richemont-meyrin",
           "stagiaire-de-reception-richemont-meyrin-505639",
           "stagista-hospitality-richemont-meyrin",
-          "ospitalita-interno-richemont-meyrin-101774"
+          "ospitalita-interno-richemont-meyrin-101774",
+          "aktivist-cdd-jaeger-lecoultre-meyrin",
+          "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin"
         ],
         "en": [
           "hospitality-intern-richemont-meyrin",
@@ -8024,7 +8026,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "interno-di-integrazione-dei-contenuti-digitali-michelangelo-foundation-geneva",
           "crimpatura-piaget-plan-les-ouates",
           "digital-content-integration-intern-michelangelo-foundation-geneva",
           "stagiaire-en-integration-de-contenu-numerique-michelangelo-foundation-geneva",
@@ -8042,7 +8043,9 @@
           "tirocinante-contenuti-digitali-piaget-plan-les-ouates",
           "digital-content-integration-intern-richemont-geneva",
           "digital-content-integration-tirocinante-michelangelo-foundation-geneva",
-          "digital-content-intern-richemont-plan-les-ouates"
+          "digital-content-intern-richemont-plan-les-ouates",
+          "tirocinante-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
+          "praktikum-fur-digitale-inhaltsintegration-michelangelo-foundation-geneva"
         ],
         "de": [
           "digital-content-praktikant-piaget-plan-les-ouates"
@@ -8054,8 +8057,6 @@
         ]
       },
       "previousSlugs": [
-        "interno-di-integrazione-dei-contenuti-digitali-michelangelo-foundation-geneva",
-        "crimpatura-piaget-plan-les-ouates",
         "digital-content-integration-intern-michelangelo-foundation-geneva",
         "stagiaire-en-integration-de-contenu-numerique-michelangelo-foundation-geneva",
         "praktikant-fur-digitale-content-integration-michelangelo-foundation-geneva",
@@ -8073,7 +8074,9 @@
         "digital-content-integration-intern-richemont-geneva",
         "digital-content-integration-tirocinante-michelangelo-foundation-geneva",
         "digital-content-intern-richemont-plan-les-ouates",
-        "digital-content-praktikant-piaget-plan-les-ouates"
+        "digital-content-praktikant-piaget-plan-les-ouates",
+        "tirocinante-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
+        "praktikum-fur-digitale-inhaltsintegration-michelangelo-foundation-geneva"
       ],
       "firstSeenAt": "2026-05-18T13:14:11.256Z",
       "salaryMin": 51100,
