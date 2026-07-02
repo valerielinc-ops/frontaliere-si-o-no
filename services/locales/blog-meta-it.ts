@@ -8216,6 +8216,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.title': 'Peggiorano le prospettive finanziarie di AVS e AI',
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.excerpt': 'Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità.',
     'blog.article.avs-ai-prospettive-finanziarie-peggiorano.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
+    'blog.article.avs-ai-difficolta-finanziarie.title': 'Il forte aumento delle nuove rendite mette l\'AI in difficoltà finanziarie',
+    'blog.article.avs-ai-difficolta-finanziarie.excerpt': 'Il forte aumento delle nuove rendite AI mette l\'assicurazione invalidità in difficoltà finanziarie. Per l\'AVS, il primo versamento della 13a mensilità comporta un risultato negativo.',
+    'blog.article.avs-ai-difficolta-finanziarie.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

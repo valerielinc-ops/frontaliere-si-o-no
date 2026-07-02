@@ -26029,6 +26029,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'avs-ai-difficolta-finanziarie',
+ category: 'fiscale',
+ date: '2026-07-02T10:40:12.731Z',
+ image: '/images/blog/avs-ai-difficolta-finanziarie.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
