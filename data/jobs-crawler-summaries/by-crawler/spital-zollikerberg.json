@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-02T12:23:53.088Z",
+  "generatedAt": "2026-07-02T22:40:29.401Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3027,
-  "avgDurationMs": 3027,
+  "unchangedCount": 1,
+  "durationMs": 2651,
+  "avgDurationMs": 2651,
   "durationHistory": [
-    3027
+    2651
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-22fb078fe149",
       "slug": "senior-medico-senior-medico-cardiologia-dipartimento-medico-spital-zollikerberg-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

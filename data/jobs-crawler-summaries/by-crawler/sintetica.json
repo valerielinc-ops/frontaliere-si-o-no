@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-07-02T12:25:31.455Z",
+  "generatedAt": "2026-07-02T22:45:27.414Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8639,
-  "avgDurationMs": 8639,
+  "unchangedCount": 3,
+  "durationMs": 6668,
+  "avgDurationMs": 6668,
   "durationHistory": [
-    8639
+    6668
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -170,47 +170,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
-      "title": "Spontaneous application - Couvet Site (Neuchâtel)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Couvet",
-      "canton": "NE",
-      "country": "CH",
-      "addressLocality": "Couvet",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "postalCode": "2108",
-      "streetAddress": "Rue de l'Ecluse 28",
-      "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
-      "category": "general",
-      "datePosted": "2026-07-02",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Couvet"
-      },
-      "sourceLang": "it",
-      "crawledAt": "",
-      "id": "sintetica-4302b766b847",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "needsRetranslation": true,
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -490,7 +449,6 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
