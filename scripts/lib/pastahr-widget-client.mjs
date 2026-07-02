@@ -28,8 +28,27 @@
  *      unavailable or the request fails; the caller then re-throws the original
  *      error (prior data preserved).
  *
+ *      CROSS-ORIGIN CAVEAT (#3255): this fallback can only work when the widget
+ *      endpoint is SAME-ORIGIN with the employer's career page (the Phenom/
+ *      Straumann case: both on careers.straumann.com). For PastaHR (IGS Bern /
+ *      GZO Wetzikon) the referer is the employer's own domain (igsbern.ch /
+ *      gzo.ch) but the endpoint is www.publicjobs.ch — a genuinely cross-origin
+ *      fetch from inside the page. When Cloudflare blocks that request it does
+ *      not attach CORS headers to the block response, so the browser can never
+ *      surface a status code to `page.evaluate` — it always throws a generic
+ *      `TypeError: Failed to fetch`, indistinguishable from a real network
+ *      failure. Incident logs (#3255) show this fallback has a 0% observed
+ *      success rate whenever it fires for the cross-origin case — it cannot
+ *      clear a block it cannot even see. So for cross-origin pairs we skip the
+ *      browser hop entirely (no point paying for a Chromium install/launch that
+ *      is structurally unable to help) and let the block flow into the shared
+ *      retry/backoff loop below instead, since the underlying WAF fence has
+ *      proven to be transient (later scheduled runs on the same source
+ *      routinely succeed with a plain Node fetch).
+ *
  * Why not Jina? Jina Reader only supports GET; a POST payload cannot be replayed
- * through it, so the Playwright browser path is the correct last-resort here.
+ * through it, so the Playwright browser path is the correct last-resort here
+ * for the same-origin (Phenom) case.
  *
  * Exported surface:
  *   PASTAHR_BROWSER_USER_AGENTS               — UA pool
@@ -133,6 +152,22 @@ function isAntiBotStatus(status) {
 }
 
 /**
+ * Whether two URLs share an origin (scheme + host + port). Used to detect the
+ * PastaHR cross-origin case (#3255) where the Playwright fallback's in-page
+ * `fetch` is subject to the endpoint's CORS policy and can never observe a
+ * WAF block response (see module doc "CROSS-ORIGIN CAVEAT" above).
+ */
+function isCrossOrigin(urlA, urlB) {
+  try {
+    return new URL(urlA).origin !== new URL(urlB).origin;
+  } catch {
+    // Malformed URL — be conservative and assume cross-origin (skip the
+    // browser hop rather than risk a pointless launch).
+    return true;
+  }
+}
+
+/**
  * Last-resort replay of a widget POST through a real headless Chromium.
  * The browser presents an authentic TLS fingerprint + JS execution environment
  * that the Cloudflare WAF accepts when a plain Node fetch (even with realistic
@@ -156,6 +191,21 @@ function isAntiBotStatus(status) {
  * navigation fails / the response is not valid JSON.
  */
 async function fetchWidgetViaPlaywright(bodyString, contentType, endpoint, { referer, origin, ua, timeoutMs }) {
+  // Cross-origin pair (PastaHR): the in-page fetch below is subject to the
+  // endpoint's CORS policy, and a Cloudflare block response never carries
+  // CORS headers — so a blocked request always surfaces as an unreadable
+  // `TypeError: Failed to fetch`, never a real result (#3255). Skip the
+  // Chromium install/launch entirely rather than pay for an attempt that is
+  // structurally unable to succeed; the caller's retry/backoff loop is the
+  // only thing that can actually clear a transient WAF fence here.
+  if (isCrossOrigin(referer, endpoint)) {
+    console.warn(
+      `[widget-pw] Skipping Playwright fallback — ${endpoint} is cross-origin to ${referer} `
+      + '(CORS blocks a WAF-blocked response from ever being readable in-page, #3255)',
+    );
+    return null;
+  }
+
   let browser;
   try {
     browser = await launchChromium({ headless: true });
@@ -179,19 +229,15 @@ async function fetchWidgetViaPlaywright(bodyString, contentType, endpoint, { ref
     // Replay the widget POST from within the page's JS context.
     //
     // CORS NOTE: this fetch runs in the browser, so it IS subject to the page's
-    // CORS policy (unlike the Node-side fetch path, which is not). When the
-    // endpoint is cross-origin to the navigated page — the PastaHR case, where
-    // the page is the employer site (e.g. igsbern.ch / gzo.ch) but the endpoint
-    // is www.publicjobs.ch — only headers on the CORS-safelist
-    // (Accept, Accept-Language, Content-Language, and Content-Type with a
-    // form/text value) keep this a "simple request" that needs no preflight.
-    // `X-Requested-With` is NOT safelisted: adding it forces a preflight OPTIONS
-    // that publicjobs.ch does not answer, so the whole fetch dies with
-    // `TypeError: Failed to fetch` (#2992) — defeating the anti-bot fallback.
-    // The header is only needed on the Node path (WAF fingerprint, no CORS), so
-    // it is deliberately omitted here. The urlencoded body keeps Content-Type
-    // safelisted; the same-origin Phenom case (careers.straumann.com) is exempt
-    // from CORS entirely, so dropping the header is harmless there too.
+    // CORS policy (unlike the Node-side fetch path, which is not). The
+    // cross-origin PastaHR case never reaches here — it's skipped earlier in
+    // this function (see the guard above, #3255). What DOES reach here is the
+    // same-origin Phenom/Straumann case, which is exempt from CORS entirely, so
+    // this header set is a courtesy match of the real in-page widget XHR rather
+    // than a CORS requirement. `X-Requested-With` is still deliberately omitted
+    // — it is not on the CORS-safelist and forces a preflight OPTIONS that would
+    // matter again if this function is ever reused for another cross-origin
+    // pair, so keep the safelisted-only header set as the default (#2992).
     const result = await page.evaluate(
       async ({ ep, body, ct }) => {
         const res = await fetch(ep, {
@@ -238,11 +284,14 @@ function fetchPastaHrPageViaPlaywright(params, opts) {
  * Steps (the whole sequence runs inside the shared transient-retry loop, so a
  * transient 429/5xx or network blip self-heals with exponential backoff):
  *   1. Attempt a plain Node fetch with realistic Chrome 131 headers.
- *   2. On 403 / 401 / 406 anti-bot fence: replay via a real headless Chromium
- *      (the browser's TLS fingerprint + JS context clears IP-reputation blocks).
- *   3. On null from Playwright (unavailable / timed out): re-throw the original
- *      error so the caller's safe-fail / prior-data-preserved path runs.
- *   4. On a transient 429/5xx (not an anti-bot status): backoff + retry; a
+ *   2. On 403 / 401 / 406 anti-bot fence: PastaHR's endpoint (publicjobs.ch) is
+ *      cross-origin to the referer, so the Playwright fallback is skipped (see
+ *      module doc "CROSS-ORIGIN CAVEAT", #3255) and the failure is instead
+ *      marked retryable — the WAF fence has proven transient (subsequent
+ *      scheduled runs routinely succeed), so a few backoff-spaced retries
+ *      within THIS run give it a chance to self-heal instead of failing the
+ *      whole crawl on a single blocked attempt.
+ *   3. On a transient 429/5xx (not an anti-bot status): backoff + retry; a
  *      persistent failure throws after retries are exhausted.
  *
  * @param {URLSearchParams} params   — POST body (caller builds the full payload)
@@ -258,9 +307,7 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
 
   // Wrap the attempt in the shared transient-retry loop so a transient 429/5xx
   // or network blip self-heals with exponential backoff (the behaviour the old
-  // `fetchJson` path provided before this client was extracted, #1846). The
-  // anti-bot fence (403/401/406) is NOT retryable — it routes to Playwright once
-  // per attempt and re-throws (IP-reputation will not change on a bare retry).
+  // `fetchJson` path provided before this client was extracted, #1846).
   return fetchWithRetry(async () => {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -281,14 +328,20 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
       throw err;
     } catch (err) {
       clearTimeout(timer);
-      // Anti-bot fence (403/401/406): retry once via headless browser, which
-      // the WAF treats as a genuine visitor.
+      // Anti-bot fence (403/401/406): try the headless-browser replay, which
+      // the WAF treats as a genuine visitor — but see the cross-origin caveat
+      // above, PastaHR always skips it and falls straight through to marking
+      // the error retryable.
       const status = firstStatus ?? err?.status;
       if (isAntiBotStatus(status)) {
         console.warn(`[pastahr] HTTP ${status} from ${PASTAHR_ENDPOINT} — trying Playwright anti-bot fallback`);
         const result = await fetchPastaHrPageViaPlaywright(params, { referer, origin, ua, timeoutMs: 45000 });
         if (result !== null) return result;
-        // Playwright unavailable or also blocked — re-throw original HTTP error.
+        // Playwright unavailable, cross-origin-skipped, or also blocked. The
+        // WAF fence at this endpoint has proven transient (#3255) — mark the
+        // error retryable so the shared backoff loop gives it a few more
+        // spaced attempts within this run instead of failing on the first hit.
+        err.retryable = true;
       }
       throw err;
     }
@@ -310,8 +363,15 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
  * Steps (wrapped in the shared transient-retry loop — 429/5xx/network blips
  * self-heal with exponential backoff before any error surfaces):
  *   1. Plain Node fetch with Chrome 131 UA + full client-hint headers.
- *   2. On 403 / 401 / 406: Playwright browser POST fallback.
- *   3. Playwright null → re-throw original error.
+ *   2. On 403 / 401 / 406: Playwright browser POST fallback (skipped when
+ *      `endpoint` is cross-origin to `referer` — see module doc "CROSS-ORIGIN
+ *      CAVEAT", #3255 — since the in-page fetch can never observe a blocked
+ *      response's status through the browser's CORS enforcement in that case).
+ *   3. Playwright null: for a cross-origin pair, mark the error retryable so
+ *      the shared backoff loop below gives the (empirically transient) WAF
+ *      fence a few more spaced attempts within this run; for a same-origin
+ *      pair (e.g. Phenom/Straumann, where Playwright genuinely could have
+ *      cleared the block) re-throw the original error unchanged.
  *   4. Transient 429/5xx (non-anti-bot) → backoff + retry; throw on exhaustion.
  *
  * @param {string|object} body       — request body; objects are JSON-serialised automatically
@@ -377,6 +437,12 @@ export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { refe
           timeoutMs: 45000,
         });
         if (result !== null) return result;
+        // Playwright unavailable/skipped/blocked. Only a cross-origin pair
+        // (Playwright structurally could never observe the block, #3255) gets
+        // marked retryable so the shared backoff loop below can self-heal a
+        // transient WAF fence; a same-origin pair (Playwright genuinely had a
+        // shot at clearing it) keeps the original fail-fast behaviour.
+        if (isCrossOrigin(referer, endpoint)) err.retryable = true;
       }
       throw err;
     }

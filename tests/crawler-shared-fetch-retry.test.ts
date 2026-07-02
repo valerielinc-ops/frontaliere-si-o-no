@@ -9,14 +9,32 @@
  *   - playwright-runtime.fetchWithRateLimit   (every Playwright ATS crawler)
  *
  * Invariant under test (same as the merged helper): retry bounded on TRANSIENT
- * signals (network/timeout/429/5xx), fail fast on persistent 4xx (404/403),
- * never retry anti-bot blocks.
+ * signals (network/timeout/429/5xx), fail fast on persistent 4xx (404). Plain
+ * anti-bot blocks (403/401/406) route to the Playwright fallback; a
+ * SAME-ORIGIN anti-bot block that survives Playwright still fails fast, but a
+ * CROSS-ORIGIN one (PastaHR/publicjobs.ch — #3255) is retried with backoff
+ * because Playwright can never observe that block (browser-enforced CORS) and
+ * the fence has proven transient across scheduled runs.
  */
 import { describe, it, expect, vi, afterEach } from 'vitest';
 
 import { fetchHtml as hospitalFetchHtml } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 import { fetchGreenhouseJobs, GreenhouseApiError } from '../scripts/lib/ats-clients/greenhouse-client.mjs';
 import { fetchLeverJobs } from '../scripts/lib/ats-clients/lever-client.mjs';
+
+// The PastaHR/GZO-Wetzikon/IGS-Bern case (#3255) is cross-origin between the
+// employer's career page (referer) and the widget endpoint (publicjobs.ch), so
+// the Playwright fallback is structurally unable to observe a WAF-blocked
+// response (browser-enforced CORS strips it to an unreadable `Failed to
+// fetch`) and must be SKIPPED rather than launched. Mock `launchChromium` so
+// any regression that still tries to launch a browser for that case fails the
+// test loudly instead of silently spending 30-45s on a real Chromium
+// install/launch in CI.
+const { launchChromiumMock } = vi.hoisted(() => ({ launchChromiumMock: vi.fn() }));
+vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
+  launchChromium: launchChromiumMock,
+}));
+
 import {
   fetchPostWidgetWithAntiBotHardening,
   fetchPastaHrWidgetPage,
@@ -47,6 +65,7 @@ const FAST = { JOBS_CRAWLER_RETRY_BASE_MS: '0' };
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  launchChromiumMock.mockReset();
   delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
 });
 
@@ -211,6 +230,90 @@ describe('pastahr-widget-client.fetchPastaHrWidgetPage (PastaHR URL-encoded POST
     vi.stubGlobal('fetch', fetchMock);
 
     await expect(fetchPastaHrWidgetPage(new URLSearchParams({ page: '0' }), OPTS)).rejects.toThrow(/HTTP 404/);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+// #3255: GZO Wetzikon + IGS Bern both failed with
+// `[widget-pw] Playwright fallback failed: page.evaluate: TypeError: Failed
+// to fetch` after the primary Node fetch got HTTP 403. The referer
+// (igsbern.ch / gzo.ch) is cross-origin to the widget endpoint
+// (www.publicjobs.ch), so the in-page `fetch` inside Playwright is subject to
+// browser-enforced CORS: a Cloudflare block response carries no CORS headers,
+// so the browser can NEVER read a status — it always throws a generic
+// "Failed to fetch", 0% observed success across every incident log checked.
+// Fix: skip the (structurally futile) Playwright hop for cross-origin pairs
+// and mark the anti-bot failure retryable instead, so the shared backoff loop
+// gives the (empirically transient — later scheduled runs routinely succeed)
+// WAF fence a few more spaced attempts within the SAME run.
+describe('pastahr-widget-client — cross-origin anti-bot fence retry (#3255)', () => {
+  const CROSS_ORIGIN_OPTS = { referer: 'https://www.gzo.ch/karriere/offene-stellen', origin: 'https://www.gzo.ch' };
+
+  it('fetchPastaHrWidgetPage: skips Playwright and retries a transient cross-origin 403 until it clears', async () => {
+    withFastRetry();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse(403, {}))
+      .mockResolvedValueOnce(jsonResponse(403, {}))
+      .mockResolvedValueOnce(jsonResponse(200, { jobs: [{ id: 1 }] }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const data = await fetchPastaHrWidgetPage(new URLSearchParams({ page: '0' }), CROSS_ORIGIN_OPTS);
+    expect(data.jobs).toHaveLength(1);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    // Playwright must never be launched for a cross-origin pair — it cannot
+    // observe a blocked response through CORS, so it would only waste time.
+    expect(launchChromiumMock).not.toHaveBeenCalled();
+  });
+
+  it('fetchPastaHrWidgetPage: exhausts backoff and throws if the cross-origin 403 never clears', async () => {
+    withFastRetry();
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(403, {}));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(
+      fetchPastaHrWidgetPage(new URLSearchParams({ page: '0' }), CROSS_ORIGIN_OPTS),
+    ).rejects.toThrow(/HTTP 403/);
+    // 1 initial attempt + the shared default of 3 retries = 4 total.
+    expect(fetchMock).toHaveBeenCalledTimes(4);
+    expect(launchChromiumMock).not.toHaveBeenCalled();
+  });
+
+  it('fetchPostWidgetWithAntiBotHardening: skips Playwright and retries a transient cross-origin 403 until it clears', async () => {
+    withFastRetry();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse(403, {}))
+      .mockResolvedValueOnce(jsonResponse(200, { ok: true }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const data = await fetchPostWidgetWithAntiBotHardening(
+      { from: 0 },
+      'https://www.publicjobs.ch/widget',
+      CROSS_ORIGIN_OPTS,
+    );
+    expect(data).toEqual({ ok: true });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(launchChromiumMock).not.toHaveBeenCalled();
+  });
+
+  it('fetchPostWidgetWithAntiBotHardening: a SAME-ORIGIN 403 still attempts Playwright (unlike the cross-origin case)', async () => {
+    withFastRetry();
+    // Same-origin pair (Straumann/Phenom-style): Playwright IS a genuine
+    // candidate to clear the block, so launchChromium must be reached. Make
+    // it reject (no real browser in this unit test) so we can assert the
+    // final failure is NOT silently retried away — same-origin keeps the
+    // original fail-fast contract, only the cross-origin case gets the new
+    // retry behaviour.
+    launchChromiumMock.mockRejectedValue(new Error('no browser in unit test'));
+    const SAME_ORIGIN_OPTS = { referer: 'https://careers.straumann.com/', origin: 'https://careers.straumann.com' };
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(403, {}));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(
+      fetchPostWidgetWithAntiBotHardening({ from: 0 }, 'https://careers.straumann.com/widgets', SAME_ORIGIN_OPTS),
+    ).rejects.toThrow(/HTTP 403/);
+    expect(launchChromiumMock).toHaveBeenCalled();
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
