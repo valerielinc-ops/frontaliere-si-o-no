@@ -1,19 +1,21 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-07-02T15:07:08.585Z",
+  "generatedAt": "2026-07-02T21:57:54.335Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 145940,
-  "avgDurationMs": 145940,
+  "unchangedCount": 1,
+  "durationMs": 3110,
+  "avgDurationMs": 3110,
   "durationHistory": [
-    145940
+    3110
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-53787f230c21",
       "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diakoniewerk-neumunster-gesundheitswelt",
@@ -44,16 +46,15 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 82,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
