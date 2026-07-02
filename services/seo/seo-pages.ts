@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3067,
+ "numberOfItems": 3068,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7713,7 +7713,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3064, "name": "Ristorni frontalieri bloccati: Reina (Iv Varese...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-reina` },
           { "@type": "ListItem", "position": 3065, "name": "Licenziamento frontalieri 2026: termini e diritti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-diritti-2026` },
           { "@type": "ListItem", "position": 3066, "name": "Frontalieri italiani in Svizzera: un esposto al...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-esposto-oil-discriminazioni` },
-          { "@type": "ListItem", "position": 3067, "name": "Licenziamento frontalieri: diritti, preavviso e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km` }
+          { "@type": "ListItem", "position": 3067, "name": "Licenziamento frontalieri: diritti, preavviso e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km` },
+          { "@type": "ListItem", "position": 3068, "name": "Blocco Ristorni Ticino: La Reazione del PD", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-pd-reazione` }
  ]
  },
  {
