@@ -8919,19 +8919,76 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   finalizeRunReport('generated');
 }
 
+/** Strip a string down to a URL-safe slug segment: lowercase, diacritics
+ * stripped (NFD-decompose + drop combining marks), non-alphanumerics
+ * collapsed to single hyphens, 80-char cap. Same normalization used
+ * throughout this file's own (unexported, inline) slug handling. */
+function slugifySlugPart(input) {
+  return String(input || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 80);
+}
+
+/**
+ * Derive and sanitize the final per-locale slugs for an article: the Italian
+ * slug is always locked to `data.id` (routing convention — see `validate()`'s
+ * own `data.slugs.it = data.id`), and any en/de/fr slug the caller hasn't
+ * already set falls back to a slugified translated title (or the IT slug).
+ * Every locale slug is then sanitized so accented/non-ASCII characters never
+ * reach router/sitemap URLs.
+ *
+ * This is the single source of truth `registerArticleFiles()` uses so
+ * callers (e.g. scripts/publish-journalist-article.mjs) don't need their own
+ * copy of this derivation — a duplicate copy would drift from this one as it
+ * evolves, producing wrong canonicals / 404s for the locales derived
+ * elsewhere (issue #3209 item 1).
+ *
+ * Mutates `data.slugs` in place AND returns it so callers can consume the
+ * exposed final value instead of re-deriving their own.
+ *
+ * @param {object} data
+ * @returns {Record<string, string>} the finalized `data.slugs` map
+ */
+export function deriveAndSanitizeArticleSlugs(data) {
+  data.slugs = data.slugs && typeof data.slugs === 'object' ? data.slugs : {};
+  data.slugs.it = data.id;
+  for (const locale of ['en', 'de', 'fr']) {
+    if (!data.slugs[locale]) {
+      const title = String(data.content?.[locale]?.title || data.content?.it?.title || '');
+      const fallback = title ? slugifySlugPart(title) : data.slugs.it;
+      data.slugs[locale] = fallback || data.slugs.it;
+    } else {
+      data.slugs[locale] = slugifySlugPart(data.slugs[locale]) || data.slugs.it;
+    }
+  }
+  return data.slugs;
+}
+
 /**
  * Reuse the article registration pipeline from another script (e.g. the events
- * weekend-digest generator) WITHOUT going through the AI generation path.
- * Takes a fully-built `data` object (same shape the AI path produces) and writes
- * every registration file: slug map + router union, ARTICLES registry, i18n meta
- * (it/en/de/fr), body files, blog SEO + JSON-LD, sitemaps, then regenerates RSS.
+ * weekend-digest generator or the journalist publish pipeline) WITHOUT going
+ * through the AI generation path. Takes a fully-built `data` object (same
+ * shape the AI path produces) and writes every registration file: slug map +
+ * router union, ARTICLES registry, i18n meta (it/en/de/fr), body files, blog
+ * SEO + JSON-LD, sitemaps, then regenerates RSS.
  *
  * Registration is APPEND-ONLY (no upsert): it throws if `data.id` already exists,
  * so callers refreshing an evergreen article must rewrite only the body files
  * (see `buildBodyFile`) instead of re-registering.
  *
+ * Derives/sanitizes `data.slugs` via `deriveAndSanitizeArticleSlugs()` before
+ * writing anything, so callers may pass partially-populated slugs (or none
+ * beyond `it`) and consume the finalized value from the return (issue #3209
+ * item 1) instead of re-implementing the derivation themselves.
+ *
  * @param {object} data
  * @param {{ skipRss?: boolean, skipNews?: boolean }} [opts]
+ * @returns {Promise<{ slugs: Record<string, string> }>}
  */
 export async function registerArticleFiles(data, opts = {}) {
   if (!data || !data.id || !data.content?.it?.title) {
@@ -8943,6 +9000,7 @@ export async function registerArticleFiles(data, opts = {}) {
         'Refresh the body files instead of re-registering.',
     );
   }
+  const slugs = deriveAndSanitizeArticleSlugs(data);
   modifyRouterTs(data);
   modifyBlogArticlesTsx(data);
   modifyI18nTs(data);
@@ -8956,6 +9014,7 @@ export async function registerArticleFiles(data, opts = {}) {
   if (!opts.skipRss) {
     execSync('node scripts/generate-rss-feeds.mjs', { stdio: 'inherit', cwd: PROJECT_ROOT });
   }
+  return { slugs };
 }
 
 /** True when an article id is already registered in any section. */

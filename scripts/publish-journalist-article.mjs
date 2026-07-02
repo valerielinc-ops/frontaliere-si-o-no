@@ -49,6 +49,7 @@ import {
   splitBodyIntoSections,
   generateExcerpt,
   checkTranslatedSlugCollisions,
+  deriveAndSanitizeArticleSlugs,
 } from './create-article.mjs';
 import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
@@ -170,19 +171,6 @@ async function deriveJournalistContent(data, rawBody) {
 
   console.log('  ❓ generating FAQ (generateFaqIT)...');
   data.content.it.faq = await generateFaqIT(data.id, rawBody);
-}
-
-/** After translateArticle() has filled content.en/de/fr, derive + sanitize
- * per-locale slugs — mirrors create-article.mjs's validate() (not exported),
- * lines ~4897-4976: translated-title fallback, diacritics/non-ASCII strip,
- * 80-char cap. IT slug is fixed to the article id (pipeline convention). */
-function deriveLocaleSlugs(data) {
-  data.slugs.it = data.id;
-  for (const locale of ['en', 'de', 'fr']) {
-    const title = String(data.content[locale]?.title || data.content.it.title || '');
-    const fallback = title ? slugify(title) : data.slugs.it;
-    data.slugs[locale] = fallback || data.slugs.it;
-  }
 }
 
 /** Resolve the hero image: a journalist's custom Storage upload wins; falls
@@ -315,17 +303,20 @@ async function processDoc(db, FieldValue, docSnap) {
     console.log('  🌍 translating (translateArticle)...');
     await translateArticle(data);
 
-    deriveLocaleSlugs(data);
+    // #3209: deriveAndSanitizeArticleSlugs() is the single-source slug
+    // derivation (also called internally by registerArticleFiles() below,
+    // idempotently) — call it explicitly here so #3010's collision guard can
+    // validate en/de/fr before any file gets registered/written.
+    deriveAndSanitizeArticleSlugs(data);
 
-    // #3010: deriveLocaleSlugs() above derives en/de/fr from the (translated)
-    // title via slugify() — auto-generated, same as the AI path — but until
-    // this check, nothing validated them against the registry. The IT slug
-    // is fixed to data.id (see deriveLocaleSlugs()) and already covered by
-    // checkArticleIdExists() above; this closes the EN/DE/FR gap using the
-    // exact same collision guard as the AI generation path (reused, not
-    // reimplemented) so a colliding translation fails this doc loudly instead
-    // of silently poisoning the registry.
+    // #3010: nothing validated the translated en/de/fr slugs against the
+    // registry until this check. The IT slug is fixed to data.id and already
+    // covered by checkArticleIdExists() above; this closes the EN/DE/FR gap
+    // using the exact same collision guard as the AI generation path (reused,
+    // not reimplemented) so a colliding translation fails this doc loudly
+    // instead of silently poisoning the registry.
     checkTranslatedSlugCollisions(data);
+
 
     // Re-run after translation: sanitizes bold/`nav:` formatting the MT step
     // may have introduced into the newly-filled en/de/fr content (mirrors
@@ -341,13 +332,18 @@ async function processDoc(db, FieldValue, docSnap) {
     enforceStrongInternalLinks(data);
 
     console.log('  📂 registering article files (registerArticleFiles)...');
-    await registerArticleFiles(data);
+    // registerArticleFiles() derives + sanitizes data.slugs itself (given
+    // only data.slugs.it above) and returns the finalized value — consume it
+    // directly instead of re-deriving locale slugs here (issue #3209 item 1:
+    // a separate copy of that logic would drift as registerArticleFiles()'s
+    // own derivation evolves, producing wrong canonicals/404s).
+    const { slugs } = await registerArticleFiles(data);
 
     const publishedUrls = buildPublishedUrls(data);
     await docSnap.ref.update({
       status: 'published',
       publishedAt: FieldValue.serverTimestamp(),
-      slugs: data.slugs,
+      slugs,
       publishedUrls,
       errorMessage: null,
     });
@@ -402,4 +398,4 @@ if (invokedDirectly) {
   });
 }
 
-export { buildPipelineData, deriveLocaleSlugs, buildPublishedUrls, slugify };
+export { buildPipelineData, buildPublishedUrls, slugify, resolveHeroImage };
