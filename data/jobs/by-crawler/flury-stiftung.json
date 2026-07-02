@@ -67,7 +67,8 @@
         "it": [
           "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch",
           "assistente-sanitaria-e-sociale-eba-da-estate-2027-flury-stiftung-schiers",
-          "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters"
+          "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
+          "lehrstellen-assistenzperson-gesundheit-e-soziales-afp-ab-sommer-2027-flury-stiftung-schiers"
         ],
         "en": [
           "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch"
@@ -77,7 +78,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -357,7 +357,8 @@
           "lehrstellen-fachperson-gesundheit-efz-ab-sommer-2026-flury-stiftung-ch",
           "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch",
           "direzione-di-dipartimento-ict-protezione-dei-dati-100-flury-stiftung-schiers",
-          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2026-flury-stiftung-ch"
+          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2026-flury-stiftung-ch",
+          "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-ab-sommer-2026-flury-stiftung-schiers"
         ],
         "en": [
           "departementsleitung-ict-datenschutz-100-flury-stiftung-ch"
@@ -372,7 +373,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.228Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -577,7 +577,7 @@
       "title": "Dipl. Pflegefachperson HF/FH 40-90%",
       "titleByLocale": {
         "it": "Dipl. Assistente Sanitario HF/FH 40-90%",
-        "en": "Dipl. Pflegefachperson HF/FH 40-90%",
+        "en": "Dipl. Care professional HF/FH 40-90 %",
         "de": "Dipl. Pflegefachperson HF/FH 40-90%",
         "fr": "Dipl. Auxiliaire de Santé HF/FH 40-90%"
       },
@@ -652,7 +652,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch",
-          "specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers"
+          "specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers",
+          "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch"
@@ -662,7 +663,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-      "needsRetranslation": true,
       "salaryMin": 51800,
       "salaryMax": 78300,
       "baseSalary": {
@@ -770,7 +770,8 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-haushalt-20-30-im-stundenlohn-flury-stiftung-ch",
-          "collaboratrice-domestica-20-30-con-retribuzione-oraria-flury-stiftung-schiers"
+          "collaboratrice-domestica-20-30-con-retribuzione-oraria-flury-stiftung-schiers",
+          "impiegata-di-casa-20-30-a-tempo-parziale-flury-stiftung-schiers"
         ],
         "en": [
           "mitarbeiterin-haushalt-20-30-im-stundenlohn-flury-stiftung-ch",
@@ -782,7 +783,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-      "needsRetranslation": true,
       "salaryMin": 17300,
       "salaryMax": 26100,
       "baseSalary": {
@@ -941,7 +941,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch"
+          "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch",
+          "responsabilita-specialistica-demenza-20-casa-di-riposo-jenaz-flury-stiftung-jenaz"
         ],
         "en": [
           "fachverantwortung-demenz-20-altersheim-jenaz-flury-stiftung-ch"
@@ -951,7 +952,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -981,7 +981,7 @@
       "title": "Dipl. Pflegefachperson HF / FH 50 - 100 %, Altersheim Jenaz",
       "titleByLocale": {
         "it": "Dipl. Assistente Sanitario HF / FH 50 - 100 %, Casa di Riposo Jenaz",
-        "en": "Dipl. Pflegefachperson HF / FH 50 - 100 %, Altersheim Jenaz",
+        "en": "Dipl. Nursing professional HF / FH 50 - 100%, nursing home Jenaz",
         "de": "Dipl. Pflegefachperson HF / FH 50 - 100 %, Altersheim Jenaz",
         "fr": "Dipl. Auxiliaire de Santé HF / FH 50 - 100 %, Maison de Retraite Jenaz"
       },
@@ -1022,7 +1022,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
+          "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch",
+          "dipl-assistente-sanitario-hf-fh-50-100-casa-di-riposo-jenaz-flury-stiftung-jenaz"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-50-100-altersheim-jenaz-flury-stiftung-ch"
@@ -1032,7 +1033,6 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:48:57.020Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1683,7 +1683,8 @@
         "it": [
           "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",
           "medico-assistente-chirurgia-flury-stiftung-schiers",
-          "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers"
+          "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers",
+          "assistente-chirurgico-flury-stiftung-schiers"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",
@@ -1695,7 +1696,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1712,10 +1712,10 @@
     },
     {
       "id": "flury-stiftung-12c2eb830044",
-      "slug": "ostetrica-al-100-flury-stiftung-schiers",
+      "slug": "hebamme-100-flury-stiftung-ch",
       "slugByLocale": {
         "de": "hebamme-100-flury-stiftung-ch",
-        "it": "ostetrica-al-100-flury-stiftung-schiers",
+        "it": "hebamme-100-flury-stiftung-ch",
         "en": "hebamme-100-flury-stiftung-ch",
         "fr": "hebamme-100-flury-stiftung-ch"
       },
@@ -1725,16 +1725,16 @@
       "title": "Hebamme 100%",
       "titleByLocale": {
         "de": "Hebamme 100%",
-        "it": "Ostetrica al 100%",
-        "en": "Hebamme 100%",
-        "fr": "Hebamme 100%"
+        "it": "Omologazione 100%",
+        "en": "Midwife 100%",
+        "fr": "Mère 100%"
       },
       "description": "Hebamme 100% — Flury Stiftung. Bereich: Spital Schiers. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
       "descriptionByLocale": {
         "de": "Hebamme 100% — Flury Stiftung. Bereich: Spital Schiers. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-        "it": "Hebamme 100% — Flury Stiftung. Bereich: Spital Schiers. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-        "en": "Hebamme 100% — Flury Stiftung. Bereich: Spital Schiers. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-        "fr": "Hebamme 100% — Flury Stiftung. Bereich: Spital Schiers. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten"
+        "it": "Midwife 100% — Flury Foundation. Area: Ospedale Schiers. Luogo di lavoro: Schiers (GR). La Fondazione Flury è un fornitore regionale di assistenza sanitaria nel Prättigau, Cantone dei Grigioni, e gestisce l'Ospedale Schiers, due case di riposo a Schiers e Jenaz, un'organizzazione Spitex, il Klosters Medical Center e gli assegni.\n• Offriamo diverse opportunità di carriera, condizioni di lavoro moderne e un ambiente di lavoro collegiale in una regione di montagna attraente. Siamo alla ricerca di professionisti dedicati che vogliono contribuire con competenza e passione per l'assistenza sanitaria nella nostra regione",
+        "en": "Midwife 100% — Flury Foundation. Area: Hospital Schiers. Place of work: Schiers (GR). The Flury Foundation is a regional health care provider in the Prättigau, Canton of Graubünden, and operates the Schiers Hospital, two retirement homes in Schiers and Jenaz, a Spitex organization, the Klosters Medical Center and crèches.\n• We offer diverse career opportunities, modern working conditions and a collegial working environment in an attractive mountain region. We are looking for dedicated professionals who want to contribute with competence and passion to health care in our region",
+        "fr": "Une sage-femme 100% — Fondation Flury. Région: Hôpital Schiers. Lieu de travail: Schiers (GR). La Fondation Flury est un prestataire de soins de santé régional du Prättigau, canton des Grisons, et gère l'hôpital Schiers, deux maisons de retraite à Schiers et Jenaz, une organisation Spitex, le centre médical Klosters et des crèches.\n• Nous offrons diverses possibilités de carrière, des conditions de travail modernes et un environnement de travail collégial dans une région montagneuse attrayante. Nous recherchons des professionnels dévoués qui veulent contribuer avec compétence et passion aux soins de santé dans notre région"
       },
       "location": "Schiers",
       "canton": "GR",
@@ -1763,7 +1763,6 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1777,15 +1776,7 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-02T11:08:39.115Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "hebamme-100-flury-stiftung-ch"
-        ]
-      },
-      "previousSlugs": [
-        "hebamme-100-flury-stiftung-ch"
-      ]
+      "firstSeenAt": "2026-07-02T11:08:39.115Z"
     },
     {
       "id": "flury-stiftung-c1b7de715eb8",
@@ -1954,7 +1945,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch"
+          "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch",
+          "infermiere-dipl-reparto-interdisciplinare-40-100-flury-stiftung-schiers"
         ],
         "en": [
           "dipl-pflegefachperson-interdisziplinare-station-40-100-flury-stiftung-ch"
@@ -1964,7 +1956,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.230Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2279,7 +2270,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch"
+          "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch",
+          "fachperson-gesundheit-cfc-40-80-personalpool-flury-stiftung-schiers"
         ],
         "en": [
           "fachperson-gesundheit-efz-40-80-personalpool-flury-stiftung-ch"
@@ -2289,7 +2281,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T22:38:46.198Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600,
       "baseSalary": {
