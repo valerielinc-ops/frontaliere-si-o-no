@@ -91,6 +91,46 @@ describe('topic-gate-abort recovery in headline retry loops', () => {
  * CLAUDE.md non-negotiable #1 the headline gate itself is untouched — slop is
  * still refused, only the disposition changes from failure to deferral.
  */
+describe('topic-gate abort cross-run tracker persistence (#3242)', () => {
+  it('topic-gate abort is written to the evergreen-rejected tracker alongside duplicates', () => {
+    // Pre: isTopicGateAbort must be computed BEFORE the tracker-write condition
+    // so the condition can reference it. Verify the ordering is correct.
+    const evergreenCatch = SRC.match(
+      /\} catch \(e\) \{\s*const isDuplicate[\s\S]*?Duplicato post-generazione[\s\S]*?\}/,
+    );
+    expect(evergreenCatch, 'evergreen catch block not found').toBeTruthy();
+    const block = evergreenCatch![0];
+    // isTopicGateAbort must appear before the tracker-write condition.
+    const topicGatePos = block.indexOf('isTopicGateAbort');
+    const trackerWritePos = block.indexOf('_appendEvergreenRejected');
+    expect(topicGatePos).toBeGreaterThan(-1);
+    expect(trackerWritePos).toBeGreaterThan(-1);
+    expect(topicGatePos, 'isTopicGateAbort must be computed before tracker-write').toBeLessThan(trackerWritePos);
+    // The tracker-write condition must include isTopicGateAbort.
+    const condition = block.slice(
+      block.lastIndexOf('if (', trackerWritePos),
+      block.indexOf('\n', block.lastIndexOf('if (', trackerWritePos)),
+    );
+    expect(condition).toMatch(/isDuplicate\s*\|\|\s*isTopicGateAbort/);
+  });
+
+  it('quality-reject without topic-gate abort does NOT write to the tracker', () => {
+    // Quality rejects (thin/short content) are transient; the condition that
+    // writes to the tracker must NOT include a bare isQualityReject branch.
+    const evergreenCatch = SRC.match(
+      /\} catch \(e\) \{\s*const isDuplicate[\s\S]*?Duplicato post-generazione[\s\S]*?\}/,
+    );
+    expect(evergreenCatch, 'evergreen catch block not found').toBeTruthy();
+    const block = evergreenCatch![0];
+    const conditionLine = block.slice(
+      block.lastIndexOf('if (', block.indexOf('_appendEvergreenRejected')),
+      block.indexOf('\n', block.lastIndexOf('if (', block.indexOf('_appendEvergreenRejected'))),
+    );
+    // isQualityReject alone must NOT be the sole condition for tracker-write.
+    expect(conditionLine).not.toMatch(/^\s*if\s*\(\s*isQualityReject\b/);
+  });
+});
+
 describe('headline-validation reject defers instead of hard-failing', () => {
   it('the headline-validation throw site tags the error as a quality reject', () => {
     const block = SRC.match(
