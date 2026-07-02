@@ -79,8 +79,11 @@ export const EVENTS_BASE_PATH = {
 // tests/events-utils.test.ts.
 const EVENTS_LOCALIZED_SEGMENT = {
   it: (slug) => `/eventi/${slug}`,
+  // locale-segment-ok: per-locale branch keyed by its own locale, each arm only ever emits its own segment
   en: (slug) => `/en/events/${slug}`,
+  // locale-segment-ok: per-locale branch keyed by its own locale, each arm only ever emits its own segment
   de: (slug) => `/de/veranstaltungen/${slug}`,
+  // locale-segment-ok: per-locale branch keyed by its own locale, each arm only ever emits its own segment
   fr: (slug) => `/fr/evenements/${slug}`,
 };
 
