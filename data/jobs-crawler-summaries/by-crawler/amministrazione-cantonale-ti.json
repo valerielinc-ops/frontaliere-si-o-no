@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-07-01T23:36:50.436Z",
+  "generatedAt": "2026-07-02T12:27:11.129Z",
   "total": 17,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 15,
-  "durationMs": 18960,
-  "avgDurationMs": 18960,
+  "durationMs": 24188,
+  "avgDurationMs": 24188,
   "durationHistory": [
-    18960
+    24188
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -118,6 +118,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -190,6 +191,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -262,6 +264,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -298,6 +301,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -371,6 +375,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -407,6 +412,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -446,6 +452,7 @@
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2677,
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -629,6 +636,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
