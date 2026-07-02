@@ -347,9 +347,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alla-logistica-jumbo-hochdorf",
-        "en": "mitarbeiter-in-logistik-jumbo-hochdorf",
+        "en": "logistics-officer-jumbo-hochdorf",
         "de": "mitarbeiter-in-logistik-jumbo-hochdorf",
-        "fr": "mitarbeiter-in-logistik-jumbo-hochdorf"
+        "fr": "collaborateur-trice-logistik-jumbo-hochdorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -369,10 +369,12 @@
           "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4"
         ],
         "en": [
-          "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4"
+          "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
+          "mitarbeiter-in-logistik-jumbo-hochdorf"
         ],
         "fr": [
-          "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4"
+          "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
+          "mitarbeiter-in-logistik-jumbo-hochdorf"
         ]
       },
       "previousSlugs": [
@@ -380,6 +382,7 @@
         "addetto-a-alla-logistica-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
         "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
         "associate-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4",
+        "mitarbeiter-in-logistik-jumbo-hochdorf",
         "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-hochdorf-luzern-rfjtm4"
       ],
       "salaryMin": 69500,
@@ -17774,9 +17777,9 @@
       },
       "slugByLocale": {
         "it": "casse-servizi-per-assistenti-vendite-coop-genossenschaft-meisterschwanden-aargau",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-meisterschwanden-aargau",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-meisterschwanden-aargau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -17791,6 +17794,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau",
+          "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281"
+        ],
+        "fr": [
           "verkaufer-in-kassen-services-coop-genossenschaft-meisterschwanden-aargau-avf281"
         ]
       },
@@ -17851,19 +17860,26 @@
       },
       "slugByLocale": {
         "it": "elektriker-in-cfc-coop-genossenschaft-dietikon-zurich-k4hyks",
-        "en": "elektriker-in-efz-coop-genossenschaft-dietikon-zurich-k4hyks",
+        "en": "electrician-in-efz-coop-genossenschaft-dietikon-zurich",
         "de": "elektriker-in-efz-coop-genossenschaft-dietikon-zurich-k4hyks",
-        "fr": "elektriker-in-efz-coop-genossenschaft-dietikon-zurich-k4hyks"
+        "fr": "electricien-dans-efz-coop-genossenschaft-dietikon-zurich"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-efz-coop-genossenschaft-dietikon-zurich"
+        ],
+        "en": [
+          "elektriker-in-efz-coop-genossenschaft-dietikon-zurich-k4hyks"
+        ],
+        "fr": [
+          "elektriker-in-efz-coop-genossenschaft-dietikon-zurich-k4hyks"
         ]
       },
       "previousSlugs": [
-        "elektriker-in-efz-coop-genossenschaft-dietikon-zurich"
+        "elektriker-in-efz-coop-genossenschaft-dietikon-zurich",
+        "elektriker-in-efz-coop-genossenschaft-dietikon-zurich-k4hyks"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17921,9 +17937,9 @@
       },
       "slugByLocale": {
         "it": "casse-servizi-per-assistenti-vendite-coop-genossenschaft-schwerzenbach-zurich",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-schwerzenbach-zurich-vujs6e",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-schwerzenbach-zurich",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-schwerzenbach-zurich-vujs6e",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-schwerzenbach-zurich-vujs6e"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-schwerzenbach-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -17938,6 +17954,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-genossenschaft-schwerzenbach-zurich",
+          "verkaufer-in-kassen-services-coop-genossenschaft-schwerzenbach-zurich-vujs6e"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-schwerzenbach-zurich-vujs6e"
+        ],
+        "fr": [
           "verkaufer-in-kassen-services-coop-genossenschaft-schwerzenbach-zurich-vujs6e"
         ]
       },
@@ -18129,9 +18151,9 @@
       "firstSeenAt": "2026-07-02T11:07:26.003Z",
       "slugByLocale": {
         "it": "gatto-da-manovra-a40-railcare-zurich",
-        "en": "rangierer-in-kat-a40-railcare-zurich-jgs5k9",
+        "en": "ranger-in-cat-a40-railcare-zurich",
         "de": "rangierer-in-kat-a40-railcare-zurich-jgs5k9",
-        "fr": "rangierer-in-kat-a40-railcare-zurich-jgs5k9"
+        "fr": "ranger-dans-cat-a40-railcare-zurich"
       },
       "titleByLocale": {
         "de": "Rangierer:in Kat. A40",
@@ -18150,6 +18172,12 @@
       "previousSlugsByLocale": {
         "it": [
           "rangierer-in-kat-a40-railcare-zurich",
+          "rangierer-in-kat-a40-railcare-zurich-jgs5k9"
+        ],
+        "en": [
+          "rangierer-in-kat-a40-railcare-zurich-jgs5k9"
+        ],
+        "fr": [
           "rangierer-in-kat-a40-railcare-zurich-jgs5k9"
         ]
       },

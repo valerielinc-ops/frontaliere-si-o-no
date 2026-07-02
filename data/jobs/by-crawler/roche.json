@@ -20960,7 +20960,6 @@
         "roche-ch-42",
         "roche-ch-6",
         "roche-ch-5",
-        "roche-basel",
         "terreno-della-societa-regiona-locali-roche-basel",
         "klassisch-eingehalten-roche-basel"
       ],
@@ -30748,8 +30747,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
-        "operation-de-reglementation-interne-roche-basel-74ec59",
         "interno-di-funzionamento-del-regolatore-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -45606,7 +45603,6 @@
         "specialiste-des-ventes-numeriques-soins-aux-patients-proches-roche-basel",
         "digital-sales-spezialist-central-lab-roche-basel",
         "specialiste-des-ventes-numeriques-central-lab-roche-basel",
-        "specialista-di-vendita-digitale-laboratorio-centrale-roche-basel",
         "specialista-di-vendita-digitale-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -63553,8 +63549,6 @@
         "solution-architect-techops-qualitat-lab-execution-connectivity-roche-basel",
         "solution-architect-techops-quality-lab-execution-connectivity-roche-ch",
         "solution-senior-architect-techops-qualite-roche-basel",
-        "senior-solution-architetto-techops-quality-roche-basel",
-        "senior-solution-architect-techops-qualitat-roche-basel",
         "soluzione-architetto-techops-quality-esecuzione-e-connettivita-dei-laboratori-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -90638,7 +90632,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -90681,14 +90675,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-intern-roche-ch-2"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -93010,7 +93004,7 @@
       "slugByLocale": {
         "en": "manufacturing-operator-roche-ch",
         "it": "manufacturing-operatore-roche-marana",
-        "de": "manufacturing-operator-roche-ch",
+        "de": "herstellungsbetrieb-roche-marana",
         "fr": "manufacturing-operateur-roche-marana"
       },
       "company": "Roche",
@@ -93073,6 +93067,9 @@
         ],
         "fr": [
           "manufacturing-operator-roche-ch"
+        ],
+        "de": [
+          "manufacturing-operator-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -93081,12 +93078,12 @@
     },
     {
       "id": "roche-d407ac4df342",
-      "slug": "access-communications-health-system-value-strategy-chapter-lead-roche-ch",
+      "slug": "accesso-comunicazioni-e-strategia-di-valore-del-sistema-sanitario-capitolo-lead-roche-jakarta",
       "slugByLocale": {
         "en": "access-communications-health-system-value-strategy-chapter-lead-roche-ch",
-        "it": "access-communications-health-system-value-strategy-chapter-lead-roche-ch",
+        "it": "accesso-comunicazioni-e-strategia-di-valore-del-sistema-sanitario-capitolo-lead-roche-jakarta",
         "de": "access-communications-health-system-value-strategy-chapter-lead-roche-ch",
-        "fr": "access-communications-health-system-value-strategy-chapter-lead-roche-ch"
+        "fr": "strategie-en-matiere-de-valeur-du-systeme-d-acces-de-communication-et-de-sante-roche-jakarta"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93141,7 +93138,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:28.238Z"
+      "firstSeenAt": "2026-07-02T12:31:28.238Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "access-communications-health-system-value-strategy-chapter-lead-roche-ch"
+        ],
+        "fr": [
+          "access-communications-health-system-value-strategy-chapter-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "access-communications-health-system-value-strategy-chapter-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-a2fc0c88bc9d",
@@ -93209,12 +93217,12 @@
     },
     {
       "id": "roche-4fd1d7193ee8",
-      "slug": "customer-partner-roche-ch-2",
+      "slug": "partner-del-cliente-roche-petaling-jaya",
       "slugByLocale": {
         "en": "customer-partner-roche-ch",
-        "it": "customer-partner-roche-ch-2",
-        "de": "customer-partner-roche-ch-2",
-        "fr": "customer-partner-roche-ch-2"
+        "it": "partner-del-cliente-roche-petaling-jaya",
+        "de": "kundenpartner-roche-petaling-jaya-cc1a96",
+        "fr": "partenaire-client-roche-petaling-jaya-cc1a96"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93269,7 +93277,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:26.342Z"
+      "firstSeenAt": "2026-07-02T12:31:26.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-partner-roche-ch-2"
+        ],
+        "de": [
+          "customer-partner-roche-ch-2"
+        ],
+        "fr": [
+          "customer-partner-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "customer-partner-roche-ch-2"
+      ]
     },
     {
       "id": "roche-5ab216ab2bba",
@@ -93278,7 +93300,7 @@
         "en": "ai-innovation-manager-on-roche-ch",
         "it": "ai-innovation-manager-on-roche-ch",
         "de": "ai-innovation-manager-on-roche-ch",
-        "fr": "ai-innovation-manager-on-roche-ch"
+        "fr": "gestionnaire-de-l-innovation-ai-on-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93341,8 +93363,8 @@
       "slugByLocale": {
         "en": "ai-product-manager-roche-ch",
         "it": "ai-product-manager-roche-ch",
-        "de": "ai-product-manager-roche-ch",
-        "fr": "ai-product-manager-roche-ch"
+        "de": "ai-produktmanager-roche-shanghai",
+        "fr": "gestionnaire-de-produits-ai-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93401,12 +93423,12 @@
     },
     {
       "id": "roche-c0856d5eb9e1",
-      "slug": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
+      "slug": "servizi-di-manufacturing-directory-rdt-gestione-dell-identita-e-dell-accesso-roche-pune",
       "slugByLocale": {
         "en": "manufacturing-directory-services-rdt-identity-access-management-roche-ch",
-        "it": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
+        "it": "servizi-di-manufacturing-directory-rdt-gestione-dell-identita-e-dell-accesso-roche-pune",
         "de": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
-        "fr": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
+        "fr": "services-d-annuaires-de-fabrication-rdt-gestion-de-l-identite-et-de-l-acces-roche-pune"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93461,14 +93483,25 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:23.460Z"
+      "firstSeenAt": "2026-07-02T12:31:23.460Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
+        ],
+        "fr": [
+          "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
+      ]
     },
     {
       "id": "roche-c13f0d7dfde5",
-      "slug": "roche-xian",
+      "slug": "traduzione-roche-xian",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-xian",
+        "it": "traduzione-roche-xian",
         "de": "roche-xian",
         "fr": "roche-xian"
       },
@@ -93513,11 +93546,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-151"
+          "roche-ch-151",
+          "roche-xian"
         ]
       },
       "previousSlugs": [
-        "roche-ch-151"
+        "roche-ch-151",
+        "roche-xian"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -93537,10 +93572,10 @@
     },
     {
       "id": "roche-ca3c6ad99b9f",
-      "slug": "roche-hangzhou",
+      "slug": "traduzione-roche-hangzhou-d9e635",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-hangzhou",
+        "it": "traduzione-roche-hangzhou-d9e635",
         "de": "roche-hangzhou",
         "fr": "roche-hangzhou"
       },
@@ -93585,11 +93620,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-152"
+          "roche-ch-152",
+          "roche-hangzhou"
         ]
       },
       "previousSlugs": [
-        "roche-ch-152"
+        "roche-ch-152",
+        "roche-hangzhou"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -93609,12 +93646,12 @@
     },
     {
       "id": "roche-e37c625acb5e",
-      "slug": "global-business-product-owner-roche-ch",
+      "slug": "proprietario-globale-del-prodotto-roche-basel",
       "slugByLocale": {
         "en": "global-business-product-owner-roche-ch",
-        "it": "global-business-product-owner-roche-ch",
+        "it": "proprietario-globale-del-prodotto-roche-basel",
         "de": "global-business-product-owner-roche-ch",
-        "fr": "global-business-product-owner-roche-ch"
+        "fr": "proprietaire-de-produits-commerciaux-mondiaux-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93669,7 +93706,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:19.600Z"
+      "firstSeenAt": "2026-07-02T12:31:19.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-business-product-owner-roche-ch"
+        ],
+        "fr": [
+          "global-business-product-owner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-business-product-owner-roche-ch"
+      ]
     },
     {
       "id": "roche-9b592734e60b",
@@ -93677,7 +93725,7 @@
       "slugByLocale": {
         "en": "solution-architect-dia-r-d-roche-ch",
         "it": "solution-architect-dia-r-d-roche-ch",
-        "de": "solution-architect-dia-r-d-roche-ch",
+        "de": "losungsarchitekt-dia-r-d-roche-basel-133b37",
         "fr": "solution-architect-dia-r-d-roche-ch"
       },
       "company": "Roche",
@@ -93735,7 +93783,6 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-07-02T12:31:18.482Z",
       "previousSlugs": [
-        "solution-architect-dia-r-d-roche-ch",
         "solution-architetto-dia-r-d-roche-basel",
         "losungsarchitekt-dia-r-d-roche-basel",
         "solution-architecte-dia-r-d-roche-basel"
@@ -93754,12 +93801,12 @@
     },
     {
       "id": "roche-132b7ba0e431",
-      "slug": "facharbeiter-ansatz-abfullung-m-w-d-roche-ch",
+      "slug": "approccio-botto-specialistico-m-f-d-roche-mannheim",
       "slugByLocale": {
         "de": "facharbeiter-ansatz-abfullung-m-w-d-roche-ch",
-        "it": "facharbeiter-ansatz-abfullung-m-w-d-roche-ch",
-        "en": "facharbeiter-ansatz-abfullung-m-w-d-roche-ch",
-        "fr": "facharbeiter-ansatz-abfullung-m-w-d-roche-ch"
+        "it": "approccio-botto-specialistico-m-f-d-roche-mannheim",
+        "en": "specialist-approach-bottling-m-f-d-roche-mannheim",
+        "fr": "approche-mise-en-place-de-specialistes-m-f-d-roche-mannheim"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93814,7 +93861,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:15.563Z"
+      "firstSeenAt": "2026-07-02T12:31:15.563Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharbeiter-ansatz-abfullung-m-w-d-roche-ch"
+        ],
+        "en": [
+          "facharbeiter-ansatz-abfullung-m-w-d-roche-ch"
+        ],
+        "fr": [
+          "facharbeiter-ansatz-abfullung-m-w-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharbeiter-ansatz-abfullung-m-w-d-roche-ch"
+      ]
     },
     {
       "id": "roche-690f363e1e53",
@@ -93893,12 +93954,12 @@
     },
     {
       "id": "roche-d140e8e84de2",
-      "slug": "roche-hefei",
+      "slug": "registrazione-locali-alcuni-regionali-locali-roche-hefei-2e8f68",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-hefei",
+        "it": "registrazione-locali-alcuni-regionali-locali-roche-hefei-2e8f68",
         "de": "roche-hefei",
-        "fr": "roche-hefei"
+        "fr": "c-est-pas-vrai-roche-hefei"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93941,11 +94002,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-154"
+          "roche-ch-154",
+          "roche-hefei"
+        ],
+        "fr": [
+          "roche-hefei"
         ]
       },
       "previousSlugs": [
-        "roche-ch-154"
+        "roche-ch-154",
+        "roche-hefei"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -93969,8 +94035,8 @@
       "slugByLocale": {
         "en": "sr-product-manager-roche-ch",
         "it": "sr-product-manager-roche-ch-4",
-        "de": "sr-product-manager-roche-ch-4",
-        "fr": "sr-product-manager-roche-ch-4"
+        "de": "sr-produktmanager-roche-shanghai-0eae16",
+        "fr": "gestionnaire-de-produits-sr-roche-shanghai-0eae16"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94033,8 +94099,8 @@
       "slugByLocale": {
         "en": "brand-leader-haematology-roche-ch",
         "it": "brand-leader-haematology-roche-ch",
-        "de": "brand-leader-haematology-roche-ch",
-        "fr": "brand-leader-haematology-roche-ch"
+        "de": "markenfuhrer-hamatologie-roche-monza",
+        "fr": "marque-leader-hematologie-roche-monza"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94093,10 +94159,10 @@
     },
     {
       "id": "roche-8e1203fdea94",
-      "slug": "voice-ai-delivery-lead-rdt-diagnostics-commercial-roche-ch",
+      "slug": "piombo-di-consegna-dell-ia-vocale-diagnostica-rdt-commerciale-roche-basel",
       "slugByLocale": {
         "en": "voice-ai-delivery-lead-rdt-diagnostics-commercial-roche-ch",
-        "it": "voice-ai-delivery-lead-rdt-diagnostics-commercial-roche-ch",
+        "it": "piombo-di-consegna-dell-ia-vocale-diagnostica-rdt-commerciale-roche-basel",
         "de": "voice-ai-delivery-lead-rdt-diagnostics-commercial-roche-ch",
         "fr": "voice-ai-delivery-lead-rdt-diagnostics-commercial-roche-ch"
       },
@@ -94153,7 +94219,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:09.861Z"
+      "firstSeenAt": "2026-07-02T12:31:09.861Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "voice-ai-delivery-lead-rdt-diagnostics-commercial-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "voice-ai-delivery-lead-rdt-diagnostics-commercial-roche-ch"
+      ]
     },
     {
       "id": "roche-2faa511f187d",
@@ -94162,7 +94236,7 @@
         "en": "finance-enterprise-partner-w-m-d-roche-ch",
         "it": "finance-enterprise-partner-w-m-d-roche-ch",
         "de": "finance-enterprise-partner-w-m-d-roche-ch",
-        "fr": "finance-enterprise-partner-w-m-d-roche-ch"
+        "fr": "partenaire-d-entreprise-financier-w-m-d-roche-vienna"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94226,7 +94300,7 @@
         "en": "portfolio-management-lead-foundational-products-squad-roche-ch",
         "it": "portfolio-management-lead-foundational-products-squad-roche-ch",
         "de": "portfolio-management-lead-foundational-products-squad-roche-ch",
-        "fr": "portfolio-management-lead-foundational-products-squad-roche-ch"
+        "fr": "responsable-de-la-gestion-de-portefeuille-equipe-des-produits-de-base-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94350,10 +94424,10 @@
     },
     {
       "id": "roche-6951da3378bb",
-      "slug": "ai-validation-lead-rdt-diagnostics-commercial-roche-ch",
+      "slug": "piombo-di-convalida-dell-ia-diagnostica-rdt-commerciale-roche-basel",
       "slugByLocale": {
         "en": "ai-validation-lead-rdt-diagnostics-commercial-roche-ch",
-        "it": "ai-validation-lead-rdt-diagnostics-commercial-roche-ch",
+        "it": "piombo-di-convalida-dell-ia-diagnostica-rdt-commerciale-roche-basel",
         "de": "ai-validation-lead-rdt-diagnostics-commercial-roche-ch",
         "fr": "ai-validation-lead-rdt-diagnostics-commercial-roche-ch"
       },
@@ -94410,16 +94484,24 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:04.760Z"
+      "firstSeenAt": "2026-07-02T12:31:04.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-validation-lead-rdt-diagnostics-commercial-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-validation-lead-rdt-diagnostics-commercial-roche-ch"
+      ]
     },
     {
       "id": "roche-cc32f755fc2c",
-      "slug": "marketing-manager-roche-ch-2",
+      "slug": "responsabile-marketing-roche-mumbai",
       "slugByLocale": {
         "en": "marketing-manager-roche-ch",
-        "it": "marketing-manager-roche-ch-2",
-        "de": "marketing-manager-roche-ch-2",
-        "fr": "marketing-manager-roche-ch-2"
+        "it": "responsabile-marketing-roche-mumbai",
+        "de": "marketingmanager-roche-mumbai",
+        "fr": "directeur-du-marketing-roche-mumbai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94474,7 +94556,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:03.857Z"
+      "firstSeenAt": "2026-07-02T12:31:03.857Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-manager-roche-ch-2"
+        ],
+        "de": [
+          "marketing-manager-roche-ch-2"
+        ],
+        "fr": [
+          "marketing-manager-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-manager-roche-ch-2"
+      ]
     },
     {
       "id": "roche-c9c0b43995e3",
@@ -94542,12 +94638,12 @@
     },
     {
       "id": "roche-8b94d9cdacb7",
-      "slug": "eemea-regulatory-policy-associate-roche-ch",
+      "slug": "politica-regolamentare-dell-eemea-associate-roche-dubai",
       "slugByLocale": {
         "en": "eemea-regulatory-policy-associate-roche-ch",
-        "it": "eemea-regulatory-policy-associate-roche-ch",
+        "it": "politica-regolamentare-dell-eemea-associate-roche-dubai",
         "de": "eemea-regulatory-policy-associate-roche-ch",
-        "fr": "eemea-regulatory-policy-associate-roche-ch"
+        "fr": "associe-de-la-politique-reglementaire-de-l-aeem-roche-dubai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94602,7 +94698,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:01.939Z"
+      "firstSeenAt": "2026-07-02T12:31:01.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "eemea-regulatory-policy-associate-roche-ch"
+        ],
+        "fr": [
+          "eemea-regulatory-policy-associate-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "eemea-regulatory-policy-associate-roche-ch"
+      ]
     },
     {
       "id": "roche-fd5d00513a4d",
@@ -94670,12 +94777,12 @@
     },
     {
       "id": "roche-f0bf1168bac0",
-      "slug": "business-process-partner-administrative-support-roche-ch",
+      "slug": "partner-di-processo-aziendale-supporto-amministrativo-roche-sant-cugat-del-valles",
       "slugByLocale": {
         "en": "business-process-partner-administrative-support-roche-ch",
-        "it": "business-process-partner-administrative-support-roche-ch",
+        "it": "partner-di-processo-aziendale-supporto-amministrativo-roche-sant-cugat-del-valles",
         "de": "business-process-partner-administrative-support-roche-ch",
-        "fr": "business-process-partner-administrative-support-roche-ch"
+        "fr": "soutien-administratif-partenaire-des-processus-operationnels-roche-sant-cugat-del-valles"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94730,7 +94837,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:31:00.187Z"
+      "firstSeenAt": "2026-07-02T12:31:00.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-process-partner-administrative-support-roche-ch"
+        ],
+        "fr": [
+          "business-process-partner-administrative-support-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-process-partner-administrative-support-roche-ch"
+      ]
     },
     {
       "id": "roche-5564dbf0a194",
@@ -94954,12 +95072,12 @@
     },
     {
       "id": "roche-66009a5c7a32",
-      "slug": "technical-product-owner-voice-ai-patient-customer-roche-ch",
+      "slug": "titolare-del-prodotto-voce-ai-paziente-e-cliente-roche-basel",
       "slugByLocale": {
         "en": "technical-product-owner-voice-ai-patient-customer-roche-ch",
-        "it": "technical-product-owner-voice-ai-patient-customer-roche-ch",
+        "it": "titolare-del-prodotto-voce-ai-paziente-e-cliente-roche-basel",
         "de": "technical-product-owner-voice-ai-patient-customer-roche-ch",
-        "fr": "technical-product-owner-voice-ai-patient-customer-roche-ch"
+        "fr": "proprietaire-du-produit-technique-voix-ai-patient-client-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -95014,7 +95132,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-02T12:30:55.033Z"
+      "firstSeenAt": "2026-07-02T12:30:55.033Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-voice-ai-patient-customer-roche-ch"
+        ],
+        "fr": [
+          "technical-product-owner-voice-ai-patient-customer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-voice-ai-patient-customer-roche-ch"
+      ]
     },
     {
       "id": "roche-8228dc265726",

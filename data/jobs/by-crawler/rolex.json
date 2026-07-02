@@ -9545,8 +9545,8 @@
       "slugByLocale": {
         "fr": "operateur-polyvalent-h-f-rolex-ch",
         "it": "operatore-multiuso-m-f-rolex-fribourg",
-        "en": "operateur-polyvalent-h-f-rolex-ch",
-        "de": "operateur-polyvalent-h-f-rolex-ch"
+        "en": "multipurpose-operator-h-f-rolex-fribourg",
+        "de": "mehrzweckbetreiber-h-f-rolex-fribourg"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9604,6 +9604,12 @@
       "previousSlugsByLocale": {
         "it": [
           "operateur-polyvalent-h-f-rolex-ch"
+        ],
+        "en": [
+          "operateur-polyvalent-h-f-rolex-ch"
+        ],
+        "de": [
+          "operateur-polyvalent-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
@@ -9616,8 +9622,8 @@
       "slugByLocale": {
         "fr": "employe-de-gestion-h-f-rolex-ch",
         "it": "dipendente-della-direzione-m-f-rolex-fribourg",
-        "en": "employe-de-gestion-h-f-rolex-ch",
-        "de": "employe-de-gestion-h-f-rolex-ch"
+        "en": "management-staff-h-f-rolex-fribourg",
+        "de": "verwaltungspersonal-h-f-rolex-fribourg"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9674,6 +9680,12 @@
       "firstSeenAt": "2026-07-02T11:50:07.117Z",
       "previousSlugsByLocale": {
         "it": [
+          "employe-de-gestion-h-f-rolex-ch"
+        ],
+        "en": [
+          "employe-de-gestion-h-f-rolex-ch"
+        ],
+        "de": [
           "employe-de-gestion-h-f-rolex-ch"
         ]
       },

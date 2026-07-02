@@ -6,10 +6,10 @@
       "id": "denner-341c42113e92",
       "slug": "venditore-denner-interlaken",
       "slugByLocale": {
-        "it": "venditore-denner-interlaken",
-        "en": "seller-denner-interlaken",
+        "it": "venditore-denner-ag-interlaken-075a65",
+        "en": "seller-denner-ag-interlaken",
         "de": "verkaufer-in-denner-ag-interlaken",
-        "fr": "vendeur-denner-interlaken"
+        "fr": "vendeur-denner-ag-interlaken-075a65"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -67,7 +67,9 @@
       "crawledAt": "2026-07-02T10:53:32.937Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-interlaken"
+        "verkaufer-in-denner-interlaken",
+        "seller-denner-interlaken",
+        "vendeur-denner-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -75,10 +77,12 @@
           "verkaufer-in-denner-interlaken"
         ],
         "en": [
-          "verkaufer-in-denner-interlaken"
+          "verkaufer-in-denner-interlaken",
+          "seller-denner-interlaken"
         ],
         "fr": [
-          "verkaufer-in-denner-interlaken"
+          "verkaufer-in-denner-interlaken",
+          "vendeur-denner-interlaken"
         ]
       },
       "firstSeenAt": "2026-06-29T13:07:44.709Z",
@@ -2696,10 +2700,10 @@
       "id": "denner-c7737a26c402",
       "slug": "venditore-denner-bern",
       "slugByLocale": {
-        "it": "venditore-denner-bern",
-        "en": "seller-denner-bern",
+        "it": "venditore-denner-ag-bern",
+        "en": "seller-denner-ag-bern",
         "de": "verkaufer-in-denner-bern",
-        "fr": "vendeur-denner-bern"
+        "fr": "vendeur-denner-ag-bern"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2758,7 +2762,9 @@
       "previousSlugs": [
         "verkaufer-in-denner-4",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-bern"
+        "verkaufer-in-denner-bern",
+        "seller-denner-bern",
+        "vendeur-denner-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2766,10 +2772,12 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-bern"
+          "verkaufer-in-denner-bern",
+          "seller-denner-bern"
         ],
         "fr": [
-          "verkaufer-in-denner-bern"
+          "verkaufer-in-denner-bern",
+          "vendeur-denner-bern"
         ]
       },
       "firstSeenAt": "2026-07-01T22:07:15.543Z",

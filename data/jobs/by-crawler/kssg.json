@@ -8366,8 +8366,8 @@
       "slugByLocale": {
         "de": "med-praxisassistent-in-50-100-kssg-ch",
         "it": "assistente-medico-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "med-praxisassistent-in-50-100-kssg-ch",
-        "fr": "med-praxisassistent-in-50-100-kssg-ch"
+        "en": "med-practical-assistant-in-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "med-assistant-pratique-en-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8426,6 +8426,12 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-50-100-kssg-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-50-100-kssg-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-50-100-kssg-ch"
         ]
       },
       "previousSlugs": [
@@ -8439,7 +8445,7 @@
         "de": "study-nurse-studienkoordinator-in-60-80-kssg-ch",
         "it": "infermiere-di-studio-coordinatore-dello-studio-60-80-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
         "en": "study-nurse-studienkoordinator-in-60-80-kssg-ch",
-        "fr": "study-nurse-studienkoordinator-in-60-80-kssg-ch"
+        "fr": "infirmiere-coordonnatrice-de-l-etude-dans-60-80-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8498,6 +8504,9 @@
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-studienkoordinator-in-60-80-kssg-ch"
+        ],
+        "fr": [
+          "study-nurse-studienkoordinator-in-60-80-kssg-ch"
         ]
       },
       "previousSlugs": [
@@ -8510,8 +8519,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
         "it": "infermiere-certificato-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-        "fr": "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+        "en": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8558,6 +8567,12 @@
         "it": [
           "dipl-pflegefachfrau-mann-80-100-kssg-ch",
           "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-80-100-kssg-ch"
         ]
       },
       "previousSlugs": [

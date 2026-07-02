@@ -9,7 +9,7 @@
         "de": "working-student-sic-operations-six-group-zurich",
         "it": "operazioni-sic-per-studenti-lavoratori-60-70-six-group-zurich",
         "en": "working-student-sic-operations-six-group-zurich",
-        "fr": "working-student-sic-operations-60-70-six-group-zurich"
+        "fr": "exploitation-des-sic-des-etudiants-en-travail-60-70-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -67,6 +67,9 @@
       "firstSeenAt": "2026-07-02T11:59:13.308Z",
       "previousSlugsByLocale": {
         "it": [
+          "working-student-sic-operations-60-70-six-group-zurich"
+        ],
+        "fr": [
           "working-student-sic-operations-60-70-six-group-zurich"
         ]
       },
@@ -6864,8 +6867,8 @@
       "slugByLocale": {
         "en": "system-controller-six-group-madrid",
         "it": "controller-di-sistema-six-group-madrid",
-        "de": "system-controller-six-group-madrid",
-        "fr": "system-controller-six-group-madrid"
+        "de": "systemcontroller-six-group-madrid",
+        "fr": "controleur-systeme-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6923,6 +6926,12 @@
       "firstSeenAt": "2026-07-02T11:58:06.556Z",
       "previousSlugsByLocale": {
         "it": [
+          "system-controller-six-group-madrid"
+        ],
+        "de": [
+          "system-controller-six-group-madrid"
+        ],
+        "fr": [
           "system-controller-six-group-madrid"
         ]
       },

@@ -63,8 +63,8 @@
       },
       "slugByLocale": {
         "it": "aiuto-versatile-societe-cooperative-migros-neuchatel-fribourg-avenches",
-        "en": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi",
-        "de": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi",
+        "en": "multipurpose-assistance-societe-cooperative-migros-neuchatel-fribourg-avenches",
+        "de": "mehrzweckhilfe-societe-cooperative-migros-neuchatel-fribourg-avenches",
         "fr": "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi"
       },
       "requirementsByLocale": {
@@ -85,6 +85,12 @@
       "previousSlugsByLocale": {
         "it": [
           "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches",
+          "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi"
+        ],
+        "en": [
+          "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi"
+        ],
+        "de": [
           "aide-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-avenches-2q24yi"
         ]
       },
@@ -172,9 +178,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-ag-stein-ag",
-        "en": "verkaufer-in-denner-ag-stein-ag",
+        "en": "seller-denner-ag-stein-ag",
         "de": "verkaufer-in-denner-ag-stein-ag",
-        "fr": "verkaufer-in-denner-ag-stein-ag"
+        "fr": "vendeur-denner-ag-stein-ag"
       },
       "requirementsByLocale": {
         "it": [],
@@ -196,13 +202,15 @@
           "verkaufer-in-denner-ag-stein-ag"
         ],
         "en": [
-          "verkaufer-in-denner-ag-stein-ag-ach2e5"
+          "verkaufer-in-denner-ag-stein-ag-ach2e5",
+          "verkaufer-in-denner-ag-stein-ag"
         ],
         "de": [
           "verkaufer-in-denner-ag-stein-ag-ach2e5"
         ],
         "fr": [
-          "verkaufer-in-denner-ag-stein-ag-ach2e5"
+          "verkaufer-in-denner-ag-stein-ag-ach2e5",
+          "verkaufer-in-denner-ag-stein-ag"
         ]
       },
       "previousSlugs": [
@@ -289,9 +297,9 @@
       },
       "slugByLocale": {
         "it": "venditore-con-salario-orario-denner-ag-stein-ag",
-        "en": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc",
+        "en": "seller-in-the-hourly-wage-denner-ag-stein-ag",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc",
-        "fr": "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-stein-ag"
       },
       "requirementsByLocale": {
         "it": [],
@@ -310,6 +318,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-stein-ag",
+          "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc"
+        ],
+        "fr": [
           "verkaufer-in-im-stundenlohn-denner-ag-stein-ag-wnd0cc"
         ]
       },
@@ -491,9 +505,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-assistenza-genossenschaft-migros-ostschweiz-gossau",
-        "en": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
+        "en": "service-technician-genossenschaft-migros-ostschweiz-gossau",
         "de": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
-        "fr": "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and"
+        "fr": "technicien-des-services-genossenschaft-migros-ostschweiz-gossau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -512,6 +526,12 @@
         "it": [
           "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and",
           "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau"
+        ],
+        "en": [
+          "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and"
+        ],
+        "fr": [
+          "servicetechniker-in-genossenschaft-migros-ostschweiz-gossau-hs7and"
         ]
       },
       "previousSlugs": [
@@ -692,9 +712,9 @@
       },
       "slugByLocale": {
         "it": "capo-dei-servizi-genossenschaft-migros-ostschweiz-winterthur",
-        "en": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt",
+        "en": "division-manager-in-services-services-genossenschaft-migros-ostschweiz-winterthur",
         "de": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt",
-        "fr": "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt"
+        "fr": "gestionnaire-de-division-des-services-genossenschaft-migros-ostschweiz-winterthur"
       },
       "requirementsByLocale": {
         "it": [],
@@ -710,6 +730,12 @@
       "previousSlugsByLocale": {
         "it": [
           "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur",
+          "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt"
+        ],
+        "en": [
+          "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt"
+        ],
+        "fr": [
           "bereichsleiter-in-dienste-services-genossenschaft-migros-ostschweiz-winterthur-8vmolt"
         ]
       },
@@ -791,9 +817,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur-flu9nx",
-        "en": "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur-flu9nx",
+        "en": "employee-customer-service-genossenschaft-migros-ostschweiz-winterthur",
         "de": "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur-flu9nx",
-        "fr": "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur-flu9nx"
+        "fr": "service-aux-employes-clients-genossenschaft-migros-ostschweiz-winterthur"
       },
       "requirementsByLocale": {
         "it": [],
@@ -811,10 +837,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur"
+        ],
+        "en": [
+          "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur-flu9nx"
+        ],
+        "fr": [
+          "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur-flu9nx"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur"
+        "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur",
+        "mitarbeiter-in-kasse-kundendienst-genossenschaft-migros-ostschweiz-winterthur-flu9nx"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1093,9 +1126,9 @@
       },
       "slugByLocale": {
         "it": "magaziner-in-collaboratore-trice-in-food-genossenschaft-migros-aare-bremgarten-m1sjlg",
-        "en": "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten-m1sjlg",
+        "en": "magazine-employee-food-genossenschaft-migros-aare-bremgarten",
         "de": "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten-m1sjlg",
-        "fr": "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten-m1sjlg"
+        "fr": "magazine-employe-alimentation-genossenschaft-migros-aare-bremgarten"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1114,10 +1147,17 @@
       "previousSlugsByLocale": {
         "it": [
           "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten"
+        ],
+        "en": [
+          "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten-m1sjlg"
+        ],
+        "fr": [
+          "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten-m1sjlg"
         ]
       },
       "previousSlugs": [
-        "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten"
+        "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten",
+        "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-bremgarten-m1sjlg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1194,9 +1234,9 @@
       },
       "slugByLocale": {
         "it": "consulenti-per-clienti-privati-tutti-migros-bank-frauenfeld",
-        "en": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1",
+        "en": "private-client-advisors-all-migros-bank-frauenfeld",
         "de": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1",
-        "fr": "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1"
+        "fr": "conseillers-clients-prives-tous-migros-bank-frauenfeld"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1215,6 +1255,12 @@
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-alle-migros-bank-frauenfeld",
+          "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1"
+        ],
+        "en": [
+          "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1"
+        ],
+        "fr": [
           "privatkundenberater-alle-migros-bank-frauenfeld-veiyu1"
         ]
       },
@@ -1297,9 +1343,9 @@
       },
       "slugByLocale": {
         "it": "psychotherapeut-in-weiterbildung-psycholog-in-im-2-o-3-weiterbildungsjahr-wepractice-bern-82lh82",
-        "en": "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern-82lh82",
+        "en": "psychotherapist-in-further-education-psychologist-in-the-2nd-or-3-cvt-year-wepractice-bern",
         "de": "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern-82lh82",
-        "fr": "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern-82lh82"
+        "fr": "psychotherapeute-en-formation-continue-psychologue-au-2e-ou-3-annee-wepractice-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1318,10 +1364,17 @@
       "previousSlugsByLocale": {
         "it": [
           "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern"
+        ],
+        "en": [
+          "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern-82lh82"
+        ],
+        "fr": [
+          "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern-82lh82"
         ]
       },
       "previousSlugs": [
-        "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern"
+        "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern",
+        "psychotherapeut-in-weiterbildung-psycholog-in-im-2-oder-3-weiterbildungsjahr-wepractice-bern-82lh82"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1401,9 +1454,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf-qzb8hr",
-        "en": "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf-qzb8hr",
+        "en": "employee-in-food-warehouse-management-genossenschaft-migros-zurich-regensdorf",
         "de": "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf-qzb8hr",
-        "fr": "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf-qzb8hr"
+        "fr": "employe-en-gestion-des-aliments-et-des-entrepots-genossenschaft-migros-zurich-regensdorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1422,10 +1475,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf"
+        ],
+        "en": [
+          "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf-qzb8hr"
+        ],
+        "fr": [
+          "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf-qzb8hr"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf"
+        "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf",
+        "mitarbeiter-in-food-lagerbewirtschaftung-genossenschaft-migros-zurich-regensdorf-qzb8hr"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1504,9 +1564,9 @@
       },
       "slugByLocale": {
         "it": "meccanico-di-carrello-elevatore-genossenschaft-migros-zurich-zurich",
-        "en": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
+        "en": "forklift-mechanic-genossenschaft-migros-zurich-zurich",
         "de": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
-        "fr": "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
+        "fr": "mecanicien-du-chariot-elevateur-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1525,6 +1585,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stapler-mechaniker-in-genossenschaft-migros-zurich",
+          "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
+        ],
+        "en": [
+          "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
+        ],
+        "fr": [
           "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
         ]
       },
@@ -1606,9 +1672,9 @@
       },
       "slugByLocale": {
         "it": "venditore-fresco-genossenschaft-migros-ostschweiz-uzwil",
-        "en": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
+        "en": "seller-in-freshness-genossenschaft-migros-ostschweiz-uzwil",
         "de": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
-        "fr": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c"
+        "fr": "vendeur-en-fraicheur-genossenschaft-migros-ostschweiz-uzwil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1625,6 +1691,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil",
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c"
+        ],
+        "en": [
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c"
+        ],
+        "fr": [
           "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c"
         ]
       },
@@ -1711,7 +1783,7 @@
         "it": "istruttore-di-fitness-f-m-d-activ-fitness-thun-8906b5",
         "en": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s",
         "de": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s",
-        "fr": "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s"
+        "fr": "instructeur-de-fitness-f-m-d-activ-fitness-thun-8906b5"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1732,6 +1804,9 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-thun",
+          "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s"
+        ],
+        "fr": [
           "fitness-instructor-m-w-d-activ-fitness-thun-6u8n9s"
         ]
       },
@@ -1818,9 +1893,9 @@
       },
       "slugByLocale": {
         "it": "capo-squadra-logistica-pezzi-di-grandi-dimensioni-f-m-d-galaxus-wohlen",
-        "en": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b",
+        "en": "teamleader-large-parts-logistics-f-m-d-galaxus-wohlen",
         "de": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b",
-        "fr": "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b"
+        "fr": "chef-d-equipe-galaxus-wohlen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1839,6 +1914,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen",
+          "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b"
+        ],
+        "en": [
+          "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b"
+        ],
+        "fr": [
           "teamleader-grossteile-logistik-m-w-d-galaxus-wohlen-0zav0b"
         ]
       },
@@ -1932,7 +2013,7 @@
         "it": "responsabile-comunicazione-m-f-d-fitnesspark-oerlikon",
         "en": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg",
         "de": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg",
-        "fr": "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg"
+        "fr": "gestionnaire-des-communications-m-f-d-fitnesspark-oerlikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1951,6 +2032,9 @@
       "previousSlugsByLocale": {
         "it": [
           "communications-manager-m-w-d-fitnesspark-oerlikon",
+          "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg"
+        ],
+        "fr": [
           "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg"
         ]
       },
@@ -2151,7 +2235,7 @@
         "it": "responsabile-comunicazione-m-f-d-activ-fitness-zurich",
         "en": "communications-manager-m-w-d-activ-fitness-zurich-8px27z",
         "de": "communications-manager-m-w-d-activ-fitness-zurich-8px27z",
-        "fr": "communications-manager-m-w-d-activ-fitness-zurich-8px27z"
+        "fr": "gestionnaire-des-communications-m-f-d-activ-fitness-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -2170,6 +2254,9 @@
       "previousSlugsByLocale": {
         "it": [
           "communications-manager-m-w-d-activ-fitness-zurich",
+          "communications-manager-m-w-d-activ-fitness-zurich-8px27z"
+        ],
+        "fr": [
           "communications-manager-m-w-d-activ-fitness-zurich-8px27z"
         ]
       },
@@ -2245,9 +2332,9 @@
       "firstSeenAt": "2026-07-02T12:16:59.926Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld-008421",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld-008421"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -2294,14 +2381,12 @@
       "postalCode": "8500",
       "country": "CH",
       "previousSlugs": [
+        "venditore-denner-ag-rubigen",
+        "seller-denner-ag-frauenfeld-008421",
+        "vendeur-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-ag-rubigen-1remei",
         "verkaufer-in-denner-ag-rubigen",
         "venditore-denner-ag-frauenfeld-m4pjdx",
-        "seller-denner-ag-frauenfeld",
-        "verkaufer-in-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld",
-        "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421",
         "venditore-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-ag-gossau-sg-66bf93",
@@ -2312,18 +2397,17 @@
         "verkaufer-in-denner-ag-zurich",
         "vendeur-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
-        "seller-denner-ag-zurich",
-        "vendeur-denner-ag-zurich-e89fe9"
+        "seller-denner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "venditore-denner-ag-rubigen"
         ],
         "en": [
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld-008421"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld-008421"
         ]
       }
     },
@@ -6389,9 +6473,7 @@
         "vendeur-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
-        "vendeur-denner-ag-zurich-e89fe9",
-        "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421"
+        "vendeur-denner-ag-zurich-e89fe9"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6539,10 +6621,7 @@
         "verkaufer-in-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-7kk8ni",
         "seller-denner-ag-zurich-1d38ef",
-        "vendeur-denner-ag-zurich",
-        "venditore-denner-ag-zurich-e89fe9",
-        "seller-denner-ag-zurich",
-        "vendeur-denner-ag-zurich-e89fe9"
+        "vendeur-denner-ag-zurich"
       ]
     },
     {
@@ -10550,7 +10629,6 @@
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "vendeur-denner-ag-langenthal-d47c8f",
         "venditore-denner-ag-interlaken-c59906",
-        "venditore-denner-ag-interlaken",
         "verkaufer-in-denner-ag-gossau-sg-66bf93"
       ],
       "salaryMin": 68500,
@@ -16432,7 +16510,6 @@
         "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
         "venditore-denner-ag-allschwil-5b4844",
         "salesperson-denner-ag-langenthal",
-        "venditore-denner-ag-wattwil",
         "venditore-denner-ag-sulgen"
       ]
     },
@@ -61726,7 +61803,6 @@
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
-        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur"
       ],
       "salaryMin": 57500,
@@ -66042,8 +66118,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -110988,7 +111063,7 @@
       },
       "slugByLocale": {
         "it": "insegnante-di-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-6m2b7n",
-        "en": "lehrperson-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-6m2b7n",
+        "en": "teacher-tai-chi-chuan-f-m-d-club-school-rapperswil-klubschule-migros-rapperswil",
         "de": "lehrperson-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-6m2b7n",
         "fr": "instructeur-trice-de-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-6m2b7n"
       },
@@ -110996,10 +111071,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil"
+        ],
+        "en": [
+          "lehrperson-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-6m2b7n"
         ]
       },
       "previousSlugs": [
-        "lehrperson-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil"
+        "lehrperson-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil",
+        "lehrperson-tai-chi-chuan-m-w-d-klubschule-rapperswil-klubschule-migros-rapperswil-6m2b7n"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

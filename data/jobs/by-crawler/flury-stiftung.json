@@ -1709,8 +1709,8 @@
       "slugByLocale": {
         "de": "hebamme-100-flury-stiftung-ch",
         "it": "ostetrica-al-100-flury-stiftung-schiers",
-        "en": "hebamme-100-flury-stiftung-ch",
-        "fr": "hebamme-100-flury-stiftung-ch"
+        "en": "midwife-100-flury-stiftung-schiers",
+        "fr": "mere-100-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1772,6 +1772,12 @@
       "firstSeenAt": "2026-07-02T11:08:39.115Z",
       "previousSlugsByLocale": {
         "it": [
+          "hebamme-100-flury-stiftung-ch"
+        ],
+        "en": [
+          "hebamme-100-flury-stiftung-ch"
+        ],
+        "fr": [
           "hebamme-100-flury-stiftung-ch"
         ]
       },

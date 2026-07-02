@@ -22395,8 +22395,8 @@
       "slugByLocale": {
         "en": "packaging-welding-worker-sulzer-ch",
         "it": "operaio-per-imballaggi-e-saldatura-sulzer-suzhou",
-        "de": "packaging-welding-worker-sulzer-ch",
-        "fr": "packaging-welding-worker-sulzer-ch"
+        "de": "verpackungs-und-schwei-arbeiter-sulzer-suzhou",
+        "fr": "travailleur-d-emballage-et-de-soudage-sulzer-suzhou"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22455,6 +22455,12 @@
       "previousSlugsByLocale": {
         "it": [
           "packaging-welding-worker-sulzer-ch"
+        ],
+        "de": [
+          "packaging-welding-worker-sulzer-ch"
+        ],
+        "fr": [
+          "packaging-welding-worker-sulzer-ch"
         ]
       },
       "previousSlugs": [
@@ -22468,7 +22474,7 @@
         "en": "wibu-korea-sales-manager-2025-q3-sulzer-ch",
         "it": "wibu-korea-sales-manager-2025-q3-sulzer-ch",
         "de": "wibu-korea-sales-manager-2025-q3-sulzer-ch",
-        "fr": "wibu-korea-sales-manager-2025-q3-sulzer-ch"
+        "fr": "wibu-coree-directeur-des-ventes-2025-q3-sulzer-seoul"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22527,10 +22533,10 @@
     },
     {
       "id": "sulzer-92740909d3d4",
-      "slug": "mechanical-design-technician-sulzer-ch",
+      "slug": "tecnica-di-progettazione-meccanica-sulzer-wexford",
       "slugByLocale": {
         "en": "mechanical-design-technician-sulzer-ch",
-        "it": "mechanical-design-technician-sulzer-ch",
+        "it": "tecnica-di-progettazione-meccanica-sulzer-wexford",
         "de": "mechanical-design-technician-sulzer-ch",
         "fr": "mechanical-design-technician-sulzer-ch"
       },
@@ -22587,7 +22593,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-02T12:13:34.643Z"
+      "firstSeenAt": "2026-07-02T12:13:34.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-design-technician-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-design-technician-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-7f9d73ed50bc",

@@ -509,8 +509,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
         "it": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
-        "en": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch"
+        "en": "professional-health-efz-fage-kantonale-verwaltung-graubunden-cazis",
+        "fr": "sante-professionnelle-efz-fage-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -578,8 +578,8 @@
       "slugByLocale": {
         "de": "sozialarbeiter-in-kanton-gr-ch",
         "it": "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
-        "en": "sozialarbeiter-in-kanton-gr-ch",
-        "fr": "sozialarbeiter-in-kanton-gr-ch"
+        "en": "social-worker-in-kantonale-verwaltung-graubunden-cazis",
+        "fr": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -642,6 +642,12 @@
       "firstSeenAt": "2026-07-02T11:34:14.555Z",
       "previousSlugsByLocale": {
         "it": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ],
+        "fr": [
           "sozialarbeiter-in-kanton-gr-ch"
         ]
       },
@@ -809,8 +815,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-administration-kanton-gr-ch",
         "it": "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-ilanz",
-        "en": "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz",
-        "fr": "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
+        "en": "employee-in-administration-kantonale-verwaltung-graubunden-ilanz",
+        "fr": "employe-en-administration-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -860,10 +866,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-administration-kanton-gr-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
+        ],
+        "fr": [
+          "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-administration-kanton-gr-ch"
+        "mitarbeiter-in-administration-kanton-gr-ch",
+        "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -885,7 +898,7 @@
       "slug": "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
         "de": "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "it": "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
+        "it": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
         "en": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
         "fr": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
       },
@@ -936,13 +949,11 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-          "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
+          "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
-        "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
+        "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

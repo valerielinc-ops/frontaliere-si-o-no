@@ -16138,8 +16138,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-aarau",
         "it": "mitarbeiterin-collaboratore-trice-guest-relations-a-70-hirslanden-klinik-aarau",
-        "en": "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-aarau",
-        "fr": "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-aarau"
+        "en": "employee-guest-relations-a-70-hirslanden-klinik-aarau",
+        "fr": "relations-entre-employes-et-clients-a-70-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -16184,6 +16184,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-aarau"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-aarau"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-guest-relations-a-70-hirslanden-aarau"
         ]
       },
@@ -33969,8 +33975,8 @@
       "slugByLocale": {
         "de": "stv-leiterin-leiter-a-wochenbett-und-gemischt-chirurgisch-gynakologische-abteilung-80-100",
         "it": "stv-leiterin-leiter-a-wochenbett-e-gemischt-chirurgisch-gynakologische-abteilung-80-100-hirslanden-klinik-bern-besetzung-per-nach-vereinbarung-anstellungsart-unbefristet-referenznu",
-        "en": "stv-leiterin-leiter-a-wochenbett-und-gemischt-chirurgisch-gynakologische-abteilung-80-100",
-        "fr": "stv-leiterin-leiter-a-wochenbett-und-gemischt-chirurgisch-gynakologische-abteilung-80-100"
+        "en": "stv-head-head-a-postpartum-and-mixed-surgical-gynecological-department-80-100-hirslanden-klinik-ticino",
+        "fr": "stv-tete-tete-a-postpartum-et-departement-chirurgical-gynecologique-mixte-80-100-hirslanden-klinik-ticino"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -34016,6 +34022,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-leiterin-leiter-a-wochenbett-und-gemischt-chirurgisch-gynakologische-abteilung-80-100"
+        ],
+        "en": [
+          "stv-leiterin-leiter-a-wochenbett-und-gemischt-chirurgisch-gynakologische-abteilung-80-100"
+        ],
+        "fr": [
+          "stv-leiterin-leiter-a-wochenbett-und-gemischt-chirurgisch-gynakologische-abteilung-80-100"
         ]
       },
       "previousSlugs": [
@@ -34040,9 +34052,9 @@
       "slug": "assistente-infermieristico-a-80-100-hirslanden-klinik-ticino",
       "slugByLocale": {
         "de": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder",
-        "it": "assistente-infermieristico-a-80-100-hirslanden-klinik-ticino",
-        "en": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder",
-        "fr": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder"
+        "it": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-klinik-bern-besetzung-per-sofort-oder-nach-vereinbarung-anstellungsart-unbefristet-referenznummer-71711",
+        "en": "nursing-assistant-a-80-100-hirslanden-klinik-ticino-a8fa64",
+        "fr": "assistant-infirmier-a-80-100-hirslanden-klinik-ticino-a8fa64"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -34087,13 +34099,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder",
-          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-klinik-bern-besetzung-per-sofort-oder-nach-vereinbarung-anstellungsart-unbefristet-referenznummer-71711"
+          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder"
+        ],
+        "fr": [
+          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder"
         ]
       },
       "previousSlugs": [
-        "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder",
-        "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-klinik-bern-besetzung-per-sofort-oder-nach-vereinbarung-anstellungsart-unbefristet-referenznummer-71711"
+        "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-bern-besetzung-per-per-sofort-oder"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

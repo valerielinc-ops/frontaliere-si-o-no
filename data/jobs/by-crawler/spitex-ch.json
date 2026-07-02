@@ -1694,8 +1694,8 @@
       "slugByLocale": {
         "de": "pflegehelfer-in-40-80-spitex-ch-liestal",
         "it": "assistente-infermieristico-40-80-spitex-regio-liestal-liestal",
-        "en": "pflegehelfer-in-40-80-spitex-ch-liestal",
-        "fr": "pflegehelfer-in-40-80-spitex-ch-liestal"
+        "en": "nursing-assistant-40-80-spitex-regio-liestal-liestal",
+        "fr": "assistant-infirmier-40-80-spitex-regio-liestal-liestal"
       },
       "company": "Spitex Regio Liestal",
       "companyKey": "spitex-ch",
@@ -1754,6 +1754,12 @@
       "firstSeenAt": "2026-07-02T12:12:48.348Z",
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelfer-in-40-80-spitex-ch-liestal"
+        ],
+        "en": [
+          "pflegehelfer-in-40-80-spitex-ch-liestal"
+        ],
+        "fr": [
           "pflegehelfer-in-40-80-spitex-ch-liestal"
         ]
       },

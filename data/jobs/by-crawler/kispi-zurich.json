@@ -670,8 +670,8 @@
       "slugByLocale": {
         "de": "padagogische-mitarbeiterin-spitalschule-m-w-50-60-kispi-zurich-zurich",
         "it": "scuola-ospedaliera-pedagogica-assistente-m-f-50-60-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "padagogische-mitarbeiterin-spitalschule-m-w-50-60-kispi-zurich-zurich",
-        "fr": "padagogische-mitarbeiterin-spitalschule-m-w-50-60-kispi-zurich-zurich"
+        "en": "pedagogical-staff-member-hospitalschule-m-f-50-60-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "personnel-pedagogique-hospitalschule-m-f-50-60-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -729,6 +729,12 @@
       "firstSeenAt": "2026-07-02T11:18:09.814Z",
       "previousSlugsByLocale": {
         "it": [
+          "padagogische-mitarbeiterin-spitalschule-m-w-50-60-kispi-zurich-zurich"
+        ],
+        "en": [
+          "padagogische-mitarbeiterin-spitalschule-m-w-50-60-kispi-zurich-zurich"
+        ],
+        "fr": [
           "padagogische-mitarbeiterin-spitalschule-m-w-50-60-kispi-zurich-zurich"
         ]
       },

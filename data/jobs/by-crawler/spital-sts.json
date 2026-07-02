@@ -611,8 +611,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun",
         "it": "oberarztin-oberarzt-o-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun",
-        "en": "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun",
-        "fr": "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
+        "en": "senior-physician-senior-physician-or-hospital-specialist-hospital-specialist-anesthesia-spital-sts-thun",
+        "fr": "medecin-principal-medecin-principal-ou-specialiste-de-l-hopital-anesthesie-specialiste-de-l-hopital-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -657,6 +657,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
+        ],
+        "fr": [
           "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
         ]
       },

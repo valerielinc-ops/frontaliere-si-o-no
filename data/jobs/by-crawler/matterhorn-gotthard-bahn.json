@@ -405,8 +405,8 @@
       "slugByLocale": {
         "de": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-        "en": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        "en": "specialist-road-surface-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "fr": "surface-routiere-specialisee-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -483,6 +483,12 @@
       "firstSeenAt": "2026-07-02T11:38:46.882Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
@@ -597,8 +603,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "installatore-trice-elettrico-a-m-w-d-matterhorn-gotthard-bahn-andermatt-sedrun",
-        "en": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+        "en": "electrical-installer-m-f-d-matterhorn-gotthard-bahn-andermatt-sedrun",
+        "fr": "installateur-electrique-m-f-d-matterhorn-gotthard-bahn-andermatt-sedrun"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -663,6 +669,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "elektroinstallateur-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
