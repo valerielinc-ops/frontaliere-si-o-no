@@ -58,17 +58,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://frontaliereticino.ch';
 
-// Mirrors ARTICLE_SECTION_CONFIGS.frontaliere.hubSlug in create-article.mjs
-// (journalist articles are always registered into the default 'frontaliere'
-// section — this script never passes --section, so create-article.mjs's own
-// module-scope SECTION resolves to 'frontaliere' too).
-const HUB_SLUG = {
-  it: 'articoli-frontaliere',
-  en: 'cross-border-articles',
-  de: 'grenzgaenger-artikel',
-  fr: 'articles-frontalier',
-};
-
 // Mirrors the (unexported) CATEGORIES list in create-article.mjs. The client
 // (services/journalistTypes.ts JOURNALIST_ARTICLE_CATEGORIES) already
 // constrains submissions to this same set — this is a defensive re-check only.
@@ -224,14 +213,6 @@ async function resolveHeroImage(data, doc) {
   return { source: 'static-fallback', path: data.image };
 }
 
-function buildPublishedUrls(data) {
-  const out = {};
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    if (data.slugs[locale]) out[locale] = `${BASE_URL}/${HUB_SLUG[locale]}/${data.slugs[locale]}/`;
-  }
-  return out;
-}
-
 /** Best-effort "your article is live" email — never throws. */
 async function sendPublishedEmail(doc, publishedUrls) {
   try {
@@ -332,14 +313,16 @@ async function processDoc(db, FieldValue, docSnap) {
     enforceStrongInternalLinks(data);
 
     console.log('  📂 registering article files (registerArticleFiles)...');
-    // registerArticleFiles() derives + sanitizes data.slugs itself (given
-    // only data.slugs.it above) and returns the finalized value — consume it
-    // directly instead of re-deriving locale slugs here (issue #3209 item 1:
-    // a separate copy of that logic would drift as registerArticleFiles()'s
-    // own derivation evolves, producing wrong canonicals/404s).
-    const { slugs } = await registerArticleFiles(data);
+    // registerArticleFiles() derives + sanitizes data.slugs AND builds the
+    // final publishedUrls itself — consume both directly instead of
+    // re-deriving them here (issue #3209 item 1: a separate copy of either
+    // would drift as registerArticleFiles()'s own logic evolves, producing
+    // wrong canonicals/404s; the removed local buildPublishedUrls() copy had
+    // in fact already drifted — it omitted the /en //de //fr locale prefix
+    // the router actually uses, producing wrong links in this "article is
+    // live" email/Firestore field).
+    const { slugs, publishedUrls } = await registerArticleFiles(data);
 
-    const publishedUrls = buildPublishedUrls(data);
     await docSnap.ref.update({
       status: 'published',
       publishedAt: FieldValue.serverTimestamp(),
@@ -398,4 +381,4 @@ if (invokedDirectly) {
   });
 }
 
-export { buildPipelineData, buildPublishedUrls, slugify, resolveHeroImage };
+export { buildPipelineData, slugify, resolveHeroImage };

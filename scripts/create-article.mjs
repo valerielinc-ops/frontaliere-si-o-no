@@ -5065,13 +5065,7 @@ function validate(data, opts = {}) {
 
   // Synthesize id from the Italian title if the model omitted it.
   if (!data.id) {
-    const generatedId = String(itContent.title)
-      .toLowerCase()
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '')
-      .slice(0, 80);
+    const generatedId = slugifySlugPart(itContent.title);
     if (!generatedId) {
       throw new Error(`Campo mancante nella risposta AI: id (impossibile sintetizzare dal titolo "${itContent.title}")`);
     }
@@ -5122,8 +5116,7 @@ function validate(data, opts = {}) {
     if (!data.slugs[locale]) {
       const title = String(data.content[locale]?.title || '');
       if (title) {
-        const generated = title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-          .replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
+        const generated = slugifySlugPart(title);
         if (generated) {
           data.slugs[locale] = generated;
           console.warn(`  ⚠️  Slug ${locale} mancante, generato dal titolo: "${generated}"`);
@@ -5181,10 +5174,7 @@ function validate(data, opts = {}) {
     if (!data.slugs[locale]) {
       // Fallback: use the translated title if available, otherwise the IT slug
       const title = String(data.content[locale]?.title || data.content.it?.title || '');
-      const fallback = title
-        ? title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-            .replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80)
-        : data.slugs.it;
+      const fallback = title ? slugifySlugPart(title) : data.slugs.it;
       if (fallback) {
         data.slugs[locale] = fallback;
         console.warn(`  ⚠️  Slug ${locale} mancante, generato come fallback: "${fallback}"`);
@@ -8970,6 +8960,31 @@ export function deriveAndSanitizeArticleSlugs(data) {
 }
 
 /**
+ * Final published URL per locale for an already-slugged article, following
+ * the same `${prefix}/${hub[locale]}/${slug}/` convention router.ts's
+ * buildPath() uses for the blog route (IT has no locale prefix; en/de/fr
+ * are `/en`/`/de`/`/fr` — see buildSectionSitemapUrls() above for the
+ * identical hreflang-link construction). Single source of truth so callers
+ * (e.g. scripts/publish-journalist-article.mjs) can't hand-roll their own
+ * copy and silently drop the locale prefix (issue #3209 item 1 — the
+ * removed duplicate in publish-journalist-article.mjs did exactly that,
+ * producing wrong /en //de //fr links in the "your article is live" email).
+ *
+ * @param {object} data — requires data.slugs already finalized
+ * @returns {Record<string, string>}
+ */
+export function buildArticlePublishedUrls(data) {
+  const hub = SECTION.hubSlug;
+  const out = {};
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (!data.slugs[locale]) continue;
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    out[locale] = `${BASE_URL}${prefix}/${hub[locale]}/${data.slugs[locale]}/`;
+  }
+  return out;
+}
+
+/**
  * Reuse the article registration pipeline from another script (e.g. the events
  * weekend-digest generator or the journalist publish pipeline) WITHOUT going
  * through the AI generation path. Takes a fully-built `data` object (same
@@ -8984,11 +8999,13 @@ export function deriveAndSanitizeArticleSlugs(data) {
  * Derives/sanitizes `data.slugs` via `deriveAndSanitizeArticleSlugs()` before
  * writing anything, so callers may pass partially-populated slugs (or none
  * beyond `it`) and consume the finalized value from the return (issue #3209
- * item 1) instead of re-implementing the derivation themselves.
+ * item 1) instead of re-implementing the derivation themselves. Also returns
+ * `publishedUrls` (via `buildArticlePublishedUrls()`) so callers don't
+ * re-derive final URLs with their own (drift-prone) locale-prefix logic.
  *
  * @param {object} data
  * @param {{ skipRss?: boolean, skipNews?: boolean }} [opts]
- * @returns {Promise<{ slugs: Record<string, string> }>}
+ * @returns {Promise<{ slugs: Record<string, string>, publishedUrls: Record<string, string> }>}
  */
 export async function registerArticleFiles(data, opts = {}) {
   if (!data || !data.id || !data.content?.it?.title) {
@@ -9014,7 +9031,8 @@ export async function registerArticleFiles(data, opts = {}) {
   if (!opts.skipRss) {
     execSync('node scripts/generate-rss-feeds.mjs', { stdio: 'inherit', cwd: PROJECT_ROOT });
   }
-  return { slugs };
+  const publishedUrls = buildArticlePublishedUrls(data);
+  return { slugs, publishedUrls };
 }
 
 /** True when an article id is already registered in any section. */

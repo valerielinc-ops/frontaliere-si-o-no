@@ -111,6 +111,46 @@ describe('publish-journalist-article.mjs slug handling (issue #3209 item 1)', ()
   });
 
   it('consumes the slugs returned by registerArticleFiles() rather than data.slugs set beforehand', () => {
-    expect(src).toMatch(/const\s*\{\s*slugs\s*\}\s*=\s*await registerArticleFiles\(data\)/);
+    expect(src).toMatch(/const\s*\{\s*slugs\s*,\s*publishedUrls\s*\}\s*=\s*await registerArticleFiles\(data\)/);
+  });
+
+  it('does not re-implement its own published-URL builder anymore', () => {
+    // Regression guard: this duplicate (`function buildPublishedUrls`) used to
+    // hand-roll `${BASE_URL}/${HUB_SLUG[locale]}/${slug}/` WITHOUT the
+    // /en //de //fr locale prefix router.ts's buildPath() actually uses for
+    // non-IT locales — producing wrong links in the "your article is live"
+    // email/Firestore field. It must now consume registerArticleFiles()'s
+    // returned publishedUrls instead (built by the shared
+    // buildArticlePublishedUrls(), which does apply the prefix).
+    expect(src).not.toMatch(/function\s+buildPublishedUrls/);
+    expect(src).not.toMatch(/\bHUB_SLUG\b/);
+  });
+});
+
+describe('buildArticlePublishedUrls (issue #3209 item 1)', () => {
+  it('applies the /en //de //fr locale prefix router.ts uses, and none for it', async () => {
+    const { buildArticlePublishedUrls } = await import('../scripts/create-article.mjs');
+    const data = {
+      slugs: {
+        it: 'nuova-legge-frontalieri',
+        en: 'new-cross-border-law',
+        de: 'neues-grenzgangergesetz',
+        fr: 'nouvelle-loi-frontaliere',
+      },
+    };
+
+    const urls = buildArticlePublishedUrls(data);
+
+    expect(urls.it).toBe('https://frontaliereticino.ch/articoli-frontaliere/nuova-legge-frontalieri/');
+    expect(urls.en).toBe('https://frontaliereticino.ch/en/cross-border-articles/new-cross-border-law/');
+    expect(urls.de).toBe('https://frontaliereticino.ch/de/grenzgaenger-artikel/neues-grenzgangergesetz/');
+    expect(urls.fr).toBe('https://frontaliereticino.ch/fr/articles-frontalier/nouvelle-loi-frontaliere/');
+  });
+
+  it('omits a locale entirely when its slug is not set', async () => {
+    const { buildArticlePublishedUrls } = await import('../scripts/create-article.mjs');
+    const urls = buildArticlePublishedUrls({ slugs: { it: 'solo-italiano' } });
+
+    expect(Object.keys(urls)).toEqual(['it']);
   });
 });
