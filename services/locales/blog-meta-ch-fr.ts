@@ -823,6 +823,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.quanto-costa-vivere-lugano-frontaliere.title': 'Combien coûte la vie à Lugano en tant que navetteur transfrontalier ?',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.excerpt': 'Analyse détaillée des coûts réels pour un navetteur transfrontalier en envisageant le transfert vers Lugano.',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Évaluer sa résidence en Italie ou Suisse en 2026',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'Guide pratique pour évaluer les coûts, les temps de déplacement, la santé et la fiscalité entre l\'Italie et la Suisse en 2026.',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Personne évaluant la résidence en Italie ou en Suisse avec des cartes et des documents fiscaux',
 };
 
 export default blogMetaChFr;

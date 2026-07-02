@@ -823,6 +823,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.quanto-costa-vivere-lugano-frontaliere.title': 'How much does it cost to live in Lugano as a cross-border commuter?',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.excerpt': 'Detailed analysis of the real costs for a cross-border commuter considering the transfer to Lugano.',
     'blog.article.quanto-costa-vivere-lugano-frontaliere.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Evaluating Residency in Italy or Switzerland 2026',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'A practical guide to assessing costs, travel times, healthcare and taxation between Italy and Switzerland in 2026.',
+    'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Person evaluating residence in Italy or Switzerland with maps and tax documents',
 };
 
 export default blogMetaChEn;

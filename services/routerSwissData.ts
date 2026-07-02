@@ -297,6 +297,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'tassa-salute-ristorni-ticino': { it: 'tassa-salute-ristorni-ticino', en: 'health-tax-returns-ticino', de: 'gesundheitssteuer-rueckerstattungen-tessin', fr: 'taxe-sante-remboursements-tessin' },
  'frontaliere-pensione-avs-inps-2026-entro-20km': { it: 'frontaliere-pensione-avs-inps-2026-entro-20km', en: 'frontaliers-pension-avs-inps-2026-within-20km', de: 'grenzgaenger-rente-avs-inps-2026-innerhalb-20km', fr: 'frontaliers-retraite-avs-inps-2026-dans-un-rayon-de-20km' },
  'quanto-costa-vivere-lugano-frontaliere': { it: 'quanto-costa-vivere-lugano-frontaliere', en: 'how-much-does-it-cost-to-live-in-lugano-as-a-commuter', de: 'wie-viel-kostet-es-in-lugano-zu-leben-als-pendler', fr: 'combien-coute-la-vie-a-lugano-pour-un-frontalier' },
+ 'frontaliere-2026-residenza-italia-svizzera': { it: 'frontaliere-2026-residenza-italia-svizzera', en: 'frontaliers-2026-residence-italy-switzerland', de: 'grenzgaenger-2026-wohnsitz-italien-schweiz', fr: 'frontaliers-2026-residence-italie-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
