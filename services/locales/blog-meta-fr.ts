@@ -8192,6 +8192,9 @@ const blogMetaFr: Record<string, string> = {
   'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Frontaliers : siège de l\'employeur hors zone frontalière',
   'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'L\'administration fiscale italienne (réponse 126/2026) précise que si l\'activité est exercée dans la zone frontalière italienne, un siège de l\'employeur hors de cette zone n\'exclut pas le régime des frontaliers.',
   'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'Vue de Mendrisio, ville frontalière du canton du Tessin, symbole du travail frontalier entre l\'Italie et la Suisse.',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Remises aux frontaliers: Pellicini veut un groupe de travail',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'Le député et maire de Luino soutient la position du ministère de l\'Économie pour sortir de l\'impasse concernant les ristournes.',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

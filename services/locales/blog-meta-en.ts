@@ -8191,6 +8191,9 @@ const blogMetaEn: Record<string, string> = {
   'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Cross-border workers: employer outside the border area',
   'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'Italy\'s Revenue Agency (ruling 126/2026) clarifies that if the work is performed in the Italian border area, an employer located outside that zone does not bar the cross-border tax regime.',
   'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'View of Mendrisio, a border town in Canton Ticino, symbol of cross-border work between Italy and Switzerland.',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Cross-border rebates, Pellicini: “Let’s set up a working group right away”',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'The member of parliament and mayor of Luino supports the Ministry of Economy\'s approach to resolving the impasse over rebates.',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

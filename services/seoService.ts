@@ -4338,6 +4338,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-2026-residenza-italia-svizzera': { name: 'Frontaliere', path: '/articoli-svizzera/frontaliere-2026-residenza-italia-svizzera/', parent: 'blog' },
     'blog-frontaliere-figli-asilo-nido-svizzera': { name: 'Frontaliere con figli', path: '/articoli-svizzera/frontaliere-figli-asilo-nido-svizzera/', parent: 'blog' },
     'blog-ristorni-frontalieri-bloccati-alfieri-pd': { name: 'Ristorni frontalieri', path: '/articoli-svizzera/ristorni-frontalieri-bloccati-alfieri-pd/', parent: 'blog' },
+    'blog-ristorni-frontalieri-pellicini-tavolo-lavoro': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

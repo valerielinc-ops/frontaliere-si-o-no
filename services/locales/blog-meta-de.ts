@@ -8190,6 +8190,9 @@ const blogMetaDe: Record<string, string> = {
   'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Grenzgänger: Arbeitgebersitz ausserhalb des Grenzgebiets',
   'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'Die Agenzia delle Entrate (Auskunft 126/2026) stellt klar: Wird die Tätigkeit im italienischen Grenzgebiet ausgeübt, schliesst ein Arbeitgebersitz ausserhalb dieser Zone das Grenzgängerregime nicht aus.',
   'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'Blick auf Mendrisio, eine Grenzstadt im Kanton Tessin, Sinnbild der Grenzgängerarbeit zwischen Italien und der Schweiz.',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Grenzrabatte, Pellicini: „Sofort einen Arbeitskreis einberufen“',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'Der Abgeordnete und Bürgermeister von Luino unterstützt den Kurs des Wirtschaftsministeriums, um den Stillstand bei den Rückvergütungen zu überwinden.',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
