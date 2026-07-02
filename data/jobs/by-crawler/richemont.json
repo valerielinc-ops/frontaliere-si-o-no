@@ -3650,8 +3650,6 @@
         ]
       },
       "previousSlugs": [
-        "specialista-hris-cdd-richemont-meyrin",
-        "hospitality-tirocinante-richemont-meyrin",
         "krankenhaus-intern-richemont-meyrin",
         "hris-specialista-cdd-richemont-meyrin",
         "ospitalita-interno-richemont-meyrin",
@@ -3669,7 +3667,9 @@
         "gioielli-manager-europa-richemont-meyrin",
         "manager-giadelli-europe-richemont-meyrin",
         "hospitality-praktikant-richemont-meyrin",
-        "stagiaire-en-hotellerie-richemont-meyrin"
+        "stagiaire-en-hotellerie-richemont-meyrin",
+        "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin",
+        "activations-specialist-cdd-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3686,13 +3686,15 @@
           "stagista-hospitality-richemont-meyrin",
           "ospitalita-interno-richemont-meyrin-101774",
           "aktivist-cdd-jaeger-lecoultre-meyrin",
-          "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin"
+          "specialiste-des-activations-cdd-jaeger-lecoultre-meyrin",
+          "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin"
         ],
         "en": [
           "hospitality-intern-richemont-meyrin",
           "jewelry-manager-europe-richemont-meyrin",
           "gioielli-manager-europa-richemont-meyrin",
-          "manager-giadelli-europe-richemont-meyrin"
+          "manager-giadelli-europe-richemont-meyrin",
+          "activations-specialist-cdd-richemont-meyrin"
         ],
         "de": [
           "hospitality-praktikant-richemont-meyrin"
@@ -6242,7 +6244,8 @@
           "stage-in-learning-development-gruppo-richemont-richemont-bellevue",
           "stagista-di-gruppo-l-d-richemont-bellevue",
           "group-l-d-intern-richemont-bellevue",
-          "group-l-d-tirocinante-richemont-bellevue"
+          "group-l-d-tirocinante-richemont-bellevue",
+          "group-l-d-intern-richemont-bellevue-e8uyst"
         ],
         "en": [
           "group-l-d-intern-richemont-bellevue"
@@ -7987,7 +7990,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "digital-content-integration-intern-michelangelo-foundation-geneva",
           "stagiaire-en-integration-de-contenu-numerique-michelangelo-foundation-geneva",
           "praktikant-fur-digitale-content-integration-michelangelo-foundation-geneva",
           "tirocinante-per-la-gestione-dei-contenuti-digitali-piaget-plan-les-ouates",
@@ -8005,7 +8007,9 @@
           "digital-content-integration-tirocinante-michelangelo-foundation-geneva",
           "tirocinante-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
           "praktikum-fur-digitale-inhaltsintegration-michelangelo-foundation-geneva",
-          "digital-content-intern-richemont-plan-les-ouates"
+          "digital-content-intern-richemont-plan-les-ouates",
+          "interno-di-integrazione-dei-contenuti-digitali-michelangelo-foundation-geneva",
+          "crimpatura-piaget-plan-les-ouates"
         ],
         "de": [
           "digital-content-praktikant-piaget-plan-les-ouates"
@@ -8017,8 +8021,6 @@
         ]
       },
       "previousSlugs": [
-        "digital-content-integration-intern-michelangelo-foundation-geneva",
-        "stagiaire-en-integration-de-contenu-numerique-michelangelo-foundation-geneva",
         "praktikant-fur-digitale-content-integration-michelangelo-foundation-geneva",
         "tirocinante-per-la-gestione-dei-contenuti-digitali-piaget-plan-les-ouates",
         "stagista-digital-content-piaget-plan-les-ouates",
@@ -8036,7 +8038,9 @@
         "tirocinante-in-integrazione-contenuti-digitali-michelangelo-foundation-geneva",
         "praktikum-fur-digitale-inhaltsintegration-michelangelo-foundation-geneva",
         "digital-content-intern-richemont-plan-les-ouates",
-        "digital-content-praktikant-piaget-plan-les-ouates"
+        "digital-content-praktikant-piaget-plan-les-ouates",
+        "interno-di-integrazione-dei-contenuti-digitali-michelangelo-foundation-geneva",
+        "crimpatura-piaget-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-18T13:14:11.256Z",
       "needsRetranslation": true,

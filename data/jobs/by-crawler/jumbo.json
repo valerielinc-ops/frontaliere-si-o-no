@@ -7084,12 +7084,14 @@
         ],
         "it": [
           "lagerist-in-jumbo-chur",
-          "lagerist-in-jumbo-chur-graubunden"
+          "lagerist-in-jumbo-chur-graubunden",
+          "lagerist-in-jumbo-chur-graubunden-ut7ptz"
         ]
       },
       "previousSlugs": [
         "lagerist-in-jumbo-chur",
-        "lagerist-in-jumbo-chur-graubunden"
+        "lagerist-in-jumbo-chur-graubunden",
+        "lagerist-in-jumbo-chur-graubunden-ut7ptz"
       ],
       "firstSeenAt": "2026-06-30T11:50:40.019Z",
       "salaryMin": 57500,
@@ -8398,7 +8400,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T11:38:49.160Z"
+      "firstSeenAt": "2026-07-02T11:38:49.160Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "casse-servizi-per-assistenti-vendite-jumbo-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "casse-servizi-per-assistenti-vendite-jumbo-glarus"
+      ]
     },
     {
       "id": "jumbo-005d8144-c59",
@@ -8473,12 +8483,14 @@
         "casse-servizi-per-assistenti-vendite-jumbo-reinach",
         "verkaufer-in-kassen-services-jumbo-reinach",
         "seller-in-cash-registers-services-jumbo-reinach-11b503",
-        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-reinach-11b503"
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-reinach-11b503",
+        "casse-servizi-per-assistenti-vendite-jumbo-reinach-a7cdac"
       ],
       "previousSlugsByLocale": {
         "it": [
           "casse-servizi-per-assistenti-vendite-jumbo-reinach",
-          "verkaufer-in-kassen-services-jumbo-reinach"
+          "verkaufer-in-kassen-services-jumbo-reinach",
+          "casse-servizi-per-assistenti-vendite-jumbo-reinach-a7cdac"
         ],
         "en": [
           "seller-in-cash-registers-services-jumbo-reinach-11b503",
@@ -8645,7 +8657,8 @@
       "firstSeenAt": "2026-07-02T11:38:49.156Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-jumbo-rickenbach-2"
+          "verkaufer-in-kassen-services-jumbo-rickenbach-2",
+          "casse-servizi-per-assistenti-vendite-jumbo-rickenbach"
         ],
         "en": [
           "verkaufer-in-kassen-services-jumbo-rickenbach-2"
@@ -8655,7 +8668,8 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-rickenbach-2"
+        "verkaufer-in-kassen-services-jumbo-rickenbach-2",
+        "casse-servizi-per-assistenti-vendite-jumbo-rickenbach"
       ]
     }
   ]
