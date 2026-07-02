@@ -38,6 +38,7 @@ const LEDGER_PATH = path.join(REPO_ROOT, 'data', 'fb-posted-events.json');
 const DEFAULT_VOLUME = 3;
 const MAX_VOLUME = 10;
 const FB_MESSAGE_HARD_LIMIT = 600;
+const PREFLIGHT_TIMEOUT_MS = 5000;
 
 const CATEGORY_EMOJI = {
   arte: '🎨', musica: '🎵', teatro: '🎭', cinema: '🎬', feste: '🎉',
@@ -99,6 +100,48 @@ export function buildEventCaption(event) {
   let out = parts.join('\n').trim();
   if (out.length > FB_MESSAGE_HARD_LIMIT) out = out.slice(0, FB_MESSAGE_HARD_LIMIT);
   return out;
+}
+
+/**
+ * Pre-flight check: is a landing page live before we post a link to it?
+ *
+ * The events crawl (`:40` past the hour) and this posting cron (`:50`) leave
+ * only a short window for the per-comune SSG page to be deployed. If a
+ * deploy is slow or retrying, the page can still 404 at click-time — posting
+ * anyway would burn the click on a dead link with zero ad impression.
+ *
+ * HEAD-only (cheap, no body), bounded by a timeout via AbortController (same
+ * pattern as `scripts/probe-5xx.mjs`) so one slow/hanging comune can't stall
+ * the whole batch — callers should run these concurrently (Promise.allSettled).
+ *
+ * Fails safe: a clean 4xx OR a network error/timeout both count as "not
+ * live" and the caller should skip the post. A missing/ambiguous status
+ * (e.g. a minimal test mock, or a 5xx which may just be a transient CDN
+ * blip) is treated as live so it never blocks posting on something that
+ * isn't actually a dead link.
+ *
+ * @param {string} url
+ * @param {object} [opts]
+ * @param {typeof fetch} [opts.fetchImpl]
+ * @param {number} [opts.timeoutMs]
+ * @returns {Promise<boolean>}
+ */
+export async function isLandingPageLive(url, opts = {}) {
+  const fetchImpl = opts.fetchImpl || globalThis.fetch;
+  const timeoutMs = opts.timeoutMs || PREFLIGHT_TIMEOUT_MS;
+  if (typeof fetchImpl !== 'function') return true;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetchImpl(url, { method: 'HEAD', signal: controller.signal });
+    if (res && typeof res.status === 'number' && res.status >= 400 && res.status < 500) return false;
+    return true;
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 /** Select the soonest-starting upcoming events not yet in `postedSet`. */
@@ -245,6 +288,7 @@ export async function run(opts = {}) {
       url: buildEventUrl(event),
       message: buildEventCaption(event),
       placeId: lookupPlaceId(event.comune, placeIds),
+      comune: event.comune || null,
     }));
   }
   if (payloads.length === 0) {
@@ -267,6 +311,29 @@ export async function run(opts = {}) {
   if (typeof fetchImpl !== 'function') {
     warn('⚠️', 'no fetch impl available — skipping');
     return { ok: false, posted: 0, dryRun, payloads };
+  }
+
+  // Pre-flight: confirm each landing page is actually live before posting a
+  // link to it (see `isLandingPageLive` doc — deploy can lag the events crawl
+  // by more than the gap to this cron). Runs concurrently so a single slow
+  // comune can't stall the rest of the batch.
+  const preflight = await Promise.allSettled(
+    payloads.map((p) => isLandingPageLive(p.url, { fetchImpl })),
+  );
+  const liveSet = new Set();
+  payloads.forEach((p, i) => {
+    const outcome = preflight[i];
+    const live = outcome.status === 'fulfilled' ? outcome.value : false;
+    if (live) {
+      liveSet.add(p);
+    } else {
+      warn('🚧', `landing page not live yet for "${p.comune || 'weekend digest'}" (${p.url}) — skipping post ${p.id}`);
+    }
+  });
+  payloads = payloads.filter((p) => liveSet.has(p));
+  if (payloads.length === 0) {
+    log('ℹ️', 'all landing pages failed the pre-flight check, nothing to post');
+    return { ok: true, posted: 0, dryRun, payloads: [] };
   }
 
   const TRANSIENT = new Set([1, 2, 4, 17]);
