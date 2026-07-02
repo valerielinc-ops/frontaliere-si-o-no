@@ -376,5 +376,6 @@ export async function rescueHtmlIfChallenged(html, url, { timeoutMs } = {}) {
   if (!looksLikeAntiBotChallenge(html)) return html;
   const rescued = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
   if (rescued != null && !looksLikeAntiBotChallenge(rescued)) return rescued;
+  console.warn(`   ⚠️ Jina rescue exhausted for ${url} — still a challenge page, returning original HTML unchanged.`);
   return html;
 }

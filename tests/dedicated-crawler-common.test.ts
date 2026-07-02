@@ -556,15 +556,93 @@ describe('mergePreserveLocaleData URL matching', () => {
     const merged = mergePreserveLocaleData(existing, fresh, { matchKey });
 
     // Both fresh kept with their own distinct ids — no inheritance from a single
-    // old, no duplicate id, no cross-contaminated previousSlugs.
-    expect(merged).toHaveLength(2);
-    const ids = merged.map((j) => j.id).sort();
+    // old, no duplicate id, no cross-contaminated previousSlugs. `geberit-OLD-B`
+    // has its own unique (non-colliding) key and no fresh job matched it this
+    // run, so the grace-period guard retains it as-is (own previousSlugs are
+    // fine here — that's B's own history, not contamination from A).
+    expect(merged).toHaveLength(3);
+    const freshJobs = merged.filter((j) => j.id !== 'geberit-OLD-B');
+    const ids = freshJobs.map((j) => j.id).sort();
     expect(ids).toEqual(['geberit-1799', 'geberit-1800']);
     expect(new Set(ids).size).toBe(2);
-    for (const job of merged) {
+    for (const job of freshJobs) {
       expect(job.previousSlugs ?? []).not.toContain('old-bridge-a');
       expect(job.previousSlugs ?? []).not.toContain('old-bridge-b');
     }
+
+    const retainedB = merged.find((j) => j.id === 'geberit-OLD-B');
+    expect(retainedB).toBeDefined();
+    expect(retainedB.previousSlugs).toEqual(['old-bridge-b']);
+    expect(retainedB.crawlerMissStreak).toBe(1);
+  });
+});
+
+describe('mergePreserveLocaleData grace-period retention (silent job loss guard)', () => {
+  it('retains a job missing from a single run instead of dropping it immediately', async () => {
+    const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    const existing = [
+      { id: 'still-open', url: 'https://example.com/job/still-open', title: 'Still Open Role' },
+      { id: 'shows-up', url: 'https://example.com/job/shows-up', title: 'Shows Up Role' },
+    ];
+    // Simulates a pagination fail-soft: only job "shows-up" was captured on
+    // this run; "still-open" is genuinely still live but got missed.
+    const fresh = [
+      { url: 'https://example.com/job/shows-up', title: 'Shows Up Role' },
+    ];
+
+    const merged = mergePreserveLocaleData(existing, fresh);
+    expect(merged).toHaveLength(2);
+    const retained = merged.find((j) => j.id === 'still-open');
+    expect(retained).toBeDefined();
+    expect(retained.crawlerMissStreak).toBe(1);
+  });
+
+  it('drops a job only after it has been missing for more consecutive runs than the grace period allows', async () => {
+    const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    let dataset = [
+      { id: 'flaky-source', url: 'https://example.com/job/flaky-source', title: 'Flaky Source Role' },
+    ];
+
+    // Run 1: missed (miss streak 1) — retained.
+    dataset = mergePreserveLocaleData(dataset, []);
+    expect(dataset).toHaveLength(1);
+    expect(dataset[0].crawlerMissStreak).toBe(1);
+
+    // Run 2: missed again (miss streak 2) — still within grace period, retained.
+    dataset = mergePreserveLocaleData(dataset, []);
+    expect(dataset).toHaveLength(1);
+    expect(dataset[0].crawlerMissStreak).toBe(2);
+
+    // Run 3: missed a third consecutive time — grace period exhausted, dropped
+    // (flows into computeCrawlDiff's removedJobs / archive path from here).
+    dataset = mergePreserveLocaleData(dataset, []);
+    expect(dataset).toHaveLength(0);
+  });
+
+  it('resets the miss streak once the job is captured again by a later run', async () => {
+    const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    let dataset = [
+      { id: 'intermittent', url: 'https://example.com/job/intermittent', title: 'Intermittent Role' },
+    ];
+
+    // Missed once.
+    dataset = mergePreserveLocaleData(dataset, []);
+    expect(dataset[0].crawlerMissStreak).toBe(1);
+
+    // Reappears — miss streak must clear, not keep climbing toward the drop threshold.
+    dataset = mergePreserveLocaleData(dataset, [
+      { url: 'https://example.com/job/intermittent', title: 'Intermittent Role' },
+    ]);
+    expect(dataset).toHaveLength(1);
+    expect(dataset[0].crawlerMissStreak).toBeUndefined();
+
+    // Missed again after reappearing — streak restarts from 1, not from where it left off.
+    dataset = mergePreserveLocaleData(dataset, []);
+    expect(dataset).toHaveLength(1);
+    expect(dataset[0].crawlerMissStreak).toBe(1);
   });
 });
 

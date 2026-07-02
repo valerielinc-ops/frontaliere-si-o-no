@@ -180,7 +180,7 @@ async function safeClose(page) {
  *
  * @param {import('playwright').BrowserContext} context
  * @param {number} page                          — 1-indexed
- * @returns {Promise<{ rows: Array<object>, total: number | null }>}
+ * @returns {Promise<{ rows: Array<object>, total: number | null, failed?: boolean }>}
  */
 async function fetchListingPage(context, page) {
   const url = page === 1
@@ -195,11 +195,11 @@ async function fetchListingPage(context, page) {
   } catch (err) {
     if (err instanceof AntiBotBlockError) {
       console.warn(`⚠️ Cloudflare anti-bot on Richemont page ${page}: ${err.message}`);
-      return { rows: [], total: null };
+      return { rows: [], total: null, failed: true };
     }
     if (err instanceof NavigationTimeout) {
       console.warn(`⚠️ Richemont page ${page} navigation timeout: ${err.message}`);
-      return { rows: [], total: null };
+      return { rows: [], total: null, failed: true };
     }
     throw err;
   }
@@ -209,7 +209,7 @@ async function fetchListingPage(context, page) {
   } catch {
     console.warn(`   Page ${page}: no .card.card-job rendered within 30s`);
     await safeClose(renderedPage);
-    return { rows: [], total: null };
+    return { rows: [], total: null, failed: true };
   }
 
   const data = await renderedPage.evaluate(() => {
@@ -357,10 +357,26 @@ async function discoverAllRows() {
     let totalLabel = null;
 
     for (let page = 1; page <= MAX_PAGES; page++) {
-      const { rows: pageRows, total } = await fetchListingPage(context, page);
+      let { rows: pageRows, total, failed } = await fetchListingPage(context, page);
+      if (failed) {
+        // Transient fail-soft (anti-bot block, nav timeout, missing selector)
+        // looks identical to genuine end-of-pagination — retry once before
+        // deciding, so a single hiccup doesn't truncate the crawl and make
+        // still-open jobs on this page look "removed" downstream.
+        console.warn(`   Page ${page}: retrying once after transient failure`);
+        await new Promise((r) => setTimeout(r, PER_PAGE_DELAY_MS));
+        ({ rows: pageRows, total, failed } = await fetchListingPage(context, page));
+      }
       if (total && totalLabel === null) {
         totalLabel = total;
         console.log(`   Richemont reports ${total} matching jobs`);
+      }
+      if (failed) {
+        // Still failing after retry — this page is unreliable, not
+        // necessarily the end of results. Skip it and keep walking rather
+        // than aborting the whole crawl on one bad page.
+        console.warn(`   Page ${page}: still failing after retry — skipping page, continuing pagination`);
+        continue;
       }
       if (!pageRows.length) break;
 

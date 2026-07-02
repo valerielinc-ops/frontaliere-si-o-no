@@ -46,14 +46,21 @@ function readSlice(key) {
  * existing `*ByLocale` translations keyed on the same job id, so we don't
  * lose IT/DE/FR coverage just because we re-ran the source-language parse.
  */
+// Grace period before an existing job absent from a regen run is dropped —
+// mirrors mergePreserveLocaleData's silent-job-loss guard in
+// scripts/lib/dedicated-crawler-common.mjs (same construct, same fix).
+const GRACE_PERIOD_MAX_MISSES = 2;
+
 function mergePreservingTranslations(freshJobs, existingJobs) {
   const existingById = new Map();
+  const matchedIds = new Set();
   for (const ex of existingJobs) {
     if (ex && ex.id) existingById.set(ex.id, ex);
   }
-  return freshJobs.map((fresh) => {
+  const merged = freshJobs.map((fresh) => {
     const ex = existingById.get(fresh.id);
     if (!ex) return fresh;
+    matchedIds.add(fresh.id);
     const sl = fresh.sourceLang || ex.sourceLang || 'en';
     return {
       ...ex,
@@ -75,6 +82,15 @@ function mergePreservingTranslations(freshJobs, existingJobs) {
       requirementsByLocale: ex.requirementsByLocale || fresh.requirementsByLocale,
     };
   });
+
+  const retained = [];
+  for (const [id, ex] of existingById) {
+    if (matchedIds.has(id)) continue;
+    const missStreak = (Number(ex.crawlerMissStreak) || 0) + 1;
+    if (missStreak > GRACE_PERIOD_MAX_MISSES) continue;
+    retained.push({ ...ex, crawlerMissStreak: missStreak });
+  }
+  return retained.length ? [...merged, ...retained] : merged;
 }
 
 async function regenBitfinex() {

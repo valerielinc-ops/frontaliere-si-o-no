@@ -199,6 +199,11 @@ async function fetchOracleRequisitions() {
       if (!data || !data.items || data.items.length === 0) {
         if (page === 1) {
           console.warn(`   ⚠️ Oracle HCM API at ${oracleBase} returned no data.`);
+        } else {
+          // Fetch/parse succeeded on earlier pages but came up empty here —
+          // could be genuine EOF or a transient failure indistinguishable
+          // from EOF at this point. Warn so a sustained pattern is visible.
+          console.warn(`   ⚠️ Oracle HCM API at ${oracleBase} returned no data on page ${page} (offset=${offset}) — treating as end of pagination.`);
         }
         break;
       }

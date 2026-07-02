@@ -136,7 +136,14 @@ export async function fetchAllAarrehaSchinznachJobs() {
     const url = page === 1 ? LISTING_URL : `${LISTING_URL}&page=${page}`;
     const html = await fetchHtml(url);
     const pageRows = parseAarrehaListing(html);
-    if (!pageRows.length) break;
+    if (!pageRows.length) {
+      // fetchHtml() throws on genuine failure and auto-rescues 200-challenge
+      // pages, so an empty parse here is usually real EOF — but a parser/
+      // markup drift would look identical. Warn so a sustained pattern is
+      // visible.
+      console.warn(`  ⚠️ page ${page}: parsed 0 rows — treating as end of pagination.`);
+      break;
+    }
     let added = 0;
     for (const r of pageRows) {
       const key = r.ref || r.detailUrl;
