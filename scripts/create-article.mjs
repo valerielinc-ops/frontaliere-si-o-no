@@ -76,7 +76,7 @@ import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
-import { stripCodeFences, fixJsonStringBody } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT } from './lib/llm-json-repair.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
@@ -1480,6 +1480,8 @@ CRITERI DI SELEZIONE (in ordine di priorità):
 6. NO SPORT: Evita risultati sportivi, partite, campionati
 7. SPECIFICITÀ TICINO: La notizia deve riguardare il Canton Ticino o la regione di confine
 
+${JSON_QUOTE_SAFETY_RULE_IT}
+
 Rispondi con un JSON object (no markdown, no code fences):
 {
   "selectedIndex": <numero dell'headline scelta>,
@@ -1508,6 +1510,8 @@ CRITERI DI SELEZIONE (in ordine di priorità):
 6. NO INTRATTENIMENTO: Evita gossip, spettacolo, celebrità senza rilevanza politico-economica
 7. RESPIRO NAZIONALE: La notizia può riguardare qualsiasi cantone o le istituzioni federali; non limitarti al Ticino.
 8. ⚠️ NO TEMI FRONTALIERI (CRITICO): SCARTA le headline il cui ARGOMENTO PRINCIPALE è esclusivamente frontaliero (permesso G/B/C, ristorni Ticino-Italia, imposta alla fonte frontalieri, dogane/valichi e pendolarismo IT-CH, telelavoro frontalieri, accordo frontalieri IT-CH, soglia 20 km). Appartengono alla sezione frontalieri separata; qui sarebbero duplicati fuori scopo. ATTENZIONE: una riforma o statistica NAZIONALE (es. AVS/LPP, LAMal, mercato del lavoro, Consiglio federale) che menziona i frontalieri come categoria tra quelle impattate è RILEVANTE — il tema principale è nazionale, non frontaliero. Scegli temi a interesse nazionale generale.
+
+${JSON_QUOTE_SAFETY_RULE_IT}
 
 Rispondi con un JSON object (no markdown, no code fences):
 {
@@ -2119,7 +2123,8 @@ async function splitBodyIntoSections(fullBody, title) {
         'Sei un redattore italiano. Dividi il testo fornito in ESATTAMENTE 3 sezioni bilanciate ' +
         '(body1, body2, body3) senza aggiungere, riassumere o rimuovere contenuto — solo suddividere ' +
         'nei punti più naturali. Preserva ESATTAMENTE la formattazione markdown esistente (grassetto ' +
-        '**testo**, elenchi, e link interni nel formato [testo](nav:azione)). Rispondi SOLO in JSON.',
+        '**testo**, elenchi, e link interni nel formato [testo](nav:azione)). Rispondi SOLO in JSON.\n\n' +
+        JSON_QUOTE_SAFETY_RULE_IT,
     },
     { role: 'user', content: `Titolo: ${title}\n\nTesto da dividere:\n${text}` },
   ];
@@ -2728,6 +2733,8 @@ CRITERI DI GIUDIZIO:
 - PASS = nessun fatto verificabilmente falso, al massimo minor e fino a 2 major
 
 ATTENZIONE: se hai dubbi su un fatto, è MEGLIO segnalarlo come "major" che ignorarlo. Un falso positivo (segnalare un fatto vero come sospetto) è preferibile a un falso negativo (non segnalare un fatto falso).
+
+${JSON_QUOTE_SAFETY_RULE_IT}
 
 Rispondi SOLO in JSON valido:
 {
@@ -4308,6 +4315,8 @@ REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo 
 
 QUANDO LA FONTE NON CONTIENE UN DATO: scrivi "non ancora specificato", "in fase di definizione", o ometti il dettaglio. NON inventare numeri, date o riferimenti normativi per riempire il testo.
 
+${JSON_QUOTE_SAFETY_RULE_IT}
+
 Rispondi SOLO con JSON valido, senza markdown.` },
     // Phase 3 prior: inject winner-fingerprint as additive system context.
     // Skipped when data/article-performance.json is missing or empty so the
@@ -4388,7 +4397,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
       try {
         const retryRaw = await callLLM(
           [
-            { role: 'system', content: 'Sei un giornalista finanziario esperto. Rispondi SOLO con JSON valido senza markdown.' },
+            { role: 'system', content: `Sei un giornalista finanziario esperto. Rispondi SOLO con JSON valido senza markdown.\n\n${JSON_QUOTE_SAFETY_RULE_IT}` },
             {
               role: 'user',
               content: `Riformula il seguente titolo in italiano per il sito Frontaliere Ticino.\n\nTITOLO ATTUALE (${firstCap.originalLength} caratteri, troppo lungo):\n${itContent.title}\n\nVINCOLI OBBLIGATORI:\n- MASSIMO 60 caratteri totali (target 50-55).\n- NON includere il suffisso " | Frontaliere Ticino" (verrà aggiunto automaticamente).\n- Mantieni la keyword principale e il significato.\n- Stile giornalistico, niente clickbait.\n\nRispondi con JSON: {"title": "..."}`,
@@ -4618,8 +4627,9 @@ async function translateContentFreeMt(sourceLang, targetLang, targetLabel, sourc
 
 async function translateArticle(data) {
   async function callWithRetry(prompt, maxTokens, label) {
+    const safePrompt = `${prompt}\n\n${JSON_QUOTE_SAFETY_RULE_IT}`;
     const raw = await callLLM(
-      [{ role: 'user', content: prompt }],
+      [{ role: 'user', content: safePrompt }],
       { temperature: 0.5, maxTokens, jsonMode: true },
     );
     try {
@@ -4632,7 +4642,7 @@ async function translateArticle(data) {
       const retry1Tokens = isTruncation ? Math.max(maxTokens * 3, 12000) : maxTokens + 4000;
       console.error(`  🔄 Retry ${label} con maxTokens=${retry1Tokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
       const raw2 = await callLLM(
-        [{ role: 'user', content: prompt }],
+        [{ role: 'user', content: safePrompt }],
         { temperature: 0.5, maxTokens: retry1Tokens, jsonMode: true },
       );
       try {
@@ -4644,7 +4654,7 @@ async function translateArticle(data) {
         // Third attempt with maximum tokens
         const retry2Tokens = 16000;
         const raw3 = await callLLM(
-          [{ role: 'user', content: prompt }],
+          [{ role: 'user', content: safePrompt }],
           { temperature: 0.3, maxTokens: retry2Tokens, jsonMode: true },
         );
         try {
