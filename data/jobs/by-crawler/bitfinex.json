@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bitfinex",
-  "assembledAt": "2026-07-01T21:50:49.589Z",
+  "assembledAt": "2026-07-02T10:37:55.820Z",
   "jobs": [
     {
       "id": "bitfinex-0b5fcf7e1f36",
@@ -33,7 +33,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T21:50:46.973Z",
+      "crawledAt": "2026-07-02T10:37:53.513Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-product-designer-100-remote-worldwide-cet-timezone-6",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T21:50:46.919Z",
+      "crawledAt": "2026-07-02T10:37:53.460Z",
       "addressLocality": "istanbul",
       "addressRegion": "İstanbul",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-10",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T21:50:46.902Z",
+      "crawledAt": "2026-07-02T10:37:53.442Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-33",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T21:50:46.893Z",
+      "crawledAt": "2026-07-02T10:37:53.432Z",
       "addressLocality": "Prague",
       "addressRegion": "Praha, Hlavní město",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "url": "https://bitfinex.recruitee.com/o/product-manager-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T21:50:46.783Z",
+      "crawledAt": "2026-07-02T10:37:53.331Z",
       "addressLocality": "Lisboa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -428,7 +428,7 @@
       "url": "https://bitfinex.recruitee.com/o/qa-automation-engineer-100-remote-worldwide-utc79-10",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-07-01T21:50:46.758Z",
+      "crawledAt": "2026-07-02T10:37:53.304Z",
       "addressLocality": "Milan",
       "addressRegion": "Lombardia",
       "addressCountry": "CH",
@@ -448,10 +448,13 @@
       "department": "Product",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-01T11:12:12.357Z",
+      "previousSlugs": [
+        "qa-automation-engineer-100-remote-worldwide-utc-7-9-bitfinex-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-automation-engineer-100-remote-worldwide-utc-7-9-bitfinex-ch"
+          "qa-automation-engineer-100-remote-worldwide-utc-7-9-bitfinex-ch",
+          "qa-automation-ingegnere-100-remote-worldwide-utc-7-9-bitfinex-milan"
         ],
         "de": [
           "qa-automation-engineer-100-remote-worldwide-utc-7-9-bitfinex-ch"
@@ -460,9 +463,7 @@
           "qa-automation-engineer-100-remote-worldwide-utc-7-9-bitfinex-ch"
         ]
       },
-      "previousSlugs": [
-        "qa-automation-engineer-100-remote-worldwide-utc-7-9-bitfinex-ch"
-      ],
+      "firstSeenAt": "2026-07-01T11:12:12.357Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
