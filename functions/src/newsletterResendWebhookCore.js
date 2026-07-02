@@ -217,10 +217,27 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  const locale = sanitizeString(tags.subscriber_locale || data.locale) || 'it-IT';
  const sourceChannel = sanitizeString(tags.source_channel || data.source_channel);
 
+ // Bounce severity depends only on the raw provider payload, not on the
+ // current subscriber doc, so it can be computed outside the transaction.
+ let bounceSeverity = null;
+ let bounceReasonText = '';
+ if (type === 'bounce') {
+ bounceSeverity = classifyBounceSeverity({ provider: 'resend', rawEvent: rawEvent?.type, eventData: data });
+ bounceReasonText = sanitizeString(data.bounce?.message) || sanitizeString(data.reason) || '';
+ }
+
+ // Read current subscriber status and write the merged update atomically —
+ // wrapped in a transaction (same idiom as maybeEscalateSoftBounce /
+ // refreshEngagementScore in functions/src/lib/) so a concurrent webhook
+ // delivery for the same subscriber (e.g. a complaint/suppression landing
+ // between this read and this write) can't be clobbered by a promotion
+ // decision made from a stale read.
+ const subscriberRef = db.collection('newsletter_subscribers').doc(email);
+ await subscriberRef.firestore.runTransaction(async (tx) => {
  // Read current subscriber status to avoid promoting pending users
  let currentStatus = null;
  try {
- const subscriberDoc = await db.collection('newsletter_subscribers').doc(email).get();
+ const subscriberDoc = await tx.get(subscriberRef);
  if (subscriberDoc.exists) {
  currentStatus = subscriberDoc.data()?.status || null;
  }
@@ -237,11 +254,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  subscriberUpdate.provider = 'resend';
 
- let bounceSeverity = null;
- let bounceReasonText = '';
  if (type === 'bounce') {
- bounceSeverity = classifyBounceSeverity({ provider: 'resend', rawEvent: rawEvent?.type, eventData: data });
- bounceReasonText = sanitizeString(data.bounce?.message) || sanitizeString(data.reason) || '';
  Object.assign(subscriberUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
  if (bounceSeverity === 'hard') {
  subscriberUpdate.isActive = false;
@@ -249,8 +262,8 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  }
  }
 
- const subscriberRef = db.collection('newsletter_subscribers').doc(email);
- await subscriberRef.set(subscriberUpdate, { merge: true });
+ tx.set(subscriberRef, subscriberUpdate, { merge: true });
+ });
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);

@@ -6,31 +6,49 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
   const makeCollection = (name: string) => ({
-    doc: (docId: string) => ({
-      set: async (data: Record<string, unknown>) => {
-        sets.push({ collection: name, docId, data });
-      },
-      get: async () => {
-        const docData = existingDocs[name]?.[docId];
-        return {
-          exists: !!docData,
-          data: () => docData || {},
-        };
-      },
-      collection: (subName: string) => {
-        const subPath = `${name}/${docId}/${subName}`;
-        return {
-          doc: (subDocId: string) => ({
-            set: async (data: Record<string, unknown>, _opts?: unknown) => {
-              sets.push({ collection: subPath, docId: subDocId, data });
+    doc: (docId: string) => {
+      const docRef: any = {
+        set: async (data: Record<string, unknown>) => {
+          sets.push({ collection: name, docId, data });
+        },
+        get: async () => {
+          const docData = existingDocs[name]?.[docId];
+          return {
+            exists: !!docData,
+            data: () => docData || {},
+          };
+        },
+        collection: (subName: string) => {
+          const subPath = `${name}/${docId}/${subName}`;
+          return {
+            doc: (subDocId: string) => ({
+              set: async (data: Record<string, unknown>, _opts?: unknown) => {
+                sets.push({ collection: subPath, docId: subDocId, data });
+              },
+            }),
+            add: async (data: Record<string, unknown>) => {
+              adds.push({ collection: subPath, data });
             },
-          }),
-          add: async (data: Record<string, unknown>) => {
-            adds.push({ collection: subPath, data });
-          },
-        };
-      },
-    }),
+          };
+        },
+      };
+      // Minimal `db.runTransaction` shim (mirrors the real Firestore idiom used
+      // by maybeEscalateSoftBounce / publisherPendingReapCore / trafficSchedulerCore)
+      // — these single-threaded tests don't need real optimistic-concurrency
+      // retries, just a tx.get/tx.set that delegate to the same doc.
+      docRef.firestore = {
+        runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => {
+          const tx = {
+            get: async (ref: any) => ref.get(),
+            set: (ref: any, data: Record<string, unknown>, opts?: unknown) => {
+              ref.set(data, opts);
+            },
+          };
+          return updateFunction(tx);
+        },
+      };
+      return docRef;
+    },
     add: async (data: Record<string, unknown>) => {
       adds.push({ collection: name, data });
     },

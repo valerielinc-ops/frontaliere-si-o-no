@@ -79,25 +79,33 @@ export function scoreToLevel(score) {
  * Re-read a subscriber doc and persist a freshly computed engagement score.
  * Safe to call after any counter increment — failures are swallowed and logged.
  *
+ * Wrapped in a Firestore transaction (same idiom as maybeEscalateSoftBounce in
+ * bounceClassification.js) so the read-decide-write is atomic: two concurrent
+ * webhook deliveries for the same subscriber (open+click landing together, or
+ * an ESP retry) can no longer both read a pre-update counter snapshot and race
+ * to persist a stale derived score/level.
+ *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
  * @param {*} FieldValue admin.firestore.FieldValue
  * @returns {Promise<{ updated: boolean, score?: number, level?: string }>}
  */
 export async function refreshEngagementScore(subscriberRef, FieldValue) {
  try {
-  const doc = await subscriberRef.get();
-  if (!doc.exists) return { updated: false };
-  const { score, level } = calculateEngagementScore(doc.data());
-  const current = doc.data();
-  if (current.engagement_score === score && current.engagement_level === level) {
-   return { updated: false, score, level };
-  }
-  await subscriberRef.set({
-   engagement_score: score,
-   engagement_level: level,
-   engagement_updated_at: FieldValue.serverTimestamp(),
-  }, { merge: true });
-  return { updated: true, score, level };
+  return await subscriberRef.firestore.runTransaction(async (tx) => {
+   const doc = await tx.get(subscriberRef);
+   if (!doc.exists) return { updated: false };
+   const current = doc.data();
+   const { score, level } = calculateEngagementScore(current);
+   if (current.engagement_score === score && current.engagement_level === level) {
+    return { updated: false, score, level };
+   }
+   tx.set(subscriberRef, {
+    engagement_score: score,
+    engagement_level: level,
+    engagement_updated_at: FieldValue.serverTimestamp(),
+   }, { merge: true });
+   return { updated: true, score, level };
+  });
  } catch (err) {
   // Non-critical: webhook delivery should not fail because of scoring
   console.warn('[engagementScore] refresh failed:', err?.message);
