@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-07-02T12:25:31.729Z",
+  "assembledAt": "2026-07-02T23:02:39.704Z",
   "jobs": [
     {
       "id": "spital-sts-1d63c7ed914d",
@@ -16,7 +16,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Specialista di radiologia / Specialista di radiologia HF",
+        "it": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
         "en": "Dipl. Radiology specialist / Radiology specialist HF",
         "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
         "fr": "Dipl. Spécialiste en radiologie / Spécialiste en radiologie HF"
@@ -28,12 +28,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Das Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb). Eintritt per sofort oder nach Vereinbarung. Das wartet auf dich\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n• Aufgestelltes, professionelles und erfahrenes Team\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n• Selbständiges Arbeiten in Gruppen\n• Digitale Radiologie\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion So wirst du Teil unseres Teams\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n• Teamorientierte, flexible und hilfsbereite Person",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Le domaine de responsabilité en radiologie numérique comprend le diagnostic conventionnel, la tomographie calculée et l'IRM. Vous planifiez les rendez-vous du patient de façon indépendante et remplissez l'administration du patient, y compris la facturation. Pour ce faire, notre système de localisation croisée Ris et Pacs est disponible. Cela se caractérise par l'intégration complète dans toute l'entreprise et garantit une opération papier et sans film. D'autres appareils modernes comme les systèmes DR, DSI et CT sont également disponibles. Vous êtes utilisé dans tous les services (24 heures d'urgence). Admission immédiate ou par arrangement. Une collaboration interdisciplinaire avec les médecins : au sein et dans d'autres groupes professionnels Une équipe établie, professionnelle et expérimentée Possibilité de se développer en un spécialiste de radiologie expérimenté Travailleur indépendant travaillant en groupe Radiologie numérique Modèle flexible de fonds de vacances et de retraites Attractives possibilités de loisirs dans la région du lac et de la montagne Donc vous devenez membre de notre équipe Formation terminée Dipl. Spécialiste de radiologie HF avec une expérience professionnelle ou des diplômés: une personne axée sur l'équipe, flexible et utile pour une entrée dans la carrière"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/bc26f779-c496-40b7-a82a-f408b43caf49/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:29.662Z",
+      "crawledAt": "2026-07-02T23:02:37.651Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -55,7 +56,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+          "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-06-08T23:14:23.499Z",
@@ -104,7 +106,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/d7922b14-bc1f-47d7-a0f2-eefb871a7b57/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:29.010Z",
+      "crawledAt": "2026-07-02T23:02:36.832Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -126,7 +128,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-urologie-spital-sts-thun"
+          "med-praxisassistent-in-urologie-spital-sts-thun",
+          "med-assistente-pratica-in-urologia-spital-sts-thun"
         ],
         "en": [
           "med-praxisassistent-in-urologie-spital-sts-thun"
@@ -181,7 +184,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7af25d74-121c-4534-9677-cab6a836fef8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:28.365Z",
+      "crawledAt": "2026-07-02T23:02:35.814Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -203,7 +206,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
+          "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun"
         ],
         "en": [
           "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
@@ -241,7 +245,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiere/a Chirurgia",
-        "en": "Dipl. Nursing professional surgery",
+        "en": "Dipl. Pflegefachfrau/-mann Chirurgie",
         "de": "Dipl. Pflegefachfrau/-mann Chirurgie",
         "fr": "Dipl. Infirmier·ère Chirurgie"
       },
@@ -252,12 +256,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Du arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Frauenklinik, Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie sowie auch Urologie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld mit fünf verschiedenen Disziplinen. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit. Eintritt per sofort oder nach Vereinbarung. Das wartet auf dich\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen So wirst du Teil unseres Teams\n• Abschluss als Dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Frauenklinik und/oder Chirurgie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
         "fr": "Description Un emploi avec des perspectives : Outre une infrastructure ultramoderne et une multitude d'activités dans un environnement familial, l'hôpital de Thoune vous offre également la possibilité de passer du temps libre de manière flexible dans la région naturelle et lacustre environnante. Vous recherchez une solution sensée mais aussi juste ? Alors vous êtes au bon endroit. Vous travaillez dans un service de chirurgie axé sur les cliniques de gynécologie, d'orthopédie/traumatologie, de chirurgie rachidienne et viscérale ainsi que d'urologie. Vous pouvez vous attendre à un environnement de travail intéressant et varié avec cinq disciplines différentes. La gestion de la documentation électronique des soins infirmiers et du système de distribution des médicaments fait partie intégrante de notre travail quotidien. Entrée immédiatement ou sur rendez-vous. Cosa ofriamo - Une équipe humoristique, jeune et motivée avec un bon esprit d'équipe - Des défis passionnants avec votre propre domaine de responsabilité - Bonne coopération avec l'équipe et la direction du service - Possibilité d'acheter des vacances supplémentaires, conditions de travail attractives Conditions - Infirmier spécialisé qualifié - De préférence une expérience professionnelle en clinique gynécologique et/ou en chirurgie - Inspirant, engagé, responsable et professionnel - Les valeurs STS de notre hôpital qui nous tiennent à cœur"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/1953d39c-d8f1-45c3-9cd2-ad7010521204/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:27.717Z",
+      "crawledAt": "2026-07-02T23:02:34.864Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -279,7 +284,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
+          "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
@@ -334,7 +340,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e64cfd8c-92ce-45dd-aff7-6e1b1a65a034/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:27.100Z",
+      "crawledAt": "2026-07-02T23:02:33.678Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -356,7 +362,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sommerjob-in-der-pflege-befristet-spital-sts-thun"
+          "sommerjob-in-der-pflege-befristet-spital-sts-thun",
+          "lavoro-estivo-in-infermieristica-temporaneo-spital-sts-thun"
         ],
         "en": [
           "sommerjob-in-der-pflege-befristet-spital-sts-thun"
@@ -411,7 +418,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/47dc27f3-b41a-4f8b-81d3-ac9aaf59aab9/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:26.476Z",
+      "crawledAt": "2026-07-02T23:02:32.539Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -433,7 +440,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-room-service-spital-sts-thun"
+          "mitarbeiter-in-room-service-spital-sts-thun",
+          "collaboratore-trice-room-service-spital-sts-thun"
         ],
         "fr": [
           "mitarbeiter-in-room-service-spital-sts-thun"
@@ -468,7 +476,7 @@
       "title": "Experte / Expertin Notfallpflege (befristet)",
       "titleByLocale": {
         "it": "Expert / Expert Emergency Care (temporanea)",
-        "en": "Expert / Expert Emergency Care (temporary)",
+        "en": "Experte / Expertin Notfallpflege (befristet)",
         "de": "Experte / Expertin Notfallpflege (befristet)",
         "fr": "Expert / Expert Soins d'urgence (temporaires)"
       },
@@ -479,12 +487,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Werde Teil unseres interdisziplinären Notfallzentrums, wo dich ein interessantes und anspruchsvolles Arbeitsumfeld erwartet. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Triage, ACLS, ATLS und Bezugspflege sind prägende Elemente unseres Notfallprozesses. Einritt per sofort befristet bis zum 31.10.2026 Das wartet auf dich\n• Motiviertes, gut eingespieltes Team mit tollem Zusammenhalt\n• Aktionen innerhalb unserer Spitalgruppe\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen, Pflegepersonal, usw. in verschiedensten Bereichen und Fachgebieten\n• Topmoderne Infrastruktur\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion So wirst du Teil unseres Teams\n• Dipl. Pflegefachfrau / Pflegefachmann mit NDS HF Notfallpflege\n• Berufserfahrung im Notfallbereich\n• Hohe Belastbarkeit, hohe Sozialkompetenzen sowie vernetztes Denken und Handeln",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Faites partie de notre centre d'urgence interdisciplinaire, où un environnement de travail intéressant et exigeant vous attend. Le traitement de la documentation des soins électroniques, de la surveillance centrale et des systèmes de distribution de médicaments font partie de votre travail quotidien. Triage, ACLS, ATLS et maintenance de référence définissent les éléments de notre processus d'urgence. Voyage à terme jusqu'au 31.10.2026 Ça vous attend.\n• Équipe motivée et bien travaillée avec une grande cohésion\n• Actions au sein de notre groupe hospitalier\n• Coopération interdisciplinaire avec les médecins: au sein du personnel infirmier, etc. dans un large éventail de domaines et de domaines\n• Infrastructures modernes\n• Des loisirs attrayants dans les régions de la mer et de la montagne Devenez membre de notre équipe\n• Dipl. Professionnel infirmier avec des soins d'urgence NDS HF\n• Expérience professionnelle d ' urgence\n• Haute résilience, hautes compétences sociales et pensée et action en réseau"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/e7a46e5e-e9b7-439d-bc00-40fe95c0e6e8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:25.850Z",
+      "crawledAt": "2026-07-02T23:02:31.245Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -506,7 +515,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experte-expertin-notfallpflege-befristet-spital-sts-thun"
+          "experte-expertin-notfallpflege-befristet-spital-sts-thun",
+          "expert-expert-emergency-care-temporanea-spital-sts-thun"
         ],
         "en": [
           "experte-expertin-notfallpflege-befristet-spital-sts-thun"
@@ -543,7 +553,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Pflegefachfrau/-mann Gastroenterologie",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale gastroenterologia",
+        "it": "Dipl. Pflegefachfrau/-mann Gastroenterologie",
         "en": "Dipl. Nursing professional gastroenterology",
         "de": "Dipl. Pflegefachfrau/-mann Gastroenterologie",
         "fr": "Dipl. Gastroentérologie professionnelle des soins infirmiers"
@@ -555,12 +565,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Komme mit an Bord unserer Gastroenterologie, wo dich ein spannendes und anspruchsvolles Aufgabengebiet erwartet. Zusammen mit einem interdisziplinären Team sorgst du mit deinen Kompetenzen für die Patientensicherheit bei ambulanten und stationären endoskopischen Untersuchungen am Spitalstandort Thun, Zweisimmen und in unserer Gastropraxis am Bahnhof. Eintritt per sofort oder nach Vereinbarung. Das wartet auf dich\n• Individuelle Entwicklungsmöglichkeiten\n• Interdisziplinäre Zusammenarbeit\n• Engagiertes Team\n• Geregelte Arbeitszeiten\n• Wählbares Ferien- und Pensionskassenmodell So wirst du Teil unseres Teams\n• Dipl. Pflegefachfrau/-mann HF\n• Idealerweise mit Erfahrung im Akutbereich und in der Endoskopie\n• Freude am Umgang mit technischen Geräten, gute PC-Kenntnisse\n• Vernetztes Denken und Fähigkeit zu einer konstruktiven interdisziplinären Zusammenarbeit\n• Bereitschaft Pikettdienste zu leisten\n• Bereitschaft tageweise am Spitalstandort Zweisimmen und in der Gastropraxis am Bahnhof zu arbeiten",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Venez à bord de notre gastroentérologie, où une tâche passionnante et exigeante vous attend. Avec une équipe interdisciplinaire, vous fournirez votre expertise pour la sécurité des patients lors des examens endoscopiques ambulatoires et hospitaliers à l'hôpital de Thun, Zweisimmen et dans notre cabinet de restaurant à la gare. Admission immédiate ou par arrangement. Ça vous attend.\n• Possibilités individuelles de développement\n• Coopération interdisciplinaire\n• Équipe dédiée\n• Heures de travail réglementées\n• Modèle de caisse de vacances et de retraite sélectionnable Devenez membre de notre équipe\n• Dipl. Soins infirmiers professionnels HF\n• Idéalement avec l'expérience dans le domaine aigu et en endoscopie\n• Joy dans le traitement des dispositifs techniques, de bonnes connaissances PC\n• Réflexion en réseau et capacité de collaboration interdisciplinaire constructive\n• Volonté de fournir des services de piquetage\n• Volonté de travailler tous les jours à l'hôpital Zweisimmen et au restaurant de la gare"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/41e474a9-a923-4a9b-84d2-b6417785444c/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:25.242Z",
+      "crawledAt": "2026-07-02T23:02:30.431Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -582,7 +593,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
+          "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
+          "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
@@ -609,9 +621,9 @@
       "id": "spital-sts-3a86c682d02c",
       "slug": "oberarztin-oberarzt-o-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun",
       "slugByLocale": {
-        "de": "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun",
         "it": "oberarztin-oberarzt-o-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun",
         "en": "senior-physician-senior-physician-or-hospital-specialist-hospital-specialist-anesthesia-spital-sts-thun",
+        "de": "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun",
         "fr": "medecin-principal-medecin-principal-ou-specialiste-de-l-hopital-anesthesie-specialiste-de-l-hopital-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -619,24 +631,25 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Oberärztin / Oberarzt oder Spitalfachärztin / Spitalfacharzt Anästhesie",
       "titleByLocale": {
-        "de": "Oberärztin / Oberarzt oder Spitalfachärztin / Spitalfacharzt Anästhesie",
         "it": "Oberärztin / Oberarzt o Spitalfachärztin / Spitalfacharzt Anästhesie",
         "en": "Senior physician / senior physician or hospital specialist / hospital specialist anesthesia",
+        "de": "Oberärztin / Oberarzt oder Spitalfachärztin / Spitalfacharzt Anästhesie",
         "fr": "Médecin principal / médecin principal ou spécialiste de l'hôpital / anesthésie spécialiste de l'hôpital"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nIm stark interdisziplinär geprägten OPS-Umfeld werden in neun hochmodern ausgestatteten Operationssälen jährlich über 9'000 Operationen durchgeführt. Unser Institut für Anästhesiologie arbeitet in den Bereichen Allgemein- und Viszeralchirurgie, Orthopädie und orthopädische Traumatologie, Hand-, Wirbelsäulen-, Gefäss- und Hals-Nasen-Ohren-Chirurgie, Urologie, Gynäkologie und Geburtshilfe. Nebst dem Einsatz als Facharzt/-ärztin Anästhesie wäre es bei Qualifikation möglich, auch im ärztlichen Bereich der Intensivmedizin tätig zu sein. Eintritt nach Vereinbarung.\n\nDas wartet auf dich\n\n• Strukturierte Einarbeitung\n\n• Einbindung in ein engagiertes und erfahrenes Team mit flachen Hierarchien\n\n• Breit gefächertes anästhesiologisches Spektrum\n\n• Falls Einstieg als Oberärztin/-arzt Entwicklungsmöglichkeit zur/zum Spitalfachärztin/-arzt in unbefristeter Anstellung gegeben - Flexibel wählbares Ferien- und Dienstzeitmodell\n\n• Geregelte 46-Std-Woche bei Jahresarbeitszeit/Überstundenausgleich gemäss GAV\n\n• Finanzielle Beteiligung an Fort- und Weiterbildung\n\n• Attraktive Pensionskassenversicherung\n\nSo wirst du Teil unseres Teams\n\n• Schweizer Arzt- und Facharztdiplom Anästhesiologie oder MEBEKO Anerkennung einer äquivalenten Ausbildung\n\n• (Mehrjährige) Erfahrung als Fachärztin/-arzt\n\n• Gegebenenfalls Schweizer Facharztausbildung Intensivmedizin\n\n• Du bist versiert in der Anwendung aller gängigen modernen Anästhesieverfahren\n\n• Hohe Sozialkompetenz",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nIm stark interdisziplinär geprägten OPS-Umfeld werden in neun hochmodern ausgestatteten Operationssälen jährlich über 9'000 Operationen durchgeführt. Unser Institut für Anästhesiologie arbeitet in den Bereichen Allgemein- und Viszeralchirurgie, Orthopädie und orthopädische Traumatologie, Hand-, Wirbelsäulen-, Gefäss- und Hals-Nasen-Ohren-Chirurgie, Urologie, Gynäkologie und Geburtshilfe. Nebst dem Einsatz als Facharzt/-ärztin Anästhesie wäre es bei Qualifikation möglich, auch im ärztlichen Bereich der Intensivmedizin tätig zu sein. Eintritt nach Vereinbarung.\n\nDas wartet auf dich\n\n• Strukturierte Einarbeitung\n\n• Einbindung in ein engagiertes und erfahrenes Team mit flachen Hierarchien\n\n• Breit gefächertes anästhesiologisches Spektrum\n\n• Falls Einstieg als Oberärztin/-arzt Entwicklungsmöglichkeit zur/zum Spitalfachärztin/-arzt in unbefristeter Anstellung gegeben - Flexibel wählbares Ferien- und Dienstzeitmodell\n\n• Geregelte 46-Std-Woche bei Jahresarbeitszeit/Überstundenausgleich gemäss GAV\n\n• Finanzielle Beteiligung an Fort- und Weiterbildung\n\n• Attraktive Pensionskassenversicherung\n\nSo wirst du Teil unseres Teams\n\n• Schweizer Arzt- und Facharztdiplom Anästhesiologie oder MEBEKO Anerkennung einer äquivalenten Ausbildung\n\n• (Mehrjährige) Erfahrung als Fachärztin/-arzt\n\n• Gegebenenfalls Schweizer Facharztausbildung Intensivmedizin\n\n• Du bist versiert in der Anwendung aller gängigen modernen Anästhesieverfahren\n\n• Hohe Sozialkompetenz",
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nNell'ambiente OPS altamente interdisciplinare, più di 9.000 operazioni vengono effettuate ogni anno in nove sale operative altamente moderne. Il nostro Istituto di Anestesiologia lavora nei campi di chirurgia generale e viscerale, ortopedia e traumatologia ortopedia, mano, spinale, chirurgia vascolare e collo-nose-ear, urologia, ginecologia e ostetricia. Oltre ad essere impiegato come anestesia specializzata, sarebbe anche possibile lavorare nel campo medico di medicina intensiva. Entrata per accordo.\n\nTi sta aspettando.\n\n• Conoscenze strutturate\n\n• Integrazione in un team impegnato ed esperto con gerarchie piatte\n\n• spettro anestesiologico ampiamente diversificato\n\n• Se si inizia come un'opportunità di sviluppo medico senior per diventare uno specialista ospedaliero in occupazione permanente - modello flessibile vacanza e servizio\n\n• Regolamentato 46 ore settimanali per l'orario di lavoro annuale / compensazione straordinario secondo GAV\n\n• Contributo finanziario alla formazione\n\n• Assicurazione pensionistica attraente\n\nDiventa parte del nostro team\n\n• Diploma medico e specialistico svizzero Anestesiologia o MEBEKO Riconoscimento di una formazione equivalente\n\n• (Sogni anni) esperienza come specialista\n\n• Formazione specialistica svizzera in medicina intensiva\n\n• Siete ben versi nell'uso di tutte le procedure di anestesia moderne attuali\n\n• Alto livello di competenze sociali",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nIn the highly interdisciplinary OPS environment, more than 9,000 operations are carried out annually in nine highly modern operating rooms. Our Institute of Anesthesiology works in the fields of general and visceral surgery, orthopaedics and orthopaedic traumatology, hand, spinal, vascular and neck-nose-ear surgery, urology, gynecology and obstetrics. In addition to being employed as a specialist anesthesia, it would also be possible to work in the medical field of intensive care medicine. Entry by arrangement.\n\nThis is waiting for you\n\n• Structured familiarisation\n\n• Integration into a committed and experienced team with flat hierarchies\n\n• Broadly diversified anesthesiological spectrum\n\n• If you start as a senior physician development opportunity to become a hospital specialist in permanent employment - flexible holiday and service model\n\n• Regulated 46-hour week for annual working hours/overtime compensation according to GAV\n\n• Financial contribution to training\n\n• Attractive pension insurance\n\nBecome part of our team\n\n• Swiss medical and specialist diploma Anesthesiology or MEBEKO Recognition of an equivalent training\n\n• (Several years) experience as a specialist\n\n• Swiss specialist training in intensive care medicine\n\n• You are well versed in using all current modern anesthesia procedures\n\n• High level of social skills",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nDans un environnement hautement interdisciplinaire, plus de 9 000 opérations sont réalisées chaque année dans neuf salles d'opération très modernes. Notre Institut d'anesthésiologie travaille dans les domaines de la chirurgie générale et viscérale, de l'orthopédie et de la traumatologie orthopédique, de la chirurgie de la main, de la colonne vertébrale, vasculaire et de l'oreille du cou, de l'urologie, de la gynécologie et de l'obstétrique. En plus d'être employé comme anesthésie spécialisée, il serait également possible de travailler dans le domaine médical de la médecine intensive. Entrée par arrangement.\n\nÇa vous attend.\n\n• Familiarisation structurée\n\n• Intégration dans une équipe engagée et expérimentée avec hiérarchies plates\n\n• Spectre anesthésiologique largement diversifié\n\n• Si vous commencez comme une occasion de développement de médecin senior pour devenir un spécialiste hospitalier en emploi permanent - modèle flexible de vacances et de services\n\n• Régulée par la semaine de 46 heures pour la rémunération annuelle des heures de travail/heures supplémentaires selon GAV\n\n• Contribution financière à la formation\n\n• Assurance pension attractive\n\nDevenez membre de notre équipe\n\n• Diplôme suisse de médecine et de spécialisation Anesthésiologie ou MEBEKO Reconnaissance d'une formation équivalente\n\n• (Plusieurs années) expérience en tant que spécialiste\n\n• Formation spécialisée suisse en médecine intensive\n\n• Vous êtes bien entraîné dans l'utilisation de toutes les procédures d'anesthésie modernes actuelles\n\n• Niveau élevé de compétences sociales"
+        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui. Nell'ambiente OPS altamente interdisciplinare, più di 9.000 operazioni vengono effettuate ogni anno in nove sale operative altamente moderne. Il nostro Istituto di Anestesiologia lavora nei campi di chirurgia generale e viscerale, ortopedia e traumatologia ortopedia, mano, spinale, chirurgia vascolare e collo-nose-ear, urologia, ginecologia e ostetricia. Oltre ad essere impiegato come anestesia specializzata, sarebbe anche possibile lavorare nel campo medico di medicina intensiva. Entrata per accordo. Ti sta aspettando.\n• Conoscenze strutturate\n• Integrazione in un team impegnato ed esperto con gerarchie piatte\n• spettro anestesiologico ampiamente diversificato\n• Se si inizia come un'opportunità di sviluppo medico senior per diventare uno specialista ospedaliero in occupazione permanente - modello flessibile vacanza e servizio\n• Regolamentato 46 ore settimanali per l'orario di lavoro annuale / compensazione straordinario secondo GAV\n• Contributo finanziario alla formazione\n• Assicurazione pensionistica attraente Diventa parte del nostro team\n• Diploma medico e specialistico svizzero Anestesiologia o MEBEKO Riconoscimento di una formazione equivalente\n• (Sogni anni) esperienza come specialista\n• Formazione specialistica svizzera in medicina intensiva\n• Siete ben versi nell'uso di tutte le procedure di anestesia moderne attuali\n• Alto livello di competenze sociali",
+        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here. In the highly interdisciplinary OPS environment, more than 9,000 operations are carried out annually in nine highly modern operating rooms. Our Institute of Anesthesiology works in the fields of general and visceral surgery, orthopaedics and orthopaedic traumatology, hand, spinal, vascular and neck-nose-ear surgery, urology, gynecology and obstetrics. In addition to being employed as a specialist anesthesia, it would also be possible to work in the medical field of intensive care medicine. Entry by arrangement. This is waiting for you\n• Structured familiarisation\n• Integration into a committed and experienced team with flat hierarchies\n• Broadly diversified anesthesiological spectrum\n• If you start as a senior physician development opportunity to become a hospital specialist in permanent employment - flexible holiday and service model\n• Regulated 46-hour week for annual working hours/overtime compensation according to GAV\n• Financial contribution to training\n• Attractive pension insurance Become part of our team\n• Swiss medical and specialist diploma Anesthesiology or MEBEKO Recognition of an equivalent training\n• (Several years) experience as a specialist\n• Swiss specialist training in intensive care medicine\n• You are well versed in using all current modern anesthesia procedures\n• High level of social skills",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Im stark interdisziplinär geprägten OPS-Umfeld werden in neun hochmodern ausgestatteten Operationssälen jährlich über 9'000 Operationen durchgeführt. Unser Institut für Anästhesiologie arbeitet in den Bereichen Allgemein- und Viszeralchirurgie, Orthopädie und orthopädische Traumatologie, Hand-, Wirbelsäulen-, Gefäss- und Hals-Nasen-Ohren-Chirurgie, Urologie, Gynäkologie und Geburtshilfe. Nebst dem Einsatz als Facharzt/-ärztin Anästhesie wäre es bei Qualifikation möglich, auch im ärztlichen Bereich der Intensivmedizin tätig zu sein. Eintritt nach Vereinbarung. Das wartet auf dich\n• Strukturierte Einarbeitung\n• Einbindung in ein engagiertes und erfahrenes Team mit flachen Hierarchien\n• Breit gefächertes anästhesiologisches Spektrum\n• Falls Einstieg als Oberärztin/-arzt Entwicklungsmöglichkeit zur/zum Spitalfachärztin/-arzt in unbefristeter Anstellung gegeben - Flexibel wählbares Ferien- und Dienstzeitmodell\n• Geregelte 46-Std-Woche bei Jahresarbeitszeit/Überstundenausgleich gemäss GAV\n• Finanzielle Beteiligung an Fort- und Weiterbildung\n• Attraktive Pensionskassenversicherung So wirst du Teil unseres Teams\n• Schweizer Arzt- und Facharztdiplom Anästhesiologie oder MEBEKO Anerkennung einer äquivalenten Ausbildung\n• (Mehrjährige) Erfahrung als Fachärztin/-arzt\n• Gegebenenfalls Schweizer Facharztausbildung Intensivmedizin\n• Du bist versiert in der Anwendung aller gängigen modernen Anästhesieverfahren\n• Hohe Sozialkompetenz",
+        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Dans un environnement hautement interdisciplinaire, plus de 9 000 opérations sont réalisées chaque année dans neuf salles d'opération très modernes. Notre Institut d'anesthésiologie travaille dans les domaines de la chirurgie générale et viscérale, de l'orthopédie et de la traumatologie orthopédique, de la chirurgie de la main, de la colonne vertébrale, vasculaire et de l'oreille du cou, de l'urologie, de la gynécologie et de l'obstétrique. En plus d'être employé comme anesthésie spécialisée, il serait également possible de travailler dans le domaine médical de la médecine intensive. Entrée par arrangement. Ça vous attend.\n• Familiarisation structurée\n• Intégration dans une équipe engagée et expérimentée avec hiérarchies plates\n• Spectre anesthésiologique largement diversifié\n• Si vous commencez comme une occasion de développement de médecin senior pour devenir un spécialiste hospitalier en emploi permanent - modèle flexible de vacances et de services\n• Régulée par la semaine de 46 heures pour la rémunération annuelle des heures de travail/heures supplémentaires selon GAV\n• Contribution financière à la formation\n• Assurance pension attractive Devenez membre de notre équipe\n• Diplôme suisse de médecine et de spécialisation Anesthésiologie ou MEBEKO Reconnaissance d'une formation équivalente\n• (Plusieurs années) expérience en tant que spécialiste\n• Formation spécialisée suisse en médecine intensive\n• Vous êtes bien entraîné dans l'utilisation de toutes les procédures d'anesthésie modernes actuelles\n• Niveau élevé de compétences sociales"
       },
+      "needsRetranslation": false,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/43918f52-8418-42a7-b3d3-534eb1b8eac8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:24.607Z",
+      "crawledAt": "2026-07-02T23:02:29.385Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -652,9 +665,10 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/43918f52-8418-42a7-b3d3-534eb1b8eac8",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
@@ -666,30 +680,27 @@
           "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-anasthesie-spital-sts-thun"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "firstSeenAt": "2026-07-02T12:25:24.607Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-02T12:25:24.607Z"
+      }
     },
     {
       "id": "spital-sts-d792beeddfcd",
       "slug": "collaboratore-trice-distributionslogistik-spital-sts-thun",
       "slugByLocale": {
-        "de": "mitarbeiter-in-distributionslogistik-spital-sts-thun",
         "it": "collaboratore-trice-distributionslogistik-spital-sts-thun",
         "en": "associate-distributionslogistik-spital-sts-thun",
+        "de": "mitarbeiter-in-distributionslogistik-spital-sts-thun",
         "fr": "collaborateur-trice-distributionslogistik-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -697,24 +708,25 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Mitarbeiter:in Distributionslogistik",
       "titleByLocale": {
-        "de": "Mitarbeiter:in Distributionslogistik",
         "it": "Collaboratore/trice Distributionslogistik",
         "en": "Associate Distributionslogistik",
+        "de": "Mitarbeiter:in Distributionslogistik",
         "fr": "Collaborateur/trice Distributionslogistik"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu nimmst innerhalb der Distributionslogistik, in verschiedenen Diensten, eine vielseitige Allrounder-Funktion ein. Du führst interne Transporte (Laborproben & Sterilgut) aus, kommissionierst und lieferst Patientengetränke auf die jeweiligen Stationen aus. Die Warenannahme sowie die Kontrolle und Verbuchung der Ware im System bis zur Auslieferung an Ort und Stelle gehören auch dazu. Unter anderem gehört die Bewirtschaftung des Wäschesortimentes auf den Stationen zu deinen Aufgaben. Das Einsammeln, Sortieren und Bereitstellen für den Abtransport von Wertstoffen und Sonderabfall rundet den Kreislauf der Warenwirtschaft ab.\n\nWeiters transportierst du die Speisewagen mit Patientenverpflegung von der Küche sicher auf die Abteilung und wieder retour. Hier bist du bereit als Vertretung auch am Wochenende oder am Abend einen Einsatz zu leisten.\nDu bist mit deiner Arbeit ein wichtiger Teil des Ganzen und gestaltest unseren gemeinsamen Erfolg in der Logistik mit.\n\nEintritt per 1. August 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Aufgestelltes und unterstützendes Team\n\n• Spannende Herausforderungen im Spitalumfeld\n\n• Gute Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Zulage bei Wochenendarbeit\n\nSo wirst du Teil unseres Teams\n\n• Du bringst eine Gewerblich-industrielle Grundausbildung mit und hast vorzugsweise bereits Erfahrung in einer ähnlichen Funktion\n\n• Du verfügts über sehr gute schriftliche und mündliche Deutschkenntnisse\n\n• Du bist im Besitz eines Führerscheins für Deichselstapler\n\n• Du hast eine rasche Auffassungsgabe und bist ein Teamplayer",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu nimmst innerhalb der Distributionslogistik, in verschiedenen Diensten, eine vielseitige Allrounder-Funktion ein. Du führst interne Transporte (Laborproben & Sterilgut) aus, kommissionierst und lieferst Patientengetränke auf die jeweiligen Stationen aus. Die Warenannahme sowie die Kontrolle und Verbuchung der Ware im System bis zur Auslieferung an Ort und Stelle gehören auch dazu. Unter anderem gehört die Bewirtschaftung des Wäschesortimentes auf den Stationen zu deinen Aufgaben. Das Einsammeln, Sortieren und Bereitstellen für den Abtransport von Wertstoffen und Sonderabfall rundet den Kreislauf der Warenwirtschaft ab.\n\nWeiters transportierst du die Speisewagen mit Patientenverpflegung von der Küche sicher auf die Abteilung und wieder retour. Hier bist du bereit als Vertretung auch am Wochenende oder am Abend einen Einsatz zu leisten.\nDu bist mit deiner Arbeit ein wichtiger Teil des Ganzen und gestaltest unseren gemeinsamen Erfolg in der Logistik mit.\n\nEintritt per 1. August 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Aufgestelltes und unterstützendes Team\n\n• Spannende Herausforderungen im Spitalumfeld\n\n• Gute Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Zulage bei Wochenendarbeit\n\nSo wirst du Teil unseres Teams\n\n• Du bringst eine Gewerblich-industrielle Grundausbildung mit und hast vorzugsweise bereits Erfahrung in einer ähnlichen Funktion\n\n• Du verfügts über sehr gute schriftliche und mündliche Deutschkenntnisse\n\n• Du bist im Besitz eines Führerscheins für Deichselstapler\n\n• Du hast eine rasche Auffassungsgabe und bist ein Teamplayer",
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nAll'interno della logistica di distribuzione, in vari servizi, si assume una versatile funzione tuttofare. Effettuate i trasporti interni (campioni di laboratorio e merci sterili), scegliete e portate le bevande dei pazienti alle rispettive stazioni. L'accettazione delle merci così come il controllo e la prenotazione delle merci nel sistema fino alla consegna in loco sono anche inclusi. Tra le altre cose, la gestione della gamma di lavanderia nelle stazioni è uno dei vostri compiti. La raccolta, la selezione e la fornitura per la rimozione di riciclabili e rifiuti speciali completano il ciclo di gestione delle merci.\n\nInoltre, si trasporta la macchina da pranzo con cibo paziente dalla cucina in modo sicuro al dipartimento e di nuovo. Qui siete pronti come rappresentante anche il fine settimana o la sera per fare una distribuzione.\nSei una parte importante del tutto con il tuo lavoro e modella il nostro successo congiunto nella logistica.\n\nIngresso al 1° agosto 2026 o per accordo.\n\nTi sta aspettando.\n\n• Squadra fondata e solidale\n\n• Sfide emozionanti nell'ambiente ospedaliero\n\n• Buone condizioni di lavoro secondo gli ospedali e le cliniche GAV Bern\n\n• Modello gratuito per le vacanze e i fondi pensione\n\n• Tassa di lavoro settimanale\n\nDiventa parte del nostro team\n\n• Si porta una formazione commerciale-industriale di base e preferibilmente già hanno esperienza in una funzione simile\n\n• Hai avuto ottime capacità scritte e orali tedesche\n\n• Hai una patente di guida per i camion del drawbar\n\n• Hai una rapida comprensione e sei un giocatore di squadra",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nWithin distribution logistics, in various services, you take on a versatile all-rounder function. You carry out internal transports (laboratory samples & sterile goods), pick and deliver patient drinks to the respective stations. The acceptance of goods as well as the control and booking of the goods in the system until delivery on site are also included. Among other things, the management of the laundry range on the stations is one of your tasks. The collection, sorting and provision for the removal of recyclables and special waste rounds off the cycle of goods management.\n\nFurthermore, you transport the dining car with patient food from the kitchen safely to the department and back again. Here you are ready as a representative also on the weekend or in the evening to make a deployment.\nYou are an important part of the whole with your work and shape our joint success in logistics.\n\nEntry as of 1 August 2026 or by arrangement.\n\nThis is waiting for you\n\n• Established and supportive team\n\n• Exciting challenges in the hospital environment\n\n• Good employment conditions according to GAV Bern hospitals and clinics\n\n• Freely selectable holiday and pension fund model\n\n• Weekend work allowance\n\nBecome part of our team\n\n• You bring a basic commercial-industrial education and preferably already have experience in a similar function\n\n• You had very good written and oral German skills\n\n• You have a driving license for drawbar trucks\n\n• You have a quick understanding and are a team player",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nAu sein de la logistique de distribution, dans divers services, vous assumez une fonction polyvalente. Vous effectuez des transports internes (échantillons de laboratoire et produits stériles), choisissez et livrez des boissons aux stations respectives. L'acceptation des marchandises ainsi que le contrôle et la réservation des marchandises dans le système jusqu'à la livraison sur place sont également inclus. Entre autres choses, la gestion de la gamme de blanchisserie sur les stations est l'une de vos tâches. La collecte, le tri et l'élimination des matières recyclables et des déchets spéciaux complètent le cycle de gestion des marchandises.\n\nEn outre, vous transportez la voiture à manger avec de la nourriture patiente de la cuisine en toute sécurité au département et retour. Ici vous êtes prêt en tant que représentant également le week-end ou le soir pour faire un déploiement.\nVous êtes une partie importante de l'ensemble avec votre travail et façonner notre succès commun dans la logistique.\n\nEntrée au 1er août 2026 ou par arrangement.\n\nÇa vous attend.\n\n• Équipe créée et de soutien\n\n• Des défis passionnants dans l'environnement hospitalier\n\n• De bonnes conditions d'emploi selon GAV Bern hôpitaux et cliniques\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\n• Indemnité de fin de semaine\n\nDevenez membre de notre équipe\n\n• Vous apportez une éducation commerciale-industrielle de base et avez de préférence déjà une expérience dans une fonction similaire\n\n• Vous aviez de très bonnes compétences écrites et orales en allemand\n\n• Vous avez un permis de conduire pour les camions à timon\n\n• Vous avez une compréhension rapide et êtes un joueur d'équipe"
+        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui. All'interno della logistica di distribuzione, in vari servizi, si assume una versatile funzione tuttofare. Effettuate i trasporti interni (campioni di laboratorio e merci sterili), scegliete e portate le bevande dei pazienti alle rispettive stazioni. L'accettazione delle merci così come il controllo e la prenotazione delle merci nel sistema fino alla consegna in loco sono anche inclusi. Tra le altre cose, la gestione della gamma di lavanderia nelle stazioni è uno dei vostri compiti. La raccolta, la selezione e la fornitura per la rimozione di riciclabili e rifiuti speciali completano il ciclo di gestione delle merci. Inoltre, si trasporta la macchina da pranzo con cibo paziente dalla cucina in modo sicuro al dipartimento e di nuovo. Qui siete pronti come rappresentante anche il fine settimana o la sera per fare una distribuzione. Sei una parte importante del tutto con il tuo lavoro e modella il nostro successo congiunto nella logistica. Ingresso al 1° agosto 2026 o per accordo. Ti sta aspettando.\n• Squadra fondata e solidale\n• Sfide emozionanti nell'ambiente ospedaliero\n• Buone condizioni di lavoro secondo gli ospedali e le cliniche GAV Bern\n• Modello gratuito per le vacanze e i fondi pensione\n• Tassa di lavoro settimanale Diventa parte del nostro team\n• Si porta una formazione commerciale-industriale di base e preferibilmente già hanno esperienza in una funzione simile\n• Hai avuto ottime capacità scritte e orali tedesche\n• Hai una patente di guida per i camion del drawbar\n• Hai una rapida comprensione e sei un giocatore di squadra",
+        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here. Within distribution logistics, in various services, you take on a versatile all-rounder function. You carry out internal transports (laboratory samples & sterile goods), pick and deliver patient drinks to the respective stations. The acceptance of goods as well as the control and booking of the goods in the system until delivery on site are also included. Among other things, the management of the laundry range on the stations is one of your tasks. The collection, sorting and provision for the removal of recyclables and special waste rounds off the cycle of goods management. Furthermore, you transport the dining car with patient food from the kitchen safely to the department and back again. Here you are ready as a representative also on the weekend or in the evening to make a deployment. You are an important part of the whole with your work and shape our joint success in logistics. Entry as of 1 August 2026 or by arrangement. This is waiting for you\n• Established and supportive team\n• Exciting challenges in the hospital environment\n• Good employment conditions according to GAV Bern hospitals and clinics\n• Freely selectable holiday and pension fund model\n• Weekend work allowance Become part of our team\n• You bring a basic commercial-industrial education and preferably already have experience in a similar function\n• You had very good written and oral German skills\n• You have a driving license for drawbar trucks\n• You have a quick understanding and are a team player",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig. Du nimmst innerhalb der Distributionslogistik, in verschiedenen Diensten, eine vielseitige Allrounder-Funktion ein. Du führst interne Transporte (Laborproben & Sterilgut) aus, kommissionierst und lieferst Patientengetränke auf die jeweiligen Stationen aus. Die Warenannahme sowie die Kontrolle und Verbuchung der Ware im System bis zur Auslieferung an Ort und Stelle gehören auch dazu. Unter anderem gehört die Bewirtschaftung des Wäschesortimentes auf den Stationen zu deinen Aufgaben. Das Einsammeln, Sortieren und Bereitstellen für den Abtransport von Wertstoffen und Sonderabfall rundet den Kreislauf der Warenwirtschaft ab. Weiters transportierst du die Speisewagen mit Patientenverpflegung von der Küche sicher auf die Abteilung und wieder retour. Hier bist du bereit als Vertretung auch am Wochenende oder am Abend einen Einsatz zu leisten. Du bist mit deiner Arbeit ein wichtiger Teil des Ganzen und gestaltest unseren gemeinsamen Erfolg in der Logistik mit. Eintritt per 1. August 2026 oder nach Vereinbarung. Das wartet auf dich\n• Aufgestelltes und unterstützendes Team\n• Spannende Herausforderungen im Spitalumfeld\n• Gute Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n• Frei wählbares Ferien- und Pensionskassenmodell\n• Zulage bei Wochenendarbeit So wirst du Teil unseres Teams\n• Du bringst eine Gewerblich-industrielle Grundausbildung mit und hast vorzugsweise bereits Erfahrung in einer ähnlichen Funktion\n• Du verfügts über sehr gute schriftliche und mündliche Deutschkenntnisse\n• Du bist im Besitz eines Führerscheins für Deichselstapler\n• Du hast eine rasche Auffassungsgabe und bist ein Teamplayer",
+        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là. Au sein de la logistique de distribution, dans divers services, vous assumez une fonction polyvalente. Vous effectuez des transports internes (échantillons de laboratoire et produits stériles), choisissez et livrez des boissons aux stations respectives. L'acceptation des marchandises ainsi que le contrôle et la réservation des marchandises dans le système jusqu'à la livraison sur place sont également inclus. Entre autres choses, la gestion de la gamme de blanchisserie sur les stations est l'une de vos tâches. La collecte, le tri et l'élimination des matières recyclables et des déchets spéciaux complètent le cycle de gestion des marchandises. En outre, vous transportez la voiture à manger avec de la nourriture patiente de la cuisine en toute sécurité au département et retour. Ici vous êtes prêt en tant que représentant également le week-end ou le soir pour faire un déploiement. Vous êtes une partie importante de l'ensemble avec votre travail et façonner notre succès commun dans la logistique. Entrée au 1er août 2026 ou par arrangement. Ça vous attend.\n• Équipe créée et de soutien\n• Des défis passionnants dans l'environnement hospitalier\n• De bonnes conditions d'emploi selon GAV Bern hôpitaux et cliniques\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n• Indemnité de fin de semaine Devenez membre de notre équipe\n• Vous apportez une éducation commerciale-industrielle de base et avez de préférence déjà une expérience dans une fonction similaire\n• Vous aviez de très bonnes compétences écrites et orales en allemand\n• Vous avez un permis de conduire pour les camions à timon\n• Vous avez une compréhension rapide et êtes un joueur d'équipe"
       },
+      "needsRetranslation": false,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/15b97db1-e6cb-40a5-bf3e-054c5c9a0bbf/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:23.996Z",
+      "crawledAt": "2026-07-02T23:02:28.213Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -730,12 +742,14 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/15b97db1-e6cb-40a5-bf3e-054c5c9a0bbf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+          "mitarbeiter-in-distributionslogistik-spital-sts-thun",
+          "collaboratore-trice-distributionslogistik-spital-sts-thun"
         ],
         "en": [
           "mitarbeiter-in-distributionslogistik-spital-sts-thun"
@@ -744,9 +758,7 @@
           "mitarbeiter-in-distributionslogistik-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-distributionslogistik-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-07-02T12:25:23.996Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -758,8 +770,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-02T12:25:23.996Z"
+      }
     },
     {
       "id": "spital-sts-7bd5eec28571",
@@ -839,7 +850,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spital-sts-09d033d49379",
@@ -917,7 +928,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
