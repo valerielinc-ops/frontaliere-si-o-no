@@ -8228,6 +8228,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Ticino blocca 50,2 milioni di ristorni alla Lombardia: tensioni e dialogo',
     'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'Il Canton Ticino trattiene 50,2 milioni di franchi destinati alla Lombardia. Roma e Berna cercano una soluzione diplomatica.',
     'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Vista aerea del Lago di Lugano al tramonto con la città di Lugano sullo sfondo',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Grigioni: 1,6 milioni dai 1’479 nuovi frontalieri italiani',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'Il cantone dei Grigioni ha registrato un aumento significativo di frontalieri italiani, con un contributo economico di 1,6 milioni.',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Paesaggio dei Grigioni con frontalieri italiani in cammino verso il confine',
 };
 
 export default blogMetaIt;

@@ -4362,6 +4362,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensionamento-anticipato-frontalieri-2026': { name: 'Pensionamento anticipato', path: '/articoli-svizzera/pensionamento-anticipato-frontalieri-2026/', parent: 'blog' },
     'blog-ticino-blocca-ristorni-roma-berna': { name: 'Ticino blocca ristorni', path: '/articoli-frontaliere/ticino-blocca-ristorni-roma-berna', parent: 'blog' },
     'blog-mutuo-italia-frontalieri-guida': { name: 'Mutuo Italia', path: '/articoli-svizzera/mutuo-italia-frontalieri-guida/', parent: 'blog' },
+    'blog-grigioni-frontalieri-italiani-1-6-milioni': { name: 'Grigioni frontalieri', path: '/articoli-frontaliere/grigioni-frontalieri-italiani-1-6-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

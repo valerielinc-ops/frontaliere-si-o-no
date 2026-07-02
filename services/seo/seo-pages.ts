@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3081,
+ "numberOfItems": 3082,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7727,7 +7727,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3078, "name": "Ore non pagate e clausole contestate: il caso s...", "url": `${BASE_URL}/articoli-frontaliere/ristorazione-ticinese-ore-non-pagate` },
           { "@type": "ListItem", "position": 3079, "name": "Pensionamento anticipato frontalieri 2026: guid...", "url": `${BASE_URL}/articoli-frontaliere/pensionamento-anticipato-frontalieri-2026` },
           { "@type": "ListItem", "position": 3080, "name": "Ticino blocca 50,2 milioni di ristorni alla Lom...", "url": `${BASE_URL}/articoli-frontaliere/ticino-blocca-ristorni-roma-berna` },
-          { "@type": "ListItem", "position": 3081, "name": "Mutuo in Italia per frontalieri: guida completa...", "url": `${BASE_URL}/articoli-frontaliere/mutuo-italia-frontalieri-guida` }
+          { "@type": "ListItem", "position": 3081, "name": "Mutuo in Italia per frontalieri: guida completa...", "url": `${BASE_URL}/articoli-frontaliere/mutuo-italia-frontalieri-guida` },
+          { "@type": "ListItem", "position": 3082, "name": "Grigioni: 1,6 milioni dai 1’479 nuovi frontalie...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-frontalieri-italiani-1-6-milioni` }
  ]
  },
  {

@@ -8227,6 +8227,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Ticino blocks 50.2 million in rebates to Lombardy: tensions and dialogue',
     'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'The Canton of Ticino retains 50.2 million francs intended for Lombardy. Rome and Bern are looking for a diplomatic solution.',
     'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Aerial view of Lake Lugano at sunset with the city of Lugano in the background',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Graubünden: 1.6 million from 1,479 new Italian cross-border commuters',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'The canton of Graubünden has recorded a significant increase in the number of Italian cross-border commuters, with an economic contribution of 1.6 million.',
+    'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Grigioni landscape with Italian cross-border workers walking towards the border',
 };
 
 export default blogMetaEn;
