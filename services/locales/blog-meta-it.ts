@@ -8213,6 +8213,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Ristorni Ticino-Lombardia: Sertori rassicura i Comuni',
     'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'L\'assessore lombardo Sertori rassicura i Comuni sull\'assenza di effetti immediati dal blocco dei ristorni, auspicando una soluzione diplomatica.',
     'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.title': 'Peggiorano le prospettive finanziarie di AVS e AI',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.excerpt': 'Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità.',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;
