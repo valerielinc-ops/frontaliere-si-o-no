@@ -3500,6 +3500,8 @@ Rules:
   'journalistDashboard.editor.imageLabel': 'Cover image',
   'journalistDashboard.editor.imageNeedsDraft': 'Save the draft first to be able to upload an image.',
   'journalistDashboard.editor.imageAltPlaceholder': 'Image alt text',
+  'journalistDashboard.editor.imageAltAuto': 'Editorial image related to: {title}',
+  'journalistDashboard.editor.selectImage': 'Select image',
   'journalistDashboard.editor.uploadingImage': 'Uploading image...',
   'journalistDashboard.editor.imageSaved': 'Image uploaded and saved.',
   'journalistDashboard.editor.imageError': 'Image upload failed. Please try again.',

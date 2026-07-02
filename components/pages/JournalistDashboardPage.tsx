@@ -70,6 +70,7 @@ import type {
   ArticleLocale,
 } from '@/services/journalistTypes';
 import { searchImageCatalog, type CatalogImageCandidate } from '@/services/journalistImageCatalog';
+import { cdnBlogImage } from '@/services/seo/blogImageCdn';
 
 type ViewMode = 'list' | 'article';
 
@@ -308,13 +309,19 @@ export default function JournalistDashboardPage(): React.ReactElement {
     }
   };
 
+  /** Keeps a manually-entered alt untouched; only fills it in when blank (title-derived template). */
+  const withAutoImageAlt = (currentAlt: string): string =>
+    currentAlt.trim() || (title.trim() ? t('journalistDashboard.editor.imageAltAuto', { title: title.trim() }) : currentAlt);
+
   const handleImageUpload = async (file: File) => {
     if (!user || !draftId) return;
     setUploadingImage(true);
     try {
       const url = await uploadArticleImage(user.uid, draftId, file);
+      const autoAlt = withAutoImageAlt(imageAlt);
       setImage(url);
-      await saveDraft(draftId, { image: url });
+      if (autoAlt !== imageAlt) setImageAlt(autoAlt);
+      await saveDraft(draftId, { image: url, imageAlt: autoAlt });
       setSaveMsg({ ok: true, text: t('journalistDashboard.editor.imageSaved') });
     } catch (err) {
       reportCaughtError(err, 'journalistDashboard.imageUpload');
@@ -356,11 +363,13 @@ export default function JournalistDashboardPage(): React.ReactElement {
   };
 
   const handlePickCatalogImage = async (path: string) => {
+    const autoAlt = withAutoImageAlt(imageAlt);
     setImage(path);
+    if (autoAlt !== imageAlt) setImageAlt(autoAlt);
     setImageCandidates(null);
     if (draftId) {
       try {
-        await saveDraft(draftId, { image: path });
+        await saveDraft(draftId, { image: path, imageAlt: autoAlt });
         setSaveMsg({ ok: true, text: t('journalistDashboard.editor.imageSaved') });
       } catch (err) {
         reportCaughtError(err, 'journalistDashboard.imageUpload');
@@ -773,7 +782,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
               {t('journalistDashboard.editor.imageLabel')}
             </label>
             {image && (
-              <img src={image} alt={imageAlt} className="w-full max-w-sm rounded-xl border border-edge mb-2" />
+              <img src={cdnBlogImage(image)} alt={imageAlt} className="w-full max-w-sm rounded-xl border border-edge mb-2" />
             )}
             {draftId ? (
               <>
@@ -808,16 +817,28 @@ export default function JournalistDashboardPage(): React.ReactElement {
                         {t('journalistDashboard.editor.suggestImagesEmpty')}
                       </p>
                     ) : (
-                      imageCandidates.map((candidate) => (
-                        <button
-                          key={candidate.path}
-                          type="button"
-                          onClick={() => { void handlePickCatalogImage(candidate.path); }}
-                          className="relative rounded-xl overflow-hidden border border-edge hover:ring-2 hover:ring-accent transition-shadow"
-                        >
-                          <img src={candidate.path} alt="" className="w-full h-20 object-cover" />
-                        </button>
-                      ))
+                      imageCandidates.map((candidate) => {
+                        const isSelected = candidate.path === image;
+                        return (
+                          <button
+                            key={candidate.path}
+                            type="button"
+                            onClick={() => { void handlePickCatalogImage(candidate.path); }}
+                            aria-label={t('journalistDashboard.editor.selectImage')}
+                            aria-pressed={isSelected}
+                            className={`relative rounded-xl overflow-hidden border transition-shadow ${
+                              isSelected ? 'border-accent ring-2 ring-accent' : 'border-edge hover:ring-2 hover:ring-accent'
+                            }`}
+                          >
+                            <img src={cdnBlogImage(candidate.path)} alt="" className="w-full h-20 object-cover" />
+                            {isSelected && (
+                              <span className="absolute top-1 right-1 rounded-full bg-accent text-on-accent p-0.5">
+                                <CheckCircle2 className="w-4 h-4" />
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })
                     )}
                   </div>
                 )}
