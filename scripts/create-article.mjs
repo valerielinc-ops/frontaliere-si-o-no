@@ -2729,6 +2729,8 @@ CRITERI DI GIUDIZIO:
 
 ATTENZIONE: se hai dubbi su un fatto, è MEGLIO segnalarlo come "major" che ignorarlo. Un falso positivo (segnalare un fatto vero come sospetto) è preferibile a un falso negativo (non segnalare un fatto falso).
 
+${JSON_QUOTE_SAFETY_RULE_IT}
+
 Rispondi SOLO in JSON valido:
 {
   "verdict": "PASS" | "FAIL",
