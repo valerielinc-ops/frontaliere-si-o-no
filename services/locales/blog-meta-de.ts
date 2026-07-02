@@ -8205,6 +8205,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Italienische Grenzarbeiter in der Schweiz: Beschwerde bei der ILO gegen Diskriminierung',
     'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Eine Beschwerde bei der ILO verurteilt Diskriminierung italienischer Grenzarbeiter in der Schweiz. Erfahren Sie die Details und Implikationen.',
     'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Italienische Grenzgänger in der Schweiz vor dem OIL-Büro mit einem Banner gegen Diskriminierung',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.title': 'Tessiner Rabattblock: Die Reaktion der PD',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.excerpt': 'Der Kanton Tessin blockiert Rückerstattungen an die Lombardei, die PD erhebt sich und bittet um ein dringendes Treffen mit der Regierung.',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.imageAlt': 'Panoramablick auf Bellinzona mit der Burg Montebello',
+    'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Tessin-Lombardei-Rabatte: Sertori beruhigt die Gemeinden',
+    'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'Der lombardische Stadtrat Sertori versichert den Gemeinden, dass der Rückzahlungsstopp keine unmittelbaren Auswirkungen habe, und hofft auf eine diplomatische Lösung.',
+    'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;

@@ -536,13 +536,13 @@ async function generateAISubject(ctx) {
     // and trips the inlineQaCheck `length < 10` gate, aborting the entire send.
     // Require at least 10 chars AND a 3+ letter run to ensure real text.
     if (raw.length < 10 || !/[\p{L}]{3,}/u.test(raw)) return null;
-    // Ensure subject is a complete sentence — never truncate with ellipsis
-    if (raw.length > 55) {
-      // Too long — ask AI failed to respect limit, use as-is up to 55
-      // Find last natural break point (space, comma, colon) before 55
-      const cutoff = raw.lastIndexOf(' ', 55);
-      return cutoff > 30 ? raw.slice(0, cutoff) : raw.slice(0, 55);
-    }
+    // Ensure subject is a complete sentence — never truncate. A word-boundary
+    // cut still risks lopping off the sentence's final word (e.g. "...il ruolo
+    // più" with "cliccato" chopped off) since it only checks for *a* space,
+    // not whether the cut lands after a complete clause. Safer to discard an
+    // over-limit AI subject and let the caller fall back to FALLBACK_SUBJECT
+    // than to ship a grammatically broken one.
+    if (raw.length > 55) return null;
     return raw;
   } catch (e) {
     console.warn('\u26a0\ufe0f AI subject failed:', e.message?.slice(0, 200));

@@ -847,6 +847,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Licenciement frontalier : droits, avis, indemnité',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Découvrez les droits, les délais de préavis et les allocations pour les travailleurs transfrontaliers dans un rayon de 20 km autour de la frontière en 2026.',
     'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Travailleur frontalier à la frontière entre l\'Italie et la Suisse en 2026',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.title': 'Pensionnement anticipé pour frontalier: impact sur AVS',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.excerpt': 'Découvrez comment la retraite anticipée affectera l’AHV et le deuxième pilier pour les navetteurs transfrontaliers vivant à plus de 20 km de la frontière.',
+    'blog.article.frontaliere-pensionamento-anticipato-2026-oltre-20km.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaChFr;

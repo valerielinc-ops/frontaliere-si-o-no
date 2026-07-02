@@ -10899,6 +10899,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pensionamento-anticipato-2026-oltre-20km': {
+    title: 'Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro',
+    description: 'Scopri come il pensionamento anticipato influenzerà l\'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionamento, anticipato, impatto, secondo',
+    ogTitle: 'Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro',
+    ogDescription: 'Scopri come il pensionamento anticipato influenzerà l\'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine.',
+    canonicalPath: '/articoli-svizzera/frontaliere-pensionamento-anticipato-2026-oltre-20km/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionamento anticipato per frontalieri: impatto su AVS e secondo pilastro",
+      "description": "Scopri come il pensionamento anticipato influenzerà l'AVS e il secondo pilastro per i frontalieri che vivono oltre 20 km dal confine. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensionamento-anticipato-2026-oltre-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-07-02T09:33:30+00:00",
+      "dateModified": "2026-07-02T09:33:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-pensionamento-anticipato-2026-oltre-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

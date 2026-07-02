@@ -45546,6 +45546,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blocco-ristorni-ticino-pd-reazione': {
+    title: 'Blocco Ristorni Ticino: La Reazione del PD | Frontaliere Ticino',
+    description: 'Il Canton Ticino blocca i ristorni alla Lombardia, il PD insorge e chiede un incontro urgente con il Governo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, reazione, canton',
+    ogTitle: 'Blocco Ristorni Ticino: La Reazione del PD',
+    ogDescription: 'Il Canton Ticino blocca i ristorni alla Lombardia, il PD insorge e chiede un incontro urgente con il Governo.',
+    canonicalPath: '/articoli-frontaliere/blocco-ristorni-ticino-pd-reazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blocco Ristorni Ticino: La Reazione del PD",
+      "description": "Il Canton Ticino blocca i ristorni alla Lombardia, il PD insorge e chiede un incontro urgente con il Governo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocco-ristorni-ticino-pd-reazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Bellinzona con il Castello di Montebello"
+      },
+      "datePublished": "2026-07-02T09:25:39+00:00",
+      "dateModified": "2026-07-02T09:25:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-pd-reazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ristorni-ticino-lombardia-soluzione': {
+    title: 'Ristorni Ticino-Lombardia: Sertori rassicura i Comuni',
+    description: 'L\'assessore lombardo Sertori rassicura i Comuni sull\'assenza di effetti immediati dal blocco dei ristorni, auspicando una soluzione diplomatica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, ticino-lombardia, sertori, rassicura',
+    ogTitle: 'Ristorni Ticino-Lombardia: Sertori rassicura i Comuni',
+    ogDescription: 'L\'assessore lombardo Sertori rassicura i Comuni sull\'assenza di effetti immediati dal blocco dei ristorni, auspicando una soluzione diplomatica.',
+    canonicalPath: '/articoli-frontaliere/ristorni-ticino-lombardia-soluzione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni Ticino-Lombardia: Sertori rassicura i Comuni",
+      "description": "L'assessore lombardo Sertori rassicura i Comuni sull'assenza di effetti immediati dal blocco dei ristorni, auspicando una soluzione diplomatica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-ticino-lombardia-soluzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-07-02T09:42:05+00:00",
+      "dateModified": "2026-07-02T09:42:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-ticino-lombardia-soluzione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8207,6 +8207,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-esposto-oil-discriminazioni.title': 'Frontaliers italiens en Suisse : plainte à l\'OIT',
     'blog.article.frontalieri-esposto-oil-discriminazioni.excerpt': 'Une plainte auprès de l’OIT dénonce la discrimination à l’encontre des travailleurs transfrontaliers italiens en Suisse. Apprenez les détails et les implications.',
     'blog.article.frontalieri-esposto-oil-discriminazioni.imageAlt': 'Travailleurs frontaliers italiens en Suisse devant le bureau de l\'OIL avec une banderole contre la discrimination',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.title': 'Bloc Ristorni Ticino : La réaction du PD',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.excerpt': 'Le canton du Tessin bloque les restaurants en Lombardie, le PD se lève et demande une réunion urgente avec le gouvernement.',
+    'blog.article.blocco-ristorni-ticino-pd-reazione.imageAlt': 'Vue panoramique de Bellinzona avec le Château de Montebello',
+    'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Remis Tessin-Lombards : Sertori rassure les municipalités',
+    'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'Le conseiller lombard Sertori rassure les municipalités sur l’absence d’effets immédiats du blocage des rabais, espérant une solution diplomatique.',
+    'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Vue panoramique du Lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;
