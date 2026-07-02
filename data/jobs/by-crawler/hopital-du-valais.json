@@ -2757,12 +2757,18 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp"
+        "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
+        "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp",
+        "infermiere-80-100-medicina-3-est-hopital-du-valais-visp",
+        "professionista-60-medicina-6-est-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-80-100-medizin-3-ost-hopital-du-valais-visp",
-          "infermiera-80-100-medicina-3-est-hopital-du-valais-visp"
+          "infermiera-80-100-medicina-3-est-hopital-du-valais-visp",
+          "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp",
+          "infermiere-80-100-medicina-3-est-hopital-du-valais-visp",
+          "professionista-60-medicina-6-est-hopital-du-valais-visp"
         ]
       },
       "firstSeenAt": "2026-07-01T12:16:07.554Z",
@@ -5012,12 +5018,14 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig"
+        "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
+        "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
-          "medico-senior-80-100-radiologia-hopital-du-valais-brig"
+          "medico-senior-80-100-radiologia-hopital-du-valais-brig",
+          "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig"
         ],
         "en": [
           "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig"
