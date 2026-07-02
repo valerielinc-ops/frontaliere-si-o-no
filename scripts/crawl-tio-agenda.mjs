@@ -10,6 +10,15 @@
  * a per-source slice that `assemble-events-dataset.mjs` merges into the global
  * dataset consumed by `eventsSeoPagesPlugin`.
  *
+ * Flyer images (issue #3036 item 3): the raw flyer URL each card links to
+ * (tio.ch embeds thumbnails hosted on biglietteria.ch, a third-party ticketing
+ * site with no stated reuse terms) is NEVER hotlinked into production — see
+ * `mirrorEventImages` below, which downloads each flyer once via
+ * events-utils.mjs `mirrorEventImage` and replaces the URL with our own
+ * mirrored `/images/events/...` copy (or drops it entirely on any failure),
+ * the same convention `crawl-guidle-events.mjs` / `crawl-myswitzerland-events.mjs`
+ * already use.
+ *
  * Usage:
  *   node scripts/crawl-tio-agenda.mjs                 # next 21 days
  *   node scripts/crawl-tio-agenda.mjs --days 30       # custom horizon
@@ -31,6 +40,7 @@ import {
   isoDay,
   resolveComune,
   loadCantonComuni,
+  mirrorEventImage,
 } from './lib/events-utils.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
@@ -38,6 +48,12 @@ const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
 const POLITE_DELAY_MS = 600;
+// Politeness delay between per-event flyer-image mirror fetches (a distinct
+// host, biglietteria.ch, from the tio.ch day pages above) — short since
+// mirrorEventImage is idempotent (skips the network call when the file is
+// already on disk from a previous run), so a steady-state re-crawl only pays
+// this for genuinely new events.
+const IMAGE_MIRROR_DELAY_MS = 150;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -153,6 +169,32 @@ export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
   return true;
 }
 
+/**
+ * Mirror every event's flyer image to our own CDN storage before it ever
+ * reaches the slice file / dataset — the no-hotlink policy (see
+ * events-utils.mjs mirrorEventImage header) requires `imageUrl` to always be
+ * either a site-relative mirrored path or absent, NEVER the raw
+ * tio.ch/biglietteria.ch flyer URL `parseDayHtml` extracts from the DOM.
+ * Mirrors the guidle/myswitzerland crawlers' convention (map → mirror →
+ * store), just applied as a post-pass here since tio-agenda parses every
+ * event straight off the already-fetched day pages (no per-event detail
+ * fetch to hang the mirror call off of).
+ *
+ * Returns a NEW array (does not mutate `events`). `mirrorFn` is injectable so
+ * tests can verify the replace-or-drop contract without a live network call.
+ */
+export async function mirrorEventImages(events, mirrorFn = mirrorEventImage) {
+  const out = [];
+  for (const ev of events) {
+    const imageUrl = (await mirrorFn(ev.imageUrl, ev.id)) || undefined;
+    out.push({ ...ev, imageUrl });
+    // Only pace real network attempts (skipped for events with no source
+    // image at all, and skipped entirely under an injected test mirrorFn).
+    if (mirrorFn === mirrorEventImage && ev.imageUrl) await sleep(IMAGE_MIRROR_DELAY_MS);
+  }
+  return out;
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
@@ -203,12 +245,6 @@ async function main() {
 
   warnIfLowConfidenceComuneShare(byMethod, resolved);
 
-  if (dryRun) {
-    console.log('🏃 dry-run — slice not written');
-    console.log(JSON.stringify(events.slice(0, 3), null, 2));
-    return;
-  }
-
   if (events.length === 0) {
     // Never overwrite a good slice with an empty one. Distinguish two causes:
     //  - all pages failed to load (network/WAF) → transient, soft-exit 0.
@@ -223,6 +259,17 @@ async function main() {
     return;
   }
 
+  // No-hotlink policy (events-utils.mjs mirrorEventImage): replace every raw
+  // tio.ch/biglietteria.ch flyer URL with our own mirrored copy (or drop it)
+  // BEFORE it reaches the dry-run preview or the written slice.
+  const mirroredEvents = await mirrorEventImages(events);
+
+  if (dryRun) {
+    console.log('🏃 dry-run — slice not written');
+    console.log(JSON.stringify(mirroredEvents.slice(0, 3), null, 2));
+    return;
+  }
+
   mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
   const slice = {
@@ -231,10 +278,10 @@ async function main() {
     sourceName: SOURCE.label,
     canton: SOURCE.canton,
     assembledAt: crawledAt,
-    events,
+    events: mirroredEvents,
   };
   writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-  console.log(`[tio-agenda] wrote ${events.length} events → ${path.relative(process.cwd(), slicePath)}`);
+  console.log(`[tio-agenda] wrote ${mirroredEvents.length} events → ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so

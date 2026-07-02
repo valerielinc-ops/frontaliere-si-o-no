@@ -18,6 +18,7 @@ import {
   renderDigestPage,
   DIGESTS,
 } from '../build-plugins/eventsSeoPagesPlugin';
+import { SITE_LICENSE_PAGE } from '../services/seo/imageObjectLd';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { parsePath } from '../services/router';
 
@@ -134,13 +135,40 @@ describe('eventLd nationwide fields (#3125)', () => {
     expect(ld.offers.priceCurrency).toBe('CHF');
   });
 
-  it('uses the local mirrored image path for image (absolute-ized), falling back to the site image', () => {
-    const withImage = { ...EVENT, imageUrl: '/images/events/guidle-abc.jpg' };
-    const ldWithImage = eventLd(withImage as never, 'it') as Record<string, any>;
-    expect(ldWithImage.image).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
+  it('emits an ImageObject (GSC licensable-image quintet) with the mirrored image path, absolute-ized', () => {
+    const withImage = { ...EVENT, imageUrl: '/images/events/guidle-abc.jpg', sourceName: 'Guidle' };
+    const ld = eventLd(withImage as never, 'it') as Record<string, any>;
+    expect(ld.image['@type']).toBe('ImageObject');
+    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
+    expect(ld.image.url).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
+    // Attribution IS honestly known (the crawl source) — credited.
+    expect(ld.image.creditText).toBe('Guidle');
+    // No third-party license is ever scraped (issue #3036 item 3) — never
+    // fabricate one; fall back to the site's OWN terms page + Organization,
+    // never a claim of the third party's copyright.
+    expect(ld.image.license).toBe(SITE_LICENSE_PAGE);
+    expect(ld.image.acquireLicensePage).toBe(SITE_LICENSE_PAGE);
+    expect(ld.image.creator).toEqual({
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: 'https://frontaliereticino.ch',
+    });
+    expect(ld.image.copyrightNotice).toBeTruthy();
+  });
 
+  it('falls back to the plain site image URL when the event has no image', () => {
     const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
     expect(withoutImage.image).toBe('https://frontaliereticino.ch/og-image.png');
+  });
+
+  it('never hotlinks a raw non-mirrored third-party image URL — degrades to the site image instead', () => {
+    // Defense-in-depth: every crawler is contracted to only ever store a
+    // mirrored `/images/events/...` path (or leave imageUrl unset), but a
+    // stale pre-mirroring dataset snapshot could still carry a raw URL. That
+    // must NEVER be embedded (hotlinked) into production JSON-LD.
+    const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
+    const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
+    expect(ld.image).toBe('https://frontaliereticino.ch/og-image.png');
   });
 });
 

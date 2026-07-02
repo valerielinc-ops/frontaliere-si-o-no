@@ -50,6 +50,7 @@ import {
   overlapsWindow,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
+import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -682,7 +683,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         : {}),
     },
     description: description.length >= 30 ? description : `${description} Evento in ${cantonName}.`,
-    image: event.imageUrl ? absoluteImageUrl(event.imageUrl) : SITE_IMAGE,
+    image: mirroredEventImageObject(event) ?? SITE_IMAGE,
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
@@ -710,9 +711,38 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   };
 }
 
-/** Site-relative event image path → absolute URL (structured data needs a full URL). */
-function absoluteImageUrl(imageUrl: string): string {
-  return /^https?:\/\//i.test(imageUrl) ? imageUrl : `${BASE_URL}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+/**
+ * Event flyer image → schema.org ImageObject with the GSC licensable-image
+ * quintet (services/seo/imageObjectLd.ts — acquireLicensePage, copyrightNotice,
+ * license, creator, creditText), or `null` when there is no image to show.
+ *
+ * No-hotlink guard (issue #3036 item 3): every crawler (mirrorEventImage,
+ * scripts/lib/events-utils.mjs) is contracted to store `imageUrl` as EITHER a
+ * site-relative `/images/events/...` mirrored path OR leave it unset — never
+ * the raw third-party flyer URL. This guard is defense-in-depth against stale
+ * pre-mirroring data (e.g. a `data/events.json` snapshot committed before a
+ * given source crawler mirrored its images): an `imageUrl` that is NOT
+ * site-relative is treated exactly like "no image at all" (falls back to
+ * SITE_IMAGE at the call site) rather than ever being embedded as a hotlink
+ * in production JSON-LD.
+ *
+ * License honesty: no per-image license is ever scraped from any event
+ * source (tio.ch/biglietteria.ch flyers, Guidle, MySwitzerland all lack
+ * stated reuse terms), so `license`/`acquireLicensePage`/`creator` are left
+ * to imageObjectLd()'s defaults — our OWN site terms page + site
+ * Organization, exactly like the third-party webcam images in
+ * borderWaitPagesPlugin — never a fabricated third-party license.
+ * `creditText` attributes the original source by name, which IS honestly
+ * known from the crawl.
+ */
+function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
+  const raw = event.imageUrl;
+  if (!raw || !raw.startsWith('/')) return null;
+  return imageObjectLd({
+    contentUrl: `${BASE_URL}${raw}`,
+    caption: event.title,
+    creditText: event.sourceName,
+  });
 }
 
 /**

@@ -10,7 +10,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { parseDayHtml, warnIfLowConfidenceComuneShare } from '../scripts/crawl-tio-agenda.mjs';
+import { parseDayHtml, warnIfLowConfidenceComuneShare, mirrorEventImages } from '../scripts/crawl-tio-agenda.mjs';
 import {
   resolveComune,
   slugifyComune,
@@ -86,6 +86,39 @@ describe('parseDayHtml (tio.ch agenda card parser)', () => {
   it('resolves comune by exact venue match (Teatro Sociale Bellinzona → Bellinzona)', () => {
     expect(events[1].comune).toBe('Bellinzona');
     expect(events[1].comuneMatch).toBe('exact');
+  });
+});
+
+describe('mirrorEventImages (issue #3036 item 3 — tio-agenda no-hotlink policy)', () => {
+  // No live network / CDN upload in tests: mirrorFn is injected exactly for
+  // this, per the task's "do not trigger a live crawl or live CDN upload" rule.
+  it('replaces each raw flyer URL with the mirrored site-relative path the mirror function returns', async () => {
+    const events = [
+      { id: 'tio-agenda:1', imageUrl: 'https://biglietteria.ch/flyer1.jpg' },
+      { id: 'tio-agenda:2', imageUrl: 'https://biglietteria.ch/flyer2.jpg' },
+    ];
+    const fakeMirror = async (url, id) => `/images/events/${id.replace(':', '-')}.jpg`;
+    const out = await mirrorEventImages(events, fakeMirror);
+    expect(out[0].imageUrl).toBe('/images/events/tio-agenda-1.jpg');
+    expect(out[1].imageUrl).toBe('/images/events/tio-agenda-2.jpg');
+    // Non-mutating: source array untouched.
+    expect(events[0].imageUrl).toBe('https://biglietteria.ch/flyer1.jpg');
+  });
+
+  it('drops imageUrl (never falls back to the raw URL) when the event had none to start with', async () => {
+    const events = [{ id: 'tio-agenda:3', imageUrl: '' }, { id: 'tio-agenda:4' }];
+    const fakeMirror = async (url) => (url ? '/images/events/mirrored.jpg' : null);
+    const out = await mirrorEventImages(events, fakeMirror);
+    expect(out[0].imageUrl).toBeUndefined();
+    expect(out[1].imageUrl).toBeUndefined();
+  });
+
+  it('drops imageUrl (never leaves the raw external URL) when mirroring fails', async () => {
+    const events = [{ id: 'tio-agenda:5', imageUrl: 'https://biglietteria.ch/flyer5.jpg' }];
+    const failingMirror = async () => null;
+    const out = await mirrorEventImages(events, failingMirror);
+    // undefined, not the raw biglietteria.ch URL — never hotlinked as a fallback.
+    expect(out[0].imageUrl).toBeUndefined();
   });
 });
 
