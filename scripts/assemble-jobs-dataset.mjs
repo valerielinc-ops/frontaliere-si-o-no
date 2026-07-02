@@ -535,6 +535,18 @@ const CONTENT_HEADINGS_RE = /\b(COMPITI|PROFILO|Responsabilit[aà]|Requisiti|Qua
 const BOILERPLATE_THRESHOLD = 0.5; // 50%
 const MIN_UNIQUE_WORDS = 30;
 
+// Anti-shrink guard thresholds (axa-svizzera incident, 2026-07-01): only
+// guard crawlers with a meaningful baseline, and only trigger on a drop deep
+// enough to be clearly abnormal — observed normal 15-day churn never dropped
+// below ~50-70% of a crawler's own recent baseline in a single run.
+const SHRINK_GUARD_MIN_BASELINE = 20;
+const SHRINK_GUARD_RATIO = 0.4;
+
+/** Whether writeJobsCrawlerSlice should refuse to persist a shrink from priorCount to newCount jobs. */
+export function shouldBlockShrink(priorCount, newCount) {
+  return priorCount >= SHRINK_GUARD_MIN_BASELINE && newCount < priorCount * SHRINK_GUARD_RATIO;
+}
+
 /**
  * Detect boilerplate descriptions in a set of jobs.
  *
@@ -685,6 +697,53 @@ ${jobsTable}
     }
   } catch (err) {
     console.warn(`⚠️  [boilerplate-guard] GitHub Issue creation failed: ${err.message}`);
+  }
+}
+
+function _createShrinkGuardIssue(crawlerKey, report) {
+  try {
+    const searchResult = execSync(
+      `gh issue list --label parser-broken --state open --search "${crawlerKey}" --json number,title --limit 5`,
+      { encoding: 'utf8', timeout: 15000 },
+    ).trim();
+
+    const existing = JSON.parse(searchResult || '[]');
+    const existingIssue = existing.find(i => i.title?.includes(`[parser-health] ${crawlerKey}`));
+
+    const dateStr = new Date().toISOString();
+    const ratioPercent = Math.round(report.ratio * 100);
+
+    if (existingIssue) {
+      execSync(
+        `gh issue comment ${existingIssue.number} --body "Updated: ${dateStr} — slice shrunk again: ${report.newCount}/${report.priorCount} jobs (${ratioPercent}% of prior)."`,
+        { encoding: 'utf8', timeout: 15000 },
+      );
+      console.log(`📋 Updated existing issue #${existingIssue.number}`);
+    } else {
+      const body = `## Parser Health Alert — silent data loss
+
+**Crawler:** ${crawlerKey}
+**Shrink:** ${report.newCount}/${report.priorCount} jobs (${ratioPercent}% of prior baseline)
+**Threshold:** below ${Math.round(SHRINK_GUARD_RATIO * 100)}% of a baseline of ${SHRINK_GUARD_MIN_BASELINE}+ jobs
+**Run:** ${dateStr}
+
+The write was refused — the prior slice on disk was kept, no data was lost.
+
+### Investigation checklist
+
+- [ ] Check if the source site returned a degraded/error page or empty pagination
+- [ ] Review the parser at \`scripts/lib/${crawlerKey}-job-parser.mjs\`
+- [ ] Compare parser selectors with current page structure
+- [ ] If the shrink is legitimate (real listing count drop), re-run with \`SKIP_SHRINK_GUARD=1 node scripts/update-${crawlerKey}-jobs.mjs\``;
+
+      execSync(
+        `gh issue create --title "[parser-health] ${crawlerKey}: slice would shrink to ${ratioPercent}% of prior (${report.newCount}/${report.priorCount})" --label parser-broken --label automated --body ${JSON.stringify(body)}`,
+        { encoding: 'utf8', timeout: 15000 },
+      );
+      console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
+    }
+  } catch (err) {
+    console.warn(`⚠️  [shrink-guard] GitHub Issue creation failed: ${err.message}`);
   }
 }
 
@@ -879,6 +938,24 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     const drift = trackSlugHistoryDrift(existingSlice.jobs, hardened.jobs);
     if (drift.mergedSlugs > 0) {
       console.log(`  🛟 prev-slug safety-net: restored ${drift.mergedSlugs} slugs across ${drift.driftCount} jobs from prior slice`);
+    }
+  }
+
+  // ── Anti-shrink guard (axa-svizzera incident, 2026-07-01) ──────────────
+  // A crawler whose mergeJobs() only keeps discoveredJobs.map(...) (the
+  // pattern shared by ~74 update-*.mjs scripts) silently drops any existing
+  // job not rediscovered this run — no floor, no threshold. A source page
+  // returning a degraded/error result (broken pagination, changed markup)
+  // still exits 0. Observed: axa-svizzera 152→5 jobs in one run. Centralized
+  // here (not in 90 parsers) so the whole class is fixed by-construction.
+  if (!process.env.SKIP_SHRINK_GUARD && existingSlice && Array.isArray(existingSlice.jobs)) {
+    const priorCount = existingSlice.jobs.length;
+    const newCount = hardened.jobs.length;
+    if (shouldBlockShrink(priorCount, newCount)) {
+      const report = { crawlerKey, priorCount, newCount, ratio: newCount / priorCount };
+      console.error(`\n🚨 Shrink guard FAILED for ${crawlerKey}: ${newCount}/${priorCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to persist, prior slice on disk kept\n`);
+      _createShrinkGuardIssue(crawlerKey, report);
+      throw new Error(`[shrink-guard] ${crawlerKey}: slice would shrink from ${priorCount} to ${newCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to write, source likely returned degraded results. Override with SKIP_SHRINK_GUARD=1 if this is a legitimate drop.`);
     }
   }
 

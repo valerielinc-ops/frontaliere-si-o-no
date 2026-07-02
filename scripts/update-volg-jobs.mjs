@@ -329,7 +329,7 @@ export { titleOverlap };
  * Returns { text, title, sourceBodyLength, hasSections } so callers
  * can apply quality guards.
  */
-function parseDetailPage(html) {
+function parseDetailPage(html, locale = 'de') {
   // Strip script/style/noscript blocks
   let clean = html
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
@@ -345,11 +345,12 @@ function parseDetailPage(html) {
   const sourceBodyLength = bodyText.length;
 
   const sections = [];
-  const sectionLabels = {
-    responsibilities: 'Aufgaben',
-    qualifications: 'Profil',
-    incentives: 'Vorteile',
+  const sectionLabelsByLocale = {
+    de: { responsibilities: 'Aufgaben', qualifications: 'Profil', incentives: 'Vorteile' },
+    fr: { responsibilities: 'Missions', qualifications: 'Profil', incentives: 'Avantages' },
+    it: { responsibilities: 'Mansioni', qualifications: 'Profilo', incentives: 'Vantaggi' },
   };
+  const sectionLabels = sectionLabelsByLocale[locale] || sectionLabelsByLocale.de;
 
   // ── Strategy 1 (primary): itemprop semantic blocks ──
   let usedItemprop = false;
@@ -374,8 +375,11 @@ function parseDetailPage(html) {
 
   // ── Strategy 2 (fallback): heading + content blocks ──
   if (!usedItemprop) {
-    const skipHeadings = /Arbeitsort|Kontakt|Standort|Recruiter|Stelleninformation|Bewerbungsinformation|Job-Ad|teilen|Druckversion|Datenschutz|Über uns|Weitere Stellen/i;
-    const sectionHeadingsRe = /Aufgaben|Profil|Vorteile|Anforderungen|Bieten|Erwarten|Leistungen|Kompetenzen|freuen/i;
+    // Multilingual (not locale-switched): the raw page's own headings can be in
+    // any of de/fr/it regardless of the resolved fallback locale, so recognition
+    // must cover all three — same class as the itemprop label fix above.
+    const skipHeadings = /Arbeitsort|Kontakt|Standort|Recruiter|Stelleninformation|Bewerbungsinformation|Job-Ad|teilen|Druckversion|Datenschutz|Über uns|Weitere Stellen|Lieu de travail|Contact|Informations sur le poste|Informations de candidature|Partager|Politique de confidentialité|À propos|Autres offres|Luogo di lavoro|Contatto|Informazioni sulla posizione|Informazioni di candidatura|Condividi|Informativa sulla privacy|Chi siamo|Altre offerte/i;
+    const sectionHeadingsRe = /Aufgaben|Profil|Vorteile|Anforderungen|Bieten|Erwarten|Leistungen|Kompetenzen|freuen|Missions|Avantages|Exigences|Offrons|Compétences|Votre profil|Vos tâches|Mansioni|Profilo|Vantaggi|Competenze|Requisiti|offriamo|Il tuo profilo/i;
 
     const introArticleMatch = clean.match(/<article>\s*<p>([\s\S]*?)<\/p>\s*<\/article>/i);
     if (introArticleMatch) {
@@ -444,7 +448,7 @@ async function enrichWithDetails(jobs) {
           clearTimeout(timer);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const html = await res.text();
-          const result = parseDetailPage(html);
+          const result = parseDetailPage(html, resolveCantonLocale(job.canton));
 
           // ── Quality guard: body ratio ──
           if (result.hasSections && result.sourceBodyLength > 0) {
@@ -537,47 +541,146 @@ function mapEmploymentType(workload = '', contractTerms = '') {
   return { employmentType, contractType };
 }
 
-function getCompanyBoilerplate(company = '') {
+// Per-company "about us" boilerplate, localized by canton-resolved locale.
+// Volg/LANDI/fenaco crawl CH-wide (see CANTON_LOCALE_FALLBACK above); a
+// German-only boilerplate mixed into an otherwise French/Italian description
+// is the same cross-language-contamination bug class as the sourceLang fix.
+const COMPANY_BOILERPLATE = {
+  volg: {
+    de: [
+      'Volg ist spezialisiert auf Dorfläden und kleine Verkaufsflächen in der Deutschschweiz und Romandie.',
+      'Wir setzen auf Kundennähe und bieten bequeme Einkaufsmöglichkeiten mit persönlicher Interaktion.',
+      'Unsere Mitarbeitenden sind das Herzstück des Ladens — unser Motto ist «frisch und fründlich».',
+      'Als Tochterunternehmen der fenaco Genossenschaft gehören wir zu einem der grössten Arbeitgeber der Schweiz mit über 11.000 Mitarbeitenden.',
+      '',
+      'Wir bieten: Abwechslungsreiche Aufgaben, familiäres Arbeitsumfeld, direkten Kundenkontakt,',
+      '6 Wochen Ferien, SBB-Vergünstigungen, Weiterbildung an der Volg Academy,',
+      'ausgezeichnete Karrieremöglichkeiten und eine fundierte Berufsausbildung für Lernende.',
+    ],
+    fr: [
+      "Volg est spécialisé dans les magasins de village et les petites surfaces de vente en Suisse alémanique et en Romandie.",
+      "Nous misons sur la proximité avec la clientèle et proposons des possibilités d'achat pratiques avec une interaction personnelle.",
+      'Nos collaboratrices et collaborateurs sont le cœur du magasin — notre devise est «frais et sympathique».',
+      'En tant que filiale de la coopérative fenaco, nous comptons parmi les plus grands employeurs de Suisse avec plus de 11 000 collaborateurs.',
+      '',
+      'Nous offrons : des tâches variées, un environnement de travail familial, un contact client direct,',
+      '6 semaines de vacances, des réductions CFF, une formation continue à la Volg Academy,',
+      "d'excellentes perspectives de carrière et une formation professionnelle solide pour les apprenti-e-s.",
+    ],
+    it: [
+      'Volg è specializzata in negozi di villaggio e piccole superfici di vendita nella Svizzera tedesca e in Romandia.',
+      "Puntiamo sulla vicinanza alla clientela e offriamo comode possibilità di acquisto con un'interazione personale.",
+      'I nostri collaboratori sono il cuore del negozio — il nostro motto è «freschezza e cordialità».',
+      'Come filiale della cooperativa fenaco, siamo tra i maggiori datori di lavoro della Svizzera con oltre 11.000 collaboratori.',
+      '',
+      'Offriamo: mansioni variate, un ambiente di lavoro familiare, contatto diretto con la clientela,',
+      '6 settimane di vacanza, agevolazioni FFS, formazione continua alla Volg Academy,',
+      'eccellenti opportunità di carriera e una solida formazione professionale per gli apprendisti.',
+    ],
+  },
+  landi: {
+    de: [
+      'LANDI ist Teil der fenaco Genossenschaft, der grössten Agrargenossenschaft der Schweiz.',
+      'Wir betreiben TopShop-Verkaufsstellen, Tankstellen und Fachgeschäfte in der ganzen Schweiz.',
+      'Die fenaco Genossenschaft beschäftigt über 11.000 Mitarbeitende und ist einer der bedeutendsten Arbeitgeber im ländlichen Raum.',
+      'Unsere LANDI-Läden bieten ein breites Sortiment an landwirtschaftlichen Produkten, Bau- und Gartenbedarf, Lebensmitteln und Treibstoffen.',
+      '',
+      'Wir bieten ein dynamisches Arbeitsumfeld mit direktem Kundenkontakt,',
+      'umfassende Weiterbildungsmöglichkeiten, attraktive Anstellungsbedingungen im Detailhandel,',
+      'mindestens 5 Wochen Ferien, Personalrabatte auf das gesamte Sortiment',
+      'und eine praxisorientierte Berufsausbildung für Lernende.',
+    ],
+    fr: [
+      "LANDI fait partie de la coopérative fenaco, la plus grande coopérative agricole de Suisse.",
+      'Nous exploitons des points de vente TopShop, des stations-service et des commerces spécialisés dans toute la Suisse.',
+      "La coopérative fenaco emploie plus de 11 000 collaborateurs et est l'un des plus importants employeurs en milieu rural.",
+      'Nos magasins LANDI proposent un large assortiment de produits agricoles, de matériaux de construction et de jardinage, de denrées alimentaires et de carburants.',
+      '',
+      'Nous offrons un environnement de travail dynamique avec un contact client direct,',
+      "de vastes possibilités de formation continue, des conditions d'engagement attractives dans le commerce de détail,",
+      'au moins 5 semaines de vacances, des rabais sur l\'ensemble de l\'assortiment',
+      "et une formation professionnelle axée sur la pratique pour les apprenti-e-s.",
+    ],
+    it: [
+      'LANDI fa parte della cooperativa fenaco, la più grande cooperativa agricola della Svizzera.',
+      'Gestiamo punti vendita TopShop, stazioni di servizio e negozi specializzati in tutta la Svizzera.',
+      'La cooperativa fenaco impiega oltre 11.000 collaboratori ed è uno dei maggiori datori di lavoro nelle aree rurali.',
+      'I nostri negozi LANDI offrono un ampio assortimento di prodotti agricoli, materiale edile e da giardinaggio, alimentari e carburanti.',
+      '',
+      'Offriamo un ambiente di lavoro dinamico con contatto diretto con la clientela,',
+      'ampie possibilità di formazione continua, condizioni di assunzione interessanti nel commercio al dettaglio,',
+      'almeno 5 settimane di vacanza, sconti per il personale sull\'intero assortimento',
+      'e una formazione professionale orientata alla pratica per gli apprendisti.',
+    ],
+  },
+  traveco: {
+    de: [
+      'TRAVECO Transporte AG ist ein führendes Unternehmen im Bereich Transport und Logistik in der Schweiz,',
+      'Teil der fenaco Genossenschaft mit über 11.000 Mitarbeitenden schweizweit.',
+      'Wir betreiben eine moderne Flotte und bieten zuverlässige Transportdienstleistungen in der ganzen Schweiz.',
+      'Mit modernsten Fahrzeugen und höchsten Sicherheitsstandards sorgen wir für den effizienten Transport von Lebensmitteln und Agrarprodukten.',
+      '',
+      'Wir bieten: Professionelles Arbeitsumfeld, moderne Fahrzeuge, kontinuierliche Weiterbildung,',
+      'wettbewerbsfähige Anstellungsbedingungen, mindestens 5 Wochen Ferien',
+      'und ausgezeichnete Perspektiven im Transportsektor.',
+    ],
+    fr: [
+      "TRAVECO Transporte AG est une entreprise leader dans le domaine du transport et de la logistique en Suisse,",
+      'faisant partie de la coopérative fenaco avec plus de 11 000 collaborateurs dans tout le pays.',
+      'Nous exploitons une flotte moderne et proposons des prestations de transport fiables dans toute la Suisse.',
+      'Grâce à des véhicules à la pointe de la technologie et aux normes de sécurité les plus strictes, nous assurons un transport efficace des denrées alimentaires et des produits agricoles.',
+      '',
+      'Nous offrons : un environnement de travail professionnel, des véhicules modernes, une formation continue,',
+      'des conditions d\'engagement compétitives, au moins 5 semaines de vacances',
+      "et d'excellentes perspectives dans le secteur du transport.",
+    ],
+    it: [
+      "TRAVECO Transporte AG è un'azienda leader nel settore dei trasporti e della logistica in Svizzera,",
+      'parte della cooperativa fenaco con oltre 11.000 collaboratori in tutto il Paese.',
+      'Gestiamo una flotta moderna e offriamo servizi di trasporto affidabili in tutta la Svizzera.',
+      'Con veicoli all\'avanguardia e standard di sicurezza elevati, garantiamo un trasporto efficiente di alimenti e prodotti agricoli.',
+      '',
+      'Offriamo: un ambiente di lavoro professionale, veicoli moderni, formazione continua,',
+      'condizioni di assunzione competitive, almeno 5 settimane di vacanza',
+      'ed eccellenti prospettive nel settore dei trasporti.',
+    ],
+  },
+  default: {
+    de: [
+      'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.',
+      'Wir bieten vielfältige Karrieremöglichkeiten in Landwirtschaft, Detailhandel,',
+      'Logistik und Lebensmittelproduktion mit attraktiven Anstellungsbedingungen,',
+      'umfassenden Sozialleistungen und individuellen Weiterbildungsmöglichkeiten.',
+      'Als genossenschaftliches Unternehmen im Besitz der Schweizer Landwirtschaft vereinen wir über 80 Tochtergesellschaften.',
+      'Wir bieten sichere Arbeitsplätze, moderne Infrastruktur und die Möglichkeit, einen Beitrag zur Schweizer Landwirtschaft zu leisten.',
+    ],
+    fr: [
+      'La coopérative fenaco est la plus grande coopérative agricole de Suisse avec plus de 11 000 collaborateurs.',
+      "Nous offrons de nombreuses possibilités de carrière dans l'agriculture, le commerce de détail,",
+      'la logistique et la production alimentaire, avec des conditions d\'engagement attractives,',
+      'des prestations sociales complètes et des possibilités de formation continue individuelles.',
+      "En tant qu'entreprise coopérative détenue par l'agriculture suisse, nous réunissons plus de 80 sociétés filiales.",
+      'Nous offrons des emplois sûrs, une infrastructure moderne et la possibilité de contribuer à l\'agriculture suisse.',
+    ],
+    it: [
+      'La cooperativa fenaco è la più grande cooperativa agricola della Svizzera con oltre 11.000 collaboratori.',
+      'Offriamo molteplici opportunità di carriera in agricoltura, commercio al dettaglio,',
+      'logistica e produzione alimentare, con condizioni di assunzione interessanti,',
+      'prestazioni sociali complete e possibilità di formazione continua individuali.',
+      "Come impresa cooperativa di proprietà dell'agricoltura svizzera, riuniamo oltre 80 società affiliate.",
+      "Offriamo posti di lavoro sicuri, un'infrastruttura moderna e la possibilità di contribuire all'agricoltura svizzera.",
+    ],
+  },
+};
+
+function getCompanyBoilerplate(company = '', locale = 'de') {
   const c = company.toLowerCase();
-  if (c.includes('volg')) return [
-    'Volg ist spezialisiert auf Dorfläden und kleine Verkaufsflächen in der Deutschschweiz und Romandie.',
-    'Wir setzen auf Kundennähe und bieten bequeme Einkaufsmöglichkeiten mit persönlicher Interaktion.',
-    'Unsere Mitarbeitenden sind das Herzstück des Ladens — unser Motto ist «frisch und fründlich».',
-    'Als Tochterunternehmen der fenaco Genossenschaft gehören wir zu einem der grössten Arbeitgeber der Schweiz mit über 11.000 Mitarbeitenden.',
-    '',
-    'Wir bieten: Abwechslungsreiche Aufgaben, familiäres Arbeitsumfeld, direkten Kundenkontakt,',
-    '6 Wochen Ferien, SBB-Vergünstigungen, Weiterbildung an der Volg Academy,',
-    'ausgezeichnete Karrieremöglichkeiten und eine fundierte Berufsausbildung für Lernende.',
-  ].join('\n');
-  if (c.includes('landi')) return [
-    'LANDI ist Teil der fenaco Genossenschaft, der grössten Agrargenossenschaft der Schweiz.',
-    'Wir betreiben TopShop-Verkaufsstellen, Tankstellen und Fachgeschäfte in der ganzen Schweiz.',
-    'Die fenaco Genossenschaft beschäftigt über 11.000 Mitarbeitende und ist einer der bedeutendsten Arbeitgeber im ländlichen Raum.',
-    'Unsere LANDI-Läden bieten ein breites Sortiment an landwirtschaftlichen Produkten, Bau- und Gartenbedarf, Lebensmitteln und Treibstoffen.',
-    '',
-    'Wir bieten ein dynamisches Arbeitsumfeld mit direktem Kundenkontakt,',
-    'umfassende Weiterbildungsmöglichkeiten, attraktive Anstellungsbedingungen im Detailhandel,',
-    'mindestens 5 Wochen Ferien, Personalrabatte auf das gesamte Sortiment',
-    'und eine praxisorientierte Berufsausbildung für Lernende.',
-  ].join('\n');
-  if (c.includes('traveco')) return [
-    'TRAVECO Transporte AG ist ein führendes Unternehmen im Bereich Transport und Logistik in der Schweiz,',
-    'Teil der fenaco Genossenschaft mit über 11.000 Mitarbeitenden schweizweit.',
-    'Wir betreiben eine moderne Flotte und bieten zuverlässige Transportdienstleistungen in der ganzen Schweiz.',
-    'Mit modernsten Fahrzeugen und höchsten Sicherheitsstandards sorgen wir für den effizienten Transport von Lebensmitteln und Agrarprodukten.',
-    '',
-    'Wir bieten: Professionelles Arbeitsumfeld, moderne Fahrzeuge, kontinuierliche Weiterbildung,',
-    'wettbewerbsfähige Anstellungsbedingungen, mindestens 5 Wochen Ferien',
-    'und ausgezeichnete Perspektiven im Transportsektor.',
-  ].join('\n');
-  return [
-    'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.',
-    'Wir bieten vielfältige Karrieremöglichkeiten in Landwirtschaft, Detailhandel,',
-    'Logistik und Lebensmittelproduktion mit attraktiven Anstellungsbedingungen,',
-    'umfassenden Sozialleistungen und individuellen Weiterbildungsmöglichkeiten.',
-    'Als genossenschaftliches Unternehmen im Besitz der Schweizer Landwirtschaft vereinen wir über 80 Tochtergesellschaften.',
-    'Wir bieten sichere Arbeitsplätze, moderne Infrastruktur und die Möglichkeit, einen Beitrag zur Schweizer Landwirtschaft zu leisten.',
-  ].join('\n');
+  const key = c.includes('volg') ? 'volg'
+    : c.includes('landi') ? 'landi'
+    : c.includes('traveco') ? 'traveco'
+    : 'default';
+  const entry = COMPANY_BOILERPLATE[key];
+  return (entry[locale] || entry.de).join('\n');
 }
 
 // Per-city postal code table for known Volg/LANDI/fenaco locations.
@@ -623,23 +726,51 @@ function getPostalCode(city = '', canton = '') {
   return CITY_POSTAL_CH[city] || CANTON_POSTAL_FALLBACK[canton] || '0000';
 }
 
+// Canton -> primary official language fallback. Volg/LANDI/fenaco is CH-wide,
+// so a hardcoded 'de' fallback mislabels French/Italian-canton postings
+// (detectLang() falls back to the caller-supplied default for short/ambiguous
+// titles) and generates German-only description text for those jobs. Officially
+// bilingual FR/VS/BE default to their French/German majority-practical locale.
+const CANTON_LOCALE_FALLBACK = {
+  GE: 'fr', VD: 'fr', NE: 'fr', JU: 'fr', VS: 'fr', FR: 'fr',
+  TI: 'it',
+};
+
+function resolveCantonLocale(canton = '') {
+  return CANTON_LOCALE_FALLBACK[canton] || 'de';
+}
+
+const META_LABELS = {
+  de: { workload: 'Pensum', contract: 'Vertrag', apply: 'Bewerbung über' },
+  fr: { workload: "Taux d'occupation", contract: 'Contrat', apply: 'Postulez sur' },
+  it: { workload: 'Grado di occupazione', contract: 'Contratto', apply: 'Candidati su' },
+};
+
 function buildJob(raw) {
   const { url, title, company, city, workload, contractTerms, canton } = raw;
   const { employmentType, contractType } = mapEmploymentType(workload, contractTerms);
   const slug = slugify(`${title}-${company}-${safeLocationToken(city)}`);
-  const sourceLang = detectLang(title, 'de');
+  // Volg/LANDI/fenaco crawl CH-wide (see CANTON_LOCALE_FALLBACK): fall back to
+  // the job's canton-primary locale, not a hardcoded 'de', so ambiguous/short
+  // titles from French/Italian cantons don't get mislabeled as German — the
+  // root cause of the titleByLocale.de flapping (raw fresh-scrape text always
+  // wins the source-locale merge slot; a wrong sourceLang points that slot at
+  // the wrong language every run).
+  const localeFallback = resolveCantonLocale(canton);
+  const sourceLang = detectLang(title, localeFallback);
   const today = new Date().toISOString().slice(0, 10);
   const postalCode = getPostalCode(city, canton);
+  const labels = META_LABELS[localeFallback] || META_LABELS.de;
 
   const metaLine = [
-    `${title} — ${company}, ${city} (${getCantonDisplayName(canton, 'de') || canton}).`,
-    workload ? `Pensum: ${workload}.` : '',
-    contractTerms ? `Vertrag: ${contractTerms}.` : '',
-    `Bewerbung über ${JOBS_PORTAL}`,
+    `${title} — ${company}, ${city} (${getCantonDisplayName(canton, localeFallback) || canton}).`,
+    workload ? `${labels.workload}: ${workload}.` : '',
+    contractTerms ? `${labels.contract}: ${contractTerms}.` : '',
+    `${labels.apply} ${JOBS_PORTAL}`,
   ].filter(Boolean).join(' ');
 
   // Build rich description with company context so content is never thin
-  const companyBoilerplate = getCompanyBoilerplate(company);
+  const companyBoilerplate = getCompanyBoilerplate(company, localeFallback);
   const description = `${metaLine}\n\n${companyBoilerplate}`;
 
   return {

@@ -100,6 +100,7 @@ import {
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
+import { hasConcatenatedWords } from './translation-quality.mjs';
 import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
@@ -1096,10 +1097,32 @@ function stripDescriptionBoilerplate(text) {
 let structureDescriptionCalls = 0;
 const STRUCTURE_DESC_MAX_PER_RUN = 30;
 
-async function structureJobDescription(rawText) {
-  if (!rawText || rawText.length < 100) return rawText;
+// Language name for each supported locale, used to tell the LLM which
+// language to format IN (not translate to) — the source description must
+// stay in its own sourceLang, only markdown structure is added.
+const _LOCALE_LANGUAGE_NAME = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
+// Section-heading examples per locale, so structuring a de/fr/en source
+// description doesn't graft Italian headings onto non-Italian body text.
+const _LOCALE_SECTION_HEADINGS = {
+  it: { tasks: 'Mansioni', requirements: 'Requisiti', offer: 'Cosa offriamo', contact: 'Contatto', fallback: 'Descrizione', rate: 'Grado di occupazione' },
+  de: { tasks: 'Aufgaben', requirements: 'Anforderungen', offer: 'Wir bieten', contact: 'Kontakt', fallback: 'Beschreibung', rate: 'Beschäftigungsgrad' },
+  fr: { tasks: 'Missions', requirements: 'Profil recherché', offer: 'Ce que nous offrons', contact: 'Contact', fallback: 'Description', rate: "Taux d'occupation" },
+  en: { tasks: 'Responsibilities', requirements: 'Requirements', offer: 'What we offer', contact: 'Contact', fallback: 'Description', rate: 'Employment rate' },
+};
 
-  const cacheKey = buildAiCacheKey('structure-desc-v2', [rawText]);
+/** Resolve the language name + localized section headings an AI prompt should target for a job's sourceLang, defaulting to Italian for unknown/missing locales. */
+export function resolveLocalePromptContext(sourceLang) {
+  return {
+    langName: _LOCALE_LANGUAGE_NAME[sourceLang] || _LOCALE_LANGUAGE_NAME.it,
+    headings: _LOCALE_SECTION_HEADINGS[sourceLang] || _LOCALE_SECTION_HEADINGS.it,
+  };
+}
+
+async function structureJobDescription(rawText, sourceLang = 'it') {
+  if (!rawText || rawText.length < 100) return rawText;
+  const { langName } = resolveLocalePromptContext(sourceLang);
+
+  const cacheKey = buildAiCacheKey('structure-desc-v2', [rawText, sourceLang]);
   const fromCache = getCachedAiResponse(cacheKey);
   if (typeof fromCache === 'string') {
     return fromCache === AI_CACHE_RAW_SENTINEL ? rawText : fromCache;
@@ -1125,15 +1148,16 @@ async function structureJobDescription(rawText) {
     return rawText;
   }
 
-  const prompt = `You are a job listing formatter. Restructure this flat job description into well-formatted Italian markdown.
+  const { headings } = resolveLocalePromptContext(sourceLang);
+  const prompt = `You are a job listing formatter. Restructure this flat job description into well-formatted ${langName} markdown. The text is already in ${langName} — do NOT translate it, only add structure.
 
 Rules:
-- Use ## for section headings (e.g. ## Mansioni, ## Requisiti, ## Cosa offriamo, ## Contatto)
+- Use ## for section headings (e.g. ## ${headings.tasks}, ## ${headings.requirements}, ## ${headings.offer}, ## ${headings.contact})
 - Use - for bullet points listing individual tasks, requirements, or benefits
 - Each bullet point should be a single, complete item (one task or one requirement)
-- Keep ALL original content verbatim — do NOT add, remove, or rephrase any text
+- Keep ALL original content verbatim, in its original language — do NOT add, remove, translate, or rephrase any text
 - Only add markdown structure (headings, bullets, line breaks)
-- If no clear section structure exists, use ## Descrizione as the heading
+- If no clear section structure exists, use ## ${headings.fallback} as the heading
 - Output ONLY the formatted markdown, no explanations, preamble, or code fences
 
 Text:
@@ -1178,7 +1202,9 @@ ${rawText}`;
 let enrichThinCalls = 0;
 const ENRICH_THIN_MAX_PER_RUN = 50;
 
-async function aiEnrichThinDescription(job) {
+async function aiEnrichThinDescription(job, sourceLangHint) {
+  const sourceLang = sourceLangHint || job.sourceLang || 'it';
+  const { langName, headings } = resolveLocalePromptContext(sourceLang);
   const desc = normalizeSpace(job.description || '');
   const responsibilities = job._migrosResponsibilities || [];
   const benefits = job._migrosBenefits || [];
@@ -1198,6 +1224,7 @@ async function aiEnrichThinDescription(job) {
     requirements.join('\n'),
     benefits.join('\n'),
     workPercentage,
+    sourceLang,
   ]);
   const fromCache = getCachedAiResponse(cacheKey);
   if (typeof fromCache === 'string') {
@@ -1252,20 +1279,20 @@ async function aiEnrichThinDescription(job) {
   if (workPercentage) contextParts.push(`Grado di occupazione: ${workPercentage}`);
   if (job.contract) contextParts.push(`Tipo contratto: ${job.contract}`);
 
-  const prompt = `Sei un esperto di annunci di lavoro. Componi una descrizione professionale e completa in italiano per questa offerta di lavoro, utilizzando TUTTI i dati forniti.
+  const prompt = `You are a job listing expert. Compose a professional, complete job description in ${langName} using ALL the data provided below. The provided data may be in a different language than ${langName} — translate/compose it INTO ${langName}, do not leave it in the source language.
 
-Regole:
-- Usa il formato markdown con sezioni ## (Descrizione, Mansioni, Requisiti, Cosa offriamo, Contatto)
-- Usa - per i punti elenco
-- Integra TUTTI i dati forniti senza inventare informazioni aggiuntive
-- La descrizione iniziale deve essere un paragrafo introduttivo in 2-3 frasi
-- Ogni mansione, requisito e benefit deve essere un punto elenco separato
-- Non aggiungere informazioni non presenti nei dati forniti
-- Non ripetere gli stessi contenuti in sezioni diverse
-- Se il grado di occupazione è disponibile, includilo alla fine come **Grado di occupazione: XX%**
-- Output SOLO il markdown formattato, nessuna spiegazione, preambolo o code fence
+Rules:
+- Use markdown format with ## sections (${headings.fallback}, ${headings.tasks}, ${headings.requirements}, ${headings.offer}, ${headings.contact})
+- Use - for bullet points
+- Integrate ALL the provided data without inventing additional information
+- The opening description must be a 2-3 sentence introductory paragraph
+- Each task, requirement, and benefit must be its own bullet point
+- Do not add information not present in the provided data
+- Do not repeat the same content across different sections
+- If the employment rate is available, include it at the end as **${headings.rate}: XX%**
+- Output ONLY the formatted markdown, no explanation, preamble, or code fence
 
-Dati:
+Data:
 ${contextParts.join('\n\n')}`;
 
   try {
@@ -1716,8 +1743,14 @@ function _slugByLocaleDiffer(a = {}, b = {}) {
   return false;
 }
 
-function ensureLocaleFields(job) {
+export function ensureLocaleFields(job) {
   const out = { ...job };
+  // Snapshot pre-mutation titles so the quality gate below can skip locales
+  // this call left untouched — re-running the wrong-language heuristic on
+  // titles that were already present and unchanged is what mass-re-flags
+  // complete jobs with needsRetranslation on every crawl run (see EOC/migros
+  // incident: 76%/51% of already-translated jobs re-flagged every run).
+  const _preTitleByLocale = (job.titleByLocale && typeof job.titleByLocale === 'object') ? { ...job.titleByLocale } : {};
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
   const descriptionByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
   const requirementsByLocale = (out.requirementsByLocale && typeof out.requirementsByLocale === 'object') ? { ...out.requirementsByLocale } : {};
@@ -1937,6 +1970,21 @@ function ensureLocaleFields(job) {
       if (locale === srcLang) continue; // Never clear or flag the source language
       const title = normalizeSpace(out.titleByLocale?.[locale] || '');
       if (!title) continue;
+      // Glued-together words (e.g. "Direttoredifiliale") are a static defect
+      // that never self-corrects: once a broken title lands, the exact-copy
+      // and unchanged-slot checks below both continue to see it as "already
+      // translated" on every subsequent run, so this check runs unconditionally
+      // (not gated on the unchanged-slot skip further down) to keep flagging it.
+      if (hasConcatenatedWords(title, locale)) {
+        out.needsRetranslation = true;
+        continue;
+      }
+      // Locale slot unchanged by this call (existing, already-vetted content) —
+      // don't re-derive the flag from the heuristic every run. needsRetranslation
+      // already carried over from `job` via the initial `out = { ...job }` spread,
+      // so a genuinely still-broken title stays flagged; this only stops healthy
+      // jobs from flapping back to flagged on every crawl pass.
+      if (title === normalizeSpace(_preTitleByLocale[locale] || '')) continue;
       // Cross-locale title duplicate = not translated.
       // BUT: skip if other locales have different titles (international/corporate title).
       if (title === srcTitle) {

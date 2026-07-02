@@ -235,11 +235,59 @@ export function isGrigioniRelevant(text = '') {
 
 // ─── Canton inference ──────────────────────────────────────────────────────
 
+// An explicit trailing "<City> XX" canton-code suffix (the standard Swiss
+// address convention, e.g. "Bern BE", "Brügg BE") is the single most
+// unambiguous signal a location string can carry — the author literally
+// wrote the canton abbreviation. It must outrank EVERY other signal,
+// including another canton's curated `names` alias list: SWISS_CANTONS.AG's
+// names includes the town "brugg" (a real, notable AG town), which — after
+// accent-stripping — collides with "Brügg", a distinct BE town. Without a
+// dedicated first pass, "Brügg BE" checked AG (array order precedes BE) via
+// its names list before ever reaching BE's own suffix signal, silently
+// mis-routing a Bern job to Aargau. This only affects multi-canton
+// inference; single-canton isCantonRelevant() callers are unchanged.
+function hasExplicitCantonSuffix(text = '', code = '') {
+  const trimmed = String(text || '').trim();
+  if (!trimmed) return false;
+  const lastToken = trimmed.split(/\s+/).pop();
+  return lastToken === code.toUpperCase();
+}
+
+// A canton NAME/CODE match (isCantonRelevant steps 1/3/4) is a curated,
+// author-relevant signal — but (see hasExplicitCantonSuffix above) it can
+// itself collide with another canton's trailing-code suffix, so it ranks
+// below that suffix check, not above it. The BFS municipality/alias TOKEN
+// match (isCantonRelevant step 2) is the fuzziest tier and stays last.
+function hasStrongCantonSignal(text = '', code = '') {
+  const lower = normalizeSwissTargetLocationText(text);
+  if (!lower) return false;
+  const upperCode = code.toUpperCase();
+  const cantonNames = SWISS_CANTONS[upperCode]?.names || [];
+  const staticTokens = CANTON_STATIC_TOKENS[upperCode] || [];
+  if (hasToken([...cantonNames, ...staticTokens], lower)) return true;
+  const codeLower = upperCode.toLowerCase();
+  if (new RegExp(`\\(${codeLower}\\)`, 'i').test(lower)) return true;
+  if (new RegExp(`\\bch ${codeLower}\\b`, 'i').test(lower)) return true;
+  if (new RegExp(`\\d{4}\\s+${codeLower}\\b`, 'i').test(lower)) return true;
+  return false;
+}
+
 /**
  * Infer canton from text, checking only TARGET_CANTONS.
  * Returns 2-letter code or ''.
  */
 export function inferSwissTargetCanton(text = '') {
+  // Pass 0: explicit trailing canton-code suffix — the strongest possible
+  // signal, checked across all target cantons before any name/city match.
+  for (const code of TARGET_CANTONS) {
+    if (hasExplicitCantonSuffix(text, code)) return code;
+  }
+  // Pass 1: curated name/code signal, across all target cantons — wins
+  // regardless of TARGET_CANTONS array order.
+  for (const code of TARGET_CANTONS) {
+    if (hasStrongCantonSignal(text, code)) return code;
+  }
+  // Pass 2: fall back to fuzzy city-name matching.
   for (const code of TARGET_CANTONS) {
     if (isCantonRelevant(text, code)) return code;
   }
@@ -251,11 +299,22 @@ export function inferSwissTargetCanton(text = '') {
  * Checks target cantons first (most common in dataset), then all others.
  */
 export function inferAnyCanton(text = '') {
-  // Check target cantons first (fast path for common cases)
+  // Pass 0: explicit trailing canton-code suffix, across ALL 26 cantons —
+  // wins regardless of which canton's name/city list would otherwise match.
+  for (const code of Object.keys(SWISS_CANTONS)) {
+    if (hasExplicitCantonSuffix(text, code)) return code;
+  }
+
+  // Pass 1: curated name/code signal, across ALL 26 cantons.
+  for (const code of Object.keys(SWISS_CANTONS)) {
+    if (hasStrongCantonSignal(text, code)) return code;
+  }
+
+  // Pass 2: fuzzy city-name matching, target cantons first (fast path for
+  // common cases), then all others.
   const target = inferSwissTargetCanton(text);
   if (target) return target;
 
-  // Check all other cantons using full isCantonRelevant (BFS + names + aliases)
   for (const code of Object.keys(SWISS_CANTONS)) {
     if (TARGET_CANTONS.includes(code)) continue; // already checked
     if (isCantonRelevant(text, code)) return code;

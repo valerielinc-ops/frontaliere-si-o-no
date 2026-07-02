@@ -30,22 +30,13 @@ import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 
-const args = process.argv.slice(2);
-const DRY_RUN = args.includes('--dry-run');
-const inputIdx = args.indexOf('--input');
-const INPUT = inputIdx !== -1 ? args[inputIdx + 1] : '/tmp/recoverable-slugs.json';
 const CAP = 20;
-
-if (!fs.existsSync(INPUT)) {
-  console.error(`❌ Input not found: ${INPUT}`);
-  console.error('Run scripts/scan-prev-slug-losses-fast.mjs first to generate it.');
-  process.exit(2);
-}
 
 /** Detect language of a slug by counting known per-locale tokens. */
 const LANG_TOKENS = {
@@ -73,6 +64,39 @@ function detectLocaleFromSlug(slug) {
     }
   }
   return best;
+}
+
+const HASH_TAIL_RE = /-([a-z0-9]{6})$/;
+
+/**
+ * A recovered slug's loss event is keyed by a historical `job.id` snapshot,
+ * which can be up to 400 commits stale. If that id was ever transiently
+ * reused by a different real posting (e.g. across a fingerprint/hash-input
+ * change), the "recovered" slug does not actually belong to today's job
+ * holding that id — it belongs to whichever job's URL currently hashes to
+ * the slug's own disambiguator tail. Cross-check against that before writing.
+ *
+ * A trailing 6-char lowercase-alnum segment is only trustworthy as a hash
+ * signal when it POSITIVELY matches a real, currently-computable job hash
+ * (its own, or another job's). Absence of a match is NOT evidence of
+ * contamination — plenty of real slug words are coincidentally 6 lowercase
+ * letters (e.g. "-campus"), so a tail with no matching owner is left
+ * untouched rather than dropped.
+ *
+ * @param {object} job job currently resolved via the loss event's stale id
+ * @param {string} slug slug being recovered
+ * @param {Map<string, object>} bySuffixHash stableSlugHash(job) → job, for every job in the same slice
+ * @returns {{ targetJob: object, skip: boolean, redirected: boolean }}
+ */
+export function resolveRecoveryTarget(job, slug, bySuffixHash) {
+  const m = HASH_TAIL_RE.exec(String(slug || ''));
+  if (!m) return { targetJob: job, skip: false, redirected: false };
+  const tail = m[1];
+  const ownHash = stableSlugHash(job);
+  if (!ownHash || tail === ownHash) return { targetJob: job, skip: false, redirected: false };
+  const owner = bySuffixHash.get(tail);
+  if (owner && owner !== job) return { targetJob: owner, skip: false, redirected: true };
+  return { targetJob: job, skip: false, redirected: false };
 }
 
 // One-shot cache of (file → jobId → Map<slug, locale>) built lazily
@@ -138,94 +162,132 @@ function buildFileLocaleIndex(file, maxCommits = 400) {
   return byJob;
 }
 
-const recoverList = JSON.parse(fs.readFileSync(INPUT, 'utf8'));
-console.log(`📥 Loaded ${recoverList.length} jobs with recoverable slugs from ${INPUT}\n`);
+function main() {
+  const args = process.argv.slice(2);
+  const DRY_RUN = args.includes('--dry-run');
+  const inputIdx = args.indexOf('--input');
+  const INPUT = inputIdx !== -1 ? args[inputIdx + 1] : '/tmp/recoverable-slugs.json';
 
-const stats = {
-  filesUpdated: 0,
-  jobsUpdated: 0,
-  slugsRestoredByLocale: 0,
-  slugsRestoredFromHistory: 0,
-  slugsRestoredFromDetection: 0,
-  jobsMissing: 0,
-};
-const filesByName = new Map();
-for (const entry of recoverList) {
-  if (!filesByName.has(entry.file)) filesByName.set(entry.file, []);
-  filesByName.get(entry.file).push(entry);
-}
-
-let fileCount = 0;
-for (const [file, entries] of filesByName) {
-  fileCount++;
-  const filePath = path.join(BY_CRAWLER_DIR, file);
-  if (!fs.existsSync(filePath)) {
-    console.warn(`  ⚠️  Skip ${file} (not in slices dir)`);
-    continue;
+  if (!fs.existsSync(INPUT)) {
+    console.error(`❌ Input not found: ${INPUT}`);
+    console.error('Run scripts/scan-prev-slug-losses-fast.mjs first to generate it.');
+    process.exit(2);
   }
-  process.stderr.write(`  [${fileCount}/${filesByName.size}] ${file} (${entries.length} jobs)\n`);
-  const slice = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const byId = new Map(slice.jobs.map(j => [j.id, j]));
-  let fileChanged = false;
 
-  // Build the per-file locale index ONCE; per-job lookup is O(1) below.
-  const fileIndex = buildFileLocaleIndex(filePath);
-  for (const { jobId, slugs } of entries) {
-    const job = byId.get(jobId);
-    if (!job) { stats.jobsMissing++; continue; }
-    const slugLocaleIndex = fileIndex.get(jobId) || new Map();
-    let jobChanged = false;
-    for (const slug of slugs) {
-      let locale = slugLocaleIndex.get(slug);
-      let source;
-      if (locale) {
-        source = 'history';
-        stats.slugsRestoredFromHistory++;
-      } else {
-        locale = detectLocaleFromSlug(slug);
-        source = 'detection';
-        stats.slugsRestoredFromDetection++;
-      }
-      // Write to previousSlugsByLocale[locale]
-      if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
-        job.previousSlugsByLocale = {};
-      }
-      if (!Array.isArray(job.previousSlugsByLocale[locale])) {
-        job.previousSlugsByLocale[locale] = [];
-      }
-      if (!job.previousSlugsByLocale[locale].includes(slug)) {
-        job.previousSlugsByLocale[locale].push(slug);
-        if (job.previousSlugsByLocale[locale].length > CAP) {
-          job.previousSlugsByLocale[locale] = job.previousSlugsByLocale[locale].slice(-CAP);
+  const recoverList = JSON.parse(fs.readFileSync(INPUT, 'utf8'));
+  console.log(`📥 Loaded ${recoverList.length} jobs with recoverable slugs from ${INPUT}\n`);
+
+  const stats = {
+    filesUpdated: 0,
+    jobsUpdated: 0,
+    slugsRestoredByLocale: 0,
+    slugsRestoredFromHistory: 0,
+    slugsRestoredFromDetection: 0,
+    jobsMissing: 0,
+  };
+  const filesByName = new Map();
+  for (const entry of recoverList) {
+    if (!filesByName.has(entry.file)) filesByName.set(entry.file, []);
+    filesByName.get(entry.file).push(entry);
+  }
+
+  let fileCount = 0;
+  for (const [file, entries] of filesByName) {
+    fileCount++;
+    const filePath = path.join(BY_CRAWLER_DIR, file);
+    if (!fs.existsSync(filePath)) {
+      console.warn(`  ⚠️  Skip ${file} (not in slices dir)`);
+      continue;
+    }
+    process.stderr.write(`  [${fileCount}/${filesByName.size}] ${file} (${entries.length} jobs)\n`);
+    const slice = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const byId = new Map(slice.jobs.map(j => [j.id, j]));
+
+    // Build the per-file locale index ONCE; per-job lookup is O(1) below.
+    const fileIndex = buildFileLocaleIndex(filePath);
+
+    // Map every current job's own content-hash disambiguator to itself, so a
+    // recovered slug carrying a MISMATCHED tail can be redirected to its real
+    // owner (or skipped) instead of misattributed to whatever job the loss
+    // event's stale historical id happens to resolve to today.
+    const bySuffixHash = new Map();
+    for (const j of slice.jobs) {
+      const h = stableSlugHash(j);
+      if (h && !bySuffixHash.has(h)) bySuffixHash.set(h, j);
+    }
+
+    const changedJobIds = new Set();
+    for (const { jobId, slugs } of entries) {
+      const job = byId.get(jobId);
+      if (!job) { stats.jobsMissing++; continue; }
+      const slugLocaleIndex = fileIndex.get(jobId) || new Map();
+      for (const slug of slugs) {
+        const { targetJob, redirected } = resolveRecoveryTarget(job, slug, bySuffixHash);
+        if (redirected) {
+          stats.slugsRedirected = (stats.slugsRedirected || 0) + 1;
+          console.warn(`  ↪️  Redirect "${slug}" from ${jobId} to ${targetJob.id} (disambiguator tail matches that job instead)`);
         }
-        jobChanged = true;
-        stats.slugsRestoredByLocale++;
-      }
-      // Also sync flat previousSlugs for legacy consumers
-      if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-      if (!job.previousSlugs.includes(slug)) {
-        job.previousSlugs.push(slug);
-        if (job.previousSlugs.length > CAP) {
-          job.previousSlugs = job.previousSlugs.slice(-CAP);
+        let locale = slugLocaleIndex.get(slug);
+        if (locale) {
+          stats.slugsRestoredFromHistory++;
+        } else {
+          locale = detectLocaleFromSlug(slug);
+          stats.slugsRestoredFromDetection++;
+        }
+        // Write to previousSlugsByLocale[locale]
+        if (!targetJob.previousSlugsByLocale || typeof targetJob.previousSlugsByLocale !== 'object') {
+          targetJob.previousSlugsByLocale = {};
+        }
+        if (!Array.isArray(targetJob.previousSlugsByLocale[locale])) {
+          targetJob.previousSlugsByLocale[locale] = [];
+        }
+        if (!targetJob.previousSlugsByLocale[locale].includes(slug)) {
+          targetJob.previousSlugsByLocale[locale].push(slug);
+          if (targetJob.previousSlugsByLocale[locale].length > CAP) {
+            targetJob.previousSlugsByLocale[locale] = targetJob.previousSlugsByLocale[locale].slice(-CAP);
+          }
+          changedJobIds.add(targetJob.id);
+          stats.slugsRestoredByLocale++;
+        }
+        // Also sync flat previousSlugs for legacy consumers
+        if (!Array.isArray(targetJob.previousSlugs)) targetJob.previousSlugs = [];
+        if (!targetJob.previousSlugs.includes(slug)) {
+          targetJob.previousSlugs.push(slug);
+          if (targetJob.previousSlugs.length > CAP) {
+            targetJob.previousSlugs = targetJob.previousSlugs.slice(-CAP);
+          }
         }
       }
     }
-    if (jobChanged) stats.jobsUpdated++;
-    fileChanged = fileChanged || jobChanged;
+    stats.jobsUpdated += changedJobIds.size;
+
+    if (changedJobIds.size > 0) {
+      if (!DRY_RUN) {
+        writeJsonAtomic(filePath, slice);
+      }
+      stats.filesUpdated++;
+    }
   }
 
-  if (fileChanged) {
-    if (!DRY_RUN) {
-      writeJsonAtomic(filePath, slice);
-    }
-    stats.filesUpdated++;
-  }
+  console.log('\n📊 Backfill complete:');
+  console.log(`  files updated:               ${stats.filesUpdated}${DRY_RUN ? ' (dry-run, no writes)' : ''}`);
+  console.log(`  jobs updated:                ${stats.jobsUpdated}`);
+  console.log(`  slugs restored (byLocale):   ${stats.slugsRestoredByLocale}`);
+  console.log(`  ├─ from git history:        ${stats.slugsRestoredFromHistory}`);
+  console.log(`  └─ from language detection: ${stats.slugsRestoredFromDetection}`);
+  console.log(`  slugs redirected (mismatch): ${stats.slugsRedirected || 0}`);
+  console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
 }
 
-console.log('\n📊 Backfill complete:');
-console.log(`  files updated:               ${stats.filesUpdated}${DRY_RUN ? ' (dry-run, no writes)' : ''}`);
-console.log(`  jobs updated:                ${stats.jobsUpdated}`);
-console.log(`  slugs restored (byLocale):   ${stats.slugsRestoredByLocale}`);
-console.log(`  ├─ from git history:        ${stats.slugsRestoredFromHistory}`);
-console.log(`  └─ from language detection: ${stats.slugsRestoredFromDetection}`);
-console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
+const isMain = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`
+      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (isMain) {
+  main();
+}
