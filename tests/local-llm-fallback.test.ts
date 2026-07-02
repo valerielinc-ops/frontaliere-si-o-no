@@ -1,5 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import http from 'node:http';
+import type { Socket } from 'node:net';
+import { once } from 'node:events';
+import { Agent } from 'undici';
 import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM } from '../scripts/lib/ai-models.mjs';
 
 // Local open-source fallback provider: opt-in last-resort used when every remote
@@ -155,6 +158,68 @@ describe('local LLM fallback provider', () => {
       if (prevTimeout === undefined) delete process.env.LOCAL_LLM_TIMEOUT_MS; else process.env.LOCAL_LLM_TIMEOUT_MS = prevTimeout;
     }
   }, 20_000);
+  // #3106 item 2: item 1 proved the undici Agent RETAINS headersTimeout/
+  // bodyTimeout. That is necessary but not sufficient — it does not prove
+  // that Node's global `fetch()` on THIS runtime actually forwards the
+  // `dispatcher` option into the request instead of silently ignoring it
+  // (a no-op would leave the local fallback stuck on undici's default 300s
+  // headersTimeout with no error, exactly the failure #3102/#3106 exist to
+  // prevent). This test uses the REAL global `fetch`, a REAL undici Agent,
+  // and a REAL TCP server that never sends a response — deliberately with
+  // NO AbortSignal — so only the dispatcher's headersTimeout can rescue the
+  // request. It races the fetch against a sentinel timer well below
+  // undici's 300s default: if `dispatcher` were a no-op, the request would
+  // still be pending at the sentinel and the race would resolve to the
+  // sentinel instead of a rejection.
+  it('global fetch on this runtime honors an undici Agent dispatcher (headersTimeout is not a no-op)', async () => {
+    const openSockets: Socket[] = [];
+    const server = http.createServer(() => {
+      // Intentionally never call res.writeHead()/res.end() — simulates a
+      // hung local LLM that never finishes buffering a response.
+    });
+    server.on('connection', (socket) => openSockets.push(socket));
+    server.listen(0, '127.0.0.1');
+    await once(server, 'listening');
+    const address = server.address();
+    const port = typeof address === 'object' && address ? address.port : 0;
+    const url = `http://127.0.0.1:${port}/hang`;
+
+    const HEADERS_TIMEOUT_MS = 200;
+    const RACE_SENTINEL_MS = 4000; // >> HEADERS_TIMEOUT_MS, << undici's 300s default
+    const agent = new Agent({
+      headersTimeout: HEADERS_TIMEOUT_MS,
+      bodyTimeout: HEADERS_TIMEOUT_MS,
+      connectTimeout: 2000,
+    });
+    const sentinel = Symbol('race-sentinel');
+
+    try {
+      const raced = await Promise.race([
+        fetch(url, { dispatcher: agent } as RequestInit).then(
+          () => ({ outcome: 'resolved' as const }),
+          (err: unknown) => ({ outcome: 'rejected' as const, err }),
+        ),
+        new Promise<{ outcome: 'sentinel' }>((resolve) => {
+          setTimeout(() => resolve({ outcome: 'sentinel' }), RACE_SENTINEL_MS);
+        }),
+      ]);
+
+      // A 'sentinel' outcome means the fetch was still hung after 4s — i.e.
+      // Node's global fetch ignored `dispatcher` and inherited undici's
+      // default 300s headersTimeout, reproducing the exact silent no-op
+      // item 2 warns about.
+      expect(raced.outcome).toBe('rejected');
+      if (raced.outcome === 'rejected') {
+        const err = raced.err as { cause?: unknown; message?: string };
+        const message = String(err?.cause ?? err?.message ?? err);
+        expect(message).toMatch(/headers timeout|UND_ERR_HEADERS_TIMEOUT/i);
+      }
+    } finally {
+      await agent.close().catch(() => {});
+      for (const socket of openSockets) socket.destroy();
+      await new Promise((resolve) => server.close(resolve));
+    }
+  }, 8000);
 
   // AI_MODELS_FORCE_CHAIN pins the cascade to an explicit list so ops can
   // validate/measure a specific provider (e.g. the local fallback) on demand
