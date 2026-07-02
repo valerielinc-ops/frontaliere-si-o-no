@@ -19,8 +19,9 @@
 #      comma — which previously slipped through and broke the deploy build).
 #   6. Final cross-file integrity gate (scripts/ci/validate-article-append-integrity.mjs):
 #      catches the two corruption shapes that stay syntactically valid and so
-#      slip past step 5 — a duplicate SVIZZERA localized slug (REVERSE_SWISS
-#      collision) and a fused sitemap <url> block (hreflang != <url> count).
+#      slip past step 5 — a duplicate localized slug in SWISS_SLUGS (REVERSE_SWISS
+#      collision) OR BLOG_SLUGS/FRONTALIERE (REVERSE_BLOG collision), and a fused
+#      sitemap <url> block (<loc> count != <url> count, checked per-block too).
 #
 # Usage (sourced — preferred so the function is in scope of the caller):
 #   source scripts/lib/resolve-append-conflicts.sh
@@ -214,12 +215,14 @@ resolve_append_conflicts() {
   done <<< "$CONFLICTED"
 
   # Final cross-file integrity gate. Even when every individual file parses, a
-  # keep-both merge can still (a) duplicate a SVIZZERA localized slug
+  # keep-both merge can still (a) duplicate a localized slug in SWISS_SLUGS
   # (REVERSE_SWISS collides → tests/blog/svizzera-section-routing red) or
-  # (b) fuse two sitemap <url> blocks (hreflang != <url> → tests/seo-completeness
-  # red). Both stay syntactically valid, so the per-file esbuild guard above
-  # can't see them. Validate the whole resolved tree once before declaring
-  # success (skip when an earlier file already failed — we're aborting anyway).
+  # BLOG_SLUGS/FRONTALIERE (REVERSE_BLOG collides, same round-trip-break shape),
+  # or (b) fuse two sitemap <url> blocks (<loc> count != <url> count, checked
+  # per-block → tests/seo-completeness red). All stay syntactically valid, so
+  # the per-file esbuild guard above can't see them. Validate the whole
+  # resolved tree once before declaring success (skip when an earlier file
+  # already failed — we're aborting anyway).
   if [ "$ALL_RESOLVED" = true ] && [ -f scripts/ci/validate-article-append-integrity.mjs ]; then
     if ! node scripts/ci/validate-article-append-integrity.mjs; then
       echo "  ❌ article-append integrity gate failed — refusing to keep this merge"
