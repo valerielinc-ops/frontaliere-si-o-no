@@ -1,33 +1,133 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-07-01T23:24:24.919Z",
-  "total": 56,
-  "newCount": 0,
+  "generatedAt": "2026-07-02T12:27:49.675Z",
+  "total": 58,
+  "newCount": 3,
   "updatedCount": 0,
   "removedCount": 1,
-  "unchangedCount": 56,
-  "durationMs": 37553,
-  "avgDurationMs": 37553,
+  "unchangedCount": 55,
+  "durationMs": 38944,
+  "avgDurationMs": 38944,
   "durationHistory": [
-    37553
+    38944
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130763629-it-problem-change-manager",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130763629-it-problem-change-manager?oga=true",
-      "title": "IT Problem & Change Manager",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical?oga=true",
+      "title": "Candidature spontanée - Secteur médical",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-07-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130777024-assistant-e-medical-e-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130777024-assistant-e-medical-e-?oga=true",
+      "title": "Assistant(e) médical(e)",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
       "location": "Genolier",
       "addressLocality": "Genolier",
-      "addressRegion": "ZH",
-      "canton": "ZH",
+      "addressRegion": "VD",
+      "canton": "VD",
       "country": "CH",
       "postalCode": "1272",
-      "slug": "it-problem-change-manager-swiss-medical-network",
+      "slug": "assistant-e-medical-e-swiss-medical-network",
+      "category": "admin",
+      "datePosted": "2026-07-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Genolier"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129497007-secretaire-medical-e-en-radiologie",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129497007-secretaire-medical-e-en-radiologie?oga=true",
+      "title": "Secrétaire médical(e) en radiologie",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Genolier",
+      "addressLocality": "Genolier",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "postalCode": "1272",
+      "slug": "secretaire-medical-e-en-radiologie-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-07-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Genolier"
+      },
+      "sourceLang": "fr",
+      "addressCountry": "CH",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 12
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133877209-infirmier-e-h-f-unite-de-retablissement-80-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133877209-infirmier-e-h-f-unite-de-retablissement-80-?oga=true",
+      "title": "Infirmier.e. H/F unité de rétablissement 80%",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Moutier",
+      "addressLocality": "Moutier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2740",
+      "slug": "infermiera-h-f-unita-di-recupero-80-swiss-medical-network-moutier",
       "category": "technology",
       "datePosted": "2026-06-29",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -35,20 +135,20 @@
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "ZH",
-        "location": "Genolier"
+        "canton": "BE",
+        "location": "Moutier"
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 54800,
+      "salaryMax": 83200,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 77,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
-        "translation": 17,
+        "translation": 19,
         "completeness": 17
       }
     }
@@ -869,43 +969,6 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133877209-infirmier-e-h-f-unite-de-retablissement-80-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133877209-infirmier-e-h-f-unite-de-retablissement-80-?oga=true",
-      "title": "Infirmier.e. H/F unité de rétablissement 80%",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Moutier",
-      "addressLocality": "Moutier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2740",
-      "slug": "infermiera-h-f-unita-di-recupero-80-swiss-medical-network-moutier",
-      "category": "technology",
-      "datePosted": "2026-06-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Moutier"
-      },
-      "sourceLang": "fr",
-      "addressCountry": "CH",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 17
-      }
-    },
-    {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133865259-medecin-pediatre-h-f-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133865259-medecin-pediatre-h-f-?oga=true",
       "title": "Médecin Pédiatre (H/F)",
@@ -1158,6 +1221,43 @@
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133077279-sachbearbeiter-in-finanzbuchhaltung",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133077279-sachbearbeiter-in-finanzbuchhaltung?oga=true",
+      "title": "Sachbearbeiter/-in Finanzbuchhaltung",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4500",
+      "slug": "personale-in-contabilita-finanziaria-swiss-medical-network-solothurn",
+      "category": "admin",
+      "datePosted": "2026-06-29",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Solothurn"
+      },
+      "sourceLang": "de",
+      "addressCountry": "CH",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-29T23:34:11.527Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
         "richness": 18,
         "translation": 21,
         "completeness": 17
