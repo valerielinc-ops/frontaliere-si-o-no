@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3055,
+ "numberOfItems": 3056,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7701,7 +7701,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3052, "name": "Tassa sulla salute e meno ristorni: l'obiettivo...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-ristorni-ticino` },
           { "@type": "ListItem", "position": 3053, "name": "Pensione 2026: coordinamento AVS/INPS", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-entro-20km` },
           { "@type": "ListItem", "position": 3054, "name": "Quanto costa vivere a Lugano da frontaliere?", "url": `${BASE_URL}/articoli-frontaliere/quanto-costa-vivere-lugano-frontaliere` },
-          { "@type": "ListItem", "position": 3055, "name": "Frontaliere: Come Valutare Residenza in Italia ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-2026-residenza-italia-svizzera` }
+          { "@type": "ListItem", "position": 3055, "name": "Frontaliere: Come Valutare Residenza in Italia ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-2026-residenza-italia-svizzera` },
+          { "@type": "ListItem", "position": 3056, "name": "Frontaliere con figli: Guida pratica agli asili...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-figli-asilo-nido-svizzera` }
  ]
  },
  {

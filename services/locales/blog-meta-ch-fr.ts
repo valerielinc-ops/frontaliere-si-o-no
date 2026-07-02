@@ -826,6 +826,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-2026-residenza-italia-svizzera.title': 'Évaluer sa résidence en Italie ou Suisse en 2026',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.excerpt': 'Guide pratique pour évaluer les coûts, les temps de déplacement, la santé et la fiscalité entre l\'Italie et la Suisse en 2026.',
     'blog.article.frontaliere-2026-residenza-italia-svizzera.imageAlt': 'Personne évaluant la résidence en Italie ou en Suisse avec des cartes et des documents fiscaux',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Frontalier avec enfants : Guide pratique des crèches tessinoises',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Tout ce que vous devez savoir sur les coûts, les listes d’attente et les alternatives italiennes pour les navetteurs transfrontaliers avec enfants en Suisse.',
+    'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Famille frontalier avec enfants en garderie suisse',
 };
 
 export default blogMetaChFr;
