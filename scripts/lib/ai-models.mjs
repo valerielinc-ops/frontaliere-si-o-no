@@ -3025,7 +3025,15 @@ export async function callLLM(messages, opts = {}) {
     // before any between-call check got a chance to run. No-op unless the
     // caller opts in via opts.deadlineMs.
     if (o.deadlineMs && Date.now() > o.deadlineMs) {
-      errors.push(`${model}: skipped — wall-clock deadline exceeded, aborting remaining chain (${chain.length - i} models left)`);
+      // Wording matters: classifyExhaustionCause()'s transientRe (below) keys off
+      // "timeout"/"aborted" to bucket a cascade's errors as transient (recoverable
+      // next run) vs persistent (needs intervention). A budget-exhaustion skip is
+      // transient by nature, but the original "aborting" (present tense) matched
+      // neither regex — when this is the *only* error (deadline already past at
+      // i===0, exactly the case this fix targets), that left the cascade
+      // unclassified, so create-article.mjs's catch-all treated it as a hard
+      // failure (exit 1) instead of a graceful defer. Fixed per PR #3307 review.
+      errors.push(`${model}: skipped — wall-clock deadline exceeded (timeout), aborted remaining chain (${chain.length - i} models left)`);
       break;
     }
 
