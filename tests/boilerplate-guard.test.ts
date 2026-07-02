@@ -352,18 +352,26 @@ describe('isSystemicBoilerplateFailure — sample-size floor', () => {
 });
 
 // ─── Below-Floor Quarantine Tests (quarantineBoilerplateJobs) ──────────────────
-// Regression coverage for the PR #3267 review finding: below the systemic
+// Regression coverage for the PR #3267 review findings: below the systemic
 // floor, isSystemicBoilerplateFailure() correctly refuses to hard-fail the
-// run (see the #3254 tests above), but the confirmed-boilerplate jobs must
-// still never reach the persisted slice — only warning-and-keeping them let
-// GDPR/privacy-notice boilerplate (long enough to beat the build's <50-word
-// noindex net) publish and get indexed indefinitely on a low-volume crawler.
+// run (see the #3254 tests above), but marker-phrase boilerplate (Condition
+// A) must still never reach the persisted slice — only warning-and-keeping
+// it let GDPR/privacy-notice boilerplate (long enough to beat the build's
+// <50-word noindex net) publish and get indexed indefinitely on a low-volume
+// crawler.
+//
+// Condition B (`low_unique_words`) is deliberately NOT quarantined: it's the
+// exact pattern issue #3254 exists to protect — a legitimate naturally-short
+// description (e.g. the Diakoniewerk "Berufsbildnerin" job) that lands on
+// either side of the 30-word threshold run to run. Quarantining it would add
+// zero SEO protection (already <50 words, already noindexed by the build)
+// while silently and permanently dropping real short listings.
 
 describe('quarantineBoilerplateJobs — below-floor quarantine', () => {
-  it('drops confirmed-boilerplate jobs while keeping good jobs, mirroring the #3254 shape', () => {
+  it('drops confirmed marker-phrase boilerplate jobs while keeping good jobs, mirroring the #3254 shape', () => {
     const jobs = [
       makeJob('eligible-good', RICH_DESCRIPTION),
-      makeJob('eligible-thin', wordsDesc(29)),
+      makeJob('eligible-boilerplate', BOILERPLATE_2_MARKERS),
       ...Array.from({ length: 4 }, (_, i) =>
         makeJob(`fresh-${i}`, wordsDesc(5), { needsRetranslation: true }),
       ),
@@ -371,12 +379,28 @@ describe('quarantineBoilerplateJobs — below-floor quarantine', () => {
     const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
     expect(isSystemicBoilerplateFailure(report)).toBe(false); // below-floor: must not hard-fail
     expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('marker_phrases');
 
     const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
     expect(kept).toHaveLength(jobs.length - 1);
-    expect(kept.some(j => j.slug === 'eligible-thin')).toBe(false); // boilerplate job dropped
+    expect(kept.some(j => j.slug === 'eligible-boilerplate')).toBe(false); // marker-phrase job dropped
     expect(kept.some(j => j.slug === 'eligible-good')).toBe(true); // good job kept
     expect(kept.filter(j => j.needsRetranslation)).toHaveLength(4); // fresh jobs untouched
+  });
+
+  it('does NOT quarantine low_unique_words (Condition B) jobs — legitimate naturally-short listings survive', () => {
+    const jobs = [
+      makeJob('eligible-good', RICH_DESCRIPTION),
+      makeJob('eligible-thin', wordsDesc(29)), // naturally short, e.g. #3254 Diakoniewerk shape
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('low_unique_words');
+
+    const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
+    expect(kept).toBe(jobs); // no marker-phrase jobs found → same array, untouched
+    expect(kept).toHaveLength(2);
+    expect(kept.some(j => j.slug === 'eligible-thin')).toBe(true); // thin-but-legitimate job kept
   });
 
   it('returns the same array unchanged when there is nothing to quarantine', () => {
@@ -386,26 +410,28 @@ describe('quarantineBoilerplateJobs — below-floor quarantine', () => {
     expect(kept).toHaveLength(2);
   });
 
-  it('drops multiple confirmed-boilerplate jobs, keeping only the good ones', () => {
+  it('drops only the marker-phrase job, keeping both the good job and the low_unique_words job', () => {
     const jobs = [
-      makeJob('bp-1', BOILERPLATE_2_MARKERS),
-      makeJob('bp-2', wordsDesc(10)),
+      makeJob('bp-1', BOILERPLATE_2_MARKERS), // reason: marker_phrases
+      makeJob('bp-2', wordsDesc(10)), // reason: low_unique_words — must survive
       makeJob('good-1', RICH_DESCRIPTION),
     ];
     const report = detectBoilerplateDescriptions(jobs, 'test-co');
     expect(report.boilerplateCount).toBe(2);
+    expect(report.boilerplateJobs.map(bj => bj.reason).sort()).toEqual(['low_unique_words', 'marker_phrases']);
 
     const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);
-    expect(kept).toEqual([jobs[2]]);
+    expect(kept).toEqual([jobs[1], jobs[2]]);
   });
 
-  it('falls back to title, then "unknown", when matching jobs without a slug', () => {
+  it('falls back to title, then "unknown", when matching marker-phrase jobs without a slug', () => {
     const jobs = [
-      { title: 'No Slug Job', descriptionByLocale: { it: wordsDesc(5) } },
+      { title: 'No Slug Job', descriptionByLocale: { it: BOILERPLATE_2_MARKERS } },
       makeJob('good-job', RICH_DESCRIPTION),
     ];
     const report = detectBoilerplateDescriptions(jobs, 'test-co');
     expect(report.boilerplateCount).toBe(1);
+    expect(report.boilerplateJobs[0].reason).toBe('marker_phrases');
     expect(report.boilerplateJobs[0].slug).toBe('No Slug Job'); // slug fallback to title
 
     const kept = quarantineBoilerplateJobs(jobs, report.boilerplateJobs);

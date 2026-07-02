@@ -681,21 +681,32 @@ export function isSystemicBoilerplateFailure(report) {
  * Mirrors the sibling thin-source quarantine in dedicated-crawler-common.mjs
  * (validateDedicatedLocaleCoverage's `quarantineSlugs`/non-systemic path,
  * L4248-4265): below the systemic floor the guard must not hard-fail the
- * run (see isSystemicBoilerplateFailure), but the confirmed-boilerplate jobs
- * still must never reach the committed dataset. GDPR/privacy-notice
- * boilerplate (BOILERPLATE_MARKER_PHRASES, e.g. "Pursuant to Article 13")
- * easily runs past 50 words, long enough to sail past the build's <50-word
- * sitemap/noindex filter — the only other safety net — so warn-and-keep
- * would let it publish and get indexed indefinitely on a permanently
- * low-volume crawler.
+ * run (see isSystemicBoilerplateFailure), but confirmed marker-phrase
+ * boilerplate must still never reach the committed dataset. GDPR/privacy-
+ * notice boilerplate (BOILERPLATE_MARKER_PHRASES, e.g. "Pursuant to
+ * Article 13") easily runs past 50 words, long enough to sail past the
+ * build's <50-word sitemap/noindex filter — the only other safety net — so
+ * warn-and-keep would let it publish and get indexed indefinitely on a
+ * permanently low-volume crawler.
+ *
+ * ONLY quarantines reason === 'marker_phrases' (Condition A). Condition B
+ * (`low_unique_words`, <30 words) is deliberately EXCLUDED: it's the exact
+ * pattern this guard's own sample-size floor exists to protect (issue
+ * #3254, Diakoniewerk "Berufsbildnerin" — a legitimate naturally-short
+ * description from a JS-only ATS detail page that lands on either side of
+ * the 30-word threshold run to run). Condition B jobs are by construction
+ * <30 words, already below the build's <50-word noindex/sitemap-exclude
+ * filter, so quarantining them adds zero SEO protection while silently and
+ * permanently dropping real short listings with no GitHub issue filed.
  *
  * @param {object[]} jobs
- * @param {Array<{slug:string}>} boilerplateJobs - bpReport.boilerplateJobs
- * @returns {object[]} jobs with the boilerplate-only entries dropped
+ * @param {Array<{slug:string, reason:string}>} boilerplateJobs - bpReport.boilerplateJobs
+ * @returns {object[]} jobs with the marker-phrase boilerplate entries dropped
  */
 export function quarantineBoilerplateJobs(jobs, boilerplateJobs) {
-  if (!Array.isArray(boilerplateJobs) || boilerplateJobs.length === 0) return jobs;
-  const quarantineSlugs = new Set(boilerplateJobs.map(bj => bj.slug));
+  const markerPhraseJobs = (boilerplateJobs || []).filter(bj => bj.reason === 'marker_phrases');
+  if (markerPhraseJobs.length === 0) return jobs;
+  const quarantineSlugs = new Set(markerPhraseJobs.map(bj => bj.slug));
   return jobs.filter(j => !quarantineSlugs.has(j?.slug || j?.title || 'unknown'));
 }
 
@@ -893,15 +904,17 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
           `A genuine parser regression shows up across many jobs, not one or two naturally-short ones.`
         );
       }
-      // Non-systemic: quarantine the confirmed-boilerplate jobs from the slice
-      // rather than only warning (mirrors dedicated-crawler-common.mjs's
+      // Non-systemic: quarantine the marker-phrase boilerplate jobs from the
+      // slice rather than only warning (mirrors dedicated-crawler-common.mjs's
       // quarantineSlugs on its non-systemic path — see quarantineBoilerplateJobs
-      // above). The good jobs still commit unchanged.
+      // above, which deliberately excludes low_unique_words). The good jobs
+      // (including legitimate naturally-short low_unique_words ones) still
+      // commit unchanged.
       const beforeQuarantine = jobs.length;
       jobs = quarantineBoilerplateJobs(jobs, bpReport.boilerplateJobs);
       if (jobs.length < beforeQuarantine) {
         console.warn(
-          `🧹 [boilerplate-guard] ${crawlerKey} quarantined ${beforeQuarantine - jobs.length} confirmed-boilerplate job(s) from the slice (${beforeQuarantine} → ${jobs.length}) — never persisted/indexed.`
+          `🧹 [boilerplate-guard] ${crawlerKey} quarantined ${beforeQuarantine - jobs.length} marker-phrase boilerplate job(s) from the slice (${beforeQuarantine} → ${jobs.length}) — never persisted/indexed.`
         );
       }
     }
