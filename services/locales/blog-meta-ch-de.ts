@@ -844,6 +844,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-diritti-2026.title': 'Entlassung Grenzgänger 2026: Fristen und Rechte',
     'blog.article.frontaliere-licenziamento-diritti-2026.excerpt': 'Informieren Sie sich über die Rechte von Grenzgängern im Falle einer Entlassung im Jahr 2026, mit Kündigungsfristen und Entschädigungen.',
     'blog.article.frontaliere-licenziamento-diritti-2026.imageAlt': 'Grenzarbeiter an der Grenze zwischen der Schweiz und Italien',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.title': 'Frontalieri: Rechte, Kündigung, Entschädigung',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.excerpt': 'Informieren Sie sich über Rechte, Kündigungsfristen und Zulagen für Grenzarbeiter innerhalb von 20 km um die Grenze im Jahr 2026.',
+    'blog.article.frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km.imageAlt': 'Grenzarbeiter an der Grenze zwischen Italien und der Schweiz im Jahr 2026',
 };
 
 export default blogMetaChDe;

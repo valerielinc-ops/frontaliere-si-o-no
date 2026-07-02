@@ -304,6 +304,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'assicurazione-infortuni-lainf-frontalieri-2026': { it: 'assicurazione-infortuni-lainf-frontalieri-2026', en: 'work-injury-insurance-lainf-cross-border-workers-2026', de: 'unfallversicherung-lainf-grenzgaenger-2026', fr: 'assurance-accidents-lainf-frontaliers-2026' },
  'nascita-figlio-frontaliere-2026': { it: 'nascita-figlio-frontaliere-2026', en: 'birth-child-frontalier-2026', de: 'geburt-kind-frontalier-2026', fr: 'naissance-enfant-frontalier-2026' },
  'frontaliere-licenziamento-diritti-2026': { it: 'frontaliere-licenziamento-diritti-2026', en: 'frontalier-termination-rights-2026', de: 'grenzgaenger-kuendigung-rechte-2026', fr: 'frontalier-licenciement-droits-2026' },
+ 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km': { it: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km', en: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km', de: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km', fr: 'frontaliere-licenziamento-diritti-preavviso-indennita-2026-entro-20km' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
