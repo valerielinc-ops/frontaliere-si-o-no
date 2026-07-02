@@ -11601,6 +11601,9 @@ ${staticAnalyticsHtml}
  for (const ej of expiredJobsData) {
  const slugByLocale = (ej && ej.slugByLocale) as Record<string, string> | undefined;
  if (!slugByLocale || typeof slugByLocale !== 'object') continue;
+ // Sibling guard, same rationale as the active-jobs cross-locale bridge
+ // below (PR #3052, isCompanyHubNamespaceSlug / issue #2976 recurrence).
+ const ejCantonForCrossLocale = String((ej as { canton?: string })?.canton || DEFAULT_CANTON);
  for (const baseLocale of localeList) {
  const baseSlug = slugByLocale[baseLocale];
  if (!baseSlug) continue;
@@ -11625,6 +11628,7 @@ ${staticAnalyticsHtml}
  // rationale as the active-jobs block (jobSectorPagesPlugin owns
  // these paths).
  if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
+ if (ejCantonForCrossLocale !== 'TI' && isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Active job wins if a live page already occupies this path.
@@ -12034,6 +12038,13 @@ ${staticAnalyticsHtml}
  let crossLocaleCount = 0;
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
+ // Sibling guard to the active-job/previousSlug legacy-TI bridges above
+ // (PR #3052, isCompanyHubNamespaceSlug): a non-TI job whose foreign slug
+ // merely starts with azienda-/company-/unternehmen-/entreprise- must not
+ // be mirrored into the reserved TI company-hub namespace below, or its
+ // canonical (the job's real, non-TI canton) drifts the
+ // cathedral-sector-hubs invariant (issue #2976 recurrence).
+ const jobCantonForCrossLocale = sharedResolveJobCanton(job as { canton?: string; location?: string });
  const slugPerLocale: Record<string, string> = {};
  for (const locale of localeList) {
  const s = localizedSlug(job, locale);
@@ -12079,6 +12090,7 @@ ${staticAnalyticsHtml}
  // reserved sector/city hub (same rationale as the previousSlugs
  // guard above — protects jobSectorPagesPlugin's curated hubs).
  if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
+ if (jobCantonForCrossLocale !== 'TI' && isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Skip if an active job page already occupies this path (another
