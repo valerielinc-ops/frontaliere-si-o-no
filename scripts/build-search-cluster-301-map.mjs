@@ -13,14 +13,31 @@
  * and "<canton>" collapsed to "svizzera". The old indexed URLs were never
  * redirected → 404 (≈14k eyeball hits/day, the dominant residual-404 cohort).
  *
+ * ALL 4 site locales carried the same legacy per-canton cluster shape (only the
+ * section words differ):
+ *   it  /cerca-lavoro-<canton>/ricerca-<body>[-svizzera]/
+ *   en  /en/find-jobs-<canton>/search-<body>[-switzerland]/
+ *   de  /de/jobs-(im|in)-<canton>/suche-<body>[-schweiz]/
+ *   fr  /fr/trouver-emploi-<canton>/recherche-<body>[-suisse]/
+ * Coverage was IT-only until 2026-07 (issue #2923, item 1): the multi-locale
+ * boilerplate-strip helper this script needs lived in a `.ts` file plain
+ * `node` can't import, so en/de/fr legacy orphans (≈59% of the indexed legacy
+ * set) got zero candidate — see services/searchQueryBoilerplate.mjs docblock.
+ *
  * This script maps each dead legacy URL to a LIVE target, VERIFIED against the
  * live cluster sitemaps so we never 301 to another 404:
  *   1. nationalize the legacy slug (strip leading salary/boilerplate/junk
- *      tokens + the trailing "-svizzera", swap <canton> → svizzera);
- *   2. if the resulting /cerca-lavoro-svizzera/ricerca-<body>/ is a live
- *      cluster → that is the SPECIFIC target (best relevance);
- *   3. otherwise fall back to the canton job board /cerca-lavoro-<canton>/
- *      (always 200, canton-relevant) — a safe, never-wrong target.
+ *      tokens + any trailing nation/salary suffix, swap <canton> → the
+ *      locale's national aggregate section);
+ *   2. if the resulting national cluster path is a live cluster → that is the
+ *      SPECIFIC target (best relevance);
+ *   3. otherwise, if a real Swiss municipality is detected in the slug body,
+ *      fall back to that municipality's live per-city job page (its REAL
+ *      canton, resolved from data/canton-municipalities.json — never the
+ *      legacy URL's own canton, see note below) in the SAME locale;
+ *   4. otherwise fall back to that municipality's canton job board, or (no
+ *      city signal at all) the locale's national job board — always 200,
+ *      always relevant, a safe never-wrong target.
  *
  * The map is consumed at build time by build-plugins/searchConsoleCompat.ts
  * (resolveSearchConsoleCompatTarget) so the compat bridge emits each legacy URL
@@ -31,12 +48,15 @@
  *   node scripts/build-search-cluster-301-map.mjs --live-file <path>  # offline
  *
  * Re-runnable: regenerate periodically (the live cluster set shifts with the job
- * data); a stale specific-target self-heals to the canton board on the next run.
+ * data); a stale specific-target self-heals to the canton/national board on the
+ * next run.
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RELATED_SEARCH_JUNK_TERMS } from '../services/relatedSearchJunkTerms.mjs';
+import { stripSearchQueryBoilerplate } from '../services/searchQueryBoilerplate.mjs';
+import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -44,27 +64,68 @@ const BASE = 'https://frontaliereticino.ch';
 const INDEXED = resolve(ROOT, 'data/indexed-cluster-urls.json');
 const OUT = resolve(ROOT, 'data/search-cluster-301-map.json');
 
-// Leading boilerplate phrase-heads stripped to reach the canonical role term.
-// Mirrors the heads of SEARCH_QUERY_BOILERPLATE_PHRASES in
-// services/relatedSearchClusters.ts (salary/job-search framing).
-const LEADING_BOILERPLATE = [
-  'offerte-lavoro', 'posti-di-lavoro', 'ricerca-stipendio',
-  'stipendio', 'salario', 'offerte', 'impieghi', 'impiego', 'posti', 'lavoro',
-];
+const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// ── City → canton job-board page targeting ──────────────────────────────────
-// A legacy orphan that does NOT map to a specific live cluster (e.g. a junk-led
-// "progetti morges" / "compiti solothurn" whose only real signal is the city)
-// still has a great live home: the per-city job page /cerca-lavoro-<canton>/<city>/
-// ("Lavoro Morges — 48 offerte"). The orphan URL's own canton is unreliable
-// (these national clusters were ALL emitted under the legacy /cerca-lavoro-ticino/
-// section regardless of the real city), so we resolve the city → its REAL canton
-// from data/canton-municipalities.json, not from the URL.
+// Per-locale legacy URL shape: capture group 1 is the slug BODY right after
+// THAT locale's OWN "search" section word (e.g. "ricerca-" for it), excluding
+// the national/aggregate section itself (that is the live post-migration
+// shape, not a legacy orphan).
+//
+// Deliberately NOT loosened to a locale-agnostic search-word alternation: a
+// real (~0.3%, 28 of 9474) slice of the indexed legacy URLs mixes a
+// canton-section in one locale with a search-word in ANOTHER (e.g.
+// `/de/jobs-im-tessin/ricerca-…` — DE section, IT query word — a crawl/GSC
+// artifact). These are intentionally left OUT of this map: when a `ricerca-`
+// style path has no map entry, resolveSearchConsoleCompatTarget's
+// `JOB_BOARD_SECTION_COMPAT_PATTERN` fallback (build-plugins/searchConsole
+// Compat.ts) already canonicalizes it to the SAME canton section it was
+// requested under — which `tests/search-console-compat.test.ts`'s "Section-
+// preservation guard" locks in as the wrong-canton-drift invariant (#2041).
+// This script's own "specific" target is ALWAYS the NATIONAL aggregate
+// section by design (the live cluster hub is national, not per-canton), so
+// force-mapping these 28 mixed-locale URLs here would REPLACE that better,
+// section-preserving fallback with a worse cross-section one for no gain —
+// confirmed by that guard test failing when this was tried. Leave them to the
+// existing generic fallback; they are not an unresolved gap.
+const LOCALE_CONFIG = {
+  it: {
+    legacyBodyRx: /^\/cerca-lavoro-(?!svizzera\/)[a-z-]+\/ricerca-(.+?)\/?$/,
+    searchPrefix: 'ricerca',
+  },
+  en: {
+    legacyBodyRx: /^\/en\/find-jobs-(?!switzerland\/)[a-z-]+\/search-(.+?)\/?$/,
+    searchPrefix: 'search',
+  },
+  de: {
+    legacyBodyRx: /^\/de\/jobs-(?:im|in)-(?!schweiz\/)[a-z-]+\/suche-(.+?)\/?$/,
+    searchPrefix: 'suche',
+  },
+  fr: {
+    legacyBodyRx: /^\/fr\/trouver-emploi-(?!suisse\/)[a-z-]+\/recherche-(.+?)\/?$/,
+    searchPrefix: 'recherche',
+  },
+};
+
+// ── Canton URL-section resolution (single source of truth) ─────────────────
+// Reused from build-plugins/shared/cantonResolvers.mjs — the SAME resolver the
+// active page-emit and the canton-aware migration script use, so this
+// candidate-generation script can never drift onto a canton-section shape the
+// rest of the site does not actually serve (rule #6: no hand-rolled mirror).
 const MUNI = JSON.parse(readFileSync(resolve(ROOT, 'data/canton-municipalities.json'), 'utf8'));
 const CANTON_SLUGS = JSON.parse(readFileSync(resolve(ROOT, 'data/canton-url-slugs.json'), 'utf8'));
-// Half-canton URL-group merges (mirrors canton-url-slugs.json note).
-const CANTON_URL_GROUP = { AI: 'APPENZELLO', AR: 'APPENZELLO', BL: 'BASILEA', BS: 'BASILEA' };
+const resolvers = createCantonResolvers({ cantonSlugFile: CANTON_SLUGS, municipalitiesFile: MUNI });
 
+/** Absolute root path for a locale + canton code (or AGGREGATE_KEY), e.g.
+ * sectionRoot('en', 'VD') → '/en/find-jobs-vaud', sectionRoot('it', AGGREGATE_KEY) → '/cerca-lavoro-svizzera'. */
+function sectionRoot(locale, cantonCode) {
+  const section = resolvers.resolveCantonSection(locale, cantonCode);
+  return locale === 'it' ? `/${section}` : `/${locale}/${section}`;
+}
+
+// ── City → canton lookup (locale-agnostic: municipality names are effectively
+// the same ASCII string across locales — "Rheinfelden", "Baden", "Lenzburg" —
+// unlike canton names, which DO vary per locale and are resolved above via
+// resolveCantonSection instead) ──────────────────────────────────────────────
 function normalizeCitySlug(name) {
   return String(name || '')
     .normalize('NFKD')
@@ -74,15 +135,11 @@ function normalizeCitySlug(name) {
     .replace(/^-+|-+$/g, '');
 }
 
-// municipality-slug → IT canton-board slug (e.g. "morges" → "vaud").
-const cityToCantonSlug = new Map();
+const cityToCantonCode = new Map();
 for (const [code, obj] of Object.entries(MUNI.cantons || {})) {
-  const groupCode = CANTON_URL_GROUP[code] || code;
-  const cantonSlug = CANTON_SLUGS.cantons?.[groupCode]?.it || CANTON_SLUGS.cantons?.[code]?.it;
-  if (!cantonSlug) continue;
   for (const m of obj.municipalities || []) {
     const slug = normalizeCitySlug(m);
-    if (slug && !cityToCantonSlug.has(slug)) cityToCantonSlug.set(slug, cantonSlug);
+    if (slug && !cityToCantonCode.has(slug)) cityToCantonCode.set(slug, code);
   }
 }
 
@@ -93,7 +150,7 @@ function detectTrailingCity(body) {
   const toks = body.split('-').filter(Boolean);
   for (let i = 0; i < toks.length; i++) {
     const cand = toks.slice(i).join('-');
-    if (cityToCantonSlug.has(cand)) return cand;
+    if (cityToCantonCode.has(cand)) return cand;
   }
   return null;
 }
@@ -118,25 +175,42 @@ function legacyClusterUrls(indexedPath) {
   const raw = JSON.parse(readFileSync(indexedPath, 'utf8'));
   const arr = Array.isArray(raw) ? raw : raw.urls || Object.values(raw).find(Array.isArray) || [];
   const urls = arr.map((u) => (typeof u === 'string' ? u : u.url || u.path || '')).filter(Boolean);
-  // per-canton (NOT svizzera) ricerca-* slugs only
-  return [...new Set(urls.filter((u) => /^\/cerca-lavoro-(?!svizzera\/)[a-z-]+\/ricerca-/.test(u)))];
+  const out = new Map(); // url → locale
+  for (const u of [...new Set(urls)]) {
+    for (const locale of LOCALES) {
+      if (LOCALE_CONFIG[locale].legacyBodyRx.test(u)) {
+        out.set(u, locale);
+        break;
+      }
+    }
+  }
+  return out;
 }
 
-/** Strip the trailing "-svizzera" then leading boilerplate/junk tokens. */
-function nationalSlugBody(legacyPath) {
-  const m = legacyPath.match(/^\/cerca-lavoro-[a-z-]+\/ricerca-(.+?)\/?$/);
+/**
+ * Strip the legacy URL's own "search" section word, then iteratively strip
+ * leading job-search boilerplate, trailing nation/salary/template suffixes
+ * (via the shared multi-locale stripSearchQueryBoilerplate — the slug's
+ * trailing noise word is not always in the URL's own locale, e.g. some DE
+ * legacy slugs end in the English "-switzerland" rather than "-schweiz"; the
+ * shared helper strips either regardless of which locale is being processed)
+ * and leading junk search-terms, until stable.
+ */
+function nationalSlugBody(legacyPath, locale) {
+  const m = legacyPath.match(LOCALE_CONFIG[locale].legacyBodyRx);
   if (!m) return null;
   let body = m[1];
-  if (body.endsWith('-svizzera')) body = body.slice(0, -'-svizzera'.length);
   let changed = true;
   let guard = 0;
   while (changed && guard++ < 8) {
     changed = false;
-    for (const p of LEADING_BOILERPLATE) {
-      if (body === p) { body = ''; changed = true; break; }
-      if (body.startsWith(`${p}-`)) { body = body.slice(p.length + 1); changed = true; break; }
+    const query = body.replace(/-/g, ' ');
+    const strippedBody = stripSearchQueryBoilerplate(query).replace(/\s+/g, '-');
+    if (strippedBody && strippedBody !== body) {
+      body = strippedBody;
+      changed = true;
+      continue;
     }
-    if (changed) continue;
     const first = body.split('-')[0];
     if (first && RELATED_SEARCH_JUNK_TERMS.has(first)) {
       body = body.slice(first.length + 1);
@@ -145,7 +219,6 @@ function nationalSlugBody(legacyPath) {
   }
   return body || null;
 }
-
 
 async function fetchLiveClusterSet() {
   const live = new Set();
@@ -183,15 +256,18 @@ async function main() {
   const verifyCity = !args.includes('--no-city-verify');
   const legacy = legacyClusterUrls(INDEXED);
   const map = {};
+  const byLocale = { it: 0, en: 0, de: 0, fr: 0 };
   let specific = 0;
   let cityPage = 0;
   let cityBoard = 0;
   let urlBoard = 0;
-  for (const oldUrl of legacy.sort()) {
-    const body = nationalSlugBody(oldUrl);
+  for (const [oldUrl, locale] of [...legacy.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+    const cfg = LOCALE_CONFIG[locale];
+    const body = nationalSlugBody(oldUrl, locale);
+    byLocale[locale]++;
 
     // 1) Specific live national cluster (de-junked role+city), best relevance.
-    const national = body ? `/cerca-lavoro-svizzera/ricerca-${body}/` : null;
+    const national = body ? `${sectionRoot(locale, AGGREGATE_KEY)}/${cfg.searchPrefix}-${body}/` : null;
     if (national && live.has(national)) {
       map[oldUrl] = national;
       specific++;
@@ -200,28 +276,32 @@ async function main() {
 
     // 2) City detected in the slug → the per-city job page in the city's REAL
     //    canton (e.g. "progetti morges" → /cerca-lavoro-vaud/morges/). Verified
-    //    live per-URL (city pages are 200 but not sitemap-enumerable).
-    const rawBody = (oldUrl.match(/\/ricerca-(.+?)\/?$/)?.[1] || '').replace(/-svizzera$/, '');
+    //    live per-URL (city pages are 200 but not sitemap-enumerable). The
+    //    orphan URL's own canton is unreliable (these national clusters were
+    //    ALL emitted under the legacy per-canton section regardless of the
+    //    real city), so we resolve the city → its REAL canton from
+    //    data/canton-municipalities.json, not from the URL.
+    const rawBody = (oldUrl.match(/-(?:ricerca|search|suche|recherche)-(.+?)\/?$/)?.[1] || '');
     const city = detectTrailingCity(body) || detectTrailingCity(rawBody);
     if (city) {
-      const cantonSlug = cityToCantonSlug.get(city);
-      const cityUrl = `/cerca-lavoro-${cantonSlug}/${city}/`;
+      const cantonCode = cityToCantonCode.get(city);
+      const cityUrl = `${sectionRoot(locale, cantonCode)}/${city}/`;
       if (verifyCity && (await isLive(cityUrl))) {
         map[oldUrl] = cityUrl;
         cityPage++;
         continue;
       }
       // 3) City's REAL canton board (fixes the legacy ticino-prefix mislabel).
-      map[oldUrl] = `/cerca-lavoro-${cantonSlug}/`;
+      map[oldUrl] = `${sectionRoot(locale, cantonCode)}/`;
       cityBoard++;
       continue;
     }
 
     // 4) No city signal (role-only national cluster, no live specific page) →
-    //    the national board. NOT the URL's own canton: every legacy orphan
-    //    carries the misleading /cerca-lavoro-ticino/ prefix, so the national
-    //    "Lavoro in Svizzera" board is the honest generic home.
-    map[oldUrl] = '/cerca-lavoro-svizzera/';
+    //    the national board, in the SAME locale. NOT the URL's own canton:
+    //    every legacy orphan carries the misleading legacy per-canton section
+    //    prefix, so the national board is the honest generic home.
+    map[oldUrl] = `${sectionRoot(locale, AGGREGATE_KEY)}/`;
     urlBoard++;
   }
 
@@ -231,8 +311,15 @@ async function main() {
     `${JSON.stringify(
       {
         generated: 'see git author date',
-        source: 'indexed-cluster-urls.json × live search-cluster sitemaps + per-city job pages',
-        counts: { total, specific, cityPage, cityCantonBoard: cityBoard, urlCantonBoard: urlBoard },
+        source: 'indexed-cluster-urls.json (it/en/de/fr) × live search-cluster sitemaps + per-city job pages',
+        counts: {
+          total,
+          specific,
+          cityPage,
+          cityCantonBoard: cityBoard,
+          urlCantonBoard: urlBoard,
+          byLocale,
+        },
         map,
       },
       null,
@@ -240,9 +327,9 @@ async function main() {
     )}\n`,
   );
   console.log(
-    `search-cluster-301-map: ${total} entries → ${specific} specific clusters ` +
-    `(${((100 * specific) / total).toFixed(1)}%), ${cityPage} per-city pages, ` +
-    `${cityBoard} city-canton boards, ${urlBoard} url-canton boards.`,
+    `search-cluster-301-map: ${total} entries (it=${byLocale.it} en=${byLocale.en} de=${byLocale.de} fr=${byLocale.fr}) → ` +
+    `${specific} specific clusters (${((100 * specific) / total).toFixed(1)}%), ${cityPage} per-city pages, ` +
+    `${cityBoard} city-canton boards, ${urlBoard} national boards.`,
   );
 }
 

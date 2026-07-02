@@ -5,8 +5,20 @@
 import type { Locale } from '@/services/i18n';
 import type { JobListing } from '@/components/community/JobBoard';
 import { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword } from './relatedSearchJunkTerms.mjs';
+import {
+ SEARCH_QUERY_BOILERPLATE_PHRASES,
+ SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS,
+ SEARCH_QUERY_BOILERPLATE_TOKENS,
+ stripSearchQueryBoilerplate,
+} from './searchQueryBoilerplate.mjs';
 
 export { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword };
+export {
+ SEARCH_QUERY_BOILERPLATE_PHRASES,
+ SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS,
+ SEARCH_QUERY_BOILERPLATE_TOKENS,
+ stripSearchQueryBoilerplate,
+};
 
 export const DEFAULT_CANTON_DISPLAY = 'Ticino';
 
@@ -94,108 +106,12 @@ export function buildSearchSlug(term: string, locale: Locale): string {
 // (build-plugins/relatedSearchClustersPlugin.ts, related-search matching) so
 // the static and hydrated job sets stay in lockstep.
 //
-// Single source of truth: the phrase list below derives BOTH the strip regex
-// and the token allow-list asserted by the cluster guard test
-// (tests/seo/related-search-clusters-emitted.test.ts). Multi-word phrases come
-// first so the alternation strips the longest leading match. Slugs hyphenate
-// apostrophes, so the canonical FR "offres d'emploi" arrives as "offres d
-// emploi" — listed verbatim with a bare "d" token.
-export const SEARCH_QUERY_BOILERPLATE_PHRASES: readonly string[] = [
- 'offerte di lavoro',
- 'posti di lavoro',
- 'offerte lavoro',
- // FR: full parity with the prior /offres?\s+(?:d\s+)?emplois?/ — singular
- // "offre", optional bare "d" (apostrophe hyphenated by slugs), plural
- // "emplois". Longest forms first so the alternation strips the most.
- 'offres d emplois',
- 'offre d emplois',
- 'offres d emploi',
- 'offre d emploi',
- 'offres emplois',
- 'offre emplois',
- 'offres emploi',
- 'offre emploi',
- 'recherche emploi',
- 'recherche d emploi',
- 'recherche d emplois',
- 'stellenangebote',
- 'stellenangebot',
- 'stellen',
- 'lavori',
- 'lavoro',
- 'impieghi',
- 'impiego',
- 'offerte',
- 'jobs',
- 'job',
- 'emplois',
- 'emploi',
- // IT salary/duties template heads (also stripped as trailing nation/template
- // suffixes below). Listed here so an existing slug like
- // `ricerca-stipendio-infermiere-svizzera` strips its LEADING "stipendio" too.
- 'stipendio',
- 'mansioni',
-];
-
-// Trailing template / nation-noise terms appended by the related-search
-// candidate templates ("<title> salary switzerland", "<title> requirements",
-// "stipendio <title> svizzera"). Unlike the leading job-search prefixes above,
-// these sit at the END of the seeded query and so were never stripped — which
-// let a lone generic token (e.g. "switzerland") OR-match every job whose name
-// contains "Switzerland", polluting slug landings with off-intent jobs (the
-// reported `recherche-pizzaiolo-pizzaiola-salary-switzerland` case). They are
-// stripped from the trailing position only, so a content word that merely
-// happens to equal one of them mid-query is untouched. Multilingual: EN/FR/DE/IT.
-export const SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS: readonly string[] = [
- // salary
- 'salary', 'wage', 'salaire', 'gehalt', 'lohn', 'stipendio',
- // nation
- 'switzerland', 'suisse', 'schweiz', 'svizzera',
- // requirements / duties
- 'requirements', 'requirement', 'requisiti', 'exigences', 'anforderungen',
- 'mansioni', 'aufgaben', 'taches',
-];
-
-// Every individual word that may legitimately be stripped as boilerplate —
-// from EITHER the leading prefix list OR the trailing template-suffix list.
-// The guard test asserts no slug-seeded query ever loses a word outside this
-// set, so an over-broad phrase (or a cluster term that genuinely starts/ends
-// with one of these words) is caught instead of being silently truncated.
-export const SEARCH_QUERY_BOILERPLATE_TOKENS: ReadonlySet<string> = new Set([
- ...SEARCH_QUERY_BOILERPLATE_PHRASES.flatMap((p) => p.split(' ')),
- ...SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS,
-]);
-
-const SEARCH_QUERY_BOILERPLATE_PREFIX = new RegExp(
- `^(?:${SEARCH_QUERY_BOILERPLATE_PHRASES.map((p) => p.replace(/\s+/g, '\\s+')).join('|')})\\s+`,
- 'i',
-);
-
-// Trailing-suffix counterpart: requires whitespace BEFORE the term (mirrors the
-// leading `\s+` guard) so a bare query equal to the term is never emptied here.
-const SEARCH_QUERY_TEMPLATE_SUFFIX = new RegExp(
- `\\s+(?:${SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS.join('|')})$`,
- 'i',
-);
-
-export function stripSearchQueryBoilerplate(query: string): string {
- // Iteratively peel a leading job-search prefix AND/OR a trailing template /
- // nation suffix until the query is stable. One pass strips at most one prefix
- // and one suffix, so multi-word tails like "… salary switzerland" need two
- // passes. Never empty the query: a slug that is *only* boilerplate (e.g.
- // /ricerca-lavoro/ or /recherche-…-switzerland/) keeps its original term so
- // the box is not left blank.
- let stripped = query.trim();
- let prev = '';
- while (stripped && stripped !== prev) {
- prev = stripped;
- stripped = stripped
- .replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '')
- .replace(SEARCH_QUERY_TEMPLATE_SUFFIX, '')
- .trim();
- }
- return stripped || query;
-}
+// Single source of truth for both the phrase/token lists AND
+// stripSearchQueryBoilerplate(): services/searchQueryBoilerplate.mjs (plain
+// .mjs so scripts/build-search-cluster-301-map.mjs can import it too — see
+// that module's docblock). Re-exported here for existing callers of this file
+// (tests/seo/related-search-clusters-emitted.test.ts and others import them
+// from this path).
 
 export function parseSearchSlugFilter(initialJobSlug?: string): string | null {
  if (!initialJobSlug) return null;
