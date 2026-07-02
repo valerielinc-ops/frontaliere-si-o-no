@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import http from 'node:http';
 import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM } from '../scripts/lib/ai-models.mjs';
 
 // Local open-source fallback provider: opt-in last-resort used when every remote
@@ -100,6 +101,60 @@ describe('local LLM fallback provider', () => {
       if (prevTimeout === undefined) delete process.env.LOCAL_LLM_TIMEOUT_MS; else process.env.LOCAL_LLM_TIMEOUT_MS = prevTimeout;
     }
   });
+
+  // #3106 item 1/2: the previous test proves the raised timeout VALUES reach the
+  // Agent's options bag, but that alone doesn't prove undici actually enforces
+  // them at request time, nor that Node's global `fetch` really honours a
+  // dispatcher built from the `undici` npm package (a different module instance
+  // than whatever version Node bundles internally for its built-in fetch). This
+  // test exercises the real stack end-to-end — a real TCP server that never
+  // sends response headers, the real global `fetch`, and the real
+  // `_getLocalDispatcher` Agent (no mocking) — so a regression in either layer
+  // fails loud here instead of silently degrading back to undici's 300s default.
+  it('really aborts a hanging local server near the configured budget instead of hanging for undici\'s 300s default', async () => {
+    const prevUrl = process.env.LOCAL_LLM_URL;
+    const prevModel = process.env.LOCAL_LLM_MODEL;
+    const prevTimeout = process.env.LOCAL_LLM_TIMEOUT_MS;
+    process.env.LOCAL_LLM_ENABLED = '1';
+    process.env.LOCAL_LLM_MODEL = 'qwen2.5:7b';
+    // Small on purpose: the test only needs to prove the abort fires well
+    // before undici's 300s default, not measure production-scale timing.
+    process.env.LOCAL_LLM_TIMEOUT_MS = '500';
+
+    const server = http.createServer((_req, _res) => {
+      // Never write a response — simulates a hung/overloaded local model
+      // server that never sends headers.
+    });
+    await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+    const address = server.address();
+    const port = typeof address === 'object' && address ? address.port : 0;
+    process.env.LOCAL_LLM_URL = `http://127.0.0.1:${port}/v1/chat/completions`;
+
+    const start = Date.now();
+    try {
+      await expect(
+        callSingleModel([{ role: 'user', content: 'hi' }], {
+          model: AI_MODELS.LOCAL_FALLBACK,
+          maxRetriesPerModel: 1,
+          // _callLocal takes Math.max(opts.timeout, LOCAL_LLM_TIMEOUT_MS) as the
+          // effective budget — DEFAULT_OPTS.timeout (30s) would otherwise win
+          // over the 500ms env var above and mask a real regression here.
+          timeout: 500,
+        }),
+      ).rejects.toThrow();
+      const elapsedMs = Date.now() - start;
+      // The real assertion: it must NOT hang for anywhere near undici's 300s
+      // (300_000ms) default headersTimeout. A generous upper bound keeps this
+      // robust against CI scheduling jitter while still catching a silent
+      // regression (e.g. the dispatcher being dropped or ignored).
+      expect(elapsedMs).toBeLessThan(15_000);
+    } finally {
+      server.close();
+      if (prevUrl === undefined) delete process.env.LOCAL_LLM_URL; else process.env.LOCAL_LLM_URL = prevUrl;
+      if (prevModel === undefined) delete process.env.LOCAL_LLM_MODEL; else process.env.LOCAL_LLM_MODEL = prevModel;
+      if (prevTimeout === undefined) delete process.env.LOCAL_LLM_TIMEOUT_MS; else process.env.LOCAL_LLM_TIMEOUT_MS = prevTimeout;
+    }
+  }, 20_000);
 
   // AI_MODELS_FORCE_CHAIN pins the cascade to an explicit list so ops can
   // validate/measure a specific provider (e.g. the local fallback) on demand
