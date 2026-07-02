@@ -131,6 +131,14 @@ export function parseAldiSearchResults(payload) {
   }
   const rows = Array.isArray(data?.jobs) ? data.jobs : [];
   const seen = new Set();
+  // `rmk_id` identifies the physical position. If TYPO3 ever ships one row
+  // per `sys_language_uid` for the same role (distinct `job/{id}` URLs), a
+  // URL-only dedupe would let every language variant through as a separate
+  // job entry -- duplicate-content URLs for one physical posting. Dedupe on
+  // `rmk_id` too whenever it's present (today it's already unique per row on
+  // the live feed -- this is defensive hardening, not a fix for an observed
+  // live duplicate; see #3119 item 3).
+  const seenRmk = new Set();
   const results = [];
   for (const j of rows) {
     const rel = String(j?.url || '').trim();
@@ -139,7 +147,10 @@ export function parseAldiSearchResults(payload) {
       ? rel
       : `${ALDI_JOB_BASE}/${rel.replace(/^\/+/, '')}`;
     if (seen.has(url)) continue;
+    const rmkId = String(j?.rmk_id || '').trim();
+    if (rmkId && seenRmk.has(rmkId)) continue;
     seen.add(url);
+    if (rmkId) seenRmk.add(rmkId);
     // `shift_type`/`shift` hold the human percentage ("50 - 70%"); the numeric
     // `workload` field is an internal relevance score, NOT a percentage.
     results.push({
