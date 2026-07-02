@@ -11133,6 +11133,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mutuo-italia-frontalieri-guida': {
+    title: 'Mutuo in Italia per frontalieri: guida completa con stipendio svizzero',
+    description: 'Scopri come ottenere un mutuo in Italia con stipendio svizzero: documenti, garanzie e banche specializzate. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mutuo, completa, stipendio, svizzero',
+    ogTitle: 'Mutuo in Italia per frontalieri: guida completa con stipendio svizzero',
+    ogDescription: 'Scopri come ottenere un mutuo in Italia con stipendio svizzero: documenti, garanzie e banche specializzate.',
+    canonicalPath: '/articoli-svizzera/mutuo-italia-frontalieri-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mutuo in Italia per frontalieri: guida completa con stipendio svizzero",
+      "description": "Scopri come ottenere un mutuo in Italia con stipendio svizzero: documenti, garanzie e banche specializzate. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mutuo-italia-frontalieri-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di una città di confine svizzero-italiana con un lago e case, che simboleggia la vita transfrontaliera."
+      },
+      "datePublished": "2026-07-02T13:43:58+00:00",
+      "dateModified": "2026-07-02T13:43:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mutuo-italia-frontalieri-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

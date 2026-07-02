@@ -865,6 +865,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Frühpensionierung für grenzüberschreitende Pendler 2026: vollständiger Leitfaden',
     'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Erfahren Sie, wie die Vorruhestandsregelung für Grenzgänger im Jahr 2026 funktioniert, mit Fokus auf AHV, 2. Säule und Planung über 20 km.',
     'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'Eine ruhige Ansicht des Luganer Sees bei Sonnenuntergang, mit einer Person, die auf einer Bank sitzt und auf das Wasser schaut.',
+    'blog.article.mutuo-italia-frontalieri-guida.title': 'Hypothek in Italien für Schweizer Frontalier',
+    'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Erfahren Sie, wie Sie in Italien mit Schweizer Gehalt eine Hypothek erhalten: Dokumente, Garantien und spezialisierte Banken.',
+    'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Luftaufnahme einer Schweizerisch-Italienischen Grenzstadt mit einem See und Häusern, die das grenzüberschreitende Leben symbolisiert.',
 };
 
 export default blogMetaChDe;
