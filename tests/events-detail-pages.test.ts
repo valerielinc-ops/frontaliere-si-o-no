@@ -202,4 +202,27 @@ describe('router recognises per-event detail URLs (staticOverlay)', () => {
     const parsed = parsePath('/eventi/ticino/lugano/');
     expect(parsed?.route?.staticOverlay).toBe(true);
   });
+
+  // Canton rollout (#3125): the matcher must recognise ANY canton's URL
+  // slug from data/canton-url-slugs.json, not just the legacy hardcoded
+  // ticino/tessin literal — proves the generalization is real, not a
+  // same-behavior refactor.
+  for (const url of [
+    '/eventi/zurigo/',
+    '/eventi/zurigo/zurigo/',
+    '/en/events/zurich/zurich/',
+    '/de/veranstaltungen/zurich/zurich/',
+    '/fr/evenements/zurich/zurich/',
+  ]) {
+    it(`recognises a non-Ticino canton hub/comune page: ${url}`, () => {
+      const parsed = parsePath(url);
+      expect(parsed?.route?.staticOverlay).toBe(true);
+      expect(parsed?.route?.activeTab).toBe('vita');
+    });
+  }
+
+  it('rejects a first segment that is not a known canton slug (falls through, no false match)', () => {
+    const parsed = parsePath('/eventi/not-a-real-canton/');
+    expect(parsed?.route?.staticOverlay).not.toBe(true);
+  });
 });

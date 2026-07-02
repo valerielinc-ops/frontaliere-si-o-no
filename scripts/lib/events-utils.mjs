@@ -91,17 +91,30 @@ const EVENTS_LOCALIZED_SEGMENT = {
  * back to the literal `EVENTS_BASE_PATH` (TI) for an unknown/blank canton so
  * callers that don't resolve a canton degrade to the original MVP behavior.
  */
+/**
+ * Resolve a real canton BFS code (or half-canton member) to the URL group key
+ * used by `data/canton-url-slugs.json` (e.g. `AI`/`AR` → `APPENZELLO`,
+ * `BL`/`BS` → `BASILEA`, everything else → itself unchanged). Extracted so
+ * both `eventsBasePathForCanton` and `germanCantonPreposition` share one
+ * canton→URL-key resolver (§6). Returns the uppercased input unchanged when
+ * it is not a recognised group member.
+ */
+export function resolveCantonUrlKey(canton) {
+  const code = String(canton || '').toUpperCase().trim();
+  if (!code) return code;
+  const groups = CANTON_URL_SLUGS.cantonGroups ?? {};
+  for (const [groupKey, def] of Object.entries(groups)) {
+    if ((def?.members ?? []).map((m) => String(m).toUpperCase()).includes(code)) {
+      return groupKey;
+    }
+  }
+  return code;
+}
+
 export function eventsBasePathForCanton(canton) {
   const code = String(canton || '').toUpperCase().trim();
   if (!code) return EVENTS_BASE_PATH;
-  const groups = CANTON_URL_SLUGS.cantonGroups ?? {};
-  let urlKey = code;
-  for (const [groupKey, def] of Object.entries(groups)) {
-    if ((def?.members ?? []).map((m) => String(m).toUpperCase()).includes(code)) {
-      urlKey = groupKey;
-      break;
-    }
-  }
+  const urlKey = resolveCantonUrlKey(code);
   const record = CANTON_URL_SLUGS.cantons?.[urlKey];
   if (!record) return EVENTS_BASE_PATH;
   const out = {};
@@ -109,6 +122,26 @@ export function eventsBasePathForCanton(canton) {
     out[locale] = EVENTS_LOCALIZED_SEGMENT[locale](record[locale] || record.it);
   }
   return out;
+}
+
+/**
+ * German preposition for "<preposition> <canton display name>" prose (e.g.
+ * "im Tessin", "im Aargau", "in der Waadt", "in Zürich") for any of the 26
+ * cantons — used by the events SSG plugin's canton-agnostic (non-TI) copy
+ * generator. Reuses the SAME `dePrefix` override table the job board URL
+ * slugs use (`data/canton-url-slugs.json`, §6 — no second grammar table):
+ * `jobs-im-` → "im", `jobs-in-der-` → "in der", no override → "in" (correct
+ * for the majority of cantons whose German name takes no article, e.g.
+ * Zürich, Bern, Genf, Basel). TI itself is NOT routed through this helper —
+ * the legacy literal copy hardcodes "im Tessin" — this only serves the other
+ * 23 cantons/groups.
+ */
+export function germanCantonPreposition(canton) {
+  const urlKey = resolveCantonUrlKey(canton);
+  const record = CANTON_URL_SLUGS.cantons?.[urlKey];
+  if (record?.dePrefix === 'jobs-im-') return 'im';
+  if (record?.dePrefix === 'jobs-in-der-') return 'in der';
+  return 'in';
 }
 
 /** Localized slug of the two digest landing pages, per locale. */

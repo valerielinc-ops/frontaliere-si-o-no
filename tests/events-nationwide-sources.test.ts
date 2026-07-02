@@ -12,6 +12,8 @@ import {
   EVENT_SOURCES,
   EVENTS_BASE_PATH,
   eventsBasePathForCanton,
+  resolveCantonUrlKey,
+  germanCantonPreposition,
   loadAllComuni,
   resolveComuneNationwide,
   haversineKm,
@@ -49,6 +51,42 @@ describe('eventsBasePathForCanton', () => {
   it('degrades to the TI fallback for an unknown/blank canton', () => {
     expect(eventsBasePathForCanton('')).toEqual(EVENTS_BASE_PATH);
     expect(eventsBasePathForCanton('XX')).toEqual(EVENTS_BASE_PATH);
+  });
+});
+
+describe('resolveCantonUrlKey', () => {
+  it('maps half-canton members onto their URL group key', () => {
+    expect(resolveCantonUrlKey('AI')).toBe('APPENZELLO');
+    expect(resolveCantonUrlKey('AR')).toBe('APPENZELLO');
+    expect(resolveCantonUrlKey('BL')).toBe('BASILEA');
+    expect(resolveCantonUrlKey('BS')).toBe('BASILEA');
+  });
+
+  it('is a no-op (case-insensitive) for cantons that are their own URL key', () => {
+    expect(resolveCantonUrlKey('TI')).toBe('TI');
+    expect(resolveCantonUrlKey('zh')).toBe('ZH');
+  });
+
+  it('returns the uppercased input unchanged for an unknown/blank canton', () => {
+    expect(resolveCantonUrlKey('')).toBe('');
+    expect(resolveCantonUrlKey('xx')).toBe('XX');
+  });
+});
+
+describe('germanCantonPreposition', () => {
+  it('reads the dePrefix override table from data/canton-url-slugs.json', () => {
+    expect(germanCantonPreposition('AG')).toBe('im'); // "im Aargau"
+    expect(germanCantonPreposition('VS')).toBe('im'); // "im Wallis"
+    expect(germanCantonPreposition('VD')).toBe('in der'); // "in der Waadt"
+  });
+
+  it('defaults to plain "in" when there is no override', () => {
+    expect(germanCantonPreposition('ZH')).toBe('in'); // "in Zürich"
+    expect(germanCantonPreposition('BE')).toBe('in'); // "in Bern"
+  });
+
+  it('resolves half-canton members through their URL group before the lookup', () => {
+    expect(germanCantonPreposition('AI')).toBe('in'); // "in Appenzell" — group has no override
   });
 });
 

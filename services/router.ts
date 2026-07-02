@@ -926,6 +926,52 @@ export function resolveCantonGroup(cantonCode: string): string {
 }
 
 /**
+ * Per-locale set of canton URL slugs (e.g. `it: {'ticino','zurigo',...}`,
+ * `de: {'tessin','zurich','aargau',...}`) used ONLY to validate the canton
+ * segment of an events-page URL (see `matchEventsCantonLocale` below).
+ * Sourced from the SAME `data/canton-url-slugs.json` table
+ * `eventsBasePathForCanton` (scripts/lib/events-utils.mjs) uses to emit those
+ * pages — one canton→slug dictionary, §6.
+ */
+const EVENTS_CANTON_SLUGS: Record<Locale, ReadonlySet<string>> = (() => {
+ const out: Record<Locale, Set<string>> = { it: new Set(), en: new Set(), de: new Set(), fr: new Set() };
+ for (const record of Object.values(CANTON_URL_SLUGS.cantons)) {
+  (['it', 'en', 'de', 'fr'] as const).forEach((loc) => {
+   const slug = record[loc];
+   if (slug) out[loc].add(slug);
+  });
+ }
+ return out;
+})();
+
+/** Events-page URL shape per locale — `{canton}` then 0-2 dynamic segments
+ * (comune, or comune+event-slug, or a digest slug). Mirrors the localized
+ * base-path builders in scripts/lib/events-utils.mjs (`EVENTS_LOCALIZED_SEGMENT`). */
+const EVENTS_PATH_PATTERN: Record<Locale, RegExp> = {
+ it: /^\/eventi\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
+ en: /^\/en\/events\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
+ de: /^\/de\/veranstaltungen\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
+ fr: /^\/fr\/evenements\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
+};
+
+/**
+ * Match a pathname against every locale's events URL shape and validate the
+ * canton segment against {@link EVENTS_CANTON_SLUGS}. Returns the matched
+ * locale, or `null` when the pathname isn't an events page OR the canton
+ * segment isn't a known canton slug for that locale (e.g. a stray
+ * `/eventi/not-a-canton/` falls through to normal 404 handling instead of
+ * being claimed here). Generalizes the legacy TI-only
+ * `/^\/eventi\/ticino(...)?$/`-style regexes (issue #3125 canton rollout).
+ */
+function matchEventsCantonLocale(pathname: string): Locale | null {
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+  const m = EVENTS_PATH_PATTERN[locale].exec(pathname);
+  if (m && EVENTS_CANTON_SLUGS[locale].has(m[1])) return locale;
+ }
+ return null;
+}
+
+/**
  * Job-board URL prefixes per locale. The DE prefix has TWO accepted
  * forms: the legacy `jobs-im-` (only for `tessin` — the article "im"
  * grammatically attaches to Tessin), and the canonical new-canton form
@@ -2485,20 +2531,21 @@ export function parsePath(pathname: string): ParseResult {
    return { route: { activeTab: 'vita', vitaSubTab: 'municipalities', staticOverlay: true }, locale: targetLocale };
  }
 
- // Ticino events pages (issue #2963 + per-event detail #3125) — /eventi/ticino/
- // hub + /{comune}/ + /questo-weekend/ digest (1 segment) + per-event detail
- // /{comune}/{event-slug}/ (2 segments), build-emitted outside #root.
- // staticOverlay keeps the SPA from replacing the static agenda body on back-nav.
- // Routed to the `vita` hub (living-in-Ticino theme) to match the page's hubChrome.
- if (
-   /^\/eventi\/ticino(\/[a-z0-9-]+){0,2}\/?$/.test(pathname) ||
-   /^\/en\/events\/ticino(\/[a-z0-9-]+){0,2}\/?$/.test(pathname) ||
-   /^\/de\/veranstaltungen\/tessin(\/[a-z0-9-]+){0,2}\/?$/.test(pathname) ||
-   /^\/fr\/evenements\/tessin(\/[a-z0-9-]+){0,2}\/?$/.test(pathname)
- ) {
-   const localeMatch = pathname.match(/^\/(en|de|fr)\//);
-   const targetLocale = (localeMatch ? localeMatch[1] : 'it') as Locale;
-   return { route: { activeTab: 'vita', vitaSubTab: 'places', staticOverlay: true }, locale: targetLocale };
+ // Nationwide events pages (issue #2963 + per-event detail #3125, canton
+ // rollout #3125) — /eventi/{canton}/ hub + /{comune}/ + /questo-weekend/
+ // digest (1 segment) + per-event detail /{comune}/{event-slug}/ (2
+ // segments), build-emitted outside #root. staticOverlay keeps the SPA from
+ // replacing the static agenda body on back-nav. Routed to the `vita` hub
+ // (living-in-Ticino theme) to match the page's hubChrome. The canton segment
+ // is matched against `EVENTS_CANTON_SLUGS` (derived from the SAME
+ // `data/canton-url-slugs.json` table the events SSG plugin's
+ // `eventsBasePathForCanton` uses, §6) instead of a hardcoded `ticino`/
+ // `tessin` literal, so any canton's events pages are routable once emitted.
+ {
+   const eventsLocale = matchEventsCantonLocale(pathname);
+   if (eventsLocale) {
+     return { route: { activeTab: 'vita', vitaSubTab: 'places', staticOverlay: true }, locale: eventsLocale };
+   }
  }
 
  // FR salary calculator landing — /fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/.
