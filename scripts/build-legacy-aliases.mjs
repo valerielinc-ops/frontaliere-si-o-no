@@ -67,6 +67,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isFuelSectionPath } from './lib/fuelSections.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -135,7 +136,17 @@ const COHORT_PATTERNS = [
   // This PR's cohorts
   { cohort: 'blogLocaleMismatch', re: /^\/(en|de|fr)\/(cross-border-articles|grenzgaenger-artikel|articles-frontalier)\// },
   { cohort: 'blogITMissing', re: /^\/articoli-frontaliere\// },
-  { cohort: 'fuelStation', re: /^\/(prezzi-(benzina|diesel)|en\/gasoline-price-switzerland|de\/benzinpreis-schweiz|fr\/prix-essence-suisse)\/.+\/(stazioni|stations|tankstellen)\// },
+  // Cohort DETECTION delegates the "is this under a fuel section" check to
+  // the shared isFuelSectionPath() (scripts/lib/fuelSections.mjs) instead of
+  // an inline slug alternation — same drift class as #2853. resolveFuelStation()
+  // below intentionally keeps its OWN narrower capture regex: it needs the
+  // literal matched segment to reconstruct the canonical section path, and
+  // widening it to the full canonical+legacy-alias list would let a legacy
+  // alias segment (e.g. `prezzi-benzina-svizzera`) leak into a reconstructed
+  // "canonical" path that isn't actually live. Any path this cohort check
+  // newly matches but resolveFuelStation() can't parse is skipped in main()
+  // exactly as before (behavior-neutral — see comparison script).
+  { cohort: 'fuelStation', test: (p) => isFuelSectionPath(p) && /\/(stazioni|stations|tankstellen)\//.test(p) },
   { cohort: 'fuelLocaleAlias', re: /^\/de\/dieselpreise\// },
   { cohort: 'jobLegacySection', re: /^\/cerca-lavoro\/[^/]+\/?$/ },
   { cohort: 'legacySectionAltIT', re: /^\/ricerca\/posti-di-lavoro-ticino\/?$/ },
@@ -147,8 +158,8 @@ const COHORT_PATTERNS = [
 ];
 
 function classifyCohort(p) {
-  for (const { cohort, re } of COHORT_PATTERNS) {
-    if (re.test(p)) return cohort;
+  for (const { cohort, re, test } of COHORT_PATTERNS) {
+    if (test ? test(p) : re.test(p)) return cohort;
   }
   return null;
 }

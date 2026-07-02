@@ -29,6 +29,7 @@ import { readdir, stat } from 'node:fs/promises';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { appendFileSync, existsSync, writeFileSync } from 'node:fs';
+import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -87,9 +88,16 @@ const PLUGIN_RULES = [
   { plugin: 'hub-section', prefixes: ['sezioni/', 'sections/', 'abschnitte/'] },
   // Daily-feature SEO plugins (fuelDailyPlugin, healthPremiumsPlugin,
   // borderWaitPagesPlugin, weatherCommutePlugin, salaryCalculatorPlugin).
-  // Each emits under 4 locale-aware section names — regex catches all.
-  { plugin: 'fuel-daily', regex:
-    /^(prix-essence-suisse|prezzi-benzina|benzinpreis-schweiz|gasoline-price-switzerland|prezzi-diesel|prix-gasoil-suisse|dieselpreis-schweiz|diesel-price-switzerland)\// },
+  // Each emits under 4 locale-aware section names. Uses the shared
+  // FUEL_SECTION_RX (scripts/lib/fuelSections.mjs) instead of an inline
+  // slug alternation — the inline copy here previously covered only the
+  // 8 current canonical slugs (missing the legacy alias slugs still
+  // referenced by redirect/compat emitters), the exact drift-prone
+  // pattern that caused the #2853 title-length ratchet leak. No dist
+  // files are currently emitted at the legacy-alias paths (verified: no
+  // plugin writes them), so this is behavior-neutral in practice while
+  // removing the duplicated list (#2857 follow-up).
+  { plugin: 'fuel-daily', regex: FUEL_SECTION_RX },
   { plugin: 'health-premiums', regex:
     /^(primes-assurance-maladie|premi-cassa-malati|krankenkassenpraemien|health-insurance-premiums)\// },
   { plugin: 'border-wait', regex:
