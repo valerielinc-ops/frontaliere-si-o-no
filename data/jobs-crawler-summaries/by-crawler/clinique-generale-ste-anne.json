@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-07-01T22:03:01.171Z",
-  "total": 2,
+  "generatedAt": "2026-07-02T10:49:28.525Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 7035,
-  "avgDurationMs": 7035,
+  "durationMs": 5866,
+  "avgDurationMs": 5866,
   "durationHistory": [
-    7035
+    5866
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129116839-tso-ou-instrumentiste-au-bloc-operatoire-a-60-100-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-01T22:02:58.116Z",
+      "crawledAt": "2026-07-02T10:49:26.653Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -51,15 +51,16 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "clinique-generale-ste-anne-98b97be1fa70",
-      "slug": "assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical-clinique-generale-ste-anne",
+      "slug": "assistente-medico-a-m-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg",
       "company": "Clinique Générale Ste-Anne",
       "companyKey": "clinique-generale-ste-anne",
       "companyDomain": "swissmedical.net",
       "title": "Assistant.e médical.e (H/F) – Ouverture d’un nouveau centre médical",
-      "needsRetranslation": false,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000125270906-assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical",
@@ -82,15 +83,16 @@
       "postedDate": "2026-06-14",
       "datePosted": "2026-06-14",
       "firstSeenAt": "2026-06-14T19:10:03.717Z",
-      "_qualityScore": 83,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
