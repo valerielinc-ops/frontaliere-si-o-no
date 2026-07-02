@@ -4333,6 +4333,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-strategie-cambio-chf-eur-2026': { name: 'Cambio Valuta', path: '/articoli-svizzera/strategie-cambio-chf-eur-2026/', parent: 'blog' },
     'blog-documenti-primo-giorno-lavoro-ticino': { name: 'Primo giorno lavoro', path: '/articoli-svizzera/documenti-primo-giorno-lavoro-ticino/', parent: 'blog' },
     'blog-tassa-salute-ristorni-ticino': { name: 'Fiscalità', path: '/articoli-svizzera/tassa-salute-ristorni-ticino/', parent: 'blog' },
+    'blog-frontaliere-pensione-avs-inps-2026-entro-20km': { name: 'Pensione', path: '/articoli-svizzera/frontaliere-pensione-avs-inps-2026-entro-20km/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -817,6 +817,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassa-salute-ristorni-ticino.title': 'Taxe santé et réduction des repromotions : l’objectif du Tessin',
     'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, conseiller national, propose d’utiliser la nouvelle taxe sanitaire italienne pour réduire les remboursements aux travailleurs transfrontaliers.',
     'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.title': 'Pension 2026 : coordination AHV/INPS',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.excerpt': 'Découvrez comment la coordination et l’agrégation AHV/INPS affecteront la retraite des travailleurs transfrontaliers situés dans un rayon de 20 km autour de la frontière.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaChFr;

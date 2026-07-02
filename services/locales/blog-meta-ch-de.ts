@@ -817,6 +817,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassa-salute-ristorni-ticino.title': 'Gesundheitssteuer und weniger Rabatte: Tessins Ziel',
     'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, Nationalrat, schlägt vor, die neue italienische Gesundheitssteuer zu nutzen, um die Rabatte für grenzüberschreitende Arbeiter zu senken.',
     'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.title': 'Rente 2026: AHV/INPS-Koordination',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.excerpt': 'Erfahren Sie, wie die Koordination und Zusammenstellung von AHV/INPS die Rente von Grenzpendlern innerhalb von 20 km um die Grenze beeinflussen wird.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaChDe;
