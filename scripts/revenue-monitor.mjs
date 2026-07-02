@@ -24,19 +24,25 @@
  *   node scripts/revenue-monitor.mjs --json          # JSON payload
  *   node scripts/revenue-monitor.mjs --markdown      # GitHub-flavored markdown
  *   node scripts/revenue-monitor.mjs --save          # write reports/revenue-YYYY-MM-DD.{md,json}
+ *                                                     # and append data/revenue-monitor-history.jsonl
  *
  * Exits 0 always — this is a monitor, not a gate. Regressions are flagged
  * with ⚠️ / 🔴 in the output so the weekly digest draws attention without
  * blocking CI.
  */
 
-import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, appendFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
+// Full reports live in the gitignored reports/ dir (kept as workflow artifacts
+// only — never survive a fresh CI checkout). A compact append-only summary is
+// committed here instead so the trend has somewhere to persist across weekly
+// runs (mirrors data/ai-visibility-history.jsonl — see PR #2736 / issue #2741).
+const HISTORY_FILE = resolve(__dirname, '..', 'data', 'revenue-monitor-history.jsonl');
 
 // ── Baseline captured Apr 6-19 2026 (see docs/revenue-optimization-remaining.md) ──
 // CTR baselines by URL bucket derived from GSC 28-day query bucketed by path prefix
@@ -469,6 +475,45 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
   return lines.join('\n');
 }
 
+// Compact append-only summary written to the committed HISTORY_FILE. Mirrors
+// the shape of data/ai-visibility-history.jsonl: one JSON object per line,
+// enough to reconstruct a trend without needing the full (gitignored) report.
+//
+// NOTE: on a push race, scripts/lib/resolve-append-conflicts.sh resolves the
+// conflict by keeping both sides' lines rather than deduping by date — same
+// limitation as data/ai-visibility-history.jsonl. Worst case is a harmless
+// duplicate date line in the history; not worth a bespoke dedupe pass here.
+export function buildHistoryEntry(current, rows, dateStr) {
+  const regressions = rows
+    .filter((r) => r.verdict.startsWith('🔴') || r.verdict.startsWith('⚠️'))
+    .map((r) => r.metric);
+  return {
+    date: dateStr,
+    adsense: current.adsense
+      ? {
+          revenuePerDayCHF: current.adsense.revenuePerDayCHF ?? null,
+          rpmCHF: current.adsense.rpmCHF ?? null,
+          desktopRpmCHF: current.adsense.desktopRpmCHF ?? null,
+          authGateImpressions7d: current.adsense.authGateImpressions7d ?? null,
+        }
+      : null,
+    gsc: current.gsc
+      ? {
+          clicksPerDay: current.gsc.clicksPerDay ?? null,
+          avgPosition: current.gsc.avgPosition ?? null,
+          ctrByBucket: current.gsc.ctrByBucket ?? null,
+        }
+      : null,
+    posthog: current.posthog
+      ? {
+          clsP75Mobile: current.posthog.clsP75Mobile ?? null,
+          clsP75Desktop: current.posthog.clsP75Desktop ?? null,
+        }
+      : null,
+    regressions,
+  };
+}
+
 // ── Main ────────────────────────────────────────────────────
 async function main() {
   const current = { adsense: null, gsc: null, posthog: null, errors: [], warnings: [] };
@@ -532,6 +577,13 @@ async function main() {
     writeFileSync(resolve(REPORTS_DIR, `revenue-${stamp}.json`), JSON.stringify(payload, null, 2));
     writeFileSync(resolve(REPORTS_DIR, `revenue-${stamp}.md`), renderMarkdown(rows, current));
     log('💾', `reports/revenue-${stamp}.{json,md} written`);
+
+    // Committed, append-only trend record — reports/ is gitignored and never
+    // survives a fresh CI checkout, so this is the only copy that persists
+    // across weekly runs (issue #2741).
+    if (!existsSync(dirname(HISTORY_FILE))) mkdirSync(dirname(HISTORY_FILE), { recursive: true });
+    appendFileSync(HISTORY_FILE, JSON.stringify(buildHistoryEntry(current, rows, stamp)) + '\n');
+    log('🗂 ', `data/revenue-monitor-history.jsonl appended`);
   }
 }
 

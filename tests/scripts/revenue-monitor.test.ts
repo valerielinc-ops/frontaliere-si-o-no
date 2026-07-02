@@ -11,6 +11,7 @@ const {
   GSC_BUCKETS,
   bucketCtrFromRows,
   buildComparisonRows,
+  buildHistoryEntry,
   compare,
   fetchPostHogCls,
   renderMarkdown,
@@ -19,6 +20,7 @@ const {
   GSC_BUCKETS: readonly string[];
   bucketCtrFromRows: (rows: any[], buckets: string[]) => Record<string, number | null>;
   buildComparisonRows: (current: any, baseline?: any) => Array<{ metric: string; verdict: string; baseline: unknown; current: unknown }>;
+  buildHistoryEntry: (current: any, rows: Array<{ metric: string; verdict: string }>, dateStr: string) => Record<string, unknown>;
   compare: (current: number | null, baseline: number | null, opts?: { higherIsBetter?: boolean }) => { delta: number | null; deltaPct: number | null; verdict: string };
   fetchPostHogCls: (opts: { apiKey: string | null; projectId: string | null; host?: string; fetchImpl?: unknown }) => Promise<{ clsP75Mobile: number | null; clsP75Desktop: number | null } | null>;
   renderMarkdown: (rows: unknown[], current: any, baseline?: any) => string;
@@ -210,5 +212,45 @@ describe('revenue-monitor / renderMarkdown()', () => {
     const md = renderMarkdown(rows, current);
     expect(md).toContain('## Warnings');
     expect(md).toContain('PostHog skipped');
+  });
+});
+
+describe('revenue-monitor / buildHistoryEntry()', () => {
+  it('produces a compact, JSON-serializable summary keyed by date (issue #2741)', () => {
+    const current = {
+      adsense: { revenuePerDayCHF: 0.9, rpmCHF: 1.0, desktopRpmCHF: 1.2, authGateImpressions7d: 600 },
+      gsc: { clicksPerDay: 320, avgPosition: 5.5, ctrByBucket: { '/job-board/': 6.0 } },
+      posthog: { clsP75Mobile: 0.5, clsP75Desktop: 0.17 },
+    };
+    const rows = buildComparisonRows(current);
+    const entry = buildHistoryEntry(current, rows, '2026-07-06');
+
+    expect(entry.date).toBe('2026-07-06');
+    // Round-trips through JSON.stringify without throwing (this is what gets
+    // appended to data/revenue-monitor-history.jsonl).
+    const parsed = JSON.parse(JSON.stringify(entry));
+    expect(parsed.adsense.revenuePerDayCHF).toBe(0.9);
+    expect(parsed.gsc.clicksPerDay).toBe(320);
+    expect(parsed.posthog.clsP75Mobile).toBe(0.5);
+  });
+
+  it('nulls out sections whose source data is missing', () => {
+    const current = { adsense: null, gsc: null, posthog: null };
+    const rows = buildComparisonRows(current);
+    const entry = buildHistoryEntry(current, rows, '2026-07-06');
+    expect(entry.adsense).toBeNull();
+    expect(entry.gsc).toBeNull();
+    expect(entry.posthog).toBeNull();
+  });
+
+  it('lists regressed/warning metrics by name', () => {
+    const current = {
+      adsense: null,
+      gsc: null,
+      posthog: { clsP75Mobile: 0.62, clsP75Desktop: 0.2 },
+    };
+    const rows = buildComparisonRows(current);
+    const entry = buildHistoryEntry(current, rows, '2026-07-06');
+    expect(entry.regressions).toContain('CLS p75 mobile');
   });
 });
