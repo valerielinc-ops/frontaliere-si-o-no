@@ -658,8 +658,15 @@ jobs:
           # below stays as a belt-and-braces recovery for any unexpected
           # mid-rebase state; it is a safe no-op when no rebase is in progress
           # (e.g. a plain push-rejected race).
+          # `rebase.backend=merge` is forced explicitly (git >=2.26 default,
+          # but not guaranteed on every runner image): the `apply` backend
+          # replays patches instead of doing a real merge and SILENTLY
+          # SKIPS merge drivers, so the json-first-seen driver above would
+          # never fire and the CONFLICT wedge (see above) could reappear
+          # with no signal (#2921, follow-up of #2920).
           for i in 1 2 3 4 5; do
-            if git -c rebase.autoStash=true pull --rebase origin main \
+            if git -c rebase.autoStash=true -c rebase.backend=merge \
+                pull --rebase origin main \
                 && git push origin HEAD:main; then
               echo "[dist-history] pushed on attempt $i"
               exit 0
