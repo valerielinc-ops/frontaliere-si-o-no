@@ -63,24 +63,28 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
 
-      - name: Commit report to repo
+      - name: Commit revenue monitor history
         run: |
-          if ! git diff --quiet -- reports/ 2>/dev/null || [ -n "$(git status --porcelain reports/ 2>/dev/null)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add reports/revenue-*.md reports/revenue-*.json 2>/dev/null || true
-            git commit -m "📊 Weekly revenue monitor report" || exit 0
-            # Abort any conflicting rebase before retrying, otherwise the loop
-            # wedges on "unmerged files" until the job is canceled.
-            for i in 1 2 3; do
-              git pull --rebase origin main && git push && exit 0
-              git rebase --abort 2>/dev/null || true
-              sleep $((i * 5))
-            done
-            echo "::warning::Failed to push revenue report after 3 attempts"
-          else
-            echo "No report changes to commit"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Full reports live under reports/ which is gitignored (preserved as
+          # build artifacts only, see "Upload report artifact" above). Only the
+          # compact append-only history file is committed so the next weekly
+          # run can compute the trend (mirrors ai-visibility-check.yml, #2741).
+          git add data/revenue-monitor-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No history changes to commit."
+            exit 0
           fi
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "📊 Weekly revenue monitor report — ${DATE}"
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other workflows. The history file is append-only, so on a rebase
+          # conflict keep the local commit and union both sides instead of
+          # regenerating.
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
 
       - name: Cleanup credentials
         if: always()
