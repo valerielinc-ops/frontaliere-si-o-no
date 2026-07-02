@@ -28,6 +28,44 @@ describe('Search Console 404 compatibility resolver', () => {
     }
   });
 
+  // Adversarial-check follow-up (issue #2923, item 2): only entry [0] of the
+  // map was ever asserted against the resolver's actual output. The map now
+  // has thousands of entries across all 4 locales (issue #2923 item 1
+  // extended candidate-generation from IT-only to it/en/de/fr) — prove the
+  // equality holds for EVERY entry, not just the first, so a future map
+  // regeneration or resolver change can't silently diverge for a subset.
+  //
+  // Structurally this divergence is impossible today: the `ricerca-` branch
+  // in resolveSearchConsoleCompatTarget (build-plugins/searchConsoleCompat.ts)
+  // looks the path up in SEARCH_CLUSTER_301_MAP FIRST and returns immediately
+  // when found — the separate `slugIndex`-driven canton-drift branch below it
+  // is unreachable once that lookup hits, so `resolution.canonicalPath` can
+  // never be re-canonicalized away from the map's own literal value. This
+  // test is the executable proof, run against the full, real map.
+  it('resolves EVERY entry in the cluster-301 map to its own literal target (no slugIndex divergence)', () => {
+    const entries = Object.entries(
+      (searchClusterMapFile as { map: Record<string, string> }).map,
+    );
+    expect(entries.length).toBeGreaterThan(1000);
+
+    let checked = 0;
+    let diverged = 0;
+    const diffs: Array<{ legacyPath: string; expected: string; actual: unknown }> = [];
+    for (const [legacyPath, target] of entries) {
+      checked++;
+      const resolution = resolveSearchConsoleCompatTarget(legacyPath);
+      if (resolution?.canonicalPath !== target) {
+        diverged++;
+        if (diffs.length < 5) diffs.push({ legacyPath, expected: target, actual: resolution?.canonicalPath });
+      }
+    }
+    // eslint-disable-next-line no-console
+    console.log(`search-cluster-301-map full-coverage check: ${checked} entries checked, ${diverged} diverged.`);
+    expect(diffs, `first divergences: ${JSON.stringify(diffs, null, 2)}`).toEqual([]);
+    expect(diverged).toBe(0);
+    expect(checked).toBe(entries.length);
+  });
+
   it('recovers a junk-led city orphan to the per-city job page, not the wrong canton', () => {
     // The recovery map sends slugs whose only real signal is a city (e.g.
     // "scientifica roche basel", "lavorare davos") to /cerca-lavoro-<canton>/<city>/
@@ -371,14 +409,42 @@ describe('Search Console 404 compatibility resolver', () => {
     // wrong-canton drift. Excludes company-hub leaves (azienda-/company-/… →
     // canton-independent TI hub by design). Catches the search-branch shadowing
     // regression the plain non-null assertion above would miss.
+    //
+    // ONE deliberate exception: a `ricerca-/search-/suche-/recherche-` cluster
+    // URL present in data/search-cluster-301-map.json (built by
+    // scripts/build-search-cluster-301-map.mjs) legitimately lands on the
+    // locale's own NATIONAL AGGREGATE section, not the input's per-canton
+    // section — the live related-search cluster hub is national (keyed by job
+    // city, not canton) BY DESIGN (see that script's docblock), and the target
+    // is independently verified live at map-generation time. This is a
+    // different, narrower invariant than the wrong-canton-drift bug (#2041)
+    // this guard exists to catch: it only exempts a landing on the SAME
+    // locale's OWN aggregate section, so a genuine cross-canton drift (e.g.
+    // Bern → Zurich, or any non-cluster URL landing outside its own section)
+    // still fails this assertion exactly as before. The per-entry map-target
+    // equality itself is covered exhaustively by the dedicated
+    // "resolves EVERY entry in the cluster-301 map…" test above.
     const SECTION_RE =
       /^(?:\/(?:en|de|fr))?\/((?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|trouver-emploi|recherche-emploi|emplois)-[a-z-]+)\//;
     const COMPANY_SLUG_RE = /\/(?:azienda|company|unternehmen|entreprise)-/;
+    const CLUSTER_SLUG_RE = /\/(?:ricerca|search|suche|recherche)-/;
+    const AGGREGATE_SECTION_BY_LOCALE: Record<'it' | 'en' | 'de' | 'fr', string> = {
+      it: 'cerca-lavoro-svizzera',
+      en: 'find-jobs-switzerland',
+      de: 'jobs-in-schweiz',
+      fr: 'trouver-emploi-suisse',
+    };
     for (const value of coverage.paths) {
       const m = value.match(SECTION_RE);
       if (!m || COMPANY_SLUG_RE.test(value)) continue;
       const res = resolveSearchConsoleCompatTarget(value);
-      expect(res?.canonicalPath, value).toContain(`/${m[1]}/`);
+      const localeMatch = value.match(/^\/(en|de|fr)\//);
+      const locale = (localeMatch?.[1] as 'en' | 'de' | 'fr' | undefined) ?? 'it';
+      const preservesSection = !!res?.canonicalPath?.includes(`/${m[1]}/`);
+      const isClusterConsolidation =
+        CLUSTER_SLUG_RE.test(value) &&
+        !!res?.canonicalPath?.includes(`/${AGGREGATE_SECTION_BY_LOCALE[locale]}/`);
+      expect(preservesSection || isClusterConsolidation, value).toBe(true);
     }
   });
 
