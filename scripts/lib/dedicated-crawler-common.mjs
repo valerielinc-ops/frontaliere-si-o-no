@@ -6296,7 +6296,18 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   let heuristicDupes = 0;
   const seenHeuristic = new Map();
   for (const job of merged) {
-    const dedupKey = dedupHeuristicKey(job);
+    // Jobs with a strong per-posting URL identity (ATS requisition id, UUID,
+    // etc.) are never heuristically merged with a different strong-identity
+    // job. Multi-branch employers (Coop, Manor, Migros) post many genuinely
+    // distinct openings that share company+title+location+canton+contract+
+    // category+salary once `location` is only city-level — collapsing those
+    // via dedupHeuristicKey silently discards one posting's entire identity
+    // and slug history each crawl, and the surviving "winner" rotates between
+    // real postings as recency shifts, corrupting the persisted record's
+    // title/location/previousSlugs. Fall back to the coarse heuristic key
+    // only when the job lacks a strong URL identity to begin with.
+    const fp = fingerprintJob(job);
+    const dedupKey = (fp && fp.startsWith('id|')) ? fp : dedupHeuristicKey(job);
     const prev = seenHeuristic.get(dedupKey);
     if (prev) {
       heuristicDupes += 1;

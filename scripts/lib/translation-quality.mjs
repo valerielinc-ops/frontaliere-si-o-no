@@ -57,8 +57,11 @@ export function hasConcatenatedWords(text, locale) {
   if (typeof text !== 'string') return false;
   const trimmed = text.trim();
   if (!trimmed) return false;
-  return trimmed.split(/\s+/).some((rawToken) => {
-    const token = rawToken.replace(/[.,;:!?'’"()/\-]/g, '');
+  // Split on hyphens too: hyphenated compounds (e.g. "Sous-directeur-adjoint",
+  // "Employe-e") are legitimate multi-word titles, not glued-together output —
+  // each hyphen-joined part must independently clear the length floor.
+  return trimmed.split(/\s+/).some((rawToken) => rawToken.split(/[-–—]/).some((part) => {
+    const token = part.replace(/[.,;:!?'’"()/]/g, '');
     return token.length >= minLen && LETTER_TOKEN_RE.test(token);
-  });
+  }));
 }

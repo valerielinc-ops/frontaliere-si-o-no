@@ -48,4 +48,17 @@ describe('hasConcatenatedWords()', () => {
   it('does not flag when locale has no configured threshold', () => {
     expect(hasConcatenatedWords('Direttoredifiliale', 'unknown-locale')).toBe(false);
   });
+
+  it('does not flag legitimate hyphenated FR compound titles as glued words', () => {
+    // Reported via PR #3245 review: stripping hyphens before the length
+    // check turned real multi-word titles into one long unspaced token,
+    // false-positiving needsRetranslation on every crawl.
+    expect(hasConcatenatedWords('Sous-directeur-adjoint', 'fr')).toBe(false);
+    expect(hasConcatenatedWords('Responsable-adjoint-de-service', 'fr')).toBe(false);
+    expect(hasConcatenatedWords('Directeur-general-adjoint', 'fr')).toBe(false);
+  });
+
+  it('still flags a glued word that happens to contain a hyphen elsewhere', () => {
+    expect(hasConcatenatedWords('Co-Responsableduservice', 'fr')).toBe(true);
+  });
 });
