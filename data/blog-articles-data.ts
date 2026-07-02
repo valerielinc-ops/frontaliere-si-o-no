@@ -26038,6 +26038,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'ristorni-lombardia-ticino',
+ category: 'fiscale',
+ date: '2026-07-02T11:17:10.383Z',
+ image: '/images/blog/ristorni-lombardia-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

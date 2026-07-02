@@ -8217,6 +8217,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-ai-difficolta-finanziarie.title': 'Starke Rentenerhöhung bringt IV in finanzielle Schwierigkeiten',
     'blog.article.avs-ai-difficolta-finanziarie.excerpt': 'Der starke Anstieg der neuen IV-Renten bringt die Invalidenversicherung in finanzielle Schwierigkeiten. Für die AHV führt die erste Auszahlung des 13. Monatslohns zu einem negativen Ergebnis.',
     'blog.article.avs-ai-difficolta-finanziarie.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.ristorni-lombardia-ticino.title': 'Restaurants, Schweiz bedroht die Lombardei: Ziehen Sie die Steuer zurück',
+    'blog.article.ristorni-lombardia-ticino.excerpt': 'Der Varese-Senator der PD, Alessandro Alfieri, fordert die Region Lombardei auf, die Gesundheitssteuer zurückzuziehen, um die Blockierung von Rückerstattungen durch die Schweiz zu vermeiden.',
+    'blog.article.ristorni-lombardia-ticino.imageAlt': 'Panoramablick auf Castelgrande in Bellinzona',
 };
 
 export default blogMetaDe;

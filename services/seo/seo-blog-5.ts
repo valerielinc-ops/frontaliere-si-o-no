@@ -45702,6 +45702,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorni-lombardia-ticino': {
+    title: 'Ristorni, Svizzera minaccia Lombardia: ritiri la tassa',
+    description: 'Il senatore varesino del Pd, Alessandro Alfieri, invita la Regione Lombardia a ritirare la tassa sulla salute per evitare il blocco dei ristorni da parte della',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, minaccia, lombardia, ritiri',
+    ogTitle: 'Ristorni, dalla Svizzera rappresaglia contro Regione Lombardia: si ritiri subito la tassa sulla salute',
+    ogDescription: 'Il senatore varesino del Pd, Alessandro Alfieri, invita la Regione Lombardia a ritirare la tassa sulla salute per evitare il blocco dei ristorni da parte della',
+    canonicalPath: '/articoli-frontaliere/ristorni-lombardia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni, Svizzera minaccia Lombardia: ritiri la tassa",
+      "description": "Il senatore varesino del Pd, Alessandro Alfieri, invita la Regione Lombardia a ritirare la tassa sulla salute per evitare il blocco dei ristorni da parte della",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-lombardia-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Castelgrande a Bellinzona"
+      },
+      "datePublished": "2026-07-02T11:17:10+00:00",
+      "dateModified": "2026-07-02T11:17:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-lombardia-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

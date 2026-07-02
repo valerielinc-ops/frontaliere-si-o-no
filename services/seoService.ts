@@ -4356,6 +4356,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-avs-ai-prospettive-finanziarie': { name: 'AVS e AI', path: '/articoli-svizzera/avs-ai-prospettive-finanziarie/', parent: 'blog' },
     'blog-avs-ai-difficolta-finanziarie': { name: 'Difficoltà finanziarie', path: '/articoli-frontaliere/avs-ai-difficolta-finanziarie', parent: 'blog' },
     'blog-aumento-rendite-ai-avs-difficolta': { name: 'Finanza', path: '/articoli-svizzera/aumento-rendite-ai-avs-difficolta/', parent: 'blog' },
+    'blog-ristorni-lombardia-ticino': { name: 'Ristorni', path: '/articoli-frontaliere/ristorni-lombardia-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
