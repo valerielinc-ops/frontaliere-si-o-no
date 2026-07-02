@@ -57,3 +57,9 @@ export async function searchImageCatalog(title: string, body: string, count = 8)
   scored.sort((a, b) => b.score - a.score);
   return scored.slice(0, count);
 }
+
+/** Full catalog (all ~3k entries), alphabetical by path — for manual browsing when keyword suggestions miss. */
+export async function listAllCatalogImages(): Promise<CatalogImageCandidate[]> {
+  const catalog = await loadCatalog();
+  return catalog.map((entry) => ({ path: entry.path, score: 0 })).sort((a, b) => a.path.localeCompare(b.path));
+}

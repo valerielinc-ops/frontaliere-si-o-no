@@ -8221,6 +8221,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-lombardia-ticino.title': 'Ristorni, Switzerland threatens Lombardy: withdraw the tax',
     'blog.article.ristorni-lombardia-ticino.excerpt': 'The Varese senator of the Democratic Party, Alessandro Alfieri, calls on the Lombardy Region to withdraw the health tax to avoid the blocking of rebates by Switzerland.',
     'blog.article.ristorni-lombardia-ticino.imageAlt': 'Panoramic view of Castelgrande in Bellinzona',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Unpaid hours dispute shakes Ticino restaurant industry',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'A former employee of a restaurant in Locarno has obtained over three thousand francs in arrears. The Unia trade union denounces a widespread practice.',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'View of Locarno\'s lakeside with restaurant tables and workers in uniform',
 };
 
 export default blogMetaEn;

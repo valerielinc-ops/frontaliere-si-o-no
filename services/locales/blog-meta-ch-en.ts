@@ -862,6 +862,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-formazione-2026.title': 'Training 2026: Courses and funding',
     'blog.article.frontaliere-formazione-2026.excerpt': 'Find out about vocational training and retraining courses for cross-border commuters within 20 km in 2026, the funding available and how to assess the practical return.',
     'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontalieri in professional training in a Swiss city',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Early retirement for cross-border commuters 2026: complete guide',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Find out how early retirement works for cross-border commuters in 2026, with a focus on AHV, second pillar and planning over 20 km.',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'A serene view of Lake Lugano at sunset, with a person sitting on a bench looking at the water.',
 };
 
 export default blogMetaChEn;

@@ -8222,6 +8222,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-lombardia-ticino.title': 'Ristorni, Svizzera minaccia Lombardia: ritiri la tassa',
     'blog.article.ristorni-lombardia-ticino.excerpt': 'Il senatore varesino del Pd, Alessandro Alfieri, invita la Regione Lombardia a ritirare la tassa sulla salute per evitare il blocco dei ristorni da parte della Svizzera.',
     'blog.article.ristorni-lombardia-ticino.imageAlt': 'Vista panoramica di Castelgrande a Bellinzona',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Ore non pagate e clausole contestate: il caso scuote la ristorazione ticinese',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'Un ex dipendente di un ristorante di Locarno ha ottenuto oltre tremila franchi di arretrati. Il sindacato Unia denuncia una pratica diffusa.',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'Vista del lungolago di Locarno con tavolini di ristoranti e lavoratori in divisa',
 };
 
 export default blogMetaIt;
