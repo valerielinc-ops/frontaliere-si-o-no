@@ -8210,6 +8210,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-pd-reazione.title': 'Blocco Ristorni Ticino: La Reazione del PD',
     'blog.article.blocco-ristorni-ticino-pd-reazione.excerpt': 'Il Canton Ticino blocca i ristorni alla Lombardia, il PD insorge e chiede un incontro urgente con il Governo.',
     'blog.article.blocco-ristorni-ticino-pd-reazione.imageAlt': 'Vista panoramica di Bellinzona con il Castello di Montebello',
+    'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Ristorni Ticino-Lombardia: Sertori rassicura i Comuni',
+    'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'L\'assessore lombardo Sertori rassicura i Comuni sull\'assenza di effetti immediati dal blocco dei ristorni, auspicando una soluzione diplomatica.',
+    'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

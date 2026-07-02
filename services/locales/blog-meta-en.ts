@@ -8209,6 +8209,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-pd-reazione.title': 'Ticino Rebate Block: The Reaction of the PD',
     'blog.article.blocco-ristorni-ticino-pd-reazione.excerpt': 'The Canton of Ticino blocks rebates to Lombardy, the PD rises up and asks for an urgent meeting with the Government.',
     'blog.article.blocco-ristorni-ticino-pd-reazione.imageAlt': 'Panoramic view of Bellinzona with Montebello Castle',
+    'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Ticino-Lombardy rebates: Sertori reassures municipalities',
+    'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'Lombard councillor Sertori reassures the municipalities on the absence of immediate effects from the blocking of rebates, hoping for a diplomatic solution.',
+    'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

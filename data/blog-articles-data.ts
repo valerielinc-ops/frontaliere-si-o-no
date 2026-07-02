@@ -26011,6 +26011,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ristorni-ticino-lombardia-soluzione',
+ category: 'fiscale',
+ date: '2026-07-02T09:42:05.925Z',
+ image: '/images/blog/ristorni-ticino-lombardia-soluzione.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
