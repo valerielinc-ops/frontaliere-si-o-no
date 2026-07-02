@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi, afterEach } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('dedicated-crawler-common locale hardening', () => {
   it('flags wrong-language copied locales for retranslation without deleting (deploy has no AI)', () => {
@@ -731,5 +731,120 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     };
     expect(getMergeExclusionReasons(usJob, cfg)).toContain('job_location_block_foreign');
     expect(getMergeExclusionReasons(chJob, cfg)).not.toContain('job_location_block_foreign');
+  });
+});
+
+// ─── seedCrawlerSlicesFromDataJobs (issue #3089 items 2 + 3) ────────────────
+//
+// This is the raw, pre-quality-gate seed that `runDedicatedBaseCrawler` runs
+// against the freshly-merged `data/jobs.json` before the shared crawler reads
+// each crawler's slice back. Two "should never happen" invariants shipped in
+// #3107/#3122 but had no direct unit coverage — this locks them in.
+describe('seedCrawlerSlicesFromDataJobs (#3089 items 2 + 3)', () => {
+  function makeRoot() {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-seed-slices-'));
+    fs.mkdirSync(path.join(root, 'data', 'jobs', 'by-crawler'), { recursive: true });
+    return root;
+  }
+
+  const sliceDir = (root: string) => path.join(root, 'data', 'jobs', 'by-crawler');
+  const dataJobsPath = (root: string) => path.join(root, 'data', 'jobs.json');
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('item 2: warns instead of silently leaving a stale slice when a scoped companyKey matches 0 jobs but an on-disk slice already holds jobs (alias/canton-suffix mismatch)', () => {
+    const root = makeRoot();
+    // The merged data/jobs.json only has jobs under a differently-shaped key
+    // (e.g. a canton-suffixed alias), never the plain scoped key "acme".
+    fs.writeFileSync(
+      dataJobsPath(root),
+      JSON.stringify([{ companyKey: 'acme-ti', title: 'Some job' }]),
+    );
+    // A previous run's slice for the scoped key still holds jobs on disk.
+    const staleSlicePath = path.join(sliceDir(root), 'acme.json');
+    const staleJobs = { jobs: [{ companyKey: 'acme', title: 'Stale job' }] };
+    fs.writeFileSync(staleSlicePath, JSON.stringify(staleJobs));
+
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['acme'])).not.toThrow();
+
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringMatching(/companyKey "acme" matched 0 jobs.*slice NOT refreshed/s),
+    );
+    // The slice is left untouched (not silently emptied nor silently kept
+    // stale without any signal) — the warn IS the signal.
+    expect(JSON.parse(fs.readFileSync(staleSlicePath, 'utf-8'))).toEqual(staleJobs);
+    void logSpy;
+  });
+
+  it('item 2: a scoped companyKey matching 0 jobs with no pre-existing slice is a legitimate no-op (info log, no warn)', () => {
+    const root = makeRoot();
+    fs.writeFileSync(dataJobsPath(root), JSON.stringify([{ companyKey: 'other-co', title: 'Some job' }]));
+
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['brand-new-co'])).not.toThrow();
+
+    expect(warnSpy).not.toHaveBeenCalled();
+    expect(logSpy).toHaveBeenCalledWith(
+      expect.stringMatching(/companyKey "brand-new-co" matched 0 jobs \(no slice to refresh\)/),
+    );
+  });
+
+  it('item 2: a matching companyKey still reseeds the slice from the fresh merge (happy path unaffected)', () => {
+    const root = makeRoot();
+    fs.writeFileSync(
+      dataJobsPath(root),
+      JSON.stringify([
+        { companyKey: 'acme', title: 'Fresh job 1' },
+        { companyKey: 'acme', title: 'Fresh job 2' },
+        { companyKey: 'other-co', title: 'Not scoped' },
+      ]),
+    );
+    const slicePath = path.join(sliceDir(root), 'acme.json');
+    fs.writeFileSync(slicePath, JSON.stringify({ jobs: [{ companyKey: 'acme', title: 'Old stale job' }] }));
+
+    seedCrawlerSlicesFromDataJobs(root, ['acme']);
+
+    const written = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    expect(written.jobs).toHaveLength(2);
+    expect(written.jobs.map((j: { title: string }) => j.title)).toEqual(['Fresh job 1', 'Fresh job 2']);
+  });
+
+  it('item 3: rethrows (and logs via console.error) instead of silently proceeding stale when data/jobs.json is corrupt', () => {
+    const root = makeRoot();
+    fs.writeFileSync(dataJobsPath(root), '{ this is not valid json');
+    const slicePath = path.join(sliceDir(root), 'acme.json');
+    fs.writeFileSync(slicePath, JSON.stringify({ jobs: [{ companyKey: 'acme', title: 'Stale job' }] }));
+
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['acme'])).toThrow();
+    expect(errorSpy).toHaveBeenCalledWith(expect.stringMatching(/Slice seed failed/));
+    // Nothing was silently rewritten — the stale slice is untouched, and the
+    // failure is CI-visible (thrown), not just a console.warn.
+    expect(JSON.parse(fs.readFileSync(slicePath, 'utf-8')).jobs[0].title).toBe('Stale job');
+  });
+
+  it('item 3: rethrows when the per-crawler slice write fails mid-loop (e.g. target path collides with a directory)', () => {
+    const root = makeRoot();
+    fs.writeFileSync(
+      dataJobsPath(root),
+      JSON.stringify([{ companyKey: 'acme', title: 'Fresh job' }]),
+    );
+    // Make the write target a directory instead of a file so writeJsonAtomic's
+    // rename-into-place fails mid-loop (simulates a real write failure, not a
+    // parse error).
+    fs.mkdirSync(path.join(sliceDir(root), 'acme.json'));
+
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['acme'])).toThrow();
+    expect(errorSpy).toHaveBeenCalledWith(expect.stringMatching(/Slice seed failed/));
   });
 });

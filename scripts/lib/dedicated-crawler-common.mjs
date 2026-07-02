@@ -3809,8 +3809,12 @@ export async function runDedicatedBaseCrawler({
  * the per-crawler `writeJobsCrawlerSlice` final write (and the assemble-time
  * net), so this stays a thin, cycle-free helper (no import of
  * assemble-jobs-dataset, which itself imports this module).
+ *
+ * Exported (in addition to being called internally by `runDedicatedBaseCrawler`)
+ * so #3089 items 2/3 (empty-slice warn, failure rethrow) are directly unit-
+ * testable without spinning up a full crawler run.
  */
-function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
+export function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
   try {
     const keySet = new Set((companyKeys || []).map((k) => String(k).toLowerCase()));
     if (keySet.size === 0) return;
