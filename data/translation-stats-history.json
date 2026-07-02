@@ -11398,5 +11398,119 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-02T14:45:05.106Z",
+    "label": "before",
+    "total": 18268,
+    "needsRetranslation": 4917,
+    "suppressed": 372,
+    "incomplete": 845,
+    "complete": 17423,
+    "missingByLocale": {
+      "it": 435,
+      "en": 281,
+      "de": 373,
+      "fr": 154
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 669
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 56
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-02T14:49:51.039Z",
+    "label": "after",
+    "total": 18268,
+    "needsRetranslation": 2211,
+    "suppressed": 372,
+    "incomplete": 845,
+    "complete": 17423,
+    "missingByLocale": {
+      "it": 435,
+      "en": 281,
+      "de": 373,
+      "fr": 154
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 669
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 56
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
   }
 ]
