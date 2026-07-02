@@ -54,6 +54,9 @@ export const CDN_OFFLOADED_IMAGE_PREFIXES = [
   '/images/logos/',
   '/images/authors/',
   '/images/publisher/',
+  // Nationwide events feature (issue #3125): mirrored source images written by
+  // scripts/lib/events-utils.mjs mirrorEventImage() to public/images/events/.
+  '/images/events/',
 ] as const;
 
 /**

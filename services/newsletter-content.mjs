@@ -44,6 +44,7 @@ const CDN_OFFLOADED_IMAGE_PREFIXES = [
   '/images/logos/',
   '/images/authors/',
   '/images/publisher/',
+  '/images/events/', // nationwide events feature (issue #3125)
 ];
 
 /** Absolute URL for a same-origin image path: CDN host if offloaded, else origin. */
