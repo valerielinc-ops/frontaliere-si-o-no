@@ -8212,6 +8212,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Ticino-Lombardy rebates: Sertori reassures municipalities',
     'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'Lombard councillor Sertori reassures the municipalities on the absence of immediate effects from the blocking of rebates, hoping for a diplomatic solution.',
     'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.title': 'The financial outlook for AHV and IV worsens',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.excerpt': 'According to the FSIO, the deficits in the Old-Age and Survivors\' Insurance and the Disability Insurance will increase in the coming years.',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

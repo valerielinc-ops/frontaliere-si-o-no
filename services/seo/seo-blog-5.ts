@@ -45624,6 +45624,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-ai-prospettive-finanziarie-peggiorano': {
+    title: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    description: 'Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, peggiorano, prospettive, finanziarie, secondo',
+    ogTitle: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    ogDescription: 'Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità.',
+    canonicalPath: '/articoli-frontaliere/avs-ai-prospettive-finanziarie-peggiorano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Peggiorano le prospettive finanziarie di AVS e AI",
+      "description": "Secondo l’UFAS, nei prossimi anni aumenteranno i deficit dell’Assicurazione vecchiaia e superstiti e dell’Assicurazione invalidità. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-ai-prospettive-finanziarie-peggiorano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-07-02T10:16:35+00:00",
+      "dateModified": "2026-07-02T10:16:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-ai-prospettive-finanziarie-peggiorano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

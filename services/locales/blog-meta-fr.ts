@@ -8213,6 +8213,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Remis Tessin-Lombards : Sertori rassure les municipalités',
     'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'Le conseiller lombard Sertori rassure les municipalités sur l’absence d’effets immédiats du blocage des rabais, espérant une solution diplomatique.',
     'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Vue panoramique du Lac de Lugano avec les montagnes environnantes',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.title': 'Les perspectives financières pour la VVA et la perfusion se détériorent',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.excerpt': 'Selon la FSIO, les déficits dans l’assurance vieillesse et survivants ainsi que dans l’assurance invalidité augmenteront dans les années à venir.',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

@@ -8211,6 +8211,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-ticino-lombardia-soluzione.title': 'Tessin-Lombardei-Rabatte: Sertori beruhigt die Gemeinden',
     'blog.article.ristorni-ticino-lombardia-soluzione.excerpt': 'Der lombardische Stadtrat Sertori versichert den Gemeinden, dass der Rückzahlungsstopp keine unmittelbaren Auswirkungen habe, und hofft auf eine diplomatische Lösung.',
     'blog.article.ristorni-ticino-lombardia-soluzione.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.title': 'Die finanziellen Aussichten für AHV und IV verschlechtern sich',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.excerpt': 'Laut FSIO werden die Defizite bei der Alters- und Hinterbliebenenversicherung sowie in der Invaliditätsversicherung in den kommenden Jahren zunehmen.',
+    'blog.article.avs-ai-prospettive-finanziarie-peggiorano.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
