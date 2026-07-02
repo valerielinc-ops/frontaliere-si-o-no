@@ -871,6 +871,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vivere-come-lavorare-ticino.title': 'Leben in Como und Arbeit im Tessin als grenzüberschreitender Pendler',
     'blog.article.vivere-come-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für alle, die in Como leben und in Tessin arbeiten: Reisezeiten, Lebenshaltungskosten, empfohlene Wohngebiete und Vergleich zwischen Zug und Auto.',
     'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Luftaufnahme der Stadt Como mit dem Comer See im Hintergrund, die den Kontrast zwischen städtischem Leben und natürlicher Schönheit zeigt.',
+    'blog.article.vivere-varese-lavorare-ticino.title': 'Varese-Wohnen, Ticino-Arbeit: Frontalier-Guide',
+    'blog.article.vivere-varese-lavorare-ticino.excerpt': 'Erfahren Sie, wie Sie den Pendelweg zwischen Varese und Lugano, die Lebenshaltungskosten, Schulen für Kinder und die grenzüberschreitende Gemeinschaft steuern können.',
+    'blog.article.vivere-varese-lavorare-ticino.imageAlt': 'Blick auf den Luganersee bei Sonnenaufgang mit der Stadt Lugano im Hintergrund und den umliegenden Bergen. Ein Grenzpendler im Vordergrund.',
 };
 
 export default blogMetaChDe;

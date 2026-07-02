@@ -871,6 +871,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vivere-come-lavorare-ticino.title': 'Living in Como and working in Ticino as a cross-border commuter',
     'blog.article.vivere-come-lavorare-ticino.excerpt': 'Complete guide for those who live in Como and work in Ticino: journey times, cost of living, recommended neighbourhoods and comparison between train and car.',
     'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Aerial view of Como city with Lake Como in the background, showing the contrast between urban life and natural beauty.',
+    'blog.article.vivere-varese-lavorare-ticino.title': 'Varese to Ticino: Guide for Cross-Border Commuters',
+    'blog.article.vivere-varese-lavorare-ticino.excerpt': 'Find out how to manage the Varese-Lugano commute, the cost of living, schools for children and the cross-border community.',
+    'blog.article.vivere-varese-lavorare-ticino.imageAlt': 'View of Lake Lugano at dawn with the city of Lugano in the background and the surrounding mountains. A cross-border commuter in the foreground.',
 };
 
 export default blogMetaChEn;

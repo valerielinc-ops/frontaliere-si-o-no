@@ -871,6 +871,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vivere-come-lavorare-ticino.title': 'Vivre à Còm et travailler au Tessin en tant que navetteur transfrontalier',
     'blog.article.vivere-come-lavorare-ticino.excerpt': 'Guide complet pour ceux qui vivent à Côme et travaillent au Tessin : temps de trajet, coût de la vie, quartiers recommandés et comparaison entre train et voiture.',
     'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Vue aérienne de la ville de Côme avec le lac de Côme en arrière-plan, montrant le contraste entre la vie urbaine et la beauté naturelle.',
+    'blog.article.vivere-varese-lavorare-ticino.title': 'Travailler au Tessin en vivant à Varèse: guide frontalier',
+    'blog.article.vivere-varese-lavorare-ticino.excerpt': 'Découvrez comment gérer le trajet Varese-Lugano, le coût de la vie, les écoles pour les enfants et la communauté transfrontalière.',
+    'blog.article.vivere-varese-lavorare-ticino.imageAlt': 'Vue sur le lac de Lugano à l\'aube avec la ville de Lugano en arrière-plan et les montagnes environnantes. Un frontalier au premier plan.',
 };
 
 export default blogMetaChFr;

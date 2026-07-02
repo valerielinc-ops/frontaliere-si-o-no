@@ -313,6 +313,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'pensionamento-anticipato-frontalieri-2026': { it: 'pensionamento-anticipato-frontalieri-2026', en: 'early-retirement-cross-border-workers-2026', de: 'vorzeitige-rente-grenzganger-2026', fr: 'retraite-anticipe-frontaliers-2026' },
  'mutuo-italia-frontalieri-guida': { it: 'mutuo-italia-frontalieri-guida', en: 'mortgage-italy-cross-border-guide', de: 'hypothek-italien-grenzgaenger-fuehrer', fr: 'hypotheque-italie-frontalier-guide' },
  'vivere-come-lavorare-ticino': { it: 'vivere-come-lavorare-ticino', en: 'live-como-work-ticino', de: 'leben-como-arbeiten-tessin', fr: 'vivre-a-come-travailler-tessin' },
+ 'vivere-varese-lavorare-ticino': { it: 'vivere-varese-lavorare-ticino', en: 'living-varese-working-ticino', de: 'leben-varese-arbeiten-tessin', fr: 'vivre-varese-travailler-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
