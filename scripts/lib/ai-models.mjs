@@ -1867,6 +1867,41 @@ export function isAnyModelAvailable() {
   return DEFAULT_CHAIN.some(m => isModelAvailable(m));
 }
 
+/**
+ * Peek at the model callLLM() would try first right now, given current
+ * availability/exhaustion/cooldown state and score ranking — WITHOUT making
+ * an API call. Mirrors callLLM()'s non-forced-chain selection (model
+ * start-point override + score sort + availability/exhaustion/cooldown
+ * filtering); deliberately skips the diagnostic AI_MODELS_FORCE_CHAIN
+ * override and the per-request token-limit checks, which don't matter for
+ * "which model is currently preferred".
+ *
+ * Lets a caller build a model-aware persistent cache key WITHOUT spending a
+ * call: a lookup keyed on the current preferred model naturally misses once a
+ * higher-priority model comes back online, instead of silently reusing a
+ * verdict produced by a lower-tier fallback model forever (#3080).
+ *
+ * @param {{model?: string, chain?: string[]}} [opts]
+ * @returns {string|null} the model id that would serve the next call, or null
+ *   if no configured model is currently available.
+ */
+export function getPreferredModel({ model: startModel, chain: chainOverride } = {}) {
+  let chain = chainOverride ? [...chainOverride] : [...DEFAULT_CHAIN];
+  if (startModel) {
+    const idx = chain.indexOf(startModel);
+    if (idx > 0) chain = chain.slice(idx);
+    else if (idx < 0) chain = [startModel, ...chain.filter((m) => m !== startModel)];
+  }
+  chain = sortChainByScore(chain);
+  for (const m of chain) {
+    if (_shouldSkipExhausted(m)) continue;
+    if (isProviderCoolingDown(getProvider(m))) continue;
+    if (!isModelAvailable(m)) continue;
+    return m;
+  }
+  return null;
+}
+
 /** Return usage stats for this run (includes model scoreboard and store status) */
 export function getStats() {
   return {
@@ -3076,7 +3111,17 @@ export async function callLLM(messages, opts = {}) {
           const oldest = _responseCache.keys().next().value;
           if (oldest !== undefined) _responseCache.delete(oldest);
         }
-        _responseCache.set(_cacheKey, result);
+        // Store under a key that reflects the model that ACTUALLY answered —
+        // not necessarily o.model, since o.model only sets the fallback
+        // chain's start point and a failure there cascades to the next model
+        // in the chain (#3080 class: a cache key computed from the requested
+        // model, not the served one, lets a lower-tier fallback's output get
+        // silently replayed on a later call with the identical o.model/prompt
+        // once the requested model is available again).
+        const storageKey = model === (o.model || null)
+          ? _cacheKey
+          : _responseCacheKey(messages, { ...o, model });
+        _responseCache.set(storageKey, result);
       }
       return result;
     } catch (e) {
