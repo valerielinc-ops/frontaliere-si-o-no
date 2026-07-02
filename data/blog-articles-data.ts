@@ -25966,6 +25966,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione',
+ category: 'novita',
+ date: '2026-07-02T07:04:26.149Z',
+ image: '/images/blog/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

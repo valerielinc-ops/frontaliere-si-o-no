@@ -8195,6 +8195,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Remises aux frontaliers: Pellicini veut un groupe de travail',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'Le député et maire de Luino soutient la position du ministère de l\'Économie pour sortir de l\'impasse concernant les ristournes.',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Remboursements transfrontaliers: Berne déplore l\'arrêt du canton',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'La conseillère fédérale suisse Karin Keller-Sutter a rencontré le ministre de l’Économie et des Finances Giancarlo Giorgetti pour discuter de la suspension des remises à destination de la Lombardie.',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Rencontre entre la conseillère fédérale suisse Karin Keller-Sutter et le ministre italien de l\'Économie et des Finances Giancarlo Giorgetti à Rome.',
 };
 
 export default blogMetaFr;

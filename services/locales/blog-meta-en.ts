@@ -8194,6 +8194,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Cross-border rebates, Pellicini: “Let’s set up a working group right away”',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'The member of parliament and mayor of Luino supports the Ministry of Economy\'s approach to resolving the impasse over rebates.',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Cross-border rebates: Bern deplores the canton\'s stop but wants a solution',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.excerpt': 'Swiss Federal Councillor Karin Keller-Sutter met with the Minister of Economy and Finance Giancarlo Giorgetti to discuss the suspension of rebates to Lombardy.',
+    'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.imageAlt': 'Meeting between Swiss Federal Councillor Karin Keller-Sutter and Italian Minister of Economy and Finance Giancarlo Giorgetti in Rome.',
 };
 
 export default blogMetaEn;

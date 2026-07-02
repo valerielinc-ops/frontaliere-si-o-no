@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3059,
+ "numberOfItems": 3060,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7705,7 +7705,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3056, "name": "Frontaliere con figli: Guida pratica agli asili...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-figli-asilo-nido-svizzera` },
           { "@type": "ListItem", "position": 3057, "name": "Ristorni bloccati: Alfieri e Artoni chiedono l'...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-alfieri-pd` },
           { "@type": "ListItem", "position": 3058, "name": "Ristorni frontalieri, Pellicini: &#8220;Subito ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro` },
-          { "@type": "ListItem", "position": 3059, "name": "Guida 2026: Cambio lavoro per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-datore-lavoro-procedura-permesso-2026` }
+          { "@type": "ListItem", "position": 3059, "name": "Guida 2026: Cambio lavoro per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-datore-lavoro-procedura-permesso-2026` },
+          { "@type": "ListItem", "position": 3060, "name": "Ristorni frontalieri: Berna deplora lo stop del...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione` }
  ]
  },
  {
