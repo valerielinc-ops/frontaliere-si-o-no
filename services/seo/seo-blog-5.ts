@@ -45741,6 +45741,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorazione-ticinese-ore-non-pagate': {
+    title: 'Ore non pagate e clausole contestate: il caso scuote la ristorazione ticinese',
+    description: 'Un ex dipendente di un ristorante di Locarno ha ottenuto oltre tremila franchi di arretrati. Il sindacato Unia denuncia una pratica diffusa. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pagate, clausole, contestate, caso',
+    ogTitle: 'Ore non pagate e clausole contestate nella ristorazione ticinese',
+    ogDescription: 'Un ex dipendente di un ristorante di Locarno ha ottenuto oltre tremila franchi di arretrati. Il sindacato Unia denuncia una pratica diffusa.',
+    canonicalPath: '/articoli-frontaliere/ristorazione-ticinese-ore-non-pagate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ore non pagate e clausole contestate: il caso scuote la ristorazione ticinese",
+      "description": "Un ex dipendente di un ristorante di Locarno ha ottenuto oltre tremila franchi di arretrati. Il sindacato Unia denuncia una pratica diffusa. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorazione-ticinese-ore-non-pagate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lungolago di Locarno con tavolini di ristoranti e lavoratori in divisa"
+      },
+      "datePublished": "2026-07-02T12:22:18+00:00",
+      "dateModified": "2026-07-02T12:22:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorazione-ticinese-ore-non-pagate`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

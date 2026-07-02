@@ -8222,6 +8222,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-lombardia-ticino.title': 'Réductions, la Suisse menace la Lombardie : retrait de l’impôt',
     'blog.article.ristorni-lombardia-ticino.excerpt': 'Le sénateur varesino du PD, Alessandro Alfieri, invite la Région Lombardie à retirer la taxe sur la santé pour éviter le blocage des restaurants par la Suisse.',
     'blog.article.ristorni-lombardia-ticino.imageAlt': 'Vue panoramique de Castelgrande à Bellinzona',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Heures non payées : le scandale ébranle le Tessin',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'Un ancien employé d’un restaurant à Locarno a obtenu plus de trois mille francs en arriéré. Le syndicat Unia dénonce une pratique répandue.',
+    'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'Vue du lac de Locarno avec des tables de restaurant et des travailleurs en uniforme',
 };
 
 export default blogMetaFr;
