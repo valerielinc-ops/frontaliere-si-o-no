@@ -32,6 +32,43 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 // (a new EVENT_SOURCES entry with `canton: null`), no structural change.
 export const EVENTS_CANTON = 'TI';
 
+// ── Feasibility: individual comune sites as a source (#3047 item 1) ──────
+// Researched 2026-07-02 (follow-up chained on #2963 → #3044 → #3047). The
+// #3044 PR body flagged two gaps: "altri cantoni" (other cantons) and
+// "crawler siti comunali singoli" (individual comune sites), both blocked on
+// "richiedono mappa comune→URL ufficiale (assente nei dataset)".
+//
+// Verdict, split by sub-item:
+//   - "altri cantoni" — RESOLVED, moot. #3125 (guidle + myswitzerland below,
+//     `canton: null`) already went nationwide via aggregator PLATFORMS, not
+//     per-comune scraping — no comune→URL map was ever needed for this half.
+//   - "crawler siti comunali singoli" — genuinely NOT feasible with existing
+//     data, confirmed live:
+//       * data/canton-municipalities.json (built by
+//         generate-canton-municipalities.mjs from the official BFS AGV
+//         Communes API, agvchapp.bfs.admin.ch/api/communes/snapshot) has
+//         columns HistoricalCode/BfsCode/ValidFrom/ValidTo/Level/Parent/
+//         Name/ShortName/Inscription/Radiation/Rec_Type_fr/Rec_Type_de —
+//         no website/URL column (checked the live CSV response directly).
+//       * data/municipalities.ts (Italian frontier comuni) has no URL field
+//         either, and is a different country's comuni anyway (not a Swiss
+//         events source).
+//       * No data/*.json in the repo maps comune → website.
+//       * Checked the two most plausible FREE external registries: Canton
+//         Ticino's own comuni registry (www4.ti.ch/di/sel/comuni/elenco-comuni)
+//         only offers a downloadable Excel of comuni-per-district counts, no
+//         website column; ch.ch's federal portal claims ~2100 communes but
+//         only via its own per-page search UI — no bulk CSV/JSON export. The
+//         only way to get a comune→URL map would be scraping ~100 (TI) to
+//         ~2100 (nationwide) individual undocumented pages just to bootstrap
+//         a seed list for ANOTHER crawler — a new project of its own, not a
+//         "build from existing data" win, AND even then each comune site
+//         would need its own scraper/selectors (no shared platform like
+//         guidle's), an unbounded maintenance burden for the frontier-comuni
+//         audience this site already reaches well via guidle/myswitzerland.
+// Not forcing a fake per-comune crawler here. Re-open only if a genuine bulk
+// comune→URL dataset shows up (re-check ch.ch / opendata.swiss periodically).
+//
 // ── Source registry ──────────────────────────────────────────
 // One entry per crawler. `key` is the slice filename + stable-id prefix.
 // `canton: null` means the source is nationwide (event canton resolved
