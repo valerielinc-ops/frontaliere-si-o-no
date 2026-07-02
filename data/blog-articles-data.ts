@@ -25984,6 +25984,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ristorni-frontalieri-bloccati-reina',
+ category: 'fiscale',
+ date: '2026-07-02T08:21:18.646Z',
+ image: '/images/blog/ristorni-frontalieri-bloccati-reina.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

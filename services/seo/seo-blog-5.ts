@@ -45468,6 +45468,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorni-frontalieri-bloccati-reina': {
+    title: 'Ristorni frontalieri bloccati: Reina (Iv Varese) «A rischio credibilità dello Stato»',
+    description: 'Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, bloccati, reina, varese',
+    ogTitle: 'Ristorni frontalieri bloccati, Reina (Iv Varese): «A rischio credibilità dello Stato»',
+    ogDescription: 'Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-bloccati-reina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni frontalieri bloccati: Reina (Iv Varese) «A rischio credibilità dello Stato»",
+      "description": "Salvino Reina, segretario provinciale di Italia Viva, critica il blocco dei ristorni frontalieri e avverte sui rischi per la credibilità dello Stato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-bloccati-reina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giornalista che scrive su un computer portatile in un caffè di Bellinzona, con il Monte San Salvatore in sfondo."
+      },
+      "datePublished": "2026-07-02T08:21:18+00:00",
+      "dateModified": "2026-07-02T08:21:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-reina`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

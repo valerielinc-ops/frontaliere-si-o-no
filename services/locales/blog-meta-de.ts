@@ -8199,6 +8199,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-lombardia.title': 'Block der Rückerstattungen, Spannungen mit dem Tessin',
     'blog.article.blocco-ristorni-ticino-lombardia.excerpt': 'Die Blockade der Rückerstattungen durch den Kanton Tessin hat zu Kontroversen und Reaktionen geführt. Jonny Crosio, stellvertretender Bundessekretär der Partei Pakt für den Norden, kritisiert die Entscheidung als willkürlich und paradox.',
     'blog.article.blocco-ristorni-ticino-lombardia.imageAlt': 'Ansicht von Bellinzona mit der Burg Montebello',
+    'blog.article.ristorni-frontalieri-bloccati-reina.title': 'Rückerstattungen blockiert: Reina (Iv Varese) «Staat in Gefahr»',
+    'blog.article.ristorni-frontalieri-bloccati-reina.excerpt': 'Salvino Reina, Provinzsekretär von Italia Viva, kritisiert die Blockierung grenzüberschreitender Rückschüsse und warnt vor den Risiken für die Glaubwürdigkeit des Staates.',
+    'blog.article.ristorni-frontalieri-bloccati-reina.imageAlt': 'Ein Journalist schreibt in einem Café in Bellinzona an einem Laptop, mit dem Monte San Salvatore im Hintergrund.',
 };
 
 export default blogMetaDe;
