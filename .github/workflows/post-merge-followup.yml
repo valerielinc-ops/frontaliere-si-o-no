@@ -132,8 +132,7 @@ jobs:
           # cause della run schedulata che falliva 100% dal merge di PR #3157 con "User
           # does not have write access on this repository" (turns=0, $0 — falliva PRIMA
           # di invocare Claude, zero triage creato da allora). Stessi 3 nomi di
-          # allowed_bots: il job è già scoped Bash(gh:*)-only + `gh issue create`/`gh pr
-          # comment` (niente Write/Edit), quindi il bypass resta a basso rischio.
+          # allowed_bots.
           allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
           # max-turns DINAMICO = min(20 + 6*batch_count, 60), floor 20 (era 20 fisso per
@@ -143,7 +142,17 @@ jobs:
           # Se una sessione satura il cap (batch grande) → error_max_turns → run NON
           # success → watermark non avanza → la prossima run schedulata ri-copre la
           # finestra; l'idempotenza salta le PR già commentate, riprende le restanti.
-          claude_args: "--max-turns ${{ steps.collect.outputs.max_turns }} --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          # 2026-07-02: `--dangerously-skip-permissions` sostituisce l'`--allowedTools`
+          # scoped precedente, stesso fix di pr-review-loop.yml (owner-approved
+          # 2026-07-01). Lo scoped `Bash(gh:*)` fa validazione statica del comando e
+          # abortiva su sintassi shell legittima ("Contains shell syntax that cannot
+          # be statically analyzed", "Newline followed by # inside a quoted argument
+          # can hide arguments from path validation") durante il triage batch, run
+          # perse senza summary comment postato (watermark non avanza, prossima run
+          # schedulata ri-tenta). Rischio noto e accettato, stesso di pr-review-loop:
+          # il prompt resta constraint a `gh issue create`/`gh pr comment` read-only,
+          # ma il processo Claude ora ha accesso Bash/Write/Edit pieno.
+          claude_args: "--max-turns ${{ steps.collect.outputs.max_turns }} --model claude-sonnet-4-6 --dangerously-skip-permissions"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}

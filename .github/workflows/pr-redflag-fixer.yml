@@ -290,7 +290,10 @@ jobs:
           # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
           # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run
           # opus senza commit e lascia il rosso alla escalation needs-human.
-          claude_args: "--max-turns 45 --model ${{ steps.guard.outputs.model }} --allowedTools 'Bash(gh:*),Bash(git:*),Bash(npm:*),Bash(node:*),Bash(rg:*),Bash(ls:*),Bash(cat:*),Read,Grep,Glob,Edit,Write'"
+          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # fix, evita drift tra copie duplicate).
+          claude_args: "--max-turns 45 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
 
