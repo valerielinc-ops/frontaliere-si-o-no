@@ -171,9 +171,49 @@ async function isLive(pathUrl) {
   return ok;
 }
 
-function legacyClusterUrls(indexedPath) {
-  const raw = JSON.parse(readFileSync(indexedPath, 'utf8'));
-  const arr = Array.isArray(raw) ? raw : raw.urls || Object.values(raw).find(Array.isArray) || [];
+// Tolerated `indexed-cluster-urls.json` shapes: bare array, `{ urls: [...] }`,
+// or any other object carrying exactly one array-valued property (the real
+// on-disk shape is `{ ..., indexedPaths: [...] }`). Returns `undefined` when
+// NONE of these match, so the caller can fail loud instead of silently
+// falling back to an empty array.
+export function resolveLegacyUrlsArray(raw) {
+  if (Array.isArray(raw)) return raw;
+  if (raw && typeof raw === 'object') {
+    if (Array.isArray(raw.urls)) return raw.urls;
+    const found = Object.values(raw).find(Array.isArray);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+export function legacyClusterUrls(indexedPath) {
+  const rawText = readFileSync(indexedPath, 'utf8');
+  const raw = JSON.parse(rawText);
+  const arr = resolveLegacyUrlsArray(raw);
+  if (!Array.isArray(arr)) {
+    console.error(
+      `legacyClusterUrls: unexpected shape in ${indexedPath} — expected an array, an ` +
+        '{ urls: [...] } object, or an object with at least one array-valued property. Got: ' +
+        `${raw === null ? 'null' : typeof raw}. Aborting instead of writing an empty ` +
+        'search-cluster-301-map.json.',
+    );
+    process.exit(1);
+  }
+  // Zero-entries guard: an unexpected shape that happens to resolve to a
+  // tolerated variant (e.g. `{ urls: [] }`) but is genuinely empty must not
+  // be treated the same as "no legacy URLs to recover" when the source file
+  // itself carries real content — that combination is the exact silent-empty-
+  // map failure mode this guard exists to catch (would zero out the entire
+  // 301 recovery — ~14k hits/day — with no signal distinguishing it from a
+  // normal run).
+  if (arr.length === 0 && rawText.trim().length > 0) {
+    console.error(
+      `legacyClusterUrls: parsed 0 legacy URL candidates from ${indexedPath}, but the source ` +
+        'file is non-empty — refusing to write an empty search-cluster-301-map.json. Check for ' +
+        'an upstream shape/format change in indexed-cluster-urls.json.',
+    );
+    process.exit(1);
+  }
   const urls = arr.map((u) => (typeof u === 'string' ? u : u.url || u.path || '')).filter(Boolean);
   const out = new Map(); // url → locale
   for (const u of [...new Set(urls)]) {
@@ -333,4 +373,17 @@ async function main() {
   );
 }
 
-main();
+// Only build the map + hit the network when run as a CLI. Importing this
+// module (e.g. the unit tests for `legacyClusterUrls`/`resolveLegacyUrlsArray`)
+// must NOT trigger the live sitemap fetch or overwrite the committed map.
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
+  main();
+}
