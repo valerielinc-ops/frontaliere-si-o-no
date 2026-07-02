@@ -871,6 +871,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vivere-come-lavorare-ticino.title': 'Vivere a Como e lavorare in Ticino da frontaliere',
     'blog.article.vivere-come-lavorare-ticino.excerpt': 'Guida completa per chi vive a Como e lavora in Ticino: tempi di percorrenza, costo della vita, quartieri consigliati e confronto tra treno e auto.',
     'blog.article.vivere-come-lavorare-ticino.imageAlt': 'Vista aerea di Como con il lago di Como sullo sfondo, mostrando il contrasto tra vita urbana e bellezza naturale.',
+    'blog.article.vivere-varese-lavorare-ticino.title': 'Vivere a Varese e lavorare in Ticino: guida completa per frontalieri',
+    'blog.article.vivere-varese-lavorare-ticino.excerpt': 'Scopri come gestire il pendolarismo Varese-Lugano, il costo della vita, le scuole per i figli e la comunità di frontalieri.',
+    'blog.article.vivere-varese-lavorare-ticino.imageAlt': 'Vista del Lago di Lugano all\'alba con la città di Lugano sullo sfondo e le montagne circostanti. Un frontaliere in primo piano.',
 };
 
 export default blogMetaChIt;

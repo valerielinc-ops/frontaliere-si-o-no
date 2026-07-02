@@ -4365,6 +4365,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grigioni-frontalieri-italiani-1-6-milioni': { name: 'Grigioni frontalieri', path: '/articoli-frontaliere/grigioni-frontalieri-italiani-1-6-milioni', parent: 'blog' },
     'blog-vivere-come-lavorare-ticino': { name: 'Vivere Como', path: '/articoli-svizzera/vivere-come-lavorare-ticino/', parent: 'blog' },
     'blog-deduzione-figli-frontalieri-2026': { name: 'Deduzione figli', path: '/articoli-frontaliere/deduzione-figli-frontalieri-2026', parent: 'blog' },
+    'blog-vivere-varese-lavorare-ticino': { name: 'Vivere Varese', path: '/articoli-svizzera/vivere-varese-lavorare-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
