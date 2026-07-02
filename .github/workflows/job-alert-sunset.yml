@@ -1,0 +1,89 @@
+name: Job Alert Sunset
+
+# List hygiene for never-engaging job-alert subscribers: soft-move them to
+# `inactive` on the job-alert channel, and reactivate any who came back.
+# Policy + thresholds live in scripts/lib/jobAlertSunset.mjs (120d on list +
+# >=12 ignored deliveries). Follow-up to Newsletter Sunset (#2852 item 1) —
+# no win-back email stage here, see that file's header comment for why.
+on:
+  schedule:
+    # Weekly, Monday 04:00 UTC — before newsletter-sunset.yml (04:11 UTC) and
+    # well before the job-alert send run, so a same-day sunset is applied
+    # before the regular send filters it out.
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (default) or apply (status transitions)'
+        required: false
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - apply
+
+permissions:
+  contents: read
+  issues: write
+
+# Never overlap with itself (it mutates subscriber status in batches).
+concurrency:
+  group: job-alert-sunset
+  cancel-in-progress: false
+
+jobs:
+  sunset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+
+      - name: Run sunset
+        env:
+          # Scheduled runs apply transitions; manual runs use the chosen mode
+          # (default dry-run — safe to inspect before acting).
+          MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
+        run: |
+          echo "🌙 Job-alert sunset mode=$MODE"
+          case "$MODE" in
+            apply) node scripts/job-alert-sunset.mjs --apply ;;
+            *)     node scripts/job-alert-sunset.mjs ;;
+          esac
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

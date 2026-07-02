@@ -4,6 +4,7 @@ import { refreshEngagementScore } from './lib/engagementScore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
+import { instantReactivationFields } from './lib/subscriberReactivation.js';
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
@@ -264,6 +265,18 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  }, currentStatus);
 
  subscriberUpdate.provider = 'resend';
+
+ // Instant newsletter-sunset reactivation (#2852 item 2): an open/click on a
+ // subscriber the weekly scripts/newsletter-sunset.mjs cron already marked
+ // 'inactive' should re-activate them immediately instead of waiting up to a
+ // week for the next cron pass. Applied AFTER buildSubscriberUpdate() on
+ // purpose: that function's pending-promotion side effect would otherwise
+ // leave an 'inactive' subscriber at status 'confirmed' without stamping
+ // reactivated_at or clearing the winback markers. No-op unless the status
+ // read above was exactly 'inactive'.
+ if (type === 'open' || type === 'click') {
+ Object.assign(subscriberUpdate, instantReactivationFields(currentStatus));
+ }
 
  if (type === 'bounce') {
  Object.assign(subscriberUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));

@@ -2,8 +2,10 @@ import { describe, it, expect } from 'vitest';
 import {
   ADDRESS_SUPPRESSED_STATUSES,
   NEWSLETTER_EXCLUDED_STATUSES,
+  JOB_ALERT_EXCLUDED_STATUSES,
   isAddressSuppressed,
   isNewsletterExcluded,
+  isJobAlertExcluded,
 } from '../services/emailSuppression.mjs';
 
 describe('emailSuppression sets', () => {
@@ -13,6 +15,10 @@ describe('emailSuppression sets', () => {
 
   it('newsletter set adds the channel-level soft states (unsubscribe + inactive sunset)', () => {
     expect([...NEWSLETTER_EXCLUDED_STATUSES].sort()).toEqual(['bounced', 'complained', 'inactive', 'suppressed', 'unsubscribed']);
+  });
+
+  it('job-alert set adds only that channel\'s own inactive sunset (no unsubscribed — that is per-alert active:false)', () => {
+    expect([...JOB_ALERT_EXCLUDED_STATUSES].sort()).toEqual(['bounced', 'complained', 'inactive', 'suppressed']);
   });
 });
 
@@ -54,5 +60,22 @@ describe('isNewsletterExcluded', () => {
 
   it('keeps active recipients', () => {
     expect(isNewsletterExcluded('active')).toBe(false);
+  });
+});
+
+describe('isJobAlertExcluded (#2852 item 1)', () => {
+  it('excludes address signals plus this channel\'s own inactive sunset', () => {
+    for (const s of ['bounced', 'complained', 'suppressed', 'inactive']) {
+      expect(isJobAlertExcluded(s)).toBe(true);
+    }
+  });
+
+  it('does NOT exclude "unsubscribed" — job alerts have no such channel status (that is per-alert active:false)', () => {
+    expect(isJobAlertExcluded('unsubscribed')).toBe(false);
+  });
+
+  it('keeps active recipients', () => {
+    expect(isJobAlertExcluded('active')).toBe(false);
+    expect(isJobAlertExcluded('')).toBe(false);
   });
 });

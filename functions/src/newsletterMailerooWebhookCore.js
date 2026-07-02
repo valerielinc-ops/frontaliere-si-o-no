@@ -3,6 +3,7 @@ import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
+import { instantReactivationFields } from './lib/subscriberReactivation.js';
 
 /**
  * Maileroo webhook handler — receives delivery events and stores them in Firestore.
@@ -167,6 +168,15 @@ export async function persistMailerooEvent(db, event) {
   } else if (type === 'complaint') {
     subscriberUpdate.status = 'complained';
     subscriberUpdate.complained_at = FieldValue.serverTimestamp();
+  }
+
+  // Instant newsletter-sunset reactivation (#2852 item 2): an open/click on a
+  // subscriber the weekly scripts/newsletter-sunset.mjs cron already marked
+  // 'inactive' should re-activate them immediately instead of waiting up to a
+  // week for the next cron pass. No-op unless status is currently 'inactive'.
+  if (type === 'open' || type === 'click') {
+    const currentSnap = await subscriberRef.get();
+    Object.assign(subscriberUpdate, instantReactivationFields(currentSnap.data()?.status));
   }
 
   await subscriberRef.set(subscriberUpdate, { merge: true });
