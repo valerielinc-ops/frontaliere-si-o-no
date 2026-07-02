@@ -96,7 +96,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:13.101Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -202,7 +201,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:19.769Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "baseSalary": {
@@ -308,7 +306,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:18.342Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -416,7 +413,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:12.614Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -521,7 +517,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T21:45:07.319Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -626,7 +621,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:12.134Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -715,16 +709,7 @@
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-07-01T21:43:47.101Z",
-      "previousSlugs": [
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
-        ]
-      },
       "firstSeenAt": "2026-07-01T11:05:15.118Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -737,7 +722,16 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur"
+        ]
+      }
     }
   ]
 }
