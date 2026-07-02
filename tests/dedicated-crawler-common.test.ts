@@ -1,8 +1,8 @@
-import { describe, expect, it, vi, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('dedicated-crawler-common locale hardening', () => {
   it('flags wrong-language copied locales for retranslation without deleting (deploy has no AI)', () => {
@@ -846,5 +846,112 @@ describe('seedCrawlerSlicesFromDataJobs (#3089 items 2 + 3)', () => {
 
     expect(() => seedCrawlerSlicesFromDataJobs(root, ['acme'])).toThrow();
     expect(errorSpy).toHaveBeenCalledWith(expect.stringMatching(/Slice seed failed/));
+  });
+});
+
+// Regression tests for issue #3284 (previousSlugs writer regression: 6136
+// losses in 24h). Root cause: mergeAndDeduplicate() had three dedup passes
+// (existing-vs-existing fingerprint collision, heuristic-key collision, and
+// the final post-registry fingerprint collision) that called preferJob(a, b)
+// bare — preferJob returns ONE of the two whole job objects, so the loser's
+// previousSlugs / previousSlugsByLocale history (accumulated separately on
+// each duplicate record) was silently discarded with no journal entry. Fixed
+// by routing all three passes through mergeDuplicateJobPreservingSlugHistory,
+// which unions previousSlugs/previousSlugsByLocale before preferJob picks a
+// winner, and journals via captureLostSlugs.
+describe('mergeAndDeduplicate — previousSlugs history preserved across duplicate collapse (#3284)', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let registryOverridePath;
+  let prevOverride;
+
+  beforeEach(() => {
+    // mergeAndDeduplicate() reads/writes a persistent slug registry
+    // (data/slug-registry.json in the real repo). Point it at a throwaway
+    // temp file for the duration of this test so we never mutate the
+    // tracked registry as a side effect of running the suite.
+    prevOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    registryOverridePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ft-slug-registry-')), 'slug-registry.json');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryOverridePath;
+  });
+
+  afterEach(() => {
+    if (prevOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = prevOverride;
+  });
+
+  it('unions previousSlugsByLocale from both sides of an existing-vs-existing fingerprint collision instead of discarding the loser', () => {
+    // Two existing-slice records for the SAME posting (same url ⇒ same
+    // fingerprint) that accumulated DIFFERENT previousSlugsByLocale entries
+    // on separate crawl runs — exactly the shape observed in the flagged
+    // commits (e.g. coop-ticino.json company-9wwgfj: active slug unchanged,
+    // but previousSlugsByLocale.en/.fr silently shrank).
+    const base = {
+      id: 'job-dup-1',
+      title: 'Department Manager',
+      company: 'Coop',
+      location: 'Ticino',
+      url: 'https://example.com/jobs/dup-1',
+      description: 'A'.repeat(50),
+      slug: 'department-manager-coop',
+      slugByLocale: { it: 'responsabile-reparto-coop', en: 'department-manager-coop' },
+      postedDate: '2026-06-30',
+      crawledAt: '2026-06-30T00:00:00.000Z',
+    };
+    const existingA = {
+      ...base,
+      previousSlugsByLocale: { en: ['department-manager-including-deputy-management-coop'] },
+    };
+    const existingB = {
+      ...base,
+      previousSlugsByLocale: { en: ['department-manager-with-deputy-management-responsibilities-coop'] },
+    };
+
+    const result = mergeAndDeduplicate([existingA, existingB], [], cfg);
+    const jobs = result.merged;
+    expect(jobs.length).toBe(1);
+    const merged = jobs[0];
+
+    // BOTH sides' historical slugs must survive the collapse.
+    expect(merged.previousSlugsByLocale?.en || []).toContain(
+      'department-manager-including-deputy-management-coop'
+    );
+    expect(merged.previousSlugsByLocale?.en || []).toContain(
+      'department-manager-with-deputy-management-responsibilities-coop'
+    );
+  });
+
+  it('journals the loser\'s active slug when it differs from the winner\'s, instead of dropping it untracked', () => {
+    const existingA = {
+      id: 'job-dup-2',
+      title: 'Sales Associate',
+      company: 'Coop',
+      location: 'Ticino',
+      url: 'https://example.com/jobs/dup-2',
+      description: 'B'.repeat(50),
+      slug: 'sales-associate-coop',
+      slugByLocale: { it: 'addetto-vendita-coop', en: 'sales-associate-coop' },
+      postedDate: '2026-06-30',
+      crawledAt: '2026-06-30T00:00:00.000Z',
+      featured: true, // ensures deterministic winner via preferJob's score
+    };
+    const existingB = {
+      ...existingA,
+      featured: false,
+      slug: 'sales-associate-coop-old',
+      slugByLocale: { it: 'addetto-vendita-coop', en: 'sales-associate-coop-old' },
+    };
+
+    const result = mergeAndDeduplicate([existingA, existingB], [], cfg);
+    const jobs = result.merged;
+    expect(jobs.length).toBe(1);
+    const merged = jobs[0];
+
+    // existingA wins (featured), but existingB's now-superseded active EN
+    // slug must be captured into previousSlugsByLocale, not lost.
+    const allEn = [
+      ...(merged.previousSlugsByLocale?.en || []),
+      ...(Array.isArray(merged.previousSlugs) ? merged.previousSlugs : []),
+    ];
+    expect(allEn).toContain('sales-associate-coop-old');
   });
 });
