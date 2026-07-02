@@ -28,6 +28,7 @@ const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
@@ -131,26 +132,11 @@ function escapeForSingleQuoteTS(s) {
   return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
 }
 
-/** Strip markdown fences and extract JSON array from LLM output */
-function findMatchingClose(src, openIdx) {
-  const open = src[openIdx];
-  const close = open === '[' ? ']' : open === '{' ? '}' : null;
-  if (!close) return -1;
-  let depth = 0, inStr = false, esc = false;
-  for (let i = openIdx; i < src.length; i++) {
-    const ch = src[i];
-    if (esc) { esc = false; continue; }
-    if (ch === '\\') { esc = true; continue; }
-    if (ch === '"') { inStr = !inStr; continue; }
-    if (inStr) continue;
-    if (ch === open) depth++;
-    else if (ch === close) { depth--; if (depth === 0) return i; }
-  }
-  return -1;
-}
-
+/** Strip markdown fences and extract JSON array from LLM output.
+ *  Bracket-balanced extraction + string repair live in ./lib/llm-json-repair.mjs
+ *  (shared with create-article.mjs's repairLlmJson — same LLM-JSON quirks). */
 function repairJsonArray(s) {
-  let c = s.replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
+  let c = stripCodeFences(s);
   // Bracket-balanced extraction so trailing prose (LLM "Note: ..." after the
   // array) does not pull in a foreign ']' via lastIndexOf.
   const arrStart = c.indexOf('[');
@@ -168,20 +154,7 @@ function repairJsonArray(s) {
       if (objEnd !== -1) c = c.slice(objStart, objEnd + 1);
     }
   }
-  // Fix literal newlines inside strings
-  let out = '';
-  let inStr = false;
-  let esc = false;
-  for (let i = 0; i < c.length; i++) {
-    const ch = c[i];
-    if (esc) { out += ch; esc = false; continue; }
-    if (ch === '\\') { out += ch; esc = true; continue; }
-    if (ch === '"') { inStr = !inStr; out += ch; continue; }
-    if (inStr && ch === '\n') { out += '\\n'; continue; }
-    if (inStr && ch === '\r') { continue; }
-    out += ch;
-  }
-  return out;
+  return fixJsonStringBody(c);
 }
 
 /** Extract FAQ array from various LLM response shapes:
@@ -515,7 +488,7 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 2) return regexFaq;
     console.error(`  [JSON parse failed] ${parseErr.message} — raw[0:300]: ${raw.slice(0, 300).replace(/\n/g, '\\n')}`);
-    throw parseErr;
+    throw new Error(`JSON non valido dalla generazione FAQ: ${parseErr.message}`);
   }
   const faq = extractFaqArray(parsed);
   if (!faq) {
@@ -565,7 +538,7 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
   } catch (parseErr) {
     const regexFaq = extractFaqFromText(raw);
     if (regexFaq && regexFaq.length >= 1) return regexFaq;
-    throw parseErr;
+    throw new Error(`JSON non valido dalla generazione top-up FAQ: ${parseErr.message}`);
   }
   const faq = extractFaqArray(parsed);
   if (!faq) {
