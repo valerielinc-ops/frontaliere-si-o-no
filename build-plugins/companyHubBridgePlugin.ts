@@ -36,6 +36,7 @@ import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBrea
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { COMPANY_ROUTE_PREFIX } from './shared/cantonSection';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -46,12 +47,12 @@ const SECTION_SLUG: Record<Locale, string> = {
   fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
 };
 
-const COMP_PREFIX: Record<Locale, string> = {
-  it: 'azienda',
-  en: 'company',
-  de: 'unternehmen',
-  fr: 'entreprise',
-};
+// `COMP_PREFIX` is the same {it,en,de,fr}->prefix mapping as
+// `COMPANY_ROUTE_PREFIX` in shared/cantonSection.ts (single source of truth,
+// also used by jobsSeoPagesPlugin.ts / jobOrphanBridgePlugin.ts) — aliased
+// under the local name to avoid touching the ~10 downstream `COMP_PREFIX[locale]`
+// call sites in this file.
+const COMP_PREFIX: Record<Locale, string> = COMPANY_ROUTE_PREFIX;
 const COMPANY_SEGMENT_PREFIXES = new Set(['azienda', 'company', 'unternehmen', 'firma', 'entreprise', 'societe']);
 
 const LOCALE_PREFIX: Record<Locale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
