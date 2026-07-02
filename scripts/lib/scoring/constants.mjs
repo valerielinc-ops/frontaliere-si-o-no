@@ -74,7 +74,9 @@ export function computeAdaptiveNearDupCosine(corpusSize) {
   const n = Number.isFinite(corpusSize) && corpusSize > 0 ? corpusSize : EMBEDDING_NEAR_DUP_CORPUS_BASELINE;
   const scaled = EMBEDDING_NEAR_DUP_COSINE
     + EMBEDDING_NEAR_DUP_CORPUS_SCALE_K * Math.log10(n / EMBEDDING_NEAR_DUP_CORPUS_BASELINE);
-  return Math.min(EMBEDDING_NEAR_DUP_COSINE_CEILING, Math.max(EMBEDDING_NEAR_DUP_COSINE, scaled));
+  // env NEAR_DUP_COSINE above the hardcoded ceiling must win — use it as the
+  // effective ceiling so the override is not silently clamped back to 0.95.
+  return Math.min(Math.max(EMBEDDING_NEAR_DUP_COSINE_CEILING, EMBEDDING_NEAR_DUP_COSINE), Math.max(EMBEDDING_NEAR_DUP_COSINE, scaled));
 }
 
 // Confidence multipliers per cascade stage. Final score = rawScore * confidence.
