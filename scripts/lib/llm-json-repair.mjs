@@ -52,7 +52,14 @@ export function findMatchingClose(src, openIdx) {
  * looks identical to a real property/array separator. For those two, also
  * check that what follows looks like the start of an actual JSON token
  * (a key/value start, or a closer) rather than a lowercase prose word —
- * only then is the comma/colon trusted as structural.
+ * only then is the comma/colon trusted as structural. A bare digit-start or
+ * `true`/`false`/`null`-start is not enough either: Italian prose routinely
+ * puts a number right after a quoted phrase + comma/colon (prices,
+ * percentages, counts — `..."tassa": 8% del prezzo.`) or a negative number
+ * (`..."forte": -5% ieri.`), which starts like a JSON number but isn't one.
+ * A number/literal is only trusted as a real token if what follows IT is
+ * also a structural continuation (comma, closer, or end of input) rather
+ * than more prose.
  */
 export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
   let out = '';
@@ -79,8 +86,8 @@ export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
         const rest = input.slice(k);
         closes = rest === ''
           || /^["{}[\]]/.test(rest)
-          || /^-?\d/.test(rest)
-          || /^(true|false|null)\b/.test(rest);
+          || /^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\s*(?:[,}\]]|$)/.test(rest)
+          || /^(?:true|false|null)\b\s*(?:[,}\]]|$)/.test(rest);
       }
       if (closes) {
         inStr = false;

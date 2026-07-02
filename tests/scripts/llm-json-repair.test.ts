@@ -88,6 +88,43 @@ describe('fixJsonStringBody', () => {
     expect(parsed.a).toBe('contains "quoted" text');
     expect(parsed.b).toBe('next');
   });
+
+  it('does not mistake a prose colon-then-percentage after a quoted phrase for a key:value separator', () => {
+    const broken = '{"a":"La tassa "IVA": 8% del prezzo."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('La tassa "IVA": 8% del prezzo.');
+  });
+
+  it('does not mistake a prose colon-then-count after a quoted phrase for a key:value separator', () => {
+    const broken = '{"a":"Il costo "extra": 100 franchi al mese."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('Il costo "extra": 100 franchi al mese.');
+  });
+
+  it('does not mistake a prose colon-then-negative-number after a quoted phrase for a key:value separator', () => {
+    const broken = '{"a":"il calo è "forte": -5% ieri."}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('il calo è "forte": -5% ieri.');
+  });
+
+  it('still treats a colon followed by a genuine numeric value as a real key:value separator', () => {
+    const broken = '{"a":"contains "quoted" text","count":42}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('contains "quoted" text');
+    expect(parsed.count).toBe(42);
+  });
+
+  it('still treats a colon followed by a genuine boolean value as a real key:value separator', () => {
+    const broken = '{"a":"contains "quoted" text","ok":true}';
+    const repaired = fixJsonStringBody(broken);
+    const parsed = JSON.parse(repaired);
+    expect(parsed.a).toBe('contains "quoted" text');
+    expect(parsed.ok).toBe(true);
+  });
 });
 
 describe('stripCodeFences', () => {
