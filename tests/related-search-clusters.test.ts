@@ -264,6 +264,22 @@ describe('isJunkSearchKeyword — drops generic filler / noise, keeps real inten
     expect(isJunkSearchKeyword('stipendio')).toBe(true);
   });
 
+  it('keeps "stipendio <role...>" as legitimate salary+role intent (issue #2764)', () => {
+    // "stipendio" is a generic filler catch, but "stipendio <role>" ("salary
+    // <role>") is a real, SEO-valuable search intent — audited against the
+    // live candidates file: ~4.8k "stipendio <role> svizzera" keywords were
+    // being wholesale dropped by the blanket first-token-junk rule.
+    expect(isJunkSearchKeyword('stipendio infermiere')).toBe(false);
+    expect(isJunkSearchKeyword('stipendio manager')).toBe(false);
+    expect(isJunkSearchKeyword('stipendio infermiere lugano')).toBe(false);
+    expect(isJunkSearchKeyword('Stipendio Senior Associate')).toBe(false);
+    // But the bare token alone, or the token followed only by other junk
+    // (city-leftover filler), still drops — the original PR #2756 fix for
+    // genuinely junk-led single-token-after-strip cases is unweakened.
+    expect(isJunkSearchKeyword('stipendio')).toBe(true);
+    expect(isJunkSearchKeyword('stipendio nella')).toBe(true);
+  });
+
   it('keeps real single-word job-search intents (role nouns)', () => {
     for (const real of ['ospedale', 'medico', 'infermiere', 'vendita', 'stage',
       'manager', 'formazione', 'assistenza', 'sicurezza', 'cuoco']) {
