@@ -39,7 +39,7 @@ const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const APPLY = process.argv.includes('--apply');
 
-function processFile(filePath) {
+export function processFile(filePath) {
   const slice = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   if (!Array.isArray(slice.jobs)) return null;
 
@@ -50,13 +50,21 @@ function processFile(filePath) {
   }
 
   let moved = 0;
-  const additions = new Map(); // targetJob -> locale -> Set(slug)
+  const additions = new Map(); // targetJob -> { locales: Map<locale, Set(slug)>, flat: Set(slug) }
+
+  const getEntry = (targetJob) => {
+    if (!additions.has(targetJob)) additions.set(targetJob, { locales: new Map(), flat: new Set() });
+    return additions.get(targetJob);
+  };
 
   const addToTarget = (targetJob, locale, slug) => {
-    if (!additions.has(targetJob)) additions.set(targetJob, new Map());
-    const localeMap = additions.get(targetJob);
-    if (!localeMap.has(locale)) localeMap.set(locale, new Set());
-    localeMap.get(locale).add(slug);
+    const entry = getEntry(targetJob);
+    if (!entry.locales.has(locale)) entry.locales.set(locale, new Set());
+    entry.locales.get(locale).add(slug);
+  };
+
+  const addFlatToTarget = (targetJob, slug) => {
+    getEntry(targetJob).flat.add(slug);
   };
 
   for (const job of slice.jobs) {
@@ -75,23 +83,27 @@ function processFile(filePath) {
     }
     if (Array.isArray(job.previousSlugs)) {
       job.previousSlugs = job.previousSlugs.filter((slug) => {
-        const { redirected } = resolveRecoveryTarget(job, slug, bySuffixHash);
-        return !redirected;
+        const { targetJob, redirected } = resolveRecoveryTarget(job, slug, bySuffixHash);
+        if (redirected) { moved++; addFlatToTarget(targetJob, slug); return false; }
+        return true;
       });
     }
   }
 
-  for (const [targetJob, localeMap] of additions) {
+  for (const [targetJob, entry] of additions) {
     if (!targetJob.previousSlugsByLocale || typeof targetJob.previousSlugsByLocale !== 'object') {
       targetJob.previousSlugsByLocale = {};
     }
     if (!Array.isArray(targetJob.previousSlugs)) targetJob.previousSlugs = [];
-    for (const [locale, slugs] of localeMap) {
+    for (const [locale, slugs] of entry.locales) {
       if (!Array.isArray(targetJob.previousSlugsByLocale[locale])) targetJob.previousSlugsByLocale[locale] = [];
       for (const slug of slugs) {
         if (!targetJob.previousSlugsByLocale[locale].includes(slug)) targetJob.previousSlugsByLocale[locale].push(slug);
         if (!targetJob.previousSlugs.includes(slug)) targetJob.previousSlugs.push(slug);
       }
+    }
+    for (const slug of entry.flat) {
+      if (!targetJob.previousSlugs.includes(slug)) targetJob.previousSlugs.push(slug);
     }
   }
 
@@ -100,15 +112,30 @@ function processFile(filePath) {
   return { moved };
 }
 
-let totalMoved = 0;
-let filesChanged = 0;
-for (const name of fs.readdirSync(BY_CRAWLER_DIR).filter((f) => f.endsWith('.json'))) {
-  const res = processFile(path.join(BY_CRAWLER_DIR, name));
-  if (res) {
-    filesChanged++;
-    totalMoved += res.moved;
-    console.log(`${name}: ${res.moved} moved`);
+function main() {
+  let totalMoved = 0;
+  let filesChanged = 0;
+  for (const name of fs.readdirSync(BY_CRAWLER_DIR).filter((f) => f.endsWith('.json'))) {
+    const res = processFile(path.join(BY_CRAWLER_DIR, name));
+    if (res) {
+      filesChanged++;
+      totalMoved += res.moved;
+      console.log(`${name}: ${res.moved} moved`);
+    }
   }
+  console.log(`\n${APPLY ? 'APPLIED' : 'DRY-RUN'}: ${filesChanged} file(s), ${totalMoved} slug(s) redirected to their correct current owner.`);
+  if (!APPLY && filesChanged > 0) console.log('Re-run with --apply to write.');
 }
-console.log(`\n${APPLY ? 'APPLIED' : 'DRY-RUN'}: ${filesChanged} file(s), ${totalMoved} slug(s) redirected to their correct current owner.`);
-if (!APPLY && filesChanged > 0) console.log('Re-run with --apply to write.');
+
+const isMain = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`
+      || import.meta.url === new URL(`file://${process.argv[1]}`).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (isMain) {
+  main();
+}
