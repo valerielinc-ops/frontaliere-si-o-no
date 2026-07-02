@@ -134,6 +134,7 @@ import { isNonItalianScript, nonItalianScriptRatio } from './lib/itLanguageCheck
 import { checkSemanticNearDuplicate } from './lib/scoring/semanticDedup.mjs';
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
+import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -7186,33 +7187,32 @@ function modifySeoService(data) {
   write(svcFile, svcSrc);
   console.error(`  ✅ ${svcFile}`);
 
-  // 3. ItemList in services/seo/seo-pages.ts — increment numberOfItems + append ListItem
+  // 3. ItemList in services/seo/seo-pages.ts — insert the new article via the
+  // shared, comma-safe helper (scripts/lib/seo-pages-article-list.mjs).
+  // History: a foreign in-place rename edit once string-spliced this array
+  // directly and left a duplicate old-slug entry with a missing comma
+  // (`} {`) → esbuild parse failure → main-red inherited by every branch
+  // (issue #2834, hotfixed by PR #2833). appendArticleListItem always
+  // rebuilds the touched entry (and its trailing comma) from regex capture
+  // groups rather than a blind splice, so that class of corruption is
+  // structurally impossible here; any future rename tooling should reuse
+  // upsertArticleListItem from the same module instead of hand-rolling this.
   const pagesFile = 'services/seo/seo-pages.ts';
-  let pagesSrc = read(pagesFile);
+  const pagesSrc = read(pagesFile);
 
-  const itemCountRe = /("name": "Articoli Frontaliere",\s*"numberOfItems": )(\d+)/;
-  const itemCountMatch = pagesSrc.match(itemCountRe);
-  if (itemCountMatch) {
-    const oldCount = parseInt(itemCountMatch[2], 10);
-    const newCount = oldCount + 1;
-    pagesSrc = pagesSrc.replace(itemCountRe, `$1${newCount}`);
-
-    const headlineStr = String(data.seo.headline || '');
-    const shortTitle = headlineStr.length > 50
-      ? headlineStr.slice(0, 47) + '...'
-      : headlineStr;
-    const newListItem = `          { "@type": "ListItem", "position": ${newCount}, "name": "${shortTitle.replace(/"/g, '\\"')}", "url": \`\${BASE_URL}/articoli-frontaliere/${data.slugs.it}\` }`;
-
-    const lastItemRe = /("url": `\$\{BASE_URL\}\/articoli-frontaliere\/[^`]+` \})\s*\n(\s*\])/;
-    if (lastItemRe.test(pagesSrc)) {
-      pagesSrc = pagesSrc.replace(lastItemRe, `$1,\n${newListItem}\n$2`);
-    } else {
-      console.error('  ⚠️ Could not find last ItemList entry to append new article');
-    }
-    write(pagesFile, pagesSrc);
+  const headlineStr = String(data.seo.headline || '');
+  const shortTitle = headlineStr.length > 50
+    ? headlineStr.slice(0, 47) + '...'
+    : headlineStr;
+  const newPagesSrc = appendArticleListItem(pagesSrc, {
+    name: shortTitle,
+    url: `\${BASE_URL}/articoli-frontaliere/${data.slugs.it}`,
+  });
+  if (newPagesSrc) {
+    write(pagesFile, newPagesSrc);
     console.error(`  ✅ ${pagesFile}`);
   } else {
-    console.error('  ⚠️ Could not find blog ItemList numberOfItems in seo-pages.ts');
+    console.error('  ⚠️ Could not find ItemList in seo-pages.ts — left untouched');
   }
 }
 
