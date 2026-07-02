@@ -24,6 +24,10 @@ const {
   loadExperimentalCounter,
   persistExperimentalCounter,
   shouldUseExperimentalTier,
+  loadEvergreenRejectedTracker,
+  isEvergreenRejected,
+  appendEvergreenRejected,
+  persistEvergreenRejectedTracker,
   RANKER_MIN_SCORE,
   EXPERIMENTAL_RATIO_DEFAULT,
 } = selectorMod as any;
@@ -356,5 +360,47 @@ describe('experimental counter', () => {
     const p = join(workDir, 'counter.json');
     persistExperimentalCounter({ count: 7 }, { path: p });
     expect(loadExperimentalCounter({ path: p })).toEqual({ count: 7 });
+  });
+});
+
+describe('evergreen-rejected tracker (#3138)', () => {
+  it('returns {keywords:[]} when missing', () => {
+    expect(loadEvergreenRejectedTracker({ path: join(workDir, 'missing.json') })).toEqual({ keywords: [] });
+  });
+
+  it('isEvergreenRejected is false for an unseen keyword', () => {
+    expect(isEvergreenRejected({ keywords: ['frontaliere a'] }, 'frontaliere b')).toBe(false);
+  });
+
+  it('isEvergreenRejected is true once appended', () => {
+    const tracker = appendEvergreenRejected({ keywords: [] }, 'frontaliere scelta comune residenza italia svizzera 2026 entro 20 km');
+    expect(isEvergreenRejected(tracker, 'frontaliere scelta comune residenza italia svizzera 2026 entro 20 km')).toBe(true);
+  });
+
+  it('append dedupes the same keyword', () => {
+    let tracker = { keywords: [] };
+    tracker = appendEvergreenRejected(tracker, 'kw-a');
+    tracker = appendEvergreenRejected(tracker, 'kw-a');
+    expect(tracker.keywords).toEqual(['kw-a']);
+  });
+
+  it('append FIFO-caps at maxIds, evicting oldest first', () => {
+    let tracker = { keywords: [] };
+    for (let i = 0; i < 5; i++) tracker = appendEvergreenRejected(tracker, `kw-${i}`, { maxIds: 3 });
+    expect(tracker.keywords).toEqual(['kw-2', 'kw-3', 'kw-4']);
+  });
+
+  it('persists + reloads', () => {
+    const p = join(workDir, 'rejected.json');
+    const tracker = appendEvergreenRejected({ keywords: [] }, 'kw-x');
+    persistEvergreenRejectedTracker(tracker, { path: p });
+    expect(loadEvergreenRejectedTracker({ path: p })).toEqual({ keywords: ['kw-x'] });
+  });
+
+  it('does not mutate the input tracker (pure)', () => {
+    const original = { keywords: ['kw-a'] };
+    const next = appendEvergreenRejected(original, 'kw-b');
+    expect(original.keywords).toEqual(['kw-a']);
+    expect(next.keywords).toEqual(['kw-a', 'kw-b']);
   });
 });

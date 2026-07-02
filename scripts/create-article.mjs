@@ -107,6 +107,10 @@ import {
   loadEvergreenCounter as _loadEvergreenCounter,
   persistEvergreenCounter as _persistEvergreenCounter,
   rankAndSelectHeadlines as _rankAndSelectHeadlines,
+  loadEvergreenRejectedTracker as _loadEvergreenRejectedTracker,
+  isEvergreenRejected as _isEvergreenRejected,
+  appendEvergreenRejected as _appendEvergreenRejected,
+  persistEvergreenRejectedTracker as _persistEvergreenRejectedTracker,
 } from './lib/article-topic-selector.mjs';
 
 // ── Phase 3 — Discovery pool + quota controller ──────────────────
@@ -1791,6 +1795,15 @@ function buildDynamicEvergreenTopics() {
     { k: `frontaliere documenti primo giorno lavoro ticino ${y}`, a: `Checklist operativa per il primo giorno di lavoro in Ticino: documenti, contratto, permesso, dati bancari e assicurazione sanitaria.` },
     { k: `frontaliere scelta comune residenza italia svizzera ${y}`, a: `Come valutare residenza in Italia o Svizzera nel ${y}: costi, tempi di viaggio, sanità e fiscalità con criteri decisionali.` },
     { k: `frontaliere trasporti chiasso lugano abbonamenti ${y}`, a: `Guida pratica ai trasporti Chiasso-Lugano per frontalieri: treno, auto, parcheggi e abbonamenti con checklist dei costi da verificare.` },
+    // 6 pillars added 2026-07-02 (#3138): frontaliere evergreen pool was
+    // saturated against the 2728-article corpus, blocking generation on
+    // every run. New base themes, not variations of an existing pillar.
+    { k: `frontaliere cambio datore lavoro procedura permesso ${y}`, a: `Guida ${y} al cambio datore di lavoro per frontalieri: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.` },
+    { k: `frontaliere infortunio lavoro assicurazione lainf ${y}`, a: `Assicurazione infortuni LAINF per frontalieri nel ${y}: copertura, procedura di denuncia e differenze con la malattia professionale.` },
+    { k: `frontaliere pensionamento anticipato pianificazione ${y}`, a: `Pensionamento anticipato per frontalieri ${y}: impatto su AVS/secondo pilastro, riduzione rendita e scenari di pianificazione ipotetici.` },
+    { k: `frontaliere nascita figlio anagrafe pratiche ${y}`, a: `Nascita di un figlio per famiglie frontaliere nel ${y}: iscrizione anagrafica, assegni familiari e pratiche consolari con checklist operativa.` },
+    { k: `frontaliere licenziamento diritti preavviso indennita ${y}`, a: `Licenziamento del lavoratore frontaliere nel ${y}: termini di preavviso, indennità e diritti con scenari ipotetici, non casi reali.` },
+    { k: `frontaliere formazione professionale riqualifica corsi ${y}`, a: `Formazione professionale e riqualifica per frontalieri nel ${y}: corsi riconosciuti, finanziamenti e come valutarne il ritorno pratico.` },
   ];
   const addOns = [
     'entro 20 km',
@@ -5706,6 +5719,12 @@ function evergreenTopicFamily(text) {
   if (hasAny(['disoccup'])) return 'disoccupazione';
   if (hasAny(['second']) && hasAny(['pilastr', 'lpp'])) return 'secondo-pilastro';
   if (hasAny(['auto']) && hasAny(['pendolar', 'frontali'])) return 'auto-pendolare';
+  // #3138 2026-07-02: pillar 8's 6 addon variants (entro/oltre 20km,
+  // famiglia/single, simulazione, errori comuni) are all near-duplicates
+  // of the base topic once it's published — this family classifies them
+  // together so pre-flight rejects the whole neighborhood in one shot
+  // instead of burning a generation attempt per addon.
+  if (hasAny(['resid']) && hasAny(['comun', 'scelt'])) return 'residenza-comune';
   return null;
 }
 
@@ -5734,7 +5753,9 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
   // ever reaching the loosened post-gen check. Kept in sync with TITLE_THRESHOLD.
   const PRE_FLIGHT_THRESHOLD = 0.72;
   const FAMILY_TOKEN_OVERLAP_THRESHOLD = 0.50;
-  const SATURATED_FAMILIES = new Set(['permesso-g-b', 'lamal-cmi', 'avs-inps', 'telelavoro', 'credito-imposta']);
+  // 'residenza-comune' added 2026-07-02 (#3138): pillar 8's base topic was
+  // just published, making its 6 addon variants immediate near-duplicates.
+  const SATURATED_FAMILIES = new Set(['permesso-g-b', 'lamal-cmi', 'avs-inps', 'telelavoro', 'credito-imposta', 'residenza-comune']);
 
   for (const existing of existingArticles) {
     const existingText = `${existing.title || ''} ${existing.excerpt || ''} ${existing.id || ''}`;
@@ -8058,6 +8079,13 @@ async function main() {
       const baseIndex = weekNum % topicPool.length;
       const totalTopics = topicPool.length;
 
+      // Cross-run duplicate memory (#3138, 2026-07-02): keywords already
+      // confirmed duplicate post-generation in a PREVIOUS cron run. Without
+      // this, a saturated pool (frontaliere: 2728 articles) gets the same
+      // doomed neighborhood re-attempted every 30-min run forever, since
+      // each run otherwise starts with zero memory of prior failures.
+      let evergreenRejectedTracker = _loadEvergreenRejectedTracker();
+
       // Pre-flight check — find first keyword that doesn't conflict with existing articles
       let selectedTopic = null;
       let selectedOffset = -1;
@@ -8066,6 +8094,10 @@ async function main() {
       for (let offset = 0; offset < totalTopics; offset++) {
         const idx = (baseIndex + offset) % totalTopics;
         const candidate = topicPool[idx];
+        if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword)) {
+          console.error(`   ⏭️  [${idx}] "${candidate.keyword}" → già rigettato come duplicato in run precedente — skip`);
+          continue;
+        }
         const check = preFlightEvergreenCheck(candidate);
         if (check.duplicate) {
           console.error(`   ⏭️  [${idx}] "${candidate.keyword}" → simile a "${check.existingTitle}" [${check.existingId}] (${(check.sim * 100).toFixed(0)}%) — skip`);
@@ -8127,6 +8159,13 @@ async function main() {
         } catch (e) {
           const isDuplicate = e.message.includes('DUPLICATO');
           if (isDuplicate) captureDuplicateReasons(e.message);
+          if (isDuplicate && selectedTopic) {
+            // Cross-run memory (#3138): persist immediately (not batched at
+            // run end) so a mid-loop wallBudgetExceeded() break can't lose
+            // already-confirmed rejections from this run.
+            evergreenRejectedTracker = _appendEvergreenRejected(evergreenRejectedTracker, selectedTopic.keyword);
+            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
+          }
           // Fact-check / quality failures → try next keyword instead of crashing.
           // Includes REGOLA #0 topic-gate aborts — same rationale as the proven-pool
           // branch above (~line 5946).
@@ -8149,6 +8188,10 @@ async function main() {
             if (triedOffsets.has(realOffset)) continue;
             const idx = (baseIndex + realOffset) % totalTopics;
             const candidate = topicPool[idx];
+            if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword)) {
+              triedOffsets.add(realOffset);
+              continue;
+            }
             const check = preFlightEvergreenCheck(candidate);
             if (!check.duplicate) {
               selectedTopic = candidate;
