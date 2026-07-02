@@ -95,8 +95,18 @@ describe('topic-gate abort cross-run tracker persistence (#3242)', () => {
   it('topic-gate abort is written to the evergreen-rejected tracker alongside duplicates', () => {
     // Pre: isTopicGateAbort must be computed BEFORE the tracker-write condition
     // so the condition can reference it. Verify the ordering is correct.
+    //
+    // Anchor: `const isDuplicate` + `captureDuplicateReasons` alone also match
+    // the proven-pool catch site (~line 7987), which contains the same two
+    // lines verbatim. Since that occurrence comes first in the file, a lazy
+    // [\s\S]*? starting there would swallow both catch blocks and hand back
+    // proven-pool's (wrong) `isTopicGateAbort` position instead of the
+    // evergreen catch's. The comment below only follows those two lines
+    // immediately in the evergreen catch (the proven-pool site has a
+    // duplicate-retry `if` there instead), so requiring it right after
+    // anchors the match to the correct block.
     const evergreenCatch = SRC.match(
-      /\} catch \(e\) \{\s*const isDuplicate[\s\S]*?Duplicato post-generazione[\s\S]*?\}/,
+      /\} catch \(e\) \{\s*const isDuplicate = e\.message\.includes\('DUPLICATO'\);\s*if \(isDuplicate\) captureDuplicateReasons\(e\.message\);\s*\/\/ Fact-check \/ quality failures → try next keyword instead of crashing[\s\S]*?Duplicato post-generazione[\s\S]*?\}/,
     );
     expect(evergreenCatch, 'evergreen catch block not found').toBeTruthy();
     const block = evergreenCatch![0];
@@ -118,7 +128,7 @@ describe('topic-gate abort cross-run tracker persistence (#3242)', () => {
     // Quality rejects (thin/short content) are transient; the condition that
     // writes to the tracker must NOT include a bare isQualityReject branch.
     const evergreenCatch = SRC.match(
-      /\} catch \(e\) \{\s*const isDuplicate[\s\S]*?Duplicato post-generazione[\s\S]*?\}/,
+      /\} catch \(e\) \{\s*const isDuplicate = e\.message\.includes\('DUPLICATO'\);\s*if \(isDuplicate\) captureDuplicateReasons\(e\.message\);\s*\/\/ Fact-check \/ quality failures → try next keyword instead of crashing[\s\S]*?Duplicato post-generazione[\s\S]*?\}/,
     );
     expect(evergreenCatch, 'evergreen catch block not found').toBeTruthy();
     const block = evergreenCatch![0];
