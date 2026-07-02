@@ -1,0 +1,40 @@
+{
+  "id": "ristorni-frontalieri-bloccati-alfieri-pd",
+  "slug": "ristorni-frontalieri-bloccati-alfieri-pd",
+  "publishedAt": "2026-07-02T06:30:46.664Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:malpensa24.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.8066944274057763,
+    "confidence": 0.8,
+    "finalScore": 3.0453555419246214,
+    "topK": [
+      {
+        "slug": "abolire-tassa-salute-frontalieri",
+        "cosine": 0.8763559751334736
+      },
+      {
+        "slug": "blocco-ristorni-ticino-italia-2026",
+        "cosine": 0.874438416161588
+      },
+      {
+        "slug": "ristorni-imprese-allarme-ticino",
+        "cosine": 0.8709291309892931
+      },
+      {
+        "slug": "ristorni-bloccati-ticino-italia",
+        "cosine": 0.8649641808603818
+      },
+      {
+        "slug": "tassa-salute-frontalieri-ticino-2026",
+        "cosine": 0.8635256814585486
+      }
+    ],
+    "score": 1.5226777709623107,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

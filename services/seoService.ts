@@ -4337,6 +4337,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-quanto-costa-vivere-lugano-frontaliere': { name: 'Frontalieri', path: '/articoli-svizzera/quanto-costa-vivere-lugano-frontaliere/', parent: 'blog' },
     'blog-frontaliere-2026-residenza-italia-svizzera': { name: 'Frontaliere', path: '/articoli-svizzera/frontaliere-2026-residenza-italia-svizzera/', parent: 'blog' },
     'blog-frontaliere-figli-asilo-nido-svizzera': { name: 'Frontaliere con figli', path: '/articoli-svizzera/frontaliere-figli-asilo-nido-svizzera/', parent: 'blog' },
+    'blog-ristorni-frontalieri-bloccati-alfieri-pd': { name: 'Ristorni frontalieri', path: '/articoli-svizzera/ristorni-frontalieri-bloccati-alfieri-pd/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

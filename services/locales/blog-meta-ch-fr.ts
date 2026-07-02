@@ -829,6 +829,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Frontalier avec enfants : Guide pratique des crèches tessinoises',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Tout ce que vous devez savoir sur les coûts, les listes d’attente et les alternatives italiennes pour les navetteurs transfrontaliers avec enfants en Suisse.',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Famille frontalier avec enfants en garderie suisse',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Remboursements gelés : suppression de la taxe santé demandée',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'Le Conseil d\'État suisse a suspendu les remboursements aux frontaliers de Lombardie. Alfieri et Artoni réclament la suppression de la taxe santé.',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Vue panoramique de Bellinzona, Suisse, avec le château en premier plan et les montagnes en arrière-plan.',
 };
 
 export default blogMetaChFr;
