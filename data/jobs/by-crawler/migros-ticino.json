@@ -8335,9 +8335,9 @@
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -8384,6 +8384,13 @@
       "postalCode": "8500",
       "country": "CH",
       "previousSlugs": [
+        "seller-denner-ag-frauenfeld-008421",
+        "vendeur-denner-ag-frauenfeld-008421",
+        "venditore-denner-ag-gossau-sg",
+        "venditore-denner-ag-frauenfeld-008421",
+        "verkaufer-in-denner-ag-gossau-sg-66bf93",
+        "verkaufer-in-denner-ag-gossau-sg",
+        "venditore-denner-ag-frauenfeld-7kk8ni",
         "venditore-denner-ag-zurich-9ufgm8",
         "seller-denner-ag-zurich-1d38ef",
         "verkaufer-in-denner-ag-zurich",
@@ -8395,34 +8402,20 @@
         "vendeur-denner-ag-langenthal-634638",
         "venditore-denner-ag-urdorf",
         "verkaufer-in-denner-ag-urdorf-56ql1j",
-        "venditore-denner-ag-langenthal-oggkv1",
-        "verkaufer-in-denner-ag-langenthal",
-        "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
-        "verkaufer-in-denner-ag-wattwil",
-        "vendeur-denner-ag-wattwil",
-        "venditore-denner-ag-wattwil-8129f7",
-        "venditore-denner-ag-wattwil",
-        "venditore-denner-ag-ruti-zh-t7zg1v",
-        "verkaufer-in-denner-ag-urdorf"
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ],
         "it": [
-          "venditore-denner-ag-gossau-sg",
-          "venditore-denner-ag-langenthal-oggkv1",
-          "verkaufer-in-denner-ag-langenthal",
-          "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
-          "verkaufer-in-denner-ag-wattwil",
-          "vendeur-denner-ag-wattwil",
-          "venditore-denner-ag-wattwil-8129f7",
-          "venditore-denner-ag-wattwil",
-          "venditore-denner-ag-ruti-zh-t7zg1v",
-          "verkaufer-in-denner-ag-urdorf"
+          "venditore-denner-ag-gossau-sg"
         ]
       }
     },
