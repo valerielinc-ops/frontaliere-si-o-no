@@ -1,16 +1,16 @@
 {
   "key": "convit-holding",
   "label": "Convit Holding",
-  "generatedAt": "2026-07-02T11:00:07.816Z",
+  "generatedAt": "2026-07-02T21:37:43.333Z",
   "total": 161,
   "newCount": 70,
   "updatedCount": 38,
   "removedCount": 0,
   "unchangedCount": 53,
-  "durationMs": 288554,
-  "avgDurationMs": 288554,
+  "durationMs": 253923,
+  "avgDurationMs": 253923,
   "durationHistory": [
-    288554
+    253923
   ],
   "newJobs": [
     {
@@ -1936,12 +1936,13 @@
       "currency": "CHF",
       "postalCode": "1204",
       "firstSeenAt": "2026-06-03T13:19:58.411Z",
-      "_qualityScore": 94,
+      "streetAddress": "Via Balestra 12",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
