@@ -4359,6 +4359,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ristorni-lombardia-ticino': { name: 'Ristorni', path: '/articoli-frontaliere/ristorni-lombardia-ticino', parent: 'blog' },
     'blog-frontaliere-formazione-2026': { name: 'Formazione professionale', path: '/articoli-svizzera/frontaliere-formazione-2026/', parent: 'blog' },
     'blog-ristorazione-ticinese-ore-non-pagate': { name: 'Ore non pagate', path: '/articoli-frontaliere/ristorazione-ticinese-ore-non-pagate', parent: 'blog' },
+    'blog-pensionamento-anticipato-frontalieri-2026': { name: 'Pensionamento anticipato', path: '/articoli-svizzera/pensionamento-anticipato-frontalieri-2026/', parent: 'blog' },
+    'blog-ticino-blocca-ristorni-roma-berna': { name: 'Ticino blocca ristorni', path: '/articoli-frontaliere/ticino-blocca-ristorni-roma-berna', parent: 'blog' },
  };
 
  const info = sectionNames[section];
