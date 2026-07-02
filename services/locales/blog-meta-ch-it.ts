@@ -817,6 +817,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassa-salute-ristorni-ticino.title': 'Tassa sulla salute e meno ristorni: l\'obiettivo del Ticino',
     'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, consigliere nazionale, propone di utilizzare la nuova tassa sanitaria italiana per ridurre i ristorni ai frontalieri.',
     'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.title': 'Pensione 2026: coordinamento AVS/INPS',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.excerpt': 'Scopri come il coordinamento AVS/INPS e la totalizzazione influenzeranno la pensione dei frontalieri entro 20 km dal confine.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaChIt;

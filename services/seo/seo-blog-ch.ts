@@ -10509,6 +10509,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pensione-avs-inps-2026-entro-20km': {
+    title: 'Pensione 2026: coordinamento AVS/INPS | Frontaliere Ticino',
+    description: 'Scopri come il coordinamento AVS/INPS e la totalizzazione influenzeranno la pensione dei frontalieri entro 20 km dal confine. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, coordinamento, inps, scopri',
+    ogTitle: 'Pensione frontaliere 2026: coordinamento AVS/INPS, totalizzazione e pianificazione',
+    ogDescription: 'Scopri come il coordinamento AVS/INPS e la totalizzazione influenzeranno la pensione dei frontalieri entro 20 km dal confine.',
+    canonicalPath: '/articoli-svizzera/frontaliere-pensione-avs-inps-2026-entro-20km/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione 2026: coordinamento AVS/INPS",
+      "description": "Scopri come il coordinamento AVS/INPS e la totalizzazione influenzeranno la pensione dei frontalieri entro 20 km dal confine. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensione-avs-inps-2026-entro-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-07-02T01:26:19+00:00",
+      "dateModified": "2026-07-02T01:26:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-pensione-avs-inps-2026-entro-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

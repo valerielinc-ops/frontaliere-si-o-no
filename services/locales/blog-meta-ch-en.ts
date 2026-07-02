@@ -817,6 +817,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassa-salute-ristorni-ticino.title': 'Health tax and less refreshments: the goal of Ticino',
     'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, national councilor, proposes to use the new Italian health tax to reduce rebates to cross-border workers.',
     'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.title': 'Pension 2026: AHV/INPS coordination',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.excerpt': 'Find out how AHV/INPS coordination and aggregation will affect the pension of cross-border commuters within 20 km of the border.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-entro-20km.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaChEn;
