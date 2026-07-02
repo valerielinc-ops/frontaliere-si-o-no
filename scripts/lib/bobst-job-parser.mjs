@@ -358,7 +358,11 @@ async function fetchJobListings(options = {}) {
           await page.close().catch(() => undefined);
           return [];
         }
-        // Empty page mid-walk — natural end of pagination.
+        // Rows never appeared — could be genuine end of pagination, or a
+        // transient render/anti-bot hiccup indistinguishable from EOF here.
+        console.warn(
+          `   ⚠️ Bobst: rows never appeared on page ${pageIdx} — treating as end of pagination.`,
+        );
         await page.close().catch(() => undefined);
         break;
       }

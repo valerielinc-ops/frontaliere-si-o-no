@@ -4008,6 +4008,8 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
 
 // FRO-231: fingerprint, slug registry, dedup → moved to top of file (FRO-359)
 
+const GRACE_PERIOD_MAX_MISSES = 2;
+
 function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}) {
   const activeDomains = new Set(
     (results || [])
@@ -4038,7 +4040,27 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
       }
       const fp = fingerprintJob(job);
       if (fp && !incomingFp.has(fp)) {
+        // Grace period before dropping a job absent from this run's incoming
+        // set — mirrors mergePreserveLocaleData's silent-job-loss guard in
+        // dedicated-crawler-common.mjs: a domain counting as "active" only
+        // means SOME page scraped, not that every page did, so one run's
+        // partial-page miss shouldn't be a permanent removal.
+        const missStreak = (Number(job?.crawlerMissStreak) || 0) + 1;
+        if (missStreak <= GRACE_PERIOD_MAX_MISSES) {
+          prunedExisting.push({ ...job, crawlerMissStreak: missStreak });
+          continue;
+        }
         removed += 1;
+        continue;
+      }
+      if (fp && job?.crawlerMissStreak) {
+        // Job reappeared this run — clear a streak left by a prior miss so
+        // the grace period counts CONSECUTIVE misses, not cumulative ones.
+        // Without this, mergeAndDeduplicate's `{ ...prev, ...next }` spread
+        // downstream would carry the stale count forward forever, since the
+        // freshly-scraped `next` job never has this field to overwrite it.
+        const { crawlerMissStreak, ...rest } = job;
+        prunedExisting.push(rest);
         continue;
       }
     }
