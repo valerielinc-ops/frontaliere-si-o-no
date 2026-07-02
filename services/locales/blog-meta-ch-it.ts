@@ -829,6 +829,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Frontaliere con figli: Guida pratica agli asili nido ticinesi',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Tutto quello che devi sapere su costi, liste d\'attesa e alternative italiane per i frontalieri con figli in Svizzera.',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Famiglia frontaliera con figli in asilo nido svizzero',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Ristorni bloccati: Alfieri e Artoni chiedono l\'abolizione della tassa salute',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'Il Consiglio di Stato elvetico ha bloccato i ristorni frontalieri per la Lombardia. Alfieri e Artoni chiedono l\'abolizione della tassa salute.',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Vista panoramica di Bellinzona, Svizzera, con il castello in primo piano e le montagne sullo sfondo.',
 };
 
 export default blogMetaChIt;

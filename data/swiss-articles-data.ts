@@ -2483,6 +2483,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ristorni-frontalieri-bloccati-alfieri-pd',
+    category: 'fiscale',
+    date: '2026-07-02T06:30:36.794Z',
+    image: '/images/blog/ristorni-frontalieri-bloccati-alfieri-pd.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

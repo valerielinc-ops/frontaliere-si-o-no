@@ -829,6 +829,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Border workers with children: A practical guide to Ticino kindergartens',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Everything you need to know about costs, waiting lists and Italian alternatives for cross-border commuters with children in Switzerland.',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Frontalier family with children in Swiss kindergarten',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Refunds Frozen: Alfieri and Artoni Call for the Abolition of the Health Tax',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'The Swiss Council of States has blocked cross-border tax rebates for Lombardy. Alfieri and Artoni are calling for the abolition of the health tax.',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Panoramic view of Bellinzona, Switzerland, with the castle in the foreground and mountains in the background.',
 };
 
 export default blogMetaChEn;

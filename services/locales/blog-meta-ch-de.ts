@@ -829,6 +829,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-figli-asilo-nido-svizzera.title': 'Grenzpendler mit Kindern: Asylnido im Tessin',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.excerpt': 'Alles, was Sie über Kosten, Wartelisten und italienische Alternativen für grenzüberschreitende Pendler mit Kindern in der Schweiz wissen müssen.',
     'blog.article.frontaliere-figli-asilo-nido-svizzera.imageAlt': 'Frontalierfamilie mit Kindern in Schweizer Kindergarten',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Rückerstattungen blockiert: Alfieri und Artoni fordern Abschaffung der Gesundheitssteuer',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'Der Schweizer Staatsrat hat die Grenzrückerstattungen für die Lombardei gestoppt. Alfieri und Artoni fordern die Abschaffung der Gesundheitsabgabe.',
+    'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Panoramablick auf Bellinzona, Schweiz, mit der Burg im Vordergrund und Bergen im Hintergrund.',
 };
 
 export default blogMetaChDe;
