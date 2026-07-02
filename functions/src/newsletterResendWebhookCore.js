@@ -106,6 +106,14 @@ function buildDeliveryDocId(email, campaignId) {
  return buildCanonicalDeliveryDocId(campaignId, email);
 }
 
+// Terminal negative statuses: once a subscriber lands in one of these, a
+// later delivered/open/click event (e.g. a queued/retried ESP notification
+// racing a complaint, or a stale open replaying after a hard bounce) must
+// NOT resurrect them back to 'confirmed'/active. Re-promoting a complained,
+// suppressed, or hard-bounced address is a deliverability/compliance risk
+// (see issue #3305).
+const TERMINAL_NEGATIVE_STATUSES = new Set(['complained', 'suppressed', 'bounced']);
+
 function buildSubscriberUpdate(eventType, data, currentStatus) {
  const FieldValue = admin.firestore.FieldValue;
  const update = {
@@ -165,8 +173,11 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  // Only promote to confirmed if the subscriber already has a non-pending status.
  // Pending subscribers (or unknown/new ones) must complete email verification
  // before being promoted — a mere delivery or open does not constitute opt-in.
+ // Terminal negative statuses (complained/suppressed/bounced) must also be
+ // excluded — otherwise a delivered/open/click event racing (or following)
+ // a suppression event would silently resurrect the subscriber (#3305).
  if (eventType === 'delivered' || eventType === 'open' || eventType === 'click') {
- const skipPromotion = !currentStatus || currentStatus === 'pending';
+ const skipPromotion = !currentStatus || currentStatus === 'pending' || TERMINAL_NEGATIVE_STATUSES.has(currentStatus);
  if (!skipPromotion) {
  update.status = 'confirmed';
  update.isActive = true;

@@ -269,6 +269,78 @@ describe('newsletterResendWebhookCore', () => {
     expect(subscriberSet!.data.status).toBeUndefined();
   });
 
+  it.each(['complained', 'suppressed', 'bounced'])(
+    'does NOT resurrect a %s subscriber back to confirmed on a later delivered event (#3305)',
+    async (terminalStatus) => {
+      const db = createFakeDb({
+        newsletter_subscribers: {
+          'terminal@example.com': { status: terminalStatus, isActive: false, active: false },
+        },
+      });
+
+      await applyResendWebhookEvent({
+        type: 'email.delivered',
+        data: { email: 'terminal@example.com', email_id: 'msg_resurrect' },
+      }, { db: db as any });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && s.docId === 'terminal@example.com',
+      );
+      expect(subscriberSet).toBeTruthy();
+      // Promotion must be skipped — status/isActive/active must NOT be
+      // overwritten back to 'confirmed'/true for terminal negative statuses.
+      expect(subscriberSet!.data.status).toBeUndefined();
+      expect(subscriberSet!.data.isActive).toBeUndefined();
+      expect(subscriberSet!.data.active).toBeUndefined();
+    },
+  );
+
+  it.each(['complained', 'suppressed', 'bounced'])(
+    'does NOT resurrect a %s subscriber back to confirmed on a later open event (#3305)',
+    async (terminalStatus) => {
+      const db = createFakeDb({
+        newsletter_subscribers: {
+          'terminal-open@example.com': { status: terminalStatus, isActive: false, active: false },
+        },
+      });
+
+      await applyResendWebhookEvent({
+        type: 'email.opened',
+        data: { email: 'terminal-open@example.com', email_id: 'msg_resurrect_open' },
+      }, { db: db as any });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && s.docId === 'terminal-open@example.com',
+      );
+      expect(subscriberSet).toBeTruthy();
+      expect(subscriberSet!.data.status).toBeUndefined();
+      expect(subscriberSet!.data.isActive).toBeUndefined();
+    },
+  );
+
+  it.each(['complained', 'suppressed', 'bounced'])(
+    'does NOT resurrect a %s subscriber back to confirmed on a later click event (#3305)',
+    async (terminalStatus) => {
+      const db = createFakeDb({
+        newsletter_subscribers: {
+          'terminal-click@example.com': { status: terminalStatus, isActive: false, active: false },
+        },
+      });
+
+      await applyResendWebhookEvent({
+        type: 'email.clicked',
+        data: { email: 'terminal-click@example.com', email_id: 'msg_resurrect_click' },
+      }, { db: db as any });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && s.docId === 'terminal-click@example.com',
+      );
+      expect(subscriberSet).toBeTruthy();
+      expect(subscriberSet!.data.status).toBeUndefined();
+      expect(subscriberSet!.data.isActive).toBeUndefined();
+    },
+  );
+
   it('rejects unsupported event types', async () => {
     const db = createFakeDb();
     const result = await applyResendWebhookEvent({
