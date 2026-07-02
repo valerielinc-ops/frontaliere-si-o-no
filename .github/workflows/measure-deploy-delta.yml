@@ -100,11 +100,48 @@ jobs:
           echo "run_a=$A" >> "$GITHUB_OUTPUT"
           echo "run_b=$B" >> "$GITHUB_OUTPUT"
 
-      - name: Download OLDER artifact
-        run: gh run download "${{ steps.pick.outputs.run_a }}" -n github-pages -D A
+      - name: Fetch OLDER artifact
+        run: |
+          set -e
+          RID="${{ steps.pick.outputs.run_a }}"
+          # `gh run download -n github-pages` does not reliably yield artifact.tar
+          # for the large (>1 GB) Pages artifact — same proven gh-api-zip fix as
+          # audit-dist-from-run.yml / seed-*.yml (PR #3101, issue #3104 item 2).
+          ARTIFACT_ID=$(gh api "repos/$GH_REPO/actions/runs/$RID/artifacts" \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $RID."
+            exit 1
+          fi
+          mkdir -p A
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
+            > /tmp/older.zip
+          unzip -q /tmp/older.zip -d A
+          if [ ! -f A/artifact.tar ]; then
+            echo "::error::Expected A/artifact.tar — saw $(ls A)"
+            exit 1
+          fi
 
-      - name: Download NEWER artifact
-        run: gh run download "${{ steps.pick.outputs.run_b }}" -n github-pages -D B
+      - name: Fetch NEWER artifact
+        run: |
+          set -e
+          RID="${{ steps.pick.outputs.run_b }}"
+          ARTIFACT_ID=$(gh api "repos/$GH_REPO/actions/runs/$RID/artifacts" \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $RID."
+            exit 1
+          fi
+          mkdir -p B
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
+            > /tmp/newer.zip
+          unzip -q /tmp/newer.zip -d B
+          if [ ! -f B/artifact.tar ]; then
+            echo "::error::Expected B/artifact.tar — saw $(ls B)"
+            exit 1
+          fi
 
       - name: Measure delta (stream-hash, no extract)
         run: |

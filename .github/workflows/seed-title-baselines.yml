@@ -102,19 +102,19 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - name: Download github-pages artifact from latest deploy
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p /tmp/gh-pages-artifact dist
-          gh run download ${{ steps.latest.outputs.run_id }} \
-            --name "github-pages" \
-            --dir /tmp/gh-pages-artifact/
-          ls -lh /tmp/gh-pages-artifact/
+      - name: Fetch github-pages artifact
+        id: pages
+        uses: ./.github/actions/fetch-pages-artifact
+        with:
+          run-id: ${{ steps.latest.outputs.run_id }}
+          output-dir: /tmp/pages
+          github-token: ${{ github.token }}
 
       - name: Extract dist/
         run: |
-          tar -xf /tmp/gh-pages-artifact/artifact.tar -C dist
+          set -e
+          mkdir -p dist
+          tar -xf "${{ steps.pages.outputs.tar-path }}" -C dist
           echo "dist/ tree (top level):"
           ls dist/ | head
           echo ""

@@ -115,33 +115,19 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - name: Download + extract github-pages dist
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Fetch github-pages artifact
+        id: pages
+        uses: ./.github/actions/fetch-pages-artifact
+        with:
+          run-id: ${{ steps.latest.outputs.run_id }}
+          output-dir: /tmp/pages
+          github-token: ${{ github.token }}
+
+      - name: Extract dist/
         run: |
           set -e
-          RID=${{ steps.latest.outputs.run_id }}
-          # Resolve the github-pages artifact id and pull the zip via the API —
-          # `gh run download --name github-pages` does not reliably yield
-          # artifact.tar for the large (>1 GB) Pages artifact. Mirrors the proven
-          # download path in audit-dist-from-run.yml.
-          ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts \
-            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
-          if [ -z "$ARTIFACT_ID" ]; then
-            echo "::error::No 'github-pages' artifact on run $RID."
-            exit 1
-          fi
-          mkdir -p /tmp/pages dist
-          gh api -H "Accept: application/vnd.github+json" \
-            repos/${{ github.repository }}/actions/artifacts/$ARTIFACT_ID/zip \
-            > /tmp/pages.zip
-          unzip -q /tmp/pages.zip -d /tmp/pages
-          if [ -f /tmp/pages/artifact.tar ]; then
-            tar -xf /tmp/pages/artifact.tar -C dist
-          else
-            echo "::error::Expected /tmp/pages/artifact.tar — saw $(ls /tmp/pages)"
-            exit 1
-          fi
+          mkdir -p dist
+          tar -xf "${{ steps.pages.outputs.tar-path }}" -C dist
           echo "Restored $(find dist -type f | wc -l) files into dist/; HTML: $(find dist -name '*.html' | wc -l)"
 
       # Rehydrate stripped en/de/fr locale subtrees so dist/ is the COMPLETE
