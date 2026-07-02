@@ -8219,6 +8219,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-ai-difficolta-finanziarie.title': 'Il forte aumento delle nuove rendite mette l\'AI in difficoltà finanziarie',
     'blog.article.avs-ai-difficolta-finanziarie.excerpt': 'Il forte aumento delle nuove rendite AI mette l\'assicurazione invalidità in difficoltà finanziarie. Per l\'AVS, il primo versamento della 13a mensilità comporta un risultato negativo.',
     'blog.article.avs-ai-difficolta-finanziarie.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.ristorni-lombardia-ticino.title': 'Ristorni, Svizzera minaccia Lombardia: ritiri la tassa',
+    'blog.article.ristorni-lombardia-ticino.excerpt': 'Il senatore varesino del Pd, Alessandro Alfieri, invita la Regione Lombardia a ritirare la tassa sulla salute per evitare il blocco dei ristorni da parte della Svizzera.',
+    'blog.article.ristorni-lombardia-ticino.imageAlt': 'Vista panoramica di Castelgrande a Bellinzona',
 };
 
 export default blogMetaIt;

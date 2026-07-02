@@ -8218,6 +8218,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-ai-difficolta-finanziarie.title': 'The sharp increase in new pensions puts the IV in financial difficulty',
     'blog.article.avs-ai-difficolta-finanziarie.excerpt': 'The sharp increase in new IV pensions is putting disability insurance in financial difficulty. For the AHV, the first payment of the 13th month results in a negative result.',
     'blog.article.avs-ai-difficolta-finanziarie.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.ristorni-lombardia-ticino.title': 'Ristorni, Switzerland threatens Lombardy: withdraw the tax',
+    'blog.article.ristorni-lombardia-ticino.excerpt': 'The Varese senator of the Democratic Party, Alessandro Alfieri, calls on the Lombardy Region to withdraw the health tax to avoid the blocking of rebates by Switzerland.',
+    'blog.article.ristorni-lombardia-ticino.imageAlt': 'Panoramic view of Castelgrande in Bellinzona',
 };
 
 export default blogMetaEn;

@@ -8219,6 +8219,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avs-ai-difficolta-finanziarie.title': 'La forte augmentation des nouvelles retraites met l’IV en difficulté financière',
     'blog.article.avs-ai-difficolta-finanziarie.excerpt': 'La forte augmentation des nouvelles retraites IV met l’assurance invalidité en difficulté financière. Pour le CVA, le premier paiement du 13e mois donne un résultat négatif.',
     'blog.article.avs-ai-difficolta-finanziarie.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
+    'blog.article.ristorni-lombardia-ticino.title': 'Réductions, la Suisse menace la Lombardie : retrait de l’impôt',
+    'blog.article.ristorni-lombardia-ticino.excerpt': 'Le sénateur varesino du PD, Alessandro Alfieri, invite la Région Lombardie à retirer la taxe sur la santé pour éviter le blocage des restaurants par la Suisse.',
+    'blog.article.ristorni-lombardia-ticino.imageAlt': 'Vue panoramique de Castelgrande à Bellinzona',
 };
 
 export default blogMetaFr;
