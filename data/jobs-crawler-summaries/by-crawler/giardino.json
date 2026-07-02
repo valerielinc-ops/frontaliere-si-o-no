@@ -1,18 +1,19 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-07-01T22:17:50.477Z",
+  "generatedAt": "2026-07-02T11:06:23.119Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5880,
-  "avgDurationMs": 5880,
+  "durationMs": 6263,
+  "avgDurationMs": 6263,
   "durationHistory": [
-    5880
+    6263
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "giardino-fa048f90699b",
       "slug": "reservations-front-office-specialist-m-w-giardino-group-champfer",
@@ -25,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T22:17:48.134Z",
+      "crawledAt": "2026-07-02T11:06:21.056Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-07-01",
       "applyUrl": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-07-01T22:17:48.134Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "giardino-a70fdbb79832",
       "slug": "housekeeping-attendant-giardino-group-ascona",
@@ -62,7 +62,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-01T22:17:48.136Z",
+      "crawledAt": "2026-07-02T11:06:21.057Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
