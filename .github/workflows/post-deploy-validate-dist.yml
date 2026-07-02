@@ -262,16 +262,29 @@ jobs:
             rm -rf "$dl"; mkdir -p "$dl"
             if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
               rm -rf "dist/$loc" "dist/$loc.html"
-              # `|| true`: a corrupt/truncated tar must fall through to the
-              # git-clone fallback (the `[ -d dist/$loc ]` check below), not abort
-              # the whole rehydrate step under `set -e` and skip the fallback.
+              # Completeness, not just existence (#2761 item 2): `[ -d dist/$loc ]`
+              # alone only proves SOME files landed, not that extraction finished —
+              # a truncated/corrupted tar can still leave a partially-populated
+              # dist/$loc/ that passes a bare directory check with no fallback.
+              # `tar -tf` lists what the archive itself claims to contain (empty
+              # on a corrupt header); comparing that count to what actually landed
+              # on disk after extraction catches a short read the old check missed.
+              # `|| true` throughout: any anomaly here must fall through to the
+              # git-clone fallback below, not abort the rehydrate step under `set -e`.
+              expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
               tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
               rm -rf "$dl"
+              actual_n=0
               if [ -d "dist/$loc" ]; then
-                echo "rehydrated $loc from tar artifact: $(find "dist/$loc" -type f | wc -l) files"
+                actual_n=$(find "dist/$loc" -type f | wc -l)
+                [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
+              fi
+              if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
                 continue
               fi
-              echo "[rehydrate] $loc tar present but no $loc/ subtree after extract — falling back to git clone"
+              rm -rf "dist/$loc" "dist/$loc.html"
+              echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
             else
               rm -rf "$dl"
               echo "[rehydrate] $loc artifact absent — falling back to git clone"
@@ -334,15 +347,27 @@ jobs:
             if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
               mkdir -p "dist/$(dirname "$sub")"
               rm -rf "dist/$sub"
-              # `|| true`: a corrupt/truncated tar must fall through to the
+              # Completeness, not just existence (#2761 item 2, mirrors the locale
+              # rehydrate above): `[ -d dist/$sub ]` alone only proves SOME files
+              # landed, not that extraction finished. Compare what the tar itself
+              # claims to contain (`tar -tf`, empty on a corrupt header) against
+              # what actually landed on disk after extraction — catches a
+              # truncated/corrupted tar that a bare directory check would miss.
+              # `|| true` throughout: any anomaly here must fall through to the
               # git-clone fallback below, not abort under `set -e`.
+              expected_n=$(tar -tf "$dl/ticino-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
               tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
               rm -rf "$dl"
+              actual_n=0
               if [ -d "dist/$sub" ]; then
-                echo "rehydrated Ticino $loc from tar artifact: $(find "dist/$sub" -type f | wc -l) files"
+                actual_n=$(find "dist/$sub" -type f | wc -l)
+              fi
+              if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                echo "rehydrated Ticino $loc from tar artifact: $actual_n files (tar listed $expected_n)"
                 continue
               fi
-              echo "[rehydrate] ticino-$loc tar present but no $sub subtree after extract — falling back to git clone"
+              rm -rf "dist/$sub"
+              echo "[rehydrate] ticino-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
             else
               rm -rf "$dl"
               echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
