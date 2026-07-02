@@ -1092,7 +1092,14 @@
       window.addEventListener('unhandledrejection', function(e) {
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
         var reason = (e.reason && e.reason.message) || String(e.reason || '');
-        if (reason.indexOf('dynamically imported module') === -1 &&
+        // Keep this substring list in sync with CHUNK_LOAD_ERROR_SUBSTRINGS in
+        // services/resilientImport.ts (this pre-module bootstrap script cannot
+        // import that module). This copy was missing 'Importing a module script
+        // failed' (WebKit's generic module-load-failure wording) — a Safari user
+        // hitting that exact signature on the SPA entry page had no self-heal
+        // listener for it (issue #3216 item 1; AGENTS.md §Non-Negotiables #6).
+        if (reason.indexOf('Importing a module script failed') === -1 &&
+            reason.indexOf('dynamically imported module') === -1 &&
             reason.indexOf('Loading chunk') === -1 &&
             reason.indexOf('Loading CSS chunk') === -1 &&
             !/does not provide an export named|import not found|indirect export|Importing binding name/.test(reason)) return;

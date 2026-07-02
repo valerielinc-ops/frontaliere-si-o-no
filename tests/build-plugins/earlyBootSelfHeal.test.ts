@@ -85,6 +85,22 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     expect(info.source).toBe('index_html_import');
   });
 
+  // Regression for issue #3216 item 1: this unhandledrejection listener used to
+  // be missing 'Importing a module script failed' (WebKit's generic
+  // module-load-failure wording) from its chunk-load detection, mirroring the
+  // same gap that CHUNK_LOAD_ERROR_SUBSTRINGS in resilientImport.ts already
+  // covered — a Safari user hitting this exact rejection on a static SEO page
+  // had no self-heal listener for it.
+  it('reloads on an unhandledrejection with WebKit\'s "Importing a module script failed" wording', async () => {
+    const reason = new Error('Importing a module script failed.');
+    const ev = Object.assign(new Event('unhandledrejection'), { reason });
+    window.dispatchEvent(ev);
+
+    await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
+    const info = JSON.parse(sessionStorage.getItem('_forceReloadInfo') || '{}');
+    expect(info.source).toBe('index_html_import');
+  });
+
   it('does not reload for ad-blocked resource script errors', async () => {
     const script = document.createElement('script');
     script.src = 'https://example.com/adsbygoogle.js';

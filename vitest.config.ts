@@ -89,6 +89,7 @@ const JSDOM_TS_FILES = [
   'tests/hospital-html-helpers-css-leak.test.ts',
   'tests/i18n-guard.test.ts',
   'tests/i18n.test.ts',
+  'tests/index-html-self-heal.test.ts',
   'tests/jina-proxy.test.ts',
   'tests/job-detail-seed.test.ts',
   'tests/jobboard-related-search-navigation.test.ts',
