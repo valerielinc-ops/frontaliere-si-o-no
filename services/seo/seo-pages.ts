@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3051,
+ "numberOfItems": 3052,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7697,7 +7697,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3048, "name": "Lanciato il referendum contro i salari minimi", "url": `${BASE_URL}/articoli-frontaliere/referendum-salari-minimi-ccl` },
           { "@type": "ListItem", "position": 3049, "name": "Quellensteuer-Tarife 2026: Novità e Implicazion...", "url": `${BASE_URL}/articoli-frontaliere/quellensteuer-tarife-2026` },
           { "@type": "ListItem", "position": 3050, "name": "Strategie di cambio CHF-EUR per famiglie con fi...", "url": `${BASE_URL}/articoli-frontaliere/strategie-cambio-chf-eur-2026` },
-          { "@type": "ListItem", "position": 3051, "name": "Frontaliere: documenti e primo giorno di lavoro...", "url": `${BASE_URL}/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino` }
+          { "@type": "ListItem", "position": 3051, "name": "Frontaliere: documenti e primo giorno di lavoro...", "url": `${BASE_URL}/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino` },
+          { "@type": "ListItem", "position": 3052, "name": "Tassa sulla salute e meno ristorni: l'obiettivo...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-ristorni-ticino` }
  ]
  },
  {

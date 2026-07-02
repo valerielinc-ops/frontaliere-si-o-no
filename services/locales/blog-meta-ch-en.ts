@@ -814,6 +814,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Cross-border commuters: documents and first day of work in Ticino',
     'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Practical guide to the requirements for the first day of work in Ticino: permits, contract, tax authorities and compulsory insurance.',
     'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Panoramic view of a modern office in Lugano',
+    'blog.article.tassa-salute-ristorni-ticino.title': 'Health tax and less refreshments: the goal of Ticino',
+    'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, national councilor, proposes to use the new Italian health tax to reduce rebates to cross-border workers.',
+    'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
 };
 
 export default blogMetaChEn;

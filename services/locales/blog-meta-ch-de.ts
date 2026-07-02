@@ -814,6 +814,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.documenti-primo-giorno-lavoro-ticino.title': 'Grenzüberschreitende Pendler: Dokumente und erster Arbeitstag im Tessin',
     'blog.article.documenti-primo-giorno-lavoro-ticino.excerpt': 'Praktischer Leitfaden zu den Anforderungen für den ersten Arbeitstag in Tessin: Genehmigungen, Verträge, Steuerbefugnisse und Pflichtversicherung.',
     'blog.article.documenti-primo-giorno-lavoro-ticino.imageAlt': 'Panoramablick auf ein modernes Büro in Lugano',
+    'blog.article.tassa-salute-ristorni-ticino.title': 'Gesundheitssteuer und weniger Rabatte: Tessins Ziel',
+    'blog.article.tassa-salute-ristorni-ticino.excerpt': 'Lorenzo Quadri, Nationalrat, schlägt vor, die neue italienische Gesundheitssteuer zu nutzen, um die Rabatte für grenzüberschreitende Arbeiter zu senken.',
+    'blog.article.tassa-salute-ristorni-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
 };
 
 export default blogMetaChDe;
