@@ -77,9 +77,8 @@ function initGptFramework(): void {
     try {
       if (!gptServicesEnabled) {
         gptServicesEnabled = true;
-        // Modern GPT config API (pubads().enableSingleRequest() is deprecated).
-        gt.setConfig({ singleRequest: true });
-        gt.pubads().collapseEmptyDivs(true);
+        // Modern GPT config API (pubads().enableSingleRequest()/collapseEmptyDivs() are deprecated).
+        gt.setConfig({ singleRequest: true, collapseDiv: 'BEFORE_FETCH' });
         gt.enableServices();
       }
     } catch {
