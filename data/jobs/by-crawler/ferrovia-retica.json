@@ -177,7 +177,6 @@
         }
       },
       "firstSeenAt": "2026-07-01T22:23:37.798Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "it-supporter-in-50-80-ferrovia-retica-rhb-chur"
@@ -442,8 +441,7 @@
       },
       "previousSlugs": [
         "gleismonteur-in-80-100-ferrovia-retica-rhb-chur"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Bauleiter/in Kabelanlagen (80-100%)",
@@ -664,12 +662,18 @@
       },
       "titleByLocale": {
         "de": "Handwerker/in Komponentenwechsel (50-100%)",
-        "it": "Handwerker/in Komponentenwechsel (50-100%)"
+        "it": "Artigiano/in cambio componente (50-100%)",
+        "en": "Component Replacement Technician (50-100%)",
+        "fr": "Technicien/ne de Remplacement de Composants (50-100%)"
       },
       "percentage": "50-100%",
       "crawledAt": "",
-      "descriptionByLocale": {},
-      "needsRetranslation": true,
+      "descriptionByLocale": {
+        "it": "Compiti - Eseguire lavori di controllo e ispezione su unità multiple e treni articolati così come su locomotive - Lavorare su sistemi meccanici, pneumatici o elettrici secondo istruzioni/introduzione - Sostituzione di componenti su unità multiple e treni articolati oltre che su locomotive - Eseguire riparazioni, assistere in riparazioni più complesse Requisiti - Aver completato un apprendistato preferibilmente nel campo elettrico o meccanico o diversi anni di esperienza nel lavoro meccanico - Affidabile Modalità di lavoro - Piacere di lavorare in squadra con esecuzione indipendente dei compiti assegnati Offriamo - Carta di viaggio GA di 2ª classe - Sconti su biglietti gratuiti all'estero - Telefono cellulare a pagamento e abbonamento per uso aziendale e privato - Benefit accessori attraenti e fondo pensione con ottimi benefici - Acquisto aggiuntivo di vacanze - Opportunità di formazione ulteriore interna ed esterna con supporto finanziario da parte di RhB",
+        "en": "Tasks - Carrying out control and inspection work on multiple units and articulated trains as well as locomotives - Work on mechanical, pneumatic or electrical systems according to instructions/introduction - Replacement of components on multiple units and articulated trains as well as locomotives - Carrying out repairs, assisting with more complex repairs Requirements - Completed apprenticeship preferably in the electrical or mechanical field or several years of experience in mechanical work - Reliable Way of working - Enjoyment of working in a team with independent execution of the assigned tasks We offer - 2nd class GA travelcard - Discounts on free tickets abroad - Paid mobile phone and subscription for business and private use - Attractive fringe benefits and pension fund with very good benefits - Additional purchase of holidays - Opportunity for internal and external further training with financial support from RhB",
+        "fr": "Tâches - Effectuer des travaux de contrôle et d’inspection sur plusieurs unités et trains articulés ainsi que sur des locomotives - Travail sur des systèmes mécaniques, pneumatiques ou électriques selon les instructions/introduction - Remplacement de composants sur plusieurs unités et trains articulés ainsi que sur les locomotives - Effectuer des réparations, assister pour des réparations plus complexes Exigences - Apprentissage, de préférence dans le domaine électrique ou mécanique, ou plusieurs années d’expérience en mécanique - Fiable Mode de travail - Plaisir de travailler en équipe avec l’exécution indépendante des tâches assignées que nous proposons - Carte de voyage GA 2e classe - Réductions sur billets gratuits à l’étranger - Téléphone mobile payant et abonnement pour usage professionnel et privé - Avantages attrayants et fonds de pension avec très bons avantages - Achat supplémentaire de vacances - Possibilité de formation supplémentaire interne et externe avec soutien financier de la RhB",
+        "de": "Aufgaben\n- Durchführung von Kontroll- und Revisionsarbeiten an Trieb- und Gliederzügen sowie Lokomotiven\n- Arbeiten an mechanischen, pneumatischen oder elektrischen Systemen nach Anleitung/Einführung\n- Tausch von Komponenten an Trieb- und Gliederzügen sowie Lokomotiven\n- Durchführung von Reparaturen, Mithilfe bei komplexeren Reparaturen\n\nAnforderungen\n- Abgeschlossene Lehre bevorzugt im elektrischen oder mechanischen Bereich oder mehrjährige Erfahrung bei mechanischen Arbeiten\n- Zuverlässige Arbeitsweise\n- Freude am Arbeiten im Team mit eigenverantwortlicher Ausführung der zugewiesenen Aufgaben\n\nWir bieten\n- 2. Klasse Generalabonnement\n- Vergünstigungen auf Freifahrscheine im Ausland\n- Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n- Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n- Zusätzlicher Kauf von Ferien\n- Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB"
+      },
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "addressRegion": "GR",

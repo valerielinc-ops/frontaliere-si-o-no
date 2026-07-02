@@ -70,7 +70,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
+import { resolveCantonSection, isCompanyHubNamespaceSlug, type CantonLocale } from './shared/cantonSection';
 import { getCantonForSlug } from './shared/slugCantonIndex';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderBridgePageProse } from './shared/bridgePageProse';
@@ -268,6 +268,28 @@ function sectionPathFromOrphan(entry: OrphanEntry): string {
   return `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/`.replace(/\/+/g, '/');
 }
 
+// `matched` orphans emit at the exact URL Google reported 404 for (`orphanPath`,
+// e.g. legacy /cerca-lavoro-ticino/<oldSlug>/) but canonicalize to the job's
+// CURRENT section (`buildCanonicalForMatched` → the live canton-aware URL).
+// When the reported oldSlug happens to start with the reserved company-hub
+// prefix (e.g. an old job titled "Azienda di consulenza…") that combination
+// writes a page into the `/cerca-lavoro-ticino/azienda-*` namespace whose
+// canonical points at a DIFFERENT, non-TI canton — the exact invariant
+// tests/seo/cathedral-sector-hubs.test.ts guards against (issue #2976). This
+// plugin is a 5th call site for that same class of bug, alongside the 4 in
+// jobsSeoPagesPlugin.ts (isCompanyHubNamespaceSlug) — sibling-pattern fix,
+// same PR. Skip emission for these rather than serve a self-contradicting
+// company-hub-namespace page; the URL falls back to the normal 404/tombstone.
+function orphanNamespaceCollides(entry: OrphanEntry): boolean {
+  if (entry.kind !== 'matched' || !entry.currentSlug) return false;
+  if (!isCompanyHubNamespaceSlug(entry.slug, entry.locale)) return false;
+  const orphanSection = sectionPathFromOrphan(entry);
+  const currentSection = withLeadingTrailingSlash(
+    `${LOCALE_PREFIX[entry.locale]}/${sectionForSlug(entry.locale, entry.currentSlug)}`,
+  );
+  return currentSection !== orphanSection;
+}
+
 /** Inline pre-hydration rewrite for matched orphans. */
 function buildMatchedRewriteScript(orphanPath: string, currentPath: string): string {
   const safeOrphan = JSON.stringify(orphanPath);
@@ -408,9 +430,18 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
 
       let emitted = 0;
       let skippedCollision = 0;
+      let skippedNamespaceGuard = 0;
       const start = Date.now();
 
       for (const entry of file.orphans) {
+        // Reserved company-hub namespace guard (issue #2976, 5th call site) —
+        // must run before path/collision checks: it depends on entry.slug /
+        // entry.kind, not on dist/ state.
+        if (orphanNamespaceCollides(entry)) {
+          skippedNamespaceGuard++;
+          continue;
+        }
+
         const orphanPath = buildOrphanPath(entry);
         const indexTarget = path.join(distDir, orphanPath, 'index.html');
         const flatTarget = path.join(distDir, orphanPath.replace(/\/+$/, '') + '.html');
@@ -438,7 +469,7 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[job-orphan-bridge]\x1b[0m emitted ${emitted} bridge files (${file.orphans.length - skippedCollision} pages, ${skippedCollision} skipped due to live-page collision) in ${dur}s`,
+        `\x1b[36m[job-orphan-bridge]\x1b[0m emitted ${emitted} bridge files (${file.orphans.length - skippedCollision - skippedNamespaceGuard} pages, ${skippedCollision} skipped due to live-page collision, ${skippedNamespaceGuard} skipped due to reserved company-hub namespace) in ${dur}s`,
       );
     },
   };

@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-001b8bd6b70e",
-      "slug": "therapeute-clinicien-ne-specialise-e-50-100-spezialisiert-fachtherapeut-in-50-100-hfr",
+      "slug": "terapeuta-clinico-specialista-50-100-spezialisiert-fachtherapeut-in-50-100-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
         "fr": "therapeute-clinicien-ne-specialise-e-50-100-spezialisiert-fachtherapeut-in-50-100-hfr",
-        "it": "therapeute-clinicien-ne-specialise-e-50-100-spezialisiert-fachtherapeut-in-50-100-hfr",
+        "it": "terapeuta-clinico-specialista-50-100-spezialisiert-fachtherapeut-in-50-100-hopital-fribourgeois-hfr-fribourg",
         "en": "therapeute-clinicien-ne-specialise-e-50-100-spezialisiert-fachtherapeut-in-50-100-hfr",
         "de": "therapeute-clinicien-ne-specialise-e-50-100-spezialisiert-fachtherapeut-in-50-100-hfr"
       },
@@ -17,7 +17,7 @@
       "title": "Thérapeute clinicien-ne spécialisé-e 50-100 % / Spezialisiert Fachtherapeut/in 50-100 %",
       "titleByLocale": {
         "fr": "Thérapeute clinicien-ne spécialisé-e 50-100 % / Spezialisiert Fachtherapeut/in 50-100 %",
-        "it": "Thérapeute clinicien-ne spécialisé-e 50-100 % / Spezialisiert Fachtherapeut/in 50-100 %",
+        "it": "Terapeuta Clinico Specialista 50-100% / Spezialisiert Fachtherapeut/in 50-100%",
         "en": "Thérapeute clinicien-ne spécialisé-e 50-100 % / Spezialisiert Fachtherapeut/in 50-100 %",
         "de": "Thérapeute clinicien-ne spécialisé-e 50-100 % / Spezialisiert Fachtherapeut/in 50-100 %"
       },
@@ -66,7 +66,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T11:10:02.632Z"
+      "firstSeenAt": "2026-07-02T11:10:02.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "therapeute-clinicien-ne-specialise-e-50-100-spezialisiert-fachtherapeut-in-50-100-hfr"
+        ]
+      },
+      "previousSlugs": [
+        "therapeute-clinicien-ne-specialise-e-50-100-spezialisiert-fachtherapeut-in-50-100-hfr"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-81acdd8a7e59",
@@ -200,8 +208,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
-          "segretario-medico-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg"
+          "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
         ],
         "de": [
           "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
@@ -279,8 +286,7 @@
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
-          "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
-          "segretaria-medica-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg"
+          "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg"
         ],
         "de": [
           "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
@@ -356,8 +362,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des",
-          "qualita-dei-rispondenti-per-l-igiene-degli-endoscopi-e-responsabile-della-rielaborazione-degli-endoscopi-flessibili-20"
+          "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
         ],
         "en": [
           "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
@@ -438,8 +443,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-psychotherapeute-40-psycholog-in-psychotherapeut-in-40-hfr-hopital",
-          "psicologo-psicoterapia-40-psicologico-in-psychotherapeut-in-40-hopital-fribourgeois-hfr-fribourg"
+          "psychologue-psychotherapeute-40-psycholog-in-psychotherapeut-in-40-hfr-hopital"
         ],
         "en": [
           "psychologue-psychotherapeute-40-psycholog-in-psychotherapeut-in-40-hfr-hopital"
@@ -605,8 +609,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in",
-          "medico-capo-o-vice-medico-per-medicina-interna-a-tafers-60-80-hopital-fribourgeois-hfr-hfr-tafers"
+          "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.959Z",
@@ -681,8 +684,7 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique",
-          "primario-a-o-vice-primario-a-di-clinica-60-100-medicina-interna-hopital-fribourgeois-hfr-fribourg",
-          "medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina"
+          "primario-a-o-vice-primario-a-di-clinica-60-100-medicina-interna-hopital-fribourgeois-hfr-fribourg"
         ],
         "en": [
           "senior-physician-or-deputy-senior-physician-60-100-internal-medicine-hopital-fribourgeois-hfr-fribourg"
@@ -787,8 +789,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne",
-          "oberarztin-oberarzt-medicina-interna-generale-100-hopital-fribourgeois-hfr-hfr-meyriez-murten"
+          "oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:33.670Z",
@@ -860,8 +861,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-hfr",
-          "responsabile-medico-o-vice-responsabile-medico-capo-clinica-o-vice-capo-clinica-hopital-fribourgeois-hfr-hfr-tafers"
+          "oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-hfr"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:33.016Z",
@@ -933,8 +933,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-assistant-e-100-hfr-hopital-fribourgeois-hfr-riaz",
-          "medico-assistente-100-hopital-fribourgeois-hfr-hfr-riaz"
+          "medecin-assistant-e-100-hfr-hopital-fribourgeois-hfr-riaz"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:32.371Z",
@@ -1084,8 +1083,7 @@
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
-          "ufficiale-medico-capo-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg",
-          "medico-capo-reparto-80-100-klinikchefarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
+          "ufficiale-medico-capo-80-100-klinikchemsarzt-klinikchefarztin-80-100-hopital-fribourgeois-hfr-fribourg"
         ],
         "en": [
           "medecin-chef-fe-de-service-80-100-klinikchefarzt-klinikchefarztin-80-100-hfr-hopital",
@@ -1170,8 +1168,7 @@
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt",
-          "medecin-adjoint-e-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt-gefasschirurgie-100-hopital-fribourgeois-hfr-fribourg",
-          "assistente-medico-in-chirurgia-vascolare-100-leitende-arztin-leitenden-arzt-gefasschirurgy-100-hopital-fribourgeois-hfr"
+          "medecin-adjoint-e-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt-gefasschirurgie-100-hopital-fribourgeois-hfr-fribourg"
         ],
         "en": [
           "medecin-adjoint-e-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt"
@@ -1251,8 +1248,7 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmiers-eres-pour-un-cdd-de-6-mois-80-100-hfr-hopital-fribourgeois-fribourg",
-          "infirmiers-eres-pour-un-cdd-de-6-mois-80-100-pflegefachfrauen-manner-befristet-fur-6",
-          "infermiere-i-per-contratto-a-tempo-determinato-di-6-mesi-80-100-hopital-fribourgeois-hfr-fribourg"
+          "infirmiers-eres-pour-un-cdd-de-6-mois-80-100-pflegefachfrauen-manner-befristet-fur-6"
         ],
         "fr": [
           "infirmiers-eres-pour-un-cdd-de-6-mois-80-100-hfr-hopital-fribourgeois-fribourg"
@@ -1340,8 +1336,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmiers-eres-en-cdd-de-6-mois-pflegefachmann-pflegefachfrau-befristeter-arbeitsvertrag",
-          "infermiere-i-a-tempo-determinato-di-6-mesi-hopital-fribourgeois-hfr-fribourg"
+          "infirmiers-eres-en-cdd-de-6-mois-pflegefachmann-pflegefachfrau-befristeter-arbeitsvertrag"
         ],
         "fr": [
           "infirmiers-eres-en-cdd-de-6-mois-pflegefachmann-pflegefachfrau-contrat-a-duree-determinee-de-6-mois-hopital-fribourgeois",
@@ -1417,8 +1412,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
-          "infermieri-edsostituzione-40-100-hopital-fribourgeois-hfr-fribourg"
+          "infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:28.062Z",
@@ -1491,8 +1485,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital",
-          "infermiera-head-care-unit-icus-90-100-stationsleiter-in-90-100-hopital-fribourgeois-hfr-fribourg"
+          "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital"
         ],
         "en": [
           "infirmier-ere-chef-fe-d-unite-de-soins-icus-90-100-stationsleiter-in-90-100-hfr-hopital"
@@ -1595,8 +1588,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100",
-          "infermiere-istruttore-iso-o-tecnico-a-di-sala-operatoria-tso-80-100-hopital-fribourgeois-hfr-fribourg"
+          "infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:27.414Z",
@@ -1672,8 +1664,7 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
-          "infermiera-e-esperto-in-anestesia-da-50-a-100-cdi-hopital-fribourgeois-hfr-fribourg",
-          "infermiera-esperta-in-cure-anestesiologiche-50-100-cdi-hopital-fribourgeois-hfr-fribourg"
+          "infermiera-e-esperto-in-anestesia-da-50-a-100-cdi-hopital-fribourgeois-hfr-fribourg"
         ],
         "en": [
           "infirmier-ere-expert-e-en-soins-d-anesthesie-50-a-100-cdi-hfr-hopital-fribourgeois",
@@ -1856,8 +1847,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante",
-          "specialista-della-salute-fage-40-100-contratto-a-tempo-indeterminato-assistente-in-cure-e-salute-comunitaria-assc"
+          "fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante"
         ],
         "de": [
           "fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-community-health-and-care-assistant-chsa-festanstellung-40"
@@ -1964,8 +1954,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100",
-          "diplomata-infermiere-a-40-100-contratto-a-tempo-indeterminato-hopital-fribourgeois-hfr-hfr-tafers"
+          "dipl-pflegefachfrau-mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:25.389Z",
@@ -2037,8 +2026,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-s-intendance-env-20-mitarbeiter-in-hauswirtschaft-ca-20-hfr-hopital",
-          "collaborateur-trice-s-intendance-env-20-collaboratore-trice-hauswirtschaft-ca-20-hopital-fribourgeois-hfr-riaz"
+          "collaborateur-trice-s-intendance-env-20-mitarbeiter-in-hauswirtschaft-ca-20-hfr-hopital"
         ],
         "de": [
           "collaborateur-trice-s-intendance-env-20-mitarbeiter-in-hauswirtschaft-ca-20-hfr-hopital"
@@ -2113,8 +2101,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois",
-          "collaborateur-trice-intendance-100-collaboratore-trice-hauswirtschaft-hopital-fribourgeois-hfr-fribourg"
+          "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
         ],
         "en": [
           "collaborateur-trice-intendance-100-mitarbeiter-in-hauswirtschaft-hfr-hopital-fribourgeois"
@@ -2218,8 +2205,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt",
-          "capo-della-clinica-o-medico-associato-80-100-capo-specialista-ospedaliero-80-100-hopital-fribourgeois-hfr-fribourg"
+          "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
         ],
         "de": [
           "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt"
@@ -2547,8 +2533,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100-hfr-hopital",
-          "responsabile-clinico-in-pediatria-70-100-hopital-fribourgeois-hfr-fribourg"
+          "chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100-hfr-hopital"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:21.438Z",
@@ -2620,8 +2605,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische",
-          "chef-fe-di-clinica-in-infettivologia-pediatrica-50-100-hopital-fribourgeois-hfr-fribourg"
+          "chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:20.795Z",
@@ -2702,8 +2686,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100-hfr-hopital",
-          "responsabile-clinico-cardiologia-80-100-hopital-fribourgeois-hfr-fribourg"
+          "chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100-hfr-hopital"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:20.140Z",
@@ -2871,8 +2854,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant",
-          "medico-assistente-100-part-time-o-job-sharing-possibile-hopital-fribourgeois-hfr-hfr-tafers"
+          "assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.822Z",
@@ -2975,8 +2957,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit",
-          "assistente-o-in-cure-e-salute-comunitaria-sostituente-a-assc-fachfrau-mann-gesundheit-fage-in-sostituzione-per-assenze-hopital-fribourgeois-hfr-fribourg"
+          "assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.107Z",
@@ -3069,8 +3050,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische",
-          "assistente-tecnica-specializzata-in-sala-operatoria-atsso-90-100-tecnico-a-di-sala-operatoria-90-100-hopital"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische"
         ],
         "en": [
           "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technical-operations-assistant-technical-operations"

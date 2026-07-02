@@ -11094,6 +11094,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensionamento-anticipato-frontalieri-2026': {
+    title: 'Pensionamento anticipato frontalieri 2026: guida completa',
+    description: 'Scopri come funziona il pensionamento anticipato per i frontalieri nel 2026, con focus su AVS, secondo pilastro e pianificazione oltre 20 km. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionamento, anticipato, completa, scopri',
+    ogTitle: 'Pensionamento anticipato frontalieri 2026: guida completa',
+    ogDescription: 'Scopri come funziona il pensionamento anticipato per i frontalieri nel 2026, con focus su AVS, secondo pilastro e pianificazione oltre 20 km.',
+    canonicalPath: '/articoli-svizzera/pensionamento-anticipato-frontalieri-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionamento anticipato frontalieri 2026: guida completa",
+      "description": "Scopri come funziona il pensionamento anticipato per i frontalieri nel 2026, con focus su AVS, secondo pilastro e pianificazione oltre 20 km. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensionamento-anticipato-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano al tramonto, con una persona seduta su una panchina che guarda l'acqua."
+      },
+      "datePublished": "2026-07-02T12:47:24+00:00",
+      "dateModified": "2026-07-02T12:47:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensionamento-anticipato-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

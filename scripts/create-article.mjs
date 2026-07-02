@@ -8167,19 +8167,24 @@ async function main() {
         } catch (e) {
           const isDuplicate = e.message.includes('DUPLICATO');
           if (isDuplicate) captureDuplicateReasons(e.message);
-          if (isDuplicate && selectedTopic) {
-            // Cross-run memory (#3138): persist immediately (not batched at
-            // run end) so a mid-loop wallBudgetExceeded() break can't lose
-            // already-confirmed rejections from this run.
-            evergreenRejectedTracker = _appendEvergreenRejected(evergreenRejectedTracker, selectedTopic.keyword);
-            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
-          }
           // Fact-check / quality failures → try next keyword instead of crashing.
           // Includes REGOLA #0 topic-gate aborts — same rationale as the proven-pool
           // branch above (~line 5946).
           const isTopicGateAbort = e.topicGateAbort === true || /topic-gate abort/i.test(e.message);
           const isQualityReject = isQualityRejectError(e);
           if (!isDuplicate && !isQualityReject) throw e; // Infrastructure error → propagate
+          if ((isDuplicate || isTopicGateAbort) && selectedTopic) {
+            // Cross-run memory (#3138, #3242): persist immediately so a mid-loop
+            // wallBudgetExceeded() break can't lose already-confirmed rejections.
+            // isTopicGateAbort: REGOLA #0 structural failure — if the LLM cannot
+            // generate frontaliere-relevant content from this evergreen keyword
+            // once, it is unlikely to succeed on the next cron run either.
+            // Persisting avoids wasting ~60-90s per doomed attempt.
+            // Quality-rejects (too-short/thin) intentionally excluded: LLM
+            // variance makes them transient; blocking permanently is too aggressive.
+            evergreenRejectedTracker = _appendEvergreenRejected(evergreenRejectedTracker, selectedTopic.keyword);
+            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
+          }
 
           if (isTopicGateAbort) {
             console.error(`\n⚠️  Keyword evergreen rigettata da topic-gate (REGOLA #0) — cerco prossima keyword...\n`);

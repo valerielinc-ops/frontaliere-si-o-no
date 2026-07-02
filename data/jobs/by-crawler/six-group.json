@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "six-group-551407f40a76",
-      "slug": "working-student-sic-operations-60-70-six-group-zurich",
+      "slug": "operazioni-sic-per-studenti-lavoratori-60-70-six-group-zurich",
       "slugByLocale": {
         "de": "working-student-sic-operations-six-group-zurich",
-        "it": "working-student-sic-operations-60-70-six-group-zurich",
+        "it": "operazioni-sic-per-studenti-lavoratori-60-70-six-group-zurich",
         "en": "working-student-sic-operations-six-group-zurich",
         "fr": "working-student-sic-operations-60-70-six-group-zurich"
       },
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "de": "Working Student SIC Operations 60-70%",
         "en": "Working Student SIC Operations 60-70%",
-        "it": "Working Student SIC Operations 60-70%",
+        "it": "Operazioni SIC per studenti lavoratori: 60-70%",
         "fr": "Working Student SIC Operations 60-70%"
       },
       "description": "Working Student SIC Operations 60-70% bei SIX Group in Zurich.\n\nSIX Group ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T11:59:13.308Z"
+      "firstSeenAt": "2026-07-02T11:59:13.308Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-sic-operations-60-70-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-sic-operations-60-70-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-b6b0632db9d0",
@@ -121,8 +129,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-web-publishing-ux-support-six-group-zurich",
-          "stage-per-web-publishing-support-ux-six-group-zurich"
+          "working-student-web-publishing-ux-support-six-group-zurich"
         ],
         "de": [
           "working-student-web-publishing-ux-support-six-group-zurich"
@@ -199,8 +206,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group",
-          "senior-client-onboarding-platform-operations-tecnologia-di-regolamentazione-finanziaria-six-group-madrid"
+          "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group"
         ],
         "de": [
           "senior-client-onboarding-platform-operations-financial-regulatory-technology-six-group"
@@ -277,8 +283,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-tax-expert-six-group-madrid",
-          "esperto-fiscale-senior-six-group-madrid"
+          "senior-tax-expert-six-group-madrid"
         ],
         "fr": [
           "senior-tax-expert-six-group-madrid"
@@ -352,8 +357,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-onboarding-manager-financial-regulatory-technology-six-group-madrid",
-          "client-onboarding-manager-tecnologia-di-regolamentazione-finanziaria-six-group-madrid"
+          "client-onboarding-manager-financial-regulatory-technology-six-group-madrid"
         ],
         "de": [
           "client-onboarding-manager-financial-regulatory-technology-six-group-madrid"
@@ -493,8 +497,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-application-engineer-80-100-six-group-zurich",
-          "ingegnere-applicativo-senior-80-100-six-group-zurich"
+          "senior-application-engineer-80-100-six-group-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:40:03.245Z",
@@ -565,8 +568,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-devops-engineer-six-group-madrid",
-          "it-devops-ingegnere-six-group-madrid"
+          "it-devops-engineer-six-group-madrid"
         ],
         "de": [
           "it-devops-engineer-six-group-madrid"
@@ -643,8 +645,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-engineer-six-group-madrid",
-          "qa-ingegnere-six-group-madrid"
+          "qa-engineer-six-group-madrid"
         ],
         "de": [
           "qa-engineer-six-group-madrid"
@@ -721,8 +722,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "platform-engineer-six-group-madrid",
-          "platform-ingegnere-six-group-madrid"
+          "platform-engineer-six-group-madrid"
         ],
         "de": [
           "platform-engineer-six-group-madrid"
@@ -862,8 +862,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-settlement-80-six-group-olten",
-          "specialista-settlement-80-six-group-olten"
+          "specialist-settlement-80-six-group-olten"
         ],
         "fr": [
           "specialist-settlement-80-six-group-olten"
@@ -1189,8 +1188,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-six-group-warsaw",
-          "business-analista-six-group-warsaw"
+          "business-analyst-six-group-warsaw"
         ],
         "fr": [
           "business-analyst-six-group-warsaw"
@@ -1264,8 +1262,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-observability-engineer-six-group-zurich",
-          "ingegnere-senior-di-osservabilita-six-group-zurich"
+          "senior-observability-engineer-six-group-zurich"
         ],
         "de": [
           "senior-observability-engineer-six-group-zurich"
@@ -1344,8 +1341,7 @@
       "previousSlugsByLocale": {
         "it": [
           "guided-tours-bme-events-internship-six-group-madrid",
-          "guided-tours-bme-events-internship-morning-schedule-six-group-madrid",
-          "visite-guidate-bme-eventi-stage-six-group-madrid"
+          "guided-tours-bme-events-internship-morning-schedule-six-group-madrid"
         ],
         "de": [
           "guided-tours-bme-events-internship-six-group-madrid"
@@ -1423,8 +1419,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-sales-support-80-100-six-group-zurich",
-          "specialista-supporto-vendite-80-100-six-group-zurich"
+          "specialist-sales-support-80-100-six-group-zurich"
         ],
         "de": [
           "specialist-sales-support-80-100-six-group-zurich"
@@ -1642,7 +1637,7 @@
       "slugByLocale": {
         "it": "specialista-monitoraggio-frodi-80-100-six-group-zurich",
         "en": "specialist-fraud-monitoring-80-100-six-group-zurich",
-        "de": "spezialisierte-uberwachung-von-betrug-80-100-six-group-zurich",
+        "de": "specialist-fraud-monitoring-80-100-six-group-zurich",
         "fr": "specialiste-surveillance-fraude-80-100-six-group-zurich"
       },
       "company": "SIX Group",
@@ -1686,15 +1681,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-fraud-monitoring-80-100-six-group-zurich"
+        "specialist-fraud-monitoring-80-100-six-group-zurich",
+        "spezialisierte-uberwachung-von-betrug-80-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-fraud-monitoring-80-100-six-group-zurich",
-          "specialista-monitoraggio-frodi-80-100-six-group-zurich"
+          "specialist-fraud-monitoring-80-100-six-group-zurich"
         ],
         "de": [
-          "specialist-fraud-monitoring-80-100-six-group-zurich"
+          "spezialisierte-uberwachung-von-betrug-80-100-six-group-zurich"
         ],
         "fr": [
           "specialist-fraud-monitoring-80-100-six-group-zurich"
@@ -1768,8 +1763,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "c-software-engineer-six-group-madrid",
-          "c-software-ingegnere-six-group-madrid"
+          "c-software-engineer-six-group-madrid"
         ],
         "de": [
           "c-software-engineer-six-group-madrid"
@@ -1846,8 +1840,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "treasury-manager-80-100-six-group-zurich",
-          "responsabile-del-tesoro-80-100-six-group-zurich"
+          "treasury-manager-80-100-six-group-zurich"
         ],
         "de": [
           "treasury-manager-80-100-six-group-zurich"
@@ -1987,8 +1980,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-commercial-coordinator-six-group-warsaw",
-          "it-commercial-coordinatore-six-group-warsaw"
+          "it-commercial-coordinator-six-group-warsaw"
         ],
         "de": [
           "it-commercial-coordinator-six-group-warsaw"
@@ -2065,8 +2057,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-corporate-administration-lead-six-group-london",
-          "amministrazione-aziendale-senior-lead-six-group-london"
+          "senior-corporate-administration-lead-six-group-london"
         ],
         "fr": [
           "senior-corporate-administration-lead-six-group-london"
@@ -2329,8 +2320,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "developer-platform-engineer-windows-linux-six-group-madrid",
-          "sviluppatore-platform-ingegnere-windows-linux-six-group-madrid"
+          "developer-platform-engineer-windows-linux-six-group-madrid"
         ],
         "de": [
           "developer-platform-engineer-windows-linux-six-group-madrid"
@@ -2407,8 +2397,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-quantitative-analyst-six-group-zurich",
-          "analista-quantitativo-senior-six-group-zurich"
+          "senior-quantitative-analyst-six-group-zurich"
         ],
         "fr": [
           "senior-quantitative-analyst-six-group-zurich"
@@ -2444,17 +2433,16 @@
       "titleByLocale": {
         "it": "Ingegnere del Software",
         "en": "Software Engineer",
-        "de": "Software Ingenieur",
+        "de": "Software-Ingenieur",
         "fr": "Ingénieur Logiciel"
       },
       "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSoftware Engineer\n\nZurich |  Working from home up to 40% possible | Reference 8028\n\nDer Name «debiX» spricht für sich, denn die Zusammensetzung von «debit» und «experience» zielt auf unsere gemeinsame Ambition: Wir vereinfachen das Bezahlen für die Schweiz. Als zentrale Plattform ermöglicht debiX mit Apple- und Google-Pay zu bezahlen, Interaktion durch mobile Apps, Erkennung von Kartenbetrug und weitere innovative Lösungen für die Kartenverwendung der Zukunft. Mit deinem Fachwissen leistest du einen wesentlichen Beitrag für die Entwicklung einer modernen Plattform. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services. Bei uns zählt Offenheit, Zusammenarbeit und eine positive Fehlerkultur. Werde Teil unseres agilen Teams und gestalte mit, wie ein grosser Teil der Schweizer Bevölkerung bezahlt.\n\nDas sind deine Aufgaben\n\n• In enger Zusammenarbeit mit dem Product Owner und den Stakeholdern konzipierst und implementierst du komplexe Features für den Schweizer Finanzplatz\n\n• In einem selbstorganisierten Scrum Teams treibst du die kontinuierliche Verbesserung von Entwicklungsprozessen und Zusammenarbeit voran\n\n• Du lebst den DevOps-Gedanken und übernimmst Verantwortung für den stabilen Betrieb\n\n• Du stellst durch Code Reviews, automatisierte Tests und Best Practices eine hohe Softwarequalität sicher und wirkst aktiv an deren Weiterentwicklung mit\n\nDas bringst du mit\n\n• Mehrjährige Erfahrung in der Softwareentwicklung mit modernen Java- und Web-Technologien\n\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n\n• Pluspunkte: Erfahrung mit Angular oder vergleichbaren Frameworks, Event Streaming (z. B. Kafka), OpenShift oder Observability/Monitoring\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nIf you have any questions, check out our FAQ page or call Mateusz Kozielec  at +41583998611 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
       "descriptionByLocale": {
-        "it": "SIX SSB: SIX S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue da B.S. locale di Financial Bang. Siamo una miscela unica di tradizione e crescita. Noi apprezziamo il nostro valore e la nostra capacità di lavorare con altri giocatori. Come piattaforma centrale, debiX può pagare con Apple e Google-Pay, interagire con le app mobili, individuare le frodi con le carte e altre soluzioni innovative per il futuro utilizzo delle carte. Con la vostra esperienza, si fornisce un contributo significativo allo sviluppo di una piattaforma moderna. Attraverso l'approccio DevOps, garantiamo l'elevata stabilità dei nostri servizi. Contiamo sull'apertura, la cooperazione e una cultura positiva dell'errore. Unisciti al nostro team in azienda e modellare come una gran parte della popolazione svizzera paga. Questi sono i vostri compiti\n• In stretta collaborazione con il titolare del prodotto e gli stakeholder, progettate e realizzate funzionalità complesse per il centro finanziario svizzero\n• In un team Scrum auto-organizzato, fate avanzare il continuo miglioramento dei processi di sviluppo e collaborazione\n• Vivete l'idea di DevOps e vi assumete la responsabilità di un funzionamento stabile\n• Garantite un'elevata qualità software attraverso revisioni dei codici, test automatizzati e migliori pratiche e lavorate attivamente sul suo ulteriore sviluppo con The Bring con\n• Esperienza pluriennale in Lo sviluppo del software con moderne tecnologie Java e web\n• Team Player, che porta idee e presenta i risultati del lavoro volentieri\n• Plus punti: esperienza con quadri Angolo o comparabili, streaming di eventi (ad es. B. Kafka), OpenShift o Osservabilità/Monitoraggio\n• Buone competenze in tedesco e inglese in parola e scrittura. Se avete accesso alla città, controllare la nostra pagina FAQ o chiamare Matausz Kosteilec al +41583998611. Per questo vestito ci limita a scrivere direttamente 00:00. La diversità è importante per noi. Siamo i registri delle 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00 00:00:00 00:00 00:00:00:00:00:00:00:00:00 00:00:00:00:00:00:00:00 00:00:00:00 00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00",
-        "en": "SIX drives the transformation of financial markets. What sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us. Software Engineer Zurich | Working from home up to 40% possible | Reference 8028 Der Name «debiX» spricht für sich, denn die Zusammensetzung von «debit» und «experience» zielt auf unsere gemeinsame Ambition: Wir vereinfachen das Bezahlen für die Schweiz. Als zentrale Plattform ermöglicht debiX mit Apple- und Google-Pay zu bezahlen, Interaktion durch mobile Apps, Erkennung von Kartenbetrug und weitere innovative Lösungen für die Kartenverwendung der Zukunft. Mit deinem Fachwissen leistest du einen wesentlichen Beitrag für die Entwicklung einer modernen Plattform. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services. Bei uns zählt Offenheit, Zusammenarbeit und eine positive Fehlerkultur. Werde Teil unseres agilen Teams und gestalte mit, wie ein grosser Teil der Schweizer Bevölkerung bezahlt. Das sind deine Aufgaben\n• In enger Zusammenarbeit mit dem Product Owner und den Stakeholdern konzipierst und implementierst du komplexe Features für den Schweizer Finanzplatz\n• In einem selbstorganisierten Scrum Teams treibst du die kontinuierliche Verbesserung von Entwicklungsprozessen und Zusammenarbeit voran\n• Du lebst den DevOps-Gedanken und übernimmst Verantwortung für den stabilen Betrieb\n• Du stellst durch Code Reviews, automatisierte Tests und Best Practices eine hohe Softwarequalität sicher und wirkst aktiv an deren Weiterentwicklung mit Das bringst du mit\n• Mehrjährige Erfahrung in der Softwareentwicklung mit modernen Java- und Web-Technologien\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n• Pluspunkte: Erfahrung mit Angular oder vergleichbaren Frameworks, Event Streaming (z. B. Kafka), OpenShift oder Observability/Monitoring\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift If you have any questions, check out our FAQ page or call Mateusz Kozielec at +41583998611 . For this vacancy we only accept direct applications. Diversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX drives the transformation of financial markets. What sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us. Software Engineer Zurich | Working from home up to 40% possible | Reference 8028 Der Name «debiX» spricht für sich, denn die Zusammensetzung von «debit» und «experience» zielt auf unsere gemeinsame Ambition: Wir vereinfachen das Bezahlen für die Schweiz. Als zentrale Plattform ermöglicht debiX mit Apple- und Google-Pay zu bezahlen, Interaktion durch mobile Apps, Erkennung von Kartenbetrug und weitere innovative Lösungen für die Kartenverwendung der Zukunft. Mit deinem Fachwissen leistest du einen wesentlichen Beitrag für die Entwicklung einer modernen Plattform. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services. Bei uns zählt Offenheit, Zusammenarbeit und eine positive Fehlerkultur. Werde Teil unseres agilen Teams und gestalte mit, wie ein grosser Teil der Schweizer Bevölkerung bezahlt. Das sind deine Aufgaben\n• In enger Zusammenarbeit mit dem Product Owner und den Stakeholdern konzipierst und implementierst du komplexe Features für den Schweizer Finanzplatz\n• In einem selbstorganisierten Scrum Teams treibst du die kontinuierliche Verbesserung von Entwicklungsprozessen und Zusammenarbeit voran\n• Du lebst den DevOps-Gedanken und übernimmst Verantwortung für den stabilen Betrieb\n• Du stellst durch Code Reviews, automatisierte Tests und Best Practices eine hohe Softwarequalität sicher und wirkst aktiv an deren Weiterentwicklung mit Das bringst du mit\n• Mehrjährige Erfahrung in der Softwareentwicklung mit modernen Java- und Web-Technologien\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n• Pluspunkte: Erfahrung mit Angular oder vergleichbaren Frameworks, Event Streaming (z. B. Kafka), OpenShift oder Observability/Monitoring\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift If you have any questions, check out our FAQ page or call Mateusz Kozielec at +41583998611 . For this vacancy we only accept direct applications. Diversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "fr": "SIX SSB: SIX S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue avec B.S. of Financial Bang. Nous sommes un mélange unique de tradition et de croissance. En tant que plateforme centrale, debiX peut payer avec Apple et Google-Pay, interagir avec les applications mobiles, détecter la fraude par carte et d'autres solutions innovantes pour l'utilisation future de la carte. Avec votre expertise, vous contribuez de manière significative au développement d'une plateforme moderne. Grâce à l'approche DevOps, nous garantissons la stabilité élevée de nos services.\n• En étroite collaboration avec le Product Owner et les parties prenantes, vous concevez et implémentez des fonctionnalités complexes pour le centre financier suisse\n• Dans une équipe auto-organisée de Scrum, vous faites progresser l'amélioration continue des processus de développement et de la collaboration\n• Vous vivez l'idée DevOps et vous assumez la responsabilité de l'exploitation stable\n• Vous assurez la qualité des logiciels grâce à des révisions de code, des tests automatisés et des meilleures pratiques et travaillez activement à son développement ultérieur avec The Bring you avec\n• Expérience pluriannuelle dans Le développement logiciel avec les technologies modernes Java et web\n• Team Player, qui apporte des idées et présente des résultats de travail volontiers\n• Plus de points: expérience avec des cadres analogiques ou comparables, streaming d'événements (par exemple: B. Kafka), OpenShift ou Observability/Monitoring\n• Bonnes compétences en allemand et en anglais en paroles et en écriture. Si vous avez accès à la ville, consultez notre page FAQ ou appelez Matausz Kosteilec au +41583998611. Pour cette adresse, nous ne publions que des questions directes à 00:00. La diversité est importante pour nous. Désolé, nous sommes des registres à 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00: 00: 00:00 00: 00: 00: 00: 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00 Les données sont transmises par voie électronique à l'adresse suivante :"
+        "it": "SIX SSB: SIX S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue S.S. di Financial Chuck. Ciò che ci distingue da B.S. locale di Financial Bang. Siamo una miscela unica di tradizione e crescita. Noi apprezziamo il nostro valore e la nostra capacità di lavorare con altri giocatori.\n\nCome piattaforma centrale, debiX può pagare con Apple e Google-Pay, interagire con le app mobili, individuare le frodi con le carte e altre soluzioni innovative per il futuro utilizzo delle carte. Con la vostra esperienza, si fornisce un contributo significativo allo sviluppo di una piattaforma moderna. Attraverso l'approccio DevOps, garantiamo l'elevata stabilità dei nostri servizi. Contiamo sull'apertura, la cooperazione e una cultura positiva dell'errore. Unisciti al nostro team in azienda e modellare come una gran parte della popolazione svizzera paga.\n\nQuesti sono i vostri compiti • In stretta collaborazione con il titolare del prodotto e gli stakeholder, progettate e realizzate funzionalità complesse per il centro finanziario svizzero • In un team Scrum auto-organizzato, fate avanzare il continuo miglioramento dei processi di sviluppo e collaborazione • Vivete l'idea di DevOps e vi assumete la responsabilità di un funzionamento stabile • Garantite un'elevata qualità software attraverso revisioni dei codici, test automatizzati e migliori pratiche e lavorate attivamente sul suo ulteriore sviluppo con The Bring con • Esperienza pluriennale in\n\nLo sviluppo del software con moderne tecnologie Java e web • Team Player, che porta idee e presenta i risultati del lavoro volentieri • Plus punti: esperienza con quadri Angolo o comparabili, streaming di eventi (ad es.\n\nB. Kafka), OpenShift o Osservabilità/Monitoraggio • Buone competenze in tedesco e inglese in parola e scrittura. Se avete accesso alla città, controllare la nostra pagina FAQ o chiamare Matausz Kosteilec al +41583998611. Per questo vestito ci limita a scrivere direttamente 00:00. La diversità è importante per noi.\n\nSiamo i registri delle 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00\n\n00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00:00:00:00:00 00:00:00 00:00 00:00:00:00:00:00:00:00:00 00:00:00:00:00:00:00:00 00:00:00:00 00:00:00:00 00:00 00:00 00:00 00:00 00:00 00:00 00\n\n00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00",
+        "en": "SIX SSB: SIX S.S. of Financial Chuck. What sets us apart S.S. of Financial Chuck. What sets us apart S.S. of Financial Chuck. What sets us apart S.S. of Financial Chuck. What sets us apart S.S. of Financial Chuck. What sets us apart S.S. of Financial Chuck. What sets us apart S.S. of Financial Chuck. What sets us apart S.S. of Financial Chuck. What sets us apart with local B.S. of Financial Bang. We are a unique blend of tradition and growth. We value our own value and our ability to work with other players.\n\nAs a central platform, debiX can pay with Apple and Google-Pay, interact with mobile apps, detect card fraud and other innovative solutions for the future card use. With your expertise, you make a significant contribution to the development of a modern platform. Through the DevOps approach, we ensure the high stability of our services. We count on openness, cooperation and a positive culture of error. Join our team in the company and shape how a large part of the Swiss population pays.\n\nThese are your tasks • In close cooperation with Product Owner and stakeholders, you design and implement complex features for the Swiss financial centre • In a self-organized Scrum team, you advance the continuous improvement of development processes and collaboration • You live the DevOps idea and take responsibility for stable operation • You ensure high software quality through code reviews, automated tests and best practice and actively work on its further development with The Bring you with • Multi-year experience in\n\nThe software development with modern Java and web technologies • Team Player, who brings ideas and presents work results gladly • Plus points: experience with Angular or comparable frameworks, event streaming (e.g.\n\nB. Kafka), OpenShift or Observability/Monitoring • Good German and English skills in word and writing. If you have access to the city, check out our FAQ page or call Matausz Kosteilec at +41583998611. For thisdress we onlyissues direct 00:00. Diversity is important to us. Sorry, we are registries to 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSoftware Engineer\n\nZurich | Working from home up to 40% possible | Reference 8028\n\nDer Name «debiX» spricht für sich, denn die Zusammensetzung von «debit» und «experience» zielt auf unsere gemeinsame Ambition: Wir vereinfachen das Bezahlen für die Schweiz. Als zentrale Plattform ermöglicht debiX mit Apple- und Google-Pay zu bezahlen, Interaktion durch mobile Apps, Erkennung von Kartenbetrug und weitere innovative Lösungen für die Kartenverwendung der Zukunft. Mit deinem Fachwissen leistest du einen wesentlichen Beitrag für die Entwicklung einer modernen Plattform. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services. Bei uns zählt Offenheit, Zusammenarbeit und eine positive Fehlerkultur. Werde Teil unseres agilen Teams und gestalte mit, wie ein grosser Teil der Schweizer Bevölkerung bezahlt.\n\nDas sind deine Aufgaben\n\n• In enger Zusammenarbeit mit dem Product Owner und den Stakeholdern konzipierst und implementierst du komplexe Features für den Schweizer Finanzplatz\n\n• In einem selbstorganisierten Scrum Teams treibst du die kontinuierliche Verbesserung von Entwicklungsprozessen und Zusammenarbeit voran\n\n• Du lebst den DevOps-Gedanken und übernimmst Verantwortung für den stabilen Betrieb\n\n• Du stellst durch Code Reviews, automatisierte Tests und Best Practices eine hohe Softwarequalität sicher und wirkst aktiv an deren Weiterentwicklung mit\n\nDas bringst du mit\n\n• Mehrjährige Erfahrung in der Softwareentwicklung mit modernen Java- und Web-Technologien\n\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n\n• Pluspunkte: Erfahrung mit Angular oder vergleichbaren Frameworks, Event Streaming (z. B. Kafka), OpenShift oder Observability/Monitoring\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nIf you have any questions, check out our FAQ page or call Mateusz Kozielec at +41583998611 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "fr": "SIX SSB: SIX S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue S.S. of Financial Chuck. Ce qui nous distingue avec B.S. of Financial Bang. Nous sommes un mélange unique de tradition et de croissance.\n\nEn tant que plateforme centrale, debiX peut payer avec Apple et Google-Pay, interagir avec les applications mobiles, détecter la fraude par carte et d'autres solutions innovantes pour l'utilisation future de la carte. Avec votre expertise, vous contribuez de manière significative au développement d'une plateforme moderne. Grâce à l'approche DevOps, nous garantissons la stabilité élevée de nos services.\n\n• En étroite collaboration avec le Product Owner et les parties prenantes, vous concevez et implémentez des fonctionnalités complexes pour le centre financier suisse • Dans une équipe auto-organisée de Scrum, vous faites progresser l'amélioration continue des processus de développement et de la collaboration • Vous vivez l'idée DevOps et vous assumez la responsabilité de l'exploitation stable • Vous assurez la qualité des logiciels grâce à des révisions de code, des tests automatisés et des meilleures pratiques et travaillez activement à son développement ultérieur avec The Bring you avec • Expérience pluriannuelle dans\n\nLe développement logiciel avec les technologies modernes Java et web • Team Player, qui apporte des idées et présente des résultats de travail volontiers • Plus de points: expérience avec des cadres analogiques ou comparables, streaming d'événements (par exemple:\n\nB. Kafka), OpenShift ou Observability/Monitoring • Bonnes compétences en allemand et en anglais en paroles et en écriture. Si vous avez accès à la ville, consultez notre page FAQ ou appelez Matausz Kosteilec au +41583998611. Pour cette adresse, nous ne publions que des questions directes à 00:00. La diversité est importante pour nous.\n\nDésolé, nous sommes des registres à 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00\n\n00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00: 00: 00:00 00: 00: 00: 00: 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00:00 00\n\nLes données sont transmises par voie électronique à l'adresse suivante :"
       },
-      "needsRetranslation": true,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-Software-Engineer/1403689133/",
@@ -2486,8 +2474,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-six-group-zurich",
-          "software-ingegnere-six-group-zurich"
+          "software-engineer-six-group-zurich"
         ],
         "de": [
           "software-engineer-six-group-zurich"
@@ -2565,8 +2552,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-clearing-product-business-development-six-group-madrid",
-          "determinazione-dei-prodotti-e-sviluppo-aziendale-six-group-madrid"
+          "head-clearing-product-business-development-six-group-madrid"
         ],
         "de": [
           "head-clearing-product-business-development-six-group-madrid"
@@ -2706,8 +2692,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-support-agent-six-group-leudelange",
-          "agente-di-assistenza-clienti-six-group-leudelange"
+          "customer-support-agent-six-group-leudelange"
         ],
         "fr": [
           "customer-support-agent-six-group-leudelange"
@@ -2781,8 +2766,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trade-surveillance-analyst-80-100-six-group-zurich",
-          "analista-di-sorveglianza-dei-trasferimenti-80-100-six-group-zurich"
+          "trade-surveillance-analyst-80-100-six-group-zurich"
         ],
         "fr": [
           "trade-surveillance-analyst-80-100-six-group-zurich"
@@ -2919,8 +2903,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-governance-officer-six-group-warsaw",
-          "responsabile-della-governance-it-six-group-warsaw"
+          "it-governance-officer-six-group-warsaw"
         ],
         "fr": [
           "it-governance-officer-six-group-warsaw"
@@ -2994,8 +2977,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-settlement-80-100-six-group-olten",
-          "specialista-risoluzione-80-100-six-group-olten"
+          "specialist-settlement-80-100-six-group-olten"
         ],
         "fr": [
           "specialist-settlement-80-100-six-group-olten"
@@ -3069,8 +3051,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-static-data-operations-80-100-six-group-zurich",
-          "specialista-operazioni-dati-statici-80-100-six-group-zurich"
+          "specialist-static-data-operations-80-100-six-group-zurich"
         ],
         "fr": [
           "specialist-static-data-operations-80-100-six-group-zurich"
@@ -3144,8 +3125,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sales-manager-six-group-london",
-          "responsabile-vendite-senior-six-group-london"
+          "senior-sales-manager-six-group-london"
         ],
         "fr": [
           "senior-sales-manager-six-group-london"
@@ -3221,8 +3201,7 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-qa-testing-lead-six-group-madrid",
-          "testing-manager-six-group-madrid",
-          "piombo-di-test-qa-senior-six-group-madrid"
+          "testing-manager-six-group-madrid"
         ],
         "en": [
           "senior-qa-testing-lead-six-group-madrid"
@@ -3551,8 +3530,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-six-group-warsaw-2",
-          "business-analista-six-group-warsaw-5e3f43"
+          "business-analyst-six-group-warsaw-2"
         ],
         "fr": [
           "business-analyst-six-group-warsaw-2"
@@ -4319,8 +4297,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich",
-          "gestione-delle-vendite-e-degli-account-per-le-carte-atm-e-twint-80-100-six-group-zurich"
+          "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich"
         ],
         "de": [
           "head-sales-account-management-for-cards-atm-and-twint-80-100-six-group-zurich"
@@ -4397,8 +4374,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-social-marketing-six-group-zurich",
-          "responsabile-marketing-sociale-six-group-zurich"
+          "head-social-marketing-six-group-zurich"
         ]
       },
       "firstSeenAt": "2026-06-24T12:21:10.139Z",
@@ -4658,8 +4634,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-six-group-zurich",
-          "system-ingegnere-six-group-zurich"
+          "system-engineer-six-group-zurich"
         ],
         "de": [
           "system-engineer-six-group-zurich"
@@ -4925,8 +4900,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-solution-designer-six-group-warsaw",
-          "designer-di-soluzioni-it-six-group-warsaw"
+          "it-solution-designer-six-group-warsaw"
         ],
         "fr": [
           "it-solution-designer-six-group-warsaw"
@@ -5000,8 +4974,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-solutions-lead-development-tools-claude-code-six-group-warsaw",
-          "ai-solutions-lead-strumenti-di-sviluppo-claude-code-six-group-warsaw"
+          "ai-solutions-lead-development-tools-claude-code-six-group-warsaw"
         ],
         "fr": [
           "ai-solutions-lead-development-tools-claude-code-six-group-warsaw"
@@ -5138,8 +5111,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-writer-six-group-madrid",
-          "scrittore-tecnico-six-group-madrid"
+          "technical-writer-six-group-madrid"
         ],
         "de": [
           "technical-writer-six-group-madrid"
@@ -5218,8 +5190,7 @@
       "previousSlugsByLocale": {
         "it": [
           "palace-bme-events-internship-afternoon-schedule-six-group-madrid",
-          "bme-events-internship-afternoon-schedule-six-group-madrid",
-          "palazzo-bme-eventi-stage-parcheggio-del-pomeriggio-six-group-madrid"
+          "bme-events-internship-afternoon-schedule-six-group-madrid"
         ],
         "de": [
           "palace-bme-events-internship-afternoon-schedule-six-group-madrid"
@@ -5296,8 +5267,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-internship-six-group-madrid-lealtad",
-          "stage-di-marketing-six-group-madrid-lealtad"
+          "marketing-internship-six-group-madrid-lealtad"
         ],
         "de": [
           "marketing-internship-six-group-madrid-lealtad"
@@ -5374,8 +5344,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accounting-specialist-six-group-madrid",
-          "accounting-specialista-six-group-madrid"
+          "accounting-specialist-six-group-madrid"
         ],
         "de": [
           "accounting-specialist-six-group-madrid"
@@ -5452,8 +5421,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accounting-internship-six-group-madrid",
-          "tirocinio-in-contabilita-six-group-madrid"
+          "accounting-internship-six-group-madrid"
         ],
         "de": [
           "accounting-internship-six-group-madrid"
@@ -5530,8 +5498,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-workplace-support-specialist-six-group-zurich",
-          "specialista-di-sostegno-del-posto-di-lavoro-it-six-group-zurich"
+          "it-workplace-support-specialist-six-group-zurich"
         ],
         "de": [
           "it-workplace-support-specialist-six-group-zurich"
@@ -5608,8 +5575,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-account-manager-six-group-frankfurt",
-          "responsabile-account-tecnico-six-group-frankfurt"
+          "technical-account-manager-six-group-frankfurt"
         ],
         "fr": [
           "technical-account-manager-six-group-frankfurt"
@@ -5935,8 +5901,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-management-officer-six-group-madrid",
-          "responsabile-della-gestione-del-progetto-six-group-madrid"
+          "project-management-officer-six-group-madrid"
         ],
         "fr": [
           "project-management-officer-six-group-madrid"
@@ -6010,8 +5975,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-six-group-madrid",
-          "business-analista-six-group-madrid"
+          "business-analyst-six-group-madrid"
         ],
         "fr": [
           "business-analyst-six-group-madrid"
@@ -6148,8 +6112,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-analyst-asset-service-it-six-group-olten",
-          "analista-soluzioni-servizi-asset-it-six-group-olten"
+          "solution-analyst-asset-service-it-six-group-olten"
         ],
         "de": [
           "solution-analyst-asset-service-it-six-group-olten"
@@ -6604,8 +6567,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-scientist-six-group-warsaw",
-          "ricerca-di-dati-senior-six-group-warsaw"
+          "senior-data-scientist-six-group-warsaw"
         ],
         "fr": [
           "senior-data-scientist-six-group-warsaw"
@@ -6681,8 +6643,7 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-consultant-six-group-warsaw",
-          "hr-consultant-with-german-six-group-warsaw",
-          "risorse-umane-consulente-six-group-warsaw"
+          "hr-consultant-with-german-six-group-warsaw"
         ],
         "de": [
           "hr-consultant-six-group-warsaw"
@@ -6822,8 +6783,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-team-support-enterprise-architecture-it-governance-40-60-six-group-zurich",
-          "supporto-per-il-team-studente-di-lavoro-enterprise-architecture-it-governance-40-60-six-group-zurich"
+          "working-student-team-support-enterprise-architecture-it-governance-40-60-six-group-zurich"
         ],
         "fr": [
           "working-student-team-support-enterprise-architecture-it-governance-40-60-six-group-zurich"
@@ -6845,12 +6805,12 @@
     },
     {
       "id": "six-group-ea5b5a3b72fb",
-      "slug": "senior-software-analyst-developer-six-group-madrid",
+      "slug": "senior-software-analista-sviluppatore-six-group-madrid",
       "slugByLocale": {
         "en": "senior-software-analyst-developer-six-group-madrid",
-        "it": "senior-software-analyst-developer-six-group-madrid",
+        "it": "senior-software-analista-sviluppatore-six-group-madrid",
         "de": "senior-software-analyst-developer-six-group-madrid",
-        "fr": "senior-software-analyst-developer-six-group-madrid"
+        "fr": "senior-software-analyste-developpeur-six-group-madrid"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6906,14 +6866,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T11:58:07.231Z"
+      "firstSeenAt": "2026-07-02T11:58:07.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-analyst-developer-six-group-madrid"
+        ],
+        "fr": [
+          "senior-software-analyst-developer-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-analyst-developer-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-5d03cc091bd4",
-      "slug": "system-controller-six-group-madrid",
+      "slug": "controller-di-sistema-six-group-madrid",
       "slugByLocale": {
         "en": "system-controller-six-group-madrid",
-        "it": "system-controller-six-group-madrid",
+        "it": "controller-di-sistema-six-group-madrid",
         "de": "system-controller-six-group-madrid",
         "fr": "system-controller-six-group-madrid"
       },
@@ -6924,7 +6895,7 @@
       "titleByLocale": {
         "en": "System Controller",
         "fr": "System Controller",
-        "it": "System Controller",
+        "it": "Controller di Sistema",
         "de": "System Controller"
       },
       "description": "BME - Bolsas y Mercados Españoles - drives the transformation of financial markets and belongs to SIX, the third largest exchange group in Europe.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSystem Controller\n\nMadrid |  Working from home up to 40% | Reference 8099\n\nBME is part of the SIX group (with headquarter in Zurich, Switzerland) and forms a critical part of the Spanish financial infrastructure. Are you enthusiastic about exciting projects in the financial industry and would like to work in a self-organized environment where collaboration, trust, and innovation are paramount? Then become part of our Post Trade IT Operations department. We are looking for a bright mind to help us move forward in giving best support as a System Controller who will work in a global environment joining our multicultural team which provides first and second level support to our Business Unit applications.\n\nWhat You Will Do\n\n• Provide 1st level support (monitoring, triage, software deployment, etc.)\n\n• Provide 2nd level support (application troubleshooting)\n\n• Implement automation for specific tasks and processes\n\n• Interact with IT application and Business teams\n\nWhat You Bring\n\n• Bachelor Degree or Higher Education Certificate in Information Technology or similar\n\n• Advanced OS knowledge (linux and windows)\n\n• Containerized application management (OCP/K8S)\n\n• DevOps practices and tools understanding will be valuable\n\n• Automation experience (Ansible, CI/CD, etc.) will also be positively considered\n\n• Willingness to work on a rotating schedule, including morning to afternoon shifts\n\n• Effective oral and written communication skills in English and Spanish\n\nIf you have any questions, check out our FAQ page or call Sara Perez de la Cuesta  at +34 91 709 56 80 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
@@ -6971,7 +6942,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T11:58:06.556Z"
+      "firstSeenAt": "2026-07-02T11:58:06.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-controller-six-group-madrid"
+        ]
+      },
+      "previousSlugs": [
+        "system-controller-six-group-madrid"
+      ]
     },
     {
       "id": "six-group-b48b0085836a",
@@ -7090,8 +7069,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-automation-engineer-six-group-madrid",
-          "qa-automation-ingegnere-six-group-madrid"
+          "qa-automation-engineer-six-group-madrid"
         ],
         "de": [
           "qa-automation-engineer-six-group-madrid"
@@ -7168,8 +7146,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-application-engineer-100-six-group-zurich",
-          "ingegnere-di-applicazioni-senior-100-six-group-zurich"
+          "senior-application-engineer-100-six-group-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:40:11.276Z",

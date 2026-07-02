@@ -862,6 +862,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-formazione-2026.title': 'Formation 2026 : Cours et financement',
     'blog.article.frontaliere-formazione-2026.excerpt': 'Découvrez en 2026 les formations professionnelles et les cours de reconversion pour les navetteurs transfrontaliers dans un rayon de 20 km, les financements disponibles et comment évaluer le rendement pratique.',
     'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontaliers en formation professionnelle dans une ville suisse',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Retraite anticipée pour les navetteurs transfrontaliers 2026 : guide complet',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Découvrez comment fonctionne la retraite anticipée pour les navetteurs transfrontaliers en 2026, avec un accent sur la VAH, le second pilier et la planification sur plus de 20 km.',
+    'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'Une vue sereine du lac de Lugano au coucher du soleil, avec une personne assise sur un banc regardant l\'eau.',
 };
 
 export default blogMetaChFr;

@@ -8223,6 +8223,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorazione-ticinese-ore-non-pagate.title': 'Unbezahlte Stunden erschüttern Tessiner Gastronomie',
     'blog.article.ristorazione-ticinese-ore-non-pagate.excerpt': 'Ein ehemaliger Mitarbeiter eines Restaurants in Locarno hat über dreitausend Francs im Rückstand erhalten. Die Gewerkschaft Unia verurteilt eine weit verbreitete Praxis.',
     'blog.article.ristorazione-ticinese-ore-non-pagate.imageAlt': 'Blick auf die Seepromenade von Locarno mit Restauranttischen und Arbeitern in Uniform',
+    'blog.article.ticino-blocca-ristorni-roma-berna.title': 'Tessin blockiert 50,2 Mio. Rückerstattungen an Lombardei',
+    'blog.article.ticino-blocca-ristorni-roma-berna.excerpt': 'Der Kanton Tessin behält 50,2 Millionen Francs, die für die Lombardei bestimmt sind. Rom und Bern suchen nach einer diplomatischen Lösung.',
+    'blog.article.ticino-blocca-ristorni-roma-berna.imageAlt': 'Luftaufnahme des Luganer Sees bei Sonnenuntergang mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

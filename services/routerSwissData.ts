@@ -310,6 +310,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'avs-ai-prospettive-finanziarie': { it: 'avs-ai-prospettive-finanziarie', en: 'avs-ai-financial-prospects', de: 'avs-ai-finanzielle-aussichten', fr: 'avs-ai-perspectives-financieres' },
  'aumento-rendite-ai-avs-difficolta': { it: 'aumento-rendite-ai-avs-difficolta', en: 'increase-in-ai-benefits-avs-difficulties', de: 'erhoehung-der-ai-leistungen-avs-schwierigkeiten', fr: 'augmentation-des-prestations-ai-difficultes-avs' },
  'frontaliere-formazione-2026': { it: 'frontaliere-formazione-2026', en: 'frontaliers-training-2026', de: 'frontalier-weiterbildung-2026', fr: 'frontaliers-formation-2026' },
+ 'pensionamento-anticipato-frontalieri-2026': { it: 'pensionamento-anticipato-frontalieri-2026', en: 'early-retirement-cross-border-workers-2026', de: 'vorzeitige-rente-grenzganger-2026', fr: 'retraite-anticipe-frontaliers-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

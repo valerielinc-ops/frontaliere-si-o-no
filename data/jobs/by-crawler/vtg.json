@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-07-01T23:27:21.766Z",
+  "assembledAt": "2026-07-02T12:34:48.225Z",
   "jobs": [
     {
       "id": "company-g1g1m",
@@ -258,7 +258,7 @@
       "crawledAt": "2026-06-26T12:28:41.768Z",
       "firstSeenAt": "2026-06-26T12:28:41.768Z",
       "titleByLocale": {
-        "en": "Vehicle Expert",
+        "en": "Fahrzeugexperte/-in",
         "de": "Fahrzeugexperte/-in",
         "it": "Esperto di veicoli",
         "fr": "Expert du véhicule"
@@ -311,7 +311,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qf6gqz",
@@ -577,7 +578,7 @@
       "firstSeenAt": "2026-06-22T23:55:42.785Z",
       "titleByLocale": {
         "de": "Chef/-in Troubleshooter Hornet",
-        "it": "Head of Troubleshooter Hornet",
+        "it": "Chef/-in Troubleshooter Hornet",
         "en": "Chief/-in-Marie-Marthornet",
         "fr": "Chef/in-Marie-Marthornet"
       },
@@ -628,7 +629,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qxa6ru",
@@ -1697,7 +1699,7 @@
       "firstSeenAt": "2026-06-05T12:56:27.382Z",
       "titleByLocale": {
         "de": "Rechenzentrum-Spezialist/-in IKT",
-        "it": "Specialista del centro dati ICT",
+        "it": "Rechenzentrum-Spezialist/-in IKT",
         "en": "ICT data centre specialist",
         "fr": "Spécialiste des centres informatiques"
       },
@@ -1752,7 +1754,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-vvystb",
@@ -2643,7 +2646,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "titleByLocale": {
         "de": "Pionier Maurer (m/w)",
-        "it": "Pioneer Maurer (m/f)",
+        "it": "Pionier Maurer (m/w)",
         "en": "Projektleiter (m/w)",
         "fr": "Projektleiter (m/m)"
       },
@@ -2695,7 +2698,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",

@@ -59,8 +59,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva",
-          "assc-in-home-care-80-100-cdi-imad-geneva",
-          "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva"
+          "assc-in-home-care-80-100-cdi-imad-geneva"
         ],
         "de": [
           "assc-in-heimpflege-80-100-cdi-imad-geneva"
@@ -135,8 +134,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidature-spontanee-autres-imad-geneva",
-          "candidatura-spontanea-altro-imad-geneva"
+          "candidature-spontanee-autres-imad-geneva"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:28.560Z",
@@ -242,8 +240,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
-          "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
-          "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva"
+          "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
         ],
         "de": [
           "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva"
@@ -343,8 +340,7 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-          "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo",
-          "infermiere-i-di-riferimento-a-domicilio-a-tempo-pieno-o-part-time-a-tempo-indeterminato-presso-l-equipe-centralizzata"
+          "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo"
         ],
         "en": [
           "infirmary-refer-e-at-home-at-80-or-100-in-cdi-within-the-centralized-team-for-long-term-replacement-missions-6-to-15"
@@ -422,8 +418,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
-          "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva"
+          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
         ],
         "en": [
           "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
@@ -449,10 +444,10 @@
     },
     {
       "id": "imad-3e3a81b79da5",
-      "slug": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
+      "slug": "assistente-infermieristico-emd-notturno-al-50-con-cdm-di-11-o-12-mesi-imad-geneva",
       "slugByLocale": {
         "fr": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
-        "it": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
+        "it": "assistente-infermieristico-emd-notturno-al-50-con-cdm-di-11-o-12-mesi-imad-geneva",
         "en": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva",
         "de": "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
       },
@@ -462,7 +457,7 @@
       "title": "Aide-soignant.e / EMD de nuit / à 50% / en CDM de 11 ou 12 mois",
       "titleByLocale": {
         "fr": "Aide-soignant.e / EMD de nuit / à 50% / en CDM de 11 ou 12 mois",
-        "it": "Aide-soignant.e / EMD de nuit / à 50% / en CDM de 11 ou 12 mois",
+        "it": "Assistente infermieristico / EMD notturno / al 50% / con CDM di 11 o 12 mesi",
         "en": "Aide-soignant.e / EMD de nuit / à 50% / en CDM de 11 ou 12 mois",
         "de": "Aide-soignant.e / EMD de nuit / à 50% / en CDM de 11 ou 12 mois"
       },
@@ -511,14 +506,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T11:43:15.524Z"
+      "firstSeenAt": "2026-07-02T11:43:15.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-imad-geneva"
+      ]
     },
     {
       "id": "imad-457557c5cfeb",
-      "slug": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
+      "slug": "infermiere-assistenza-familiare-e-assistenza-pediatrica-80-permanente-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
-        "it": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
+        "it": "infermiere-assistenza-familiare-e-assistenza-pediatrica-80-permanente-imad-geneva",
         "en": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
         "de": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
       },
@@ -528,7 +531,7 @@
       "title": "Infirmier.ère / Répit aux familles et soins pédiatriques / à 80% / en CDI",
       "titleByLocale": {
         "fr": "Infirmier.ère / Répit aux familles et soins pédiatriques / à 80% / en CDI",
-        "it": "Infirmier.ère / Répit aux familles et soins pédiatriques / à 80% / en CDI",
+        "it": "Infermiere / Assistenza familiare e assistenza pediatrica / 80% / permanente",
         "en": "Infirmier.ère / Répit aux familles et soins pédiatriques / à 80% / en CDI",
         "de": "Infirmier.ère / Répit aux familles et soins pédiatriques / à 80% / en CDI"
       },
@@ -577,14 +580,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T11:43:15.524Z"
+      "firstSeenAt": "2026-07-02T11:43:15.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-8544edda7c32",
-      "slug": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
+      "slug": "segretario-esecutivo-dipartimento-affari-legali-dipartimento-servizi-condivisi-50-su-contratto-a-tempo-determinato-di-4",
       "slugByLocale": {
         "fr": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
-        "it": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
+        "it": "segretario-esecutivo-dipartimento-affari-legali-dipartimento-servizi-condivisi-50-su-contratto-a-tempo-determinato-di-4",
         "en": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
         "de": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
       },
@@ -594,7 +605,7 @@
       "title": "Secrétaire de direction / Service des affaires juridiques - Direction des services partagés / à 50% / en CDD de 4 mois",
       "titleByLocale": {
         "fr": "Secrétaire de direction / Service des affaires juridiques - Direction des services partagés / à 50% / en CDD de 4 mois",
-        "it": "Secrétaire de direction / Service des affaires juridiques - Direction des services partagés / à 50% / en CDD de 4 mois",
+        "it": "Segretario Esecutivo / Dipartimento Affari Legali - Dipartimento Servizi Condivisi / 50% / su contratto a tempo determinato di 4 mesi",
         "en": "Secrétaire de direction / Service des affaires juridiques - Direction des services partagés / à 50% / en CDD de 4 mois",
         "de": "Secrétaire de direction / Service des affaires juridiques - Direction des services partagés / à 50% / en CDD de 4 mois"
       },
@@ -643,14 +654,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T11:43:15.523Z"
+      "firstSeenAt": "2026-07-02T11:43:15.523Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+      ]
     },
     {
       "id": "imad-e4813a92e8a1",
-      "slug": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
+      "slug": "infermiera-di-ricovero-domiciliare-had-80-in-cdm-9-mesi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
-        "it": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
+        "it": "infermiera-di-ricovero-domiciliare-had-80-in-cdm-9-mesi-imad-geneva",
         "en": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
         "de": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
       },
@@ -660,7 +679,7 @@
       "title": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 9 mois",
       "titleByLocale": {
         "fr": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 9 mois",
-        "it": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 9 mois",
+        "it": "Infermiera di ricovero domiciliare (HAD) / 80% / in CDM 9 mesi",
         "en": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 9 mois",
         "de": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 9 mois"
       },
@@ -709,14 +728,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T11:43:15.519Z"
+      "firstSeenAt": "2026-07-02T11:43:15.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
+      ]
     },
     {
       "id": "imad-8eeaa73a5fdb",
-      "slug": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
+      "slug": "segretaria-receptionist-reception-istituzionale-100-permanente-imad-geneva",
       "slugByLocale": {
         "fr": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
-        "it": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
+        "it": "segretaria-receptionist-reception-istituzionale-100-permanente-imad-geneva",
         "en": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
         "de": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
       },
@@ -726,7 +753,7 @@
       "title": "Secrétaire réceptionniste / Accueil institutionnel / à 100% / en CDI",
       "titleByLocale": {
         "fr": "Secrétaire réceptionniste / Accueil institutionnel / à 100% / en CDI",
-        "it": "Secrétaire réceptionniste / Accueil institutionnel / à 100% / en CDI",
+        "it": "Segretaria receptionist / Reception istituzionale / 100% / permanente",
         "en": "Secrétaire réceptionniste / Accueil institutionnel / à 100% / en CDI",
         "de": "Secrétaire réceptionniste / Accueil institutionnel / à 100% / en CDI"
       },
@@ -775,14 +802,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T11:43:15.518Z"
+      "firstSeenAt": "2026-07-02T11:43:15.518Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-77906cce403c",
-      "slug": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva",
+      "slug": "infermiere-di-ricovero-domiciliare-had-80-cdm-12-mesi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva",
-        "it": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva",
+        "it": "infermiere-di-ricovero-domiciliare-had-80-cdm-12-mesi-imad-geneva",
         "en": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva",
         "de": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva"
       },
@@ -792,7 +827,7 @@
       "title": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 12 mois",
       "titleByLocale": {
         "fr": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 12 mois",
-        "it": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 12 mois",
+        "it": "Infermiere di ricovero domiciliare (HAD) / 80% / CDM 12 mesi",
         "en": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 12 mois",
         "de": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDM 12 mois"
       },
@@ -841,7 +876,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-02T11:43:15.516Z"
+      "firstSeenAt": "2026-07-02T11:43:15.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva"
+      ]
     },
     {
       "id": "imad-7044a12af0a8",
@@ -900,8 +943,7 @@
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-en-sante-au-travail-service-sante-et-securite-au-travail-directions-des",
-          "consulente-per-la-salute-sul-lavoro-dipartimento-salute-e-sicurezza-sul-lavoro-dipartimenti-risorse-umane-50-con",
-          "consulente-per-la-salute-sul-lavoro-servizio-di-salute-e-sicurezza-sul-lavoro-direzioni-di-risorse-umane-50-cdi-imad"
+          "consulente-per-la-salute-sul-lavoro-dipartimento-salute-e-sicurezza-sul-lavoro-dipartimenti-risorse-umane-50-con"
         ],
         "en": [
           "conseiller-ere-en-sante-au-travail-service-sante-et-securite-au-travail-directions-des",
@@ -982,8 +1024,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
-          "infermiera-in-home-hospital-had-80-cdm-9-mesi-imad-geneva"
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
         ],
         "en": [
           "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
@@ -1063,8 +1104,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-trice-sociale-e-en-iepa-au-pool-r2-rive-droite-a-100-en-cdi-parcours-social",
-          "coordinatore-sociale-in-iepa-pool-r2-rive-right-100-in-cdi-corso-sociale-desiderato-imad-geneva"
+          "coordinateur-trice-sociale-e-en-iepa-au-pool-r2-rive-droite-a-100-en-cdi-parcours-social"
         ],
         "en": [
           "coordinateur-trice-sociale-e-en-iepa-au-pool-r2-rive-droite-a-100-en-cdi-parcours-social"
@@ -1143,8 +1183,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-          "infermiera-di-collegamento-100-in-7-mesi-cdm-imad-geneva"
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
         ],
         "en": [
           "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"

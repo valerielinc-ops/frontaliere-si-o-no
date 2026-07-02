@@ -182,14 +182,14 @@
         "it": []
       },
       "titleByLocale": {
-        "it": "Senior Business Controller",
+        "it": "Controller aziendale senior",
         "en": "Senior Business Controller",
         "de": "Senior Business Controller",
         "fr": "Senior Business Controller"
       },
-      "slug": "senior-business-controller-swisscom-bern-drxhi4",
+      "slug": "controller-aziendale-senior-swisscom-sede-ticino-bern",
       "slugByLocale": {
-        "it": "senior-business-controller-swisscom-bern-drxhi4",
+        "it": "controller-aziendale-senior-swisscom-sede-ticino-bern",
         "en": "senior-business-controller-swisscom-bern-drxhi4",
         "de": "senior-business-controller-swisscom-bern-drxhi4",
         "fr": "controleur-principal-des-entreprises-swisscom-sede-ticino-bern"
@@ -229,10 +229,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "senior-business-controller-swisscom-sede-ticino-bern"
+        ],
+        "it": [
+          "senior-business-controller-swisscom-bern-drxhi4"
         ]
       },
       "previousSlugs": [
-        "senior-business-controller-swisscom-sede-ticino-bern"
+        "senior-business-controller-swisscom-sede-ticino-bern",
+        "senior-business-controller-swisscom-bern-drxhi4"
       ]
     },
     {

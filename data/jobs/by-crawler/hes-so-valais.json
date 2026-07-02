@@ -103,14 +103,14 @@
       },
       "titleByLocale": {
         "fr": "Collaboratrice ou collaborateur technique - Cheffe ou chef de",
-        "it": "Collaboratrice ou collaborateur technique - Cheffe ou chef de",
+        "it": "Collaboratore Tecnico - Capo di",
         "en": "Collaboratrice ou collaborateur technique - Cheffe ou chef de",
         "de": "Collaboratrice ou collaborateur technique - Cheffe ou chef de"
       },
-      "slug": "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
+      "slug": "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion",
       "slugByLocale": {
         "fr": "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
-        "it": "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
+        "it": "collaboratore-tecnico-capo-di-hes-so-valais-wallis-sion",
         "en": "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais",
         "de": "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais"
       },
@@ -149,7 +149,15 @@
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-07-02T11:07:22.328Z"
+      "firstSeenAt": "2026-07-02T11:07:22.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-ou-collaborateur-technique-cheffe-ou-chef-de-hes-so-valais"
+      ]
     }
   ]
 }
