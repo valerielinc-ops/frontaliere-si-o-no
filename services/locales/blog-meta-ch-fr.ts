@@ -865,6 +865,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-2026.title': 'Retraite anticipée pour les navetteurs transfrontaliers 2026 : guide complet',
     'blog.article.pensionamento-anticipato-frontalieri-2026.excerpt': 'Découvrez comment fonctionne la retraite anticipée pour les navetteurs transfrontaliers en 2026, avec un accent sur la VAH, le second pilier et la planification sur plus de 20 km.',
     'blog.article.pensionamento-anticipato-frontalieri-2026.imageAlt': 'Une vue sereine du lac de Lugano au coucher du soleil, avec une personne assise sur un banc regardant l\'eau.',
+    'blog.article.mutuo-italia-frontalieri-guida.title': 'Guide prêt immobilier Italie pour frontaliers suisses',
+    'blog.article.mutuo-italia-frontalieri-guida.excerpt': 'Découvrez comment obtenir un prêt immobilier en Italie avec un salaire suisse : documents, garanties et banques spécialisées.',
+    'blog.article.mutuo-italia-frontalieri-guida.imageAlt': 'Vue aérienne d\'une ville frontalière suisse-italienne avec un lac et des maisons, symbolisant la vie transfrontalière.',
 };
 
 export default blogMetaChFr;

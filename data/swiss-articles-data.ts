@@ -2591,6 +2591,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'mutuo-italia-frontalieri-guida',
+    category: 'pratico',
+    date: '2026-07-02T13:43:58.487Z',
+    image: '/images/blog/mutuo-italia-frontalieri-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
