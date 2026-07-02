@@ -8335,9 +8335,9 @@
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -8405,10 +8405,12 @@
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ],
         "it": [
           "venditore-denner-ag-gossau-sg"
