@@ -45858,6 +45858,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deduzione-figli-frontalieri-2026': {
+    title: 'Frontalieri: possibile rimozione deduzione fiscale per figli',
+    description: 'Un\'iniziativa propone di eliminare la deduzione fiscale per i figli dei lavoratori frontalieri con figli all\'estero. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, possibile, rimozione, deduzione, fiscale',
+    ogTitle: 'Frontalieri: possibile rimozione deduzione fiscale per figli',
+    ogDescription: 'Un\'iniziativa propone di eliminare la deduzione fiscale per i figli dei lavoratori frontalieri con figli all\'estero.',
+    canonicalPath: '/articoli-frontaliere/deduzione-figli-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: possibile rimozione deduzione fiscale per figli",
+      "description": "Un'iniziativa propone di eliminare la deduzione fiscale per i figli dei lavoratori frontalieri con figli all'estero. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deduzione-figli-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lungolago di Lugano con documenti fiscali in primo piano"
+      },
+      "datePublished": "2026-07-02T15:01:54+00:00",
+      "dateModified": "2026-07-02T15:01:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deduzione-figli-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

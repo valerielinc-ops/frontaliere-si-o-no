@@ -8231,6 +8231,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Grisons : 1,6 million sur 1 479 nouveaux navetteurs italiens transfrontaliers',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'Le canton des Grisons a enregistré une augmentation significative du nombre de navetteurs italiens transfrontaliers, avec une contribution économique de 1,6 million.',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Paysage des Grisons avec des travailleurs transfrontaliers italiens marchant vers la frontière',
+    'blog.article.deduzione-figli-frontalieri-2026.title': 'Frontalieri: déduction fiscale enfants supprimée ?',
+    'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'Une initiative propose de supprimer la déduction fiscale pour les enfants des travailleurs transfrontaliers ayant des enfants à l’étranger.',
+    'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Vue aérienne du front de lac de Lugano avec des documents fiscaux sur un bureau au premier plan',
 };
 
 export default blogMetaFr;
