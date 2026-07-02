@@ -4773,7 +4773,20 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   const leafUuid = extractUuidLikeId(leafSeg);
   if (leafUuid) return `${registrableDomain(host)}|${leafUuid}`;
 
-  const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i);
+  // Anchored to the END of the path (optional trailing slash, then query/hash/
+  // string-end only) — this rule is meant for the flat 2-segment
+  // `/offene-stellen/{slug}/{id}` shape (coop group Prospective.ch boards,
+  // gemeinde-st-moritz `/offene-stellen/detail/{slug}`, …). Without the
+  // anchor, `[^/?#]+` matches the FIRST segment after the wildcard even when
+  // the real path goes deeper — e.g. Solina's TYPO3 portal
+  // `/offene-stellen/{category}/details/{hash}` has a 3rd segment, so the
+  // unanchored regex captured the literal constant "details" for every
+  // listing/category, collapsing all 23 distinct Solina jobs onto one
+  // fingerprint (`solina.ch|details`) and losing 22 of them at merge time
+  // (issue #3257). Anchoring makes the match fail for 3+-segment paths so
+  // they fall through to the `/details/{id}` rule in `inPath` below, which
+  // captures the real per-job id instead.
+  const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)\/?(?:[?#]|$)/i);
   if (coopPathMatch?.[1]) {
     const coopIdCandidate = normalizeSpace(coopPathMatch[1]);
     const coopUuid = extractUuidLikeId(coopIdCandidate) || extractUuidLikeId(full);
@@ -4795,6 +4808,14 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     return `${registrableDomain(host)}|${leafSeg.toLowerCase()}`;
   }
 
+  // NOTE: no unanchored `/(?:offene-stellen|posti-vacanti)/…` fallback here —
+  // that shape is handled exclusively by the anchored `coopPathMatch` above.
+  // An unanchored copy previously sat in this list too; it was fully dead
+  // (coopPathMatch, checked earlier, always matched first for any input this
+  // one could match) until the anchor was added above, at which point it
+  // would have become a live backdoor reintroducing the exact 3+-segment
+  // collision bug the anchor fixes (issue #3257) — removed rather than kept
+  // as a trap for the next edit.
   const inPath = [
     /\/jobs\/view\/(\d+)/i,
     /\/job\/(\d+)/i,
@@ -4802,7 +4823,6 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     /\/jobs\/(\d+)/i,
     /\/positions\/(\d+)/i,
     /\/vacanc(?:y|ies)\/(\d+)/i,
-    /\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i,
     /\/career\/jobs\/([^/?#]+)/i,
     /\/job\/[^/?#]*\/([^/?#]+)/i,
   ];

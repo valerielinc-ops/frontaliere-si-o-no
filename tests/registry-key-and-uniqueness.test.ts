@@ -76,6 +76,36 @@ describe('fingerprintJob → registry key', () => {
     expect(b).toBe('id|cseb.ch|cccccccc-3333-4333-8333-333333333333');
     expect(a).not.toBe(b);
   });
+
+  // #3257: jobs.solina.ch is `/offene-stellen/{category}/details/{hash}` — 3
+  // path segments after `offene-stellen/`. The unanchored coop-path rule
+  // matched the FIRST 2 segments in from any depth, so it captured the
+  // constant literal "details" (the segment right after the category) for
+  // every job, regardless of category or hash. All 23 live Solina jobs
+  // fingerprinted identically and collapsed onto ONE entry during merge,
+  // tripping the 23→1 shrink guard.
+  it('#3257: does not collapse Solina TYPO3 jobs onto the literal "details" segment', () => {
+    const a = fingerprintJob({ url: 'https://jobs.solina.ch/offene-stellen/pflege-betreuung/details/abc123' });
+    const b = fingerprintJob({ url: 'https://jobs.solina.ch/offene-stellen/pflege-betreuung/details/def456' });
+    const c = fingerprintJob({ url: 'https://jobs.solina.ch/offene-stellen/hotellerie-gastronomie/details/ghi789' });
+    expect(a).not.toBe('id|solina.ch|details');
+    expect(a).toBe('id|solina.ch|abc123');
+    expect(b).toBe('id|solina.ch|def456');
+    expect(c).toBe('id|solina.ch|ghi789');
+    expect(a).not.toBe(b);
+    expect(a).not.toBe(c);
+  });
+
+  it('still keys the flat 2-segment `/offene-stellen/{leaf}/{id}` shape (gemeinde-st-moritz)', () => {
+    // gemeinde-st-moritz genuinely terminates 2 segments after `offene-stellen/`
+    // (`/aktuelles/aktuelles/offene-stellen/detail/{slug}`) — must keep working
+    // via the same (now anchored) coop-path rule since there is no 3rd segment.
+    const a = fingerprintJob({ url: 'https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/pflegefachperson-fa' });
+    const b = fingerprintJob({ url: 'https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/lehrperson-primar' });
+    expect(a).toBe('id|gemeinde-stmoritz.ch|pflegefachperson-fa');
+    expect(b).toBe('id|gemeinde-stmoritz.ch|lehrperson-primar');
+    expect(a).not.toBe(b);
+  });
 });
 
 describe('registerJobSlug', () => {

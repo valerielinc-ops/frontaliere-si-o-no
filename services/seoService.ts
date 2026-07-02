@@ -4363,6 +4363,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-blocca-ristorni-roma-berna': { name: 'Ticino blocca ristorni', path: '/articoli-frontaliere/ticino-blocca-ristorni-roma-berna', parent: 'blog' },
     'blog-mutuo-italia-frontalieri-guida': { name: 'Mutuo Italia', path: '/articoli-svizzera/mutuo-italia-frontalieri-guida/', parent: 'blog' },
     'blog-grigioni-frontalieri-italiani-1-6-milioni': { name: 'Grigioni frontalieri', path: '/articoli-frontaliere/grigioni-frontalieri-italiani-1-6-milioni', parent: 'blog' },
+    'blog-vivere-come-lavorare-ticino': { name: 'Vivere Como', path: '/articoli-svizzera/vivere-come-lavorare-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
