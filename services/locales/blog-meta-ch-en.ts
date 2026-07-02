@@ -832,6 +832,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Refunds Frozen: Alfieri and Artoni Call for the Abolition of the Health Tax',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'The Swiss Council of States has blocked cross-border tax rebates for Lombardy. Alfieri and Artoni are calling for the abolition of the health tax.',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Panoramic view of Bellinzona, Switzerland, with the castle in the foreground and mountains in the background.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': '2026 Guide: Changing Jobs for Cross-Border Workers',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Find out how to change employers in Switzerland in 2026: notice period, G permit renewal, contribution continuity, and documents to update.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'A frontier worker crossing the Switzerland-Italy border, with a view of Lugano in the background.',
 };
 
 export default blogMetaChEn;

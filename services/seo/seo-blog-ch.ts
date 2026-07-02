@@ -10704,6 +10704,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-cambio-datore-lavoro-procedura-permesso-2026': {
+    title: 'Guida 2026: Cambio lavoro per frontalieri | Frontaliere Ticino',
+    description: 'Scopri come cambiare datore di lavoro in Svizzera nel 2026: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, lavoro, scopri, cambiare',
+    ogTitle: 'Guida 2026 al cambio datore di lavoro per frontalieri',
+    ogDescription: 'Scopri come cambiare datore di lavoro in Svizzera nel 2026: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    canonicalPath: '/articoli-svizzera/frontaliere-cambio-datore-lavoro-procedura-permesso-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida 2026: Cambio lavoro per frontalieri",
+      "description": "Scopri come cambiare datore di lavoro in Svizzera nel 2026: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-cambio-datore-lavoro-procedura-permesso-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona frontaliera che attraversa il confine Svizzera-Italia, con un'immagine di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-07-02T06:57:57+00:00",
+      "dateModified": "2026-07-02T06:57:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-cambio-datore-lavoro-procedura-permesso-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

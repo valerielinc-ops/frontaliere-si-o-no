@@ -300,6 +300,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-2026-residenza-italia-svizzera': { it: 'frontaliere-2026-residenza-italia-svizzera', en: 'frontaliers-2026-residence-italy-switzerland', de: 'grenzgaenger-2026-wohnsitz-italien-schweiz', fr: 'frontaliers-2026-residence-italie-suisse' },
  'frontaliere-figli-asilo-nido-svizzera': { it: 'frontaliere-figli-asilo-nido-svizzera', en: 'frontalier-children-swiss-kindergarten', de: 'frontalier-kinder-schweizer-kindergarten', fr: 'frontalier-enfants-garderie-suisse' },
  'ristorni-frontalieri-bloccati-alfieri-pd': { it: 'ristorni-frontalieri-bloccati-alfieri-pd', en: 'frontier-workers-compensation-blocked-alfieri-pd', de: 'grenzgaenger-entschaedigungen-gesperrt-alfieri-pd', fr: 'indemnites-frontaliers-bloquees-alfieri-pd' },
+ 'frontaliere-cambio-datore-lavoro-procedura-permesso-2026': { it: 'frontaliere-cambio-datore-lavoro-procedura-permesso-2026', en: 'frontier-worker-job-change-procedure-permit-2026', de: 'grenzgaenger-arbeitsplatzwechsel-verfahren-genehmigung-2026', fr: 'travailleur-frontalier-changement-demployeur-procedure-permis-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

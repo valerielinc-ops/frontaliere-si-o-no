@@ -832,6 +832,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.title': 'Remboursements gelés : suppression de la taxe santé demandée',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.excerpt': 'Le Conseil d\'État suisse a suspendu les remboursements aux frontaliers de Lombardie. Alfieri et Artoni réclament la suppression de la taxe santé.',
     'blog.article.ristorni-frontalieri-bloccati-alfieri-pd.imageAlt': 'Vue panoramique de Bellinzona, Suisse, avec le château en premier plan et les montagnes en arrière-plan.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.title': 'Guide 2026 : Changement d\'emploi pour les frontaliers',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.excerpt': 'Découvrez comment changer d\'employeur en Suisse en 2026 : préavis, renouvellement du permis G, continuité des cotisations et documents à mettre à jour.',
+    'blog.article.frontaliere-cambio-datore-lavoro-procedura-permesso-2026.imageAlt': 'Un travailleur frontalier traverse la frontière entre la Suisse et l\'Italie, avec une vue sur Lugano en arrière-plan.',
 };
 
 export default blogMetaChFr;
