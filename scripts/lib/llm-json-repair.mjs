@@ -12,6 +12,20 @@ export function stripCodeFences(raw) {
   return String(raw).replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
 }
 
+/**
+ * Prompt-side guard against the recurring "quoted term echoed from the
+ * source" JSON corruption (e.g. a headline quoting «tassa sulla salute» —
+ * see issue #3282, run 28600753915: 6/6 attempts across 6 different models
+ * — gpt-4.1, gemini-2.5-flash, gpt-4.1-nano, groq/gpt-oss-120b, gpt-4o-mini,
+ * plus every free fallback — hit the identical corruption, proving this is
+ * a prompt gap, not a model-quality issue the fallback chain can route
+ * around). Append/inline this into every prompt whose response is
+ * JSON.parse()'d, so models are told up front how to emit an internal
+ * double quote instead of leaving it to the fixJsonStringBody() heuristic
+ * below to guess after the fact.
+ */
+export const JSON_QUOTE_SAFETY_RULE_IT = '⚠️ VIRGOLETTE NEI VALORI JSON: se riporti un termine o una frase citata tra virgolette (es. la cosiddetta "tassa sulla salute"), NON usare mai il carattere " dentro un valore stringa JSON — usa virgolette singole (\'tassa sulla salute\') o guillemet («tassa sulla salute»). Se devi proprio usare virgolette doppie interne, escapale sempre con \\" (es. "la cosiddetta \\"tassa sulla salute\\""). Una virgoletta doppia non escapata dentro una stringa rende l\'intero JSON non valido e scarta l\'intero articolo.';
+
 /** Index of the bracket/brace matching the opener at openIdx, quote/escape aware. */
 export function findMatchingClose(src, openIdx) {
   const open = src[openIdx];

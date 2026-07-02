@@ -28,7 +28,7 @@ const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody } from './lib/llm-json-repair.mjs';
+import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
@@ -471,6 +471,8 @@ REGOLE:
 ARTICOLO:
 ${bodyText.slice(0, 6000)}
 
+${JSON_QUOTE_SAFETY_RULE_IT}
+
 Rispondi SOLO con un JSON array (no markdown, no code fences):
 [{"q":"Domanda 1?","a":"Risposta 1."},{"q":"Domanda 2?","a":"Risposta 2."}]`;
 
@@ -522,6 +524,8 @@ REGOLE:
 
 ARTICOLO:
 ${bodyText.slice(0, 6000)}
+
+${JSON_QUOTE_SAFETY_RULE_IT}
 
 Rispondi SOLO con un JSON array (no markdown, no code fences):
 [{"q":"Domanda 1?","a":"Risposta 1."},{"q":"Domanda 2?","a":"Risposta 2."}]`;
