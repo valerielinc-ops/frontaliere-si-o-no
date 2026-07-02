@@ -40,6 +40,43 @@ export const EMBEDDING_NEAR_DUP_COSINE = Math.min(
   ),
 );
 
+// Corpus-size-adaptive relaxation for the near-dup ceiling above (#3138
+// follow-up, 2026-07-02). Nearest-neighbour cosine mechanically rises with
+// corpus density — it's a property of how many points share the embedding
+// space, not of whether any given pair is a true duplicate. Measured
+// directly against the frontaliere store (2728 articles): the corpus's OWN
+// self-nearest-neighbour cosine sits at p50=0.904, p75=0.934 — i.e. the
+// fixed 0.86 ceiling already flags 91% of the corpus's already-published,
+// legitimately-distinct articles as "duplicates of themselves". At
+// svizzera's current size (273 articles) the same fixed ceiling is fine
+// (self-NN density is far lower). Rather than hand-tune a per-section
+// constant that goes stale as each corpus grows, the ceiling scales with
+// log10(corpusSize / EMBEDDING_NEAR_DUP_CORPUS_BASELINE): a section at or
+// below the baseline size keeps today's exact 0.86 behaviour; a 10x larger
+// corpus (frontaliere/svizzera's current ratio) gets +~0.077, landing just
+// above the corpus's own p75 self-NN cosine — clears most legitimately
+// distinct new content while EMBEDDING_NEAR_DUP_COSINE_CEILING still caps
+// how far any section can drift, so the gate never fully disables itself
+// at scale.
+export const EMBEDDING_NEAR_DUP_COSINE_CEILING = 0.95;
+export const EMBEDDING_NEAR_DUP_CORPUS_BASELINE = 300;
+export const EMBEDDING_NEAR_DUP_CORPUS_SCALE_K = 0.08;
+
+/**
+ * Corpus-size-adaptive near-duplicate cosine threshold. Below
+ * EMBEDDING_NEAR_DUP_CORPUS_BASELINE articles this returns exactly
+ * EMBEDDING_NEAR_DUP_COSINE (no behaviour change for small/new sections).
+ *
+ * @param {number} corpusSize — article count in the section's embedding store
+ * @returns {number}
+ */
+export function computeAdaptiveNearDupCosine(corpusSize) {
+  const n = Number.isFinite(corpusSize) && corpusSize > 0 ? corpusSize : EMBEDDING_NEAR_DUP_CORPUS_BASELINE;
+  const scaled = EMBEDDING_NEAR_DUP_COSINE
+    + EMBEDDING_NEAR_DUP_CORPUS_SCALE_K * Math.log10(n / EMBEDDING_NEAR_DUP_CORPUS_BASELINE);
+  return Math.min(EMBEDDING_NEAR_DUP_COSINE_CEILING, Math.max(EMBEDDING_NEAR_DUP_COSINE, scaled));
+}
+
 // Confidence multipliers per cascade stage. Final score = rawScore * confidence.
 export const CONFIDENCE_GSC = 1.0;
 export const CONFIDENCE_EMBEDDING = 0.8;

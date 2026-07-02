@@ -21,7 +21,7 @@
 
 import { embedOne, lastUsedEmbeddingModel } from '../evidence/embeddingClient.mjs';
 import { findTopK, loadEmbeddingStore, loadEmbeddingMeta } from './embeddingMatcher.mjs';
-import { EMBEDDING_NEAR_DUP_COSINE, EMBEDDING_TOP_K } from './constants.mjs';
+import { EMBEDDING_TOP_K, computeAdaptiveNearDupCosine } from './constants.mjs';
 
 /**
  * Build the corpus-comparable embedding text for an article. Must stay in
@@ -58,7 +58,6 @@ export function buildDedupText(title, excerpt) {
  */
 export async function checkSemanticNearDuplicate(data, opts = {}) {
   const log = opts.log || ((msg) => console.error(msg));
-  const threshold = typeof opts.threshold === 'number' ? opts.threshold : EMBEDDING_NEAR_DUP_COSINE;
   const k = typeof opts.k === 'number' ? opts.k : EMBEDDING_TOP_K;
 
   const store = opts.store !== undefined ? opts.store : loadEmbeddingStore();
@@ -66,6 +65,12 @@ export async function checkSemanticNearDuplicate(data, opts = {}) {
     log('  ⏭️  Dedup semantico saltato (store embedding assente)');
     return data;
   }
+  // Explicit opts.threshold (used by unit tests / callers that want a fixed
+  // gate) is honoured as-is; otherwise scale with this section's corpus
+  // size — see computeAdaptiveNearDupCosine in constants.mjs.
+  const threshold = typeof opts.threshold === 'number'
+    ? opts.threshold
+    : computeAdaptiveNearDupCosine(store.count);
 
   const title = data?.content?.it?.title || '';
   const excerpt = data?.content?.it?.excerpt || '';
