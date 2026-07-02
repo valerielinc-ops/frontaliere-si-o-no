@@ -1153,8 +1153,10 @@ export const Analytics = {
  *
  * KEY METRICS:
  * - High force_reload count → deployment issues or SW cache problems
- * - blocked=true events → infinite loop successfully prevented
- * - Multiple reloads per session → guard failure (should NEVER happen)
+ * - blocked=true events → per-signature/total reload budget exhausted
+ * - A handful of reloads per session is expected when a client hits several
+ *   DISTINCT stale chunks (each has its own budget); many reloads for the
+ *   SAME reason in one session would indicate a guard failure
  */
  trackForceReload: (info: {
  source: 'index_html_script' | 'index_html_import' | 'error_boundary' | 'user_click' | 'lazyRetry';

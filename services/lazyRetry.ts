@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { bustAssetHttpCache } from '@/services/resilientImport';
+import { bustAssetHttpCache, consumeReloadBudget } from '@/services/resilientImport';
 
 /**
  * Retry wrapper for React.lazy dynamic imports.
@@ -7,9 +7,15 @@ import { bustAssetHttpCache } from '@/services/resilientImport';
  * had old entry module cached), this utility:
  * 1. Clears all Service Worker caches
  * 2. Retries the import twice (immediate + 2s delay)
- * 3. If retries fail, reloads the page ONCE to fetch the new entry module
+ * 3. If retries fail, reloads the page to fetch the new entry module
  *    (which references new chunk hashes that exist on the server)
- * 4. If reload already happened this session, throws to ErrorBoundary
+ * 4. Draws from the SAME shared per-signature reload budget as
+ *    resilientImport.ts/recoverFromStaleChunk (consumeReloadBudget, keyed on the
+ *    failing chunk's error message) — previously this used its own standalone
+ *    `_chunkRetry` one-shot flag, which meant the FIRST chunk-load failure in a
+ *    session permanently blocked recovery for every OTHER, unrelated chunk that
+ *    went stale later (same exhaustion bug as the flat `_swReloadCount` counter
+ *    this shares a fix with — see resilientImport.ts).
  *
  * The reload is the key fix: retrying the same dead URL can't work after a
  * deploy because the old chunk hash no longer exists. Only a full page reload
@@ -37,9 +43,9 @@ export function lazyRetry<T extends React.ComponentType<any>>(
 
  if (!isChunkError) throw err;
 
- const retryKey = '_chunkRetry';
- if (sessionStorage.getItem(retryKey)) {
- // Already retried + reloaded this session — let ErrorBoundary handle it
+ if (!consumeReloadBudget(err?.message || 'chunk_load')) {
+ // This signature already spent its budget (or the session hit the total
+ // reload ceiling) — let ErrorBoundary handle it.
  import('@/services/analytics').then(m => m.Analytics.trackChunkRetry({
  outcome: 'failure',
  errorMessage: `Guard blocked: ${err?.message || 'unknown'}`,
@@ -47,8 +53,6 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  })).catch(() => {});
  throw err;
  }
-
- sessionStorage.setItem(retryKey, '1');
 
  const clearCaches = async () => {
  if ('caches' in window) {

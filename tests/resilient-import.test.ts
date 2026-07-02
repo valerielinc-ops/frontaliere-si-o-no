@@ -7,6 +7,7 @@ import {
   recoverFromStaleChunk,
   bustAssetHttpCache,
   MAX_RELOADS,
+  MAX_TOTAL_RELOADS,
 } from '@/services/resilientImport';
 
 /**
@@ -15,8 +16,14 @@ import {
  *  2. import() resolves but the module is missing expected exports (version
  *     skew: stable-named chunks where a cached entry pulls a fresh chunk whose
  *     export shape differs → "n.getApp is not a function" on a minified name).
- * Both clear caches, retry once, then reload (guarded to MAX_RELOADS per session).
+ * Both clear caches, retry once, then reload — guarded to MAX_RELOADS attempts
+ * per distinct signature (the failing chunk/message), MAX_TOTAL_RELOADS overall
+ * per session.
  */
+function reloadBudgetTotal(): number {
+  const budget: Record<string, number> = JSON.parse(sessionStorage.getItem('_swReloadCount') || '{}');
+  return Object.values(budget).reduce((a, b) => a + Number(b), 0);
+}
 describe('resilientImport', () => {
   beforeEach(() => {
     sessionStorage.clear();
@@ -74,21 +81,54 @@ describe('resilientImport', () => {
     await expect(resilientImport(factory)).rejects.toThrow();
     expect(factory).toHaveBeenCalledTimes(2); // initial + one retry
     expect(reload).toHaveBeenCalledTimes(1);
-    // Uses the shared _swReloadCount key — same ceiling as recoverFromStaleChunk + index.html.
-    expect(sessionStorage.getItem('_swReloadCount')).toBe('1');
+    // Uses the shared _swReloadCount budget — same signature (identical message)
+    // as recoverFromStaleChunk + index.html would use, so it fills the SAME slot.
+    expect(reloadBudgetTotal()).toBe(1);
 
-    // A second, independently-stale chunk in the same session still has budget left.
+    // The SAME chunk failing again still has budget left, up to MAX_RELOADS.
     for (let n = 2; n <= MAX_RELOADS; n++) {
       reload.mockClear();
       await expect(resilientImport(factory)).rejects.toThrow();
       expect(reload).toHaveBeenCalledTimes(1);
-      expect(sessionStorage.getItem('_swReloadCount')).toBe(String(n));
+      expect(reloadBudgetTotal()).toBe(n);
     }
 
-    // Once the ceiling is reached, a further failure must NOT reload again.
+    // Once this signature's ceiling is reached, a further failure with the SAME
+    // message must NOT reload again.
     reload.mockClear();
     await expect(resilientImport(factory)).rejects.toThrow();
     expect(reload).not.toHaveBeenCalled();
+  });
+
+  it('recovers from a DIFFERENT chunk failure after the first chunk already exhausted its own budget', async () => {
+    const reload = vi.fn();
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, reload: reload },
+    });
+
+    const staleErr = Object.assign(new Error('Failed to fetch dynamically imported module A'), {
+      name: 'ChunkLoadError',
+    });
+    const factoryA = vi.fn().mockRejectedValue(staleErr);
+    for (let n = 1; n <= MAX_RELOADS; n++) {
+      await expect(resilientImport(factoryA)).rejects.toThrow();
+    }
+    reload.mockClear();
+    await expect(resilientImport(factoryA)).rejects.toThrow();
+    expect(reload).not.toHaveBeenCalled(); // chunk A's budget is spent
+
+    // A genuinely different, unrelated chunk going stale must still recover —
+    // a flat session-wide counter would incorrectly block this too (#3097
+    // recurrence: a live user stranded after two unrelated chunks went stale
+    // on different pages before a third, independently-recoverable one hit).
+    const otherErr = Object.assign(new Error('Failed to fetch dynamically imported module B'), {
+      name: 'ChunkLoadError',
+    });
+    const factoryB = vi.fn().mockRejectedValue(otherErr);
+    reload.mockClear();
+    await expect(resilientImport(factoryB)).rejects.toThrow();
+    expect(reload).toHaveBeenCalledTimes(1);
   });
 
   it('does not swallow non-chunk errors', async () => {
@@ -200,30 +240,67 @@ describe('recoverFromStaleChunk', () => {
     expect(scheduled).toBe(true);
     expect((globalThis as any).caches.delete).toHaveBeenCalledTimes(2);
     expect(reload).toHaveBeenCalledTimes(1);
-    // Shares the `_swReloadCount` ceiling with the index.html bootstrap recovery.
-    expect(sessionStorage.getItem('_swReloadCount')).toBe('1');
+    // Shares the `_swReloadCount` budget with the index.html bootstrap recovery.
+    expect(reloadBudgetTotal()).toBe(1);
   });
 
-  it('honours the reload ceiling already reached by the index.html bootstrap recovery', async () => {
+  it('honours the per-signature ceiling already reached by the index.html bootstrap recovery', async () => {
     const reload = setHostname('frontaliereticino.ch');
-    // index.html's resource/import/skew handlers set this same counter.
-    sessionStorage.setItem('_swReloadCount', String(MAX_RELOADS));
+    // index.html's resource/import/skew handlers write into the SAME budget map,
+    // keyed by the identical reason string this call will use.
+    sessionStorage.setItem(
+      '_swReloadCount',
+      JSON.stringify({ 'after-bootstrap-reload': MAX_RELOADS }),
+    );
     const scheduled = await recoverFromStaleChunk('after-bootstrap-reload');
     expect(scheduled).toBe(false);
     expect(reload).not.toHaveBeenCalled();
   });
 
-  it('is guarded to at most MAX_RELOADS reloads per session', async () => {
+  it('recovers a DIFFERENT signature even when another one already reached its ceiling', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    // Simulates the exact live-bug shape: an earlier, unrelated stale chunk
+    // already spent its own budget elsewhere in the session (e.g. the
+    // index.html bootstrap handler on a previous page) — that must NOT block
+    // recovery for a NEW, distinct stale chunk (#3097 recurrence, jul02).
+    sessionStorage.setItem(
+      '_swReloadCount',
+      JSON.stringify({ 'some-other-page-skew': MAX_RELOADS }),
+    );
+    const scheduled = await recoverFromStaleChunk('a-fresh-distinct-skew');
+    expect(scheduled).toBe(true);
+    expect(reload).toHaveBeenCalledTimes(1);
+  });
+
+  it('is guarded to at most MAX_RELOADS reloads per distinct signature', async () => {
     const reload = setHostname('frontaliereticino.ch');
 
     for (let n = 1; n <= MAX_RELOADS; n++) {
+      reload.mockClear();
+      const scheduled = await recoverFromStaleChunk('repeating-signature');
+      expect(scheduled).toBe(true);
+      expect(reload).toHaveBeenCalledTimes(1);
+    }
+
+    // This signature's ceiling is reached — the SAME reason must NOT reload again.
+    reload.mockClear();
+    const scheduled = await recoverFromStaleChunk('repeating-signature');
+    expect(scheduled).toBe(false);
+    expect(reload).not.toHaveBeenCalled();
+  });
+
+  it('is guarded to at most MAX_TOTAL_RELOADS reloads per session across distinct signatures', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+
+    for (let n = 1; n <= MAX_TOTAL_RELOADS; n++) {
       reload.mockClear();
       const scheduled = await recoverFromStaleChunk(`attempt-${n}`);
       expect(scheduled).toBe(true);
       expect(reload).toHaveBeenCalledTimes(1);
     }
 
-    // Ceiling reached — a further failure must NOT reload again.
+    // The absolute session ceiling is reached — even a brand-new, never-seen
+    // signature must NOT reload again.
     reload.mockClear();
     const scheduled = await recoverFromStaleChunk('over-the-limit');
     expect(scheduled).toBe(false);

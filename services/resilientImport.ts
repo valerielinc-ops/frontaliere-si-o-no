@@ -106,15 +106,58 @@ export function isVersionSkewError(err: unknown): boolean {
   return false;
 }
 
-// Session-wide reload ceiling shared across ALL three recovery surfaces:
-// resilientImport's chunk-load path (below), recoverFromStaleChunk (called by
-// ErrorBoundary + global window-error handler), and index.html bootstrap handlers.
-// Raised from 1 to 2 (issue: single sessions observed hitting TWO independently
-// stale chunks, e.g. vendor-icons.js then i18n.js — bustAssetHttpCache() only
-// refetches chunks already loaded on the current page, so a second, not-yet-loaded
-// stale chunk can still surface after the first reload and needs its own retry).
+// Session-wide reload BUDGET shared across every recovery surface: resilientImport's
+// chunk-load path (below), recoverFromStaleChunk (called by ErrorBoundary + the
+// global window-error handler), lazyRetry.ts, index.html's bootstrap handlers, and
+// their mirrored copy in build-plugins/constants.ts (SELF_HEAL_SCRIPT_CONTENT,
+// injected into every static SEO page). Keep all in sync — none of the non-module
+// copies can import this file.
+//
+// Stored as a JSON map `{ [signature]: attempts }` under BOOTSTRAP_RELOAD_KEY,
+// keyed on WHAT went stale (the failing chunk URL or error message) rather than a
+// single flat counter. A flat counter (previous design, raised 1→2 in #3184)
+// conflates "this exact bug keeps looping" with "the session hit a genuinely NEW,
+// independently-stale chunk" — a client that recovers from vendor-icons.js on page
+// A and i18n.js on page B has legitimately spent both slots and is then PERMANENTLY
+// stranded if a THIRD, unrelated chunk goes stale on page C, even though recovery
+// would have worked again given the chance (#3097 recurrence, jul02). Per-signature
+// tracking gives each distinct stale chunk its own MAX_RELOADS attempts, while a
+// bug that keeps throwing the IDENTICAL message is still capped — and
+// MAX_TOTAL_RELOADS backstops the (unlikely) case of many distinct signatures
+// reload-storming the user.
 const BOOTSTRAP_RELOAD_KEY = '_swReloadCount';
 export const MAX_RELOADS = 2;
+export const MAX_TOTAL_RELOADS = 6;
+
+function readReloadBudget(): Record<string, number> {
+  try {
+    const parsed = JSON.parse(sessionStorage.getItem(BOOTSTRAP_RELOAD_KEY) || '{}');
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Attempt to spend one reload against the shared per-signature budget. Returns
+ * true (and records the attempt) if `signature` has not yet exhausted its own
+ * MAX_RELOADS allowance and the session-wide MAX_TOTAL_RELOADS ceiling has not
+ * been reached; false if the caller should give up and show the error UI.
+ */
+export function consumeReloadBudget(signature: string): boolean {
+  const budget = readReloadBudget();
+  const key = (signature || 'unknown').slice(0, 150);
+  const total = Object.values(budget).reduce((a, b) => a + b, 0);
+  const count = budget[key] || 0;
+  if (count >= MAX_RELOADS || total >= MAX_TOTAL_RELOADS) return false;
+  budget[key] = count + 1;
+  try {
+    sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, JSON.stringify(budget));
+  } catch {
+    /* private mode — proceed without persisting the guard */
+  }
+  return true;
+}
 
 // Upper bound on how long the HTTP-cache bust may run before we reload anyway.
 // Asset chunks are small and refetched in parallel; this is only a backstop so a
@@ -190,13 +233,14 @@ export async function bustAssetHttpCache(): Promise<void> {
 }
 
 /**
- * Clear all CacheStorage entries and reload the page ONCE per session so the
- * browser refetches a CONSISTENT set of stable-named chunks (post-propagation,
- * the skew is gone). Called by the ErrorBoundary version-skew recovery; shares
- * the `_swReloadCount` ceiling with the index.html bootstrap recovery so the two
- * skew surfaces (React-caught + global window error) reload at most MAX_RELOADS
- * times total. No-op outside the browser. Returns true if a reload was
- * scheduled, false if the per-session guard blocked it.
+ * Clear all CacheStorage entries and reload the page so the browser refetches a
+ * CONSISTENT set of stable-named chunks (post-propagation, the skew is gone).
+ * Called by the ErrorBoundary version-skew recovery; shares the `_swReloadCount`
+ * per-signature budget (see consumeReloadBudget) with the index.html bootstrap
+ * recovery so every skew surface (React-caught + global window error) draws from
+ * one pool, capped at MAX_RELOADS attempts per distinct stale chunk/message and
+ * MAX_TOTAL_RELOADS overall. No-op outside the browser. Returns true if a reload
+ * was scheduled, false if the guard blocked it.
  */
 export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   if (typeof window === 'undefined') return false;
@@ -204,18 +248,7 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     return false;
   }
-  let reloadCount = 0;
-  try {
-    reloadCount = parseInt(sessionStorage.getItem(BOOTSTRAP_RELOAD_KEY) || '0', 10) || 0;
-  } catch {
-    /* private mode — proceed without the guard */
-  }
-  if (reloadCount >= MAX_RELOADS) return false;
-  try {
-    sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, String(reloadCount + 1));
-  } catch {
-    /* private mode — guard unavailable, still attempt the reload below */
-  }
+  if (!consumeReloadBudget(reason)) return false;
   // Best-effort breadcrumb for Analytics.initGlobalErrorTracking() post-reload.
   try {
     sessionStorage.setItem(
@@ -291,16 +324,8 @@ export async function resilientImport<T>(
     } catch (err2) {
       // Chunk truly gone — reload to get fresh HTML with current chunk URLs.
       if (typeof window !== 'undefined') {
-        let shouldReload = false;
-        try {
-          const rc = parseInt(sessionStorage.getItem(BOOTSTRAP_RELOAD_KEY) || '0', 10) || 0;
-          if (rc < MAX_RELOADS) {
-            sessionStorage.setItem(BOOTSTRAP_RELOAD_KEY, String(rc + 1));
-            shouldReload = true;
-          }
-        } catch {
-          /* sessionStorage unavailable (private mode) — skip reload guard */
-        }
+        const signature = (err2 as Error)?.message || 'chunk_load';
+        const shouldReload = consumeReloadBudget(signature);
         if (shouldReload) {
           // Bust the HTTP cache before reloading: a stale-but-200 chunk (HTML
           // served for a purged name, or a skewed dependency) would otherwise be
