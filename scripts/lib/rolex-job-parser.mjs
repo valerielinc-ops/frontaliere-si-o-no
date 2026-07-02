@@ -276,7 +276,13 @@ async function fetchJobListings() {
       break;
     }
     const rows = parseListingPage(html, pageUrl);
-    if (rows.length === 0) break;
+    if (rows.length === 0) {
+      // Fetch succeeded but parsed to zero rows — could be genuine EOF or a
+      // challenge/error page rendered with a 200 status. Warn so a sustained
+      // pattern is visible, since we can't tell the two apart here.
+      console.warn(`   ⚠️ Rolex: page ${page} (startrow=${startrow}) parsed 0 rows — treating as end of pagination.`);
+      break;
+    }
 
     let added = 0;
     for (const row of rows) {

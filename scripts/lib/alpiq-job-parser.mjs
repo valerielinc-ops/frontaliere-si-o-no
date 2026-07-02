@@ -23,6 +23,7 @@
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
 const CAREERS_BASE = 'https://www.alpiq.com';
@@ -232,6 +233,13 @@ export async function fetchAlpiqListingPages(maxPages = 10, timeoutMs = 15000) {
       clearTimeout(timer);
       if (!res.ok) break;
       const html = await res.text();
+      if (looksLikeAntiBotChallenge(html)) {
+        // 200 status but a challenge page — parses to 0 jobs and is
+        // otherwise indistinguishable from genuine end-of-pagination. Skip
+        // this page rather than stopping the whole crawl on it.
+        console.warn(`   ⚠️ Alpiq page ${page}: anti-bot challenge page detected — skipping, continuing pagination.`);
+        continue;
+      }
       // Parse the FULL page (all locations), not the Swiss-filtered subset, to
       // drive pagination: Alpiq interleaves non-Swiss postings, so a page with
       // zero Swiss jobs (e.g. page 1 = Praha/Madrid/Milano) must NOT stop the

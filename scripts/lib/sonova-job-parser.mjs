@@ -261,7 +261,13 @@ async function fetchJobListings() {
       break;
     }
     const rows = parseTilePage(html);
-    if (rows.length === 0) break;
+    if (rows.length === 0) {
+      // Fetch succeeded but parsed to zero rows — could be genuine EOF or a
+      // challenge/error page rendered with a 200 status. Warn so a sustained
+      // pattern is visible, since we can't tell the two apart here.
+      console.warn(`   ⚠️ Sonova: page ${page} (startrow=${startrow}) parsed 0 rows — treating as end of pagination.`);
+      break;
+    }
 
     // RMK leaks non-CH jobs once startrow exceeds the filtered count → stop
     // paginating as soon as a page yields zero CH-city tiles (recon guidance).

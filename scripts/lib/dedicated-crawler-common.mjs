@@ -5545,11 +5545,13 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     const k = matchKey(job);
     if (k && !ambiguousKeys.has(k)) existingByKey.set(k, job);
   }
+  const matchedExistingKeys = new Set();
 
-  return freshJobs.map((fresh) => {
+  const mergedFresh = freshJobs.map((fresh) => {
     const k = matchKey(fresh);
     const old = (k && !ambiguousKeys.has(k)) ? existingByKey.get(k) : null;
     if (!old) return fresh;
+    matchedExistingKeys.add(k);
 
     // Preserve stable ID from existing job
     if (old.id) fresh.id = old.id;
@@ -5724,6 +5726,27 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
 
     return fresh;
   });
+
+  // Grace period: a job present in `existingJobs` but absent from this
+  // run's `freshJobs` isn't necessarily gone — pagination fail-soft
+  // (anti-bot block, nav timeout, transient fetch error) on the source
+  // site can make one run under-collect, which looks identical to a
+  // real removal at this layer. Retain unmatched existing jobs for a
+  // few consecutive misses (mirrors crawler-health-monitor's 3-strikes
+  // pattern for whole-crawl failures) so a single bad run doesn't
+  // silently archive a still-open job; only let it drop — and flow
+  // into computeCrawlDiff's removedJobs / archive path — once it has
+  // been missing for GRACE_PERIOD_MAX_MISSES consecutive runs in a row.
+  const GRACE_PERIOD_MAX_MISSES = 2;
+  const retainedJobs = [];
+  for (const [key, old] of existingByKey) {
+    if (matchedExistingKeys.has(key)) continue;
+    const missStreak = (Number(old.crawlerMissStreak) || 0) + 1;
+    if (missStreak > GRACE_PERIOD_MAX_MISSES) continue;
+    retainedJobs.push({ ...old, crawlerMissStreak: missStreak });
+  }
+
+  return retainedJobs.length ? [...mergedFresh, ...retainedJobs] : mergedFresh;
 }
 
 function tokenizeForSimilarity(text = '') {

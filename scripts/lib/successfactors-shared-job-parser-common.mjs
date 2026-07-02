@@ -432,6 +432,12 @@ export function createSuccessFactorsParser(config) {
         break;
       }
       const pageRows = parseCsbSearchResults(html);
+      if (pageRows.length === 0) {
+        // Fetch succeeded but parsed to zero rows — could be genuine EOF or
+        // a challenge/error page rendered with a 200 status. Warn so a
+        // sustained pattern is visible, since we can't tell the two apart.
+        console.warn(`  ⚠️ startrow=${startrow}: parsed 0 rows — treating as end of pagination.`);
+      }
       if (total === 0) total = extractCsbTotal(html) || 0;
 
       let added = 0;

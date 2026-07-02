@@ -277,7 +277,10 @@ async function fetchLastminuteJobDetailUrls() {
 
     const links = parseJobLinksFromListingHtml(html);
     if (links.length === 0) {
-      console.log('    ℹ️ No detail links found on this page, stopping pagination.');
+      // Fetch succeeded but parsed to zero links — could be genuine EOF or
+      // a challenge/error page rendered with a 200 status. Warn so a
+      // sustained pattern is visible, since we can't tell the two apart.
+      console.warn(`    ⚠️ No detail links found on page ${page} — treating as end of pagination.`);
       break;
     }
 
