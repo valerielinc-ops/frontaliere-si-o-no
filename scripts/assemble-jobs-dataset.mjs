@@ -535,6 +535,22 @@ const CONTENT_HEADINGS_RE = /\b(COMPITI|PROFILO|Responsabilit[aà]|Requisiti|Qua
 const BOILERPLATE_THRESHOLD = 0.5; // 50%
 const MIN_UNIQUE_WORDS = 30;
 
+// Sample-size floor (Diakoniewerk-Neumünster incident, 2026-07-02, issue #3254):
+// a low-volume dedicated crawler can have as few as 1-2 jobs ELIGIBLE for the
+// boilerplate check on a given run (fresh discoveries are excluded via
+// `needsRetranslation` — see detectBoilerplateDescriptions below). At n=2 a
+// single genuinely-short-but-legitimate description (e.g. a synthesized
+// fallback for a JS-only ATS, or a naturally terse listing) trips the 50%
+// ratio the same way 25/50 boilerplate jobs would on a large crawler — the
+// ratio alone can't tell "one short job" from "systemic parser break" below
+// a minimum sample. Mirrors the identical floor already applied to the
+// sibling thin-source guard in validateDedicatedLocaleCoverage
+// (dedicated-crawler-common.mjs SYSTEMIC_MIN_TOTAL/absolute-count floor): a
+// genuine parser regression manifests across MANY jobs, not one or two, so
+// below this floor the signal is too weak to justify bricking the whole run.
+const BOILERPLATE_MIN_ELIGIBLE = Number(process.env.JOBS_BOILERPLATE_MIN_ELIGIBLE) || 4;
+const BOILERPLATE_MIN_COUNT = Number(process.env.JOBS_BOILERPLATE_MIN_COUNT) || 2;
+
 // Anti-shrink guard thresholds (axa-svizzera incident, 2026-07-01): only
 // guard crawlers with a meaningful baseline, and only trigger on a drop deep
 // enough to be clearly abnormal — observed normal 15-day churn never dropped
@@ -635,6 +651,28 @@ export function detectBoilerplateDescriptions(jobs, crawlerKey) {
     boilerplateCount: boilerplateJobs.length,
     ratio,
   };
+}
+
+/**
+ * Whether a detectBoilerplateDescriptions() report represents a SYSTEMIC
+ * boilerplate failure — i.e. a signal reliable enough to hard-fail the
+ * crawler run — as opposed to one or two naturally-short descriptions on a
+ * low-volume crawler crossing the ratio threshold by chance.
+ *
+ * Requires BOTH the ratio to meet BOILERPLATE_THRESHOLD AND an absolute
+ * sample-size floor (>= BOILERPLATE_MIN_ELIGIBLE eligible jobs and
+ * >= BOILERPLATE_MIN_COUNT boilerplate jobs). See the floor constants above
+ * for rationale (issue #3254).
+ *
+ * @param {{ratio:number, boilerplateCount:number, totalJobs:number}} report
+ * @returns {boolean}
+ */
+export function isSystemicBoilerplateFailure(report) {
+  return (
+    report.ratio >= BOILERPLATE_THRESHOLD &&
+    report.boilerplateCount >= BOILERPLATE_MIN_COUNT &&
+    report.totalJobs >= BOILERPLATE_MIN_ELIGIBLE
+  );
 }
 
 /**
@@ -818,12 +856,22 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   // Boilerplate guard: detect parsers that silently fell back to generic descriptions.
   if (!process.env.SKIP_BOILERPLATE_GUARD) {
     const bpReport = detectBoilerplateDescriptions(jobs, crawlerKey);
-    if (bpReport.boilerplateCount > 0 && bpReport.ratio < BOILERPLATE_THRESHOLD) {
+    const systemic = isSystemicBoilerplateFailure(bpReport);
+
+    if (bpReport.boilerplateCount > 0 && !systemic) {
       for (const bj of bpReport.boilerplateJobs) {
         console.log(`[boilerplate-guard] ${bj.slug}: ${bj.reason} (${bj.uniqueWords} unique words)`);
       }
+      if (bpReport.ratio >= BOILERPLATE_THRESHOLD) {
+        console.warn(
+          `⚠️  [boilerplate-guard] ${crawlerKey}: ${bpReport.boilerplateCount}/${bpReport.totalJobs} jobs (${(bpReport.ratio * 100).toFixed(0)}%) meet the boilerplate ratio, ` +
+          `but the eligible sample is below the reliability floor (needs >=${BOILERPLATE_MIN_ELIGIBLE} eligible jobs and >=${BOILERPLATE_MIN_COUNT} boilerplate jobs to be a systemic signal) — not failing the run. ` +
+          `A genuine parser regression shows up across many jobs, not one or two naturally-short ones.`
+        );
+      }
     }
-    if (bpReport.ratio >= BOILERPLATE_THRESHOLD) {
+
+    if (systemic) {
       console.error(`\n🚨 Boilerplate guard FAILED for ${crawlerKey}`);
       console.error(`   ${bpReport.boilerplateCount}/${bpReport.totalJobs} jobs (${(bpReport.ratio * 100).toFixed(0)}%) have boilerplate-only descriptions\n`);
       console.error('   Affected jobs:');

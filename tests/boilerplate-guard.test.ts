@@ -9,7 +9,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { detectBoilerplateDescriptions } from '@/scripts/assemble-jobs-dataset.mjs';
+import { detectBoilerplateDescriptions, isSystemicBoilerplateFailure } from '@/scripts/assemble-jobs-dataset.mjs';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -282,6 +282,68 @@ describe('detectBoilerplateDescriptions — guard gate thresholds', () => {
     expect(report.totalJobs).toBe(10);
     expect(report.ratio).toBe(0.5);
     expect(report.ratio).toBeGreaterThanOrEqual(0.5);
+  });
+});
+
+// ─── Sample-Size Floor Tests (isSystemicBoilerplateFailure) ────────────────────
+// Regression coverage for issue #3254 (Diakoniewerk Neumünster, 2026-07-02):
+// a low-volume dedicated crawler had only 2 jobs eligible for the boilerplate
+// check; 1 of them was a naturally-short-but-legitimate description, which hit
+// the 50% ratio and hard-failed the whole run (discarding 6 well-localized
+// jobs). isSystemicBoilerplateFailure() adds an absolute sample-size floor on
+// top of the ratio so a tiny sample can no longer brick the run by itself.
+
+describe('isSystemicBoilerplateFailure — sample-size floor', () => {
+  it('reproduces the #3254 Diakoniewerk incident: 1/2 (50%) is NOT systemic', () => {
+    const report = { ratio: 0.5, boilerplateCount: 1, totalJobs: 2 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('1/1 (100%) on a single-job crawler is NOT systemic (below both floors)', () => {
+    const report = { ratio: 1, boilerplateCount: 1, totalJobs: 1 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('2/3 (67%) is NOT systemic (totalJobs below the eligible-jobs floor)', () => {
+    const report = { ratio: 2 / 3, boilerplateCount: 2, totalJobs: 3 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('2/4 (50%) meets both floors: IS systemic', () => {
+    const report = { ratio: 0.5, boilerplateCount: 2, totalJobs: 4 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(true);
+  });
+
+  it('5/10 (50%) on a large crawler: IS systemic (unchanged from pre-floor behavior)', () => {
+    const report = { ratio: 0.5, boilerplateCount: 5, totalJobs: 10 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(true);
+  });
+
+  it('4/10 (40%) below the ratio threshold: NOT systemic regardless of sample size', () => {
+    const report = { ratio: 0.4, boilerplateCount: 4, totalJobs: 10 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('a single boilerplate job on a large crawler (1/20 = 5%) stays below ratio: NOT systemic', () => {
+    const report = { ratio: 0.05, boilerplateCount: 1, totalJobs: 20 };
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
+  });
+
+  it('integration: detectBoilerplateDescriptions output for the #3254 shape is NOT systemic', () => {
+    const jobs = [
+      makeJob('eligible-good', RICH_DESCRIPTION),
+      makeJob('eligible-thin', wordsDesc(29)),
+      // 4 freshly-discovered jobs excluded from the eligible sample, mirroring
+      // the real run (needsRetranslation=true until AI localization clears it).
+      ...Array.from({ length: 4 }, (_, i) =>
+        makeJob(`fresh-${i}`, wordsDesc(5), { needsRetranslation: true }),
+      ),
+    ];
+    const report = detectBoilerplateDescriptions(jobs, 'diakoniewerk-neumuenster');
+    expect(report.totalJobs).toBe(2);
+    expect(report.boilerplateCount).toBe(1);
+    expect(report.ratio).toBe(0.5);
+    expect(isSystemicBoilerplateFailure(report)).toBe(false);
   });
 });
 
