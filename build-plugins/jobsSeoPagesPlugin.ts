@@ -9889,6 +9889,25 @@ ${staticAnalyticsHtml}
  // soft-404 regression on the indexed legacy-TI URL (e.g. a VS Swiss-Life job
  // 404-orphaned at /fr/trouver-emploi-tessin/<slug>/ while live at
  // /fr/trouver-emploi-valais/<slug>/).
+ //
+ // Safety of keying this Map by `compatPath` alone (issue #3150 follow-up of
+ // #3144): `compatPath` = `prefix + slug` where `prefix` comes from the
+ // locale-specific COMPAT_JOB_PATTERNS table below. Two different locales
+ // could only silently overwrite each other's stash entry (and later make
+ // the self-healing lookup emit a canonical pointing at the wrong locale's
+ // page) if two entries in COMPAT_JOB_PATTERNS mapped to the SAME prefix
+ // string but DIFFERENT locales. Enumerated: it → '/cerca-lavoro-ticino/',
+ // en → '/en/find-jobs-ticino/', de → '/de/jobs-im-tessin/',
+ // fr → '/fr/trouver-emploi-tessin/' — four distinct literal prefixes, one
+ // per locale (en/de/fr each carry the `/${locale}/` segment; it's prefix
+ // is the IT-only literal 'cerca-lavoro-ticino'). None is a prefix of any
+ // other (they diverge at the first character after the leading '/'), so
+ // no slug can make two different-locale prefixes concatenate to the same
+ // compatPath either. `compatPath` alone is therefore unambiguous today —
+ // see tests/cross-canton-active-drift-bridge.test.ts for a regression
+ // guard that fails if a future COMPAT_JOB_PATTERNS edit breaks this
+ // invariant (duplicate prefix reused across locales, or a new prefix that
+ // is a prefix/suffix-ambiguous of an existing different-locale one).
  const activeDriftRealPathByCompat = new Map<string, string>();
  try {
  const compatPaths: string[] = readCompatPaths(rootDir).paths;

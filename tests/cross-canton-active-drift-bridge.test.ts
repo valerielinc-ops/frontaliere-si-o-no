@@ -66,3 +66,55 @@ describe('Cross-canton active-job drift URL → relocation bridge (not orphan)',
     expect(branch).toMatch(/fr:\s*\{[^}]*Offre déplacée/);
   });
 });
+
+// Regression guard for issue #3150 (follow-up of #3144): the
+// `activeDriftRealPathByCompat` stash above is keyed ONLY by `compatPath`
+// (locale-agnostic). That's only safe if COMPAT_JOB_PATTERNS never lets two
+// different locales produce the same `prefix` — otherwise the second
+// locale's `.set()` silently overwrites the first, and the self-healing
+// lookup emits a canonical pointing at the wrong locale's page. This test
+// parses the live COMPAT_JOB_PATTERNS table out of the source and enforces
+// the invariant so a future pattern addition can't reintroduce the risk.
+describe('COMPAT_JOB_PATTERNS prefixes stay locale-unique (compatPath collision guard)', () => {
+  const patternsBlockMatch = jobsSeoSrc.match(
+    /const COMPAT_JOB_PATTERNS:[^=]*=\s*\[([\s\S]*?)\n\s*\];/,
+  );
+  if (!patternsBlockMatch) {
+    throw new Error('COMPAT_JOB_PATTERNS table not found in jobsSeoPagesPlugin.ts — update this test\'s parser.');
+  }
+  const patternsBlock = patternsBlockMatch[1];
+  const entries = [...patternsBlock.matchAll(/locale:\s*'([^']+)',\s*prefix:\s*'([^']+)'/g)].map(
+    ([, locale, prefix]) => ({ locale, prefix }),
+  );
+
+  it('parses at least one entry per known locale (parser sanity check)', () => {
+    expect(entries.length).toBeGreaterThanOrEqual(4);
+    const locales = new Set(entries.map((e) => e.locale));
+    expect(locales).toEqual(new Set(['it', 'en', 'de', 'fr']));
+  });
+
+  it('never maps the same prefix to two different locales', () => {
+    const localeByPrefix = new Map<string, string>();
+    for (const { locale, prefix } of entries) {
+      const existing = localeByPrefix.get(prefix);
+      if (existing !== undefined) {
+        expect(existing).toBe(locale); // same prefix must always mean same locale
+      } else {
+        localeByPrefix.set(prefix, locale);
+      }
+    }
+  });
+
+  it('never has a different-locale prefix that is a string-prefix of another (would let slugs alias across locales)', () => {
+    const distinctPrefixLocales = [
+      ...new Map(entries.map((e) => [e.prefix, e.locale])).entries(),
+    ];
+    for (const [prefixA, localeA] of distinctPrefixLocales) {
+      for (const [prefixB, localeB] of distinctPrefixLocales) {
+        if (prefixA === prefixB) continue;
+        if (localeA === localeB) continue; // same-locale overlap is not a cross-locale risk
+        expect(prefixB.startsWith(prefixA)).toBe(false);
+      }
+    }
+  });
+});
