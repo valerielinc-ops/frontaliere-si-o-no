@@ -4353,6 +4353,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ristorni-ticino-lombardia-soluzione': { name: 'Ristorni', path: '/articoli-frontaliere/ristorni-ticino-lombardia-soluzione', parent: 'blog' },
     'blog-formazione-professionale-frontaliere-2026': { name: 'Formazione frontaliere', path: '/articoli-svizzera/formazione-professionale-frontaliere-2026/', parent: 'blog' },
     'blog-avs-ai-prospettive-finanziarie-peggiorano': { name: 'Finanza', path: '/articoli-frontaliere/avs-ai-prospettive-finanziarie-peggiorano', parent: 'blog' },
+    'blog-avs-ai-prospettive-finanziarie': { name: 'AVS e AI', path: '/articoli-svizzera/avs-ai-prospettive-finanziarie/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
