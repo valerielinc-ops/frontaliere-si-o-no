@@ -57,8 +57,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
-          "infermiera-certificata-spital-zollikerberg-zollikerberg",
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-zollikerberg-zollikerberg"
+          "infermiera-certificata-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
@@ -275,8 +274,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg",
-          "formazione-professionale-formazione-professionale-maternite-spital-zollikerberg-zollikerberg"
+          "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "berufsbildnerin-berufsbildner-maternite-spital-zollikerberg-zollikerberg"
@@ -353,8 +351,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-kardiologie-arztbereich-spital-zollikerberg-zollikerberg",
-          "senior-medico-senior-medico-cardiologia-dipartimento-medico-spital-zollikerberg-zollikerberg"
+          "oberarztin-oberarzt-kardiologie-arztbereich-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "oberarztin-oberarzt-kardiologie-arztbereich-spital-zollikerberg-zollikerberg"
@@ -379,12 +376,12 @@
     },
     {
       "id": "spital-zollikerberg-1f2c44befc6f",
-      "slug": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
+      "slug": "specialist-health-private-station-2-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
+        "it": "specialist-health-private-station-2-spital-zollikerberg-zollikerberg",
         "en": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+        "fr": "station-privee-de-sante-specialisee-2-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -439,7 +436,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+      ]
     }
   ]
 }

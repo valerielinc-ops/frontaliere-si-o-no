@@ -8331,12 +8331,12 @@
     },
     {
       "id": "jumbo-29ac8794-cca",
-      "slug": "lagerist-in-jumbo-chur",
+      "slug": "magazziniere-jumbo-chur",
       "slugByLocale": {
         "de": "lagerist-in-jumbo-chur",
-        "it": "lagerist-in-jumbo-chur",
-        "en": "lagerist-in-jumbo-chur",
-        "fr": "lagerist-in-jumbo-chur"
+        "it": "magazziniere-jumbo-chur",
+        "en": "warehouse-worker-jumbo-chur",
+        "fr": "magasinier-jumbo-chur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -8401,23 +8401,27 @@
       "firstSeenAt": "2026-07-01T22:39:06.830Z",
       "previousSlugs": [
         "lagerist-in-jumbo-chur-graubunden-ut7ptz",
+        "lagerist-in-jumbo-chur",
         "lagerist-in-jumbo-division-der-coop-genossenschaft-chur",
         "lageriste-in-jumbo-chur"
       ],
       "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
-          "lagerist-in-jumbo-chur-graubunden-ut7ptz"
+          "lagerist-in-jumbo-chur-graubunden-ut7ptz",
+          "lagerist-in-jumbo-chur"
         ],
         "en": [
-          "lagerist-in-jumbo-chur-graubunden-ut7ptz"
+          "lagerist-in-jumbo-chur-graubunden-ut7ptz",
+          "lagerist-in-jumbo-chur"
         ],
         "de": [
           "lagerist-in-jumbo-division-der-coop-genossenschaft-chur"
         ],
         "fr": [
           "lagerist-in-jumbo-chur-graubunden-ut7ptz",
-          "lageriste-in-jumbo-chur"
+          "lageriste-in-jumbo-chur",
+          "lagerist-in-jumbo-chur"
         ]
       }
     },
@@ -8427,8 +8431,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-logistik-jumbo-hochdorf",
         "it": "addetto-a-alla-logistica-jumbo-hochdorf",
-        "en": "mitarbeiter-in-logistik-jumbo-hochdorf",
-        "fr": "mitarbeiter-in-logistik-jumbo-hochdorf"
+        "en": "logistics-officer-jumbo-hochdorf",
+        "fr": "agent-logistique-jumbo-hochdorf"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",

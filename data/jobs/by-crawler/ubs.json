@@ -9,7 +9,7 @@
         "en": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
         "it": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
         "de": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich",
-        "fr": "business-strategist-ubs-chief-strategy-office-gwm-ubs-zurich"
+        "fr": "strategiste-des-affaires-bureau-strategique-en-chef-de-l-ubs-gwm-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -76,12 +76,12 @@
     },
     {
       "id": "ubs-c759124e8b01",
-      "slug": "finanzplaner-wmch-basel-ubs-nordschweiz",
+      "slug": "pianificatore-finanziario-wmch-basel-ubs-nordschweiz",
       "slugByLocale": {
         "de": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "it": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "en": "finanzplaner-wmch-basel-ubs-nordschweiz",
-        "fr": "finanzplaner-wmch-basel-ubs-nordschweiz"
+        "it": "pianificatore-finanziario-wmch-basel-ubs-nordschweiz",
+        "en": "financial-planner-wmch-basel-ubs-nordschweiz",
+        "fr": "planificateur-financier-wmch-basel-ubs-nordschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -143,16 +143,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T23:34:49.548Z"
+      "firstSeenAt": "2026-07-01T23:34:49.548Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
+        ],
+        "en": [
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
+        ],
+        "fr": [
+          "finanzplaner-wmch-basel-ubs-nordschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "finanzplaner-wmch-basel-ubs-nordschweiz"
+      ]
     },
     {
       "id": "ubs-28e4d7bafe32",
-      "slug": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
+      "slug": "esperto-fiscale-gestione-della-ricchezza-ubs-zentralschweiz",
       "slugByLocale": {
         "de": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "it": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "en": "steuerexperte-in-wealth-management-ubs-zentralschweiz",
-        "fr": "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        "it": "esperto-fiscale-gestione-della-ricchezza-ubs-zentralschweiz",
+        "en": "tax-expert-wealth-management-ubs-zentralschweiz",
+        "fr": "expert-fiscal-gestion-de-la-masse-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -214,16 +228,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T23:34:49.547Z"
+      "firstSeenAt": "2026-07-01T23:34:49.547Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        ],
+        "en": [
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        ],
+        "fr": [
+          "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "steuerexperte-in-wealth-management-ubs-zentralschweiz"
+      ]
     },
     {
       "id": "ubs-4ea375f241aa",
-      "slug": "succession-planner-ubs-zentralschweiz",
+      "slug": "progettisti-di-successione-ubs-zentralschweiz",
       "slugByLocale": {
         "de": "succession-planner-ubs-zentralschweiz",
-        "it": "succession-planner-ubs-zentralschweiz",
-        "en": "succession-planner-ubs-zentralschweiz",
-        "fr": "succession-planner-ubs-zentralschweiz"
+        "it": "progettisti-di-successione-ubs-zentralschweiz",
+        "en": "succession-planners-ubs-zentralschweiz",
+        "fr": "planificateurs-de-releve-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -285,16 +313,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T23:34:49.546Z"
+      "firstSeenAt": "2026-07-01T23:34:49.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "succession-planner-ubs-zentralschweiz"
+        ],
+        "en": [
+          "succession-planner-ubs-zentralschweiz"
+        ],
+        "fr": [
+          "succession-planner-ubs-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "succession-planner-ubs-zentralschweiz"
+      ]
     },
     {
       "id": "ubs-3c1d041b2ba0",
-      "slug": "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich",
+      "slug": "vendite-a-reddito-fisso-ugm-clienti-professionali-di-accesso-al-mercato-wm-ubs-zurich",
       "slugByLocale": {
         "en": "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich",
-        "it": "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich",
-        "de": "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich",
-        "fr": "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich"
+        "it": "vendite-a-reddito-fisso-ugm-clienti-professionali-di-accesso-al-mercato-wm-ubs-zurich",
+        "de": "ugm-fixed-income-sales-professionelle-marktzugangskunden-wm-ubs-zurich",
+        "fr": "ventes-a-revenu-fixe-ugm-clients-professionnels-d-acces-au-marche-wm-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -357,16 +399,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-01T23:34:49.539Z"
+      "firstSeenAt": "2026-07-01T23:34:49.539Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich"
+        ],
+        "de": [
+          "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich"
+        ],
+        "fr": [
+          "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ugm-fixed-income-sales-professional-market-access-clients-wm-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-cd326f66be9f",
-      "slug": "outbound-sales-agent-zurich-40-60-ubs-zurich",
+      "slug": "agente-vendite-in-uscita-zurigo-40-60-ubs-zurich",
       "slugByLocale": {
         "de": "outbound-sales-agent-zurich-40-60-ubs-zurich",
-        "it": "outbound-sales-agent-zurich-40-60-ubs-zurich",
+        "it": "agente-vendite-in-uscita-zurigo-40-60-ubs-zurich",
         "en": "outbound-sales-agent-zurich-40-60-ubs-zurich",
-        "fr": "outbound-sales-agent-zurich-40-60-ubs-zurich"
+        "fr": "agent-de-vente-sortant-zurich-40-60-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -429,7 +485,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-01T23:34:49.534Z"
+      "firstSeenAt": "2026-07-01T23:34:49.534Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "outbound-sales-agent-zurich-40-60-ubs-zurich"
+        ],
+        "fr": [
+          "outbound-sales-agent-zurich-40-60-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "outbound-sales-agent-zurich-40-60-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-264d0020889b",
@@ -509,7 +576,7 @@
       "slugByLocale": {
         "en": "audit-expert-ib-execution-services-ubs-zurich",
         "it": "audit-expert-ib-execution-services-ubs-zurich",
-        "de": "audit-expert-ib-execution-services-ubs-zurich",
+        "de": "prufungsexperte-ib-execution-services-ubs-zurich",
         "fr": "audit-expert-ib-execution-services-ubs-zurich"
       },
       "company": "UBS",

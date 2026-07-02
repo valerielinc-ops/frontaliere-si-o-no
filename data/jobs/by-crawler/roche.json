@@ -20955,7 +20955,6 @@
         "roche-ch-42",
         "roche-ch-6",
         "roche-ch-5",
-        "roche-basel",
         "terreno-della-societa-regiona-locali-roche-basel",
         "klassisch-eingehalten-roche-basel"
       ],
@@ -30678,8 +30677,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
-        "operation-de-reglementation-interne-roche-basel-74ec59",
         "interno-di-funzionamento-del-regolatore-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -35614,7 +35611,6 @@
         "medical-director-cvm-roche-ch",
         "medical-direttore-cvm-roche-basel-hfwos4",
         "medical-direttore-cvm-roche-basel-hfwosr",
-        "medical-director-cvm-roche-ch-2",
         "medical-direttore-cvm-roche-basel",
         "medical-direktor-cvm-roche-basel"
       ],
@@ -45596,7 +45592,6 @@
         "specialiste-des-ventes-numeriques-soins-aux-patients-proches-roche-basel",
         "digital-sales-spezialist-central-lab-roche-basel",
         "specialiste-des-ventes-numeriques-central-lab-roche-basel",
-        "specialista-di-vendita-digitale-laboratorio-centrale-roche-basel",
         "specialista-di-vendita-digitale-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -63497,8 +63492,6 @@
         "solution-architect-techops-qualitat-lab-execution-connectivity-roche-basel",
         "solution-architect-techops-quality-lab-execution-connectivity-roche-ch",
         "solution-senior-architect-techops-qualite-roche-basel",
-        "senior-solution-architetto-techops-quality-roche-basel",
-        "senior-solution-architect-techops-qualitat-roche-basel",
         "soluzione-architetto-techops-quality-esecuzione-e-connettivita-dei-laboratori-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -89215,12 +89208,12 @@
     },
     {
       "id": "roche-c07e966c75eb",
-      "slug": "roche-chengdu",
+      "slug": "organizzazione-roche-chengdu",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-chengdu",
+        "it": "organizzazione-roche-chengdu",
         "de": "roche-chengdu",
-        "fr": "roche-chengdu"
+        "fr": "en-milliers-de-dollars-des-etats-unis-roche-chengdu"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -89263,11 +89256,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-168"
+          "roche-ch-168",
+          "roche-chengdu"
+        ],
+        "fr": [
+          "roche-chengdu"
         ]
       },
       "previousSlugs": [
-        "roche-ch-168"
+        "roche-ch-168",
+        "roche-chengdu"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -90222,12 +90220,12 @@
     },
     {
       "id": "roche-1237045b4409",
-      "slug": "patient-journey-partner-oncology-roche-ch-2",
+      "slug": "partner-del-viaggio-paziente-oncologia-roche-mumbai",
       "slugByLocale": {
         "en": "patient-journey-partner-oncology-roche-ch",
-        "it": "patient-journey-partner-oncology-roche-ch-2",
+        "it": "partner-del-viaggio-paziente-oncologia-roche-mumbai",
         "de": "patient-journey-partner-oncology-roche-ch-2",
-        "fr": "patient-journey-partner-oncology-roche-ch-2"
+        "fr": "partenaire-de-voyage-patient-oncologie-roche-mumbai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90282,7 +90280,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-01T23:08:32.180Z"
+      "firstSeenAt": "2026-07-01T23:08:32.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-oncology-roche-ch-2"
+        ],
+        "fr": [
+          "patient-journey-partner-oncology-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-oncology-roche-ch-2"
+      ]
     },
     {
       "id": "roche-ad26482af971",
@@ -90291,7 +90300,7 @@
         "en": "roche-ch",
         "it": "roche-shijiazhuang",
         "de": "roche-shijiazhuang",
-        "fr": "roche-shijiazhuang"
+        "fr": "c-est-pas-vrai-roche-shijiazhuang"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90358,12 +90367,12 @@
     },
     {
       "id": "roche-8771436e7176",
-      "slug": "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch",
+      "slug": "associate-scientist-in-sviluppo-farmaceutico-fixed-term-per-1-anno-a-basilea-roche-basel",
       "slugByLocale": {
         "en": "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch",
-        "it": "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch",
+        "it": "associate-scientist-in-sviluppo-farmaceutico-fixed-term-per-1-anno-a-basilea-roche-basel",
         "de": "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch",
-        "fr": "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch"
+        "fr": "scientifique-associe-au-developpement-pharmaceutique-terme-fixe-d-un-an-a-bale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90418,7 +90427,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-01T23:08:28.920Z"
+      "firstSeenAt": "2026-07-01T23:08:28.920Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch"
+        ],
+        "fr": [
+          "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-scientist-in-pharmaceutical-development-fixed-term-for-1-year-in-basel-roche-ch"
+      ]
     },
     {
       "id": "roche-572a50872dca",
@@ -90502,7 +90522,7 @@
       "slugByLocale": {
         "fr": "marketing-intern-roche-ch",
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city"
       },
       "company": "Roche",
@@ -90565,10 +90585,14 @@
         ],
         "de": [
           "marketing-intern-roche-ch-2"
+        ],
+        "en": [
+          "marketing-intern-roche-mexico-city"
         ]
       },
       "previousSlugs": [
-        "marketing-intern-roche-ch-2"
+        "marketing-intern-roche-ch-2",
+        "marketing-intern-roche-mexico-city"
       ]
     },
     {
@@ -90654,12 +90678,12 @@
     },
     {
       "id": "roche-f8da41bcfc4a",
-      "slug": "business-development-project-expert-roche-ch",
+      "slug": "esperto-del-progetto-di-sviluppo-commerciale-roche-mexico-city",
       "slugByLocale": {
         "en": "business-development-project-expert-roche-ch",
-        "it": "business-development-project-expert-roche-ch",
+        "it": "esperto-del-progetto-di-sviluppo-commerciale-roche-mexico-city",
         "de": "business-development-project-expert-roche-ch",
-        "fr": "business-development-project-expert-roche-ch"
+        "fr": "expert-du-projet-de-developpement-des-entreprises-roche-mexico-city"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90714,7 +90738,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-01T23:08:24.679Z"
+      "firstSeenAt": "2026-07-01T23:08:24.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-project-expert-roche-ch"
+        ],
+        "fr": [
+          "business-development-project-expert-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-project-expert-roche-ch"
+      ]
     },
     {
       "id": "roche-670deb87ddf5",
@@ -90798,8 +90833,8 @@
       "slugByLocale": {
         "en": "dmpk-pd-project-leader-roche-ch",
         "it": "dmpk-pd-project-leader-roche-ch",
-        "de": "dmpk-pd-project-leader-roche-ch",
-        "fr": "dmpk-pd-project-leader-roche-ch"
+        "de": "dmpk-pd-projektleiter-roche-basel",
+        "fr": "chef-de-projet-dmpk-pd-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91518,12 +91553,12 @@
     },
     {
       "id": "roche-bc2e07cacb3c",
-      "slug": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
+      "slug": "amministratore-della-piattaforma-di-potenza-rdt-engineering-excellence-experience-roche-madrid",
       "slugByLocale": {
         "en": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
-        "it": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
+        "it": "amministratore-della-piattaforma-di-potenza-rdt-engineering-excellence-experience-roche-madrid",
         "de": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
-        "fr": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch"
+        "fr": "administrateur-de-plate-forme-electrique-rdt-engineering-excellence-experience-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91578,16 +91613,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-01T23:08:13.616Z"
+      "firstSeenAt": "2026-07-01T23:08:13.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch"
+        ],
+        "fr": [
+          "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch"
+      ]
     },
     {
       "id": "roche-62da791d0ec5",
-      "slug": "principal-data-scientist-roche-ch",
+      "slug": "principali-scienziati-di-dati-roche-santa-clara",
       "slugByLocale": {
         "en": "principal-data-scientist-roche-ch",
-        "it": "metodologia-statistica-senior-data-scientist-roche-basel",
-        "de": "wissenschaftlicher-mitarbeiter-fur-statistische-methoden-roche-basel",
-        "fr": "chercheur-principal-de-la-methodologie-statistique-roche-basel"
+        "it": "principali-scienziati-di-dati-roche-santa-clara",
+        "de": "hauptdatenwissenschaftler-roche-santa-clara",
+        "fr": "chercheur-principal-des-donnees-roche-santa-clara"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91644,24 +91690,39 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-07-01T23:08:12.789Z",
       "previousSlugs": [
+        "metodologia-statistica-senior-data-scientist-roche-basel",
+        "principal-data-scientist-roche-ch",
+        "wissenschaftlicher-mitarbeiter-fur-statistische-methoden-roche-basel",
+        "chercheur-principal-de-la-methodologie-statistique-roche-basel",
         "senior-statistical-methodology-data-scientist-roche-ch",
         "principali-metodi-statistici-data-scientist-roche-basel",
         "principal-statistical-methodology-data-scientist-roche-ch",
         "hauptstatistische-methodologie-data-scientist-roche-basel",
         "methodologie-statistique-principale-roche-basel",
         "datenwissenschaftler-fur-statistische-methoden-roche-basel",
-        "ricerca-di-dati-principali-roche-santa-clara",
-        "principal-data-scientist-roche-ch"
-      ]
+        "ricerca-di-dati-principali-roche-santa-clara"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "metodologia-statistica-senior-data-scientist-roche-basel",
+          "principal-data-scientist-roche-ch"
+        ],
+        "de": [
+          "wissenschaftlicher-mitarbeiter-fur-statistische-methoden-roche-basel"
+        ],
+        "fr": [
+          "chercheur-principal-de-la-methodologie-statistique-roche-basel"
+        ]
+      }
     },
     {
       "id": "roche-5997fa2f979d",
-      "slug": "digital-innovation-board-and-portfolio-lead-roche-ch",
+      "slug": "consiglio-di-innovazione-digitale-e-portfolio-lead-roche-basel",
       "slugByLocale": {
         "en": "digital-innovation-board-and-portfolio-lead-roche-ch",
-        "it": "digital-innovation-board-and-portfolio-lead-roche-ch",
+        "it": "consiglio-di-innovazione-digitale-e-portfolio-lead-roche-basel",
         "de": "digital-innovation-board-and-portfolio-lead-roche-ch",
-        "fr": "digital-innovation-board-and-portfolio-lead-roche-ch"
+        "fr": "conseil-de-l-innovation-numerique-et-chef-de-file-du-portefeuille-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91716,7 +91777,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-01T23:08:11.869Z"
+      "firstSeenAt": "2026-07-01T23:08:11.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-innovation-board-and-portfolio-lead-roche-ch"
+        ],
+        "fr": [
+          "digital-innovation-board-and-portfolio-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-innovation-board-and-portfolio-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-dd10d35380fd",
@@ -91788,8 +91860,8 @@
       "slugByLocale": {
         "en": "programs-and-solutions-lead-digital-and-tech-procurement-roche-ch",
         "it": "programs-and-solutions-lead-digital-and-tech-procurement-roche-ch",
-        "de": "programs-and-solutions-lead-digital-and-tech-procurement-roche-ch",
-        "fr": "programs-and-solutions-lead-digital-and-tech-procurement-roche-ch"
+        "de": "programme-und-losungen-lead-digital-und-tech-beschaffung-roche-basel",
+        "fr": "responsable-des-programmes-et-des-solutions-numerique-et-technique-achats-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -91976,10 +92048,10 @@
     },
     {
       "id": "roche-40a8e5076cd8",
-      "slug": "strategic-quality-partner-roche-ch-2",
+      "slug": "partner-di-qualita-strategica-roche-santa-clara",
       "slugByLocale": {
         "en": "strategic-quality-partner-roche-ch",
-        "it": "strategic-quality-partner-roche-ch-2",
+        "it": "partner-di-qualita-strategica-roche-santa-clara",
         "de": "strategic-quality-partner-roche-ch-2",
         "fr": "strategic-quality-partner-roche-ch-2"
       },
@@ -92036,7 +92108,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-01T23:08:07.361Z"
+      "firstSeenAt": "2026-07-01T23:08:07.361Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-quality-partner-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-quality-partner-roche-ch-2"
+      ]
     },
     {
       "id": "roche-7af99cc1762f",
@@ -92375,7 +92455,7 @@
       "slugByLocale": {
         "en": "record-to-report-period-end-close-senior-analyst-roche-ch",
         "it": "record-to-report-period-end-close-senior-analyst-roche-ch",
-        "de": "record-to-report-period-end-close-senior-analyst-roche-ch",
+        "de": "record-to-report-periodenende-schlie-en-senior-analyst-roche-san-jose-costa-rica",
         "fr": "record-to-report-period-end-close-senior-analyst-roche-ch"
       },
       "company": "Roche",
@@ -92500,11 +92580,11 @@
     },
     {
       "id": "roche-5fe5c0be119f",
-      "slug": "talent-acquisition-partner-german-speaking-roche-ch",
+      "slug": "talent-acquisizione-partner-tedesco-parlando-roche-budapest",
       "slugByLocale": {
         "en": "talent-acquisition-partner-german-speaking-roche-ch",
-        "it": "talent-acquisition-partner-german-speaking-roche-ch",
-        "de": "talent-acquisition-partner-german-speaking-roche-ch",
+        "it": "talent-acquisizione-partner-tedesco-parlando-roche-budapest",
+        "de": "talent-acquisition-partner-deutsch-sprechen-roche-budapest",
         "fr": "talent-acquisition-partner-german-speaking-roche-ch"
       },
       "company": "Roche",
@@ -92560,7 +92640,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-01T23:08:00.522Z"
+      "firstSeenAt": "2026-07-01T23:08:00.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "talent-acquisition-partner-german-speaking-roche-ch"
+        ],
+        "de": [
+          "talent-acquisition-partner-german-speaking-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "talent-acquisition-partner-german-speaking-roche-ch"
+      ]
     },
     {
       "id": "roche-c3663bc4f22d",
