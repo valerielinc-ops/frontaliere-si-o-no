@@ -61,7 +61,10 @@ jobs:
       # data/jobs.json is gitignored (assembled at build time from
       # data/jobs/by-crawler/*.json which IS committed). The profiler reads
       # jobs.json so we run assemble first. No Firebase / RC creds needed —
-      # the assembler only reads local slice files.
+      # the assembler only reads local slice files. assembleJobsDataset()
+      # never calls writeJobsCrawlerSlice()/the shrink/boilerplate guards
+      # (those only run inside dedicated update-<company>-jobs.mjs crawler
+      # scripts), so it does not need GH_TOKEN / issues:write either.
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs
 
