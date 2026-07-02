@@ -111,6 +111,10 @@ jobs:
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
       - name: Assemble jobs dataset from per-crawler slices
+        # assembleJobsDataset() only reads+aggregates committed per-slice
+        # files; it never calls writeJobsCrawlerSlice()/the shrink/boilerplate
+        # guards (those only run inside dedicated update-<company>-jobs.mjs
+        # crawler scripts), so it does not need GH_TOKEN / issues:write.
         run: node scripts/assemble-jobs-dataset.mjs --stats
       - name: Housekeeping (cross-crawler dedup + locale hardening)
         env:

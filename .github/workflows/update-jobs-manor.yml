@@ -62,7 +62,11 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/load-rc-env.mjs
+          echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
 
       - name: Run dedicated Manor crawler
         env:

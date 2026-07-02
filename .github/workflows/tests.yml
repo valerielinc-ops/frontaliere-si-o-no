@@ -126,6 +126,11 @@ jobs:
         # cathedral-expired-tracking-canton). The file is gitignored — generate
         # it from committed per-slice files before running the suite. On a
         # cache HIT (above) this restores the assembled outputs in ~0.3s.
+        # Note: this only exercises assembleJobsDataset() (read+aggregate the
+        # committed per-slice files) — it never calls writeJobsCrawlerSlice()
+        # or the shrink/boilerplate guards (those only run inside the
+        # dedicated update-<company>-jobs.mjs crawler scripts), so it does not
+        # need GH_TOKEN / issues:write.
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Migrate canton-aware tracking
