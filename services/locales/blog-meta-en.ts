@@ -8230,6 +8230,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Graubünden: 1.6 million from 1,479 new Italian cross-border commuters',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'The canton of Graubünden has recorded a significant increase in the number of Italian cross-border commuters, with an economic contribution of 1.6 million.',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Grigioni landscape with Italian cross-border workers walking towards the border',
+    'blog.article.deduzione-figli-frontalieri-2026.title': 'Cross-border commuters: possible removal of tax deduction for children',
+    'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'One initiative proposes to eliminate the tax deduction for the children of cross-border workers with children abroad.',
+    'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Aerial view of Lugano lakefront with tax documents on a desk in the foreground',
 };
 
 export default blogMetaEn;

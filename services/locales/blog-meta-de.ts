@@ -8229,6 +8229,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Graubünden: 1,6 Millionen von 1.479 neuen italienischen Grenzpendlern',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'Der Kanton Graubünden verzeichnete einen deutlichen Anstieg der italienischen Grenzpendler mit einem wirtschaftlichen Beitrag von 1,6 Millionen.',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Grigioni Landschaft mit italienischen Grenzgängern, die zur Grenze gehen',
+    'blog.article.deduzione-figli-frontalieri-2026.title': 'Grenzüberschreitende Pendler: mögliche Abschaffung des Steuerabzugs für Kinder',
+    'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'Eine Initiative schlägt vor, den Steuerabzug für Kinder von Grenzarbeitern mit Kindern im Ausland abzuschaffen.',
+    'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Luftaufnahme der Lugano Seeuferpromenade mit Steuerdokumenten auf einem Tisch im Vordergrund',
 };
 
 export default blogMetaDe;

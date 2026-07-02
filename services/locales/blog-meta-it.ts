@@ -8231,6 +8231,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.title': 'Grigioni: 1,6 milioni dai 1’479 nuovi frontalieri italiani',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.excerpt': 'Il cantone dei Grigioni ha registrato un aumento significativo di frontalieri italiani, con un contributo economico di 1,6 milioni.',
     'blog.article.grigioni-frontalieri-italiani-1-6-milioni.imageAlt': 'Paesaggio dei Grigioni con frontalieri italiani in cammino verso il confine',
+    'blog.article.deduzione-figli-frontalieri-2026.title': 'Frontalieri: possibile rimozione deduzione fiscale per figli',
+    'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'Un\'iniziativa propone di eliminare la deduzione fiscale per i figli dei lavoratori frontalieri con figli all\'estero.',
+    'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Vista aerea del lungolago di Lugano con documenti fiscali in primo piano',
 };
 
 export default blogMetaIt;
