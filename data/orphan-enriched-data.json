@@ -9374,10 +9374,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-obvaldo/trainee-deputy-manager-coop-genossenschaft-zug",
-      "en": "/en/find-jobs-obwalden/trainee-deputy-manager-coop-genossenschaft-zug",
+      "it": "/cerca-lavoro-zugo/trainee-deputy-manager-coop-genossenschaft-zug",
+      "en": "/en/find-jobs-zug/trainee-deputy-manager-coop-genossenschaft-zug",
       "de": "/de/jobs-im-zug/trainee-deputy-manager-coop-genossenschaft-zug",
-      "fr": "/fr/trouver-emploi-obwald/trainee-deputy-manager-coop-genossenschaft-zug"
+      "fr": "/fr/trouver-emploi-zoug/trainee-deputy-manager-coop-genossenschaft-zug"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -9992,7 +9992,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "junior-application-technical-specialista-m-f-d-dutch-speaking-roche-basel",
+      "en": "junior-application-technical-specialist-m-f-d-dutch-speaking-roche-ch",
+      "de": "junior-application-technical-spezialist-m-f-d-dutch-speaking-roche-basel",
+      "fr": "junior-application-technical-specialiste-m-f-d-dutch-speaking-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/junior-application-technical-spezialist-m-f-d-dutch-speaking-roche-basel",
       "en": "/en/find-jobs-basel/junior-application-technical-spezialist-m-f-d-dutch-speaking-roche-basel",
@@ -10005,6 +10010,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -10534,10 +10540,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-turgovia/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel",
-      "en": "/en/find-jobs-thurgau/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel",
-      "de": "/de/jobs-im-thurgau/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel",
-      "fr": "/fr/trouver-emploi-thurgovie/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel"
+      "it": "/cerca-lavoro-basilea/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel",
+      "en": "/en/find-jobs-basel/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel",
+      "de": "/de/jobs-in-basel/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel",
+      "fr": "/fr/trouver-emploi-bale/verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-genossenschaft-basel"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -10936,17 +10942,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
-      "en": "vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
-      "de": "vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
-      "fr": "vendeur-se-produits-frais-food-coop-genossenschaft-mellingen"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
-      "en": "/en/find-jobs-ticino/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
-      "de": "/de/jobs-im-tessin/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
-      "fr": "/fr/trouver-emploi-tessin/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen"
+      "it": "/cerca-lavoro-argovia/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
+      "en": "/en/find-jobs-aargau/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
+      "de": "/de/jobs-im-aargau/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen",
+      "fr": "/fr/trouver-emploi-argovie/vendeur-se-produits-frais-food-coop-genossenschaft-mellingen"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -12380,17 +12381,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
-      "en": "genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
-      "de": "genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
-      "fr": "genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
-      "en": "/en/find-jobs-ticino/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
-      "de": "/de/jobs-im-tessin/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
-      "fr": "/fr/trouver-emploi-tessin/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny"
+      "it": "/cerca-lavoro-ginevra/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
+      "en": "/en/find-jobs-geneva/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
+      "de": "/de/jobs-in-genf/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny",
+      "fr": "/fr/trouver-emploi-geneve/genie-de-la-gestion-de-projet-e-mobility-80-100-f-m-d-hitachi-energy-satigny"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -14249,10 +14245,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-zurigo/infirmier-ere-instrumentiste-swiss-medical-network-sion",
-      "en": "/en/find-jobs-zurich/infirmier-ere-instrumentiste-swiss-medical-network-sion",
+      "it": "/cerca-lavoro-vallese/infirmier-ere-instrumentiste-swiss-medical-network-sion",
+      "en": "/en/find-jobs-valais/infirmier-ere-instrumentiste-swiss-medical-network-sion",
       "de": "/de/jobs-im-zurich/infirmier-ere-instrumentiste-swiss-medical-network-sion",
-      "fr": "/fr/trouver-emploi-zurich/infirmier-ere-instrumentiste-swiss-medical-network-sion"
+      "fr": "/fr/trouver-emploi-valais/infirmier-ere-instrumentiste-swiss-medical-network-sion"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -17187,7 +17183,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "junior-application-technical-specialista-m-f-d-dutch-speaking-roche-basel",
+      "en": "junior-application-technical-specialist-m-f-d-dutch-speaking-roche-ch",
+      "de": "junior-application-technical-spezialist-m-f-d-dutch-speaking-roche-basel",
+      "fr": "junior-application-technical-specialiste-m-f-d-dutch-speaking-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/junior-application-technical-specialiste-m-f-d-dutch-speaking-roche-basel",
       "en": "/en/find-jobs-basel/junior-application-technical-specialiste-m-f-d-dutch-speaking-roche-basel",
@@ -17200,6 +17201,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -18187,10 +18189,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-soletta/verkaufer-in-frischprodukte-coop-genossenschaft-murten",
-      "en": "/en/find-jobs-solothurn/verkaufer-in-frischprodukte-coop-genossenschaft-murten",
+      "it": "/cerca-lavoro-friburgo/verkaufer-in-frischprodukte-coop-genossenschaft-murten",
+      "en": "/en/find-jobs-fribourg/verkaufer-in-frischprodukte-coop-genossenschaft-murten",
       "de": "/de/jobs-im-solothurn/verkaufer-in-frischprodukte-coop-genossenschaft-murten",
-      "fr": "/fr/trouver-emploi-soleure/verkaufer-in-frischprodukte-coop-genossenschaft-murten"
+      "fr": "/fr/trouver-emploi-fribourg/verkaufer-in-frischprodukte-coop-genossenschaft-murten"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -27611,10 +27613,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/retail-trade-specialist-mann-efz-designing-shopping-experiences-coop-kerzers",
-      "en": "/en/find-jobs-basel/retail-trade-specialist-mann-efz-designing-shopping-experiences-coop-kerzers",
+      "it": "/cerca-lavoro-friburgo/retail-trade-specialist-mann-efz-designing-shopping-experiences-coop-kerzers",
+      "en": "/en/find-jobs-fribourg/retail-trade-specialist-mann-efz-designing-shopping-experiences-coop-kerzers",
       "de": "/de/jobs-im-basel/retail-trade-specialist-mann-efz-designing-shopping-experiences-coop-kerzers",
-      "fr": "/fr/trouver-emploi-bale/retail-trade-specialist-mann-efz-designing-shopping-experiences-coop-kerzers"
+      "fr": "/fr/trouver-emploi-fribourg/retail-trade-specialist-mann-efz-designing-shopping-experiences-coop-kerzers"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -29255,10 +29257,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/specialiste-du-commerce-de-detail-mann-efz-des-experiences-d-achats-coop-kerzers",
-      "en": "/en/find-jobs-basel/specialiste-du-commerce-de-detail-mann-efz-des-experiences-d-achats-coop-kerzers",
+      "it": "/cerca-lavoro-friburgo/specialiste-du-commerce-de-detail-mann-efz-des-experiences-d-achats-coop-kerzers",
+      "en": "/en/find-jobs-fribourg/specialiste-du-commerce-de-detail-mann-efz-des-experiences-d-achats-coop-kerzers",
       "de": "/de/jobs-im-basel/specialiste-du-commerce-de-detail-mann-efz-des-experiences-d-achats-coop-kerzers",
-      "fr": "/fr/trouver-emploi-bale/specialiste-du-commerce-de-detail-mann-efz-des-experiences-d-achats-coop-kerzers"
+      "fr": "/fr/trouver-emploi-fribourg/specialiste-du-commerce-de-detail-mann-efz-des-experiences-d-achats-coop-kerzers"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -35914,10 +35916,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/gestionnaire-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-coop-kerzers",
-      "en": "/en/find-jobs-basel/gestionnaire-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-coop-kerzers",
+      "it": "/cerca-lavoro-friburgo/gestionnaire-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-coop-kerzers",
+      "en": "/en/find-jobs-fribourg/gestionnaire-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-coop-kerzers",
       "de": "/de/jobs-im-schwyz/gestionnaire-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-coop-kerzers",
-      "fr": "/fr/trouver-emploi-bale/gestionnaire-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-coop-kerzers"
+      "fr": "/fr/trouver-emploi-fribourg/gestionnaire-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-coop-kerzers"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -44492,10 +44494,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/retail-specialist-efz-creating-shopping-experiences-coop-kerzers",
-      "en": "/en/find-jobs-basel/retail-specialist-efz-creating-shopping-experiences-coop-kerzers",
-      "de": "/de/jobs-in-basel/retail-specialist-efz-creating-shopping-experiences-coop-kerzers",
-      "fr": "/fr/trouver-emploi-bale/retail-specialist-efz-creating-shopping-experiences-coop-kerzers"
+      "it": "/cerca-lavoro-friburgo/retail-specialist-efz-creating-shopping-experiences-coop-kerzers",
+      "en": "/en/find-jobs-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-kerzers",
+      "de": "/de/jobs-in-freiburg/retail-specialist-efz-creating-shopping-experiences-coop-kerzers",
+      "fr": "/fr/trouver-emploi-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-kerzers"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -82502,7 +82504,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "analista-aziendale-dia-comm-ops-agiloft-roche-basel",
+      "en": "business-analyst-dia-comm-ops-agiloft-roche-ch",
+      "de": "business-analyst-dia-comm-ops-agiloft-roche-ch",
+      "fr": "analyste-metier-dia-comm-ops-agiloft-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/analista-aziendale-dia-comm-ops-agiloft-roche-basel",
       "en": "/en/find-jobs-basel/analista-aziendale-dia-comm-ops-agiloft-roche-basel",
@@ -82515,6 +82522,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -82981,7 +82989,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "responsabile-test-erp-aspire-roche-basel",
+      "en": "erp-test-manager-aspire-roche-ch",
+      "de": "erp-testmanager-aspire-roche-basel",
+      "fr": "gestionnaire-de-test-erp-aspire-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/responsabile-test-erp-aspire-roche-basel",
       "en": "/en/find-jobs-basel/responsabile-test-erp-aspire-roche-basel",
@@ -82994,6 +83007,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -106046,10 +106060,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-zurigo/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
-      "en": "/en/find-jobs-zurich/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
-      "de": "/de/jobs-in-zurich/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
-      "fr": "/fr/trouver-emploi-zurich/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern"
+      "it": "/cerca-lavoro-berna/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
+      "en": "/en/find-jobs-bern/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
+      "de": "/de/jobs-in-bern/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern",
+      "fr": "/fr/trouver-emploi-berne/vice-direttore-di-filiale-m-f-d-80-100-bern-lidl-svizzera-bern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -128353,10 +128367,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-argovia/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
-      "en": "/en/find-jobs-aargau/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
-      "de": "/de/jobs-im-aargau/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
-      "fr": "/fr/trouver-emploi-argovie/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich"
+      "it": "/cerca-lavoro-zurigo/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
+      "en": "/en/find-jobs-zurich/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
+      "de": "/de/jobs-in-zurich/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
+      "fr": "/fr/trouver-emploi-zurich/assistente-alle-vendite-per-la-produzione-di-prodotti-freschi-coop-genossenschaft-zurich"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -154166,10 +154180,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-berna/verkaufer-in-food-coop-genossenschaft-koniz",
-      "en": "/en/find-jobs-bern/verkaufer-in-food-coop-genossenschaft-koniz",
-      "de": "/de/jobs-in-bern/verkaufer-in-food-coop-genossenschaft-koniz",
-      "fr": "/fr/trouver-emploi-berne/verkaufer-in-food-coop-genossenschaft-koniz"
+      "it": "/cerca-lavoro-grigioni/verkaufer-in-food-coop-genossenschaft-koniz",
+      "en": "/en/find-jobs-graubunden/verkaufer-in-food-coop-genossenschaft-koniz",
+      "de": "/de/jobs-in-graubunden/verkaufer-in-food-coop-genossenschaft-koniz",
+      "fr": "/fr/trouver-emploi-grisons/verkaufer-in-food-coop-genossenschaft-koniz"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -154945,10 +154959,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-zugo/verkaufer-in-food-coop-genossenschaft-zug",
-      "en": "/en/find-jobs-zug/verkaufer-in-food-coop-genossenschaft-zug",
-      "de": "/de/jobs-in-zug/verkaufer-in-food-coop-genossenschaft-zug",
-      "fr": "/fr/trouver-emploi-zoug/verkaufer-in-food-coop-genossenschaft-zug"
+      "it": "/cerca-lavoro-argovia/verkaufer-in-food-coop-genossenschaft-zug",
+      "en": "/en/find-jobs-aargau/verkaufer-in-food-coop-genossenschaft-zug",
+      "de": "/de/jobs-im-aargau/verkaufer-in-food-coop-genossenschaft-zug",
+      "fr": "/fr/trouver-emploi-argovie/verkaufer-in-food-coop-genossenschaft-zug"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -155946,10 +155960,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
-      "en": "/en/find-jobs-basel/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
-      "de": "/de/jobs-in-basel/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
-      "fr": "/fr/trouver-emploi-bale/verkaufer-in-frischprodukte-coop-genossenschaft-basel"
+      "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
+      "en": "/en/find-jobs-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
+      "de": "/de/jobs-in-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-basel",
+      "fr": "/fr/trouver-emploi-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-basel"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -159780,10 +159794,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-argovia/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
-      "en": "/en/find-jobs-aargau/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
+      "it": "/cerca-lavoro-berna/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
+      "en": "/en/find-jobs-bern/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
       "de": "/de/jobs-im-basel/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald",
-      "fr": "/fr/trouver-emploi-argovie/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald"
+      "fr": "/fr/trouver-emploi-berne/verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-sennwald"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -169092,10 +169106,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-svitto/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
-      "en": "/en/find-jobs-schwyz/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+      "it": "/cerca-lavoro-zugo/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+      "en": "/en/find-jobs-zug/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
       "de": "/de/jobs-im-graubunden/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
-      "fr": "/fr/trouver-emploi-schwytz/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz"
+      "fr": "/fr/trouver-emploi-zoug/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -180161,10 +180175,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-argovia/verkaufer-in-kassen-services-coop-genossenschaft-unterentfelden",
-      "en": "/en/find-jobs-aargau/verkaufer-in-kassen-services-coop-genossenschaft-unterentfelden",
+      "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-unterentfelden",
+      "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-unterentfelden",
       "de": "/de/jobs-im-schwyz/verkaufer-in-kassen-services-coop-genossenschaft-unterentfelden",
-      "fr": "/fr/trouver-emploi-argovie/verkaufer-in-kassen-services-coop-genossenschaft-unterentfelden"
+      "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-unterentfelden"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -185235,10 +185249,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-san-gallo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
-      "en": "/en/find-jobs-st-gallen/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
+      "it": "/cerca-lavoro-berna/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
+      "en": "/en/find-jobs-bern/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
       "de": "/de/jobs-im-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
-      "fr": "/fr/trouver-emploi-saint-gall/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern"
+      "fr": "/fr/trouver-emploi-berne/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -191341,10 +191355,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-zugo/backer-in-konditor-in-coop-genossenschaft-biberist",
-      "en": "/en/find-jobs-zug/backer-in-konditor-in-coop-genossenschaft-biberist",
+      "it": "/cerca-lavoro-soletta/backer-in-konditor-in-coop-genossenschaft-biberist",
+      "en": "/en/find-jobs-solothurn/backer-in-konditor-in-coop-genossenschaft-biberist",
       "de": "/de/jobs-im-solothurn/backer-in-konditor-in-coop-genossenschaft-biberist",
-      "fr": "/fr/trouver-emploi-zoug/backer-in-konditor-in-coop-genossenschaft-biberist"
+      "fr": "/fr/trouver-emploi-soleure/backer-in-konditor-in-coop-genossenschaft-biberist"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -201462,10 +201476,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-soletta/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
-      "en": "/en/find-jobs-solothurn/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
-      "de": "/de/jobs-in-solothurn/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
-      "fr": "/fr/trouver-emploi-soleure/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern"
+      "it": "/cerca-lavoro-berna/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
+      "en": "/en/find-jobs-bern/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
+      "de": "/de/jobs-in-bern/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
+      "fr": "/fr/trouver-emploi-berne/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -399628,10 +399642,10 @@
       "fr": "professionnel-de-la-sante-a-spital-emmental-burgdorf"
     },
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "en": "/en/find-jobs-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "de": "/de/jobs-im-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "fr": "/fr/trouver-emploi-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf"
+      "it": "/cerca-lavoro-berna/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "en": "/en/find-jobs-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "de": "/de/jobs-in-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "fr": "/fr/trouver-emploi-berne/operatore-socio-sanitario-a-spital-emmental-burgdorf"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -415475,7 +415489,7 @@
       "fr": "Pizzaiolo (lundi/mercredi) - laissez votre pizza s’envoler dans les airs"
     },
     "descriptionByLocale": {
-      "it": "CHI ABBIAMO BISOGNO Cerchiamo talenti ambiziosi che diventino i modellatori del nuovo e rinato leggendario hotel in una delle più prestigiose località alpine al mondo. Ti aspetti qualcosa di più di un lavoro? Allora FACCIAMO GRATA insieme! COSA FARAI? Fai parte del team della cucina e scegli ogni giorno di impressionare i nostri ospiti con le tue abilità nella pizza Porta la tua esperienza per distorcere i nostri menù Condividi la tua passione per il cibo con il team Assicurati che la nostra cucina sia sempre pulita e perfetta da usare Crea esperienze memorabili, durature e individuali Sii proattivo e estroverso Prenditi la responsabilità Divertiti e amplia sempre i tuoi orizzonti I TUOI +lati Il tuo sorriso è contagioso e tratti le persone come se fossero eravamo i tuoi migliori amici Fai il massimo per fare la migliore prima e ultima impressione Sei un giocatore di squadra e ti piace aiutare gli altri Hai un forte interesse per l'ospitalità e sei desideroso di imparare Puoi fare più cose insieme e lavorare in un ambiente frenetico Conduci con esempio e orgoglio Ami provare cose nuove e seguire una strada diversa Ti piace spingere la tua zona di comfort al limite Gli ospiti vengono sempre prima di tutto per te. COSA C'È PER TE A GRACE? Diventa un pioniere per la prima apertura di hotel in 100 anni a St. Moritz in questo segmento Ambiente divertente, collaborativo e premuroso dove le persone vengono messe al primo posto Grace House per i talenti Opportunità di apprendimento pratico e formazione Sconti per cibo e attività sportive gratuiti Uniforme cool di un marchio internazionale di abbigliamento di lusso Se necessario Alloggio all'avanguardia E molto altro ancora, molto di più... UN'ALTRA COSA 43,5 ore lavorative settimanali secondo L-GAV 35 giorni di ferie secondo L-GAV 13 stipendi mensili secondo L-GAV Salario superiore al minimo L-GAV",
+      "it": "CHI ABBIAMO BISOGNO • Cerchiamo talenti ambiziosi che diventino i modellatori del nuovo e rinato leggendario hotel in una delle più prestigiose località alpine al mondo. Ti aspetti qualcosa di più di un lavoro? Allora FACCIAMO GRATA insieme! COSA FARAI? Fai parte del team della cucina e scegli ogni giorno di impressionare i nostri ospiti con le tue abilità nella pizza Porta la tua esperienza per distorcere i nostri menù Condividi la tua passione per il cibo con il team Assicurati che la nostra cucina sia sempre pulita e perfetta da usare Crea esperienze memorabili, durature e individuali Sii proattivo e estroverso Prenditi la responsabilità Divertiti e amplia sempre i tuoi orizzonti I TUOI +lati Il tuo sorriso è contagioso e tratti le persone come se fossero eravamo i tuoi migliori amici Fai il massimo per fare la migliore prima e ultima impressione Sei un giocatore di squadra e ti piace aiutare gli altri Hai un forte interesse per l'ospitalità e sei desideroso di imparare Puoi fare più cose insieme e lavorare in un ambiente frenetico Conduci con esempio e orgoglio Ami provare cose nuove e seguire una strada diversa Ti piace spingere la tua zona di comfort al limite Gli ospiti vengono sempre prima di tutto per te. COSA C'È PER TE A GRACE? Diventa un pioniere per la prima apertura di hotel in 100 anni a St. Moritz in questo segmento Ambiente divertente, collaborativo e premuroso dove le persone vengono messe al primo posto Grace House per i talenti Opportunità di apprendimento pratico e formazione Sconti per cibo e attività sportive gratuiti Uniforme cool di un marchio internazionale di abbigliamento di lusso Se necessario Alloggio all'avanguardia E molto altro ancora, molto di più... UN'ALTRA COSA 43,5 ore lavorative settimanali secondo L-GAV 35 giorni di ferie secondo L-GAV 13 stipendi mensili secondo L-GAV Salario superiore al minimo L-GAV",
       "en": "WHO WE NEED We are looking for ambitious talents who will become the shapers of the new reborn legendary hotel in one of the most prestigious alpine resorts in the world. Are you expecting more than a job? Then let’s GRACE together! WHAT WILL YOU DO? Be part of the kitchen team and ace daily to impress our guests with your pizza skills Bring-in your expertise to twist our menus Share your passion about food with the team Make sure our kitchen is always clean and perfect to use Create memorable, lasting and individual experiences Be pro-active and out-going Take ownership Have fun and broaden always your horizon YOUR +sides Your smile is infectious and you treat people as if they were your best friends You go the extra mile to make the best first and last impression You are a team player and enjoy helping others You have a strong interest in hospitality and you are eager to learn You can multi-task and work in a fast-paced environment You lead with example and pride You love to try new things and go a different path You like to push your comfort zone to the edge Guests always come first to you WHAT’S IN FOR YOU AT GRACE? Become a pioneer for the first hotel opening to happen in 100 years in St. Moritz in this segment Fun, collaborative and caring environment where people are put first Grace House for talents Hands-on learning and training opportunities F&B discounts & sporting activities free of charge Cool uniform from an international luxury clothing brand If needed state-of-the-art accommodation And much, much more… ONE MORE THING 43.5 hours working week according to L-GAV 35 days of holiday according to L-GAV 13 monthly salaries according to L-GAV Wage above L-GAV minimum",
       "de": "WEN WIR BRAUCHEN Wir suchen ehrgeizige Talente, die die Gestalter des neu wiedergeborenen legendären Hotels in einem der renommiertesten Alpenresorts der Welt werden. Erwartest du mehr als nur einen Job? Dann lasst uns gemeinsam GRACE feiern! WAS WIRST DU TUN? Seien Sie Teil des Küchenteams und machen Sie täglich Ace, um unsere Gäste mit Ihren Pizzafähigkeiten zu beeindrucken. Bringen Sie Ihr Fachwissen ein, um unsere Speisekarten zu verändern. Teilen Sie Ihre Leidenschaft fürs Essen mit dem Team. Sorgen Sie dafür, dass unsere Küche immer sauber und perfekt ist. Schaffen Sie unvergessliche, dauerhafte und individuelle Erlebnisse. Seien Sie proaktiv und offen. Übernehmen Sie Verantwortung. Haben Sie Spaß und erweitern Sie immer Ihren Horizont. IHRE +Seiten. Ihr Lächeln ist ansteckend und Sie behandeln Menschen, als ob sie sind deine besten Freunde. Du gehst die Extrameile, um den besten ersten und letzten Eindruck zu hinterlassen. Du bist ein Teamplayer und hilfst gerne anderen. Du hast ein starkes Interesse an Gastgewerbe und bist lernfreudig. Du kannst multitasken und in einer schnelllebigen Umgebung arbeiten. Du führst mit Vorbild und Stolz. Du liebst es, Neues auszuprobieren und einen anderen Weg zu gehen. Du möchtest deine Komfortzone an die Grenze bringen. Die Gäste stehen immer an erster Stelle. WAS HAST DU BEI GRACE DRIN? Werden Sie ein Pionier bei der ersten Hoteleröffnung seit 100 Jahren in St. Moritz in diesem Segment. Spaßige, kollaborative und fürsorgliche Umgebung, in der die Menschen an erste Stelle gesetzt werden. Grace House für Talente. Praktische Lern- und Trainingsmöglichkeiten, F&B-Rabatte und sportliche Aktivitäten kostenlos. Coole Uniformen von einer internationalen Luxusbekleidungsmarke, falls nötig, hochmoderne Unterkünfte. Und vieles, viel mehr... NOCH EINE SACHE: 43,5 Stunden Arbeitswoche laut L-GAV 35 Urlaubstage laut L-GAV 13 Monatsgehälter laut L-GAV Lohn über dem L-GAV Mindestlohn",
       "fr": "QUI NOUS FAUT Nous recherchons des talents ambitieux qui deviendront les façonneurs du nouvel hôtel légendaire renaissant dans l’une des stations alpines les plus prestigieuses du monde. Tu attends plus qu’un emploi ? Alors ENCHANTONS-nous ensemble ! QUE VAS-TU FAIRE ? Faites partie de l’équipe cuisine et faites un as chaque jour pour impressionner nos clients avec vos compétences en pizza Apportez votre expertise pour déformer nos menus Partagez votre passion pour la cuisine avec l’équipe Assurez-vous que notre cuisine soit toujours propre et parfaite à utiliser Créez des expériences mémorables, durables et individuelles Soyez proactif et extraverti Prenez en main Amusez-vous et élargissez toujours vos horizons VOS +côtés Votre sourire est contagieux et vous traitez les gens comme s’ils Tu étais tes meilleurs amis. Tu fais un effort supplémentaire pour faire la meilleure première et dernière impression. Tu es un joueur d’équipe et tu aimes aider les autres. Tu as un grand intérêt pour l’hospitalité et tu es impatient d’apprendre. Tu peux faire plusieurs choses à la fois et travailler dans un environnement rapide. Tu montres avec l’exemple et la fierté. Tu aimes essayer de nouvelles choses et prendre une autre voie. Tu aimes pousser ta zone de confort à la limite. Les invités passent toujours en premier pour toi. QU’EST-CE QUI T’OCCUPE À GRACE ? Devenez un pionnier pour la première ouverture d’hôtel en 100 ans à St. Moritz dans ce segment Environnement convivial, collaboratif et bienveillant où les gens sont mis en priorité Grace House pour les talents Apprentissage pratique et opportunités de formation Réductions F&B et activités sportives gratuites Uniforme cool d’une marque internationale de vêtements de luxe Si besoin Hébergement ultramoderne Et bien plus encore, bien plus... UNE CHOSE DE PLUS 43,5 heures de travail par semaine selon L-GAV 35 jours de congé selon L-GAV 13 salaires mensuels selon L-GAV Salaire supérieur au minimum L-GAV"
@@ -436127,7 +436141,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "responsabile-product-hi-enterprise-cloud-roche-basel",
+      "en": "head-of-product-hi-enterprise-cloud-roche-ch",
+      "de": "produktleiter-hi-enterprise-cloud-roche-basel",
+      "fr": "responsable-product-hi-enterprise-cloud-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/produktleiter-hi-enterprise-cloud-roche-basel",
       "en": "/en/find-jobs-basel/produktleiter-hi-enterprise-cloud-roche-basel",
@@ -436140,6 +436159,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -479140,10 +479160,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "en": "/en/find-jobs-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "de": "/de/jobs-in-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "fr": "/fr/trouver-emploi-bale/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
+      "it": "/cerca-lavoro-friburgo/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "en": "/en/find-jobs-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "de": "/de/jobs-in-freiburg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "fr": "/fr/trouver-emploi-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -638446,10 +638466,10 @@
       "fr": "professionnel-de-la-sante-a-spital-emmental-burgdorf"
     },
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "en": "/en/find-jobs-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "de": "/de/jobs-im-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "fr": "/fr/trouver-emploi-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf"
+      "it": "/cerca-lavoro-berna/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "en": "/en/find-jobs-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "de": "/de/jobs-in-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "fr": "/fr/trouver-emploi-berne/operatore-socio-sanitario-a-spital-emmental-burgdorf"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -673865,7 +673885,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "responsabile-product-hi-enterprise-cloud-roche-basel",
+      "en": "head-of-product-hi-enterprise-cloud-roche-ch",
+      "de": "produktleiter-hi-enterprise-cloud-roche-basel",
+      "fr": "responsable-product-hi-enterprise-cloud-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/produktleiter-hi-enterprise-cloud-roche-basel",
       "en": "/en/find-jobs-basel/produktleiter-hi-enterprise-cloud-roche-basel",
@@ -673878,6 +673903,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -713248,10 +713274,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "en": "/en/find-jobs-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "de": "/de/jobs-in-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "fr": "/fr/trouver-emploi-bale/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
+      "it": "/cerca-lavoro-friburgo/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "en": "/en/find-jobs-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "de": "/de/jobs-in-freiburg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "fr": "/fr/trouver-emploi-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -858191,10 +858217,10 @@
       "fr": "professionnel-de-la-sante-a-spital-emmental-burgdorf"
     },
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "en": "/en/find-jobs-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "de": "/de/jobs-im-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "fr": "/fr/trouver-emploi-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf"
+      "it": "/cerca-lavoro-berna/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "en": "/en/find-jobs-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "de": "/de/jobs-in-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "fr": "/fr/trouver-emploi-berne/operatore-socio-sanitario-a-spital-emmental-burgdorf"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -894585,7 +894611,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "responsabile-product-hi-enterprise-cloud-roche-basel",
+      "en": "head-of-product-hi-enterprise-cloud-roche-ch",
+      "de": "produktleiter-hi-enterprise-cloud-roche-basel",
+      "fr": "responsable-product-hi-enterprise-cloud-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/produktleiter-hi-enterprise-cloud-roche-basel",
       "en": "/en/find-jobs-basel/produktleiter-hi-enterprise-cloud-roche-basel",
@@ -894598,6 +894629,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -933761,10 +933793,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "en": "/en/find-jobs-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "de": "/de/jobs-in-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "fr": "/fr/trouver-emploi-bale/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
+      "it": "/cerca-lavoro-friburgo/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "en": "/en/find-jobs-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "de": "/de/jobs-in-freiburg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "fr": "/fr/trouver-emploi-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1080833,10 +1080865,10 @@
       "fr": "professionnel-de-la-sante-a-spital-emmental-burgdorf"
     },
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "en": "/en/find-jobs-ticino/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "de": "/de/jobs-im-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf",
-      "fr": "/fr/trouver-emploi-tessin/operatore-socio-sanitario-a-spital-emmental-burgdorf"
+      "it": "/cerca-lavoro-berna/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "en": "/en/find-jobs-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "de": "/de/jobs-in-bern/operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "fr": "/fr/trouver-emploi-berne/operatore-socio-sanitario-a-spital-emmental-burgdorf"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1117229,7 +1117261,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "responsabile-product-hi-enterprise-cloud-roche-basel",
+      "en": "head-of-product-hi-enterprise-cloud-roche-ch",
+      "de": "produktleiter-hi-enterprise-cloud-roche-basel",
+      "fr": "responsable-product-hi-enterprise-cloud-roche-basel"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-basilea/produktleiter-hi-enterprise-cloud-roche-basel",
       "en": "/en/find-jobs-basel/produktleiter-hi-enterprise-cloud-roche-basel",
@@ -1117242,6 +1117279,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -1157103,10 +1157141,10 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-basilea/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "en": "/en/find-jobs-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "de": "/de/jobs-in-basel/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
-      "fr": "/fr/trouver-emploi-bale/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
+      "it": "/cerca-lavoro-friburgo/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "en": "/en/find-jobs-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "de": "/de/jobs-in-freiburg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni",
+      "fr": "/fr/trouver-emploi-fribourg/retail-specialist-efz-creating-shopping-experiences-coop-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
