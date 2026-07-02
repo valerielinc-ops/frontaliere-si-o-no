@@ -841,15 +841,38 @@
          Placed before <script type="module"> which is deferred by spec, so these
          handlers are registered before any module JS executes. -->
     <script>
-      // Session-wide reload ceiling shared by every recovery handler below AND
-      // services/resilientImport.ts (mirrored there as MAX_RELOADS — that module
-      // can't be imported here since this bootstrap script runs pre-module).
-      // Raised from 1 to 2: a client can carry more than one independently stale
-      // chunk (e.g. vendor-icons.js AND i18n.js both skewed), and the first
-      // recovery only busts the HTTP cache for chunks already loaded on that
-      // page, so a second, not-yet-loaded stale chunk can still surface after
-      // the first reload and needs its own retry.
+      // Reload BUDGET shared by every recovery handler below AND
+      // services/resilientImport.ts (mirrored there as consumeReloadBudget —
+      // that module can't be imported here since this bootstrap script runs
+      // pre-module; also mirrored in build-plugins/constants.ts's
+      // SELF_HEAL_SCRIPT_CONTENT for static pages — keep all three in sync).
+      //
+      // Stored as a JSON map { [signature]: attempts } under _swReloadCount,
+      // keyed on WHAT went stale (resource URL / error message) rather than a
+      // single flat counter. A flat counter conflates "this exact bug keeps
+      // looping" with "the session hit a genuinely NEW, independently-stale
+      // chunk" — a client that already spent its budget recovering from
+      // vendor-icons.js on one page would be permanently stranded if a
+      // DIFFERENT, unrelated chunk went stale on the next page (#3097
+      // recurrence). Each distinct signature gets its own FR_MAX_RELOADS
+      // attempts; FR_MAX_TOTAL_RELOADS backstops the total across all of them.
       var FR_MAX_RELOADS = 2;
+      var FR_MAX_TOTAL_RELOADS = 6;
+      function frConsumeReloadBudget(sig) {
+        var budget = {};
+        try {
+          var parsed = JSON.parse(sessionStorage.getItem('_swReloadCount') || '{}');
+          if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) budget = parsed;
+        } catch (e) {}
+        var key = String(sig || 'unknown').slice(0, 150);
+        var total = 0;
+        for (var k in budget) if (Object.prototype.hasOwnProperty.call(budget, k)) total += budget[k];
+        var count = budget[key] || 0;
+        if (count >= FR_MAX_RELOADS || total >= FR_MAX_TOTAL_RELOADS) return false;
+        budget[key] = count + 1;
+        try { sessionStorage.setItem('_swReloadCount', JSON.stringify(budget)); } catch (e) {}
+        return true;
+      }
       // Unregister any leftover service workers from previous deploys.
       // Stale SWs can serve outdated cached assets that reference non-existent chunk hashes.
       if ('serviceWorker' in navigator) {
@@ -948,9 +971,9 @@
           if (!isAsset) return;
           // Skip reload for ad-blocked analytics/tracking chunks
           if (isAdBlocked) return;
-          // Session-level reload counter: allow at most FR_MAX_RELOADS reloads per browser session
-          var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
-          if (reloadCount >= FR_MAX_RELOADS) {
+          // Per-signature reload budget: allow at most FR_MAX_RELOADS reloads
+          // for THIS resource, up to FR_MAX_TOTAL_RELOADS overall this session.
+          if (!frConsumeReloadBudget(src)) {
             try {
               var blocked = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
               if (blocked.length > 0) blocked[blocked.length - 1].triggeredReload = 'blocked';
@@ -958,7 +981,6 @@
             } catch(ex) {}
             return;
           }
-          sessionStorage.setItem('_swReloadCount', String(reloadCount + 1));
           try {
             var errs = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
             if (errs.length > 0) errs[errs.length - 1].triggeredReload = true;
@@ -969,7 +991,6 @@
               source: 'index_html_script',
               reason: 'stale_chunk_' + tagType,
               resource: src.slice(0, 300),
-              reloadCount: reloadCount + 1,
               pagePath: location.pathname + location.search,
               timestamp: new Date().toISOString()
             }));
@@ -1022,15 +1043,12 @@
                    / is not iterable\b/.test(m));
         var skewLink = /does not provide an export named|import not found|indirect export|Importing binding name/.test(m);
         if (!skewCall && !skewLink) return;
-        var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
-        if (reloadCount >= FR_MAX_RELOADS) return;
-        sessionStorage.setItem('_swReloadCount', String(reloadCount + 1));
+        if (!frConsumeReloadBudget(m)) return;
         try {
           sessionStorage.setItem('_forceReloadInfo', JSON.stringify({
             source: 'index_html_skew',
             reason: 'version_skew_typeerror',
             resource: m.slice(0, 300),
-            reloadCount: reloadCount + 1,
             pagePath: location.pathname + location.search,
             timestamp: new Date().toISOString()
           }));
@@ -1067,8 +1085,7 @@
         } catch(ex) {}
 
         if (isAdBlocked) return;
-        var reloadCount = parseInt(sessionStorage.getItem('_swReloadCount') || '0', 10);
-        if (reloadCount >= FR_MAX_RELOADS) {
+        if (!frConsumeReloadBudget(reason)) {
           try {
             var blocked = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
             if (blocked.length > 0) blocked[blocked.length - 1].triggeredReload = 'blocked';
@@ -1076,7 +1093,6 @@
           } catch(ex) {}
           return;
         }
-        sessionStorage.setItem('_swReloadCount', String(reloadCount + 1));
         try {
           var errs = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');
           if (errs.length > 0) errs[errs.length - 1].triggeredReload = true;
@@ -1087,7 +1103,6 @@
             source: 'index_html_import',
             reason: 'dynamic_import_failure',
             resource: reason.slice(0, 300),
-            reloadCount: reloadCount + 1,
             pagePath: location.pathname + location.search,
             timestamp: new Date().toISOString()
           }));
