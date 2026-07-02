@@ -3503,6 +3503,8 @@ Règles :
   'journalistDashboard.editor.imageLabel': 'Image de couverture',
   'journalistDashboard.editor.imageNeedsDraft': 'Enregistrez d’abord le brouillon pour pouvoir télécharger une image.',
   'journalistDashboard.editor.imageAltPlaceholder': 'Texte alternatif de l’image',
+  'journalistDashboard.editor.imageAltAuto': 'Image éditoriale relative à : {title}',
+  'journalistDashboard.editor.selectImage': 'Sélectionner l’image',
   'journalistDashboard.editor.uploadingImage': 'Téléchargement de l’image en cours...',
   'journalistDashboard.editor.imageSaved': 'Image téléchargée et enregistrée.',
   'journalistDashboard.editor.imageError': 'Échec du téléchargement de l’image. Veuillez réessayer.',
