@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-07-02T11:59:47.050Z",
+  "generatedAt": "2026-07-02T22:44:17.484Z",
   "total": 21,
   "newCount": 21,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 87278,
-  "avgDurationMs": 87278,
+  "durationMs": 63254,
+  "avgDurationMs": 63254,
   "durationHistory": [
-    87278
+    63254
   ],
   "newJobs": [
     {
@@ -24,7 +24,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-02",
+      "postedDate": "2026-07-01",
       "url": "https://www.supsi.ch/bando26_5032",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -47,10 +47,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 21,
         "translation": 23,
         "completeness": 25
       }
@@ -131,11 +131,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
-        "translation": 20,
+        "richness": 14,
+        "translation": 18,
         "completeness": 25
       }
     },
@@ -215,11 +215,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -341,11 +341,53 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 17,
         "translation": 23,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-l4u54e",
+      "slug": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
+      "company": "SUPSI / DTI",
+      "title": "Assistenti Bachelor in Formazione Master MSE in Mechanical Engineering and Materials",
+      "location": "Lugano. Grado d",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "url": "https://www.supsi.ch/bando26_5027",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-06-11T13:41:02.453Z",
+      "firstSeenAt": "2026-06-11T13:41:02.453Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -360,7 +402,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-02",
+      "postedDate": "2026-06-11",
       "url": "https://www.supsi.ch/bando26_5029",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -388,48 +430,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4u54e",
-      "slug": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
-      "company": "SUPSI / DTI",
-      "title": "Assistenti Bachelor in Formazione Master MSE in Mechanical Engineering and Materials",
-      "location": "Lugano. Grado d",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "url": "https://www.supsi.ch/bando26_5027",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-06-11T13:41:02.453Z",
-      "firstSeenAt": "2026-06-11T13:41:02.453Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
         "completeness": 25
       }
     },
@@ -486,7 +486,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-07-02",
       "url": "https://www.supsi.ch/bando26_1012",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -509,10 +509,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 17,
+        "richness": 25,
         "translation": 20,
         "completeness": 25
       }
@@ -560,6 +560,48 @@
       }
     },
     {
+      "id": "company-l4u548",
+      "slug": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
+      "company": "SUPSI / DTI",
+      "title": "Assistente Bachelor in formazione Master of Science in Engineering (MSE) presso l’istituto ISTePS",
+      "location": "Lugano. Grado d",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "url": "https://www.supsi.ch/bando26_5021",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-05-30T00:49:50.919Z",
+      "firstSeenAt": "2026-05-30T00:49:50.919Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 20,
+        "completeness": 25
+      }
+    },
+    {
       "id": "company-l4u54a",
       "slug": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
@@ -598,48 +640,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4u548",
-      "slug": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
-      "company": "SUPSI / DTI",
-      "title": "Assistente Bachelor in formazione Master of Science in Engineering (MSE) presso l’istituto ISTePS",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.supsi.ch/bando26_5021",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-05-30T00:49:50.919Z",
-      "firstSeenAt": "2026-05-30T00:49:50.919Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 13,
-        "translation": 18,
         "completeness": 25
       }
     },
