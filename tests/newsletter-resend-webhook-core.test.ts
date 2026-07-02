@@ -164,6 +164,58 @@ describe('newsletterResendWebhookCore', () => {
     expect(subscriberSet!.data.isActive).toBe(false);
   });
 
+  it('soft bounce (transient) on a job-alert subscriber does not set permanent bounced status', async () => {
+    const db = createFakeDb({
+      job_alert_subscribers: { 'seeker@example.com': { status: 'active', soft_bounce_count: 0 } },
+    });
+
+    const result = await applyResendWebhookEvent({
+      type: 'email.bounced',
+      data: {
+        email: 'seeker@example.com',
+        email_id: 'msg_ja_soft',
+        tags: [
+          { name: 'type', value: 'job-alert' },
+          { name: 'alert_id', value: 'alert_1' },
+        ],
+        bounce: { type: 'transient', message: 'greylisted' },
+      },
+    }, { db: db as any });
+
+    expect(result).toMatchObject({ handled: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker@example.com',
+    );
+    expect(subscriberSet!.data.status).not.toBe('bounced');
+    expect(subscriberSet!.data.bounce_severity).toBe('soft');
+    expect(subscriberSet!.data.soft_bounce_count).toBeDefined();
+  });
+
+  it('hard bounce (no transient/undetermined type) on a job-alert subscriber still sets permanent bounced status', async () => {
+    const db = createFakeDb();
+
+    const result = await applyResendWebhookEvent({
+      type: 'email.bounced',
+      data: {
+        email: 'deadend@example.com',
+        email_id: 'msg_ja_hard',
+        tags: [
+          { name: 'type', value: 'job-alert' },
+          { name: 'alert_id', value: 'alert_2' },
+        ],
+        bounce: { message: 'user unknown' },
+      },
+    }, { db: db as any });
+
+    expect(result).toMatchObject({ handled: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'deadend@example.com',
+    );
+    expect(subscriberSet!.data.status).toBe('bounced');
+  });
+
   it('marks complained subscribers as inactive', async () => {
     const db = createFakeDb({
       newsletter_subscribers: {

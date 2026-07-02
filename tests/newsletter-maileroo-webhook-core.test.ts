@@ -144,6 +144,46 @@ describe('newsletterMailerooWebhookCore', () => {
     expect(db.__sets.some((s) => s.collection === 'newsletter_subscribers')).toBe(false);
   });
 
+  it('soft bounce (rejected) on a job-alert subscriber does not set permanent bounced status', async () => {
+    const db = createFakeDb({
+      job_alert_subscribers: { 'seeker2@example.com': { status: 'active', soft_bounce_count: 0 } },
+    });
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'rejected',
+      message_id: 'mja2',
+      tags: { type: 'job-alert', alert_id: 'alert_43' },
+      event_data: { to: 'seeker2@example.com', reason: 'greylisted' },
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker2@example.com',
+    );
+    expect(subscriberSet!.data.status).not.toBe('bounced');
+    expect(subscriberSet!.data.bounce_severity).toBe('soft');
+    expect(subscriberSet!.data.soft_bounce_count).toBeDefined();
+  });
+
+  it('hard bounce (failed) on a job-alert subscriber still sets permanent bounced status', async () => {
+    const db = createFakeDb();
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'failed',
+      message_id: 'mja3',
+      tags: { type: 'job-alert', alert_id: 'alert_44' },
+      event_data: { to: 'seeker3@example.com', reason: 'mailbox does not exist' },
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker3@example.com',
+    );
+    expect(subscriberSet!.data.status).toBe('bounced');
+  });
+
   it('resolves recipient for opened/clicked events (no recipient/tags in payload) via newsletter_subscribers/_meta_/maileroo_refs', async () => {
     // Maileroo opened/clicked webhooks carry only message_reference_id — the send
     // pipeline pre-seeds the lookup record. Verify the click is attributed.

@@ -325,12 +325,15 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent }) {
  const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
+ const data = rawEvent?.data || {};
 
  // ── Top-level subscriber document (aggregate counters) ──────
  const topUpdate = {
  email,
  updated_at: FieldValue.serverTimestamp(),
  };
+ let bounceSeverity = null;
+ let bounceReasonText = '';
  if (type === 'send') {
  topUpdate.last_sent_at = FieldValue.serverTimestamp();
  topUpdate.send_count = FieldValue.increment(1);
@@ -338,20 +341,25 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  if (type === 'delivered') {
  topUpdate.last_delivered_at = FieldValue.serverTimestamp();
  topUpdate.delivered_count = FieldValue.increment(1);
+ Object.assign(topUpdate, softBounceRecoveryFields());
  }
  if (type === 'open') {
  topUpdate.last_open_at = FieldValue.serverTimestamp();
  topUpdate.open_count = FieldValue.increment(1);
+ Object.assign(topUpdate, softBounceRecoveryFields());
  }
  if (type === 'click') {
  topUpdate.last_click_at = FieldValue.serverTimestamp();
  topUpdate.click_count = FieldValue.increment(1);
  topUpdate.last_clicked_url = linkUrl;
+ Object.assign(topUpdate, softBounceRecoveryFields());
  }
  if (type === 'bounce') {
+ bounceSeverity = classifyBounceSeverity({ provider: 'resend', rawEvent: rawEvent?.type, eventData: data });
+ bounceReasonText = sanitizeString(data.bounce?.message) || sanitizeString(data.reason) || '';
  topUpdate.last_bounced_at = FieldValue.serverTimestamp();
  topUpdate.bounce_count = FieldValue.increment(1);
- topUpdate.status = 'bounced';
+ Object.assign(topUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
  }
  if (type === 'complaint') {
  topUpdate.last_complained_at = FieldValue.serverTimestamp();
@@ -367,6 +375,10 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  }
 
  await subscriberRef.set(topUpdate, { merge: true });
+
+ if (bounceSeverity === 'soft') {
+ await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
+ }
 
  // ── Engagement score ────────────────────────────────────────
  if (type === 'open' || type === 'click' || type === 'send') {

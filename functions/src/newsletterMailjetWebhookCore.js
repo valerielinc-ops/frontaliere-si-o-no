@@ -199,14 +199,26 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
- if (type === 'delivered') { topUpdate.last_delivered_at = FieldValue.serverTimestamp(); topUpdate.delivered_count = FieldValue.increment(1); }
- if (type === 'open') { topUpdate.last_open_at = FieldValue.serverTimestamp(); topUpdate.open_count = FieldValue.increment(1); }
- if (type === 'click') { topUpdate.last_click_at = FieldValue.serverTimestamp(); topUpdate.click_count = FieldValue.increment(1); topUpdate.last_clicked_url = eventData.url || ''; }
- if (type === 'bounce') { topUpdate.status = 'bounced'; topUpdate.last_bounced_at = FieldValue.serverTimestamp(); topUpdate.bounce_count = FieldValue.increment(1); }
+ let bounceSeverity = null;
+ let bounceReasonText = '';
+ if (type === 'delivered') { topUpdate.last_delivered_at = FieldValue.serverTimestamp(); topUpdate.delivered_count = FieldValue.increment(1); Object.assign(topUpdate, softBounceRecoveryFields()); }
+ if (type === 'open') { topUpdate.last_open_at = FieldValue.serverTimestamp(); topUpdate.open_count = FieldValue.increment(1); Object.assign(topUpdate, softBounceRecoveryFields()); }
+ if (type === 'click') { topUpdate.last_click_at = FieldValue.serverTimestamp(); topUpdate.click_count = FieldValue.increment(1); topUpdate.last_clicked_url = eventData.url || ''; Object.assign(topUpdate, softBounceRecoveryFields()); }
+ if (type === 'bounce') {
+ bounceSeverity = classifyBounceSeverity({ provider: 'mailjet', rawEvent: mjEvent, eventData });
+ bounceReasonText = eventData.error || mjEvent || '';
+ topUpdate.last_bounced_at = FieldValue.serverTimestamp();
+ topUpdate.bounce_count = FieldValue.increment(1);
+ Object.assign(topUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
+ }
  if (type === 'complaint') { topUpdate.status = 'complained'; topUpdate.last_complained_at = FieldValue.serverTimestamp(); }
  if (type === 'delivered' || type === 'open' || type === 'click') topUpdate.status = 'active';
 
  await subscriberRef.set(topUpdate, { merge: true });
+
+ if (bounceSeverity === 'soft') {
+ await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
+ }
 
  await subscriberRef.collection('events').add({
  email,

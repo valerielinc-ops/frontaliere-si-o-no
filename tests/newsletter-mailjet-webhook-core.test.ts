@@ -251,6 +251,52 @@ describe('newsletterMailjetWebhookCore', () => {
       expect(result.campaignId).toBe('my-campaign');
     });
 
+    it('soft bounce (no hard_bounce flag) on a job-alert subscriber does not set permanent bounced status', async () => {
+      const db = createFakeDb({
+        job_alert_subscribers: { 'seeker@example.com': { status: 'active', soft_bounce_count: 0 } },
+      });
+
+      const result = await persistMailjetEvent(db as any, {
+        event: 'bounce',
+        time: 1700000400,
+        email: 'seeker@example.com',
+        MessageID: 22222,
+        CustomID: 'job-alert',
+        hard_bounce: false,
+        error: 'greylisted',
+      });
+
+      expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker@example.com',
+      );
+      expect(subscriberSet!.data.status).not.toBe('bounced');
+      expect(subscriberSet!.data.bounce_severity).toBe('soft');
+      expect(subscriberSet!.data.soft_bounce_count).toBeDefined();
+    });
+
+    it('hard bounce (hard_bounce:true) on a job-alert subscriber still sets permanent bounced status', async () => {
+      const db = createFakeDb();
+
+      const result = await persistMailjetEvent(db as any, {
+        event: 'bounce',
+        time: 1700000500,
+        email: 'deadend@example.com',
+        MessageID: 33333,
+        CustomID: 'job-alert',
+        hard_bounce: true,
+        error: 'user unknown',
+      });
+
+      expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'job_alert_subscribers' && s.docId === 'deadend@example.com',
+      );
+      expect(subscriberSet!.data.status).toBe('bounced');
+    });
+
     it('normalizes email to lowercase', async () => {
       const db = createFakeDb();
 
