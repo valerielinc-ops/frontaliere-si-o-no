@@ -287,8 +287,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege",
-          "professionista-della-salute-fage-spitex-per-bambini-pediatria-a-spitex-basel-basel"
+          "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege"
         ],
         "en": [
           "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege"
@@ -365,8 +364,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-a-auch-stundenweise-moglich",
-          "infermiera-laureata-hf-fh-kinder-spitex-pediatrica-a-anche-possibile-entro-l-ora-spitex-basel-basel"
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-a-auch-stundenweise-moglich"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-a-auch-stundenweise-moglich"
@@ -391,12 +389,12 @@
     },
     {
       "id": "spitex-basel-9f8ed5520758",
-      "slug": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+      "slug": "infermiera-hf-fh-a-spitex-basel-basel",
       "slugByLocale": {
         "de": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
-        "it": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
-        "en": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
-        "fr": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        "it": "infermiera-hf-fh-a-spitex-basel-basel",
+        "en": "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel",
+        "fr": "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -451,7 +449,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T23:06:58.617Z"
+      "firstSeenAt": "2026-07-01T23:06:58.617Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ],
+        "en": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ],
+        "fr": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ]
+      },
+      "previousSlugs": [
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+      ]
     },
     {
       "id": "spitex-basel-a9f1348bd582",
@@ -459,8 +471,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
         "it": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-        "en": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "fr": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        "en": "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
+        "fr": "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -505,6 +517,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "fr": [
           "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
         ]
       },
