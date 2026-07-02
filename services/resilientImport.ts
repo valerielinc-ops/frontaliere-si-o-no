@@ -164,6 +164,20 @@ export function consumeReloadBudget(signature: string): boolean {
 // hung/blocked refetch can never strand the user on the error page.
 const BUST_TIMEOUT_MS = 4000;
 
+// Resource Timing's default buffer is spec-floored at 250 entries and this is a
+// long-lived SPA session (client-side routing, no full navigation between
+// in-app pages) with AdSense Auto Ads/GTM/Firebase/Clarity generating many
+// resource loads over a session — realistic enough to overflow the default
+// buffer and silently EVICT the oldest entries, including a version-skewed
+// `/assets/*` chunk's own timing entry (issue #3149). Raising the cap can only
+// prevent FUTURE eviction, not restore entries already dropped, so this alone
+// is set here as a defensive backstop; the real mitigation is raising it
+// EARLY, before the buffer fills — the pre-module bootstrap scripts do the
+// same raise at page start (index.html inline script and
+// `SELF_HEAL_SCRIPT_CONTENT` in build-plugins/constants.ts — keep the value in
+// sync across all three, none of the non-module copies can import this file).
+const RESOURCE_TIMING_BUFFER_SIZE = 1000;
+
 /**
  * Overwrite the STALE entries the skewed chunks occupy in the browser's HTTP
  * disk cache, so the subsequent reload loads a consistent, current chunk set.
@@ -186,6 +200,14 @@ const BUST_TIMEOUT_MS = 4000;
 export async function bustAssetHttpCache(): Promise<void> {
   if (typeof window === 'undefined' || typeof fetch !== 'function') return;
 
+  try {
+    if (typeof performance !== 'undefined' && typeof performance.setResourceTimingBufferSize === 'function') {
+      performance.setResourceTimingBufferSize(RESOURCE_TIMING_BUFFER_SIZE);
+    }
+  } catch {
+    /* unsupported — proceed with whatever entries the buffer already holds. */
+  }
+
   let urls: string[] = [];
   try {
     const entries =
@@ -196,9 +218,16 @@ export async function bustAssetHttpCache(): Promise<void> {
       .map((e) => (e as PerformanceResourceTiming).name)
       .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u));
   } catch {
-    /* Resource Timing unavailable — fall back to a DOM scan below. */
+    /* Resource Timing unavailable — the DOM scan below still runs. */
   }
-  if (urls.length === 0 && typeof document !== 'undefined') {
+  // Second, INDEPENDENT enumeration path — always unioned with Resource Timing
+  // (not just when it comes back empty), so a partial eviction that dropped
+  // only SOME entries still recovers the ones still present as DOM nodes. Note
+  // this cannot cover chunks loaded via dynamic import(): a native ES module
+  // dynamic import never leaves a <script>/<link> element in the DOM, so an
+  // evicted Resource Timing entry for one is unrecoverable by this path — the
+  // buffer-size raise above is the actual mitigation for that case.
+  if (typeof document !== 'undefined') {
     try {
       document
         .querySelectorAll<HTMLScriptElement | HTMLLinkElement>(
@@ -217,11 +246,22 @@ export async function bustAssetHttpCache(): Promise<void> {
   if (unique.length === 0) return;
 
   // `cache: 'reload'` forces a network refetch that overwrites the cache entry.
-  // `mode: 'cors'` + `credentials: 'omit'` match how the <script crossorigin>
-  // module fetches partition the cache, so the reload reuses these fresh bytes.
+  // `mode: 'cors'` matches how module fetches are always CORS-enabled requests
+  // (HTML spec, independent of any `crossorigin` attribute). `credentials:
+  // 'same-origin'` matches the credentials mode module scripts use when their
+  // top-level <script type="module"> carries no `crossorigin` attribute (the
+  // spec default) — NOT 'omit'. On the CDN deploy (cdn.frontaliereticino.ch,
+  // cross-origin from frontaliereticino.ch) 'same-origin' already omits
+  // credentials for that foreign origin, identical to the old hardcoded
+  // 'omit'. But when ASSET_CDN is unset (vite.config.ts renderBuiltUrl) chunks
+  // are same-origin, where the module loader's default DOES send credentials —
+  // a hardcoded 'omit' would then diverge from what the browser actually
+  // fetches, risking a distinct cache entry for a differently-credentialed
+  // response. 'same-origin' reproduces the real module-fetch behaviour in both
+  // deploy shapes with one value instead of branching on ASSET_CDN.
   const refetch = Promise.all(
     unique.map((u) =>
-      fetch(u, { cache: 'reload', mode: 'cors', credentials: 'omit' }).catch(() => {
+      fetch(u, { cache: 'reload', mode: 'cors', credentials: 'same-origin' }).catch(() => {
         /* one failed refetch must not block the others or the reload */
       }),
     ),

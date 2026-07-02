@@ -841,6 +841,23 @@
          Placed before <script type="module"> which is deferred by spec, so these
          handlers are registered before any module JS executes. -->
     <script>
+      // Raise the Resource Timing buffer cap (spec-floor default 250 entries)
+      // as EARLY as possible — this bootstrap script runs before the deferred
+      // module script and before almost all page resources (JS chunks, CSS,
+      // AdSense/GTM/Firebase/Clarity pings) load, so this is the point where
+      // raising the cap can actually prevent eviction rather than just
+      // reacting after the fact (issue #3149: a long-lived SPA session — no
+      // full navigation between in-app pages — can realistically fill the
+      // default buffer over time, silently evicting the timing entry for a
+      // version-skewed /assets/* chunk before frBustAssetCacheThenReload below
+      // ever runs). Mirrored in services/resilientImport.ts
+      // (RESOURCE_TIMING_BUFFER_SIZE) and build-plugins/constants.ts's
+      // SELF_HEAL_SCRIPT_CONTENT — keep the value in sync across all three.
+      try {
+        if (window.performance && typeof performance.setResourceTimingBufferSize === 'function') {
+          performance.setResourceTimingBufferSize(1000);
+        }
+      } catch (e) {}
       // Reload BUDGET shared by every recovery handler below AND
       // services/resilientImport.ts (mirrored there as consumeReloadBudget —
       // that module can't be imported here since this bootstrap script runs
@@ -909,15 +926,18 @@
             if (/\/assets\/.+\.(js|css)(\?|$)/.test(n)) urls.push(n);
           }
         } catch (e) {}
-        if (!urls.length) {
-          try {
-            var els = document.querySelectorAll('script[src*="/assets/"], link[href*="/assets/"]');
-            for (var j = 0; j < els.length; j++) {
-              var u = els[j].src || els[j].href;
-              if (u) urls.push(u);
-            }
-          } catch (e) {}
-        }
+        // Second, INDEPENDENT enumeration path — always unioned (not just when
+        // Resource Timing comes back empty), so a partial buffer eviction still
+        // recovers the entries still present as DOM nodes. Cannot cover chunks
+        // loaded via dynamic import() (never leave a DOM element) — the
+        // setResourceTimingBufferSize raise above is the real mitigation there.
+        try {
+          var els = document.querySelectorAll('script[src*="/assets/"], link[href*="/assets/"]');
+          for (var j = 0; j < els.length; j++) {
+            var u = els[j].src || els[j].href;
+            if (u) urls.push(u);
+          }
+        } catch (e) {}
         var uniq = [];
         for (var k = 0; k < urls.length; k++) if (uniq.indexOf(urls[k]) === -1) uniq.push(urls[k]);
         if (!uniq.length || typeof fetch !== 'function') { clearCacheStorage().then(reload, reload); return; }
@@ -925,8 +945,16 @@
         function finish() { if (done) return; done = true; reload(); }
         setTimeout(finish, 4000);
         clearCacheStorage().then(function() {
+          // credentials:'same-origin' matches the spec-default credentials mode
+          // of a <script type="module"> with no crossorigin attribute (this
+          // site's entry script) in BOTH deploy shapes: on the CDN
+          // (cdn.frontaliereticino.ch, cross-origin) it omits credentials same
+          // as the old hardcoded 'omit'; when ASSET_CDN is unset (chunks
+          // same-origin) it correctly INCLUDES them, matching what the module
+          // loader actually sent — avoiding a distinct, differently-cached
+          // response for the same URL (issue #3149).
           return Promise.all(uniq.map(function(u) {
-            return fetch(u, { cache: 'reload', mode: 'cors', credentials: 'omit' }).catch(function() {});
+            return fetch(u, { cache: 'reload', mode: 'cors', credentials: 'same-origin' }).catch(function() {});
           }));
         }).then(finish, finish);
       }
