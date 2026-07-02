@@ -859,6 +859,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aumento-rendite-ai-avs-difficolta.title': 'Erhöhung der IV-Renten bringt die Versicherung in finanzielle Schwierigkeiten',
     'blog.article.aumento-rendite-ai-avs-difficolta.excerpt': 'Der starke Anstieg der neuen IV-Renten bringt die Invalidenversicherung in finanzielle Schwierigkeiten.',
     'blog.article.aumento-rendite-ai-avs-difficolta.imageAlt': 'Panoramablick auf Bern mit dem Bundesparlament und dem Bundesamt für Sozialversicherungen.',
+    'blog.article.frontaliere-formazione-2026.title': 'Schulung 2026: Kurse und Finanzierung',
+    'blog.article.frontaliere-formazione-2026.excerpt': 'Informieren Sie sich über die Berufsbildungs- und Umschulungskurse für Grenzgänger innerhalb von 20 km im Jahr 2026, die verfügbaren Finanzmittel und wie Sie die praktische Rückkehr bewerten können.',
+    'blog.article.frontaliere-formazione-2026.imageAlt': 'Frontalieri in beruflicher Weiterbildung in einer Schweizer Stadt',
 };
 
 export default blogMetaChDe;
