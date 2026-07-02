@@ -509,8 +509,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
         "it": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
-        "en": "professional-health-efz-fage-kantonale-verwaltung-graubunden-cazis",
-        "fr": "sante-professionnelle-efz-fage-kantonale-verwaltung-graubunden-cazis"
+        "en": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch",
+        "fr": "fachfrau-fachmann-gesundheit-efz-fage-kanton-gr-ch"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -574,12 +574,12 @@
     },
     {
       "id": "kanton-gr-a6e30cebd18c",
-      "slug": "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis",
+      "slug": "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kanton-gr-ch",
-        "it": "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis",
-        "en": "social-worker-in-kantonale-verwaltung-graubunden-cazis",
-        "fr": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis"
+        "it": "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
+        "en": "sozialarbeiter-in-kanton-gr-ch",
+        "fr": "sozialarbeiter-in-kanton-gr-ch"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -587,7 +587,7 @@
       "title": "Sozialarbeiter/-in",
       "titleByLocale": {
         "de": "Sozialarbeiter/-in",
-        "it": "Lavoratore sociale",
+        "it": "Assistente sociale",
         "en": "Social worker/in",
         "fr": "Travailleurs sociaux/in"
       },
@@ -642,19 +642,11 @@
       "firstSeenAt": "2026-07-02T11:34:14.555Z",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-kanton-gr-ch",
-          "assistente-sociale-kantonale-verwaltung-graubunden-cazis"
-        ],
-        "en": [
-          "sozialarbeiter-in-kanton-gr-ch"
-        ],
-        "fr": [
           "sozialarbeiter-in-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-kanton-gr-ch",
-        "assistente-sociale-kantonale-verwaltung-graubunden-cazis"
+        "sozialarbeiter-in-kanton-gr-ch"
       ]
     },
     {
@@ -794,12 +786,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-scancenter-kanton-gr-ch",
-        "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur",
-        "legal-r-employee-in-kantonale-verwaltung-graubunden-chur",
-        "juristische-r-mitarbeiter-in-kanton-gr-ch",
-        "avocat-r-employe-in-kantonale-verwaltung-graubunden-chur",
-        "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
+        "mitarbeiter-in-scancenter-kanton-gr-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -822,8 +809,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-administration-kanton-gr-ch",
         "it": "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-ilanz",
-        "en": "employee-in-administration-kantonale-verwaltung-graubunden-ilanz",
-        "fr": "employe-en-administration-kantonale-verwaltung-graubunden-ilanz"
+        "en": "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz",
+        "fr": "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -873,17 +860,10 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-administration-kanton-gr-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
-        ],
-        "fr": [
-          "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-administration-kanton-gr-ch",
-        "mitarbeiter-in-administration-kantonale-verwaltung-graubunden-ilanz"
+        "mitarbeiter-in-administration-kanton-gr-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -902,10 +882,10 @@
     },
     {
       "id": "kanton-gr-69754a7e3212",
-      "slug": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
+      "slug": "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
         "de": "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "it": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
+        "it": "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart",
         "en": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart",
         "fr": "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
       },
@@ -915,7 +895,7 @@
       "title": "Juristisches Praktikum am Regionalgericht Landquart",
       "titleByLocale": {
         "de": "Juristisches Praktikum am Regionalgericht Landquart",
-        "it": "Stage giuridico presso il Landgericht",
+        "it": "Tirocinio legale presso il Tribunale Regionale di Landquart",
         "en": "Legal internship at the Regionalgericht Landquart",
         "fr": "Stage juridique au Regionalgericht Landquart"
       },
@@ -957,12 +937,12 @@
       "previousSlugsByLocale": {
         "it": [
           "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-          "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
+          "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
         "juristisches-praktikum-am-regionalgericht-landquart-kanton-gr-ch",
-        "tirocinio-legale-presso-il-tribunale-regionale-di-landquart-kantonale-verwaltung-graubunden-landquart"
+        "juristisches-praktikum-am-regionalgericht-landquart-kantonale-verwaltung-graubunden-landquart"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

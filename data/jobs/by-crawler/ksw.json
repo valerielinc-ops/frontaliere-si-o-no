@@ -4767,12 +4767,12 @@
     },
     {
       "id": "ksw-d95a1aacc609",
-      "slug": "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-d039fa",
+      "slug": "segretario-medico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-ksw-ch",
-        "it": "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-d039fa",
-        "en": "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-d039fa",
-        "fr": "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-d039fa"
+        "it": "segretario-medico-kantonsspital-winterthur-ksw-winterthur",
+        "en": "arztsekretarin-arztsekretar-ksw-ch",
+        "fr": "arztsekretarin-arztsekretar-ksw-ch"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4780,7 +4780,7 @@
       "title": "Arztsekretärin / Arztsekretär",
       "titleByLocale": {
         "de": "Arztsekretärin / Arztsekretär",
-        "it": "Segretario medico / Segretario medico",
+        "it": "Segretario medico",
         "en": "Medical Secretary / Medical Secretary",
         "fr": "Secrétaire médical / Secrétaire médical"
       },
@@ -4831,19 +4831,11 @@
       "firstSeenAt": "2026-07-02T11:28:45.670Z",
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-ksw-ch",
-          "segretario-medico-kantonsspital-winterthur-ksw-winterthur"
-        ],
-        "en": [
-          "arztsekretarin-arztsekretar-ksw-ch"
-        ],
-        "fr": [
           "arztsekretarin-arztsekretar-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch",
-        "segretario-medico-kantonsspital-winterthur-ksw-winterthur"
+        "arztsekretarin-arztsekretar-ksw-ch"
       ]
     },
     {

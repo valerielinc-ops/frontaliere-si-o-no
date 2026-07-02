@@ -65,7 +65,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -148,7 +147,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -229,7 +227,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -458,12 +455,14 @@
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -476,7 +475,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -633,7 +631,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1445,7 +1442,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1604,7 +1600,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1632,7 +1627,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "it": "Dipl. Infermiera / Infermiera specialista HF/FH",
         "en": "Diploma in Nursing (HF/FH)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
         "fr": "Diplômé(e) en soins infirmiers (HF/FH)"
@@ -1684,7 +1679,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1925,7 +1919,6 @@
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2020,7 +2013,6 @@
         "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2660,7 +2652,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2811,7 +2802,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2964,7 +2954,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3242,14 +3231,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3345,7 +3335,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3374,7 +3363,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "Terapeuta del lavoro",
-        "en": "Ergotherapeutin / Ergotherapeut",
+        "en": "Occupational therapist",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "Ergothérapeute"
       },
@@ -3409,7 +3398,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeute-universitatsspital-basel-basel"
+        "ergotherapeute-universitatsspital-basel-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3420,7 +3410,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4429,7 +4418,6 @@
       "previousSlugs": [
         "oberarztin-oberarzt-angiologie-unispital-basel-ch",
         "medico-senior-brustklinik-universitatsspital-basel-basel",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
         "senior-physician-brustklinik-universitatsspital-basel-basel",
@@ -4444,7 +4432,10 @@
         "senior-physician-cardiology-universitatsspital-basel-basel",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
         "medecin-principal-cardiologie-universitatsspital-basel-basel",
-        "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+        "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "medecin-principal-angiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4609,7 +4600,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:48:28.529Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4908,7 +4898,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.537Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4985,7 +4974,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5050,7 +5038,6 @@
       "previousSlugs": [
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "assistant-sante-et-affaires-sociales-ags-universitatsspital-basel-basel",
@@ -5061,7 +5048,10 @@
         "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5227,7 +5217,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5693,7 +5682,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5774,7 +5762,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6368,7 +6355,6 @@
         "arztsekretar-in-unispital-basel-ch",
         "arztsekretar-in-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
-        "segretario-del-dottore-in-universitatsspital-basel-basel",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
         "assistente-di-medico-universitatsspital-basel-basel",
@@ -6379,7 +6365,10 @@
         "medical-assistant-in-oncology-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-unispital-basel-ch-2",
+        "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T14:18:53.315Z",
       "salaryMin": 62000,
@@ -6458,7 +6447,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6762,12 +6750,13 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6781,7 +6770,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6860,7 +6848,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.973Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6939,7 +6926,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.965Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7020,7 +7006,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:18:08.636Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7456,7 +7441,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.843Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -7678,7 +7662,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "medico-senior-angiologia-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
@@ -7694,7 +7677,10 @@
         "chief-physician-in-cardiology-universitatsspital-basel-basel",
         "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel",
         "medecin-en-chef-en-cardiologie-universitatsspital-basel-basel",
-        "chefarztsekretar-in-kardiologie-unispital-basel-ch"
+        "chefarztsekretar-in-kardiologie-unispital-basel-ch",
+        "medecin-principal-cardiologie-universitatsspital-basel-basel",
+        "senior-physician-cardiology-universitatsspital-basel-basel",
+        "medico-senior-cardiologia-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7865,7 +7851,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.829Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "baseSalary": {
@@ -7942,7 +7927,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8165,7 +8149,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:01:21.739Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -8404,7 +8387,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:01:21.740Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -9053,7 +9035,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:01:21.724Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -9198,7 +9179,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:01:21.726Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -9269,7 +9249,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:01:21.727Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -9442,15 +9421,15 @@
       "titleByLocale": {
         "de": "Leiter*in Pflege (Herzzentrum)",
         "it": "Capo Infermieristica (Centro Cardiaco)",
-        "en": "Leiter*in Pflege (Herzzentrum)",
-        "fr": "Leiter*in Pflege (Herzzentrum)"
+        "en": "Head of Care (heart center)",
+        "fr": "Chef des soins (centre cardiaque)"
       },
       "description": "Aufgaben:\n• Sie übernehmen gemeinsam mit der ärztlichen und der betriebswirtschaftlichen Leitung die strategische, organisatorische und pflegefachliche Verantwortung für das Universitäre Herzzentrum\n\n• Sie gestalten die Weiterentwicklung des Herzzentrums aktiv mit und setzen Impulse für höchste Qualität, Wirtschaftlichkeit und eine konsequent patientenzentrierte Versorgung\n\n• Sie führen die pflegerische Leitungsebene mit fünf direkt und rund 110 indirekt unterstellten Mitarbeitenden und fördern eine leistungsstarke, wertschätzende Führungskultur\n\n• Sie stellen eine qualitativ hochwertige pflegerische Versorgung sicher und treiben die Weiterentwicklung einer evidenzbasierten Pflegepraxis aktiv voran\n\n• Sie verantworten das Pflegebudget des Herzzentrums und optimieren die Ressourcenplanung und den Ressourceneinsatz in enger Zusammenarbeit mit den Pflegeleitungen\n\n• Sie etablieren, evaluieren und optimieren Prozesse sowie Strukturen kontinuierlich im Hinblick auf Qualität, Effizienz und Wirtschaftlichkeit\n\nAnforderungen:\n• Abgeschlossenes Diplom als Pflegefachperson HF/FH mit einschlägigem Masterabschluss (z. B. in Pflegewissenschaft, Management im Gesundheitswesen oder Advanced Practice Nursing)\n\n• Mehrjährige Führungserfahrung in einer komplexen, hochspezialisierten Spitalorganisation, idealerweise im Bereich Kardiologie oder Herzchirurgie\n\n• Ausgeprägte Führungs-, Kommunikations- und Veränderungskompetenz sowie die Fähigkeit, Menschen für gemeinsame Ziele zu begeistern\n\n• Entscheidungsstärke, unternehmerisches Denken und eine hohe Umsetzungsorientierung\n\n• Freude an interprofessioneller Zusammenarbeit und die Fähigkeit, Beziehungen auf Augenhöhe nachhaltig zu gestalten\n\n• Strategisches Denkvermögen, Innovationsfreude und ein hohes Qualitätsbewusstsein im universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Sie übernehmen gemeinsam mit der ärztlichen und der betriebswirtschaftlichen Leitung die strategische, organisatorische und pflegefachliche Verantwortung für das Universitäre Herzzentrum\n\n• Sie gestalten die Weiterentwicklung des Herzzentrums aktiv mit und setzen Impulse für höchste Qualität, Wirtschaftlichkeit und eine konsequent patientenzentrierte Versorgung\n\n• Sie führen die pflegerische Leitungsebene mit fünf direkt und rund 110 indirekt unterstellten Mitarbeitenden und fördern eine leistungsstarke, wertschätzende Führungskultur\n\n• Sie stellen eine qualitativ hochwertige pflegerische Versorgung sicher und treiben die Weiterentwicklung einer evidenzbasierten Pflegepraxis aktiv voran\n\n• Sie verantworten das Pflegebudget des Herzzentrums und optimieren die Ressourcenplanung und den Ressourceneinsatz in enger Zusammenarbeit mit den Pflegeleitungen\n\n• Sie etablieren, evaluieren und optimieren Prozesse sowie Strukturen kontinuierlich im Hinblick auf Qualität, Effizienz und Wirtschaftlichkeit\n\nAnforderungen:\n• Abgeschlossenes Diplom als Pflegefachperson HF/FH mit einschlägigem Masterabschluss (z. B. in Pflegewissenschaft, Management im Gesundheitswesen oder Advanced Practice Nursing)\n\n• Mehrjährige Führungserfahrung in einer komplexen, hochspezialisierten Spitalorganisation, idealerweise im Bereich Kardiologie oder Herzchirurgie\n\n• Ausgeprägte Führungs-, Kommunikations- und Veränderungskompetenz sowie die Fähigkeit, Menschen für gemeinsame Ziele zu begeistern\n\n• Entscheidungsstärke, unternehmerisches Denken und eine hohe Umsetzungsorientierung\n\n• Freude an interprofessioneller Zusammenarbeit und die Fähigkeit, Beziehungen auf Augenhöhe nachhaltig zu gestalten\n\n• Strategisches Denkvermögen, Innovationsfreude und ein hohes Qualitätsbewusstsein im universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Sie übernehmen gemeinsam mit der ärztlichen und der betriebswirtschaftlichen Leitung die strategische, organisatorische und pflegefachliche Verantwortung für das Universitäre Herzzentrum\n\n• Sie gestalten die Weiterentwicklung des Herzzentrums aktiv mit und setzen Impulse für höchste Qualität, Wirtschaftlichkeit und eine konsequent patientenzentrierte Versorgung\n\n• Sie führen die pflegerische Leitungsebene mit fünf direkt und rund 110 indirekt unterstellten Mitarbeitenden und fördern eine leistungsstarke, wertschätzende Führungskultur\n\n• Sie stellen eine qualitativ hochwertige pflegerische Versorgung sicher und treiben die Weiterentwicklung einer evidenzbasierten Pflegepraxis aktiv voran\n\n• Sie verantworten das Pflegebudget des Herzzentrums und optimieren die Ressourcenplanung und den Ressourceneinsatz in enger Zusammenarbeit mit den Pflegeleitungen\n\n• Sie etablieren, evaluieren und optimieren Prozesse sowie Strukturen kontinuierlich im Hinblick auf Qualität, Effizienz und Wirtschaftlichkeit\n\nAnforderungen:\n• Abgeschlossenes Diplom als Pflegefachperson HF/FH mit einschlägigem Masterabschluss (z. B. in Pflegewissenschaft, Management im Gesundheitswesen oder Advanced Practice Nursing)\n\n• Mehrjährige Führungserfahrung in einer komplexen, hochspezialisierten Spitalorganisation, idealerweise im Bereich Kardiologie oder Herzchirurgie\n\n• Ausgeprägte Führungs-, Kommunikations- und Veränderungskompetenz sowie die Fähigkeit, Menschen für gemeinsame Ziele zu begeistern\n\n• Entscheidungsstärke, unternehmerisches Denken und eine hohe Umsetzungsorientierung\n\n• Freude an interprofessioneller Zusammenarbeit und die Fähigkeit, Beziehungen auf Augenhöhe nachhaltig zu gestalten\n\n• Strategisches Denkvermögen, Innovationsfreude und ein hohes Qualitätsbewusstsein im universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Sie übernehmen gemeinsam mit der ärztlichen und der betriebswirtschaftlichen Leitung die strategische, organisatorische und pflegefachliche Verantwortung für das Universitäre Herzzentrum\n\n• Sie gestalten die Weiterentwicklung des Herzzentrums aktiv mit und setzen Impulse für höchste Qualität, Wirtschaftlichkeit und eine konsequent patientenzentrierte Versorgung\n\n• Sie führen die pflegerische Leitungsebene mit fünf direkt und rund 110 indirekt unterstellten Mitarbeitenden und fördern eine leistungsstarke, wertschätzende Führungskultur\n\n• Sie stellen eine qualitativ hochwertige pflegerische Versorgung sicher und treiben die Weiterentwicklung einer evidenzbasierten Pflegepraxis aktiv voran\n\n• Sie verantworten das Pflegebudget des Herzzentrums und optimieren die Ressourcenplanung und den Ressourceneinsatz in enger Zusammenarbeit mit den Pflegeleitungen\n\n• Sie etablieren, evaluieren und optimieren Prozesse sowie Strukturen kontinuierlich im Hinblick auf Qualität, Effizienz und Wirtschaftlichkeit\n\nAnforderungen:\n• Abgeschlossenes Diplom als Pflegefachperson HF/FH mit einschlägigem Masterabschluss (z. B. in Pflegewissenschaft, Management im Gesundheitswesen oder Advanced Practice Nursing)\n\n• Mehrjährige Führungserfahrung in einer komplexen, hochspezialisierten Spitalorganisation, idealerweise im Bereich Kardiologie oder Herzchirurgie\n\n• Ausgeprägte Führungs-, Kommunikations- und Veränderungskompetenz sowie die Fähigkeit, Menschen für gemeinsame Ziele zu begeistern\n\n• Entscheidungsstärke, unternehmerisches Denken und eine hohe Umsetzungsorientierung\n\n• Freude an interprofessioneller Zusammenarbeit und die Fähigkeit, Beziehungen auf Augenhöhe nachhaltig zu gestalten\n\n• Strategisches Denkvermögen, Innovationsfreude und ein hohes Qualitätsbewusstsein im universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Sie übernehmen gemeinsam mit der ärztlichen und der betriebswirtschaftlichen Leitung die strategische, organisatorische und pflegefachliche Verantwortung für das Universitäre Herzzentrum\n\n• Sie gestalten die Weiterentwicklung des Herzzentrums aktiv mit und setzen Impulse für höchste Qualität, Wirtschaftlichkeit und eine konsequent patientenzentrierte Versorgung\n\n• Sie führen die pflegerische Leitungsebene mit fünf direkt und rund 110 indirekt unterstellten Mitarbeitenden und fördern eine leistungsstarke, wertschätzende Führungskultur\n\n• Sie stellen eine qualitativ hochwertige pflegerische Versorgung sicher und treiben die Weiterentwicklung einer evidenzbasierten Pflegepraxis aktiv voran\n\n• Sie verantworten das Pflegebudget des Herzzentrums und optimieren die Ressourcenplanung und den Ressourceneinsatz in enger Zusammenarbeit mit den Pflegeleitungen\n\n• Sie etablieren, evaluieren und optimieren Prozesse sowie Strukturen kontinuierlich im Hinblick auf Qualität, Effizienz und Wirtschaftlichkeit\n\nAnforderungen:\n• Abgeschlossenes Diplom als Pflegefachperson HF/FH mit einschlägigem Masterabschluss (z. B. in Pflegewissenschaft, Management im Gesundheitswesen oder Advanced Practice Nursing)\n\n• Mehrjährige Führungserfahrung in einer komplexen, hochspezialisierten Spitalorganisation, idealerweise im Bereich Kardiologie oder Herzchirurgie\n\n• Ausgeprägte Führungs-, Kommunikations- und Veränderungskompetenz sowie die Fähigkeit, Menschen für gemeinsame Ziele zu begeistern\n\n• Entscheidungsstärke, unternehmerisches Denken und eine hohe Umsetzungsorientierung\n\n• Freude an interprofessioneller Zusammenarbeit und die Fähigkeit, Beziehungen auf Augenhöhe nachhaltig zu gestalten\n\n• Strategisches Denkvermögen, Innovationsfreude und ein hohes Qualitätsbewusstsein im universitären Umfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Insieme con la gestione medica e aziendale, si assume la responsabilità strategica, organizzativa e di cura per il Centro Cuore Universitario.\n\n• Essi modellano attivamente l'ulteriore sviluppo del centro del cuore e forniscono impulsi per la massima qualità, l'efficacia dei costi e la costante cura concentrata del paziente.\n\n• Conducono il livello di gestione dell'allattamento con cinque dipendenti diretti e circa 110 dipendenti indiretti e promuovono una cultura di leadership ad alte prestazioni e apprezzata.\n\n• Garantiscono un'assistenza di alta qualità e promuovono attivamente l'ulteriore sviluppo di una pratica di allattamento basata su prove\n\n• Siete responsabili del bilancio di assistenza del centro centrale e ottimizzare la pianificazione delle risorse e l'uso delle risorse in stretta collaborazione con la gestione della cura.\n\n• Stabiliscono, valutano e ottimizzano i processi e le strutture in modo continuo per quanto riguarda la qualità, l'efficienza e l'efficacia dei costi.\n\nRequisiti\n• Diploma completato come infermiere HF/FH con un master pertinente (ad esempio in scienze della cura, gestione in medicina o medicina avanzata)\n\n• Diversi anni di esperienza di leadership in un complesso, organizzazione ospedaliera altamente specializzata, idealmente nel campo della cardiologia o chirurgia cardiaca\n\n• Forte leadership, capacità di comunicazione e cambiamento, nonché la capacità di ispirare le persone per obiettivi comuni\n\n• Forza decisionale, pensiero imprenditoriale e orientamento ad alta implementazione\n\n• Godere di collaborazione interprofessionale e la capacità di rendere le relazioni sostenibili a livello degli occhi\n\n• Capacità di pensiero strategico, innovazione e una consapevolezza di alta qualità nell'ambiente universitario\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Together with the medical and business management, you assume strategic, organizational and nursing responsibility for the Universitary Heart Center.\n\n• They actively shape the further development of the heart center and provide impulses for the highest quality, cost-effectiveness and consistent patient-centered care.\n\n• They lead the nursing management level with five direct and approximately 110 indirect employees and promote a high-performance, appreciative leadership culture.\n\n• They ensure high-quality nursing care and actively promote the further development of an evidence-based nursing practice\n\n• You are responsible for the care budget of the heart center and optimize the resource planning and the use of resources in close cooperation with the care management.\n\n• They establish, evaluate and optimize processes and structures continuously with regard to quality, efficiency and cost-effectiveness.\n\nRequirements\n• Diploma completed as a nurse HF/FH with a relevant master’s degree (e.g. in nursing science, management in healthcare or advanced practice nursing)\n\n• Several years of leadership experience in a complex, highly specialized hospital organization, ideally in the field of cardiology or cardiac surgery\n\n• Strong leadership, communication and change skills as well as the ability to inspire people for common goals\n\n• Decision-making strength, entrepreneurial thinking and a high implementation orientation\n\n• Enjoying interprofessional collaboration and the ability to make relationships sustainable at eye level\n\n• Strategic thinking skills, innovation and a high quality awareness in the university environment\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Avec la direction médicale et commerciale, vous assumez la responsabilité stratégique, organisationnelle et infirmière du Centre Universitaire de cardiologie.\n\n• Ils façonnent activement le développement ultérieur du centre cardiaque et fournissent des impulsions pour la plus haute qualité, la rentabilité et des soins cohérents centrés sur le patient.\n\n• Ils dirigent le niveau de gestion des soins infirmiers avec cinq employés directs et environ 110 employés indirects et favorisent une culture de leadership appréciée et performante.\n\n• Ils assurent des soins infirmiers de haute qualité et favorisent activement le développement d'une pratique infirmière fondée sur des données probantes\n\n• Vous êtes responsable du budget de soins du centre cardiaque et optimiser la planification des ressources et l'utilisation des ressources en étroite collaboration avec la gestion des soins.\n\n• Ils établissent, évaluent et optimisent continuellement les processus et les structures en matière de qualité, d'efficacité et de rentabilité.\n\nExigences\n• Diplôme obtenu en tant qu'infirmière HF/FH avec un diplôme de maîtrise pertinent (p. ex. en sciences infirmières, gestion en soins de santé ou soins infirmiers de pratique avancée)\n\n• Plusieurs années d'expérience en leadership dans une organisation hospitalière complexe et hautement spécialisée, idéalement dans le domaine de la cardiologie ou de la chirurgie cardiaque\n\n• Des compétences solides en leadership, en communication et en changement ainsi que la capacité d'inspirer les gens vers des objectifs communs\n\n• La force de la prise de décision, la pensée entrepreneuriale et une orientation de mise en œuvre élevée\n\n• Profitez de la collaboration interprofessionnelle et de la capacité de rendre les relations durables au niveau des yeux\n\n• Capacités de réflexion stratégique, innovation et sensibilisation de haute qualité dans l'environnement universitaire\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -9476,7 +9455,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-pflege-herzzentrum-unispital-basel-ch",
@@ -9587,15 +9565,15 @@
       "titleByLocale": {
         "de": "Assistent*in Kliniksekretariat",
         "it": "Segretariato Assistente della Clinica",
-        "en": "Assistent*in Kliniksekretariat",
-        "fr": "Assistent*in Kliniksekretariat"
+        "en": "Assistant clinic secretary",
+        "fr": "Secrétaire adjoint à la clinique"
       },
       "description": "Aufgaben:\n• Unterstützung der Leitenden sowie Kader-Ärztinnen/-Ärzte in sämtlichen administrativen und organisatorischen Belangen (Terminmanagement, Reiseorganisation, Spesen- und Vertragsmanagement)\n\n• Organisation und Koordination der Unterassistenzstellen inklusive Einsatzplanung, Onboarding und Betreuung der Unterassistentinnen und Unterassistenten)\n\n• Koordination des interdisziplinären Hauttumorboards sowie administrative Unterstützung des Hauttumorzentrums\n\n• Selbstständige Korrespondenz in Deutsch und Englisch\n\n• Protokollführung und Übernahme allgemeiner Sekretariatsaufgaben\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung, idealerweise mit Weiterbildung als Direktionsassistent*in\n\n• Mehrjährige Berufserfahrung in einer vergleichbaren Assistenz- oder Drehscheibenfunktion\n\n• Ausgeprägte Dienstleistungsorientierung sowie selbstständige, strukturierte und proaktive Arbeitsweise\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Sehr gute MS Office-Kenntnisse sowie stilsicheres Deutsch und gute Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Unterstützung der Leitenden sowie Kader-Ärztinnen/-Ärzte in sämtlichen administrativen und organisatorischen Belangen (Terminmanagement, Reiseorganisation, Spesen- und Vertragsmanagement)\n\n• Organisation und Koordination der Unterassistenzstellen inklusive Einsatzplanung, Onboarding und Betreuung der Unterassistentinnen und Unterassistenten)\n\n• Koordination des interdisziplinären Hauttumorboards sowie administrative Unterstützung des Hauttumorzentrums\n\n• Selbstständige Korrespondenz in Deutsch und Englisch\n\n• Protokollführung und Übernahme allgemeiner Sekretariatsaufgaben\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung, idealerweise mit Weiterbildung als Direktionsassistent*in\n\n• Mehrjährige Berufserfahrung in einer vergleichbaren Assistenz- oder Drehscheibenfunktion\n\n• Ausgeprägte Dienstleistungsorientierung sowie selbstständige, strukturierte und proaktive Arbeitsweise\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Sehr gute MS Office-Kenntnisse sowie stilsicheres Deutsch und gute Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Unterstützung der Leitenden sowie Kader-Ärztinnen/-Ärzte in sämtlichen administrativen und organisatorischen Belangen (Terminmanagement, Reiseorganisation, Spesen- und Vertragsmanagement)\n\n• Organisation und Koordination der Unterassistenzstellen inklusive Einsatzplanung, Onboarding und Betreuung der Unterassistentinnen und Unterassistenten)\n\n• Koordination des interdisziplinären Hauttumorboards sowie administrative Unterstützung des Hauttumorzentrums\n\n• Selbstständige Korrespondenz in Deutsch und Englisch\n\n• Protokollführung und Übernahme allgemeiner Sekretariatsaufgaben\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung, idealerweise mit Weiterbildung als Direktionsassistent*in\n\n• Mehrjährige Berufserfahrung in einer vergleichbaren Assistenz- oder Drehscheibenfunktion\n\n• Ausgeprägte Dienstleistungsorientierung sowie selbstständige, strukturierte und proaktive Arbeitsweise\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Sehr gute MS Office-Kenntnisse sowie stilsicheres Deutsch und gute Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Unterstützung der Leitenden sowie Kader-Ärztinnen/-Ärzte in sämtlichen administrativen und organisatorischen Belangen (Terminmanagement, Reiseorganisation, Spesen- und Vertragsmanagement)\n\n• Organisation und Koordination der Unterassistenzstellen inklusive Einsatzplanung, Onboarding und Betreuung der Unterassistentinnen und Unterassistenten)\n\n• Koordination des interdisziplinären Hauttumorboards sowie administrative Unterstützung des Hauttumorzentrums\n\n• Selbstständige Korrespondenz in Deutsch und Englisch\n\n• Protokollführung und Übernahme allgemeiner Sekretariatsaufgaben\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung, idealerweise mit Weiterbildung als Direktionsassistent*in\n\n• Mehrjährige Berufserfahrung in einer vergleichbaren Assistenz- oder Drehscheibenfunktion\n\n• Ausgeprägte Dienstleistungsorientierung sowie selbstständige, strukturierte und proaktive Arbeitsweise\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Sehr gute MS Office-Kenntnisse sowie stilsicheres Deutsch und gute Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Unterstützung der Leitenden sowie Kader-Ärztinnen/-Ärzte in sämtlichen administrativen und organisatorischen Belangen (Terminmanagement, Reiseorganisation, Spesen- und Vertragsmanagement)\n\n• Organisation und Koordination der Unterassistenzstellen inklusive Einsatzplanung, Onboarding und Betreuung der Unterassistentinnen und Unterassistenten)\n\n• Koordination des interdisziplinären Hauttumorboards sowie administrative Unterstützung des Hauttumorzentrums\n\n• Selbstständige Korrespondenz in Deutsch und Englisch\n\n• Protokollführung und Übernahme allgemeiner Sekretariatsaufgaben\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung, idealerweise mit Weiterbildung als Direktionsassistent*in\n\n• Mehrjährige Berufserfahrung in einer vergleichbaren Assistenz- oder Drehscheibenfunktion\n\n• Ausgeprägte Dienstleistungsorientierung sowie selbstständige, strukturierte und proaktive Arbeitsweise\n\n• Teamfähigkeit und Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen\n\n• Sehr gute MS Office-Kenntnisse sowie stilsicheres Deutsch und gute Englischkenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Supporto per dirigenti e medici quadri in tutte le questioni amministrative e organizzative (gestione delle nomine, organizzazione dei viaggi, gestione delle spese e dei contratti)\n\n• Organizzazione e coordinamento di post di assistenza, tra cui pianificazione operativa, onboarding e supporto di sub-assistants\n\n• Coordinamento della scheda tumorale della pelle interdisciplinare e supporto amministrativo del centro tumorale della pelle\n\n• Corrispondenza indipendente in tedesco e inglese\n\n• Minuti e funzioni di segretariato generale\n\nRequisiti\n• Formazione commerciale completa, idealmente con ulteriore formazione come assistente dirigenziale*\n\n• Diversi anni di esperienza professionale in un'assistenza comparabile o funzione giradischi\n\n• Forte orientamento del servizio e metodi di lavoro indipendenti, strutturati e proattivi\n\n• Lavoro di squadra e godimento di lavorare con diversi gruppi professionali\n\n• Molto buone competenze MS Office così come elegante tedesco e buone competenze in inglese\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Support for managers and cadre doctors in all administrative and organisational matters (appointment management, travel organisation, expense and contract management)\n\n• Organization and coordination of sub-assistance posts including operational planning, onboarding and support of sub-assistants\n\n• Coordination of the interdisciplinary skin tumor board and administrative support of the skin tumor center\n\n• Independent correspondence in German and English\n\n• Minutes and general secretarial functions\n\nRequirements\n• Completed commercial training, ideally with further training as a directorial assistant*\n\n• Several years of professional experience in a comparable assistance or turntable function\n\n• Strong service orientation and independent, structured and proactive working methods\n\n• Teamwork and enjoyment of working with different professional groups\n\n• Very good MS Office skills as well as stylish German and good English skills\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Soutien aux gestionnaires et aux médecins cadres pour toutes les questions administratives et organisationnelles (gestion des nominations, organisation des voyages, gestion des dépenses et des contrats)\n\n• Organisation et coordination des postes de sous-assistance, y compris la planification opérationnelle, l'embarquement et l'appui des sous-assistants\n\n• Coordination du conseil interdisciplinaire tumoral de la peau et soutien administratif du centre tumoral de la peau\n\n• Correspondance indépendante en allemand et en anglais\n\n• Procès-verbaux et fonctions générales de secrétariat\n\nExigences\n• Formation commerciale terminée, idéalement avec une formation continue en tant qu'assistant directeur*\n\n• Plusieurs années d'expérience professionnelle dans une fonction d'assistance ou de table tournante comparable\n\n• Orientation forte en matière de services et méthodes de travail indépendantes, structurées et proactives\n\n• Travail d'équipe et plaisir de travailler avec différents groupes professionnels\n\n• Très bonnes compétences MS Office ainsi que l'allemand élégant et de bonnes compétences en anglais\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -9621,7 +9599,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-kliniksekretariat-unispital-basel-ch",
@@ -9744,16 +9721,16 @@
       "title": "Senior Transplantationskoordinator*in",
       "titleByLocale": {
         "de": "Senior Transplantationskoordinator*in",
-        "fr": "Senior Transplantationskoordinator*in",
+        "fr": "Coordonnateur principal de la transplantation",
         "it": "Coordinatore Senior Trapianto",
-        "en": "Senior Transplantationskoordinator*in"
+        "en": "Senior transplant coordinator"
       },
       "description": "Aufgaben:\n• Koordination und Organisation von Organspenden am USB, KSA und UKBB sowie von Nierentransplantationen in Zusammenarbeit mit unseren Kliniken\n\n• Im Organspendeprozess führen Sie Gespräche mit Angehörigen und leiten in enger Zusammenarbeit mit der Intensivstation Untersuchungen selbständig ein\n\n• Verantwortung für die Führung der Warteliste sowie die Organisation von Lebendnierentransplantationen\n\n• Zusammenarbeit mit unseren Netzwerken im Bereich der Organspende\n\n• Arbeit tagsüber im Gleitzeit-Arbeitsmodell, nachts und am Wochenende im Pikettdienst\n\nAnforderungen:\n• Dipl. Expert*in Intensivpflege NDS HF, Anästhesiepflege NDS HF oder Notfallpflege NDS HF\n\n• Sie können schnell auf neue Situationen reagieren und Entscheidungen treffen\n\n• Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten sowie ihrer Angehörigen in herausfordernden Situationen ist Ihnen ein wichtiges Anliegen\n\n• Ausgeprägte organisatorische und kommunikative Fähigkeiten\n\n• Mündliche Fremdsprachenkenntnisse in Englisch, Französisch und Italienisch sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Koordination und Organisation von Organspenden am USB, KSA und UKBB sowie von Nierentransplantationen in Zusammenarbeit mit unseren Kliniken\n\n• Im Organspendeprozess führen Sie Gespräche mit Angehörigen und leiten in enger Zusammenarbeit mit der Intensivstation Untersuchungen selbständig ein\n\n• Verantwortung für die Führung der Warteliste sowie die Organisation von Lebendnierentransplantationen\n\n• Zusammenarbeit mit unseren Netzwerken im Bereich der Organspende\n\n• Arbeit tagsüber im Gleitzeit-Arbeitsmodell, nachts und am Wochenende im Pikettdienst\n\nAnforderungen:\n• Dipl. Expert*in Intensivpflege NDS HF, Anästhesiepflege NDS HF oder Notfallpflege NDS HF\n\n• Sie können schnell auf neue Situationen reagieren und Entscheidungen treffen\n\n• Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten sowie ihrer Angehörigen in herausfordernden Situationen ist Ihnen ein wichtiges Anliegen\n\n• Ausgeprägte organisatorische und kommunikative Fähigkeiten\n\n• Mündliche Fremdsprachenkenntnisse in Englisch, Französisch und Italienisch sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Koordination und Organisation von Organspenden am USB, KSA und UKBB sowie von Nierentransplantationen in Zusammenarbeit mit unseren Kliniken\n\n• Im Organspendeprozess führen Sie Gespräche mit Angehörigen und leiten in enger Zusammenarbeit mit der Intensivstation Untersuchungen selbständig ein\n\n• Verantwortung für die Führung der Warteliste sowie die Organisation von Lebendnierentransplantationen\n\n• Zusammenarbeit mit unseren Netzwerken im Bereich der Organspende\n\n• Arbeit tagsüber im Gleitzeit-Arbeitsmodell, nachts und am Wochenende im Pikettdienst\n\nAnforderungen:\n• Dipl. Expert*in Intensivpflege NDS HF, Anästhesiepflege NDS HF oder Notfallpflege NDS HF\n\n• Sie können schnell auf neue Situationen reagieren und Entscheidungen treffen\n\n• Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten sowie ihrer Angehörigen in herausfordernden Situationen ist Ihnen ein wichtiges Anliegen\n\n• Ausgeprägte organisatorische und kommunikative Fähigkeiten\n\n• Mündliche Fremdsprachenkenntnisse in Englisch, Französisch und Italienisch sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Koordination und Organisation von Organspenden am USB, KSA und UKBB sowie von Nierentransplantationen in Zusammenarbeit mit unseren Kliniken\n\n• Im Organspendeprozess führen Sie Gespräche mit Angehörigen und leiten in enger Zusammenarbeit mit der Intensivstation Untersuchungen selbständig ein\n\n• Verantwortung für die Führung der Warteliste sowie die Organisation von Lebendnierentransplantationen\n\n• Zusammenarbeit mit unseren Netzwerken im Bereich der Organspende\n\n• Arbeit tagsüber im Gleitzeit-Arbeitsmodell, nachts und am Wochenende im Pikettdienst\n\nAnforderungen:\n• Dipl. Expert*in Intensivpflege NDS HF, Anästhesiepflege NDS HF oder Notfallpflege NDS HF\n\n• Sie können schnell auf neue Situationen reagieren und Entscheidungen treffen\n\n• Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten sowie ihrer Angehörigen in herausfordernden Situationen ist Ihnen ein wichtiges Anliegen\n\n• Ausgeprägte organisatorische und kommunikative Fähigkeiten\n\n• Mündliche Fremdsprachenkenntnisse in Englisch, Französisch und Italienisch sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Koordination und Organisation von Organspenden am USB, KSA und UKBB sowie von Nierentransplantationen in Zusammenarbeit mit unseren Kliniken\n\n• Im Organspendeprozess führen Sie Gespräche mit Angehörigen und leiten in enger Zusammenarbeit mit der Intensivstation Untersuchungen selbständig ein\n\n• Verantwortung für die Führung der Warteliste sowie die Organisation von Lebendnierentransplantationen\n\n• Zusammenarbeit mit unseren Netzwerken im Bereich der Organspende\n\n• Arbeit tagsüber im Gleitzeit-Arbeitsmodell, nachts und am Wochenende im Pikettdienst\n\nAnforderungen:\n• Dipl. Expert*in Intensivpflege NDS HF, Anästhesiepflege NDS HF oder Notfallpflege NDS HF\n\n• Sie können schnell auf neue Situationen reagieren und Entscheidungen treffen\n\n• Die kompetente und einfühlsame Begleitung unserer Patientinnen und Patienten sowie ihrer Angehörigen in herausfordernden Situationen ist Ihnen ein wichtiges Anliegen\n\n• Ausgeprägte organisatorische und kommunikative Fähigkeiten\n\n• Mündliche Fremdsprachenkenntnisse in Englisch, Französisch und Italienisch sind von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Coordinamento e organizzazione di donazioni di organi a USB, KSA e UKBB, nonché trapianti di reni in collaborazione con le nostre cliniche\n\n• Nel processo di donazione degli organi, si effettuano discussioni con i parenti e si avviano esami in modo indipendente in stretta collaborazione con l'unità di cura intensiva.\n\n• Responsabilità per mantenere la lista di attesa e organizzare trapianti di reni vivi\n\n• Cooperazione con le nostre reti di donazione di organi\n\n• Lavorare durante il giorno nel modello di lavoro flessibile, di notte e nei fine settimana nel pikettdienst\n\nRequisiti\n• Dipl. Esperto* in terapia intensiva NDS HF, cura anestesia NDS HF o assistenza di emergenza NDS HF\n\n• Si può reagire rapidamente a nuove situazioni e prendere decisioni\n\n• Il supporto competente e sensibile dei nostri pazienti e dei loro parenti in situazioni difficili è una preoccupazione importante per voi.\n\n• Forte capacità organizzative e di comunicazione\n\n• Le competenze linguistiche orali in inglese, francese e italiano sono utili\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Coordination and organisation of organ donations at USB, KSA and UKBB as well as kidney transplants in cooperation with our clinics\n\n• In the organ donation process, you conduct discussions with relatives and initiate examinations independently in close cooperation with the intensive care unit.\n\n• Responsibility for keeping the waiting list and organising live kidney transplants\n\n• Cooperation with our organ donation networks\n\n• Work during the day in the flextime working model, at night and on weekends in the pikettdienst\n\nRequirements\n• Dipl. Expert*in intensive care NDS HF, anesthesia care NDS HF or emergency care NDS HF\n\n• You can react quickly to new situations and make decisions\n\n• Competent and sensitive support of our patients and their relatives in challenging situations is an important concern for you.\n\n• Strong organisational and communication skills\n\n• Oral foreign language skills in English, French and Italian are beneficial\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Coordination et organisation des dons d'organes à USB, KSA et UKBB ainsi que des transplantations rénales en coopération avec nos cliniques\n\n• Dans le processus de don d'organes, vous discutez avec des proches et vous commencez des examens indépendamment en étroite collaboration avec l'unité de soins intensifs.\n\n• Responsabilité du maintien de la liste d'attente et de l'organisation des greffes de reins vivants\n\n• Coopération avec nos réseaux de dons d'organes\n\n• Travail le jour dans le modèle de travail flexible, la nuit et le week-end dans le pikettdienst\n\nExigences\n• Dipl. Expert*en soins intensifs NDS HF, anesthésie NDS HF ou soins d'urgence NDS HF\n\n• Vous pouvez réagir rapidement à de nouvelles situations et prendre des décisions\n\n• Un soutien compétent et sensible de nos patients et de leurs proches dans des situations difficiles est une préoccupation importante pour vous.\n\n• Fortes compétences en matière d'organisation et de communication\n\n• Les compétences orales en langues étrangères en anglais, français et italien sont bénéfiques\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -9779,7 +9756,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "senior-transplantationskoordinator-in-unispital-basel-ch",

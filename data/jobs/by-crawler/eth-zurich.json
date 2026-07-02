@@ -7144,12 +7144,12 @@
     },
     {
       "id": "eth-zurich-3a8a1157a4de",
-      "slug": "direttore-operativo-nella-stazione-di-ricerca-fruebuel-m-f-d-eth-zurich-zurich",
+      "slug": "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
-        "it": "direttore-operativo-nella-stazione-di-ricerca-fruebuel-m-f-d-eth-zurich-zurich",
-        "en": "operations-manager-in-research-station-fruebuel-m-f-d-eth-zurich-zurich",
-        "fr": "directeur-des-operations-a-la-station-de-recherche-fruebuel-m-f-d-eth-zurich-zurich"
+        "it": "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich",
+        "en": "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
+        "fr": "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7157,7 +7157,7 @@
       "title": "Betriebsleiter:in Forschungsstation Früebüel (m/w/d)",
       "titleByLocale": {
         "de": "Betriebsleiter:in Forschungsstation Früebüel (m/w/d)",
-        "it": "Direttore operativo: nella stazione di ricerca Früebüel (m/f/d)",
+        "it": "Responsabile Operativo Stazione di Ricerca Früebüel (f/f/d)",
         "en": "Operations manager:in research station Früebüel (m/f/d)",
         "fr": "Directeur des opérations: à la station de recherche Früebüel (m/f/d)"
       },
@@ -7207,19 +7207,11 @@
       "firstSeenAt": "2026-07-02T11:06:42.112Z",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
-          "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
           "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch",
-        "responsabile-operativo-stazione-di-ricerca-fruebuel-f-f-d-eth-zurich-zurich"
+        "betriebsleiter-in-forschungsstation-fruebuel-m-w-d-eth-zurich-ch"
       ]
     },
     {
@@ -7296,12 +7288,12 @@
     },
     {
       "id": "eth-zurich-1dd9847e4a40",
-      "slug": "architetto-in-m-f-d-eth-zurich-zurich",
+      "slug": "architetto-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "architekt-in-m-w-d-eth-zurich-ch",
-        "it": "architetto-in-m-f-d-eth-zurich-zurich",
-        "en": "architect-in-m-f-d-eth-zurich-zurich",
-        "fr": "architecte-en-m-f-d-eth-zurich-zurich"
+        "it": "architetto-m-f-d-eth-zurich-zurich",
+        "en": "architekt-in-m-w-d-eth-zurich-ch",
+        "fr": "architekt-in-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7309,7 +7301,7 @@
       "title": "Architekt:in (m/w/d)",
       "titleByLocale": {
         "de": "Architekt:in (m/w/d)",
-        "it": "Architetto:in (m/f/d)",
+        "it": "Architetto (m/f/d)",
         "en": "Architect:in (m/f/d)",
         "fr": "Architecte: en (m/f/d)"
       },
@@ -7357,29 +7349,14 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "firstSeenAt": "2026-07-02T11:06:41.047Z",
-      "previousSlugs": [
-        "architekt-in-m-w-d-eth-zurich-ch",
-        "bibliotecario-lun-f-d-eth-zurich-zurich",
-        "librarian-in-m-f-d-eth-zurich-zurich",
-        "bibliothekar-in-m-w-d-eth-zurich-ch",
-        "bibliothecaire-en-m-f-d-eth-zurich-zurich",
-        "ombudsman-m-p-d-eth-zurich-zurich",
-        "ombudsperson-m-w-d-eth-zurich-ch",
-        "mediateur-m-m-j-eth-zurich-zurich",
-        "architetto-m-f-d-eth-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "architekt-in-m-w-d-eth-zurich-ch",
-          "architetto-m-f-d-eth-zurich-zurich"
-        ],
-        "en": [
-          "architekt-in-m-w-d-eth-zurich-ch"
-        ],
-        "fr": [
           "architekt-in-m-w-d-eth-zurich-ch"
         ]
-      }
+      },
+      "previousSlugs": [
+        "architekt-in-m-w-d-eth-zurich-ch"
+      ]
     }
   ]
 }
