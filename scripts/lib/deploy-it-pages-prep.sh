@@ -234,14 +234,15 @@ step_push_cdn() {
   # once this push succeeds (see its job-canon phase).
   [ -d dist/job-canon ]    && cp -r dist/job-canon    "$stage/job-canon"
   [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
-  # Self-hosted brand/logo/author images (#1360): push from the git-tracked
-  # public/images/<dir> source to ${CDN}/images/<dir>, so the offload script
-  # (offload-generated-images-cdn.mjs IMAGE TARGETS) can rewrite the static
-  # HTML refs + the SPA's cdnImageUrl() runtime refs to the CDN and then
-  # delete the dist copies. MUST stay in sync with that script's TARGETS and
-  # services/cdnImageBase.ts CDN_OFFLOADED_IMAGE_PREFIXES. (/images/places is
-  # intentionally excluded — it stays same-origin.)
-  for d in brands insurers providers logos authors publisher; do
+  # Self-hosted brand/logo/author images (#1360) + nationwide events source
+  # images (#3125, mirrorEventImage -> public/images/events/): push from the
+  # git-tracked public/images/<dir> source to ${CDN}/images/<dir>, so the
+  # offload script (offload-generated-images-cdn.mjs IMAGE TARGETS) can
+  # rewrite the static HTML refs + the SPA's cdnImageUrl() runtime refs to the
+  # CDN and then delete the dist copies. MUST stay in sync with that script's
+  # TARGETS and services/cdnImageBase.ts CDN_OFFLOADED_IMAGE_PREFIXES.
+  # (/images/places is intentionally excluded — it stays same-origin.)
+  for d in brands insurers providers logos authors publisher events; do
     [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
   done
   # Strip junk the recursive copies drag in: macOS .DS_Store files and the

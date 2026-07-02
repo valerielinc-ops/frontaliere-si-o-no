@@ -1,9 +1,14 @@
-name: Crawl Ticino events (tio.ch agenda)
+name: Crawl Ticino + nationwide events (tio.ch, guidle, myswitzerland)
 
-# Refreshes the per-comune events dataset (issue #2963). Quota-free crawler
-# (plain fetch + jsdom, no API key, no Claude). Commits data/events.json +
-# the per-source slice straight to main; the events test runs BEFORE commit as
-# a gate so a malformed dataset can never turn main red (AGENTS.md:
+# Refreshes the events dataset (issue #2963, extended nationwide by #3125).
+# Three quota-free crawlers (plain fetch + jsdom, no API key, no Claude):
+# tio.ch agenda (Ticino only) + guidle.com and myswitzerland.com (all of
+# Switzerland). Each writes its own per-source slice
+# (data/events/by-source/<key>.json); scripts/assemble-events-dataset.mjs
+# merges them (by-id, then a cross-source fuzzy dedup pass) into
+# data/events.json. Commits data/events.json + every per-source slice +
+# mirrored event images straight to main; the events test runs BEFORE commit
+# as a gate so a malformed dataset can never turn main red (AGENTS.md:
 # "data-refresh che committa su main = stesso gate test di una PR").
 #
 # NOTE: named crawl-events.yml (NOT update-jobs-*.yml) on purpose, so the jobs
@@ -32,7 +37,13 @@ permissions:
 jobs:
   crawl-events:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    # 12 min was enough for the single TI-only tio-agenda crawl. Nationwide
+    # guidle.com + myswitzerland.com are new (#3125) and a real full-catalog
+    # crawl duration hasn't been observed in production yet — 35 min is a
+    # deliberately generous placeholder judgment call, not a measurement.
+    # Revisit (tighten) once a few live runs show actual guidle/myswitzerland
+    # timing.
+    timeout-minutes: 35
 
     steps:
       - name: Checkout
@@ -52,6 +63,12 @@ jobs:
 
       - name: Crawl tio.ch agenda
         run: node scripts/crawl-tio-agenda.mjs --days "${{ github.event.inputs.days || '21' }}"
+
+      - name: Crawl guidle.com (nationwide)
+        run: node scripts/crawl-guidle-events.mjs
+
+      - name: Crawl myswitzerland.com (nationwide)
+        run: node scripts/crawl-myswitzerland-events.mjs
 
       - name: Assemble events dataset
         run: node scripts/assemble-events-dataset.mjs --stats
@@ -73,18 +90,27 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/events.json data/events/by-source/tio-agenda.json \
+          git add data/events.json \
+            data/events/by-source/tio-agenda.json \
+            data/events/by-source/guidle.json \
+            data/events/by-source/myswitzerland.json \
             services/locales/blog-body/it/eventi-weekend-ticino.ts \
             services/locales/blog-body/en/eventi-weekend-ticino.ts \
             services/locales/blog-body/de/eventi-weekend-ticino.ts \
             services/locales/blog-body/fr/eventi-weekend-ticino.ts \
             data/blog-articles-data.ts services/seo/seo-blog-5.ts public/sitemap-blog.xml
+          # No-hotlink mirrored event images (scripts/lib/events-utils.mjs
+          # mirrorEventImage → public/images/events/): guarded, unlike the
+          # slice files above, because the dir only exists once a crawler has
+          # actually mirrored at least one image this run — `git add` on a
+          # missing path errors under `set -e` and would abort the commit.
+          [ -d public/images/events ] && git add public/images/events/ || true
           if git diff --cached --quiet; then
             echo "No events diff, skipping commit"
             exit 0
           fi
 
-          git commit -m "📅 Refresh Ticino events agenda + weekend-digest article (tio.ch)"
+          git commit -m "📅 Refresh Ticino + nationwide events agenda + weekend-digest article (tio.ch, guidle, myswitzerland)"
 
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then
@@ -106,6 +132,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "Crawler Failure: Ticino events (tio.ch agenda)" \
+            --title "Crawler Failure: events pipeline (tio.ch, guidle, myswitzerland)" \
             --body "The crawl-events workflow failed. Check the run logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --label "crawler" || true
