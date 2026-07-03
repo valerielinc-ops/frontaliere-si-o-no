@@ -30,9 +30,10 @@ import {
   ALL_BORDER_CROSSING_IDS,
 } from '@/services/router';
 import { ALL_BLOG_ARTICLE_IDS } from '@/services/routerBlogData';
-import { ALL_SWISS_ARTICLE_IDS } from '@/services/routerSwissData';
+import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
 import { AUTHORS } from '@/data/authors';
 import type { AppRoute } from '@/services/router';
+import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
@@ -179,6 +180,30 @@ const ALL_ROUTES = getAllRoutes();
 // sitemap.xml is now a sitemap index — read all sub-sitemaps for URL checking
 const sitemapContent = ['public/sitemap-pages.xml', 'public/sitemap-blog.xml', 'public/sitemap-blog-ch.xml', 'public/sitemap-glossario.xml']
   .map(f => { try { return readProjectFile(f); } catch { return ''; } }).join('\n');
+
+// Issue #3010 item 1 correction (2026-07-03): svizzera articles whose IT
+// slug is a canonical-override key (data/swiss-article-canonical-overrides.json)
+// are intentionally DROPPED from sitemap-blog-ch.xml — same convention as
+// data/job-canonical-overrides.json for jobs. A sitemap <loc> whose own page
+// canonicalizes elsewhere is a hard CI gate failure ("Sitemap <loc> URLs
+// MUST self-canonicalize", scripts/audit-sitemap-canonicals.mjs /
+// scripts/validate-sitemap-pages.mjs), so these routes are excluded from the
+// "every route has a sitemap entry" checks below. The page itself stays
+// live/reachable (repo anti-cut rule) — only its sitemap presence is dropped.
+const swissCanonicalOverrides = loadSwissArticleCanonicalOverrides(
+  { readFileSync },
+  resolve(__dirname, '..', 'data', 'swiss-article-canonical-overrides.json'),
+);
+const SHADOWED_SWISS_ARTICLE_IDS = new Set(
+  ALL_SWISS_ARTICLE_IDS.filter((id) => {
+    const itSlug = SWISS_SLUGS[id]?.it;
+    return !!itSlug && Object.prototype.hasOwnProperty.call(swissCanonicalOverrides, itSlug);
+  }),
+);
+function isShadowedSwissRoute(route: AppRoute): boolean {
+  const swissArticle = (route as { swissArticle?: string }).swissArticle;
+  return !!swissArticle && SHADOWED_SWISS_ARTICLE_IDS.has(swissArticle);
+}
 const indexNowContent = readProjectFile('scripts/submit-indexnow.js');
 const llmsTxtContent = readProjectFile('public/llms.txt');
 
@@ -395,6 +420,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
   for (const { route, label } of ALL_ROUTES) {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
+    if (isShadowedSwissRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap
 
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
       const itPath = buildPath(route, 'it');
@@ -454,6 +480,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
   for (const { route, label } of ALL_ROUTES) {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
+    if (isShadowedSwissRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap
 
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
       const itPath = buildPath(route, 'it');
@@ -508,6 +535,7 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
   for (const { route, label } of ALL_ROUTES) {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
+    if (isShadowedSwissRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap
 
     for (const locale of locales) {
       it(`${label} [${locale}] → sitemap hreflang URL matches buildPath`, () => {

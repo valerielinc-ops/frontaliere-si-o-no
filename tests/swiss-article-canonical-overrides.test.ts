@@ -85,6 +85,37 @@ describe('data/swiss-article-canonical-overrides.json (issue #3010 item 1)', () 
   });
 });
 
+// Correction (2026-07-03, post-deploy validate-dist regression): the
+// shadowed IT slug's <url> block must be DROPPED from
+// public/sitemap-blog-ch.xml (and, when present, public/sitemap-news.xml) —
+// the same convention data/job-canonical-overrides.json already uses for
+// jobs. Listing a sitemap <loc> whose own page canonicalizes elsewhere is a
+// hard CI gate failure with no exception
+// (scripts/audit-sitemap-canonicals.mjs / scripts/validate-sitemap-pages.mjs,
+// "Sitemap <loc> URLs MUST self-canonicalize"). The authoritative slug MUST
+// stay present (it is the self-canonical winner). RSS is untouched on
+// purpose — see build-plugins/shared/swissArticleCanonicalOverrides.ts.
+describe('shadowed pair slugs are dropped from the sitemap, not just canonical-hinted', () => {
+  const sitemapBlogCh = readFileSync(resolve(__dirname, '..', 'public', 'sitemap-blog-ch.xml'), 'utf-8');
+  const sitemapNews = readFileSync(resolve(__dirname, '..', 'public', 'sitemap-news.xml'), 'utf-8');
+
+  for (const pair of PAIRS) {
+    const itPair = pair.locales.find((l) => l.locale === 'it')!;
+
+    it(`${pair.shadowedId} (/${itPair.shadowedSlug}/) is ABSENT from sitemap-blog-ch.xml`, () => {
+      expect(sitemapBlogCh).not.toContain(`/articoli-svizzera/${itPair.shadowedSlug}/</loc>`);
+    });
+
+    it(`${pair.authoritativeId} (/${itPair.authoritativeSlug}/) is PRESENT in sitemap-blog-ch.xml (self-canonical winner)`, () => {
+      expect(sitemapBlogCh).toContain(`/articoli-svizzera/${itPair.authoritativeSlug}/</loc>`);
+    });
+
+    it(`${pair.shadowedId} (/${itPair.shadowedSlug}/) is ABSENT from sitemap-news.xml`, () => {
+      expect(sitemapNews).not.toContain(`/articoli-svizzera/${itPair.shadowedSlug}/</loc>`);
+    });
+  }
+});
+
 describe('loadSwissArticleCanonicalOverrides (safe defaults)', () => {
   it('returns {} when the file is missing (never throws, never blocks the build)', () => {
     const overrides = loadSwissArticleCanonicalOverrides({ readFileSync }, resolve(__dirname, 'does-not-exist.json'));

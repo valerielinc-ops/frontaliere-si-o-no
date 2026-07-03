@@ -94,14 +94,22 @@ function buildValidSlugSets(slugs) {
 }
 
 // registryLabel is used only in log/error messages (e.g. "BLOG_SLUGS" / "SWISS_SLUGS").
-function checkSitemap(label, xml, slugs, urlBase, locPatterns, registryLabel) {
+// shadowedArticleIds (optional Set): article IDs intentionally DROPPED from
+// this sitemap because their IT slug is a canonical-override key (issue
+// #3010 item 1, data/swiss-article-canonical-overrides.json) — same
+// convention as data/job-canonical-overrides.json for jobs. A sitemap <loc>
+// whose own page canonicalizes elsewhere is a hard CI gate failure
+// (audit-sitemap-canonicals.mjs / validate-sitemap-pages.mjs), so these
+// articles are excluded from the forward "must be present" check.
+function checkSitemap(label, xml, slugs, urlBase, locPatterns, registryLabel, shadowedArticleIds = new Set()) {
   const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
   const validSlugs = buildValidSlugSets(slugs);
   let ok = true;
 
-  // Forward: every registry slug must be in the sitemap
+  // Forward: every non-shadowed registry slug must be in the sitemap
   const missing = [];
   for (const [articleId, slugMap] of Object.entries(slugs)) {
+    if (shadowedArticleIds.has(articleId)) continue;
     for (const [locale, slug] of Object.entries(slugMap)) {
       const base = urlBase[locale];
       if (!base) continue;
@@ -162,13 +170,31 @@ console.log(`Parsed ${Object.keys(blogSlugs).length} articles from services/rout
 const swissSlugs = parseSwissSlugs();
 console.log(`Parsed ${Object.keys(swissSlugs).length} articles from services/routerSwissData.ts`);
 
+// Issue #3010 item 1 (data/swiss-article-canonical-overrides.json): shadowed
+// article IDs whose IT slug is a canonical-override key are intentionally
+// dropped from sitemap-blog-ch.xml (same convention as
+// data/job-canonical-overrides.json for jobs) — excluded from the forward
+// "must be present" check below.
+let swissShadowedArticleIds = new Set();
+try {
+  const overridesRaw = JSON.parse(readFileSync(resolve(root, 'data/swiss-article-canonical-overrides.json'), 'utf-8'));
+  const overrideMap = overridesRaw?.overrides && typeof overridesRaw.overrides === 'object' ? overridesRaw.overrides : {};
+  for (const [articleId, slugMap] of Object.entries(swissSlugs)) {
+    if (slugMap?.it && Object.prototype.hasOwnProperty.call(overrideMap, slugMap.it)) {
+      swissShadowedArticleIds.add(articleId);
+    }
+  }
+} catch {
+  // Missing/malformed override file: safe default, no articles exempted.
+}
+
 let exitCode = 0;
 
 const blogXml = readFileSync(resolve(root, 'public/sitemap-blog.xml'), 'utf-8');
 if (!checkSitemap('sitemap-blog.xml', blogXml, blogSlugs, BLOG_URL_BASE, BLOG_LOC_PATTERNS, 'BLOG_SLUGS')) exitCode = 1;
 
 const swissXml = readFileSync(resolve(root, 'public/sitemap-blog-ch.xml'), 'utf-8');
-if (!checkSitemap('sitemap-blog-ch.xml', swissXml, swissSlugs, SWISS_URL_BASE, SWISS_LOC_PATTERNS, 'SWISS_SLUGS')) exitCode = 1;
+if (!checkSitemap('sitemap-blog-ch.xml', swissXml, swissSlugs, SWISS_URL_BASE, SWISS_LOC_PATTERNS, 'SWISS_SLUGS', swissShadowedArticleIds)) exitCode = 1;
 
 // sitemap-news.xml is SHARED across both sections — checked backward only,
 // once per registry, against that registry's own hub URL shape.
