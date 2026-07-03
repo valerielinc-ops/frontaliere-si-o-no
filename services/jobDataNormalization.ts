@@ -431,6 +431,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'sro': cLogo('sro.ch'),
  'stadler-rail': cLogo('stadlerrail.com'),
  'stadtspital-zuerich': cLogo('stadtspital.ch'),
+ 'staubli': cLogo('staubli.com'),
  'stgag': cLogo('stgag.ch'),
  'stiftung-diaconis': cLogo('diaconis.ch'),
  'stiftung-kind-autismus': cLogo('kind-autismus.ch'),
