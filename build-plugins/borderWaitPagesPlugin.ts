@@ -78,6 +78,7 @@ import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanu
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 import {
   FUEL_LOCALE_PREFIX,
   FUEL_SECTION_SLUG,
@@ -1723,7 +1724,10 @@ function renderLeafPage(inp: LeafInputs): string {
     const lastSpace = sliced.lastIndexOf(' ');
     return (lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced).replace(/[\s—–-]+$/, '');
   })();
-  const title = `${titleH1} | Frontaliere Ticino`;
+  // TITLE_H1_MAX (55) + brand suffix (22) can exceed the 66-char cap on its
+  // own — route through buildTitleWithBrand so the brand drops rather than
+  // overflowing.
+  const title = buildTitleWithBrand(titleH1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
@@ -1968,7 +1972,11 @@ function renderHubPage(inp: HubInputs): string {
     dateModified: today.toISOString(),
   });
 
-  const title = `${h1} | Frontaliere Ticino`;
+  // Root hub h1 (no region) overflows the 66-char cap once the brand suffix
+  // is appended (e.g. FR "Temps d'attente aux douanes Tessin–Italie — en
+  // direct aujourd'hui" = 86 chars with brand) — buildTitleWithBrand drops
+  // the brand instead of overflowing.
+  const title = buildTitleWithBrand(h1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = introLong.slice(0, 180);
@@ -2343,7 +2351,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     )
     .join('');
 
-  const title = `${h1} | Frontaliere Ticino`;
+  const title = buildTitleWithBrand(h1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
