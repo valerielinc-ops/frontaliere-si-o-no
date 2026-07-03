@@ -62,27 +62,34 @@ jobs:
         run: npm ci --no-audit --no-fund --ignore-scripts
 
       - name: Crawl tio.ch agenda
+        id: crawl-tio
         run: node scripts/crawl-tio-agenda.mjs --days "${{ github.event.inputs.days || '21' }}"
 
       - name: Crawl guidle.com (nationwide)
+        id: crawl-guidle
         run: node scripts/crawl-guidle-events.mjs
 
       - name: Crawl myswitzerland.com (nationwide)
+        id: crawl-myswitzerland
         run: node scripts/crawl-myswitzerland-events.mjs
 
       - name: Assemble events dataset
+        id: assemble
         run: node scripts/assemble-events-dataset.mjs --stats
 
       - name: Refresh weekend-digest article body (evergreen, body-only)
+        id: digest
         # Rewrites the 4 blog-body files of the stable `eventi-weekend-ticino`
         # article with the current weekend's events (no re-registration, no RSS
         # churn). Soft-fail: a refresh hiccup must never block the events commit.
         run: node scripts/generate-events-digest-article.mjs || echo "::warning::digest article refresh skipped"
 
       - name: Gate — events dataset + refreshed body must keep the suite green
+        id: gate
         run: npx vitest run tests/events-pipeline.test.ts tests/blog-body-typescript-syntax.test.ts
 
       - name: Commit dataset (rebase-retry pattern)
+        id: commit
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -138,5 +145,18 @@ jobs:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Crawler Failure: events pipeline (tio.ch, guidle, myswitzerland)" \
-            --body "The crawl-events workflow failed. Check the run logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
-            --label "crawler" || true
+            --description "## Crawler fallito
+          **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}
+
+          **Step outcomes:**
+          - Crawl tio.ch agenda: ${{ steps.crawl-tio.outcome }}
+          - Crawl guidle.com (nationwide): ${{ steps.crawl-guidle.outcome }}
+          - Crawl myswitzerland.com (nationwide): ${{ steps.crawl-myswitzerland.outcome }}
+          - Assemble events dataset: ${{ steps.assemble.outcome }}
+          - Refresh weekend-digest article: ${{ steps.digest.outcome }}
+          - Gate (vitest): ${{ steps.gate.outcome }}
+          - Commit dataset: ${{ steps.commit.outcome }}" \
+            --label "crawler" \
+            --workflow "${{ github.workflow }}" || true
