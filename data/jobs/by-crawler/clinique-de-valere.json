@@ -88,8 +88,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-responsable-d-unite-clinique-de-valere",
-          "medico-responsabile-di-unita-clinique-de-valere-sion"
+          "medecin-responsable-d-unite-clinique-de-valere"
         ],
         "en": [
           "physician-responsible-for-unit-clinique-de-valere-sion"
@@ -163,8 +162,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-ergotherapeute-clinique-de-valere",
-          "cdi-terapista-occupazionale-clinique-de-valere-sion"
+          "cdi-ergotherapeute-clinique-de-valere"
         ],
         "en": [
           "cdi-ergotherapeute-clinique-de-valere"
@@ -241,8 +239,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "receptionniste-clinique-de-valere",
-          "ricevitore-clinique-de-valere-sion"
+          "receptionniste-clinique-de-valere"
         ],
         "en": [
           "receptionniste-clinique-de-valere"
@@ -267,12 +264,12 @@
     },
     {
       "id": "clinique-de-valere-8e027faf3b56",
-      "slug": "aide-soignant-e-contrat-journalier-clinique-de-valere",
+      "slug": "contratto-giornaliero-di-carriera-clinique-de-valere-sion",
       "slugByLocale": {
         "fr": "aide-soignant-e-contrat-journalier-clinique-de-valere",
-        "it": "aide-soignant-e-contrat-journalier-clinique-de-valere",
-        "en": "aide-soignant-e-contrat-journalier-clinique-de-valere",
-        "de": "aide-soignant-e-contrat-journalier-clinique-de-valere"
+        "it": "contratto-giornaliero-di-carriera-clinique-de-valere-sion",
+        "en": "caregiver-daily-contract-clinique-de-valere-sion",
+        "de": "taglicher-pflegevertrag-clinique-de-valere-sion"
       },
       "company": "Clinique de Valère",
       "companyKey": "clinique-de-valere",
@@ -328,7 +325,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T21:34:42.491Z"
+      "firstSeenAt": "2026-07-02T21:34:42.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-contrat-journalier-clinique-de-valere"
+        ],
+        "en": [
+          "aide-soignant-e-contrat-journalier-clinique-de-valere"
+        ],
+        "de": [
+          "aide-soignant-e-contrat-journalier-clinique-de-valere"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignant-e-contrat-journalier-clinique-de-valere"
+      ]
     }
   ]
 }

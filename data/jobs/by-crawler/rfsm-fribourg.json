@@ -55,8 +55,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-infirmier-ere-rfsm-marsens-unite-jasmin-rfsm-fribourg-marsens",
-          "aide-infirmier-ere-rfsm-marsens-unita-jasmin-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "aide-infirmier-ere-rfsm-marsens-unite-jasmin-rfsm-fribourg-marsens"
         ],
         "en": [
           "aide-infirmier-ere-rfsm-marsens-unite-jasmin-rfsm-fribourg-marsens"
@@ -81,12 +80,12 @@
     },
     {
       "id": "rfsm-fribourg-60dfb24110fc",
-      "slug": "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane",
+      "slug": "infermiera-rfsm-villars-sur-glane-unita-saturn-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
       "slugByLocale": {
         "fr": "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane",
-        "it": "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane",
-        "en": "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane",
-        "de": "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane"
+        "it": "infermiera-rfsm-villars-sur-glane-unita-saturn-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
+        "en": "nurse-rfsm-villars-sur-glane-saturn-unit-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
+        "de": "krankenschwester-rfsm-villars-sur-glane-saturn-unit-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -141,7 +140,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T22:27:40.294Z"
+      "firstSeenAt": "2026-07-02T22:27:40.294Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane"
+        ],
+        "en": [
+          "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane"
+        ],
+        "de": [
+          "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-rfsm-villars-sur-glane-unite-saturn-rfsm-fribourg-villars-sur-glane"
+      ]
     },
     {
       "id": "rfsm-fribourg-ea7acf60b7ef",
@@ -197,8 +210,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-fribourg",
-          "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane"
+          "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-fribourg"
         ],
         "en": [
           "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-fribourg"
@@ -279,9 +291,6 @@
         ],
         "de": [
           "klinikleiter-rfsm-psychiatrie-und-psychotherapie-fur-erwachsene-rfsm-reseau-fribourgeois-sante-mentale-marsens"
-        ],
-        "fr": [
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ]
       },
       "previousSlugs": [
@@ -361,9 +370,6 @@
         ],
         "de": [
           "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
-        ],
-        "fr": [
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ]
       },
       "previousSlugs": [
@@ -439,8 +445,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-fribourg",
-          "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars"
+          "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-fribourg"
         ],
         "de": [
           "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-fribourg"
@@ -514,8 +519,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm",
-          "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm"
         ],
         "en": [
           "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm"

@@ -56,8 +56,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
-          "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:25.014Z",
@@ -128,8 +127,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
-          "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta"
+          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
         ],
         "fr": [
           "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
@@ -203,8 +201,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
-          "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta"
+          "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
         ],
         "fr": [
           "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
@@ -278,8 +275,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einsatzleitung-spitex-80-100-csvm-mustair-mustair",
-          "linea-operativa-spitex-80-100-center-da-sanda-val-mustair-csvm-sta"
+          "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
         ],
         "en": [
           "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
@@ -304,12 +300,12 @@
     },
     {
       "id": "csvm-mustair-a89bfd964d91",
-      "slug": "lehrstellen-2027-csvm-mustair-mustair",
+      "slug": "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta",
       "slugByLocale": {
         "de": "lehrstellen-2027-csvm-mustair-mustair",
-        "it": "lehrstellen-2027-csvm-mustair-mustair",
-        "en": "lehrstellen-2027-csvm-mustair-mustair",
-        "fr": "lehrstellen-2027-csvm-mustair-mustair"
+        "it": "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta",
+        "en": "apprentices-2027-center-da-sanda-val-mustair-csvm-sta",
+        "fr": "apprentis-2027-center-da-sanda-val-mustair-csvm-sta"
       },
       "company": "Center da Sanda Val Müstair (CSVM)",
       "companyKey": "csvm-mustair",
@@ -364,7 +360,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T21:36:04.800Z"
+      "firstSeenAt": "2026-07-02T21:36:04.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstellen-2027-csvm-mustair-mustair"
+        ],
+        "en": [
+          "lehrstellen-2027-csvm-mustair-mustair"
+        ],
+        "fr": [
+          "lehrstellen-2027-csvm-mustair-mustair"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstellen-2027-csvm-mustair-mustair"
+      ]
     }
   ]
 }

@@ -62,9 +62,9 @@
       },
       "slugByLocale": {
         "it": "fitness-instructor-m-w-d-inkl-collaboratore-trice-in-empfang-fitnesspark-zurich-hwtwry",
-        "en": "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich-hwtwry",
+        "en": "fitness-instructor-f-m-d-employee-reception-fitnesspark-zurich",
         "de": "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich-hwtwry",
-        "fr": "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich-hwtwry"
+        "fr": "instructeur-de-la-condition-physique-f-m-d-reception-de-l-employe-fitnesspark-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -84,10 +84,17 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich"
+        ],
+        "en": [
+          "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich-hwtwry"
+        ],
+        "fr": [
+          "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich-hwtwry"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich"
+        "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich",
+        "fitness-instructor-m-w-d-inkl-mitarbeiter-in-empfang-fitnesspark-zurich-hwtwry"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -110,7 +117,7 @@
     },
     {
       "id": "company-10rpcs",
-      "slug": "koch-kochin-migros-restaurant-egerkingen-10rpcs",
+      "slug": "cucinare-migros-restaurant-egerkingen",
       "company": "Migros Restaurant",
       "title": "Koch*Köchin",
       "location": "Egerkingen",
@@ -169,10 +176,10 @@
         "fr": "Voulez-vous faire partie de notre entreprise de restaurant innovante et animée? Avec votre engagement, vous vous assurez que nos clients se sentent chez eux et que leurs désirs culinaires polyvalents sont satisfaits. Si la qualité, la fraîcheur et l'hospitalité sont une question bien sûr pour vous, alors nous devrions certainement apprendre à nous connaître!\n\n## Mansioni\n- Des aliments frais, chauds et de saison sont préparés par vous\n- Les clients sont activement servis et conseillés par vous\n- Il est de votre responsabilité de présenter les marchandises de manière attrayante et d'assurer leur disponibilité constante\n- Vous êtes responsable de l'assurance qualité et du processus\n- Le respect et l'application du concept HACCP relèvent de votre compétence\n\n## Exigences\n- Idéalement, plusieurs années d'expérience professionnelle : dans le domaine de la gastronomie (systèmes)\n- Achevé les études de base ou les études complémentaires: comme chef / employé de cuisine EBA\n- Vous montrez un sens élevé de la qualité et de la responsabilité\n- La vente et le conseil sont vos passions et la satisfaction du client votre motivation\n- Vous convainquez avec votre résilience, votre flexibilité et votre grande volonté de performance\n- Compétences PC et fitness numérique élevé vous distingue\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Congé de maternité / congé de paternité: 18 semaines de congé de maternité et 4 semaines de congé de paternité\n- La caisse de retraite professionnelle garantit la sécurité financière des employés Migros au troisième stade de la vie\n- Prestations sociales: conditions d'emploi attrayantes avec de très bonnes prestations sociales\n- Points Cumulus: Points Cumulus supplémentaires dans toutes les succursales Migros et diverses filiales\n- Club School Migros: Participation financière généreuse aux cours de Migros Club School\n- Offres de sport et fitness: Réduction sur les abonnements fitness\n- Abonnements mobiles : divers avantages sur abonnements mobiles\n- Mobilité: participation d'un abonnement annuel aux transports publics, rabais sur le carburant (Migrol), réduction de la contribution annuelle pour le partage de la mobilité et droit à un rabais sur la flotte\n- Migros Bank : gestion de compte gratuite, intérêts préférentiels sur le capital ou rabais sur les taux d'intérêt des prêts hypothécaires fixes nouvellement conclus\n- Offres de l'employé: Maison professionnelle dans l'une des entreprises suisses les plus prospères et les plus solides financièrement.\n\n## Contatto\n## Demande et contact Cornelia Lüthi Recrutement Partenaire +41 58 565 85 85 ## Note pour les prestataires de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 80-100 %"
       },
       "slugByLocale": {
-        "it": "koch-kochin-migros-restaurant-egerkingen-10rpcs",
-        "en": "koch-kochin-migros-restaurant-egerkingen-10rpcs",
+        "it": "cucinare-migros-restaurant-egerkingen",
+        "en": "cook-cook-migros-restaurant-egerkingen",
         "de": "koch-kochin-migros-restaurant-egerkingen-10rpcs",
-        "fr": "koch-kochin-migros-restaurant-egerkingen-10rpcs"
+        "fr": "cuisiniere-migros-restaurant-egerkingen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -191,11 +198,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-migros-restaurant-egerkingen"
+          "koch-kochin-migros-restaurant-egerkingen",
+          "koch-kochin-migros-restaurant-egerkingen-10rpcs"
+        ],
+        "en": [
+          "koch-kochin-migros-restaurant-egerkingen-10rpcs"
+        ],
+        "fr": [
+          "koch-kochin-migros-restaurant-egerkingen-10rpcs"
         ]
       },
       "previousSlugs": [
-        "koch-kochin-migros-restaurant-egerkingen"
+        "koch-kochin-migros-restaurant-egerkingen",
+        "koch-kochin-migros-restaurant-egerkingen-10rpcs"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -278,9 +293,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee-9i1f94",
-        "en": "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee-9i1f94",
+        "en": "employee-in-butchery-genossenschaft-migros-aare-herzogenbuchsee",
         "de": "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee-9i1f94",
-        "fr": "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee-9i1f94"
+        "fr": "employe-dans-la-boucherie-genossenschaft-migros-aare-herzogenbuchsee"
       },
       "requirementsByLocale": {
         "it": [],
@@ -297,10 +312,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee"
+        ],
+        "en": [
+          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee-9i1f94"
+        ],
+        "fr": [
+          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee-9i1f94"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee"
+        "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee",
+        "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-herzogenbuchsee-9i1f94"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -323,7 +345,7 @@
     },
     {
       "id": "company-qmdkos",
-      "slug": "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos",
+      "slug": "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
       "company": "Genossenschaft Migros Aare",
       "title": "Abteilungsleiter*in Metzgerei",
       "location": "Grenchen",
@@ -385,10 +407,10 @@
         "fr": "Tu es notre nouveau visage derrière l'infraction ? Vous connaissez les saisons dans le boucher et avez déjà acquis de l'expérience dans ce domaine? Alors vous avez raison avec nous. Dans le rôle de chef de département* dans la boucherie, vous servez et inspirez nos clients avec une gamme étendue et prenez le leadership professionnel de l'équipe.\n\n## Mansioni\n- Vous conseillez et servez nos clients avec plaisir et votre expertise au comptoir de viande\n- Une présentation attrayante des biens, une gestion efficace des biens et la garantie de disponibilité sont vos priorités\n- Vous veillez à ce que les processus définis dans votre ministère soient respectés\n- Les contrôles de qualité et la conformité au concept HACCP sont de votre responsabilité\n- Dans ce rôle, l'accent est mis sur le leadership professionnel de l'équipe\n- Vous soutenez activement et activement d'autres ministères\n\n## Exigences\n- Idéalement, plusieurs années d'expérience professionnelle: comme boucher, cuisinier / chef ou dans la spécialisation du commerce de détail en gestion de la viande\n- Achevé une formation de base ou de perfectionnement: comme boucher, cuisinier / chef ou dans la spécialisation du commerce de détail en gestion de la viande\n- En tant que personnalité orientée client avec plaisir dans les ventes, vous faites shopping une expérience positive\n- Compétences PC et fitness numérique élevé vous distingue\n- Vous avez déjà de l'expérience au comptoir de viande\n- Vous avez une expérience de leadership\n- en allemand (négociation certaine)\n\n## Cosa de Friamo\n- Congé de maternité / congé de paternité: 18 semaines de congé de maternité et 4 semaines de congé de paternité\n- Pension professionnelle: les prestations supérieures à la moyenne garantissent la sécurité financière des salariés au troisième stade de la vie\n- Prestations sociales: conditions d'emploi attrayantes avec de très bonnes prestations sociales\n- Points Cumulus: Points Cumulus multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n- Offres sportives et de fitness: partage des coûts des abonnements à plus de 50 Migros fitness, bien-être, aquaparks\n- Garde d'enfants : Participation financière généreuse aux coûts des services externes de garde d'enfants\n- Mobilité: participation d'un abonnement annuel aux transports publics, rabais sur le carburant (Migrol), réduction de la contribution annuelle pour le partage de la mobilité et droit à un rabais sur la flotte\n- Abonnements mobiles : divers avantages sur abonnements mobiles\n- Migros Bank : gestion de compte gratuite, intérêts préférentiels sur le capital ou rabais sur les taux d'intérêt des prêts hypothécaires fixes nouvellement conclus\n- Offres des employés : Conditions préférentielles pour les fonds d'assurance et d'assurance maladie\n- Loisirs et offres culturelles: Diverses réductions sur les offres de vacances, séjours linguistiques, vacances Migros, interhome et événements\n\n## Contatto\n## Demande et contact Melanie Knuchel Recrutement Partenaire +41 58 565 85 85 ## Note pour les prestataires de services de recrutement Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 80-100 %"
       },
       "slugByLocale": {
-        "it": "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos",
-        "en": "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos",
+        "it": "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
+        "en": "head-of-department-in-butchery-genossenschaft-migros-aare-grenchen",
         "de": "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos",
-        "fr": "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos"
+        "fr": "chef-de-departement-en-boucherie-genossenschaft-migros-aare-grenchen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -405,11 +427,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
+          "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen",
+          "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos"
+        ],
+        "en": [
+          "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos"
+        ],
+        "fr": [
+          "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
+        "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen",
+        "abteilungsleiter-in-metzgerei-genossenschaft-migros-aare-grenchen-qmdkos"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -432,7 +462,7 @@
     },
     {
       "id": "company-ge1xzl",
-      "slug": "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+      "slug": "proprietario-del-prodotto-f-m-d-migros-genossenschafts-bund-zurich",
       "company": "Migros-Genossenschafts-Bund",
       "title": "Product Owner (w/m/d)",
       "location": "Zürich",
@@ -490,10 +520,10 @@
         "fr": "Nous développons et exploitons des systèmes de backends critiques pour des millions de personnes – des données de profil aux membres comme Cumulus. Nous veillons également à ce que les produits de fidélité tels que les cartes-cadeaux Migros et les coupons de réduction numériques fonctionnent bien. Avec des innovations comme le stationnement sans barrière, nous facilitons la vie quotidienne de nos clients.\n\n## Mansioni\n- Vous êtes responsable du développement technique d'un large portefeuille d'applications logicielles dans le domaine des données client et fidélité\n- Vous coordonnez les intervenants, prenez leurs exigences et les priorisez avec vos pairs d'affaires\n- Vous dirigez l'arriéré de produits, des séances de perfectionnement modéré et êtes responsable de la planification et de la mise en oeuvre des plans PI selon SAFe\n- En collaboration avec votre équipe, vous assurez le fonctionnement des produits en plus de développer davantage, sont la personne de contact pour les questions sur les processus d'affaires et parfois aider dans le soutien de troisième niveau.\n- Grâce à votre compréhension technique de l'architecture logicielle, vous développez des concepts de solutions que vous affinerez avec l'équipe de développement et l'architecture.\n\n## Exigences\n- Plusieurs années d'expérience : dans le rôle du propriétaire de produit dans un environnement agile important (p. ex. Safe) ou de nombreuses années de pratique dans l'ingénierie des exigences\n- Études terminées (uni/ETH, FH, HF): en informatique, en informatique des affaires ou expérience de travail équivalente\n- Vous êtes élégant dans les méthodes agiles et peut les appliquer de façon pragmatique dans les grandes entreprises\n- Vous apportez un haut degré de pensée conceptuelle et pouvez formuler des exigences complexes d'une manière compréhensible et précise.\n- Vous avez une apparence sûre et convaincante et agissez souverainement et diplomatiquement dans un environnement exigeant\n- Vous avez une bonne compréhension technique du développement logiciel, de l'architecture logicielle, de l'API et des intégrations système\n- Vous avez la volonté de vous familiariser avec les solutions existantes pour bien comprendre leur fonctionnalité\n- en allemand (négociation certaine)\n- Anglais (bonne connaissance)\n- Français (avantageux)\n\n## Cosa de Friamo\n- Infrastructure moderne : Des zones de travail diversifiées et des espaces de coworking modernes avec des équipements avancés\n- Lieu de travail central: Lieu de travail central dans la ville de Zurich (Limmatplatz ou près de Hardbrücke)\n- Modèle de travail mobile-flexible: flexibilité temporelle et spatiale dans l'accomplissement de la fonction (en tant qu'orientation 40% bureau à domicile)\n- Promotion ciblée : Promotion de nos employés grâce à des mesures ciblées de perfectionnement du personnel\n- Prestations sociales: conditions d'emploi attrayantes avec de très bonnes prestations sociales\n- Auto-responsabilité & liberté: Des tâches variées avec un haut niveau de responsabilité\n\n## Contatto\n## Demande et contact Bélise Useguwe Talent Acquisition Partner - LinkedIn ## Processus de recrutement Soumettre les documents de demande Pour une demande complète, nous avons besoin de votre CV, certificats et diplômes. Une photo dans le CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats. Nous avons un processus de recrutement normalisé. Si cela ne fonctionne pas pour vous, mentionnez-le dans votre dossier de candidature. Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines de discussions avec les RH et le département spécialisé La discussion est menée pratiquement ou sur place avec la personne responsable des RH ou le département spécialisé. Il s'agit avant tout d'en apprendre davantage sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée de la rétroaction : jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 11 %"
       },
       "slugByLocale": {
-        "it": "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+        "it": "proprietario-del-prodotto-f-m-d-migros-genossenschafts-bund-zurich",
         "en": "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
         "de": "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
-        "fr": "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl"
+        "fr": "proprietaire-du-produit-f-m-d-migros-genossenschafts-bund-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -510,11 +540,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-m-w-d-migros-genossenschafts-bund-zurich"
+          "product-owner-m-w-d-migros-genossenschafts-bund-zurich",
+          "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl"
+        ],
+        "fr": [
+          "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl"
         ]
       },
       "previousSlugs": [
-        "product-owner-m-w-d-migros-genossenschafts-bund-zurich"
+        "product-owner-m-w-d-migros-genossenschafts-bund-zurich",
+        "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -537,7 +572,7 @@
     },
     {
       "id": "company-wqarqe",
-      "slug": "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe",
+      "slug": "pagamenti-speciali-della-frode-1a-linea-di-difesa-tutti-80-100-migros-bank-wallisellen",
       "company": "Migros Bank",
       "title": "Spezialistin Fraud Zahlungsverkehr 1st Line of Defense (alle) 80-100%",
       "location": "Wallisellen",
@@ -593,10 +628,10 @@
         "fr": "Avec nous, vous êtes responsable de la détection et de la prévention de la fraude. Partagez vos connaissances avec une équipe dévouée! Nous vous recherchons : une personnalité avec un œil pour le détail et un sens de la justice. Avec passion et approches innovantes, vous renforcez la sécurité de notre banque. Allez – à la banque, qui met les gens en premier avec 1800 employés depuis 1958.\n\n## Mansioni\n- Vous modifiez les accès dans l'outil antifraude et les transactions rejetées pour identifier et prévenir les fraudes potentielles.\n- Vous analysez les cas de fraude en traquant les crimes et en évaluant les données du journal et en créant des rapports sur les types de fraude et les tendances.\n- Vous informez les clients par écrit et personnellement des activités suspectes ou frauduleuses et travaillez ensemble pour développer des solutions.\n- Vous effectuez les contrôles de la 1ère ligne pour assurer l'assurance de la qualité et la conformité aux normes internes.\n- Vous optimiserez et compléterez en permanence les processus pour accroître l'efficacité et l'efficience de la prévention de la fraude.\n\n## Exigences\n- 3 ans: opérations de paiement de fraude / prévention de la fraude\n- Apprentissage professionnel terminé (EFZ): formation de base commerciale avec perfectionnement dans le domaine de la conformité ou de la gestion des risques\n- Vous avez une expérience approfondie dans les transactions de paiement, la prévention de la fraude ou dans une fonction comparable.\n- Vous avez une forte capacité d'analyse pour penser et comprendre des processus et des connexions complexes.\n- Vous avez une grande affinité informatique et êtes confiant dans le traitement des outils et des systèmes pertinents.\n- Vous êtes fort en communication, un vrai joueur d'équipe et maître allemand, français et italien en paroles et en écriture à un très bon niveau.\n- en allemand (négociation certaine)\n- Français (très bonne connaissance)\n- Italien (très bonne connaissance)\n\n## Cosa de Friamo\n- Provision professionnelle: caisse de retraite très attrayante avec une contribution de l'employeur supérieure à la moyenne\n- Du-culture: esprit d'équipe vivant avec une communication transparente\n- Garde d'enfants: jusqu'à CHF 300 par mois par enfant à la garde d'enfants externe\n- Migros Bank: comptes, prêts hypothécaires et services financiers à conditions préférentielles\n- Offres des employés : Crédit annuel généreux pour le bien-être\n\n## Contatto\n## Demande et contact Sevilay Sesso HR Partenaire ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : jusqu'à trois semaines Test de personnalité/performance Dans certaines conditions, nous utilisons un test de personnalité (BIP, Test de balances, etc.) comme étape supplémentaire pour soutenir la sélection. Les résultats du test peuvent être discutés personnellement et servir de base à une sélection ultérieure. Durée jusqu'à la rétroaction: Jusqu'à une semaine de discussion avec le département RH & spécialiste La discussion est menée pratiquement ou sur place avec la personne responsable des RH ou le département spécialisé. Il s'agit avant tout d'en apprendre davantage sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée de la rétroaction : Jusqu'à trois semaines Apprenez à connaître l'équipe Si quelqu'un s'inscrit dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'un emploi ou non. Dans un cadre décontracté, nous donnons donc l'occasion à chacun de se connaître. Offer & Contract Exhibition (Digital) Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée jusqu'à la rétroaction : jusqu'à une semaine ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 80-100 %"
       },
       "slugByLocale": {
-        "it": "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe",
-        "en": "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe",
+        "it": "pagamenti-speciali-della-frode-1a-linea-di-difesa-tutti-80-100-migros-bank-wallisellen",
+        "en": "specialist-fraud-payments-1st-line-of-defense-all-80-100-migros-bank-wallisellen",
         "de": "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe",
-        "fr": "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe"
+        "fr": "paiements-de-fraude-specialises-1ere-ligne-de-defense-tous-80-100-migros-bank-wallisellen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -614,11 +649,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen"
+          "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen",
+          "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe"
+        ],
+        "en": [
+          "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe"
+        ],
+        "fr": [
+          "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe"
         ]
       },
       "previousSlugs": [
-        "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen"
+        "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen",
+        "spezialistin-fraud-zahlungsverkehr-1st-line-of-defense-alle-80-100-migros-bank-wallisellen-wqarqe"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -641,7 +684,7 @@
     },
     {
       "id": "company-x73sgr",
-      "slug": "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr",
+      "slug": "professionista-responsabile-r-frutta-e-verdura-genossenschaft-migros-zurich-uster",
       "company": "Genossenschaft Migros Zürich",
       "title": "Fachverantwortliche*r Früchte & Gemüse",
       "location": "Uster",
@@ -700,10 +743,10 @@
         "fr": "Prenez la responsabilité spécialisée dans le secteur des fruits et légumes de la branche MMM Uster. Avec votre connaissance approfondie des fruits et légumes, vous conseillez nos clients de première classe. Grâce à votre nature motivée et inspirante, vous contribuez significativement à la satisfaction des clients. Ça te ressemble ? Alors appliquez maintenant !\n\n## Mansioni\n- Vous agissez comme une personne de contact compétente pour nos clients avec l'équipe et assumez la responsabilité du secteur des fruits et légumes\n- Il vous donne le plaisir de transmettre votre expertise et vos connaissances aux nouveaux employés et de les présenter dans le domaine des fruits et légumes\n- Vous êtes responsable de la commande des marchandises\n- Vous assumez la responsabilité de la gestion efficace des marchandises, la présentation attrayante des produits et vous assurez que nos étagères sont toujours bien remplies\n- Vous assurez la haute qualité de nos produits, y compris le contrôle de la date\n- Si nécessaire, vous pouvez également soutenir dans d'autres zones de magasin\n\n## Exigences\n- 2 ans d'expérience professionnelle: dans le domaine des fruits et légumes\n- Apprentissage achevé (EFZ): dans le commerce des ventes/détails\n- Vous êtes orienté client et amical\n- Vous aimez travailler de façon indépendante et fiable\n- Vous êtes tolérant au stress et avez de bonnes compétences en communication\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus unique de loisirs par année de max. CHF 500.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Prestation de retraite professionnelle: Excellentes prestations de fonds de retraite avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur le compte privé et d'investissement, gestion de compte libre, prêts hypothécaires réduits et plus\n- Offres des employés: Jusqu'à 1000 CHF par an (selon votre charge de travail) pour votre récupération et votre développement ultérieur – utilisables pour les abonnements fitness, les cours, les offres santé ou une subvention pour les transports en commun.\n- Offres de sport et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au centre M-Fitness\n- éducation et formation: soutien à la formation professionnelle,\n\n## Contatto\n## Demande et contact Elvira Hadzisaku Recrutement Partenaire ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée de la rétroaction : jusqu'à trois semaines de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : Jusqu'à trois semaines Offre & Contrat Exposition (numérique) Après notre offre de travail oral, les points de contrat les plus importants sont à nouveau vérifiés. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée jusqu'à la rétroaction : jusqu'à une semaine ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 257 %"
       },
       "slugByLocale": {
-        "it": "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr",
-        "en": "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr",
+        "it": "professionista-responsabile-r-frutta-e-verdura-genossenschaft-migros-zurich-uster",
+        "en": "professional-responsible-r-fruits-vegetables-genossenschaft-migros-zurich-uster",
         "de": "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr",
-        "fr": "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr"
+        "fr": "responsables-professionnels-des-fruits-et-legumes-genossenschaft-migros-zurich-uster"
       },
       "requirementsByLocale": {
         "it": [],
@@ -721,11 +764,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster"
+          "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster",
+          "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr"
+        ],
+        "en": [
+          "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr"
+        ],
+        "fr": [
+          "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster"
+        "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster",
+        "fachverantwortliche-r-fruchte-gemuse-genossenschaft-migros-zurich-uster-x73sgr"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -748,7 +799,7 @@
     },
     {
       "id": "company-8lc29j",
-      "slug": "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j",
+      "slug": "personale-in-contabilita-finanziaria-ast-mpk-immobilien-migros-pensionskasse-schlieren",
       "company": "Migros-Pensionskasse",
       "title": "Sachbearbeiter*in Finanzbuchhaltung AST-MPK Immobilien",
       "location": "Schlieren",
@@ -811,10 +862,10 @@
         "fr": "Afin de renforcer notre comptabilité financière de la Migros Pension Fund Investment Foundation, nous recherchons une personnalité engagée, fiable et orientée vers le service en tant que comptable financier pour le groupe d'investissement immobilier.\n\n## Mansioni\n- La responsabilité de la réservation en temps voulu de tous les reçus et sorties bancaires et de la bonne clôture du compte\n- Enregistrement des entrées financières (changements, annulations, etc.)\n- Exécution des cycles de paiement et des paiements manuels\n- Révision, traitement et suivi des avertissements des créanciers\n- Coopération et représentation dans le traitement électronique des créanciers\n- Réservation du salaire mensuel de la femme de ménage\n- Coopération dans les états financiers\n\n## Exigences\n- Première expérience : en comptabilité financière\n- Apprentissage professionnel achevé (EFZ): marchand/coopérative avec des chiffres clairs\n- Réflexion en réseau\n- Compétences en matière de négociation\n- Fonctionnement précis\n- Bonnes manières\n- affinité informatique et manipulation expérimentée de Microsoft 365\n- Connaissance de l'application GREM ainsi que des connaissances dans le traitement des créanciers avec Basware\n- Allemand (très bonne connaissance)\n- Français (avantageux)\n\n## Cosa de Friamo\n- Situation centrale: Travail à 3 minutes à pied de la station Schlieren\n- Infrastructure moderne : bureaux spacieux et lumineux\n- Temps de travail flexible: réglementation libérale du temps de travail avec beaucoup de flexibilité pour les employés\n- Prestations sociales: Excellente caisse de retraite et généreuse allocation maladie et assurance accident\n- Migros Bank: Intérêts privilégiés à Migros Bank sur les comptes d'investissement et de personnel\n- Vacances: Règlement sur les vacances dans les grands trains\n- Éducation et formation: soutien financier et/ou temporaire à l'éducation et à la formation\n- Du-culture: approche simple et ouverte\n- Hiérarchies plates: Environnement amical et familial\n\n## Contatto\n## Demande et contact Iris par Deschwanden Chef du personnel et de la formation 044 436 82 80"
       },
       "slugByLocale": {
-        "it": "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j",
-        "en": "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j",
+        "it": "personale-in-contabilita-finanziaria-ast-mpk-immobilien-migros-pensionskasse-schlieren",
+        "en": "personnel-in-financial-accounting-ast-mpk-immobilien-migros-pensionskasse-schlieren",
         "de": "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j",
-        "fr": "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j"
+        "fr": "personnel-en-comptabilite-financiere-ast-mpk-immobilien-migros-pensionskasse-schlieren"
       },
       "requirementsByLocale": {
         "it": [],
@@ -834,11 +885,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren"
+          "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren",
+          "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j"
+        ],
+        "en": [
+          "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j"
+        ],
+        "fr": [
+          "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren"
+        "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren",
+        "sachbearbeiter-in-finanzbuchhaltung-ast-mpk-immobilien-migros-pensionskasse-schlieren-8lc29j"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -861,7 +920,7 @@
     },
     {
       "id": "company-to9qs",
-      "slug": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs",
+      "slug": "vendita-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zollikon",
       "company": "Genossenschaft Migros Zürich",
       "title": "Verkäufer*in Fleisch-/Fischtheke",
       "location": "Zollikon",
@@ -919,10 +978,10 @@
         "fr": "Apportez votre connaissance de la viande et des grillades à la vente ouverte dans le magasin M Zollikon. Avec votre expérience et votre expertise, vous conseillerez nos clients sur nos produits de viande et de poisson de haute qualité. Dans notre équipe dédiée, nous valorisons la qualité et le service à la clientèle. Postulez maintenant et faites partie de notre succès!\n\n## Mansioni\n- Vous convainquez nos clients avec une présentation de produit attrayante, des conseils d'experts et un service de première classe\n- Avec votre compétence, vous partagez la viande et le poisson selon les souhaits de nos clients\n- Vous appliquez des mesures créatives qui inspirent nos clients à acheter nos produits\n- Vous portez une attention particulière au respect de toutes les règles d'hygiène\n\n## Exigences\n- De rien. 1 an d'expérience professionnelle: dans le secteur de la viande/poisson\n- Formation initiale ou continue terminée: dans le domaine du commerce de détail/bouteille ou comme cuisinier/chef\n- Vous aimez vendre des produits de viande\n- Vous êtes orienté client et amical\n- Vous aimez travailler en équipe et sous votre propre responsabilité\n- Êtes-vous flexible et prêt à travailler en dehors des heures de travail habituelles? Profitez de votre temps libre lorsque les autres travaillent!\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus unique de loisirs par année de max. CHF 500.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Prestation de retraite professionnelle: Excellentes prestations de fonds de retraite avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur le compte privé et d'investissement, gestion de compte libre, prêts hypothécaires réduits et plus\n- Offres des employés: Jusqu'à 1000 CHF par an (selon votre charge de travail) pour votre récupération et votre développement ultérieur – utilisables pour les abonnements fitness, les cours, les offres santé ou une subvention pour les transports en commun.\n- Offres de sport et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au centre M-Fitness\n- éducation et formation: soutien à la formation professionnelle,\n\n## Contatto\n## Demande et contact Mirco Camera Junior Recrutement Partenaire ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée de la rétroaction : Jusqu'à trois semaines Apprenez à connaître l'équipe Si quelqu'un s'inscrit dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'un emploi ou non. Dans un cadre décontracté, nous donnons donc l'occasion à chacun de se connaître. Après notre offre de travail oral, les points de contrat les plus importants sont à nouveau vérifiés. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction: Jusqu'à trois semaines\n\n**Grade di occupation:** 12 %"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs",
-        "en": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs",
+        "it": "vendita-in-contatore-di-carne-pesce-genossenschaft-migros-zurich-zollikon",
+        "en": "seller-in-meat-fish-counter-genossenschaft-migros-zurich-zollikon",
         "de": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs",
-        "fr": "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs"
+        "fr": "vendeur-dans-le-comptoir-viande-poissons-genossenschaft-migros-zurich-zollikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -940,11 +999,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon"
+          "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon",
+          "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs"
+        ],
+        "en": [
+          "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs"
+        ],
+        "fr": [
+          "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon"
+        "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon",
+        "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-zollikon-0to9qs"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -967,7 +1034,7 @@
     },
     {
       "id": "company-m3aa3c",
-      "slug": "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c",
+      "slug": "venditore-specializzato-in-servizio-clienti-migros-claramarkt-genossenschaft-migros-basel-basel",
       "company": "Genossenschaft Migros Basel",
       "title": "Fachverkäufer*in Kundendienst Migros Claramarkt",
       "location": "Basel",
@@ -1020,10 +1087,10 @@
         "fr": "En tant que vendeur spécialisé* en service clientèle chez Migros Claramarkt, vous êtes le premier point de contact pour nos clients. Avec votre nature axée sur le service et la solution-forte, vous traitez les problèmes avec compétence et assurer une expérience client positive.\n\n## Mansioni\n- Prendre soin des clients de manière amicale et compétente\n- Traitement des demandes, des plaintes et des retours\n- Gérer correctement les processus de trésorerie, d'échange et de remboursement\n- Responsabilité de la présentation et de la disponibilité des fleurs\n\n## Exigences\n- 1-2 ans d'expérience professionnelle dans le commerce de détail\n- Apprentissage professionnel achevé (EFZ): dans le commerce de détail\n- Personnalité orientée client avec plaisir dans les ventes\n- Son expertise dans le domaine des fleurs et de la floristique\n- Travail indépendant et flexibilité\n- Engagement dans les contacts avec le client\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Caisse de retraite professionnelle avec des performances supérieures à la moyenne AN part 8,5%, AG part 17%\n- Prestations sociales En cas de maladie, le salaire est de 100% pour deux ans, en cas d'accident nous sommes assurés VUSA\n- Points Cumulus: Points Cumulus supplémentaires pour les employés\n- Club School Migros: part des coûts de 70% dans les cours de club jusqu'à max. 1 000 francs par an\n- Migros Bank: Conditions préférentielles pour les salariés\n\n## Contatto\n## Demande et contact Samira Liechti ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 60 %"
       },
       "slugByLocale": {
-        "it": "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c",
-        "en": "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c",
+        "it": "venditore-specializzato-in-servizio-clienti-migros-claramarkt-genossenschaft-migros-basel-basel",
+        "en": "specialist-salesperson-in-customer-service-migros-claramarkt-genossenschaft-migros-basel-basel",
         "de": "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c",
-        "fr": "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c"
+        "fr": "specialiste-commercial-en-service-a-la-clientele-migros-claramarkt-genossenschaft-migros-basel-basel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1042,11 +1109,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel"
+          "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel",
+          "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c"
+        ],
+        "en": [
+          "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c"
+        ],
+        "fr": [
+          "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c"
         ]
       },
       "previousSlugs": [
-        "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel"
+        "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel",
+        "fachverkaufer-in-kundendienst-migros-claramarkt-genossenschaft-migros-basel-m3aa3c"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1123,9 +1198,9 @@
       },
       "slugByLocale": {
         "it": "psychotherapeut-in-per-online-therapie-wepractice-basel-tcq25j",
-        "en": "psychotherapeut-in-fur-online-therapie-wepractice-basel-tcq25j",
+        "en": "psychotherapist-in-for-online-therapy-wepractice-basel",
         "de": "psychotherapeut-in-fur-online-therapie-wepractice-basel-tcq25j",
-        "fr": "psychotherapeut-in-fur-online-therapie-wepractice-basel-tcq25j"
+        "fr": "psychotherapeute-pour-la-therapie-en-ligne-wepractice-basel"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1145,10 +1220,17 @@
       "previousSlugsByLocale": {
         "it": [
           "psychotherapeut-in-fur-online-therapie-wepractice-basel"
+        ],
+        "en": [
+          "psychotherapeut-in-fur-online-therapie-wepractice-basel-tcq25j"
+        ],
+        "fr": [
+          "psychotherapeut-in-fur-online-therapie-wepractice-basel-tcq25j"
         ]
       },
       "previousSlugs": [
-        "psychotherapeut-in-fur-online-therapie-wepractice-basel"
+        "psychotherapeut-in-fur-online-therapie-wepractice-basel",
+        "psychotherapeut-in-fur-online-therapie-wepractice-basel-tcq25j"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1225,9 +1307,9 @@
       },
       "slugByLocale": {
         "it": "psychotherapeut-in-per-online-therapie-wepractice-bern-b194s1",
-        "en": "psychotherapeut-in-fur-online-therapie-wepractice-bern-b194s1",
+        "en": "psychotherapist-in-for-online-therapy-wepractice-bern",
         "de": "psychotherapeut-in-fur-online-therapie-wepractice-bern-b194s1",
-        "fr": "psychotherapeut-in-fur-online-therapie-wepractice-bern-b194s1"
+        "fr": "psychotherapeute-pour-la-therapie-en-ligne-wepractice-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1247,10 +1329,17 @@
       "previousSlugsByLocale": {
         "it": [
           "psychotherapeut-in-fur-online-therapie-wepractice-bern"
+        ],
+        "en": [
+          "psychotherapeut-in-fur-online-therapie-wepractice-bern-b194s1"
+        ],
+        "fr": [
+          "psychotherapeut-in-fur-online-therapie-wepractice-bern-b194s1"
         ]
       },
       "previousSlugs": [
-        "psychotherapeut-in-fur-online-therapie-wepractice-bern"
+        "psychotherapeut-in-fur-online-therapie-wepractice-bern",
+        "psychotherapeut-in-fur-online-therapie-wepractice-bern-b194s1"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1273,7 +1362,7 @@
     },
     {
       "id": "company-5eltvg",
-      "slug": "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg",
+      "slug": "panificio-in-pasticceria-in-casa-panificio-sissach-genossenschaft-migros-basel-sissach",
       "company": "Genossenschaft Migros Basel",
       "title": "Bäcker*in / Konditor*in Hausbäckerei Sissach",
       "location": "Sissach",
@@ -1324,10 +1413,10 @@
         "fr": "Êtes-vous une personnalité motivée et engagée avec plaisir dans le meilleur artisanat boulanger? Appréciez-vous également la diversité et appréciez-vous le pain et les produits au four? Nous attendons avec impatience votre candidature pour ce poste!\n\n## Mansioni\n- Production de différents pains et pâtes selon des recettes spéciales\n- Préparation de tous les produits du pain et de la pâtisserie, y.c. Travail sur le four\n- Appui à la gestion des magasins\n\n## Exigences\n- Première expérience professionnelle: désirable comme boulanger/confiseur\n- Apprentissage professionnel terminé (EFZ): en tant que boulanger/confiseur\n- Son expertise en boulangerie\n- Bonne force physique\n- Méthode de travail indépendante et efficace avec une sensibilisation de haute qualité\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Caisse de retraite professionnelle avec des performances supérieures à la moyenne AN part 8,5%, AG part 17%\n- Prestations sociales En cas de maladie, le salaire est de 100% pour deux ans, en cas d'accident nous sommes assurés VUSA\n- Points Cumulus: Points Cumulus supplémentaires pour les employés\n- Migros Bank: Conditions préférentielles pour les salariés\n- Club School Migros: part des coûts de 70% dans les cours de club jusqu'à max. 1 000 francs par an\n\n## Contatto\n## Demande et contact Samira Liechti ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 355 %"
       },
       "slugByLocale": {
-        "it": "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg",
-        "en": "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg",
+        "it": "panificio-in-pasticceria-in-casa-panificio-sissach-genossenschaft-migros-basel-sissach",
+        "en": "baker-in-confectioner-in-house-bakery-sissach-genossenschaft-migros-basel-sissach",
         "de": "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg",
-        "fr": "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg"
+        "fr": "baker-in-confiseur-in-maison-boulangerie-sissach-genossenschaft-migros-basel-sissach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1345,11 +1434,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach"
+          "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach",
+          "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg"
+        ],
+        "en": [
+          "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg"
+        ],
+        "fr": [
+          "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg"
         ]
       },
       "previousSlugs": [
-        "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach"
+        "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach",
+        "backer-in-konditor-in-hausbackerei-sissach-genossenschaft-migros-basel-sissach-5eltvg"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1371,7 +1468,7 @@
     },
     {
       "id": "company-tk36gc",
-      "slug": "verkaufsmitarbeiter-in-migrolino-bern",
+      "slug": "personale-di-vendita-migrolino-bern",
       "company": "migrolino",
       "title": "Verkaufsmitarbeiter*in",
       "location": "Bern",
@@ -1420,10 +1517,10 @@
         "fr": "Prouvez votre engagement et votre passion dans une boutique de migrants et inspirez nos clients chaque jour.\n\n## Mansioni\n- Collecte des achats et vente des offres de la zone de caisse (y compris les produits de boulangerie, cigarettes, lots, cartes de lavage, etc.)\n- Conseils et ventes sur l'ensemble de l'offre, en particulier les ventes d'offres supplémentaires ainsi que l'engagement dans les campagnes de fidélité et autres actions\n- Responsabilité de la bonne gestion de la trésorerie et du règlement de la trésorerie\n- Surveillance de la vente de magasins et de toute autre zone\n- Contrôle des notes de livraison, de la commande, de l'entretien des marchandises et des présentations, y compris : Contrôle des prix\n\n## Exigences\n- Quelques années : dans le commerce de détail\n- Apprentissage professionnel achevé (EBA): commerce de détail\n- Le client et les ventes, ainsi que la pensée et l'action économiques\n- Aspect soigné et bonnes manières\n- Bonnes compétences en informatique\n- Résilience et sens élevé des responsabilités\n- Méthode de travail souple, orientée vers la solution et consciencieuse\n- Allemand (très bonne connaissance)\n\n## Contatto\n## Demande et contact Janine Fischer Assistante RH"
       },
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-migrolino-bern",
-        "en": "verkaufsmitarbeiter-in-migrolino-bern",
+        "it": "personale-di-vendita-migrolino-bern",
+        "en": "sales-staff-migrolino-bern",
         "de": "verkaufsmitarbeiter-in-migrolino-bern",
-        "fr": "verkaufsmitarbeiter-in-migrolino-bern"
+        "fr": "personnel-de-vente-migrolino-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1443,20 +1540,24 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
+          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
+          "verkaufsmitarbeiter-in-migrolino-bern"
         ],
         "en": [
-          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
+          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
+          "verkaufsmitarbeiter-in-migrolino-bern"
         ],
         "de": [
           "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
+          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
+          "verkaufsmitarbeiter-in-migrolino-bern"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
+        "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
+        "verkaufsmitarbeiter-in-migrolino-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1479,7 +1580,7 @@
     },
     {
       "id": "company-2uefp9",
-      "slug": "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9",
+      "slug": "capo-reparto-di-frutta-verdura-genossenschaft-migros-ostschweiz-pfaffikon",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Abteilungsleiter*in Früchte/Gemüse",
       "location": "Pfäffikon",
@@ -1532,10 +1633,10 @@
         "fr": "Avez-vous un sentiment pour les produits frais et sont enthousiastes à propos de la variété de nos produits de supermarché de fruits et légumes? (en milliers de dollars) Vous êtes des ventes fortes et aimez communiquer en toute sécurité avec nos clients ? Alors, vous avez exactement raison avec nous!\n\n## Mansioni\n- Vous assumez la responsabilité professionnelle du secteur des fruits et légumes et assurez-vous que tout fonctionne bien.\n- Prenez soin de la promotion des ventes. (en milliers de dollars) Avec votre talent organisationnel, vous assurez un processus en douceur.\n- Les revenus, les coûts, les stocks et la gestion des stocks sont parmi vos tâches principales – vous avez toujours l'aperçu et le contrôle spécifiquement.\n- Commande, contrôle des marchandises entrantes, présentation et disposition sont entre vos mains – vous assurez que tout fonctionne parfaitement.\n- Un service client amical et compétent et des conseils -- sont une question bien sûr pour vous et vous conseillerez les clients avec votre expertise.\n\n## Exigences\n- Plusieurs années d'expérience professionnelle : commerce de détail, industrie alimentaire\n- Formation de base ou perfectionnement: dans le commerce de détail, l'industrie alimentaire\n- Vous apportez de très bonnes connaissances dans le domaine des fruits / légumes.\n- Fiabilité, flexibilité et un haut niveau d'engagement vous distinguent – vous êtes toujours là quand vous êtes nécessaire.\n- Avec votre travail indépendant et votre approche amicale, vous créez une atmosphère agréable pour les clients et l'équipe.\n- Vous êtes prêt à poursuivre votre éducation et restez toujours à jour.\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Abonnement mobile: conditions très avantageuses pour l'abonnement mobile privé également pour la famille et les amis\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points Cumulus: Points Cumulus multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n\n## Contatto\n## Demande et contact Urs Bieri Market Manager MM Pfäffikon +41 58 712 83 22"
       },
       "slugByLocale": {
-        "it": "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9",
-        "en": "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9",
+        "it": "capo-reparto-di-frutta-verdura-genossenschaft-migros-ostschweiz-pfaffikon",
+        "en": "head-of-department-in-fruits-vegetables-genossenschaft-migros-ostschweiz-pfaffikon",
         "de": "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9",
-        "fr": "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9"
+        "fr": "chef-de-departement-fruits-legumes-genossenschaft-migros-ostschweiz-pfaffikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1552,11 +1653,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon"
+          "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon",
+          "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9"
+        ],
+        "en": [
+          "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9"
+        ],
+        "fr": [
+          "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon"
+        "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon",
+        "abteilungsleiter-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-pfaffikon-2uefp9"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1579,7 +1688,7 @@
     },
     {
       "id": "company-g332i",
-      "slug": "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i",
+      "slug": "venditore-di-non-food-genossenschaft-migros-zurich-zurich",
       "company": "Genossenschaft Migros Zürich",
       "title": "Verkäufer*in Non-Food",
       "location": "Zürich",
@@ -1638,10 +1747,10 @@
         "fr": "Renforcer notre équipe dans la zone non alimentaire de la branche MM Kreuzplatz. Apportez-vous et votre savoir-faire sur les textiles, les articles ménagers et la paperasse. Vous aimez vendre des produits tout en vous concentrant sur les besoins des clients? Alors appliquez maintenant !\n\n## Mansioni\n- Vous nous soutenez activement dans le domaine des produits non alimentaires et contribuez à créer une expérience d'achat positive pour nos clients\n- Vous assumez la responsabilité de la gestion efficace des marchandises, la présentation attrayante des produits et vous assurez que nos étagères sont toujours bien remplies\n- Vous inspirez nos clients à travers des conseils sympathiques et compétents\n- Vous assurez la haute qualité de nos produits\n- Si nécessaire, vous pouvez également soutenir dans d'autres zones de magasin\n\n## Exigences\n- De rien. 1 an d'expérience professionnelle: dans le commerce de détail, dans le domaine non alimentaire\n- Apprentissage achevé (EFZ): dans le commerce des ventes/détails\n- Vous êtes intéressé par des articles non alimentaires\n- Vous êtes orienté client et amical\n- Vous aimez travailler de façon indépendante et fiable\n- Êtes-vous flexible et prêt à travailler en dehors des heures de travail habituelles? Profitez de votre temps libre lorsque les autres travaillent!\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus unique de loisirs par année de max. CHF 500.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Prestation de retraite professionnelle: Excellentes prestations de fonds de retraite avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur le compte privé et d'investissement, gestion de compte libre, prêts hypothécaires réduits et plus\n- Offres des employés: Jusqu'à 1000 CHF par an (selon votre charge de travail) pour votre récupération et votre développement ultérieur – utilisables pour les abonnements fitness, les cours, les offres santé ou une subvention pour les transports en commun.\n- Offres de sport et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au centre M-Fitness\n- éducation et formation: soutien à la formation professionnelle,\n\n## Contatto\n## Demande et contact Elvira Hadzisaku Recrutement Partenaire ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée de la rétroaction : jusqu'à trois semaines de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : Jusqu'à trois semaines Offre & Contrat Exposition (numérique) Après notre offre de travail oral, les points de contrat les plus importants sont à nouveau vérifiés. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée jusqu'à la rétroaction : jusqu'à une semaine ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i",
-        "en": "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i",
+        "it": "venditore-di-non-food-genossenschaft-migros-zurich-zurich",
+        "en": "seller-of-non-food-genossenschaft-migros-zurich-zurich",
         "de": "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i",
-        "fr": "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i"
+        "fr": "vendeur-de-produits-non-alimentaires-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1659,11 +1768,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-non-food-genossenschaft-migros-zurich"
+          "verkaufer-in-non-food-genossenschaft-migros-zurich",
+          "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i"
+        ],
+        "en": [
+          "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i"
+        ],
+        "fr": [
+          "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-non-food-genossenschaft-migros-zurich"
+        "verkaufer-in-non-food-genossenschaft-migros-zurich",
+        "verkaufer-in-non-food-genossenschaft-migros-zurich-0g332i"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1849,9 +1966,9 @@
       },
       "slugByLocale": {
         "it": "fachverkaufer-in-blumen-e-kundendienst-genossenschaft-migros-zurich-wqlvkr",
-        "en": "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich-wqlvkr",
+        "en": "specialist-vendor-flowers-and-customer-service-genossenschaft-migros-zurich-zurich",
         "de": "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich-wqlvkr",
-        "fr": "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich-wqlvkr"
+        "fr": "fournisseur-specialise-fleurs-et-service-a-la-clientele-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1871,10 +1988,17 @@
       "previousSlugsByLocale": {
         "it": [
           "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich"
+        ],
+        "en": [
+          "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich-wqlvkr"
+        ],
+        "fr": [
+          "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich-wqlvkr"
         ]
       },
       "previousSlugs": [
-        "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich"
+        "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich",
+        "fachverkaufer-in-blumen-und-kundendienst-genossenschaft-migros-zurich-wqlvkr"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1897,7 +2021,7 @@
     },
     {
       "id": "company-u5q1ow",
-      "slug": "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr-u5q1ow",
+      "slug": "responsabile-gestione-della-supply-chain-quality-assurance-migrolino-suhr",
       "company": "migrolino",
       "title": "Leitung Supply Chain Management & Qualitätssicherung",
       "location": "Suhr",
@@ -1956,8 +2080,8 @@
         "fr": "Responsable de ce rôle clé chez migrolino Vous couvrez toute la chaîne d'approvisionnement ainsi que l'assurance de la qualité et déplacez des sujets qui affectent nos points de vente et donc nos clients chaque jour. Avec l'équipe et les partenaires externes, vous assurez l'efficacité des processus, des normes de qualité élevées et une logistique durable.\n\n## Mansioni\n- Vous prendrez en charge la gestion professionnelle et du personnel des domaines de la gestion de la chaîne d'approvisionnement et de l'assurance de la qualité.\n- Vous contrôlez et développez la coopération avec nos partenaires logistiques et assurez une communication efficace avec toutes les parties prenantes concernées.\n- Vous êtes responsable de la performance logistique et d'un budget à deux chiffres de millions et assurez l'équilibre optimal entre la qualité du service et la rentabilité.\n- Vous surveillez les ICR pertinents, déterminez les mesures appropriées et conduisez à une amélioration continue tout au long de la chaîne d'approvisionnement.\n- Vous lancez et dirigez des projets de chaîne d'approvisionnement stratégique interdivisions et façonnez activement le développement de nos processus.\n- Vous êtes responsable du développement des systèmes de gestion de la qualité, de sécurité au travail et de protection de la santé et représentez vos sujets au niveau de la direction et du groupe.\n- Vous pensez entrepreneurialement, agir analytiquement et prendre des décisions éclairées même dans des situations exigeantes. Vous convainquez avec de solides compétences en communication, en négociation et une apparence sûre à tous les niveaux de gestion.\n\n## Exigences\n- 5-7 ans: Expérience en logistique ou en gestion de la chaîne d'approvisionnement en détail ou en gros\n- Études terminées (uni/ETH, FH, HF): logistique ou administration des affaires\n- Plusieurs années d'expérience professionnelle et de gestion dans la gestion de la chaîne d'approvisionnement, la logistique ou l'environnement commercial.\n- Démontrer le succès dans la gestion de projets difficiles et dans les relations avec les différents intervenants.\n- Études universitaires terminées en administration des affaires ou dans une discipline comparable.\n- Formation complémentaire dans les domaines de la gestion de la chaîne d'approvisionnement, de la logistique, de la gestion de la qualité ou de la technologie alimentaire. Connaissance approfondie des processus de la chaîne d'approvisionnement, de la gestion logistique, de la gestion KPI et de l'optimisation des coûts.\n- Expérience dans la gestion de la qualité, idéalement dans l'environnement alimentaire, de détail ou FMCG.\n- en allemand (négociation certaine)\n- Français (avantageux)\n\n## Cosa de Friamo\n- Infrastructure moderne: Invitation et monde de bureau fonctionnel, infrastructure informatique moderne.\n- Modèle de travail mobile-flexible: Possibilité de flexibilité temporelle et spatiale pour remplir la fonction.\n- Pension professionnelle: Nous sommes assurés avec la Caisse de Migros: part 8,5%, part 17%.\n- Repas: Le restaurant du personnel de MVB, Suhr est également à notre disposition avec un menu varié.\n- Formation individuelle : Nous vous accompagnons jusqu'à 100% dans votre formation professionnelle.\n- Responsabilité personnelle et liberté: environnement orienté vers l'avenir avec beaucoup de responsabilité personnelle et liberté pour les idées innovantes.\n\n## Contatto\n## Demande et contact Sabrina Friederich Partenaires en RH et chef d'équipe Administration des RH - LinkedIn - xing ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction: Jusqu'à une semaine de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée jusqu'à retour d'information : Jusqu'à trois semaines Offre & Contrat Exposition (numérique) Après notre offre de travail oral, les points de contrat les plus importants sont à nouveau vérifiés. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine\n\n**Grade di occupation:** 178 %"
       },
       "slugByLocale": {
-        "it": "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr-u5q1ow",
-        "en": "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr-u5q1ow",
+        "it": "responsabile-gestione-della-supply-chain-quality-assurance-migrolino-suhr",
+        "en": "head-of-supply-chain-management-quality-assurance-migrolino-suhr",
         "de": "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr-u5q1ow",
         "fr": "leitung-chaine-d-approvisionnement-management-qualitatssicherung-migrolino-suhr-u5q1ow"
       },
@@ -1978,11 +2102,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr"
+          "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr",
+          "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr-u5q1ow"
+        ],
+        "en": [
+          "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr-u5q1ow"
         ]
       },
       "previousSlugs": [
-        "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr"
+        "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr",
+        "leitung-supply-chain-management-qualitatssicherung-migrolino-suhr-u5q1ow"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2005,7 +2134,7 @@
     },
     {
       "id": "company-chcegs",
-      "slug": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs",
+      "slug": "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges",
       "company": "Société coopérative Migros Vaud",
       "title": "Caissier polyvalent",
       "location": "Epalinges",
@@ -2058,9 +2187,9 @@
         "de": "Sie sind eines der ersten Gesichter, die unsere Kunden treffen, und Ihr Lächeln macht den Unterschied. Mit Ihrer Begeisterung und Professionalität garantieren Sie ein positives Kundenerlebnis, das zum Erfolg Ihres Shops beiträgt.\n\n## Mansioni\n- Bieten Sie ein herzliches und persönliches Willkommen zur Loyalität zu den Kunden.\n- Einlösung der Waren und Verwaltung der Geldschublade\n- Beteiligen Sie sich an der Umsetzung der Waren\n\n## erforderlich\n- Cashier Erfahrung und Geldverarbeitung, empfohlen\n- Ausgezeichnete Beziehungsfähigkeit und Fähigkeit, eine warme Atmosphäre für Kunden zu schaffen\n- Dynamisch, hilfreich und rigoros\n- Flexibilität und Flexibilität\n- Sehr gute Präsentation, ordentlich und professionell.\n- Keine anfängliche/kontinuierliche Ausbildung erforderlich\n- Französisch (sehr gute Kenntnisse)\n\n## Cosa offeriamo\n- Betriebsrente: Pensionskasse finanziert vom Arbeitgeber zu 17%.\n- Restaurant: 20% Rabatt in Migros Vaud Restaurants.\n- Cumulus Punkte: Cumulus Punkte Multiplikation für unsere Mitarbeiter\n- Migros Bank: Vorzugszinsen bei der Migros Bank\n- Urlaub: 5 bis 7 Wochen Urlaub pro Jahr, je nach Alter oder Dienstalter.\n- Migros Club School: Finanzielle Unterstützung für Kurse und Schulungen an der Migros Club School.\n\n## Contatto\n## Bewerbung und Kontakt Migros Vaud Recruitment Center"
       },
       "slugByLocale": {
-        "it": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs",
-        "en": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs",
-        "de": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs",
+        "it": "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges",
+        "en": "multipurpose-cashier-societe-cooperative-migros-vaud-epalinges",
+        "de": "mehrzweck-kasse-societe-cooperative-migros-vaud-epalinges",
         "fr": "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs"
       },
       "requirementsByLocale": {
@@ -2080,11 +2209,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges"
+          "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges",
+          "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs"
+        ],
+        "en": [
+          "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs"
+        ],
+        "de": [
+          "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs"
         ]
       },
       "previousSlugs": [
-        "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges"
+        "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges",
+        "caissier-polyvalent-societe-cooperative-migros-vaud-epalinges-chcegs"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2107,7 +2244,7 @@
     },
     {
       "id": "company-g83nvt",
-      "slug": "verkaufer-in-denner-ag-zug",
+      "slug": "venditore-denner-ag-zug",
       "company": "Denner AG",
       "title": "Verkäufer*in",
       "location": "Zug",
@@ -2153,10 +2290,10 @@
       "crawledAt": "2026-07-02T22:30:51.514Z",
       "firstSeenAt": "2026-07-02T22:30:51.514Z",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-ag-zug",
-        "en": "verkaufer-in-denner-ag-zug",
+        "it": "venditore-denner-ag-zug",
+        "en": "seller-denner-ag-zug",
         "de": "verkaufer-in-denner-ag-zug",
-        "fr": "verkaufer-in-denner-ag-zug"
+        "fr": "vendeur-denner-ag-zug"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -2201,7 +2338,21 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner-ag-zug"
+        ],
+        "en": [
+          "verkaufer-in-denner-ag-zug"
+        ],
+        "fr": [
+          "verkaufer-in-denner-ag-zug"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner-ag-zug"
+      ]
     },
     {
       "id": "company-c0vv38",
@@ -2259,8 +2410,8 @@
       },
       "slugByLocale": {
         "it": "responsable-de-rayon-non-food-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-c0vv38",
-        "en": "responsable-de-rayon-non-food-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-c0vv38",
-        "de": "responsable-de-rayon-non-food-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-c0vv38",
+        "en": "head-of-department-non-food-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains",
+        "de": "leiter-der-abteilung-non-food-h-f-d-societe-cooperative-migros-vaud-yverdon-les-bains",
         "fr": "responsable-de-rayon-non-food-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains-c0vv38"
       },
       "requirementsByLocale": {
@@ -2308,7 +2459,7 @@
     },
     {
       "id": "company-uwrvp0",
-      "slug": "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0",
+      "slug": "assistente-nella-gestione-delle-branche-migros-ticino-menznau",
       "company": "Migros Ticino",
       "title": "Assistent*in Filialleitung",
       "location": "Menznau",
@@ -2359,10 +2510,10 @@
         "fr": "Voulez-vous prendre la responsabilité de jour en jour? Tu n'es pas prêt pour Stv ? Ici vous pouvez prouver ce que vous avez. Partagez vos connaissances. Acquérir une expérience de leadership. Et bien sûr, beaucoup d'apprentissage. Denner. C'est notre magasin.\n\n## Mansioni\n- Vous prêtez une attention particulière à la fraîcheur des fruits, légumes et pain et dites gaspiller les aliments avec les ordres à la vue lointaine le combat\n- Commandez des produits frais et bien sûr toutes les autres marchandises, acceptez, vérifiez et remplissez les étagères dans votre magasin\n- Implémenter les spécifications correctement dans la disposition du magasin\n- Assurer l'ordre et la propreté dans le magasin et l'entrepôt\n- Dépôt et comptabilité\n- En tant qu'assistant, guider, promouvoir et faire progresser les employés – et être un exemple pour eux\n\n## Exigences\n- Idéalement plus de deux ans d'expérience professionnelle: dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Joy des produits frais et idéalement déjà expérience professionnelle avec eux\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Ce que nous vous offrons ## Congé de maternité / congé de paternité ## Abonnement mobile ## Migros Bank ## Offres de loisirs et de culture\n\n## Contatto\n## Demande et contact Steven Hirt Recruter Sales Central Switzerland - LinkedIn ## Processus de recrutement Sélection préalable par des partenaires externes Les demandes reçues sont continuellement examinées par notre partenaire externe. Cela crée une présélection, mène les discussions initiales avec les candidats et libère ensuite les documents à notre avis. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée jusqu'à la rétroaction : jusqu'à trois semaines de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 55 %"
       },
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0",
-        "en": "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0",
+        "it": "assistente-nella-gestione-delle-branche-migros-ticino-menznau",
+        "en": "assistant-in-branch-management-migros-ticino-menznau",
         "de": "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0",
-        "fr": "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0"
+        "fr": "assistant-dans-la-gestion-des-succursales-migros-ticino-menznau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -2381,11 +2532,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-migros-ticino-menznau"
+          "assistent-in-filialleitung-migros-ticino-menznau",
+          "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0"
+        ],
+        "en": [
+          "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-migros-ticino-menznau"
+        "assistent-in-filialleitung-migros-ticino-menznau",
+        "assistent-in-filialleitung-migros-ticino-menznau-uwrvp0"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -4736,9 +4895,9 @@
       "firstSeenAt": "2026-07-02T12:16:59.926Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld-008421",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld-008421"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -4787,6 +4946,7 @@
       "previousSlugs": [
         "seller-denner-ag-frauenfeld-008421",
         "vendeur-denner-ag-frauenfeld-008421",
+        "venditore-denner-ag-rubigen",
         "verkaufer-in-denner-ag-rubigen-1remei",
         "verkaufer-in-denner-ag-rubigen",
         "venditore-denner-ag-frauenfeld-m4pjdx",
@@ -4800,20 +4960,14 @@
         "verkaufer-in-denner-ag-zurich",
         "vendeur-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
-        "seller-denner-ag-zurich",
-        "seller-denner-ag-frauenfeld",
-        "verkaufer-in-denner-ag-frauenfeld",
-        "vendeur-denner-ag-frauenfeld",
-        "vendeur-denner-ag-zurich-e89fe9"
+        "seller-denner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld-008421"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421",
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld-008421"
         ],
         "it": [
           "venditore-denner-ag-rubigen"
@@ -8882,9 +9036,7 @@
         "vendeur-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
-        "vendeur-denner-ag-zurich-e89fe9",
-        "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421"
+        "vendeur-denner-ag-zurich-e89fe9"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -9032,10 +9184,7 @@
         "verkaufer-in-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-7kk8ni",
         "seller-denner-ag-zurich-1d38ef",
-        "vendeur-denner-ag-zurich",
-        "venditore-denner-ag-zurich-e89fe9",
-        "seller-denner-ag-zurich",
-        "vendeur-denner-ag-zurich-e89fe9"
+        "vendeur-denner-ag-zurich"
       ]
     },
     {
@@ -13043,7 +13192,6 @@
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "vendeur-denner-ag-langenthal-d47c8f",
         "venditore-denner-ag-interlaken-c59906",
-        "venditore-denner-ag-interlaken",
         "verkaufer-in-denner-ag-gossau-sg-66bf93"
       ],
       "salaryMin": 68500,
@@ -64224,7 +64372,6 @@
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
-        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur"
       ],
       "salaryMin": 57500,
@@ -68514,7 +68661,7 @@
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
         "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "fr": "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
+        "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       },
       "requirementsByLocale": {
         "it": [],
@@ -68535,13 +68682,11 @@
           "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz"
         ],
         "fr": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
+          "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
         ]
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz",
         "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
