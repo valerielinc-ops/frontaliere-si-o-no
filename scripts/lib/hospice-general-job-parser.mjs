@@ -1,34 +1,36 @@
 #!/usr/bin/env node
 /**
- * Stäubli job parser — SmartRecruiters (tenant "StaubliGroup") API.
+ * Hospice général job parser — SmartRecruiters (tenant "Hospicegeneral") API.
  *
- * Source: https://staubli.com/ch/en/careers (public career page; the SR API
- * discovery below is what actually feeds this parser)
+ * Source: https://www.hospicegeneral.ch (public site; careers hosted on
+ * careers.smartrecruiters.com/Hospicegeneral — SR API discovery below is
+ * what actually feeds this parser)
  *
- * Stäubli is a global industrial and mechatronic solution provider (four
- * divisions: Electrical Connectors, Fluid Connectors, Robotics, Textile),
- * with its main Swiss site in Pfäffikon SZ (Poststrasse 5, 8808 Pfäffikon).
- * It publishes postings for the whole group on a single SmartRecruiters
- * tenant, so Swiss postings also show up under other Swiss sites (e.g.
- * Allschwil/BL). The public REST API at
- *   https://api.smartrecruiters.com/v1/companies/StaubliGroup/postings
- * exposes every active posting worldwide; `locationCountryCodes: ['ch']`
- * narrows to the Swiss subset. Per-posting detail (full jobAd description +
- * street address) lives at `/postings/{id}` and is fetched on demand.
+ * Hospice général is Geneva canton's public social-services institution
+ * (cantonal social welfare, asylum/migrant support, senior services),
+ * headquartered at Cours de Rive 12, 1204 Genève. The public REST API at
+ *   https://api.smartrecruiters.com/v1/companies/Hospicegeneral/postings
+ * exposes every active posting; `locationCountryCodes: ['ch']` narrows to
+ * the Swiss subset (postings observed span Geneva GE and Vaud VD — Hospice
+ * général runs some vacation/senior facilities outside Geneva canton).
+ * Per-posting detail (full jobAd description + street address) lives at
+ * `/postings/{id}` and is fetched on demand.
  *
- * Tenant discovery note: the plain "Staubli" tenant id (matching the brand
- * name) returns `totalFound: 0` — the real tenant is "StaubliGroup" (found
- * by probing tenant-id candidates directly against the public SR API; the
- * career page itself is Cloudflare-gated and doesn't expose the tenant in
- * static HTML).
+ * Tenant discovery note: tenant id is "Hospicegeneral" (lowercase 'g',
+ * no space — case-sensitive per SmartRecruiters API), confirmed live
+ * (totalFound: 4 — small volume is expected for this institution, build
+ * the crawler anyway per backlog #3337).
  *
- * Public posting URLs are jobs.smartrecruiters.com/StaubliGroup/{id}-{slug}.
+ * Public posting URLs are jobs.smartrecruiters.com/Hospicegeneral/{id}-{slug}.
+ * Postings are predominantly French (Geneva), so sourceLang is detected
+ * per-job via detectLang with a French fallback (mirrors staubli's German
+ * fallback / cern's English fallback pattern).
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllStaubliJobs()  — Fetch and parse all Swiss jobs
- *   - isStaubliJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()      — Validate URLs belong to this company
- *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
+ *   - fetchAllHospiceGeneralJobs() — Fetch and parse all Swiss jobs
+ *   - isHospiceGeneralJob()        — Match jobs belonging to this company
+ *   - isTrustedDomain()            — Validate URLs belong to this company
+ *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -38,24 +40,24 @@ import { fetchSmartRecruitersJobs } from './ats-clients/smartrecruiters-client.m
 
 /* ── Constants ─────────────────────────────────────────────── */
 
-export const STAUBLI_KEY = 'staubli';
-export const STAUBLI_COMPANY_NAME = 'Stäubli';
-export const STAUBLI_COMPANY_DOMAIN = 'staubli.com';
+export const HOSPICE_GENERAL_KEY = 'hospice-general';
+export const HOSPICE_GENERAL_COMPANY_NAME = 'Hospice général';
+export const HOSPICE_GENERAL_COMPANY_DOMAIN = 'hospicegeneral.ch';
 
-const SR_TENANT = 'StaubliGroup';
-const CAREER_URL = 'https://staubli.com/ch/en/careers';
+const SR_TENANT = 'Hospicegeneral';
+const CAREER_URL = 'https://careers.smartrecruiters.com/Hospicegeneral';
 
-/* ── HQ fallback (Poststrasse 5, 8808 Pfäffikon, SZ) ─────────── */
+/* ── HQ fallback (Cours de Rive 12, 1204 Genève) ──────────────── */
 
 const HQ = {
-  city: 'Pfäffikon',
-  canton: 'SZ',
-  postalCode: '8808',
-  streetAddress: 'Poststrasse 5',
-  region: 'Schwyz',
+  city: 'Genève',
+  canton: 'GE',
+  postalCode: '1204',
+  streetAddress: 'Cours de Rive 12',
+  region: 'Genève',
 };
 
-const SECTOR = 'Industria / Meccatronica';
+const SECTOR = 'Servizi sociali / Pubblica amministrazione';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -70,35 +72,36 @@ function normalizeSpace(s = '') {
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Check if a job belongs to Stäubli.
+ * Check if a job belongs to Hospice général.
  * Used by the template to filter this company's jobs from the global dataset.
  */
-export function isStaubliJob(job) {
+export function isHospiceGeneralJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
   const url = normalize(job?.url || '');
 
   return (
-    key === STAUBLI_KEY ||
-    key.startsWith('staubli') ||
-    company.includes('staubli') ||
-    url.includes('staubli.com') ||
-    url.includes('smartrecruiters.com/staubligroup')
+    key === HOSPICE_GENERAL_KEY ||
+    company === 'hospice general' ||
+    company.includes('hospice general') ||
+    url.includes('hospicegeneral.ch') ||
+    url.includes('smartrecruiters.com/hospicegeneral')
   );
 }
 
 /**
- * Validate that a URL belongs to Stäubli's domain OR the SmartRecruiters
- * ATS hosts that actually serve the postings (api/jobs/careers.smartrecruiters.com).
+ * Validate that a URL belongs to Hospice général's domain OR the
+ * SmartRecruiters ATS hosts that actually serve the postings
+ * (api/jobs/careers.smartrecruiters.com).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    if (host === 'staubli.com' || host.endsWith('.staubli.com')) return true;
+    if (host === 'hospicegeneral.ch' || host.endsWith('.hospicegeneral.ch')) return true;
     if (host === 'smartrecruiters.com' || host.endsWith('.smartrecruiters.com')) return true;
     return false;
   } catch {
@@ -110,24 +113,27 @@ export function isTrustedDomain(rawUrl = '') {
 
 function detectCategory(title = '') {
   const t = normalize(title);
+  if (/\b(social|assistant social|educat|animat|assistance)/.test(t)) return 'Sociale';
+  if (/\b(civiliste|service civil)/.test(t)) return 'Servizio civile';
+  if (/\b(senior|séniors|seniors|personnes âgées|anziani)/.test(t)) return 'Servizi Anziani';
+  if (/\b(migrant|asile|asilo|réfugié)/.test(t)) return 'Migrazione / Asilo';
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
-  if (/\b(techni|tecnic|mecanic|elektr|install|meccatron|mechatron)/.test(t)) return 'Tecnica';
+  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
   if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
   if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
   if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
-  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
-  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
+  if (/\b(it|software|develop|programm|comput)/.test(t)) return 'IT';
+  if (/\b(hr|human|risorse|personal|rh)/.test(t)) return 'Risorse Umane';
   if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
   if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
-  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  if (/\b(legal|giurid|recht|juridique)/.test(t)) return 'Legale';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|civiliste)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';
@@ -145,7 +151,7 @@ function detectEmploymentType(text = '') {
 /**
  * Pick the best city / postal code / street / region from a raw
  * SmartRecruiters posting location, falling back to the documented HQ
- * address (Pfäffikon SZ) when a field is missing.
+ * address (Cours de Rive 12, Genève) when a field is missing.
  */
 function resolveAddress(rawLoc = {}) {
   const city = (rawLoc.city || rawLoc.fullLocation || '').trim();
@@ -155,16 +161,17 @@ function resolveAddress(rawLoc = {}) {
 
   return {
     city: city || HQ.city,
-    postalCode: postalCode || (!city || /pf[aä]ffikon/i.test(city) ? HQ.postalCode : ''),
-    streetAddress: streetAddress || (!city || /pf[aä]ffikon/i.test(city) ? HQ.streetAddress : ''),
+    postalCode: postalCode || (!city || /gen[eè]v/i.test(city) ? HQ.postalCode : ''),
+    streetAddress: streetAddress || (!city || /gen[eè]v/i.test(city) ? HQ.streetAddress : ''),
     region,
   };
 }
 
 /**
- * Fetch the Switzerland-only Stäubli postings from the SmartRecruiters API
- * (tenant "StaubliGroup", country=ch). Returns an array of raw listing
- * objects {title, location, url, postedAt, description, jobReqId, rawLocation}.
+ * Fetch the Switzerland-only Hospice général postings from the
+ * SmartRecruiters API (tenant "Hospicegeneral", country=ch). Returns an
+ * array of raw listing objects {title, location, url, postedAt,
+ * description, jobReqId, rawLocation}.
  */
 async function fetchJobListings() {
   console.log(`   Fetching SmartRecruiters tenant "${SR_TENANT}" (country=ch)`);
@@ -173,7 +180,7 @@ async function fetchJobListings() {
   const listings = [];
   try {
     for await (const job of fetchSmartRecruitersJobs(SR_TENANT, {
-      company: STAUBLI_COMPANY_NAME,
+      company: HOSPICE_GENERAL_COMPANY_NAME,
       locationCountryCodes: ['ch'],
       fetchDetail: true,
       timeoutMs,
@@ -199,14 +206,14 @@ async function fetchJobListings() {
 }
 
 /**
- * Fetch all Stäubli jobs (Switzerland only).
+ * Fetch all Hospice général jobs (Switzerland-only).
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllStaubliJobs() {
-  console.log(`🔍 Fetching ${STAUBLI_COMPANY_NAME} jobs`);
+export async function fetchAllHospiceGeneralJobs() {
+  console.log(`🔍 Fetching ${HOSPICE_GENERAL_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
   const listings = await fetchJobListings();
@@ -236,9 +243,9 @@ export async function fetchAllStaubliJobs() {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
-    const description = descriptionText || `${title} bei ${STAUBLI_COMPANY_NAME} in ${location}.`;
-    const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} staubli ${location}`);
+    const description = descriptionText || `${title} chez ${HOSPICE_GENERAL_COMPANY_NAME} à ${location}.`;
+    const sourceLang = detectLang(descriptionText || title, 'fr');
+    const jobSlug = slugify(`${title} hospice general ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentLabel || title);
     const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
@@ -246,12 +253,12 @@ export async function fetchAllStaubliJobs() {
 
     const job = {
       // ── Required fields ──
-      id: `${STAUBLI_KEY}-${urlHash}`,
+      id: `${HOSPICE_GENERAL_KEY}-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      company: STAUBLI_COMPANY_NAME,
-      companyKey: STAUBLI_KEY,
-      companyDomain: STAUBLI_COMPANY_DOMAIN,
+      company: HOSPICE_GENERAL_COMPANY_NAME,
+      companyKey: HOSPICE_GENERAL_KEY,
+      companyDomain: HOSPICE_GENERAL_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
       description,
@@ -259,7 +266,7 @@ export async function fetchAllStaubliJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Stäubli Dedicated Parser (SmartRecruiters)',
+      source: 'Hospice général Dedicated Parser (SmartRecruiters)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -287,6 +294,6 @@ export async function fetchAllStaubliJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${STAUBLI_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total ${HOSPICE_GENERAL_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
