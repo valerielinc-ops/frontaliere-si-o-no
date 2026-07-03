@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-obach",
-  "assembledAt": "2026-07-03T12:14:13.118Z",
+  "assembledAt": "2026-07-03T23:08:53.088Z",
   "jobs": [
     {
       "id": "privatklinik-obach-b97b400a97a5",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132192300-pflegeassistenz-50-60-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:14:10.766Z",
+      "crawledAt": "2026-07-03T23:08:51.178Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:14:09.812Z",
+      "crawledAt": "2026-07-03T23:08:50.244Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -247,7 +247,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
