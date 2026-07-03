@@ -174,11 +174,12 @@ function resolveAddress(address = {}) {
     };
   }
 
+  const isHqCity = /luzern|lucerne/i.test(rawLocality);
   return {
     city: rawLocality,
     canton,
-    postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
-    streetAddress: rawStreet || (canton === HQ.canton ? HQ.streetAddress : ''),
+    postalCode: postalCode || (isHqCity ? HQ.postalCode : ''),
+    streetAddress: rawStreet || (isHqCity ? HQ.streetAddress : ''),
     region: canton,
   };
 }
