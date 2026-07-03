@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-07-03T10:49:33.902Z",
+  "assembledAt": "2026-07-03T21:48:07.698Z",
   "jobs": [
     {
       "id": "coopers-e5101edac96f",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HCK734",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:49:30.864Z",
+      "crawledAt": "2026-07-03T21:48:04.905Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -76,6 +76,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T21:51:10.027Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -105,7 +106,7 @@
       "title": "Embedded Test Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Embedded Test Ingegnere (m/w/d)",
-        "en": "Embedded Test Engineer (m/f/d)",
+        "en": "Embedded Test Engineer (m/w/d)",
         "de": "Embedded Test Ingenieur (m/w/d)",
         "fr": "Embedded Test Ingénieur (m/w/d)"
       },
@@ -121,7 +122,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H72VL9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:29.545Z",
+      "crawledAt": "2026-07-03T21:48:03.597Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -166,6 +167,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:08.415Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -195,7 +197,7 @@
       "title": "Java Software Engineer (Senior) (m/w/d)",
       "titleByLocale": {
         "it": "Java Software Ingegnere (Senior) (m/w/d)",
-        "en": "Java Software Engineer (Senior) (m/f/d)",
+        "en": "Java Software Engineer (Senior) (m/w/d)",
         "de": "Java Software Ingenieur (Senior) (m/w/d)",
         "fr": "Java Software Ingénieur (Senior) (m/w/d)"
       },
@@ -211,7 +213,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4P0DB3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:28.154Z",
+      "crawledAt": "2026-07-03T21:48:02.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -255,6 +257,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:07.185Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -284,7 +287,7 @@
       "title": "IT Business Applications Consultant (proALPHA) (m/w/d)",
       "titleByLocale": {
         "it": "IT Business Applications Consulente (proALPHA) (m/w/d)",
-        "en": "IT Business Applications Consultant (proALPHA)",
+        "en": "IT Business Applications Consultant (proALPHA) (m/w/d)",
         "de": "IT Business Applications Berater (proALPHA) (m/w/d)",
         "fr": "Conseiller en applications opérationnelles de TI (proALPHA)"
       },
@@ -300,7 +303,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:26.844Z",
+      "crawledAt": "2026-07-03T21:48:00.981Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -373,7 +376,7 @@
       "title": "Instandhaltung & SAP-Prozesse (m/w/d)",
       "titleByLocale": {
         "it": "Gestione del prodotto (m/w/d)",
-        "en": "Maintenance & SAP processes (m/f/d)",
+        "en": "Instandhaltung & SAP-Prozesse (m/w/d)",
         "de": "Instandhaltung & SAP-Prozesse (m/w/d)",
         "fr": "Gestion du projet (m/w/d)"
       },
@@ -389,7 +392,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E624SG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:25.553Z",
+      "crawledAt": "2026-07-03T21:47:59.647Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -441,6 +444,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:50.603Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -470,7 +474,7 @@
       "title": "DevOps Engineer Microsoft (Exchange / Private Cloud) (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Microsoft (Exchange / Private Cloud) (m/w/d)",
-        "en": "DevOps Engineer Microsoft (Exchange / Private Cloud) (m/f/d)",
+        "en": "DevOps Engineer Microsoft (Exchange / Private Cloud) (m/w/d)",
         "de": "DevOps Ingenieur Microsoft (Exchange / Private Cloud) (m/w/d)",
         "fr": "DevOps Ingénieur Microsoft (Exchange / Private Cloud) (m/w/d)"
       },
@@ -486,7 +490,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0NG73J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:24.259Z",
+      "crawledAt": "2026-07-03T21:47:58.338Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -518,6 +522,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:46.890Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -547,7 +552,7 @@
       "title": "Construction Manager VT (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile Costruzioni VT (lun/f/d)",
-        "en": "Construction Manager VT (m/f/d)",
+        "en": "Construction Manager VT (m/w/d)",
         "de": "Construction Manager VT (m/w/d)",
         "fr": "Chef de construction VT (l/f/d)"
       },
@@ -563,7 +568,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2ZA19H",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:22.915Z",
+      "crawledAt": "2026-07-03T21:47:57.046Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -607,6 +612,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T14:13:01.378Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -652,7 +658,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W6TR28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:21.529Z",
+      "crawledAt": "2026-07-03T21:47:55.748Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -698,6 +704,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:40.650Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -711,96 +718,6 @@
         }
       },
       "postalCode": "4001"
-    },
-    {
-      "id": "coopers-2f248b828bb2",
-      "slug": "software-ingegnere-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug",
-      "slugByLocale": {
-        "it": "software-ingegnere-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug",
-        "en": "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug",
-        "de": "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug",
-        "fr": "software-ingenieur-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Software Engineer – Embedded Software (Gradle / Ant) (m/w/d)",
-      "titleByLocale": {
-        "it": "Software Ingegnere – Embedded Software (Gradle / Ant) (m/w/d)",
-        "en": "Software Engineer – Embedded Software (Gradle / Ant) (m/f/d)",
-        "de": "Software Ingenieur – Embedded Software (Gradle / Ant) (m/w/d)",
-        "fr": "Software Ingénieur – Embedded Software (Gradle / Ant) (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (X17N0R)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nZug\n\nContracting\n\nFull Time\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nDevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Per le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profilo del lavoro (X17N0R)\n• IT - Infrastrutture e Operazioni IT\n• IT - Ingegneria del software\n• Treno Contratti Tempo pieno A partire da ora - 31.12.2026 con opzione di estensione DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Sembra interessante? Basta cliccare.",
-        "en": "Position? Then we look forward to full application documents via online form. For applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profile (X17N0R)\n• IT - IT Infrastructure and Operations\n• IT - Software Engineering\n• Train Contracting Full time As of now - 31.12.2026 with option of extension DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Sounds interesting? Simply click.",
-        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (X17N0R)\n• IT - IT Infrastructure & Operations\n• IT - Software Engineering\n• Zug\n• Contracting\n• Full Time\n• Ab sofort - 31.12.2026 mit Option auf Verlängerung\n• DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Sounds interesting? Simply click \"",
-        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Pour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données. D'autres offres d'emploi sont disponibles ici : coopers.ch Profil d'emploi (X17N0R)\n• TI - Infrastructure et opérations de TI\n• IT - Génie logiciel\n• Train Contrats Temps plein Dès maintenant - 31.12.2026 avec possibilité d'extension DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Ça semble intéressant ? Cliquez simplement."
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=X17N0R",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:20.095Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=X17N0R",
-      "requirements": [
-        "IT - IT Infrastructure & Operations",
-        "IT - Software Engineering",
-        "Contracting",
-        "Full Time",
-        "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
-        "DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - IT Infrastructure & Operations",
-          "IT - Software Engineering",
-          "Contracting",
-          "Full Time",
-          "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
-          "DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit"
-        ]
-      },
-      "previousSlugs": [
-        "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug",
-          "software-ingegnere-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug"
-        ],
-        "fr": [
-          "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug"
-        ]
-      },
-      "firstSeenAt": "2026-06-24T11:04:21.367Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6300"
     },
     {
       "id": "coopers-b6dcbc0e2af3",
@@ -817,7 +734,7 @@
       "title": "Senior Pega Lead Business & System Architect (m/w/d)",
       "titleByLocale": {
         "it": "Senior Pega Lead Business & System Architetto (m/w/d)",
-        "en": "Senior Pega Lead Business & System Architect (m/f/d)",
+        "en": "Senior Pega Lead Business & System Architect (m/w/d)",
         "de": "Senior Pega Lead Business & System Architect (m/w/d)",
         "fr": "Senior Pega Lead Business & System Architecte (m/w/d)"
       },
@@ -833,7 +750,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B01C6O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:18.740Z",
+      "crawledAt": "2026-07-03T21:47:54.382Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -868,6 +785,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:38.134Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -897,7 +815,7 @@
       "title": "IT Governance & M365 Compliance Specialist (m/w/d)",
       "titleByLocale": {
         "it": "IT Governance & M365 Compliance Specialista (m/w/d)",
-        "en": "IT Governance & M365 Compliance Specialist (m/f/d)",
+        "en": "IT Governance & M365 Compliance Specialist (m/w/d)",
         "de": "IT Governance & M365 Compliance Spezialist (m/w/d)",
         "fr": "Gouvernance de la TI et M365 Spécialiste de la conformité (m/m/j)"
       },
@@ -913,7 +831,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=26BP1M",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:17.402Z",
+      "crawledAt": "2026-07-03T21:47:52.920Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -958,6 +876,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:28.138Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -1003,7 +922,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V96K2V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:15.992Z",
+      "crawledAt": "2026-07-03T21:47:51.598Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1053,6 +972,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:26.872Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1098,7 +1018,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:49:14.633Z",
+      "crawledAt": "2026-07-03T21:47:50.246Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1165,6 +1085,7 @@
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis"
       ],
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1194,7 +1115,7 @@
       "title": "M365 Solution Manager (m/w/d)",
       "titleByLocale": {
         "it": "M365 Solution Manager/in (lunedì/mercoledì/d)",
-        "en": "M365 Solution Manager (m/f/d)",
+        "en": "M365 Solution Manager (m/w/d)",
         "de": "M365 Solution Manager (m/w/d)",
         "fr": "M365 Gestionnaire de solutions : en (m/w/d)"
       },
@@ -1210,7 +1131,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W2A8N9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:13.297Z",
+      "crawledAt": "2026-07-03T21:47:48.943Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1246,6 +1167,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:16.784Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1275,7 +1197,7 @@
       "title": "Entra ID / Active Directory Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Entra ID / Active Directory Ingegnere (m/w/d)",
-        "en": "Entra ID / Active Directory Engineer (m/f/d)",
+        "en": "Entra ID / Active Directory Engineer (m/w/d)",
         "de": "Entra ID / Active Directory Ingenieur (m/w/d)",
         "fr": "Entra ID / Active Directory Ingénieur (m/w/d)"
       },
@@ -1291,7 +1213,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HF368N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:11.952Z",
+      "crawledAt": "2026-07-03T21:47:47.647Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1336,6 +1258,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T13:17:53.311Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1381,7 +1304,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:10.647Z",
+      "crawledAt": "2026-07-03T21:47:46.354Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1445,6 +1368,7 @@
         "specialiste-principal-de-la-gestion-des-projets-m-m-j-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -1490,7 +1414,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J044QS",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:09.347Z",
+      "crawledAt": "2026-07-03T21:47:45.057Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1556,6 +1480,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T11:43:07.255Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1585,7 +1510,7 @@
       "title": "Senior Fullstack Entwickler:in (JavaEE/Angular) (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Sviluppatore:in (JavaEE/Angular) (m/f/d)",
-        "en": "Senior Fullstack Developer:in (JavaEE/Angular) (m/f/d)",
+        "en": "Senior Fullstack Entwickler:in (JavaEE/Angular) (m/w/d)",
         "de": "Senior Fullstack Entwickler:in (JavaEE/Angular) (m/w/d)",
         "fr": "Développeur principal Fullstack:in (JavaEE/Angulaire) (m/f/d)"
       },
@@ -1601,7 +1526,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7Y76YI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:08.047Z",
+      "crawledAt": "2026-07-03T21:47:43.758Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1646,6 +1571,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:45:40.158Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1691,7 +1617,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AQP363",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:06.692Z",
+      "crawledAt": "2026-07-03T21:47:42.407Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1738,6 +1664,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:29:03.923Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1767,7 +1694,7 @@
       "title": "AI Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della Governance AI (m/f/d)",
-        "en": "AI Governance Manager (m/f/d)",
+        "en": "AI Governance Manager (m/w/d)",
         "de": "AI Governance Manager (m/w/d)",
         "fr": "Responsable de la gouvernance de l'IA (m/f/d)"
       },
@@ -1783,7 +1710,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OL0A91",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:05.305Z",
+      "crawledAt": "2026-07-03T21:47:41.034Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1831,6 +1758,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:51.132Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1860,7 +1788,7 @@
       "title": "ICT Database Engineer (SQL/PostgreSQL) (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere di Database ICT (SQL/PostgreSQL) (m/f/d)",
-        "en": "ICT Database Engineer (SQL/PostgreSQL) (m/f/d)",
+        "en": "ICT Database Engineer (SQL/PostgreSQL) (m/w/d)",
         "de": "ICT Database Ingenieur (SQL/PostgreSQL) (m/w/d)",
         "fr": "Ingénieur en bases de données TIC (SQL/PostgreSQL) (m/f/d)"
       },
@@ -1876,7 +1804,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=KOO945",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:03.970Z",
+      "crawledAt": "2026-07-03T21:47:39.722Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1920,6 +1848,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:48.561Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1935,125 +1864,37 @@
       "postalCode": "3001"
     },
     {
-      "id": "coopers-9aec97008ec6",
-      "slug": "citrix-support-ingegnere-m-w-d-coopers-group-ag-luzern",
-      "slugByLocale": {
-        "it": "citrix-support-ingegnere-m-w-d-coopers-group-ag-luzern",
-        "en": "citrix-support-engineer-m-w-d-coopers-luzern",
-        "de": "citrix-support-engineer-m-w-d-coopers-luzern",
-        "fr": "citrix-support-ingenieur-m-w-d-coopers-group-ag-luzern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Citrix Support Engineer (m/w/d)",
-      "titleByLocale": {
-        "it": "Ingegnere di supporto Citrix (m/f/d)",
-        "en": "Citrix Support Engineer (m/f/d)",
-        "de": "Citrix Support Ingenieur (m/w/d)",
-        "fr": "Ingénieur Support Citrix (m/f/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (642KTL)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nFull Time\n\nab sofort - 31.12.2026 mit Option auf Verlängerung\n\nCitrix\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione? Poi attendiamo con interesse di ricevere i documenti completi della domanda tramite modulo online. Nel caso di domande via e-mail, il mittente accetta che i dati trasmessi vengano utilizzati in conformità con la nostra politica sulla privacy. Altre offerte di lavoro sono disponibili qui: coopers.ch Profilo lavorativo (642KTL)\n• IT - Ingegneria del Software\n• Contratti a Lucerna a tempo pieno attualmente - 31.12.2026 con opzione per estendere i benefici del lavoro Citrix\n• Termini di battesimo\n• Gerarchia piatta\n• Home Office\n• Ambiente di lavoro moderno\n• Equilibrio tra lavoro e vita privata Sembra interessante? Basta cliccare \"",
-        "en": "Position? Then we look forward to receiving complete application documents via online form. In the case of applications by e-mail, the sender agrees that the transmitted data will be used in accordance with our privacy policy. More vacancies can be found here: coopers.ch Job profile (642KTL)\n• IT - Software Engineering\n• Luzern Contracting Full Time as of now - 31.12.2026 with option to extend Citrix Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
-        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (642KTL)\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Full Time\n• ab sofort - 31.12.2026 mit Option auf Verlängerung\n• Citrix Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
-        "fr": "Poste? Ensuite, nous attendons avec impatience de recevoir les documents de candidature complets via un formulaire en ligne. Dans le cas de demandes par e-mail, l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de confidentialité. Plus d'offres d'emploi sont disponibles ici : coopers.ch Profil d'emploi (642KTL)\n• IT - Génie logiciel\n• Entrepreneur à Lucerne à temps plein actuellement - 31.12.2026 avec possibilité d'étendre les avantages du poste Citrix\n• Termes prénoms\n• Hiérarchie plate\n• Home Office\n• Espace de travail moderne\n• Équilibre vie professionnelle-vie privée Ça vous intéresse? Il suffit de cliquer \""
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=642KTL",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:02.535Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=642KTL",
-      "requirements": [
-        "IT - Software Engineering",
-        "Luzern",
-        "Contracting",
-        "Full Time",
-        "ab sofort - 31.12.2026 mit Option auf Verlängerung",
-        "Citrix"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
-          "Contracting",
-          "Full Time",
-          "ab sofort - 31.12.2026 mit Option auf Verlängerung"
-        ]
-      },
-      "previousSlugs": [
-        "citrix-support-engineer-m-w-d-coopers-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "citrix-support-engineer-m-w-d-coopers-luzern",
-          "citrix-support-ingegnere-m-w-d-coopers-group-ag-luzern"
-        ],
-        "fr": [
-          "citrix-support-engineer-m-w-d-coopers-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T14:12:11.636Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6003"
-    },
-    {
       "id": "coopers-ea3bd75c4508",
       "slug": "senior-requirement-ingegnere-80-100-m-w-d-coopers-group-ag-luzern",
       "slugByLocale": {
-        "de": "senior-requirement-engineer-80-100-m-w-d-coopers-luzern",
         "it": "senior-requirement-ingegnere-80-100-m-w-d-coopers-group-ag-luzern",
-        "fr": "senior-requirement-ingenieur-80-100-m-w-d-coopers-group-ag-luzern",
-        "en": "senior-requirement-engineer-80-100-m-w-d-coopers-luzern"
+        "en": "senior-requirement-engineer-80-100-m-w-d-coopers-luzern",
+        "de": "senior-requirement-engineer-80-100-m-w-d-coopers-luzern",
+        "fr": "senior-requirement-ingenieur-80-100-m-w-d-coopers-group-ag-luzern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Senior Requirement Engineer (80-100 %) (m/w/d)",
       "titleByLocale": {
-        "de": "Senior Requirement Ingenieur (80-100 %) (m/w/d)",
-        "en": "Senior Requirement Engineer (80-100%) (m/f/d)",
         "it": "Senior Requirement Ingegnere (80-100 %) (m/w/d)",
+        "en": "Senior Requirement Engineer (80-100 %) (m/w/d)",
+        "de": "Senior Requirement Ingenieur (80-100 %) (m/w/d)",
         "fr": "Senior Requirement Ingénieur (80-100 %) (m/w/d)"
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (95RJP9)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nasap - 31.12.2026 mit Option auf Verlängerung\n\nRequirements Engineering, agile\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (95RJP9)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nasap - 31.12.2026 mit Option auf Verlängerung\n\nRequirements Engineering, agile\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (95RJP9)\n\n•\n IT - Ingegneria del software\n\n•\n\nLucerna\n\nContratti\n\nTempo parziale, 80-100 %\n\nasap - 31.12.2026 con opzione di estensione\n\nRequisiti di ingegneria, agile\n\nPrestazioni di lavoro\n\n•\n Termini di primo nome\n\n•\n Gerarchia piatta\n\n•\n Home Ufficio\n\n•\n Spazio di lavoro moderno\n\n•\n Bilancia della vita lavorativa\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (95RJP9)\n\n•\n IT - Software Engineering\n\n•\n\nLucerne\n\nContracting\n\nPart Time, 80-100 %\n\nasap - 31.12.2026 with option of extension\n\nRequirements engineering, agile\n\nJob benefits\n\n•\n First-name terms\n\n•\n Flat hierarchy\n\n•\n Home Office\n\n•\n Modern workspace\n\n•\n Work-life balance\n\nSounds interesting?\n\nSimply click.",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (95RJP9)\n\n•\n IT - Génie logiciel\n\n•\n\nLucerne\n\nContrats\n\nTemps partiel, 80-100 %\n\nasap - 31.12.2026 avec possibilité d'extension\n\nIngénierie des besoins, agile\n\nPrestations d'emploi\n\n•\n Termes de prénom\n\n•\n Hiérarchie plate\n\n•\n Ministère de l ' intérieur\n\n•\n Espace de travail moderne\n\n•\n Équilibre travail-vie privée\n\nÇa semble intéressant ?\n\nCliquez simplement."
+        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Per le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profili di lavoro (95RJP9)\n• IT - Ingegneria del software\n• Lucerna Contratti Tempo parziale, 80-100 % asap - 31.12.2026 con opzione di estensione Requisiti di ingegneria, agile Prestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa Sembra interessante? Basta cliccare.",
+        "en": "Position? Then we look forward to full application documents via online form. For applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profiles (95RJP9)\n• IT - Software Engineering\n• Lucerne Contracting Part Time, 80-100 % asap - 31.12.2026 with option of extension Requirements engineering, agile Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance Sounds interesting? Simply click.",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (95RJP9)\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• asap - 31.12.2026 mit Option auf Verlängerung\n• Requirements Engineering, agile Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
+        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Pour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données. D'autres offres d'emploi sont disponibles ici : coopers.ch Profils d'emploi (95RJP9)\n• IT - Génie logiciel\n• Lucerne Contrats Temps partiel, 80-100 % asap - 31.12.2026 avec possibilité d'extension Ingénierie des besoins, agile Prestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Ministère de l ' intérieur\n• Espace de travail moderne\n• Équilibre travail-vie privée Ça semble intéressant ? Cliquez simplement."
       },
       "location": "Luzern",
       "canton": "LU",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=95RJP9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:49:00.969Z",
+      "crawledAt": "2026-07-03T21:47:38.429Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2078,112 +1919,23 @@
       "requirementsByLocale": {
         "de": [
           "IT - Software Engineering",
-          "Luzern",
           "Contracting",
           "Part Time, 80-100%",
           "asap - 31.12.2026 mit Option auf Verlängerung",
           "Requirements Engineering, agile"
         ]
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-requirement-engineer-80-100-m-w-d-coopers-luzern"
-        ]
-      },
       "previousSlugs": [
         "senior-requirement-engineer-80-100-m-w-d-coopers-luzern"
       ],
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6003",
-      "firstSeenAt": "2026-07-03T10:49:00.969Z"
-    },
-    {
-      "id": "coopers-d81309585378",
-      "slug": "sostenitore-di-secondo-livello-senior-in-m-f-d-coopers-group-ag-luzern",
-      "slugByLocale": {
-        "it": "sostenitore-di-secondo-livello-senior-in-m-f-d-coopers-group-ag-luzern",
-        "en": "senior-2nd-level-supporter-in-m-w-d-coopers-luzern",
-        "de": "senior-2nd-level-supporter-in-m-w-d-coopers-luzern",
-        "fr": "supporteur-senior-de-2e-niveau-en-m-f-d-coopers-group-ag-luzern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Senior 2nd Level Supporter:in (m/w/d)",
-      "titleByLocale": {
-        "it": "Sostenitore di secondo livello senior:in (m/f/d)",
-        "en": "Senior 2nd Level Supporter:in (m/f/d)",
-        "de": "Senior 2nd Level Supporter:in (m/w/d)",
-        "fr": "Supporteur senior de 2e niveau : en (m/f/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (94MWP9)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nLuzern\n\nContracting\n\nFull Time\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\n2nd Level Support\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Nel caso di domande via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profili di lavoro (94MWP9)\n• IT - Infrastrutture e Operazioni IT\n• Lucerna Contraente Tempo pieno D'ora in poi - 31.12.2026 Supporto del secondo livello Prestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa Sembra interessante? Basta cliccare.",
-        "en": "Position? Then we look forward to full application documents via online form. In the case of applications by e-mail, the sender or sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profiles (94MWP9)\n• IT - IT Infrastructure and Operations\n• Lucerne Contracting Full time From now on - 31.12.2026 2nd level support Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance Sounds interesting? Simply click.",
-        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (94MWP9)\n• IT - IT Infrastructure & Operations\n• Luzern\n• Contracting\n• Full Time\n• Ab sofort - 31.12.2026 mit Option auf Verlängerung\n• 2nd Level Support Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
-        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Dans le cas des applications par e-mail, l'expéditeur ou l'expéditeur convient que les données transmises seront utilisées conformément à notre politique de protection des données. D'autres offres d'emploi peuvent être trouvées ici: coopers.ch Profils d'emploi (94MWP9)\n• IT - Infrastructure et opérations de TI\n• Lucerne Contrats Temps plein À partir de maintenant - 31.12.2026 Appui de deuxième niveau Prestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Accueil\n• Espace de travail moderne\n• Équilibre travail-vie privée Ça semble intéressant ? Il suffit de cliquer."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=94MWP9",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:59.659Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=94MWP9",
-      "requirements": [
-        "IT - IT Infrastructure & Operations",
-        "Luzern",
-        "Contracting",
-        "Full Time",
-        "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
-        "2nd Level Support"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - IT Infrastructure & Operations",
-          "Contracting",
-          "Full Time",
-          "Ab sofort - 31.12.2026",
-          "2nd Level Support",
-          "Ab sofort - 31.12.2026 mit Option auf Verlängerung"
-        ]
-      },
-      "previousSlugs": [
-        "senior-2nd-level-supporter-in-m-w-d-coopers-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-2nd-level-supporter-in-m-w-d-coopers-luzern",
-          "sostenitore-di-secondo-livello-senior-in-m-f-d-coopers-group-ag-luzern"
-        ],
-        "fr": [
-          "senior-2nd-level-supporter-in-m-w-d-coopers-luzern"
+          "senior-requirement-engineer-80-100-m-w-d-coopers-luzern",
+          "senior-requirement-ingegnere-80-100-m-w-d-coopers-group-ag-luzern"
         ]
       },
-      "firstSeenAt": "2026-06-18T22:36:36.521Z",
+      "firstSeenAt": "2026-07-03T10:49:00.969Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2213,7 +1965,7 @@
       "title": "Senior Windows Server Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Windows Server Ingegnere (m/w/d)",
-        "en": "Senior Windows Server Engineer (m/f/d)",
+        "en": "Senior Windows Server Engineer (m/w/d)",
         "de": "Senior Windows Server Ingenieur (m/w/d)",
         "fr": "Senior Windows Server Ingénieur (m/w/d)"
       },
@@ -2229,7 +1981,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9UE5C4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:58.366Z",
+      "crawledAt": "2026-07-03T21:47:37.138Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2273,6 +2025,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:07:38.149Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2318,7 +2071,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6W19YV",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:56.963Z",
+      "crawledAt": "2026-07-03T21:47:35.839Z",
       "addressLocality": "Basel Region",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2412,7 +2165,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0I6UA9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:55.606Z",
+      "crawledAt": "2026-07-03T21:47:34.556Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2460,6 +2213,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T11:57:32.210Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2505,7 +2259,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=93BQW6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:54.297Z",
+      "crawledAt": "2026-07-03T21:47:33.294Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2517,7 +2271,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
+      "postedDate": "2026-06-19",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=93BQW6",
       "requirements": [
         "IT - Project Management",
@@ -2545,6 +2299,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T14:02:00.336Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2590,7 +2345,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:48:52.907Z",
+      "crawledAt": "2026-07-03T21:47:31.990Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2704,7 +2459,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JE8O3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:51.495Z",
+      "crawledAt": "2026-07-03T21:47:30.700Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2749,6 +2504,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:08:55.535Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2794,7 +2550,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P2GM95",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:50.175Z",
+      "crawledAt": "2026-07-03T21:47:29.399Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2842,6 +2598,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:01:10.334Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2887,7 +2644,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=NZ030I",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:48:48.862Z",
+      "crawledAt": "2026-07-03T21:47:28.075Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2899,7 +2656,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-26",
+      "postedDate": "2026-06-25",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=NZ030I",
       "requirements": [
         "IT - Project Management",
@@ -2942,6 +2699,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T21:44:44.913Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2971,7 +2729,7 @@
       "title": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
       "titleByLocale": {
         "it": "Customer Care Consulente (Service Desk Agent) (m/w/d)",
-        "en": "Customer Care Consultant (Service Desk Agent) (m/f/d)",
+        "en": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
         "de": "Customer Care Berater (Service Desk Agent) (m/w/d)",
         "fr": "Consultant en soins à la clientèle (agent de service) (m/f/d)"
       },
@@ -2987,7 +2745,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=ZH5H90",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:47.544Z",
+      "crawledAt": "2026-07-03T21:47:26.778Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3019,6 +2777,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:55:15.353Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3064,7 +2823,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=54DUZ4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:45.806Z",
+      "crawledAt": "2026-07-03T21:47:25.459Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3112,6 +2871,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:55:14.035Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3157,7 +2917,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:44.491Z",
+      "crawledAt": "2026-07-03T21:47:24.177Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3169,7 +2929,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-30",
+      "postedDate": "2026-06-29",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "requirements": [
         "IT - Software Engineering",
@@ -3204,6 +2964,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:09:47.963Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3217,97 +2978,6 @@
         }
       },
       "postalCode": "6003"
-    },
-    {
-      "id": "coopers-79290e93ef5b",
-      "slug": "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft",
-      "slugByLocale": {
-        "it": "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft",
-        "en": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
-        "de": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
-        "fr": "soutien-de-la-ti-infrastructure-et-milieu-de-travail-m-f-d-coopers-group-ag-basel-landschaft"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "IT Supporter - Infrastruktur & Workplace (m/w/d)",
-      "titleByLocale": {
-        "it": "Supporto IT - Infrastrutture e luoghi di lavoro (m/f/d)",
-        "en": "IT Supporter - Infrastructure & Workplace (m/f/d)",
-        "de": "IT Supporter - Infrastruktur & Workplace (m/w/d)",
-        "fr": "Soutien de la TI - Infrastructure et milieu de travail (m/f/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7YVC86)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nAb sofort - 6 Monate mit Option auf Verlängerung\n\n2nd Level Support, ServiceNow\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Per le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profilo del lavoro (7YVC86)\n• IT - Infrastrutture e Operazioni IT\n• Paesaggio di Basilea Contratti Tempo pieno Mid-June - 6 mesi con opzione di estensione Supporto di 2 ° livello, ServiceNow Sembra interessante? Basta cliccare.",
-        "en": "Position? Then we look forward to full application documents via online form. For applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profile (7YVC86)\n• IT - IT Infrastructure and Operations\n• Basel Landscape Contracting Full time Mid-June - 6 months with option of extension 2nd Level Support, ServiceNow Sounds interesting? Simply click.",
-        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (7YVC86)\n• IT - IT Infrastructure & Operations\n• Basel-Landschaft\n• Contracting\n• Full Time\n• Ab sofort - 6 Monate mit Option auf Verlängerung\n• 2nd Level Support, ServiceNow Sounds interesting? Simply click \"",
-        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Pour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données. D'autres offres d'emploi sont disponibles ici : coopers.ch Profil d'emploi (7YVC86)\n• TI - Infrastructure et opérations de TI\n• Paysage de Bâle Contrats Temps plein mi-juin - 6 mois avec possibilité de prolongation Soutien de 2ème niveau, ServiceNow Ça semble intéressant ? Cliquez simplement."
-      },
-      "location": "Basel-Landschaft",
-      "canton": "BS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7YVC86",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:43.172Z",
-      "addressLocality": "Basel-Landschaft",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=7YVC86",
-      "requirements": [
-        "IT - IT Infrastructure & Operations",
-        "Basel-Landschaft",
-        "Contracting",
-        "Full Time",
-        "Ab sofort - 6 Monate mit Option auf Verlängerung",
-        "2nd Level Support, ServiceNow"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - IT Infrastructure & Operations",
-          "Basel-Landschaft",
-          "Contracting",
-          "Full Time",
-          "Mitte Juni - 6 Monate mit Option auf Verlängerung",
-          "2nd Level Support, ServiceNow",
-          "Ab sofort - 6 Monate mit Option auf Verlängerung"
-        ]
-      },
-      "previousSlugs": [
-        "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
-          "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft"
-        ],
-        "fr": [
-          "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T22:07:55.828Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4001"
     },
     {
       "id": "coopers-793b19a4369d",
@@ -3340,7 +3010,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5JTZ59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:48:41.834Z",
+      "crawledAt": "2026-07-03T21:47:22.838Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3386,6 +3056,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:57.596Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3431,7 +3102,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=S3L4B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:40.495Z",
+      "crawledAt": "2026-07-03T21:47:21.532Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3478,6 +3149,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:56.298Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3507,7 +3179,7 @@
       "title": "Senior Netzwerk & Cloud Security Engineer (SASE / M365) (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere Senior di Rete e Sicurezza Cloud (SASE / M365)",
-        "en": "Senior Network & Cloud Security Engineer (SASE / M365) (m/f/d)",
+        "en": "Senior Netzwerk & Cloud Security Engineer (SASE / M365) (m/w/d)",
         "de": "Senior Netzwerk & Cloud Security Ingenieur (SASE / M365) (m/w/d)",
         "fr": "Ingénieur Senior Réseau et Sécurité Cloud (SASE / M365)"
       },
@@ -3523,7 +3195,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E972HZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:39.135Z",
+      "crawledAt": "2026-07-03T21:47:20.202Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -3567,6 +3239,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:49.848Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3596,7 +3269,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -3612,7 +3285,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:37.688Z",
+      "crawledAt": "2026-07-03T21:47:18.885Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3646,6 +3319,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:05.931Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3691,7 +3365,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=A93K9B",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:36.382Z",
+      "crawledAt": "2026-07-03T21:47:17.474Z",
       "addressLocality": "Basel Region",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3781,7 +3455,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6ME3L1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:35.086Z",
+      "crawledAt": "2026-07-03T21:47:16.194Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3829,6 +3503,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:50.840Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3874,7 +3549,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00K1UW",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:33.688Z",
+      "crawledAt": "2026-07-03T21:47:14.895Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3907,6 +3582,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:49.556Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3936,7 +3612,7 @@
       "title": "Senior Active Directory Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Active Directory Ingegnere (m/w/d)",
-        "en": "Senior Active Directory Engineer (m/f/d)",
+        "en": "Senior Active Directory Engineer (m/w/d)",
         "de": "Senior Active Directory Ingenieur (m/w/d)",
         "fr": "Senior Active Directory Ingénieur (m/w/d)"
       },
@@ -3952,7 +3628,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E6S38Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:32.278Z",
+      "crawledAt": "2026-07-03T21:47:13.596Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3996,6 +3672,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:37:48.236Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -4025,7 +3702,7 @@
       "title": "Senior Expert Algo Trading Architecture (m/w/d)",
       "titleByLocale": {
         "it": "Senior Expert Algo Trading Architecture (m/f/d)",
-        "en": "Senior Expert Algo Trading Architecture (m/f/d)",
+        "en": "Senior Expert Algo Trading Architecture (m/w/d)",
         "de": "Senior Expert Algo Trading Architecture (m/w/d)",
         "fr": "Expert principal Algo Trading Architecture (m/f/d)"
       },
@@ -4041,7 +3718,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FA417O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:30.830Z",
+      "crawledAt": "2026-07-03T21:47:12.206Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4076,6 +3753,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:38:20.832Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4105,7 +3783,7 @@
       "title": "SHEQ Manager / Sicherheitsbeauftragter (SiBe) 100% (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
-        "en": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
+        "en": "SHEQ Manager / Sicherheitsbeauftragter (SiBe) 100% (m/w/d)",
         "de": "SHEQ Manager / Sicherheitsbeauftragter (SiBe) 100% (m/w/d)",
         "fr": "SHEQ Gestionnaire / Agent de sécurité (SiBe) 100% (m/f/d)"
       },
@@ -4121,7 +3799,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3MQ82W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:29.436Z",
+      "crawledAt": "2026-07-03T21:47:10.889Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4150,15 +3828,17 @@
           "Quality, Health & Safety"
         ]
       },
-      "firstSeenAt": "2026-07-02T21:38:19.523Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau"
-        ]
-      },
       "previousSlugs": [
         "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau",
+          "sheq-manager-safety-officer-sibe-100-m-f-d-coopers-group-ag-aargau"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T21:38:19.523Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -4204,7 +3884,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1LD68U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:48:28.096Z",
+      "crawledAt": "2026-07-03T21:47:09.522Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -4250,6 +3930,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:08:45.139Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4295,7 +3976,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V3R23Q",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:26.770Z",
+      "crawledAt": "2026-07-03T21:47:08.190Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4345,6 +4026,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:08:43.592Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4374,7 +4056,7 @@
       "title": "Test Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Test Ingegnere (m/w/d)",
-        "en": "Test Engineer (m/f/d)",
+        "en": "Test Engineer (m/w/d)",
         "de": "Test Ingenieur (m/w/d)",
         "fr": "Test Ingénieur (m/w/d)"
       },
@@ -4390,7 +4072,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=NZT197",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:48:25.441Z",
+      "crawledAt": "2026-07-03T21:47:06.871Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4434,6 +4116,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:08:42.298Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4479,7 +4162,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=87KGM4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:48:24.138Z",
+      "crawledAt": "2026-07-03T21:47:05.562Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4514,6 +4197,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:08:40.948Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4534,37 +4218,129 @@
       }
     },
     {
-      "id": "coopers-2de318d69ebd",
-      "slug": "gxp-support-specialist-m-f-d-coopers-basel-stadt",
+      "id": "coopers-79290e93ef5b",
+      "slug": "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
+        "it": "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft",
+        "en": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+        "de": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+        "fr": "soutien-de-la-ti-infrastructure-et-milieu-de-travail-m-f-d-coopers-group-ag-basel-landschaft"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "IT Supporter - Infrastruktur & Workplace (m/w/d)",
+      "titleByLocale": {
+        "it": "Supporto IT - Infrastrutture e luoghi di lavoro (m/f/d)",
+        "en": "IT Supporter - Infrastruktur & Workplace (m/w/d)",
+        "de": "IT Supporter - Infrastruktur & Workplace (m/w/d)",
+        "fr": "Soutien de la TI - Infrastructure et milieu de travail (m/f/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7YVC86)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nAb sofort - 6 Monate mit Option auf Verlängerung\n\n2nd Level Support, ServiceNow\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Per le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profilo del lavoro (7YVC86)\n• IT - Infrastrutture e Operazioni IT\n• Paesaggio di Basilea Contratti Tempo pieno Mid-June - 6 mesi con opzione di estensione Supporto di 2 ° livello, ServiceNow Sembra interessante? Basta cliccare.",
+        "en": "Position? Then we look forward to full application documents via online form. For applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profile (7YVC86)\n• IT - IT Infrastructure and Operations\n• Basel Landscape Contracting Full time Mid-June - 6 months with option of extension 2nd Level Support, ServiceNow Sounds interesting? Simply click.",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (7YVC86)\n• IT - IT Infrastructure & Operations\n• Basel-Landschaft\n• Contracting\n• Full Time\n• Ab sofort - 6 Monate mit Option auf Verlängerung\n• 2nd Level Support, ServiceNow Sounds interesting? Simply click \"",
+        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Pour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données. D'autres offres d'emploi sont disponibles ici : coopers.ch Profil d'emploi (7YVC86)\n• TI - Infrastructure et opérations de TI\n• Paysage de Bâle Contrats Temps plein mi-juin - 6 mois avec possibilité de prolongation Soutien de 2ème niveau, ServiceNow Ça semble intéressant ? Cliquez simplement."
+      },
+      "location": "Basel-Landschaft",
+      "canton": "BS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7YVC86",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T21:47:04.274Z",
+      "addressLocality": "Basel-Landschaft",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=7YVC86",
+      "requirements": [
+        "IT - IT Infrastructure & Operations",
+        "Basel-Landschaft",
+        "Contracting",
+        "Full Time",
+        "Ab sofort - 6 Monate mit Option auf Verlängerung",
+        "2nd Level Support, ServiceNow"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - IT Infrastructure & Operations",
+          "Basel-Landschaft",
+          "Contracting",
+          "Full Time",
+          "Mitte Juni - 6 Monate mit Option auf Verlängerung",
+          "2nd Level Support, ServiceNow",
+          "Ab sofort - 6 Monate mit Option auf Verlängerung"
+        ]
+      },
+      "previousSlugs": [
+        "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+          "supporto-it-infrastrutture-e-luoghi-di-lavoro-m-f-d-coopers-group-ag-basel-landschaft"
+        ],
+        "fr": [
+          "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T22:07:55.828Z",
+      "needsRetranslation": true,
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001"
+    },
+    {
+      "id": "coopers-2de318d69ebd",
+      "slug": "gxp-support-specialista-m-f-d-coopers-group-ag-basel-stadt",
+      "slugByLocale": {
+        "it": "gxp-support-specialista-m-f-d-coopers-group-ag-basel-stadt",
         "en": "gxp-support-specialist-m-f-d-coopers-basel-stadt",
-        "it": "gxp-support-specialist-m-f-d-coopers-basel-stadt",
-        "de": "gxp-support-specialist-m-f-d-coopers-basel-stadt",
-        "fr": "gxp-support-specialist-m-f-d-coopers-basel-stadt"
+        "de": "gxp-support-spezialist-m-f-d-coopers-group-ag-basel-stadt",
+        "fr": "gxp-support-specialiste-m-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "GxP Support Specialist (m/f/d)",
       "titleByLocale": {
-        "en": "GxP Support Specialist (m/f/d)",
         "it": "GxP Support Specialista (m/f/d)",
+        "en": "GxP Support Specialist (m/f/d)",
         "de": "GxP Support Spezialist (m/f/d)",
         "fr": "GxP Support Spécialiste (m/f/d)"
       },
       "description": "positions\n\n•\n\t\t\t\t\t\tGxP Support Specialist\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
       "descriptionByLocale": {
-        "en": "positions\n\n•\n\t\t\t\t\t\tGxP Support Specialist\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
-        "it": "posizioni\n\n•\n Specialista di supporto GxP\n\nCandidati\n\n•\n Coopers Portal\n\n•\n Coopers Care\n\n•\n Specializzazione\n\n•\n Posizioni\n\n•\n Contratti\n\n•\n Pagamenti\n\n•\n Fare riferimento a un amico\n\nAziende\n\n•\n Reclutamento\n\n•\n Ricerca executive\n\n•\n Reclutamento del progetto\n\n•\n RPO\n\n•\n MSP\n\n•\n Consulenza e Soluzioni\n\nInformazioni\n\n•\n Team\n\n•\n Unisciti a noi\n\n•\n Talentor\n\nBlog\n\nContatto\n\n• Modulo di contatto\n\n• Offerte IT Basilea\n\n• Lavori IT Zurigo\n\n• Offerte di lavoro Berna\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basilea\n\n+41 41 632 43 50\n\nufficio@coopers.ch\n\n•\n\n•\n Informativa sulla privacy\n\n•\n Imprint\n\n•\n Mappa del sito",
-        "de": "Positionen\n\n•\n GxP Support Spezialist\n\nKandidaten\n\n•\n Coopers Portal\n\n•\n Coopers Care\n\n•\n Spezialisierung\n\n•\n Platzierungen\n\n•\n Vertrag\n\n•\n Payrolling\n\n•\n Verweisen Sie einen Freund\n\nUnternehmen\n\n•\n Einstellung\n\n•\n Executive Search\n\n•\n Projektrekrutierung\n\n•\n RPO\n\n•\n MSP\n\n•\n Beratung & Lösungen\n\nÜber\n\n•\n Team\n\n•\n Begleiten Sie uns\n\n•\n Talentor\n\nBlog Blog\n\nKontakt\n\n• Kontaktformular\n\n• IT Jobs Basel\n\n• IT Jobs Zürich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstraße 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n Datenschutzpolitik\n\n•\n Abdruck\n\n•\n Sitemap",
-        "fr": "Fonctions\n\n•\n Spécialiste du soutien GxP\n\nCandidats\n\n•\n Portail Coopers\n\n•\n Coopers Care\n\n•\n Spécialisation\n\n•\n Placements\n\n•\n Contrats\n\n•\n Solde\n\n•\n Référez un ami\n\nEntreprises\n\n•\n Recrutement\n\n•\n Recherche exécutive\n\n•\n Recrutement de projets\n\n•\n RPO\n\n•\n MSP\n\n•\n Conseil & Solutions\n\nÀ propos\n\n•\n Équipe\n\n•\n Rejoignez-nous\n\n•\n Talentor\n\nBlog\n\nPersonne à contacter\n\n• Formulaire de contact\n\n• Emplois en TI Bâle\n\n• Emplois en informatique Zurich\n\n• Emplois en informatique Berne\n\n• Emplois LS Bâle\n\nGroupe Coopers AG\n\nGrellingerstrasse 75\n\nCH-4052 Bâle\n\n+41 41 632 43 50\n\nbureau@coopers.ch\n\n•\n\n•\n Politique de confidentialité\n\n•\n Empreinte\n\n•\n Plan du site"
+        "it": "posizioni\n• Specialista di supporto GxP Candidati\n• Coopers Portal\n• Coopers Care\n• Specializzazione\n• Posizioni\n• Contratti\n• Pagamenti\n• Fare riferimento a un amico Aziende\n• Reclutamento\n• Ricerca executive\n• Reclutamento del progetto\n• RPO\n• MSP\n• Consulenza e Soluzioni Informazioni\n• Team\n• Unisciti a noi\n• Talentor Blog Contatto\n• Modulo di contatto\n• Offerte IT Basilea\n• Lavori IT Zurigo\n• Offerte di lavoro Berna\n• LS Jobs Basel Coopers Group AG Grellingerstrasse 75 CH-4052 Basilea +41 41 632 43 50 ufficio@coopers.ch\n• • Informativa sulla privacy\n• Imprint\n• Mappa del sito",
+        "en": "positions\n• GxP Support Specialist Candidates\n• Coopers Portal\n• Coopers Care\n• Specialization\n• Placements\n• Contracting\n• Payrolling\n• Refer a Friend Companies\n• Specialization\n• Recruitment\n• Executive Search\n• Project Recruiting\n• Contracting\n• Payrolling\n• RPO\n• MSP\n• Consulting & Solutions About\n• Team\n• Join us\n• Talentor Blog Contact\n• Contact Form\n• IT Jobs Basel\n• IT Jobs Zurich\n• IT Jobs Bern\n• LS Jobs Basel Coopers Group AG Grellingerstrasse 75 CH-4052 Basel +41 41 632 43 50 office@coopers.ch\n• •\n• •\n• Privacy policy\n• Imprint\n• Sitemap\n• • •",
+        "de": "Positionen\n• GxP Support Spezialist Kandidaten\n• Coopers Portal\n• Coopers Care\n• Spezialisierung\n• Platzierungen\n• Vertrag\n• Payrolling\n• Verweisen Sie einen Freund Unternehmen\n• Einstellung\n• Executive Search\n• Projektrekrutierung\n• RPO\n• MSP\n• Beratung & Lösungen Über\n• Team\n• Begleiten Sie uns\n• Talentor Blog Blog Kontakt\n• Kontaktformular\n• IT Jobs Basel\n• IT Jobs Zürich\n• IT Jobs Bern\n• LS Jobs Basel Coopers Group AG Grellingerstraße 75 CH-4052 Basel +41 41 632 43 50 office@coopers.ch\n• • Datenschutzpolitik\n• Abdruck\n• Sitemap",
+        "fr": "Fonctions\n• Spécialiste du soutien GxP Candidats\n• Portail Coopers\n• Coopers Care\n• Spécialisation\n• Placements\n• Contrats\n• Solde\n• Référez un ami Entreprises\n• Recrutement\n• Recherche exécutive\n• Recrutement de projets\n• RPO\n• MSP\n• Conseil & Solutions À propos\n• Équipe\n• Rejoignez-nous\n• Talentor Blog Personne à contacter\n• Formulaire de contact\n• Emplois en TI Bâle\n• Emplois en informatique Zurich\n• Emplois en informatique Berne\n• Emplois LS Bâle Groupe Coopers AG Grellingerstrasse 75 CH-4052 Bâle +41 41 632 43 50 bureau@coopers.ch\n• • Politique de confidentialité\n• Empreinte\n• Plan du site"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XL42S4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:48:22.794Z",
+      "crawledAt": "2026-07-03T21:47:02.738Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4589,7 +4365,7 @@
       ],
       "requirementsByLocale": {
         "en": [
-          "Candidates \n\t\t\t \n\t\t\t\t\t\t\t \n\t\t\t\t\t\n\n\t\t\t\t\t \n\t\t\t\t \n\t\t\t\t\t\t\t\n• \n\t\t \n\t\t\t \n\t\t\t\t Coopers Portal",
+          "Candidates • Coopers Portal",
           "Coopers Care",
           "Specialization",
           "Placements",
@@ -4598,6 +4374,22 @@
           "Refer a Friend"
         ]
       },
+      "firstSeenAt": "2026-07-03T10:48:22.794Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gxp-support-specialist-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "gxp-support-specialist-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "gxp-support-specialist-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "gxp-support-specialist-m-f-d-coopers-basel-stadt"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4610,8 +4402,281 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-07-03T10:48:22.794Z"
+      "postalCode": "4001"
+    },
+    {
+      "id": "coopers-2f248b828bb2",
+      "slug": "software-ingegnere-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug",
+      "slugByLocale": {
+        "it": "software-ingegnere-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug",
+        "en": "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug",
+        "de": "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug",
+        "fr": "software-ingenieur-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Software Engineer – Embedded Software (Gradle / Ant) (m/w/d)",
+      "titleByLocale": {
+        "it": "Software Ingegnere – Embedded Software (Gradle / Ant) (m/w/d)",
+        "en": "Software Engineer – Embedded Software (Gradle / Ant) (m/w/d)",
+        "de": "Software Ingenieur – Embedded Software (Gradle / Ant) (m/w/d)",
+        "fr": "Software Ingénieur – Embedded Software (Gradle / Ant) (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (X17N0R)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nZug\n\nContracting\n\nFull Time\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\nDevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Per le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profilo del lavoro (X17N0R)\n• IT - Infrastrutture e Operazioni IT\n• IT - Ingegneria del software\n• Treno Contratti Tempo pieno A partire da ora - 31.12.2026 con opzione di estensione DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Sembra interessante? Basta cliccare.",
+        "en": "Position? Then we look forward to full application documents via online form. For applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profile (X17N0R)\n• IT - IT Infrastructure and Operations\n• IT - Software Engineering\n• Train Contracting Full time As of now - 31.12.2026 with option of extension DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Sounds interesting? Simply click.",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (X17N0R)\n• IT - IT Infrastructure & Operations\n• IT - Software Engineering\n• Zug\n• Contracting\n• Full Time\n• Ab sofort - 31.12.2026 mit Option auf Verlängerung\n• DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Sounds interesting? Simply click \"",
+        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Pour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données. D'autres offres d'emploi sont disponibles ici : coopers.ch Profil d'emploi (X17N0R)\n• TI - Infrastructure et opérations de TI\n• IT - Génie logiciel\n• Train Contrats Temps plein Dès maintenant - 31.12.2026 avec possibilité d'extension DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit Ça semble intéressant ? Cliquez simplement."
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=X17N0R",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T10:49:20.095Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=X17N0R",
+      "requirements": [
+        "IT - IT Infrastructure & Operations",
+        "IT - Software Engineering",
+        "Contracting",
+        "Full Time",
+        "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
+        "DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - IT Infrastructure & Operations",
+          "IT - Software Engineering",
+          "Contracting",
+          "Full Time",
+          "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
+          "DevOps, Java, Ant, CI/CD, Migration, C++, GitLab, Automation, Junit"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug",
+          "software-ingegnere-embedded-software-gradle-ant-m-w-d-coopers-group-ag-zug"
+        ],
+        "fr": [
+          "software-engineer-embedded-software-gradle-ant-m-w-d-coopers-zug"
+        ]
+      },
+      "firstSeenAt": "2026-06-24T11:04:21.367Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6300",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
+    },
+    {
+      "id": "coopers-9aec97008ec6",
+      "slug": "citrix-support-ingegnere-m-w-d-coopers-group-ag-luzern",
+      "slugByLocale": {
+        "it": "citrix-support-ingegnere-m-w-d-coopers-group-ag-luzern",
+        "en": "citrix-support-engineer-m-w-d-coopers-luzern",
+        "de": "citrix-support-engineer-m-w-d-coopers-luzern",
+        "fr": "citrix-support-ingenieur-m-w-d-coopers-group-ag-luzern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Citrix Support Engineer (m/w/d)",
+      "titleByLocale": {
+        "it": "Ingegnere di supporto Citrix (m/f/d)",
+        "en": "Citrix Support Engineer (m/w/d)",
+        "de": "Citrix Support Ingenieur (m/w/d)",
+        "fr": "Ingénieur Support Citrix (m/f/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (642KTL)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nFull Time\n\nab sofort - 31.12.2026 mit Option auf Verlängerung\n\nCitrix\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "it": "Posizione? Poi attendiamo con interesse di ricevere i documenti completi della domanda tramite modulo online. Nel caso di domande via e-mail, il mittente accetta che i dati trasmessi vengano utilizzati in conformità con la nostra politica sulla privacy. Altre offerte di lavoro sono disponibili qui: coopers.ch Profilo lavorativo (642KTL)\n• IT - Ingegneria del Software\n• Contratti a Lucerna a tempo pieno attualmente - 31.12.2026 con opzione per estendere i benefici del lavoro Citrix\n• Termini di battesimo\n• Gerarchia piatta\n• Home Office\n• Ambiente di lavoro moderno\n• Equilibrio tra lavoro e vita privata Sembra interessante? Basta cliccare \"",
+        "en": "Position? Then we look forward to receiving complete application documents via online form. In the case of applications by e-mail, the sender agrees that the transmitted data will be used in accordance with our privacy policy. More vacancies can be found here: coopers.ch Job profile (642KTL)\n• IT - Software Engineering\n• Luzern Contracting Full Time as of now - 31.12.2026 with option to extend Citrix Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (642KTL)\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Full Time\n• ab sofort - 31.12.2026 mit Option auf Verlängerung\n• Citrix Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
+        "fr": "Poste? Ensuite, nous attendons avec impatience de recevoir les documents de candidature complets via un formulaire en ligne. Dans le cas de demandes par e-mail, l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de confidentialité. Plus d'offres d'emploi sont disponibles ici : coopers.ch Profil d'emploi (642KTL)\n• IT - Génie logiciel\n• Entrepreneur à Lucerne à temps plein actuellement - 31.12.2026 avec possibilité d'étendre les avantages du poste Citrix\n• Termes prénoms\n• Hiérarchie plate\n• Home Office\n• Espace de travail moderne\n• Équilibre vie professionnelle-vie privée Ça vous intéresse? Il suffit de cliquer \""
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=642KTL",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T10:49:02.535Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=642KTL",
+      "requirements": [
+        "IT - Software Engineering",
+        "Luzern",
+        "Contracting",
+        "Full Time",
+        "ab sofort - 31.12.2026 mit Option auf Verlängerung",
+        "Citrix"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - Software Engineering",
+          "Contracting",
+          "Full Time",
+          "ab sofort - 31.12.2026 mit Option auf Verlängerung"
+        ]
+      },
+      "previousSlugs": [
+        "citrix-support-engineer-m-w-d-coopers-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "citrix-support-engineer-m-w-d-coopers-luzern",
+          "citrix-support-ingegnere-m-w-d-coopers-group-ag-luzern"
+        ],
+        "fr": [
+          "citrix-support-engineer-m-w-d-coopers-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-06-15T14:12:11.636Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6003",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
+    },
+    {
+      "id": "coopers-d81309585378",
+      "slug": "sostenitore-di-secondo-livello-senior-in-m-f-d-coopers-group-ag-luzern",
+      "slugByLocale": {
+        "it": "sostenitore-di-secondo-livello-senior-in-m-f-d-coopers-group-ag-luzern",
+        "en": "senior-2nd-level-supporter-in-m-w-d-coopers-luzern",
+        "de": "senior-2nd-level-supporter-in-m-w-d-coopers-luzern",
+        "fr": "supporteur-senior-de-2e-niveau-en-m-f-d-coopers-group-ag-luzern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Senior 2nd Level Supporter:in (m/w/d)",
+      "titleByLocale": {
+        "it": "Sostenitore di secondo livello senior:in (m/f/d)",
+        "en": "Senior 2nd Level Supporter:in (m/f/d)",
+        "de": "Senior 2nd Level Supporter:in (m/w/d)",
+        "fr": "Supporteur senior de 2e niveau : en (m/f/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (94MWP9)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nLuzern\n\nContracting\n\nFull Time\n\nAb sofort - 31.12.2026 mit Option auf Verlängerung\n\n2nd Level Support\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "it": "Posizione? Quindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online. Nel caso di domande via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati. Ulteriori offerte sono disponibili qui: coopers.ch Profili di lavoro (94MWP9)\n• IT - Infrastrutture e Operazioni IT\n• Lucerna Contraente Tempo pieno D'ora in poi - 31.12.2026 Supporto del secondo livello Prestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa Sembra interessante? Basta cliccare.",
+        "en": "Position? Then we look forward to full application documents via online form. In the case of applications by e-mail, the sender or sender agrees that the transmitted data will be used in accordance with our data protection policy. Further vacancies can be found here: coopers.ch Job profiles (94MWP9)\n• IT - IT Infrastructure and Operations\n• Lucerne Contracting Full time From now on - 31.12.2026 2nd level support Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance Sounds interesting? Simply click.",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (94MWP9)\n• IT - IT Infrastructure & Operations\n• Luzern\n• Contracting\n• Full Time\n• Ab sofort - 31.12.2026 mit Option auf Verlängerung\n• 2nd Level Support Job benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
+        "fr": "Position ? Ensuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne. Dans le cas des applications par e-mail, l'expéditeur ou l'expéditeur convient que les données transmises seront utilisées conformément à notre politique de protection des données. D'autres offres d'emploi peuvent être trouvées ici: coopers.ch Profils d'emploi (94MWP9)\n• IT - Infrastructure et opérations de TI\n• Lucerne Contrats Temps plein À partir de maintenant - 31.12.2026 Appui de deuxième niveau Prestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Accueil\n• Espace de travail moderne\n• Équilibre travail-vie privée Ça semble intéressant ? Il suffit de cliquer."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=94MWP9",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T10:48:59.659Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=94MWP9",
+      "requirements": [
+        "IT - IT Infrastructure & Operations",
+        "Luzern",
+        "Contracting",
+        "Full Time",
+        "Ab sofort - 31.12.2026 mit Option auf Verlängerung",
+        "2nd Level Support"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - IT Infrastructure & Operations",
+          "Contracting",
+          "Full Time",
+          "Ab sofort - 31.12.2026",
+          "2nd Level Support",
+          "Ab sofort - 31.12.2026 mit Option auf Verlängerung"
+        ]
+      },
+      "previousSlugs": [
+        "senior-2nd-level-supporter-in-m-w-d-coopers-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-2nd-level-supporter-in-m-w-d-coopers-luzern",
+          "sostenitore-di-secondo-livello-senior-in-m-f-d-coopers-group-ag-luzern"
+        ],
+        "fr": [
+          "senior-2nd-level-supporter-in-m-w-d-coopers-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-06-18T22:36:36.521Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6003",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "coopers-d085b93d367a",
@@ -4628,7 +4693,7 @@
       "title": "Senior Java Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere Java Senior (m/f/d)",
-        "en": "Senior Java Engineer (m/f/d)",
+        "en": "Senior Java Engineer (m/w/d)",
         "de": "Senior Java Ingenieur (m/w/d)",
         "fr": "Ingénieur Java principal (f/f/d)"
       },
@@ -4706,7 +4771,8 @@
         }
       },
       "postalCode": "6003",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "coopers-327bd90a001f",
@@ -4798,98 +4864,8 @@
         }
       },
       "postalCode": "6300",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "coopers-812f83c8d6e7",
-      "slug": "m365-specialista-in-m-w-d-coopers-group-ag-bern",
-      "slugByLocale": {
-        "it": "m365-specialista-in-m-w-d-coopers-group-ag-bern",
-        "en": "m365-specialist-in-m-w-d-coopers-group-ag-bern",
-        "de": "m365-spezialist-in-m-w-d-coopers-bern",
-        "fr": "m365-specialiste-en-m-w-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "M365 Spezialist:in (m/w/d)",
-      "titleByLocale": {
-        "it": "M365 Specialista:in (m/w/d)",
-        "en": "M365 Specialist:in (m/w/d)",
-        "de": "M365 Spezialist:in (m/w/d)",
-        "fr": "M365 Spécialiste: en (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4BR1D5)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.06.2026 - 31.12.2027\n\nM365\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "M365 Specialista:in (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto part-time (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implementazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relative a M365.\n• Requisiti - Esperienza in gestione e attuazioneazione di soluzioni M365. - Conoscenza di Microsoft 365 suite (Outlook, Teams, SharePoint, OneDrive, ecc.). - Capacità di lavorare in modo autonomo e in team. - Ottima capacità di problem solving e di problem solving. - Buona conoscenza della lingua italiana e inglese. Cosa? - Contratto part-time (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Link al sito web di Coopers Group AG] - Grado di occupazione: 100%",
-        "en": "M365 Specialist:in (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto part-time (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implementazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relative a M365.\n• Requisiti - Esperienza in gestione e implementationazione di soluzioni M365. - Conoscenza di Microsoft 365 suite (Outlook, Teams, SharePoint, OneDrive, ecc.). - Capacità di lavorare in modo autonomo e in team. - Ottima capacità di problem solving e di problem solving. - Buona conoscenza della lingua italiana e inglese.\n• Cosa offriamo - Contratto part-time (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Link al sito web di Coopers Group AG] - Grado di occupazione: 100%",
-        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (4BR1D5)\n• IT - IT Infrastructure & Operations\n• Bern\n• Contracting\n• Part Time, 80-100%\n• 01.06.2026 - 31.12.2027\n• M365 Sounds interesting? Simply click \"",
-        "fr": "M365 Spécialiste: en (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto temps partiel (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implémentationazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relatif à M365.\n• Requisiti - Esperienza in gestione e implementazione di soluzioni M365. - Suite Conoscenza di Microsoft 365 (Outlook, Teams, SharePoint, OneDrive, etc.). - Capacità di lavorare en modo autonomo e en équipe. - Ottima capacità di problem resolution e di problem resolution. - Buona conoscenza della lingua italiana e inglese.\n• Cosa offriamo - Contratto temps partiel (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Lien al sito web di Coopers Group AG] - Grado di occupationazione: 100%"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BR1D5",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T11:09:32.073Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BR1D5",
-      "requirements": [
-        "IT - IT Infrastructure & Operations",
-        "Bern",
-        "Contracting",
-        "Part Time, 80-100%",
-        "01.06.2026 - 31.12.2027",
-        "M365"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - IT Infrastructure & Operations",
-          "Contracting",
-          "Part Time, 80-100%",
-          "01.06.2026 - 31.12.2027"
-        ]
-      },
-      "previousSlugs": [
-        "m365-spezialist-in-m-w-d-coopers-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "m365-spezialist-in-m-w-d-coopers-bern"
-        ],
-        "en": [
-          "m365-spezialist-in-m-w-d-coopers-bern"
-        ],
-        "fr": [
-          "m365-spezialist-in-m-w-d-coopers-bern"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T23:12:29.368Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
