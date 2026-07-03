@@ -548,6 +548,10 @@ export const COMPANY_HQ = {
   // the company's own legal notice page (chopard.com/it-it/legal-terms-of-
   // website-use.html); no fallback needed.
   'chopard': { city: 'Meyrin', canton: 'GE', postalCode: '1217', addressRegion: 'GE' },
+  // Patek Philippe SA HQ, Chemin du Pont-du-Centenaire 141, 1228
+  // Plan-les-Ouates GE — confirmed via patek.com's own legal-notices page
+  // (terms-and-conditions imprint); no fallback needed.
+  'patek-philippe': { city: 'Plan-les-Ouates', canton: 'GE', postalCode: '1228', addressRegion: 'GE' },
 };
 
 /**
