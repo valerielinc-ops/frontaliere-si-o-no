@@ -41,9 +41,9 @@
       },
       "slugByLocale": {
         "it": "manager-sostenibilita-acquisti-80-100-lun-f-d-lidl-svizzera-weinfelden",
-        "en": "manager-nachhaltigkeit-einkauf-80-100-m-w-d-lidl-svizzera-weinfelden-xtxi1l",
+        "en": "manager-sustainability-purchasing-80-100-m-f-d-lidl-svizzera-weinfelden",
         "de": "manager-nachhaltigkeit-einkauf-80-100-m-w-d-lidl-svizzera-weinfelden-xtxi1l",
-        "fr": "manager-nachhaltigkeit-einkauf-80-100-m-w-d-lidl-svizzera-weinfelden-xtxi1l"
+        "fr": "gestionnaire-achats-durables-80-100-m-f-d-lidl-svizzera-weinfelden"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -51,6 +51,12 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-nachhaltigkeit-einkauf-80-100-m-w-d-lidl-svizzera-weinfelden",
+          "manager-nachhaltigkeit-einkauf-80-100-m-w-d-lidl-svizzera-weinfelden-xtxi1l"
+        ],
+        "en": [
+          "manager-nachhaltigkeit-einkauf-80-100-m-w-d-lidl-svizzera-weinfelden-xtxi1l"
+        ],
+        "fr": [
           "manager-nachhaltigkeit-einkauf-80-100-m-w-d-lidl-svizzera-weinfelden-xtxi1l"
         ]
       },
@@ -115,9 +121,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen-klc7tu",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen-klc7tu",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-sankt-gallen-lidl-svizzera-sankt-gallen",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen-klc7tu",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen-klc7tu"
+        "fr": "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-sankt-gallen-lidl-svizzera-sankt-gallen"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -125,10 +131,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen-klc7tu"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen-klc7tu"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-sankt-gallen-klc7tu"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -187,9 +200,9 @@
       },
       "slugByLocale": {
         "it": "assistente-vendite-l-f-d-20-80-zug-lidl-svizzera-zug",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6",
+        "en": "seller-m-f-d-20-80-train-lidl-svizzera-zug",
         "de": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6"
+        "fr": "vendeur-m-f-j-lidl-svizzera-zug"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -197,6 +210,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6"
+        ],
+        "fr": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zug-x52pi6"
         ]
       },
@@ -253,7 +272,8 @@
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur"
         ],
         "en": [
-          "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-fa18db"
+          "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-fa18db",
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34sky"
@@ -266,6 +286,7 @@
         "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-g34sky",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur",
         "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-fa18db",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34sky",
         "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-g34sky"
       ],
@@ -283,7 +304,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-g34s25",
-        "en": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
+        "en": "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-78a534",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g34s25",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-g34s25"
       },
@@ -339,21 +360,19 @@
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52"
         ],
         "en": [
-          "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren"
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52"
         ],
         "de": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf"
         ],
         "fr": [
-          "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren"
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren",
         "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52",
-        "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
-        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf",
-        "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren"
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5myf"
       ],
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin (m/w/d) 20-80% 1 — Schlieren",
@@ -369,9 +388,9 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52",
+        "en": "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
         "de": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52"
+        "fr": "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -601,9 +620,9 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-l-f-d-40-lidl-svizzera-biel-bienne",
-        "en": "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne-lmycni",
+        "en": "seller-m-f-d-40-lidl-svizzera-biel-bienne",
         "de": "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne-lmycni",
-        "fr": "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne-lmycni"
+        "fr": "vendeur-m-f-d-40-lidl-svizzera-biel-bienne"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -611,6 +630,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne",
+          "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne-lmycni"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne-lmycni"
+        ],
+        "fr": [
           "verkaufer-verkauferin-m-w-d-40-lidl-svizzera-biel-bienne-lmycni"
         ]
       },
@@ -666,7 +691,7 @@
           "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp"
         ],
         "en": [
-          "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren"
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp"
@@ -677,13 +702,13 @@
       },
       "previousSlugs": [
         "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
-        "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp",
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckdlp"
       ],
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
+        "en": "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-schlieren-yckctb"
       },
@@ -751,10 +776,10 @@
           "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
         ],
         "en": [
-          "manager-store-manager-h-f-d-80-100-lausanne-lidl-svizzera-lausanne"
+          "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
         ],
         "de": [
-          "manager-store-manager-h-w-d-80-100-lausanne-lidl-svizzera-lausanne"
+          "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
         ],
         "fr": [
           "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jwvt5h"
@@ -763,8 +788,6 @@
       "previousSlugs": [
         "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne",
         "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep",
-        "manager-store-manager-h-f-d-80-100-lausanne-lidl-svizzera-lausanne",
-        "manager-store-manager-h-w-d-80-100-lausanne-lidl-svizzera-lausanne",
         "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jwvt5h"
       ],
       "titleByLocale": {
@@ -781,8 +804,8 @@
       },
       "slugByLocale": {
         "it": "gerant-gerante-de-magasin-m-w-d-80-100-lausanne-lidl-svizzera-lausanne",
-        "en": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep",
-        "de": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep",
+        "en": "manager-store-manager-h-f-d-80-100-lausanne-lidl-svizzera-lausanne",
+        "de": "manager-store-manager-h-w-d-80-100-lausanne-lidl-svizzera-lausanne",
         "fr": "gerant-gerante-de-magasin-m-w-d-80-100-lidl-svizzera-lausanne-jw8tep"
       },
       "requirementsByLocale": {},
@@ -836,7 +859,7 @@
           "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq"
         ],
         "en": [
-          "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur"
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq"
@@ -847,13 +870,13 @@
       },
       "previousSlugs": [
         "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq",
-        "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq",
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzq"
       ],
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
+        "en": "all-rounder-sale-m-f-d-20-40-1-winterthur-lidl-svizzera-winterthur",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-winterthur-tgltzn"
       },
@@ -10931,7 +10954,7 @@
     },
     {
       "id": "company-hx520c",
-      "slug": "collaborateur-collaboratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne",
+      "slug": "collaboratore-self-service-e-partner-commerciale-20-40-lidl-svizzera-payerne",
       "company": "Lidl Svizzera",
       "title": "Collaborateur/Collaboratrice libre-service et vente 20-40%",
       "location": "Payerne",
@@ -10967,7 +10990,7 @@
         "fr": "Introduction Tu aimes être en contact direct avec la clientèle ? Tu souhaites donner toute ton énergie afin d’offrir à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d’une équipe en or ? Alors tu as frappé à la bonne porte. Dans ce secteur dynamique qu’est le commerce de détail, des opportunités de carrière intéressantes et variées t’attendent. Ta mission - Travail aux caisses classiques - Aide lors du scan et du paiement aux caisses libre-service - Aide pour des questions techniques ou liées au maniement - Intervention auprès de la clientèle afin de l’encourager à utiliser les caisses libre-service - Mise en rayon de la marchandise et entretien du magasin Ton profil - Une expérience dans la vente ou dans un domaine similaire est un atout - Flexibilité dans les horaires de travail (du lundi au samedi entre 5h00 et 22h00, équipe du matin ou de l’après-midi) - Enthousiasme pour le contact direct avec la clientèle et le partage de conseils - Bonne condition physique - Excellentes capacités de communication et de résolution de problèmes - Résistance au stress et flexibilité, même en cas de forte affluence - Bon niveau de français (atout apprécié : maîtrise d’autres langues) Notre offre Chez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Si tu le souhaites et que ton profil s’y prête, il est possible de participer à des formations continues internes. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !"
       },
       "slugByLocale": {
-        "it": "collaborateur-collaboratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne",
+        "it": "collaboratore-self-service-e-partner-commerciale-20-40-lidl-svizzera-payerne",
         "en": "collaborator-self-service-and-sales-co-workers-20-40-lidl-svizzera-payerne",
         "de": "mitarbeiter-selbstbedienung-und-vertriebsmitarbeiter-20-40-lidl-svizzera-payerne",
         "fr": "collaborateur-collaboratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne-hx520c"
@@ -10979,7 +11002,7 @@
         "it": [
           "collaboratore-collaboratrice-self-service-e-vendita-20-40-lidl-svizzera-payerne",
           "collaborateur-collaboratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne-hx520c",
-          "collaboratore-self-service-e-partner-commerciale-20-40-lidl-svizzera-payerne"
+          "collaborateur-collaboratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne"
         ],
         "fr": [
           "travaille-avec-le-cabineteur-col-lavoratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne-hx520c"
@@ -10988,7 +11011,7 @@
       "previousSlugs": [
         "collaboratore-collaboratrice-self-service-e-vendita-20-40-lidl-svizzera-payerne",
         "collaborateur-collaboratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne-hx520c",
-        "collaboratore-self-service-e-partner-commerciale-20-40-lidl-svizzera-payerne",
+        "collaborateur-collaboratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne",
         "travaille-avec-le-cabineteur-col-lavoratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne-hx520c",
         "travaille-avec-le-cabineteur-col-lavoratrice-libre-service-et-vente-20-40-lidl-svizzera-payerne",
         "collaborateur-collaboratrice-libre-service-et-vente-40-bulle-lidl-svizzera-bulle"

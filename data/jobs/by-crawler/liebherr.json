@@ -102,8 +102,8 @@
       "slugByLocale": {
         "fr": "peintre-polyvalent-h-f-x-production-moteurs-a-combustion-temporaire-liebherr-bulle",
         "it": "produzione-di-motori-a-combustione-multiuso-per-pittori-m-f-x-temporanea-liebherr-bulle",
-        "en": "peintre-polyvalent-h-f-x-production-moteurs-a-combustion-temporaire-liebherr-bulle",
-        "de": "peintre-polyvalent-h-f-x-production-moteurs-a-combustion-temporaire-liebherr-bulle"
+        "en": "multipurpose-paint-h-f-x-combustion-engine-production-temporary-liebherr-bulle",
+        "de": "mehrzweckfarbe-h-f-x-produktion-des-verbrennungsmotors-vorubergehend-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -150,6 +150,12 @@
         "it": [
           "peintre-polyvalent-h-f-x-production-moteurs-a-combustion-temporaire-liebherr-bulle",
           "peintre-polyvalent-m-w-d-production-moteurs-a-combustion-temporaire-liebherr-bulle"
+        ],
+        "en": [
+          "peintre-polyvalent-h-f-x-production-moteurs-a-combustion-temporaire-liebherr-bulle"
+        ],
+        "de": [
+          "peintre-polyvalent-h-f-x-production-moteurs-a-combustion-temporaire-liebherr-bulle"
         ]
       },
       "previousSlugs": [
@@ -178,7 +184,7 @@
         "fr": "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
         "it": "giovani-talenti-preparazione-al-lavoro-motori-a-combustione-m-f-x-liebherr-bulle",
         "en": "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle",
-        "de": "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
+        "de": "junge-talente-arbeitsvorbereitung-verbrennungsmotoren-m-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -237,6 +243,9 @@
       "firstSeenAt": "2026-07-03T11:45:50.885Z",
       "previousSlugsByLocale": {
         "it": [
+          "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
+        ],
+        "de": [
           "young-talent-work-preparation-combustion-engines-m-f-x-liebherr-bulle"
         ]
       },

@@ -78,8 +78,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-privatklinik-wyss-ch",
-          "apprendistato-come-operatore-socio-sanitario-efz-privatklinik-wyss-munchenbuchsee"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-privatklinik-wyss-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:12.189Z",
@@ -149,8 +148,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
-          "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee"
+          "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
         ],
         "en": [
           "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch"
@@ -176,12 +174,12 @@
     },
     {
       "id": "privatklinik-wyss-9cb4e484722d",
-      "slug": "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch",
+      "slug": "terapeuta-d-arte-f-m-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "it": "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "en": "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "fr": "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch"
+        "it": "terapeuta-d-arte-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "en": "stv-art-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "fr": "artotherapeute-stv-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -236,16 +234,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-03T12:53:15.232Z"
+      "firstSeenAt": "2026-07-03T12:53:15.232Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-ch"
+      ]
     },
     {
       "id": "privatklinik-wyss-b179117401ed",
-      "slug": "psychologin-psychologe-w-m-d-privatklinik-wyss-ch",
+      "slug": "psicologo-f-m-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "psychologin-psychologe-w-m-d-privatklinik-wyss-ch",
-        "it": "psychologin-psychologe-w-m-d-privatklinik-wyss-ch",
-        "en": "psychologin-psychologe-w-m-d-privatklinik-wyss-ch",
-        "fr": "psychologin-psychologe-w-m-d-privatklinik-wyss-ch"
+        "it": "psicologo-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "en": "psychologist-f-m-d-privatklinik-wyss-munchenbuchsee",
+        "fr": "psychologue-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -303,16 +315,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-03T12:53:14.598Z"
+      "firstSeenAt": "2026-07-03T12:53:14.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-w-m-d-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "psychologin-psychologe-w-m-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "psychologin-psychologe-w-m-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-w-m-d-privatklinik-wyss-ch"
+      ]
     },
     {
       "id": "privatklinik-wyss-4a136cba5aba",
-      "slug": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
+      "slug": "assistente-medico-m-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
-        "it": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
-        "en": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch",
-        "fr": "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
+        "it": "assistente-medico-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "en": "assistant-doctor-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "fr": "assistant-medecin-m-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -370,7 +396,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-07-03T12:53:13.972Z"
+      "firstSeenAt": "2026-07-03T12:53:13.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-m-w-d-privatklinik-wyss-ch"
+      ]
     },
     {
       "id": "privatklinik-wyss-b5e2dc7af012",
@@ -428,8 +468,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praxissemester-zusatz-modul-b-zmb-in-der-psychiatrischen-pflege-privatklinik-wyss-ch",
-          "praticantato-modulo-aggiuntivo-b-zmb-nella-cura-psichiatrica-privatklinik-wyss-munchenbuchsee"
+          "praxissemester-zusatz-modul-b-zmb-in-der-psychiatrischen-pflege-privatklinik-wyss-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:10.914Z",
@@ -533,8 +572,7 @@
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
-          "consulente-per-l-istruzione-superiore-w-m-d-privatklinik-wyss-munchenbuchsee",
-          "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee"
+          "consulente-per-l-istruzione-superiore-w-m-d-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
           "education-senior-consultant-w-m-d-privatklinik-wyss-munchenbuchsee"
@@ -635,8 +673,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch",
-          "dipl-professionista-della-salute-hf-fh-m-f-d-reparto-acuto-privatklinik-wyss-munchenbuchsee"
+          "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-w-m-d-akutabteilung-privatklinik-wyss-ch"
@@ -737,8 +774,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "try-and-hire-deine-flexible-anstellungslosung-privatklinik-wyss-ch",
-          "try-and-hire-la-tua-soluzione-di-assunzione-flessibile-privatklinik-wyss-munchenbuchsee"
+          "try-and-hire-deine-flexible-anstellungslosung-privatklinik-wyss-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:09.039Z",
@@ -812,8 +848,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegedirektor-in-m-w-d-privatklinik-wyss-ch",
-          "direttore-infermieristico-lun-f-d-privatklinik-wyss-munchenbuchsee"
+          "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
         ],
         "en": [
           "pflegedirektor-in-m-w-d-privatklinik-wyss-ch"
@@ -895,8 +930,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch",
-          "infermiera-hf-fh-f-m-d-servizio-notturno-continuo-privatklinik-wyss-munchenbuchsee",
-          "infermiere-laureato-in-hf-fh-f-m-d-servizio-permanente-di-servizio-notturno-acute-care-privatklinik-wyss-munchenbuchsee"
+          "infermiera-hf-fh-f-m-d-servizio-notturno-continuo-privatklinik-wyss-munchenbuchsee"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-w-m-d-dauernachtdienst-akutabteilung-privatklinik-wyss-ch"

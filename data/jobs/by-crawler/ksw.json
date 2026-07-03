@@ -194,8 +194,7 @@
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
-        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
-        "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1939,8 +1938,8 @@
       "slugByLocale": {
         "de": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
         "it": "assistente-pratica-medica-coordinatore-pratica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
-        "fr": "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
+        "en": "med-practice-assistant-in-practice-coordinator-in-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medicament-assistant-in-coordonnateur-in-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2000,6 +1999,12 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
         ]
       },
       "previousSlugs": [
@@ -2012,8 +2017,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-management-support-ksw-ch",
         "it": "mitarbeiterin-collaboratore-trice-management-support-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-management-support-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-management-support-ksw-ch"
+        "en": "employee-employee-management-support-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "soutien-a-la-gestion-des-employes-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2059,6 +2064,12 @@
       "department": "Management Support Klinischer Bereich B",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-management-support-ksw-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-management-support-ksw-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-management-support-ksw-ch"
         ]
       },

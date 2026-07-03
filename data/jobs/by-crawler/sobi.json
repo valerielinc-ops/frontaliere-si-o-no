@@ -582,8 +582,8 @@
       "slugByLocale": {
         "en": "analytical-expert-sobi-basel",
         "it": "esperto-analitico-sobi-basel",
-        "de": "analytical-expert-sobi-basel",
-        "fr": "analytical-expert-sobi-basel"
+        "de": "analytiker-sobi-basel",
+        "fr": "expert-analytique-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -642,6 +642,12 @@
       "firstSeenAt": "2026-07-03T12:28:23.031Z",
       "previousSlugsByLocale": {
         "it": [
+          "analytical-expert-sobi-basel"
+        ],
+        "de": [
+          "analytical-expert-sobi-basel"
+        ],
+        "fr": [
           "analytical-expert-sobi-basel"
         ]
       },

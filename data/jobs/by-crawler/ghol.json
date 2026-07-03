@@ -745,8 +745,8 @@
       "slugByLocale": {
         "fr": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "it": "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "en": "logopedist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "logopade-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -800,6 +800,12 @@
       "firstSeenAt": "2026-07-03T12:09:19.089Z",
       "previousSlugsByLocale": {
         "it": [
+          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
           "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },

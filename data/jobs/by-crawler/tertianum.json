@@ -108,8 +108,8 @@
       "slugByLocale": {
         "de": "teamleitung-kuche-100-tertianum-winterthur",
         "it": "cucina-capo-squadra-al-100-tertianum-winterthur",
-        "en": "teamleitung-kuche-100-tertianum-winterthur",
-        "fr": "teamleitung-kuche-100-tertianum-winterthur"
+        "en": "team-management-kitchen-100-tertianum-winterthur",
+        "fr": "cuisine-de-gestion-d-equipe-100-tertianum-winterthur"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -168,6 +168,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-kuche-100-tertianum-winterthur"
+        ],
+        "en": [
+          "teamleitung-kuche-100-tertianum-winterthur"
+        ],
+        "fr": [
+          "teamleitung-kuche-100-tertianum-winterthur"
         ]
       },
       "previousSlugs": [
@@ -180,8 +186,8 @@
       "slugByLocale": {
         "de": "pflegehelferin-pflegehelfer-srk-tertianum-schlieren",
         "it": "assistente-infermieristico-src-tertianum-schlieren",
-        "en": "pflegehelferin-pflegehelfer-srk-tertianum-schlieren",
-        "fr": "pflegehelferin-pflegehelfer-srk-tertianum-schlieren"
+        "en": "nursing-assistant-nursing-assistant-srk-tertianum-schlieren",
+        "fr": "assistant-infirmier-assistant-infirmier-srk-tertianum-schlieren"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -240,6 +246,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegehelferin-pflegehelfer-srk-tertianum-schlieren"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-srk-tertianum-schlieren"
+        ],
+        "fr": [
+          "pflegehelferin-pflegehelfer-srk-tertianum-schlieren"
         ]
       },
       "previousSlugs": [
@@ -252,8 +264,8 @@
       "slugByLocale": {
         "de": "pflegehelferin-pflegehelfer-srk-assistent-in-gesundheit-soziales-tertianum-bern",
         "it": "assistente-infermieristico-src-assistente-salute-e-affari-sociali-tertianum-bern",
-        "en": "pflegehelferin-pflegehelfer-srk-assistent-in-gesundheit-soziales-tertianum-bern",
-        "fr": "pflegehelferin-pflegehelfer-srk-assistent-in-gesundheit-soziales-tertianum-bern"
+        "en": "nursing-assistant-nursing-assistant-srk-assistant-in-health-social-services-tertianum-bern",
+        "fr": "assistant-infirmier-assistant-infirmier-srk-assistant-en-sante-et-services-sociaux-tertianum-bern"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -311,6 +323,12 @@
       "firstSeenAt": "2026-07-03T12:33:25.142Z",
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelferin-pflegehelfer-srk-assistent-in-gesundheit-soziales-tertianum-bern"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-srk-assistent-in-gesundheit-soziales-tertianum-bern"
+        ],
+        "fr": [
           "pflegehelferin-pflegehelfer-srk-assistent-in-gesundheit-soziales-tertianum-bern"
         ]
       },
@@ -4010,8 +4028,8 @@
       "slugByLocale": {
         "de": "studierende-n-aktivierungsfachfrau-mann-hf-100-tertianum-berlingen",
         "it": "specialista-in-attivazione-studentesca-hf-100-tertianum-berlingen",
-        "en": "studierende-n-aktivierungsfachfrau-mann-hf-100-tertianum-berlingen",
-        "fr": "studierende-n-aktivierungsfachfrau-mann-hf-100-tertianum-berlingen"
+        "en": "student-activation-specialist-hf-100-tertianum-berlingen",
+        "fr": "specialiste-de-l-activation-des-etudiants-hf-100-tertianum-berlingen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4069,6 +4087,12 @@
       "firstSeenAt": "2026-07-03T12:32:51.959Z",
       "previousSlugsByLocale": {
         "it": [
+          "studierende-n-aktivierungsfachfrau-mann-hf-100-tertianum-berlingen"
+        ],
+        "en": [
+          "studierende-n-aktivierungsfachfrau-mann-hf-100-tertianum-berlingen"
+        ],
+        "fr": [
           "studierende-n-aktivierungsfachfrau-mann-hf-100-tertianum-berlingen"
         ]
       },
@@ -4609,8 +4633,8 @@
       "slugByLocale": {
         "de": "praktikant-in-pflege-und-betreuung-60-100-tertianum-zollikerberg",
         "it": "praktikant-in-pflege-e-betreuung-60-100-tertianum-zollikerberg",
-        "en": "praktikant-in-pflege-und-betreuung-60-100-tertianum-zollikerberg",
-        "fr": "praktikant-in-pflege-und-betreuung-60-100-tertianum-zollikerberg"
+        "en": "internship-in-care-and-care-60-100-tertianum-zollikerberg",
+        "fr": "stages-en-soins-et-soins-60-100-tertianum-zollikerberg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4656,6 +4680,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-pflege-und-betreuung-60-100-tertianum-zollikerberg"
+        ],
+        "en": [
+          "praktikant-in-pflege-und-betreuung-60-100-tertianum-zollikerberg"
+        ],
+        "fr": [
+          "praktikant-in-pflege-und-betreuung-60-100-tertianum-zollikerberg"
         ]
       },
       "previousSlugs": [
@@ -4681,8 +4711,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-als-dauernachtwache-80-100-tertianum-zollikerberg",
         "it": "fachfrau-mann-gesundheit-cfc-come-dauernachtwache-80-100-tertianum-zollikerberg",
-        "en": "fachfrau-mann-gesundheit-efz-als-dauernachtwache-80-100-tertianum-zollikerberg",
-        "fr": "fachfrau-mann-gesundheit-efz-als-dauernachtwache-80-100-tertianum-zollikerberg"
+        "en": "professional-health-efz-as-a-permanent-night-watch-80-100-tertianum-zollikerberg",
+        "fr": "sante-professionnelle-efz-en-tant-que-veille-nocturne-permanente-80-100-tertianum-zollikerberg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4727,6 +4757,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-als-dauernachtwache-80-100-tertianum-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-als-dauernachtwache-80-100-tertianum-zollikerberg"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-als-dauernachtwache-80-100-tertianum-zollikerberg"
         ]
       },
@@ -13809,9 +13845,9 @@
     },
     {
       "id": "tertianum-745ae2ee15c3",
-      "slug": "infermiere-certificato-hf-fh-dnii-60-100-tertianum-kirchdorf",
+      "slug": "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-kirchdorf",
       "slugByLocale": {
-        "it": "infermiere-certificato-hf-fh-dnii-60-100-tertianum-kirchdorf",
+        "it": "dipl-infermieristica-professionale-hf-fh-dnii-60-100-tertianum-kirchdorf",
         "en": "dipl-nursing-professional-hf-fh-dnii-60-100-tertianum-kirchdorf",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kirchdorf",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-60-100-tertianum-kirchdorf"
@@ -13856,11 +13892,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kirchdorf"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kirchdorf",
+        "infermiere-certificato-hf-fh-dnii-60-100-tertianum-kirchdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kirchdorf"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kirchdorf",
+          "infermiere-certificato-hf-fh-dnii-60-100-tertianum-kirchdorf"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-kirchdorf"

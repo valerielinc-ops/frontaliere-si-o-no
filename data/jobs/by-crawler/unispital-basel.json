@@ -7942,8 +7942,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-intervention-unispital-basel-ch",
         "it": "collaboratore-trice-in-intervention-universitatsspital-basel",
-        "en": "mitarbeiter-in-intervention-universitatsspital-basel-basel",
-        "fr": "mitarbeiter-in-intervention-universitatsspital-basel-basel"
+        "en": "employee-in-intervention-universitatsspital-basel-basel",
+        "fr": "employe-en-intervention-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7989,10 +7989,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-intervention-unispital-basel-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-intervention-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "mitarbeiter-in-intervention-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-intervention-unispital-basel-ch"
+        "mitarbeiter-in-intervention-unispital-basel-ch",
+        "mitarbeiter-in-intervention-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8084,8 +8091,8 @@
       "slugByLocale": {
         "de": "kaderarztin-kaderarzt-orthopadie-und-traumatologie-unispital-basel-ch",
         "it": "kaderarztin-kaderarzt-orthopala-e-traumatologie-universitatsspital-basel",
-        "en": "kaderarztin-kaderarzt-orthopadie-und-traumatologie-unispital-basel-ch",
-        "fr": "kaderarztin-kaderarzt-orthopadie-und-traumatologie-unispital-basel-ch"
+        "en": "cadre-doctor-orthopedics-and-traumatology-universitatsspital-basel-basel",
+        "fr": "doctorat-orthopedie-et-traumatologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8131,6 +8138,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kaderarztin-kaderarzt-orthopadie-und-traumatologie-unispital-basel-ch"
+        ],
+        "en": [
+          "kaderarztin-kaderarzt-orthopadie-und-traumatologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "kaderarztin-kaderarzt-orthopadie-und-traumatologie-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
@@ -8152,12 +8165,12 @@
     },
     {
       "id": "unispital-basel-5b7cf5be3b7c",
-      "slug": "studentische-aushilfe-unispital-basel-ch",
+      "slug": "assistenza-agli-studenti-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "studentische-aushilfe-unispital-basel-ch",
-        "it": "studentische-aushilfe-unispital-basel-ch",
-        "en": "studentische-aushilfe-unispital-basel-ch",
-        "fr": "studentische-aushilfe-unispital-basel-ch"
+        "it": "assistenza-agli-studenti-universitatsspital-basel-basel",
+        "en": "student-assistance-universitatsspital-basel-basel",
+        "fr": "aide-aux-etudiants-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8212,7 +8225,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T12:46:13.906Z"
+      "firstSeenAt": "2026-07-03T12:46:13.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ],
+        "en": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ],
+        "fr": [
+          "studentische-aushilfe-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-aushilfe-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-0cacb3cfeb09",
@@ -8220,8 +8247,8 @@
       "slugByLocale": {
         "de": "mpa-medizinische-r-praxisassistent-in-ambulante-plattform-mit-administrativem-schwerpunkt",
         "it": "mpa-medizinische-r-praxisassistent-in-ambulante-plattform-mit-administrativem-schwerpunkt",
-        "en": "mpa-medizinische-r-praxisassistent-in-ambulante-plattform-mit-administrativem-schwerpunkt",
-        "fr": "mpa-medizinische-r-praxisassistent-in-ambulante-plattform-mit-administrativem-schwerpunkt"
+        "en": "mpa-medical-practice-assistant-outpatient-platform-with-administrative-focus-universitatsspital-basel-basel",
+        "fr": "mpa-assistant-de-pratique-medicale-plate-forme-externe-axee-sur-l-administration-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8280,12 +8307,12 @@
     },
     {
       "id": "unispital-basel-9d0424689001",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
+      "slug": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        "it": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
+        "en": "dipl-nursing-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8330,11 +8357,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

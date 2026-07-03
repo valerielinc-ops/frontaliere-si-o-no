@@ -683,8 +683,8 @@
       "slugByLocale": {
         "fr": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
         "it": "segretaria-receptionist-reception-istituzionale-100-permanente-imad-geneva-b64b58",
-        "en": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
-        "de": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        "en": "secretary-receptionist-institutional-100-in-cdi-imad-geneva-b64b58",
+        "de": "secretary-receptionist-institutionell-100-in-cdi-imad-geneva-b64b58"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -744,6 +744,12 @@
       "previousSlugsByLocale": {
         "it": [
           "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
         ]
       },
       "previousSlugs": [
@@ -756,8 +762,8 @@
       "slugByLocale": {
         "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
         "it": "infermiera-di-collegamento-100-su-un-cdm-di-7-mesi-imad-geneva",
-        "en": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-        "de": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        "en": "liaison-nurse-100-in-7-month-cdm-imad-geneva",
+        "de": "liaison-nure-100-in-7-monaten-cdm-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -817,6 +823,12 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
         ]
       },
       "previousSlugs": [
@@ -829,8 +841,8 @@
       "slugByLocale": {
         "fr": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
         "it": "segretario-esecutivo-dipartimento-affari-legali-dipartimento-servizi-condivisi-50-su-contratto-a-tempo-ed1047",
-        "en": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
-        "de": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        "en": "executive-secretary-legal-affairs-service-shared-services-directorate-50-4-month-csd-imad-geneva-ed1047",
+        "de": "executive-secretary-legal-affairs-service-direktion-shared-services-50-4-monate-csd-imad-geneva-ed1047"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -889,6 +901,12 @@
       "firstSeenAt": "2026-07-03T11:34:44.232Z",
       "previousSlugsByLocale": {
         "it": [
+          "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        ],
+        "en": [
+          "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        ],
+        "de": [
           "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
         ]
       },
@@ -982,8 +1000,8 @@
       "slugByLocale": {
         "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
         "it": "infermiera-di-collegamento-100-su-cdm-di-9-mesi-imad-geneva",
-        "en": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
-        "de": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        "en": "9-month-hom-liaison-nurse-100-imad-geneva",
+        "de": "9-monate-hom-liaison-nurse-100-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -1042,6 +1060,12 @@
       "firstSeenAt": "2026-07-03T11:34:44.229Z",
       "previousSlugsByLocale": {
         "it": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        ],
+        "de": [
           "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
         ]
       },

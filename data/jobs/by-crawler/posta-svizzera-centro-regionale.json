@@ -25,9 +25,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-leukerbad",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-leukerbad",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-leukerbad",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-leukerbad"
       },
       "sourceLang": "de",
       "department": "",
@@ -66,6 +66,12 @@
       "firstSeenAt": "2026-07-03T12:39:28.649Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -1369,9 +1375,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "en": "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -1411,7 +1417,6 @@
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-          "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
           "ticket-controller-in-and-customer-advice-postauto-chur"
         ],
         "de": [
@@ -1421,17 +1426,14 @@
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
           "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-          "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag",
           "controleur-de-billetterie-in-et-conseil-client-postauto-chur"
         ]
       },
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
         "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
         "ticket-controller-in-and-customer-advice-postauto-chur",
         "controleur-de-billetterie-en-et-conseil-client-postauto-chur",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag",
         "controleur-de-billetterie-in-et-conseil-client-postauto-chur"
       ]
     },
@@ -1936,9 +1938,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "en": "ticket-controller-in-and-customer-advice-postauto-chur",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -1959,10 +1961,17 @@
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-post-2"
+        ],
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
         ]
       },
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

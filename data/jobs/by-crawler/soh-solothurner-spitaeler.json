@@ -14302,8 +14302,8 @@
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-nephrologie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "medico-senior-nefrologia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "leitende-arztin-leitender-arzt-nephrologie-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "leitende-arztin-leitender-arzt-nephrologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "lead-physician-lead-physician-nephrology-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "nephrologie-medecin-chef-medecin-chef-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14362,6 +14362,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-nephrologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-nephrologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-nephrologie-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -14374,8 +14380,8 @@
       "slugByLocale": {
         "de": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "en": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "kochin-koch-efz-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "cook-chef-efz-in-training-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "cuisinier-chef-efz-en-formation-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14438,8 +14444,8 @@
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-leitende-arzte-frauenklinik-w-m-d-soh-solothurner-spitaeler",
         "it": "segretario-medico-della-senior-physicians-women-s-clinic-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "arztsekretarin-arztsekretar-leitende-arzte-frauenklinik-w-m-d-soh-solothurner-spitaeler",
-        "fr": "arztsekretarin-arztsekretar-leitende-arzte-frauenklinik-w-m-d-soh-solothurner-spitaeler"
+        "en": "medical-secretary-medical-secretary-leading-doctors-women-s-clinic-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "secretaire-medicale-secretaire-medicale-clinique-des-femmes-medecins-principaux-f-m-j-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14497,6 +14503,12 @@
       "firstSeenAt": "2026-07-03T12:14:24.109Z",
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretarin-arztsekretar-leitende-arzte-frauenklinik-w-m-d-soh-solothurner-spitaeler"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-leitende-arzte-frauenklinik-w-m-d-soh-solothurner-spitaeler"
+        ],
+        "fr": [
           "arztsekretarin-arztsekretar-leitende-arzte-frauenklinik-w-m-d-soh-solothurner-spitaeler"
         ]
       },

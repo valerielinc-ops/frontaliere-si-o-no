@@ -3625,8 +3625,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
         "it": "reparto-di-chirurgia-specialista-sanitaria-sonnenhof-lindenhofgruppe-sonnenhofspital",
-        "en": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
-        "fr": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
+        "en": "specialist-health-operations-department-sonnenhof-lindenhofgruppe-sonnenhofspital",
+        "fr": "specialiste-des-operations-sanitaires-sonnenhof-lindenhofgruppe-sonnenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3673,6 +3673,12 @@
         "it": [
           "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
           "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-sonnenhofspital"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
