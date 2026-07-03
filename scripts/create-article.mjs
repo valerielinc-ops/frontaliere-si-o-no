@@ -5313,6 +5313,15 @@ function validate(data, opts = {}) {
       fr: `Image éditoriale relative à: ${itTitle}`,
     };
   }
+  // Guard against a shouting imageAlt slipping through when the LLM returns
+  // it directly (imageAlt is a required schema field, so the fallback above
+  // doesn't always run) — same casing failure mode as the title, so reuse
+  // the same locale-agnostic collapse guard instead of trusting raw output.
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (typeof data.imageAlt[locale] === 'string') {
+      data.imageAlt[locale] = collapseShoutingTitle(data.imageAlt[locale]);
+    }
+  }
   // Sanitize id
   data.id = data.id.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
 

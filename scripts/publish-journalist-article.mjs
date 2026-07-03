@@ -46,6 +46,7 @@ import {
   validateAndEnforceCTA,
   optimizeSeoMetadata,
   normalizeTitleCasing,
+  collapseShoutingTitle,
   splitBodyIntoSections,
   generateExcerpt,
   checkTranslatedSlugCollisions,
@@ -119,7 +120,7 @@ function buildPipelineData(docId, doc) {
     // auto-generation uses (it never translates alt text either — see its
     // `data.imageAlt = { it/en/de/fr: ... itTitle ... }` fallback block).
     imageAlt: {
-      it: doc.imageAlt || `Immagine editoriale relativa a: ${title}`,
+      it: doc.imageAlt ? collapseShoutingTitle(doc.imageAlt) : `Immagine editoriale relativa a: ${title}`,
       en: `Editorial image related to: ${title}`,
       de: `Redaktionelles Bild zu: ${title}`,
       fr: `Image éditoriale relative à: ${title}`,

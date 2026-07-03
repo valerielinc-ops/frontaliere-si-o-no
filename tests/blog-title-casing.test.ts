@@ -54,3 +54,23 @@ describe('collapseShoutingTitle — locale-agnostic ALL-CAPS guard (EN/DE/FR)', 
     expect(collapseShoutingTitle('The New Cross-Border Rules')).toBe('The New Cross-Border Rules');
   });
 });
+
+// Reviewer nit (PR #3350): imageAlt is a required LLM schema field, so the
+// title-casing fix only reached it via the fallback template branch
+// (`!data.imageAlt`, built from the already-corrected title). When the LLM
+// returns imageAlt directly it bypassed normalization entirely — if the
+// model echoes the same shouting style across the whole field (the observed
+// failure mode for this bug class), the fix now runs collapseShoutingTitle
+// unconditionally on every data.imageAlt[locale] string before it's saved.
+describe('collapseShoutingTitle — applied unconditionally to imageAlt (create-article.mjs validate())', () => {
+  it('fixes a fully-shouting imageAlt returned directly by the LLM', () => {
+    expect(collapseShoutingTitle('IMMAGINE EDITORIALE RELATIVA ALLA SOSPENSIONE DEI RISTORNI')).toBe(
+      'Immagine editoriale relativa alla sospensione dei ristorni',
+    );
+  });
+
+  it('is a no-op on the mixed-case fallback template (already-normalized title embedded)', () => {
+    const fallback = 'Immagine editoriale relativa a: La sospensione dei ristorni alla prova della convenzione Italia-Svizzera';
+    expect(collapseShoutingTitle(fallback)).toBe(fallback);
+  });
+});
