@@ -229,7 +229,7 @@ export async function fetchAllIgrooveJobs() {
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      streetAddress: streetAddress || HQ.streetAddress,
+      streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
       postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
       addressCountry: 'CH',
       country: 'CH',

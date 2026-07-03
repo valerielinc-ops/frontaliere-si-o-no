@@ -273,7 +273,7 @@ export async function fetchAllHospiceGeneralJobs() {
       // ── Recommended fields ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      streetAddress: streetAddress || HQ.streetAddress,
+      streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
       postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
       addressCountry: 'CH',
       country: 'CH',

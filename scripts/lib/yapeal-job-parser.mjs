@@ -246,8 +246,8 @@ export async function fetchAllYapealJobs() {
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      streetAddress: streetAddress || HQ.streetAddress,
-      postalCode: postalCode || HQ.postalCode,
+      streetAddress,
+      postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
