@@ -188,12 +188,13 @@ function isSwissJob(szas = {}) {
  * missing from the feed.
  */
 function resolveAddress({ city, region, zip, street, canton }) {
+  const isHqCity = !city || /\bzug\b/i.test(city);
   const postalCode = /^\d{4}$/.test(zip)
     ? zip
-    : canton === HQ.canton
+    : isHqCity
       ? HQ.postalCode
       : '';
-  const streetAddress = street || (canton === HQ.canton ? HQ.streetAddress : '');
+  const streetAddress = street || (isHqCity ? HQ.streetAddress : '');
   return {
     addressLocality: city || HQ.city,
     addressRegion: region || (canton === HQ.canton ? HQ.region : ''),
