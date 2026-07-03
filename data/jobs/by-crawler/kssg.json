@@ -8328,8 +8328,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch",
         "it": "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-hoch-health-ostschweiz-grabs",
-        "en": "dipl-nursing-specialist-postgraduate-degree-nds-intensive-care-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "fr": "dipl-specialiste-des-soins-infirmiers-diplome-de-troisieme-cycle-pdn-soins-intensifs-100-kantonsspital-st-gallen-kssg"
+        "en": "dipl-nursing-specialist-postgraduate-degree-nds-intensive-care-100-hoch-health-ostschweiz-grabs",
+        "fr": "dipl-specialiste-des-soins-infirmiers-diplome-de-troisieme-cycle-pdn-soins-intensifs-100-hoch-health-ostschweiz-grabs"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8377,14 +8377,18 @@
           "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch"
+          "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch",
+          "dipl-nursing-specialist-postgraduate-degree-nds-intensive-care-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch"
+          "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch",
+          "dipl-specialiste-des-soins-infirmiers-diplome-de-troisieme-cycle-pdn-soins-intensifs-100-kantonsspital-st-gallen-kssg"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch"
+        "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-100-kssg-ch",
+        "dipl-nursing-specialist-postgraduate-degree-nds-intensive-care-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-specialiste-des-soins-infirmiers-diplome-de-troisieme-cycle-pdn-soins-intensifs-100-kantonsspital-st-gallen-kssg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
