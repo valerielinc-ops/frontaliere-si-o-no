@@ -456,7 +456,10 @@ describe('assembled dataset integrity (data/events.json)', () => {
       // Nationwide sources (guidle, myswitzerland — #3125) resolve events to
       // any of the 26 cantons, not just TI; assert membership in the same
       // canton list the job board uses instead of the pre-#3125 TI-only check.
-      expect(CANTON_CODES).toContain(e.canton);
+      // '' is also valid: myswitzerland.com leaves canton blank when
+      // resolveComuneNationwide finds no confident comune match (event shown
+      // on the canton hub only — crawl-myswitzerland-events.mjs:370/413/505).
+      expect(e.canton === '' || CANTON_CODES.includes(e.canton)).toBe(true);
     }
   });
 });
