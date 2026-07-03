@@ -190,6 +190,36 @@ export const EVENTS_DIGEST_SLUGS = {
   week: { it: 'questa-settimana', en: 'this-week', de: 'diese-woche', fr: 'cette-semaine' },
 };
 
+/**
+ * Localized slug for the catch-all "other events" bucket page — events whose
+ * comune could not be confidently resolved (`comune === null`, see
+ * `resolveComune`/`resolveComuneNationwide`) still get their own internal
+ * detail page here instead of falling back to a raw external link (the
+ * "detail page doesn't open" bug: `groupByComune` intentionally drops
+ * comune-less events, so they never got a `detailSlugs` entry before this
+ * bucket existed). Never a substitute for a real comune — an honest label,
+ * not a fabricated one.
+ */
+export const OTHER_EVENTS_SEGMENT = {
+  it: 'altri-eventi',
+  en: 'other-events',
+  de: 'weitere-veranstaltungen',
+  fr: 'autres-evenements',
+};
+
+/**
+ * Sentinel `comune` value used ONLY by the build plugin's `detailSlugs`/routing
+ * layer to represent the catch-all "other events" bucket (never written into
+ * the dataset itself, never passed to `groupByComune` — that function's
+ * contract of dropping `comune == null` events is intentional and untouched,
+ * see `tests/events-pipeline.test.ts`). The plugin computes comune-less events
+ * separately and keys them under this sentinel so they still resolve to an
+ * internal detail page instead of falling back to the raw crawled URL. Never
+ * render this raw string to a human — always map it through
+ * `OTHER_EVENTS_SEGMENT` (routing) or a canton display name (copy).
+ */
+export const OTHER_EVENTS_COMUNE_KEY = '__other-events__';
+
 // ── Ticino agenda regions → representative comune ────────────
 // tio.ch tags every event with a tourism region adjective ("Luganese",
 // "Locarnese", …). When no exact comune name is found in the venue/title we
@@ -504,6 +534,115 @@ export async function mirrorEventImage(sourceUrl, stableId) {
   } catch {
     return null;
   }
+}
+
+// ── Referral tracking ────────────────────────────────────────
+/**
+ * Outbound "official site" CTA URL with UTM referral tagging — same shape as
+ * `build-plugins/jobsSeoPagesPlugin.ts`'s `referralUrl()` for job postings
+ * (§6: one UTM-tagging convention, not a copy per feature), campaign renamed
+ * for events. Never fabricates a URL: on a malformed `rawUrl` it is returned
+ * unchanged rather than dropped, so a broken source URL never silently loses
+ * its outbound link.
+ */
+export function eventReferralUrl(rawUrl, event) {
+  if (!rawUrl || typeof rawUrl !== 'string') return rawUrl;
+  try {
+    const u = new URL(rawUrl);
+    u.searchParams.set('utm_source', 'frontaliereticino');
+    u.searchParams.set('utm_medium', 'referral');
+    u.searchParams.set('utm_campaign', 'events');
+    u.searchParams.set('utm_content', String(event?.id || event?.sourceKey || '').trim());
+    return u.toString();
+  } catch {
+    return rawUrl;
+  }
+}
+
+// ── Free geocoding (OpenStreetMap Nominatim, cached) ──────────
+// tio-agenda cards never carry `geo`/`address` (only guidle/myswitzerland do),
+// so a detail page for a tio-agenda event previously had nothing to put on a
+// map. Nominatim is free (no API key) but requires a custom User-Agent and a
+// polite ≤1 req/s rate — the caller (crawl-tio-agenda.mjs) is responsible for
+// pacing; this module only owns the disk cache so a venue already resolved on
+// a previous crawl run never re-hits the network.
+const GEOCODE_CACHE_PATH = path.join(REPO_ROOT, 'data', 'events-geocode-cache.json');
+const NOMINATIM_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
+
+/** Load the on-disk geocode cache (`{ [normalizedQuery]: {lat,lng} | null }`). */
+export function loadGeocodeCache() {
+  try {
+    if (!existsSync(GEOCODE_CACHE_PATH)) return {};
+    const raw = JSON.parse(readFileSync(GEOCODE_CACHE_PATH, 'utf-8'));
+    return raw && typeof raw === 'object' ? raw : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Persist the geocode cache back to disk (pretty-printed, stable diffs). */
+export function saveGeocodeCache(cache) {
+  writeFileSync(GEOCODE_CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
+}
+
+/**
+ * Resolve a free-text location query (e.g. "Teatro Sociale, Bellinzona,
+ * Ticino, Switzerland") to `{lat, lng}` via the free OpenStreetMap Nominatim
+ * search API, restricted to Switzerland. Cached in `cache` (pass the object
+ * returned by `loadGeocodeCache`, mutated in place — caller saves it once
+ * after a run, not per-call). A cached `null` (no match found previously) is
+ * honored without a repeat network call. Never fabricates coordinates: any
+ * failure or no-result returns/`caches` `null`.
+ */
+export async function geocodeVenue(query, cache, fetchImpl = fetch) {
+  const key = normalizeText(query);
+  if (!key) return null;
+  if (Object.prototype.hasOwnProperty.call(cache, key)) return cache[key];
+
+  try {
+    const params = new URLSearchParams({ q: query, format: 'json', limit: '1', countrycodes: 'ch' });
+    const res = await fetchImpl(`https://nominatim.openstreetmap.org/search?${params.toString()}`, {
+      headers: { 'User-Agent': NOMINATIM_USER_AGENT },
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) return null; // transient failure — don't cache, retry next run
+    const data = await res.json();
+    const hit = Array.isArray(data) ? data[0] : null;
+    const lat = hit ? Number.parseFloat(hit.lat) : NaN;
+    const lng = hit ? Number.parseFloat(hit.lon) : NaN;
+    const geo = Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lng } : null;
+    cache[key] = geo;
+    return geo;
+  } catch {
+    return null; // network/timeout — don't cache, retry next run
+  }
+}
+
+// ── Title translation cache ────────────────────────────────────
+// tio-agenda cards carry no `titleByLocale` at all (unlike guidle/
+// myswitzerland — see file header), so every en/de/fr locale falls back to
+// the raw Italian title. Translating is cheap (free-translate.mjs cascade)
+// but the crawler rewrites its whole slice from scratch every run (no
+// historical merge — see crawl-tio-agenda.mjs main()), so without a disk
+// cache the SAME recurring event title would be re-translated every single
+// day forever. Cached here by normalized Italian title so only genuinely new
+// titles cost a network call.
+const TRANSLATION_CACHE_PATH = path.join(REPO_ROOT, 'data', 'events-translation-cache.json');
+
+/** Load the on-disk title translation cache (`{ [normalizedItTitle]: {en?,de?,fr?} }`). */
+export function loadEventTitleTranslationCache() {
+  try {
+    if (!existsSync(TRANSLATION_CACHE_PATH)) return {};
+    const raw = JSON.parse(readFileSync(TRANSLATION_CACHE_PATH, 'utf-8'));
+    return raw && typeof raw === 'object' ? raw : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Persist the title translation cache back to disk (pretty-printed, stable diffs). */
+export function saveEventTitleTranslationCache(cache) {
+  writeFileSync(TRANSLATION_CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
 }
 
 // ── Stable identity ──────────────────────────────────────────
