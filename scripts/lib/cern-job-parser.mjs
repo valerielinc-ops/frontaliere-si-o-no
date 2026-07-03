@@ -263,8 +263,8 @@ export async function fetchAllCernJobs() {
       // ── Recommended fields ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
-      postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
+      streetAddress,
+      postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
