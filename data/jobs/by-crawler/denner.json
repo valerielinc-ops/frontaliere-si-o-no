@@ -1402,10 +1402,10 @@
       "id": "denner-c7ed142be0ae",
       "slug": "venditore-denner-zug",
       "slugByLocale": {
-        "it": "venditore-denner-zug",
+        "it": "venditore-denner-ag-zug",
         "de": "verkaufer-in-denner-ag-zug",
-        "en": "seller-denner-zug",
-        "fr": "vendeur-denner-zug"
+        "en": "seller-denner-ag-zug",
+        "fr": "vendeur-denner-ag-zug"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1481,15 +1481,19 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-zug"
+          "verkaufer-in-denner-zug",
+          "seller-denner-zug"
         ],
         "fr": [
-          "verkaufer-in-denner-zug"
+          "verkaufer-in-denner-zug",
+          "vendeur-denner-zug"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-zug"
+        "verkaufer-in-denner-zug",
+        "seller-denner-zug",
+        "vendeur-denner-zug"
       ]
     },
     {

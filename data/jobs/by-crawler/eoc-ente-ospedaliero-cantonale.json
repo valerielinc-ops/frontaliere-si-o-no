@@ -817,12 +817,16 @@
         ],
         "fr": [
           "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "it": [
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56"
         ]
       },
       "previousSlugs": [
         "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56"
       ]
     },
     {
@@ -1123,20 +1127,31 @@
       "previousSlugsByLocale": {
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be"
         ],
         "de": [
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64"
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be"
+        ],
+        "it": [
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64"
         ]
       },
       "previousSlugs": [
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -1212,14 +1227,17 @@
       "previousSlugs": [
         "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q"
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q"
         ],
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
@@ -1230,7 +1248,8 @@
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ]
       },
       "salaryMin": 70500,
@@ -1306,14 +1325,17 @@
       "previousSlugs": [
         "fisioterapista-diplomato-a-eoc-novaggio-x29n6r",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "fisioterapista-diplomato-a-eoc-novaggio-x29n6r",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r"
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r"
         ],
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
@@ -1324,7 +1346,8 @@
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ]
       },
       "salaryMin": 70500,
@@ -1493,18 +1516,29 @@
       "previousSlugsByLocale": {
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-          "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057"
         ],
         "de": [
-          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u"
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057"
         ],
         "fr": [
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
+          "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-df5057"
+        ],
+        "it": [
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6u",
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u"
         ]
       },
       "previousSlugs": [
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-        "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+        "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057",
+        "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-df5057",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6u"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -1578,13 +1612,16 @@
       "previousSlugs": [
         "ergoterapista-diplomato-a-eoc-novaggio-x29n6v",
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
-        "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6v",
+        "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "ergoterapista-diplomato-a-eoc-novaggio-x29n6v",
-          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v"
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6v"
         ],
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
@@ -1594,7 +1631,8 @@
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v"
         ],
         "fr": [
-          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v"
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
+          "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
         ]
       },
       "salaryMin": 70500,
@@ -1668,13 +1706,16 @@
       "previousSlugs": [
         "ergoterapista-diplomato-a-eoc-novaggio-x29n6w",
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-        "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6w",
+        "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "ergoterapista-diplomato-a-eoc-novaggio-x29n6w",
-          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w"
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6w"
         ],
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
@@ -1684,7 +1725,8 @@
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w"
         ],
         "fr": [
-          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w"
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
+          "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
         ]
       },
       "salaryMin": 70500,
@@ -2070,16 +2112,19 @@
       "country": "CH",
       "previousSlugs": [
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n48",
         "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
         "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzo-x29n47",
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n48"
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzo-x29n47"
       ],
       "previousSlugsByLocale": {
         "en": [
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
+        ],
+        "it": [
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n48"
         ]
       }
     },
@@ -2595,9 +2640,9 @@
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n55",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56",
-        "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n4e",
-        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n4e"
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n4e",
+        "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2608,7 +2653,9 @@
           "dieteticien-ne-40-eoc-ente-ospedaliero-cantonale-novaggio",
           "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona",
           "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n55",
-          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56"
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56",
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n4e",
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n4e"
         ],
         "en": [
           "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -2860,18 +2907,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-          "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
           "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
@@ -2879,7 +2914,19 @@
           "fisioterapista-diplomato-a-eoc-novaggio-x29n6r",
           "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
           "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
+          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+          "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+          "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62"
         ],
         "en": [
           "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -2893,18 +2940,6 @@
         ]
       },
       "previousSlugs": [
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
@@ -2912,7 +2947,19 @@
         "fisioterapista-diplomato-a-eoc-novaggio-x29n6r",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
         "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
+        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62"
       ]
     },
     {
@@ -2985,9 +3032,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-          "ergoterapista-diplomato-a-eoc-novaggio-x29n6v",
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
           "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6w",
@@ -3004,7 +3048,10 @@
           "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
           "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
-          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6v"
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6v",
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6s",
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s",
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057"
         ],
         "en": [
           "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -3019,9 +3066,6 @@
         ]
       },
       "previousSlugs": [
-        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-        "ergoterapista-diplomato-a-eoc-novaggio-x29n6v",
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
         "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6w",
@@ -3038,7 +3082,10 @@
         "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
         "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
-        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6v"
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6v",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6s",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s",
+        "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057"
       ]
     },
     {
@@ -3171,12 +3218,13 @@
       "country": "CH",
       "previousSlugs": [
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikyu1"
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikyu1",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikyu1"
         ],
         "en": [
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
@@ -3512,15 +3560,15 @@
         "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-d46b9a",
         "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-d46b9a",
         "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-d46b9a",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqhe",
+        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
         "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-d46b9a",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
         "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce",
         "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero",
         "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-4d6bce",
         "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero",
-        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-4d6bce",
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqhe",
-        "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe"
+        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-4d6bce"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3528,7 +3576,9 @@
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
           "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-d46b9a",
           "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-d46b9a",
-          "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-d46b9a"
+          "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-d46b9a",
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lav-uilqhe",
+          "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe"
         ],
         "en": [
           "sam-medical-expert-with-specialization-in-general-internal-medicine-work-percentage-to-be-defined-eoc-ente-d46b9a",
