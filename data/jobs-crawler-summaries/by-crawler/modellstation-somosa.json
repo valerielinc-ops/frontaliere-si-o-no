@@ -1,18 +1,19 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-07-02T22:53:34.458Z",
+  "generatedAt": "2026-07-03T12:07:34.641Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5895,
-  "avgDurationMs": 5895,
+  "durationMs": 4799,
+  "avgDurationMs": 4799,
   "durationHistory": [
-    5895
+    4799
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "modellstation-somosa-fe86357a0d1c",
       "slug": "sozialpadagogen-sozialpadagogin-wg-b-80-modellstation-somosa-winterthur",
@@ -20,13 +21,13 @@
       "companyKey": "modellstation-somosa",
       "companyDomain": "somosa.ch",
       "title": "Sozialpädagogen / Sozialpädagogin WG B, 80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:53:29.801Z",
+      "crawledAt": "2026-07-03T12:07:30.694Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-02T22:53:29.801Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "modellstation-somosa-63c8b671b2e5",
       "slug": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur",
@@ -64,7 +64,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:53:30.372Z",
+      "crawledAt": "2026-07-03T12:07:31.194Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/psychologie-praktikum-2",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:53:30.938Z",
+      "crawledAt": "2026-07-03T12:07:31.694Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:53:31.507Z",
+      "crawledAt": "2026-07-03T12:07:32.194Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/eine-oberaerztin-einen-oberarzt-60-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:53:32.074Z",
+      "crawledAt": "2026-07-03T12:07:32.695Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
