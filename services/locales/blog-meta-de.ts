@@ -8234,7 +8234,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Luftaufnahme der Lugano Seeuferpromenade mit Steuerdokumenten auf einem Tisch im Vordergrund',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'Rückerstopp: Konvention Italien-Schweiz & \'Gesundheitssteuer\'',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Wir analysieren die Aussetzung der Rückvergütungen Italien-Schweiz im Lichte des Steuerabkommens und der "Gesundheitssteuer" und bewerten die rechtlichen Auswirkungen und',
-    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Redaktionelles Bild zu: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Redaktionelles Bild zu: La sospensione dei ristorni alla prova della convenzione Italia-Svizzera: il caso della “tassa sulla salute”',
 };
 
 export default blogMetaDe;

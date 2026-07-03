@@ -8234,9 +8234,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deduzione-figli-frontalieri-2026.title': 'Frontalieri: possibile rimozione deduzione fiscale per figli',
     'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'Un\'iniziativa propone di eliminare la deduzione fiscale per i figli dei lavoratori frontalieri con figli all\'estero.',
     'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Vista aerea del lungolago di Lugano con documenti fiscali in primo piano',
-    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'La sospensione dei ristorni alla prova della convenzione Italia-Svizzera: il caso della “tassa sulla salute”',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Analizziamo la sospensione dei ristorni Italia-Svizzera alla luce della Convenzione fiscale e della "tassa sulla salute", valutando implicazioni giuridiche e',
-    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Immagine editoriale relativa a: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Immagine editoriale relativa a: La sospensione dei ristorni alla prova della convenzione Italia-Svizzera: il caso della “tassa sulla salute”',
 };
 
 export default blogMetaIt;
