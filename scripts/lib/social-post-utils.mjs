@@ -292,3 +292,48 @@ export function buildArticleCaption({ ogTitle, ogDescription, category }) {
     hashtags,
   ].join('\n').trim();
 }
+
+// ── Landing-page pre-flight (immediate posters) ─────────────
+
+const PREFLIGHT_TIMEOUT_MS = 5000;
+
+/**
+ * HEAD-check that a just-built landing page is actually live before an
+ * immediate (non-scheduled) poster links to it. Immediate posters link to
+ * per-comune / per-article pages emitted at build time; if the deploy is
+ * slow or retrying, the page can still 404 at click-time — posting anyway
+ * would burn the click on a dead link with zero ad impression.
+ *
+ * HEAD-only (cheap, no body), bounded by a timeout via AbortController (same
+ * pattern as `scripts/probe-5xx.mjs`) so one slow/hanging comune can't stall
+ * the whole batch — callers should run these concurrently (Promise.allSettled).
+ *
+ * Fails safe: a clean 4xx OR a network error/timeout both count as "not
+ * live" and the caller should skip the post. A missing/ambiguous status
+ * (e.g. a minimal test mock, or a 5xx which may just be a transient CDN
+ * blip) is treated as live so it never blocks posting on something that
+ * isn't actually a dead link.
+ *
+ * @param {string} url
+ * @param {object} [opts]
+ * @param {typeof fetch} [opts.fetchImpl]
+ * @param {number} [opts.timeoutMs]
+ * @returns {Promise<boolean>}
+ */
+export async function isLandingPageLive(url, opts = {}) {
+  const fetchImpl = opts.fetchImpl || globalThis.fetch;
+  const timeoutMs = opts.timeoutMs || PREFLIGHT_TIMEOUT_MS;
+  if (typeof fetchImpl !== 'function') return true;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetchImpl(url, { method: 'HEAD', signal: controller.signal });
+    if (res && typeof res.status === 'number' && res.status >= 400 && res.status < 500) return false;
+    return true;
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
+}
