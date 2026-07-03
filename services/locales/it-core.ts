@@ -3563,6 +3563,8 @@ Regole:
   'journalistDashboard.detail.failedTitle': 'Pubblicazione non riuscita',
   'journalistDashboard.detail.failedFallback': 'Si è verificato un errore durante la pubblicazione. Correggi l\'articolo e reinvia.',
   'journalistDashboard.detail.queuedInfo': 'Il tuo articolo è in coda per la pubblicazione. Verrà elaborato a breve.',
+  'journalistDashboard.status.publishing': 'In pubblicazione',
+  'journalistDashboard.detail.publishingInfo': 'Il deploy è in corso: l\'articolo sarà online entro pochi minuti.',
   'journalistDashboard.detail.publishedTitle': 'Articolo pubblicato',
   'journalistDashboard.detail.urlPending': 'Link non ancora disponibile',
   'journalistDashboard.detail.analyticsHeading': 'Statistiche',

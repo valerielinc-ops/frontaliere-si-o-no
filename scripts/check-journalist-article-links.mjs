@@ -15,16 +15,17 @@
  * Best-effort at every level: a network hiccup on one locale must not abort
  * the run, crash other docs, or block other locales of the same doc.
  *
- * Ordering caveat (issue #3209 item 2): this script runs in the SAME workflow
- * job as scripts/publish-journalist-article.mjs, BEFORE that job's
- * commit/push/deploy steps (see .github/workflows/publish-journalist-articles.yml).
- * So an article published moments earlier in this exact run is not deployed
- * yet — its own live URL is guaranteed to 404. `isRecentlyPublished()` below
- * skips exactly those just-published docs (rather than fetching a URL known
- * to not be live yet) and leaves them for the next 15-minute cron tick, once
- * the deploy has had time to land — see that function's docstring for the
- * exact reasoning about why a fixed short window can't misfire on an
- * earlier-run doc.
+ * Live gate (issue #3209 item 2 / follow-up): this script runs in the SAME
+ * workflow job as scripts/publish-journalist-article.mjs, BEFORE that job's
+ * commit/push/deploy steps (see .github/workflows/publish-journalist-articles.yml),
+ * AND deploys can queue behind other commits for well over the 15-minute
+ * cron cadence. A fixed post-publish time window can't tell "not deployed
+ * yet" from "deployed" — it previously guessed via a 5-minute skip, which
+ * both fires too early under a busy deploy queue and stays silent too long
+ * once the deploy has actually landed. Instead this gates on
+ * `doc.liveVerifiedAt`, stamped by scripts/notify-journalist-article-live.mjs
+ * only after it has curled all 4 locale URLs and confirmed 200 post-deploy —
+ * the same real signal the "article is live" email now waits on, not a guess.
  *
  * Exit codes:
  *   0 — ran fine (including per-doc/per-locale failures, which are logged and
@@ -43,22 +44,6 @@ const FETCH_TIMEOUT_MS = 10_000;
 const HEAD_TIMEOUT_MS = 8_000;
 const HEAD_CONCURRENCY = 5;
 const MAX_BROKEN_URLS_STORED = 10;
-
-// Comfortably covers the gap between publish-journalist-article.mjs stamping
-// `publishedAt` and this SAME job reaching its (later) commit/push/deploy
-// steps, while staying well under the 15-minute cron cadence — so a doc
-// published in an EARLIER run (already deployed for at least one full cron
-// interval) is never mistakenly skipped here.
-const RECENTLY_PUBLISHED_SKIP_MS = 5 * 60 * 1000;
-
-/** True when `publishedAtMs` is recent enough that the article's own page
- * cannot possibly be deployed yet — i.e. it was published by
- * publish-journalist-article.mjs earlier in THIS SAME workflow run, whose
- * commit/push/deploy-trigger steps only run after this script (issue #3209
- * item 2). Exported for tests. */
-function isRecentlyPublished(publishedAtMs, now = Date.now()) {
-  return typeof publishedAtMs === 'number' && Number.isFinite(publishedAtMs) && now - publishedAtMs < RECENTLY_PUBLISHED_SKIP_MS;
-}
 
 async function initDb() {
   const admin = (await import('firebase-admin')).default;
@@ -129,13 +114,8 @@ async function processDoc(db, docSnap) {
     return;
   }
 
-  const publishedAtMs = typeof doc.publishedAt?.toMillis === 'function' ? doc.publishedAt.toMillis() : null;
-  if (isRecentlyPublished(publishedAtMs)) {
-    const ageSec = Math.round((Date.now() - publishedAtMs) / 1000);
-    console.log(
-      `  ⏭️  ${docId}: published ${ageSec}s ago in this same run — commit/push/deploy hasn't run yet, ` +
-        'own URL cannot be live. Skipping until next tick.',
-    );
+  if (!doc.liveVerifiedAt) {
+    console.log(`  ⏭️  ${docId}: not live-verified yet (deploy pending) — skipping until it is.`);
     return;
   }
 
@@ -185,4 +165,4 @@ if (invokedDirectly) {
   });
 }
 
-export { extractSameOriginLinks, runWithConcurrency, checkPageLinks, isRecentlyPublished, processDoc };
+export { extractSameOriginLinks, runWithConcurrency, checkPageLinks, processDoc };
