@@ -87,7 +87,19 @@ function pickLocation(job, defaultCity) {
   return defaultCity;
 }
 
-function pickPostalCode(job, defaultPostal) {
+// City-gated HQ fallback: only borrow the configured default ZIP/street when
+// the resolved location TEXT actually matches the HQ city — canton-level
+// matching is wrong, since it would re-stamp HQ street/ZIP onto any other
+// city in the same canton. `pickLocation` already falls back to `defaultCity`
+// itself when there's no real signal, so this also covers the legitimate
+// zero-signal case (location === defaultCity).
+function isHqCity(location, defaultCity) {
+  if (!location || !defaultCity) return !location;
+  const escaped = String(defaultCity).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`\\b${escaped}\\b`, 'i').test(location);
+}
+
+function pickPostalCode(job, defaultPostal, location, defaultCity) {
   const cityRaw = String(job?.szas?.['sza_location.city'] || '').trim();
   const m = cityRaw.match(/\b(\d{4})\b/);
   if (m) return m[1];
@@ -95,7 +107,27 @@ function pickPostalCode(job, defaultPostal) {
   const workplaceZip = String(job?.szas?.['sza_workplace.zip'] || '').trim();
   const m2 = workplaceZip.match(/\b(\d{4})\b/);
   if (m2) return m2[1];
-  return defaultPostal;
+  // Some tenants expose a standalone `sza_location.zip` field instead of
+  // embedding the ZIP in the city string (e.g. medium 1005736 workplace
+  // records: `sza_location.city: 'Solothurn'`, `sza_location.zip: '4500'`).
+  const locationZip = String(job?.szas?.['sza_location.zip'] || '').trim();
+  const m3 = locationZip.match(/\b(\d{4})\b/);
+  if (m3) return m3[1];
+  return isHqCity(location, defaultCity) ? defaultPostal : '';
+}
+
+function pickStreetAddress(job, defaultStreet, location, defaultCity) {
+  // `sza_workplace` is often a free-text "Label, Street Number, ZIP City"
+  // triple (e.g. "Baloise Solothurn, Amthausplatz 4, 4500 Solothurn"). The
+  // comma-segment containing a digit but not starting with a 4-digit ZIP
+  // is the street address.
+  const workplace = String(job?.szas?.sza_workplace || '').trim();
+  if (workplace) {
+    const parts = workplace.split(',').map((p) => p.trim()).filter(Boolean);
+    const streetPart = parts.find((p) => /\d/.test(p) && !/^\d{4}\b/.test(p));
+    if (streetPart) return streetPart;
+  }
+  return isHqCity(location, defaultCity) ? defaultStreet : '';
 }
 
 function pickEmploymentType(job) {
@@ -158,6 +190,9 @@ function detectExperienceLevel(title = '') {
  * @param {string} config.defaultCanton
  * @param {string} config.defaultCity
  * @param {string} config.defaultPostalCode
+ * @param {string} [config.defaultStreetAddress] HQ street, used ONLY as a
+ *   city-gated fallback (resolved location matches defaultCity) when a
+ *   listing's own `sza_workplace` has no parseable street segment.
  * @param {string} [config.apiLang='de']     Listing language
  * @param {string} [config.publicCareerUrl]
  * @param {string} [config.defaultSourceLang='de']
@@ -177,6 +212,7 @@ export function createProspectiveChParser(config) {
     defaultCanton,
     defaultCity,
     defaultPostalCode,
+    defaultStreetAddress = '',
     publicCareerUrl,
     defaultSourceLang = 'de',
     extraTrustedHosts = [],
@@ -356,7 +392,8 @@ export function createProspectiveChParser(config) {
         addressRegion: canton,
         addressCountry: 'CH',
         country: 'CH',
-        postalCode: pickPostalCode(listing, defaultPostalCode),
+        postalCode: pickPostalCode(listing, defaultPostalCode, location, defaultCity),
+        streetAddress: pickStreetAddress(listing, defaultStreetAddress, location, defaultCity),
         category: detectCategory(title, department),
         contract: 'full-time',
         employmentType: pickEmploymentType(listing),

@@ -541,6 +541,8 @@ export const COMPANY_HQ = {
   'spruengli': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'deloitte': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
   'kuehne-nagel': { city: 'Schindellegi', canton: 'SZ', postalCode: '8834', addressRegion: 'SZ' },
+  // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
+  'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
 };
 
 /**
