@@ -40,6 +40,7 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://jobs.helvetia.com/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.helvetia.com'],
+  sharedMedium: true,
   filterListing: (listing) => !/^\s*baloise/i.test(String(listing?.szas?.sza_workplace || '')),
 });
 

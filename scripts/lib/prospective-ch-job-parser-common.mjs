@@ -201,6 +201,12 @@ function detectExperienceLevel(title = '') {
  *   `links.directlink` hostname matches one of these. Use for shared Prospective
  *   tenants that mix multiple employers (e.g. medium 1008606 serves both PZM
  *   Münsingen and UPD Bern). Default: no filtering.
+ * @param {boolean} [config.sharedMedium=false]  Set true when this `mediumId`
+ *   is intentionally split across multiple companyKeys (discriminated via
+ *   `filterListing` at fetch time, e.g. Baloise/Helvetia on medium 1005736).
+ *   Disables the bare `/medium/{id}/` URL fallback in `isCompanyJob`, which
+ *   would otherwise match jobs belonging to the *other* company sharing the
+ *   tenant — that fallback is only safe when one company owns the medium.
  */
 export function createProspectiveChParser(config) {
   const {
@@ -217,6 +223,7 @@ export function createProspectiveChParser(config) {
     defaultSourceLang = 'de',
     extraTrustedHosts = [],
     acceptDirectlinkHosts = [],
+    sharedMedium = false,
     filterListing,
   } = config;
 
@@ -246,7 +253,7 @@ export function createProspectiveChParser(config) {
     if (company && companyName && company === normalize(companyName)) return true;
     if (corporateHost && company && company.includes(corporateHost.split('.')[0])) return true;
     if (corporateHost && url.includes(corporateHost)) return true;
-    if (url.includes(`/medium/${mediumId}/`)) return true;
+    if (!sharedMedium && url.includes(`/medium/${mediumId}/`)) return true;
     return false;
   }
 

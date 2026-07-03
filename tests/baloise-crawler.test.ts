@@ -83,8 +83,16 @@ describe('Baloise crawler parser', () => {
       expect(isBaloiseJob({ company: 'Baloise' })).toBe(true);
     });
 
-    it('matches by medium URL', () => {
-      expect(isBaloiseJob({ url: 'https://ohws.prospective.ch/public/v1/medium/1005736/jobs' })).toBe(true);
+    it('rejects a bare shared-medium URL with no company signal (medium 1005736 is split with Helvetia)', () => {
+      // sharedMedium:true disables the bare-medium-URL fallback for this
+      // tenant, since it can't discriminate which of the two companies a
+      // job belongs to — the two crawlers already do that at fetch time
+      // via filterListing on szas.sza_workplace, not via URL matching.
+      expect(isBaloiseJob({ url: 'https://ohws.prospective.ch/public/v1/medium/1005736/jobs' })).toBe(false);
+    });
+
+    it('matches by corporate host URL', () => {
+      expect(isBaloiseJob({ url: 'https://baloise.com/jobs/123' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
