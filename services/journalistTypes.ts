@@ -49,6 +49,8 @@ export interface JournalistArticleLinkCheckResult {
   totalLinks?: number;
   brokenLinks?: number;
   brokenUrls?: string[];
+  /** Number of locale pages that contributed to the aggregate above. */
+  localesChecked?: number;
 }
 
 export interface JournalistArticle {
@@ -83,7 +85,10 @@ export interface JournalistArticle {
   /** Set when status === 'failed'; cleared on successful resubmission. */
   errorMessage?: string;
   analytics?: JournalistArticleAnalytics;
-  linkCheck?: Partial<Record<ArticleLocale, JournalistArticleLinkCheckResult>>;
+  /** Aggregated across all published locale pages — not per-locale, since the
+   *  same-origin link set is dominated by shared site chrome (nav/footer)
+   *  that repeats per locale prefix, not editorial differences. */
+  linkCheck?: JournalistArticleLinkCheckResult;
 }
 
 export const JOURNALIST_STATUS_PILL: Record<JournalistArticleStatus, { label: string; color: string }> = {

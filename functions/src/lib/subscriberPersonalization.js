@@ -58,13 +58,19 @@ function topWeighted(entries) {
       bestWeight = weight;
     }
   }
-  return best;
+  // Require positive total weight — a zero-weight label is no signal.
+  return bestWeight > 0 ? best : '';
 }
 
-/** Weighted entries from a Firestore-style `{ key: count }` usage map. */
+/** Weighted entries from a Firestore-style `{ key: count }` usage map.
+ * A missing/null count is treated as weight 1 (key existence = a signal).
+ * An explicit 0 count stays 0 — a zeroed or stale entry must not be ranked. */
 function fromUsageMap(map) {
   if (!map || typeof map !== 'object') return [];
-  return Object.entries(map).map(([value, count]) => ({ value, weight: Number(count) || 1 }));
+  return Object.entries(map).map(([value, count]) => ({
+    value,
+    weight: count == null ? 1 : (Number(count) || 0),
+  }));
 }
 
 /**
