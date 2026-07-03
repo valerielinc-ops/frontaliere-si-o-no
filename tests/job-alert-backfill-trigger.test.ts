@@ -198,6 +198,20 @@ describe('resolveSignalTier — tier-3 personalization fallback', () => {
   it('stays none when personalization has nothing usable (empty viewedJobs/filterUsage)', () => {
     expect(resolveSignalTier({}, { viewedJobs: [], filterUsage: {} })).toEqual({ tier: 'none', patch: null });
   });
+
+  it('derives personalization-fallback from a company-only signal, not just job_category/location_interest/geo_city/job_search_query (#3378)', () => {
+    // Regression: a subscriber who only has a viewed-job COMPANY (no
+    // location/category derivable, no search history) produces a patch whose
+    // ONLY field is `job_company` — a real, non-blank field `derivePersonalizationPatch`
+    // guarantees is present (its own `Object.keys(patch).length > 0` contract).
+    // A prior version of this gate named only 4 of the 6 `PERSONALIZATION_FIELDS`
+    // (missing `job_company`/`sector_interest`), so this exact patch was silently
+    // discarded and the subscriber wrongly fell through toward 'none'/tier-4
+    // instead of using the real derived signal.
+    const result = resolveSignalTier({}, { viewedJobs: [{ company: 'Acme SA' }] });
+    expect(result.tier).toBe('personalization-fallback');
+    expect(result.patch).toEqual({ job_company: 'Acme SA' });
+  });
 });
 
 describe('handleNewsletterSubscriberCreated — tier-3 personalization fallback', () => {
