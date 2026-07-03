@@ -49,6 +49,9 @@ import {
   weekWindow,
   overlapsWindow,
   hasConfidentPrice,
+  OTHER_EVENTS_SEGMENT,
+  OTHER_EVENTS_COMUNE_KEY,
+  eventReferralUrl,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -566,7 +569,9 @@ function renderSourceAttribution(events: SiteEvent[], copy: Copy, dateStamp: str
 
 function pathFor(locale: Locale, canton: string, comune?: string): string {
   const base = basePathFor(canton)[locale];
-  return comune ? `${base}/${slugifyComune(comune)}/` : `${base}/`;
+  if (!comune) return `${base}/`;
+  const segment = comune === OTHER_EVENTS_COMUNE_KEY ? OTHER_EVENTS_SEGMENT[locale] : slugifyComune(comune);
+  return `${base}/${segment}/`;
 }
 
 function humanDate(iso: string, locale: Locale): string {
@@ -606,7 +611,8 @@ function buildAlternates(canton: string, comune?: string): string {
  * `canton` defaults to 'TI' so existing 3-arg callers (tests, the FB poster)
  * keep resolving the legacy Ticino path untouched. */
 export function pathForEventDetail(locale: Locale, comune: string, eventSlug: string, canton: string = 'TI'): string {
-  return `${basePathFor(canton)[locale]}/${slugifyComune(comune)}/${eventSlug}/`;
+  const segment = comune === OTHER_EVENTS_COMUNE_KEY ? OTHER_EVENTS_SEGMENT[locale] : slugifyComune(comune);
+  return `${basePathFor(canton)[locale]}/${segment}/${eventSlug}/`;
 }
 
 function buildEventAlternates(canton: string, comune: string, eventSlug: string): string {
@@ -882,8 +888,12 @@ export function renderHubPage(params: {
   /** Other cantons that also have a hub this build (BFS cross-link, so a
    * non-TI hub stays reachable beyond the sitemap/hreflang alternates). */
   otherCantons?: string[];
+  /** Events for this canton with no `comune` (see the "other events" bucket
+   * page above) — adds one extra tile to the comune grid so that page stays
+   * BFS-reachable from the hub, same as every real comune tile. */
+  otherEvents?: SiteEvent[];
 }): { urlPath: string; html: string; wordCount: number } {
-  const { locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons = [] } = params;
+  const { locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons = [], otherEvents = [] } = params;
   const copy = copyFor(canton, locale);
   const canonicalPath = pathFor(locale, canton);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -891,18 +901,28 @@ export function renderHubPage(params: {
   const upcoming = events.slice(0, 60);
 
   const comuneEntries = [...byComune.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
-  const comuneGrid = comuneEntries
-    .map(
-      ([comune, list]) =>
-        `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-md" href="${pathFor(locale, canton, comune)}">
+  const comuneGrid =
+    comuneEntries
+      .map(
+        ([comune, list]) =>
+          `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-md" href="${pathFor(locale, canton, comune)}">
           <span class="min-w-0">
             <span class="block truncate text-sm font-semibold text-heading">${esc(comune)}</span>
             <span class="mt-1 block text-xs text-muted">${list.length} ${esc(copy.eventsWord)}</span>
           </span>
           <span class="shrink-0 text-lg text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden="true">→</span>
         </a>`,
-    )
-    .join('');
+      )
+      .join('') +
+    (otherEvents.length > 0
+      ? `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-md" href="${pathFor(locale, canton, OTHER_EVENTS_COMUNE_KEY)}">
+          <span class="min-w-0">
+            <span class="block truncate text-sm font-semibold text-heading">${esc(otherEventsCopyFor(canton, locale).tileLabel)}</span>
+            <span class="mt-1 block text-xs text-muted">${otherEvents.length} ${esc(copy.eventsWord)}</span>
+          </span>
+          <span class="shrink-0 text-lg text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden="true">→</span>
+        </a>`
+      : '');
 
   const cantonSwitcher =
     otherCantons.length > 0
@@ -1111,6 +1131,241 @@ export function renderComunePage(params: {
     description: copy.comuneDesc(comune),
     canonicalUrl,
     hreflangHtml: buildAlternates(canton, comune),
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    ogLocale: LOCALE_OG[locale],
+    bodyHtml: body,
+    jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
+  return { urlPath: canonicalPath, html, wordCount };
+}
+
+// ── "Other events" bucket page (comune-less events) ─────────────────────────
+// `groupByComune()` (scripts/lib/events-utils.mjs) intentionally DROPS events
+// with `comune == null` — that contract is protected by
+// tests/events-pipeline.test.ts and untouched here. Without this bucket page
+// those events had no internal detail page to link to, so their card fell
+// back to the raw crawled URL instead of our SEO detail page. This page
+// collects them under the `OTHER_EVENTS_COMUNE_KEY` sentinel (routing only,
+// see events-utils.mjs) so they get exactly the same detail-page treatment as
+// every other event.
+//
+// Copy is its own literal TI text run through the SAME
+// cantonSubstitutionRules/applyCantonSubstitution pass every other copy
+// object in this file uses for non-TI cantons (copyFor/digestCopyFor/
+// detailCopyFor) — deliberately NOT `copy.comuneH1`/`copy.comuneLede`/etc.,
+// which interpolate a *comune* name with hardcoded prepositions that don't
+// apply here (this bucket is per-canton, not per-comune, so plugging a
+// canton name or the raw sentinel into those templates would read wrong).
+interface OtherEventsCopy {
+  metaTitle: string;
+  metaDesc: string;
+  h1: string;
+  lede: string;
+  tileLabel: string;
+  breadcrumbLabel: string;
+  faqQ1: string;
+  faqA1: string;
+  faqQ2: string;
+  faqA2: string;
+}
+
+const OTHER_EVENTS_COPY: Record<Locale, OtherEventsCopy> = {
+  it: {
+    metaTitle: 'Altri eventi in Ticino | Eventi',
+    metaDesc:
+      "Eventi in Ticino per cui non abbiamo ancora identificato con certezza il comune: data, luogo (quando disponibile) e link al sito ufficiale.",
+    h1: 'Altri eventi in Ticino',
+    lede:
+      "Eventi dall'agenda del Ticino per cui non abbiamo ancora identificato con certezza il comune. Li trovi comunque con data, luogo (quando disponibile) e link ufficiale.",
+    tileLabel: 'Altri eventi',
+    breadcrumbLabel: 'Altri eventi',
+    faqQ1: 'Perché questi eventi non hanno un comune?',
+    faqA1:
+      'La fonte non indica un comune preciso per questi eventi in Ticino. Restano comunque raggiungibili con data, orario (quando noto) e link al sito ufficiale.',
+    faqQ2: 'Le informazioni sugli eventi sono ufficiali?',
+    faqA2:
+      "Riprendiamo i dati dalle agende pubbliche. Per orari definitivi, biglietti e dettagli consulta sempre la pagina dell'organizzatore collegata a ogni evento.",
+  },
+  en: {
+    metaTitle: 'Other events in Ticino | Events',
+    metaDesc:
+      'Events in Ticino we could not yet confidently attribute to a municipality: date, venue (when available) and a link to the official site.',
+    h1: 'Other events in Ticino',
+    lede:
+      'Events from the Ticino agenda we could not yet confidently attribute to a municipality. You can still find them here with date, venue (when available) and the official link.',
+    tileLabel: 'Other events',
+    breadcrumbLabel: 'Other events',
+    faqQ1: "Why don't these events have a municipality?",
+    faqA1:
+      'The source does not give a precise municipality for these events in Ticino. They stay reachable here with date, time (when known) and a link to the official site.',
+    faqQ2: 'Is the event information official?',
+    faqA2:
+      "We mirror data from public agendas. For final times, tickets and details always check the organiser's page linked on each event.",
+  },
+  de: {
+    metaTitle: 'Weitere Veranstaltungen im Tessin | Veranstaltungen',
+    metaDesc:
+      'Veranstaltungen im Tessin, denen wir noch keine Gemeinde sicher zuordnen konnten: Datum, Ort (falls bekannt) und Link zur offiziellen Website.',
+    h1: 'Weitere Veranstaltungen im Tessin',
+    lede:
+      'Veranstaltungen aus der Tessiner Agenda, die wir noch keiner Gemeinde sicher zuordnen konnten. Du findest sie hier trotzdem mit Datum, Ort (falls bekannt) und offiziellem Link.',
+    tileLabel: 'Weitere Veranstaltungen',
+    breadcrumbLabel: 'Weitere Veranstaltungen',
+    faqQ1: 'Warum haben diese Veranstaltungen keine Gemeinde?',
+    faqA1:
+      'Die Quelle nennt für diese Veranstaltungen im Tessin keine genaue Gemeinde. Sie bleiben trotzdem hier auffindbar, mit Datum, Uhrzeit (falls bekannt) und Link zur offiziellen Website.',
+    faqQ2: 'Sind die Veranstaltungsinfos offiziell?',
+    faqA2:
+      'Wir spiegeln Daten aus öffentlichen Agenden. Für endgültige Zeiten, Tickets und Details prüfe immer die verlinkte Veranstalterseite.',
+  },
+  fr: {
+    metaTitle: 'Autres événements au Tessin | Événements',
+    metaDesc:
+      "Événements au Tessin que nous n'avons pas encore pu attribuer avec certitude à une commune : date, lieu (si disponible) et lien vers le site officiel.",
+    h1: 'Autres événements au Tessin',
+    lede:
+      "Événements de l'agenda du Tessin que nous n'avons pas encore pu attribuer avec certitude à une commune. Vous les trouvez ici avec date, lieu (si disponible) et lien officiel.",
+    tileLabel: 'Autres événements',
+    breadcrumbLabel: 'Autres événements',
+    faqQ1: "Pourquoi ces événements n'ont-ils pas de commune ?",
+    faqA1:
+      "La source n'indique pas de commune précise pour ces événements au Tessin. Ils restent accessibles ici avec date, heure (si connue) et lien vers le site officiel.",
+    faqQ2: 'Les informations sur les événements sont-elles officielles ?',
+    faqA2:
+      "Nous reprenons les données des agendas publics. Pour les horaires définitifs, billets et détails, consultez toujours la page de l'organisateur liée à chaque événement.",
+  },
+};
+
+const otherEventsCopyCache = new Map<string, OtherEventsCopy>();
+/** Same TI-verbatim / non-TI-substituted split as `copyFor`/`detailCopyFor`. */
+function otherEventsCopyFor(canton: string, locale: Locale): OtherEventsCopy {
+  if (canton.toUpperCase() === 'TI') return OTHER_EVENTS_COPY[locale];
+  const cacheKey = `${canton}|${locale}`;
+  const cached = otherEventsCopyCache.get(cacheKey);
+  if (cached) return cached;
+  const rules = cantonSubstitutionRules(canton, locale);
+  const base = OTHER_EVENTS_COPY[locale];
+  const sub = (s: string) => applyCantonSubstitution(s, rules);
+  const out: OtherEventsCopy = {
+    ...base,
+    metaTitle: sub(base.metaTitle),
+    metaDesc: sub(base.metaDesc),
+    h1: sub(base.h1),
+    lede: sub(base.lede),
+    faqQ1: sub(base.faqQ1),
+    faqA1: sub(base.faqA1),
+  };
+  otherEventsCopyCache.set(cacheKey, out);
+  return out;
+}
+
+/** Bucket page for events whose source gave no `comune` — see the block
+ * comment above. Same SEO contract as `renderComunePage` (ItemList +
+ * BreadcrumbList + FAQPage JSON-LD, hreflang, MIN_INDEXABLE_WORDS gate), own
+ * copy (`otherEventsCopyFor`), canonical path via
+ * `pathFor(locale, canton, OTHER_EVENTS_COMUNE_KEY)` (routes through
+ * `OTHER_EVENTS_SEGMENT`, never the raw sentinel). */
+export function renderOtherEventsPage(params: {
+  locale: Locale;
+  canton: string;
+  events: SiteEvent[];
+  dateStamp: string;
+  weekendDays: Set<string>;
+  distDir: string;
+  detailHref?: DetailHref;
+}): { urlPath: string; html: string; wordCount: number } {
+  const { locale, canton, events, dateStamp, weekendDays, distDir, detailHref } = params;
+  const copy = copyFor(canton, locale);
+  const oeCopy = otherEventsCopyFor(canton, locale);
+  const canonicalPath = pathFor(locale, canton, OTHER_EVENTS_COMUNE_KEY);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const list = events.slice(0, 40);
+  const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
+
+  const body = `<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
+      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
+      <span class="mx-2">/</span>
+      <span>${esc(oeCopy.breadcrumbLabel)}</span>
+    </nav>
+
+    <header class="relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-success-subtle p-5 sm:p-8" data-speakable>
+      <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">📍</div>
+      <h1 class="relative max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(oeCopy.h1)}</h1>
+      <p class="relative mt-3 max-w-3xl text-base leading-7 text-body">${esc(oeCopy.lede)}</p>
+      <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
+    </header>
+
+    <dl class="mt-5 grid gap-3 sm:grid-cols-3">
+      ${renderMetric(copy.statEvents, String(events.length))}
+      ${renderMetric(copy.statWeekend, String(weekendCount))}
+      ${renderMetric(copy.statCategories, String(distinctCategories(events)))}
+    </dl>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold text-heading">${esc(oeCopy.h1)}</h2>
+      <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
+    </section>
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+      <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
+    </section>
+
+    ${renderCrosslinks(locale)}
+
+    ${renderFaq(
+      [
+        { q: oeCopy.faqQ1, a: oeCopy.faqA1 },
+        { q: oeCopy.faqQ2, a: oeCopy.faqA2 },
+      ],
+      copy.faqTitle,
+    )}
+
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+      <h2 class="text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
+      <p class="mt-3 max-w-3xl text-sm leading-6 text-body">${esc(copy.methodology)}</p>
+    </section>
+  </div>`;
+
+  const itemListLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: oeCopy.h1,
+    itemListElement: list.map((event, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: eventLd(event, locale),
+    })),
+  });
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
+      { '@type': 'ListItem', position: 3, name: oeCopy.breadcrumbLabel, item: canonicalUrl },
+    ],
+  });
+  const faqLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: oeCopy.faqQ1, acceptedAnswer: { '@type': 'Answer', text: oeCopy.faqA1 } },
+      { '@type': 'Question', name: oeCopy.faqQ2, acceptedAnswer: { '@type': 'Answer', text: oeCopy.faqA2 } },
+    ],
+  });
+
+  const wordCount = countHtmlBodyWords(body);
+  const html = buildSeoPageHtml({
+    locale,
+    title: oeCopy.metaTitle,
+    description: oeCopy.metaDesc,
+    canonicalUrl,
+    hreflangHtml: buildAlternates(canton, OTHER_EVENTS_COMUNE_KEY),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml: body,
@@ -1376,11 +1631,17 @@ export function renderEventDetailPage(params: {
   const canonicalPath = pathForEventDetail(locale, comune, eventSlug, canton);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const comunePath = pathFor(locale, canton, comune);
+  // Comune-less events (`comune === OTHER_EVENTS_COMUNE_KEY`, see
+  // scripts/lib/events-utils.mjs) still ROUTE through the sentinel
+  // (OTHER_EVENTS_SEGMENT, via pathFor/pathForEventDetail above), but every
+  // user-visible string below must show an honest label — the canton's
+  // display name — never the raw internal sentinel string.
+  const displayComune = comune === OTHER_EVENTS_COMUNE_KEY ? getCantonLabel(canton, locale as CantonLocale) : comune;
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const cat = categoryLabel(event.category, locale);
   const others = sameComuneEvents.filter((e) => e.id !== event.id).slice(0, 6);
-  const map = osmLink(event, comune);
+  const map = osmLink(event, displayComune);
   const description = localizedDescription(event, locale);
   const visual = categoryVisual(event.category);
   // `imageUrl` only ever holds a mirrored site-relative path — see the same
@@ -1396,7 +1657,7 @@ export function renderEventDetailPage(params: {
       <span class="mx-2">/</span>
       <a class="text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.hubLabel)}</a>
       <span class="mx-2">/</span>
-      <a class="text-link hover:text-link-hover" href="${comunePath}">${esc(comune)}</a>
+      <a class="text-link hover:text-link-hover" href="${comunePath}">${esc(displayComune)}</a>
       <span class="mx-2">/</span>
       <span>${esc(title)}</span>
     </nav>
@@ -1407,41 +1668,41 @@ export function renderEventDetailPage(params: {
       <span class="inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold ${TONE_CHIP_CLASSES[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
       ${event.recurring ? `<span class="ml-2 inline-block rounded-full border border-edge bg-surface-raised px-2.5 py-0.5 text-xs font-semibold text-heading">${esc(dc.recurringLabel)}</span>` : ''}
       <h1 class="mt-3 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(title)}</h1>
-      <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', comune))}</p>
+      <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
       ${description ? `<p class="mt-3 text-sm leading-6 text-body">${esc(description)}</p>` : ''}
     </header>
 
     <dl class="mt-5 grid gap-3 sm:grid-cols-2">
       ${renderMetric(dc.whenLabel, `${esc(when)}${time}`)}
-      ${renderMetric(dc.whereLabel, esc(event.venue || comune))}
+      ${renderMetric(dc.whereLabel, esc(event.venue || displayComune))}
       ${renderMetric(dc.catLabel, esc(cat))}
-      ${renderMetric(dc.comuneLabel, esc(comune))}
+      ${renderMetric(dc.comuneLabel, esc(displayComune))}
       ${priceLine(event, dc)}
       ${addressLine(event, dc)}
     </dl>
 
-    ${renderLocationCard(event, comune, dc, map)}
+    ${renderLocationCard(event, displayComune, dc, map)}
 
     <section class="mt-6 flex flex-wrap gap-3">
-      <a class="inline-flex items-center gap-2 rounded-md border border-info-border bg-info-subtle px-4 py-2 text-sm font-semibold text-info hover:bg-info-subtle/80" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
-      <a class="inline-flex items-center gap-2 rounded-md border border-edge px-4 py-2 text-sm font-semibold text-link hover:text-link-hover" href="${comunePath}">${esc(dc.allInComune(comune))} →</a>
+      <a class="inline-flex items-center gap-2 rounded-md border border-info-border bg-info-subtle px-4 py-2 text-sm font-semibold text-info hover:bg-info-subtle/80" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
+      <a class="inline-flex items-center gap-2 rounded-md border border-edge px-4 py-2 text-sm font-semibold text-link hover:text-link-hover" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
 
     <section class="mt-8">
       <h2 class="text-2xl font-bold text-heading">${esc(dc.aboutTitle)}</h2>
-      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(title, comune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
+      <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(title, displayComune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
       ${description ? `<h3 class="mt-4 text-lg font-semibold text-heading">${esc(dc.descriptionTitle)}</h3><p class="mt-2 text-base leading-7 text-body">${esc(description)}</p>` : ''}
     </section>
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(dc.practicalTitle)}</h2>
-      <p class="mt-3 text-sm leading-6 text-body">${esc(dc.practical(comune))}</p>
+      <p class="mt-3 text-sm leading-6 text-body">${esc(dc.practical(displayComune))}</p>
     </section>
 
     ${
       others.length > 0
         ? `<section class="mt-8">
-      <h2 class="text-2xl font-bold text-heading">${esc(dc.moreTitle(comune))}</h2>
+      <h2 class="text-2xl font-bold text-heading">${esc(dc.moreTitle(displayComune))}</h2>
       <div class="mt-4">${renderEventList(others, locale, detailHref)}</div>
     </section>`
         : ''
@@ -1451,8 +1712,8 @@ export function renderEventDetailPage(params: {
 
     ${renderFaq(
       [
-        { q: dc.faqQ1(title), a: dc.faqA1(comune, when) },
-        { q: dc.faqQ2(comune), a: dc.faqA2(comune) },
+        { q: dc.faqQ1(title), a: dc.faqA1(displayComune, when) },
+        { q: dc.faqQ2(displayComune), a: dc.faqA2(displayComune) },
       ],
       copy.faqTitle,
     )}
@@ -1465,7 +1726,7 @@ export function renderEventDetailPage(params: {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
       { '@type': 'ListItem', position: 2, name: copy.hubLabel, item: `${BASE_URL}${pathFor(locale, canton)}` },
-      { '@type': 'ListItem', position: 3, name: comune, item: `${BASE_URL}${comunePath}` },
+      { '@type': 'ListItem', position: 3, name: displayComune, item: `${BASE_URL}${comunePath}` },
       { '@type': 'ListItem', position: 4, name: title, item: canonicalUrl },
     ],
   });
@@ -1473,16 +1734,16 @@ export function renderEventDetailPage(params: {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      { '@type': 'Question', name: dc.faqQ1(title), acceptedAnswer: { '@type': 'Answer', text: dc.faqA1(comune, when) } },
-      { '@type': 'Question', name: dc.faqQ2(comune), acceptedAnswer: { '@type': 'Answer', text: dc.faqA2(comune) } },
+      { '@type': 'Question', name: dc.faqQ1(title), acceptedAnswer: { '@type': 'Answer', text: dc.faqA1(displayComune, when) } },
+      { '@type': 'Question', name: dc.faqQ2(displayComune), acceptedAnswer: { '@type': 'Answer', text: dc.faqA2(displayComune) } },
     ],
   });
 
   const wordCount = countHtmlBodyWords(body);
   const html = buildSeoPageHtml({
     locale,
-    title: dc.metaTitle(title, comune),
-    description: dc.metaDesc(title, comune, when),
+    title: dc.metaTitle(title, displayComune),
+    description: dc.metaDesc(title, displayComune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
@@ -1732,17 +1993,19 @@ export function renderDigestPage(params: {
 }
 
 function buildSitemap(
-  perCanton: Array<{ canton: string; comuni: string[]; digests: DigestDef[] }>,
+  perCanton: Array<{ canton: string; comuni: string[]; digests: DigestDef[]; hasOtherEvents?: boolean }>,
   dateStamp: string,
   detailEntries: Array<{ canton: string; comune: string; slug: string }> = [],
 ): string {
   const entries: string[] = [];
-  for (const { canton, comuni, digests } of perCanton) {
+  for (const { canton, comuni, digests, hasOtherEvents } of perCanton) {
     // Hub
     entries.push(sitemapUrl(canton, undefined, dateStamp, '0.7'));
     // Time-window digests (only the indexable ones)
     for (const d of digests) entries.push(digestSitemapUrl(canton, d.slug, dateStamp));
     for (const comune of comuni) entries.push(sitemapUrl(canton, comune, dateStamp, '0.5'));
+    // "Other events" bucket page (comune-less events, see renderOtherEventsPage)
+    if (hasOtherEvents) entries.push(sitemapUrl(canton, OTHER_EVENTS_COMUNE_KEY, dateStamp, '0.5'));
   }
   // Per-event detail pages
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp));
@@ -1851,6 +2114,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // a full href for the event cards.
       const detailSlugs = new Map<string, { canton: string; comune: string; slug: string }>();
       const byCantonComune = new Map<string, Map<string, SiteEvent[]>>();
+      // `groupByComune()` drops events with `comune == null` (intentional,
+      // protected by tests/events-pipeline.test.ts) — collect them separately
+      // per canton and dedup-slug them the same way as real comuni, under the
+      // OTHER_EVENTS_COMUNE_KEY sentinel, so they still get a working detail
+      // page instead of falling back to the raw crawled URL (see the "other
+      // events" bucket page above).
+      const otherEventsByCanton = new Map<string, SiteEvent[]>();
       for (const canton of cantons) {
         const byComune = groupByComune(byCanton.get(canton)!) as Map<string, SiteEvent[]>;
         byCantonComune.set(canton, byComune);
@@ -1863,6 +2133,20 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             while (used.has(slug)) slug = `${base}-${n++}`;
             used.add(slug);
             detailSlugs.set(ev.id, { canton, comune, slug });
+          }
+        }
+
+        const otherEvents = byCanton.get(canton)!.filter((e) => !e.comune);
+        if (otherEvents.length > 0) {
+          otherEventsByCanton.set(canton, otherEvents);
+          const used = new Set<string>();
+          for (const ev of otherEvents) {
+            const base = slugifyEvent(ev);
+            let slug = base;
+            let n = 2;
+            while (used.has(slug)) slug = `${base}-${n++}`;
+            used.add(slug);
+            detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug });
           }
         }
       }
@@ -1887,7 +2171,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         pagesWritten += 1;
       };
 
-      const perCantonSitemap: Array<{ canton: string; comuni: string[]; digests: DigestDef[] }> = [];
+      const perCantonSitemap: Array<{ canton: string; comuni: string[]; digests: DigestDef[]; hasOtherEvents: boolean }> = [];
 
       for (const canton of cantons) {
         const events = byCanton.get(canton)!;
@@ -1895,6 +2179,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const comuni = [...byComune.keys()].sort((a, b) => a.localeCompare(b));
         totalComuni += comuni.length;
         const otherCantons = cantons.filter((c) => c !== canton);
+        const otherEvents = otherEventsByCanton.get(canton) ?? [];
 
         // The digest filter is locale-independent (it only reads the date), so
         // compute each window's events ONCE per canton. A digest is indexed +
@@ -1907,7 +2192,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
 
         for (const locale of LOCALES) {
           const detailHref = detailHrefFor(locale);
-          emit(renderHubPage({ locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons }));
+          emit(renderHubPage({ locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons, otherEvents }));
           for (const comune of comuni) {
             const list = byComune.get(comune)!;
             emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref }));
@@ -1928,6 +2213,27 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
               );
             }
           }
+          // Comune-less events: one bucket listing page + one detail page per
+          // event, same treatment as a real comune (see the "other events"
+          // bucket page above / detailSlugs population above).
+          if (otherEvents.length > 0) {
+            emit(renderOtherEventsPage({ locale, canton, events: otherEvents, dateStamp, weekendDays, distDir, detailHref }));
+            for (const ev of otherEvents) {
+              const eventSlug = detailSlugs.get(ev.id)!.slug;
+              emit(
+                renderEventDetailPage({
+                  locale,
+                  event: ev,
+                  comune: OTHER_EVENTS_COMUNE_KEY,
+                  eventSlug,
+                  sameComuneEvents: otherEvents,
+                  dateStamp,
+                  distDir,
+                  detailHref,
+                }),
+              );
+            }
+          }
           // Emitted even when empty (the page degrades to a "no events" notice +
           // comune links) so the URL is stable for FB linking, but noindex.
           for (const def of DIGESTS) {
@@ -1939,6 +2245,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           canton,
           comuni,
           digests: DIGESTS.filter((d) => (digestEvents.get(d.key)?.length ?? 0) > 0),
+          hasOtherEvents: otherEvents.length > 0,
         });
       }
 
