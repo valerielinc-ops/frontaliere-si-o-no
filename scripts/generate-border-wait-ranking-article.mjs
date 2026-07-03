@@ -30,7 +30,7 @@
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { computeRanking, computeTrend, computeFunFacts } from './lib/border-wait-ranking.mjs';
+import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
 import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
 import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
 import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
@@ -61,18 +61,20 @@ const STATIC_META = {
   },
 };
 
-/** Compute the current ranking/trend/fun-facts snapshot for todayIso. */
+/** Compute the current ranking/trend/fun-facts/week-window/movers snapshot for todayIso. */
 export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
   const ranking = computeRanking(historyDir, todayIso, { days: 7 });
   const trend = computeTrend(historyDir, todayIso, { days: 7 });
   const funFacts = computeFunFacts(ranking);
-  return { ranking, trend, funFacts };
+  const { weekStart, weekEnd } = computeWeekWindow(todayIso, 7);
+  const movers = computeMovers(trend);
+  return { ranking, trend, funFacts, weekStart, weekEnd, movers };
 }
 
 /** Build the full registration `data` object from the current ranking snapshot. */
 export function buildData(todayIso, historyDir = HISTORY_DIR) {
-  const { ranking, trend, funFacts } = computeSnapshot(todayIso, historyDir);
-  const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso });
+  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, historyDir);
+  const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekStart, weekEnd, movers, todayIso });
   return {
     id: article.id,
     ...STATIC_META,
@@ -99,25 +101,29 @@ export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) 
  * (services/borderWaitRankingService.ts → InlineBorderWaitRanking). Kept
  * separate from the (much larger) article body payload.
  */
-export function buildRankingJson({ ranking, trend, funFacts, todayIso }) {
+export function buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart, weekEnd, movers }) {
   return {
     updatedAt: todayIso,
     windowDays: 7,
+    weekStart,
+    weekEnd,
     ranking: ranking.map((r) => ({
       slug: r.slug,
       rank: r.rank,
       avgMinutes: Math.round(r.avgMinutes * 10) / 10,
       totalSamples: r.totalSamples,
       trend: trend[r.slug]?.direction || 'flat',
+      deltaMinutes: trend[r.slug]?.deltaMinutes != null ? Math.round(trend[r.slug].deltaMinutes * 10) / 10 : null,
     })),
     funFacts,
+    movers,
   };
 }
 
 async function main() {
   const dryRun = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true';
   const todayIso = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
-  const { ranking, trend, funFacts } = computeSnapshot(todayIso);
+  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso);
   const data = buildData(todayIso);
   const exists = checkArticleIdExists(data.id);
 
@@ -133,7 +139,10 @@ async function main() {
   }
 
   mkdirSync(path.dirname(RANKING_JSON_PATH), { recursive: true });
-  writeFileSync(RANKING_JSON_PATH, JSON.stringify(buildRankingJson({ ranking, trend, funFacts, todayIso }), null, 2) + '\n');
+  writeFileSync(
+    RANKING_JSON_PATH,
+    JSON.stringify(buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart, weekEnd, movers }), null, 2) + '\n',
+  );
   console.log(`  ✅ ${path.relative(REPO_ROOT, RANKING_JSON_PATH)}`);
 
   if (!exists) {

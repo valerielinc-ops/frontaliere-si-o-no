@@ -32,6 +32,20 @@ export function windowFileNames(todayIso, days = DEFAULT_WINDOW_DAYS) {
   return names.sort();
 }
 
+/**
+ * ISO start/end date of the trailing ranking window (the days the current
+ * ranking is actually computed over) — lets the article/widget say "week of
+ * 27 June – 3 July" instead of just a generation timestamp.
+ * @returns {{ weekStart: string, weekEnd: string }}
+ */
+export function computeWeekWindow(todayIso, days = DEFAULT_WINDOW_DAYS) {
+  const names = windowFileNames(todayIso, days);
+  return {
+    weekStart: names[0].replace('.json', ''),
+    weekEnd: names[names.length - 1].replace('.json', ''),
+  };
+}
+
 function readHistoryDoc(historyDir, fileName) {
   const file = path.join(historyDir, fileName);
   if (!fs.existsSync(file)) return null;
@@ -127,13 +141,36 @@ export function computeFunFacts(ranking, { crossingsPerDay = 2, workingDaysPerYe
   const best = ranking[0];
   const worst = ranking[ranking.length - 1];
   const deltaMinutesPerCrossing = worst.avgMinutes - best.avgMinutes;
+  // Downstream (minutesPerYear etc.) uses the unrounded delta so the yearly
+  // projection stays accurate; only the per-crossing figure is rounded, since
+  // it's the one rendered directly to users (raw floats like
+  // `6.257211538461538` are not a valid UI string).
   const minutesPerYear = deltaMinutesPerCrossing * crossingsPerDay * workingDaysPerYear;
   return {
     bestSlug: best.slug,
     worstSlug: worst.slug,
-    deltaMinutesPerCrossing,
+    deltaMinutesPerCrossing: Math.round(deltaMinutesPerCrossing * 10) / 10,
     minutesPerYear: Math.round(minutesPerYear),
     hoursPerYear: Math.round((minutesPerYear / 60) * 10) / 10,
     workingDaysLostPerYear: Math.round((minutesPerYear / (24 * 60)) * 10) / 10,
   };
+}
+
+/**
+ * Biggest week-over-week improver/worsener, for a "what changed this week"
+ * callout — the concrete temporal comparison distinct from `computeFunFacts`'s
+ * this-week best-vs-worst snapshot gap.
+ * @returns {{ improved: Array<{slug:string, deltaMinutes:number}>, worsened: Array<{slug:string, deltaMinutes:number}> }}
+ */
+export function computeMovers(trend, { limit = 3 } = {}) {
+  const entries = Object.entries(trend).map(([slug, t]) => ({ slug, deltaMinutes: t.deltaMinutes }));
+  const improved = entries
+    .filter((e) => e.deltaMinutes < -0.5)
+    .sort((a, b) => a.deltaMinutes - b.deltaMinutes)
+    .slice(0, limit);
+  const worsened = entries
+    .filter((e) => e.deltaMinutes > 0.5)
+    .sort((a, b) => b.deltaMinutes - a.deltaMinutes)
+    .slice(0, limit);
+  return { improved, worsened };
 }

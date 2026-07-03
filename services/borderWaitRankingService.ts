@@ -7,6 +7,8 @@ export interface BorderWaitRankingRow {
   avgMinutes: number;
   totalSamples: number;
   trend: 'better' | 'worse' | 'flat';
+  /** Week-over-week change in minutes (positive = slower). Null = no prior-week data. */
+  deltaMinutes: number | null;
 }
 
 export interface BorderWaitRankingFunFacts {
@@ -18,11 +20,24 @@ export interface BorderWaitRankingFunFacts {
   workingDaysLostPerYear: number;
 }
 
+export interface BorderWaitRankingMover {
+  slug: BorderCrossingSlug;
+  deltaMinutes: number;
+}
+
+export interface BorderWaitRankingMovers {
+  improved: BorderWaitRankingMover[];
+  worsened: BorderWaitRankingMover[];
+}
+
 export interface BorderWaitRankingSnapshot {
   updatedAt: string;
   windowDays: number;
+  weekStart: string;
+  weekEnd: string;
   ranking: BorderWaitRankingRow[];
   funFacts: BorderWaitRankingFunFacts | null;
+  movers: BorderWaitRankingMovers | null;
 }
 
 const DATA_URL = '/data/border-wait-ranking.json';
