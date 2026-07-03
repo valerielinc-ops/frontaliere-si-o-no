@@ -23,6 +23,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 
 const WINDOW_DAYS = Number(process.env.WINDOW_DAYS || 14);
 const THRESHOLD = Number(process.env.THRESHOLD || 3);
@@ -219,13 +220,14 @@ export function isGenuinePrBodyContractViolation(text) {
 // Pure → unit-tested, mirrors isGenuinePrBodyContractViolation's structure.
 const SIBLING_CLASS_AFFIRM_RE =
   /nessun\w*\s*(?:[\u{1F534}\u{1F7E1}]\s*\/?\s*)*(?:da propagare|altro finding|bug replicat\w*|antipattern replicat\w*)|nessun\s+sibling\s+resid\w*|no inconsistenc\w*|not a candidate for|correctly mirrors? the sibling|coerente\s+(?:col|con il)\s+sibling|match(?:es)?\s+the sibling'?s?\s+(?:proven\s+)?(?:pattern|guard)/iu;
-const SIBLING_CLASS_FALSE_POSITIVE_RE =
-  /falso positivo|solo lessicalmente simil\w*|lessicalmente simil\w*(?:[^.]{0,40})semanticamente divers\w*|semanticamente divers\w*|non è (?:lo stesso|la stessa) (?:anti-?pattern|costrutto|classe)|not the same (?:anti-?pattern|construct|bug class)|false positive/i;
+// Negation-aware false-positive-declaration matcher, shared with
+// sibling-check-gate.mjs's isDeclaredFalsePositive (issue #3367 — the two
+// copies drifted when kept in sync by docstring promise only).
 export function isGenuineSiblingClassViolation(text) {
   const s = String(text || '');
   // (c) explicit false-positive declaration wins first — a reviewer can declare
   //     lexical-vs-semantic mismatch even inside an otherwise alarming sentence.
-  if (SIBLING_CLASS_FALSE_POSITIVE_RE.test(s)) return false;
+  if (FALSE_POSITIVE_DECLARATION_RE.test(s)) return false;
   // (b) the line AFFIRMS the sweep is complete / nothing to propagate → not a
   //     defect, even if it contains 🔴/🟡 glyphs as prose rather than a marker.
   if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
