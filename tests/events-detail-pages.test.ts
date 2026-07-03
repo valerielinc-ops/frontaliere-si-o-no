@@ -294,13 +294,18 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
     expect(page.html).toContain('6900');
   });
 
-  it('renders a plain OpenStreetMap link (no third-party embed/tracker), accessible', () => {
+  it('renders a plain OpenStreetMap link (no Google Maps, no tracker script), accessible', () => {
     // esc() HTML-escapes the "&" in the href attribute (&amp;).
     expect(page.html).toContain('openstreetmap.org/?mlat=46.005&amp;mlon=8.951');
     expect(page.html).toContain('rel="nofollow noopener"');
-    expect(page.html).not.toMatch(/google\.com\/maps|<iframe/i);
+    expect(page.html).not.toMatch(/google\.com\/maps/i);
     // Accessible name on the map link (not just an icon).
     expect(page.html).toMatch(/aria-label="Apri [^"]+ su OpenStreetMap"/);
+  });
+
+  it('embeds a plain OpenStreetMap iframe when the event has coordinates (no API key, no Google Maps)', () => {
+    expect(page.html).toMatch(/<iframe[^>]+src="[^"]*openstreetmap\.org\/export\/embed\.html[^"]*"/);
+    expect(page.html).not.toMatch(/google\.com\/maps/i);
   });
 
   it('renders the recurring badge when event.recurring is true', () => {
@@ -343,6 +348,8 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
     });
     expect(baselinePage.html).not.toContain('Evento ricorrente');
     expect(baselinePage.html).not.toContain('Indirizzo');
+    // No coordinates on the baseline event → no fabricated map embed.
+    expect(baselinePage.html).not.toMatch(/<iframe/i);
   });
 });
 
