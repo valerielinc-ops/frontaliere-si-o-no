@@ -255,7 +255,7 @@ export async function fetchAllAudemarsPiguetJobs() {
       // ── Recommended fields ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
+      postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

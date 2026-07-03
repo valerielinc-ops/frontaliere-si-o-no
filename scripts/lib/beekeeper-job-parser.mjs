@@ -139,10 +139,11 @@ function pickSwissAddress(jobPosting = {}) {
   const locations = Array.isArray(jobPosting.jobLocation) ? jobPosting.jobLocation : [];
   const chLoc = locations.find((loc) => loc?.address?.addressCountry === 'CH');
   const address = chLoc?.address || {};
+  const isHqCity = !address.addressLocality || /z[üu]rich/i.test(address.addressLocality);
   return {
     city: address.addressLocality || HQ.city,
-    postalCode: address.postalCode || HQ.postalCode,
-    streetAddress: address.streetAddress || HQ.streetAddress,
+    postalCode: address.postalCode || (isHqCity ? HQ.postalCode : ''),
+    streetAddress: address.streetAddress || (isHqCity ? HQ.streetAddress : ''),
   };
 }
 
