@@ -5,6 +5,7 @@ import {
   summarize,
   formatSummary,
   clear,
+  mergePreviousSlugsCapped,
 } from '../scripts/lib/slug-history-journal.mjs';
 import {
   addPreviousSlugForLocale,
@@ -29,6 +30,21 @@ describe('slug-history-journal', () => {
     recordSlugMutation({});
     recordSlugMutation({ jobId: 'x' });
     recordSlugMutation({ jobId: 'x', slug: 's', action: 'invalid-action', source: 'src' });
+    expect(getEvents()).toHaveLength(0);
+  });
+
+  it('mergePreviousSlugsCapped journals cap-trim overflow instead of silently dropping (company-crawler sibling fix)', () => {
+    const oldSlugs = Array.from({ length: 15 }, (_, i) => `old-slug-${i}`);
+    const newSlugs = Array.from({ length: 10 }, (_, i) => `new-slug-${i}`);
+    const result = mergePreviousSlugsCapped(oldSlugs, newSlugs, { jobId: 'company-job-1', source: 'update-guess-jobs.mjs' });
+    expect(result).toHaveLength(20);
+    expect(getEvents()).toHaveLength(1);
+    expect(getEvents()[0]).toMatchObject({ jobId: 'company-job-1', action: 'cap-trim', source: 'update-guess-jobs.mjs' });
+  });
+
+  it('mergePreviousSlugsCapped journals nothing when the union stays under cap', () => {
+    const result = mergePreviousSlugsCapped(['a', 'b'], ['b', 'c'], { jobId: 'company-job-2', source: 'update-guess-jobs.mjs' });
+    expect(result).toEqual(['a', 'b', 'c']);
     expect(getEvents()).toHaveLength(0);
   });
 

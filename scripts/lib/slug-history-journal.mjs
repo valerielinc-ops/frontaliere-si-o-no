@@ -52,6 +52,27 @@ export function getEvents() {
   return _events.slice();
 }
 
+/**
+ * Union two previousSlugs arrays and cap the result, journaling any overflow
+ * as a 'cap-trim' mutation instead of silently dropping it (issue class
+ * #3284/#3313/#3314: bare `.slice(0, cap)` calls scattered across
+ * company-specific crawler scripts each independently re-implemented this
+ * union+trim with no journal, so history losses beyond the cap went
+ * unrecorded per-script). Single shared implementation so the pattern can't
+ * drift back into copy-pasted per-file trims.
+ */
+export function mergePreviousSlugsCapped(oldSlugs, newSlugs, { jobId, source, cap = 20 } = {}) {
+  const union = [...new Set([...(Array.isArray(oldSlugs) ? oldSlugs : []), ...(Array.isArray(newSlugs) ? newSlugs : [])])];
+  const capped = union.slice(0, cap);
+  if (union.length > capped.length) {
+    recordSlugMutation({
+      jobId, locale: null, slug: '<oldest>', action: 'cap-trim',
+      source, reason: `cap=${cap}, trimmed=${union.length - capped.length}`,
+    });
+  }
+  return capped;
+}
+
 /** Reset the journal. Tests only. */
 export function clear() {
   _events.length = 0;

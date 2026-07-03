@@ -26,7 +26,7 @@ import { execSync } from 'child_process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
-import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel } from './lib/ai-models.mjs';
+import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -1030,6 +1030,10 @@ async function main() {
   console.error(`  🔄 AI fallbacks:    ${stats.fallbacks || 0}`);
   console.error(`  📊 Total completed: ${progress.completed.length}/${needsGeneration.length + progress.completed.length}`);
   console.error('═══════════════════════════════════════════════════════════');
+  // FRO-325: full run summary (cache hits, exhausted models, cooldowns,
+  // 429 streaks, error count) — superset of the calls/fallbacks lines
+  // above, not tracked anywhere else in this script (#3091).
+  printRunSummary();
 
   // Translation cascade stats
   try { logCascadeSummary(); } catch { /* optional */ }
