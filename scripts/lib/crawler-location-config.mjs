@@ -344,6 +344,7 @@ export const COMPANY_HQ = {
   'mobiliar':                     { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
   // Cathedral CH-wide marquee batch (2026-05-10) — Pictet + HUG.
   'pictet':                       { city: 'Genève',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'proton':                       { city: 'Plan-les-Ouates',    canton: 'GE', postalCode: '1228', addressRegion: 'GE' },
   'hug':                          { city: 'Genève',             canton: 'GE', postalCode: '1205', addressRegion: 'GE' },
   'bms-building':                 { city: 'Naters',             canton: 'VS', postalCode: '3904', addressRegion: 'VS' },
   'bls':                          { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },

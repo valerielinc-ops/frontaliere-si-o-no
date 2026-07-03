@@ -368,6 +368,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'privatklinik-obach': cLogo('swissmedical.net'),
  'privatklinik-wyss': cLogo('privatklinik-wyss.ch'),
  'prosenectute-ti': cLogo('ti.prosenectute.ch'),
+ 'proton': cLogo('proton.me'),
  'psgn': cLogo('psychiatrie-sg.ch'),
  'puk-zuerich': cLogo('pukzh.ch'),
  'pwc': '/images/brands/pwc.png',
