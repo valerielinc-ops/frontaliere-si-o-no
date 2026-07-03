@@ -833,7 +833,7 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   // same as before — `article.relative` below is its positioning context.
   const titleLink = detailHref
     ? `<a class="static after:absolute after:inset-0 hover:text-link-hover" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
-    : `<a class="static after:absolute after:inset-0 hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
+    : `<a class="static after:absolute after:inset-0 hover:text-link-hover" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
   // `imageUrl` only ever holds a mirrored site-relative path (see
   // `mirrorEventImage()`); a raw third-party URL is never rendered here
   // (defense-in-depth, mirrors the same guard in `mirroredEventImageObject`).
