@@ -204,19 +204,22 @@ jobs:
           # 55-min frontaliere budget is safe and well under the hard cap.
           # svizzera keeps the original 30-min cap (it never approaches it).
           #
-          # When the local-LLM fallback is enabled (ARTICLE_LOCAL_FALLBACK=1),
-          # generation can fall to a slow CPU model whose single calls take
-          # minutes. NB (corrected Jun-29, run 28390219943): earlier "3b 12/55min,
-          # 7b ~2/55min, deferred on the wall" was WRONG — every local call was
-          # dying at undici's 300s headersTimeout as `fetch failed`, so no local
-          # generation ever completed (fixed in #3102 via a per-call dispatcher).
-          # The 300-min budget still gives a genuinely-slow CPU model room to RUN
-          # TO COMPLETION so we can measure its real end-to-end time. Still under
-          # the 360-min job `timeout-minutes`
-          # (300min create-article + ollama setup + commit/deploy < 360). Defers
-          # stay rare/acceptable; this just stops the premature cut-off so the
-          # measurement is real. Reverts to 55/30 min when the var is unset.
-          CREATE_ARTICLE_MAX_WALL_MS: ${{ vars.ARTICLE_LOCAL_FALLBACK == '1' && '18000000' || (steps.section.outputs.section == 'svizzera' && '1800000' || '3300000') }}
+          # Local-LLM fallback (ARTICLE_LOCAL_FALLBACK=1) previously blew this
+          # budget to 300min (18000000) so a slow CPU call could run to
+          # completion for measurement (fixed in #3102 via a per-call
+          # dispatcher after an earlier false "deferred on wall" reading).
+          # That measurement is done: across 60 runs 2026-06-30..07-03, local
+          # fallback engaged in only 2/60 runs, ~6-11min per call, both
+          # succeeded — well inside the normal 55/30min budget. Meanwhile the
+          # 300min override was silently defeating the deadlineMs cascade-
+          # abort safety added in #3307 (RUN_START_MS + RUN_WALL_BUDGET_MS
+          # never elapsed within a run), letting single generate/translate/
+          # fact-check calls walk the entire free-tier chain uninterrupted —
+          # the real driver behind 60-140min runs, not the local fallback.
+          # Reverting unconditionally to the section-based budget restores
+          # the deadlineMs abort and keeps local fallback available (it still
+          # fires when reached) without the runaway ceiling.
+          CREATE_ARTICLE_MAX_WALL_MS: ${{ steps.section.outputs.section == 'svizzera' && '1800000' || '3300000' }}
         run: |
           echo "📰 Generating blog article (section=$TARGET_SECTION)..."
           if [ -n "${{ inputs.url }}" ]; then
