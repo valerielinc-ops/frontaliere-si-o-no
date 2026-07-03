@@ -5643,15 +5643,10 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         const freshArr = Array.isArray(fresh.previousSlugsByLocale?.[locale]) ? fresh.previousSlugsByLocale[locale] : [];
         const merged = [...new Set([...oldArr, ...freshArr])];
         if (merged.length > 0) {
-          const capped = merged.slice(0, 20);
-          if (merged.length > capped.length) {
-            recordSlugMutation({
-              jobId: fresh.id, locale, slug: '<oldest>', action: 'cap-trim',
-              source: 'dedicated-crawler-common.mergePreserveLocaleData',
-              reason: `cap=20, trimmed=${merged.length - capped.length}`,
-            });
-          }
-          fresh.previousSlugsByLocale[locale] = capped;
+          fresh.previousSlugsByLocale[locale] = capSlugArray(merged, 20, {
+            jobId: fresh.id, locale,
+            source: 'dedicated-crawler-common.mergePreserveLocaleData',
+          });
         }
       }
     }
