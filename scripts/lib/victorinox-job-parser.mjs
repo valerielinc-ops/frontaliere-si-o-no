@@ -370,8 +370,8 @@ export async function fetchAllVictorinoxJobs() {
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
       addressLocality: city || HQ.city,
       addressRegion: region || canton,
-      streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
-      postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
+      streetAddress,
+      postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(`${r.title} ${r.department}`),
