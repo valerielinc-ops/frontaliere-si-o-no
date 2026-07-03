@@ -146,4 +146,33 @@ describe('derivePersonalizationPatch', () => {
     });
     expect(patch?.job_company).toBe('Acme A');
   });
+
+  it('stale filterUsage with all-zero counts yields null patch (zero-weight guard, #3378)', () => {
+    // A doc where every filterUsage counter was explicitly zeroed — the key
+    // exists but the interaction count is 0, so it must not be treated as
+    // positive signal (would wrongly derive a category/location from noise).
+    const patch = derivePersonalizationPatch({
+      subscriber: {},
+      personalization: {
+        filterUsage: { category: { 'Sanita / Ospedali': 0 }, location: { Lugano: 0 } },
+      },
+    });
+    expect(patch).toBeNull();
+  });
+
+  it('mixed zero/positive filterUsage: only the positive-count entry wins (#3378)', () => {
+    const patch = derivePersonalizationPatch({
+      subscriber: {},
+      personalization: {
+        filterUsage: {
+          category: { 'Sanita / Ospedali': 0, IT: 3 },
+          location: { Lugano: 0 },
+        },
+      },
+    });
+    // Positive-count entry wins; zero-count entry must not interfere.
+    expect(patch?.job_category).toBe('IT');
+    // Location filterUsage is all-zero → falls back to nothing (no viewedJobs).
+    expect(patch?.location_interest).toBeUndefined();
+  });
 });
