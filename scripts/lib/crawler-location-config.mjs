@@ -496,6 +496,9 @@ export const COMPANY_HQ = {
   'beekeeper': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
   // ── Crawler backlog #3337 ──
   'saint-gobain-weber-isover': { city: 'Baden', canton: 'AG', postalCode: '5405', addressRegion: 'AG' },
+
+  // ── CordenPharma dedicated crawler (2026-07-03) ──
+  'cordenpharma': { city: 'Liestal', canton: 'BL', postalCode: '4410', addressRegion: 'BL' },
 };
 
 /**
