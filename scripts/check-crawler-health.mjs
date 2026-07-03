@@ -253,6 +253,19 @@ const EMPTY_OK_CRAWLERS = new Set([
   // roles) — the architecture/design firm has 0 open positions right now.
   // The parser is healthy and re-arms when a vacancy is published (#3198).
   'a-group',
+  // Medics Labor AG (Bern): the Refline listing
+  // (https://app.reflinejobs.io/1474/positions.html?lang=de) returns HTTP 200
+  // with the unchanged anchor-list template, but the page now explicitly
+  // renders `<div class="searchPageNoResult">Zurzeit haben wir keine
+  // Vakanzen.</div>` (checked de/en/fr/it — same empty state on every
+  // locale) and the public medics.ch careers page
+  // (/ueber-uns/jobs-und-ausbildung/offene-stellen) lists no openings either.
+  // The medical-diagnostics lab legitimately has 0 open positions right now;
+  // the parser is healthy (still discovers the listing, still recognises the
+  // no-result markup) and re-arms when a vacancy is published. Same
+  // legitimately-empty small-employer case as linnea and
+  // banca-raiffeisen-vedeggio-cassarate (#3344).
+  'medics-labor',
 ]);
 
 /** Read JSON file, return null on any error. */
