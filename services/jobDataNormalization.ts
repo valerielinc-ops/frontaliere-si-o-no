@@ -133,6 +133,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'cedes': '/images/brands/cedes.png',
  'centiel': '/images/brands/centiel.png',
  'cereneo': cLogo('cereneo.ch'),
+ 'cern': cLogo('home.cern'),
  'citta-di-bellinzona': cLogo('bellinzona.ch'),
  'citta-di-locarno': cLogo('locarno.ch'),
  'citta-di-lugano': '/images/brands/citta-di-lugano.png',

@@ -482,6 +482,7 @@ export const COMPANY_HQ = {
   'swissquote': { city: 'Gland', canton: 'VD', postalCode: '1196', addressRegion: 'VD' },
   'talan': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'staubli': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
+  'cern': { city: 'Meyrin', canton: 'GE', postalCode: '1211', addressRegion: 'GE' },
 };
 
 /**
