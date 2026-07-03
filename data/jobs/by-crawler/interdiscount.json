@@ -1,6 +1,6 @@
 {
   "crawlerKey": "interdiscount",
-  "assembledAt": "2026-07-03T11:27:45.214Z",
+  "assembledAt": "2026-07-03T22:13:03.365Z",
   "jobs": [
     {
       "id": "interdiscount-a21c188e-4fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a21c188e-4fa2-4ad8-a659-61b7926b8566",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.788Z",
+      "crawledAt": "2026-07-03T22:13:00.851Z",
       "addressLocality": "Davos",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-davos"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.092Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -120,7 +121,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/fd70f2be-6ba8-472d-8209-fc1f6b87ef6e",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.788Z",
+      "crawledAt": "2026-07-03T22:13:00.851Z",
       "addressLocality": "Gstaad",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -161,6 +162,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.092Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -206,7 +208,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/18863cea-2cc6-454f-80ca-17f8e7543987",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.788Z",
+      "crawledAt": "2026-07-03T22:13:00.851Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -329,7 +331,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/d2f269ce-8cec-4f78-806c-94eb486d5634",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T11:27:42.787Z",
+      "crawledAt": "2026-07-03T22:13:00.850Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -368,6 +370,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.091Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -412,7 +415,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/6e41c211-32f4-4953-b5de-9f51a06ac81c",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.787Z",
+      "crawledAt": "2026-07-03T22:13:00.850Z",
       "addressLocality": "Biel / Bienne Bahnhofstrasse",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -454,6 +457,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-biel-bienne-bahnhofstrasse"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.092Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -499,7 +503,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/d9e63e11-c7b6-4532-b8c8-8e2ba1c1a55d",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.787Z",
+      "crawledAt": "2026-07-03T22:13:00.850Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -531,6 +535,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.092Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -544,93 +549,6 @@
         }
       },
       "postalCode": "7500"
-    },
-    {
-      "id": "interdiscount-ab591451-35c",
-      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
-      "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
-        "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-interdiscount-mels",
-        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
-        "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-interdiscount-mels"
-      },
-      "company": "Interdiscount",
-      "companyKey": "interdiscount",
-      "companyDomain": "jobs.interdiscount.ch",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "titleByLocale": {
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
-        "en": "Retail specialist:mann EFZ \"Shape of shopping experiences\"",
-        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "fr": "Spécialiste du commerce de détail:mann EFZ \"Forme d'expériences shopping\""
-      },
-      "description": "Unseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten.\n\n## Aufgaben\n• Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.• Du führst engagierte Beratungs- und Verkaufsgespräche.• Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.• Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.• Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager.\n\n## Anforderungen\n• Freude im Umgang mit Kundinnen und Kunden.• Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.• Begeisterung für die neusten Techniktrends.• Bereitschaft Verantwortung zu übernehmen.• Schulabschluss mit guten Leistungen.\n\n## Wir bieten\n• Dynamisches und unternehmerisches Arbeitsumfeld• Du-Kultur und \"offene Türen\"• Möglichkeit auf Berufsmatur oder Zusatzlehre• Unterstützung durch professionelle Lernbegleitung• Chance auf Weiterbeschäftigung und Karriere• 6 Wochen Ferien• Grosszügige Personalrabatte in verschiedenen Coop-Formaten• ÖV-Beitrag an GA• Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör",
-      "descriptionByLocale": {
-        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. E un brillante ingresso di carriera in un ambiente di lavoro dinamico pieno di opportunità di sviluppo. ## Compiti\n• Imparate la consulenza clienti competente e vendete i nostri prodotti con grande piacere.• Lei conduce discussioni di consulenza e vendita dedicate.• Accetti ordini e riparazioni dai nostri clienti.• Aiuta a elaborare la ricevuta e i ritorni delle merci.• Si supporta con inventori, così come la pulizia di negozio e magazzino. ## Requisiti\n• Gioia nel trattare con i clienti.• Capacità di comunicazione, affidabilità e disponibilità.• Entusiasmo per le ultime tendenze tecnologiche.• Volontà di assumersi responsabilità.• La scuola parte con buone prestazioni. ## Offriamo\n• Ambiente di lavoro dinamico e imprenditoriale• Ducultura e \"porte aperte\"• Opportunità di formazione professionale o di apprendistato supplementare• Sostegno attraverso il sostegno all’apprendimento professionale• Opportunità di lavoro e di carriera continua• 6 settimane di vacanza• Riduzioni generose del personale in vari formati co-op• Contributo del trasporto pubblico a GA• Voucher di CHF 500.- come parte per un notebook, tablet o accessori",
-        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. And a brilliant career entry into a dynamic working environment full of development opportunities. ## Tasks\n• You learn competent customer advice and sell our products with great pleasure.• You lead dedicated consulting and sales discussions.• You accept orders and repair orders from our customers.• You help to process goods receipt and returns.• You support with inventories as well as cleaning up shop and warehouse. ## Requirements\n• Joy in dealing with customers.• Communication ability, reliability and helpfulness.• Enthusiasm for the latest technology trends.• Willingness to take responsibility.• School leaving with good performance. ## We offer\n• Dynamic and entrepreneurial working environment• Du-culture and \"open doors\"• Opportunity on vocational training or additional apprenticeship• Support through professional learning support• Opportunity for continued employment and career• 6 weeks holiday• Generous staff discounts in various co-op formats• Public transport contribution to GA• Voucher worth CHF 500.- as a share for a notebook, tablet or accessories",
-        "de": "Unseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten. ## Aufgaben\n• Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.• Du führst engagierte Beratungs- und Verkaufsgespräche.• Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.• Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.• Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager. ## Anforderungen\n• Freude im Umgang mit Kundinnen und Kunden.• Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.• Begeisterung für die neusten Techniktrends.• Bereitschaft Verantwortung zu übernehmen.• Schulabschluss mit guten Leistungen. ## Wir bieten\n• Dynamisches und unternehmerisches Arbeitsumfeld• Du-Kultur und \"offene Türen\"• Möglichkeit auf Berufsmatur oder Zusatzlehre• Unterstützung durch professionelle Lernbegleitung• Chance auf Weiterbeschäftigung und Karriere• 6 Wochen Ferien• Grosszügige Personalrabatte in verschiedenen Coop-Formaten• ÖV-Beitrag an GA• Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör",
-        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. Et une brillante entrée dans un environnement de travail dynamique plein de possibilités de développement. ## Tâches\n• Vous apprenez des conseils clients compétents et vendez nos produits avec grand plaisir.• Vous dirigez des discussions dédiées au conseil et à la vente.• Vous acceptez les commandes et les commandes de réparation de nos clients.• Vous aidez à traiter la réception et les retours de marchandises.• Vous supportez les stocks ainsi que le nettoyage de l'atelier et de l'entrepôt. ## Exigences\n• La joie de traiter avec les clients.• Capacité de communication, fiabilité et utilité.• Enthousiasme pour les dernières tendances technologiques.• Volonté d'assumer la responsabilité.• L'école part avec de bonnes performances. ## Nous offrons\n• Environnement de travail dynamique et entrepreneurial• Du-culture et portes ouvertes• Possibilité de formation professionnelle ou d'apprentissage complémentaire• Soutien par le biais d'un soutien à l'apprentissage professionnel• Possibilité de poursuivre l'emploi et la carrière• Vacances de six semaines• De généreuses réductions pour le personnel en divers formats coopératifs• Contribution des transports publics à GA• Bon d'achat d'une valeur de CHF 500.- en part pour un carnet, une tablette ou des accessoires"
-      },
-      "location": "Mels",
-      "canton": "SG",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/ab591451-35c8-4640-a18d-843aab067463",
-      "source": "Interdiscount Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.786Z",
-      "addressLocality": "Mels",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "fixed-term",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "intern",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=165911",
-      "requirements": [
-        "• Freude im Umgang mit Kundinnen und Kunden.• Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.• Begeisterung für die neusten Techniktrends.• Bereitschaft Verantwortung zu übernehmen.• Schulabschluss mit guten Leistungen."
-      ],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f"
-        ],
-        "it": [
-          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-2",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f"
-        ],
-        "en": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels"
-        ],
-        "fr": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels"
-        ]
-      },
-      "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-2",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels"
-      ],
-      "firstSeenAt": "2026-06-30T12:10:36.088Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "9000"
     },
     {
       "id": "interdiscount-73b6078f-263",
@@ -663,7 +581,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/controller-in/73b6078f-2634-4574-b1eb-6f796f6488db",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.786Z",
+      "crawledAt": "2026-07-03T22:13:00.849Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -698,6 +616,7 @@
         "controller-in-interdiscount-jegenstorf"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -742,7 +661,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/44657540-1e5f-41cf-a1e1-8374cb26f263",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.786Z",
+      "crawledAt": "2026-07-03T22:13:00.849Z",
       "addressLocality": "Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -783,6 +702,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.090Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -796,86 +716,6 @@
         }
       },
       "postalCode": "1700"
-    },
-    {
-      "id": "interdiscount-9bfae134-da7",
-      "slug": "impiegato-dei-crediti-interdiscount-jegenstorf",
-      "slugByLocale": {
-        "it": "impiegato-dei-crediti-interdiscount-jegenstorf",
-        "en": "accounts-receivable-clerk-interdiscount-jegenstorf",
-        "de": "sachbearbeiter-in-debitoren-interdiscount-jegenstorf-bern-plfixe",
-        "fr": "commis-aux-comptes-clients-interdiscount-jegenstorf"
-      },
-      "company": "Interdiscount",
-      "companyKey": "interdiscount",
-      "companyDomain": "jobs.interdiscount.ch",
-      "title": "Sachbearbeiter:in Debitoren",
-      "titleByLocale": {
-        "it": "Referente:in Debitori",
-        "en": "Personnel:in debtors",
-        "de": "Sachbearbeiter:in Debitoren",
-        "fr": "Personnel:dans les débiteurs"
-      },
-      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du sorgst für die termingerechte und korrekte Verbuchung sowie Kontrolle von Zahlungseingängen.• Du führst Mahnläufe durch und bearbeitest Inkasso- sowie Versicherungsfälle.• Du unterstützt bei Abschlussarbeiten und stimmst verschiedene Zahlungsarten ab.• Du wirkst bei der Kassenabrechnung mit und übernimmst administrative Aufgaben wie Postbearbeitung, Archivierung und allgemeine Büroarbeiten.• Du unterstützt bei Projekten.\n\n## Anforderungen\n• Du hast eine abgeschlossene kaufmännische Ausbildung und idealerweise bereits Erfahrung in der Debitorenbuchhaltung gesammelt.• Du verfügst über gute MS-Office-Kenntnisse, insbesondere in Excel; SAP-Kenntnisse sind von Vorteil.• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind ein Plus.• Du arbeitest exakt, strukturiert und effizient und überzeugst durch eine selbständige, belastbare, flexible und teamorientierte Arbeitsweise.\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
-      "descriptionByLocale": {
-        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Garantisci la prenotazione tempestiva e corretta nonché il controllo dei pagamenti in entrata.• Effettuate corse e processate la raccolta del debito e le richieste di assicurazione.• L’utente supporta queste informazioni e accetta metodi di pagamento diversi.• Contribuisci alla contabilità di cassa e assumerai compiti amministrativi come il post-elaborazione, l'archiviazione e il lavoro di ufficio generale.• Lei sostiene i progetti. ## Requisiti\n• Hai completato un'istruzione commerciale e hai idealmente già acquisito esperienza nella contabilità dei debitori.• Hai buone capacità di MS Office, soprattutto in Excel; la conoscenza di SAP è un vantaggio.• Si comunica con stile in tedesco, la conoscenza del francese è un plus.• Lavorate con precisione, strutturato ed efficiente e convincete attraverso un modo di lavoro indipendente, resiliente, flessibile e orientato al team. ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
-        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You ensure the timely and correct booking as well as control of incoming payments.• You carry out dunning runs and process debt collection and insurance claims.• You support with theses and agree on different payment methods.• You contribute to the cash accounting and take on administrative tasks such as post processing, archiving and general office work.• You support projects. ## Requirements\n• You have completed a commercial education and ideally already gained experience in debtor accounting.• You have good MS Office skills, especially in Excel; SAP knowledge is an advantage.• You communicate stylishly in German, knowledge of French is a plus.• You work precisely, structured and efficiently and convince through an independent, resilient, flexible and team-oriented way of working. ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
-        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du sorgst für die termingerechte und korrekte Verbuchung sowie Kontrolle von Zahlungseingängen.• Du führst Mahnläufe durch und bearbeitest Inkasso- sowie Versicherungsfälle.• Du unterstützt bei Abschlussarbeiten und stimmst verschiedene Zahlungsarten ab.• Du wirkst bei der Kassenabrechnung mit und übernimmst administrative Aufgaben wie Postbearbeitung, Archivierung und allgemeine Büroarbeiten.• Du unterstützt bei Projekten. ## Anforderungen\n• Du hast eine abgeschlossene kaufmännische Ausbildung und idealerweise bereits Erfahrung in der Debitorenbuchhaltung gesammelt.• Du verfügst über gute MS-Office-Kenntnisse, insbesondere in Excel; SAP-Kenntnisse sind von Vorteil.• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind ein Plus.• Du arbeitest exakt, strukturiert und effizient und überzeugst durch eine selbständige, belastbare, flexible und teamorientierte Arbeitsweise. ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
-        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous assurez la réservation en temps opportun et correcte ainsi que le contrôle des paiements entrants.• Vous effectuez des dunning runs et traitez les créances et les sinistres d'assurance.• Vous supportez avec ces thèses et acceptez différentes méthodes de paiement.• Vous contribuez à la comptabilité de caisse et assumez des tâches administratives telles que le traitement des dossiers, l'archivage et le travail de bureau général.• Vous soutenez des projets. ## Exigences\n• Vous avez suivi une formation commerciale et, idéalement, vous avez déjà acquis une expérience en comptabilité des débiteurs.• Vous avez de bonnes compétences en MS Office, en particulier en Excel ; les connaissances SAP sont un avantage.• Vous communiquez élégamment en allemand, la connaissance du français est un plus.• Vous travaillez avec précision, structure et efficacité et vous convainquez grâce à un mode de travail indépendant, résilient, flexible et axé sur l'équipe. ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
-      },
-      "location": "Jegenstorf",
-      "canton": "BE",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-debitoren/9bfae134-da7d-462e-b059-e0e57f6d2500",
-      "source": "Interdiscount Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.785Z",
-      "addressLocality": "Jegenstorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3303",
-      "streetAddress": "Bernstrasse 90",
-      "category": "Amministrazione",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "pensum": "80%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166292",
-      "requirements": [
-        "• Du hast eine abgeschlossene kaufmännische Ausbildung und idealerweise bereits Erfahrung in der Debitorenbuchhaltung gesammelt.• Du verfügst über gute MS-Office-Kenntnisse, insbesondere in Excel; SAP-Kenntnisse sind von Vorteil.• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind ein Plus.• Du arbeitest exakt, strukturiert und effizient und überzeugst durch eine selbständige, belastbare, flexible und teamorientierte Arbeitsweise."
-      ],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-debitoren-interdiscount-jegenstorf",
-        "sachbearbeiter-in-debitoren-interdiscount-jegenstorf-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-debitoren-interdiscount-jegenstorf",
-          "sachbearbeiter-in-debitoren-interdiscount-jegenstorf-bern",
-          "impiegato-dei-crediti-interdiscount-jegenstorf"
-        ],
-        "de": [
-          "sachbearbeiter-in-debitoren-interdiscount-jegenstorf"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T12:10:36.087Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
     },
     {
       "id": "interdiscount-195c652d-f35",
@@ -908,7 +748,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-hauptbuch/195c652d-f356-4ee4-bfed-e9fdbb95b60a",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.785Z",
+      "crawledAt": "2026-07-03T22:13:00.848Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -944,6 +784,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.087Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -958,73 +799,79 @@
       }
     },
     {
-      "id": "interdiscount-7ce5f9ac-fcb",
-      "slug": "consulente-commerciale-in-interdiscount-davos",
+      "id": "interdiscount-ab591451-35c",
+      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-davos",
-        "en": "sales-consultant-in-interdiscount-davos",
-        "de": "verkaufsberater-in-interdiscount-davos-graubunden-cauau0",
-        "fr": "consultant-en-ventes-interdiscount-davos"
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
+        "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-interdiscount-mels",
+        "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
+        "fr": "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-interdiscount-mels"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
       "companyDomain": "jobs.interdiscount.ch",
-      "title": "Verkaufsberater:in",
+      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
       "titleByLocale": {
-        "it": "Consulente divendita",
-        "en": "Sales consultant:in",
-        "de": "Verkaufsberater:in",
-        "fr": "Consultant en ventes:"
+        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
+        "en": "Retail specialist:mann EFZ \"Shape of shopping experiences\"",
+        "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
+        "fr": "Spécialiste du commerce de détail:mann EFZ \"Forme d'expériences shopping\""
       },
-      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt.\n\n## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+      "description": "Unseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten.\n\n## Aufgaben\n• Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.• Du führst engagierte Beratungs- und Verkaufsgespräche.• Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.• Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.• Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager.\n\n## Anforderungen\n• Freude im Umgang mit Kundinnen und Kunden.• Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.• Begeisterung für die neusten Techniktrends.• Bereitschaft Verantwortung zu übernehmen.• Schulabschluss mit guten Leistungen.\n\n## Wir bieten\n• Dynamisches und unternehmerisches Arbeitsumfeld• Du-Kultur und \"offene Türen\"• Möglichkeit auf Berufsmatur oder Zusatzlehre• Unterstützung durch professionelle Lernbegleitung• Chance auf Weiterbeschäftigung und Karriere• 6 Wochen Ferien• Grosszügige Personalrabatte in verschiedenen Coop-Formaten• ÖV-Beitrag an GA• Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör",
       "descriptionByLocale": {
-        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Si consiglia ai nostri clienti professionalmente e con impegno.• Vendete la nostra gamma di prodotti in modo convincente e con passione.• Voi siete congiuntamente responsabili di una presentazione attraente di merci e utilizzarlo con profitto.• Elabori la nostra merce ricevuta ed esci con cura. ## Requisiti\n• Difficoltà nel consigliare i clienti• Affidabilità, onestà e fedeltà• Motivazione per la formazione personale e professionale• Flair per i nuovi prodotti tecnici• Formazione completa di vendita; Esperienza professionale in casa / elettronica di inserimento è vantaggioso ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
-        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You advise our customers professionally and with commitment.• You sell our product range convincingly and with passion.• You are jointly responsible for an attractive presentation of goods and use it profitably.• You process our goods receipt and exit with care. ## Requirements\n• Delight in advising customers• Reliability, honesty and loyalty• Motivation for personal and professional training• Flair for new technical products• Completed sales training; Professional experience in home/entertainment electronics is beneficial ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
-        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt. ## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
-        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous conseillez nos clients professionnellement et avec engagement.• Vous vendez notre gamme de produits avec conviction et passion.• Vous êtes conjointement responsable d'une présentation attrayante des produits et vous les utilisez avec profit.• Vous traitez notre reçu de marchandises et sortez avec soin. ## Exigences\n• Délice de conseiller les clients• Fiabilité, honnêteté et loyauté• Motivation pour la formation personnelle et professionnelle• Flair pour les nouveaux produits techniques• Une formation sur les ventes terminée; L'expérience professionnelle en électronique à domicile ou en salle d'entraînement est bénéfique ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
+        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. E un brillante ingresso di carriera in un ambiente di lavoro dinamico pieno di opportunità di sviluppo. ## Compiti\n• Imparate la consulenza clienti competente e vendete i nostri prodotti con grande piacere.• Lei conduce discussioni di consulenza e vendita dedicate.• Accetti ordini e riparazioni dai nostri clienti.• Aiuta a elaborare la ricevuta e i ritorni delle merci.• Si supporta con inventori, così come la pulizia di negozio e magazzino. ## Requisiti\n• Gioia nel trattare con i clienti.• Capacità di comunicazione, affidabilità e disponibilità.• Entusiasmo per le ultime tendenze tecnologiche.• Volontà di assumersi responsabilità.• La scuola parte con buone prestazioni. ## Offriamo\n• Ambiente di lavoro dinamico e imprenditoriale• Ducultura e \"porte aperte\"• Opportunità di formazione professionale o di apprendistato supplementare• Sostegno attraverso il sostegno all’apprendimento professionale• Opportunità di lavoro e di carriera continua• 6 settimane di vacanza• Riduzioni generose del personale in vari formati co-op• Contributo del trasporto pubblico a GA• Voucher di CHF 500.- come parte per un notebook, tablet o accessori",
+        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. And a brilliant career entry into a dynamic working environment full of development opportunities. ## Tasks\n• You learn competent customer advice and sell our products with great pleasure.• You lead dedicated consulting and sales discussions.• You accept orders and repair orders from our customers.• You help to process goods receipt and returns.• You support with inventories as well as cleaning up shop and warehouse. ## Requirements\n• Joy in dealing with customers.• Communication ability, reliability and helpfulness.• Enthusiasm for the latest technology trends.• Willingness to take responsibility.• School leaving with good performance. ## We offer\n• Dynamic and entrepreneurial working environment• Du-culture and \"open doors\"• Opportunity on vocational training or additional apprenticeship• Support through professional learning support• Opportunity for continued employment and career• 6 weeks holiday• Generous staff discounts in various co-op formats• Public transport contribution to GA• Voucher worth CHF 500.- as a share for a notebook, tablet or accessories",
+        "de": "Unseren Kundinnen und Kunden bieten wir von Interdiscount das beste Einkaufserlebnis in der Schweiz. Und dir einen genialen Berufseinstieg in ein dynamisches Arbeitsumfeld voller Entwicklungsmöglichkeiten. ## Aufgaben\n• Du lernst kompetente Kundenberatung und verkaufst unsere Produkte mit viel Freude.• Du führst engagierte Beratungs- und Verkaufsgespräche.• Du nimmst Bestellungen und Reparaturaufträge unserer Kundinnen und Kunden entgegen.• Du hilfst beim Bearbeiten von Wareneingang und Retouren mit.• Du unterstützt bei Inventuren sowie beim Aufräumen von Laden und Lager. ## Anforderungen\n• Freude im Umgang mit Kundinnen und Kunden.• Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.• Begeisterung für die neusten Techniktrends.• Bereitschaft Verantwortung zu übernehmen.• Schulabschluss mit guten Leistungen. ## Wir bieten\n• Dynamisches und unternehmerisches Arbeitsumfeld• Du-Kultur und \"offene Türen\"• Möglichkeit auf Berufsmatur oder Zusatzlehre• Unterstützung durch professionelle Lernbegleitung• Chance auf Weiterbeschäftigung und Karriere• 6 Wochen Ferien• Grosszügige Personalrabatte in verschiedenen Coop-Formaten• ÖV-Beitrag an GA• Gutschein im Wert von CHF 500.- als Anteil für ein Notebook, Tablet oder Zubehör",
+        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. Et une brillante entrée dans un environnement de travail dynamique plein de possibilités de développement. ## Tâches\n• Vous apprenez des conseils clients compétents et vendez nos produits avec grand plaisir.• Vous dirigez des discussions dédiées au conseil et à la vente.• Vous acceptez les commandes et les commandes de réparation de nos clients.• Vous aidez à traiter la réception et les retours de marchandises.• Vous supportez les stocks ainsi que le nettoyage de l'atelier et de l'entrepôt. ## Exigences\n• La joie de traiter avec les clients.• Capacité de communication, fiabilité et utilité.• Enthousiasme pour les dernières tendances technologiques.• Volonté d'assumer la responsabilité.• L'école part avec de bonnes performances. ## Nous offrons\n• Environnement de travail dynamique et entrepreneurial• Du-culture et portes ouvertes• Possibilité de formation professionnelle ou d'apprentissage complémentaire• Soutien par le biais d'un soutien à l'apprentissage professionnel• Possibilité de poursuivre l'emploi et la carrière• Vacances de six semaines• De généreuses réductions pour le personnel en divers formats coopératifs• Contribution des transports publics à GA• Bon d'achat d'une valeur de CHF 500.- en part pour un carnet, une tablette ou des accessoires"
       },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/7ce5f9ac-fcbe-439a-a2d8-d08564fd5ebe",
+      "location": "Mels",
+      "canton": "SG",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/ab591451-35c8-4640-a18d-843aab067463",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.753Z",
-      "addressLocality": "Davos",
-      "addressRegion": "GR",
+      "crawledAt": "2026-07-03T22:13:00.848Z",
+      "addressLocality": "Mels",
+      "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "7270",
-      "streetAddress": "Bahnhofstrasse 1",
       "category": "Commerciale",
       "contract": "fixed-term",
       "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
+      "experienceLevel": "intern",
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-08",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166549",
+      "postedDate": "2026-05-18",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=165911",
       "requirements": [
-        "• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
+        "• Freude im Umgang mit Kundinnen und Kunden.• Kommunikationsfähigkeit, Zuverlässigkeit und Hilfsbereitschaft.• Begeisterung für die neusten Techniktrends.• Bereitschaft Verantwortung zu übernehmen.• Schulabschluss mit guten Leistungen."
       ],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsberater-in-interdiscount-davos",
-          "verkaufsberater-in-interdiscount-davos-graubunden-cauau0"
+          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f"
         ],
         "it": [
-          "verkaufsberater-in-interdiscount-davos",
-          "verkaufsberater-in-interdiscount-davos-graubunden",
-          "consulente-commerciale-in-interdiscount-davos"
+          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-2",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-interdiscount-davos",
-        "verkaufsberater-in-interdiscount-davos-graubunden"
+        "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-2",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels"
       ],
-      "firstSeenAt": "2026-06-30T12:10:36.062Z",
+      "firstSeenAt": "2026-06-30T12:10:36.088Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1034,6 +881,88 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "9000"
+    },
+    {
+      "id": "interdiscount-9bfae134-da7",
+      "slug": "impiegato-dei-crediti-interdiscount-jegenstorf",
+      "slugByLocale": {
+        "it": "impiegato-dei-crediti-interdiscount-jegenstorf",
+        "en": "accounts-receivable-clerk-interdiscount-jegenstorf",
+        "de": "sachbearbeiter-in-debitoren-interdiscount-jegenstorf-bern-plfixe",
+        "fr": "commis-aux-comptes-clients-interdiscount-jegenstorf"
+      },
+      "company": "Interdiscount",
+      "companyKey": "interdiscount",
+      "companyDomain": "jobs.interdiscount.ch",
+      "title": "Sachbearbeiter:in Debitoren",
+      "titleByLocale": {
+        "it": "Referente:in Debitori",
+        "en": "Personnel:in debtors",
+        "de": "Sachbearbeiter:in Debitoren",
+        "fr": "Personnel:dans les débiteurs"
+      },
+      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du sorgst für die termingerechte und korrekte Verbuchung sowie Kontrolle von Zahlungseingängen.• Du führst Mahnläufe durch und bearbeitest Inkasso- sowie Versicherungsfälle.• Du unterstützt bei Abschlussarbeiten und stimmst verschiedene Zahlungsarten ab.• Du wirkst bei der Kassenabrechnung mit und übernimmst administrative Aufgaben wie Postbearbeitung, Archivierung und allgemeine Büroarbeiten.• Du unterstützt bei Projekten.\n\n## Anforderungen\n• Du hast eine abgeschlossene kaufmännische Ausbildung und idealerweise bereits Erfahrung in der Debitorenbuchhaltung gesammelt.• Du verfügst über gute MS-Office-Kenntnisse, insbesondere in Excel; SAP-Kenntnisse sind von Vorteil.• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind ein Plus.• Du arbeitest exakt, strukturiert und effizient und überzeugst durch eine selbständige, belastbare, flexible und teamorientierte Arbeitsweise.\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+      "descriptionByLocale": {
+        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Garantisci la prenotazione tempestiva e corretta nonché il controllo dei pagamenti in entrata.• Effettuate corse e processate la raccolta del debito e le richieste di assicurazione.• L’utente supporta queste informazioni e accetta metodi di pagamento diversi.• Contribuisci alla contabilità di cassa e assumerai compiti amministrativi come il post-elaborazione, l'archiviazione e il lavoro di ufficio generale.• Lei sostiene i progetti. ## Requisiti\n• Hai completato un'istruzione commerciale e hai idealmente già acquisito esperienza nella contabilità dei debitori.• Hai buone capacità di MS Office, soprattutto in Excel; la conoscenza di SAP è un vantaggio.• Si comunica con stile in tedesco, la conoscenza del francese è un plus.• Lavorate con precisione, strutturato ed efficiente e convincete attraverso un modo di lavoro indipendente, resiliente, flessibile e orientato al team. ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
+        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You ensure the timely and correct booking as well as control of incoming payments.• You carry out dunning runs and process debt collection and insurance claims.• You support with theses and agree on different payment methods.• You contribute to the cash accounting and take on administrative tasks such as post processing, archiving and general office work.• You support projects. ## Requirements\n• You have completed a commercial education and ideally already gained experience in debtor accounting.• You have good MS Office skills, especially in Excel; SAP knowledge is an advantage.• You communicate stylishly in German, knowledge of French is a plus.• You work precisely, structured and efficiently and convince through an independent, resilient, flexible and team-oriented way of working. ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
+        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du sorgst für die termingerechte und korrekte Verbuchung sowie Kontrolle von Zahlungseingängen.• Du führst Mahnläufe durch und bearbeitest Inkasso- sowie Versicherungsfälle.• Du unterstützt bei Abschlussarbeiten und stimmst verschiedene Zahlungsarten ab.• Du wirkst bei der Kassenabrechnung mit und übernimmst administrative Aufgaben wie Postbearbeitung, Archivierung und allgemeine Büroarbeiten.• Du unterstützt bei Projekten. ## Anforderungen\n• Du hast eine abgeschlossene kaufmännische Ausbildung und idealerweise bereits Erfahrung in der Debitorenbuchhaltung gesammelt.• Du verfügst über gute MS-Office-Kenntnisse, insbesondere in Excel; SAP-Kenntnisse sind von Vorteil.• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind ein Plus.• Du arbeitest exakt, strukturiert und effizient und überzeugst durch eine selbständige, belastbare, flexible und teamorientierte Arbeitsweise. ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous assurez la réservation en temps opportun et correcte ainsi que le contrôle des paiements entrants.• Vous effectuez des dunning runs et traitez les créances et les sinistres d'assurance.• Vous supportez avec ces thèses et acceptez différentes méthodes de paiement.• Vous contribuez à la comptabilité de caisse et assumez des tâches administratives telles que le traitement des dossiers, l'archivage et le travail de bureau général.• Vous soutenez des projets. ## Exigences\n• Vous avez suivi une formation commerciale et, idéalement, vous avez déjà acquis une expérience en comptabilité des débiteurs.• Vous avez de bonnes compétences en MS Office, en particulier en Excel ; les connaissances SAP sont un avantage.• Vous communiquez élégamment en allemand, la connaissance du français est un plus.• Vous travaillez avec précision, structure et efficacité et vous convainquez grâce à un mode de travail indépendant, résilient, flexible et axé sur l'équipe. ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
+      },
+      "location": "Jegenstorf",
+      "canton": "BE",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-debitoren/9bfae134-da7d-462e-b059-e0e57f6d2500",
+      "source": "Interdiscount Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T22:13:00.847Z",
+      "addressLocality": "Jegenstorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3303",
+      "streetAddress": "Bernstrasse 90",
+      "category": "Amministrazione",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Commercio al dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "pensum": "80%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166292",
+      "requirements": [
+        "• Du hast eine abgeschlossene kaufmännische Ausbildung und idealerweise bereits Erfahrung in der Debitorenbuchhaltung gesammelt.• Du verfügst über gute MS-Office-Kenntnisse, insbesondere in Excel; SAP-Kenntnisse sind von Vorteil.• Du kommunizierst stilsicher auf Deutsch, Französischkenntnisse sind ein Plus.• Du arbeitest exakt, strukturiert und effizient und überzeugst durch eine selbständige, belastbare, flexible und teamorientierte Arbeitsweise."
+      ],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-debitoren-interdiscount-jegenstorf",
+        "sachbearbeiter-in-debitoren-interdiscount-jegenstorf-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-debitoren-interdiscount-jegenstorf",
+          "sachbearbeiter-in-debitoren-interdiscount-jegenstorf-bern",
+          "impiegato-dei-crediti-interdiscount-jegenstorf"
+        ],
+        "de": [
+          "sachbearbeiter-in-debitoren-interdiscount-jegenstorf"
+        ]
+      },
+      "firstSeenAt": "2026-06-30T12:10:36.087Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1069,7 +998,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0c39e5e7-03af-47f4-999f-b8fa5ecd21a9",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.752Z",
+      "crawledAt": "2026-07-03T22:13:00.819Z",
       "addressLocality": "Buchs SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1111,6 +1040,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-buchs-sg"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.061Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1124,6 +1054,88 @@
         }
       },
       "postalCode": "9000"
+    },
+    {
+      "id": "interdiscount-7ce5f9ac-fcb",
+      "slug": "consulente-commerciale-in-interdiscount-davos",
+      "slugByLocale": {
+        "it": "consulente-commerciale-in-interdiscount-davos",
+        "en": "sales-consultant-in-interdiscount-davos",
+        "de": "verkaufsberater-in-interdiscount-davos-graubunden-cauau0",
+        "fr": "consultant-en-ventes-interdiscount-davos"
+      },
+      "company": "Interdiscount",
+      "companyKey": "interdiscount",
+      "companyDomain": "jobs.interdiscount.ch",
+      "title": "Verkaufsberater:in",
+      "titleByLocale": {
+        "it": "Consulente divendita",
+        "en": "Sales consultant:in",
+        "de": "Verkaufsberater:in",
+        "fr": "Consultant en ventes:"
+      },
+      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt.\n\n## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+      "descriptionByLocale": {
+        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Si consiglia ai nostri clienti professionalmente e con impegno.• Vendete la nostra gamma di prodotti in modo convincente e con passione.• Voi siete congiuntamente responsabili di una presentazione attraente di merci e utilizzarlo con profitto.• Elabori la nostra merce ricevuta ed esci con cura. ## Requisiti\n• Difficoltà nel consigliare i clienti• Affidabilità, onestà e fedeltà• Motivazione per la formazione personale e professionale• Flair per i nuovi prodotti tecnici• Formazione completa di vendita; Esperienza professionale in casa / elettronica di inserimento è vantaggioso ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
+        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You advise our customers professionally and with commitment.• You sell our product range convincingly and with passion.• You are jointly responsible for an attractive presentation of goods and use it profitably.• You process our goods receipt and exit with care. ## Requirements\n• Delight in advising customers• Reliability, honesty and loyalty• Motivation for personal and professional training• Flair for new technical products• Completed sales training; Professional experience in home/entertainment electronics is beneficial ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
+        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt. ## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous conseillez nos clients professionnellement et avec engagement.• Vous vendez notre gamme de produits avec conviction et passion.• Vous êtes conjointement responsable d'une présentation attrayante des produits et vous les utilisez avec profit.• Vous traitez notre reçu de marchandises et sortez avec soin. ## Exigences\n• Délice de conseiller les clients• Fiabilité, honnêteté et loyauté• Motivation pour la formation personnelle et professionnelle• Flair pour les nouveaux produits techniques• Une formation sur les ventes terminée; L'expérience professionnelle en électronique à domicile ou en salle d'entraînement est bénéfique ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/7ce5f9ac-fcbe-439a-a2d8-d08564fd5ebe",
+      "source": "Interdiscount Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T22:13:00.819Z",
+      "addressLocality": "Davos",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7270",
+      "streetAddress": "Bahnhofstrasse 1",
+      "category": "Commerciale",
+      "contract": "fixed-term",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Commercio al dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "pensum": "80-100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166549",
+      "requirements": [
+        "• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
+      ],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "verkaufsberater-in-interdiscount-davos",
+          "verkaufsberater-in-interdiscount-davos-graubunden-cauau0"
+        ],
+        "it": [
+          "verkaufsberater-in-interdiscount-davos",
+          "verkaufsberater-in-interdiscount-davos-graubunden",
+          "consulente-commerciale-in-interdiscount-davos"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-davos",
+        "verkaufsberater-in-interdiscount-davos-graubunden"
+      ],
+      "firstSeenAt": "2026-06-30T12:10:36.062Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "interdiscount-0a3e6902-2d4",
@@ -1156,7 +1168,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/junior-supply-chain-manager/0a3e6902-2d43-493d-8f5d-42ed475f3427",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.751Z",
+      "crawledAt": "2026-07-03T22:13:00.818Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1192,6 +1204,7 @@
         "junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.059Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1236,7 +1249,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/filialleiter-in/a6176922-f077-4a91-9e7c-f89deea1920f",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.751Z",
+      "crawledAt": "2026-07-03T22:13:00.818Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1273,6 +1286,7 @@
         "filialleiter-in-interdiscount-chur-graubunden"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.060Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1282,84 +1296,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "interdiscount-12d412dc-7a3",
-      "slug": "personale-nelle-vendite-telefoniche-interdiscount-jegenstorf",
-      "slugByLocale": {
-        "it": "personale-nelle-vendite-telefoniche-interdiscount-jegenstorf",
-        "en": "personnel-in-telephone-sales-interdiscount-jegenstorf",
-        "de": "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf-bern-7whbsd",
-        "fr": "personnel-vente-par-telephone-interdiscount-jegenstorf"
-      },
-      "company": "Interdiscount",
-      "companyKey": "interdiscount",
-      "companyDomain": "jobs.interdiscount.ch",
-      "title": "Sachbearbeiter:in Telefonverkauf",
-      "titleByLocale": {
-        "it": "Incaricato:in vendita telefonica",
-        "en": "Personnel:in telephone sales",
-        "de": "Sachbearbeiter:in Telefonverkauf",
-        "fr": "Personnel: vente par téléphone"
-      },
-      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du bist verantwortlich für die B2B und B2C Beratung sowie den Verkauf unserer Sortimente in Deutsch und Französisch.• Du pflegst eine stilsichere Korrespondenz in Deutsch sowie Französisch.• Du beantwortest per Telefon und E-Mail Kundenanfragen.• Du arbeitest bei internen Projekten mit und unterstützt das Team.\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder im kaufmännischen Bereich.• Sehr gute Deutsch- und Französischkenntnisse in Wort und Schrift, weitere Sprachkenntnisse von Vorteil.• Selbständige, exakte und rationelle Arbeitsweise.• Freude und Begeisterung für den aktiven Kundenkontakt.• Belastbare, flexible und teamfähige Persönlichkeit.\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
-      "descriptionByLocale": {
-        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Sei responsabile della consulenza B2B e B2C e della vendita delle nostre gamme in tedesco e francese.• Mantenete una corrispondenza elegante in tedesco e francese.• Risponde alle richieste dei clienti per telefono ed e-mail.• Lavori su progetti interni e supporta il team. ## Requisiti\n• Formazione completa nel settore retail o commerciale.• Molto buone competenze tedesche e francesi nella parola e nella scrittura, ulteriori competenze linguistiche sono vantaggiose.• Metodo di lavoro indipendente, preciso e razionale.• Gioia e entusiasmo per il contatto con i clienti attivi.• Resiliente, flessibile e squadra capace personalità. ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
-        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You are responsible for B2B and B2C consulting as well as the sale of our ranges in German and French.• You maintain a stylish correspondence in German and French.• You answer customer inquiries by phone and email.• You work on internal projects and support the team. ## Requirements\n• Completed training in the retail or commercial sector.• Very good German and French skills in word and writing, further language skills are beneficial.• Independent, exact and rational working method.• Joy and enthusiasm for active customer contact.• Resilient, flexible and team capable personality. ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
-        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du bist verantwortlich für die B2B und B2C Beratung sowie den Verkauf unserer Sortimente in Deutsch und Französisch.• Du pflegst eine stilsichere Korrespondenz in Deutsch sowie Französisch.• Du beantwortest per Telefon und E-Mail Kundenanfragen.• Du arbeitest bei internen Projekten mit und unterstützt das Team. ## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder im kaufmännischen Bereich.• Sehr gute Deutsch- und Französischkenntnisse in Wort und Schrift, weitere Sprachkenntnisse von Vorteil.• Selbständige, exakte und rationelle Arbeitsweise.• Freude und Begeisterung für den aktiven Kundenkontakt.• Belastbare, flexible und teamfähige Persönlichkeit. ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
-        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous êtes responsable du conseil B2B et B2C ainsi que de la vente de nos gammes en allemand et en français.• Vous maintenez une correspondance élégante en allemand et en français.• Vous répondez aux demandes des clients par téléphone et par courriel.• Vous travaillez sur des projets internes et soutenez l'équipe. ## Exigences\n• Formation complète dans le secteur du commerce ou du commerce de détail.• Très bonnes compétences en allemand et en français en paroles et en écriture, d'autres compétences linguistiques sont bénéfiques.• Méthode de travail indépendante, exacte et rationnelle.• Joy et enthousiasme pour un contact actif avec la clientèle.• Personnalité résiliente, flexible et capable d'équipe. ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
-      },
-      "location": "Jegenstorf",
-      "canton": "BE",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-telefonverkauf/12d412dc-7a30-4a79-8bb9-8418b8d7f7f7",
-      "source": "Interdiscount Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.750Z",
-      "addressLocality": "Jegenstorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3303",
-      "streetAddress": "Bernstrasse 92",
-      "category": "Amministrazione",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166998",
-      "requirements": [
-        "• Abgeschlossene Ausbildung im Detailhandel oder im kaufmännischen Bereich.• Sehr gute Deutsch- und Französischkenntnisse in Wort und Schrift, weitere Sprachkenntnisse von Vorteil.• Selbständige, exakte und rationelle Arbeitsweise.• Freude und Begeisterung für den aktiven Kundenkontakt.• Belastbare, flexible und teamfähige Persönlichkeit."
-      ],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf",
-          "personale-nelle-vendite-telefoniche-interdiscount-jegenstorf"
-        ],
-        "de": [
-          "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T12:10:36.057Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1395,7 +1331,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/a3cae44c-eb13-4e89-8204-3f6df2de60be",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.750Z",
+      "crawledAt": "2026-07-03T22:13:00.817Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1430,6 +1366,7 @@
         "verkaufsberater-in-interdiscount-meilen"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.059Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1474,7 +1411,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/junior-controller-in-business-intelligence/c68f9b10-9434-414e-9125-fd7ddae0b15f",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.749Z",
+      "crawledAt": "2026-07-03T22:13:00.816Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1512,6 +1449,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.055Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1526,82 +1464,80 @@
       }
     },
     {
-      "id": "interdiscount-01020d46-f41",
-      "slug": "consulente-commerciale-in-interdiscount-schwyz-22db0b",
+      "id": "interdiscount-12d412dc-7a3",
+      "slug": "personale-nelle-vendite-telefoniche-interdiscount-jegenstorf",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-schwyz-22db0b",
-        "en": "sales-consultant-in-interdiscount-schwyz-22db0b",
-        "de": "verkaufsberater-in-interdiscount-schwyz-qfi5y2",
-        "fr": "consultant-en-ventes-interdiscount-schwyz-22db0b"
+        "it": "personale-nelle-vendite-telefoniche-interdiscount-jegenstorf",
+        "en": "personnel-in-telephone-sales-interdiscount-jegenstorf",
+        "de": "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf-bern-7whbsd",
+        "fr": "personnel-vente-par-telephone-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
       "companyDomain": "jobs.interdiscount.ch",
-      "title": "Verkaufsberater:in",
+      "title": "Sachbearbeiter:in Telefonverkauf",
       "titleByLocale": {
-        "it": "Consulente divendita",
-        "en": "Sales consultant:in",
-        "de": "Verkaufsberater:in",
-        "fr": "Consultant en ventes:"
+        "it": "Incaricato:in vendita telefonica",
+        "en": "Personnel:in telephone sales",
+        "de": "Sachbearbeiter:in Telefonverkauf",
+        "fr": "Personnel: vente par téléphone"
       },
-      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt.\n\n## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du bist verantwortlich für die B2B und B2C Beratung sowie den Verkauf unserer Sortimente in Deutsch und Französisch.• Du pflegst eine stilsichere Korrespondenz in Deutsch sowie Französisch.• Du beantwortest per Telefon und E-Mail Kundenanfragen.• Du arbeitest bei internen Projekten mit und unterstützt das Team.\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder im kaufmännischen Bereich.• Sehr gute Deutsch- und Französischkenntnisse in Wort und Schrift, weitere Sprachkenntnisse von Vorteil.• Selbständige, exakte und rationelle Arbeitsweise.• Freude und Begeisterung für den aktiven Kundenkontakt.• Belastbare, flexible und teamfähige Persönlichkeit.\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
       "descriptionByLocale": {
-        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Si consiglia ai nostri clienti professionalmente e con impegno.• Vendete la nostra gamma di prodotti in modo convincente e con passione.• Voi siete congiuntamente responsabili di una presentazione attraente di merci e utilizzarlo con profitto.• Elabori la nostra merce ricevuta ed esci con cura. ## Requisiti\n• Difficoltà nel consigliare i clienti• Affidabilità, onestà e fedeltà• Motivazione per la formazione personale e professionale• Flair per i nuovi prodotti tecnici• Formazione completa di vendita; Esperienza professionale in casa / elettronica di inserimento è vantaggioso ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
-        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You advise our customers professionally and with commitment.• You sell our product range convincingly and with passion.• You are jointly responsible for an attractive presentation of goods and use it profitably.• You process our goods receipt and exit with care. ## Requirements\n• Delight in advising customers• Reliability, honesty and loyalty• Motivation for personal and professional training• Flair for new technical products• Completed sales training; Professional experience in home/entertainment electronics is beneficial ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
-        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt. ## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
-        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous conseillez nos clients professionnellement et avec engagement.• Vous vendez notre gamme de produits avec conviction et passion.• Vous êtes conjointement responsable d'une présentation attrayante des produits et vous les utilisez avec profit.• Vous traitez notre reçu de marchandises et sortez avec soin. ## Exigences\n• Délice de conseiller les clients• Fiabilité, honnêteté et loyauté• Motivation pour la formation personnelle et professionnelle• Flair pour les nouveaux produits techniques• Une formation sur les ventes terminée; L'expérience professionnelle en électronique à domicile ou en salle d'entraînement est bénéfique ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
+        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Sei responsabile della consulenza B2B e B2C e della vendita delle nostre gamme in tedesco e francese.• Mantenete una corrispondenza elegante in tedesco e francese.• Risponde alle richieste dei clienti per telefono ed e-mail.• Lavori su progetti interni e supporta il team. ## Requisiti\n• Formazione completa nel settore retail o commerciale.• Molto buone competenze tedesche e francesi nella parola e nella scrittura, ulteriori competenze linguistiche sono vantaggiose.• Metodo di lavoro indipendente, preciso e razionale.• Gioia e entusiasmo per il contatto con i clienti attivi.• Resiliente, flessibile e squadra capace personalità. ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
+        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You are responsible for B2B and B2C consulting as well as the sale of our ranges in German and French.• You maintain a stylish correspondence in German and French.• You answer customer inquiries by phone and email.• You work on internal projects and support the team. ## Requirements\n• Completed training in the retail or commercial sector.• Very good German and French skills in word and writing, further language skills are beneficial.• Independent, exact and rational working method.• Joy and enthusiasm for active customer contact.• Resilient, flexible and team capable personality. ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
+        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du bist verantwortlich für die B2B und B2C Beratung sowie den Verkauf unserer Sortimente in Deutsch und Französisch.• Du pflegst eine stilsichere Korrespondenz in Deutsch sowie Französisch.• Du beantwortest per Telefon und E-Mail Kundenanfragen.• Du arbeitest bei internen Projekten mit und unterstützt das Team. ## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder im kaufmännischen Bereich.• Sehr gute Deutsch- und Französischkenntnisse in Wort und Schrift, weitere Sprachkenntnisse von Vorteil.• Selbständige, exakte und rationelle Arbeitsweise.• Freude und Begeisterung für den aktiven Kundenkontakt.• Belastbare, flexible und teamfähige Persönlichkeit. ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous êtes responsable du conseil B2B et B2C ainsi que de la vente de nos gammes en allemand et en français.• Vous maintenez une correspondance élégante en allemand et en français.• Vous répondez aux demandes des clients par téléphone et par courriel.• Vous travaillez sur des projets internes et soutenez l'équipe. ## Exigences\n• Formation complète dans le secteur du commerce ou du commerce de détail.• Très bonnes compétences en allemand et en français en paroles et en écriture, d'autres compétences linguistiques sont bénéfiques.• Méthode de travail indépendante, exacte et rationnelle.• Joy et enthousiasme pour un contact actif avec la clientèle.• Personnalité résiliente, flexible et capable d'équipe. ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
       },
-      "location": "Schwyz",
-      "canton": "SZ",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/01020d46-f417-4977-8930-e5941c199deb",
+      "location": "Jegenstorf",
+      "canton": "BE",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-telefonverkauf/12d412dc-7a30-4a79-8bb9-8418b8d7f7f7",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.748Z",
-      "addressLocality": "Schwyz",
-      "addressRegion": "SZ",
+      "crawledAt": "2026-07-03T22:13:00.816Z",
+      "addressLocality": "Jegenstorf",
+      "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6423",
-      "streetAddress": "Steinbislin 7b",
-      "category": "Commerciale",
-      "contract": "fixed-term",
-      "employmentType": "CONTRACTOR",
+      "postalCode": "3303",
+      "streetAddress": "Bernstrasse 92",
+      "category": "Amministrazione",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-21",
+      "postedDate": "2026-06-17",
       "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=165972",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166998",
       "requirements": [
-        "• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
+        "• Abgeschlossene Ausbildung im Detailhandel oder im kaufmännischen Bereich.• Sehr gute Deutsch- und Französischkenntnisse in Wort und Schrift, weitere Sprachkenntnisse von Vorteil.• Selbständige, exakte und rationelle Arbeitsweise.• Freude und Begeisterung für den aktiven Kundenkontakt.• Belastbare, flexible und teamfähige Persönlichkeit."
       ],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "verkaufsberater-in-interdiscount-schwyz",
-          "verkaufsberater-in-interdiscount-schwyz-qfi5y2"
-        ],
         "it": [
-          "verkaufsberater-in-interdiscount-schwyz",
-          "verkaufsberater-in-interdiscount-schwyz-2",
-          "consulente-commerciale-in-interdiscount-schwyz-22db0b"
+          "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf",
+          "personale-nelle-vendite-telefoniche-interdiscount-jegenstorf"
+        ],
+        "de": [
+          "sachbearbeiter-in-telefonverkauf-interdiscount-jegenstorf"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-schwyz",
-        "verkaufsberater-in-interdiscount-schwyz-2"
-      ],
-      "firstSeenAt": "2026-06-30T12:10:36.053Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "firstSeenAt": "2026-06-30T12:10:36.057Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1621,7 +1557,7 @@
       "title": "Applikations-Manager:in SAP Operations Senior",
       "titleByLocale": {
         "it": "Application Manager:in SAP Operations Senior",
-        "en": "Application Manager: in SAP Operations Senior",
+        "en": "Applikations-Manager:in SAP Operations Senior",
         "de": "Applikations-Manager:in SAP Operations Senior",
         "fr": "Gestionnaire d'applications : dans SAP Operations Senior"
       },
@@ -1637,7 +1573,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/applikations-manager-in-sap-operations-senior/f797453f-573e-4d7f-8ef4-c1303c5256a5",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.748Z",
+      "crawledAt": "2026-07-03T22:13:00.815Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1683,6 +1619,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.054Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -1727,7 +1664,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/f0edd6b0-8bcb-4e3b-927b-d606f90a613d",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.747Z",
+      "crawledAt": "2026-07-03T22:13:00.814Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1749,6 +1686,7 @@
       ],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-30T12:10:36.051Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-interdiscount-schwyz",
@@ -1761,6 +1699,88 @@
       "previousSlugs": [
         "verkaufsberater-in-interdiscount-schwyz"
       ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "interdiscount-01020d46-f41",
+      "slug": "consulente-commerciale-in-interdiscount-schwyz-22db0b",
+      "slugByLocale": {
+        "it": "consulente-commerciale-in-interdiscount-schwyz-22db0b",
+        "en": "sales-consultant-in-interdiscount-schwyz-22db0b",
+        "de": "verkaufsberater-in-interdiscount-schwyz-qfi5y2",
+        "fr": "consultant-en-ventes-interdiscount-schwyz-22db0b"
+      },
+      "company": "Interdiscount",
+      "companyKey": "interdiscount",
+      "companyDomain": "jobs.interdiscount.ch",
+      "title": "Verkaufsberater:in",
+      "titleByLocale": {
+        "it": "Consulente divendita",
+        "en": "Sales consultant:in",
+        "de": "Verkaufsberater:in",
+        "fr": "Consultant en ventes:"
+      },
+      "description": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt.\n\n## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil\n\n## Wir bieten\nWir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+      "descriptionByLocale": {
+        "it": "A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnati in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente. ## Compiti\n• Si consiglia ai nostri clienti professionalmente e con impegno.• Vendete la nostra gamma di prodotti in modo convincente e con passione.• Voi siete congiuntamente responsabili di una presentazione attraente di merci e utilizzarlo con profitto.• Elabori la nostra merce ricevuta ed esci con cura. ## Requisiti\n• Difficoltà nel consigliare i clienti• Affidabilità, onestà e fedeltà• Motivazione per la formazione personale e professionale• Flair per i nuovi prodotti tecnici• Formazione completa di vendita; Esperienza professionale in casa / elettronica di inserimento è vantaggioso ## Offriamo Vi offriamo un ambiente di lavoro moderno e dinamico in cui è possibile contribuire le vostre abilità e personalità ogni giorno e fare la differenza. Per il successo congiunto. Per un futuro comune.",
+        "en": "At Interdiscount, we offer our customers the best shopping experience in Switzerland. Engage yourself in a dynamic and entrepreneurial working environment. Take responsibility, be proactive with us and develop further. ## Tasks\n• You advise our customers professionally and with commitment.• You sell our product range convincingly and with passion.• You are jointly responsible for an attractive presentation of goods and use it profitably.• You process our goods receipt and exit with care. ## Requirements\n• Delight in advising customers• Reliability, honesty and loyalty• Motivation for personal and professional training• Flair for new technical products• Completed sales training; Professional experience in home/entertainment electronics is beneficial ## We offer We offer you a modern, dynamic working environment in which you can contribute your skills and personality every day and make a difference. For joint success. For a common future.",
+        "de": "Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter. ## Aufgaben\n• Du berätst unsere Kundinnen und Kunden professionell und engagiert.• Du verkaufst unser Produktangebot überzeugend und mit Leidenschaft.• Du bist mitverantwortlich für eine attraktive Warenpräsentation und setzt diese gewinnbringend ein.• Du bearbeitest unseren Wareneingang und -ausgang mit Sorgfalt. ## Anforderungen\n• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil ## Wir bieten Wir bieten Ihnen ein modernes, dynamisches Arbeitsumfeld, in dem Sie Ihre Fähigkeiten und Ihre Persönlichkeit tagtäglich einbringen und so etwas bewegen können. Für den gemeinsamen Erfolg. Für eine gemeinsame Zukunft.",
+        "fr": "Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous. ## Tâches\n• Vous conseillez nos clients professionnellement et avec engagement.• Vous vendez notre gamme de produits avec conviction et passion.• Vous êtes conjointement responsable d'une présentation attrayante des produits et vous les utilisez avec profit.• Vous traitez notre reçu de marchandises et sortez avec soin. ## Exigences\n• Délice de conseiller les clients• Fiabilité, honnêteté et loyauté• Motivation pour la formation personnelle et professionnelle• Flair pour les nouveaux produits techniques• Une formation sur les ventes terminée; L'expérience professionnelle en électronique à domicile ou en salle d'entraînement est bénéfique ## Nous offrons Nous vous offrons un environnement de travail moderne et dynamique dans lequel vous pouvez apporter vos compétences et votre personnalité chaque jour et faire une différence. Pour un succès commun. Pour un avenir commun."
+      },
+      "location": "Schwyz",
+      "canton": "SZ",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/01020d46-f417-4977-8930-e5941c199deb",
+      "source": "Interdiscount Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T22:13:00.814Z",
+      "addressLocality": "Schwyz",
+      "addressRegion": "SZ",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6423",
+      "streetAddress": "Steinbislin 7b",
+      "category": "Commerciale",
+      "contract": "fixed-term",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Commercio al dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-21",
+      "pensum": "80-100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=165972",
+      "requirements": [
+        "• Freude an der Beratung von Kundinnen und Kunden• Zuverlässigkeit, Ehrlichkeit und Loyalität• Motivation für persönliche und fachliche Weiterbildung• Flair für neue Technikprodukte• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
+      ],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "verkaufsberater-in-interdiscount-schwyz",
+          "verkaufsberater-in-interdiscount-schwyz-qfi5y2"
+        ],
+        "it": [
+          "verkaufsberater-in-interdiscount-schwyz",
+          "verkaufsberater-in-interdiscount-schwyz-2",
+          "consulente-commerciale-in-interdiscount-schwyz-22db0b"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-schwyz",
+        "verkaufsberater-in-interdiscount-schwyz-2"
+      ],
+      "firstSeenAt": "2026-06-30T12:10:36.053Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1805,7 +1825,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/ecb7bac2-1c4b-480c-a8fa-ef6adc251cb4",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.746Z",
+      "crawledAt": "2026-07-03T22:13:00.813Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1842,6 +1862,7 @@
         "verkaufsberater-in-interdiscount-wadenswil-zurich"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.049Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1870,7 +1891,7 @@
       "title": "Applikations-Manager:in SAP Operations Senior",
       "titleByLocale": {
         "it": "Application Manager Operazioni SAP Senior",
-        "en": "Application Manager: in SAP Operations Senior",
+        "en": "Applikations-Manager:in SAP Operations Senior",
         "de": "Applikations-Manager:in SAP Operations Senior",
         "fr": "Gestionnaire d'applications : dans SAP Operations Senior"
       },
@@ -1886,7 +1907,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/applikations-manager-in-sap-operations-senior/d88253d5-5ca6-408f-aa25-a617fba95240",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.746Z",
+      "crawledAt": "2026-07-03T22:13:00.813Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1922,6 +1943,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:17:44.333Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -1966,7 +1988,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/512f1471-e5a9-4811-a4d9-e49c32226c0e",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.744Z",
+      "crawledAt": "2026-07-03T22:13:00.811Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2002,6 +2024,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:10:36.034Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2046,7 +2069,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/ad6cc22b-015a-4c39-812d-b5979acd7c7b",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.741Z",
+      "crawledAt": "2026-07-03T22:13:00.808Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2083,6 +2106,7 @@
         "verkaufsberater-in-interdiscount-basel-stadt"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.007Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2127,7 +2151,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/junior-supply-chain-manager-distribution/ae815f22-2cc3-4787-8d80-7dee5c2df02c",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.740Z",
+      "crawledAt": "2026-07-03T22:13:00.807Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2172,6 +2196,7 @@
         "junior-chaine-d-approvisionnement-manager-distribution-interdiscount-jegenstorf"
       ],
       "firstSeenAt": "2026-07-01T11:58:40.480Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2216,7 +2241,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/senior-cloud-engineer/c0025c79-e21c-4f2d-9db7-b65672980a00",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:27:42.738Z",
+      "crawledAt": "2026-07-03T22:13:00.805Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2256,6 +2281,7 @@
         "senior-gcp-cloud-engineer-interdiscount-jegenstorf-bern"
       ],
       "firstSeenAt": "2026-07-02T11:17:44.320Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
