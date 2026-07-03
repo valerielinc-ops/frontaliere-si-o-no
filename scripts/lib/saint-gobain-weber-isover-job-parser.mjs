@@ -241,6 +241,7 @@ export async function fetchAllSaintGobainWeberIsoverJobs() {
 
   const vacancyUrls = new Set();
   for (const target of COMPANY_TARGETS) {
+    // locale-segment-ok: '/en/' is jobs.ch's own external site-language path, not a site locale route
     const companyPageUrl = `${BASE_URL}/en/companies/${target.path}/`;
     let html = '';
     try {
