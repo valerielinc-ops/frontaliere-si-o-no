@@ -45352,16 +45352,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-frontalieri-pellicini-tavolo-lavoro': {
-    title: 'Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro&#8221;',
+    title: 'Ristorni frontalieri, Pellicini: “Subito il tavolo di lavoro”',
     description: 'Il deputato e sindaco di Luino sostiene la linea del Ministero dell\'Economia per risolvere la situazione di stallo sui ristorni. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, pellicini, 8220, subito',
-    ogTitle: 'Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro proposto dal Ministro Giorgetti&#8221;',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, pellicini, subito',
+    ogTitle: 'Ristorni frontalieri, Pellicini: “Subito il tavolo di lavoro proposto dal Ministro Giorgetti”',
     ogDescription: 'Il deputato e sindaco di Luino sostiene la linea del Ministero dell\'Economia per risolvere la situazione di stallo sui ristorni.',
     canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro&#8221;",
+      "headline": "Ristorni frontalieri, Pellicini: “Subito il tavolo di lavoro”",
       "description": "Il deputato e sindaco di Luino sostiene la linea del Ministero dell'Economia per risolvere la situazione di stallo sui ristorni. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",

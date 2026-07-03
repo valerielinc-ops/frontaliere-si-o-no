@@ -7138,7 +7138,17 @@ function toIsoWithTz(date = new Date()) {
 }
 
 
+const SEO_ENTITY_FIELDS = ['title', 'description', 'keywords', 'ogTitle', 'ogDescription', 'headline', 'breadcrumbName'];
+
+function decodeSeoEntities(data) {
+  if (!data.seo || typeof data.seo !== 'object') return;
+  for (const field of SEO_ENTITY_FIELDS) {
+    if (typeof data.seo[field] === 'string') data.seo[field] = decodeHtmlEntities(data.seo[field]);
+  }
+}
+
 function modifySeoService(data) {
+  decodeSeoEntities(data);
   const publishedAt = toIsoWithTz(new Date())
   const modifiedAt = publishedAt
 
