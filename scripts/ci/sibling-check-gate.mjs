@@ -17,16 +17,10 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, basename, resolve } from 'node:path';
 import { extractPrBody } from './pr-body-check-gate.mjs';
+import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
-
-// Explicit AGENTS.md #6 escape-hatch language: the construct is lexically
-// similar but belongs to a different semantic/bug class. Mirrors
-// SIBLING_CLASS_FALSE_POSITIVE_RE in harvest-agent-lessons.mjs (single
-// conceptual pattern; keep in sync if the regex changes there).
-const FALSE_POSITIVE_RE =
-  /falso positivo|solo lessicalmente simil\w*|lessicalmente simil\w*(?:[^.]{0,40})semanticamente divers\w*|semanticamente divers\w*|non è (?:lo stesso|la stessa) (?:anti-?pattern|costrutto|classe)|not the same (?:anti-?pattern|construct|bug class)|false positive/i;
 
 /**
  * Extract the text under `## Non implementato` from a PR body (up to the next
@@ -38,18 +32,40 @@ function extractNonImplementato(body) {
 }
 
 /**
+ * Full path (dir/basename, last 2 segments) match against a bare-basename
+ * mention in the PR body that names a DIFFERENT full path. Disambiguates
+ * same-named files in different directories (e.g. `scripts/lib/scoring/
+ * constants.mjs` vs `scripts/ci/lib/constants.mjs`): a basename-only FP
+ * declaration for one must NOT be read as covering the other.
+ */
+function lineNamesADifferentPath(line, candidatePath, fname) {
+  const pathRe = /(?:^|[\s`"'(])((?:[\w.-]+\/)+[\w.-]+)/g;
+  let m;
+  while ((m = pathRe.exec(line))) {
+    if (basename(m[1]) === fname && m[1] !== candidatePath) return true;
+  }
+  return false;
+}
+
+/**
  * True if `candidatePath` is explicitly declared a false positive in the
  * `## Non implementato` section text. Only AGENTS.md #6 escape-hatch language
- * qualifies (see FALSE_POSITIVE_RE above); bare file mentions or deferral notes
- * ("will fix in follow-up") do NOT — those remain genuine unaddressed siblings.
+ * qualifies (see FALSE_POSITIVE_DECLARATION_RE); bare file mentions or
+ * deferral notes ("will fix in follow-up") do NOT — those remain genuine
+ * unaddressed siblings. A basename-only match is rejected when the line names
+ * a full path for a DIFFERENT file with the same basename.
  */
 export function isDeclaredFalsePositive(candidatePath, nonImplText) {
   if (!nonImplText || !candidatePath) return false;
   const fname = basename(candidatePath);
-  const lines = nonImplText.split('\n').filter(
-    (l) => l.includes(candidatePath) || (fname.length > 3 && l.includes(fname)),
-  );
-  return lines.some((l) => FALSE_POSITIVE_RE.test(l));
+  const lines = nonImplText.split('\n').filter((l) => {
+    if (l.includes(candidatePath)) return true;
+    if (fname.length > 3 && l.includes(fname)) {
+      return !lineNamesADifferentPath(l, candidatePath, fname);
+    }
+    return false;
+  });
+  return lines.some((l) => FALSE_POSITIVE_DECLARATION_RE.test(l));
 }
 
 async function main() {

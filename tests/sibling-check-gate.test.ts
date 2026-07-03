@@ -82,3 +82,40 @@ describe('isDeclaredFalsePositive — only AGENTS.md #6 escape-hatch language qu
     expect(isDeclaredFalsePositive('scripts/foo.mjs', null as unknown as string)).toBe(false);
   });
 });
+
+describe('isDeclaredFalsePositive — negation-aware (issue #3367)', () => {
+  it('"non è un falso positivo" (explicit REJECTION) → NOT a declared FP, gate still blocks', () => {
+    const nonImpl =
+      '- scripts/foo-parser.mjs: non è un falso positivo, va sistemato in follow-up';
+    expect(isDeclaredFalsePositive('scripts/foo-parser.mjs', nonImpl)).toBe(false);
+  });
+
+  it('"not a false positive" (English rejection) → NOT a declared FP', () => {
+    const nonImpl = '- scripts/bar-crawler.mjs: not a false positive, genuine sibling bug';
+    expect(isDeclaredFalsePositive('scripts/bar-crawler.mjs', nonImpl)).toBe(false);
+  });
+
+  it('"non è semanticamente diverso" (explicit rejection) → NOT a declared FP', () => {
+    const nonImpl = '- scripts/baz.mjs: non è semanticamente diverso, stesso bug del sibling';
+    expect(isDeclaredFalsePositive('scripts/baz.mjs', nonImpl)).toBe(false);
+  });
+});
+
+describe('isDeclaredFalsePositive — basename disambiguation across directories (issue #3367)', () => {
+  it('basename-only FP declaration for a DIFFERENT full path does NOT cover the candidate', () => {
+    const nonImpl =
+      '- scripts/legacy/foo.js: falso positivo — solo lessicalmente simile ma semanticamente diverso';
+    expect(isDeclaredFalsePositive('scripts/new/foo.js', nonImpl)).toBe(false);
+  });
+
+  it('basename-only FP declaration for the SAME full path still covers the candidate', () => {
+    const nonImpl =
+      '- scripts/legacy/foo.js: falso positivo — solo lessicalmente simile ma semanticamente diverso';
+    expect(isDeclaredFalsePositive('scripts/legacy/foo.js', nonImpl)).toBe(true);
+  });
+
+  it('bare basename (no directory in body) still matches via basename shortcut', () => {
+    const nonImpl = '- foo-parser.mjs: falso positivo — semanticamente diverso';
+    expect(isDeclaredFalsePositive('scripts/update/foo-parser.mjs', nonImpl)).toBe(true);
+  });
+});
