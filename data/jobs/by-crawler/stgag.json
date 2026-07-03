@@ -133,8 +133,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-orthopadie-stgag-munsterlingen",
-          "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen"
+          "arztsekretar-in-orthopadie-stgag-munsterlingen"
         ],
         "en": [
           "arztsekretar-in-orthopadie-stgag-munsterlingen"
@@ -444,8 +443,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-psychotherapie-station-pt5-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-psychotherapie-station-pt5-spital-thurgau-stgag-munsterlingen",
-          "dipl-infermieristica-in-psicoterapia-reparto-pt5-spital-thurgau-stgag-munsterlingen-a21ad2"
+          "dipl-pflegefachmann-frau-psychotherapie-station-pt5-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-psychotherapie-station-pt5-stgag-munsterlingen"
@@ -669,8 +667,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen",
-          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-munsterlingen"
+          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen"
@@ -695,10 +692,10 @@
     },
     {
       "id": "stgag-dbfaebcd4262",
-      "slug": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
+      "slug": "specialista-diplomatico-in-radiologia-hf-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-        "it": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
+        "it": "specialista-diplomatico-in-radiologia-hf-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
         "fr": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
       },
@@ -708,7 +705,7 @@
       "title": "Dipl. Radiologiefachfrau/-mann HF",
       "titleByLocale": {
         "de": "Dipl. Radiologiefachfrau/-mann HF",
-        "it": "Dipl. Radiologiefachfrau/-mann HF",
+        "it": "Specialista diplomatico in Radiologia HF",
         "en": "Dipl. Radiologiefachfrau/-mann HF",
         "fr": "Dipl. Radiologiefachfrau/-mann HF"
       },
@@ -746,11 +743,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+          "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+        "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -3443,6 +3443,9 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3560.title': 'Grenzübergänge in Echtzeit im Ranking',
+  'whatsNew.v3560.borderWaitRanking.title': 'Beste und schlechteste Grenzübergänge',
+  'whatsNew.v3560.borderWaitRanking.desc': 'Neuer, wöchentlich aktualisierter Artikel mit dem Ranking aller Tessiner Grenzübergänge nach Wartezeit, mit Trends und wie viele Minuten du gewinnst oder verlierst, je nachdem welchen Übergang du wählst.',
   'whatsNew.v3550.title': 'Flüssigere Stellensuche',
   'whatsNew.v3550.fastLoading.title': 'Animiertes Laden',
   'whatsNew.v3550.fastLoading.desc': 'Während wir Angebote suchen, siehst du kein störendes «0 Ergebnisse» mehr: Ein animierter Ladevorgang mit wechselnden Hinweisen begleitet dich jetzt, bis die Liste bereit ist.',
@@ -3476,6 +3479,8 @@ Regeln:
   'journalistDashboard.detail.failedTitle': 'Veröffentlichung fehlgeschlagen',
   'journalistDashboard.detail.failedFallback': 'Bei der Veröffentlichung ist ein Fehler aufgetreten. Korrigiere den Artikel und sende ihn erneut.',
   'journalistDashboard.detail.queuedInfo': 'Dein Artikel wartet auf die Veröffentlichung und wird in Kürze bearbeitet.',
+  'journalistDashboard.status.publishing': 'Wird veröffentlicht',
+  'journalistDashboard.detail.publishingInfo': 'Deployment läuft: der Artikel ist in wenigen Minuten online.',
   'journalistDashboard.detail.publishedTitle': 'Artikel veröffentlicht',
   'journalistDashboard.detail.urlPending': 'Link noch nicht verfügbar',
   'journalistDashboard.detail.analyticsHeading': 'Statistiken',
