@@ -9,7 +9,7 @@
  * to an empty list rather than a guessed affinity.
  */
 
-import { findMunicipality } from '../data/municipalities';
+import { findMunicipality } from '../data/municipalities.ts';
 
 const PROVINCE_TO_CANTONS: Readonly<Record<string, readonly string[]>> = {
   CO: ['TI'],

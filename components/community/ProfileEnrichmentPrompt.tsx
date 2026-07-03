@@ -19,7 +19,7 @@ import { savePartialProfile } from '@/services/profileFirestore';
 import { MUNICIPALITIES, findMunicipality } from '@/data/municipalities';
 import { provinceToCantons } from '@/services/provinceCantonAffinity';
 import { getCantonLabel, type CantonLocale } from '@/services/cantonList';
-import { SECTORS } from './JobAlertForm';
+import { SECTORS } from './jobAlertConstants';
 
 export interface ProfileEnrichmentPromptProps {
   field: EnrichmentFieldKey;
