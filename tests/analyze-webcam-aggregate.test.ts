@@ -183,9 +183,12 @@ describe('isFeedWarmingUp', () => {
 
 describe('CROSSING_TO_FEEDS registry', () => {
   it('derives multiple detection feeds for the high-traffic crossings', () => {
+    // '00.3S' was removed (sibling of issue #3372/#3274): the upstream www4.ti.ch
+    // feed now returns a 0-byte body; chiasso-brogeda votes on the 2 remaining feeds.
     expect(CROSSING_TO_FEEDS['chiasso-brogeda']).toEqual(
-      expect.arrayContaining(['00.3S', '03.3S']),
+      expect.arrayContaining(['03.3S', '04.4N']),
     );
+    expect(CROSSING_TO_FEEDS['chiasso-brogeda']).not.toContain('00.3S');
     // '07.2N' was removed (issue #3372): the upstream www4.ti.ch feed 404s and
     // has no replacement; 'gaggiolo' now votes on the two remaining feeds.
     expect(CROSSING_TO_FEEDS['gaggiolo']).toEqual(
@@ -197,13 +200,18 @@ describe('CROSSING_TO_FEEDS registry', () => {
     );
   });
 
-  it('EXCLUDES cvDetect:false feeds (commercial / high-texture views) from queue detection', () => {
-    // 00.3N (Brogeda interchange gantries) + 00.3O (commercial-customs trucks)
-    // are display-only: they must NOT participate in queue detection.
-    expect(WEBCAM_FEEDS['00.3N'].cvDetect).toBe(false);
-    expect(WEBCAM_FEEDS['00.3O'].cvDetect).toBe(false);
-    expect(CROSSING_TO_FEEDS['chiasso-brogeda']).not.toContain('00.3N');
-    expect(CROSSING_TO_FEEDS['chiasso-brogeda']).not.toContain('00.3O');
+  it('EXCLUDES any cvDetect:false feed (commercial / high-texture views) from queue detection', () => {
+    // Generic over the current WEBCAM_FEEDS contents rather than pinned to specific
+    // keys, so this doesn't rot when a cvDetect:false feed is later removed as dead
+    // (as happened to '00.3N'/'00.3O', display-only Brogeda views, on 2026-07-03).
+    const cvDetectFalseKeys = Object.entries(WEBCAM_FEEDS)
+      .filter(([, feed]) => feed.cvDetect === false)
+      .map(([key]) => key);
+    for (const key of cvDetectFalseKeys) {
+      for (const feeds of Object.values(CROSSING_TO_FEEDS)) {
+        expect(feeds).not.toContain(key);
+      }
+    }
   });
 
   it('gives Campione d\'Italia-Bissone its first queue-detection feed', () => {
@@ -226,7 +234,8 @@ describe('CROSSING_TO_FEEDS registry', () => {
   });
 
   it('pre-existing feeds have no introducedAt (they vote unconditionally)', () => {
-    for (const k of ['01.2S', '00.3S', '00.3N', '00.3O', '02.0N', '06.8S']) {
+    // '00.3S'/'00.3N'/'00.3O' removed (sibling of #3372/#3274) — dead upstream feeds.
+    for (const k of ['01.2S', '02.0N', '06.8S']) {
       expect(WEBCAM_FEEDS[k].introducedAt, `feed ${k}`).toBeUndefined();
     }
   });

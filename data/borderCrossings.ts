@@ -247,6 +247,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.lanzoArogno',
+ webcams: [
+ {
+ label: "Lago di Lugano – vista da Lanzo d'Intelvi (SkylineWebcams)",
+ imageUrl: 'https://cdn.skylinewebcams.com/live5540.jpg',
+ sourceName: 'SkylineWebcams',
+ sourceUrl: 'https://www.skylinewebcams.com/en/webcam/italia/lombardia/como/lago-di-lugano.html',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: "Campione d'Italia-Bissone",
@@ -416,6 +425,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'closed',
  peak: '---',
  tips: 'border.tips.roderoStabio',
+ webcams: [
+ {
+ label: 'Stabio – ROTOFIL fabrics SA (webcam meteo)',
+ imageUrl: 'https://images-webcams.windy.com/80/1307708880/current/original/1307708880.jpg',
+ sourceName: 'ROTOFIL fabrics SA',
+ sourceUrl: 'https://rotofil.com/index.php/32/Webcam',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Saltrio-Arzo',
@@ -433,6 +451,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: '7:30-8:30',
  tips: 'border.tips.saltrioArzo',
+ webcams: [
+ {
+ label: 'Arzo – Cappella San Carlo (webcam meteo)',
+ imageUrl: 'https://www.webcam-4insiders.com/current/thumbnail/10557.jpg',
+ sourceName: '4Insiders Weather Webcam',
+ sourceUrl: 'https://www.4insiders.webcam/webcam/arzo/10557',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Ponte Tresa',
@@ -527,6 +554,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.zennaDirinella',
+ webcams: [
+ {
+ label: 'Maccagno con Pino e Veddasca – Lago Maggiore (stessa sponda di Zenna)',
+ imageUrl: 'https://weather-cams.visioray.com/snap/3590.jpg',
+ sourceName: 'Webcam Maccagno – Lago Maggiore',
+ sourceUrl: 'https://www.ilmeteo.it/webcam/Maccagno',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Biegno-Indemini',
@@ -544,6 +580,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.biegnoIndemini',
+ webcams: [
+ {
+ label: 'Indemini – panorama verso Alpe Sciaga / Monte Tamaro',
+ imageUrl: 'https://lunasole.ch/webcam/latest.jpg',
+ sourceName: 'Webcam Indemini (lunasole.ch)',
+ sourceUrl: 'https://lunasole.ch/webcam/',
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'Dumenza-Cassinone',
@@ -561,6 +606,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.dumenzaCassinone',
+ webcams: [
+ {
+ label: 'Dumenza – webcam comunale',
+ imageUrl: 'https://webcam.comune.dumenza.va.it/download.php?file=dumenza.jpg',
+ sourceName: 'Comune di Dumenza',
+ sourceUrl: 'https://webcam.comune.dumenza.va.it/',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  // VERBANIA - TICINO / VS
  {
