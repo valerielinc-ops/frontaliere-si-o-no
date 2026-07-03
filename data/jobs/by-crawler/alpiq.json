@@ -61,12 +61,6 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "category-manager-it-alpiq-olten",
-          "gestione-delle-categorie-it-alpiq-olten"
-        ]
       }
     },
     {
@@ -115,7 +109,7 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-07-02T21:14:25.928Z",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -130,12 +124,7 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
-          "project-manager-pianificazione-strategica-del-portfolio-alpiq-olten"
-        ]
-      }
+      "retranslationAttempts": 0
     },
     {
       "id": "alpiq-beb74dfaeacf",
@@ -196,12 +185,6 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "quantitative-analyst-alpiq-lausanne",
-          "analista-quantitativo-alpiq-lausanne"
-        ]
       }
     },
     {
@@ -264,12 +247,6 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-quantitative-analyst-alpiq-olten",
-          "analista-quantitativo-senior-alpiq-olten"
-        ]
       }
     },
     {
@@ -323,8 +300,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlageningenieur-all-100-alpiq-niedergosgen",
-          "ingegnere-di-impianti-all-100-alpiq-niedergosgen"
+          "anlageningenieur-all-100-alpiq-niedergosgen"
         ]
       },
       "firstSeenAt": "2026-06-29T21:34:24.959Z",
@@ -344,9 +320,9 @@
     },
     {
       "id": "alpiq-5105e5dd186a",
-      "slug": "business-process-engineer-all-80-100-alpiq-olten",
+      "slug": "ingegnere-dei-processi-aziendali-tutti-80-100-alpiq-olten",
       "slugByLocale": {
-        "it": "business-process-engineer-all-80-100-alpiq-olten",
+        "it": "ingegnere-dei-processi-aziendali-tutti-80-100-alpiq-olten",
         "en": "business-process-engineer-all-80-100-alpiq-olten",
         "de": "business-process-engineer-alle-80-100-alpiq-olten",
         "fr": "ingenieur-des-processus-operationnels-tous-80-100-alpiq-olten"
@@ -401,7 +377,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-process-engineer-all-80-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "business-process-engineer-all-80-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-1891d862c1bd",
@@ -462,12 +446,6 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-quantitative-engineer-quantitative-systems-engineer-alpiq-lausanne",
-          "ingegnere-quantitativo-senior-ingegnere-di-sistemi-quantitativi-alpiq-lausanne"
-        ]
       }
     },
     {

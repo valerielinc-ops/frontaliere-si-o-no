@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-15T21:34:55.738Z",
-    "label": "after",
-    "total": 16619,
-    "needsRetranslation": 5669,
-    "suppressed": 151,
-    "incomplete": 3453,
-    "complete": 13166,
-    "missingByLocale": {
-      "it": 2413,
-      "en": 2065,
-      "de": 1156,
-      "fr": 2043
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1976
-      },
-      {
-        "company": "Manor AG",
-        "pending": 116
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Roche",
-        "pending": 90
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 71
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 71
-      },
-      {
-        "company": "Migros Logistics",
-        "pending": 71
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 54
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 48
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-16T00:10:58.198Z",
-    "label": "before",
-    "total": 16742,
-    "needsRetranslation": 10709,
-    "suppressed": 151,
-    "incomplete": 3929,
-    "complete": 12813,
-    "missingByLocale": {
-      "it": 2619,
-      "en": 2295,
-      "de": 1170,
-      "fr": 2323
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1983
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 277
-      },
-      {
-        "company": "Lonza",
-        "pending": 150
-      },
-      {
-        "company": "Manor AG",
-        "pending": 116
-      },
-      {
-        "company": "Richemont",
-        "pending": 105
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Fielmann Group",
-        "pending": 86
-      },
-      {
-        "company": "Roche",
-        "pending": 85
-      },
-      {
-        "company": "Société coopérative Migros Genève",
-        "pending": 78
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 72
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-16T03:34:11.233Z",
-    "label": "after",
-    "total": 16742,
-    "needsRetranslation": 5558,
-    "suppressed": 484,
-    "incomplete": 3785,
-    "complete": 12957,
-    "missingByLocale": {
-      "it": 2535,
-      "en": 2159,
-      "de": 1230,
-      "fr": 2169
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1976
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 277
-      },
-      {
-        "company": "Lonza",
-        "pending": 150
-      },
-      {
-        "company": "Manor AG",
-        "pending": 116
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Fielmann Group",
-        "pending": 86
-      },
-      {
-        "company": "Société coopérative Migros Genève",
-        "pending": 78
-      },
-      {
-        "company": "Roche",
-        "pending": 73
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 71
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 58
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-16T05:23:06.525Z",
-    "label": "before",
-    "total": 16758,
-    "needsRetranslation": 5671,
-    "suppressed": 484,
-    "incomplete": 3760,
-    "complete": 12998,
-    "missingByLocale": {
-      "it": 2446,
-      "en": 2143,
-      "de": 1223,
-      "fr": 2152
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1989
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 277
-      },
-      {
-        "company": "Lonza",
-        "pending": 150
-      },
-      {
-        "company": "Manor AG",
-        "pending": 116
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Fielmann Group",
-        "pending": 86
-      },
-      {
-        "company": "Société coopérative Migros Genève",
-        "pending": 78
-      },
-      {
-        "company": "Roche",
-        "pending": 73
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 71
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 58
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-16T07:49:14.803Z",
     "label": "after",
     "total": 16758,
@@ -11490,6 +11262,120 @@
       {
         "company": "VOLG",
         "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-03T00:46:51.578Z",
+    "label": "before",
+    "total": 18817,
+    "needsRetranslation": 5488,
+    "suppressed": 389,
+    "incomplete": 907,
+    "complete": 17910,
+    "missingByLocale": {
+      "it": 498,
+      "en": 331,
+      "de": 380,
+      "fr": 183
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 737
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 58
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-03T00:51:11.169Z",
+    "label": "after",
+    "total": 18817,
+    "needsRetranslation": 2405,
+    "suppressed": 389,
+    "incomplete": 906,
+    "complete": 17911,
+    "missingByLocale": {
+      "it": 497,
+      "en": 328,
+      "de": 380,
+      "fr": 180
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 736
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 58
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
       },
       {
         "company": "CSD ENGINEERS",
