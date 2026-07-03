@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "segatrice-per-calcestruzzo-carotaggio-pemsa-lausanne",
-        "en": "concrete-sawing-machine-hopping-pemsa-lausanne",
-        "de": "betonsagemaschine-hopping-pemsa-lausanne",
-        "fr": "machine-a-scier-le-beton-hopping-pemsa-lausanne"
+        "en": "segatrice-per-calcestruzzo-carotaggio-pemsa-lausanne",
+        "de": "segatrice-per-calcestruzzo-carotaggio-pemsa-lausanne",
+        "fr": "segatrice-per-calcestruzzo-carotaggio-pemsa-lausanne"
       },
       "id": "pemsa-1b64b95235a8",
       "needsRetranslation": true,
@@ -98,9 +98,9 @@
       },
       "slugByLocale": {
         "it": "aiuto-elettricista-posa-cavi-pemsa-romont-fr",
-        "en": "electrician-help-cable-pose-pemsa-romont-fr",
-        "de": "elektrikerhilfe-cable-pose-pemsa-romont-fr",
-        "fr": "aide-electrique-cable-pose-pemsa-romont-fr"
+        "en": "aiuto-elettricista-posa-cavi-pemsa-romont-fr",
+        "de": "aiuto-elettricista-posa-cavi-pemsa-romont-fr",
+        "fr": "aiuto-elettricista-posa-cavi-pemsa-romont-fr"
       },
       "id": "pemsa-fc8dd4a39e0f",
       "needsRetranslation": true,
@@ -157,9 +157,9 @@
       },
       "slugByLocale": {
         "it": "perforatore-assistente-perforatore-pemsa-lausanne",
-        "en": "perforator-perforator-pemsa-lausanne",
+        "en": "perforatore-assistente-perforatore-pemsa-lausanne",
         "de": "perforatore-assistente-perforatore-pemsa-lausanne",
-        "fr": "perforateur-perforateur-pemsa-lausanne"
+        "fr": "perforatore-assistente-perforatore-pemsa-lausanne"
       },
       "id": "pemsa-74a64c5a39f8",
       "needsRetranslation": true,
@@ -236,14 +236,8 @@
       },
       "postalCode": "1950",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "machine-operator-m2-and-m7-grand-dumper-pemsa-sion"
-        ]
-      },
-      "previousSlugs": [
-        "machine-operator-m2-and-m7-grand-dumper-pemsa-sion"
-      ]
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Pittore/Gessatore",
@@ -307,14 +301,10 @@
         "pittore-pemsa-mendrisio",
         "painter-pemsa-mendrisio",
         "maler-pemsa-mendrisio",
-        "peintre-pemsa-mendrisio",
-        "painter-gessator-pemsa-mendrisio"
+        "peintre-pemsa-mendrisio"
       ],
-      "previousSlugsByLocale": {
-        "en": [
-          "painter-gessator-pemsa-mendrisio"
-        ]
-      }
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Addetto alla produzione/inserimento dati informatici",
@@ -687,14 +677,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "cartongess-pemsa-locarno"
-        ]
-      },
-      "previousSlugs": [
-        "cartongess-pemsa-locarno"
-      ]
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Caposquadra lavori di ristrutturazione",
@@ -753,14 +737,8 @@
       },
       "postalCode": "1700",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "head-of-restructuring-pemsa-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-restructuring-pemsa-fribourg"
-      ]
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Idraulico",
@@ -947,14 +925,10 @@
       "postalCode": "1700",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
       "previousSlugs": [
-        "muratore-carpentiere-edile-pemsa-bellinzona",
-        "masonry-and-building-carpenters-pemsa-fribourg"
+        "muratore-carpentiere-edile-pemsa-bellinzona"
       ],
-      "previousSlugsByLocale": {
-        "en": [
-          "masonry-and-building-carpenters-pemsa-fribourg"
-        ]
-      }
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Tecnico dell’assistenza post-vendita – Box doccia",

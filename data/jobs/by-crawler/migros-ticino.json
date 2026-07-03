@@ -4895,9 +4895,9 @@
       "firstSeenAt": "2026-07-02T12:16:59.926Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld",
+        "en": "seller-denner-ag-frauenfeld-008421",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld"
+        "fr": "vendeur-denner-ag-frauenfeld-008421"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -4944,6 +4944,10 @@
       "postalCode": "8500",
       "country": "CH",
       "previousSlugs": [
+        "seller-denner-ag-frauenfeld-008421",
+        "vendeur-denner-ag-frauenfeld-008421",
+        "venditore-denner-ag-rubigen",
+        "verkaufer-in-denner-ag-rubigen-1remei",
         "verkaufer-in-denner-ag-rubigen",
         "venditore-denner-ag-frauenfeld-m4pjdx",
         "venditore-denner-ag-gossau-sg",
@@ -4957,31 +4961,20 @@
         "vendeur-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
-        "verkaufer-in-denner-ag-langenthal",
-        "verkaufer-in-denner-ag-wattwil",
-        "vendeur-denner-ag-wattwil",
-        "venditore-denner-ag-wattwil-8129f7",
-        "venditore-denner-ag-wattwil",
-        "verkaufer-in-denner-ag-urdorf",
-        "vendeur-denner-ag-zurich-e89fe9"
+        "seller-denner-ag-frauenfeld",
+        "vendeur-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421"
+          "seller-denner-ag-frauenfeld-008421",
+          "seller-denner-ag-frauenfeld"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
+          "vendeur-denner-ag-frauenfeld-008421",
+          "vendeur-denner-ag-frauenfeld"
         ],
         "it": [
-          "venditore-denner-ag-rubigen",
-          "verkaufer-in-denner-ag-langenthal",
-          "verkaufer-in-denner-ag-wattwil",
-          "vendeur-denner-ag-wattwil",
-          "venditore-denner-ag-wattwil-8129f7",
-          "venditore-denner-ag-wattwil",
-          "verkaufer-in-denner-ag-urdorf",
-          "vendeur-denner-ag-zurich-e89fe9",
-          "venditore-denner-ag-frauenfeld-m4pjdx"
+          "venditore-denner-ag-rubigen"
         ]
       }
     },
