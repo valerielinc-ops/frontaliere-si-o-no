@@ -107,6 +107,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'banca-sempione': gFavicon('bancasempione.ch'),
  'bancastato': cLogo('bancastato.ch'),
  'baronie': '/images/brands/baronie.png',
+ 'barry-callebaut': cLogo('barry-callebaut.com'),
  'bcvs': '/images/brands/bcvs.png',
  'berit-klinik': cLogo('beritklinik.ch'),
  'berner-klinik-montana': cLogo('bernerklinik.ch'),
