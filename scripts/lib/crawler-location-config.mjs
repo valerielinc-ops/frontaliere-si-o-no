@@ -544,6 +544,10 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Hofackerstrasse 40, 4132 Muttenz BL — confirmed via Valora's own
+  // Impressum (valora.com/de/imprint) + Zefix/Moneyhouse Handelsregister
+  // (Valora Holding AG / Valora Schweiz AG, CHE-103.468.185).
+  'valora': { city: 'Muttenz', canton: 'BL', postalCode: '4132', addressRegion: 'BL' },
 };
 
 /**
