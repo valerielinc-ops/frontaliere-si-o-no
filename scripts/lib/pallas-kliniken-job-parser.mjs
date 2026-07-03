@@ -204,9 +204,13 @@ export async function fetchAllPallasKlinikenJobs() {
     const sourceLang = detectLang(description, 'de');
 
     const addr = ld.jobLocation?.address || {};
-    const city = normalizeSpace(decodeEntities(addr.addressLocality || '')) || HQ.city;
-    const postalCode = String(addr.postalCode || HQ.postalCode);
-    const streetAddress = normalizeSpace(decodeEntities(addr.streetAddress || HQ.streetAddress));
+    const rawCity = normalizeSpace(decodeEntities(addr.addressLocality || ''));
+    const city = rawCity || HQ.city;
+    const isHqCity = !rawCity || /olten/i.test(rawCity);
+    const postalCode = addr.postalCode ? String(addr.postalCode) : (isHqCity ? HQ.postalCode : '');
+    const streetAddress = addr.streetAddress
+      ? normalizeSpace(decodeEntities(addr.streetAddress))
+      : (isHqCity ? HQ.streetAddress : '');
     const canton = pickCanton(city);
 
     const datePosted = (ld.datePosted && /^\d{4}-\d{2}-\d{2}$/.test(ld.datePosted))
