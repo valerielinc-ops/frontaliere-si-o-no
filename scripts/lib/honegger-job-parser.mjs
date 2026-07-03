@@ -71,7 +71,7 @@ const LISTING_URL = `${BASE_URL}/jobs/`;
  * Liechtenstein branches (schaan, muehleholz) are deliberately absent —
  * see EXCLUDED_LOCATION_SLUGS below.
  */
-const STANDORT_LOCATIONS = {
+export const STANDORT_LOCATIONS = {
   'sarnen': { city: 'Sarnen', canton: 'OW', postalCode: '6060' },
   'boudry-ne': { city: 'Boudry', canton: 'NE', postalCode: '2017' },
   'langenthal': { city: 'Langenthal', canton: 'BE', postalCode: '4900' },
@@ -94,7 +94,7 @@ const STANDORT_LOCATIONS = {
 };
 
 /** Liechtenstein branches — real Honegger locations, but FL ≠ CH, out of scope. */
-const EXCLUDED_LOCATION_SLUGS = new Set(['schaan', 'muehleholz']);
+export const EXCLUDED_LOCATION_SLUGS = new Set(['schaan', 'muehleholz']);
 
 /**
  * When a job carries multiple "standorte" terms, pick the primary one
@@ -103,7 +103,7 @@ const EXCLUDED_LOCATION_SLUGS = new Set(['schaan', 'muehleholz']);
  * the first term in document order (already primary-first on this site,
  * e.g. "adliswil" before "horgen"/"rapperswil-2"/"waedenswil").
  */
-function pickPrimaryLocationSlug(slugs = []) {
+export function pickPrimaryLocationSlug(slugs = []) {
   const valid = slugs.filter((s) => STANDORT_LOCATIONS[s]);
   if (valid.includes('basel-stadt')) return 'basel-stadt';
   if (valid.includes('schwyz')) return 'schwyz';
@@ -153,7 +153,7 @@ export function extractPensum(text = '') {
   return null;
 }
 
-function detectCategory(title = '', categorySlug = '') {
+export function detectCategory(title = '', categorySlug = '') {
   const t = normalizeSpace(title).toLowerCase();
   if (/gärtner|garten/i.test(t)) return 'Giardinaggio';
   if (categorySlug === 'spezialreinigung') return 'Pulizie Specializzate';
@@ -162,7 +162,7 @@ function detectCategory(title = '', categorySlug = '') {
   return 'Facility Management';
 }
 
-function detectExperienceLevel(title = '') {
+export function detectExperienceLevel(title = '') {
   const t = normalizeSpace(title).toLowerCase();
   if (/lernend|praktikant|stagiaire|apprenti/.test(t)) return 'intern';
   if (/einsatzleiter|teamleiter|vorarbeiter|inspektor|leiter|leitung/.test(t)) return 'senior';
