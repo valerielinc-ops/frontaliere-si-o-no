@@ -52,7 +52,7 @@ const CONTROL_CHARS_RE = new RegExp(
 // parsed as strict JSON by browsers/crawlers, where an unescaped control
 // character is invalid. Article headlines/titles are single-line by
 // contract, so stripping (not backslash-escaping) is the correct fix.
-function escapeJsonString(s) {
+export function escapeJsonString(s) {
   return String(s)
     .replace(/\\/g, '\\\\')
     .replace(/"/g, '\\"')
@@ -60,7 +60,7 @@ function escapeJsonString(s) {
     .trim();
 }
 
-const NUMBER_OF_ITEMS_RE = /("name": "Articoli Frontaliere",\s*"numberOfItems": )(\d+)/;
+export const NUMBER_OF_ITEMS_RE = /("name": "Articoli Frontaliere",\s*"numberOfItems": )(\d+)/;
 
 /**
  * Locate the "Articoli Frontaliere" `itemListElement` array within the full
@@ -78,7 +78,7 @@ const NUMBER_OF_ITEMS_RE = /("name": "Articoli Frontaliere",\s*"numberOfItems": 
  * scripts/create-article.mjs already relied on, just now made explicit and
  * bounded instead of implicit and unbounded.
  */
-function locateItemListBlock(pagesSrc) {
+export function locateItemListBlock(pagesSrc) {
   const headerMatch = pagesSrc.match(NUMBER_OF_ITEMS_RE);
   if (!headerMatch) return null;
   const blockStart = headerMatch.index + headerMatch[0].length;
