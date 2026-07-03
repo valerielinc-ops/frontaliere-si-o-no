@@ -524,6 +524,7 @@ export const COMPANY_HQ = {
   // (northdata/Moneyhouse CHE-267.003.435) + local.ch/search.ch directory
   // listings; no fallback needed.
   'felfel': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
+  'sophia-genetics': { city: 'Rolle', canton: 'VD', postalCode: '1180', addressRegion: 'VD' },
 };
 
 /**
