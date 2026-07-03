@@ -207,11 +207,12 @@ function resolveAddress(cityRaw = '', regionRaw = '') {
   const canton = regionCode || (city ? inferAnyCanton(city) : '') || '';
 
   if (city && canton) {
+    const isHqCity = /bern/i.test(city);
     return {
       city,
       canton,
-      postalCode: canton === HQ.canton ? HQ.postalCode : '',
-      streetAddress: canton === HQ.canton ? HQ.streetAddress : '',
+      postalCode: isHqCity ? HQ.postalCode : '',
+      streetAddress: isHqCity ? HQ.streetAddress : '',
       region: canton,
     };
   }
