@@ -533,6 +533,10 @@ export const COMPANY_HQ = {
   // ── CordenPharma dedicated crawler (2026-07-03) ──
   'cordenpharma': { city: 'Liestal', canton: 'BL', postalCode: '4410', addressRegion: 'BL' },
   'bcv': { city: 'Lausanne', canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
+  // VZ Holding AG registered legal seat (Zefix CHE-102.060.456): Innere
+  // Güterstrasse 2, 6300 Zug ZG — confirmed via Zefix (Swiss commercial
+  // registry), cross-checked against Moneyhouse; no fallback needed.
+  'vz-vermoegenszentrum': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
 };
 
 /**
