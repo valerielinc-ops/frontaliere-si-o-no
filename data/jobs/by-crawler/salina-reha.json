@@ -1,6 +1,6 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-07-03T12:18:15.922Z",
+  "assembledAt": "2026-07-03T22:57:18.954Z",
   "jobs": [
     {
       "id": "salina-reha-d81274885721",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:18:13.956Z",
+      "crawledAt": "2026-07-03T22:57:17.028Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "facharzt-facharztin-ambulant-60-100-salina-rheinfelden"
       ],
@@ -104,7 +105,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistent-in-arztsekretaer-in/nzxykhjkdtz7b0gdpqmlt8swpbrlezpuco8ycmorzyyi733x3gy6t0rv75zqfand",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:18:12.346Z",
+      "crawledAt": "2026-07-03T22:57:15.238Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -166,7 +167,7 @@
       "title": "Psychotherapeut/in",
       "titleByLocale": {
         "it": "Psicoterapeuta",
-        "en": "Psychotherapist",
+        "en": "Psychotherapeut/in",
         "de": "Psychotherapeut/in",
         "fr": "Psychothérapeute"
       },
@@ -182,7 +183,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:18:10.906Z",
+      "crawledAt": "2026-07-03T22:57:13.808Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -230,6 +231,7 @@
           "Compétences linguistiques supplémentaires"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeut-in-salina-rheinfelden",
         "psychotherapeut-in-salina-rehaklinik-rheinfelden-rheinfelden"

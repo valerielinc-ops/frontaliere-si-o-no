@@ -1,0 +1,70 @@
+{
+  "crawlerKey": "igroove",
+  "assembledAt": "2026-07-03T21:58:05.073Z",
+  "jobs": [
+    {
+      "id": "igroove-c5d93def086a",
+      "slug": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+      "slugByLocale": {
+        "de": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+        "it": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+        "en": "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+        "fr": "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+      },
+      "company": "iGroove AG",
+      "companyKey": "igroove",
+      "companyDomain": "igroovemusic.com",
+      "title": "Senior Data Pipeline Engineer",
+      "titleByLocale": {
+        "de": "Senior Data Pipeline Ingenieur",
+        "en": "Senior Data Pipeline Engineer",
+        "it": "Senior Data Pipeline Ingegnere",
+        "fr": "Senior Data Pipeline Ingénieur"
+      },
+      "description": "Senior Data Pipeline Engineer bei iGroove AG in Zürich Hybrid.",
+      "descriptionByLocale": {
+        "de": "Senior Data Pipeline Engineer bei iGroove AG in Zürich Hybrid."
+      },
+      "location": "Zürich Hybrid",
+      "canton": "ZH",
+      "url": "https://igroove.jobs.personio.de/job/2588083",
+      "source": "iGroove Dedicated Parser (Personio)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T21:58:03.200Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Media / Musica digitale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "applyUrl": "https://igroove.jobs.personio.de/job/2588083",
+      "jobReqId": "2588083",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-03T21:58:03.200Z"
+    }
+  ]
+}
