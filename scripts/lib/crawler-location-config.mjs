@@ -544,6 +544,11 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Rektorat Volksschule Stadt Luzern, Winkelriedstrasse 12a, 6002 Luzern LU
+  // (confirmed via stadtluzern.ch contact page). Most postings carry their
+  // own school-building street/ZIP via the Prospective API; this is only the
+  // fallback for postings that omit those fields.
+  'volksschule-luzern': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
 };
 
 /**
