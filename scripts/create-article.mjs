@@ -87,6 +87,7 @@ import {
   sanitizeNavLinkSemantics,
   stripFabricatedExamples,
 } from './lib/article-sanitizers.mjs';
+import { decodeHtmlEntities } from './lib/decode-html-entities.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
@@ -7058,7 +7059,29 @@ export default ${varName};
  * `blog.article.{id}.*` for BOTH sections. Handles the empty-meta (first
  * article) case by anchoring to the object opener when no key exists yet.
  */
+function decodeLocaleContentEntities(data, locale) {
+  const c = data.content?.[locale];
+  if (c) {
+    for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
+      if (typeof c[field] === 'string') c[field] = decodeHtmlEntities(c[field]);
+    }
+    if (Array.isArray(c.faq)) {
+      c.faq = c.faq.map((item) => (item && typeof item === 'object'
+        ? {
+            ...item,
+            q: typeof item.q === 'string' ? decodeHtmlEntities(item.q) : item.q,
+            a: typeof item.a === 'string' ? decodeHtmlEntities(item.a) : item.a,
+          }
+        : item));
+    }
+  }
+  const alt = data.imageAlt?.[locale];
+  if (typeof alt === 'string') data.imageAlt[locale] = decodeHtmlEntities(alt);
+}
+
 function writeSectionLocale(data, locale) {
+  decodeLocaleContentEntities(data, locale);
+
   // 1. Append meta keys to the section's meta file for this locale.
   const metaFile = `services/locales/${SECTION.metaPrefix}-${locale}.ts`;
   let metaSrc = read(metaFile);
