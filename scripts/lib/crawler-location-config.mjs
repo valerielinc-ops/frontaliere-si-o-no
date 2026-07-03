@@ -524,6 +524,14 @@ export const COMPANY_HQ = {
   // (northdata/Moneyhouse CHE-267.003.435) + local.ch/search.ch directory
   // listings; no fallback needed.
   'felfel': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
+  // Raiffeisen Schweiz (national cooperative bank group) HQ —
+  // Raiffeisenplatz, 9001 St. Gallen SG. Confirmed via the group's own
+  // "Contact" / imprint page. Used only as a fallback for postings whose
+  // per-job location can't be resolved to a canton — the CH-wide dedicated
+  // crawler (scripts/update-raiffeisen-jobs.mjs) infers canton per-posting
+  // from the Prospective listing's own city field for the vast majority
+  // of jobs (issue #3342).
+  'raiffeisen': { city: 'St. Gallen', canton: 'SG', postalCode: '9001', addressRegion: 'SG' },
 };
 
 /**
