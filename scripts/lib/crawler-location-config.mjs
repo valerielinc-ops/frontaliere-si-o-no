@@ -502,6 +502,14 @@ export const COMPANY_HQ = {
   // company's own legal notice (yapeal.ch/en/private/legal-notice),
   // cross-checked against Moneyhouse/LEI registry entries; no fallback needed.
   'yapeal': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
+  // iGroove AG — registered legal seat per commercial-register (Northdata,
+  // company impressum) is actually Churerstrasse 135, 8808 Pfäffikon SZ
+  // (canton Schwyz), NOT Zürich. However the live Personio feed lists the
+  // only open position's office as "Zürich Hybrid", matching this crawler's
+  // Zürich-office assumption for day-to-day operations. Postal code 8001 is
+  // a safe Zürich-city-center FALLBACK (no confirmed street address for the
+  // Zürich office) — used only when a job's office field is empty/unmapped.
+  'igroove': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
 };
 
 /**
