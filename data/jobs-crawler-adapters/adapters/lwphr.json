@@ -9,6 +9,9 @@
     "pdf"
   ],
   "seedUrls": [
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/event_coordinator.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/sales_e_marketing_manager.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/it_security_architect.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/relationship_managers_o_private_bankers.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/esperta_fiscale.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/segretaria_legale_.pdf",
@@ -24,8 +27,26 @@
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/full_stack_developer.pdf"
   ],
   "notes": "Dedicated LWPHR crawler parses the open positions accordion and extracts descriptions directly from the linked PDF files.",
-  "updatedAt": "2026-07-03T11:53:59.062Z",
+  "updatedAt": "2026-07-03T22:32:49.867Z",
   "seedMetaByUrl": {
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/event_coordinator.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-07-03"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/sales_e_marketing_manager.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-07-03"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/it_security_architect.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-07-03"
+    },
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/relationship_managers_o_private_bankers.pdf": {
       "location": "Ticino",
       "canton": "TI",
