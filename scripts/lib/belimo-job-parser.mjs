@@ -46,10 +46,14 @@
  *
  * Description language follows the original posting's source language
  * (mixed DE/EN across postings), not the `/us/en_US/` URL locale prefix —
- * that locale segment is only used here because its pagination proved
- * reliable across all pages during investigation (some `/ch/de_CH/...`
- * page/locale combinations intermittently rendered an empty list via Jina,
- * a rendering-timing flake rather than genuinely missing data).
+ * that locale segment is used here mainly because it matched investigation
+ * output byte-for-byte. ANY page (including page 1) can intermittently
+ * render an empty `joblist__list`/pagination via Jina — the client-side
+ * widget's own data fetch hasn't hydrated the shell yet when Jina's
+ * headless render snapshots it (not a WAF response, so `fetchHtml()`'s own
+ * challenge-retry never sees it) — so `fetchListingPage()` below retries
+ * on empty content with a short backoff before treating a page as genuinely
+ * exhausted.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBelimoJobs()   — Fetch and parse all Swiss jobs
@@ -227,22 +231,48 @@ function parseMaxPage(html = '') {
   return pages.length ? Math.max(...pages) : 1;
 }
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 /**
  * Fetch a single listing page. Page 1 MUST be the bare URL (an explicit
- * `?page=1` renders empty — a widget quirk). Pages 2+ occasionally render
- * an empty `joblist__list` when Jina's headless render snapshots before the
- * client-side widget finishes hydrating — retry a couple of times before
- * accepting the page is genuinely out of range.
+ * `?page=1` renders empty — a widget quirk).
+ *
+ * ANY page can render an empty `joblist__list` (and empty filter dropdowns)
+ * when Jina's headless render snapshots the page before the client-side
+ * widget's own bootstrap data-fetch has resolved — this is a normal 200
+ * with the real page shell, not a WAF response, so `fetchHtml()`'s own
+ * challenge-retry never fires for it. Retry a few times with a short
+ * backoff — a later Jina render (fresh egress IP each request) usually
+ * lands after hydration.
+ *
+ * KNOWN LIMITATION (observed during implementation): the widget's bootstrap
+ * fetch hydrated successfully during initial investigation (25/25 listing
+ * items + full detail-page metadata captured and verified), but a
+ * verification re-run ~20-50 minutes later returned an empty widget shell
+ * on every one of 10+ attempts across ~30 minutes, including cache-busted
+ * and longer-timeout Jina requests. The outer page navigation always
+ * succeeds; only the widget's OWN internal data call fails to hydrate. Most
+ * likely cause: Akamai Bot Manager applying a stricter check to the
+ * widget's background fetch/XHR than to the initial page navigation, which
+ * a headless render (even from a clean egress IP) can fail differently run
+ * to run. If a scheduled run keeps returning 0 jobs, that is this class of
+ * failure, not a parser regression — investigate Jina's rendering behavior
+ * / consider a dedicated headless-browser fetch (Playwright) for this
+ * source before assuming the site removed its Swiss postings.
  */
 async function fetchListingPage(pageNum, timeoutMs) {
   const url = pageNum <= 1 ? LISTING_URL : `${LISTING_URL}?page=${pageNum}`;
-  const attempts = pageNum <= 1 ? 1 : 3;
+  const attempts = 4;
   let html = '';
   let items = [];
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     html = await fetchHtml(url, { timeoutMs });
     items = parseListingItems(html);
     if (items.length > 0) break;
+    if (attempt < attempts) {
+      console.log(`   ⚠️ Page ${pageNum} rendered empty (attempt ${attempt}/${attempts}) — retrying…`);
+      await sleep(1500 * attempt);
+    }
   }
   return { html, items };
 }
