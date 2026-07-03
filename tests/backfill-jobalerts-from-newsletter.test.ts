@@ -83,6 +83,28 @@ describe('backfill-jobalerts-from-newsletter — resolveSignalTier tier-3', () =
     const result = resolveSignalTier({ job_category: 'tech' }, { viewedJobs: [{ location: 'Lugano' }] });
     expect(result).toEqual({ tier: 'signal', patch: null });
   });
+
+  it('does NOT emit personalization-fallback when filterUsage has only zero-count entries (#3378)', () => {
+    // Adversarial: stale subdoc where every counter is explicitly 0.
+    // derivePersonalizationPatch must return null so tier falls through to url-fallback/none.
+    const result = resolveSignalTier(
+      {},
+      { filterUsage: { category: { 'Sanita / Ospedali': 0 }, location: { Lugano: 0 } } },
+    );
+    expect(result.tier).not.toBe('personalization-fallback');
+    expect(result.patch).toBeNull();
+  });
+
+  it('prefers tier-3 personalization-fallback over tier-4 url-fallback when real signal exists (#3371)', () => {
+    // Confirms the ordering introduced by #3371 is preserved: a subscriber who
+    // browsed real jobs (viewedJobs) but also landed on a canton job-board URL
+    // must be classified via the richer personalization signal, not the URL fallback.
+    const result = resolveSignalTier(
+      { consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' },
+      { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] },
+    );
+    expect(result.tier).toBe('personalization-fallback');
+  });
 });
 
 describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
