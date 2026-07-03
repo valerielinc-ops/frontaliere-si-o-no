@@ -484,7 +484,7 @@ export const COMPANY_HQ = {
   'ferring': { city: 'Saint-Prex', canton: 'VD', postalCode: '1162', addressRegion: 'VD' },
   'thermo-fisher-scientific': { city: 'Reinach', canton: 'BL', postalCode: '4153', addressRegion: 'BL' },
   'everest-re': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
-  'anybotics': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  'anybotics': { city: 'Zürich', canton: 'ZH', postalCode: '8050', addressRegion: 'ZH' },
   'sonarsource': { city: 'Vernier', canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
 
   // ── Wave B: 40 crawler batch (issue #3337) ──

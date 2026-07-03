@@ -323,8 +323,8 @@ export async function fetchAllThermoFisherScientificJobs() {
 
       // ── Recommended fields ──
       addressLocality,
-      postalCode: canton === HQ.canton ? (listing.postalCode || HQ.postalCode) : '',
-      addressRegion: canton === HQ.canton ? HQ.addressRegion : '',
+      postalCode: canton === HQ.canton ? (listing.postalCode || HQ.postalCode) : (listing.postalCode || ''),
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

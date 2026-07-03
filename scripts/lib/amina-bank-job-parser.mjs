@@ -160,7 +160,9 @@ export async function fetchAllAminaBankJobs() {
 
   const jobs = [];
   for (const rec of listings) {
-    const office = rec.office || (Array.isArray(rec.offices) ? rec.offices[0] : '') || '';
+    const office = rec.office
+      || (Array.isArray(rec.offices) ? rec.offices.find((o) => isChCountry(o)) || rec.offices[0] : '')
+      || '';
     if (!isChCountry(office)) continue; // skip AMINA India (and any other non-CH office)
 
     const title = normalizeSpace(rec.name || '');
