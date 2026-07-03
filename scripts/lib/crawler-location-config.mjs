@@ -544,6 +544,10 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Chopard HQ, Rte de Veyrot 8, C.P. 85, 1217 Meyrin GE — confirmed via
+  // the company's own legal notice page (chopard.com/it-it/legal-terms-of-
+  // website-use.html); no fallback needed.
+  'chopard': { city: 'Meyrin', canton: 'GE', postalCode: '1217', addressRegion: 'GE' },
 };
 
 /**
