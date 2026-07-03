@@ -34,7 +34,7 @@ import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
@@ -2629,8 +2629,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // uniqueness, but social cards look better without the trailing metadata.
  // og:title deliberately KEEPS the city even when the <title> drops it
  // (#1932): social cards have no SERP width cap, so the richer location-
- // bearing headline is preferred there.
- const ogTitle = baseTitleProbe;
+ // bearing headline is preferred there. Still, an untruncated headline can
+ // exceed FB's own card-render width, which FB then hard-cuts mid-word
+ // (issue #3382) — apply the same word-boundary truncateHeadline used for
+ // meta descriptions, at a generous budget so #1932's city-keeping intent
+ // is preserved for the vast majority of titles and only the genuine tail
+ // outliers get an ellipsis instead of a mid-word FB cut.
+ const OG_TITLE_MAX_CHARS = 100;
+ const ogTitle = truncateHeadline(baseTitleProbe, OG_TITLE_MAX_CHARS);
  recordPhase('title', __tPh_title);
  // stripLeadingSectionLabel: crawlers flatten the source page's
  // "Descrizione/Description/Beschreibung" heading into the first sentence
