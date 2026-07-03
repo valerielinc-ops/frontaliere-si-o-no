@@ -1,19 +1,93 @@
 {
   "key": "helsana",
   "label": "Helsana",
-  "generatedAt": "2026-07-03T11:54:43.707Z",
-  "total": 66,
-  "newCount": 0,
+  "generatedAt": "2026-07-03T22:32:16.902Z",
+  "total": 65,
+  "newCount": 1,
   "updatedCount": 63,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 39292,
-  "avgDurationMs": 39292,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 37749,
+  "avgDurationMs": 37749,
   "durationHistory": [
-    39292
+    37749
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "helsana-43fee31e7124",
+      "slug": "stv-teamleiterin-kundenbetreuung-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Stv. Teamleiterin Kundenbetreuung (a) 80-100%",
+      "needsRetranslation": true,
+      "location": "Dübendorf-Stettbach & Homeoff",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Stv_-Teamleiterin-Kundenbetreuung-%28a%29-80-100/1411376433/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T22:31:43.303Z",
+      "addressLocality": "Dübendorf-Stettbach & Homeoff",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1411376433/?locale=de_DE",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
+    {
+      "id": "helsana-0883011ec538",
+      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Versicherungsberater im Aussendienst (a) 80-100%",
+      "needsRetranslation": false,
+      "location": "Chur & Homeoffice",
+      "canton": "GR",
+      "url": "https://careers.helsana.ch/job/Chur-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1410914233/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T22:31:46.279Z",
+      "addressLocality": "Chur & Homeoffice",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1410914233/?locale=de_DE",
+      "firstSeenAt": "2026-07-02T21:57:25.727Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
     {
       "id": "helsana-2da2fd5c5bc6",
       "slug": "werkstudent-marketing-geschaftsfeldentwicklung-a-50-80-helsana-dubendorf-stettbach-homeoff",
@@ -27,7 +101,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Werkstudent-Marketing-Gesch%C3%A4ftsfeldentwicklung-%28a%29-50-80/1410709033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:11.626Z",
+      "crawledAt": "2026-07-03T22:31:46.812Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -43,10 +117,10 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1410709033/?locale=de_DE",
       "firstSeenAt": "2026-07-02T11:10:59.971Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -64,7 +138,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Tempor%C3%A4rer-Kundenbetreuer-Kundenservice-International-DEENIT-%28a%29-80-100-befristet-1_7_-bis-30_9/1410985833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:12.151Z",
+      "crawledAt": "2026-07-03T22:31:47.306Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,47 +154,10 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1410985833/?locale=de_DE",
       "firstSeenAt": "2026-07-02T21:57:26.223Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "helsana-0883011ec538",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-chur-homeoffice",
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Versicherungsberater im Aussendienst (a) 80-100%",
-      "needsRetranslation": false,
-      "location": "Chur & Homeoffice",
-      "canton": "GR",
-      "url": "https://careers.helsana.ch/job/Chur-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1410914233/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:12.672Z",
-      "addressLocality": "Chur & Homeoffice",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1410914233/?locale=de_DE",
-      "firstSeenAt": "2026-07-02T21:57:25.727Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -138,7 +175,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Conseiller-Client%C3%A8le-Service-International-%28t%29-FRDE-80-100/1408744933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:16.387Z",
+      "crawledAt": "2026-07-03T22:31:50.815Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -154,10 +191,10 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1408744933/?locale=de_DE",
       "firstSeenAt": "2026-06-26T11:31:30.364Z",
-      "_qualityScore": 75,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 23,
         "completeness": 17
       }
@@ -175,7 +212,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Leiter-Portal-&-Data-Solutions-%28a%29-80-100/1408168833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:17.447Z",
+      "crawledAt": "2026-07-03T22:31:51.789Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -191,10 +228,10 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1408168833/?locale=de_DE",
       "firstSeenAt": "2026-06-25T11:13:50.098Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -212,7 +249,7 @@
       "url": "https://careers.helsana.ch/job/Release-und-Test-Engineer-%28a%29-80-100/956343301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:19.058Z",
+      "crawledAt": "2026-07-03T22:31:53.282Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -228,10 +265,10 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/956343301/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:42.976Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -249,7 +286,7 @@
       "url": "https://careers.helsana.ch/job/Inhouse-Consultant-SAP-HCM-&-Success-Factors-%28a%29-80-100/990259401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:19.631Z",
+      "crawledAt": "2026-07-03T22:31:53.780Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -265,10 +302,10 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/990259401/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:42.362Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -286,7 +323,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-Mitarbeiterin-Impfzentrum-wm-%2880-100%29/668203501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:20.150Z",
+      "crawledAt": "2026-07-03T22:31:54.326Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -302,10 +339,10 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/668203501/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:41.119Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -323,7 +360,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Senior-Linux-Cloud-Engineer-%28a%29-80-100/791705601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:20.658Z",
+      "crawledAt": "2026-07-03T22:31:54.817Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -339,11 +376,11 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/791705601/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:41.732Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -360,7 +397,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Lernende-%28a%29-Informatikerin-EFZ-Plattformentwicklung-per-August-2023/840037501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:21.192Z",
+      "crawledAt": "2026-07-03T22:31:55.291Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -376,11 +413,11 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/840037501/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:43.590Z",
-      "_qualityScore": 73,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 18,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -397,7 +434,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuerin-Antragsverarbeitung-%28a%29-80-100/1377417133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:21.728Z",
+      "crawledAt": "2026-07-03T22:31:55.767Z",
       "addressLocality": "Worblaufen & Homeoffice",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -413,10 +450,10 @@
       "postedDate": "2026-06-21",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1377417133/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:44.224Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -434,7 +471,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Formulare-&-Leistungen-%28a%29-80-100-befristet-bis-September-2026/1387426333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:22.273Z",
+      "crawledAt": "2026-07-03T22:31:56.269Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -450,11 +487,11 @@
       "postedDate": "2026-06-21",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1387426333/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:44.813Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -471,7 +508,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Kundenservice-International-DEENIT-%28a%29-80-100/1396541033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:22.799Z",
+      "crawledAt": "2026-07-03T22:31:56.792Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -487,11 +524,11 @@
       "postedDate": "2026-06-20",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1396541033/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:45.441Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -508,7 +545,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Fachspezialistin-Partnerschaften-Gesundheitsberatung-wm-%2880-100%29/652014801/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:23.329Z",
+      "crawledAt": "2026-07-03T22:31:57.262Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -524,11 +561,11 @@
       "postedDate": "2026-06-20",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/652014801/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:47.290Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -545,7 +582,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Spezialistin-Fachstelle-Unternehmensgesch%C3%A4ft-%28a%29-80-100/861656201/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:23.872Z",
+      "crawledAt": "2026-07-03T22:31:57.749Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -561,11 +598,11 @@
       "postedDate": "2026-06-20",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/861656201/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:47.937Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -582,7 +619,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Mittelland-%28a%29-80-100/1406355933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:24.406Z",
+      "crawledAt": "2026-07-03T22:31:58.245Z",
       "addressLocality": "Worblaufen & Homeoffice",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -598,10 +635,10 @@
       "postedDate": "2026-06-19",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1406355933/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:49.165Z",
-      "_qualityScore": 77,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
@@ -619,7 +656,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Leistungen-Sozialversicherungen-%28a%29-80-100/1406318733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:24.917Z",
+      "crawledAt": "2026-07-03T22:31:58.744Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -635,11 +672,11 @@
       "postedDate": "2026-06-19",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1406318733/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:48.544Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -656,7 +693,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-Praktikant-Ausbildung-wm/657978401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:25.470Z",
+      "crawledAt": "2026-07-03T22:31:59.238Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -672,11 +709,11 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/657978401/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:50.413Z",
-      "_qualityScore": 69,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -693,7 +730,7 @@
       "url": "https://careers.helsana.ch/job/Lausanne-Candidature-Spontan%C3%A9e/637828601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:26.016Z",
+      "crawledAt": "2026-07-03T22:31:59.728Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -709,10 +746,10 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/637828601/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:49.773Z",
-      "_qualityScore": 73,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -730,7 +767,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Marketing-Stratege-%28mw%29-%2880-100%29/637016301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:26.555Z",
+      "crawledAt": "2026-07-03T22:32:00.227Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -746,11 +783,11 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/637016301/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:52.311Z",
-      "_qualityScore": 69,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -767,7 +804,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Partner-und-Kundenbetreuer-Unternehmensgesch%C3%A4ft-%28a%29-80-100/1394891033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:27.098Z",
+      "crawledAt": "2026-07-03T22:32:00.738Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -783,11 +820,11 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1394891033/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:51.673Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -804,7 +841,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-50/1405612133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:27.643Z",
+      "crawledAt": "2026-07-03T22:32:01.242Z",
       "addressLocality": "Zürich & Homeoffice",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -820,10 +857,10 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612133/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:54.776Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -841,7 +878,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80-100/1405612533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:28.164Z",
+      "crawledAt": "2026-07-03T22:32:01.737Z",
       "addressLocality": "Zürich & Homeoffice",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -857,10 +894,10 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612533/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:53.510Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -878,7 +915,7 @@
       "url": "https://careers.helsana.ch/job/Bern-&-Homeoffice-Medizinische-Praxisassistenz-%28a%29-80/1405612633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:28.698Z",
+      "crawledAt": "2026-07-03T22:32:02.213Z",
       "addressLocality": "Bern & Homeoffice",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -894,10 +931,10 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405612633/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:54.121Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -915,7 +952,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Conseiller-Service-Client%C3%A8le-International-FRDE-%28t%29-80-100/1405623733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:29.273Z",
+      "crawledAt": "2026-07-03T22:32:02.712Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -931,11 +968,11 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1405623733/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:52.920Z",
-      "_qualityScore": 71,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 19,
+        "richness": 14,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -952,7 +989,7 @@
       "url": "https://careers.helsana.ch/job/Senior-Test-Engineer-%28a%29-80-100/961278101/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:29.793Z",
+      "crawledAt": "2026-07-03T22:32:03.204Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -968,10 +1005,10 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/961278101/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:56.646Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
@@ -989,7 +1026,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenbetreuer-Inkasso-DE-&-IT-wm-%2880-100%29/655242701/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:30.329Z",
+      "crawledAt": "2026-07-03T22:32:03.699Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1005,11 +1042,11 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/655242701/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:55.382Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -1026,7 +1063,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenberaterin-Contact-Center-mw-%2840-60%29/730311601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:30.853Z",
+      "crawledAt": "2026-07-03T22:32:04.191Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1042,11 +1079,11 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/730311601/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:56.032Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -1063,7 +1100,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Spontanbewerbungen/639608001/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:31.403Z",
+      "crawledAt": "2026-07-03T22:32:04.716Z",
       "addressLocality": "Dübendorf-Stettbach & Homeoff",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1079,11 +1116,11 @@
       "postedDate": "2026-06-14",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/639608001/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:57.294Z",
-      "_qualityScore": 69,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
-        "translation": 21,
+        "richness": 14,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -1100,7 +1137,7 @@
       "url": "https://careers.helsana.ch/job/Basel-&-Homeoffice-Kundenbetreuerin-Verkaufsstelle-%28a%29-80-100/1374917633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:54:31.928Z",
+      "crawledAt": "2026-07-03T22:32:05.211Z",
       "addressLocality": "Basel & Homeoffice",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1116,57 +1153,16 @@
       "postedDate": "2026-06-13",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1374917633/?locale=de_DE",
       "firstSeenAt": "2026-06-23T11:42:57.911Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "helsana-3a2b5ef10199",
-      "slug": "assistente-clienti-servizi-ambulatoriali-a-80-100-helsana-ticino",
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Kundenbetreuer Leistungen Ambulant (a) 80-100%",
-      "needsRetranslation": false,
-      "location": "Ticino",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Ambulant-%28a%29-80-100/1401940633/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:57:53.500Z",
-      "addressLocality": "Ticino",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1401940633/?locale=de_DE",
-      "firstSeenAt": "2026-06-23T11:43:08.425Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
+  "removedJobs": [
     {
       "id": "helsana-81f5dc08db4f",
       "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-ticino-1773bb",
@@ -1236,6 +1232,48 @@
       "postedDate": "2026-04-08",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1381603033/?locale=de_DE",
       "firstSeenAt": "2026-06-24T11:20:27.679Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "id": "helsana-3a2b5ef10199",
+      "slug": "assistente-clienti-servizi-ambulatoriali-a-80-100-helsana-ticino",
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Kundenbetreuer Leistungen Ambulant (a) 80-100%",
+      "needsRetranslation": false,
+      "location": "Ticino",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Ambulant-%28a%29-80-100/1401940633/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-02T21:57:53.500Z",
+      "addressLocality": "Ticino",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1401940633/?locale=de_DE",
+      "firstSeenAt": "2026-06-23T11:43:08.425Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "crawlerMissStreak": 2,
