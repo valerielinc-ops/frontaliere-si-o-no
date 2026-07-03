@@ -12,6 +12,8 @@ import {
   computeRanking,
   computeTrend,
   computeFunFacts,
+  computeWeekWindow,
+  computeMovers,
   windowFileNames,
 } from '../scripts/lib/border-wait-ranking.mjs';
 
@@ -96,5 +98,46 @@ describe('border-wait ranking lib', () => {
   it('computeFunFacts returns null when fewer than 2 ranked crossings', () => {
     expect(computeFunFacts([{ slug: 'only', avgMinutes: 5, totalSamples: 10, rank: 1 }])).toBeNull();
     expect(computeFunFacts([])).toBeNull();
+  });
+
+  it('computeFunFacts rounds deltaMinutesPerCrossing to 1 decimal (no raw float leaks)', () => {
+    const ranking = [
+      { slug: 'best', avgMinutes: 7.884615384615385, totalSamples: 100, rank: 1 },
+      { slug: 'worst', avgMinutes: 14.141826923076923, totalSamples: 100, rank: 2 },
+    ];
+    const facts = computeFunFacts(ranking)!;
+    expect(facts.deltaMinutesPerCrossing).toBe(6.3);
+    expect(Number.isInteger(facts.deltaMinutesPerCrossing * 10)).toBe(true);
+  });
+
+  it('computeWeekWindow returns the start/end dates of the trailing window', () => {
+    const { weekStart, weekEnd } = computeWeekWindow('2026-07-10', 7);
+    expect(weekStart).toBe('2026-07-03');
+    expect(weekEnd).toBe('2026-07-09');
+  });
+
+  it('computeMovers picks the biggest week-over-week improver and worsener above the noise floor', () => {
+    const trend = {
+      a: { currentAvgMinutes: 10, previousAvgMinutes: 15, deltaMinutes: -5, direction: 'better' as const },
+      b: { currentAvgMinutes: 20, previousAvgMinutes: 12, deltaMinutes: 8, direction: 'worse' as const },
+      c: { currentAvgMinutes: 10, previousAvgMinutes: 10.2, deltaMinutes: -0.2, direction: 'flat' as const },
+    };
+    const { improved, worsened } = computeMovers(trend);
+    expect(improved[0]).toEqual({ slug: 'a', deltaMinutes: -5 });
+    expect(worsened[0]).toEqual({ slug: 'b', deltaMinutes: 8 });
+    expect(improved.some((m) => m.slug === 'c')).toBe(false);
+    expect(worsened.some((m) => m.slug === 'c')).toBe(false);
+  });
+
+  it('computeMovers respects the limit option', () => {
+    const trend = Object.fromEntries(
+      Array.from({ length: 5 }, (_, i) => [
+        `slug${i}`,
+        { currentAvgMinutes: 10, previousAvgMinutes: 10 + i + 1, deltaMinutes: -(i + 1), direction: 'better' as const },
+      ]),
+    );
+    const { improved } = computeMovers(trend, { limit: 2 });
+    expect(improved).toHaveLength(2);
+    expect(improved[0].slug).toBe('slug4'); // biggest improvement (delta -5) first
   });
 });
