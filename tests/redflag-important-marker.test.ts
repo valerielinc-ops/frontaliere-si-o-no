@@ -5,6 +5,11 @@ import { REDFLAG_IMPORTANT_RE } from '../scripts/ci/lib/constants.mjs';
 // The brittle literal `'🔴 Important'` missed the reviewer's bold form
 // `🔴 **Important —` (PR #2211 round-2) → redflag-fixer skipped + PR stalled.
 // pr-redflag-fixer.yml greps the SAME shape in bash; keep the two equivalent.
+//
+// Requires a delimiter (`:`, `—`, or `-`) right after "Important" — added after
+// PR #3330 false-positived on the reviewer's own negation prose "zero 🔴
+// Important findings (both nits are non-blocking)": bare `Important` with no
+// delimiter is prose describing an ABSENCE of findings, not the marker itself.
 describe('REDFLAG_IMPORTANT_RE (markdown-tolerant 🔴 Important detector)', () => {
   it('matches the plain literal form', () => {
     expect(REDFLAG_IMPORTANT_RE.test('🔴 Important: missing canonical')).toBe(true);
@@ -15,7 +20,7 @@ describe('REDFLAG_IMPORTANT_RE (markdown-tolerant 🔴 Important detector)', () 
   });
 
   it('matches with no space and double-bold', () => {
-    expect(REDFLAG_IMPORTANT_RE.test('🔴**Important** regression')).toBe(true);
+    expect(REDFLAG_IMPORTANT_RE.test('🔴**Important**: regression')).toBe(true);
   });
 
   it('matches inside a real multi-finding review body', () => {
@@ -33,5 +38,11 @@ describe('REDFLAG_IMPORTANT_RE (markdown-tolerant 🔴 Important detector)', () 
 
   it('does NOT match a clean LGTM review with no 🔴', () => {
     expect(REDFLAG_IMPORTANT_RE.test('Looks correct, tests cover it.\n\n## LGTM')).toBe(false);
+  });
+
+  it('does NOT match the PR #3330 false-positive: negation prose with no delimiter after Important', () => {
+    const body =
+      'Correction to my prior review: zero 🔴 Important findings (both nits are non-blocking).\n\n## LGTM';
+    expect(REDFLAG_IMPORTANT_RE.test(body)).toBe(false);
   });
 });
