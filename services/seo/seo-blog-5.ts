@@ -45300,7 +45300,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Eventi del weekend in Ticino"
       },
       "datePublished": "2026-06-29T23:19:06+02:00",
-      "dateModified": "2026-07-02T00:00:00+02:00",
+      "dateModified": "2026-07-03T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",

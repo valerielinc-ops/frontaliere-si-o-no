@@ -24599,7 +24599,7 @@ const RAW_ARTICLES = [
  id: 'eventi-weekend-ticino',
  category: 'novita',
  date: '2026-06-29',
- updatedAt: '2026-07-02',
+ updatedAt: '2026-07-03',
  image: '/images/places/lugano-view.webp',
  hasCalculator: false,
  authorSlug: 'redazione',
