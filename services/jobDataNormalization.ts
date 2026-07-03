@@ -390,6 +390,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'rsbj': cLogo('rsbj.ch'),
  'rss-surselva': '/images/brands/rss-surselva.png',
  'ruag-ag': 'https://www.ruag.com/assets/img/icon/apple-icon-144x144.png',
+ 'saint-gobain-weber-isover': cLogo('saint-gobain.ch'),
  'salina-reha': cLogo('salina-reha.ch'),
  'sanatorium-kilchberg': cLogo('sanatorium-kilchberg.ch'),
  'schindler': gFavicon('schindler.com'),

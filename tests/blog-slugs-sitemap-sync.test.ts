@@ -164,13 +164,23 @@ describe('BLOG_SLUGS ↔ sitemap-blog.xml sync (gate: prevents #3012 class bug)'
 // dead URLs). #3120 is the follow-up hardening: without this block, a future
 // swiss slug rename can silently desync sitemap-news.xml again.
 describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: prevents #3120 recidivism)', () => {
-  it('every SWISS_SLUG must appear in sitemap-blog-ch.xml (IT: <loc>, others: hreflang href)', async () => {
+  it('every non-shadowed SWISS_SLUG must appear in sitemap-blog-ch.xml (IT: <loc>, others: hreflang href)', async () => {
     const { SWISS_SLUGS } = await import('../services/routerSwissData');
+    const { loadSwissArticleCanonicalOverrides } = await import('../build-plugins/shared/swissArticleCanonicalOverrides');
     const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog-ch.xml'), 'utf-8');
     const { locUrls, hreflangUrls } = extractSitemapUrls(xml);
 
+    // Issue #3010 item 1 correction (2026-07-03): a canonical-overridden
+    // article's <url> block is intentionally DROPPED from sitemap-blog-ch.xml
+    // (same convention as data/job-canonical-overrides.json for jobs) — its
+    // own IT slug is a key in the override map. Excluded here, asserted
+    // ABSENT in the dedicated test below instead.
+    const overrides = loadSwissArticleCanonicalOverrides({ readFileSync }, path.resolve(__dirname, '..', 'data', 'swiss-article-canonical-overrides.json'));
+
     const missing: string[] = [];
     for (const [articleId, slugMap] of Object.entries(SWISS_SLUGS as Record<string, Record<string, string>>)) {
+      const itSlug = (slugMap as Record<string, string>).it;
+      if (itSlug && Object.prototype.hasOwnProperty.call(overrides, itSlug)) continue; // shadowed, dropped on purpose
       for (const [locale, slug] of Object.entries(slugMap)) {
         const base = SWISS_URL_BASE[locale];
         if (!base) continue;
@@ -183,6 +193,27 @@ describe('SWISS_SLUGS ↔ sitemap-blog-ch.xml / sitemap-news.xml sync (gate: pre
     expect(
       missing,
       `SWISS_SLUGS entries missing from sitemap-blog-ch.xml (${missing.length}):\n${missing.join('\n')}`,
+    ).toHaveLength(0);
+  });
+
+  it('every shadowed (canonical-overridden) SWISS_SLUG is ABSENT from sitemap-blog-ch.xml', async () => {
+    const { SWISS_SLUGS } = await import('../services/routerSwissData');
+    const { loadSwissArticleCanonicalOverrides } = await import('../build-plugins/shared/swissArticleCanonicalOverrides');
+    const xml = readFileSync(path.resolve(__dirname, '..', 'public', 'sitemap-blog-ch.xml'), 'utf-8');
+    const { locUrls } = extractSitemapUrls(xml);
+    const overrides = loadSwissArticleCanonicalOverrides({ readFileSync }, path.resolve(__dirname, '..', 'data', 'swiss-article-canonical-overrides.json'));
+
+    const stillPresent: string[] = [];
+    for (const [articleId, slugMap] of Object.entries(SWISS_SLUGS as Record<string, Record<string, string>>)) {
+      const itSlug = (slugMap as Record<string, string>).it;
+      if (!itSlug || !Object.prototype.hasOwnProperty.call(overrides, itSlug)) continue;
+      const url = `${SWISS_URL_BASE.it}${itSlug}/`;
+      if (locUrls.has(url)) stillPresent.push(`${articleId} [it]: ${url}`);
+    }
+
+    expect(
+      stillPresent,
+      `Canonical-overridden SWISS_SLUGS still listed in sitemap-blog-ch.xml — violates self-canonical gate (${stillPresent.length}):\n${stillPresent.join('\n')}`,
     ).toHaveLength(0);
   });
 

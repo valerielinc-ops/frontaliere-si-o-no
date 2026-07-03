@@ -59,6 +59,11 @@ jobs:
     # anyway. Dropping the dead container reclaims that time and memory. To restore
     # self-hosted LT, re-add the service + LIBRETRANSLATE_SELF_HOSTED_URL after fixing
     # why Argos times out on the runner (model-load/2-core/memory).
+    # UPDATE (2026-07-03): live run logs (e.g. 28637771315) show local-mt-translate.py
+    # printing "4 workers" — os.cpu_count() now resolves to 4 on ubuntu-latest, not
+    # the 2 measured above. The runner class was upgraded since the original note;
+    # LOCAL_MT_WORKERS already tracks cpu_count() automatically so no config change
+    # needed, but don't reuse the stale "2-core" figure in future capacity math.
 
     steps:
       - name: Checkout
@@ -86,6 +91,20 @@ jobs:
           path: .cache/transformers
           key: opus-mt-models-v1
           restore-keys: opus-mt-models-
+
+      # Cache the installed Argos Translate packages (it/en/de/fr <-> en, ~a few
+      # hundred MB total). install_models() in local-mt-translate.py downloads
+      # these .argosmodel files from the HF/GitHub CDN on every run — this cache
+      # makes that a one-time cost, mirroring the Opus-MT cache above. install_models()
+      # stays idempotent (package.install() is a no-op if already present), so a
+      # cache hit just skips the network transfer; a cache miss falls through to
+      # the existing retry logic unchanged.
+      - name: Cache Argos Translate models
+        uses: actions/cache@v5
+        with:
+          path: ~/.local/share/argos-translate/packages
+          key: argos-translate-models-v1
+          restore-keys: argos-translate-models-
 
       - name: Prepare Firebase credentials (optional)
         env:
