@@ -20,7 +20,7 @@ export const TARGET_CANTONS = ['AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', '
 // Each canton has: code, names (all official languages + common aliases),
 // and static tokens for location matching.
 export const SWISS_CANTONS = {
-  AG: { code: 'AG', names: ['aargau', 'argovie', 'argovia', 'aarau', 'baden', 'wettingen', 'brugg', 'lenzburg'] },
+  AG: { code: 'AG', names: ['aargau', 'argovie', 'argovia', 'aarau', 'baden', 'wettingen', 'brugg', 'lenzburg', 'spreitenbach'] },
   AI: { code: 'AI', names: ['appenzell innerrhoden', 'appenzell rhodes-intérieures', 'appenzello interno', 'appenzell'] },
   AR: { code: 'AR', names: ['appenzell ausserrhoden', 'appenzell rhodes-extérieures', 'appenzello esterno', 'herisau', 'teufen'] },
   BE: { code: 'BE', names: ['bern', 'berne', 'berna', 'thun', 'biel', 'bienne', 'burgdorf', 'langenthal', 'köniz', 'ostermundigen', 'spiez', 'interlaken', 'münsingen'] },
@@ -60,7 +60,7 @@ export const SWISS_CANTONS = {
   VD: { code: 'VD', names: ['vaud', 'waadt', 'lausanne', 'montreux', 'vevey', 'nyon', 'morges', 'renens', 'yverdon', 'yverdon-les-bains'] },
   VS: { code: 'VS', names: ['valais', 'wallis', 'vallese', 'sion', 'sitten', 'brig', 'visp', 'martigny', 'monthey', 'zermatt', 'sierre', 'naters', 'crans-montana', 'leukerbad', 'saas-fee', 'verbier'] },
   ZG: { code: 'ZG', names: ['zug', 'zoug', 'zugo', 'baar', 'cham'] },
-  ZH: { code: 'ZH', names: ['zürich', 'zurich', 'zuerich', 'zurigo', 'winterthur', 'uster', 'dübendorf', 'kloten', 'wetzikon', 'dietikon', 'opfikon', 'spreitenbach'] },
+  ZH: { code: 'ZH', names: ['zürich', 'zurich', 'zuerich', 'zurigo', 'winterthur', 'uster', 'dübendorf', 'kloten', 'wetzikon', 'dietikon', 'opfikon', 'kilchberg'] },
 };
 
 export const ALL_CANTON_CODES = Object.keys(SWISS_CANTONS);
