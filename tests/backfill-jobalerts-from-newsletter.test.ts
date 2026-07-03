@@ -4,6 +4,7 @@ import {
   buildAlertPayload,
   MAX_ALERTS_PER_USER,
   normalizeEmail,
+  resolveSignalTier,
   shouldSkipSubscriber,
 } from '../scripts/backfill-jobalerts-from-newsletter.mjs';
 
@@ -38,6 +39,33 @@ describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
   it('is eligible via the location-fallback tier when only geo_city is present', () => {
     expect(shouldSkipSubscriber('a@b.ch', { geo_city: 'Bellinzona' })).toBeNull();
   });
+
+  it('stays no-signal when no personalization arg is passed, even with a viewedJobs-worthy history (flat-field callers unaffected)', () => {
+    expect(shouldSkipSubscriber('a@b.ch', {})).toBe('no-signal');
+  });
+
+  it('is eligible via the personalization-fallback tier when browsing data has real signal', () => {
+    expect(
+      shouldSkipSubscriber('a@b.ch', {}, { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] }),
+    ).toBeNull();
+  });
+
+  it('stays no-signal when personalization has nothing usable either', () => {
+    expect(shouldSkipSubscriber('a@b.ch', {}, { viewedJobs: [], filterUsage: {} })).toBe('no-signal');
+  });
+});
+
+describe('backfill-jobalerts-from-newsletter — resolveSignalTier tier-3', () => {
+  it('derives personalization-fallback from browsing data when flat fields are empty', () => {
+    const result = resolveSignalTier({}, { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] });
+    expect(result.tier).toBe('personalization-fallback');
+    expect(result.patch).toMatchObject({ location_interest: 'Mendrisio', job_category: 'IT / Tecnologia' });
+  });
+
+  it('never consults personalization when a flat-field tier already resolves (patch stays null)', () => {
+    const result = resolveSignalTier({ job_category: 'tech' }, { viewedJobs: [{ location: 'Lugano' }] });
+    expect(result).toEqual({ tier: 'signal', patch: null });
+  });
 });
 
 describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
@@ -69,6 +97,18 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
   it('tags backfilled_from with :location-fallback when built from the location-only tier', () => {
     const payload = buildAlertPayload('a@b.ch', { location_interest: 'Lugano', source_channel: 'popup' }, null);
     expect(payload.backfilled_from).toBe('newsletter_subscribers:popup:location-fallback');
+    expect(payload.cantonFilter).toBeNull();
+    expect(payload.keywords).toEqual([]);
+  });
+
+  it('tags backfilled_from with :personalization-fallback when built from browsing data', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      { source_channel: 'popup' },
+      null,
+      { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] },
+    );
+    expect(payload.backfilled_from).toBe('newsletter_subscribers:popup:personalization-fallback');
     expect(payload.cantonFilter).toBeNull();
     expect(payload.keywords).toEqual([]);
   });
