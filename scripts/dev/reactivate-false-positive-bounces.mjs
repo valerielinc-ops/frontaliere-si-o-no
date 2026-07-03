@@ -20,6 +20,14 @@
  *
  * Default is dry-run — prints the reactivation candidates and a summary.
  * Pass `--apply` to actually write to Firestore.
+ *
+ * Status (#3206 item 1): ran with --apply in production on 2026-07-01
+ * ~09:11 UTC — 2017 newsletter_subscribers docs reactivated (confirmed via
+ * bounce_reactivated_at timestamp). Re-run in dry-run mode on 2026-07-02
+ * shows 0 remaining candidates (357 bounced docs left, all correctly
+ * excluded as never-delivered or unambiguous hard bounces). Safe to re-run
+ * any time (idempotent no-op once the backlog is cleared); left in place
+ * for any future one-off catch-up need.
  */
 import admin from 'firebase-admin';
 

@@ -21,15 +21,52 @@
  * against reload loops across every caller.
  */
 
+/**
+ * SINGLE SOURCE OF TRUTH for the fetch-time stale-chunk substring signatures.
+ * Consumed here by isChunkLoadError, by lazyRetry.ts and seoService.ts's
+ * retry wrappers (via direct import — this module has no dependencies of its
+ * own so no import cycle), and by build-plugins/constants.ts at BUILD TIME to
+ * generate the equivalent regex embedded in SELF_HEAL_SCRIPT_CONTENT (the
+ * emitted early-boot.js cannot `import` this module — it runs before any
+ * module JS loads — so constants.ts inlines `.join('|')` of these strings
+ * into the raw script text instead). Before this consolidation these four
+ * call sites drifted independently (AGENTS.md §Non-Negotiables #6): the
+ * early-boot.js copy was missing 'Importing a module script failed' (WebKit's
+ * generic module-load-failure wording), so a Safari user hitting that signature
+ * on a static SEO page had no self-heal listener for it (issue #3216 item 1).
+ *
+ * 'Loading chunk' / 'Loading CSS chunk' are legacy webpack wordings kept for
+ * back-compat with very old cached client JS; Vite never throws them but
+ * matching is a pure widening (safe — guarded by the same reload budget).
+ */
+export const CHUNK_LOAD_ERROR_SUBSTRINGS = [
+  'Importing a module script failed',
+  'Failed to fetch dynamically imported module',
+  'error loading dynamically imported module',
+  'Loading chunk',
+  'Loading CSS chunk',
+] as const;
+
 export function isChunkLoadError(err: unknown): boolean {
   const msg = (err as Error)?.message || '';
   return (
-    msg.includes('Importing a module script failed') ||
-    msg.includes('Failed to fetch dynamically imported module') ||
-    msg.includes('error loading dynamically imported module') ||
-    (err as Error)?.name === 'ChunkLoadError'
+    CHUNK_LOAD_ERROR_SUBSTRINGS.some((s) => msg.includes(s)) || (err as Error)?.name === 'ChunkLoadError'
   );
 }
+
+function escapeRegExpLiteral(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Regex-source (escaped, `|`-joined) form of CHUNK_LOAD_ERROR_SUBSTRINGS, for
+ * consumers that need a `RegExp.test()` rather than the `.includes()` chain
+ * above — `ChunkLoadErrorBoundary.tsx` (combines it with its own `/i` flag +
+ * a bare 'ChunkLoadError' alternative) and `build-plugins/constants.ts`
+ * (interpolates it into the raw SELF_HEAL_SCRIPT_CONTENT string at build
+ * time, since the emitted early-boot.js cannot import this module).
+ */
+export const CHUNK_LOAD_ERROR_PATTERN_SOURCE = CHUNK_LOAD_ERROR_SUBSTRINGS.map(escapeRegExpLiteral).join('|');
 
 /**
  * A LINK-TIME ES-module mismatch SyntaxError — the cross-browser wordings the
@@ -43,13 +80,23 @@ export function isChunkLoadError(err: unknown): boolean {
  *   - Firefox:            "import not found: House" / "ambiguous indirect export: House"
  *   - WebKit / Safari:    "Importing binding name 'House' is not found."
  */
+/**
+ * SINGLE SOURCE OF TRUTH for the link-time module-export-mismatch wordings.
+ * Consumed here by isModuleLinkSkewMessage AND by build-plugins/constants.ts
+ * at BUILD TIME (via `.map(r => r.source).join('|')`) to generate the
+ * equivalent inline regex in SELF_HEAL_SCRIPT_CONTENT — see the
+ * CHUNK_LOAD_ERROR_SUBSTRINGS comment above for why constants.ts cannot
+ * simply `import` this module's functions into the emitted script.
+ */
+export const MODULE_LINK_SKEW_PATTERNS: readonly RegExp[] = [
+  /does not provide an export named/,
+  /import not found/,
+  /indirect export/,
+  /Importing binding name/,
+];
+
 export function isModuleLinkSkewMessage(msg: string): boolean {
-  return (
-    /does not provide an export named/.test(msg) ||
-    /import not found/.test(msg) ||
-    /indirect export/.test(msg) ||
-    /Importing binding name/.test(msg)
-  );
+  return MODULE_LINK_SKEW_PATTERNS.some((re) => re.test(msg));
 }
 
 /**
@@ -89,16 +136,24 @@ export function isModuleLinkSkewMessage(msg: string): boolean {
  * chunk-recovery tradeoff, and far better than a permanent white screen on a
  * real skew.
  */
+/**
+ * SINGLE SOURCE OF TRUTH for the call-time version-skew TypeError wordings.
+ * Mirrored (via `.map(r => r.source).join('|')`) into SELF_HEAL_SCRIPT_CONTENT
+ * at BUILD TIME by build-plugins/constants.ts — see the
+ * CHUNK_LOAD_ERROR_SUBSTRINGS comment above.
+ */
+export const CALL_TIME_SKEW_PATTERNS: readonly RegExp[] = [
+  /\bis not a function\b/,
+  /\bis not a constructor\b/,
+  /\bis not iterable\b/,
+];
+
 export function isVersionSkewError(err: unknown): boolean {
   const e = err as { name?: string; message?: string } | null | undefined;
   if (!e) return false;
   const msg = e.message || '';
   if (e.name === 'TypeError') {
-    return (
-      /\bis not a function\b/.test(msg) ||
-      /\bis not a constructor\b/.test(msg) ||
-      /\bis not iterable\b/.test(msg)
-    );
+    return CALL_TIME_SKEW_PATTERNS.some((re) => re.test(msg));
   }
   if (e.name === 'SyntaxError') {
     return isModuleLinkSkewMessage(msg);
@@ -164,6 +219,20 @@ export function consumeReloadBudget(signature: string): boolean {
 // hung/blocked refetch can never strand the user on the error page.
 const BUST_TIMEOUT_MS = 4000;
 
+// Resource Timing's default buffer is spec-floored at 250 entries and this is a
+// long-lived SPA session (client-side routing, no full navigation between
+// in-app pages) with AdSense Auto Ads/GTM/Firebase/Clarity generating many
+// resource loads over a session — realistic enough to overflow the default
+// buffer and silently EVICT the oldest entries, including a version-skewed
+// `/assets/*` chunk's own timing entry (issue #3149). Raising the cap can only
+// prevent FUTURE eviction, not restore entries already dropped, so this alone
+// is set here as a defensive backstop; the real mitigation is raising it
+// EARLY, before the buffer fills — the pre-module bootstrap scripts do the
+// same raise at page start (index.html inline script and
+// `SELF_HEAL_SCRIPT_CONTENT` in build-plugins/constants.ts — keep the value in
+// sync across all three, none of the non-module copies can import this file).
+const RESOURCE_TIMING_BUFFER_SIZE = 1000;
+
 /**
  * Overwrite the STALE entries the skewed chunks occupy in the browser's HTTP
  * disk cache, so the subsequent reload loads a consistent, current chunk set.
@@ -186,6 +255,14 @@ const BUST_TIMEOUT_MS = 4000;
 export async function bustAssetHttpCache(): Promise<void> {
   if (typeof window === 'undefined' || typeof fetch !== 'function') return;
 
+  try {
+    if (typeof performance !== 'undefined' && typeof performance.setResourceTimingBufferSize === 'function') {
+      performance.setResourceTimingBufferSize(RESOURCE_TIMING_BUFFER_SIZE);
+    }
+  } catch {
+    /* unsupported — proceed with whatever entries the buffer already holds. */
+  }
+
   let urls: string[] = [];
   try {
     const entries =
@@ -196,9 +273,16 @@ export async function bustAssetHttpCache(): Promise<void> {
       .map((e) => (e as PerformanceResourceTiming).name)
       .filter((u) => /\/assets\/.+\.(?:js|css)(?:\?|$)/.test(u));
   } catch {
-    /* Resource Timing unavailable — fall back to a DOM scan below. */
+    /* Resource Timing unavailable — the DOM scan below still runs. */
   }
-  if (urls.length === 0 && typeof document !== 'undefined') {
+  // Second, INDEPENDENT enumeration path — always unioned with Resource Timing
+  // (not just when it comes back empty), so a partial eviction that dropped
+  // only SOME entries still recovers the ones still present as DOM nodes. Note
+  // this cannot cover chunks loaded via dynamic import(): a native ES module
+  // dynamic import never leaves a <script>/<link> element in the DOM, so an
+  // evicted Resource Timing entry for one is unrecoverable by this path — the
+  // buffer-size raise above is the actual mitigation for that case.
+  if (typeof document !== 'undefined') {
     try {
       document
         .querySelectorAll<HTMLScriptElement | HTMLLinkElement>(
@@ -217,11 +301,22 @@ export async function bustAssetHttpCache(): Promise<void> {
   if (unique.length === 0) return;
 
   // `cache: 'reload'` forces a network refetch that overwrites the cache entry.
-  // `mode: 'cors'` + `credentials: 'omit'` match how the <script crossorigin>
-  // module fetches partition the cache, so the reload reuses these fresh bytes.
+  // `mode: 'cors'` matches how module fetches are always CORS-enabled requests
+  // (HTML spec, independent of any `crossorigin` attribute). `credentials:
+  // 'same-origin'` matches the credentials mode module scripts use when their
+  // top-level <script type="module"> carries no `crossorigin` attribute (the
+  // spec default) — NOT 'omit'. On the CDN deploy (cdn.frontaliereticino.ch,
+  // cross-origin from frontaliereticino.ch) 'same-origin' already omits
+  // credentials for that foreign origin, identical to the old hardcoded
+  // 'omit'. But when ASSET_CDN is unset (vite.config.ts renderBuiltUrl) chunks
+  // are same-origin, where the module loader's default DOES send credentials —
+  // a hardcoded 'omit' would then diverge from what the browser actually
+  // fetches, risking a distinct cache entry for a differently-credentialed
+  // response. 'same-origin' reproduces the real module-fetch behaviour in both
+  // deploy shapes with one value instead of branching on ASSET_CDN.
   const refetch = Promise.all(
     unique.map((u) =>
-      fetch(u, { cache: 'reload', mode: 'cors', credentials: 'omit' }).catch(() => {
+      fetch(u, { cache: 'reload', mode: 'cors', credentials: 'same-origin' }).catch(() => {
         /* one failed refetch must not block the others or the reload */
       }),
     ),

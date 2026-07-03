@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { AI_MODELS, callLLM, clearResponseCache, getStats, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, callLLM, clearResponseCache, getStats, resetExhaustedModel, resetState } from '../../scripts/lib/ai-models.mjs';
 
 // Opt-in response cache (opts.cache === true): identical deterministic prompts
 // within a run reuse the prior result instead of re-running the fallback cascade
@@ -99,5 +99,112 @@ describe('ai-models opt-in response cache', () => {
 
     expect(fetchSpy).toHaveBeenCalledTimes(2); // second call re-runs, never replayed from cache
     expect(getStats().cacheHits).toBe(0);
+  });
+});
+
+// #3080 (adversarial follow-up on PR #3074): the opt-in response cache's write
+// key must reflect the model that ACTUALLY answered, not just the requested
+// `o.model` / chain start-point. Without this, a call that requests a primary
+// model but falls back mid-cascade would store its result under the PRIMARY's
+// key; a later call with the identical o.model — once the primary model is
+// available again — would then serve that stale fallback-tier response
+// instead of a fresh call to the (now available) primary model.
+describe('ai-models opt-in response cache — model-aware storage key (#3080)', () => {
+  const ENV_KEYS = ['MISTRAL_API_KEY', 'GROQ_API_KEY'] as const;
+  const saved: Record<string, string | undefined> = {};
+  let fetchSpy: ReturnType<typeof vi.fn>;
+
+  function okCompletion(content: string) {
+    return {
+      ok: true,
+      status: 200,
+      json: async () => ({ choices: [{ message: { content } }] }),
+      text: async () => JSON.stringify({ choices: [{ message: { content } }] }),
+    };
+  }
+
+  // Non-retryable failure (401 isn't in isRetryableError's list) — fails on the
+  // first attempt with no retry/backoff delay, so the chain moves to the next
+  // model in the same callLLM() invocation without slowing down the test.
+  function unauthorized() {
+    return {
+      ok: false,
+      status: 401,
+      json: async () => ({ error: 'unauthorized' }),
+      text: async () => 'Unauthorized',
+    };
+  }
+
+  beforeEach(() => {
+    resetState();
+    clearResponseCache();
+    for (const k of ENV_KEYS) saved[k] = process.env[k];
+    process.env.MISTRAL_API_KEY = 'test-mistral-key';
+    process.env.GROQ_API_KEY = 'test-groq-key';
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    for (const k of ENV_KEYS) {
+      if (saved[k] === undefined) delete process.env[k]; else process.env[k] = saved[k];
+    }
+  });
+
+  it('does not let a fallback-model result masquerade as the primary model\'s cached response', async () => {
+    const msgs = [{ role: 'user', content: 'Validate this page' }];
+    const chain = [AI_MODELS.MISTRAL_SMALL, AI_MODELS.GROQ_LLAMA_3_3];
+
+    // Call 1: Mistral (the requested/primary model) is down → falls back to
+    // Groq, which answers. Under the pre-fix code this would be stored under
+    // Mistral's cache key (computed from `o.model`, not the model that served).
+    let calls = 0;
+    fetchSpy = vi.fn(async () => {
+      calls += 1;
+      return (calls === 1 ? unauthorized() : okCompletion('FALLBACK-GROQ-ANSWER')) as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const first = await callLLM(msgs, { model: AI_MODELS.MISTRAL_SMALL, chain, temperature: 0.0, cache: true });
+    expect(first).toBe('FALLBACK-GROQ-ANSWER');
+    expect(fetchSpy).toHaveBeenCalledTimes(2); // Mistral attempt (fails) + Groq attempt (succeeds)
+
+    // Undo the exhaustion the 401 just recorded, so call 2 is a clean retry
+    // attempt rather than being short-circuited by the breaker — mirrors a
+    // provider recovering. (Which model ends up serving call 2 is immaterial
+    // to what this test proves; see below.)
+    resetExhaustedModel(AI_MODELS.MISTRAL_SMALL);
+
+    // Call 2: identical request (same o.model = Mistral). Pre-fix, the lookup
+    // key is built from `o.model` (Mistral) — and pre-fix the WRITE key was
+    // *also* always built from `o.model`, so this lookup would hit call 1's
+    // entry and replay 'FALLBACK-GROQ-ANSWER' forever with zero further fetch
+    // calls, even though Groq (not Mistral) actually produced it. Post-fix,
+    // call 1 was stored under GROQ's key (the model that actually served),
+    // not Mistral's — so this lookup (still keyed on requested model =
+    // Mistral) correctly misses, a real attempt is made, and a distinct
+    // answer comes back.
+    fetchSpy.mockImplementation(async () => okCompletion('CALL-2-FRESH-ANSWER') as unknown as Response);
+
+    const second = await callLLM(msgs, { model: AI_MODELS.MISTRAL_SMALL, chain, temperature: 0.0, cache: true });
+    expect(second).toBe('CALL-2-FRESH-ANSWER');
+    expect(second).not.toBe(first);
+    expect(fetchSpy).toHaveBeenCalledTimes(3); // a real attempt was made, not served from cache
+    expect(getStats().cacheHits).toBe(0); // no cross-model collision was ever registered as a "hit"
+  });
+
+  it('regression guard: identical calls to the SAME served model still hit cache (fix does not break normal caching)', async () => {
+    const msgs = [{ role: 'user', content: 'Validate this page' }];
+    const chain = [AI_MODELS.MISTRAL_SMALL];
+    fetchSpy = vi.fn(async () => okCompletion('MISTRAL-ANSWER') as unknown as Response);
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const opts = { model: AI_MODELS.MISTRAL_SMALL, chain, temperature: 0.0, cache: true };
+    const a = await callLLM(msgs, opts);
+    const b = await callLLM(msgs, opts);
+
+    expect(a).toBe('MISTRAL-ANSWER');
+    expect(b).toBe('MISTRAL-ANSWER');
+    expect(fetchSpy).toHaveBeenCalledTimes(1); // second call served from cache, exactly as before the fix
+    expect(getStats().cacheHits).toBe(1);
   });
 });

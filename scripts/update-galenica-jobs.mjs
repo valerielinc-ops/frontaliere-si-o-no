@@ -132,6 +132,21 @@ function buildJobUrl(job) {
   return `https://jobs.galenica.com/it/jobs/#job.id=${encodeURIComponent(jobId)}`;
 }
 
+/**
+ * Determine whether a Solique data.json item is a Swiss position.
+ * A populated but non-Swiss `contact.state` must not be overridden by a
+ * city-name alias match (e.g. a foreign city that happens to alias a Swiss
+ * canton) — the city-alias fallback only applies when the state is
+ * unknown/blank. Sibling fix of the UBS resolveSwissLocation guard,
+ * issue #3055 item 3 (item 2 is the UBS counterpart).
+ */
+export function isSwissGalenicaItem(item) {
+  const state = String(item?.contact?.state || '').toUpperCase().trim();
+  if (SWISS_CANTONS[state]) return true;
+  if (state) return false;
+  return Boolean(inferAnyCanton(item?.contact?.city || ''));
+}
+
 /* ── Fetch & parse ─────────────────────────────────────────── */
 async function fetchJson(url, timeoutMs = 15000) {
   const controller = new AbortController();
@@ -211,11 +226,7 @@ async function fetchGalenicaJobs() {
   console.log(`📋 Solique data.json returned ${allItems.length} total listings.`);
 
  // Filter for Swiss jobs across all cantons.
- const swissItems = allItems.filter((j) => {
-  const state = String(j?.contact?.state || '').toUpperCase().trim();
-  if (SWISS_CANTONS[state]) return true;
-  return Boolean(inferAnyCanton(j?.contact?.city || ''));
- });
+ const swissItems = allItems.filter(isSwissGalenicaItem);
  console.log(`📋 Swiss listings: ${swissItems.length} (across all languages).`);
 
   // Group by job ID to deduplicate multi-language entries
@@ -618,4 +629,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Galenica'));
+// CLI entry point — guarded so unit tests can import isSwissGalenicaItem()
+// without triggering a live crawl (issue #3055 item 3 test coverage).
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Galenica'));
+}

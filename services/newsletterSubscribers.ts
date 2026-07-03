@@ -554,6 +554,20 @@ export async function captureNewsletterSubscriber(
  mergedData.unsubscribed_at = serverTimestamp();
  }
 
+ // Explicit re-consent via the win-back "stay subscribed" link (App.tsx
+ // resubscribe action → source: 'resubscribe_link'). scripts/lib/subscriberSunset.mjs
+ // reads resubscribed_at/resubscribedAt to gate the sunset guard
+ // (`reengagedAt >= winbackAt`) — without this stamp that guard is
+ // unreachable and previously-sunsetted/winback subscribers who click
+ // "stay" never actually get un-sunsetted. Unconditional (not gated on
+ // !wasConfirmed): a winback recipient is typically still 'confirmed'
+ // (non-engaging but mailable), so the confirmed_at transition guard above
+ // would never fire for them.
+ if (sourceChannel === 'resubscribe_link') {
+ mergedData.resubscribed_at = serverTimestamp();
+ mergedData.resubscribedAt = serverTimestamp();
+ }
+
  await setDoc(ref, mergedData, { merge: true });
 
  const eventType: NewsletterEventType =

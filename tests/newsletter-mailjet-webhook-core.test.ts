@@ -9,31 +9,49 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
   const makeCollection = (name: string) => ({
-    doc: (docId: string) => ({
-      set: async (data: Record<string, unknown>, _opts?: unknown) => {
-        sets.push({ collection: name, docId, data });
-      },
-      get: async () => {
-        const docData = existingDocs[name]?.[docId];
-        return {
-          exists: !!docData,
-          data: () => docData || {},
-        };
-      },
-      collection: (subName: string) => {
-        const subPath = `${name}/${docId}/${subName}`;
-        return {
-          doc: (subDocId: string) => ({
-            set: async (data: Record<string, unknown>, _opts?: unknown) => {
-              sets.push({ collection: subPath, docId: subDocId, data });
+    doc: (docId: string) => {
+      const docRef: any = {
+        set: async (data: Record<string, unknown>, _opts?: unknown) => {
+          sets.push({ collection: name, docId, data });
+        },
+        get: async () => {
+          const docData = existingDocs[name]?.[docId];
+          return {
+            exists: !!docData,
+            data: () => docData || {},
+          };
+        },
+        collection: (subName: string) => {
+          const subPath = `${name}/${docId}/${subName}`;
+          return {
+            doc: (subDocId: string) => ({
+              set: async (data: Record<string, unknown>, _opts?: unknown) => {
+                sets.push({ collection: subPath, docId: subDocId, data });
+              },
+            }),
+            add: async (data: Record<string, unknown>) => {
+              adds.push({ collection: subPath, data });
             },
-          }),
-          add: async (data: Record<string, unknown>) => {
-            adds.push({ collection: subPath, data });
-          },
-        };
-      },
-    }),
+          };
+        },
+      };
+      // Minimal `db.runTransaction` shim (mirrors the real Firestore idiom used
+      // by maybeEscalateSoftBounce / publisherPendingReapCore / trafficSchedulerCore)
+      // — these single-threaded tests don't need real optimistic-concurrency
+      // retries, just a tx.get/tx.set that delegate to the same doc.
+      docRef.firestore = {
+        runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => {
+          const tx = {
+            get: async (ref: any) => ref.get(),
+            set: (ref: any, data: Record<string, unknown>, opts?: unknown) => {
+              ref.set(data, opts);
+            },
+          };
+          return updateFunction(tx);
+        },
+      };
+      return docRef;
+    },
   });
 
   return {
@@ -249,6 +267,52 @@ describe('newsletterMailjetWebhookCore', () => {
       });
 
       expect(result.campaignId).toBe('my-campaign');
+    });
+
+    it('soft bounce (no hard_bounce flag) on a job-alert subscriber does not set permanent bounced status', async () => {
+      const db = createFakeDb({
+        job_alert_subscribers: { 'seeker@example.com': { status: 'active', soft_bounce_count: 0 } },
+      });
+
+      const result = await persistMailjetEvent(db as any, {
+        event: 'bounce',
+        time: 1700000400,
+        email: 'seeker@example.com',
+        MessageID: 22222,
+        CustomID: 'job-alert',
+        hard_bounce: false,
+        error: 'greylisted',
+      });
+
+      expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker@example.com',
+      );
+      expect(subscriberSet!.data.status).not.toBe('bounced');
+      expect(subscriberSet!.data.bounce_severity).toBe('soft');
+      expect(subscriberSet!.data.soft_bounce_count).toBeDefined();
+    });
+
+    it('hard bounce (hard_bounce:true) on a job-alert subscriber still sets permanent bounced status', async () => {
+      const db = createFakeDb();
+
+      const result = await persistMailjetEvent(db as any, {
+        event: 'bounce',
+        time: 1700000500,
+        email: 'deadend@example.com',
+        MessageID: 33333,
+        CustomID: 'job-alert',
+        hard_bounce: true,
+        error: 'user unknown',
+      });
+
+      expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'job_alert_subscribers' && s.docId === 'deadend@example.com',
+      );
+      expect(subscriberSet!.data.status).toBe('bounced');
     });
 
     it('normalizes email to lowercase', async () => {

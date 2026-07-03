@@ -121,6 +121,22 @@ describe('shared engagementScore module (functions/src/lib)', () => {
           else stored = { ...update };
         }),
       };
+      // Minimal `db.runTransaction` shim (same idiom as the fake used in
+      // tests/bounce-classification.test.ts) — refreshEngagementScore now
+      // reads/writes through a transaction, not `ref.get()`/`ref.set()` directly.
+      ref.firestore = {
+        runTransaction: async (updateFunction) => {
+          const tx = {
+            get: async (r) => r.get(),
+            set: (r, update, options) => {
+              // fire-and-forget is fine here: ref.set has no internal await
+              // before it mutates `stored`, so this resolves synchronously.
+              r.set(update, options);
+            },
+          };
+          return updateFunction(tx);
+        },
+      };
       return { ref, writes, getStored: () => stored };
     }
 
@@ -160,23 +176,88 @@ describe('shared engagementScore module (functions/src/lib)', () => {
     });
 
     it('returns updated=false when document does not exist', async () => {
-      const ref = {
-        get: vi.fn(async () => ({ exists: false, data: () => null })),
-        set: vi.fn(),
-      };
+      const { ref } = makeRef(null);
+      ref.get = vi.fn(async () => ({ exists: false, data: () => null }));
       const result = await refreshEngagementScore(ref as never, mockFieldValue as never);
       expect(result.updated).toBe(false);
       expect(ref.set).not.toHaveBeenCalled();
     });
 
     it('swallows errors and never throws', async () => {
-      const ref = {
-        get: vi.fn(async () => { throw new Error('firestore unavailable'); }),
-        set: vi.fn(),
-      };
+      const { ref } = makeRef({});
+      ref.get = vi.fn(async () => { throw new Error('firestore unavailable'); });
       const result = await refreshEngagementScore(ref as never, mockFieldValue as never);
       expect(result.updated).toBe(false);
       expect(ref.set).not.toHaveBeenCalled();
+    });
+
+    // Race-condition regression coverage for #3206 item 3's sibling class: a
+    // plain read-then-write here could persist a stale derived score if
+    // another concurrent webhook delivery (e.g. open+click landing together)
+    // bumps the counters between the read and the write. A retry-capable
+    // transaction fake (mirrors real Firestore's optimistic-concurrency
+    // contract, same idiom as tests/bounce-classification.test.ts) proves the
+    // fix re-evaluates against the fresh counters instead of the stale ones.
+    it('re-evaluates against a concurrent counter update instead of persisting a stale score', async () => {
+      let data: Record<string, unknown> = {
+        send_count: 10,
+        open_count: 0,
+        click_count: 0,
+        engagement_score: 0,
+        engagement_level: 'dormant',
+      };
+      let version = 0;
+      let armed = false;
+      const writes: Array<Record<string, unknown>> = [];
+
+      const ref: any = {
+        set: async (update: Record<string, unknown>, opts?: { merge?: boolean }) => {
+          data = opts?.merge ? { ...data, ...update } : { ...update };
+          version += 1;
+        },
+      };
+      ref.get = async () => ({ exists: true, data: () => ({ ...data }) });
+      ref.firestore = {
+        runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => {
+          for (let attempt = 0; attempt < 5; attempt += 1) {
+            const versionAtStart = version;
+            const snapshot = { ...data };
+            let pendingWrite: Record<string, unknown> | null = null;
+            const tx = {
+              get: async () => {
+                if (!armed) {
+                  armed = true;
+                  // Concurrent webhook delivery lands between this
+                  // transaction's read and its commit.
+                  data = { ...data, open_count: 9, click_count: 5, last_click_at: new Date().toISOString() };
+                  version += 1;
+                }
+                return { exists: true, data: () => ({ ...snapshot }) };
+              },
+              set: (_ref: unknown, update: Record<string, unknown>, opts?: { merge?: boolean }) => {
+                pendingWrite = opts?.merge ? { ...snapshot, ...update } : { ...update };
+              },
+            };
+            const result = await updateFunction(tx);
+            if (version !== versionAtStart) continue; // conflicting write mid-transaction — retry
+            if (pendingWrite) {
+              data = pendingWrite;
+              version += 1;
+              writes.push(pendingWrite);
+            }
+            return result;
+          }
+          throw new Error('too many transaction retries');
+        },
+      };
+
+      const result = await refreshEngagementScore(ref as never, mockFieldValue as never);
+
+      expect(result.updated).toBe(true);
+      // Reflects the concurrently-landed counters (hot), not a stale score
+      // computed from the pre-race snapshot.
+      expect(result.level).toBe('hot');
+      expect(writes).toHaveLength(1);
     });
   });
 });

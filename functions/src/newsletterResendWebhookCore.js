@@ -4,6 +4,7 @@ import { refreshEngagementScore } from './lib/engagementScore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
+import { instantReactivationFields } from './lib/subscriberReactivation.js';
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
@@ -106,6 +107,14 @@ function buildDeliveryDocId(email, campaignId) {
  return buildCanonicalDeliveryDocId(campaignId, email);
 }
 
+// Terminal negative statuses: once a subscriber lands in one of these, a
+// later delivered/open/click event (e.g. a queued/retried ESP notification
+// racing a complaint, or a stale open replaying after a hard bounce) must
+// NOT resurrect them back to 'confirmed'/active. Re-promoting a complained,
+// suppressed, or hard-bounced address is a deliverability/compliance risk
+// (see issue #3305).
+const TERMINAL_NEGATIVE_STATUSES = new Set(['complained', 'suppressed', 'bounced']);
+
 function buildSubscriberUpdate(eventType, data, currentStatus) {
  const FieldValue = admin.firestore.FieldValue;
  const update = {
@@ -165,8 +174,11 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  // Only promote to confirmed if the subscriber already has a non-pending status.
  // Pending subscribers (or unknown/new ones) must complete email verification
  // before being promoted — a mere delivery or open does not constitute opt-in.
+ // Terminal negative statuses (complained/suppressed/bounced) must also be
+ // excluded — otherwise a delivered/open/click event racing (or following)
+ // a suppression event would silently resurrect the subscriber (#3305).
  if (eventType === 'delivered' || eventType === 'open' || eventType === 'click') {
- const skipPromotion = !currentStatus || currentStatus === 'pending';
+ const skipPromotion = !currentStatus || currentStatus === 'pending' || TERMINAL_NEGATIVE_STATUSES.has(currentStatus);
  if (!skipPromotion) {
  update.status = 'confirmed';
  update.isActive = true;
@@ -217,10 +229,27 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  const locale = sanitizeString(tags.subscriber_locale || data.locale) || 'it-IT';
  const sourceChannel = sanitizeString(tags.source_channel || data.source_channel);
 
+ // Bounce severity depends only on the raw provider payload, not on the
+ // current subscriber doc, so it can be computed outside the transaction.
+ let bounceSeverity = null;
+ let bounceReasonText = '';
+ if (type === 'bounce') {
+ bounceSeverity = classifyBounceSeverity({ provider: 'resend', rawEvent: rawEvent?.type, eventData: data });
+ bounceReasonText = sanitizeString(data.bounce?.message) || sanitizeString(data.reason) || '';
+ }
+
+ // Read current subscriber status and write the merged update atomically —
+ // wrapped in a transaction (same idiom as maybeEscalateSoftBounce /
+ // refreshEngagementScore in functions/src/lib/) so a concurrent webhook
+ // delivery for the same subscriber (e.g. a complaint/suppression landing
+ // between this read and this write) can't be clobbered by a promotion
+ // decision made from a stale read.
+ const subscriberRef = db.collection('newsletter_subscribers').doc(email);
+ await subscriberRef.firestore.runTransaction(async (tx) => {
  // Read current subscriber status to avoid promoting pending users
  let currentStatus = null;
  try {
- const subscriberDoc = await db.collection('newsletter_subscribers').doc(email).get();
+ const subscriberDoc = await tx.get(subscriberRef);
  if (subscriberDoc.exists) {
  currentStatus = subscriberDoc.data()?.status || null;
  }
@@ -237,11 +266,19 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  subscriberUpdate.provider = 'resend';
 
- let bounceSeverity = null;
- let bounceReasonText = '';
+ // Instant newsletter-sunset reactivation (#2852 item 2): an open/click on a
+ // subscriber the weekly scripts/newsletter-sunset.mjs cron already marked
+ // 'inactive' should re-activate them immediately instead of waiting up to a
+ // week for the next cron pass. Applied AFTER buildSubscriberUpdate() on
+ // purpose: that function's pending-promotion side effect would otherwise
+ // leave an 'inactive' subscriber at status 'confirmed' without stamping
+ // reactivated_at or clearing the winback markers. No-op unless the status
+ // read above was exactly 'inactive'.
+ if (type === 'open' || type === 'click') {
+ Object.assign(subscriberUpdate, instantReactivationFields(currentStatus));
+ }
+
  if (type === 'bounce') {
- bounceSeverity = classifyBounceSeverity({ provider: 'resend', rawEvent: rawEvent?.type, eventData: data });
- bounceReasonText = sanitizeString(data.bounce?.message) || sanitizeString(data.reason) || '';
  Object.assign(subscriberUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
  if (bounceSeverity === 'hard') {
  subscriberUpdate.isActive = false;
@@ -249,8 +286,8 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  }
  }
 
- const subscriberRef = db.collection('newsletter_subscribers').doc(email);
- await subscriberRef.set(subscriberUpdate, { merge: true });
+ tx.set(subscriberRef, subscriberUpdate, { merge: true });
+ });
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -325,12 +362,15 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent }) {
  const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
+ const data = rawEvent?.data || {};
 
  // ── Top-level subscriber document (aggregate counters) ──────
  const topUpdate = {
  email,
  updated_at: FieldValue.serverTimestamp(),
  };
+ let bounceSeverity = null;
+ let bounceReasonText = '';
  if (type === 'send') {
  topUpdate.last_sent_at = FieldValue.serverTimestamp();
  topUpdate.send_count = FieldValue.increment(1);
@@ -338,20 +378,25 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  if (type === 'delivered') {
  topUpdate.last_delivered_at = FieldValue.serverTimestamp();
  topUpdate.delivered_count = FieldValue.increment(1);
+ Object.assign(topUpdate, softBounceRecoveryFields());
  }
  if (type === 'open') {
  topUpdate.last_open_at = FieldValue.serverTimestamp();
  topUpdate.open_count = FieldValue.increment(1);
+ Object.assign(topUpdate, softBounceRecoveryFields());
  }
  if (type === 'click') {
  topUpdate.last_click_at = FieldValue.serverTimestamp();
  topUpdate.click_count = FieldValue.increment(1);
  topUpdate.last_clicked_url = linkUrl;
+ Object.assign(topUpdate, softBounceRecoveryFields());
  }
  if (type === 'bounce') {
+ bounceSeverity = classifyBounceSeverity({ provider: 'resend', rawEvent: rawEvent?.type, eventData: data });
+ bounceReasonText = sanitizeString(data.bounce?.message) || sanitizeString(data.reason) || '';
  topUpdate.last_bounced_at = FieldValue.serverTimestamp();
  topUpdate.bounce_count = FieldValue.increment(1);
- topUpdate.status = 'bounced';
+ Object.assign(topUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
  }
  if (type === 'complaint') {
  topUpdate.last_complained_at = FieldValue.serverTimestamp();
@@ -367,6 +412,10 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  }
 
  await subscriberRef.set(topUpdate, { merge: true });
+
+ if (bounceSeverity === 'soft') {
+ await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
+ }
 
  // ── Engagement score ────────────────────────────────────────
  if (type === 'open' || type === 'click' || type === 'send') {

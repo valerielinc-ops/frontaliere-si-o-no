@@ -14,6 +14,7 @@ import {
   buildWeekendDigestCaption,
   selectWeekendDigest,
   WEEKEND_DIGEST_URL,
+  isLandingPageLive,
   run,
 } from '../scripts/schedule-fb-events-daily.mjs';
 
@@ -284,5 +285,103 @@ describe('run() weekend digest', () => {
     });
     expect(res.payloads.every((p: { url: string }) => p.url !== WEEKEND_DIGEST_URL)).toBe(true);
     expect(res.posted).toBe(1);
+  });
+});
+
+// Follow-up of #3044 (issue #3047 item 2): the events crawl (`:40`) and this
+// posting cron (`:50`) leave a short lag window in which a slow/retrying
+// deploy could mean the per-comune landing page isn't live yet. A pre-flight
+// HEAD check must catch that instead of posting a link that 404s at click-time.
+describe('isLandingPageLive', () => {
+  it('returns true when the landing page responds 200', async () => {
+    const live = await isLandingPageLive('https://frontaliereticino.ch/eventi/ticino/lugano/', {
+      fetchImpl: () => Promise.resolve({ status: 200 }),
+    });
+    expect(live).toBe(true);
+  });
+
+  it('returns false when the landing page responds 404 (skip, do not post a dead link)', async () => {
+    const live = await isLandingPageLive('https://frontaliereticino.ch/eventi/ticino/nonexistent/', {
+      fetchImpl: () => Promise.resolve({ status: 404 }),
+    });
+    expect(live).toBe(false);
+  });
+
+  it('fails safe (false) when the HEAD request errors or times out, without throwing', async () => {
+    const live = await isLandingPageLive('https://frontaliereticino.ch/eventi/ticino/slow/', {
+      fetchImpl: () => Promise.reject(new Error('network timeout')),
+    });
+    expect(live).toBe(false);
+  });
+
+  it('treats an ambiguous/missing status (e.g. 5xx or a minimal mock) as live', async () => {
+    const live = await isLandingPageLive('https://frontaliereticino.ch/eventi/ticino/lugano/', {
+      fetchImpl: () => Promise.resolve({ status: 503 }),
+    });
+    expect(live).toBe(true);
+  });
+});
+
+describe('run() landing page pre-flight before posting', () => {
+  function twoComuniRepo() {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'fb-events-preflight-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    writeFileSync(
+      path.join(root, 'data', 'events.json'),
+      JSON.stringify({
+        schemaVersion: 1,
+        events: [
+          { ...EVENT, id: 'tio-agenda:live', comune: 'Lugano' },
+          { ...EVENT, id: 'tio-agenda:dead', comune: 'Bellinzona' },
+        ],
+      }),
+    );
+    writeFileSync(path.join(root, 'data', 'fb-place-ids.json'), JSON.stringify({ schemaVersion: 1, places: {} }));
+    return root;
+  }
+
+  it('posts the comune whose landing page is live, skips the one that 404s, and warns', async () => {
+    const root = twoComuniRepo();
+    let feedPosts = 0;
+    const warnings: string[] = [];
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
+      repoRoot: root,
+      todayIso: '2026-12-31', // Thursday → not the digest day
+      fetchImpl: (url: string, options?: { method?: string }) => {
+        if (options?.method === 'HEAD') {
+          const status = String(url).includes('/bellinzona/') ? 404 : 200;
+          return Promise.resolve({ status });
+        }
+        if (String(url).includes('/feed')) feedPosts += 1;
+        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost' }) });
+      },
+      log: () => {},
+      warn: (...args: unknown[]) => warnings.push(args.join(' ')),
+    });
+    expect(res.posted).toBe(1);
+    expect(feedPosts).toBe(1);
+    expect(res.payloads.find((p: { comune?: string }) => p.comune === 'Lugano')).toBeTruthy();
+    expect(warnings.some((w) => w.includes('Bellinzona') && w.includes('bellinzona'))).toBe(true);
+  });
+
+  it('skips posting (without crashing) when the HEAD check errors/times out for every payload', async () => {
+    const root = twoComuniRepo();
+    let feedPosts = 0;
+    const res = await run({
+      env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
+      repoRoot: root,
+      todayIso: '2026-12-31',
+      fetchImpl: (url: string, options?: { method?: string }) => {
+        if (options?.method === 'HEAD') return Promise.reject(new Error('timeout'));
+        if (String(url).includes('/feed')) feedPosts += 1;
+        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost' }) });
+      },
+      log: () => {},
+      warn: () => {},
+    });
+    expect(res.ok).toBe(true); // no crash — treated as a soft no-op run
+    expect(res.posted).toBe(0);
+    expect(feedPosts).toBe(0);
   });
 });

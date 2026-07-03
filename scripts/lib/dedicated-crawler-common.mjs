@@ -3809,8 +3809,12 @@ export async function runDedicatedBaseCrawler({
  * the per-crawler `writeJobsCrawlerSlice` final write (and the assemble-time
  * net), so this stays a thin, cycle-free helper (no import of
  * assemble-jobs-dataset, which itself imports this module).
+ *
+ * Exported (in addition to being called internally by `runDedicatedBaseCrawler`)
+ * so #3089 items 2/3 (empty-slice warn, failure rethrow) are directly unit-
+ * testable without spinning up a full crawler run.
  */
-function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
+export function seedCrawlerSlicesFromDataJobs(root, companyKeys) {
   try {
     const keySet = new Set((companyKeys || []).map((k) => String(k).toLowerCase()));
     if (keySet.size === 0) return;
@@ -6100,6 +6104,44 @@ export function preferJob(a, b) {
   return a;
 }
 
+/**
+ * Merge two job records that collided on the same dedup key (fingerprint or
+ * heuristic key) before letting preferJob() pick the winner.
+ *
+ * preferJob() returns ONE of the two objects wholesale — the loser's own
+ * previousSlugs / previousSlugsByLocale history (and, if its active slug
+ * differs from the winner's, its active slug too) would otherwise be
+ * silently discarded with no journal entry (issue #3284: previousSlugs
+ * writer regression, 6136 losses/24h — root cause was these bare
+ * preferJob() calls inside mergeAndDeduplicate's existing-vs-existing and
+ * post-registry dedup passes never merging slug history before dropping
+ * the loser).
+ *
+ * Reuses the existing journal-backed helpers (mergePreviousSlugsByLocale,
+ * captureLostSlugs) — no new mechanism.
+ */
+function mergeDuplicateJobPreservingSlugHistory(a, b) {
+  const mergedPreviousSlugs = [
+    ...new Set([
+      ...(Array.isArray(a.previousSlugs) ? a.previousSlugs : []),
+      ...(Array.isArray(b.previousSlugs) ? b.previousSlugs : []),
+    ]),
+  ].slice(0, 20);
+  const mergedPreviousSlugsByLocale = mergePreviousSlugsByLocale(a.previousSlugsByLocale, b.previousSlugsByLocale);
+
+  const chosen = preferJob(a, b);
+  if (mergedPreviousSlugs.length > 0) chosen.previousSlugs = mergedPreviousSlugs;
+  else delete chosen.previousSlugs;
+  if (mergedPreviousSlugsByLocale) chosen.previousSlugsByLocale = mergedPreviousSlugsByLocale;
+  else delete chosen.previousSlugsByLocale;
+
+  // Whichever side didn't win, its currently-active slug/slugByLocale must
+  // not vanish untracked — journal it via the shared capture helper.
+  captureLostSlugs(chosen, a.slugByLocale || {}, a.slug || '');
+  captureLostSlugs(chosen, b.slugByLocale || {}, b.slug || '');
+  return chosen;
+}
+
 export function getMergeExclusionReasons(job, qualityCfg) {
   const reasons = [];
   if (!(job?.title && job?.company && job?.location && job?.description)) {
@@ -6161,7 +6203,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       continue;
     }
     duplicateExisting += 1;
-    map.set(fp, preferJob(prev, normalized));
+    map.set(fp, mergeDuplicateJobPreservingSlugHistory(prev, normalized));
   }
 
   let inserted = 0;
@@ -6343,7 +6385,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     const prev = seenHeuristic.get(dedupKey);
     if (prev) {
       heuristicDupes += 1;
-      seenHeuristic.set(dedupKey, preferJob(prev, job));
+      seenHeuristic.set(dedupKey, mergeDuplicateJobPreservingSlugHistory(prev, job));
     } else {
       seenHeuristic.set(dedupKey, job);
     }
@@ -6362,7 +6404,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     const fp = fingerprintJob(job);
     if (!fp) continue;
     const prev = dedupedByFp.get(fp);
-    dedupedByFp.set(fp, prev ? preferJob(prev, job) : job);
+    dedupedByFp.set(fp, prev ? mergeDuplicateJobPreservingSlugHistory(prev, job) : job);
   }
   const finalJobs = [...dedupedByFp.values()].sort((a, b) => {
     const recencyDiff = recencyTs(b) - recencyTs(a);

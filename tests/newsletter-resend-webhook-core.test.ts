@@ -6,31 +6,49 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
   const makeCollection = (name: string) => ({
-    doc: (docId: string) => ({
-      set: async (data: Record<string, unknown>) => {
-        sets.push({ collection: name, docId, data });
-      },
-      get: async () => {
-        const docData = existingDocs[name]?.[docId];
-        return {
-          exists: !!docData,
-          data: () => docData || {},
-        };
-      },
-      collection: (subName: string) => {
-        const subPath = `${name}/${docId}/${subName}`;
-        return {
-          doc: (subDocId: string) => ({
-            set: async (data: Record<string, unknown>, _opts?: unknown) => {
-              sets.push({ collection: subPath, docId: subDocId, data });
+    doc: (docId: string) => {
+      const docRef: any = {
+        set: async (data: Record<string, unknown>) => {
+          sets.push({ collection: name, docId, data });
+        },
+        get: async () => {
+          const docData = existingDocs[name]?.[docId];
+          return {
+            exists: !!docData,
+            data: () => docData || {},
+          };
+        },
+        collection: (subName: string) => {
+          const subPath = `${name}/${docId}/${subName}`;
+          return {
+            doc: (subDocId: string) => ({
+              set: async (data: Record<string, unknown>, _opts?: unknown) => {
+                sets.push({ collection: subPath, docId: subDocId, data });
+              },
+            }),
+            add: async (data: Record<string, unknown>) => {
+              adds.push({ collection: subPath, data });
             },
-          }),
-          add: async (data: Record<string, unknown>) => {
-            adds.push({ collection: subPath, data });
-          },
-        };
-      },
-    }),
+          };
+        },
+      };
+      // Minimal `db.runTransaction` shim (mirrors the real Firestore idiom used
+      // by maybeEscalateSoftBounce / publisherPendingReapCore / trafficSchedulerCore)
+      // — these single-threaded tests don't need real optimistic-concurrency
+      // retries, just a tx.get/tx.set that delegate to the same doc.
+      docRef.firestore = {
+        runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => {
+          const tx = {
+            get: async (ref: any) => ref.get(),
+            set: (ref: any, data: Record<string, unknown>, opts?: unknown) => {
+              ref.set(data, opts);
+            },
+          };
+          return updateFunction(tx);
+        },
+      };
+      return docRef;
+    },
     add: async (data: Record<string, unknown>) => {
       adds.push({ collection: name, data });
     },
@@ -164,6 +182,58 @@ describe('newsletterResendWebhookCore', () => {
     expect(subscriberSet!.data.isActive).toBe(false);
   });
 
+  it('soft bounce (transient) on a job-alert subscriber does not set permanent bounced status', async () => {
+    const db = createFakeDb({
+      job_alert_subscribers: { 'seeker@example.com': { status: 'active', soft_bounce_count: 0 } },
+    });
+
+    const result = await applyResendWebhookEvent({
+      type: 'email.bounced',
+      data: {
+        email: 'seeker@example.com',
+        email_id: 'msg_ja_soft',
+        tags: [
+          { name: 'type', value: 'job-alert' },
+          { name: 'alert_id', value: 'alert_1' },
+        ],
+        bounce: { type: 'transient', message: 'greylisted' },
+      },
+    }, { db: db as any });
+
+    expect(result).toMatchObject({ handled: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker@example.com',
+    );
+    expect(subscriberSet!.data.status).not.toBe('bounced');
+    expect(subscriberSet!.data.bounce_severity).toBe('soft');
+    expect(subscriberSet!.data.soft_bounce_count).toBeDefined();
+  });
+
+  it('hard bounce (no transient/undetermined type) on a job-alert subscriber still sets permanent bounced status', async () => {
+    const db = createFakeDb();
+
+    const result = await applyResendWebhookEvent({
+      type: 'email.bounced',
+      data: {
+        email: 'deadend@example.com',
+        email_id: 'msg_ja_hard',
+        tags: [
+          { name: 'type', value: 'job-alert' },
+          { name: 'alert_id', value: 'alert_2' },
+        ],
+        bounce: { message: 'user unknown' },
+      },
+    }, { db: db as any });
+
+    expect(result).toMatchObject({ handled: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'deadend@example.com',
+    );
+    expect(subscriberSet!.data.status).toBe('bounced');
+  });
+
   it('marks complained subscribers as inactive', async () => {
     const db = createFakeDb({
       newsletter_subscribers: {
@@ -198,6 +268,78 @@ describe('newsletterResendWebhookCore', () => {
     // null currentStatus is treated conservatively — no promotion
     expect(subscriberSet!.data.status).toBeUndefined();
   });
+
+  it.each(['complained', 'suppressed', 'bounced'])(
+    'does NOT resurrect a %s subscriber back to confirmed on a later delivered event (#3305)',
+    async (terminalStatus) => {
+      const db = createFakeDb({
+        newsletter_subscribers: {
+          'terminal@example.com': { status: terminalStatus, isActive: false, active: false },
+        },
+      });
+
+      await applyResendWebhookEvent({
+        type: 'email.delivered',
+        data: { email: 'terminal@example.com', email_id: 'msg_resurrect' },
+      }, { db: db as any });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && s.docId === 'terminal@example.com',
+      );
+      expect(subscriberSet).toBeTruthy();
+      // Promotion must be skipped — status/isActive/active must NOT be
+      // overwritten back to 'confirmed'/true for terminal negative statuses.
+      expect(subscriberSet!.data.status).toBeUndefined();
+      expect(subscriberSet!.data.isActive).toBeUndefined();
+      expect(subscriberSet!.data.active).toBeUndefined();
+    },
+  );
+
+  it.each(['complained', 'suppressed', 'bounced'])(
+    'does NOT resurrect a %s subscriber back to confirmed on a later open event (#3305)',
+    async (terminalStatus) => {
+      const db = createFakeDb({
+        newsletter_subscribers: {
+          'terminal-open@example.com': { status: terminalStatus, isActive: false, active: false },
+        },
+      });
+
+      await applyResendWebhookEvent({
+        type: 'email.opened',
+        data: { email: 'terminal-open@example.com', email_id: 'msg_resurrect_open' },
+      }, { db: db as any });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && s.docId === 'terminal-open@example.com',
+      );
+      expect(subscriberSet).toBeTruthy();
+      expect(subscriberSet!.data.status).toBeUndefined();
+      expect(subscriberSet!.data.isActive).toBeUndefined();
+    },
+  );
+
+  it.each(['complained', 'suppressed', 'bounced'])(
+    'does NOT resurrect a %s subscriber back to confirmed on a later click event (#3305)',
+    async (terminalStatus) => {
+      const db = createFakeDb({
+        newsletter_subscribers: {
+          'terminal-click@example.com': { status: terminalStatus, isActive: false, active: false },
+        },
+      });
+
+      await applyResendWebhookEvent({
+        type: 'email.clicked',
+        data: { email: 'terminal-click@example.com', email_id: 'msg_resurrect_click' },
+      }, { db: db as any });
+
+      const subscriberSet = db.__sets.find(
+        (s) => s.collection === 'newsletter_subscribers' && s.docId === 'terminal-click@example.com',
+      );
+      expect(subscriberSet).toBeTruthy();
+      expect(subscriberSet!.data.status).toBeUndefined();
+      expect(subscriberSet!.data.isActive).toBeUndefined();
+    },
+  );
 
   it('rejects unsupported event types', async () => {
     const db = createFakeDb();

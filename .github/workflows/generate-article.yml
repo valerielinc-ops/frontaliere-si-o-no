@@ -99,6 +99,18 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # Primary identity for the self-trigger dispatch below = GitHub App
+      # installation token (`frontaliere-automation[bot]`): auto-mints, no expiry
+      # babysit, and its dispatch re-triggers the next run just like the PAT (no
+      # GITHUB_TOKEN anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Cleanup stale news sitemap entries
         run: node scripts/cleanup-news-sitemap.mjs
 
@@ -685,9 +697,12 @@ jobs:
         if: steps.decide_trigger.outputs.should_trigger == 'true'
         continue-on-error: true
         env:
-          # GITHUB_PAT is loaded into $GITHUB_ENV by `Load secrets from Remote Config`
-          # (Firebase RC, not an Actions secret). Do NOT shadow it with secrets.GITHUB_PAT
-          # — that resolves to empty and bricks the chain.
+          # trigger-self.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override
+          # with the App token when minted (primary identity), PAT otherwise (#2861
+          # item 1). GITHUB_PAT itself is loaded into $GITHUB_ENV by `Load secrets
+          # from Remote Config` (Firebase RC, not an Actions secret). Do NOT shadow
+          # it with secrets.GITHUB_PAT — that resolves to empty and bricks the chain.
+          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           WORKFLOW_FILE: generate-article.yml
           DELAY_SECONDS: ${{ steps.decide_trigger.outputs.delay }}
           SELF_TRIGGER_REASON: ${{ steps.decide_trigger.outputs.reason }}

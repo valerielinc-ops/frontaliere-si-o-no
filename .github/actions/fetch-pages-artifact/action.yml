@@ -1,0 +1,52 @@
+name: "Fetch GitHub Pages artifact"
+description: >-
+  Resolves the `github-pages` artifact for a workflow run and downloads it
+  via the REST API (zip), producing `<output-dir>/artifact.tar`.
+  `gh run download --name github-pages` does not reliably yield artifact.tar
+  for the large (>1 GB) GitHub Pages artifact — this is the proven gh-api-zip
+  download path fixed in PR #3101 (issue #3104 item 2), extracted here so the
+  seed/audit/measure workflows that all need the same deployed dist/ don't
+  each carry their own copy (drift risk — see AGENTS.md sibling-pattern rule).
+inputs:
+  run-id:
+    description: "Workflow run id that produced the github-pages artifact."
+    required: true
+  output-dir:
+    description: "Directory to unzip the artifact into (will contain artifact.tar)."
+    required: true
+  github-token:
+    description: "Token used for `gh api` calls (usually github.token)."
+    required: true
+outputs:
+  tar-path:
+    description: "Path to the downloaded artifact.tar inside output-dir."
+    value: ${{ steps.fetch.outputs.tar-path }}
+runs:
+  using: "composite"
+  steps:
+    - name: Resolve + download github-pages artifact
+      id: fetch
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+      run: |
+        set -e
+        RID="${{ inputs.run-id }}"
+        OUTDIR="${{ inputs.output-dir }}"
+        ARTIFACT_ID=$(gh api "repos/${{ github.repository }}/actions/runs/$RID/artifacts" \
+          --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+        if [ -z "$ARTIFACT_ID" ]; then
+          echo "::error::No 'github-pages' artifact on run $RID."
+          exit 1
+        fi
+        mkdir -p "$OUTDIR"
+        ZIPDIR=$(mktemp -d)
+        gh api -H "Accept: application/vnd.github+json" \
+          "repos/${{ github.repository }}/actions/artifacts/$ARTIFACT_ID/zip" \
+          > "$ZIPDIR/pages.zip"
+        unzip -q "$ZIPDIR/pages.zip" -d "$OUTDIR"
+        if [ ! -f "$OUTDIR/artifact.tar" ]; then
+          echo "::error::Expected $OUTDIR/artifact.tar — saw $(ls "$OUTDIR")"
+          exit 1
+        fi
+        echo "tar-path=$OUTDIR/artifact.tar" >> "$GITHUB_OUTPUT"

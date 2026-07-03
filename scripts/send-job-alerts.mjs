@@ -27,7 +27,7 @@ import { normalizeContract } from '../services/newsletter-content.mjs';
 import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference } from '../services/jobAlertMatching.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
-import { isAddressSuppressed } from '../services/emailSuppression.mjs';
+import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import {
   normalizeSentMap,
   filterUnsentJobs,
@@ -1182,10 +1182,13 @@ async function main() {
       }
       // A bounce/complaint reported on the alert channel lands on the
       // job_alert_subscribers doc, not newsletter_subscribers — check both.
+      // isJobAlertExcluded also covers this channel's OWN inactivity-sunset
+      // 'inactive' state (scripts/lib/jobAlertSunset.mjs, issue #2852 item 1) —
+      // soft and reversible, unlike the hard cross-channel signals above.
       const alertSubDoc = await db.collection('job_alert_subscribers').doc(email).get();
       if (alertSubDoc.exists) {
         const alertData = alertSubDoc.data() || {};
-        if (isAddressSuppressed(alertData.status)) suppressedEmails.add(email.toLowerCase());
+        if (isJobAlertExcluded(alertData.status)) suppressedEmails.add(email.toLowerCase());
         // Alert-channel click is the most relevant — overrides the newsletter one.
         if (alertData.last_clicked_url) lastClickedUrlByEmail.set(email.toLowerCase(), alertData.last_clicked_url);
       }

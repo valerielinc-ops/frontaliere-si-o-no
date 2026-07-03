@@ -63,13 +63,24 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
+      # auto-mints, no expiry babysit. Falls back to env.GITHUB_PAT then GITHUB_TOKEN.
+      # A collision-risk label is sufficient with either identity (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
       # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -78,9 +89,10 @@ jobs:
 
       - name: Detect funnel-critical collisions (deterministic, no Claude)
         env:
-          # PAT preferito per coerenza con gli altri workflow, ma una label via
-          # GITHUB_TOKEN è sufficiente per il gating di P1 → fallback su token.
-          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          # App token preferito (identità stabile, coerente con gli altri workflow
+          # migrati); PAT poi GITHUB_TOKEN come fallback — una label via GITHUB_TOKEN
+          # è comunque sufficiente per il gating di P1.
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |

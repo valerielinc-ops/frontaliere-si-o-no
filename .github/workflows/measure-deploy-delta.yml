@@ -5,6 +5,24 @@ name: Measure Deploy Delta
 # sync actually push per deploy". Read-only, no checkout of the site, no commit.
 # Manual trigger; pick two deploy runs or let it auto-pick the last two with a
 # non-expired github-pages artifact.
+#
+# NOTE on the locale-shard rehydrate pattern (issue #3104 sibling-fix sweep):
+# this workflow was flagged as a possible sibling of the seed-*-baseline.yml
+# "github-pages-only download" gap, but it is a FALSE POSITIVE for the
+# verbatim rehydrate-steps fix applied there. Those workflows extract ONE
+# run's artifact into a `dist/` tree and then walk it with a Node auditor;
+# `measure-dist-delta.py` here never materializes a `dist/` tree at all — it
+# streams two whole `artifact.tar` files directly (`A/artifact.tar`,
+# `B/artifact.tar`) and diffs their members by content hash in place. Bolting
+# on the "Rehydrate locale/Ticino shards into dist/" steps would require a
+# different, larger change: pulling the matching locale/Ticino shard tars for
+# BOTH run_a and run_b and diffing each shard pair separately, then merging
+# those deltas into the report — not a copy-paste of the two rehydrate steps.
+# The `github-pages`-only download here is a real completeness gap (the
+# reported delta undercounts churn once LOCALE_SHARDS_LIVE/TICINO_SHARD_LIVE
+# strip locales into shard repos) but it is a distinct, larger fix left
+# out of scope for this sweep; this tool is diagnostic/measurement-only (not
+# a validation-gate baseline), so the gap does not silently weaken a ratchet.
 
 on:
   workflow_dispatch:
@@ -82,11 +100,48 @@ jobs:
           echo "run_a=$A" >> "$GITHUB_OUTPUT"
           echo "run_b=$B" >> "$GITHUB_OUTPUT"
 
-      - name: Download OLDER artifact
-        run: gh run download "${{ steps.pick.outputs.run_a }}" -n github-pages -D A
+      - name: Fetch OLDER artifact
+        run: |
+          set -e
+          RID="${{ steps.pick.outputs.run_a }}"
+          # `gh run download -n github-pages` does not reliably yield artifact.tar
+          # for the large (>1 GB) Pages artifact — same proven gh-api-zip fix as
+          # audit-dist-from-run.yml / seed-*.yml (PR #3101, issue #3104 item 2).
+          ARTIFACT_ID=$(gh api "repos/$GH_REPO/actions/runs/$RID/artifacts" \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $RID."
+            exit 1
+          fi
+          mkdir -p A
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
+            > /tmp/older.zip
+          unzip -q /tmp/older.zip -d A
+          if [ ! -f A/artifact.tar ]; then
+            echo "::error::Expected A/artifact.tar — saw $(ls A)"
+            exit 1
+          fi
 
-      - name: Download NEWER artifact
-        run: gh run download "${{ steps.pick.outputs.run_b }}" -n github-pages -D B
+      - name: Fetch NEWER artifact
+        run: |
+          set -e
+          RID="${{ steps.pick.outputs.run_b }}"
+          ARTIFACT_ID=$(gh api "repos/$GH_REPO/actions/runs/$RID/artifacts" \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $RID."
+            exit 1
+          fi
+          mkdir -p B
+          gh api -H "Accept: application/vnd.github+json" \
+            "repos/$GH_REPO/actions/artifacts/$ARTIFACT_ID/zip" \
+            > /tmp/newer.zip
+          unzip -q /tmp/newer.zip -d B
+          if [ ! -f B/artifact.tar ]; then
+            echo "::error::Expected B/artifact.tar — saw $(ls B)"
+            exit 1
+          fi
 
       - name: Measure delta (stream-hash, no extract)
         run: |

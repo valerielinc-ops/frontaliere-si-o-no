@@ -82,6 +82,18 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      # Primary identity for the deploy dispatch below = GitHub App installation
+      # token (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and
+      # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
+      # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Run URL Inspection sweep
         env:
           BATCH_SIZE: ${{ inputs.batch_size || '1500' }}
@@ -170,10 +182,13 @@ jobs:
             echo "📝 Only state file changed — no deploy needed"
           fi
         env:
-          # GITHUB_PAT è caricato in $GITHUB_ENV dallo step "load-rc-env" (Firebase
-          # RC, non un Actions secret — `secrets.GH_PAT` non esiste). NON shadoware
-          # con secrets.*: altrimenti trigger-deploy.sh gira con PAT vuoto e il
-          # deploy non parte (cfr. #878).
+          # trigger-deploy.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override
+          # with the App token when minted (primary identity), PAT otherwise (#2861
+          # item 1). GITHUB_PAT itself è caricato in $GITHUB_ENV dallo step
+          # "load-rc-env" (Firebase RC, non un Actions secret — `secrets.GH_PAT` non
+          # esiste). NON shadoware con secrets.*: altrimenti trigger-deploy.sh gira
+          # con token vuoto e il deploy non parte (cfr. #878).
+          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
 
       - name: Report failure to GitHub Issues
