@@ -510,6 +510,10 @@ export const COMPANY_HQ = {
   // a safe Zürich-city-center FALLBACK (no confirmed street address for the
   // Zürich office) — used only when a job's office field is empty/unmapped.
   'igroove': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // Räffelstrasse 24, 8045 Zürich ZH — confirmed via Handelsregister
+  // (northdata/Moneyhouse CHE-267.003.435) + local.ch/search.ch directory
+  // listings; no fallback needed.
+  'felfel': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
 };
 
 /**
