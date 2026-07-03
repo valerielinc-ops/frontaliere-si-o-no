@@ -10,6 +10,10 @@ import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type EmployerInsightsRow, type EmployerOutreachStatus } from '@/services/adminInsights';
 import { fetchJournalistGrants, setJournalistRole, type JournalistGrant } from '@/services/journalistAdminService';
+import { fetchRedazioneAdminData, updateAuthorProfile, reassignArticleAuthor, type RedazioneAdminData } from '@/services/redazioneAdminService';
+import type { AuthorProfilePatch } from '@/services/authorProfileService';
+import { getAllAuthors } from '@/data/authors';
+import { ARTICLES } from '@/data/blog-articles-data';
 // Cold-email sequence: single shared source so the admin preview is byte-identical
 // to what send-cold-emails.mjs actually sends (AGENTS.md Non-Negotiable #6).
 import { buildSequence } from '../../scripts/lib/cold-email-sequence.mjs';
@@ -315,7 +319,7 @@ export default function AdminPanel() {
  const { user } = useAuth();
  const hasPreloadedWorkflowSnapshots = useRef(false);
  const [copiedCmd, setCopiedCmd] = useState(false);
- const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | 'journalists' | WorkflowContext>('jobs');
+ const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | 'journalists' | 'redazione' | WorkflowContext>('jobs');
  const [ownerTab] = useState<'overview'>('overview');
  const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
  const [copiedAiPromptFor, setCopiedAiPromptFor] = useState<string | null>(null);
@@ -396,6 +400,15 @@ export default function AdminPanel() {
  const [journalistEmailDraft, setJournalistEmailDraft] = useState('');
  const [journalistActionPending, setJournalistActionPending] = useState(false);
  const [journalistActionMsg, setJournalistActionMsg] = useState<{ ok: boolean; text: string } | null>(null);
+ // Redazione (superadmin article view across both catalogs + persona profile editor)
+ const [redazioneData, setRedazioneData] = useState<RedazioneAdminData | null>(null);
+ const [redazioneLoading, setRedazioneLoading] = useState(false);
+ const [redazioneError, setRedazioneError] = useState<string | null>(null);
+ const [redazioneActionMsg, setRedazioneActionMsg] = useState<{ ok: boolean; text: string } | null>(null);
+ const [redazioneActionPending, setRedazioneActionPending] = useState(false);
+ const [editingProfileSlug, setEditingProfileSlug] = useState<string | null>(null);
+ const [profileDraft, setProfileDraft] = useState<AuthorProfilePatch>({});
+ const [reassignDraftByArticle, setReassignDraftByArticle] = useState<Record<string, string>>({});
  // Crawler table filters & expansion
  const [crawlerNameFilter, setCrawlerNameFilter] = useState('');
  const [crawlerChangeFilter, setCrawlerChangeFilter] = useState<'all' | 'new' | 'updated' | 'removed' | 'none'>('all');
@@ -624,6 +637,67 @@ export default function AdminPanel() {
  setJournalistActionMsg({ ok: false, text: err instanceof Error ? err.message : 'Errore sconosciuto' });
  } finally {
  setJournalistActionPending(false);
+ }
+ };
+
+ // Load the superadmin editorial view (both catalogs) when "Redazione" tab opens.
+ const loadRedazioneData = async () => {
+ setRedazioneLoading(true);
+ setRedazioneError(null);
+ try {
+ const data = await fetchRedazioneAdminData(user);
+ setRedazioneData(data);
+ } catch (err) {
+ setRedazioneError(err instanceof Error ? err.message : 'Errore sconosciuto');
+ } finally {
+ setRedazioneLoading(false);
+ }
+ };
+
+ useEffect(() => {
+ if (activeSection !== 'redazione') return;
+ loadRedazioneData();
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [activeSection]);
+
+ const startEditingProfile = (slug: string, current: AuthorProfilePatch) => {
+ setEditingProfileSlug(slug);
+ setProfileDraft(current);
+ setRedazioneActionMsg(null);
+ };
+
+ const handleSaveProfile = async (slug: string) => {
+ if (redazioneActionPending) return;
+ setRedazioneActionPending(true);
+ setRedazioneActionMsg(null);
+ try {
+ await updateAuthorProfile(user, slug, profileDraft);
+ setRedazioneActionMsg({ ok: true, text: 'Profilo aggiornato.' });
+ setEditingProfileSlug(null);
+ await loadRedazioneData();
+ } catch (err) {
+ setRedazioneActionMsg({ ok: false, text: err instanceof Error ? err.message : 'Errore sconosciuto' });
+ } finally {
+ setRedazioneActionPending(false);
+ }
+ };
+
+ const handleReassignArticle = async (articleId: string) => {
+ const authorSlug = (reassignDraftByArticle[articleId] || '').trim();
+ if (!authorSlug || redazioneActionPending) return;
+ const author = getAllAuthors().find((a) => a.slug === authorSlug);
+ if (!author) return;
+ if (typeof window !== 'undefined' && !window.confirm(`Riassegnare l'articolo a ${author.name}?`)) return;
+ setRedazioneActionPending(true);
+ setRedazioneActionMsg(null);
+ try {
+ await reassignArticleAuthor(user, articleId, author.slug, author.name);
+ setRedazioneActionMsg({ ok: true, text: `Articolo riassegnato a ${author.name}.` });
+ await loadRedazioneData();
+ } catch (err) {
+ setRedazioneActionMsg({ ok: false, text: err instanceof Error ? err.message : 'Errore sconosciuto' });
+ } finally {
+ setRedazioneActionPending(false);
  }
  };
 
@@ -3056,6 +3130,7 @@ export default function AdminPanel() {
  { id: 'analytics' as const, label: 'Dati', icon: Database },
  { id: 'insights' as const, label: 'Insights Aziende', icon: Building2 },
  { id: 'journalists' as const, label: 'Giornalisti', icon: Newspaper },
+ { id: 'redazione' as const, label: 'Redazione', icon: Users },
  { id: 'newsletter' as const, label: 'Newsletter', icon: Mail },
  ].map(tab => {
  const summary = ['jobs', 'content', 'seo', 'analytics'].includes(tab.id)
@@ -3766,6 +3841,230 @@ export default function AdminPanel() {
  ))}
  </tbody>
  </table>
+ </div>
+ </div>
+ )}
+
+ {/* Redazione section — superadmin view across both article catalogs +
+ admin-only persona profile editor. See services/authorProfileService.ts
+ and services/redazioneAdminService.ts. */}
+ {activeSection === 'redazione' && (
+ <div className="space-y-6">
+ <div className="flex items-center justify-between gap-3 flex-wrap">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
+ <Users size={20} className="text-accent" />
+ Redazione
+ </h2>
+ <button
+ onClick={loadRedazioneData}
+ disabled={redazioneLoading}
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors disabled:opacity-60"
+ >
+ {redazioneLoading ? <Loader2 size={14} className="animate-spin" /> : <RefreshCw size={14} />}
+ Aggiorna
+ </button>
+ </div>
+
+ {redazioneActionMsg && (
+ <div className={`rounded-xl border px-4 py-2 text-sm ${redazioneActionMsg.ok ? 'bg-success-subtle border-success-border text-success' : 'bg-danger-subtle border-danger-border text-danger'}`}>
+ {redazioneActionMsg.text}
+ </div>
+ )}
+
+ {redazioneError && (
+ <div className="bg-danger-subtle border border-danger-border rounded-xl px-4 py-2 text-sm text-danger">
+ {redazioneError}
+ </div>
+ )}
+
+ {/* Persona profiles */}
+ <div className="space-y-3">
+ <h3 className="text-sm font-bold text-strong">Profili autore (persona AI)</h3>
+ <p className="text-sm text-muted">
+ Nessun login reale: qui modifichi bio, foto e social delle persona (Marco Ferrari,
+ Samuele Valente, ecc.) senza deploy di codice.
+ </p>
+ <div className="space-y-2">
+ {getAllAuthors().map((author) => {
+ const override = redazioneData?.authorProfiles[author.slug];
+ const merged = { ...author, ...override, social: { ...author.social, ...override?.social } };
+ const isEditing = editingProfileSlug === author.slug;
+ return (
+ <div key={author.slug} className="bg-surface rounded-xl border border-edge p-3">
+ <div className="flex items-center justify-between gap-3 flex-wrap">
+ <div>
+ <p className="font-bold text-strong">{merged.name}</p>
+ <p className="text-sm text-subtle">{merged.role}</p>
+ </div>
+ {!isEditing && (
+ <button
+ onClick={() => startEditingProfile(author.slug, {
+ name: merged.name, role: merged.role, bio: merged.bio,
+ photoPath: merged.photoPath, email: merged.email, social: merged.social,
+ })}
+ className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-edge text-sm font-medium text-subtle hover:text-strong hover:border-accent-border transition-colors"
+ >
+ <Pencil size={14} /> Modifica
+ </button>
+ )}
+ </div>
+ {isEditing && (
+ <div className="mt-3 space-y-2">
+ <input
+ type="text"
+ value={profileDraft.name || ''}
+ onChange={(e) => setProfileDraft((d) => ({ ...d, name: e.target.value }))}
+ placeholder="Nome"
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ />
+ <input
+ type="text"
+ value={profileDraft.role || ''}
+ onChange={(e) => setProfileDraft((d) => ({ ...d, role: e.target.value }))}
+ placeholder="Ruolo"
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ />
+ <textarea
+ value={profileDraft.bio || ''}
+ onChange={(e) => setProfileDraft((d) => ({ ...d, bio: e.target.value }))}
+ placeholder="Bio"
+ rows={4}
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ />
+ <input
+ type="text"
+ value={profileDraft.photoPath || ''}
+ onChange={(e) => setProfileDraft((d) => ({ ...d, photoPath: e.target.value }))}
+ placeholder="/images/authors/slug.jpg"
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ />
+ <input
+ type="email"
+ value={profileDraft.email || ''}
+ onChange={(e) => setProfileDraft((d) => ({ ...d, email: e.target.value }))}
+ placeholder="Email"
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ />
+ <input
+ type="text"
+ value={profileDraft.social?.linkedin || ''}
+ onChange={(e) => setProfileDraft((d) => ({ ...d, social: { ...d.social, linkedin: e.target.value } }))}
+ placeholder="LinkedIn URL"
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ />
+ <div className="flex items-center gap-2">
+ <button
+ onClick={() => { void handleSaveProfile(author.slug); }}
+ disabled={redazioneActionPending}
+ className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors disabled:opacity-60"
+ >
+ {redazioneActionPending ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
+ Salva
+ </button>
+ <button
+ onClick={() => setEditingProfileSlug(null)}
+ className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-edge text-sm font-medium text-subtle hover:text-strong transition-colors"
+ >
+ <X size={14} /> Annulla
+ </button>
+ </div>
+ </div>
+ )}
+ </div>
+ );
+ })}
+ </div>
+ </div>
+
+ {/* AI-catalog articles — author reassignment */}
+ <div className="space-y-3">
+ <h3 className="text-sm font-bold text-strong">Articoli (catalogo AI) — {ARTICLES.length}</h3>
+ <div className="bg-surface rounded-xl border border-edge overflow-auto max-h-96">
+ <table className="w-full text-sm">
+ <thead className="sticky top-0 bg-surface">
+ <tr className="border-b border-edge text-left text-xs uppercase text-muted">
+ <th className="px-4 py-2">Articolo</th>
+ <th className="px-4 py-2">Autore attuale</th>
+ <th className="px-4 py-2">Riassegna a</th>
+ <th className="px-4 py-2" />
+ </tr>
+ </thead>
+ <tbody>
+ {ARTICLES.map((a) => {
+ const override = redazioneData?.articleAuthorOverrides[a.id];
+ const currentName = override?.authorName || a.authorName || '—';
+ return (
+ <tr key={a.id} className="border-b border-edge last:border-0">
+ <td className="px-4 py-2 text-strong">{a.id}</td>
+ <td className="px-4 py-2 text-subtle">{currentName}</td>
+ <td className="px-4 py-2">
+ <select
+ value={reassignDraftByArticle[a.id] || ''}
+ onChange={(e) => setReassignDraftByArticle((d) => ({ ...d, [a.id]: e.target.value }))}
+ className="px-2 py-1 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ >
+ <option value="">— seleziona —</option>
+ {getAllAuthors().map((author) => (
+ <option key={author.slug} value={author.slug}>{author.name}</option>
+ ))}
+ </select>
+ </td>
+ <td className="px-4 py-2 text-right">
+ <button
+ onClick={() => { void handleReassignArticle(a.id); }}
+ disabled={redazioneActionPending || !reassignDraftByArticle[a.id]}
+ className="text-xs font-medium text-link hover:underline disabled:opacity-60"
+ >
+ Riassegna
+ </button>
+ </td>
+ </tr>
+ );
+ })}
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ {/* Real-journalist articles — read-only, both accounts and content lifecycle
+ are separately owned (see functions/src/redazioneAdminCore.js header). */}
+ <div className="space-y-3">
+ <h3 className="text-sm font-bold text-strong">
+ Articoli giornalisti (tutti gli autori) — {redazioneData?.journalistArticles.length ?? 0}
+ </h3>
+ <div className="bg-surface rounded-xl border border-edge overflow-x-auto">
+ <table className="w-full text-sm">
+ <thead>
+ <tr className="border-b border-edge text-left text-xs uppercase text-muted">
+ <th className="px-4 py-2">Titolo</th>
+ <th className="px-4 py-2">Autore</th>
+ <th className="px-4 py-2">Stato</th>
+ <th className="px-4 py-2">Categoria</th>
+ <th className="px-4 py-2">Aggiornato</th>
+ </tr>
+ </thead>
+ <tbody>
+ {(!redazioneData || redazioneData.journalistArticles.length === 0) && !redazioneLoading && (
+ <tr>
+ <td colSpan={5} className="px-4 py-6 text-center text-muted">Nessun articolo giornalista finora.</td>
+ </tr>
+ )}
+ {redazioneData?.journalistArticles.map((ja) => (
+ <tr key={ja.id} className="border-b border-edge last:border-0">
+ <td className="px-4 py-2 text-strong">{ja.title || ja.id}</td>
+ <td className="px-4 py-2 text-subtle">{ja.authorName || ja.authorEmail || '—'}</td>
+ <td className="px-4 py-2">
+ <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border bg-surface-alt text-muted border-edge">
+ {ja.status || '—'}
+ </span>
+ </td>
+ <td className="px-4 py-2 text-subtle">{ja.category || '—'}</td>
+ <td className="px-4 py-2 text-subtle">{ja.updatedAt ? new Date(ja.updatedAt).toLocaleDateString('it-CH') : '—'}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
  </div>
  </div>
  )}

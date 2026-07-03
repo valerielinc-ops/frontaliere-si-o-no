@@ -345,5 +345,24 @@ service cloud.firestore {
         && request.auth.uid == resource.data.authorUid
         && resource.data.status == 'draft';
     }
+
+    // Admin-editable overrides for the static AI-persona registry
+    // (data/authors.ts) — bio/photo/social patches keyed by author slug.
+    // Same class of data as data/authors.ts itself (fully public, bundled
+    // into every client build already), so public read is not a new
+    // exposure. Only the manageRedazioneAdmin Cloud Function (Admin SDK,
+    // admin-gated) may write.
+    match /author_profiles/{slug} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Admin-set author reassignment for a single AI-catalog article
+    // (data/blog-articles-data.ts entry), keyed by article id. Same
+    // write-only-via-Cloud-Function pattern as author_profiles above.
+    match /article_author_overrides/{articleId} {
+      allow read: if true;
+      allow write: if false;
+    }
   }
 }

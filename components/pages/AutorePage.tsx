@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft, Linkedin, Twitter, Mail, Award, Globe } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { getAuthorBySlug, type Author } from '@/data/authors';
+import { getMergedAuthor } from '@/services/authorProfileService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { buildAuthorSeo } from '@/services/seo/seo-authors';
 
@@ -27,7 +28,21 @@ interface AutorePageProps {
 
 export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
   const nav = useNavigation();
-  const author = getAuthorBySlug(slug);
+  const staticAuthor = getAuthorBySlug(slug);
+  // Static registry renders first (matches the SSG snapshot, no CLS/flash);
+  // an admin-set `author_profiles/{slug}` patch (see AdminPanel "Redazione"
+  // section) is applied on top once fetched, client-side only.
+  const [author, setAuthor] = React.useState<Author | undefined>(staticAuthor);
+
+  React.useEffect(() => {
+    setAuthor(staticAuthor);
+    if (!staticAuthor) return;
+    let cancelled = false;
+    getMergedAuthor(slug).then((merged) => {
+      if (!cancelled && merged) setAuthor(merged);
+    }).catch(() => {});
+    return () => { cancelled = true; };
+  }, [slug]);
 
   if (!author) {
     return (
@@ -49,7 +64,11 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
     );
   }
 
-  const { jsonLd } = buildAuthorSeo(author.slug, 'it');
+  // Pass the CSR-merged author (admin persona patch applied on top of the
+  // static registry), not the slug — otherwise buildAuthorSeo re-derives
+  // from the static registry and the JSON-LD goes stale vs. the visible
+  // bio/photo/social above (review nit, PR #3356).
+  const { jsonLd } = buildAuthorSeo(author, 'it');
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">

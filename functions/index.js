@@ -26,6 +26,7 @@ import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/gith
 import { handleAdminEmployerInsights, assertAdmin } from './src/adminEmployerInsights.js';
 import { handleAdminSendColdEmail } from './src/adminSendColdEmail.js';
 import { handleManageJournalistRole } from './src/journalistRoleCore.js';
+import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { Resend } from 'resend';
 import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
@@ -224,6 +225,22 @@ export const manageJournalistRole = onRequest(
       res.status(status).json(body);
     } catch (error) {
       console.error('[manageJournalistRole]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Superadmin editorial view + persona-profile/reassignment editor. See
+// functions/src/redazioneAdminCore.js for the two override collections and
+// why journalist-article reassignment is intentionally out of scope here.
+export const manageRedazioneAdmin = onRequest(
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleRedazioneAdmin(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[manageRedazioneAdmin]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },

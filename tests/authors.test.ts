@@ -118,4 +118,17 @@ describe('buildAuthorSeo', () => {
   it('throws on unknown slug', () => {
     expect(() => buildAuthorSeo('does-not-exist', 'it')).toThrow();
   });
+
+  // Review nit (PR #3356): AutorePage.tsx must pass the CSR-merged author
+  // object (admin persona patch applied on top of the static registry), not
+  // the slug — passing the slug re-derives from the static registry and the
+  // Person JSON-LD goes stale vs. the visible bio/photo/social.
+  it('accepts an already-resolved Author object and reflects its patched fields in the JSON-LD', () => {
+    const staticAuthor = getAuthorBySlug('marco-ferrari')!;
+    const merged = { ...staticAuthor, name: 'Marco Ferrari Patched', bio: staticAuthor.bio };
+    const seo = buildAuthorSeo(merged, 'it');
+    expect(seo.jsonLd.name).toBe('Marco Ferrari Patched');
+    expect(seo.title).toContain('Marco Ferrari Patched');
+    expect(seo.canonical).toBe(`https://frontaliereticino.ch/autori/${staticAuthor.slug}/`);
+  });
 });
