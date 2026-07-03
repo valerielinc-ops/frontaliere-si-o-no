@@ -89,6 +89,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'amministrazione-cantonale-ti': gFavicon('ti.ch'),
  'apple-retail-switzerland': cLogo('jobs.apple.com'),
  'ardentis': cLogo('ardentis.ch'),
+ 'ardian': cLogo('ardian.com'),
  'ariston-group': '/images/brands/ariston-group.png',
  'arsante-clinique-de-carouge': cLogo('arsante.ch'),
  'artisa-group': gFavicon('artisagroup.com'),
