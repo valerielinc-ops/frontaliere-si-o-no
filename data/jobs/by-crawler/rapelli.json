@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-07-03T12:49:27.874Z",
+  "assembledAt": "2026-07-03T22:49:03.907Z",
   "jobs": [
     {
       "id": "rapelli-0dfca1cb1db2",
@@ -43,7 +43,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-03T12:49:25.848Z",
+      "crawledAt": "2026-07-03T22:49:01.586Z",
       "firstSeenAt": "2026-06-25T23:02:29.386Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -76,7 +76,7 @@
       "title": "Buyer ingredienti & trade, 100%",
       "titleByLocale": {
         "it": "Buyer ingredienti & trade, 100%",
-        "en": "Buyer ingredients & trade, 100%",
+        "en": "Buyer ingredienti & trade, 100%",
         "de": "Käufer Zutaten & Handel, 100%",
         "fr": "Ingrédients d'achat et commerce, 100%"
       },
@@ -102,8 +102,9 @@
       "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-03T12:49:25.642Z",
+      "crawledAt": "2026-07-03T22:49:01.085Z",
       "firstSeenAt": "2026-06-27T11:32:54.248Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -161,7 +162,7 @@
       "url": "https://careers.orior.ch/job/Stabio-HR-Operations-&-General-Services-%2880-100%29-TI/1410412533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-03T12:49:25.129Z",
+      "crawledAt": "2026-07-03T22:49:00.735Z",
       "previousSlugs": [
         "hr-generalist-80-100-rapelli-stabio"
       ],
@@ -171,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:04:22.722Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
