@@ -51,14 +51,13 @@ const PROVIDERS = [
   // dmarc=pass at p=reject (dis=NONE), delivered to inbox. Placed before cloudflare so
   // the purely-free providers are preferred over the paid Workers quota.
   { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
-  // Cloudflare Email Service: limit is MONTHLY (3000/mo included on Workers Paid),
-  // no documented per-day cap. dailyLimit raised to 1000 (owner request 2026-07-03)
-  // to give more overflow headroom on high-volume days — cloudflare sits last in
-  // the cascade so it only fires after the free providers (850/day combined) are
-  // exhausted; monthlyLimit unchanged, so 2-3 heavy days can burn the month's
-  // allowance early, after which real send errors push overflow to the retry
-  // queue. Placed last: it draws on the paid-plan quota, so prefer free providers first.
-  { id: 'cloudflare', dailyLimit: 1000, monthlyLimit: 3000 },
+  // Cloudflare Email Service: 3000/mo is the included allowance on Workers Paid;
+  // no documented per-day cap. dailyLimit=1000, monthlyLimit=30000 (owner request
+  // 2026-07-03) — owner accepted paid overage above the included 3000/mo, up to
+  // ~$9.45/mo worst case ($0.35/1000 past the included allowance, if cloudflare
+  // maxes out every day of the month). Placed last: it draws on the paid-plan
+  // quota, so prefer the purely-free providers first.
+  { id: 'cloudflare', dailyLimit: 1000, monthlyLimit: 30000 },
 ];
 
 // In-memory daily counters (reset on new UTC day)
