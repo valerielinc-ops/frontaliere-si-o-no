@@ -14,7 +14,16 @@
  * e.g. its previous count came from a source that couldn't exclude sponsored
  * traffic and the corrected free-only count is now 0 — must not keep its old
  * (now-wrong) doc forever. Any existing `employer_crawled_traffic/{key}` doc
- * whose key is NOT in the current run's key set is deleted every run.
+ * whose key is NOT in the current run's key set is deleted, UNLESS that would
+ * remove more than PRUNE_FLOOR_PCT (default 50%) of existing docs in one run
+ * — a GA4 report that "succeeds" (no fetch error) but is missing rows for a
+ * subset of employer/is_sponsored combos (transient API glitch) looks
+ * identical to "these companies really have 0 candidates now", so a mass
+ * drop is treated as suspect and skipped (logged, not silently dropped)
+ * rather than wiping the collection. The one known LEGITIMATE mass-drop is
+ * the one-time PostHog→GA4 cutover correction (sponsored-inflated employers
+ * flipping to their true free-only count, possibly 0) — force it once with
+ * EMPLOYER_TRAFFIC_PRUNE_FORCE=1.
  *
  * Usage (CI, after the report):
  *   node scripts/employer-traffic-report.mjs --json /tmp/report.json
@@ -28,6 +37,7 @@
 import fs from 'node:fs';
 
 const COLLECTION = 'employer_crawled_traffic';
+const PRUNE_FLOOR_PCT = Number(process.env.EMPLOYER_TRAFFIC_PRUNE_FLOOR_PCT) || 50;
 
 /** Shape the Firestore docs from a report JSON. Pure → unit-testable. */
 export function buildTrafficDocs(report) {
@@ -85,15 +95,24 @@ async function run() {
 
   // Prune stale docs (see header comment): delete every existing doc whose key
   // is NOT in this run's set, so a company that dropped to 0 candidates loses
-  // its old (possibly inflated) doc instead of keeping it forever.
+  // its old (possibly inflated) doc instead of keeping it forever — unless
+  // that would remove more than PRUNE_FLOOR_PCT of existing docs at once,
+  // which looks more like a partial/glitched report than real churn.
   const currentKeys = new Set(docs.map((d) => d.key));
   const existingSnap = await db.collection(COLLECTION).select().get();
   const staleRefs = existingSnap.docs.filter((d) => !currentKeys.has(d.id)).map((d) => d.ref);
-  const deleted = staleRefs.length
-    ? await commitInChunks(db, staleRefs, (batch, ref) => batch.delete(ref))
-    : 0;
+  const staleRatio = existingSnap.size > 0 ? (staleRefs.length / existingSnap.size) * 100 : 0;
 
-  console.log(`✅ ${COLLECTION}: scritte ${written} aziende (window ${report.days}gg, source ${report.source})${deleted ? `, ${deleted} stale rimosse` : ''}.`);
+  let deleted = 0;
+  let pruneSkipped = false;
+  if (staleRefs.length && staleRatio > PRUNE_FLOOR_PCT && !process.env.EMPLOYER_TRAFFIC_PRUNE_FORCE) {
+    pruneSkipped = true;
+    console.warn(`⚠️ prune skippato: rimuoverebbe ${staleRefs.length}/${existingSnap.size} doc (${staleRatio.toFixed(0)}%), oltre il floor ${PRUNE_FLOOR_PCT}% — probabile report parziale, non churn reale. Per il cutover one-time PostHog→GA4 forza con EMPLOYER_TRAFFIC_PRUNE_FORCE=1.`);
+  } else if (staleRefs.length) {
+    deleted = await commitInChunks(db, staleRefs, (batch, ref) => batch.delete(ref));
+  }
+
+  console.log(`✅ ${COLLECTION}: scritte ${written} aziende (window ${report.days}gg, source ${report.source})${deleted ? `, ${deleted} stale rimosse` : ''}${pruneSkipped ? ' [prune skippato: floor]' : ''}.`);
 }
 
 // Esegui solo se invocato direttamente (buildTrafficDocs resta importabile per i test).
