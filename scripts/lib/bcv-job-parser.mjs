@@ -58,11 +58,12 @@ function resolveAddress(cityRaw = '') {
   const canton = city ? inferSwissTargetCanton(city) : null;
 
   if (city && canton) {
+    const isHqCity = /lausanne/i.test(city);
     return {
       city,
       canton,
-      postalCode: canton === HQ.canton ? HQ.postalCode : '',
-      streetAddress: canton === HQ.canton ? HQ.streetAddress : '',
+      postalCode: isHqCity ? HQ.postalCode : '',
+      streetAddress: isHqCity ? HQ.streetAddress : '',
       region: canton,
     };
   }
