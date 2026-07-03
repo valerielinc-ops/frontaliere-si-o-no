@@ -527,6 +527,7 @@ export const COMPANY_HQ = {
   'felfel': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
   'sophia-genetics': { city: 'Rolle', canton: 'VD', postalCode: '1180', addressRegion: 'VD' },
   'sygnum': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
+  'postauto': { city: 'Bern', canton: 'BE', postalCode: '3030', addressRegion: 'BE' },
 };
 
 /**
