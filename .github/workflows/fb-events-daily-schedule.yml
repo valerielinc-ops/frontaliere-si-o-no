@@ -65,12 +65,12 @@ jobs:
         if: success() && github.event.inputs.dry_run != 'true'
         run: |
           set -euo pipefail
-          if git diff --quiet data/fb-posted-events.json 2>/dev/null; then
-            echo "no changes"; exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/fb-posted-events.json
+          if git diff --cached --quiet; then
+            echo "no changes"; exit 0
+          fi
           git commit -m "📅 Track posted FB events"
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then echo "push ok"; exit 0; fi

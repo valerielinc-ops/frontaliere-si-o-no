@@ -63,12 +63,12 @@ jobs:
         if: success() && github.event.inputs.dry_run != 'true'
         run: |
           set -euo pipefail
-          if git diff --quiet data/fb-posted-jobs.json; then
-            echo "no changes"; exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/fb-posted-jobs.json
+          if git diff --cached --quiet; then
+            echo "no changes"; exit 0
+          fi
           git commit -m "chore(fb): track posted jobs [skip ci]"
           # In-place resolver merges by job-id when another commit lands
           # on main mid-run (e.g. a concurrent article workflow or a

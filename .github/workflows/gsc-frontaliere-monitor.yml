@@ -89,13 +89,13 @@ jobs:
       - name: Commit updated baseline
         if: ${{ inputs.update_baseline == true && steps.status.outputs.drift == 'false' }}
         run: |
-          if git diff --quiet -- data/gsc-frontaliere-baseline.json; then
-            echo "Baseline unchanged — nothing to commit."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/gsc-frontaliere-baseline.json
+          if git diff --cached --quiet; then
+            echo "Baseline unchanged — nothing to commit."
+            exit 0
+          fi
           git commit -m "chore(gsc): refresh frontaliere brand baseline ($(date -u +%Y-%m-%d))"
           # Retry-on-rebase: many scheduled workflows push to main concurrently
           # (crawlers, fuel, weather, thin-promotions, etc.); a non-fast-forward

@@ -29,7 +29,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents } from './lib/events-utils.mjs';
 import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive } from './lib/social-post-utils.mjs';
-import { loadPlaceIds, lookupPlaceId } from './schedule-fb-jobs-daily.mjs';
+import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -303,10 +303,9 @@ export async function run(opts = {}) {
 
   let posted = 0;
   for (const p of payloads) {
-    // Best-effort OG rescrape so the FB card uses the page's fresh og:* tags.
-    try {
-      await fetchImpl(`${GRAPH_BASE}/?id=${encodeURIComponent(p.url)}&scrape=true&access_token=${encodeURIComponent(token)}`, { method: 'POST' });
-    } catch { /* best-effort */ }
+    // OG rescrape + verify og_object.image resolved (issue #3382) — shared
+    // with the jobs scheduler so the retry/backoff logic isn't duplicated.
+    await rescrapeOgAndVerify(fetchImpl, p.url, token, warn);
 
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const body = () => {

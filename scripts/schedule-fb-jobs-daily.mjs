@@ -493,6 +493,35 @@ function loadJobs(repoRoot, log) {
   }
 }
 
+// ── FB Graph OG rescrape (shared by the jobs + events schedulers) ──
+//
+// Force-rescrape OG metadata for a URL, then verify the scrape actually
+// resolved an image (GET without scrape=true, check og_object.image) before
+// considering the card ready — a bare fire-and-forget POST doesn't confirm
+// FB's cache picked up the per-page image, which on first deploys can leave
+// a generic fallback image live in the card. Retries with backoff give FB's
+// scraper time to catch up; still best-effort — a persistent miss logs a
+// warning but never blocks posting (issue #3382).
+export async function rescrapeOgAndVerify(fetchImpl, url, token, warn = () => {}) {
+  const scrapeUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true&access_token=${encodeURIComponent(token)}`;
+  const checkUrl = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&access_token=${encodeURIComponent(token)}`;
+  const backoffMs = [0, 1500, 3000];
+  for (let i = 0; i < backoffMs.length; i += 1) {
+    if (backoffMs[i]) await new Promise((r) => setTimeout(r, backoffMs[i]));
+    try {
+      await fetchImpl(scrapeUrl, { method: 'POST' });
+      const res = await fetchImpl(checkUrl);
+      const data = await res.json();
+      const image = data?.og_object?.image;
+      if (Array.isArray(image) ? image.length > 0 : Boolean(image)) return true;
+    } catch {
+      /* transient — retried by the loop, best-effort overall */
+    }
+  }
+  warn('⚠️', `OG rescrape unverified for ${url} — proceeding with whatever FB's cache holds`);
+  return false;
+}
+
 // ── Main entry ──────────────────────────────────────────────
 
 /**
@@ -619,24 +648,9 @@ export async function run(opts = {}) {
   const TRANSIENT_FB_ERROR_CODES = new Set([1, 2, 4, 17]);
   const sleepMs = (ms) => new Promise(r => setTimeout(r, ms));
 
-  // Force-rescrape OG metadata for each job URL before scheduling. FB's
-  // OG cache holds whatever it scraped last (potentially before the
-  // per-job OG image was deployed), which on first deploys produces FB
-  // cards with the generic `/og-image.png` instead of the per-job
-  // image. The scrape call is fire-and-forget — failures don't block
-  // scheduling.
-  async function rescrapeOg(url) {
-    try {
-      const u = `${GRAPH_BASE}/?id=${encodeURIComponent(url)}&scrape=true&access_token=${encodeURIComponent(token)}`;
-      await fetchImpl(u, { method: 'POST' });
-    } catch {
-      /* ignore — rescrape is best-effort */
-    }
-  }
-
   let scheduled = 0;
   for (const p of payloads) {
-    await rescrapeOg(p.url);
+    await rescrapeOgAndVerify(fetchImpl, p.url, token, warn);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => {
       const b = new URLSearchParams({
