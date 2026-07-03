@@ -207,6 +207,30 @@ describe('seo-pages-article-list — comma-safe ItemList helpers', () => {
     await assertParses(result as string);
   });
 
+  it('derives the new position from the LAST item, not a stale numberOfItems header (regression: classifica-dogane-ticino registration duplicated position 3086)', async () => {
+    // Header says 1 item, but the block already holds 2 — the exact drift
+    // seen in the wild in services/seo/seo-pages.ts (header read 3085 while
+    // the real last ListItem already read "position": 3086). A version that
+    // trusts the header would emit position 2 again (duplicate); the fix
+    // must read the last item's own position and emit 3.
+    const fixture = makeFixture([
+      { position: 1, name: 'Articolo uno', url: '${BASE_URL}/articoli-frontaliere/articolo-uno' },
+      { position: 2, name: 'Articolo due', url: '${BASE_URL}/articoli-frontaliere/articolo-due' },
+    ]).replace('"numberOfItems": 2', '"numberOfItems": 1');
+
+    const result = appendArticleListItem(fixture, {
+      name: 'Articolo tre',
+      url: '${BASE_URL}/articoli-frontaliere/articolo-tre',
+    });
+
+    expect(result).not.toBeNull();
+    expect(result).toContain('"position": 3');
+    expect(result).not.toMatch(/"position": 2,[\s\S]*"position": 2,/);
+    // The header is self-healed to match the true resulting count.
+    expect(result).toContain('"numberOfItems": 3');
+    await assertParses(result as string);
+  });
+
   it('reproduces the #2834 incident shape and proves the helper never produces it: no "} {" adjacency anywhere in output', async () => {
     const fixture = makeFixture(
       Array.from({ length: 5 }, (_, i) => ({

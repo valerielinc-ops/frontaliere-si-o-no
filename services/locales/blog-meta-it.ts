@@ -8237,6 +8237,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'La sospensione dei ristorni alla prova della convenzione Italia-Svizzera: il caso della “tassa sulla salute”',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Analizziamo la sospensione dei ristorni Italia-Svizzera alla luce della Convenzione fiscale e della "tassa sulla salute", valutando implicazioni giuridiche e',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Immagine editoriale relativa a: La sospensione dei ristorni alla prova della convenzione Italia-Svizzera: il caso della “tassa sulla salute”',
+    'blog.article.classifica-dogane-ticino.title': 'Classifica delle dogane in Ticino: le migliori e le peggiori per tempo di attesa',
+    'blog.article.classifica-dogane-ticino.excerpt': 'Ogni dogana del Ticino, classificata per tempo medio di attesa: qual è la più veloce, qual è la più lenta, e quanti minuti di vita si guadagnano (o si perdono) a sceglierne una piuttosto che un’altra.',
+    'blog.article.classifica-dogane-ticino.imageAlt': 'Traffico in coda a una dogana del Canton Ticino',
 };
 
 export default blogMetaIt;

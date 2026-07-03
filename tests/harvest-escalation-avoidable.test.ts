@@ -203,6 +203,12 @@ describe('isGenuineSiblingClassViolation — conta solo il sibling non-sweepato,
   it('vocabolario sibling senza affermazione né falso-positivo dichiarato → conservativo: violazione', () => {
     expect(isGenuineSiblingClassViolation('🟡 sibling non toccato, verificare a mano')).toBe(true);
   });
+
+  it('"non è un falso positivo" (rifiuto esplicito) → resta violazione genuina (issue #3367)', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🔴 Important: non è un falso positivo, il sibling condivide lo stesso bug non sweepato.',
+    )).toBe(true);
+  });
 });
 
 describe('bucketFinding — sibling-class-fix scarta i falsi positivi (#3325)', () => {
