@@ -8234,6 +8234,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.deduzione-figli-frontalieri-2026.title': 'Frontalieri: déduction fiscale enfants supprimée ?',
     'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'Une initiative propose de supprimer la déduction fiscale pour les enfants des travailleurs transfrontaliers ayant des enfants à l’étranger.',
     'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Vue aérienne du front de lac de Lugano avec des documents fiscaux sur un bureau au premier plan',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'Ristournes suspendues: la convention et la «taxe santé»',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Analysons la suspension des restaurants Italie-Suisse à la lumière de la Convention fiscale et de la « taxe sur la santé », en évaluant les implications juridiques et',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Image éditoriale relative à: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
 };
 
 export default blogMetaFr;
