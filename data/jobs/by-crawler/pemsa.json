@@ -236,8 +236,14 @@
       },
       "postalCode": "1950",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "previousSlugsByLocale": {
+        "en": [
+          "machine-operator-m2-and-m7-grand-dumper-pemsa-sion"
+        ]
+      },
+      "previousSlugs": [
+        "machine-operator-m2-and-m7-grand-dumper-pemsa-sion"
+      ]
     },
     {
       "title": "Pittore/Gessatore",
@@ -301,10 +307,14 @@
         "pittore-pemsa-mendrisio",
         "painter-pemsa-mendrisio",
         "maler-pemsa-mendrisio",
-        "peintre-pemsa-mendrisio"
+        "peintre-pemsa-mendrisio",
+        "painter-gessator-pemsa-mendrisio"
       ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "previousSlugsByLocale": {
+        "en": [
+          "painter-gessator-pemsa-mendrisio"
+        ]
+      }
     },
     {
       "title": "Addetto alla produzione/inserimento dati informatici",
@@ -677,8 +687,14 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "previousSlugsByLocale": {
+        "en": [
+          "cartongess-pemsa-locarno"
+        ]
+      },
+      "previousSlugs": [
+        "cartongess-pemsa-locarno"
+      ]
     },
     {
       "title": "Caposquadra lavori di ristrutturazione",
@@ -737,8 +753,14 @@
       },
       "postalCode": "1700",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "previousSlugsByLocale": {
+        "en": [
+          "head-of-restructuring-pemsa-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-restructuring-pemsa-fribourg"
+      ]
     },
     {
       "title": "Idraulico",
@@ -857,7 +879,15 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-02T11:47:22.304Z"
+      "firstSeenAt": "2026-07-02T11:47:22.304Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "afc-installer-or-electrician-pemsa-st-martin-fr"
+        ]
+      },
+      "previousSlugs": [
+        "afc-installer-or-electrician-pemsa-st-martin-fr"
+      ]
     },
     {
       "title": "Muratore e carpentiere edile",
@@ -917,10 +947,14 @@
       "postalCode": "1700",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
       "previousSlugs": [
-        "muratore-carpentiere-edile-pemsa-bellinzona"
+        "muratore-carpentiere-edile-pemsa-bellinzona",
+        "masonry-and-building-carpenters-pemsa-fribourg"
       ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "previousSlugsByLocale": {
+        "en": [
+          "masonry-and-building-carpenters-pemsa-fribourg"
+        ]
+      }
     },
     {
       "title": "Tecnico dell’assistenza post-vendita – Box doccia",
@@ -3319,7 +3353,15 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-02T11:47:22.304Z"
+      "firstSeenAt": "2026-07-02T11:47:22.304Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "electrician-with-professional-certification-cfc-specializing-in-electric-paintings-pemsa-rossens-fr"
+        ]
+      },
+      "previousSlugs": [
+        "electrician-with-professional-certification-cfc-specializing-in-electric-paintings-pemsa-rossens-fr"
+      ]
     },
     {
       "title": "Progettista di impianti elettrici",
@@ -10203,7 +10245,15 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-02T11:47:22.304Z"
+      "firstSeenAt": "2026-07-02T11:47:22.304Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "qualified-electrician-and-autonomous-pemsa-rossens-fr"
+        ]
+      },
+      "previousSlugs": [
+        "qualified-electrician-and-autonomous-pemsa-rossens-fr"
+      ]
     },
     {
       "title": "Operaio/a agricolo/a m/f/d – 100%",
