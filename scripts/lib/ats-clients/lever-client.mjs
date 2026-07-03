@@ -47,7 +47,12 @@
  * @property {string|null} postedAt     ISO timestamp — prefers `createdAt` (ms),
  *                                      falls back to `updatedAt`, else null.
  * @property {string} applyUrl          Lever `hostedUrl`.
- * @property {string} [descriptionHtml] HTML body, if available (`descriptionHtml`).
+ * @property {string} [descriptionHtml] HTML body, assembled from the posting's
+ *   `description` (intro), `lists[]` (qualifications/requirements sections,
+ *   each with a `text` heading + HTML `content`) and `additional` (closing
+ *   boilerplate) fields — the real Lever `mode=json` response has no single
+ *   `descriptionHtml` field; those three together are what the hosted page
+ *   actually renders.
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
@@ -283,7 +288,7 @@ export function normalizeLeverJob(rawJob, options = {}) {
   const applyUrl = String(rawJob?.hostedUrl || '').trim();
   const postedAt = msToIso(rawJob?.createdAt) || msToIso(rawJob?.updatedAt) || null;
   const slug = slugify(title) || (id ? `lever-${id.slice(0, 8)}` : '');
-  const descriptionHtml = buildLeverDescriptionHtml(rawJob);
+  const descriptionHtml = buildLeverDescriptionHtml(rawJob) || undefined;
 
   /** @type {NormalizedJob} */
   const out = {

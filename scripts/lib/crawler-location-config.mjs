@@ -485,6 +485,7 @@ export const COMPANY_HQ = {
   'thermo-fisher-scientific': { city: 'Reinach', canton: 'BL', postalCode: '4153', addressRegion: 'BL' },
   'everest-re': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'anybotics': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  'sonarsource': { city: 'Vernier', canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
 };
 
 /**

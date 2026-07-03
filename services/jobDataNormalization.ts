@@ -419,6 +419,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'solina': cLogo('solina.ch'),
  'solothurner-spitaeler': cLogo('solothurnerspitaeler.ch'),
  'somedia': '/images/brands/somedia.ico',
+ 'sonarsource': cLogo('sonarsource.com'),
  'sonnweid': cLogo('sonnweid.ch'),
  'sonova': cLogo('sonova.com'),
  'spitaeler-schaffhausen': cLogo('spitaeler-sh.ch'),
