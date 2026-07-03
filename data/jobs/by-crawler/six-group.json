@@ -1133,7 +1133,7 @@
       "slugByLocale": {
         "it": "specialista-monitoraggio-frodi-80-100-six-group-zurich",
         "en": "specialist-fraud-monitoring-80-100-six-group-zurich",
-        "de": "spezialisierte-uberwachung-von-betrug-80-100-six-group-zurich",
+        "de": "specialist-fraud-monitoring-80-100-six-group-zurich",
         "fr": "specialiste-surveillance-fraude-80-100-six-group-zurich"
       },
       "company": "SIX Group",
@@ -1177,7 +1177,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-fraud-monitoring-80-100-six-group-zurich"
+        "specialist-fraud-monitoring-80-100-six-group-zurich",
+        "specialista-monitoraggio-frodi-80-100-six-group-zurich",
+        "spezialisierte-uberwachung-von-betrug-80-100-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
