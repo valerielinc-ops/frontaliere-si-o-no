@@ -45352,16 +45352,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-frontalieri-pellicini-tavolo-lavoro': {
-    title: 'Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro&#8221;',
+    title: 'Ristorni frontalieri, Pellicini: “Subito il tavolo di lavoro”',
     description: 'Il deputato e sindaco di Luino sostiene la linea del Ministero dell\'Economia per risolvere la situazione di stallo sui ristorni. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, pellicini, 8220, subito',
-    ogTitle: 'Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro proposto dal Ministro Giorgetti&#8221;',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, pellicini, subito',
+    ogTitle: 'Ristorni frontalieri, Pellicini: “Subito il tavolo di lavoro proposto dal Ministro Giorgetti”',
     ogDescription: 'Il deputato e sindaco di Luino sostiene la linea del Ministero dell\'Economia per risolvere la situazione di stallo sui ristorni.',
     canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro&#8221;",
+      "headline": "Ristorni frontalieri, Pellicini: “Subito il tavolo di lavoro”",
       "description": "Il deputato e sindaco di Luino sostiene la linea del Ministero dell'Economia per risolvere la situazione di stallo sui ristorni. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -45893,6 +45893,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deduzione-figli-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso': {
+    title: 'LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    description: 'Analizziamo la sospensione dei ristorni Italia-Svizzera alla luce della Convenzione fiscale e della "tassa sulla salute", valutando implicazioni giuridiche e',
+    keywords: 'frontalieri, ticino, svizzera, italia, sospensione, ristorni, alla, prova',
+    ogTitle: 'LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    ogDescription: 'Analizziamo la sospensione dei ristorni Italia-Svizzera alla luce della Convenzione fiscale e della "tassa sulla salute", valutando implicazioni giuridiche e',
+    canonicalPath: '/articoli-frontaliere/la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”",
+      "description": "Analizziamo la sospensione dei ristorni Italia-Svizzera alla luce della Convenzione fiscale e della \"tassa sulla salute\", valutando implicazioni giuridiche e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acqua-non-potabile-lavizzara.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”"
+      },
+      "datePublished": "2026-07-03T07:41:06+00:00",
+      "dateModified": "2026-07-03T07:41:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -1882,7 +1882,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Vue panoramique de Lugano et des montagnes avoisinantes, prise avec un DSLR et un objectif à grande ouverture.',
  'blog.article.comuni-investono-turismo-ticino.title': 'Communes tessinoises investissent dans le secteur touristique : voici les détails',
  'blog.article.comuni-investono-turismo-ticino.excerpt': 'Les derniers mois ont vu plusieurs communes tessinoises investir dans des infrastructures touristiques.',
- 'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Tourisme du Tessin: Communes investissent dans le tourisme. Photo d&#39;un hôtel à Lugano.',
+ 'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Tourisme du Tessin: Communes investissent dans le tourisme. Photo d’un hôtel à Lugano.',
  'blog.article.agriscambio.title': 'De nombreux agriculteurs sur le point de prendre la retraite : le renouvellement est un défi',
  'blog.article.agriscambio.excerpt': 'Agriculteurs tessinois sur le point de prendre la retraite : qui est prêt à passer le relais ?',
  'blog.article.agriscambio.imageAlt': 'Un fermier ticin travaille sur une ferme.',
@@ -1895,7 +1895,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.diventare-pastore-ticino.title': 'Devenir pasteur au Tessin',
  'blog.article.diventare-pastore-ticino.excerpt': 'Le Canton du Tessin propose une formation pour devenir pasteur, ouverte à tous ceux qui s\'intéressent à cette profession.',
  'blog.article.diventare-pastore-ticino.imageAlt': 'Berger en Tessin',
- 'blog.article.trump-intesa-o-inferno.title': 'Trump : «Accord ou c&#39;est l&#39;enfer». Le mystère de l&#39;ultimatum reporté au mardi',
+ 'blog.article.trump-intesa-o-inferno.title': 'Trump : «Accord ou c’est l’enfer». Le mystère de l’ultimatum reporté au mardi',
  'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annonce un ultimatum à la Chine pendant la Pâques en Suisse italienne',
  'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump annonce un ultimatum à la Chine',
  'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop rappelle les fromages : ils peuvent contenir des salmonelles',
@@ -8234,6 +8234,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.deduzione-figli-frontalieri-2026.title': 'Frontalieri: déduction fiscale enfants supprimée ?',
     'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'Une initiative propose de supprimer la déduction fiscale pour les enfants des travailleurs transfrontaliers ayant des enfants à l’étranger.',
     'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Vue aérienne du front de lac de Lugano avec des documents fiscaux sur un bureau au premier plan',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'Ristournes suspendues: la convention et la «taxe santé»',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Analysons la suspension des restaurants Italie-Suisse à la lumière de la Convention fiscale et de la « taxe sur la santé », en évaluant les implications juridiques et',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Image éditoriale relative à: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
 };
 
 export default blogMetaFr;

@@ -48,6 +48,7 @@ import {
   weekendWindow,
   weekWindow,
   overlapsWindow,
+  hasConfidentPrice,
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -628,12 +629,16 @@ export function zurichOffset(isoDate: string): string {
 /**
  * schema.org/Event object for one agenda entry.
  *
- * `offers` is deliberately OMITTED: the agenda never exposes a price, and
- * asserting `price:"0"` (free) on paid concerts/theatre would misrepresent an
- * indexed page (structured-data policy risk). Google treats `offers` as
- * recommended-not-required, and validate-structured-data-completeness.mjs now
- * validates it only when present. Every other Google-required/recommended
- * Event field is emitted with a safe fallback.
+ * `offers` is emitted ONLY when `event.price` carries a confident price/free
+ * signal (`hasConfidentPrice` — real parsed amount or a matched free
+ * keyword); asserting `price:"0"` on a paid concert/theatre event would
+ * misrepresent an indexed page (structured-data policy risk), so an event
+ * with no price data on file (or an ambiguous "su richiesta"-style price
+ * that couldn't be parsed to a number) still gets no `offers` block at all.
+ * Google treats `offers` as recommended-not-required, and
+ * validate-structured-data-completeness.mjs validates it only when present.
+ * Every other Google-required/recommended Event field is emitted with a
+ * safe fallback.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   const cantonName = getCantonLabel(event.canton || 'TI', locale as CantonLocale);
@@ -696,12 +701,12 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // price/free signal, and always the FULL required shape together
     // (price+priceCurrency+availability+validFrom+url) so a partial offers
     // object never trips the "offers.field missing" gate.
-    ...(event.price
+    ...(hasConfidentPrice(event.price)
       ? {
           offers: {
             '@type': 'Offer',
-            price: event.price.isFree ? '0' : String(event.price.amount ?? '0'),
-            priceCurrency: event.price.currency || 'CHF',
+            price: event.price!.isFree ? '0' : String(event.price!.amount),
+            priceCurrency: event.price!.currency || 'CHF',
             availability: 'https://schema.org/InStock',
             validFrom: event.startDate,
             url: canonicalUrl || event.url,
@@ -1261,8 +1266,11 @@ function osmLink(event: SiteEvent, comune: string): { href: string; place: strin
 }
 
 function priceLine(event: SiteEvent, dc: DetailCopy): string {
-  if (!event.price) return '';
-  const value = event.price.isFree ? dc.freeLabel : `${event.price.currency || 'CHF'} ${event.price.amount ?? ''}`.trim();
+  // Same confidence gate as eventLd()'s `offers`: an ambiguous price (present
+  // but not machine-parseable, e.g. "su richiesta") renders nothing rather
+  // than a bare "CHF" with no amount.
+  if (!hasConfidentPrice(event.price)) return '';
+  const value = event.price!.isFree ? dc.freeLabel : `${event.price!.currency || 'CHF'} ${event.price!.amount}`.trim();
   return renderMetric(dc.priceLabel, esc(value));
 }
 

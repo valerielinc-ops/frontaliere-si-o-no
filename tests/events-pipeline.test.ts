@@ -10,7 +10,13 @@ import { describe, it, expect, vi } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { parseDayHtml, warnIfLowConfidenceComuneShare, mirrorEventImages } from '../scripts/crawl-tio-agenda.mjs';
+import {
+  parseDayHtml,
+  warnIfLowConfidenceComuneShare,
+  mirrorEventImages,
+  extractTioPrice,
+  enrichEventsWithPrice,
+} from '../scripts/crawl-tio-agenda.mjs';
 import {
   resolveComune,
   slugifyComune,
@@ -355,6 +361,81 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         'en',
       ),
     );
+  });
+
+  const baseEvent = {
+    id: 'tio-agenda:6',
+    title: 'Yoga e Pilates',
+    startDate: '2026-07-04',
+    canton: 'TI',
+    url: 'https://www.tio.ch/agenda/day/20260704/63071',
+    sourceKey: 'tio-agenda',
+    sourceName: 'Tio.ch Agenda',
+  };
+
+  it('emits offers with a real price when event.price has a confident amount', () => {
+    const ld = eventLd(
+      { ...baseEvent, price: { amount: 19, currency: 'CHF', isFree: false } },
+      'it',
+      'https://frontaliereticino.ch/eventi/ticino/melide/',
+    ) as Record<string, any>;
+    expect(ld.offers).toEqual({
+      '@type': 'Offer',
+      price: '19',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-07-04',
+      url: 'https://frontaliereticino.ch/eventi/ticino/melide/',
+    });
+  });
+
+  it('emits offers with price "0" when event.price is confidently free', () => {
+    const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true } }, 'it') as Record<string, any>;
+    expect(ld.offers?.price).toBe('0');
+  });
+
+  it('omits offers (never fabricates "0") when price is present but not machine-parseable', () => {
+    // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
+    // parsePriceText returns amount: null, isFree: false for this bucket.
+    const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
+    expect(ld.offers).toBeUndefined();
+  });
+});
+
+describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "Prezzo:" label)', () => {
+  it('parses a real "N CHF" price off a detail page', () => {
+    const html = '<div><span><strong>Prezzo:</strong> 19 CHF </span></div>';
+    expect(extractTioPrice(html)).toEqual({ amount: 19, currency: 'CHF', isFree: false });
+  });
+
+  it('returns undefined when the label is present but empty (tio.ch has no price on file)', () => {
+    const html = '<span class="d-none"> <strong>Prezzo:</strong></span>';
+    expect(extractTioPrice(html)).toBeUndefined();
+  });
+
+  it('returns undefined when the label is missing entirely (unexpected page shape)', () => {
+    expect(extractTioPrice('<div>no price label here</div>')).toBeUndefined();
+    expect(extractTioPrice('')).toBeUndefined();
+  });
+
+  it('enrichEventsWithPrice attaches price from the injected fetch, never mutates the source array', async () => {
+    const events = [
+      { id: 'tio-agenda:63071', url: 'https://www.tio.ch/agenda/day/20260704/63071' },
+      { id: 'tio-agenda:63038', url: 'https://www.tio.ch/agenda/day/20260703/63038' },
+    ];
+    const fakeFetch = async (url: string) =>
+      url.endsWith('63071') ? '<strong>Prezzo:</strong> 19 CHF' : '<span class="d-none"><strong>Prezzo:</strong></span>';
+    const out = await enrichEventsWithPrice(events, fakeFetch);
+    expect(out[0].price).toEqual({ amount: 19, currency: 'CHF', isFree: false });
+    expect(out[1].price).toBeUndefined();
+    expect(events[0].price).toBeUndefined(); // non-mutating
+  });
+
+  it('enrichEventsWithPrice leaves price unset on fetch failure (soft-fail, never fabricates)', async () => {
+    const events = [{ id: 'tio-agenda:1', url: 'https://www.tio.ch/agenda/day/20260704/1' }];
+    const failingFetch = async () => null;
+    const out = await enrichEventsWithPrice(events, failingFetch);
+    expect(out[0].price).toBeUndefined();
   });
 });
 

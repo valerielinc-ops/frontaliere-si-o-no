@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3084,
+ "numberOfItems": 3085,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7703,7 +7703,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3055, "name": "Frontaliere: Come Valutare Residenza in Italia ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-2026-residenza-italia-svizzera` },
           { "@type": "ListItem", "position": 3056, "name": "Frontaliere con figli: Guida pratica agli asili...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-figli-asilo-nido-svizzera` },
           { "@type": "ListItem", "position": 3057, "name": "Ristorni bloccati: Alfieri e Artoni chiedono l'...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-bloccati-alfieri-pd` },
-          { "@type": "ListItem", "position": 3058, "name": "Ristorni frontalieri, Pellicini: &#8220;Subito ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro` },
+          { "@type": "ListItem", "position": 3058, "name": "Ristorni frontalieri, Pellicini: “Subito ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-pellicini-tavolo-lavoro` },
           { "@type": "ListItem", "position": 3059, "name": "Guida 2026: Cambio lavoro per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-datore-lavoro-procedura-permesso-2026` },
           { "@type": "ListItem", "position": 3060, "name": "Ristorni frontalieri: Berna deplora lo stop del...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione` },
           { "@type": "ListItem", "position": 3061, "name": "Assicurazione infortuni LAINF 2026: copertura e...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-infortuni-lainf-frontalieri-2026` },
@@ -7730,7 +7730,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3082, "name": "Grigioni: 1,6 milioni dai 1’479 nuovi frontalie...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-frontalieri-italiani-1-6-milioni` },
           { "@type": "ListItem", "position": 3083, "name": "Vivere a Como e lavorare in Ticino da frontaliere", "url": `${BASE_URL}/articoli-frontaliere/vivere-come-lavorare-ticino` },
           { "@type": "ListItem", "position": 3084, "name": "Frontalieri: possibile rimozione deduzione fisc...", "url": `${BASE_URL}/articoli-frontaliere/deduzione-figli-frontalieri-2026` },
-          { "@type": "ListItem", "position": 3085, "name": "Vivere a Varese e lavorare in Ticino: guida com...", "url": `${BASE_URL}/articoli-frontaliere/vivere-varese-lavorare-ticino` }
+          { "@type": "ListItem", "position": 3085, "name": "Vivere a Varese e lavorare in Ticino: guida com...", "url": `${BASE_URL}/articoli-frontaliere/vivere-varese-lavorare-ticino` },
+          { "@type": "ListItem", "position": 3086, "name": "LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CO...", "url": `${BASE_URL}/articoli-frontaliere/la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso` }
  ]
  },
  {

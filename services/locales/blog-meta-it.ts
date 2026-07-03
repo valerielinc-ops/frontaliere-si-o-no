@@ -8192,7 +8192,7 @@ const blogMetaIt: Record<string, string> = {
   'blog.article.frontalieri-sede-datore-fuori-confine.title': 'Frontalieri: la sede del datore fuori confine non conta',
   'blog.article.frontalieri-sede-datore-fuori-confine.excerpt': 'L\'Agenzia delle Entrate, con l\'interpello 126/2026, chiarisce: se l\'attività è svolta nell\'area di frontiera italiana, la sede del datore fuori zona non preclude il regime dei frontalieri.',
   'blog.article.frontalieri-sede-datore-fuori-confine.imageAlt': 'Veduta di Mendrisio, città di confine del Canton Ticino, simbolo del lavoro frontaliero tra Italia e Svizzera.',
-    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Ristorni frontalieri, Pellicini: &#8220;Subito il tavolo di lavoro&#8221;',
+    'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.title': 'Ristorni frontalieri, Pellicini: “Subito il tavolo di lavoro”',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.excerpt': 'Il deputato e sindaco di Luino sostiene la linea del Ministero dell\'Economia per risolvere la situazione di stallo sui ristorni.',
     'blog.article.ristorni-frontalieri-pellicini-tavolo-lavoro.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
     'blog.article.ristorni-frontalieri-berna-deplora-lo-stop-del-cantone-ma-vuole-una-soluzione.title': 'Ristorni frontalieri: Berna deplora lo stop del cantone ma vuole una soluzione',
@@ -8234,6 +8234,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deduzione-figli-frontalieri-2026.title': 'Frontalieri: possibile rimozione deduzione fiscale per figli',
     'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'Un\'iniziativa propone di eliminare la deduzione fiscale per i figli dei lavoratori frontalieri con figli all\'estero.',
     'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Vista aerea del lungolago di Lugano con documenti fiscali in primo piano',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Analizziamo la sospensione dei ristorni Italia-Svizzera alla luce della Convenzione fiscale e della "tassa sulla salute", valutando implicazioni giuridiche e',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Immagine editoriale relativa a: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
 };
 
 export default blogMetaIt;
