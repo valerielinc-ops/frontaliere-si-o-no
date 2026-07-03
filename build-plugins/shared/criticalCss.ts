@@ -1,3 +1,5 @@
+import { BASE_URL } from '../constants';
+
 /**
  * Single source of truth for the first-paint CRITICAL CSS served to every
  * static SEO page as `/assets/critical.css` (written by
@@ -25,9 +27,19 @@
  * OOM (AGENTS.md), so this trade is shipped as an explicitly UNVALIDATED
  * perf claim with a stated revert trigger (see the PR). `/assets/critical.css`
  * is root-relative/same-origin like every other file `staticScriptsPlugin.ts`
- * emits (`early-boot.js`, `gtag-init.js`, …) — not pushed onto the separate
- * `cdn.frontaliereticino.ch` host, which would add a cross-origin
- * connection for no benefit on a render-blocking resource.
+ * emits (`early-boot.js`, `gtag-init.js`, …).
+ *
+ * NOTE this file DOES end up on `cdn.frontaliereticino.ch` in practice:
+ * `deploy-it-pages-prep.sh` stages the whole `dist/assets` directory
+ * (bundler chunks AND every `staticScriptsPlugin.ts`-written file alike) to
+ * the CDN, so static pages link `https://cdn.…/assets/critical.css`. That
+ * broke the `@font-face src: url(/fonts/…)` below: a root-relative CSS
+ * `url()` resolves against the STYLESHEET's own origin, not the document's —
+ * so once served cross-origin it pointed at `cdn.…/fonts/…`, which 404s
+ * (fonts are deliberately same-origin-only, see `vite.config.ts`
+ * `renderBuiltUrl`'s `type !== 'asset'` branch). ~13k wasted font 404s/day
+ * confirmed live 2026-07-03. Fixed by making the font `url()`s absolute to
+ * {@link BASE_URL} so resolution is origin-independent.
  *
  * Heading font (`Space Grotesk`, issue #2659): article/OG cold-loads showed a
  * dominant ~0.32 layout shift (live PerformanceObserver, 2026-06-23) because
@@ -332,7 +344,7 @@ export const SEO_SEARCH_HUB_RESERVE_CSS =
   '.s-USY9TF{margin:0 0 22px}';
 
 export const CRITICAL_CSS =
-  '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}' +
+  `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
   RAIL_RESERVE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
   SEO_STATIC_HERO_RESERVE_CSS +
