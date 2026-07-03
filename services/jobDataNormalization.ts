@@ -193,6 +193,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'eta-sa-swatch-group': '/images/brands/eta-sa-swatch-group.ico',
  'eth-zurich': cLogo('ethzurich.ch'),
  'fart': gFavicon('fartiamo.ch'),
+ 'ferring': cLogo('ferring.com'),
  'ferrovia-retica': '/images/brands/ferrovia-retica.png',
  'ffs-officine-ferrovie-federali': 'https://cdn.app.sbb.ch/favicons/sbb/v1/apple-touch-icon-180x180.png',
  'fhgr': '/images/brands/fhgr.png',
