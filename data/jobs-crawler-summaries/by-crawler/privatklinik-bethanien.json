@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-bethanien",
   "label": "Privatklinik Bethanien",
-  "generatedAt": "2026-07-02T22:42:57.662Z",
-  "total": 9,
+  "generatedAt": "2026-07-03T12:26:56.859Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13832,
-  "avgDurationMs": 13832,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 13986,
+  "avgDurationMs": 13986,
   "durationHistory": [
-    13832
+    13986
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135411990-fachperson-gesundheit-efz-50-100-fur-einer-interdisziplinaren-abteilung",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:48.613Z",
+      "crawledAt": "2026-07-03T12:26:48.373Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134934322-lagerungspfleger-in-operationssaal",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:49.637Z",
+      "crawledAt": "2026-07-03T12:26:49.275Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000127598574-dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:55.479Z",
+      "crawledAt": "2026-07-03T12:26:54.888Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131445359-stv-leitung-physiotherapie",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:50.589Z",
+      "crawledAt": "2026-07-03T12:26:50.236Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131380759-dipl-pflegefachperson-hf-fh-als-dauernachtwache-pensum-50-80-",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:51.558Z",
+      "crawledAt": "2026-07-03T12:26:51.153Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -218,7 +218,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130790389-dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-viszeral-chirurgie-hno-innere-medizin",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:52.528Z",
+      "crawledAt": "2026-07-03T12:26:52.068Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130787834-dipl-pflegefachperson-hf-fh-60-100-schwerpunkt-gynakologie-und-wochenbett",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:53.501Z",
+      "crawledAt": "2026-07-03T12:26:52.985Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130787809-dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-rekonstruktive-chirurgie",
       "source": "Privatklinik Bethanien Dedicated Parser (SMN clinic=PKB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:42:54.483Z",
+      "crawledAt": "2026-07-03T12:26:53.907Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -319,8 +319,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "privatklinik-bethanien-307f3bab909e",
       "slug": "gestione-del-gruppo-privatklinik-bethanien-zurich",
@@ -362,5 +361,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
