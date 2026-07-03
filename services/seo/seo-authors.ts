@@ -99,16 +99,23 @@ function buildPersonJsonLd(author: Author, canonical: string): Record<string, un
 /**
  * Builds the SEO payload for an author profile page.
  *
- * @throws Error when the slug does not match a registered author. Authors are
+ * Accepts either a slug (resolved against the static registry — used by SSG
+ * and tests) or an already-resolved `Author` object. Callers holding a
+ * CSR-merged author (admin `author_profiles/{slug}` patch applied on top of
+ * the static registry — see `AutorePage.tsx`) MUST pass the merged object,
+ * not the slug, so the emitted Person JSON-LD matches the visible bio/photo/
+ * social instead of silently reverting to the stale static registry values.
+ *
+ * @throws Error when a slug does not match a registered author. Authors are
  *   a closed registry; an unknown slug is a programming error, not user input.
  */
-export function buildAuthorSeo(slug: string, locale: AuthorLocale = 'it'): AuthorSeo {
-  const author = getAuthorBySlug(slug);
+export function buildAuthorSeo(authorOrSlug: string | Author, locale: AuthorLocale = 'it'): AuthorSeo {
+  const author = typeof authorOrSlug === 'string' ? getAuthorBySlug(authorOrSlug) : authorOrSlug;
   if (!author) {
-    throw new Error(`buildAuthorSeo: unknown author slug "${slug}"`);
+    throw new Error(`buildAuthorSeo: unknown author slug "${authorOrSlug}"`);
   }
   const labels = LOCALE_LABELS[locale];
-  const canonical = buildCanonical(slug, locale);
+  const canonical = buildCanonical(author.slug, locale);
   const title = `${author.name} — ${author.role} | ${labels.suffix}`;
   const description = buildDescription(author);
   const ogImage = `${BASE_URL}${author.photoPath}`;
