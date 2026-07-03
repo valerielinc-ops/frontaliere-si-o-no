@@ -60,7 +60,7 @@ describe('processDoc — live gate (issue #3209 item 2 follow-up)', () => {
     expect(fetchSpy).toHaveBeenCalled();
     expect(docSnap.ref.update).toHaveBeenCalledWith(
       expect.objectContaining({
-        'linkCheck.it': expect.objectContaining({ totalLinks: 0, brokenLinks: 0 }),
+        linkCheck: expect.objectContaining({ totalLinks: 0, brokenLinks: 0, localesChecked: 1 }),
       }),
     );
   });
