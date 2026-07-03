@@ -409,7 +409,15 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-07-02T11:47:22.304Z"
+      "firstSeenAt": "2026-07-02T11:47:22.304Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "machine-operator-m2-and-m7-grand-dumper-pemsa-sion"
+        ]
+      },
+      "previousSlugs": [
+        "machine-operator-m2-and-m7-grand-dumper-pemsa-sion"
+      ]
     },
     {
       "title": "Pittore/Gessatore",
@@ -473,8 +481,14 @@
         "pittore-pemsa-mendrisio",
         "painter-pemsa-mendrisio",
         "maler-pemsa-mendrisio",
-        "peintre-pemsa-mendrisio"
-      ]
+        "peintre-pemsa-mendrisio",
+        "painter-gessator-pemsa-mendrisio"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "painter-gessator-pemsa-mendrisio"
+        ]
+      }
     },
     {
       "title": "PITTORE",
@@ -781,7 +795,15 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-07-02T11:47:22.304Z"
+      "firstSeenAt": "2026-07-02T11:47:22.304Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "cartongess-pemsa-locarno"
+        ]
+      },
+      "previousSlugs": [
+        "cartongess-pemsa-locarno"
+      ]
     },
     {
       "title": "Caposquadra lavori di ristrutturazione",
@@ -839,7 +861,15 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-02T11:47:22.304Z"
+      "firstSeenAt": "2026-07-02T11:47:22.304Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "head-of-restructuring-pemsa-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-restructuring-pemsa-fribourg"
+      ]
     },
     {
       "title": "Idraulico",
@@ -1024,8 +1054,14 @@
       "postalCode": "1700",
       "firstSeenAt": "2026-07-02T11:47:22.304Z",
       "previousSlugs": [
-        "muratore-carpentiere-edile-pemsa-bellinzona"
-      ]
+        "muratore-carpentiere-edile-pemsa-bellinzona",
+        "masonry-and-building-carpenters-pemsa-fribourg"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "masonry-and-building-carpenters-pemsa-fribourg"
+        ]
+      }
     },
     {
       "title": "Tecnico dell’assistenza post-vendita – Box doccia",
