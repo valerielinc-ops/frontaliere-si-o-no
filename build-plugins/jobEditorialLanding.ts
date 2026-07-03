@@ -1178,7 +1178,15 @@ const JOB_SECTOR_DEFS: Record<JobLandingSectorKey, {
  health: {
  slug: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
  label: { it: 'Sanita', en: 'Health', de: 'Gesundheit', fr: 'Sante' },
- matcher: (job) => normalizeSpace(job.category || '').toLowerCase() === 'health' || /\b(nurse|infermier|caregiver|oss|socioassist|health|clinic|clinica|hospital|ospedal|spitex)\b/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''}`)),
+ matcher: (job) => {
+ const titleText = normalizeSpace(`${job.title || ''}`);
+ const contextText = normalizeSpace(`${job.title || ''} ${job.description || ''}`);
+ // Same bare-"oss" collision fixed in CARE_CLUSTER_DEFS.oss above (e.g.
+ // SAP's "OSS notes" support jargon) — keep it title-only here too.
+ if (normalizeSpace(job.category || '').toLowerCase() === 'health') return true;
+ if (/\boss\b/i.test(titleText)) return true;
+ return /\b(nurse|infermier|caregiver|socioassist|health|clinic|clinica|hospital|ospedal|spitex)\b/i.test(contextText);
+ },
  },
  finance: {
  slug: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
@@ -1188,7 +1196,16 @@ const JOB_SECTOR_DEFS: Record<JobLandingSectorKey, {
  tech: {
  slug: { it: 'tecnologia', en: 'tech', de: 'technik', fr: 'tech' },
  label: { it: 'Tecnologia', en: 'Tech', de: 'Technik', fr: 'Tech' },
- matcher: (job) => normalizeSpace(job.category || '').toLowerCase() === 'tech' || /\b(software|developer|engineer|it\b|data|frontend|backend|devops|cloud|cyber|analytics)\b/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''}`)),
+ matcher: (job) => {
+ const titleText = normalizeSpace(`${job.title || ''}`);
+ const contextText = normalizeSpace(`${job.title || ''} ${job.description || ''}`);
+ // Bare "it" collides with the English pronoun in free-text descriptions
+ // ("...ensure it is completed...") — same collision class as the "oss"
+ // fix above, keep title-only. Longer/unambiguous tokens stay in context.
+ if (normalizeSpace(job.category || '').toLowerCase() === 'tech') return true;
+ if (/\bit\b/i.test(titleText)) return true;
+ return /\b(software|developer|engineer|data|frontend|backend|devops|cloud|cyber|analytics)\b/i.test(contextText);
+ },
  },
  engineering: {
  slug: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
@@ -1198,7 +1215,16 @@ const JOB_SECTOR_DEFS: Record<JobLandingSectorKey, {
  admin: {
  slug: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
  label: { it: 'Amministrazione', en: 'Admin', de: 'Verwaltung', fr: 'Administration' },
- matcher: (job) => normalizeSpace(job.category || '').toLowerCase() === 'admin' || /\b(admin|office|back office|assistant|assistente|segretari|hr\b|human resources|customer service|contabile)\b/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''}`)),
+ matcher: (job) => {
+ const titleText = normalizeSpace(`${job.title || ''}`);
+ const contextText = normalizeSpace(`${job.title || ''} ${job.description || ''}`);
+ // Bare "hr" collides with "Hr." (German honorific for Herr/Mr.) in
+ // free-text contact blocks — same collision class as the "oss" fix
+ // above, keep title-only. Longer/unambiguous tokens stay in context.
+ if (normalizeSpace(job.category || '').toLowerCase() === 'admin') return true;
+ if (/\bhr\b/i.test(titleText)) return true;
+ return /\b(admin|office|back office|assistant|assistente|segretari|human resources|customer service|contabile)\b/i.test(contextText);
+ },
  },
  hospitality: {
  slug: { it: 'ristorazione-hotel', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie-restauration' },
