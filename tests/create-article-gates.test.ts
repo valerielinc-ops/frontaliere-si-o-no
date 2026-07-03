@@ -76,6 +76,35 @@ const dupReasonRunner = new Function(
 return { captureDuplicateReasons, duplicateReasonTag };`,
 );
 
+// #3010 (generator-class fix, PR follow-up to #3007): checkForDuplicates()
+// used to only check `it` slug uniqueness against the registry — the EN/DE/FR
+// slugs are auto-translated and went unchecked, which is exactly how the
+// svizzera near-duplicate pairs collided despite having different IT slugs.
+// checkTranslatedSlugCollisions() now guards every locale and is reused
+// (not reimplemented) by publish-journalist-article.mjs, which derives its
+// own translated slugs. Extracted straight from the source so a regression
+// back to IT-only silently reintroduces the bug without failing a test.
+const slugCollisionBlock = src.match(
+  /function checkTranslatedSlugCollisions\(data\) \{[\s\S]*?\n\}\n\n\/\/ ── Image search helpers/,
+);
+if (!slugCollisionBlock) throw new Error('checkTranslatedSlugCollisions() block not found');
+
+const slugCollisionRunner = new Function(
+  'readSectionSlugData',
+  'escapeRegex',
+  'SECTION_SLUG_DATA_FILE',
+  `${slugCollisionBlock[0].replace(/\n\n\/\/ ── Image search helpers$/, '')}
+return checkTranslatedSlugCollisions;`,
+);
+
+function makeCheckTranslatedSlugCollisions(sectionSlugSrc: string) {
+  return slugCollisionRunner(
+    () => sectionSlugSrc,
+    (s: string) => String(s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+    'routerSwissData.ts',
+  ) as (data: { slugs: Record<string, string> }) => void;
+}
+
 describe('create-article gate helpers', () => {
   it('resolves Google News RSS wrappers to a direct proven-source headline', () => {
     const resolved = resolveGoogleNewsHeadline(
@@ -217,5 +246,99 @@ describe('captureDuplicateReasons / duplicateReasonTag (#3138)', () => {
     };
     const tag = duplicateReasonTag('❌ DUPLICATO RILEVATO:\n   Segnali:   titolo: 0.80');
     expect(tag).toBe('lessicale (titolo: 0.80)');
+  });
+});
+
+// #3010: two articles can have completely different (unique) IT slugs while
+// their auto-translated EN/DE/FR slugs collide — this is exactly how the
+// three svizzera near-duplicate pairs were created. checkTranslatedSlugCollisions()
+// must reject that the same way it rejects an IT-slug collision (same thrown
+// error shape, same DUPLICATO prefix) regardless of which locale collides.
+describe('checkTranslatedSlugCollisions (#3010 generator-class fix)', () => {
+  const existingRegistrySrc = `
+export const REVERSE_SWISS = {
+  'existing-article-id': {
+    it: 'tassazione-frontalieri-2026-nuovo-accordo',
+    en: 'cross-border-taxation-2026-new-agreement',
+    de: 'grenzgaenger-besteuerung-2026-neues-abkommen',
+    fr: 'fiscalite-frontaliers-2026-nouvel-accord',
+  },
+};`;
+
+  it('rejects a new article whose IT slug is unique but whose EN slug collides with an existing article', () => {
+    const check = makeCheckTranslatedSlugCollisions(existingRegistrySrc);
+    const newArticle = {
+      slugs: {
+        it: 'frontaliere-tassazione-2026-regole-accordo', // different IT slug — would NOT be caught by an IT-only check
+        en: 'cross-border-taxation-2026-new-agreement', // collides
+        de: 'grenzgaenger-steuerregeln-2026-vereinbarung',
+        fr: 'regles-fiscales-frontaliers-2026-accord',
+      },
+    };
+
+    expect(() => check(newArticle)).toThrow(/❌ DUPLICATO: Lo slug en "cross-border-taxation-2026-new-agreement" esiste già/);
+  });
+
+  it('rejects a new article whose IT slug is unique but whose DE slug collides', () => {
+    const check = makeCheckTranslatedSlugCollisions(existingRegistrySrc);
+    const newArticle = {
+      slugs: {
+        it: 'un-titolo-completamente-diverso',
+        en: 'a-completely-different-title',
+        de: 'grenzgaenger-besteuerung-2026-neues-abkommen', // collides
+        fr: 'un-titre-completement-different',
+      },
+    };
+
+    expect(() => check(newArticle)).toThrow(/❌ DUPLICATO: Lo slug de "grenzgaenger-besteuerung-2026-neues-abkommen" esiste già/);
+  });
+
+  it('rejects a new article whose IT slug is unique but whose FR slug collides', () => {
+    const check = makeCheckTranslatedSlugCollisions(existingRegistrySrc);
+    const newArticle = {
+      slugs: {
+        it: 'un-titolo-completamente-diverso',
+        en: 'a-completely-different-title',
+        de: 'ein-komplett-anderer-titel',
+        fr: 'fiscalite-frontaliers-2026-nouvel-accord', // collides
+      },
+    };
+
+    expect(() => check(newArticle)).toThrow(/❌ DUPLICATO: Lo slug fr "fiscalite-frontaliers-2026-nouvel-accord" esiste già/);
+  });
+
+  it('still rejects an IT slug collision (regression: pre-#3010 behavior preserved)', () => {
+    const check = makeCheckTranslatedSlugCollisions(existingRegistrySrc);
+    const newArticle = {
+      slugs: {
+        it: 'tassazione-frontalieri-2026-nuovo-accordo', // collides
+        en: 'a-completely-different-title',
+        de: 'ein-komplett-anderer-titel',
+        fr: 'un-titre-completement-different',
+      },
+    };
+
+    expect(() => check(newArticle)).toThrow(/❌ DUPLICATO: Lo slug it "tassazione-frontalieri-2026-nuovo-accordo" esiste già/);
+  });
+
+  it('does not throw when every locale slug is unique across the registry', () => {
+    const check = makeCheckTranslatedSlugCollisions(existingRegistrySrc);
+    const newArticle = {
+      slugs: {
+        it: 'un-titolo-completamente-diverso',
+        en: 'a-completely-different-title',
+        de: 'ein-komplett-anderer-titel',
+        fr: 'un-titre-completement-different',
+      },
+    };
+
+    expect(() => check(newArticle)).not.toThrow();
+  });
+
+  it('fails loud (not silently) when a locale slug is missing before the collision check', () => {
+    const check = makeCheckTranslatedSlugCollisions(existingRegistrySrc);
+    const newArticle = { slugs: { it: 'ok-slug', en: '', de: 'ok-de-slug', fr: 'ok-fr-slug' } };
+
+    expect(() => check(newArticle)).toThrow(/Slug "en" mancante prima del controllo duplicati/);
   });
 });

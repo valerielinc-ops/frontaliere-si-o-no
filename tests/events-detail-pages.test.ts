@@ -18,6 +18,7 @@ import {
   renderDigestPage,
   DIGESTS,
 } from '../build-plugins/eventsSeoPagesPlugin';
+import { SITE_LICENSE_PAGE } from '../services/seo/imageObjectLd';
 import { MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { parsePath } from '../services/router';
 
@@ -134,13 +135,40 @@ describe('eventLd nationwide fields (#3125)', () => {
     expect(ld.offers.priceCurrency).toBe('CHF');
   });
 
-  it('uses the local mirrored image path for image (absolute-ized), falling back to the site image', () => {
-    const withImage = { ...EVENT, imageUrl: '/images/events/guidle-abc.jpg' };
-    const ldWithImage = eventLd(withImage as never, 'it') as Record<string, any>;
-    expect(ldWithImage.image).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
+  it('emits an ImageObject (GSC licensable-image quintet) with the mirrored image path, absolute-ized', () => {
+    const withImage = { ...EVENT, imageUrl: '/images/events/guidle-abc.jpg', sourceName: 'Guidle' };
+    const ld = eventLd(withImage as never, 'it') as Record<string, any>;
+    expect(ld.image['@type']).toBe('ImageObject');
+    expect(ld.image.contentUrl).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
+    expect(ld.image.url).toBe('https://frontaliereticino.ch/images/events/guidle-abc.jpg');
+    // Attribution IS honestly known (the crawl source) — credited.
+    expect(ld.image.creditText).toBe('Guidle');
+    // No third-party license is ever scraped (issue #3036 item 3) — never
+    // fabricate one; fall back to the site's OWN terms page + Organization,
+    // never a claim of the third party's copyright.
+    expect(ld.image.license).toBe(SITE_LICENSE_PAGE);
+    expect(ld.image.acquireLicensePage).toBe(SITE_LICENSE_PAGE);
+    expect(ld.image.creator).toEqual({
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+      url: 'https://frontaliereticino.ch',
+    });
+    expect(ld.image.copyrightNotice).toBeTruthy();
+  });
 
+  it('falls back to the plain site image URL when the event has no image', () => {
     const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
     expect(withoutImage.image).toBe('https://frontaliereticino.ch/og-image.png');
+  });
+
+  it('never hotlinks a raw non-mirrored third-party image URL — degrades to the site image instead', () => {
+    // Defense-in-depth: every crawler is contracted to only ever store a
+    // mirrored `/images/events/...` path (or leave imageUrl unset), but a
+    // stale pre-mirroring dataset snapshot could still carry a raw URL. That
+    // must NEVER be embedded (hotlinked) into production JSON-LD.
+    const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
+    const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
+    expect(ld.image).toBe('https://frontaliereticino.ch/og-image.png');
   });
 });
 
@@ -468,5 +496,76 @@ describe('renderHubPage / renderComunePage generalize to a non-TI canton (#3125 
     });
     expect(tiPage.urlPath).toBe('/eventi/ticino/lugano/');
     expect(tiPage.html).toContain('in Ticino');
+  });
+});
+
+// #3141 item 2: the tio-agenda MVP source never crawls a real per-event
+// description, so the "about" paragraph is templated boilerplate shared by
+// every event in the same comune+category — a near-duplicate/thin-content
+// risk that grows with event volume per comune. `venue` is present on ~98%
+// of live events and highly distinct even within one comune, so folding it
+// into the sentence gives each page a real, data-backed differentiator.
+describe('renderEventDetailPage about-paragraph venue differentiation (#3141 item 2)', () => {
+  const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-detail-venue-'));
+
+  it('includes the venue in the about paragraph when present', () => {
+    const page = renderEventDetailPage({
+      locale: 'it',
+      event: EVENT as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(EVENT),
+      sameComuneEvents: [EVENT] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(page.html).toContain('è un evento di tipo');
+    expect(page.html).toContain('LAC Lugano Arte e Cultura');
+  });
+
+  it('produces a different about paragraph for two otherwise-identical events at different venues (collision case)', () => {
+    const eventA = { ...EVENT, id: 'tio-agenda:100', venue: 'Teatro Cittadella' };
+    const eventB = { ...EVENT, id: 'tio-agenda:200', venue: 'Piazza Riforma' };
+    const pageA = renderEventDetailPage({
+      locale: 'it',
+      event: eventA as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(eventA),
+      sameComuneEvents: [eventA] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const pageB = renderEventDetailPage({
+      locale: 'it',
+      event: eventB as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(eventB),
+      sameComuneEvents: [eventB] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(pageA.html).toContain('Teatro Cittadella');
+    expect(pageB.html).toContain('Piazza Riforma');
+    expect(pageA.html).not.toContain('Piazza Riforma');
+    expect(pageB.html).not.toContain('Teatro Cittadella');
+  });
+
+  it('falls back gracefully (no dangling separator) when venue is missing', () => {
+    const noVenueEvent = { ...EVENT, venue: undefined };
+    const page = renderEventDetailPage({
+      locale: 'it',
+      event: noVenueEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(noVenueEvent),
+      sameComuneEvents: [noVenueEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(page.html).toContain('a Lugano, in Ticino');
+    expect(page.html).not.toContain('a Lugano – ');
+    expect(page.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
   });
 });

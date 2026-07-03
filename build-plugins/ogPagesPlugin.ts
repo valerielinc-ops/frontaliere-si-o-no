@@ -20,6 +20,7 @@ import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl } from './shared/swissArticleCanonicalOverrides';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -96,6 +97,15 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  let totalEntries = 0;
 
  for (const SECTION of SECTIONS) {
+
+ // Issue #3010 item 1: svizzera-section near-duplicate articles (PR #3000
+ // de-collided their slugs, both are live now) declare a cross-URL
+ // canonical + og:url pointing at the authoritative pair member instead of
+ // self, so Google consolidates ranking signal without either page being
+ // removed/de-listed. See data/swiss-article-canonical-overrides.json.
+ const swissArticleCanonicalOverrides = SECTION.name === 'svizzera'
+ ? loadSwissArticleCanonicalOverrides(fs, np.resolve(rootDir, 'data/swiss-article-canonical-overrides.json'))
+ : {};
 
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
@@ -750,6 +760,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const bodySections = cleanupArticleBodySections(allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })));
  const canonicalPath = withTrailingSlash(urlPath);
  const full = `${BASE_URL}${canonicalPath}`;
+ // Issue #3010 item 1: shadowed near-duplicate variants (see
+ // swissArticleCanonicalOverrides above) resolve to the authoritative
+ // pair member's URL here; everything else (JSON-LD url/mainEntityOfPage,
+ // sitemap, RSS, routing) still uses this page's own URL/content — the
+ // page stays live, only the canonical hint + og:url change.
+ const effectiveCanonicalUrl = resolveSwissArticleCanonicalUrl(articleSlugForLocale, swissArticleCanonicalOverrides, full);
  const imgU = `${BASE_URL}${en.img}`;
  const pp = urlPath.slice(1).replace(/&/g, '~and~');
  const href = Object.entries(lp)
@@ -1003,9 +1019,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  ${FAVICON_LINKS}
  <title>${esc(htmlPageTitle)}</title>
  <meta name="description" content="${esc(clampMetaDescription(metaDesc))}">
- <link rel="canonical" href="${full}">
+ <link rel="canonical" href="${effectiveCanonicalUrl}">
  <meta property="og:type" content="article">
- <meta property="og:url" content="${full}">
+ <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:title" content="${esc(localizedTitle)}">
  <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
  <meta property="og:image" content="${imgU}">

@@ -43,7 +43,9 @@ import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const DIST = join(ROOT, 'dist');
+// Exported so tests can build realistic `filePath` args for the classifier
+// helpers below without duplicating the dist/ layout assumption.
+export const DIST = join(ROOT, 'dist');
 
 // Hard-coded to match `npm run audit:*` invocations in package.json. If you
 // change the npm scripts, update these constants in lock-step.
@@ -750,7 +752,30 @@ class JobPostingAudit {
   }
 }
 
-// ───── validate-structured-data-completeness helpers (verbatim) ──────────────
+// ───── validate-structured-data-completeness helpers (verbatim, except the
+// fuel-slug check below) ───────────────────────────────────────────────────
+//
+// sdClassifyPage()'s 'fuel' branch and sdValidateFuelMerchantProduct()'s
+// section guard now delegate to the shared FUEL_SECTION_RX
+// (scripts/lib/fuelSections.mjs) instead of the inline 7-slug alternation
+// still used by validate-structured-data-completeness.mjs itself — the same
+// drift-prone pattern #2857 fixed in build-legacy-aliases.mjs and
+// report-dist-bytes-by-plugin.mjs. This is safe here (unlike the original
+// validate-structured-data-completeness.mjs, which stays untouched per
+// #3299's declared exception for its live JobPosting-schema gate):
+// `audit-dist-multi` is not itself invoked by any automated CI workflow
+// (excluded from the dist-parallel reachability check in
+// tests/deploy-workflow.test.ts — "aggregators that wrap other audits"; only
+// reachable via the manual audit-dist-from-run.yml replay), and the shared
+// module's own docblock already lists `audit-dist-multi` as an intended
+// FUEL_SECTION_RX consumer. The 5 legacy-alias slugs the shared regex adds
+// (`prezzi-benzina-svizzera`, `prezzi-carburante-svizzera`,
+// `fuel-prices-switzerland`, `prix-diesel-suisse`, `benzinpreise-schweiz`)
+// are redirect-only compat paths with no real emitted dist/*.html Product
+// schema today (see canton-snapshot-prose-comparator-href.test.ts IT_DEAD),
+// so widening the match is behavior-neutral in practice — see
+// tests/seo/fuel-section-classifier.test.ts for the classification/
+// completeness parity check.
 
 function sdIsNonEmpty(v) {
   if (v === null || v === undefined) return false;
@@ -760,9 +785,9 @@ function sdIsNonEmpty(v) {
   return Boolean(v);
 }
 
-function sdClassifyPage(filePath) {
+export function sdClassifyPage(filePath) {
   const rel = relative(DIST, filePath);
-  if (/(^|\/)(prezzi-(diesel|benzina)|diesel-price-switzerland|gasoline-price-switzerland|dieselpreis-schweiz|benzinpreis-schweiz|prix-gasoil-suisse|prix-essence-suisse)\//.test(rel)) {
+  if (FUEL_SECTION_RX.test(rel)) {
     return 'fuel';
   }
   if (/cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin/.test(rel)) {
@@ -1052,12 +1077,12 @@ function sdValidateInLanguageWhitelist(schema, filePath) {
   return errors;
 }
 
-function sdValidateFuelMerchantProduct(schema, filePath) {
+export function sdValidateFuelMerchantProduct(schema, filePath) {
   const errors = [];
   const types = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
   if (!types.includes('Product')) return errors;
   const rel = relative(DIST, filePath);
-  if (!/(^|\/)(prezzi-(diesel|benzina)|diesel-price-switzerland|gasoline-price-switzerland|dieselpreis-schweiz|benzinpreis-schweiz|prix-gasoil-suisse|prix-essence-suisse)\//.test(rel)) {
+  if (!FUEL_SECTION_RX.test(rel)) {
     return errors;
   }
   const hasImage = Array.isArray(schema.image)
@@ -1970,7 +1995,17 @@ async function main() {
   process.exit(allPassed ? 0 : 1);
 }
 
-main().catch((err) => {
-  console.error('audit-dist-multi crashed:', err);
-  process.exit(2);
-});
+// Guard so this module can be imported (e.g. by vitest, to unit-test the
+// classifier helpers below) without triggering the real dist/ walk + CLI
+// exit codes — same `invokedDirectly` convention as audit-title-length.mjs.
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('audit-dist-multi crashed:', err);
+    process.exit(2);
+  });
+}

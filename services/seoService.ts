@@ -8,7 +8,7 @@ import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './rout
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
-import { bustAssetHttpCache } from './resilientImport';
+import { bustAssetHttpCache, isChunkLoadError } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { cdnBlogImage } from './seo/blogImageCdn';
@@ -25,13 +25,12 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  try {
  return await factory();
  } catch (err) {
- const msg = err instanceof Error ? err.message : String(err);
- const isChunkError =
- msg.includes('Failed to fetch dynamically imported module') ||
- msg.includes('Loading chunk') ||
- msg.includes('Loading CSS chunk') ||
- msg.includes('error loading dynamically imported module');
- if (!isChunkError) throw err;
+ // Shared isChunkLoadError predicate (resilientImport.ts) instead of a
+ // hand-copied substring list — this file used to carry its own literal
+ // copy (missing WebKit's "Importing a module script failed" wording) that
+ // had drifted from resilientImport.ts's (issue #3216 item 1; AGENTS.md
+ // §Non-Negotiables #6).
+ if (!isChunkLoadError(err)) throw err;
 
  // Clear SW caches and retry once. CacheStorage alone is not enough: the
  // chunk also lives in the HTTP disk cache (stable-named, max-age=600), which

@@ -51,6 +51,8 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Build publisher-submitted slice from paid ads
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build-publisher-jobs.mjs --stats
 
       # Data-refresh-to-main gate (AGENTS: a bot commit to main must validate the

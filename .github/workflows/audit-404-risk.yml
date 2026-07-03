@@ -76,9 +76,9 @@ jobs:
           const b = r.checks?.newsletterHubLinks ?? { wouldBe404: 0, companiesSampled: 0, sample: [] };
           const total = a.wouldBe404 + b.wouldBe404;
           let md = `## 404-risk audit: ${total} URL(s) would return a GitHub Pages 404\n\n`;
-          md += `Served set: ${r.servedSetSize} paths (shards: ${JSON.stringify(r.meta?.shards ?? {})}).\n`;
+          md += `Served set: ${r.servedSetSize} paths (shards: ${JSON.stringify(r.meta?.shards ?? {})}, ticino shards: ${JSON.stringify(r.meta?.ticinoShards ?? {})}).\n`;
           md += `**Run:** ${process.env.RUN_URL}\n\n`;
-          md += `These URLs are referenced (in sitemaps or by the newsletter builder) but have no served page — neither the main repo nor the en/de/fr shard repos. Each one is a silent 404.\n\n`;
+          md += `These URLs are referenced (in sitemaps or by the newsletter builder) but have no served page — neither the main repo, the en/de/fr shard repos, nor the frontaliere-ticino-<locale> shard repos. Each one is a silent 404.\n\n`;
           md += `### (A) Sitemap coverage — ${a.wouldBe404} / ${a.totalUrls} sitemap URLs have no served page\n`;
           for (const u of a.sample ?? []) md += `- \`${u}\`\n`;
           if (a.wouldBe404 > (a.sample ?? []).length) md += `- … and ${a.wouldBe404 - a.sample.length} more (raise \`--limit\` to list all)\n`;

@@ -6,11 +6,11 @@
  * data/events.json to main, so a malformed agenda parse can never poison the
  * dataset / turn main red (AGENTS.md: data-refresh = same gate as a PR).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { parseDayHtml } from '../scripts/crawl-tio-agenda.mjs';
+import { parseDayHtml, warnIfLowConfidenceComuneShare, mirrorEventImages } from '../scripts/crawl-tio-agenda.mjs';
 import {
   resolveComune,
   slugifyComune,
@@ -89,6 +89,39 @@ describe('parseDayHtml (tio.ch agenda card parser)', () => {
   });
 });
 
+describe('mirrorEventImages (issue #3036 item 3 — tio-agenda no-hotlink policy)', () => {
+  // No live network / CDN upload in tests: mirrorFn is injected exactly for
+  // this, per the task's "do not trigger a live crawl or live CDN upload" rule.
+  it('replaces each raw flyer URL with the mirrored site-relative path the mirror function returns', async () => {
+    const events = [
+      { id: 'tio-agenda:1', imageUrl: 'https://biglietteria.ch/flyer1.jpg' },
+      { id: 'tio-agenda:2', imageUrl: 'https://biglietteria.ch/flyer2.jpg' },
+    ];
+    const fakeMirror = async (url, id) => `/images/events/${id.replace(':', '-')}.jpg`;
+    const out = await mirrorEventImages(events, fakeMirror);
+    expect(out[0].imageUrl).toBe('/images/events/tio-agenda-1.jpg');
+    expect(out[1].imageUrl).toBe('/images/events/tio-agenda-2.jpg');
+    // Non-mutating: source array untouched.
+    expect(events[0].imageUrl).toBe('https://biglietteria.ch/flyer1.jpg');
+  });
+
+  it('drops imageUrl (never falls back to the raw URL) when the event had none to start with', async () => {
+    const events = [{ id: 'tio-agenda:3', imageUrl: '' }, { id: 'tio-agenda:4' }];
+    const fakeMirror = async (url) => (url ? '/images/events/mirrored.jpg' : null);
+    const out = await mirrorEventImages(events, fakeMirror);
+    expect(out[0].imageUrl).toBeUndefined();
+    expect(out[1].imageUrl).toBeUndefined();
+  });
+
+  it('drops imageUrl (never leaves the raw external URL) when mirroring fails', async () => {
+    const events = [{ id: 'tio-agenda:5', imageUrl: 'https://biglietteria.ch/flyer5.jpg' }];
+    const failingMirror = async () => null;
+    const out = await mirrorEventImages(events, failingMirror);
+    // undefined, not the raw biglietteria.ch URL — never hotlinked as a fallback.
+    expect(out[0].imageUrl).toBeUndefined();
+  });
+});
+
 describe('events-utils helpers', () => {
   it('resolveComune: exact > region > none', () => {
     expect(resolveComune({ venue: 'Palazzo dei Congressi Lugano', title: '', region: '' }).comune).toBe('Lugano');
@@ -100,6 +133,43 @@ describe('events-utils helpers', () => {
   it('resolveComune: longer comune name wins over a shorter substring', () => {
     // "Riva San Vitale" must win over "Riviera" for a Riva San Vitale venue.
     expect(resolveComune({ venue: 'Centro Riva San Vitale', title: '', region: '' }).comune).toBe('Riva San Vitale');
+  });
+
+  it('resolveComune: ambiguous multi-candidate match still resolves (longest wins) but warns (#3036 item 4)', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // Venue text names two comuni — the card parses fine but which one it
+    // "belongs to" is genuinely uncertain; must not fail silently.
+    const r = resolveComune({ venue: 'Tour itinerante Lugano e Bellinzona', title: '', region: '' });
+    expect(r).toEqual({ comune: 'Bellinzona', method: 'exact' });
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy.mock.calls[0][0]).toMatch(/uncertain match/);
+    expect(warnSpy.mock.calls[0][0]).toMatch(/Lugano/);
+    warnSpy.mockRestore();
+  });
+
+  it('resolveComune: unambiguous match does not warn', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    resolveComune({ venue: 'Palazzo dei Congressi Lugano', title: '', region: '' });
+    expect(warnSpy).not.toHaveBeenCalled();
+    warnSpy.mockRestore();
+  });
+
+  it('warnIfLowConfidenceComuneShare: warns when region fallback dominates a large-enough sample (#3036 item 4)', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(warnIfLowConfidenceComuneShare({ exact: 3, region: 12 }, 15)).toBe(true);
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy.mock.calls[0][0]).toMatch(/low-confidence comune attribution/);
+    warnSpy.mockRestore();
+  });
+
+  it('warnIfLowConfidenceComuneShare: stays silent below the sample floor or the ratio threshold', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // High ratio but too few resolved events to be meaningful.
+    expect(warnIfLowConfidenceComuneShare({ exact: 0, region: 5 }, 5)).toBe(false);
+    // Enough sample, but region share below the warn threshold.
+    expect(warnIfLowConfidenceComuneShare({ exact: 8, region: 4 }, 12)).toBe(false);
+    expect(warnSpy).not.toHaveBeenCalled();
+    warnSpy.mockRestore();
   });
 
   it('slugifyComune is ascii, lowercase, hyphenated', () => {

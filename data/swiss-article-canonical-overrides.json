@@ -1,0 +1,19 @@
+{
+  "_doc": "Per-slug canonical override map for svizzera-section blog articles (issue #3010 item 1, follow-up to PR #3000 'de-collide duplicate svizzera localized slugs'). Used by build-plugins/ogPagesPlugin.ts (svizzera section) to consolidate 3 near-duplicate article pairs onto a single winner per Google canonical semantics. Key = page slug (last URL segment, no leading slash) of the shadowed (lower-authority) variant, one entry per locale. Value = absolute canonical URL of the authoritative/winner variant in the SAME locale. Both pages stay live (no removal/noindex, per the repo anti-cut rule) — only the shadowed variant's <link rel=\"canonical\"> and og:url point at the winner. The shadowed pages remain in sitemap-blog-ch.xml/RSS on purpose (unlike data/job-canonical-overrides.json, which drops overridden slugs from the sitemap) so they stay fully indexable-with-a-hint rather than de-listed. Source: issue #3010, 2026-07-02.",
+  "overrides": {
+    "tassazione-frontalieri-2026-nuovo-accordo": "https://frontaliereticino.ch/articoli-svizzera/frontaliere-tassazione-2026-regole-accordo/",
+    "cross-border-workers-taxation-2026-new-agreement": "https://frontaliereticino.ch/en/swiss-articles/cross-border-taxation-2026-new-agreement/",
+    "grenzgaenger-besteuerung-2026-neues-steuerabkommen": "https://frontaliereticino.ch/de/schweiz-artikel/grenzgaenger-besteuerung-2026-neues-abkommen/",
+    "travailleurs-frontaliers-fiscalite-2026-nouvel-accord": "https://frontaliereticino.ch/fr/articles-suisse/frontaliers-fiscalite-2026-nouvel-accord/",
+
+    "tassazione-frontalieri-oltre-20km-confine": "https://frontaliereticino.ch/articoli-svizzera/tassazione-frontalieri-oltre-20km/",
+    "taxation-cross-border-workers-beyond-20km-border": "https://frontaliereticino.ch/en/swiss-articles/taxation-cross-border-workers-beyond-20km/",
+    "besteuerung-grenzgaenger-jenseits-20km": "https://frontaliereticino.ch/de/schweiz-artikel/besteuerung-grenzgaenger-ueber-20km/",
+    "imposition-frontaliers-au-dela-20km-frontiere": "https://frontaliereticino.ch/fr/articles-suisse/imposition-frontaliers-au-dela-20km/",
+
+    "educatore-infanzia-ticino-lavoro": "https://frontaliereticino.ch/articoli-svizzera/lavorare-educatore-infanzia-ticino/",
+    "working-as-childcare-educator-ticino-job": "https://frontaliereticino.ch/en/swiss-articles/working-as-childcare-educator-ticino/",
+    "als-kindererzieher-im-tessin-arbeiten": "https://frontaliereticino.ch/de/schweiz-artikel/arbeiten-als-kindererzieher-tessin/",
+    "travailler-comme-educateur-enfance-tessin-emploi": "https://frontaliereticino.ch/fr/articles-suisse/travailler-comme-educateur-enfance-tessin/"
+  }
+}

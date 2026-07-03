@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { callLLM, isAnyModelAvailable, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
+import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
 import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
@@ -2621,7 +2621,15 @@ async function aiValidateJobDetailPage({ html, pageUrl, companyName }) {
   // whose visible text is unchanged returns the prior verdict without spending an
   // LLM call OR a per-run budget slot. This was the only AI call site in this file
   // without a cache; a re-crawled ambiguous page used to re-classify every run.
-  const cacheKey = buildAiCacheKey('validate-page-v1', [pageUrl, text]);
+  //
+  // The key also includes the model that would currently serve the request
+  // (#3080): without it, a verdict produced by a fallback model during a
+  // primary-model outage freezes under a model-agnostic key and gets silently
+  // reused even after the primary model recovers — permanently baking in a
+  // fallback-model classification (e.g. a false "not a job page") instead of
+  // re-checking with the primary model once it's available again.
+  const preferredModel = getPreferredModel();
+  const cacheKey = buildAiCacheKey('validate-page-v1', [pageUrl, text, preferredModel || 'no-model-available']);
   const cachedVerdict = getCachedAiResponse(cacheKey);
   if (cachedVerdict) return cachedVerdict;
 
@@ -2643,10 +2651,12 @@ async function aiValidateJobDetailPage({ html, pageUrl, companyName }) {
 
   try {
     const messages = [{ role: 'user', content: prompt }];
+    const modelUsedRef = { model: null };
     const raw = await callLLM(messages, {
       temperature: 0,
       maxTokens: 400,
       jsonMode: true,
+      modelUsedRef,
     });
     const parsed = JSON.parse(stripCodeFenceJson(raw));
     const verdict = {
@@ -2655,8 +2665,15 @@ async function aiValidateJobDetailPage({ html, pageUrl, companyName }) {
       reason: normalizeSpace(parsed?.reason || 'ai_classification'),
     };
     // Only successful classifications are cached — a failed-open default must be
-    // retried next run, not frozen.
-    setCachedAiResponse(cacheKey, verdict);
+    // retried next run, not frozen. Store under the model that ACTUALLY served
+    // this call — it can differ from the pre-call `preferredModel` peek if that
+    // model failed mid-cascade and callLLM fell back further down the chain —
+    // so the persisted key always matches the model whose verdict it holds.
+    const servedModel = modelUsedRef.model || preferredModel || 'no-model-available';
+    const finalCacheKey = servedModel === preferredModel
+      ? cacheKey
+      : buildAiCacheKey('validate-page-v1', [pageUrl, text, servedModel]);
+    setCachedAiResponse(finalCacheKey, verdict);
     return verdict;
   } catch {
     return { isJob: true, confidence: 0.5, reason: 'ai_failed_open' };
@@ -5634,6 +5651,17 @@ async function main() {
 
 // Export main for in-process invocation (used by dedicated-crawler-common.mjs)
 export { main as runSharedCrawlerPipeline };
+
+// Test-only internals (see scripts/lib/*-job-parser.mjs __internals/__testables
+// convention). Exposes aiValidateJobDetailPage — module-private in production —
+// plus the small hooks needed to drive it in isolation: crawlerConfigGlobal is
+// normally only set by main(), and aiResponseCache is a module-singleton
+// in-memory Map that must be reset between test cases (#3080).
+export const __testables = {
+  aiValidateJobDetailPage,
+  setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
+  clearAiResponseCacheForTests() { aiResponseCache.clear(); },
+};
 
 // Auto-run only when executed directly (not imported as module)
 const isDirectExecution = typeof process !== 'undefined' &&

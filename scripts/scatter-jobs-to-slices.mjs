@@ -16,6 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { addPreviousSlugForLocale } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -108,32 +109,21 @@ for (const file of sliceFiles) {
 
       let updatedJob = { ...sliceJob, titleByLocale: mergedTitle, descriptionByLocale: mergedDesc, slugByLocale: mergedSlug };
 
-      // Detect per-locale slug changes and record with locale context
+      // Detect per-locale slug changes and record with locale context.
+      // Route through the canonical journal-backed helper (instead of a
+      // hand-rolled push + flat-array cap) so every capture/cap-trim is
+      // recorded via recordSlugMutation like every other slug-mutation path
+      // (previousSlugs regression: issue #3284 — this call site pushed into
+      // previousSlugsByLocale and re-derived the legacy `previousSlugs`
+      // mirror with its own `.slice(0, 20)` that kept the OLDEST 20 entries
+      // instead of the most recent ones, with no journal entry for the trim).
       const locales = ['it', 'en', 'de', 'fr'];
-      let hadChanges = false;
       for (const locale of locales) {
         const oldSlug = String(oldSlugs[locale] || '').trim();
         const newSlug = String(newSlugs[locale] || '').trim();
         if (oldSlug && newSlug && oldSlug !== newSlug) {
-          if (!updatedJob.previousSlugsByLocale) updatedJob.previousSlugsByLocale = {};
-          if (!Array.isArray(updatedJob.previousSlugsByLocale[locale])) {
-            updatedJob.previousSlugsByLocale[locale] = [];
-          }
-          if (!updatedJob.previousSlugsByLocale[locale].includes(oldSlug)) {
-            updatedJob.previousSlugsByLocale[locale].push(oldSlug);
-          }
-          hadChanges = true;
+          addPreviousSlugForLocale(updatedJob, locale, oldSlug, 20, 'scatter-jobs-to-slices');
         }
-      }
-      // Sync legacy flat array
-      if (hadChanges) {
-        const all = new Set(Array.isArray(updatedJob.previousSlugs) ? updatedJob.previousSlugs : []);
-        if (updatedJob.previousSlugsByLocale) {
-          for (const arr of Object.values(updatedJob.previousSlugsByLocale)) {
-            if (Array.isArray(arr)) for (const s of arr) all.add(s);
-          }
-        }
-        updatedJob.previousSlugs = [...all].slice(0, 20);
       }
 
       return updatedJob;

@@ -464,6 +464,19 @@ jobs:
           fi
           tar -C "$src" -cf "$RUNNER_TEMP/ticino-dist-it.tar" "$sub"
           ls -lh "$RUNNER_TEMP/ticino-dist-it.tar"
+          # Byte-identity guard (#2761 item 1): this tar and push-ticino-shard.sh's
+          # own push both read the SAME already-offloaded "$src/$sub" staged copy
+          # (see the comment above push_ticino_shard's stage_src note) — nothing
+          # mutates it in between, so the two paths are guaranteed to agree. This
+          # count check makes that guarantee self-verifying: if it ever drifts,
+          # discard the tar so validate-dist safely falls back to git-clone
+          # instead of silently validating a partial/mismatched tree.
+          packed_n=$(tar -tf "$RUNNER_TEMP/ticino-dist-it.tar" | { grep -vc '/$' || true; })
+          src_n=$(find "$src/$sub" -type f | wc -l)
+          if [ "$packed_n" -ne "$src_n" ]; then
+            echo "::warning::ticino-dist-it.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+            rm -f "$RUNNER_TEMP/ticino-dist-it.tar"
+          fi
           rm -rf "$src"
       - name: Upload Ticino shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.TICINO_SHARD_LIVE == 'true'
@@ -723,6 +736,18 @@ jobs:
           fi
           tar -C "$src" -cf "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar" "$sub"
           ls -lh "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar"
+          # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack Ticino
+          # shard dist" step above for the full rationale: this tar and
+          # push-ticino-shard.sh's own push both read the SAME already-offloaded
+          # "$src/$sub" staged copy, nothing mutates it in between, so a count
+          # mismatch here can only mean a tar bug — discard rather than upload a
+          # tar validate-dist could trust incorrectly.
+          packed_n=$(tar -tf "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar" | { grep -vc '/$' || true; })
+          src_n=$(find "$src/$sub" -type f | wc -l)
+          if [ "$packed_n" -ne "$src_n" ]; then
+            echo "::warning::ticino-dist-${{ matrix.locale }}.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+            rm -f "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar"
+          fi
           rm -rf "$src"
       - name: Upload Ticino shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
@@ -800,6 +825,23 @@ jobs:
           fi
           tar -C dist -cf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" "${members[@]}"
           ls -lh "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
+          # Byte-identity guard (#2761 item 1): this tar and push-locale-shard.sh's
+          # `cp -al "$dist_dir/$loc" "$stage/$loc"` both read the SAME dist/<loc>
+          # (+ <loc>.html) — this step runs BEFORE "Push locale shard" below and
+          # nothing mutates dist/<loc> in between, so the two paths are guaranteed
+          # to agree; validate-dist's git-clone fallback also only ever restores
+          # this identical <loc>/ + <loc>.html pair. This count check makes that
+          # guarantee self-verifying: if it ever drifts, discard the tar so
+          # validate-dist safely falls back to git-clone instead of silently
+          # validating a partial/mismatched tree.
+          prefixed_members=()
+          for m in "${members[@]}"; do prefixed_members+=( "dist/$m" ); done
+          packed_n=$(tar -tf "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar" | { grep -vc '/$' || true; })
+          src_n=$(find "${prefixed_members[@]}" -type f 2>/dev/null | wc -l)
+          if [ "$packed_n" -ne "$src_n" ]; then
+            echo "::warning::locale-dist-${{ matrix.locale }}.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+            rm -f "$RUNNER_TEMP/locale-dist-${{ matrix.locale }}.tar"
+          fi
       - name: Upload locale shard dist for post-deploy validation
         if: matrix.locale != 'it'
         # MUST stay continue-on-error: this is a non-essential speedup artifact.

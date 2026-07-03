@@ -7,18 +7,73 @@ import {
   SOFT_ESCALATION_THRESHOLD,
 } from '../functions/src/lib/bounceClassification.js';
 
+/**
+ * Fake Firestore document + `.firestore.runTransaction` double that mirrors
+ * real Firestore's optimistic-concurrency contract: reads are snapshotted at
+ * transaction start, and if ANY writer (including another concurrent
+ * transaction, or a plain `.set()`) touches the document before this
+ * transaction commits, Firestore transparently retries the transaction body
+ * against a fresh read. This lets tests simulate the two-webhook race
+ * described in #3206 item 3 without a real Firestore emulator.
+ */
 function fakeSubscriberRef(initial: Record<string, unknown> = {}) {
   let data = { ...initial };
+  let version = 0;
   const writes: Array<Record<string, unknown>> = [];
-  return {
-    get: async () => ({ exists: true, data: () => data }),
-    set: async (update: Record<string, unknown>) => {
-      data = { ...data, ...update };
+  let armedConcurrentWrite: (() => void) | null = null;
+  let armedFired = false;
+
+  const ref: any = {
+    get: async () => ({ exists: true, data: () => ({ ...data }) }),
+    set: async (update: Record<string, unknown>, opts?: { merge?: boolean }) => {
+      data = opts?.merge ? { ...data, ...update } : { ...update };
+      version += 1;
       writes.push(update);
     },
     __writes: writes,
     __data: () => data,
+    // Arms a one-shot side effect that fires the first time a transaction
+    // calls `tx.get()` — simulating a genuinely concurrent write (e.g. a
+    // delivery/open recovery reset from another webhook delivery) landing
+    // between this transaction's read and its commit.
+    __armConcurrentWrite: (fn: () => void) => {
+      armedConcurrentWrite = fn;
+      armedFired = false;
+    },
   };
+
+  ref.firestore = {
+    runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => {
+      for (let attempt = 0; attempt < 10; attempt += 1) {
+        const versionAtStart = version;
+        const snapshotData = { ...data };
+        let pendingWrite: Record<string, unknown> | null = null;
+        const tx = {
+          get: async () => {
+            if (armedConcurrentWrite && !armedFired) {
+              armedFired = true;
+              armedConcurrentWrite();
+            }
+            return { exists: true, data: () => ({ ...snapshotData }) };
+          },
+          set: (_ref: unknown, update: Record<string, unknown>, opts?: { merge?: boolean }) => {
+            pendingWrite = opts?.merge ? { ...snapshotData, ...update } : { ...update };
+          },
+        };
+        const result = await updateFunction(tx);
+        if (version !== versionAtStart) continue; // conflicting write mid-transaction — retry
+        if (pendingWrite) {
+          data = pendingWrite;
+          version += 1;
+          writes.push(pendingWrite);
+        }
+        return result;
+      }
+      throw new Error('fakeSubscriberRef: too many transaction retries');
+    },
+  };
+
+  return ref;
 }
 
 describe('bounceClassification', () => {
@@ -102,6 +157,47 @@ describe('bounceClassification', () => {
       const ref = fakeSubscriberRef({ soft_bounce_count: SOFT_ESCALATION_THRESHOLD + 5, status: 'bounced' });
       const escalated = await maybeEscalateSoftBounce(ref as any, 'greylisted');
       expect(escalated).toBe(false);
+    });
+
+    // Race-condition regression coverage for #3206 item 3: maybeEscalateSoftBounce
+    // used to .get() then .set() with no transaction, so a write landing between
+    // the read and the write could be silently clobbered or read stale.
+    it('re-evaluates against a concurrent recovery reset instead of escalating on stale data', async () => {
+      // At the threshold, a plain read-then-write would escalate on the stale
+      // pre-reset count. A recovery (delivered/open) event lands for the SAME
+      // subscriber between this transaction's read and its commit — Firestore
+      // transactions retry on that kind of conflicting write, so the decision
+      // must be re-made against the fresh, reset count.
+      const ref = fakeSubscriberRef({ soft_bounce_count: SOFT_ESCALATION_THRESHOLD, status: 'confirmed' });
+      ref.__armConcurrentWrite(() => {
+        ref.set(softBounceRecoveryFields(), { merge: true });
+      });
+
+      const escalated = await maybeEscalateSoftBounce(ref as any, 'greylisted');
+
+      expect(escalated).toBe(false);
+      expect(ref.__data().status).toBe('confirmed');
+      expect(ref.__data().soft_bounce_count).toBe(0);
+    });
+
+    it('two concurrent calls at the threshold both settle on the same consistent escalated state', async () => {
+      // Two ESP webhook retries for the same subscriber calling this function
+      // at (or above) the threshold at the same time must not race to
+      // inconsistent final state — exactly one net escalation, both calls
+      // agree on the outcome.
+      const ref = fakeSubscriberRef({ soft_bounce_count: SOFT_ESCALATION_THRESHOLD, status: 'confirmed' });
+
+      const [first, second] = await Promise.all([
+        maybeEscalateSoftBounce(ref as any, 'greylisted'),
+        maybeEscalateSoftBounce(ref as any, 'greylisted'),
+      ]);
+
+      // Exactly one of the two calls performed the escalation; the other is a
+      // no-op once it observes the already-bounced status via its (retried)
+      // fresh read.
+      expect([first, second].filter(Boolean)).toHaveLength(1);
+      expect(ref.__data().status).toBe('bounced');
+      expect(ref.__data().bounce_severity).toBe('hard');
     });
   });
 });

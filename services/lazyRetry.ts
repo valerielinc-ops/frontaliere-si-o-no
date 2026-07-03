@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { bustAssetHttpCache, consumeReloadBudget } from '@/services/resilientImport';
+import { bustAssetHttpCache, consumeReloadBudget, isChunkLoadError } from '@/services/resilientImport';
 
 /**
  * Retry wrapper for React.lazy dynamic imports.
@@ -33,13 +33,12 @@ export function lazyRetry<T extends React.ComponentType<any>>(
  // retrying re-links the same stale cached dependency. It rethrows to the
  // ErrorBoundary, whose isVersionSkewError -> recoverFromStaleChunk does the
  // correct clear-caches + single shared-guard reload.
- const isChunkError =
- err?.message?.includes('Failed to fetch dynamically imported module') ||
- err?.message?.includes('Importing a module script failed') ||
- err?.message?.includes('Loading chunk') ||
- err?.message?.includes('Loading CSS chunk') ||
- err?.message?.includes('error loading dynamically imported module') ||
- err?.name === 'ChunkLoadError';
+ //
+ // Uses the shared isChunkLoadError predicate (resilientImport.ts) instead of
+ // a hand-copied substring list — this file used to carry its own literal
+ // copy that could drift from resilientImport.ts's (issue #3216 item 1;
+ // AGENTS.md §Non-Negotiables #6).
+ const isChunkError = isChunkLoadError(err);
 
  if (!isChunkError) throw err;
 

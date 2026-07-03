@@ -23,6 +23,12 @@
  * `functions/` Firebase deploy bundle, and per repo precedent
  * (backfill-onetap-orphan-subscribers.mjs) the two deploy boundaries are kept
  * fully decoupled.
+ *
+ * Status (#3206 item 1): ran with --apply in production on 2026-07-01
+ * ~09:11 UTC — 529 Auth accounts created (confirmed via Auth creationTime
+ * histogram). Re-run in dry-run mode on 2026-07-02 shows 0 remaining
+ * orphans. Safe to re-run any time (idempotent no-op once the gap is
+ * closed); left in place for any future one-off catch-up need.
  */
 import admin from 'firebase-admin';
 

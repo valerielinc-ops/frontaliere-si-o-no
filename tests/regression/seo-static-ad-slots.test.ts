@@ -21,6 +21,8 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { infeedAdListItemHtml, infeedAdGridBlockHtml } from '../../build-plugins/lib/adSlotHtml';
+import { AD_SLOTS } from '../../services/adsenseSlots';
 
 const ROOT = path.resolve(__dirname, '..', '..');
 
@@ -133,6 +135,30 @@ describe('SEO static-page ad slots — regression guard', () => {
       const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
       expect(src, `${file} should not opt utility SEO pages out of Auto Ads`)
         .not.toContain('disableAutoAds: true');
+    }
+  });
+
+  // Issue #3054 (follow-up of PR #3035, "in-feed ad every 3 cards among
+  // related jobs"): the adversarial concern was that ADSENSE_LOADER_CONTENT
+  // (build-plugins/constants.ts) calls `adsbygoogle.push({})` once per
+  // `ins.adsbygoogle:not([data-adsbygoogle-status])` in DOM order, so a new
+  // in-feed injection point (the related-jobs section) could shift which
+  // push() lands on which visual slot. It can't: push({}) takes no argument,
+  // so it never carries slot identity — AdSense's own script reads the ad
+  // config straight off each <ins>'s own data-ad-* attributes at render
+  // time. The push loop only needs COUNT parity (guaranteed by the live
+  // `document.querySelectorAll` it runs after the whole page, including any
+  // related-section <ins> tags, has rendered) — never DOM-order identity.
+  // This test guards the precondition: every in-feed <ins> emitted by the
+  // shared helper (used at all in-feed call sites, including the
+  // related-jobs one added in #3035) always carries its own explicit
+  // `data-ad-slot`, so no reordering or new injection point can misroute
+  // one slot's config onto another <ins>.
+  it('in-feed <ins> tags always carry an explicit data-ad-slot (push({}) binds by count, never by DOM-order identity)', () => {
+    const expectedSlot = AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot;
+    for (const html of [infeedAdListItemHtml(), infeedAdGridBlockHtml()]) {
+      expect(html).toContain('class="adsbygoogle"');
+      expect(html).toContain(`data-ad-slot="${expectedSlot}"`);
     }
   });
 });

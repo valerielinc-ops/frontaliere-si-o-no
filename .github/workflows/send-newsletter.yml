@@ -57,6 +57,12 @@ on:
         required: false
         default: ''
         type: string
+      # maileroo is intentionally NOT selectable below (#3135 item 1): manual
+      # force-select bypassed the cascade's quota/rotation to push mail
+      # through a single provider on operator demand. Maileroo still
+      # participates in the automatic `cascade` rotation
+      # (scripts/lib/email-cascade.mjs) — that role is separate and is
+      # DKIM/DMARC-aligned as of #3154 (root cause of #3066 fixed).
       provider:
         description: 'Email provider (cascade = multi-provider default)'
         required: false
@@ -67,7 +73,6 @@ on:
           - mailgun
           - mailjet
           - mailtrap
-          - maileroo
           - resend
           - cloudflare
 

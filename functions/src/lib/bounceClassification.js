@@ -89,22 +89,32 @@ export function softBounceRecoveryFields() {
  * threshold with no intervening recovery, escalates to a real, permanent
  * `bounced` status.
  *
+ * Wrapped in a Firestore transaction (same idiom as revertPendingJobsToDraft in
+ * publisherPendingReapCore.js / reserveHereTransactionBudget in
+ * trafficSchedulerCore.js) so the read-decide-write is atomic: two concurrent/
+ * retried webhook deliveries for the same subscriber (ESP retry-on-timeout, or
+ * genuinely simultaneous bounce notifications) can no longer both read the same
+ * pre-increment count, both decide "not yet at threshold", and both write —
+ * which could lose an increment or produce an inconsistent escalation decision.
+ *
  * @param {FirebaseFirestore.DocumentReference} subscriberRef
  * @param {string} reason latest bounce reason, folded into the escalation audit trail
  * @returns {Promise<boolean>} true if this call escalated the subscriber
  */
 export async function maybeEscalateSoftBounce(subscriberRef, reason) {
-  const snap = await subscriberRef.get();
-  const data = snap.data() || {};
-  const count = Number(data.soft_bounce_count) || 0;
-  if (count < SOFT_ESCALATION_THRESHOLD || data.status === 'bounced') return false;
-
   const FieldValue = admin.firestore.FieldValue;
-  await subscriberRef.set({
-    status: 'bounced',
-    bounced_at: FieldValue.serverTimestamp(),
-    bounce_reason: `${reason} (escalated after ${count} consecutive soft rejects)`,
-    bounce_severity: 'hard',
-  }, { merge: true });
-  return true;
+  return subscriberRef.firestore.runTransaction(async (tx) => {
+    const snap = await tx.get(subscriberRef);
+    const data = snap.data() || {};
+    const count = Number(data.soft_bounce_count) || 0;
+    if (count < SOFT_ESCALATION_THRESHOLD || data.status === 'bounced') return false;
+
+    tx.set(subscriberRef, {
+      status: 'bounced',
+      bounced_at: FieldValue.serverTimestamp(),
+      bounce_reason: `${reason} (escalated after ${count} consecutive soft rejects)`,
+      bounce_severity: 'hard',
+    }, { merge: true });
+    return true;
+  });
 }

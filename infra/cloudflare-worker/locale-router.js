@@ -274,6 +274,70 @@ const NATIONAL_BOARD_BY_LOCALE = {
 const LEGACY_PAGINATION_RE =
   /^((?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+)\/(?:tutte|tutti|alle|tous|toutes|all)\/page-\d+\/?$/;
 
+// Canton-root-validity guard (#3015, follow-up of #3001's "Non implementato").
+//
+// Two 404 shapes were left on the soft-404 (public/404.html client JS) path
+// instead of a real 301: (a) a company-hub orphan whose locale prefix is
+// ALREADY correct but the hub itself was pruned from the build (company no
+// longer listed — recoverCrossLocaleCompanyPrefix's "already canonical" loop
+// guard intentionally no-ops here, there is no prefix to fix), and (b) a
+// job-detail 404 whose slug is genuinely expired (not a canton-drift — the
+// slug is simply not in /job-canon at all, so recoverCantonDriftOrphan misses).
+// Both cases fall back to the canton SECTION ROOT — the same target
+// public/404.html's JS already redirects to (its `sectionRoot` variable) — so
+// upgrading to a real 301 is a pure link-equity win IF the target is live.
+//
+// Unlike the map-verified recoverCantonDriftOrphan (the map only contains
+// slugs confirmed live at build time) or recoverLegacySearchCluster's fixed
+// per-locale NATIONAL_BOARD literal (never derived from the request, so it
+// cannot dead-end), the section-root path here is DERIVED from free-form URL
+// segments ([a-z-]+ in both COMPANY_HUB_RE and JOB_DETAIL_RE has no canton
+// allowlist) with no prior verification — a garbage/fake canton segment would
+// 301 into a dead end. So: verify with a subrequest before redirecting; a
+// miss/non-200/timeout returns false and the caller falls through to the
+// EXISTING soft-404 (never worse than before this guard existed).
+//
+// Scope note (sibling-pattern-fix check, AGENTS.md #6): recoverLegacyPagination
+// also derives its section-root 301 target from free-form URL segments without
+// this guard — but that is a pre-existing, already-shipped, already-tested
+// design from PR #3001 with its OWN documented narrowness argument ("the
+// /page-\d+/ + known-filter shape is specific enough that fake/garbage cantons
+// effectively never reach here") and adding the guard there breaks its
+// existing test fixtures (tests/locale-router-legacy-pagination-301.test.ts
+// asserts an unconditional 301 on origin-404 alone). recoverCrossLocaleCompanyPrefix
+// is a deterministic same-resource prefix SWAP ("Purely synchronous... the
+// prefix↔locale mapping is deterministic" — its own comment), not a
+// best-guess ancestor fallback, and retrofitting the guard there likewise
+// breaks tests/locale-router-xlocale-company-prefix-301.test.ts. Both are
+// judged false positives for this pattern (documented, tested, pre-existing
+// design distinct from the two brand-new no-narrowness fallbacks below) rather
+// than left silently unfixed.
+const CANTON_ROOT_GUARD_TIMEOUT_MS = 2000;
+
+// Returns true only when `pathname` resolves to a 200 on the shard `origin`.
+// GET (not HEAD) to match every other origin-fetch's caching convention in
+// this file; the body is never read. Edge-cached via cacheEverything so many
+// orphans that share one canton root (e.g. several pruned company hubs in the
+// same canton) cost a single origin round trip. ORIGIN_CACHE_TTL (2 h) reused
+// for the same reason it exists elsewhere: bounds a 404-vs-200 flip around a
+// deploy without inventing a parallel TTL knob.
+async function redirectTargetIsLive(pathname, origin) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CANTON_ROOT_GUARD_TIMEOUT_MS);
+  try {
+    const upstream = new URL(pathname, `https://${origin}`);
+    const resp = await fetch(upstream.toString(), {
+      signal: controller.signal,
+      cf: { cacheEverything: true, cacheTtl: ORIGIN_CACHE_TTL },
+    });
+    return resp.status === 200;
+  } catch {
+    return false; // timeout / network error → unverified, safe soft-404 fallback
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 const MAP_FETCH_TIMEOUT_MS = 2000;
 const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // CDN-offloaded (see comment above recoverCantonDriftOrphan). MIRRORS the
@@ -368,6 +432,35 @@ function recoverCrossLocaleCompanyPrefix(url, locale) {
   });
 }
 
+// Returns a 301 Response to the canton section root when the requested path is a
+// company-hub 404 whose locale prefix is ALREADY correct (recoverCrossLocaleCompanyPrefix
+// above found nothing to swap) but the hub itself is gone — a genuinely pruned
+// company, not a locale mismatch (#3015 follow-up of #3001). The section root is
+// the same fallback public/404.html's JS already uses for this exact case;
+// guarded by redirectTargetIsLive (see its doc comment above MAP_FETCH_TIMEOUT_MS)
+// because the canton segment is free-form and unverified until now. Runs ONLY
+// after the map miss and the cross-locale-prefix miss, so a real job slug or a
+// fixable wrong-prefix hub is never hijacked.
+async function recoverPrunedCompanyHub(url, locale, origin) {
+  const correct = COMPANY_PREFIX_BY_LOCALE[locale];
+  if (!correct) return null;
+  const m = url.pathname.match(COMPANY_HUB_RE);
+  if (!m) return null;
+  const [, routePrefix, lastSeg] = m;
+  const pm = lastSeg.match(COMPANY_PREFIX_RE);
+  if (!pm) return null; // last segment is not a company-prefixed hub → leave alone
+  // Only the already-canonical-prefix case; a wrong prefix is handled (as a
+  // deterministic same-resource swap, not a guess) by recoverCrossLocaleCompanyPrefix above.
+  if (lastSeg !== `${correct}-${pm[1]}`) return null;
+  const sectionRoot = `${routePrefix}/`;
+  if (!(await redirectTargetIsLive(sectionRoot, origin))) return null; // unverified → soft 404
+  const location = sectionRoot + url.search + url.hash;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+  });
+}
+
 // Returns a within-locale 301 Response to the locale's national job board when
 // the requested path is a legacy related-search cluster orphan (last path segment
 // starts with a search-action prefix — see SEARCH_CLUSTER_PREFIX_RE), otherwise
@@ -408,6 +501,34 @@ function recoverLegacyPagination(url) {
   const sectionRoot = `${m[1]}/`;
   // Loop guard (unreachable: the matched path always has extra segments).
   if (url.pathname.replace(/\/+$/, '') + '/' === sectionRoot) return null;
+  const location = sectionRoot + url.search + url.hash;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+  });
+}
+
+// Returns a 301 Response to the canton section root when the requested path is a
+// job-detail 404 whose slug is genuinely expired — NOT a canton-drift (the slug
+// is simply absent from /job-canon, unlike recoverCantonDriftOrphan's known-slug
+// case) — and none of the more specific recoveries above matched either (#3015
+// follow-up of #3001). Mirrors public/404.html's JS last-resort `sectionRoot`
+// fallback (its `.then`/`.catch` branches after the map lookup fails), upgrading
+// it to a real 301 for en/de/fr shard traffic. Guarded by redirectTargetIsLive
+// for the same reason as recoverPrunedCompanyHub: the canton segment is
+// free-form, so an invalid/garbage section must fall through to the existing
+// soft-404 instead of a 301 dead end. Runs LAST in the 404 chain — JOB_DETAIL_RE
+// also matches company-hub and search-cluster shaped slugs, both already handled
+// (and are more specific) above.
+async function recoverExpiredJobToCantonRoot(url, origin) {
+  const m = url.pathname.match(JOB_DETAIL_RE);
+  if (!m) return null;
+  const sectionRoot =
+    url.pathname.replace(/\/+$/, '').split('/').slice(0, -1).join('/') + '/'; // mirrors public/404.html's sectionRoot
+  // Loop guard (unreachable: JOB_DETAIL_RE always leaves a trailing slug segment
+  // beyond the section root), kept for parity with the sibling recoveries.
+  if (url.pathname.replace(/\/+$/, '') + '/' === sectionRoot) return null;
+  if (!(await redirectTargetIsLive(sectionRoot, origin))) return null; // unverified → soft 404
   const location = sectionRoot + url.search + url.hash;
   return new Response(null, {
     status: 301,
@@ -587,10 +708,19 @@ async function serveShard(request, url, origin, recoveryLocale, ctx) {
     if (redirect) return redirect;
     const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
     if (companyRedirect) return companyRedirect;
+    // #3015: already-correct-prefix company hub that was pruned from the build —
+    // guarded (redirectTargetIsLive) 301 to the canton section root.
+    const prunedHubRedirect = await recoverPrunedCompanyHub(url, recoveryLocale, origin);
+    if (prunedHubRedirect) return prunedHubRedirect;
     const clusterRedirect = recoverLegacySearchCluster(url, recoveryLocale);
     if (clusterRedirect) return clusterRedirect;
     const paginationRedirect = recoverLegacyPagination(url);
     if (paginationRedirect) return paginationRedirect;
+    // #3015: last-resort — a genuinely expired job-detail slug (not a canton
+    // drift, not a company/cluster/pagination shape) — guarded 301 to the
+    // canton section root, mirroring public/404.html's final sectionRoot fallback.
+    const expiredJobRedirect = await recoverExpiredJobToCantonRoot(url, origin);
+    if (expiredJobRedirect) return expiredJobRedirect;
   }
 
   // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are

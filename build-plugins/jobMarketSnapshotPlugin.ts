@@ -3042,6 +3042,10 @@ function renderSectorPage(inp: SectorPageInputs): string {
     title,
     description: metaDesc,
     canonicalUrl,
+    // (#3060 item 2) `robots` is a hardcoded literal, not derived from any
+    // flag/threshold — see the structural-guarantee note above
+    // `generateSectorSnapshotPages` for why sector pages can never be
+    // noindex and therefore don't need a `noindexPaths` entry.
     robots: 'index,follow',
     ogType: 'website',
     ogLocale: JOB_MARKET_OG_LOCALE[locale],
@@ -3064,11 +3068,42 @@ export interface SectorGeneratorInputs {
   rootDir?: string;
 }
 
+/**
+ * No `noindexPaths` field here (unlike `JobMarketGeneratorOutput`) — see the
+ * structural-guarantee comment on `generateSectorSnapshotPages` (#3060 item 2)
+ * for why sector pages have no noindex-eligible variant to track.
+ */
 export interface SectorGeneratorOutput {
   pages: Record<string, string>;
   sectorStats: Record<JobMarketSectorKey, SectorStats>;
 }
 
+/**
+ * (#3060 item 2 — adversarial review of #3052) Structural guarantee: sector
+ * pages can NEVER be noindex, so this generator has no `noindexPaths` output
+ * and the `closeBundle` merge below (`sectorOutput.pages` → `pages`) is safe
+ * without also merging into the weekly loop's `noindexPaths` set. Verified by
+ * inspection, not just today's fixtures:
+ *   - `JOB_MARKET_SECTOR_KEYS` is a fixed, hand-curated list (~14 sectors) —
+ *     there is no "archive window"/pagination concept (unlike weekly
+ *     snapshots, which noindex anything past `WEEKLY_INDEXABLE_LIMIT`), so
+ *     there's no per-sector "old" state that would warrant noindex.
+ *   - `SectorPageInputs` (the props consumed by `renderSectorPage`) has no
+ *     `noindex` field at all, and `renderSectorPage` passes a hardcoded
+ *     `robots: 'index,follow'` literal to `buildSeoPageHtml` — there is no
+ *     code path, flag, or threshold (thin-content, canonical collision, or
+ *     otherwise) that could flip it to noindex.
+ *   - Thin content is handled upstream of noindex entirely: `closeBundle`'s
+ *     word-count gate (`skippedForWordCount`) drops any page — sector or
+ *     weekly — below `MIN_INDEXABLE_WORDS`/`MIN_SNAPSHOT_WORDS` from the
+ *     write+sitemap step outright, so a thin sector page is never written to
+ *     disk (let alone indexed), rather than being written noindex.
+ * If a future change adds a noindex-capable variant to this generator (e.g.
+ * an archived/low-signal sector), it MUST also populate a `noindexPaths` set
+ * threaded through to the `closeBundle` sitemap writer, exactly like the
+ * weekly loop in `generateJobMarketSnapshotPages` — do not rely solely on the
+ * `htmlHasNoindexMeta` regex backstop (see its own doc comment for why).
+ */
 export function generateSectorSnapshotPages(
   opts: SectorGeneratorInputs,
 ): SectorGeneratorOutput {
@@ -3197,6 +3232,11 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       const { pages, noindexPaths, degraded } = generateJobMarketSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
 
       // D-3A: per-sector snapshot pages (~14 sectors × 4 locali = ~56 pages)
+      // (#3060 item 2) sectorOutput has no `noindexPaths` to merge into the
+      // one below — see the structural-guarantee comment on
+      // `generateSectorSnapshotPages` for why sector pages can never be
+      // noindex (they rely solely on the word-count gate a few lines down
+      // to keep thin content out, never on a noindex meta variant).
       const sectorOutput = generateSectorSnapshotPages({ history, jobs, today, distDir, knownSlugs, rootDir });
       for (const [path, html] of Object.entries(sectorOutput.pages)) {
         pages[path] = html;

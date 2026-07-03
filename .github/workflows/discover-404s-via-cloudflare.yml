@@ -72,6 +72,18 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      # Primary identity for the deploy dispatch below = GitHub App installation
+      # token (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and
+      # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
+      # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Run Cloudflare 404 sweep
         env:
           # CF_API_TOKEN (Zone→Analytics→Read) + CF_ACCOUNT_ID are hydrated from
@@ -144,9 +156,12 @@ jobs:
       - name: Trigger deploy if compat changed
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
         env:
-          # GITHUB_PAT is loaded into $GITHUB_ENV by load-rc-env (Firebase RC,
-          # not an Actions secret). Do NOT shadow with secrets.* or
-          # trigger-deploy.sh runs with an empty PAT and no deploy fires (#878).
+          # trigger-deploy.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override
+          # with the App token when minted (primary identity), PAT otherwise (#2861
+          # item 1). GITHUB_PAT itself is loaded into $GITHUB_ENV by load-rc-env
+          # (Firebase RC, not an Actions secret). Do NOT shadow with secrets.* or
+          # trigger-deploy.sh runs with an empty token and no deploy fires (#878).
+          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: bash scripts/lib/trigger-deploy.sh
 

@@ -40,9 +40,10 @@ export const UBS_KEY = 'ubs';
 export const UBS_COMPANY_NAME = 'UBS';
 export const UBS_COMPANY_DOMAIN = 'ubs.com';
 
-/** Taleo search page — used to bootstrap session + CSRF token */
-const SEARCH_PAGE_URL =
-  'https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=searchResults';
+/** Taleo search page template — used to bootstrap session + CSRF token per siteId. */
+function buildSearchPageUrl(siteId) {
+  return `https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=${PARTNER_ID}&siteid=${siteId}&PageType=searchResults`;
+}
 
 /** Taleo MatchedJobs endpoint — first-page search only (see ShowMore note below). */
 const MATCHED_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/MatchedJobs';
@@ -57,9 +58,17 @@ const SHOW_MORE_JOBS_URL = 'https://jobs.ubs.com/TgNewUI/Search/Ajax/ProcessSort
 /** Deterministic sort so page boundaries stay stable across requests. */
 const SORT_TYPE = 'LastUpdated';
 
-/** Taleo partner/site identifiers */
+/** Taleo partner identifier — shared across all UBS Taleo site tenants. */
 const PARTNER_ID = '25008';
-const SITE_ID = '5012';
+
+/**
+ * Taleo site identifiers for the UBS Switzerland tenants (issue #3055 item 1):
+ *   - 5012: main UBS Switzerland career site
+ *   - 5054: apprendistati (apprenticeships)
+ *   - 5131: graduati (graduate programs)
+ * Each is fetched independently (own session/pagination) and merged.
+ */
+const SITE_IDS = ['5012', '5054', '5131'];
 
 /**
  * Cathedral CH-wide expansion (2026-05-10):
@@ -132,8 +141,8 @@ function parseTaleoDate(raw = '') {
 /**
  * Build public job detail URL on the Taleo portal.
  */
-function buildJobUrl(reqId) {
-  return `https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=${PARTNER_ID}&siteid=${SITE_ID}&jobid=${encodeURIComponent(reqId)}&PageType=jobdetails`;
+function buildJobUrl(reqId, siteId = SITE_IDS[0]) {
+  return `https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=${PARTNER_ID}&siteid=${siteId}&jobid=${encodeURIComponent(reqId)}&PageType=jobdetails`;
 }
 
 /**
@@ -218,9 +227,16 @@ function inferCanton(city = '', region = '') {
 
 function resolveSwissLocation(cityStr = '', region = '') {
  const city = primaryCity(cityStr);
+ // A populated region that does NOT look Swiss must never be overridden by a
+ // city-name alias match (inferAnyCanton/inferCanton can match a foreign city
+ // whose name happens to alias a Swiss canton). A blank region is left
+ // unaffected — the Cathedral CH-wide expansion above relies on resolving
+ // canton from a bare city when no region string is present at all.
+ // See issue #3055 item 2 (sibling of the Galenica fix, item 3).
+ const regionLooksForeign = Boolean(region) && !isSwissRegion(region);
  const canton = inferCanton(city, region) || fallbackCantonFromRegion(region);
- if (city && canton) return { city, canton };
- if (city && inferAnyCanton(city)) return { city, canton: inferAnyCanton(city) };
+ if (city && canton) return regionLooksForeign ? null : { city, canton };
+ if (city && inferAnyCanton(city)) return regionLooksForeign ? null : { city, canton: inferAnyCanton(city) };
  if (!isSwissRegion(region) && !canton) return null;
  return {
   city: city || fallbackLocationFromRegion(region) || 'Svizzera',
@@ -318,13 +334,13 @@ function detectEmploymentType(jobTypeStr = '', title = '') {
  *
  * Returns { cookies, rft } or throws on failure.
  */
-async function bootstrapSession() {
+async function bootstrapSession(siteId) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(SEARCH_PAGE_URL, {
+    const res = await fetch(buildSearchPageUrl(siteId), {
       method: 'GET',
       headers: {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -378,14 +394,14 @@ async function bootstrapSession() {
  * @param {string} rft - CSRF token from bootstrapSession
  * @returns {Promise<{jobs: object[], totalCount: number}>}
  */
-async function searchJobs(cookies, rft) {
+async function searchJobs(cookies, rft, siteId) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   const requestBody = {
     PartnerId: PARTNER_ID,
-    SiteId: SITE_ID,
+    SiteId: siteId,
     Keyword: '',
     Location: '',
     KeywordCustomSolrFields: '',
@@ -447,14 +463,14 @@ async function searchJobs(cookies, rft) {
  * @param {number} pageNumber - 1-indexed page to fetch (page 1 == first 50)
  * @returns {Promise<{jobs: object[], totalCount: number}>}
  */
-async function searchMoreJobs(cookies, rft, pageNumber) {
+async function searchMoreJobs(cookies, rft, pageNumber, siteId) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   const requestBody = {
     partnerId: PARTNER_ID,
-    siteId: SITE_ID,
+    siteId,
     keyword: '',
     location: '',
     keywordCustomSolrFields: '',
@@ -505,7 +521,7 @@ async function searchMoreJobs(cookies, rft, pageNumber) {
 /**
  * Build a ParsedJob from a Taleo search result entry.
  */
-function buildJobFromTaleo(taleoJob) {
+function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   const questions = taleoJob?.Questions || [];
 
   const reqId = getField(questions, 'reqid');
@@ -526,7 +542,7 @@ function buildJobFromTaleo(taleoJob) {
   if (!resolvedLocation) return null;
   const { city, canton } = resolvedLocation;
   const descriptionText = normalizeDescriptionSpace(stripHtml(descriptionHtml));
-  const publicUrl = buildJobUrl(reqId);
+  const publicUrl = buildJobUrl(reqId, siteId);
 
   // Detect source language: use Taleo's language code, fallback to content detection
   const taleoLang = TALEO_LANG_MAP[Number(langCode)];
@@ -600,66 +616,91 @@ function buildJobFromTaleo(taleoJob) {
  */
 export async function fetchAllUbsJobs() {
   console.log(`🔍 Fetching UBS jobs from Taleo API (CH-wide, all 26 cantons)`);
-  console.log(`   Portal: ${SEARCH_PAGE_URL}\n`);
+  console.log(`   Site IDs: ${SITE_IDS.join(', ')}\n`);
 
-  // Step 1: Bootstrap session (cookies + CSRF token)
-  console.log('  🔐 Bootstrapping Taleo session...');
-  const { cookies, rft } = await bootstrapSession();
-  console.log('  ✅ Session established\n');
-
-  // Step 2: Paginated walk of the whole Swiss tenant.
-  //
-  // MAX_PAGES is a hard cap, not the expected page count — the loop stops
-  // as soon as a page comes back short/empty or we've collected >= the
-  // API-reported total. 60 pages * 50/page = 3,000 jobs of headroom above
-  // the observed ~550-600 global tenant size.
-  console.log('  📄 Searching for all Swiss UBS jobs (paginated)...');
-  const MAX_PAGES = 60;
-  const allTaleoJobs = [];
+  // Issue #3055 item 1: the main UBS CH tenant (5012) does not include the
+  // apprenticeship (5054) or graduate (5131) job pools — each Taleo siteid is
+  // its own independent tenant with its own session/pagination, so we fetch
+  // and merge them in a loop rather than a single request.
+  const allEntries = []; // { taleoJob, siteId }
   const seenReqIds = new Set();
-  let total = 0;
-  for (let page = 0; page < MAX_PAGES; page += 1) {
-    const pageNumber = page + 1; // Taleo pagination is 1-indexed.
-    let res;
+
+  for (const siteId of SITE_IDS) {
+    console.log(`  🌐 Site ${siteId}: ${buildSearchPageUrl(siteId)}`);
+
+    // Step 1: Bootstrap session (cookies + CSRF token) for this site.
+    console.log('  🔐 Bootstrapping Taleo session...');
+    let cookies;
+    let rft;
     try {
       // eslint-disable-next-line no-await-in-loop
-      res = page === 0 ? await searchJobs(cookies, rft) : await searchMoreJobs(cookies, rft, pageNumber);
+      ({ cookies, rft } = await bootstrapSession(siteId));
     } catch (err) {
-      console.warn(`  ⚠️ Page ${pageNumber} failed: ${err?.message || err}`);
-      break;
+      console.warn(`  ⚠️ Site ${siteId} session bootstrap failed: ${err?.message || err}`);
+      continue;
     }
-    const { jobs: pageJobs, totalCount } = res;
-    if (page === 0) total = totalCount;
-    if (!pageJobs.length) break;
-    // Defensive dedup by reqid — guards the merge/diff pipeline against any
-    // future recurrence of the page-repeat bug (#3259) silently collapsing
-    // distinct jobs downstream instead of surfacing as a shrink-guard trip.
-    let newCount = 0;
-    for (const taleoJob of pageJobs) {
-      const reqId = getField(taleoJob?.Questions, 'reqid');
-      if (reqId && seenReqIds.has(reqId)) continue;
-      if (reqId) seenReqIds.add(reqId);
-      allTaleoJobs.push(taleoJob);
-      newCount += 1;
+    console.log('  ✅ Session established\n');
+
+    // Step 2: Paginated walk of this site's tenant.
+    //
+    // MAX_PAGES is a hard cap, not the expected page count — the loop stops
+    // as soon as a page comes back short/empty or we've collected >= the
+    // API-reported total. 60 pages * 50/page = 3,000 jobs of headroom above
+    // the observed ~550-600 global tenant size (main site 5012).
+    console.log(`  📄 Searching for jobs on site ${siteId} (paginated)...`);
+    const MAX_PAGES = 60;
+    const siteEntries = [];
+    let total = 0;
+    for (let page = 0; page < MAX_PAGES; page += 1) {
+      const pageNumber = page + 1; // Taleo pagination is 1-indexed.
+      let res;
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        res = page === 0
+          ? await searchJobs(cookies, rft, siteId)
+          : await searchMoreJobs(cookies, rft, pageNumber, siteId);
+      } catch (err) {
+        console.warn(`  ⚠️ Site ${siteId} page ${pageNumber} failed: ${err?.message || err}`);
+        break;
+      }
+      const { jobs: pageJobs, totalCount } = res;
+      if (page === 0) total = totalCount;
+      if (!pageJobs.length) break;
+      // Defensive dedup by reqid — guards the merge/diff pipeline against any
+      // future recurrence of the page-repeat bug (#3259) silently collapsing
+      // distinct jobs downstream instead of surfacing as a shrink-guard trip.
+      let newCount = 0;
+      for (const taleoJob of pageJobs) {
+        const reqId = getField(taleoJob?.Questions, 'reqid');
+        const dedupKey = reqId ? `${siteId}:${reqId}` : '';
+        if (dedupKey && seenReqIds.has(dedupKey)) continue;
+        if (dedupKey) seenReqIds.add(dedupKey);
+        siteEntries.push({ taleoJob, siteId });
+        newCount += 1;
+      }
+      console.log(`    page ${pageNumber}: +${newCount} (running total ${siteEntries.length}/${total || '?'})`);
+      if (newCount === 0) break; // No new jobs discovered — stop instead of looping to MAX_PAGES.
+      if (siteEntries.length >= total && total > 0) break;
+      // Polite delay between pages.
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => setTimeout(r, 250));
     }
-    console.log(`    page ${pageNumber}: +${newCount} (running total ${allTaleoJobs.length}/${total || '?'})`);
-    if (newCount === 0) break; // No new jobs discovered — stop instead of looping to MAX_PAGES.
-    if (allTaleoJobs.length >= total && total > 0) break;
-    // Polite delay between pages.
+    console.log(`  📋 Site ${siteId} returned ${siteEntries.length} jobs (reported total: ${total})\n`);
+    allEntries.push(...siteEntries);
+    // Polite delay between site tenants.
     // eslint-disable-next-line no-await-in-loop
     await new Promise((r) => setTimeout(r, 250));
   }
-  console.log(`  📋 Taleo returned ${allTaleoJobs.length} jobs (reported total: ${total})\n`);
 
-  if (!allTaleoJobs.length) {
+  if (!allEntries.length) {
     console.warn('⚠️ No job listings returned from Taleo.');
     return [];
   }
 
   // Step 3: Build ParsedJob objects
   const jobs = [];
-  for (const taleoJob of allTaleoJobs) {
-    const job = buildJobFromTaleo(taleoJob);
+  for (const { taleoJob, siteId } of allEntries) {
+    const job = buildJobFromTaleo(taleoJob, siteId);
     if (job) {
       jobs.push(job);
     }
@@ -675,4 +716,5 @@ export const __internals = {
  inferCanton,
  isSwissRegion,
  resolveSwissLocation,
+ SITE_IDS,
 };

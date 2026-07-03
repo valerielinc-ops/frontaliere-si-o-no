@@ -413,6 +413,35 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
     }
   });
 
+  it('quote-flexible noindex regex is attribute-order-independent (#3060)', () => {
+    // htmlHasNoindexMeta (build-plugins/jobMarketSnapshotPlugin.ts) and its twins
+    // (scripts/validate-content-quality.mjs hasNoindex, validate-sitemap.mjs,
+    // validate-sitemap-pages.mjs, relatedSearchClustersPlugin.ts NOINDEX_RE, and
+    // the test mirrors in tests/seo/_bridgeMarker.ts / tests/seo/html-minify.test.ts
+    // / tests/post-build/thin-content-guard.test.ts) are the same byte-identical
+    // lookahead pattern, kept in sync as one sibling-pattern class (#3060). The
+    // corpus-driven test above never exercises a `content`-before-`name` tag
+    // because every current emitter writes `name` first. This test locks the
+    // pattern itself: a future template reordering the attributes must still be
+    // caught, so a noindex page can never silently slip into a sitemap.
+    const quoteFlexibleNoindex = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
+
+    // name before content — today's emitter order.
+    expect(quoteFlexibleNoindex.test('<meta name="robots" content="noindex,follow">')).toBe(true);
+    // content before name — the reordering the backstop must not miss.
+    expect(quoteFlexibleNoindex.test('<meta content="noindex,follow" name="robots">')).toBe(true);
+    // content before name, unquoted (minifier removeAttributeQuotes output).
+    expect(quoteFlexibleNoindex.test('<meta content=noindex,follow name=robots>')).toBe(true);
+
+    // Negative: a normal indexable robots meta must NOT be flagged as noindex,
+    // in either attribute order.
+    expect(quoteFlexibleNoindex.test('<meta name="robots" content="index,follow">')).toBe(false);
+    expect(quoteFlexibleNoindex.test('<meta content="index,follow" name="robots">')).toBe(false);
+    // Negative: an unrelated meta tag must NOT be flagged as noindex.
+    expect(quoteFlexibleNoindex.test('<meta name="viewport" content="width=device-width">')).toBe(false);
+    expect(quoteFlexibleNoindex.test('<meta name="description" content="a page about noindexing strategy">')).toBe(false);
+  });
+
   it('contains no dark: color class in body', () => {
     for (const html of Object.values(out.pages)) {
       expect(html).not.toMatch(/\sdark:[a-z-]+/);

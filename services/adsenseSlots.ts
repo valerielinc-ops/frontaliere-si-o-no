@@ -230,7 +230,19 @@ export const JOBLIST_AD_EVERY_N = 3;
  *  ad-density policy risk that can get the whole account throttled (which would
  *  hurt the ~95%-of-revenue Auto Ads). Cap at 12: lists ≤36 cards are
  *  unaffected (they place ≤12 ads anyway); longer lists stop interleaving past
- *  card 36 (Auto Ads + the end-of-list multiplex still cover the tail). */
+ *  card 36 (Auto Ads + the end-of-list multiplex still cover the tail).
+ *
+ *  Resolution of #2935 (follow-up of #2931): the SPA main list's mobile
+ *  infinite scroll (`JobBoard.tsx` `loadMoreMobile`, +10 cards/batch) was
+ *  re-checked — `displayJobs`/`mobileJobs` is re-sliced from position 0 on
+ *  every batch, so `shouldPlaceInfeedAd` sees the ABSOLUTE cumulative
+ *  position each render, never a per-batch-local one. The cap therefore
+ *  applies correctly across scroll batches: total ads plateau at 12 once the
+ *  accumulated list passes 36 cards, with no re-shuffling of already-placed
+ *  ads as more cards load (regression-pinned in
+ *  `tests/services/adsenseSlots.test.ts`). 12 remains a policy-safety default,
+ *  not an explicit owner request — still a single constant to change if the
+ *  owner later prefers a different value or no cap. */
 export const JOBLIST_AD_MAX_PER_LIST = 12;
 
 /** True when an in-feed ad should be placed immediately after the card at this

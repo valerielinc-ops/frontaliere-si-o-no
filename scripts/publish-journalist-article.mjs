@@ -48,6 +48,8 @@ import {
   normalizeTitleCasing,
   splitBodyIntoSections,
   generateExcerpt,
+  checkTranslatedSlugCollisions,
+  deriveAndSanitizeArticleSlugs,
 } from './create-article.mjs';
 import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
@@ -55,17 +57,6 @@ import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://frontaliereticino.ch';
-
-// Mirrors ARTICLE_SECTION_CONFIGS.frontaliere.hubSlug in create-article.mjs
-// (journalist articles are always registered into the default 'frontaliere'
-// section — this script never passes --section, so create-article.mjs's own
-// module-scope SECTION resolves to 'frontaliere' too).
-const HUB_SLUG = {
-  it: 'articoli-frontaliere',
-  en: 'cross-border-articles',
-  de: 'grenzgaenger-artikel',
-  fr: 'articles-frontalier',
-};
 
 // Mirrors the (unexported) CATEGORIES list in create-article.mjs. The client
 // (services/journalistTypes.ts JOURNALIST_ARTICLE_CATEGORIES) already
@@ -171,19 +162,6 @@ async function deriveJournalistContent(data, rawBody) {
   data.content.it.faq = await generateFaqIT(data.id, rawBody);
 }
 
-/** After translateArticle() has filled content.en/de/fr, derive + sanitize
- * per-locale slugs — mirrors create-article.mjs's validate() (not exported),
- * lines ~4897-4976: translated-title fallback, diacritics/non-ASCII strip,
- * 80-char cap. IT slug is fixed to the article id (pipeline convention). */
-function deriveLocaleSlugs(data) {
-  data.slugs.it = data.id;
-  for (const locale of ['en', 'de', 'fr']) {
-    const title = String(data.content[locale]?.title || data.content.it.title || '');
-    const fallback = title ? slugify(title) : data.slugs.it;
-    data.slugs[locale] = fallback || data.slugs.it;
-  }
-}
-
 /** Resolve the hero image: a journalist's custom Storage upload wins; falls
  * back to the SAME keyword-match / static fallback the AI pipeline uses. */
 async function resolveHeroImage(data, doc) {
@@ -233,14 +211,6 @@ async function resolveHeroImage(data, doc) {
   }
   data.image = STATIC_FALLBACK_IMAGE;
   return { source: 'static-fallback', path: data.image };
-}
-
-function buildPublishedUrls(data) {
-  const out = {};
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    if (data.slugs[locale]) out[locale] = `${BASE_URL}/${HUB_SLUG[locale]}/${data.slugs[locale]}/`;
-  }
-  return out;
 }
 
 /** Best-effort "your article is live" email — never throws. */
@@ -314,7 +284,20 @@ async function processDoc(db, FieldValue, docSnap) {
     console.log('  🌍 translating (translateArticle)...');
     await translateArticle(data);
 
-    deriveLocaleSlugs(data);
+    // #3209: deriveAndSanitizeArticleSlugs() is the single-source slug
+    // derivation (also called internally by registerArticleFiles() below,
+    // idempotently) — call it explicitly here so #3010's collision guard can
+    // validate en/de/fr before any file gets registered/written.
+    deriveAndSanitizeArticleSlugs(data);
+
+    // #3010: nothing validated the translated en/de/fr slugs against the
+    // registry until this check. The IT slug is fixed to data.id and already
+    // covered by checkArticleIdExists() above; this closes the EN/DE/FR gap
+    // using the exact same collision guard as the AI generation path (reused,
+    // not reimplemented) so a colliding translation fails this doc loudly
+    // instead of silently poisoning the registry.
+    checkTranslatedSlugCollisions(data);
+
 
     // Re-run after translation: sanitizes bold/`nav:` formatting the MT step
     // may have introduced into the newly-filled en/de/fr content (mirrors
@@ -330,13 +313,20 @@ async function processDoc(db, FieldValue, docSnap) {
     enforceStrongInternalLinks(data);
 
     console.log('  📂 registering article files (registerArticleFiles)...');
-    await registerArticleFiles(data);
+    // registerArticleFiles() derives + sanitizes data.slugs AND builds the
+    // final publishedUrls itself — consume both directly instead of
+    // re-deriving them here (issue #3209 item 1: a separate copy of either
+    // would drift as registerArticleFiles()'s own logic evolves, producing
+    // wrong canonicals/404s; the removed local buildPublishedUrls() copy had
+    // in fact already drifted — it omitted the /en //de //fr locale prefix
+    // the router actually uses, producing wrong links in this "article is
+    // live" email/Firestore field).
+    const { slugs, publishedUrls } = await registerArticleFiles(data);
 
-    const publishedUrls = buildPublishedUrls(data);
     await docSnap.ref.update({
       status: 'published',
       publishedAt: FieldValue.serverTimestamp(),
-      slugs: data.slugs,
+      slugs,
       publishedUrls,
       errorMessage: null,
     });
@@ -391,4 +381,4 @@ if (invokedDirectly) {
   });
 }
 
-export { buildPipelineData, deriveLocaleSlugs, buildPublishedUrls, slugify };
+export { buildPipelineData, slugify, resolveHeroImage };

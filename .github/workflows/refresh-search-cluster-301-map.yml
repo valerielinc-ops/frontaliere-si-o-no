@@ -1,0 +1,104 @@
+name: Refresh search-cluster 301 map
+
+# Issue #2918 item 3 (periodic regeneration + prune of stale entries):
+# data/search-cluster-301-map.json is a point-in-time snapshot mapping dead
+# legacy per-canton cluster URLs to a LIVE target (national cluster hub, or a
+# city/canton board fallback). As national clusters churn (a role+city
+# combination stops being live), a "specific" entry's target itself starts
+# 404ing, turning a working 301 into a dead-end 301→404.
+#
+# This workflow keeps the map self-maintaining instead of requiring a manual
+# run: it re-derives the map from the current live sitemaps + indexed-cluster
+# candidates (scripts/build-search-cluster-301-map.mjs), then drops any
+# "specific" entry whose target is no longer live
+# (scripts/prune-search-cluster-301-map.mjs — analogous to
+# prune-404-compat-paths.ts's "verify against live truth, drop what no
+# longer resolves" pattern).
+#
+# Sibling: refresh-indexed-cluster-urls.yml (same weekly cadence, same
+# regenerate + commit-if-changed shape) — this run is scheduled 50 minutes
+# after it so the freshly-refreshed data/indexed-cluster-urls.json (this
+# script's own input) has already landed on main before this workflow's
+# checkout.
+#
+# Neither script needs GSC/GA4/PostHog credentials or load-rc-env.mjs — both
+# only hit the public live site's own sitemaps over plain fetch().
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC (50 min after indexed-cluster-urls refresh)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: search-cluster-301-map-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate search-cluster-301-map.json
+        run: node scripts/build-search-cluster-301-map.mjs
+
+      - name: Prune stale "specific" entries (target no longer live)
+        run: node scripts/prune-search-cluster-301-map.mjs
+
+      - name: Validate committed-snapshot invariant before commit
+        # tests/search-console-compat.test.ts's "resolves EVERY entry in
+        # cluster-301 map to its own literal target" pins the same invariant
+        # AGENTS.md requires for any bot-direct-to-main data commit: never
+        # poison main with a dump that violates a committed-snapshot test.
+        # Both scripts above build/prune from the same single-source helpers
+        # the resolver itself uses, so this should always be green — but it
+        # is the cheap, existing, non-duplicated gate to catch a regression
+        # BEFORE it lands on main instead of after (root cause of the
+        # 2026-06-02 ~83min drain freeze this pattern now guards against
+        # repo-wide).
+        run: npx vitest run tests/search-console-compat.test.ts
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/search-cluster-301-map.json
+          if git diff --cached --quiet; then
+            echo "No change to search-cluster-301-map.json"
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh search-cluster 301 map (regen + prune stale targets)"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/build-search-cluster-301-map.mjs && node scripts/prune-search-cluster-301-map.mjs && git add data/search-cluster-301-map.json"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

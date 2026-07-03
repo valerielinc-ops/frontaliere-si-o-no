@@ -1,0 +1,161 @@
+name: App Auth Health Monitor
+
+# Watchdog for the GitHub App installation-token mint (scripts/ci/mint-app-token.mjs,
+# introduced by PR #2859 as the primary push/dispatch identity for pr-autorebase.yml,
+# replacing the PAT). `mint-app-token.mjs` fails CLOSED by design (warnExit → exit 0,
+# no APP_TOKEN written on any error) so a rotated private key or a revoked/uninstalled
+# App installation degrades SILENTLY: callers just fall back to GITHUB_PAT. Once more
+# workflows migrate onto the App per issue #2861 item 1, that silent fallback stops
+# being a safety net and becomes a single point of failure — nothing detects the App
+# auth being down until a consumer workflow fails in production (cascade pipeline-down).
+#
+# This is the App-auth counterpart to gh-pat-expiry-monitor.yml: same shape (daily
+# cron, trial auth attempt, dedup issue on failure, auto-close on recovery), same
+# alert channel (scripts/lib/github-issue-creator.mjs — stable-title dedup, per the
+# convention in AGENTS.md), same zero-Claude bash+node design per the "Auth
+# automazioni & frugalità quota" rules (no claude-code-action, no Max-quota burn).
+#
+# Refs #2861 (item 2, follow-up of #2859). Item 1 (migrating the other ~13 PAT
+# workflows) is explicitly out of scope here — it needs owner C1/C2 confirmation.
+
+on:
+  schedule:
+    # Same daily cadence as gh-pat-expiry-monitor.yml (06:30 UTC) — offset by 40min
+    # so the two monitors don't land in the same Actions queue slot. A key
+    # rotation / installation revocation isn't more time-sensitive than PAT expiry,
+    # so there's no reason to poll more often than the sibling monitor.
+    - cron: '10 7 * * *'
+  workflow_dispatch: {}
+
+# Serialize so a manual run never races the scheduled one.
+concurrency:
+  group: app-auth-health-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-app-auth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Trial mint — reuses the SAME minting mechanism PR #2859 introduced (no
+      # reimplementation). mint-app-token.mjs always exits 0, even on failure
+      # (warnExit), so the result is read from env.APP_TOKEN in the next steps,
+      # not from this step's exit code.
+      - name: Trial mint App installation token
+        id: mint
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Alert on mint failure (dedup, zero-Claude)
+        id: alertmint
+        if: env.APP_TOKEN == ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          DESCRIPTION="$(printf '%s\n' \
+            "## 🚨 GitHub App auth is DOWN — installation-token mint failed" \
+            "" \
+            "\`scripts/ci/mint-app-token.mjs\` could not mint a short-lived App" \
+            "installation token for this repo on the latest App Auth Health Monitor" \
+            "run. Likely causes:" \
+            "- \`APP_PRIVATE_KEY\` was rotated in the App settings but the repo" \
+            "  secret was not updated to match" \
+            "- the App installation was revoked or uninstalled from this repo" \
+            "- the \`APP_ID\` / \`APP_PRIVATE_KEY\` secrets are missing or malformed" \
+            "" \
+            "### Impact" \
+            "\`pr-autorebase.yml\` (and any workflow migrated onto the App per #2861" \
+            "item 1) silently falls back to \`GITHUB_PAT\` when \`APP_TOKEN\` is unset." \
+            "That fallback hides the breakage today, but it also means there is NO" \
+            "redundancy left: if the PAT is down too (see \`gh-pat-expiry-monitor.yml\`)" \
+            "the whole auto-merge/rebase cascade stops with zero warning until a" \
+            "consumer workflow fails in production." \
+            "" \
+            "### Action" \
+            "1. Verify the App is still installed on this repo (repo Settings →" \
+            "   GitHub Apps → Installed GitHub Apps)." \
+            "2. If the private key was rotated, update the \`APP_PRIVATE_KEY\` secret" \
+            "   with the current PEM (and \`APP_ID\` if the App itself changed)." \
+            "3. Re-run this workflow — it auto-closes this issue once the mint" \
+            "   succeeds again." \
+            "" \
+            "_Filed automatically by the App Auth Health Monitor workflow._")"
+
+          node scripts/lib/github-issue-creator.mjs \
+            --title "App auth down: GitHub App installation token mint failed" \
+            --description "$DESCRIPTION" \
+            --priority 1 \
+            --label automation \
+            --workflow "App Auth Health Monitor"
+
+          echo "intentional_fail=true" >> "$GITHUB_OUTPUT"
+          echo "::error::App-auth mint failed — filed/refreshed the alert issue."
+          exit 1
+
+      - name: Recovery — close any open alert (idempotent)
+        if: env.APP_TOKEN != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          ALERT_TITLE="App auth down: GitHub App installation token mint failed"
+          OPEN_ALERT="$(gh issue list \
+            --state open \
+            --search "in:title \"${ALERT_TITLE}\"" \
+            --limit 10 \
+            --json number,title \
+            --jq "[.[] | select(.title == \"${ALERT_TITLE}\")][0].number" \
+            2>/dev/null || true)"
+
+          if [ -n "$OPEN_ALERT" ] && [ "$OPEN_ALERT" != "null" ]; then
+            echo "Recovery: closing open App-auth alert #${OPEN_ALERT}."
+            gh issue comment "$OPEN_ALERT" \
+              --body "✅ Recovery — the App installation token minted successfully on the latest App Auth Health Monitor run. Auto-closing." \
+              || true
+            gh issue close "$OPEN_ALERT" --reason completed || true
+          else
+            echo "✅ App auth healthy, no open alert to close."
+          fi
+
+      # Watcher-del-watcher, mirroring gh-pat-expiry-monitor.yml: if this monitor
+      # crashes on a bug of its own (not the intentional mint-failure path above),
+      # nobody notices the App-auth detection itself is dead. Alert only when the
+      # failure did NOT go through the intentional path (guards against infra
+      # flakes — checkout/setup-node failing would leave `alertmint` skipped, not
+      # failed, so this stays quiet for those).
+      - name: Self-alert on monitor crash (dedup, zero-Claude)
+        if: failure() && steps.alertmint.conclusion == 'failure' && steps.alertmint.outputs.intentional_fail != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "App-auth monitor crashed: app-auth-health-monitor failing" \
+            --description "The run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} FAILED without going through the intentional mint-failure alert path ('intentional_fail' output absent). The monitor itself is broken: until it's fixed, nobody detects a real App-auth revocation. Read the run log and fix the root cause." \
+            --priority 2 \
+            --label automation \
+            --workflow "App Auth Health Monitor"

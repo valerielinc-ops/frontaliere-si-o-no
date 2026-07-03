@@ -75,6 +75,22 @@ export const RELATED_SEARCH_JUNK_TERMS = new Set([
 ]);
 
 /**
+ * Salary-intent lead tokens. These sit inside RELATED_SEARCH_JUNK_TERMS
+ * (they were added as a generic "bonus straggler" catch), but unlike real
+ * filler they form a legitimate, SEO-valuable query when followed by an
+ * actual role/phrase — "stipendio infermiere" (salary + nurse), "stipendio
+ * manager" — the same class of intent as "quanto guadagna un infermiere".
+ * Only the BARE token alone, or the token followed exclusively by other
+ * junk/city-leftover tokens, should still drop (see isJunkSearchKeyword).
+ *
+ * Confirmed against the live data/related-search-candidates.json audit
+ * (issue #2764, follow-up of #2756): ~4.8k live "stipendio <role> svizzera"
+ * candidates were being wholesale dropped by the blanket
+ * first-token-is-junk rule before this exception existed.
+ */
+const SALARY_INTENT_LEAD_TOKENS = new Set(['stipendio']);
+
+/**
  * Normalize a keyword to lowercased, diacritic-stripped, alnum-spaced tokens.
  * @param {string} keyword
  * @returns {string[]}
@@ -108,6 +124,13 @@ function tokenizeKeyword(keyword) {
  * "capacita gossau") and is dropped. The junk set is curated to EXCLUDE real
  * single-word job categories (ospedale, medico, vendita, formazione, …), so a
  * junk leading token reliably means a junk keyword.
+ *
+ * EXCEPTION: salary-intent lead tokens (SALARY_INTENT_LEAD_TOKENS, e.g.
+ * "stipendio") are junk only in isolation. "stipendio <role...>" is a
+ * legitimate salary+role search intent, so the leading-junk short-circuit is
+ * skipped for them once 2+ tokens remain; the keyword still falls through to
+ * the "every token junk" check below, so a bare "stipendio" or a "stipendio
+ * <city-leftover-junk>" (all-junk remainder) still drops.
  * @param {string} keyword
  * @returns {boolean}
  */
@@ -115,5 +138,7 @@ export function isJunkSearchKeyword(keyword) {
   const tokens = tokenizeKeyword(keyword);
   if (tokens.length === 0) return true;
   const isJunkToken = (t) => /^\d+$/.test(t) || RELATED_SEARCH_JUNK_TERMS.has(t);
+  const isSalaryIntentLed = tokens.length >= 2 && SALARY_INTENT_LEAD_TOKENS.has(tokens[0]);
+  if (isSalaryIntentLed) return tokens.every(isJunkToken);
   return isJunkToken(tokens[0]) || tokens.every(isJunkToken);
 }

@@ -1,5 +1,9 @@
 import React, { Component, type ReactNode } from 'react';
-import { isModuleLinkSkewMessage, bustAssetHttpCache } from '@/services/resilientImport';
+import {
+  isModuleLinkSkewMessage,
+  bustAssetHttpCache,
+  CHUNK_LOAD_ERROR_PATTERN_SOURCE,
+} from '@/services/resilientImport';
 
 /**
  * Last-resort boundary for Vite chunk-load failures during render.
@@ -29,7 +33,13 @@ import { isModuleLinkSkewMessage, bustAssetHttpCache } from '@/services/resilien
  * still reloads here instead of white-screening.
  */
 
-const CHUNK_ERROR_PATTERN = /Failed to fetch dynamically imported module|Importing a module script failed|ChunkLoadError|Loading chunk \d+ failed/i;
+// Built from the shared CHUNK_LOAD_ERROR_SUBSTRINGS (resilientImport.ts)
+// instead of a hand-copied literal — this pattern had drifted from the other
+// chunk-load detectors in the codebase (issue #3216 item 1; AGENTS.md
+// §Non-Negotiables #6). 'ChunkLoadError' stays as a bare message-content
+// alternative (distinct from the `.name === 'ChunkLoadError'` check other
+// consumers use) to preserve this boundary's existing behaviour.
+const CHUNK_ERROR_PATTERN = new RegExp(`${CHUNK_LOAD_ERROR_PATTERN_SOURCE}|ChunkLoadError`, 'i');
 const RELOAD_FLAG = 'fr_chunk_reload_attempted_at';
 const RELOAD_COOLDOWN_MS = 60_000;
 

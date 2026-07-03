@@ -29,15 +29,29 @@
  * Worker → shard origins; `/assets /data /og` are proxied to
  * cdn.frontaliereticino.ch; everything else is the main repo.
  *
+ * Since 2026-07-01 (PR #3177, TICINO_SHARD_LIVE=true) the Ticino job/company
+ * section is carved out AGAIN, on top of the above: `cerca-lavoro-ticino`
+ * (IT) and its `en/find-jobs-ticino` / `de/jobs-im-tessin` /
+ * `fr/trouver-emploi-tessin` counterparts are stripped from the IT apex AND
+ * from every locale shard's own tree, and pushed to FOUR MORE dedicated repos
+ * `frontaliere-ticino-{it,en,de,fr}` (see TICINO_SHARD_REPOS below and
+ * docs/TICINO-SHARD-RUNBOOK.md). Missing this union was the root cause of
+ * issue #3173 (19 real offenders on 2026-06-30 → thousands of false-positive
+ * Ticino-section 404s from 2026-07-01 onward, once this script's served set
+ * no longer matched what the locale-router Worker actually serves).
+ *
  * Consequence for a STATIC check: the main repo's post-strip dist no longer
- * contains /en /de /fr. To know the full SERVED set you must UNION:
+ * contains /en /de /fr, nor the Ticino subtree. To know the full SERVED set
+ * you must UNION:
  *   - main IT pages  (from the live sitemap index, or local dist if present)
- *   - the three shard repos' file trees.
+ *   - the three locale shard repos' file trees
+ *   - the four Ticino shard repos' file trees.
  * A dist-only check on the main artifact would falsely flag every /en/de/fr
- * URL as missing. We list each shard tree with a cheap blobless shallow
- * clone (`git clone --filter=blob:none --no-checkout --depth 1`), which
- * returns the COMPLETE tree (the GitHub `git/trees?recursive=1` API
- * truncates above its entry cap and silently under-reports — unusable here).
+ * and every Ticino-section URL as missing. We list each shard tree with a
+ * cheap blobless shallow clone (`git clone --filter=blob:none --no-checkout
+ * --depth 1`), which returns the COMPLETE tree (the GitHub
+ * `git/trees?recursive=1` API truncates above its entry cap and silently
+ * under-reports — unusable here).
  *
  * Each emitted page is served as `<route>/index.html`, so a served route
  * `/de/jobs-im-tessin/x` maps to the tree entry `de/jobs-im-tessin/x/index.html`.
@@ -125,6 +139,30 @@ const SHARD_REPOS = {
   fr: 'valerielinc-ops/frontaliere-fr',
 };
 
+// Ticino-section shards (issue #3173 root cause, added 2026-07-03): PR #3177
+// (2026-06-30) carved the Ticino job/company section out of the IT apex AND
+// every en/de/fr locale shard into FOUR dedicated per-locale Pages repos
+// (frontaliere-ticino-<loc>), gated by the `TICINO_SHARD_LIVE` repo variable
+// (flipped true 2026-07-01T06:30Z — see docs/TICINO-SHARD-RUNBOOK.md). Once
+// live, strip-ticino-subtree.sh removes cerca-lavoro-ticino / en/find-jobs-ticino
+// / de/jobs-im-tessin / fr/trouver-emploi-tessin from the apex and from every
+// locale shard's own dist before push — the content is real and served (via
+// the locale-router Worker → origin-ticino-<loc>), just no longer present in
+// SHARD_REPOS' trees. This script's SHARD_REPOS map was never updated in that
+// PR (post-deploy-validate-dist.yml's rehydrate step was, in the same PR — this
+// was the missed sibling), so from 2026-07-01 onward EVERY Ticino-section
+// en/de/fr page was a false-positive 404-risk (19 real offenders on 06-30 →
+// 3581 false + real by 07-02, almost entirely `find-jobs-ticino` /
+// `jobs-im-tessin` / `trouver-emploi-tessin` URLs). Keep in lockstep with
+// TICINO_SUB in .github/workflows/post-deploy-validate-dist.yml and the `case`
+// in scripts/lib/push-ticino-shard.sh.
+const TICINO_SHARD_REPOS = {
+  it: 'valerielinc-ops/frontaliere-ticino-it',
+  en: 'valerielinc-ops/frontaliere-ticino-en',
+  de: 'valerielinc-ops/frontaliere-ticino-de',
+  fr: 'valerielinc-ops/frontaliere-ticino-fr',
+};
+
 // Degenerate-clone floor: a successful clone of a real locale shard returns
 // hundreds of thousands of served pages, whereas an empty/partial tree (renamed
 // repo, failed push, rate-limited clone) returns ≈0 → without the floor that
@@ -143,6 +181,16 @@ const DEFAULT_SHARD_FLOOR = 1000;
 function shardFloor(loc) {
   const raw = process.env[`AUDIT_404_SHARD_FLOOR_${loc.toUpperCase()}`]
     ?? process.env.AUDIT_404_SHARD_FLOOR;
+  if (raw == null) return DEFAULT_SHARD_FLOOR;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 ? n : DEFAULT_SHARD_FLOOR;
+}
+// Same floor guard, separate knobs, for the Ticino shards (~222k pages each per
+// docs/TICINO-SHARD-RUNBOOK.md — degenerate-clone risk is identical to the
+// locale shards, so reuse DEFAULT_SHARD_FLOOR unless overridden).
+function ticinoShardFloor(loc) {
+  const raw = process.env[`AUDIT_404_TICINO_SHARD_FLOOR_${loc.toUpperCase()}`]
+    ?? process.env.AUDIT_404_TICINO_SHARD_FLOOR;
   if (raw == null) return DEFAULT_SHARD_FLOOR;
   const n = Number(raw);
   return Number.isFinite(n) && n >= 0 ? n : DEFAULT_SHARD_FLOOR;
@@ -284,7 +332,7 @@ async function listDistRoutes() {
 
 async function buildServedSet() {
   const served = new Set();
-  const meta = { shards: {}, itSource: null, distRoutes: 0 };
+  const meta = { shards: {}, ticinoShards: {}, itSource: null, distRoutes: 0 };
 
   // Main IT routes: prefer local dist; else use the live IT sitemap <loc>s.
   const distRoutes = await listDistRoutes();
@@ -317,6 +365,31 @@ async function buildServedSet() {
       // overridable (legitimately-small early-stage shard ≠ broken clone).
       if (n < floor) {
         throw new Error(`shard ${loc} (${repo}) returned only ${n} pages (< floor ${floor}) — degenerate clone, refusing to emit a poisoned report. If this locale is legitimately smaller than the floor, lower it via AUDIT_404_SHARD_FLOOR_${loc.toUpperCase()} (or AUDIT_404_SHARD_FLOOR).`);
+      }
+    }
+
+    // Ticino-section shards (issue #3173): additive to the locale shards
+    // above, NOT a replacement — since 2026-07-01 the Ticino subtree is
+    // stripped out of the IT apex and out of every en/de/fr locale shard, so
+    // without this loop every Ticino-section page looks unserved even though
+    // it's live on frontaliere-ticino-<loc>. See TICINO_SHARD_REPOS comment.
+    for (const [loc, repo] of Object.entries(TICINO_SHARD_REPOS)) {
+      log(`[404] listing ${loc} Ticino shard tree (${repo}) …`);
+      const entries = await listShardTree(repo);
+      let n = 0;
+      for (const e of entries) {
+        if (!/\.html$/i.test(e)) continue;
+        served.add(treeEntryToRoute(e));
+        n++;
+      }
+      const floor = ticinoShardFloor(loc);
+      meta.ticinoShards[loc] = n;
+      log(`[404]   ticino-${loc}: ${n} served pages (floor ${floor})`);
+      // Same degenerate-clone guard as the locale shards above — a renamed
+      // repo / failed push / rate-limited clone must fail loud, not silently
+      // report tens of thousands of false Ticino-section 404s.
+      if (n < floor) {
+        throw new Error(`ticino shard ${loc} (${repo}) returned only ${n} pages (< floor ${floor}) — degenerate clone, refusing to emit a poisoned report. If this is expected (e.g. TICINO_SHARD_LIVE rolled back), lower it via AUDIT_404_TICINO_SHARD_FLOOR_${loc.toUpperCase()} (or AUDIT_404_TICINO_SHARD_FLOOR).`);
       }
     }
   }
@@ -389,7 +462,7 @@ async function main() {
   log('[404] building served-path set (main IT + shards) …');
   const { served, meta } = await buildServedSet();
   const resolves = makeResolver(served, meta);
-  log(`[404] served set: ${served.size} paths | IT source: ${meta.itSource} | shards: ${JSON.stringify(meta.shards)}`);
+  log(`[404] served set: ${served.size} paths | IT source: ${meta.itSource} | shards: ${JSON.stringify(meta.shards)} | ticino shards: ${JSON.stringify(meta.ticinoShards)}`);
 
   const report = {
     generatedAt: new Date().toISOString(),
@@ -477,7 +550,7 @@ async function main() {
   const total404 = a.wouldBe404 + b.wouldBe404;
 
   process.stdout.write('\n=== 404-RISK AUDIT ===\n');
-  process.stdout.write(`served set: ${served.size} paths (IT: ${meta.itSource}; shards: ${JSON.stringify(meta.shards)})\n\n`);
+  process.stdout.write(`served set: ${served.size} paths (IT: ${meta.itSource}; shards: ${JSON.stringify(meta.shards)}; ticino shards: ${JSON.stringify(meta.ticinoShards)})\n\n`);
   process.stdout.write(`(A) Sitemap coverage:       ${a.wouldBe404} / ${a.totalUrls} URLs would 404\n`);
   for (const u of a.sample) process.stdout.write(`      ✗ ${u}\n`);
   process.stdout.write(`\n(B) Newsletter hub links:   ${b.wouldBe404} would 404 (${b.companiesSampled} companies × 4 locales)\n`);

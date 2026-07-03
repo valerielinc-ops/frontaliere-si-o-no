@@ -200,6 +200,164 @@ _publish_cdn_r2() {
   else
     echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
   fi
+  # GC visibility scan (Refs #2886, follow-up of #2883's "GC storage R2
+  # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
+  # see _janitor_cdn_r2's header comment for why. This just makes bucket growth
+  # visible in every deploy log; it never deletes anything on its own.
+  _janitor_cdn_r2 "$stage" "dry-run"
+}
+
+# ── R2 storage janitor (GC orphaned assets/ hashes past grace) ───────────────
+# Follow-up of #2883 (Refs #2886): the git-based CDN janitor (prune-cdn-assets.mjs,
+# step_prune_cdn below) explicitly skips R2 — no git repo, no ~1 GB Pages soft
+# limit to defend. But R2's additive `rclone copy` (see _publish_cdn_r2 above:
+# `copy`, not `sync`, so prior content-hashed generations are NEVER deleted by
+# the publish path itself) means every superseded assets/ hash accumulates
+# forever. At 1.27 GB of the 10 GB free tier there is ample margin today, but
+# unbounded growth eventually saturates the tier → PUT failures → deploy
+# failure → SEO impact (issue #2886 rationale).
+#
+# SAFETY (standing repo rule: no irreversible production action without
+# explicit owner sign-off) — DRY-RUN BY DEFAULT, always:
+#   - Real deletion requires BOTH mode="apply" (2nd arg) AND the explicit env
+#     opt-in R2_JANITOR_APPLY=1. Either missing → dry-run, zero DeleteObject
+#     calls. Mirrors the --apply convention this repo already uses for other
+#     destructive one-off scripts (scripts/dev/backfill-newsletter-subscriber-auth.mjs).
+#   - The ONLY automatic call site (end of _publish_cdn_r2 above) always passes
+#     mode="dry-run" literally — it never sets R2_JANITOR_APPLY. Real deletion
+#     is a manual, owner-triggered invocation only
+#     (`R2_JANITOR_APPLY=1 bash -c '. scripts/lib/deploy-it-pages-prep.sh; _janitor_cdn_r2 <stage> apply'`),
+#     never wired into deploy.yml or any other CI trigger.
+#
+# Grace period: R2_JANITOR_GRACE_DAYS (default 7) — same default GRACE_DAYS
+# uses in prune-cdn-assets.mjs, for a consistent GC posture across both CDN
+# publish paths (pages vs r2). Objects newer than the cutoff are NEVER
+# candidates, in ANY mode — checked before the anti-clobber re-check below.
+#
+# Anti-clobber (assertFreshRemote-equivalent, see prune-cdn-assets.mjs): R2 has
+# no git tip to re-check, so the analogous defense-in-depth is per-object —
+# right before deleting a candidate, re-`head-object` it and compare ETag
+# against the value captured at list-time. A mismatch (or the object having
+# vanished) means something touched that key mid-run (e.g. a concurrent
+# deploy's re-upload) — skip deleting THAT key rather than trust the stale
+# list snapshot, exactly the same "verify nothing moved since we looked"
+# principle assertFreshRemote applies before the git janitor's force-push.
+#
+# Scope: only the `assets/` prefix — content-hashed bundle files are the only
+# ones that actually accumulate orphans; og/data/images/job-canon are
+# same-key overwrites every deploy (see _r2_sync above) and never grow
+# unbounded, so they are out of scope for this janitor.
+_janitor_cdn_r2() {
+  local stage="$1"
+  local mode="${2:-dry-run}"  # 'dry-run' (only value the automatic call site ever passes) | 'apply'
+  if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
+     || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+    echo "[r2-janitor] R2_* creds missing — skipping GC scan"
+    return 0
+  fi
+  if ! command -v aws >/dev/null 2>&1; then
+    echo "[r2-janitor] aws CLI not found (expected preinstalled on GitHub-hosted ubuntu runners) — skipping GC scan"
+    return 0
+  fi
+  if [ ! -d "$stage/assets" ]; then
+    # Authoritative active set is THIS build's stage/assets — absent means we
+    # cannot tell what's still referenced. FAIL-CLOSED (same posture as
+    # prune-cdn-assets.mjs's DIST_ASSETS_DIR guard): no candidates, no scan.
+    echo "[r2-janitor] $stage/assets absent — FAIL-CLOSED, skipping GC scan"
+    return 0
+  fi
+
+  # Double gate: caller must literally pass mode="apply" AND the explicit env
+  # opt-in must be "1". Either missing → dry-run.
+  local do_apply=0
+  if [ "$mode" = "apply" ] && [ "${R2_JANITOR_APPLY:-}" = "1" ]; then
+    do_apply=1
+  fi
+
+  local grace_days="${R2_JANITOR_GRACE_DAYS:-7}"
+  case "$grace_days" in (''|*[!0-9]*) grace_days=7 ;; esac
+  local cutoff_epoch
+  cutoff_epoch=$(( $(date -u +%s) - grace_days * 86400 ))
+
+  local aws_env=(env "AWS_ACCESS_KEY_ID=$R2_ACCESS_KEY_ID" "AWS_SECRET_ACCESS_KEY=$R2_SECRET_ACCESS_KEY" "AWS_DEFAULT_REGION=auto")
+  local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT")
+
+  local active_list; active_list="$(mktemp)"
+  ( cd "$stage/assets" && ls -1 ) > "$active_list" 2>/dev/null || true
+
+  local listing; listing="$(mktemp)"
+  if ! "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
+       --query 'Contents[].{Key:Key,Size:Size,LastModified:LastModified,ETag:ETag}' \
+       --output json > "$listing" 2>/tmp/r2-janitor-list.err; then
+    echo "::warning::[r2-janitor] list-objects-v2 failed — $(cat /tmp/r2-janitor-list.err 2>/dev/null)"
+    rm -f "$active_list" "$listing"
+    return 0
+  fi
+
+  # node does the set-diff + grace filter + byte totals — parsing the aws CLI's
+  # JSON output in pure bash would be fragile/quoting-hazardous.
+  local candidates; candidates="$(mktemp)"
+  node -e '
+    const fs = require("node:fs");
+    const raw = fs.readFileSync(process.argv[1], "utf8").trim();
+    const objects = raw ? (JSON.parse(raw) || []) : [];
+    const active = new Set(fs.readFileSync(process.argv[2], "utf8").split("\n").filter(Boolean));
+    const cutoffEpoch = Number(process.argv[3]);
+    const out = [];
+    for (const o of objects) {
+      if (!o || !o.Key) continue;
+      const base = o.Key.slice("assets/".length);
+      if (!base || base === ".hash-age.json") continue; // never a real bundle file
+      if (active.has(base)) continue; // referenced by the CURRENT build — never a candidate
+      const lm = Date.parse(o.LastModified) / 1000;
+      if (!Number.isFinite(lm) || lm > cutoffEpoch) continue; // inside grace — never a candidate
+      out.push({ key: o.Key, size: o.Size || 0, etag: o.ETag || "" });
+    }
+    fs.writeFileSync(process.argv[4], JSON.stringify(out));
+  ' "$listing" "$active_list" "$cutoff_epoch" "$candidates"
+  rm -f "$active_list" "$listing"
+
+  local count total_bytes
+  count="$(node -e 'process.stdout.write(String(JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")).length))' "$candidates")"
+  total_bytes="$(node -e 'process.stdout.write(String(JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")).reduce((a,o)=>a+(o.size||0),0)))' "$candidates")"
+
+  echo "[r2-janitor] scan: bucket=$R2_BUCKET prefix=assets/ grace=${grace_days}d candidates=${count} bytes=${total_bytes}"
+  if [ "${count:-0}" -eq 0 ]; then
+    echo "[r2-janitor] nothing to prune"
+    rm -f "$candidates"
+    return 0
+  fi
+
+  if [ "$do_apply" -ne 1 ]; then
+    echo "[r2-janitor] DRY-RUN (mode=$mode, R2_JANITOR_APPLY=${R2_JANITOR_APPLY:-<unset>}) — would delete ${count} object(s), ${total_bytes} bytes total. Zero DeleteObject calls issued. Candidates:"
+    node -e 'for(const o of JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8"))) console.log("  - "+o.key+" ("+o.size+" bytes)")' "$candidates"
+    rm -f "$candidates"
+    return 0
+  fi
+
+  echo "[r2-janitor] APPLY mode — deleting ${count} object(s), ${total_bytes} bytes"
+  local deleted=0 skipped_changed=0
+  while IFS=$'\t' read -r key etag; do
+    [ -n "$key" ] || continue
+    # Anti-clobber re-check (see header comment) — trust nothing older than
+    # "right now".
+    local live_etag
+    live_etag="$("${AWS[@]}" s3api head-object --bucket "$R2_BUCKET" --key "$key" \
+      --query 'ETag' --output text 2>/dev/null || true)"
+    if [ -z "$live_etag" ] || [ "$live_etag" != "$etag" ]; then
+      echo "[r2-janitor] skip (changed/vanished since scan): $key"
+      skipped_changed=$((skipped_changed + 1))
+      continue
+    fi
+    if "${AWS[@]}" s3 rm "s3://$R2_BUCKET/$key" >/dev/null 2>&1; then
+      deleted=$((deleted + 1))
+    else
+      echo "::warning::[r2-janitor] delete failed: $key"
+    fi
+  done < <(node -e 'for(const o of JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8"))) console.log(o.key+"\t"+o.etag)' "$candidates")
+
+  echo "[r2-janitor] ✅ deleted ${deleted} object(s), skipped ${skipped_changed} (changed/vanished since scan)"
+  rm -f "$candidates"
 }
 
 # ── 2. Push generated assets to CDN repo (frontaliere-cdn / Pages) ────────────

@@ -344,6 +344,7 @@ describe('bustAssetHttpCache', () => {
   afterEach(() => {
     perfSpy?.mockRestore();
     (globalThis as any).fetch = originalFetch;
+    delete (performance as any).setResourceTimingBufferSize;
     vi.useRealTimers();
   });
 
@@ -364,9 +365,12 @@ describe('bustAssetHttpCache', () => {
       'https://cdn.frontaliereticino.ch/assets/index.css',
     ]);
     for (const call of fetchMock.mock.calls) {
-      // cache:'reload' is what overwrites the stale HTTP cache entry; cors+omit
-      // match the <script crossorigin> module fetch so the reload reuses them.
-      expect(call[1]).toMatchObject({ cache: 'reload', mode: 'cors', credentials: 'omit' });
+      // cache:'reload' is what overwrites the stale HTTP cache entry. mode:'cors'
+      // matches module fetches (always CORS-enabled). credentials:'same-origin'
+      // matches the spec-default credentials mode of a <script type="module">
+      // with no crossorigin attribute — NOT 'omit' (issue #3149: 'omit' would
+      // diverge from what the browser actually sent on a same-origin deploy).
+      expect(call[1]).toMatchObject({ cache: 'reload', mode: 'cors', credentials: 'same-origin' });
     }
   });
 
@@ -395,6 +399,78 @@ describe('bustAssetHttpCache', () => {
     mockResources(['https://example.com/x.js']);
     await bustAssetHttpCache();
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  // Issue #3149: Resource Timing's default buffer (spec floor: 250 entries) can
+  // realistically fill over a long-lived SPA session (no full navigation between
+  // in-app pages, plus AdSense/GTM/Firebase/Clarity resource loads), silently
+  // evicting the oldest entries — including a version-skewed chunk's own timing
+  // entry. Raising the cap cannot restore already-evicted entries, but prevents
+  // future eviction; this must run before every read of getEntriesByType.
+  it('raises the Resource Timing buffer cap before reading resource entries', async () => {
+    mockResources(['https://cdn.frontaliereticino.ch/assets/App.js']);
+    const setBufferSize = vi.fn();
+    (performance as any).setResourceTimingBufferSize = setBufferSize;
+
+    await bustAssetHttpCache();
+
+    expect(setBufferSize).toHaveBeenCalledTimes(1);
+    // Must exceed the spec-floor default (250) to actually help.
+    expect(setBufferSize.mock.calls[0][0]).toBeGreaterThan(250);
+  });
+
+  it('does not throw when setResourceTimingBufferSize is unsupported (e.g. older browsers)', async () => {
+    mockResources(['https://cdn.frontaliereticino.ch/assets/App.js']);
+    // Force the unsupported shape regardless of what the test environment's
+    // `performance` implements natively (Node/undici's does; real legacy
+    // browsers may not) — the guard is the `typeof === 'function'` check.
+    (performance as any).setResourceTimingBufferSize = undefined;
+    await expect(bustAssetHttpCache()).resolves.toBeUndefined();
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://cdn.frontaliereticino.ch/assets/App.js',
+      expect.anything(),
+    );
+  });
+
+  // The DOM-scan enumeration path is a SECOND, independent source — unioned
+  // with Resource Timing rather than only consulted when it comes back empty,
+  // so a PARTIAL eviction (one entry dropped, others still buffered) still
+  // recovers the missing one from the DOM.
+  it('unions DOM-scanned /assets/ elements with Resource Timing entries even when Resource Timing is non-empty', async () => {
+    mockResources(['https://cdn.frontaliereticino.ch/assets/App.js']);
+    const link = document.createElement('link');
+    link.href = 'https://cdn.frontaliereticino.ch/assets/vendor-icons.js';
+    document.head.appendChild(link);
+    try {
+      await bustAssetHttpCache();
+      const urls = fetchMock.mock.calls.map((c) => c[0]);
+      expect(urls).toContain('https://cdn.frontaliereticino.ch/assets/App.js');
+      expect(urls).toContain('https://cdn.frontaliereticino.ch/assets/vendor-icons.js');
+    } finally {
+      link.remove();
+    }
+  });
+
+  // Full-eviction fallback: Resource Timing returns nothing (simulating every
+  // /assets/ entry evicted from an overflowed buffer) but the chunk is still a
+  // <script> element in the DOM (e.g. the main entry script, or a statically
+  // injected <link rel="modulepreload">) — the DOM scan alone must recover it.
+  // NOTE: this does NOT cover chunks loaded via dynamic import(), which never
+  // leave a DOM node — that gap is what the buffer-size raise above mitigates.
+  it('falls back to a DOM scan when Resource Timing returns no entries at all', async () => {
+    mockResources([]);
+    const script = document.createElement('script');
+    script.src = 'https://cdn.frontaliereticino.ch/assets/App.js';
+    document.body.appendChild(script);
+    try {
+      await bustAssetHttpCache();
+      expect(fetchMock).toHaveBeenCalledWith(
+        'https://cdn.frontaliereticino.ch/assets/App.js',
+        expect.objectContaining({ cache: 'reload' }),
+      );
+    } finally {
+      script.remove();
+    }
   });
 
   it('reloads anyway when a refetch hangs past the timeout', async () => {

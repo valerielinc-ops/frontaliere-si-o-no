@@ -66,8 +66,22 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
+      # auto-mints, no expiry babysit, and its merge push re-triggers the deploy +
+      # post-merge-followup cascade (no GITHUB_TOKEN anti-recursion). Falls back to
+      # env.GITHUB_PAT then GITHUB_TOKEN. Same identity gates as auto-merge-on-lgtm.yml
+      # (#2887) already allowlist the App slug — mirrors that migration for this
+      # periodic-sweep sibling (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -78,9 +92,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          MERGE_PRIMARY_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          MERGE_PRIMARY_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           MERGE_FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HAS_PAT: ${{ env.GITHUB_PAT != '' }}
+          HAS_PAT: ${{ env.APP_TOKEN != '' || env.GITHUB_PAT != '' }}
         run: node scripts/ci/auto-merge-sweep.mjs
 
       - name: Cleanup Firebase credentials

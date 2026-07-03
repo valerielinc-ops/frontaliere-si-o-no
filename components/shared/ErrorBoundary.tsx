@@ -2,7 +2,12 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Analytics, decodeReactError } from '../../services/analytics';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { t } from '../../services/i18n';
-import { isVersionSkewError, recoverFromStaleChunk, bustAssetHttpCache } from '../../services/resilientImport';
+import {
+  isVersionSkewError,
+  recoverFromStaleChunk,
+  bustAssetHttpCache,
+  isChunkLoadError,
+} from '../../services/resilientImport';
 
 interface Props {
  children: ReactNode;
@@ -69,7 +74,11 @@ export class ErrorBoundary extends Component<Props, State> {
  // Decode React minified errors for human-readable hints
  const decoded = decodeReactError(msg);
  const isDecoded = decoded !== msg;
- const hint = msg.includes('dynamically imported module') || msg.includes('Importing a module script') || msg.includes('Loading chunk') || error?.name === 'ChunkLoadError'
+ // Shared isChunkLoadError predicate (resilientImport.ts) instead of a
+ // hand-copied substring list — this file used to carry its own literal
+ // copy that had drifted from resilientImport.ts's (issue #3216 item 1;
+ // AGENTS.md §Non-Negotiables #6).
+ const hint = isChunkLoadError(error)
  ? 'chunk'
  : msg.includes('fetch') || msg.includes('Network')
  ? 'network'
@@ -105,12 +114,9 @@ export class ErrorBoundary extends Component<Props, State> {
  // ErrorBoundary, the auto-reload already happened or was blocked by the
  // guard. Show error UI with a manual refresh button.
  const msg = error?.message || '';
- const isChunkError =
- msg.includes('dynamically imported module') ||
- msg.includes('Importing a module script') ||
- msg.includes('Loading chunk') ||
- msg.includes('Loading CSS chunk') ||
- error?.name === 'ChunkLoadError';
+ // Shared isChunkLoadError predicate (resilientImport.ts) — see the
+ // getDerivedStateFromError comment above for the drift this replaced.
+ const isChunkError = isChunkLoadError(error);
 
  // Use the snapshot from getDerivedStateFromError — by now any post-mount
  // history.replaceState may have already rewritten location.

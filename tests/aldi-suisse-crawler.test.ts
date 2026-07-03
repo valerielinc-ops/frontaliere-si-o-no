@@ -59,6 +59,35 @@ const SEARCH_JSON = {
   ],
 };
 
+// --- Fixture: same physical position shipped twice with different
+// sys_language_uid / job/{id} (#3119 item 3 — cross-language duplicate) ---
+const SEARCH_JSON_CROSS_LINGUA = {
+  jobs: [
+    {
+      rmk_id: '88221',
+      title: 'Mitarbeiter Verkauf (m/w/d)',
+      shift_type: '60 - 80%',
+      url: 'job/2001000001',
+      sys_language_uid: 0,
+      city: 'Lugano',
+      zip: '6900',
+      job_id: '2001000001',
+    },
+    // Same rmk_id (same physical role), different language variant and
+    // distinct job/{id} URL — must collapse to a single result.
+    {
+      rmk_id: '88221',
+      title: 'Collaboratore vendita (m/f/d)',
+      shift_type: '60 - 80%',
+      url: 'job/2001000002',
+      sys_language_uid: 2,
+      city: 'Lugano',
+      zip: '6900',
+      job_id: '2001000002',
+    },
+  ],
+};
+
 // --- Fixture: live TYPO3 detail page (description div) ---
 const DETAIL_TYPO3_HTML = `
 <html><body>
@@ -167,6 +196,12 @@ describe('parseAldiSearchResults', () => {
     const rows = parseAldiSearchResults(SEARCH_JSON);
     const naefels = rows.filter((r) => r.url.includes('1271973201'));
     expect(naefels.length).toBe(1);
+  });
+
+  it('deduplicates rows that share an rmk_id even with different job/{id} URLs (cross-language variant, #3119 item 3)', () => {
+    const rows = parseAldiSearchResults(SEARCH_JSON_CROSS_LINGUA);
+    expect(rows.length).toBe(1);
+    expect(rows[0].jobId).toBe('2001000001');
   });
 
   it('accepts a raw JSON string payload', () => {

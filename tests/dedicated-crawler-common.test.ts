@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('dedicated-crawler-common locale hardening', () => {
   it('flags wrong-language copied locales for retranslation without deleting (deploy has no AI)', () => {
@@ -731,5 +731,227 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     };
     expect(getMergeExclusionReasons(usJob, cfg)).toContain('job_location_block_foreign');
     expect(getMergeExclusionReasons(chJob, cfg)).not.toContain('job_location_block_foreign');
+  });
+});
+
+// ─── seedCrawlerSlicesFromDataJobs (issue #3089 items 2 + 3) ────────────────
+//
+// This is the raw, pre-quality-gate seed that `runDedicatedBaseCrawler` runs
+// against the freshly-merged `data/jobs.json` before the shared crawler reads
+// each crawler's slice back. Two "should never happen" invariants shipped in
+// #3107/#3122 but had no direct unit coverage — this locks them in.
+describe('seedCrawlerSlicesFromDataJobs (#3089 items 2 + 3)', () => {
+  function makeRoot() {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-seed-slices-'));
+    fs.mkdirSync(path.join(root, 'data', 'jobs', 'by-crawler'), { recursive: true });
+    return root;
+  }
+
+  const sliceDir = (root: string) => path.join(root, 'data', 'jobs', 'by-crawler');
+  const dataJobsPath = (root: string) => path.join(root, 'data', 'jobs.json');
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('item 2: warns instead of silently leaving a stale slice when a scoped companyKey matches 0 jobs but an on-disk slice already holds jobs (alias/canton-suffix mismatch)', () => {
+    const root = makeRoot();
+    // The merged data/jobs.json only has jobs under a differently-shaped key
+    // (e.g. a canton-suffixed alias), never the plain scoped key "acme".
+    fs.writeFileSync(
+      dataJobsPath(root),
+      JSON.stringify([{ companyKey: 'acme-ti', title: 'Some job' }]),
+    );
+    // A previous run's slice for the scoped key still holds jobs on disk.
+    const staleSlicePath = path.join(sliceDir(root), 'acme.json');
+    const staleJobs = { jobs: [{ companyKey: 'acme', title: 'Stale job' }] };
+    fs.writeFileSync(staleSlicePath, JSON.stringify(staleJobs));
+
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['acme'])).not.toThrow();
+
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringMatching(/companyKey "acme" matched 0 jobs.*slice NOT refreshed/s),
+    );
+    // The slice is left untouched (not silently emptied nor silently kept
+    // stale without any signal) — the warn IS the signal.
+    expect(JSON.parse(fs.readFileSync(staleSlicePath, 'utf-8'))).toEqual(staleJobs);
+    void logSpy;
+  });
+
+  it('item 2: a scoped companyKey matching 0 jobs with no pre-existing slice is a legitimate no-op (info log, no warn)', () => {
+    const root = makeRoot();
+    fs.writeFileSync(dataJobsPath(root), JSON.stringify([{ companyKey: 'other-co', title: 'Some job' }]));
+
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['brand-new-co'])).not.toThrow();
+
+    expect(warnSpy).not.toHaveBeenCalled();
+    expect(logSpy).toHaveBeenCalledWith(
+      expect.stringMatching(/companyKey "brand-new-co" matched 0 jobs \(no slice to refresh\)/),
+    );
+  });
+
+  it('item 2: a matching companyKey still reseeds the slice from the fresh merge (happy path unaffected)', () => {
+    const root = makeRoot();
+    fs.writeFileSync(
+      dataJobsPath(root),
+      JSON.stringify([
+        { companyKey: 'acme', title: 'Fresh job 1' },
+        { companyKey: 'acme', title: 'Fresh job 2' },
+        { companyKey: 'other-co', title: 'Not scoped' },
+      ]),
+    );
+    const slicePath = path.join(sliceDir(root), 'acme.json');
+    fs.writeFileSync(slicePath, JSON.stringify({ jobs: [{ companyKey: 'acme', title: 'Old stale job' }] }));
+
+    seedCrawlerSlicesFromDataJobs(root, ['acme']);
+
+    const written = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    expect(written.jobs).toHaveLength(2);
+    expect(written.jobs.map((j: { title: string }) => j.title)).toEqual(['Fresh job 1', 'Fresh job 2']);
+  });
+
+  it('item 3: rethrows (and logs via console.error) instead of silently proceeding stale when data/jobs.json is corrupt', () => {
+    const root = makeRoot();
+    fs.writeFileSync(dataJobsPath(root), '{ this is not valid json');
+    const slicePath = path.join(sliceDir(root), 'acme.json');
+    fs.writeFileSync(slicePath, JSON.stringify({ jobs: [{ companyKey: 'acme', title: 'Stale job' }] }));
+
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['acme'])).toThrow();
+    expect(errorSpy).toHaveBeenCalledWith(expect.stringMatching(/Slice seed failed/));
+    // Nothing was silently rewritten — the stale slice is untouched, and the
+    // failure is CI-visible (thrown), not just a console.warn.
+    expect(JSON.parse(fs.readFileSync(slicePath, 'utf-8')).jobs[0].title).toBe('Stale job');
+  });
+
+  it('item 3: rethrows when the per-crawler slice write fails mid-loop (e.g. target path collides with a directory)', () => {
+    const root = makeRoot();
+    fs.writeFileSync(
+      dataJobsPath(root),
+      JSON.stringify([{ companyKey: 'acme', title: 'Fresh job' }]),
+    );
+    // Make the write target a directory instead of a file so writeJsonAtomic's
+    // rename-into-place fails mid-loop (simulates a real write failure, not a
+    // parse error).
+    fs.mkdirSync(path.join(sliceDir(root), 'acme.json'));
+
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    expect(() => seedCrawlerSlicesFromDataJobs(root, ['acme'])).toThrow();
+    expect(errorSpy).toHaveBeenCalledWith(expect.stringMatching(/Slice seed failed/));
+  });
+});
+
+// Regression tests for issue #3284 (previousSlugs writer regression: 6136
+// losses in 24h). Root cause: mergeAndDeduplicate() had three dedup passes
+// (existing-vs-existing fingerprint collision, heuristic-key collision, and
+// the final post-registry fingerprint collision) that called preferJob(a, b)
+// bare — preferJob returns ONE of the two whole job objects, so the loser's
+// previousSlugs / previousSlugsByLocale history (accumulated separately on
+// each duplicate record) was silently discarded with no journal entry. Fixed
+// by routing all three passes through mergeDuplicateJobPreservingSlugHistory,
+// which unions previousSlugs/previousSlugsByLocale before preferJob picks a
+// winner, and journals via captureLostSlugs.
+describe('mergeAndDeduplicate — previousSlugs history preserved across duplicate collapse (#3284)', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let registryOverridePath;
+  let prevOverride;
+
+  beforeEach(() => {
+    // mergeAndDeduplicate() reads/writes a persistent slug registry
+    // (data/slug-registry.json in the real repo). Point it at a throwaway
+    // temp file for the duration of this test so we never mutate the
+    // tracked registry as a side effect of running the suite.
+    prevOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    registryOverridePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ft-slug-registry-')), 'slug-registry.json');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryOverridePath;
+  });
+
+  afterEach(() => {
+    if (prevOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = prevOverride;
+  });
+
+  it('unions previousSlugsByLocale from both sides of an existing-vs-existing fingerprint collision instead of discarding the loser', () => {
+    // Two existing-slice records for the SAME posting (same url ⇒ same
+    // fingerprint) that accumulated DIFFERENT previousSlugsByLocale entries
+    // on separate crawl runs — exactly the shape observed in the flagged
+    // commits (e.g. coop-ticino.json company-9wwgfj: active slug unchanged,
+    // but previousSlugsByLocale.en/.fr silently shrank).
+    const base = {
+      id: 'job-dup-1',
+      title: 'Department Manager',
+      company: 'Coop',
+      location: 'Ticino',
+      url: 'https://example.com/jobs/dup-1',
+      description: 'A'.repeat(50),
+      slug: 'department-manager-coop',
+      slugByLocale: { it: 'responsabile-reparto-coop', en: 'department-manager-coop' },
+      postedDate: '2026-06-30',
+      crawledAt: '2026-06-30T00:00:00.000Z',
+    };
+    const existingA = {
+      ...base,
+      previousSlugsByLocale: { en: ['department-manager-including-deputy-management-coop'] },
+    };
+    const existingB = {
+      ...base,
+      previousSlugsByLocale: { en: ['department-manager-with-deputy-management-responsibilities-coop'] },
+    };
+
+    const result = mergeAndDeduplicate([existingA, existingB], [], cfg);
+    const jobs = result.merged;
+    expect(jobs.length).toBe(1);
+    const merged = jobs[0];
+
+    // BOTH sides' historical slugs must survive the collapse.
+    expect(merged.previousSlugsByLocale?.en || []).toContain(
+      'department-manager-including-deputy-management-coop'
+    );
+    expect(merged.previousSlugsByLocale?.en || []).toContain(
+      'department-manager-with-deputy-management-responsibilities-coop'
+    );
+  });
+
+  it('journals the loser\'s active slug when it differs from the winner\'s, instead of dropping it untracked', () => {
+    const existingA = {
+      id: 'job-dup-2',
+      title: 'Sales Associate',
+      company: 'Coop',
+      location: 'Ticino',
+      url: 'https://example.com/jobs/dup-2',
+      description: 'B'.repeat(50),
+      slug: 'sales-associate-coop',
+      slugByLocale: { it: 'addetto-vendita-coop', en: 'sales-associate-coop' },
+      postedDate: '2026-06-30',
+      crawledAt: '2026-06-30T00:00:00.000Z',
+      featured: true, // ensures deterministic winner via preferJob's score
+    };
+    const existingB = {
+      ...existingA,
+      featured: false,
+      slug: 'sales-associate-coop-old',
+      slugByLocale: { it: 'addetto-vendita-coop', en: 'sales-associate-coop-old' },
+    };
+
+    const result = mergeAndDeduplicate([existingA, existingB], [], cfg);
+    const jobs = result.merged;
+    expect(jobs.length).toBe(1);
+    const merged = jobs[0];
+
+    // existingA wins (featured), but existingB's now-superseded active EN
+    // slug must be captured into previousSlugsByLocale, not lost.
+    const allEn = [
+      ...(merged.previousSlugsByLocale?.en || []),
+      ...(Array.isArray(merged.previousSlugs) ? merged.previousSlugs : []),
+    ];
+    expect(allEn).toContain('sales-associate-coop-old');
   });
 });

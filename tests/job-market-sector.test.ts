@@ -15,6 +15,8 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import * as fs from 'fs';
+import * as path from 'path';
 import {
   JOB_MARKET_SECTOR_DISPLAY,
   JOB_MARKET_SECTOR_KEYS,
@@ -30,6 +32,8 @@ import {
 } from '../build-plugins/jobMarketSnapshotData';
 import { generateSectorSnapshotPages } from '../build-plugins/jobMarketSnapshotPlugin';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
+
+const PLUGIN_SOURCE_PATH = path.resolve(__dirname, '../build-plugins/jobMarketSnapshotPlugin.ts');
 
 // ── Slug tables ───────────────────────────────────────────
 
@@ -237,6 +241,44 @@ describe('generateSectorSnapshotPages', () => {
       expect(html).toMatch(htmlTagWithAttrs('meta', { name: 'robots', content: 'index,follow' }));
       expect(html, `${path} is noindex`).not.toMatch(htmlTagWithAttrs('meta', { name: 'robots', content: 'noindex,follow' }));
     }
+  });
+
+  // (#3060 item 2 — adversarial review of #3052) The test above only proves
+  // today's fixture happens to render index,follow. This proves the
+  // STRUCTURAL guarantee: there is no code path in the plugin source that
+  // could ever flip a sector page to noindex, so `generateSectorSnapshotPages`
+  // correctly has no `noindexPaths` output to register with the sitemap
+  // writer's path-lookup exclusion set (unlike the weekly loop in
+  // `generateJobMarketSnapshotPages`). If this ever regresses (someone adds a
+  // `noindex` field to `SectorPageInputs` or a ternary on the `robots` value),
+  // this test must fail loudly so the fix also threads a `noindexPaths` set
+  // through to `closeBundle` — see the doc comment on
+  // `generateSectorSnapshotPages` for the full contract.
+  it('structural guarantee: sector pages have no noindex-capable code path', () => {
+    const source = fs.readFileSync(PLUGIN_SOURCE_PATH, 'utf-8');
+
+    const inputsMatch = /interface SectorPageInputs \{([\s\S]*?)\n\}/.exec(source);
+    expect(inputsMatch, 'SectorPageInputs interface not found').not.toBeNull();
+    expect(
+      inputsMatch![1],
+      'SectorPageInputs must not gain a noindex field without also wiring noindexPaths through generateSectorSnapshotPages',
+    ).not.toMatch(/\bnoindex\b/);
+
+    const rendererMatch = /function renderSectorPage\(inp: SectorPageInputs\): string \{([\s\S]*?)\n}\n\nexport interface SectorGeneratorInputs/.exec(source);
+    expect(rendererMatch, 'renderSectorPage body not found').not.toBeNull();
+    const rendererBody = rendererMatch![1];
+    // The only `robots:` assignment inside renderSectorPage must be the
+    // hardcoded literal — never a ternary/ variable driven by a condition.
+    const robotsAssignments = [...rendererBody.matchAll(/robots:\s*('[^']*'|"[^"]*")/g)].map((m) => m[1].trim());
+    expect(robotsAssignments, 'unexpected number of robots: assignments in renderSectorPage').toHaveLength(1);
+    expect(robotsAssignments[0]).toBe("'index,follow'");
+
+    const outputMatch = /interface SectorGeneratorOutput \{([\s\S]*?)\n\}/.exec(source);
+    expect(outputMatch, 'SectorGeneratorOutput interface not found').not.toBeNull();
+    expect(
+      outputMatch![1],
+      'SectorGeneratorOutput gained a noindexPaths field — thread it through to the closeBundle sitemap writer merge, mirroring generateJobMarketSnapshotPages',
+    ).not.toMatch(/noindexPaths/);
   });
 
   it('no page contains any dark: tailwind prefix', () => {

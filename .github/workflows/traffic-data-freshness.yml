@@ -127,35 +127,53 @@ jobs:
         if: steps.check.outputs.STALE == 'true'
         run: node scripts/load-rc-env.mjs
 
-      # Fail LOUD if the PAT didn't load. load-rc-env.mjs exits 0 even when
+      # Primary identity for the self-heal dispatch below = GitHub App
+      # installation token (`frontaliere-automation[bot]`): auto-mints, no expiry
+      # babysit, and its dispatch re-triggers traffic-scheduler.yml just like the
+      # PAT (no GITHUB_TOKEN anti-recursion). Falls back to env.GITHUB_PAT
+      # (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        if: steps.check.outputs.STALE == 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Fail LOUD if neither identity loaded. load-rc-env.mjs exits 0 even when
       # Firebase auth fails (creds expired, network, RC downtime) WITHOUT setting
-      # GITHUB_PAT → trigger-self.sh would then find no token and silently skip
-      # (exit 0) — the exact no-op #1104 claimed to fix. Failing here surfaces
-      # the regression to the owner (red run + failure issue) instead of letting
-      # the watchdog quietly degrade. The page's OWN traffic-scheduler cron +
-      # runtime-fetch fallback stay intact, so the funnel never stops — but the
-      # self-heal reliability is now observable, not assumed (issue #1106 item 1).
-      - name: Verify PAT loaded (fail-loud guard)
+      # GITHUB_PAT, and mint-app-token.mjs exits 0 without APP_TOKEN on any App
+      # credential/API issue → trigger-self.sh would then find no token and
+      # silently skip (exit 0) — the exact no-op #1104 claimed to fix. Failing
+      # here surfaces the regression to the owner (red run + failure issue)
+      # instead of letting the watchdog quietly degrade. The page's OWN
+      # traffic-scheduler cron + runtime-fetch fallback stay intact, so the
+      # funnel never stops — but the self-heal reliability is now observable,
+      # not assumed (issue #1106 item 1).
+      - name: Verify token loaded (fail-loud guard)
         if: steps.check.outputs.STALE == 'true'
         run: |
-          if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT not set after load-rc-env.mjs — Firebase/RC auth likely failed. Self-heal dispatch would silently no-op (the regression #1104 addressed). Check Firebase SA credentials / RC availability."
+          if [ -z "${APP_TOKEN:-}" ] && [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::Neither APP_TOKEN nor GITHUB_PAT set — App-token mint and load-rc-env.mjs both failed. Self-heal dispatch would silently no-op (the regression #1104 addressed). Check App credentials/installation and Firebase SA credentials / RC availability."
             {
-              echo "### ⚠️ Self-heal PAT load FAILED"
+              echo "### ⚠️ Self-heal token load FAILED"
               echo ""
-              echo "\`GITHUB_PAT\` is unset after \`load-rc-env.mjs\` — Firebase/RC auth failed."
+              echo "Neither \`APP_TOKEN\` (mint-app-token.mjs) nor \`GITHUB_PAT\` (load-rc-env.mjs) is set."
               echo "The traffic-scheduler self-heal dispatch would have silently no-op'd."
               echo "Page funnel is protected by traffic-scheduler cron + runtime fetch, but the watchdog needs attention."
             } >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
-          echo "GITHUB_PAT present — self-heal dispatch can proceed."
+          echo "Token present (APP_TOKEN or GITHUB_PAT) — self-heal dispatch can proceed."
 
-      - name: Self-heal — dispatch traffic-scheduler (via PAT)
+      - name: Self-heal — dispatch traffic-scheduler (via App token/PAT)
         if: steps.check.outputs.STALE == 'true'
         continue-on-error: true
         env:
-          # GITHUB_PAT is loaded into $GITHUB_ENV by the RC step above.
+          # trigger-self.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override
+          # with the App token when minted (primary identity), PAT otherwise.
+          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           WORKFLOW_FILE: traffic-scheduler.yml
           SELF_TRIGGER_REASON: freshness_self_heal
         run: bash scripts/lib/trigger-self.sh

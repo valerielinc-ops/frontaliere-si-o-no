@@ -65,10 +65,15 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
-// mailgun/mailjet/mailtrap/maileroo = force a specific cascade provider
+// mailgun/mailjet/mailtrap/cloudflare = force a specific cascade provider
 // resend = Resend only (legacy fallback)
+// maileroo is intentionally excluded from force-select (#3135 item 1): the
+// manual override let an operator bypass the cascade's quota/rotation to
+// push all mail through a single provider on demand. Maileroo still runs as
+// an automatic cascade rotation tier (see PROVIDERS in lib/email-cascade.mjs)
+// — that role is separate and DKIM/DMARC-aligned as of #3154.
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'maileroo', 'cloudflare'];
+const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'cloudflare'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
 // The per-run cap tracks the FULL cascade capacity — the sum of every configured
 // provider's daily limit (getCascadeDailyCapacity, single source of truth in

@@ -55,16 +55,20 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RELATED_SEARCH_JUNK_TERMS } from '../services/relatedSearchJunkTerms.mjs';
-import { stripSearchQueryBoilerplate } from '../services/searchQueryBoilerplate.mjs';
+import {
+  stripSearchQueryBoilerplate,
+  SEARCH_QUERY_BOILERPLATE_TOKENS,
+} from '../services/searchQueryBoilerplate.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 const BASE = 'https://frontaliereticino.ch';
-const INDEXED = resolve(ROOT, 'data/indexed-cluster-urls.json');
-const OUT = resolve(ROOT, 'data/search-cluster-301-map.json');
+export const INDEXED = resolve(ROOT, 'data/indexed-cluster-urls.json');
+export const OUT = resolve(ROOT, 'data/search-cluster-301-map.json');
 
-const LOCALES = ['it', 'en', 'de', 'fr'];
+export const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // Per-locale legacy URL shape: capture group 1 is the slug BODY right after
 // THAT locale's OWN "search" section word (e.g. "ricerca-" for it), excluding
@@ -87,7 +91,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // section-preserving fallback with a worse cross-section one for no gain —
 // confirmed by that guard test failing when this was tried. Leave them to the
 // existing generic fallback; they are not an unresolved gap.
-const LOCALE_CONFIG = {
+export const LOCALE_CONFIG = {
   it: {
     legacyBodyRx: /^\/cerca-lavoro-(?!svizzera\/)[a-z-]+\/ricerca-(.+?)\/?$/,
     searchPrefix: 'ricerca',
@@ -117,7 +121,7 @@ const resolvers = createCantonResolvers({ cantonSlugFile: CANTON_SLUGS, municipa
 
 /** Absolute root path for a locale + canton code (or AGGREGATE_KEY), e.g.
  * sectionRoot('en', 'VD') → '/en/find-jobs-vaud', sectionRoot('it', AGGREGATE_KEY) → '/cerca-lavoro-svizzera'. */
-function sectionRoot(locale, cantonCode) {
+export function sectionRoot(locale, cantonCode) {
   const section = resolvers.resolveCantonSection(locale, cantonCode);
   return locale === 'it' ? `/${section}` : `/${locale}/${section}`;
 }
@@ -171,9 +175,49 @@ async function isLive(pathUrl) {
   return ok;
 }
 
-function legacyClusterUrls(indexedPath) {
-  const raw = JSON.parse(readFileSync(indexedPath, 'utf8'));
-  const arr = Array.isArray(raw) ? raw : raw.urls || Object.values(raw).find(Array.isArray) || [];
+// Tolerated `indexed-cluster-urls.json` shapes: bare array, `{ urls: [...] }`,
+// or any other object carrying exactly one array-valued property (the real
+// on-disk shape is `{ ..., indexedPaths: [...] }`). Returns `undefined` when
+// NONE of these match, so the caller can fail loud instead of silently
+// falling back to an empty array.
+export function resolveLegacyUrlsArray(raw) {
+  if (Array.isArray(raw)) return raw;
+  if (raw && typeof raw === 'object') {
+    if (Array.isArray(raw.urls)) return raw.urls;
+    const found = Object.values(raw).find(Array.isArray);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+export function legacyClusterUrls(indexedPath) {
+  const rawText = readFileSync(indexedPath, 'utf8');
+  const raw = JSON.parse(rawText);
+  const arr = resolveLegacyUrlsArray(raw);
+  if (!Array.isArray(arr)) {
+    console.error(
+      `legacyClusterUrls: unexpected shape in ${indexedPath} — expected an array, an ` +
+        '{ urls: [...] } object, or an object with at least one array-valued property. Got: ' +
+        `${raw === null ? 'null' : typeof raw}. Aborting instead of writing an empty ` +
+        'search-cluster-301-map.json.',
+    );
+    process.exit(1);
+  }
+  // Zero-entries guard: an unexpected shape that happens to resolve to a
+  // tolerated variant (e.g. `{ urls: [] }`) but is genuinely empty must not
+  // be treated the same as "no legacy URLs to recover" when the source file
+  // itself carries real content — that combination is the exact silent-empty-
+  // map failure mode this guard exists to catch (would zero out the entire
+  // 301 recovery — ~14k hits/day — with no signal distinguishing it from a
+  // normal run).
+  if (arr.length === 0 && rawText.trim().length > 0) {
+    console.error(
+      `legacyClusterUrls: parsed 0 legacy URL candidates from ${indexedPath}, but the source ` +
+        'file is non-empty — refusing to write an empty search-cluster-301-map.json. Check for ' +
+        'an upstream shape/format change in indexed-cluster-urls.json.',
+    );
+    process.exit(1);
+  }
   const urls = arr.map((u) => (typeof u === 'string' ? u : u.url || u.path || '')).filter(Boolean);
   const out = new Map(); // url → locale
   for (const u of [...new Set(urls)]) {
@@ -187,6 +231,21 @@ function legacyClusterUrls(indexedPath) {
   return out;
 }
 
+// Zero-map guard (issue #2918 item 2): even with a valid shape, if every URL
+// fails to match a locale's legacyBodyRx (e.g. the source file's URLs
+// changed format) the resulting Map is empty — same silent-zero-recovery
+// failure mode as a bad shape. Fail loud instead of writing an empty map.
+export function assertNonEmptyLegacyMap(legacy, indexedPath) {
+  if (legacy.size === 0) {
+    throw new Error(
+      `legacyClusterUrls: parsed ${indexedPath} but matched ZERO legacy cluster URLs against any ` +
+        'locale pattern — refusing to write an empty search-cluster-301-map.json (would silently ' +
+        'zero out every previously-recovered redirect). Check the file contents and the ' +
+        'LOCALE_CONFIG regexes.',
+    );
+  }
+}
+
 /**
  * Strip the legacy URL's own "search" section word, then iteratively strip
  * leading job-search boilerplate, trailing nation/salary/template suffixes
@@ -195,8 +254,21 @@ function legacyClusterUrls(indexedPath) {
  * legacy slugs end in the English "-switzerland" rather than "-schweiz"; the
  * shared helper strips either regardless of which locale is being processed)
  * and leading junk search-terms, until stable.
+ *
+ * `stripSearchQueryBoilerplate()` itself deliberately NEVER empties its input
+ * (see services/searchQueryBoilerplate.mjs — shared with display-facing
+ * callers, e.g. tests/related-search-clusters.test.ts:193-196 pins
+ * `stripSearchQueryBoilerplate('lavoro') === 'lavoro'` so a search box is
+ * never left blank), so a body that IS entirely boilerplate words (e.g. the
+ * legacy `/ricerca-lavoro/` slug) comes back unchanged instead of empty.
+ * The pre-extraction `LEADING_BOILERPLATE` logic this replaced (#2917/#2924)
+ * special-cased exactly this: `body === p → body = ''`, so the map-builder
+ * falls through to the city/board fallback instead of treating a bare
+ * boilerplate word as a "specific" cluster body. That all-boilerplate check
+ * has to live HERE (the redirect-map call site), not inside the shared
+ * helper, so it stays scoped to this caller only.
  */
-function nationalSlugBody(legacyPath, locale) {
+export function nationalSlugBody(legacyPath, locale) {
   const m = legacyPath.match(LOCALE_CONFIG[locale].legacyBodyRx);
   if (!m) return null;
   let body = m[1];
@@ -205,6 +277,16 @@ function nationalSlugBody(legacyPath, locale) {
   while (changed && guard++ < 8) {
     changed = false;
     const query = body.replace(/-/g, ' ');
+    const queryTokens = query.split(' ').filter(Boolean);
+    if (
+      queryTokens.length > 0 &&
+      queryTokens.every((t) => SEARCH_QUERY_BOILERPLATE_TOKENS.has(t.toLowerCase()))
+    ) {
+      // Every remaining token is boilerplate noise (e.g. "lavoro", or
+      // "offerte di lavoro") — no specific signal left, mirror the old
+      // `body === p → body = ''` behavior instead of returning it unchanged.
+      return null;
+    }
     const strippedBody = stripSearchQueryBoilerplate(query).replace(/\s+/g, '-');
     if (strippedBody && strippedBody !== body) {
       body = strippedBody;
@@ -220,7 +302,7 @@ function nationalSlugBody(legacyPath, locale) {
   return body || null;
 }
 
-async function fetchLiveClusterSet() {
+export async function fetchLiveClusterSet() {
   const live = new Set();
   for (let n = 1; n <= 20; n++) {
     const idx = String(n).padStart(3, '0');
@@ -240,7 +322,7 @@ async function fetchLiveClusterSet() {
   return live;
 }
 
-function loadLiveFromFile(path) {
+export function loadLiveFromFile(path) {
   return new Set(readFileSync(path, 'utf8').split('\n').map((l) => l.trim()).filter(Boolean));
 }
 
@@ -255,6 +337,7 @@ async function main() {
 
   const verifyCity = !args.includes('--no-city-verify');
   const legacy = legacyClusterUrls(INDEXED);
+  assertNonEmptyLegacyMap(legacy, INDEXED);
   const map = {};
   const byLocale = { it: 0, en: 0, de: 0, fr: 0 };
   let specific = 0;
@@ -333,4 +416,23 @@ async function main() {
   );
 }
 
-main();
+// Only build the map + hit the network when run as a CLI. Importing this
+// module (e.g. the unit tests for `legacyClusterUrls`/`resolveLegacyUrlsArray`/
+// `nationalSlugBody`, or the prune pass in scripts/prune-search-cluster-301-map.mjs,
+// which needs its exported OUT/LOCALES/LOCALE_CONFIG/sectionRoot/
+// fetchLiveClusterSet/loadLiveFromFile building blocks) must NOT trigger the
+// live sitemap fetch or overwrite the committed map.
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]);
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('[build-search-cluster-301-map] fatal:', err.message);
+    process.exitCode = 1;
+  });
+}

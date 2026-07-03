@@ -18,6 +18,7 @@ import { resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
+const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
@@ -130,5 +131,57 @@ describe('build-plugins/batchWrite.ts — flush concurrency', () => {
       expect(n, `default concurrency literal "${m}" below tuned floor`).toBeGreaterThanOrEqual(500);
       expect(n, `default concurrency literal "${m}" above safe ceiling`).toBeLessThanOrEqual(1024);
     }
+  });
+});
+
+/**
+ * Guards for issue #2761 (follow-up of PR #2758's tar-pack rehydrate fast
+ * path): the tar artifact fast path must not silently validate a
+ * partial/corrupt shard with no fallback.
+ *
+ *   1) Producer side (deploy.yml): each "Pack ... shard dist (tar)" step
+ *      must self-verify the tar's file count against the source directory
+ *      it was packed from, so a future refactor that lets the two paths
+ *      drift (or a tar bug) is caught instead of silently uploading a
+ *      mismatched artifact.
+ *   2) Consumer side (post-deploy-validate-dist.yml): after `tar xf ...`,
+ *      the rehydrate loops must check EXTRACTION COMPLETENESS (tar's own
+ *      listing count vs what actually landed on disk), not just
+ *      `[ -d dist/$loc ]` existence — a truncated/corrupted tar can still
+ *      create a partially-populated directory that passes a bare
+ *      existence check with no fallback to the safe git-clone path.
+ */
+describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast path (#2761)', () => {
+  it('every "Pack ... shard dist (tar)" step in deploy.yml self-verifies packed vs source file count', () => {
+    const packSteps = DEPLOY_YML.match(/- name: Pack [^\n]*shard dist \(tar\)[^\n]*\n(?:.*\n)*?(?=\n {6}- name:|\n {4}- name:)/g) || [];
+    expect(packSteps.length, 'expected at least the IT/non-IT Ticino + locale pack steps').toBeGreaterThanOrEqual(3);
+    for (const step of packSteps) {
+      expect(step, `pack step missing tar -tf listing count:\n${step}`).toMatch(/tar -tf .*\| \{ grep -vc '\/\$' \|\| true; \}/);
+      expect(step, `pack step missing packed-vs-source file count comparison:\n${step}`).toMatch(/if \[ "\$packed_n" -ne "\$src_n" \]/);
+      expect(step, `pack step must discard a mismatched tar (rm -f), not upload it:\n${step}`).toMatch(/rm -f "\$RUNNER_TEMP\/[^"]*\.tar"/);
+    }
+  });
+
+  it('locale + Ticino rehydrate loops check tar-extraction completeness, not just directory existence', () => {
+    // The old (insufficient) guard was a bare existence check right after
+    // `tar -C dist -xf ... || true`. Both loops must now compute an
+    // `expected_n` from the tar's own listing BEFORE relying on the
+    // extracted directory, and gate the "accept this tar" branch on
+    // `actual_n` meeting `expected_n` — not merely on the directory existing.
+    for (const label of ['locale-dist-\\$loc', 'ticino-dist-\\$loc']) {
+      const re = new RegExp(
+        `expected_n=\\$\\(tar -tf "\\$dl/${label}\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
+        `tar -C dist -xf "\\$dl/${label}\\.tar" \\|\\| true[\\s\\S]*?` +
+        `if \\[ -d "dist/\\$(?:loc|sub)" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -ge "\\$expected_n" \\]`,
+      );
+      expect(VALIDATION_YML, `rehydrate loop for "${label}" missing completeness gate (expected_n/actual_n)`).toMatch(re);
+    }
+    // The bare `if [ -d dist/$loc ]; then ... continue; fi` (no count check)
+    // pattern from before the fix must not remain anywhere in the tar
+    // extraction branches.
+    expect(
+      VALIDATION_YML,
+      'a bare directory-existence-only accept branch survived post-tar-extract (regression of #2761 item 2)',
+    ).not.toMatch(/\|\| true\n\s*rm -rf "\$dl"\n\s*if \[ -d "dist\/\$(?:loc|sub)" \]; then\n\s*echo "rehydrated/);
   });
 });

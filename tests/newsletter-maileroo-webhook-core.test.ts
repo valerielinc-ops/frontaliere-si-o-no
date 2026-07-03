@@ -10,38 +10,56 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
   const makeCollection = (name: string) => ({
-    doc: (docId: string) => ({
-      set: async (data: Record<string, unknown>) => {
-        sets.push({ collection: name, docId, data });
-      },
-      get: async () => {
-        const docData = existingDocs[name]?.[docId];
-        return {
-          exists: !!docData,
-          data: () => docData || {},
-        };
-      },
-      collection: (subName: string) => {
-        const subPath = `${name}/${docId}/${subName}`;
-        return {
-          doc: (subDocId: string) => ({
-            set: async (data: Record<string, unknown>, _opts?: unknown) => {
-              sets.push({ collection: subPath, docId: subDocId, data });
+    doc: (docId: string) => {
+      const docRef: any = {
+        set: async (data: Record<string, unknown>) => {
+          sets.push({ collection: name, docId, data });
+        },
+        get: async () => {
+          const docData = existingDocs[name]?.[docId];
+          return {
+            exists: !!docData,
+            data: () => docData || {},
+          };
+        },
+        collection: (subName: string) => {
+          const subPath = `${name}/${docId}/${subName}`;
+          return {
+            doc: (subDocId: string) => ({
+              set: async (data: Record<string, unknown>, _opts?: unknown) => {
+                sets.push({ collection: subPath, docId: subDocId, data });
+              },
+              get: async () => {
+                const docData = existingDocs[subPath]?.[subDocId];
+                return {
+                  exists: !!docData,
+                  data: () => docData || undefined,
+                };
+              },
+            }),
+            add: async (data: Record<string, unknown>) => {
+              adds.push({ collection: subPath, data });
             },
-            get: async () => {
-              const docData = existingDocs[subPath]?.[subDocId];
-              return {
-                exists: !!docData,
-                data: () => docData || undefined,
-              };
+          };
+        },
+      };
+      // Minimal `db.runTransaction` shim (mirrors the real Firestore idiom used
+      // by maybeEscalateSoftBounce / publisherPendingReapCore / trafficSchedulerCore)
+      // — these single-threaded tests don't need real optimistic-concurrency
+      // retries, just a tx.get/tx.set that delegate to the same doc.
+      docRef.firestore = {
+        runTransaction: async (updateFunction: (tx: any) => Promise<unknown>) => {
+          const tx = {
+            get: async (ref: any) => ref.get(),
+            set: (ref: any, data: Record<string, unknown>, opts?: unknown) => {
+              ref.set(data, opts);
             },
-          }),
-          add: async (data: Record<string, unknown>) => {
-            adds.push({ collection: subPath, data });
-          },
-        };
-      },
-    }),
+          };
+          return updateFunction(tx);
+        },
+      };
+      return docRef;
+    },
     add: async (data: Record<string, unknown>) => {
       adds.push({ collection: name, data });
     },
@@ -142,6 +160,46 @@ describe('newsletterMailerooWebhookCore', () => {
     });
     expect(db.__sets.some((s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker@example.com')).toBe(true);
     expect(db.__sets.some((s) => s.collection === 'newsletter_subscribers')).toBe(false);
+  });
+
+  it('soft bounce (rejected) on a job-alert subscriber does not set permanent bounced status', async () => {
+    const db = createFakeDb({
+      job_alert_subscribers: { 'seeker2@example.com': { status: 'active', soft_bounce_count: 0 } },
+    });
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'rejected',
+      message_id: 'mja2',
+      tags: { type: 'job-alert', alert_id: 'alert_43' },
+      event_data: { to: 'seeker2@example.com', reason: 'greylisted' },
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker2@example.com',
+    );
+    expect(subscriberSet!.data.status).not.toBe('bounced');
+    expect(subscriberSet!.data.bounce_severity).toBe('soft');
+    expect(subscriberSet!.data.soft_bounce_count).toBeDefined();
+  });
+
+  it('hard bounce (failed) on a job-alert subscriber still sets permanent bounced status', async () => {
+    const db = createFakeDb();
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'failed',
+      message_id: 'mja3',
+      tags: { type: 'job-alert', alert_id: 'alert_44' },
+      event_data: { to: 'seeker3@example.com', reason: 'mailbox does not exist' },
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'bounce', collection: 'job_alert_subscribers' });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === 'seeker3@example.com',
+    );
+    expect(subscriberSet!.data.status).toBe('bounced');
   });
 
   it('resolves recipient for opened/clicked events (no recipient/tags in payload) via newsletter_subscribers/_meta_/maileroo_refs', async () => {

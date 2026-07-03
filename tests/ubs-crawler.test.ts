@@ -8,6 +8,62 @@ import {
 } from '../scripts/lib/ubs-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+// ── Item 1 (issue #3055): Taleo siteid loop ──
+describe('Taleo siteid loop (issue #3055 item 1)', () => {
+  it('fetches the main, apprenticeship, and graduate UBS Switzerland tenants', () => {
+    expect(__internals.SITE_IDS).toEqual(['5012', '5054', '5131']);
+  });
+});
+
+// ── Items 2/3 (issue #3055): inferAnyCanton(city) must not bypass the
+// isSwissRegion guard — sibling fix, see update-galenica-jobs.test.ts for the
+// Galenica counterpart. ──
+describe('resolveSwissLocation region guard (issue #3055 item 2)', () => {
+  it('rejects a foreign region even when the city aliases a Swiss canton', () => {
+    // "Lugano" resolves to TI purely via the shared inferAnyCanton fuzzy
+    // city-name match (not one of inferCanton's explicit canton-name
+    // substring checks) — confirm the alias exists, then confirm a clearly
+    // non-Swiss region blocks it from resolving.
+    const foreignRegion = 'France - Auvergne-Rhône-Alpes';
+    expect(__internals.isSwissRegion(foreignRegion)).toBe(false);
+    expect(__internals.inferCanton('Lugano', foreignRegion)).toBe('TI');
+
+    // Pre-fix this would have returned { city: 'Lugano', canton: 'TI' } purely
+    // from the city alias, ignoring the foreign region. Post-fix it must be
+    // rejected.
+    expect(__internals.resolveSwissLocation('Lugano', foreignRegion)).toBeNull();
+  });
+
+  it('still resolves a genuine Swiss region normally (no regression)', () => {
+    const swissRegion = 'Schweiz - Ticino';
+    expect(__internals.isSwissRegion(swissRegion)).toBe(true);
+    expect(__internals.resolveSwissLocation('Lugano', swissRegion)).toEqual({
+      city: 'Lugano',
+      canton: 'TI',
+    });
+  });
+
+  it('still resolves a bare Swiss city with a blank region (no regression)', () => {
+    // Cathedral CH-wide expansion: Taleo entries can have an empty region
+    // string yet a clearly Swiss city — this must keep working.
+    expect(__internals.resolveSwissLocation('Lugano', '')).toEqual({
+      city: 'Lugano',
+      canton: 'TI',
+    });
+  });
+
+  it('rejects a genuine real-world namesake: Baden bei Wien (Austria), not Baden (AG)', () => {
+    // "Baden" is both an Aargau (AG) municipality and a town near Vienna,
+    // Austria — the exact kind of foreign-city/Swiss-placename collision
+    // called out in issue #3055 item 2. inferAnyCanton matches the city
+    // string alone; the region guard must still reject it.
+    const austrianRegion = 'Österreich - Niederösterreich';
+    expect(__internals.isSwissRegion(austrianRegion)).toBe(false);
+    expect(__internals.inferCanton('Baden', austrianRegion)).toBe('AG');
+    expect(__internals.resolveSwissLocation('Baden', austrianRegion)).toBeNull();
+  });
+});
+
 describe('UBS crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {

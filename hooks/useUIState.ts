@@ -17,6 +17,7 @@ import { enableRuntimeSeo } from '@/hooks/seoHelpers';
 
 import { Analytics, unlockAchievement, fireCalcEntryIfNeeded } from '@/services/analyticsProxy';
 import { initPostHog } from '@/services/posthog';
+import { invalidateHeaderBiddingOnNavigation } from '@/services/headerBidding';
 
 export interface UIState {
  isDarkMode: boolean;
@@ -147,6 +148,14 @@ export function useUIState(activeTab: ActiveTab): UIState {
  // haven't fired it yet this session (deduped via sessionStorage). This
  // covers in-SPA navigation into the calculator from any other tab.
  fireCalcEntryIfNeeded(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+ // Header bidding (services/headerBidding.ts) keys its Prebid ad-unit
+ // codes off each GPT slot's div id, which is NOT scoped to a route —
+ // this is a hand-rolled-router SPA with no full page reload between
+ // routes. Purge any ad-unit codes an auction has already run for on
+ // every real navigation so a stale cached bid can never outlive the
+ // route it was requested for (issue #2860 item 3). No-op when
+ // header bidding is disabled or no auction has run yet.
+ invalidateHeaderBiddingOnNavigation();
  };
 
  const originalPushState = history.pushState;

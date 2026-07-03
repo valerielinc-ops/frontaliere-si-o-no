@@ -5074,13 +5074,7 @@ function validate(data, opts = {}) {
 
   // Synthesize id from the Italian title if the model omitted it.
   if (!data.id) {
-    const generatedId = String(itContent.title)
-      .toLowerCase()
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '')
-      .slice(0, 80);
+    const generatedId = slugifySlugPart(itContent.title);
     if (!generatedId) {
       throw new Error(`Campo mancante nella risposta AI: id (impossibile sintetizzare dal titolo "${itContent.title}")`);
     }
@@ -5131,8 +5125,7 @@ function validate(data, opts = {}) {
     if (!data.slugs[locale]) {
       const title = String(data.content[locale]?.title || '');
       if (title) {
-        const generated = title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-          .replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
+        const generated = slugifySlugPart(title);
         if (generated) {
           data.slugs[locale] = generated;
           console.warn(`  ⚠️  Slug ${locale} mancante, generato dal titolo: "${generated}"`);
@@ -5190,10 +5183,7 @@ function validate(data, opts = {}) {
     if (!data.slugs[locale]) {
       // Fallback: use the translated title if available, otherwise the IT slug
       const title = String(data.content[locale]?.title || data.content.it?.title || '');
-      const fallback = title
-        ? title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-            .replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80)
-        : data.slugs.it;
+      const fallback = title ? slugifySlugPart(title) : data.slugs.it;
       if (fallback) {
         data.slugs[locale] = fallback;
         console.warn(`  ⚠️  Slug ${locale} mancante, generato come fallback: "${fallback}"`);
@@ -6043,24 +6033,41 @@ function checkForDuplicates(data) {
     }
   }
 
-  // 3. Also check slug overlap (different title, same slug concept). Scoped to
-  // the ACTIVE section's slug-data file — slugs only collide within a section's
-  // URL space (`/articoli-frontaliere/{slug}` vs `/articoli-svizzera/{slug}`
-  // are distinct hubs). `routerSrc` here was a dangling reference left by the
-  // section refactor (it is a local of modifyRouterTs), which threw
-  // "routerSrc is not defined" and broke EVERY generation run.
+  // 3. Also check slug overlap (different title, same slug concept), across
+  // EVERY locale — see checkTranslatedSlugCollisions() below for the
+  // rationale (#3010: this is exactly how the svizzera near-duplicate pairs
+  // collided). Extracted into its own exported function so non-AI generation
+  // paths that derive their own translated slugs (e.g.
+  // publish-journalist-article.mjs's deriveLocaleSlugs()) reuse this SAME
+  // guard instead of re-implementing (and potentially forgetting) it.
+  checkTranslatedSlugCollisions(data);
+
+  console.error('  ✅ Nessun duplicato rilevato');
+  return data;
+}
+
+/**
+ * Guards slug uniqueness for EVERY locale (it/en/de/fr) against the ACTIVE
+ * section's slug-data file — slugs only collide within a section's URL space
+ * (`/articoli-frontaliere/{slug}` vs `/articoli-svizzera/{slug}` are distinct
+ * hubs). The registry stores one localized slug per locale-slot (`'id': {
+ * it: '…', en: '…', de: '…', fr: '…' }`) and REVERSE_SWISS/REVERSE_BLOG are
+ * last-write-wins: two articles sharing the same EN/DE/FR slug make the
+ * earlier one unreachable in that locale (its buildPath → parsePath
+ * round-trip resolves to the sibling). The IT slug is human-authored (or, for
+ * the journalist path, fixed to the article id) and typically already
+ * unique; the EN/DE/FR slugs are auto-translated and historically went
+ * UNCHECKED here — that is exactly how the svizzera pairs collided (de-duped
+ * by data fix #3000) and how 36 frontaliere pairs still collide. Guard each
+ * locale against its OWN slot so a colliding translation fails generation
+ * loudly instead of poisoning the registry and surfacing later as main-red
+ * on the routing round-trip test.
+ */
+function checkTranslatedSlugCollisions(data) {
+  // `routerSrc` here was previously a dangling reference left by the section
+  // refactor (it was a local of modifyRouterTs), which threw "routerSrc is
+  // not defined" and broke EVERY generation run.
   const sectionSlugSrc = readSectionSlugData();
-  // Check EVERY locale, not just `it`. The registry stores one localized slug
-  // per locale-slot (`'id': { it: '…', en: '…', de: '…', fr: '…' }`) and
-  // REVERSE_SWISS/REVERSE_BLOG are last-write-wins: two articles sharing the
-  // same EN/DE/FR slug make the earlier one unreachable in that locale (its
-  // buildPath → parsePath round-trip resolves to the sibling). The IT slug is
-  // human-authored and already unique; the EN/DE/FR slugs are auto-translated
-  // and historically went UNCHECKED here — that is exactly how the svizzera
-  // pairs collided (de-duped by data fix #3000) and how 36 frontaliere pairs
-  // still collide. Guard each locale against its OWN slot so a colliding
-  // translation fails generation loudly instead of poisoning the registry and
-  // surfacing later as main-red on the routing round-trip test.
   for (const locale of ['it', 'en', 'de', 'fr']) {
     const newSlug = data.slugs[locale];
     // A nullish slug builds a degenerate regex (`escapeRegex(undefined)` → '')
@@ -6085,9 +6092,6 @@ function checkForDuplicates(data) {
       throw new Error(`❌ DUPLICATO: Lo slug ${locale} "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
     }
   }
-
-  console.error('  ✅ Nessun duplicato rilevato');
-  return data;
 }
 
 // ── Image search helpers ──
@@ -8914,19 +8918,103 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   finalizeRunReport('generated');
 }
 
+/** Strip a string down to a URL-safe slug segment: lowercase, diacritics
+ * stripped (NFD-decompose + drop combining marks), non-alphanumerics
+ * collapsed to single hyphens, 80-char cap. Same normalization used
+ * throughout this file's own (unexported, inline) slug handling. */
+function slugifySlugPart(input) {
+  return String(input || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 80);
+}
+
+/**
+ * Derive and sanitize the final per-locale slugs for an article: the Italian
+ * slug is always locked to `data.id` (routing convention — see `validate()`'s
+ * own `data.slugs.it = data.id`), and any en/de/fr slug the caller hasn't
+ * already set falls back to a slugified translated title (or the IT slug).
+ * Every locale slug is then sanitized so accented/non-ASCII characters never
+ * reach router/sitemap URLs.
+ *
+ * This is the single source of truth `registerArticleFiles()` uses so
+ * callers (e.g. scripts/publish-journalist-article.mjs) don't need their own
+ * copy of this derivation — a duplicate copy would drift from this one as it
+ * evolves, producing wrong canonicals / 404s for the locales derived
+ * elsewhere (issue #3209 item 1).
+ *
+ * Mutates `data.slugs` in place AND returns it so callers can consume the
+ * exposed final value instead of re-deriving their own.
+ *
+ * @param {object} data
+ * @returns {Record<string, string>} the finalized `data.slugs` map
+ */
+export function deriveAndSanitizeArticleSlugs(data) {
+  data.slugs = data.slugs && typeof data.slugs === 'object' ? data.slugs : {};
+  data.slugs.it = data.id;
+  for (const locale of ['en', 'de', 'fr']) {
+    if (!data.slugs[locale]) {
+      const title = String(data.content?.[locale]?.title || data.content?.it?.title || '');
+      const fallback = title ? slugifySlugPart(title) : data.slugs.it;
+      data.slugs[locale] = fallback || data.slugs.it;
+    } else {
+      data.slugs[locale] = slugifySlugPart(data.slugs[locale]) || data.slugs.it;
+    }
+  }
+  return data.slugs;
+}
+
+/**
+ * Final published URL per locale for an already-slugged article, following
+ * the same `${prefix}/${hub[locale]}/${slug}/` convention router.ts's
+ * buildPath() uses for the blog route (IT has no locale prefix; en/de/fr
+ * are `/en`/`/de`/`/fr` — see buildSectionSitemapUrls() above for the
+ * identical hreflang-link construction). Single source of truth so callers
+ * (e.g. scripts/publish-journalist-article.mjs) can't hand-roll their own
+ * copy and silently drop the locale prefix (issue #3209 item 1 — the
+ * removed duplicate in publish-journalist-article.mjs did exactly that,
+ * producing wrong /en //de //fr links in the "your article is live" email).
+ *
+ * @param {object} data — requires data.slugs already finalized
+ * @returns {Record<string, string>}
+ */
+export function buildArticlePublishedUrls(data) {
+  const hub = SECTION.hubSlug;
+  const out = {};
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (!data.slugs[locale]) continue;
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    out[locale] = `${BASE_URL}${prefix}/${hub[locale]}/${data.slugs[locale]}/`;
+  }
+  return out;
+}
+
 /**
  * Reuse the article registration pipeline from another script (e.g. the events
- * weekend-digest generator) WITHOUT going through the AI generation path.
- * Takes a fully-built `data` object (same shape the AI path produces) and writes
- * every registration file: slug map + router union, ARTICLES registry, i18n meta
- * (it/en/de/fr), body files, blog SEO + JSON-LD, sitemaps, then regenerates RSS.
+ * weekend-digest generator or the journalist publish pipeline) WITHOUT going
+ * through the AI generation path. Takes a fully-built `data` object (same
+ * shape the AI path produces) and writes every registration file: slug map +
+ * router union, ARTICLES registry, i18n meta (it/en/de/fr), body files, blog
+ * SEO + JSON-LD, sitemaps, then regenerates RSS.
  *
  * Registration is APPEND-ONLY (no upsert): it throws if `data.id` already exists,
  * so callers refreshing an evergreen article must rewrite only the body files
  * (see `buildBodyFile`) instead of re-registering.
  *
+ * Derives/sanitizes `data.slugs` via `deriveAndSanitizeArticleSlugs()` before
+ * writing anything, so callers may pass partially-populated slugs (or none
+ * beyond `it`) and consume the finalized value from the return (issue #3209
+ * item 1) instead of re-implementing the derivation themselves. Also returns
+ * `publishedUrls` (via `buildArticlePublishedUrls()`) so callers don't
+ * re-derive final URLs with their own (drift-prone) locale-prefix logic.
+ *
  * @param {object} data
  * @param {{ skipRss?: boolean, skipNews?: boolean }} [opts]
+ * @returns {Promise<{ slugs: Record<string, string>, publishedUrls: Record<string, string> }>}
  */
 export async function registerArticleFiles(data, opts = {}) {
   if (!data || !data.id || !data.content?.it?.title) {
@@ -8938,6 +9026,7 @@ export async function registerArticleFiles(data, opts = {}) {
         'Refresh the body files instead of re-registering.',
     );
   }
+  const slugs = deriveAndSanitizeArticleSlugs(data);
   modifyRouterTs(data);
   modifyBlogArticlesTsx(data);
   modifyI18nTs(data);
@@ -8951,6 +9040,8 @@ export async function registerArticleFiles(data, opts = {}) {
   if (!opts.skipRss) {
     execSync('node scripts/generate-rss-feeds.mjs', { stdio: 'inherit', cwd: PROJECT_ROOT });
   }
+  const publishedUrls = buildArticlePublishedUrls(data);
+  return { slugs, publishedUrls };
 }
 
 /** True when an article id is already registered in any section. */
@@ -8966,8 +9057,12 @@ export { buildBodyFile };
 // reuses the SAME translation, internal-link-enrichment, image-fallback and
 // byline-assignment logic as the AI generation path instead of duplicating it
 // (issue #3174 — a manually-authored article must go through the exact same
-// multi-language pipeline as an automated one).
-export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata };
+// multi-language pipeline as an automated one). checkTranslatedSlugCollisions
+// is re-exported for the same reason (#3010): the journalist path derives its
+// own en/de/fr slugs (deriveLocaleSlugs()) but, before this fix, never
+// validated them against the registry — the same gap that historically only
+// existed for the IT slug in the AI path.
+export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata, checkTranslatedSlugCollisions };
 
 // Redazione redesign (issue #3174 follow-up): the journalist now authors only
 // {title, body}; these derive the title-casing/excerpt/body1-3/cover-image
