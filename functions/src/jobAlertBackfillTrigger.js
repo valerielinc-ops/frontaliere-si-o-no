@@ -11,6 +11,12 @@
  * Shares the exact decision logic with the batch script via
  * `jobAlertBackfillCore.js` — no drift between "day-0 backfill of existing
  * docs" and "day-N auto-creation for new ones".
+ *
+ * Also invoked, with a `personalization` dep, from the companion
+ * `backfillJobAlertOnPersonalizationSync` trigger (functions/index.js) on
+ * writes to the SEPARATE `private/personalization` subdoc — the tier-3
+ * fallback source this doc-level trigger never sees (different document
+ * path; see `resolveSignalTier` in `jobAlertBackfillCore.js`).
  */
 
 import admin from 'firebase-admin';
@@ -20,6 +26,7 @@ import {
   normalizeEmail,
   shouldSkipSubscriber,
   buildAlertPayload,
+  resolveSignalTier,
 } from './jobAlertBackfillCore.js';
 
 export function getAdminDb() {
@@ -29,16 +36,23 @@ export function getAdminDb() {
 /**
  * @param {string} emailId  the newsletter_subscribers/{email} doc id
  * @param {Record<string, unknown>} data  the doc's field data
- * @param {{db?: FirebaseFirestore.Firestore}} [deps]
+ * @param {{db?: FirebaseFirestore.Firestore, personalization?: Record<string, unknown>|null}} [deps]
+ *   `personalization` is the `private/personalization` subdoc — pass it from
+ *   `backfillJobAlertOnPersonalizationSync` (functions/index.js) to also
+ *   consider the tier-3 fallback; the flat-field trigger omits it.
  * @returns {Promise<{created: boolean, reason?: string, tier?: string}>}
  */
-export async function handleNewsletterSubscriberCreated(emailId, data, { db = getAdminDb() } = {}) {
+export async function handleNewsletterSubscriberCreated(
+  emailId,
+  data,
+  { db = getAdminDb(), personalization = null } = {},
+) {
   if (!emailId || emailId === '_meta_') {
     return { created: false, reason: 'meta_sentinel' };
   }
 
   const email = normalizeEmail(data?.email || emailId);
-  const skipReason = shouldSkipSubscriber(email, data);
+  const skipReason = shouldSkipSubscriber(email, data, personalization);
   if (skipReason) {
     return { created: false, reason: skipReason };
   }
@@ -56,12 +70,19 @@ export async function handleNewsletterSubscriberCreated(emailId, data, { db = ge
     return { created: false, reason: 'capped' };
   }
 
-  const alertPayload = buildAlertPayload(email, data, existingBackfillDoc?.data());
+  const alertPayload = buildAlertPayload(email, data, existingBackfillDoc?.data(), personalization);
+  // Tier-3 carries a real derived signal (category/location) worth persisting
+  // onto the subscriber doc itself — same no-clobber patch the daily
+  // send-job-alerts.mjs enrichment writes for subscribers who already have an
+  // alert — so buildAlertProfile benefits from it starting with this alert's
+  // very first match run, not just after the next manual enrichment pass.
+  const { patch } = resolveSignalTier(data, personalization);
 
   const parentPayload = {
     email,
     userId: alertPayload.userId,
     locale: alertPayload.locale,
+    ...(patch || {}),
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
     created_at: admin.firestore.FieldValue.serverTimestamp(),
   };

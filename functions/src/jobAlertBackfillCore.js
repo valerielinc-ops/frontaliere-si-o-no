@@ -36,9 +36,25 @@
  *     preferredLocations/preferredCantons as a SOFT ranking signal, so a
  *     tier-2 alert becomes a broad "jobs near you" digest rather than a
  *     precise match — never a hard filter (`cantonFilter` stays null).
+ *  3. `personalization-fallback` — when tiers 1/2 are both empty, fall back to
+ *     the `private/personalization` subcollection (services/behaviorTracker.ts:
+ *     `viewedJobs[]`, on-site `filterUsage`), via the same no-clobber
+ *     `derivePersonalizationPatch` (`lib/subscriberPersonalization.js`) the
+ *     daily send-job-alerts.mjs enrichment already uses for subscribers who
+ *     HAVE an alert — this tier just lets it also decide whether to CREATE
+ *     the first one. Real, structured signal (a job's actual category/city
+ *     the subscriber viewed), not a generic proximity fallback like tier 2 —
+ *     found live (2026-07-03) on subscribers who signed up outside any job
+ *     context (calculator, generic popup) but later browsed jobs while
+ *     logged in, e.g. a specific job-detail page visit that never populated
+ *     `job_category`/`job_location` at signup time. The derived patch is
+ *     merged onto the subscriber doc (see `jobAlertBackfillTrigger.js`) so
+ *     `buildAlertProfile` benefits from it immediately, not just on the next
+ *     manual enrichment pass.
  */
 
 import { isNewsletterExcluded } from './lib/emailSuppression.js';
+import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 
 export const MAX_ALERTS_PER_USER = 3; // services/jobAlertService.ts:68
 export const ALERT_ID = 'backfill-newsletter';
@@ -66,6 +82,11 @@ export function getSignalTier(data) {
  * i.e. this write is the one that actually made (or unmade) eligibility,
  * not an unrelated field update (auth profile fields, engagement tracking).
  * `beforeData` is null on doc creation (treated as tier 'none').
+ *
+ * Flat-field only (does not consider `private/personalization`) — that
+ * subcollection is a separate document the parent-doc trigger never sees;
+ * its own eligibility path is `backfillJobAlertOnPersonalizationSync`
+ * (functions/index.js), gated separately since it fires on a different path.
  * @param {Record<string, unknown>|null} beforeData
  * @param {Record<string, unknown>|null|undefined} afterData
  * @returns {boolean}
@@ -76,14 +97,36 @@ export function signalTierChanged(beforeData, afterData) {
 }
 
 /**
- * Pure eligibility check for one `newsletter_subscribers` doc.
+ * Tier resolution with the 3rd, weaker fallback layered on top of
+ * `getSignalTier`: when the flat fields carry nothing, derive one from the
+ * `private/personalization` subdoc. Returns the patch too so callers can
+ * merge it onto the subscriber doc — see tier-3 rationale in the file header.
+ * @param {Record<string, unknown>|null|undefined} data
+ * @param {Record<string, unknown>|null|undefined} [personalization]
+ * @returns {{tier: 'signal'|'location-fallback'|'personalization-fallback'|'none', patch: Record<string, string>|null}}
+ */
+export function resolveSignalTier(data, personalization) {
+  const tier = getSignalTier(data);
+  if (tier !== 'none') return { tier, patch: null };
+  const patch = derivePersonalizationPatch({ subscriber: data, personalization, alerts: [] });
+  if (patch && (patch.job_category || patch.location_interest || patch.geo_city)) {
+    return { tier: 'personalization-fallback', patch };
+  }
+  return { tier: 'none', patch: null };
+}
+
+/**
+ * Pure eligibility check for one `newsletter_subscribers` doc. Pass
+ * `personalization` (the `private/personalization` subdoc, if read) to also
+ * consider the browsing-derived fallback tier; omit it to check flat fields
+ * only — safe default, since deriving from an absent doc naturally yields
+ * no patch and behaves exactly like the flat-field-only check.
  * @returns {'invalid-email'|'suppressed'|'no-signal'|null} skip reason, null = eligible.
  */
-export function shouldSkipSubscriber(email, data) {
+export function shouldSkipSubscriber(email, data, personalization = null) {
   if (!email || !email.includes('@')) return 'invalid-email';
   if (isNewsletterExcluded(data?.status)) return 'suppressed';
-  if (getSignalTier(data) === 'none') return 'no-signal';
-  return null;
+  return resolveSignalTier(data, personalization).tier === 'none' ? 'no-signal' : null;
 }
 
 /**
@@ -95,10 +138,14 @@ export function shouldSkipSubscriber(email, data) {
  * null on first creation). Its `active` flag is carried forward as-is so a
  * re-run/re-trigger never undoes a user's explicit unsubscribe (`deleteAlert`
  * sets `active: false`) — only a brand-new doc defaults to `active: true`.
+ *
+ * Pass `personalization` to also consider the tier-3 fallback (see
+ * `resolveSignalTier`); omit it for flat-field-only tiers 1/2.
  */
-export function buildAlertPayload(email, data, existingBackfill) {
-  const tier = getSignalTier(data);
+export function buildAlertPayload(email, data, existingBackfill, personalization = null) {
+  const { tier } = resolveSignalTier(data, personalization);
   const channel = data?.source_channel || 'unknown';
+  const tierSuffix = tier === 'location-fallback' || tier === 'personalization-fallback' ? `:${tier}` : '';
   return {
     email,
     userId: data?.user_id || null,
@@ -120,9 +167,6 @@ export function buildAlertPayload(email, data, existingBackfill) {
     // Provenance — lets a future audit tell inferred alerts apart from
     // explicit ones, see which signup channel triggered it, and which
     // signal tier it was built from.
-    backfilled_from:
-      tier === 'location-fallback'
-        ? `newsletter_subscribers:${channel}:location-fallback`
-        : `newsletter_subscribers:${channel}`,
+    backfilled_from: `newsletter_subscribers:${channel}${tierSuffix}`,
   };
 }
