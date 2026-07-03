@@ -1,18 +1,47 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-07-02T21:36:40.203Z",
-  "total": 16,
-  "newCount": 0,
+  "generatedAt": "2026-07-03T11:34:37.084Z",
+  "total": 17,
+  "newCount": 1,
   "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2486,
-  "avgDurationMs": 2486,
+  "durationMs": 2886,
+  "avgDurationMs": 2886,
   "durationHistory": [
-    2486
+    2886
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "corner-banca-a430d0999e85",
+      "slug": "fi-administration-e-business-support-2-corner-banca-lugano",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "FI Administration & Business Support (2)",
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "url": "https://jobs.corner.ch/o/fi-administration-business-support-2",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-03T11:34:34.536Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "corner-banca-97e747498000",
@@ -33,7 +62,7 @@
       "url": "https://jobs.corner.ch/o/sales-solutions-ecash-employee",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.018Z",
+      "crawledAt": "2026-07-03T11:34:34.537Z",
       "firstSeenAt": "2026-06-30T22:09:15.290Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -62,7 +91,7 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.020Z",
+      "crawledAt": "2026-07-03T11:34:34.538Z",
       "firstSeenAt": "2026-06-24T21:51:46.196Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -91,7 +120,7 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.026Z",
+      "crawledAt": "2026-07-03T11:34:34.540Z",
       "firstSeenAt": "2026-06-24T21:51:46.198Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -120,7 +149,7 @@
       "url": "https://jobs.corner.ch/o/marketing-project-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.028Z",
+      "crawledAt": "2026-07-03T11:34:34.542Z",
       "firstSeenAt": "2026-06-19T21:37:06.561Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -149,7 +178,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.040Z",
+      "crawledAt": "2026-07-03T11:34:34.551Z",
       "firstSeenAt": "2026-06-10T22:29:56.932Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -178,7 +207,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.037Z",
+      "crawledAt": "2026-07-03T11:34:34.550Z",
       "firstSeenAt": "2026-06-08T12:44:36.978Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -207,7 +236,7 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.030Z",
+      "crawledAt": "2026-07-03T11:34:34.544Z",
       "firstSeenAt": "2026-06-02T23:12:26.649Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,7 +265,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.033Z",
+      "crawledAt": "2026-07-03T11:34:34.545Z",
       "firstSeenAt": "2026-06-12T22:12:50.719Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -265,7 +294,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.043Z",
+      "crawledAt": "2026-07-03T11:34:34.552Z",
       "firstSeenAt": "2026-06-10T11:54:50.675Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -294,7 +323,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.032Z",
+      "crawledAt": "2026-07-03T11:34:34.547Z",
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -323,7 +352,7 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.036Z",
+      "crawledAt": "2026-07-03T11:34:34.550Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -352,7 +381,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.038Z",
+      "crawledAt": "2026-07-03T11:34:34.551Z",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -381,7 +410,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T21:36:38.043Z",
+      "crawledAt": "2026-07-03T11:34:34.552Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -410,7 +439,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.044Z",
+      "crawledAt": "2026-07-03T11:34:34.552Z",
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -439,7 +468,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:36:38.045Z",
+      "crawledAt": "2026-07-03T11:34:34.553Z",
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -468,7 +497,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T21:36:38.046Z",
+      "crawledAt": "2026-07-03T11:34:34.553Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
       "_qualityScore": 81,
