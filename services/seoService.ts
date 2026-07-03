@@ -4366,6 +4366,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-deduzione-figli-frontalieri-2026': { name: 'Deduzione figli', path: '/articoli-frontaliere/deduzione-figli-frontalieri-2026', parent: 'blog' },
     'blog-vivere-varese-lavorare-ticino': { name: 'Vivere Varese', path: '/articoli-svizzera/vivere-varese-lavorare-ticino/', parent: 'blog' },
     'blog-la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso': { name: 'LA SOSPENSIONE DEI RISTORNI ALLA PROVA', path: '/articoli-frontaliere/la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso', parent: 'blog' },
+    'blog-classifica-dogane-ticino': { name: 'Classifica dogane', path: '/articoli-frontaliere/classifica-dogane-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

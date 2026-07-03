@@ -1,0 +1,92 @@
+name: Refresh Border-Wait Ranking Digest (weekly)
+
+# Evergreen "best/worst dogane" wait-time ranking article (F8 chain, issue
+# #2963 pattern reused for border wait times). The article
+# (`classifica-dogane-ticino`) is registered ONCE — this workflow only
+# refreshes its body files + the compact ranking JSON consumed by the live
+# chart (InlineBorderWaitRanking), from the traffic history already
+# collected every 15 min by traffic-scheduler.yml. Never floods the repo
+# with new articles.
+
+on:
+  schedule:
+    # Weekly, Monday 04:50 UTC — off-peak minute slot (avoids jobs :05-:55,
+    # articles :22, article-gen :07/:37, weather :23, events :40, fuel :37).
+    - cron: '50 4 * * 1'
+  workflow_dispatch: {}
+
+concurrency:
+  group: border-wait-ranking-digest
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Refresh ranking digest article body + snapshot JSON
+        id: refresh
+        run: npx tsx scripts/generate-border-wait-ranking-article.mjs
+
+      - name: Gate — refreshed body files must keep the suite green
+        id: gate
+        run: npx vitest run tests/border-wait-ranking.test.ts tests/border-wait-ranking-content.test.ts tests/blog-body-typescript-syntax.test.ts
+
+      - name: Commit + push (with rebase-retry)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/border-wait-ranking.json \
+            services/locales/blog-body/it/classifica-dogane-ticino.ts \
+            services/locales/blog-body/en/classifica-dogane-ticino.ts \
+            services/locales/blog-body/de/classifica-dogane-ticino.ts \
+            services/locales/blog-body/fr/classifica-dogane-ticino.ts
+          if git diff --cached --quiet; then
+            echo "No ranking digest changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "🛂 Weekly border-wait ranking digest refresh"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "npx tsx scripts/generate-border-wait-ranking-article.mjs && git add public/data/border-wait-ranking.json services/locales/blog-body/it/classifica-dogane-ticino.ts services/locales/blog-body/en/classifica-dogane-ticino.ts services/locales/blog-body/de/classifica-dogane-ticino.ts services/locales/blog-body/fr/classifica-dogane-ticino.ts"
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.has_changes == 'true'
+        run: bash scripts/lib/trigger-deploy.sh || true
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

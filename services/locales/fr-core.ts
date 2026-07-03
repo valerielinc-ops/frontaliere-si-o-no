@@ -3443,6 +3443,9 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3560.title': 'Classement des douanes en temps réel',
+  'whatsNew.v3560.borderWaitRanking.title': 'Meilleures et pires douanes',
+  'whatsNew.v3560.borderWaitRanking.desc': 'Nouvel article mis à jour chaque semaine avec le classement de tous les postes-frontières tessinois par temps d\'attente, les tendances et le nombre de minutes gagnées ou perdues selon le passage choisi.',
   'whatsNew.v3550.title': 'Recherche d’offres plus fluide',
   'whatsNew.v3550.fastLoading.title': 'Chargement animé',
   'whatsNew.v3550.fastLoading.desc': 'Pendant que nous cherchons les offres, vous ne voyez plus un agaçant « 0 résultat » : un chargement animé avec des messages vous accompagne désormais jusqu’à ce que la liste soit prête.',
