@@ -66,6 +66,10 @@ jobs:
         # (cfr. #878).
         env:
           GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # gh CLI (used by scripts/lib/github-issue-creator.mjs for issue creation)
+          # only honors GH_TOKEN/GITHUB_TOKEN, never GITHUB_PAT — without this the
+          # monitor's issue-creation path was always a silent no-op (PR #3322 review).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/monitor-gsc-job-indexation.mjs
 
       - name: Cleanup credentials

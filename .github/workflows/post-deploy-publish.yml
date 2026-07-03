@@ -264,6 +264,11 @@ jobs:
         timeout-minutes: 5
         env:
           ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          # gh CLI (scripts/lib/github-issue-creator.mjs, used by
+          # verify-post-deploy-seo.mjs) only honors GH_TOKEN/GITHUB_TOKEN —
+          # without this, post-deploy SEO regressions never opened an issue
+          # (PR #3322 review, same class as monitor-gsc-job-indexation.mjs).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           timeout 90 node scripts/submit-google-indexing-jobs.js &
           PID_GOOGLE=$!

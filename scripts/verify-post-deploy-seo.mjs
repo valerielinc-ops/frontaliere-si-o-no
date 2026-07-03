@@ -314,9 +314,9 @@ async function main() {
 }
 
 async function createGithubIssue(issues) {
-  const apiKey = process.env.GITHUB_TOKEN;
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
   if (!apiKey) {
-    log('ℹ️', 'GITHUB_TOKEN not set — skipping issue creation');
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping issue creation');
     return;
   }
 

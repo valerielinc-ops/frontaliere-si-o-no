@@ -9,6 +9,9 @@
  * 2. Runs URL Inspection on 30 sampled pages
  * 3. Categorizes: PASS, FAIL, STALE, UNKNOWN
  * 4. If FAIL > 0 → creates GitHub issue (priority 1)
+ * 4b. If richResultsResult reports actual structured-data errors (verdict
+ *     FAIL or ERROR-severity detectedItems issues) → creates GitHub issue
+ *     (priority 3), separate from indexation FAIL
  * 5. Submits stale URLs via IndexNow for re-crawl
  * 6. Logs summary with trend data
  *
@@ -167,11 +170,22 @@ async function inspectUrl(accessToken, siteUrl, inspectionUrl) {
 
     const data = await res.json();
     const r = data.inspectionResult;
+    const richResultsIssues = [];
+    for (const detected of r?.richResultsResult?.detectedItems || []) {
+      for (const item of detected.items || []) {
+        for (const issue of item.issues || []) {
+          if (issue.severity === 'ERROR') {
+            richResultsIssues.push(`${detected.richResultType}: ${issue.issueMessage}`);
+          }
+        }
+      }
+    }
     return {
       verdict: r?.indexStatusResult?.verdict || 'UNKNOWN',
       canonical: r?.indexStatusResult?.userCanonical || null,
       googleCanonical: r?.indexStatusResult?.googleCanonical || null,
       richResults: r?.richResultsResult?.verdict || 'UNKNOWN',
+      richResultsIssues,
       crawlTime: r?.indexStatusResult?.lastCrawlTime || null,
       coverageState: r?.indexStatusResult?.coverageState || null,
     };
@@ -570,6 +584,19 @@ async function main() {
     log('ℹ️', 'DRY RUN — would create GitHub issue + send email + trigger redeploy');
   }
 
+  // Act on structured-data errors (indexed pages, but richResults verdict FAIL
+  // or ERROR-severity detectedItems issues — excludes NEUTRAL/PARTIAL states
+  // that just mean "no rich result attempted", not an actual problem).
+  const structuredDataIssues = warnPages.filter(
+    p => p.richResults === 'FAIL' || (p.richResultsIssues && p.richResultsIssues.length > 0)
+  );
+  if (structuredDataIssues.length > 0 && !DRY_RUN) {
+    log('🚨', `${structuredDataIssues.length} page(s) with structured-data errors — creating GitHub issue (P3)`);
+    await createStructuredDataIssue(structuredDataIssues);
+  } else if (structuredDataIssues.length > 0 && DRY_RUN) {
+    log('ℹ️', 'DRY RUN — would create structured-data GitHub issue');
+  }
+
   // Re-submit stale pages via IndexNow
   if (stalePages.length > 0 && !DRY_RUN) {
     log('📤', `Submitting ${stalePages.length} stale URLs to IndexNow for re-crawl`);
@@ -579,9 +606,9 @@ async function main() {
 
 // ── GitHub Issue ────────────────────────────────────────────
 async function createGithubIssue(failedPages, results, priority = 1, titlePrefix = '') {
-  const apiKey = process.env.GITHUB_TOKEN;
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
   if (!apiKey) {
-    log('ℹ️', 'GITHUB_TOKEN not set — skipping');
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
     return;
   }
 
@@ -614,6 +641,49 @@ async function createGithubIssue(failedPages, results, priority = 1, titlePrefix
       project: 'SEO',
     });
     log('📋', 'GitHub issue created');
+  } catch (err) {
+    log('⚠️', `GitHub issue creation failed: ${err.message}`);
+  }
+}
+
+async function createStructuredDataIssue(pages) {
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  if (!apiKey) {
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
+    return;
+  }
+
+  const description = [
+    '## GSC Job Indexation Monitor — Structured Data Errors Detected',
+    '',
+    `**Date**: ${new Date().toISOString().split('T')[0]}`,
+    `**Source**: GSC URL Inspection API — richResultsResult`,
+    '',
+    '### Affected Pages',
+    ...pages.map(p => {
+      const path = new URL(p.url).pathname;
+      const issues = (p.richResultsIssues && p.richResultsIssues.length > 0)
+        ? p.richResultsIssues.map(i => `    - ${i}`).join('\n')
+        : '    - (verdict FAIL, no per-item detail returned)';
+      return `- \`${path}\` — rich results verdict: \`${p.richResults}\`\n${issues}`;
+    }),
+    '',
+    '### Investigation Steps',
+    '1. Verify JobPosting JSON-LD on the affected pages includes all required fields per CLAUDE.md non-negotiable #3: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, `employmentType`.',
+    '2. Missing source data → apply safe default, do not drop the field/check.',
+    '3. Re-test via GSC Rich Results Test or URL Inspection after the fix deploys.',
+  ].join('\n');
+
+  try {
+    const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
+    await create({
+      title: `[Monitor] ${pages.length} job page(s) with structured data issues`,
+      description,
+      priority: 3,
+      labels: ['Bug', 'seo'],
+      project: 'SEO',
+    });
+    log('📋', 'GitHub issue created (structured data)');
   } catch (err) {
     log('⚠️', `GitHub issue creation failed: ${err.message}`);
   }
