@@ -189,6 +189,51 @@ export function isGenuinePrBodyContractViolation(text) {
   return true;
 }
 
+// ---- `sibling-class-fix` false-positive guard (DETERMINISTIC) ---------------
+// Same false-positive class as `isGenuinePrBodyContractViolation` above, applied
+// to the OTHER process-failure-mode bucket the reviewer regex matches loosely on
+// sweep vocabulary (`sibling`, `file gemello`, `stesso anti-pattern`, `non
+// toccat[o]`, …). Unlike pr-body-contract (structural gate already blocks missing
+// sections), `check-sibling-patterns.mjs` is a candidate-SURFACER with no
+// enforcement — but the reviewer regex still can't tell these senses apart:
+//   (a) GENUINE violation — a sibling file left un-swept still carries the SAME
+//       antipattern the PR just fixed elsewhere (e.g. #3317: `.slice(0, 20)`
+//       cap-trim fixed in one crawler, "resta intatto" in 7 siblings). This is
+//       the escalation target. A divergent-but-deferred nit ("diverges from the
+//       sibling's pattern — deferred, non funnel-critical", #3312) is STILL a
+//       real finding here — AGENTS.md #8 abolished deferral-as-closure, so only
+//       (b)/(c) below are excluded, never a plain "deferred".
+//   (b) AFFIRMATION — the reviewer confirms the sibling sweep is COMPLETE / no
+//       residual finding ("nessun sibling residuo", "no inconsistency", "coerente
+//       col sibling", "correctly mirrors the sibling"). NOT a defect. Includes the
+//       same emoji-as-word trap that inflated pr-body-contract (#2397/#2396): a
+//       line like "nessun 🔴/🟡 da propagare" (#3319) contains the literal glyphs
+//       `detectSeverity` substring-matches on, even though the sentence explicitly
+//       says there is NOTHING to report.
+//   (c) DECLARED FALSE POSITIVE — the reviewer explicitly invokes AGENTS.md #6's
+//       own escape hatch: the construct is "solo lessicalmente simile ma
+//       semanticamente diverso" / an explicit "falso positivo" — not the same bug
+//       class, just a shared token.
+// Issue #3325 (escalation ×6 in 14gg: #3319/#3317/#3312/#3267/#3265) — the bucket
+// had no filter at all, unlike its pr-body-contract sibling shipped in #3332.
+// Pure → unit-tested, mirrors isGenuinePrBodyContractViolation's structure.
+const SIBLING_CLASS_AFFIRM_RE =
+  /nessun\w*\s*(?:[\u{1F534}\u{1F7E1}]\s*\/?\s*)*(?:da propagare|altro finding|bug replicat\w*|antipattern replicat\w*)|nessun\s+sibling\s+resid\w*|no inconsistenc\w*|not a candidate for|correctly mirrors? the sibling|coerente\s+(?:col|con il)\s+sibling|match(?:es)?\s+the sibling'?s?\s+(?:proven\s+)?(?:pattern|guard)/iu;
+const SIBLING_CLASS_FALSE_POSITIVE_RE =
+  /falso positivo|solo lessicalmente simil\w*|lessicalmente simil\w*(?:[^.]{0,40})semanticamente divers\w*|semanticamente divers\w*|non è (?:lo stesso|la stessa) (?:anti-?pattern|costrutto|classe)|not the same (?:anti-?pattern|construct|bug class)|false positive/i;
+export function isGenuineSiblingClassViolation(text) {
+  const s = String(text || '');
+  // (c) explicit false-positive declaration wins first — a reviewer can declare
+  //     lexical-vs-semantic mismatch even inside an otherwise alarming sentence.
+  if (SIBLING_CLASS_FALSE_POSITIVE_RE.test(s)) return false;
+  // (b) the line AFFIRMS the sweep is complete / nothing to propagate → not a
+  //     defect, even if it contains 🔴/🟡 glyphs as prose rather than a marker.
+  if (SIBLING_CLASS_AFFIRM_RE.test(s)) return false;
+  // Default: no affirmation, no declared false positive → conservative: keep as
+  // a genuine (possibly deferred-but-real) sibling-class finding.
+  return true;
+}
+
 export function bucketFinding(text) {
   for (const t of TAXONOMY) {
     if (!t.re.test(text)) continue;
@@ -198,6 +243,10 @@ export function bucketFinding(text) {
     // next matching taxonomy entry / fingerprint net so a co-mentioned real defect
     // (sibling-class-fix, stale-comment) still clusters in its own bucket.
     if (t.key === 'pr-body-contract' && !isGenuinePrBodyContractViolation(text)) continue;
+    // sibling-class-fix: same treatment (issue #3325) — drop affirmations /
+    // declared false positives so the bucket counts only genuine unswept-sibling
+    // findings, mirroring pr-body-contract's filter above.
+    if (t.key === 'sibling-class-fix' && !isGenuineSiblingClassViolation(text)) continue;
     return t.key;
   }
   return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
