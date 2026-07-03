@@ -269,6 +269,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'kanton-gr': '/images/brands/kanton-gr.png',
  'kantonsspital-graubuenden-ksgr': gFavicon('ksgr.ch'),
  'kantonsspital-uri': cLogo('ksuri.ch'),
+ 'kellerhals-carrard': cLogo('kellerhals-carrard.ch'),
  'kispi': cLogo('kispi.uzh.ch'),
  'kispi-sg': cLogo('kispisg.ch'),
  'kispi-zurich': cLogo('kispi.uzh.ch'),
