@@ -158,17 +158,10 @@ export const WEBCAM_FEEDS = {
     // New A2-corridor feed (PR #2286). Warmup-gated until calibration is validated.
     introducedAt: '2026-06-16',
   },
-  // A2 Mendrisio interchange (km 7.2) — the 4-lane motorway funnelling the
-  // Stabio/Gaggiolo crossings. Busy-but-flowing midday traffic reads ~13 vehicles,
-  // so capacity is high: only a genuine bumper-to-bumper jam (~36) flags a queue.
-  '07.2N': {
-    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/07.2N.gif',
-    crossings: ['gaggiolo'],
-    box: [0, 30, 400, 195],
-    capacity: 36,
-    // New A2-corridor feed (PR #2286). Warmup-gated until calibration is validated.
-    introducedAt: '2026-06-16',
-  },
+  // '07.2N' (A2 Mendrisio interchange, km 7.2) REMOVED 2026-07-03 (issue #3372):
+  // the upstream www4.ti.ch feed now returns a confirmed HTTP 404 (checked from
+  // multiple vantage points, not a transient cloud-IP block). No replacement feed
+  // exists at this exact vantage point; 'gaggiolo' still votes on 02.0N + 06.8S.
   // A2 Melide–Bissone causeway (km 17.84) — the multi-lane road carrying the
   // Campione d'Italia–Bissone crossing. Live moderate flow ~7–8 vehicles; a busy
   // (but moving) causeway view, so capacity is generous to keep flow under the gate.

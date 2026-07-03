@@ -186,9 +186,12 @@ describe('CROSSING_TO_FEEDS registry', () => {
     expect(CROSSING_TO_FEEDS['chiasso-brogeda']).toEqual(
       expect.arrayContaining(['00.3S', '03.3S']),
     );
+    // '07.2N' was removed (issue #3372): the upstream www4.ti.ch feed 404s and
+    // has no replacement; 'gaggiolo' now votes on the two remaining feeds.
     expect(CROSSING_TO_FEEDS['gaggiolo']).toEqual(
-      expect.arrayContaining(['02.0N', '06.8S', '07.2N']),
+      expect.arrayContaining(['02.0N', '06.8S']),
     );
+    expect(CROSSING_TO_FEEDS['gaggiolo']).not.toContain('07.2N');
     expect(CROSSING_TO_FEEDS['san-pietro']).toEqual(
       expect.arrayContaining(['02.0N', '06.8S']),
     );
@@ -216,7 +219,8 @@ describe('CROSSING_TO_FEEDS registry', () => {
   });
 
   it('new A2-corridor feeds (PR #2286) carry introducedAt for warmup gating', () => {
-    for (const k of ['03.3S', '07.2N', '17.84S', '04.4N']) {
+    // '07.2N' removed (issue #3372) — dead upstream feed, no replacement.
+    for (const k of ['03.3S', '17.84S', '04.4N']) {
       expect(WEBCAM_FEEDS[k].introducedAt, `feed ${k}`).toBeDefined();
     }
   });
