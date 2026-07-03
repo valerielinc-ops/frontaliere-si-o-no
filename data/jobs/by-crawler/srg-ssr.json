@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-07-03T10:49:11.762Z",
+  "assembledAt": "2026-07-03T12:20:52.010Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T22:57:50.469Z",
+      "crawledAt": "2026-07-03T12:20:35.214Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,7 +86,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:49.613Z",
+      "crawledAt": "2026-07-03T12:20:34.160Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,6 +141,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -168,7 +169,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Auditeur.trice interne",
       "titleByLocale": {
-        "it": "Revisore interno",
+        "it": "Auditeur.trice interne",
         "en": "Internal Auditor",
         "de": "Interner Auditor",
         "fr": "Auditeur.trice interne"
@@ -185,7 +186,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/2156fd7f-6945-4e7a-8a75-f785cf475947",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T22:57:48.753Z",
+      "crawledAt": "2026-07-03T12:20:33.317Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -245,10 +246,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditeur-trice-interne-srg-ssr-bern"
+          "auditeur-trice-interne-srg-ssr-bern",
+          "revisore-interno-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:46.888Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -294,7 +297,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-redazione-rsi-food/38e8146f-636f-4adf-9f75-a7f1d27fb2f7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:47.045Z",
+      "crawledAt": "2026-07-03T12:20:32.437Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -358,6 +361,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:42.933Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -403,7 +407,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/kundenberater-in-im-kundencenter-srg/49fbabac-3c25-43e6-a560-ae8e78299667",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:46.205Z",
+      "crawledAt": "2026-07-03T12:20:31.085Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -464,10 +468,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
+          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -513,7 +519,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-wirtschaft-tv-online/1ac187bb-1ac0-4d9e-93c3-514216b23a97",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:45.353Z",
+      "crawledAt": "2026-07-03T12:20:30.198Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -562,10 +568,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich"
+          "praktikant-in-wirtschaft-tv-online-srg-ssr-zurich",
+          "tirocinante-economia-tv-online-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:37.929Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -611,7 +619,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-visual-design/e2ef16c1-77f8-4a65-8de4-787d7402239f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:44.485Z",
+      "crawledAt": "2026-07-03T12:20:27.971Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -647,6 +655,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:31.189Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -675,7 +684,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -692,7 +701,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:43.658Z",
+      "crawledAt": "2026-07-03T12:20:26.761Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -760,10 +769,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-operator-srg-ssr-bern"
+          "service-operator-srg-ssr-bern",
+          "operatore-di-servizio-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -809,7 +820,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-kanaele-tv/e2858bb9-4ddc-41ee-834b-0b5ec3cc50be",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:42.834Z",
+      "crawledAt": "2026-07-03T12:20:25.754Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -850,10 +861,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-kanale-tv-srg-ssr-zurich"
+          "praktikant-in-kanale-tv-srg-ssr-zurich",
+          "tirocinante-in-canali-tv-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:21.300Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -899,7 +912,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste-pour-l-emission-on-en-parle/e4b54b62-3c24-47f7-ac80-87e4913b9ad1",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T22:57:42.022Z",
+      "crawledAt": "2026-07-03T12:20:24.775Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -946,10 +959,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -995,7 +1010,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-berater-in/96e829ec-3d10-441c-bb91-caac41432745",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:41.200Z",
+      "crawledAt": "2026-07-03T12:20:23.855Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1039,10 +1054,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-berater-in-srg-ssr-zurich"
+          "hr-berater-in-srg-ssr-zurich",
+          "consulente-hr-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:14.970Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1088,7 +1105,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:40.306Z",
+      "crawledAt": "2026-07-03T12:20:22.585Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -1171,7 +1188,7 @@
       "title": "Redactura / redactur da musica",
       "titleByLocale": {
         "it": "Redactura / redactur da musica",
-        "en": "Redactura / redactur from music",
+        "en": "Redactura / redactur da musica",
         "de": "Musikredakteur",
         "fr": "Éditeur de musique"
       },
@@ -1187,7 +1204,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/redactura-redactur-da-musica/7c66d830-b72e-4214-8375-038c53352ee0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:39.449Z",
+      "crawledAt": "2026-07-03T12:20:21.769Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -1244,6 +1261,7 @@
         "pensumMax": 60
       },
       "firstSeenAt": "2026-06-29T11:35:07.581Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1272,7 +1290,7 @@
       "title": "Senior Project Manager HR (a tempo determinato)",
       "titleByLocale": {
         "it": "Senior Project Manager Risorse Umane (a tempo determinato)",
-        "en": "Senior Project Manager HR (determined)",
+        "en": "Senior Project Manager HR (a tempo determinato)",
         "de": "Senior Project Manager Personalwesen (a tempo determinato)",
         "fr": "Senior Project Manager Ressources Humaines (a tempo determinato)"
       },
@@ -1288,7 +1306,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/senior-project-manager-hr-a-tempo-determinato/06271038-08e4-4448-8763-70ad9aced33c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:38.649Z",
+      "crawledAt": "2026-07-03T12:20:20.929Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1325,6 +1343,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T12:13:25.033Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1354,7 +1373,7 @@
       "title": "Senior Project Manager RH (CDD, f/h/d)",
       "titleByLocale": {
         "it": "Senior Project Manager RH (CDD, f/m/d)",
-        "en": "Senior Project Manager HR (CDD, f/h/d)",
+        "en": "Senior Project Manager RH (CDD, f/h/d)",
         "de": "Senior Project Manager HR (CDD, f/h/d)",
         "fr": "Senior Project Manager RH (CDD, f/h/d)"
       },
@@ -1370,7 +1389,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/senior-project-manager-rh-cdd-f-h-d/42692ab2-1abb-40f8-9b0d-ebfae20a3bc6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T22:57:37.681Z",
+      "crawledAt": "2026-07-03T12:20:19.980Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1418,6 +1437,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:03.601Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1463,7 +1483,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-kulturplatz/2fc98a01-626d-45bc-a130-f3450348f019",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:35.851Z",
+      "crawledAt": "2026-07-03T12:20:17.449Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1517,7 +1537,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-kulturplatz-srg-ssr-zurich"
+          "praktikant-in-kulturplatz-srg-ssr-zurich",
+          "tirocinante-cultura-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-06-29T11:34:51.184Z",
@@ -1566,7 +1587,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-comunicazione-rsi/9f6d7002-daae-4d10-aadc-e7048cd57fd7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:35.029Z",
+      "crawledAt": "2026-07-03T12:20:16.409Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1611,6 +1632,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-30T12:57:11.547Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1656,7 +1678,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:34.171Z",
+      "crawledAt": "2026-07-03T12:20:15.410Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1696,6 +1718,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1741,7 +1764,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/spezialist-in-hr-administration/911dec9c-f6ee-49ee-b559-900f7672ee68",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:33.367Z",
+      "crawledAt": "2026-07-03T12:20:14.579Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1776,6 +1799,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-30T23:26:52.263Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1821,7 +1845,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-hr-administration/d95cf574-b381-4eba-927e-68e79a31baf5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T22:57:32.457Z",
+      "crawledAt": "2026-07-03T12:20:13.616Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1856,6 +1880,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-30T23:26:50.774Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1901,7 +1926,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:57:31.545Z",
+      "crawledAt": "2026-07-03T12:20:12.607Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1946,7 +1971,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -1956,6 +1982,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:26:49.331Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1984,7 +2011,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Auditeur.trice interne",
       "titleByLocale": {
-        "it": "Revisore interno",
+        "it": "Auditeur.trice interne",
         "en": "Internal auditor",
         "de": "Interner Prüfer",
         "fr": "Auditeur.trice interne"
@@ -2001,7 +2028,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T22:57:30.651Z",
+      "crawledAt": "2026-07-03T12:20:11.741Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2045,7 +2072,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditeur-trice-interne-srg-ssr-bern-2"
+          "auditeur-trice-interne-srg-ssr-bern-2",
+          "revisore-interno-srg-ssr-bern-97427c"
         ],
         "en": [
           "auditeur-trice-interne-srg-ssr-bern-2"
@@ -2055,6 +2083,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:26:48.032Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2100,7 +2129,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-eventi-e-mediapartenariati/9bece2f2-6173-4517-ba54-75721cbd91a6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:29.827Z",
+      "crawledAt": "2026-07-03T12:20:10.921Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2145,6 +2174,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-02T12:13:15.488Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2190,7 +2220,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-digitale-rsi-cultura/38f358d6-97d8-49ea-8676-555f9adf6966",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:28.962Z",
+      "crawledAt": "2026-07-03T12:20:10.009Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2232,6 +2262,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "firstSeenAt": "2026-07-02T22:57:28.962Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2244,8 +2276,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-07-02T22:57:28.962Z"
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-a269cc50ab65",
@@ -2262,8 +2293,8 @@
       "title": "Stage Spam e Young Unit RSI",
       "titleByLocale": {
         "it": "Stage Spam e Young Unit RSI",
-        "de": "Stage Spam und Young Unit RSI",
         "en": "Stage Spam and Young Unit RSI",
+        "de": "Stage Spam e Young Unit RSI",
         "fr": "Stage Spam et Jeune Unité RSI"
       },
       "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Proposta e sviluppo di idee e contenuti in linea con la linea editoriale della Young Unit, seguendo l'attualità del territorio e i temi di interesse per il pubblico giovane.\n• Realizzazione di contenuti digitali, interviste e video per social e web.\n• Collaborazione con videomaker e redazioni del Dipartimento Cultura e Società.\n• Partecipazione alle attività di redazione e agli eventi dedicati al pubblico giovane. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Ti interessano l'attualità, i temi che coinvolgono le nuove generazioni e il mondo dei social me-dia?\n• Possiedi buone competenze comunicative e di scrittura?\n• Ti piacerebbe realizzare interviste e contenuti video per il web e i social?\n• Sei una persona curiosa, intraprendente e orientata al lavoro di squadra?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e ac-compagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura domenica 9 agosto 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui manda-to è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Conces-sione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fon-damentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'in-trattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguisti-che della Svizzera.",
@@ -2278,7 +2309,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-spam-e-young-unit-rsi/f758873d-0a18-44da-92a2-77451acbd13e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-02T22:57:28.118Z",
+      "crawledAt": "2026-07-03T12:20:08.666Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2320,6 +2351,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "firstSeenAt": "2026-07-02T22:57:28.118Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2332,8 +2365,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-07-02T22:57:28.118Z"
+      "addressRegion": "TI"
     }
   ]
 }
