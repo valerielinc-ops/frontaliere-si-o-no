@@ -489,6 +489,8 @@ export const COMPANY_HQ = {
 
   // ── Wave B: 40 crawler batch (issue #3337) ──
   'mistral-ai': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // ── Crawler backlog #3337 ──
+  'saint-gobain-weber-isover': { city: 'Baden', canton: 'AG', postalCode: '5405', addressRegion: 'AG' },
 };
 
 /**

@@ -50,11 +50,29 @@
  *     `job_category`/`job_location` at signup time. The derived patch is
  *     merged onto the subscriber doc (see `jobAlertBackfillTrigger.js`) so
  *     `buildAlertProfile` benefits from it immediately, not just on the next
- *     manual enrichment pass.
+ *     manual enrichment pass. A patch carrying ONLY `job_search_query` (no
+ *     category/location resolved from it) still counts — `buildAlertProfile`
+ *     (services/jobAlertMatching.mjs) actively folds it into soft keyword
+ *     tokens, it's not write-only data.
+ *  4. `url-fallback` — weakest tier, tried only when tier 3 also finds
+ *     nothing: derive a canton from `consent_source_url`/`source_page` when
+ *     it points at a single-canton job-board page (`/cerca-lavoro-ticino/…`,
+ *     `/fr/trouver-emploi-valais/…`). Live (2026-07-03): 151 of the 523
+ *     remaining no-signal subscribers landed on exactly such a page — signup
+ *     happened via a generic channel (auth popup, newsletter box) on top of
+ *     a job listing, so the canton is right there in the URL and never made
+ *     it into a flat field. Written as a bare lowercase 2-letter code
+ *     (`location_interest: 'ti'`), the shape `buildAlertProfile` already
+ *     recognizes as a canton via its own `SWISS_CANTONS` check — a soft
+ *     ranking signal like tier 2, never a hard `cantonFilter`. Half-canton
+ *     URL groups (`jobs-im-tessin`'s siblings `APPENZELLO`/`BASILEA`) and the
+ *     Switzerland-wide aggregator are deliberately skipped as too ambiguous
+ *     or too broad — see `lib/jobBoardUrlCanton.js`.
  */
 
 import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
+import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
 
 export const MAX_ALERTS_PER_USER = 3; // services/jobAlertService.ts:68
 export const ALERT_ID = 'backfill-newsletter';
@@ -92,26 +110,52 @@ export function getSignalTier(data) {
  * @returns {boolean}
  */
 export function signalTierChanged(beforeData, afterData) {
-  const beforeTier = beforeData ? getSignalTier(beforeData) : 'none';
-  return getSignalTier(afterData) !== beforeTier;
+  const beforeTier = beforeData ? getCheapSignalTier(beforeData) : 'none';
+  return getCheapSignalTier(afterData) !== beforeTier;
 }
 
 /**
- * Tier resolution with the 3rd, weaker fallback layered on top of
- * `getSignalTier`: when the flat fields carry nothing, derive one from the
- * `private/personalization` subdoc. Returns the patch too so callers can
- * merge it onto the subscriber doc — see tier-3 rationale in the file header.
+ * Tiers 1/2/4 — everything resolvable WITHOUT a `private/personalization`
+ * read (tier 3 needs that subdoc, fetched separately, see
+ * `backfillJobAlertOnPersonalizationSync`). Used only to gate the flat-doc
+ * write trigger cheaply; never for tier SELECTION — `resolveSignalTier`
+ * below keeps tier 3 (personalization, richer signal) checked ahead of
+ * tier 4 (URL, weaker) regardless of what this function returns.
+ * @param {Record<string, unknown>|null|undefined} data
+ * @returns {'signal'|'location-fallback'|'url-fallback'|'none'}
+ */
+function getCheapSignalTier(data) {
+  const tier = getSignalTier(data);
+  if (tier !== 'none') return tier;
+  return deriveCantonFromJobBoardUrl(data?.consent_source_url) || deriveCantonFromJobBoardUrl(data?.source_page)
+    ? 'url-fallback'
+    : 'none';
+}
+
+/**
+ * Tier resolution with the weaker fallbacks layered on top of
+ * `getSignalTier`: when the flat fields carry nothing, try the
+ * `private/personalization` subdoc (tier 3), then the job-board URL the
+ * subscriber landed on (tier 4). Returns the patch too so callers can merge
+ * it onto the subscriber doc — see tier rationale in the file header.
  * @param {Record<string, unknown>|null|undefined} data
  * @param {Record<string, unknown>|null|undefined} [personalization]
- * @returns {{tier: 'signal'|'location-fallback'|'personalization-fallback'|'none', patch: Record<string, string>|null}}
+ * @returns {{tier: 'signal'|'location-fallback'|'personalization-fallback'|'url-fallback'|'none', patch: Record<string, string>|null}}
  */
 export function resolveSignalTier(data, personalization) {
   const tier = getSignalTier(data);
   if (tier !== 'none') return { tier, patch: null };
+
   const patch = derivePersonalizationPatch({ subscriber: data, personalization, alerts: [] });
-  if (patch && (patch.job_category || patch.location_interest || patch.geo_city)) {
+  if (patch && (patch.job_category || patch.location_interest || patch.geo_city || patch.job_search_query)) {
     return { tier: 'personalization-fallback', patch };
   }
+
+  const urlCanton = deriveCantonFromJobBoardUrl(data?.consent_source_url) || deriveCantonFromJobBoardUrl(data?.source_page);
+  if (urlCanton) {
+    return { tier: 'url-fallback', patch: { location_interest: urlCanton } };
+  }
+
   return { tier: 'none', patch: null };
 }
 
@@ -145,7 +189,10 @@ export function shouldSkipSubscriber(email, data, personalization = null) {
 export function buildAlertPayload(email, data, existingBackfill, personalization = null) {
   const { tier } = resolveSignalTier(data, personalization);
   const channel = data?.source_channel || 'unknown';
-  const tierSuffix = tier === 'location-fallback' || tier === 'personalization-fallback' ? `:${tier}` : '';
+  const tierSuffix =
+    tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
+      ? `:${tier}`
+      : '';
   return {
     email,
     userId: data?.user_id || null,
