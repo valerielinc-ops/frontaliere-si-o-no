@@ -266,6 +266,17 @@ const deVita: Record<string, string> = {
  'profile.tip.marriedDesc': 'Versuchen Sie, Ihre Steuersituation als Alleinstehende/r zu simulieren.',
  'profile.tip.single': 'Was würde sich ändern, wenn Sie heiraten würden?',
  'profile.tip.singleDesc': 'Versuchen Sie, Ihre Steuersituation als Verheiratete/r zu simulieren.',
+
+ // --- Profile enrichment (progressive one-question prompt) ---
+ 'profileEnrichment.provinceQuickPick.title': 'Wo wohnen Sie?',
+ 'profileEnrichment.frontaliereType.title': 'Welche Bewilligung haben Sie (oder möchten Sie)?',
+ 'profileEnrichment.workPosition.title': 'Was arbeiten Sie?',
+ 'profileEnrichment.grossSalary.title': 'Wie hoch ist Ihr jährliches Bruttogehalt?',
+ 'profileEnrichment.cantonFilter.title': 'Möchten Sie Ihren Alert auf einen Kanton beschränken?',
+ 'profileEnrichment.sectors.title': 'In welcher Branche suchen Sie Arbeit?',
+ 'profileEnrichment.other': 'Andere',
+ 'profileEnrichment.submit': 'Ok',
+
  'leave.title': 'Mutterschafts-/Vaterschaftsrechner',
  'leave.subtitle': 'Vergleich der Ansprüche für Grenzgänger: Schweizer EO vs italienische INPS',
  'leave.maternity': 'Mutterschaft',

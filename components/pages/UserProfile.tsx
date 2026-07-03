@@ -14,6 +14,7 @@
 
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { reportCaughtError } from '@/services/errorReporter';
+import { savePartialProfile } from '@/services/profileFirestore';
 import {
  User, LogIn, LogOut, Camera, Briefcase, Users, Calendar,
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
@@ -137,19 +138,7 @@ const initFirestore = async () => {
 };
 
 const saveProfileToFirestore = async (email: string, data: UserProfileData) => {
- try {
- const db = await initFirestore();
- if (!db) return;
- const { doc, setDoc } = await import('firebase/firestore');
- const key = email.trim().toLowerCase();
- await setDoc(doc(db, 'newsletter_subscribers', key), {
- ...data,
- updatedAt: new Date().toISOString(),
- }, { merge: true });
- } catch (e) {
- console.warn('[Profile] Firestore save failed:', e);
- reportCaughtError(e, 'userProfile.saveToFirestore', { type: 'api_error' });
- }
+ await savePartialProfile(email, data as unknown as Record<string, unknown>);
 };
 
 const loadProfileFromFirestore = async (email: string): Promise<UserProfileData | null> => {

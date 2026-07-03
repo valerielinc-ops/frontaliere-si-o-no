@@ -266,6 +266,17 @@ const enVita: Record<string, string> = {
  'profile.tip.marriedDesc': 'Try simulating your tax situation as single to compare the results.',
  'profile.tip.single': 'What would change if you got married?',
  'profile.tip.singleDesc': 'Try simulating your tax situation as married to compare the results.',
+
+ // --- Profile enrichment (progressive one-question prompt) ---
+ 'profileEnrichment.provinceQuickPick.title': 'Where do you live?',
+ 'profileEnrichment.frontaliereType.title': 'What permit do you have (or would you like)?',
+ 'profileEnrichment.workPosition.title': 'What do you do for work?',
+ 'profileEnrichment.grossSalary.title': 'What\'s your gross annual salary?',
+ 'profileEnrichment.cantonFilter.title': 'Want to narrow your alert to a canton?',
+ 'profileEnrichment.sectors.title': 'What sector are you looking for work in?',
+ 'profileEnrichment.other': 'Other',
+ 'profileEnrichment.submit': 'Ok',
+
  'leave.title': 'Maternity/Paternity Leave Calculator',
  'leave.subtitle': 'Compare rights and amounts for cross-border workers: Swiss IPG vs Italian INPS',
  'leave.maternity': 'Maternity',

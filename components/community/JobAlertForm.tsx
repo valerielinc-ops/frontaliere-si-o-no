@@ -7,12 +7,24 @@
 
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from '@/services/i18n';
+import type { Locale } from '@/services/i18n';
 import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2, Pencil } from 'lucide-react';
 import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 import { listCantonOptions, getCantonLabel, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
+import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
+import { SECTORS } from './jobAlertConstants';
+import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
+import {
+  loadGatingState,
+  saveGatingState,
+  pickNextQuestion,
+  recordAnswer,
+  recordSkip,
+  type EnrichmentFieldKey,
+} from '@/services/profileEnrichmentGating';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -41,19 +53,6 @@ const CONTRACT_TYPES = [
  { value: 'part-time', labelKey: 'jobBoard.contract.partTime' },
  { value: 'temporary', labelKey: 'jobBoard.contract.temporary' },
  { value: 'internship', labelKey: 'jobBoard.contract.internship' },
-];
-
-const SECTORS = [
- { value: 'Fintech / Blockchain', label: 'Fintech' },
- { value: 'Tecnologia / Data Center', label: 'Tecnologia' },
- { value: 'Consulenza', label: 'Consulenza' },
- { value: 'Sanità / Assistenza', label: 'Sanità' },
- { value: 'Farmaceutica / Biotecnologia', label: 'Farmaceutica' },
- { value: 'Ospitalità / Hotellerie', label: 'Ospitalità' },
- { value: 'Banca / Gestione patrimoniale', label: 'Banca' },
- { value: 'Amministrazione Pubblica', label: 'Amm. Pubblica' },
- { value: 'Edilizia e tecnica', label: 'Edilizia' },
- { value: 'Istruzione e ricerca', label: 'Istruzione' },
 ];
 
 // ── Component ────────────────────────────────────────────────
@@ -178,7 +177,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
   const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
 
   const persistAlert = useCallback(
-    async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card' | 'post_auth_auto'): Promise<void> => {
+    async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card' | 'post_auth_auto'): Promise<JobAlert> => {
       const { createAlert } = await import("@/services/jobAlertService");
       const alert = await createAlert(uid, email, config);
       setAlerts((prev) => [alert, ...prev]);
@@ -192,9 +191,39 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
           }),
         )
         .catch(() => {});
+      return alert;
     },
     [],
   );
+
+  // ── Progressive profile/jobalert enrichment (post-create prompt) ──────
+  const [enrichmentField, setEnrichmentField] = useState<EnrichmentFieldKey | null>(null);
+  const [enrichmentAlertId, setEnrichmentAlertId] = useState<string | null>(null);
+  const [enrichmentMunicipality, setEnrichmentMunicipality] = useState<string | null>(null);
+
+  const maybeShowEnrichmentPrompt = useCallback(async (userEmail: string, createdAlert: JobAlert) => {
+    try {
+      const profileFields = await loadEnrichmentProfileFields(userEmail);
+      const nextField = pickNextQuestion(
+        profileFields,
+        { cantonFilter: createdAlert.cantonFilter ?? null, sectors: createdAlert.sectors },
+        loadGatingState(),
+        new Date(),
+      );
+      if (!nextField) return;
+      setEnrichmentMunicipality(profileFields.municipality || null);
+      setEnrichmentAlertId(createdAlert.id);
+      setEnrichmentField(nextField);
+    } catch {
+      // Best-effort — never blocks the alert-creation flow.
+    }
+  }, []);
+
+  const closeEnrichmentPrompt = useCallback(() => {
+    setEnrichmentField(null);
+    setEnrichmentAlertId(null);
+    setEnrichmentMunicipality(null);
+  }, []);
 
   const resetForm = useCallback(() => {
     setKeyword('');
@@ -217,11 +246,12 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     pendingConsumedRef.current = true;
     (async () => {
       try {
-        await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
+        const created = await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
         // Reset like the manual path so the now-authenticated user can't re-submit
         // the still-populated form and create a duplicate alert.
         resetForm();
+        if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
       } catch (err: any) {
         // Surface the failure (e.g. quota full = permanent) instead of swallowing
         // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
@@ -229,7 +259,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
       }
     })();
-  }, [authUser, persistAlert, showToast, resetForm, t]);
+  }, [authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt]);
 
 
  const handleCreate = async () => {
@@ -248,9 +278,10 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  setSaving(true);
  try {
  const config = buildConfig();
-      await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card');
+      const created = await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card');
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();
+      if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
  } catch (err: any) {
  showToast(err?.message || 'Errore durante la creazione dell\'alert.');
  } finally {
@@ -685,6 +716,21 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <div className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-heading text-heading text-sm shadow-lg animate-fade-in`}>
  {toast}
  </div>
+ )}
+
+ {/* Progressive profile/jobalert enrichment prompt — one question, shown
+ right after a successful alert creation. */}
+ {enrichmentField && authUser?.email && (
+ <ProfileEnrichmentPrompt
+ field={enrichmentField}
+ email={authUser.email}
+ locale={locale as Locale}
+ alertId={enrichmentAlertId}
+ municipality={enrichmentMunicipality}
+ onAnswered={() => saveGatingState(recordAnswer(loadGatingState(), new Date()))}
+ onSkipped={() => saveGatingState(recordSkip(loadGatingState(), new Date()))}
+ onClose={closeEnrichmentPrompt}
+ />
  )}
  </div>
  );

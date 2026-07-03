@@ -106,6 +106,29 @@ describe('jobAlertMatching — newsletter_subscribers profile signals', () => {
     const inLugano = score(job({ location: 'Lugano', addressLocality: 'Lugano' }), { keywords: [] }, sub);
     expect(inLugano).toBeGreaterThan(0);
   });
+
+  it('workPosition from the enrichment profile acts as a soft keyword, same as sourceJobTitle', () => {
+    const sub = { workPosition: 'Infermiere' };
+    const relevant = score(job({ title: 'Infermiere', sector: 'Sanità', category: 'Cura' }), { keywords: [] }, sub);
+    const irrelevant = score(job({ title: 'Receptionist', sector: 'Hospitality', category: 'Front office' }), { keywords: [] }, sub);
+    expect(relevant).toBeGreaterThan(0);
+    expect(irrelevant).toBe(0);
+  });
+
+  it('municipality from the enrichment profile resolves to a commute-canton preference', () => {
+    const profile = buildAlertProfile({ keywords: [] }, { municipality: 'Como (CO)' });
+    expect(profile.preferredCantons).toEqual(['ti']);
+  });
+
+  it('municipality with no canton affinity (inland province) adds no canton preference', () => {
+    const profile = buildAlertProfile({ keywords: [] }, { municipality: 'Bergamo (BG)' });
+    expect(profile.preferredCantons).toEqual([]);
+  });
+
+  it('unknown/missing municipality does not throw and adds no canton preference', () => {
+    const profile = buildAlertProfile({ keywords: [] }, {});
+    expect(profile.preferredCantons).toEqual([]);
+  });
 });
 
 describe('jobAlertMatching — pure location/sector alerts (legacy contract)', () => {
