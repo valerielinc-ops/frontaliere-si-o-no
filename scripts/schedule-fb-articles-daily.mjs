@@ -49,6 +49,7 @@ import {
   loadLedger,
   appendLedger,
   ARTICLE_PLACE_ID,
+  isLandingPageLive,
 } from './lib/social-post-utils.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
@@ -331,7 +332,16 @@ export async function run(opts = {}) {
   }
 
   let posted = 0;
+  let skipped = 0;
   for (const p of payloads) {
+    // Pre-flight: this immediate poster links to a freshly-built article page;
+    // a slow build/deploy can leave it not-yet-live, so skip on a confirmed
+    // 4xx rather than post a link that 404s (see isLandingPageLive doc).
+    if (!(await isLandingPageLive(p.url, { fetchImpl }))) {
+      warn('🚧', `landing page not live yet for "${p.articleId}" (${p.url}) — skipping post`);
+      skipped += 1;
+      continue;
+    }
     await rescrapeOg(p.url);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => new URLSearchParams({
@@ -377,8 +387,8 @@ export async function run(opts = {}) {
     }
   }
 
-  log('🏁', `posted ${posted}/${payloads.length} article(s)`);
-  return { ok: posted > 0, posted, dryRun, payloads };
+  log('🏁', `posted ${posted}/${payloads.length} article(s)${skipped ? ` (${skipped} skipped — landing not live yet)` : ''}`);
+  return { ok: posted > 0, posted, skipped, dryRun, payloads };
 }
 
 // ── CLI ─────────────────────────────────────────────────────
