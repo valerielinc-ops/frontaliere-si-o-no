@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/spezialist-in-change-management-60-80_2026-2227/",
     "https://www.rhb.ch/it/job/leiter-in-planung-and-entwicklung-80-100_2026-2222/",
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2225/",
     "https://www.rhb.ch/it/job/it-supporter-in-50-80_2026-2224/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2220/",
     "https://www.rhb.ch/it/job/bauleiter-in-kabelanlagen-80-100_2025-2004/",
-    "https://www.rhb.ch/it/job/projektleiter-in-logistik-und-support-50-100_2026-2215/",
-    "https://www.rhb.ch/it/job/handwerker-in-komponentenwechsel-50-100_2026-2214/"
+    "https://www.rhb.ch/it/job/projektleiter-in-logistik-und-support-50-100_2026-2215/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/spezialist-in-change-management-60-80_2026-2227/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/leiter-in-planung-and-entwicklung-80-100_2026-2222/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -55,12 +59,8 @@
     "https://www.rhb.ch/it/job/projektleiter-in-logistik-und-support-50-100_2026-2215/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/handwerker-in-komponentenwechsel-50-100_2026-2214/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-07-02T22:09:22.706Z"
+  "updatedAt": "2026-07-03T11:37:25.591Z"
 }

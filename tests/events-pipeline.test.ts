@@ -27,6 +27,7 @@ import {
   loadCantonComuni,
 } from '../scripts/lib/events-utils.mjs';
 import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
+import { CANTON_CODES } from '../services/cantonList';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -452,7 +453,13 @@ describe('assembled dataset integrity (data/events.json)', () => {
       expect(e.title.length).toBeGreaterThan(0);
       expect(e.startDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       if (e.endDate) expect(e.endDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      expect(e.canton).toBe('TI');
+      // Nationwide sources (guidle, myswitzerland — #3125) resolve events to
+      // any of the 26 cantons, not just TI; assert membership in the same
+      // canton list the job board uses instead of the pre-#3125 TI-only check.
+      // '' is also valid: myswitzerland.com leaves canton blank when
+      // resolveComuneNationwide finds no confident comune match (event shown
+      // on the canton hub only — crawl-myswitzerland-events.mjs:370/413/505).
+      expect(e.canton === '' || CANTON_CODES.includes(e.canton)).toBe(true);
     }
   });
 });

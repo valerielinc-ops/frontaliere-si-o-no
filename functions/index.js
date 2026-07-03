@@ -42,7 +42,7 @@ import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js'
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
-import { signalTierChanged } from './src/jobAlertBackfillCore.js';
+import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
 
 ensureAdminApp();
 
@@ -1096,6 +1096,48 @@ export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  } catch (error) {
  console.error(
  '[backfillJobAlertOnNewsletterSignup]',
+ error instanceof Error ? error.message : String(error),
+ );
+ }
+ },
+);
+
+// Companion to backfillJobAlertOnNewsletterSignup above: that trigger only
+// fires on writes to the newsletter_subscribers/{email} doc itself, so it
+// never sees browsing signal landing in the SEPARATE private/personalization
+// subcollection (services/behaviorTracker.ts syncs viewedJobs/filterUsage
+// there on job-page visits). A subscriber who signed up outside any job
+// context (calculator, generic popup) but later browses jobs while logged in
+// would otherwise stay "no-signal" forever. Re-checks eligibility via the
+// tier-3 personalization fallback (jobAlertBackfillCore.js resolveSignalTier)
+// whenever that subdoc changes; skips the extra parent-doc read's tier check
+// once flat fields already resolve a real tier, so this stays a cheap no-op
+// once a subscriber is (or becomes) tier 1/2 eligible some other way.
+export const backfillJobAlertOnPersonalizationSync = onDocumentWritten(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ document: 'newsletter_subscribers/{email}/private/personalization',
+ },
+ async (event) => {
+ const emailId = event.params.email;
+ if (!emailId || emailId === '_meta_') return;
+ const after = event.data?.after;
+ if (!after?.exists) return; // ignore deletes
+ try {
+ const parentSnap = await getAdminDb().collection('newsletter_subscribers').doc(emailId).get();
+ if (!parentSnap.exists) return;
+ const parentData = parentSnap.data();
+ if (getSignalTier(parentData) !== 'none') return; // already resolved via flat fields
+ const result = await handleNewsletterSubscriberCreated(emailId, parentData, {
+ personalization: after.data(),
+ });
+ if (result.created) {
+ console.log(`[backfillJobAlertOnPersonalizationSync] created alert for ${emailId} (${result.tier})`);
+ }
+ } catch (error) {
+ console.error(
+ '[backfillJobAlertOnPersonalizationSync]',
  error instanceof Error ? error.message : String(error),
  );
  }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-07-02T22:07:35.747Z",
+  "assembledAt": "2026-07-03T11:37:37.598Z",
   "jobs": [
     {
       "id": "klinik-gut-1581-00c45976f0f5",
@@ -34,7 +34,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.773Z",
+      "crawledAt": "2026-07-03T11:37:35.676Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -56,7 +56,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
+          "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
+          "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
@@ -105,7 +106,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2607",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.771Z",
+      "crawledAt": "2026-07-03T11:37:35.675Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -124,11 +125,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "op-lagerungspfleger-in-60-100-klinik-gut-flasch"
+          "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
+          "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
         ],
         "it": [
           "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch",
-          "op-lagerungspfleger-in-60-100-klinik-gut-flasch"
+          "op-lagerungspfleger-in-60-100-klinik-gut-flasch",
+          "tecnico-di-operazione-hf-o-infermiere-dipl-fa-op-60-100-klinik-gut-ag-flasch"
         ],
         "en": [
           "operationstechnik-hf-oder-dipl-pflegefachperson-fa-op-60-100-klinik-gut-flasch"
@@ -184,7 +187,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3117",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.770Z",
+      "crawledAt": "2026-07-03T11:37:35.674Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -206,7 +209,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch"
+          "dipl-experte-in-anasthesiepflege-nds-hf-60-100-wintersaisons-2026-27-klinik-gut-flasch",
+          "esperto-a-anestesia-nds-hf-60-100-saisonsi-invernale-2026-27-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.986Z",
@@ -255,7 +259,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1764",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.768Z",
+      "crawledAt": "2026-07-03T11:37:35.671Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -277,7 +281,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch"
+          "dipl-experte-in-anasthesiepflege-nds-hf-50-100-klinik-gut-flasch",
+          "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.985Z",
@@ -326,7 +331,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.766Z",
+      "crawledAt": "2026-07-03T11:37:35.670Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -348,7 +353,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-100-klinik-gut-flasch"
+          "assistenzarztin-assistenzarzt-100-klinik-gut-flasch",
+          "assistente-medico-a-100-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.983Z",
@@ -369,34 +375,35 @@
       "id": "klinik-gut-3876-b66bf517a50f",
       "slug": "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz",
       "slugByLocale": {
-        "de": "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz",
         "it": "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz",
         "en": "reception-80-100-klinik-gut-ag-st-moritz",
-        "fr": "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
+        "de": "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz",
+        "fr": "reception-80-100-klinik-gut-ag-st-moritz"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
       "companyDomain": "klinik-gut.ch",
       "title": "Mitarbeiter/in Empfang 80 - 100 %",
       "titleByLocale": {
-        "de": "Mitarbeiter/in Empfang 80 - 100 %",
         "it": "Collaboratore/trice Empfang 80 - 100 %",
         "en": "Reception 80 - 100%",
+        "de": "Mitarbeiter/in Empfang 80 - 100 %",
         "fr": "Réception 80 - 100%"
       },
       "description": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Ascona und Zürich.\n Zur Ergänzung unseres Teams am Klinikstandort St. Moritz  suchen wir per  1. August 2026 oder nach Vereinbarung eine/-n\n Mitarbeiter/in Empfang 80 - 100 %\n Du bist unser «herzliches Willkommen» am Empfang und sorgst gemeinsam mit unserem Team für einen reibungslosen Ablauf im Klinikalltag.\n Deine Hauptaufgaben sind\n\n• Patientenaufnahme und Organisation der Sprechstunden sämtlicher Ärzte und Notfälle\n\n• Auskunftserteilung am Empfang und am Telefon\n\n• Mündlicher und schriftlicher Kontakt mit Patienten, Versicherungen und Arbeitgebern sowie allgemeine Administrationsaufgaben\n Du bringst mit\n\n• Erfahrung im Gesundheitswesen (z. B. MPA), in der Hotellerie oder mit kaufmännischem Hintergrund\n\n• Zuverlässige, empathische und flexible Persönlichkeit, die auch in einem lebhaften Umfeld die Übersicht nicht verliert\n\n• Freude am direkten Patientenkontakt\n\n• Sehr gute Planungs- und Organisationsfähigkeit mit strukturierter Arbeitsweise\n\n• Gute Sprachkenntnisse (D, I, E) und erweiterte PC-Kenntnisse\n Darauf kannst du dich freuen\n\n• Eine abwechslungsreiche Aufgabe in einem engagierten, herzlichen Team\n\n• Zeitgemässe Anstellungsbedingungen\n\n• Möglichkeit, Prozesse mitzugestalten und Verantwortung zu übernehmen\n\n• Und das Beste: Arbeiten, wo andere Skifahren gehen – mitten im Oberengadin mit all seinen Freizeitmöglichkeiten und Naturwundern\n Fragen?\n Melde dich gerne bei Maximilian Niederl, Teamleiter Réception: Telefon +41 81 836 34 34 oder per E-Mail:  m.niederl@klinik-gut.ch\n Wir freuen uns auf deine vollständige Bewerbung mit Foto:  hr@klinik-gut.ch\n Klinik Gut St. Moritz\nPersonaldienst\nPlazza Paracelsus 2\n7500 St. Moritz",
       "descriptionByLocale": {
-        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Ascona und Zürich.\n Zur Ergänzung unseres Teams am Klinikstandort St. Moritz  suchen wir per  1. August 2026 oder nach Vereinbarung eine/-n\n Mitarbeiter/in Empfang 80 - 100 %\n Du bist unser «herzliches Willkommen» am Empfang und sorgst gemeinsam mit unserem Team für einen reibungslosen Ablauf im Klinikalltag.\n Deine Hauptaufgaben sind\n\n• Patientenaufnahme und Organisation der Sprechstunden sämtlicher Ärzte und Notfälle\n\n• Auskunftserteilung am Empfang und am Telefon\n\n• Mündlicher und schriftlicher Kontakt mit Patienten, Versicherungen und Arbeitgebern sowie allgemeine Administrationsaufgaben\n Du bringst mit\n\n• Erfahrung im Gesundheitswesen (z. B. MPA), in der Hotellerie oder mit kaufmännischem Hintergrund\n\n• Zuverlässige, empathische und flexible Persönlichkeit, die auch in einem lebhaften Umfeld die Übersicht nicht verliert\n\n• Freude am direkten Patientenkontakt\n\n• Sehr gute Planungs- und Organisationsfähigkeit mit strukturierter Arbeitsweise\n\n• Gute Sprachkenntnisse (D, I, E) und erweiterte PC-Kenntnisse\n Darauf kannst du dich freuen\n\n• Eine abwechslungsreiche Aufgabe in einem engagierten, herzlichen Team\n\n• Zeitgemässe Anstellungsbedingungen\n\n• Möglichkeit, Prozesse mitzugestalten und Verantwortung zu übernehmen\n\n• Und das Beste: Arbeiten, wo andere Skifahren gehen – mitten im Oberengadin mit all seinen Freizeitmöglichkeiten und Naturwundern\n Fragen?\n Melde dich gerne bei Maximilian Niederl, Teamleiter Réception: Telefon +41 81 836 34 34 oder per E-Mail:  m.niederl@klinik-gut.ch\n Wir freuen uns auf deine vollständige Bewerbung mit Foto:  hr@klinik-gut.ch\n Klinik Gut St. Moritz\nPersonaldienst\nPlazza Paracelsus 2\n7500 St. Moritz",
-        "it": "Klinik Gut è una clinica privata stabilita per l'ortopedia e la chirurgia degli incidenti. Serviamo anche i nostri clienti nazionali e internazionali nelle sedi cliniche di St. Moritz e Fläsch nelle sedi di pratica a Chur, Buchs, Ascona e Zurigo.\n Per completare il nostro team nella clinica di St. Moritz, stiamo cercando 1. Agosto 2026 o per accordo a/- n\n Reception 80 - 100%\n Siete il nostro \"cuore benvenuto\" alla reception e insieme al nostro team assicurano una routine regolare nella clinica.\n I vostri compiti principali sono:\n\n• ammissione e organizzazione del paziente ore di consultazione per tutti i medici e le emergenze\n\n• Informazioni fornite alla reception e al telefono\n\n• Contatto orale e scritto con pazienti, compagnie di assicurazione e datori di lavoro nonché compiti di amministrazione generale\n Porta con te\n\n• Esperienza nella sanità (ad esempio MPA), nell'industria alberghiera o con un background commerciale\n\n• Personalità affidabile, empatica e flessibile che non perde traccia anche in un ambiente vivace\n\n• Gioia del contatto diretto del paziente\n\n• Ottima pianificazione e capacità organizzativa con metodi di lavoro strutturati\n\n• Buone competenze linguistiche (D, I, E) e competenze PC avanzate\n Non vedo l'ora.\n\n• Un compito vario in un team impegnato e caldo\n\n• Condizioni di lavoro attuali\n\n• Possibilità di modellare i processi e assumersi la responsabilità\n\n• E soprattutto: lavoro dove gli altri vanno a sciare – nel mezzo di Oberengadin con tutte le sue opportunità di svago e le meraviglie naturali\n Domande?\n Contatta Maximilian Niederl, Team Leader Réception: telefono +41 81 836 34 34 o e-mail: m.niederl@klinik-gut.ch\n Attendiamo con ansia la vostra applicazione completa con la foto: hr@klinik-gut.ch\n Clinica Gut St. Moritz\nServizi del personale\nPlazza Paracelso 2\n7500 St. Moritz",
-        "en": "Klinik Gut is an established private clinic for orthopaedics and accident surgery. We also serve our national and international customers at the clinic locations in St. Moritz and Fläsch in the practice locations in Chur, Buchs, Ascona and Zurich.\n To complement our team at the clinic location St. Moritz, we are looking for 1. August 2026 or by arrangement a/- n\n Reception 80 - 100%\n You are our \"hearty welcome\" at the reception and together with our team ensure a smooth routine in the clinic.\n Your main tasks are\n\n• Patient admission and organisation of consultation hours for all doctors and emergencies\n\n• Information provided on reception and telephone\n\n• Oral and written contact with patients, insurance companies and employers as well as general administration tasks\n You bring with you\n\n• Experience in healthcare (e.g. MPA), in the hotel industry or with a commercial background\n\n• Reliable, empathetic and flexible personality that does not lose track even in a lively environment\n\n• Joy of direct patient contact\n\n• Very good planning and organizational ability with structured working methods\n\n• Good language skills (D, I, E) and advanced PC skills\n You can look forward to that.\n\n• A varied task in a committed, warm team\n\n• Current employment conditions\n\n• Possibility to shape processes and take responsibility\n\n• And best of all: work where others go skiing – in the middle of Oberengadin with all its leisure opportunities and natural wonders\n Questions?\n Please contact Maximilian Niederl, Team Leader Réception: telephone +41 81 836 34 34 or by e-mail: m.niederl@klinik-gut.ch\n We look forward to your complete application with photo: hr@klinik-gut.ch\n Clinic Gut St. Moritz\nStaff services\nPlazza Paracelsus 2\n7500 St. Moritz",
-        "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons également nos clients nationaux et internationaux aux cliniques de St. Moritz et Fläsch dans les lieux d'entraînement à Chur, Buchs, Ascona et Zurich.\n Pour compléter notre équipe à l'emplacement de la clinique St. Moritz, nous cherchons 1. Août 2026 ou par arrangement a/- n\n Réception 80 - 100%\n Vous êtes notre \"accueil chaleureux\" à la réception et avec notre équipe assurer une routine en douceur dans la clinique.\n Vos principales tâches sont :\n\n• Admission des patients et organisation des heures de consultation pour tous les médecins et urgences\n\n• Informations fournies sur la réception et le téléphone\n\n• Contacts oraux et écrits avec les patients, les compagnies d'assurance et les employeurs ainsi que tâches administratives générales\n Tu amènes avec toi\n\n• Expérience en soins de santé (p. ex. MPA), dans l'industrie hôtelière ou avec une expérience commerciale\n\n• Personnalité fiable, empathique et flexible qui ne perd pas de vue même dans un environnement animé\n\n• Joy de contact direct avec le patient\n\n• Très bonne planification et capacité organisationnelle avec des méthodes de travail structurées\n\n• Bonnes compétences linguistiques (D, I, E) et compétences avancées en PC\n Vous pouvez attendre avec impatience.\n\n• Une tâche variée dans une équipe engagée et chaleureuse\n\n• Conditions d'emploi actuelles\n\n• Possibilité de façonner les processus et de prendre des responsabilités\n\n• Et surtout : le travail où les autres vont skier – au milieu d'Oberengadin avec toutes ses possibilités de loisirs et ses merveilles naturelles\n Des questions ?\n Veuillez contacter Maximilian Niederl, chef d'équipe Réception: téléphone +41 81 836 34 34 ou par e-mail: m.niederl@klinik-gut.ch\n Nous attendons avec impatience votre candidature complète avec photo: hr@klinik-gut.ch\n Clinique Gut St. Moritz\nServices du personnel\nPlazza Paracelsus 2\n7500 St. Moritz"
+        "it": "Klinik Gut è una clinica privata stabilita per l'ortopedia e la chirurgia degli incidenti. Serviamo anche i nostri clienti nazionali e internazionali nelle sedi cliniche di St. Moritz e Fläsch nelle sedi di pratica a Chur, Buchs, Ascona e Zurigo. Per completare il nostro team nella clinica di St. Moritz, stiamo cercando 1. Agosto 2026 o per accordo a/- n Reception 80 - 100% Siete il nostro \"cuore benvenuto\" alla reception e insieme al nostro team assicurano una routine regolare nella clinica. I vostri compiti principali sono:\n• ammissione e organizzazione del paziente ore di consultazione per tutti i medici e le emergenze\n• Informazioni fornite alla reception e al telefono\n• Contatto orale e scritto con pazienti, compagnie di assicurazione e datori di lavoro nonché compiti di amministrazione generale Porta con te\n• Esperienza nella sanità (ad esempio MPA), nell'industria alberghiera o con un background commerciale\n• Personalità affidabile, empatica e flessibile che non perde traccia anche in un ambiente vivace\n• Gioia del contatto diretto del paziente\n• Ottima pianificazione e capacità organizzativa con metodi di lavoro strutturati\n• Buone competenze linguistiche (D, I, E) e competenze PC avanzate Non vedo l'ora.\n• Un compito vario in un team impegnato e caldo\n• Condizioni di lavoro attuali\n• Possibilità di modellare i processi e assumersi la responsabilità\n• E soprattutto: lavoro dove gli altri vanno a sciare – nel mezzo di Oberengadin con tutte le sue opportunità di svago e le meraviglie naturali Domande? Contatta Maximilian Niederl, Team Leader Réception: telefono +41 81 836 34 34 o e-mail: m.niederl@klinik-gut.ch Attendiamo con ansia la vostra applicazione completa con la foto: hr@klinik-gut.ch Clinica Gut St. Moritz Servizi del personale Plazza Paracelso 2 7500 St. Moritz",
+        "en": "Klinik Gut is an established private clinic for orthopaedics and accident surgery. We also serve our national and international customers at the clinic locations in St. Moritz and Fläsch in the practice locations in Chur, Buchs, Ascona and Zurich. To complement our team at the clinic location St. Moritz, we are looking for 1. August 2026 or by arrangement a/- n Reception 80 - 100% You are our \"hearty welcome\" at the reception and together with our team ensure a smooth routine in the clinic. Your main tasks are\n• Patient admission and organisation of consultation hours for all doctors and emergencies\n• Information provided on reception and telephone\n• Oral and written contact with patients, insurance companies and employers as well as general administration tasks You bring with you\n• Experience in healthcare (e.g. MPA), in the hotel industry or with a commercial background\n• Reliable, empathetic and flexible personality that does not lose track even in a lively environment\n• Joy of direct patient contact\n• Very good planning and organizational ability with structured working methods\n• Good language skills (D, I, E) and advanced PC skills You can look forward to that.\n• A varied task in a committed, warm team\n• Current employment conditions\n• Possibility to shape processes and take responsibility\n• And best of all: work where others go skiing – in the middle of Oberengadin with all its leisure opportunities and natural wonders Questions? Please contact Maximilian Niederl, Team Leader Réception: telephone +41 81 836 34 34 or by e-mail: m.niederl@klinik-gut.ch We look forward to your complete application with photo: hr@klinik-gut.ch Clinic Gut St. Moritz Staff services Plazza Paracelsus 2 7500 St. Moritz",
+        "de": "Die Klinik Gut ist eine etablierte Privatklinik für Orthopädie und Unfallchirurgie. Unsere nationale und internationale Kundschaft betreuen wir an den Klinikstandorten St. Moritz und Fläsch zudem in den Praxisstandorten Chur, Buchs, Ascona und Zürich. Zur Ergänzung unseres Teams am Klinikstandort St. Moritz suchen wir per 1. August 2026 oder nach Vereinbarung eine/-n Mitarbeiter/in Empfang 80 - 100 % Du bist unser «herzliches Willkommen» am Empfang und sorgst gemeinsam mit unserem Team für einen reibungslosen Ablauf im Klinikalltag. Deine Hauptaufgaben sind\n• Patientenaufnahme und Organisation der Sprechstunden sämtlicher Ärzte und Notfälle\n• Auskunftserteilung am Empfang und am Telefon\n• Mündlicher und schriftlicher Kontakt mit Patienten, Versicherungen und Arbeitgebern sowie allgemeine Administrationsaufgaben Du bringst mit\n• Erfahrung im Gesundheitswesen (z. B. MPA), in der Hotellerie oder mit kaufmännischem Hintergrund\n• Zuverlässige, empathische und flexible Persönlichkeit, die auch in einem lebhaften Umfeld die Übersicht nicht verliert\n• Freude am direkten Patientenkontakt\n• Sehr gute Planungs- und Organisationsfähigkeit mit strukturierter Arbeitsweise\n• Gute Sprachkenntnisse (D, I, E) und erweiterte PC-Kenntnisse Darauf kannst du dich freuen\n• Eine abwechslungsreiche Aufgabe in einem engagierten, herzlichen Team\n• Zeitgemässe Anstellungsbedingungen\n• Möglichkeit, Prozesse mitzugestalten und Verantwortung zu übernehmen\n• Und das Beste: Arbeiten, wo andere Skifahren gehen – mitten im Oberengadin mit all seinen Freizeitmöglichkeiten und Naturwundern Fragen? Melde dich gerne bei Maximilian Niederl, Teamleiter Réception: Telefon +41 81 836 34 34 oder per E-Mail: m.niederl@klinik-gut.ch Wir freuen uns auf deine vollständige Bewerbung mit Foto: hr@klinik-gut.ch Klinik Gut St. Moritz Personaldienst Plazza Paracelsus 2 7500 St. Moritz",
+        "fr": "Klinik Gut est une clinique privée établie pour l'orthopédie et la chirurgie d'accident. Nous servons également nos clients nationaux et internationaux aux cliniques de St. Moritz et Fläsch dans les lieux d'entraînement à Chur, Buchs, Ascona et Zurich. Pour compléter notre équipe à l'emplacement de la clinique St. Moritz, nous cherchons 1. Août 2026 ou par arrangement a/- n Réception 80 - 100% Vous êtes notre \"accueil chaleureux\" à la réception et avec notre équipe assurer une routine en douceur dans la clinique. Vos principales tâches sont :\n• Admission des patients et organisation des heures de consultation pour tous les médecins et urgences\n• Informations fournies sur la réception et le téléphone\n• Contacts oraux et écrits avec les patients, les compagnies d'assurance et les employeurs ainsi que tâches administratives générales Tu amènes avec toi\n• Expérience en soins de santé (p. ex. MPA), dans l'industrie hôtelière ou avec une expérience commerciale\n• Personnalité fiable, empathique et flexible qui ne perd pas de vue même dans un environnement animé\n• Joy de contact direct avec le patient\n• Très bonne planification et capacité organisationnelle avec des méthodes de travail structurées\n• Bonnes compétences linguistiques (D, I, E) et compétences avancées en PC Vous pouvez attendre avec impatience.\n• Une tâche variée dans une équipe engagée et chaleureuse\n• Conditions d'emploi actuelles\n• Possibilité de façonner les processus et de prendre des responsabilités\n• Et surtout : le travail où les autres vont skier – au milieu d'Oberengadin avec toutes ses possibilités de loisirs et ses merveilles naturelles Des questions ? Veuillez contacter Maximilian Niederl, chef d'équipe Réception: téléphone +41 81 836 34 34 ou par e-mail: m.niederl@klinik-gut.ch Nous attendons avec impatience votre candidature complète avec photo: hr@klinik-gut.ch Clinique Gut St. Moritz Services du personnel Plazza Paracelsus 2 7500 St. Moritz"
       },
+      "needsRetranslation": false,
       "location": "St. Moritz",
       "canton": "GR",
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3876",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.763Z",
+      "crawledAt": "2026-07-03T11:37:35.666Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -412,20 +419,23 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3876",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
-        ],
-        "en": [
-          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz",
+          "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
+        ],
+        "fr": [
+          "mitarbeiter-in-empfang-80-100-klinik-gut-st-moritz"
+        ]
+      },
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -437,8 +447,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-29T22:54:47.989Z"
+      }
     },
     {
       "id": "klinik-gut-3196-3b9699224a0c",
@@ -472,7 +481,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3196",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.761Z",
+      "crawledAt": "2026-07-03T11:37:35.664Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -494,7 +503,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz"
+          "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
+          "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.981Z",
@@ -543,7 +553,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.759Z",
+      "crawledAt": "2026-07-03T11:37:35.662Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -565,7 +575,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz"
+          "dipl-pflegefachfrau-mann-hf-oder-fh-80-100-wintersaison-2026-27-klinik-gut-st-moritz",
+          "diplomata-infermiera-in-professionale-hf-fh-80-100-stagione-invernale-2026-27-klinik-gut-ag-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.979Z",
@@ -614,7 +625,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:07:33.746Z",
+      "crawledAt": "2026-07-03T11:37:35.649Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -636,7 +647,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz"
+          "dipl-pflegefachfrau-mann-hf-oder-fh-60-100-klinik-gut-st-moritz",
+          "diplomata-infermiera-in-professionale-hf-fh-60-100-klinik-gut-ag-st-moritz"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.967Z",

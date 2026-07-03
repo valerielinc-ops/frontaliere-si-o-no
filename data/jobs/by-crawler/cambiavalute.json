@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-07-02T21:26:55.689Z",
+  "assembledAt": "2026-07-03T10:51:13.122Z",
   "jobs": [
     {
       "id": "company-kbhp6",
@@ -85,7 +85,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-viaqie",
@@ -118,7 +118,7 @@
       "crawledAt": "2026-06-30T11:03:47.701Z",
       "firstSeenAt": "2026-06-30T11:03:47.701Z",
       "titleByLocale": {
-        "fr": "Spécialiste des questions juridiques et du respect des dispositions",
+        "fr": "Legal & Compliance Officer",
         "it": "Legal & Compliance Officer",
         "en": "Legal and Compliance Officer",
         "de": "Rechts- und Compliance-Beauftragter"
@@ -178,7 +178,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-fooban",
@@ -214,7 +214,7 @@
         "fr": "assistant-commercial-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino"
       },
       "titleByLocale": {
-        "en": "Sales, Marketing & Customer Support Assistant (German Market)",
+        "en": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
         "de": "Sales, Marketing & Customer support Assistent (Mercato Tedesco)",
         "it": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
         "fr": "Assistant commercial, marketing et support à la clientèle (marché allemand)"
@@ -254,18 +254,18 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "fr": [
-          "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino"
-        ],
         "en": [
           "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban"
+        ],
+        "fr": [
+          "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino"
         ]
       },
       "previousSlugs": [
-        "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino",
-        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban"
+        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban",
+        "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino"
       ],
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-a24znt",
@@ -301,7 +301,7 @@
         "fr": "assistant-ventes-marketing-et-service-clientele-marche-francais-cambiavalute-ch-ticino"
       },
       "titleByLocale": {
-        "en": "Sales, Marketing & Customer Support assistant (French Market)",
+        "en": "Sales, Marketing & Customer support assistant (Mercato Francese)",
         "de": "Sales, Marketing & Customer support Assistent (Mercato Francese)",
         "it": "Sales, Marketing & Customer support assistant (Mercato Francese)",
         "fr": "Assistant Ventes, Marketing et Service clientèle (Marché français)"
@@ -347,7 +347,8 @@
       },
       "previousSlugs": [
         "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino-a24znt"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }

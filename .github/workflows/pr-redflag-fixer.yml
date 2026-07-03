@@ -41,10 +41,12 @@ jobs:
     # esatta `🔴 Important` è FRAGILE al markdown del reviewer. Osservato su PR #2211:
     # round-1 "🔴 Important: ..." (match) → round-2 "🔴 **Important —** ..." (bold →
     # `contains('🔴 Important')` FALSO → redflag-fix SKIPPATO → 🔴 round-2 mai
-    # indirizzato, PR bloccata, niente auto-merge). `stale-pr-rescuer.yml` già usa la
-    # detection robusta `grep -q "🔴"`: qui ci allineiamo. Il match PRECISO (è davvero
-    # un finding Important, non un 🔴 decorativo) lo fa il preflight sotto, con una
-    # regex tollerante al bold/spaziatura — impossibile in un'espressione `if:` YAML.
+    # indirizzato, PR bloccata, niente auto-merge). Questo `if:` resta un pre-filter
+    # ECONOMICO e volutamente ampio (solo "contiene un 🔴 qualsiasi"). Il match
+    # PRECISO (è davvero un finding Important, non un 🔴 decorativo o prosa che lo
+    # nega) lo fa il preflight sotto, con una regex tollerante al bold/spaziatura MA
+    # che richiede un delimitatore dopo "Important" — impossibile in un'espressione
+    # `if:` YAML.
     if: |
       github.event.review.user.type == 'Bot' &&
       startsWith(github.event.review.user.login, 'claude') &&
@@ -68,10 +70,15 @@ jobs:
         run: |
           set -uo pipefail
           # Marker 🔴-Important tollerante al markdown: il reviewer a volte bolda
-          # ("🔴 **Important —**") o varia la spaziatura. `🔴\s*\*{0,2}\s*Important`
-          # copre `🔴 Important`, `🔴 **Important`, `🔴**Important**`. Un 🔴 NON seguito
-          # da "Important" (decorativo, es. "nessun 🔴") → no-op, niente round speso.
-          if ! printf '%s' "$REVIEW_BODY" | grep -qP '🔴\s*\*{0,2}\s*Important'; then
+          # ("🔴 **Important —**") o varia la spaziatura. Richiede un delimitatore
+          # (`:`, `—`, `-`) subito dopo "Important" (+ bold di chiusura opzionale) —
+          # senza, la stessa regex matchava anche la prosa di negazione del
+          # reviewer ("zero 🔴 Important findings", PR #3330): "Important" lì è un
+          # aggettivo che dice che non ce ne sono, non il marker. Un 🔴 NON seguito
+          # da "Important<delimitatore>" (decorativo o prosa, es. "nessun 🔴") →
+          # no-op, niente round speso. Stessa regex in scripts/ci/lib/constants.mjs
+          # (REDFLAG_IMPORTANT_RE) — YAML `if:` non può importarla, tenerle allineate.
+          if ! printf '%s' "$REVIEW_BODY" | grep -qP '🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
             echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
@@ -144,13 +151,26 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # Primary identity for the fix push below = GitHub App installation token
+      # (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and its
+      # push re-triggers pr-review-loop just like the PAT (no GITHUB_TOKEN
+      # anti-recursion). Falls back to env.GITHUB_PAT (#2861/#2899).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert PAT-down (dedup, zero-Claude)
-        if: env.GITHUB_PAT == ''
+      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
+      # NESSUN token usabile (né App né PAT).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -162,6 +182,10 @@ jobs:
       # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
       # Capability guard: se la PR tocca .github/workflows/** e non c'è PAT, il
       # push verrebbe rifiutato (scope workflows) → skip senza bruciare un turno.
+      # NB HAS_PAT resta legato SOLO a GITHUB_PAT (non `|| env.APP_TOKEN` come
+      # negli altri sibling migrati): la App installation token NON ha lo scope
+      # `workflows` (vedi issue-fix.yml capability guard) → un push di .github/
+      # workflows/** autenticato col solo APP_TOKEN fallirebbe comunque.
       - name: Round cap + capability guard + tier
         id: guard
         env:
@@ -228,22 +252,24 @@ jobs:
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
 
-      # Push via PAT (ri-attiva pr-review-loop = re-review). Senza PAT il push
-      # userebbe GITHUB_TOKEN e la re-review non partirebbe (anti-ricorsione);
-      # il fix verrebbe comunque committato. Esposto come remote authenticato.
-      - name: Configure PAT remote
-        if: steps.guard.outputs.proceed == 'true' && env.GITHUB_PAT != ''
+      # Push via App token (primario) / PAT (fallback) — ri-attiva pr-review-loop
+      # = re-review. Senza nessuno dei due il push userebbe GITHUB_TOKEN e la
+      # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
+      # committato. Esposto come remote authenticato.
+      - name: Configure push remote (App token / PAT)
+        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
         env:
-          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+          PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
         # Stessa classe del bug di pr-autorebase: `actions/checkout` persiste
         # `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
-        # che sovrascrive lo `x-access-token:<PAT>` del remote set-url → il `git push
-        # origin` si autenticherebbe come github-actions[bot] (action_required, no
-        # re-review). Azzerare l'extraheader prima del set-url forza l'uso del PAT.
+        # che sovrascrive lo `x-access-token:<token>` del remote set-url → il `git
+        # push origin` si autenticherebbe come github-actions[bot] (action_required,
+        # no re-review). Azzerare l'extraheader prima del set-url forza l'uso
+        # dell'App token/PAT.
         run: |
           git config --unset-all "http.https://github.com/.extraheader" || true
-          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${REPO}.git"
+          git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git"
 
       # SHA di partenza (post-merge origin/main, pre-Claude): il classify finale lo
       # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
@@ -309,7 +335,7 @@ jobs:
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
             - Esegui i test pertinenti: `npm test` (o il subset rilevante) per validare il fix prima di committare.
             - Commit con identity canonica già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional, nessuna email non-canonica in coda.
-            - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato col PAT (se disponibile) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.
+            - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato con l'App token (se disponibile, altrimenti PAT) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.
             - Aggiorna il body della PR (`gh pr edit $PR_NUMBER --body`) mantenendo `## Implementato` (aggiungi cosa hai fixato) + `## Non implementato (ancora)`.
 
             **Constraint:**

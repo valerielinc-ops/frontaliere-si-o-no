@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-07-02T22:13:00.712Z",
-  "total": 9,
+  "generatedAt": "2026-07-03T11:48:05.668Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5466,
-  "avgDurationMs": 5466,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5818,
+  "avgDurationMs": 5818,
   "durationHistory": [
-    5466
+    5818
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Ernaehrungsberaterin 07–202%6 60–80%",
       "slug": "consulente-nutrizionale-07-202-6-60-80-klinik-wyssholzli-herzogenbuchsee",
@@ -345,7 +344,6 @@
       "salaryMax": 95200,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -354,5 +352,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
