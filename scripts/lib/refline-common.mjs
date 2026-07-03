@@ -115,35 +115,62 @@ export function parseReflineAnchorListing(html = '', { listingHost, tenant } = {
  * Parse a Refline listing page using the "table-row" template.
  * Returns: [{ url, posId, rev, title, workplace, workload, entryDate }, ...]
  *
- * Tolerates two known sub-variants beyond the original Hohenegg/Caritas
- * shape (kept backward-compatible — both bits are optional):
+ * Column order/naming is tenant-specific and has drifted beyond the original
+ * Hohenegg/Caritas shape (`position`, `workplace`, `workload`, `[entryDate]`
+ * in that order), so each `<tr>` is parsed as an order-independent map of
+ * `<td class="X">` → text instead of a fixed-sequence regex. Known variants
+ * this generalizes over:
  *  - detail URL without trailing `/index.html` (ZKB `792841`: bare
  *    `.../{posId}/pub/{rev}"` anchors that resolve directly, no redirect).
- *  - an extra `<td class="operationArea">` column between `position` and
- *    `workplace` (ZKB table adds a department/business-area column).
+ *  - extra columns anywhere in the row, e.g. ZKB's `operationArea`
+ *    (department/business-area) between `position` and `workplace`.
+ *  - reordered + renamed columns, e.g. Empa `673276`: `position`,
+ *    `workload`, `workplace`, `published` (workload BEFORE workplace, and
+ *    the date column is named `published` rather than `entryDate`).
  */
 export function parseReflineTableListing(html = '', { listingHost, tenant } = {}) {
   if (!html) return [];
   const out = [];
   const seen = new Set();
 
-  const rowRe = new RegExp(
-    `<tr[^>]*>\\s*<td class="position">\\s*<a\\s+href="(https?:\\/\\/${listingHost.replace(/\\./g, '\\.')}\\/${tenant}\\/([A-Za-z0-9]+)\\/pub\\/(\\d+)(?:\\/index\\.html)?)"[^>]*>([\\s\\S]*?)<\\/a>\\s*<\\/td>\\s*(?:<td class="operationArea">[\\s\\S]*?<\\/td>\\s*)?(?:<td class="workplace">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="workload">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="entryDate">([\\s\\S]*?)<\\/td>)?`,
-    'gi',
+  const rowBlockRe = /<tr[^>]*>\s*<td class="position">[\s\S]*?<\/tr>/gi;
+  const anchorRe = new RegExp(
+    `<a\\s+href="(https?:\\/\\/${listingHost.replace(/\./g, '\\.')}\\/${tenant}\\/([A-Za-z0-9]+)\\/pub\\/(\\d+)(?:\\/index\\.html)?)"[^>]*>([\\s\\S]*?)<\\/a>`,
+    'i',
   );
-  let m;
-  while ((m = rowRe.exec(html)) !== null) {
-    const url = m[1];
-    const posId = m[2];
-    const rev = m[3];
-    const title = normalizeSpace(stripHtml(decodeEntities(m[4])));
-    const workplace = m[5] ? normalizeSpace(stripHtml(decodeEntities(m[5]))) : '';
-    const workload = m[6] ? normalizeSpace(stripHtml(decodeEntities(m[6]))) : '';
-    const entryDate = m[7] ? normalizeSpace(stripHtml(decodeEntities(m[7]))) : '';
+  const cellRe = /<td class="([a-zA-Z]+)"[^>]*>([\s\S]*?)<\/td>/gi;
+
+  let rowMatch;
+  while ((rowMatch = rowBlockRe.exec(html)) !== null) {
+    const rowHtml = rowMatch[0];
+    const a = anchorRe.exec(rowHtml);
+    if (!a) continue;
+    const url = a[1];
+    const posId = a[2];
+    const rev = a[3];
+    const title = normalizeSpace(stripHtml(decodeEntities(a[4])));
     if (!title || title.length < 3) continue;
     if (seen.has(posId)) continue;
     seen.add(posId);
-    out.push({ url, posId, rev, title, workplace, workload, entryDate });
+
+    const cells = {};
+    cellRe.lastIndex = 0;
+    let c;
+    while ((c = cellRe.exec(rowHtml)) !== null) {
+      const key = c[1].toLowerCase();
+      if (key === 'position' || key in cells) continue;
+      cells[key] = normalizeSpace(stripHtml(decodeEntities(c[2])));
+    }
+
+    out.push({
+      url,
+      posId,
+      rev,
+      title,
+      workplace: cells.workplace || '',
+      workload: cells.workload || '',
+      entryDate: cells.entrydate || cells.published || '',
+    });
   }
   return out;
 }
@@ -191,6 +218,29 @@ export function parseReflineDetail(html = '') {
     }
   }
   return { title, description: parts.join('\n') };
+}
+
+/**
+ * Extract an embedded schema.org `JobPosting` JSON-LD block from a Refline
+ * detail page, when the tenant's template includes one. Several tenants
+ * (Sprüngli `116352`, Empa `673276`) emit a full `<script
+ * type="application/ld+json">{"@type":"JobPosting", …}</script>` block with
+ * authoritative per-job `title`, `datePosted`, `employmentType`,
+ * `hiringOrganization.name` and `jobLocation.address` — richer and more
+ * reliable than the generic paragraph-scan in `parseReflineDetail()`.
+ * Returns `null` when absent or malformed so callers can fall back.
+ */
+export function parseReflineJobPostingJsonLd(html = '') {
+  if (!html) return null;
+  const match = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
+  if (!match) return null;
+  try {
+    const data = JSON.parse(match[1]);
+    if (data && data['@type'] === 'JobPosting') return data;
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 function extractPensum(text = '') {

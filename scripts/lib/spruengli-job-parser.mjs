@@ -44,7 +44,7 @@ import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawl
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults, normalizeAnyCantonCode, isTargetCanton } from './crawler-location-config.mjs';
-import { parseReflineDetail } from './refline-common.mjs';
+import { parseReflineDetail, parseReflineJobPostingJsonLd } from './refline-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -201,18 +201,7 @@ export function parseSpruengliListing(html = '') {
  * Extract the schema.org JobPosting JSON-LD block embedded on Refline detail
  * pages for this tenant. Returns null if absent or malformed.
  */
-export function parseSpruengliJsonLd(html = '') {
-  if (!html) return null;
-  const match = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (!match) return null;
-  try {
-    const data = JSON.parse(match[1]);
-    if (data && data['@type'] === 'JobPosting') return data;
-    return null;
-  } catch {
-    return null;
-  }
-}
+export const parseSpruengliJsonLd = parseReflineJobPostingJsonLd;
 
 /**
  * Pick the best city / postal code / street / region for a job. The JSON-LD
