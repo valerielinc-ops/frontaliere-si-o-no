@@ -32,11 +32,17 @@ import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const InlineFuelPriceTable = lazyRetry(() => import('@/components/blog/InlineFuelPriceTable'));
+const InlineBorderWaitRanking = lazyRetry(() => import('@/components/blog/InlineBorderWaitRanking'));
 
 /** Blog articles that should render the live Swiss fuel price table inline. */
 const FUEL_PRICE_ARTICLE_IDS: ReadonlySet<string> = new Set([
  'diesel-aumento-prezzi-svizzera-2026',
  'carburanti-ticino-aumento-prezzi',
+]);
+
+/** Blog articles that should render the live border-wait ranking chart inline. */
+const BORDER_WAIT_RANKING_ARTICLE_IDS: ReadonlySet<string> = new Set([
+ 'classifica-dogane-ticino',
 ]);
 
 /* ─── Article view counter (Firestore) ─── */
@@ -2191,6 +2197,13 @@ function BlogArticles({
  {FUEL_PRICE_ARTICLE_IDS.has(article.id) && (
  <Suspense fallback={<div data-testid="inline-fuel-price-table-fallback" className="mt-6 h-24" />}>
  <InlineFuelPriceTable maxRows={10} />
+ </Suspense>
+ )}
+
+ {/* Live border-wait ranking chart — only for the ranking digest article */}
+ {BORDER_WAIT_RANKING_ARTICLE_IDS.has(article.id) && (
+ <Suspense fallback={<div data-testid="inline-border-wait-ranking-fallback" className="mt-6 h-24" />}>
+ <InlineBorderWaitRanking />
  </Suspense>
  )}
 

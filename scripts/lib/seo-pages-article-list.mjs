@@ -89,11 +89,11 @@ function locateItemListBlock(pagesSrc) {
 }
 
 // Matches the LAST ListItem entry in the array — i.e. one immediately
-// followed (modulo whitespace) by the closing `]` of `itemListElement`.
-// Applied only within the bounds returned by locateItemListBlock() below —
-// never against the full file — so it cannot match an unrelated array
-// elsewhere in seo-pages.ts.
-const LAST_ITEM_RE = /("url": `[^`]*` \})\s*\n(\s*\])/;
+// followed (modulo whitespace) by the closing `]` of `itemListElement` — and
+// captures its own "position" value (group 1). Applied only within the
+// bounds returned by locateItemListBlock() below — never against the full
+// file — so it cannot match an unrelated array elsewhere in seo-pages.ts.
+const LAST_ITEM_RE = /"position":\s*(\d+)(,\s*"name":(?:[^}])*"url": `[^`]*` \})\s*\n(\s*\])/;
 
 /**
  * Append a new ListItem at the end of the array, incrementing
@@ -101,25 +101,34 @@ const LAST_ITEM_RE = /("url": `[^`]*` \})\s*\n(\s*\])/;
  * ItemList shape could not be found — callers MUST treat `null` as "left
  * untouched" and log a warning rather than silently dropping the write.
  *
+ * The new position is derived from the LAST item's own "position" value
+ * (+1), never from the `numberOfItems` header — a prior registration could
+ * leave the header lagging one behind the real last position (seen in the
+ * wild: header said 3085 while the last ListItem already read
+ * "position": 3086), and trusting the header there duplicates a position
+ * instead of continuing the sequence. Deriving from the real last item also
+ * self-heals that header drift on every subsequent append.
+ *
  * @param {string} pagesSrc - current services/seo/seo-pages.ts source
  * @param {{ name: string, url: string }} item - `url` is the raw template-
  *   literal body, e.g. `` `${BASE_URL}/articoli-frontaliere/my-slug` ``
  *   (without the surrounding backticks).
  */
 export function appendArticleListItem(pagesSrc, { name, url }) {
-  const countMatch = pagesSrc.match(NUMBER_OF_ITEMS_RE);
-  if (!countMatch) return null;
-  const newCount = parseInt(countMatch[2], 10) + 1;
-  let next = pagesSrc.replace(NUMBER_OF_ITEMS_RE, `$1${newCount}`);
+  if (!NUMBER_OF_ITEMS_RE.test(pagesSrc)) return null;
 
-  const block = locateItemListBlock(next);
+  const block = locateItemListBlock(pagesSrc);
   if (!block) return null;
-  const blockSrc = next.slice(block.blockStart, block.blockEnd);
-  if (!LAST_ITEM_RE.test(blockSrc)) return null;
+  const blockSrc = pagesSrc.slice(block.blockStart, block.blockEnd);
+  const lastItemMatch = blockSrc.match(LAST_ITEM_RE);
+  if (!lastItemMatch) return null;
 
+  const newCount = parseInt(lastItemMatch[1], 10) + 1;
   const newListItem = `          { "@type": "ListItem", "position": ${newCount}, "name": "${escapeJsonString(name)}", "url": \`${url}\` }`;
-  const newBlockSrc = blockSrc.replace(LAST_ITEM_RE, `$1,\n${newListItem}\n$2`);
-  next = next.slice(0, block.blockStart) + newBlockSrc + next.slice(block.blockEnd);
+  const newBlockSrc = blockSrc.replace(LAST_ITEM_RE, `"position": $1$2,\n${newListItem}\n$3`);
+
+  let next = pagesSrc.slice(0, block.blockStart) + newBlockSrc + pagesSrc.slice(block.blockEnd);
+  next = next.replace(NUMBER_OF_ITEMS_RE, `$1${newCount}`);
   return next;
 }
 
