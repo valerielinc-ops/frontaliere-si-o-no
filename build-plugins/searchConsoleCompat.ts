@@ -1,4 +1,5 @@
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
+import { BASE_URL } from './constants';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
 import {
@@ -86,6 +87,9 @@ const COMPAT_REDIRECTS: Record<string, string> = {
  '/fr/etat-api': '/fr/etat-api/',
  '/privacy': '/privacy/',
  '/fr/confidentialite': '/fr/confidentialite/',
+ // Google-indexed wrong-locale-word guess (IT canton name "ticino" grafted
+ // onto the DE "jobs-in-" prefix) — the real DE TI section is "jobs-im-tessin".
+ '/de/jobs-in-ticino': '/de/jobs-im-tessin/',
 };
 
 /**
@@ -208,8 +212,17 @@ export interface JobSlugCanonicalIndex {
 
 const ensureTrailingSlash = (p: string): string => (p.endsWith('/') ? p : `${p}/`);
 
+const SITE_HOSTNAME = new URL(BASE_URL).hostname;
+const DUPLICATE_HOSTNAME_PREFIX = `/${SITE_HOSTNAME}/`;
+
 function normalizePath(input: string): string {
- const clean = `/${String(input || '').trim().replace(/^\/+/, '')}`.replace(/\/+/g, '/');
+ let clean = `/${String(input || '').trim().replace(/^\/+/, '')}`.replace(/\/+/g, '/');
+ // Strip an accidental leading duplicate of the site's own hostname as a path
+ // segment (e.g. GSC-indexed `/frontaliereticino.ch/en/find-jobs-ticino/...`,
+ // an absolute-URL-built-as-relative artifact from a stray external backlink)
+ // — without this the whole path never matches any branch below and is left
+ // unresolved even though the real path after the duplicate IS recoverable.
+ if (clean.startsWith(DUPLICATE_HOSTNAME_PREFIX)) clean = clean.slice(SITE_HOSTNAME.length + 1);
  if (clean === '/') return clean;
  return clean.replace(/\/$/, '');
 }
