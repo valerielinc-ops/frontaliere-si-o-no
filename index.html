@@ -1054,7 +1054,12 @@
       // FR_MAX_RELOADS ceiling). Post-propagation the refetched chunk set is consistent.
       // Keep the message regexes in sync with isVersionSkewError /
       // isModuleLinkSkewMessage in services/resilientImport.ts (this inline
-      // bootstrap script cannot import that module).
+      // bootstrap script cannot import that module). The three CALL_TIME_SKEW
+      // patterns below previously used a literal leading space instead of a
+      // `\b` word boundary (e.g. `/ is not a function\b/` vs resilientImport's
+      // `/\bis not a function\b/`) — a lexical drift within the same pattern
+      // class this comment already calls out (issue #3216 item 1; AGENTS.md
+      // §Non-Negotiables #6). Aligned to `\b` on both sides for byte-parity.
       window.addEventListener('error', function(e) {
         // Resource (script/link) errors are handled by the capture-phase handler
         // above; this non-capture handler only inspects runtime errors.
@@ -1066,9 +1071,9 @@
         var name = (err && err.name) || '';
         var m = (err && err.message) || e.message || '';
         var skewCall = name === 'TypeError' && (
-                   / is not a function\b/.test(m) ||
-                   / is not a constructor\b/.test(m) ||
-                   / is not iterable\b/.test(m));
+                   /\bis not a function\b/.test(m) ||
+                   /\bis not a constructor\b/.test(m) ||
+                   /\bis not iterable\b/.test(m));
         var skewLink = /does not provide an export named|import not found|indirect export|Importing binding name/.test(m);
         if (!skewCall && !skewLink) return;
         if (!frConsumeReloadBudget(m)) return;
