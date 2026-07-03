@@ -30,6 +30,7 @@
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
 
 const LIVE_CHECK_TIMEOUT_MS = 15_000;
 const ARTICLE_LOCALES = ['it', 'en', 'de', 'fr'];
@@ -45,24 +46,15 @@ async function initDb() {
   return { db: admin.firestore(), FieldValue: admin.firestore.FieldValue };
 }
 
-/** True only when EVERY locale URL present on the doc returns 200 — a
- * partial deploy (e.g. IT live, EN/DE/FR not yet) must not trigger the
- * "online in 4 languages" email. Missing locale URLs (shouldn't normally
- * happen once status is 'published') count as not-live rather than being
- * silently ignored. */
+/** True only when EVERY locale URL present on the doc is live (checkLink —
+ * see scripts/lib/live-link-check.mjs) — a partial deploy (e.g. IT live,
+ * EN/DE/FR not yet) must not trigger the "online in 4 languages" email.
+ * Missing locale URLs (shouldn't normally happen once status is 'published')
+ * count as not-live rather than being silently ignored. */
 async function checkAllLocalesLive(publishedUrls) {
   const urls = ARTICLE_LOCALES.map((locale) => publishedUrls?.[locale]);
   if (urls.some((url) => !url)) return false;
-  const results = await Promise.all(
-    urls.map(async (url) => {
-      try {
-        const res = await fetch(url, { method: 'GET', signal: AbortSignal.timeout(LIVE_CHECK_TIMEOUT_MS) });
-        return res.ok;
-      } catch {
-        return false;
-      }
-    }),
-  );
+  const results = await runWithConcurrency(urls, urls.length, (url) => checkLink(url, LIVE_CHECK_TIMEOUT_MS));
   return results.every(Boolean);
 }
 
