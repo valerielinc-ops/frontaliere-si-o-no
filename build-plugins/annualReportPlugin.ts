@@ -59,6 +59,7 @@ import {
 } from './shared/seoContentTokens';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -378,7 +379,7 @@ interface Copy {
 
 const COPY: Record<Locale, Copy> = {
   it: {
-    title: `Report Frontalieri ${REPORT_YEAR} — Stipendi per settore e regione | Frontaliere Ticino`,
+    title: buildTitleWithBrand(`Report Frontalieri ${REPORT_YEAR} — Stipendi per settore e regione`),
     description:
       `Report ${REPORT_YEAR} sugli stipendi dei frontalieri italo-svizzeri: mediane per settore (top 10), variazione YoY, confronto regionale Lugano / Chiasso / Mendrisio e analisi del potere d'acquisto Italia vs Svizzera.`,
     h1: `Report Frontalieri ${REPORT_YEAR}: stipendi, settori, regioni`,
@@ -444,7 +445,7 @@ const COPY: Record<Locale, Copy> = {
     observationsLabel: 'Annunci con salario',
   },
   en: {
-    title: `Frontalieri Salary Report ${REPORT_YEAR} — by sector and region | Frontaliere Ticino`,
+    title: buildTitleWithBrand(`Frontalieri Salary Report ${REPORT_YEAR} — by sector and region`),
     description:
       `${REPORT_YEAR} report on Italian–Swiss cross-border-worker salaries: median pay by sector (top 10), YoY change, regional breakdown (Lugano / Chiasso / Mendrisio), and Italy vs Switzerland purchasing-power-parity analysis.`,
     h1: `Cross-Border Workers Report ${REPORT_YEAR}: salaries, sectors, regions`,
@@ -510,7 +511,7 @@ const COPY: Record<Locale, Copy> = {
     observationsLabel: 'Listings with salary',
   },
   de: {
-    title: `Grenzgänger-Lohnreport ${REPORT_YEAR} — nach Branche und Region | Frontaliere Ticino`,
+    title: buildTitleWithBrand(`Grenzgänger-Lohnreport ${REPORT_YEAR} — nach Branche und Region`),
     description:
       `Bericht ${REPORT_YEAR} zu den Löhnen italienisch-schweizerischer Grenzgänger: Medianlöhne nach Branche (Top 10), Jahresveränderung, regionale Aufschlüsselung (Lugano / Chiasso / Mendrisio) und Kaufkraftparität Italien vs. Schweiz.`,
     h1: `Grenzgänger-Report ${REPORT_YEAR}: Löhne, Branchen, Regionen`,
@@ -576,7 +577,7 @@ const COPY: Record<Locale, Copy> = {
     observationsLabel: 'Stellen mit Lohnband',
   },
   fr: {
-    title: `Rapport Frontaliers ${REPORT_YEAR} — par secteur et région | Frontaliere Ticino`,
+    title: buildTitleWithBrand(`Rapport Frontaliers ${REPORT_YEAR} — par secteur et région`),
     description:
       `Rapport ${REPORT_YEAR} sur les salaires des frontaliers italo-suisses : salaires médians par secteur (top 10), variation annuelle, répartition régionale (Lugano / Chiasso / Mendrisio) et comparaison du pouvoir d'achat Italie vs Suisse.`,
     h1: `Rapport Frontaliers ${REPORT_YEAR} : salaires, secteurs, régions`,

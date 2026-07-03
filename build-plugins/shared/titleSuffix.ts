@@ -122,15 +122,27 @@ export function clampMetaDescription(
  * @param brand       Brand suffix appended only when there is room.
  *                    Default {@link TITLE_BRAND_SUFFIX}.
  * @param maxChars    Hard cap. Default {@link TITLE_MAX_CHARS} (66).
+ * @param measureLength  Length function used for the budget check. Default
+ *                    is raw `.length`. Callers whose headline is emitted
+ *                    through a render layer that HTML-escapes the title
+ *                    exactly once (e.g. `htmlTemplate.ts`'s `esc(title)`)
+ *                    must pass `(s) => esc(s).length` so the budget is
+ *                    computed on the string that actually ships — a raw
+ *                    `&`/`<`/`>`/`"` in the headline (e.g. a company name
+ *                    like "C&A Schweiz") expands on escape, and checking
+ *                    the pre-escape length can let an over-budget title
+ *                    through undetected by `audit-title-length.mjs`, which
+ *                    measures the raw HTML source.
  */
 export function buildTitleWithBrand(
   headline: string,
   brand: string = TITLE_BRAND_SUFFIX,
   maxChars: number = TITLE_MAX_CHARS,
+  measureLength: (s: string) => number = (s) => s.length,
 ): string {
   const safeHeadline = String(headline || '').trim();
   if (!safeHeadline) return safeHeadline;
-  if (safeHeadline.length + brand.length <= maxChars) {
+  if (measureLength(safeHeadline) + brand.length <= maxChars) {
     return safeHeadline + brand;
   }
   return safeHeadline;

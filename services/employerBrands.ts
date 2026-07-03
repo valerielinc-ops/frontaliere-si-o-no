@@ -214,7 +214,7 @@ const EOC: EmployerBrand = {
       ],
       locationsIntro: 'EOC runs a cantonal multi-site network: choose the location closest to where you live (including Italian border towns) or move between sites during your career.',
       emptyStateNote: 'No active EOC roles in our database right now. Listings refresh daily — come back tomorrow or apply speculatively on the official portal.',
-      metaTitle: 'Jobs at EOC Ticino | Ente Ospedaliero Cantonale Careers Switzerland',
+      metaTitle: 'EOC Ticino Jobs | Ente Ospedaliero Cantonale Careers Switzerland',
       metaDescription: 'EOC Ticino: open roles, salaries, sites (Bellinzona, Lugano, Locarno, Mendrisio), cross-border application guide. Refreshed daily.',
     },
     de: {
