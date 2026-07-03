@@ -229,11 +229,12 @@ function resolveAddress(addr = {}, canton) {
   const postalCode = normalizeSpace(addr.postalCode || '');
   const streetAddress = normalizeSpace(addr.streetAddress || '');
   const region = normalizeSpace(addr.region || '');
+  const isHqCity = city ? /z[üu]rich/i.test(city) : canton === HQ.canton;
 
   return {
     city: city || (canton === HQ.canton ? HQ.city : ''),
-    postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
-    streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
+    postalCode: postalCode || (isHqCity ? HQ.postalCode : ''),
+    streetAddress: streetAddress || (isHqCity ? HQ.streetAddress : ''),
     region,
   };
 }
