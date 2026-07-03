@@ -405,6 +405,7 @@ export const COMPANY_HQ = {
   'solothurner-spitaeler':        { city: 'Solothurn',          canton: 'SO', postalCode: '4500', addressRegion: 'SO' },
   // ── Cathedral Phase 6 T6.5 wave 1 — tier-3 marquee (banking/luxury/shipping/industrial/insurance) ──
   'lombard-odier':                { city: 'Geneva',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'edmond-de-rothschild':         { city: 'Genève',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'richemont':                    { city: 'Bellevue',           canton: 'GE', postalCode: '1293', addressRegion: 'GE' },
   'msc-cargo':                    { city: 'Geneva',             canton: 'GE', postalCode: '1201', addressRegion: 'GE' },
   'bobst':                        { city: 'Mex',                canton: 'VD', postalCode: '1031', addressRegion: 'VD' },
