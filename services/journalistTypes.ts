@@ -70,6 +70,16 @@ export interface JournalistArticle {
   /** Filled by scripts/publish-journalist-article.mjs once registerArticleFiles() succeeds. */
   slugs?: Partial<Record<ArticleLocale, string>>;
   publishedUrls?: Partial<Record<ArticleLocale, string>>;
+  /**
+   * Null while status is 'published' but the deploy carrying this article
+   * hasn't landed yet (registerArticleFiles() ran, commit/push/deploy did
+   * not). Stamped by scripts/notify-journalist-article-live.mjs only after
+   * curling all 4 locale URLs and confirming 200 post-deploy — this is the
+   * field that means "actually reachable", not just "files registered".
+   * See isArticleLive() below; the dashboard gates clickable links and the
+   * "your article is live" copy on this, not on status alone.
+   */
+  liveVerifiedAt?: string;
   /** Set when status === 'failed'; cleared on successful resubmission. */
   errorMessage?: string;
   analytics?: JournalistArticleAnalytics;
@@ -93,6 +103,13 @@ export function canSubmit(status: JournalistArticleStatus): boolean {
 
 export function canDelete(status: JournalistArticleStatus): boolean {
   return status === 'draft';
+}
+
+/** True only once the deploy has actually landed and every locale URL was
+ * confirmed reachable (see `liveVerifiedAt` above) — status 'published'
+ * alone means "files registered", not "live". */
+export function isArticleLive(article: Pick<JournalistArticle, 'status' | 'liveVerifiedAt'>): boolean {
+  return article.status === 'published' && !!article.liveVerifiedAt;
 }
 
 export const JOURNALIST_ARTICLE_CATEGORIES: JournalistArticleCategory[] = [

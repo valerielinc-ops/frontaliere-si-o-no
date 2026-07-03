@@ -54,10 +54,12 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       # Loaded BEFORE the publish step (unlike publisher-jobs-sync.yml, which
-      # loads it after the commit): translateArticle()/the free-MT cascade and
-      # the "article is live" email both need RESEND_API_KEY / MT provider
-      # keys from Remote Config while the pipeline itself is running, not
-      # only for a post-commit deploy trigger.
+      # loads it after the commit): translateArticle()/the free-MT cascade
+      # needs its provider keys from Remote Config while the pipeline itself
+      # is running, not only for a post-commit deploy trigger. The "article is
+      # live" email is NOT sent by this workflow — see
+      # notify-journalist-article-live.yml, which runs after the deploy this
+      # job triggers actually succeeds.
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 

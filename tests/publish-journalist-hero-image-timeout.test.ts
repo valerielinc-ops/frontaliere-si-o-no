@@ -16,6 +16,11 @@ import { resolveHeroImage } from '../scripts/publish-journalist-article.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/publish-journalist-article.mjs'), 'utf8');
+// The "article is live" email moved to notify-journalist-article-live.mjs —
+// it now fires only after a post-deploy live check, not at publish time
+// (see that script's own bounded-fetch coverage in
+// tests/notify-journalist-article-live.test.ts).
+const notifySrc = readFileSync(resolve(ROOT, 'scripts/notify-journalist-article-live.mjs'), 'utf8');
 
 describe('publish-journalist-article.mjs fetch calls are all bounded (issue #3209 item 3)', () => {
   it('bounds the hero-image download with AbortSignal.timeout(...)', () => {
@@ -23,7 +28,7 @@ describe('publish-journalist-article.mjs fetch calls are all bounded (issue #320
   });
 
   it('bounds the "article is live" notification email fetch with AbortSignal.timeout(...) too', () => {
-    expect(src).toMatch(/signal:\s*AbortSignal\.timeout\(\d+\),?\s*\n\s*\}\)/);
+    expect(notifySrc).toMatch(/signal:\s*AbortSignal\.timeout\(\d+\),?\s*\n\s*\}\)/);
   });
 });
 

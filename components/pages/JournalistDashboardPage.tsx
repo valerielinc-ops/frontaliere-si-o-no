@@ -63,6 +63,7 @@ import {
   canEditContent,
   canSubmit,
   canDelete,
+  isArticleLive,
 } from '@/services/journalistTypes';
 import type {
   JournalistArticle,
@@ -133,15 +134,20 @@ function formatDate(iso: string | undefined, locale: string): string {
   }
 }
 
-function StatusPill({ status }: { status: JournalistArticle['status'] }): React.ReactElement {
+function StatusPill({ article }: { article: JournalistArticle }): React.ReactElement {
   const { t } = useTranslation();
-  const meta = JOURNALIST_STATUS_PILL[status];
+  // status 'published' means "files registered", not "live" — see
+  // isArticleLive()/liveVerifiedAt in journalistTypes.ts. Show a distinct
+  // pending pill (reusing 'queued's amber) until the deploy is confirmed.
+  const pendingDeploy = article.status === 'published' && !isArticleLive(article);
+  const meta = pendingDeploy ? JOURNALIST_STATUS_PILL.queued : JOURNALIST_STATUS_PILL[article.status];
+  const labelKey = pendingDeploy ? 'journalistDashboard.status.publishing' : `journalistDashboard.status.${article.status}`;
   return (
     <span
       className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap"
       style={{ color: meta.color, backgroundColor: `${meta.color}1a`, border: `1px solid ${meta.color}40` }}
     >
-      {t(`journalistDashboard.status.${status}`, meta.label)}
+      {t(labelKey, meta.label)}
     </span>
   );
 }
@@ -592,7 +598,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
                       {t('journalistDashboard.updatedAt', { date: formatDate(a.updatedAt, locale) })}
                     </p>
                   </div>
-                  <StatusPill status={a.status} />
+                  <StatusPill article={a} />
                 </button>
               </li>
             ))}
@@ -622,7 +628,7 @@ export default function JournalistDashboardPage(): React.ReactElement {
         <h1 className="text-xl sm:text-2xl font-bold font-display text-strong">
           {openArticle ? openArticle.content.it.title || t('journalistDashboard.untitled') : t('journalistDashboard.newDraftCta')}
         </h1>
-        {openArticle && <StatusPill status={openArticle.status} />}
+        {openArticle && <StatusPill article={openArticle} />}
       </div>
 
       {/* ── Status banners ─────────────────────────────────── */}
@@ -645,7 +651,33 @@ export default function JournalistDashboardPage(): React.ReactElement {
         </div>
       )}
 
-      {openArticle?.status === 'published' && (
+      {/* status 'published' means "files registered", not "live" — the
+          deploy carrying this article may still be queued behind other
+          commits (has taken 30+ min in practice). Links only go clickable
+          once liveVerifiedAt confirms all 4 locale URLs actually resolve
+          (scripts/notify-journalist-article-live.mjs), matching the same
+          gate the "your article is online" email now waits on. */}
+      {openArticle?.status === 'published' && !isArticleLive(openArticle) && (
+        <div className="flex items-start gap-2.5 p-4 bg-warning-subtle border border-warning-border rounded-xl mb-6">
+          <Clock className="w-5 h-5 text-warning shrink-0 mt-0.5" />
+          <div>
+            <p className="text-sm text-warning">{t('journalistDashboard.detail.publishingInfo')}</p>
+            <ul className="mt-2 space-y-1">
+              {ARTICLE_LOCALES.map((loc) => {
+                const url = openArticle.publishedUrls?.[loc];
+                return (
+                  <li key={loc} className="flex items-center gap-2 text-sm">
+                    <span className="text-muted w-20 shrink-0">{LOCALE_LABELS[loc]}</span>
+                    <span className="text-muted truncate">{url || t('journalistDashboard.detail.urlPending')}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {openArticle?.status === 'published' && isArticleLive(openArticle) && (
         <div className="p-4 bg-success-subtle border border-success-border rounded-xl mb-6">
           <p className="flex items-center gap-2 text-sm font-semibold text-success mb-2">
             <CheckCircle2 className="w-5 h-5" />
