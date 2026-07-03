@@ -39,13 +39,19 @@
       },
       "slugByLocale": {
         "it": "direttore-trice-lavori-hochbau-gesamtplanung-80-100-afry-zurich",
-        "en": "bauleiter-in-hochbau-gesamtplanung-80-100-afry-zurich",
+        "en": "building-in-high-building-total-plan-80-100-afry-zurich",
         "de": "bauleiter-in-hochbau-gesamtplanung-80-100-afry-zurich",
-        "fr": "bauleiter-in-hochbau-gesamtplanung-80-100-afry-zurich"
+        "fr": "etablissement-en-etablissement-plan-total-80-100-afry-zurich"
       },
       "id": "afry-53ef2b51e8c8",
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-in-hochbau-gesamtplanung-80-100-afry-zurich"
+        ],
+        "en": [
+          "bauleiter-in-hochbau-gesamtplanung-80-100-afry-zurich"
+        ],
+        "fr": [
           "bauleiter-in-hochbau-gesamtplanung-80-100-afry-zurich"
         ]
       },
@@ -611,7 +617,7 @@
         "it": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
         "en": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
         "de": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel",
-        "fr": "senior-consultant-asset-management-systems-m-f-d-zurich-basel-100-afry-basel"
+        "fr": "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
       },
       "id": "afry-67b6742abe3f",
       "salaryMin": 85500,
@@ -628,15 +634,7 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-07-01T21:43:04.412Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
-        ]
-      },
-      "previousSlugs": [
-        "consultant-principal-systemes-de-gestion-d-actifs-m-f-d-zurich-basel-100-afry-basel"
-      ]
+      "firstSeenAt": "2026-07-01T21:43:04.412Z"
     },
     {
       "title": "Elektroplaner:in 60-100% - Chur",
@@ -3791,7 +3789,7 @@
       },
       "slugByLocale": {
         "it": "candidatura-spontanea-svizzera-afry-zurich",
-        "en": "candidatura-spontanea-svizzera-afry-zurich",
+        "en": "spontaneous-application-switzerland-afry-zurich",
         "de": "spontane-anwendung-schweiz-afry-zurich",
         "fr": "demande-spontanee-suisse-afry-zurich"
       },
@@ -3810,15 +3808,7 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-01T21:43:04.412Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "spontaneous-application-switzerland-afry-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "spontaneous-application-switzerland-afry-zurich"
-      ]
+      "firstSeenAt": "2026-07-01T21:43:04.412Z"
     },
     {
       "title": "Candidature spontanée - Suisse",

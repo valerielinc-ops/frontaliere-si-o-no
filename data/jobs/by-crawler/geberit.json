@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "geberit-1855",
-      "slug": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
+      "slug": "tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "servicetechniker-region-westschweiz-geberit-ch",
-        "it": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
-        "en": "servicetechniker-region-westschweiz-geberit-ch",
-        "fr": "servicetechniker-region-westschweiz-geberit-ch"
+        "it": "tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
+        "en": "service-technician-western-switzerland-region-geberit-sales-switzerland",
+        "fr": "technicien-des-services-region-de-suisse-occidentale-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -58,16 +58,15 @@
           "servicetechniker-region-westschweiz-geberit-sales-switzerland"
         ],
         "en": [
-          "service-technician-western-switzerland-region-geberit-sales-switzerland",
           "servicetechniker-region-westschweiz-geberit-ch"
         ],
         "fr": [
-          "technicien-des-services-region-de-suisse-occidentale-geberit-sales-switzerland",
           "servicetechniker-region-westschweiz-geberit-ch"
         ]
       },
       "previousSlugs": [
         "servicetechniker-region-westschweiz-geberit-ch",
+        "servicetechniker-region-westschweiz-geberit-sales-switzerland",
         "regione-tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland"
       ],
       "salaryMin": 57500,
@@ -1031,8 +1030,8 @@
       "slugByLocale": {
         "de": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
         "it": "regionalverkaufsleiter-zurich-e-zentralschweiz-a-100-geberit-sales-switzerland",
-        "en": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch",
-        "fr": "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+        "en": "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland",
+        "fr": "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1080,11 +1079,9 @@
           "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ],
         "en": [
-          "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland",
           "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ],
         "fr": [
-          "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland",
           "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ]
       },
@@ -1330,8 +1327,7 @@
           "manager-dei-rischi-e-due-diligence-acquisti-corporate-a-100-geberit-rapperswil-jona",
           "responsabile-risk-and-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona",
           "responsabile-risk-e-due-diligence-procurement-corporate-a-100-geberit-rapperswil-jona",
-          "responsabile-rischio-e-due-diligence-acquisti-aziendali-a-100-geberit-rapperswil-jona",
-          "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch"
+          "responsabile-rischio-e-due-diligence-acquisti-aziendali-a-100-geberit-rapperswil-jona"
         ],
         "fr": [
           "manager-des-risques-et-due-diligence-achats-corporatifs-a-100-geberit-rapperswil-jona",
@@ -1486,12 +1482,12 @@
     },
     {
       "id": "geberit-2008",
-      "slug": "technischer-berater-region-aargau-a-100-geberit-ch",
+      "slug": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "it": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "en": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "fr": "technischer-berater-region-aargau-a-100-geberit-ch"
+        "it": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
+        "en": "technical-consultant-region-aargau-a-100-geberit-sales-switzerland",
+        "fr": "consultant-technique-region-argovie-a-100-geberit-sales-switzerland"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -1548,15 +1544,13 @@
       },
       "firstSeenAt": "2026-07-02T11:05:14.077Z",
       "previousSlugs": [
-        "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland"
+        "technischer-berater-region-aargau-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "technical-consultant-region-aargau-a-100-geberit-sales-switzerland",
           "technischer-berater-region-aargau-a-100-geberit-ch"
         ],
         "fr": [
-          "consultant-technique-region-argovie-a-100-geberit-sales-switzerland",
           "technischer-berater-region-aargau-a-100-geberit-ch"
         ],
         "it": [
