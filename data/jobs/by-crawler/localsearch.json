@@ -91,7 +91,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:19.132Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -196,7 +195,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:15.782Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -301,7 +299,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:14.891Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -484,7 +481,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:07.844Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -588,7 +584,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.086Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -694,7 +689,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:54.880Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -878,7 +872,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:47.599Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1999,7 +1992,7 @@
       "companyDomain": "localsearch.ch",
       "title": "Praktikum Digital Business & AI (12 Monate)",
       "titleByLocale": {
-        "it": "Praktikum Digital Business & AI (12 Monate)",
+        "it": "Internship Digital Business & AI (12 mesi)",
         "en": "Internship Digital Business & AI (12 months)",
         "de": "Praktikum Digital Business & AI (12 Monate)",
         "fr": "Stage Digital Business & AI (12 mois)"
@@ -2047,7 +2040,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:08:42.361Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "baseSalary": {
@@ -2201,8 +2193,7 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
