@@ -486,6 +486,9 @@ export const COMPANY_HQ = {
   'beekeeper': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
   // ── Crawler backlog #3337 ──
   'saint-gobain-weber-isover': { city: 'Baden', canton: 'AG', postalCode: '5405', addressRegion: 'AG' },
+  // Oetiker Schweiz AG HQ, Spätzstrasse 11, 8810 Horgen ZH (confirmed via
+  // company imprint page — not a fallback guess).
+  'oetiker': { city: 'Horgen', canton: 'ZH', postalCode: '8810', addressRegion: 'ZH' },
 };
 
 /**
