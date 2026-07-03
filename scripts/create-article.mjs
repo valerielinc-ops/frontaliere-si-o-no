@@ -2034,6 +2034,19 @@ const TITLE_CASING_PROPER_NOUNS = new Set([
   'austria', 'liechtenstein',
 ]);
 
+// Real institutional/legal acronyms from VERIFIED_DOMAIN_FACTS (istituzioni,
+// aliquote) that must stay uppercase when a fully-uppercase ("shouting")
+// title is sentence-cased below. Deliberately excludes short tokens that
+// double as common Italian words (e.g. "ai", "usi") to avoid leaving those
+// wrongly capitalized. Non-exhaustive — extend as new ones are hit.
+const TITLE_CASING_KNOWN_ACRONYMS = new Set([
+  'avs', 'ipg', 'ac', 'lainf', 'laa', 'igm', 'ijm', 'lpp', 'irpef', 'inps',
+  'mef', 'inail', 'seco', 'sem', 'suva', 'ustat', 'ufsp', 'bag', 'supsi',
+  'eoc', 'dfe', 'dss', 'are', 'bfs', 'bps', 'ufas', 'ufg', 'udsc', 'fedpol',
+  'lamal', 'iva', 'chf', 'cu', 'ral', 'ssn', 'sepa', 'ccnl', 'cmu', 'naspi',
+  'covid', 'cdi', 'ats',
+]);
+
 /**
  * Normalize a journalist-typed title from Title Case to sentence case: only
  * the first letter of the title is capitalized, every other word is
@@ -2042,21 +2055,76 @@ const TITLE_CASING_PROPER_NOUNS = new Set([
  * canton/city/country proper noun (TITLE_CASING_PROPER_NOUNS), either of
  * which is preserved as-is. No-op if the title doesn't look Title-Cased to
  * begin with (issue #3174 follow-up — "redazione" title casing).
+ *
+ * When EVERY word is uppercase ("shouting", e.g. a full LLM title dropped in
+ * all caps rather than journalist Title-Case — live incident: "LA SOSPENSIONE
+ * DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA..."), the plain
+ * per-word acronym check below is a no-op (every word trivially equals its
+ * own uppercase form), so that mode uses TITLE_CASING_KNOWN_ACRONYMS instead
+ * of the generic check, and splits on hyphens so compound proper nouns like
+ * "ITALIA-SVIZZERA" are still recognised per-side.
  */
 function normalizeTitleCasing(rawTitle) {
   const s = String(rawTitle || '').replace(/\s+/g, ' ').trim();
   if (!s) return s;
   const words = s.split(' ');
+  const letterWords = words.filter((w) => /[A-Za-zÀ-ÿ]/.test(w));
+  const isShouting = letterWords.length > 0 && letterWords.every((w) => w === w.toUpperCase());
   const looksTitleCase = words.filter((w) => /^[A-ZÀ-Ý]/.test(w)).length >= Math.ceil(words.length * 0.6);
-  if (!looksTitleCase) return s;
+  if (!looksTitleCase && !isShouting) return s;
+
+  let isFirstWord = true;
+  const normalizeToken = (token) => {
+    const bareLetters = token.replace(/[^A-Za-zÀ-ÿ]/g, '');
+    if (!bareLetters) return token;
+    const bareLower = bareLetters.toLowerCase();
+    const isAcronym = isShouting
+      ? TITLE_CASING_KNOWN_ACRONYMS.has(bareLower)
+      : token.length > 1 && token === token.toUpperCase() && token !== token.toLowerCase();
+    let result;
+    if (isAcronym) {
+      result = token;
+    } else if (TITLE_CASING_PROPER_NOUNS.has(bareLower)) {
+      result = token.replace(bareLetters, bareLetters.charAt(0).toUpperCase() + bareLetters.slice(1).toLowerCase());
+    } else {
+      const lower = token.toLowerCase();
+      result = isFirstWord ? lower.charAt(0).toUpperCase() + lower.slice(1) : lower;
+    }
+    isFirstWord = false;
+    return result;
+  };
+
   return words
-    .map((w, idx) => {
-      const isAcronym = w.length > 1 && w === w.toUpperCase() && w !== w.toLowerCase();
-      if (isAcronym) return w;
-      const bareLower = w.replace(/^[^A-Za-zÀ-ÿ]+|[^A-Za-zÀ-ÿ]+$/g, '').toLowerCase();
-      if (TITLE_CASING_PROPER_NOUNS.has(bareLower)) return w;
+    .map((w) => (isShouting && w.includes('-') ? w.split('-').map(normalizeToken).join('-') : normalizeToken(w)))
+    .join(' ');
+}
+
+/**
+ * Locale-agnostic guard against a translated title coming back fully
+ * uppercase. Deliberately NOT the full normalizeTitleCasing algorithm above —
+ * that enforces Italian sentence-case grammar (lowering "Il"/"Della" etc.),
+ * which is wrong for EN (Title Case), DE (every noun capitalized), and FR
+ * conventions. This only fires on the pathological ALL-CAPS case and applies
+ * a minimal, safe fallback (capitalize first letter, lowercase the rest,
+ * preserve known acronyms) — not a per-locale-correct title case.
+ */
+function collapseShoutingTitle(rawTitle) {
+  const s = String(rawTitle || '').replace(/\s+/g, ' ').trim();
+  if (!s) return s;
+  const words = s.split(' ');
+  const letterWords = words.filter((w) => /[A-Za-zÀ-ÿ]/.test(w));
+  const isShouting = letterWords.length > 0 && letterWords.every((w) => w === w.toUpperCase());
+  if (!isShouting) return s;
+  let isFirstWord = true;
+  return words
+    .map((w) => {
+      const bareLetters = w.replace(/[^A-Za-zÀ-ÿ]/g, '');
+      if (!bareLetters) return w;
+      if (TITLE_CASING_KNOWN_ACRONYMS.has(bareLetters.toLowerCase())) return w;
       const lower = w.toLowerCase();
-      return idx === 0 ? lower.charAt(0).toUpperCase() + lower.slice(1) : lower;
+      const result = isFirstWord ? lower.charAt(0).toUpperCase() + lower.slice(1) : lower;
+      isFirstWord = false;
+      return result;
     })
     .join(' ');
 }
@@ -4429,6 +4497,16 @@ Rispondi SOLO con JSON valido, senza markdown.` },
       console.warn(`  ✂️ [title-cap] IT title truncato: ${finalCap.originalLength} → ${finalCap.value.length} chars`);
     }
     itContent.title = finalCap.value;
+    // capBlogTitle only trims length/brand-suffix — it doesn't fix casing, so
+    // an LLM that emits a fully-uppercase title (live incident, issue-driven
+    // fix) slips through untouched. normalizeTitleCasing already existed for
+    // the journalist-publish pipeline (publish-journalist-article.mjs) but was
+    // never wired into this AI-generation path — closing that gap here.
+    const casedTitle = normalizeTitleCasing(itContent.title);
+    if (casedTitle !== itContent.title) {
+      console.warn(`  🔡 [title-case] IT title normalizzato: "${itContent.title}" → "${casedTitle}"`);
+      itContent.title = casedTitle;
+    }
   }
 
   // Preserve FAQ from AI response (not in REQUIRED_IT_BODY_FIELDS, extracted separately)
@@ -4975,6 +5053,11 @@ ${terminologyByLang[targetLang] || ''}`;
       console.warn(`  ✂️ [title-cap] ${locale.toUpperCase()} title truncato: ${finalCap.originalLength} → ${finalCap.value.length} chars`);
     }
     localeContent.title = finalCap.value;
+    const uncappedTitle = collapseShoutingTitle(localeContent.title);
+    if (uncappedTitle !== localeContent.title) {
+      console.warn(`  🔡 [title-case] ${locale.toUpperCase()} title normalizzato: "${localeContent.title}" → "${uncappedTitle}"`);
+      localeContent.title = uncappedTitle;
+    }
   }
 
   console.error(`  ✅ Articolo assemblato — ${Object.keys(data.content).length} lingue`);
@@ -5229,6 +5312,15 @@ function validate(data, opts = {}) {
       de: `Redaktionelles Bild zu: ${itTitle}`,
       fr: `Image éditoriale relative à: ${itTitle}`,
     };
+  }
+  // Guard against a shouting imageAlt slipping through when the LLM returns
+  // it directly (imageAlt is a required schema field, so the fallback above
+  // doesn't always run) — same casing failure mode as the title, so reuse
+  // the same locale-agnostic collapse guard instead of trusting raw output.
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (typeof data.imageAlt[locale] === 'string') {
+      data.imageAlt[locale] = collapseShoutingTitle(data.imageAlt[locale]);
+    }
   }
   // Sanitize id
   data.id = data.id.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
@@ -9104,7 +9196,7 @@ export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pi
 // Redazione redesign (issue #3174 follow-up): the journalist now authors only
 // {title, body}; these derive the title-casing/excerpt/body1-3/cover-image
 // candidates the shared pipeline above still expects.
-export { normalizeTitleCasing, generateExcerpt, splitBodyIntoSections, findStockImageCandidates };
+export { normalizeTitleCasing, collapseShoutingTitle, generateExcerpt, splitBodyIntoSections, findStockImageCandidates };
 
 // Only run the AI generation pipeline when invoked directly as a CLI — importing
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.

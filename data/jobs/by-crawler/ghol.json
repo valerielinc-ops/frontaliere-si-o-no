@@ -81,8 +81,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
-          "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest"
         ],
         "de": [
           "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -182,8 +181,7 @@
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -261,8 +259,7 @@
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
           "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -334,8 +331,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -425,8 +421,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "codificateur-medical-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "codificatore-medico-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "codificateur-medical-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "codificateur-medical-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -498,8 +493,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -574,8 +568,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest",
-          "assistente-medico-dr-barriol-urologia-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest"
         ],
         "en": [
           "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest"
@@ -652,8 +645,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -728,8 +720,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -754,10 +745,10 @@
     },
     {
       "id": "ghol-621128b79220",
-      "slug": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "de": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
@@ -767,7 +758,7 @@
       "title": "Logopédiste",
       "titleByLocale": {
         "fr": "Logopédiste",
-        "it": "Logopédiste",
+        "it": "Logopedista",
         "en": "Logopédiste",
         "de": "Logopédiste"
       },
@@ -811,7 +802,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T12:09:19.089Z"
+      "firstSeenAt": "2026-07-03T12:09:19.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     },
     {
       "id": "ghol-fe34aa66233b",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-07-02T23:00:14.894Z",
+  "assembledAt": "2026-07-03T12:31:05.521Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -586,7 +586,7 @@
       "titleByLocale": {
         "it": "Driver Autonomo del veicolo (Bertha Certified)",
         "en": "Autonomous Vehicle Driver (Bertha Certified)",
-        "de": "Autonomer Fahrzeugführer (Bertha zertifiziert)",
+        "de": "Autonomous Vehicle Driver (Bertha Certified)",
         "fr": "Conducteur de véhicule autonome (certifié Bertha)"
       },
       "descriptionByLocale": {
@@ -598,7 +598,7 @@
       "slugByLocale": {
         "it": "driver-autonomo-del-veicolo-bertha-certified-tsmg-geneva-7972e86b",
         "en": "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b",
-        "de": "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b",
+        "de": "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b",
         "fr": "conducteur-de-vehicule-autonome-certifie-bertha-tsmg-geneva-7972e86b"
       },
       "id": "tsmg-8e347256f8c1",
@@ -623,12 +623,15 @@
           "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
         ],
         "de": [
+          "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b",
           "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
-      ]
+        "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b",
+        "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Driver (T1 Certified)",
@@ -855,7 +858,8 @@
         ]
       },
       "slugDisambiguator": "c23075ac",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -964,7 +968,8 @@
         ]
       },
       "slugDisambiguator": "dfa1adf1",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Gossau, Switzerland",
@@ -1032,7 +1037,8 @@
       },
       "streetAddress": "",
       "postalCode": "9200",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Grabs, Switzerland",
@@ -1100,7 +1106,8 @@
       },
       "streetAddress": "",
       "postalCode": "9000",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Kreuzlingen, Switzerland",
@@ -1168,7 +1175,8 @@
       },
       "streetAddress": "",
       "postalCode": "8500",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -1263,7 +1271,8 @@
         ]
       },
       "slugDisambiguator": "061cc5b5",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -1358,7 +1367,8 @@
         ]
       },
       "slugDisambiguator": "661cb622",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Saanen, Switzerland",
@@ -1426,7 +1436,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Signau, Switzerland",
@@ -1494,7 +1505,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Wil, Switzerland",
@@ -1562,7 +1574,8 @@
       },
       "streetAddress": "",
       "postalCode": "9500",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Zweisimmen, Switzerland",
@@ -1630,7 +1643,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Basel, Switzerland",
@@ -1702,7 +1716,8 @@
       },
       "streetAddress": "",
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -1803,7 +1818,8 @@
         ]
       },
       "slugDisambiguator": "677ef911",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -1893,7 +1909,8 @@
       },
       "streetAddress": "",
       "postalCode": "7000",
-      "firstSeenAt": "2026-05-17T11:16:47.206Z"
+      "firstSeenAt": "2026-05-17T11:16:47.206Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lausanne, Switzerland",
@@ -1961,7 +1978,8 @@
       },
       "streetAddress": "",
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lucerne, Switzerland",
@@ -2029,7 +2047,8 @@
       },
       "streetAddress": "",
       "postalCode": "6003",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Winterthur, Switzerland",
@@ -2097,7 +2116,8 @@
       },
       "streetAddress": "",
       "postalCode": "8400",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",

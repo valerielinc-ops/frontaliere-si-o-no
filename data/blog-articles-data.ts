@@ -24599,7 +24599,7 @@ const RAW_ARTICLES = [
  id: 'eventi-weekend-ticino',
  category: 'novita',
  date: '2026-06-29',
- updatedAt: '2026-07-02',
+ updatedAt: '2026-07-03',
  image: '/images/places/lugano-view.webp',
  hasCalculator: false,
  authorSlug: 'redazione',
@@ -24746,8 +24746,8 @@ const RAW_ARTICLES = [
  date: '2026-07-03T07:41:06.369Z',
  image: '/images/blog/acqua-non-potabile-lavizzara.webp',
  hasCalculator: false,
- authorSlug: 'marco-ferrari',
- authorName: 'Marco Ferrari',
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
  },
 ] satisfies Article[];
 
