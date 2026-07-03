@@ -66,6 +66,13 @@ describe('isAvoidableMaxTurns — non escalare la morte al cap che è determinis
     expect(isAvoidableMaxTurns('follow-up(#9): 1 item deferred — fix(x)', ['follow-up'])).toBe(true);
   });
 
+  it('"1 item deferred" con parola ordinaria "batch"/"sweep"/"bulk" nel titolo → NON aggregate, il count esplicito vince sul keyword fallback (#3378)', () => {
+    expect(isAvoidableMaxTurns(
+      'follow-up(#3371): 1 item deferred — fix(job-alerts): batch backfill re-checks tier-3 before tier-4 URL fallback',
+      ['follow-up'],
+    )).toBe(true);
+  });
+
   it('PR consegnato (hasDeliveredPr) → NON contabile, anche single-item routable (#2653: overrun post-delivery)', () => {
     // 3/5 esempi dell'escalation #2653 (#2590/#2560/#2476) hanno aperto un PR poi
     // mergiato, poi sforato il cap su churn post-delivery. Un run che ha consegnato

@@ -319,9 +319,14 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
 export function isAvoidableAlreadyFixed(title, labels) {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
-  const m = String(title || '').match(/(\d+)\s+items?\s+deferred/i);
-  if (m && Number(m[1]) >= 2) return false; // aggregate by explicit count
-  if (/\b(?:sweep|batch|bulk)\b/i.test(String(title || ''))) return false; // aggregate by keyword
+  const t = String(title || '');
+  const m = t.match(/(\d+)\s+items?\s+deferred/i);
+  // An explicit count is authoritative once present — no keyword fallback
+  // needed (and none applied), else a single-item title containing an
+  // ordinary word like "batch" (e.g. "1 item deferred ... batch backfill...")
+  // was misclassified as an aggregate (#3378).
+  if (m) return Number(m[1]) < 2;
+  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
   return true; // single-item follow-up → the gate's real target → countable
 }
 
@@ -362,10 +367,13 @@ export function isAvoidableMaxTurns(title, labels, hasDeliveredPr = false) {
   // (2) drainer already parked it as structurally non-fixable → expected death.
   if (names.includes('needs-human')) return false;
   // (1) aggregate multi-item → over-budget by construction (circuit-breaker target),
-  //     not a fixable loop. Same detection as isAvoidableAlreadyFixed.
+  //     not a fixable loop. Same detection as isAvoidableAlreadyFixed — an explicit
+  //     count is authoritative once present, no keyword fallback needed (else a
+  //     single-item title containing an ordinary word like "batch" was
+  //     misclassified as an aggregate, #3378).
   const m = t.match(/(\d+)\s+items?\s+deferred/i);
-  if (m && Number(m[1]) >= 2) return false; // aggregate by explicit count
-  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword
+  if (m) return Number(m[1]) < 2;
+  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
   return true; // single-item, still-routable → fixable loop → countable
 }
 

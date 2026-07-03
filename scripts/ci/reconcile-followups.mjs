@@ -77,7 +77,13 @@ const KEEP_OPEN_LABELS = new Set(['pinned', 'keep-open', 'revenue', 'tracker', '
 export function isAggregateTitle(title = '') {
   const t = String(title);
   const m = t.match(/\b(\d+)\s+items?\b/i);
-  if (m && Number(m[1]) >= 2) return true;
+  // An explicit count is authoritative once present — trust it fully instead
+  // of falling through to the keyword fallback below, which exists ONLY for
+  // aggregates that never state a count. Otherwise a genuinely single-item
+  // follow-up whose title contains "batch"/"sweep"/"bulk" as an ordinary word
+  // (e.g. "1 item deferred ... batch backfill...") is misclassified as an
+  // aggregate despite explicitly saying "1 item" (#3378).
+  if (m) return Number(m[1]) >= 2;
   return /\b(?:sweep|batch|bulk)\b/i.test(t);
 }
 

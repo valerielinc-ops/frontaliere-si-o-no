@@ -153,7 +153,16 @@ const io = {
 export function isAggregate(title, body) {
   const text = `${title}\n${body}`;
   const m = text.match(/(\d+)\s+items?\s+deferred/i);
-  if (m && Number(m[1]) >= 2) return true;
+  // An explicit count is authoritative once stated — trust it fully rather
+  // than falling through to the keyword heuristic below, which exists ONLY
+  // for aggregates that never state a count (e.g. "Sweep: ~30 crawlers").
+  // Without this short-circuit, a genuinely single-item follow-up whose
+  // title happens to contain "batch"/"sweep"/"bulk" as an ordinary word
+  // (e.g. "batch backfill re-checks tier-3...") was misclassified as an
+  // aggregate despite explicitly saying "1 item deferred" — a false-positive
+  // that wrongly blocked `pr-body-contract` on a fully-completed single item
+  // (#3378).
+  if (m) return Number(m[1]) >= 2;
   return /\b(?:sweep|batch|bulk)\b/i.test(text);
 }
 
