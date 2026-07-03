@@ -28,7 +28,10 @@
  * `auth_facebook`/`job_gate` before storage) — 0 live docs, nothing to skip.
  * A location-only fallback tier (`location_interest`/`geo_city`, see
  * `jobAlertBackfillCore.js`) adds ~5 more — most no-signal docs have no geo
- * data either, but it's a correct zero-cost catch-all.
+ * data either, but it's a correct zero-cost catch-all. A 3rd tier derives
+ * signal from the `private/personalization` subcollection (`viewedJobs[]`,
+ * `filterUsage`) for subscribers still unresolved after tiers 1/2 — read
+ * lazily, only for the `no-signal` remainder, via `resolveSignalTier`.
  *
  * The backfilled alert is deliberately near-empty (`keywords: []`,
  * `locations: []`, `cantonFilter: null`): `buildAlertProfile`
@@ -60,11 +63,12 @@ import {
   normalizeEmail,
   shouldSkipSubscriber,
   buildAlertPayload,
+  resolveSignalTier,
 } from './lib/jobalert-backfill-core.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
-export { MAX_ALERTS_PER_USER, ALERT_ID, normalizeEmail, shouldSkipSubscriber, buildAlertPayload };
+export { MAX_ALERTS_PER_USER, ALERT_ID, normalizeEmail, shouldSkipSubscriber, buildAlertPayload, resolveSignalTier };
 
 let _db = null;
 async function getFirestoreAdmin() {
@@ -100,7 +104,24 @@ async function main() {
     const channel = data.source_channel || 'unknown';
     byChannel[channel] = byChannel[channel] || { created: 0, skipped: 0 };
 
-    const skipReason = shouldSkipSubscriber(email, data);
+    let skipReason = shouldSkipSubscriber(email, data);
+    // Lazy tier-3 lookup: only pay for the extra `private/personalization`
+    // read when the flat fields alone resolve nothing — cheap for the
+    // majority who already carry job_category/location_interest, an extra
+    // read only for the "no-signal" remainder (see resolveSignalTier).
+    let personalization = null;
+    if (skipReason === 'no-signal') {
+      const personalizationSnap = await db
+        .collection('newsletter_subscribers')
+        .doc(email)
+        .collection('private')
+        .doc('personalization')
+        .get();
+      if (personalizationSnap.exists) {
+        personalization = personalizationSnap.data();
+        skipReason = shouldSkipSubscriber(email, data, personalization);
+      }
+    }
     if (skipReason) {
       counts[skipReason]++;
       byChannel[channel].skipped++;
@@ -121,7 +142,8 @@ async function main() {
       continue;
     }
 
-    const alertPayload = buildAlertPayload(email, data, existingBackfillDoc?.data());
+    const alertPayload = buildAlertPayload(email, data, existingBackfillDoc?.data(), personalization);
+    const { patch } = resolveSignalTier(data, personalization);
     byChannel[channel].created++;
 
     if (DRY_RUN) {
@@ -131,12 +153,22 @@ async function main() {
         email,
         userId: alertPayload.userId,
         locale: alertPayload.locale,
+        ...(patch || {}),
         updated_at: FieldValue.serverTimestamp(),
         created_at: FieldValue.serverTimestamp(),
       };
       const existingParent = await subscriberRef.get();
       if (existingParent.exists) delete parentPayload.created_at;
       await subscriberRef.set(parentPayload, { merge: true });
+
+      if (patch) {
+        // buildAlertProfile (services/jobAlertMatching.mjs) reads
+        // job_category/location_interest off newsletter_subscribers/{email},
+        // NOT the job_alert_subscribers container doc above — merge the
+        // patch there too so the derived signal is actually visible to
+        // matching (mirrors functions/src/jobAlertBackfillTrigger.js).
+        await db.collection('newsletter_subscribers').doc(email).set(patch, { merge: true });
+      }
 
       await alertsRef.doc(ALERT_ID).set(
         {

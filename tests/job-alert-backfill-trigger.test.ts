@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
-import { getSignalTier, signalTierChanged } from '../functions/src/jobAlertBackfillCore.js';
+import { getSignalTier, signalTierChanged, resolveSignalTier } from '../functions/src/jobAlertBackfillCore.js';
 
 interface AlertDoc {
   id: string;
@@ -169,5 +169,73 @@ describe('handleNewsletterSubscriberCreated — creation', () => {
     await handleNewsletterSubscriberCreated('a@b.ch', { job_category: 'tech' }, { db: db as any });
     const parentWrite = db.writes.find((w) => w.path === 'job_alert_subscribers/a@b.ch');
     expect(parentWrite?.payload).not.toHaveProperty('created_at');
+  });
+});
+
+describe('resolveSignalTier — tier-3 personalization fallback', () => {
+  it('falls through to none when flat fields and personalization are both empty', () => {
+    expect(resolveSignalTier({}, null)).toEqual({ tier: 'none', patch: null });
+  });
+
+  it('does not consult personalization when a flat-field tier already resolves', () => {
+    const result = resolveSignalTier(
+      { job_category: 'tech' },
+      { viewedJobs: [{ location: 'Lugano', category: 'Finanza' }] },
+    );
+    expect(result.tier).toBe('signal');
+    expect(result.patch).toBeNull();
+  });
+
+  it('derives personalization-fallback from viewed-job browsing data', () => {
+    const result = resolveSignalTier(
+      {},
+      { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia', company: 'Tether' }] },
+    );
+    expect(result.tier).toBe('personalization-fallback');
+    expect(result.patch).toMatchObject({ location_interest: 'Mendrisio', job_category: 'IT / Tecnologia' });
+  });
+
+  it('stays none when personalization has nothing usable (empty viewedJobs/filterUsage)', () => {
+    expect(resolveSignalTier({}, { viewedJobs: [], filterUsage: {} })).toEqual({ tier: 'none', patch: null });
+  });
+});
+
+describe('handleNewsletterSubscriberCreated — tier-3 personalization fallback', () => {
+  it('skips when flat fields are empty and no personalization dep is passed (no drift for the flat-field trigger)', async () => {
+    const db = fakeDb();
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { source_channel: 'popup' },
+      { db: db as any },
+    );
+    expect(result.created).toBe(false);
+    expect(result.reason).toBe('no-signal');
+  });
+
+  it('creates a personalization-fallback alert and merges the derived patch onto the parent doc', async () => {
+    const db = fakeDb();
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { source_channel: 'popup' },
+      {
+        db: db as any,
+        personalization: { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia', company: 'Tether' }] },
+      },
+    );
+    expect(result.created).toBe(true);
+    expect(result.tier).toBe('newsletter_subscribers:popup:personalization-fallback');
+    const parentWrite = db.writes.find((w) => w.path === 'job_alert_subscribers/a@b.ch');
+    expect(parentWrite?.payload).toMatchObject({ location_interest: 'Mendrisio', job_category: 'IT / Tecnologia' });
+  });
+
+  it('does not derive personalization-fallback when browsing data has nothing usable', async () => {
+    const db = fakeDb();
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { source_channel: 'popup' },
+      { db: db as any, personalization: { viewedJobs: [], filterUsage: {} } },
+    );
+    expect(result.created).toBe(false);
+    expect(result.reason).toBe('no-signal');
   });
 });

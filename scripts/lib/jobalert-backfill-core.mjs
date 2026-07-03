@@ -13,4 +13,5 @@ export {
   buildAlertPayload,
   getSignalTier,
   signalTierChanged,
+  resolveSignalTier,
 } from '../../functions/src/jobAlertBackfillCore.js';
