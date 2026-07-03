@@ -1,16 +1,16 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-07-02T23:07:50.868Z",
-  "total": 4,
+  "generatedAt": "2026-07-03T12:31:48.678Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4191,
-  "avgDurationMs": 4191,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4428,
+  "avgDurationMs": 4428,
   "durationHistory": [
-    4191
+    4428
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133073891-dipl-experte-expertin-anasthesiepflege-nds-hf-60-90-?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T23:07:47.817Z",
+      "crawledAt": "2026-07-03T12:31:45.305Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -64,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T23:07:48.265Z",
+      "crawledAt": "2026-07-03T12:31:45.803Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -102,7 +102,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000123906949-studium-zur-dipl-pflegefachperson-hf?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T23:07:48.725Z",
+      "crawledAt": "2026-07-03T12:31:46.273Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -129,8 +129,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "villa-im-park-674e550b7e8e",
       "slug": "fachperson-per-lagerungspflege-60-80-privatklinik-villa-im-park-rothrist",
@@ -171,5 +170,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
