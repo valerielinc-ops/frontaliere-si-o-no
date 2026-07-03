@@ -483,6 +483,7 @@ export const COMPANY_HQ = {
   // ── Issue #3337 backlog wave ──
   'ferring': { city: 'Saint-Prex', canton: 'VD', postalCode: '1162', addressRegion: 'VD' },
   'thermo-fisher-scientific': { city: 'Reinach', canton: 'BL', postalCode: '4153', addressRegion: 'BL' },
+  'everest-re': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
 };
 
 /**

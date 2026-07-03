@@ -197,6 +197,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'ermenegildo-zegna-logistica': '/images/logos/ermenegildo-zegna.svg',
  'eta-sa-swatch-group': '/images/brands/eta-sa-swatch-group.ico',
  'eth-zurich': cLogo('ethzurich.ch'),
+ 'everest-re': cLogo('everestre.com'),
  'fart': gFavicon('fartiamo.ch'),
  'ferring': cLogo('ferring.com'),
  'ferrovia-retica': '/images/brands/ferrovia-retica.png',
