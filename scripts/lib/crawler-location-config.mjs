@@ -539,6 +539,7 @@ export const COMPANY_HQ = {
   'vz-vermoegenszentrum': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
   'css-versicherung': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
   'spruengli': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  'deloitte': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
 };
 
 /**
