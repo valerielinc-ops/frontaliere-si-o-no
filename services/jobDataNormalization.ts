@@ -471,6 +471,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'tether': '/images/brands/tether.png',
  'the-living-circle': 'https://www.thelivingcircle.ch/favicon-tlc.ico',
  'therapiezentrum-meggen': cLogo('tzm.ch'),
+ 'thermo-fisher-scientific': cLogo('thermofisher.com'),
  'thurklinik': cLogo('thurklinik.ch'),
  'tinext': '/images/brands/tinext.png',
  'transgourmet': '/images/brands/transgourmet.png',

@@ -480,7 +480,9 @@ export const COMPANY_HQ = {
   'georg-fischer': { city: 'Schaffhausen', canton: 'SH', postalCode: '8201', addressRegion: 'SH' },
   'temenos': { city: 'Genève', canton: 'GE', postalCode: '1196', addressRegion: 'GE' },
   'galderma': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
+  // ── Issue #3337 backlog wave ──
   'ferring': { city: 'Saint-Prex', canton: 'VD', postalCode: '1162', addressRegion: 'VD' },
+  'thermo-fisher-scientific': { city: 'Reinach', canton: 'BL', postalCode: '4153', addressRegion: 'BL' },
 };
 
 /**
