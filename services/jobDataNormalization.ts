@@ -126,6 +126,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'bosch-thermotechnik-ag': gFavicon('bosch.ch'),
  'bps-suisse': cLogo('bps-suisse.ch'),
  'bracco': gFavicon('bracco.com'),
+ 'brack-alltron': cLogo('brack.ch'),
  'buehler': cLogo('buhlergroup.com'),
  'buergenstock-hotels': cLogo('buergenstock.ch'),
  'burkhalter-group': '/images/brands/burkhalter-group.png',

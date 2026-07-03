@@ -207,6 +207,11 @@ function detectExperienceLevel(title = '') {
  *   Disables the bare `/medium/{id}/` URL fallback in `isCompanyJob`, which
  *   would otherwise match jobs belonging to the *other* company sharing the
  *   tenant — that fallback is only safe when one company owns the medium.
+ * @param {string} [config.sector='Sanità / Ospedali']  Sector label stamped
+ *   on every job. Prospective.ch is used by hospitals as well as
+ *   non-healthcare employers (retail, industry, insurance) — default kept
+ *   as the historical hospital label for backward compat with existing
+ *   consumers that don't pass this; non-healthcare tenants should override.
  */
 export function createProspectiveChParser(config) {
   const {
@@ -225,6 +230,7 @@ export function createProspectiveChParser(config) {
     acceptDirectlinkHosts = [],
     sharedMedium = false,
     filterListing,
+    sector = 'Sanità / Ospedali',
   } = config;
 
   if (!companyKey || !companyName || !mediumId || !defaultCanton) {
@@ -405,7 +411,7 @@ export function createProspectiveChParser(config) {
         contract: 'full-time',
         employmentType: pickEmploymentType(listing),
         experienceLevel: detectExperienceLevel(title),
-        sector: 'Sanità / Ospedali',
+        sector,
         currency: 'CHF',
         featured: false,
         postedDate,
