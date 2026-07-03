@@ -496,6 +496,34 @@ export const COMPANY_HQ = {
   'beekeeper': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
   // ── Crawler backlog #3337 ──
   'saint-gobain-weber-isover': { city: 'Baden', canton: 'AG', postalCode: '5405', addressRegion: 'AG' },
+  // Oetiker Schweiz AG HQ, Spätzstrasse 11, 8810 Horgen ZH (confirmed via
+  // company imprint page — not a fallback guess).
+  'oetiker': { city: 'Horgen', canton: 'ZH', postalCode: '8810', addressRegion: 'ZH' },
+  // Cours de Rive 12, 1204 Genève — confirmed via multiple independent
+  // directory sources (search.ch, local.ch, official annual reports); no
+  // fallback needed.
+  'hospice-general': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'zkb': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // HQ address (Route de Chêne 48, 1208 Genève) confirmed via public
+  // directory listing (search.ch) + epi.ge.ch contact page; SmartRecruiters
+  // tenant only exposes per-posting city, not always a street address.
+  'epi-geneve': { city: 'Genève', canton: 'GE', postalCode: '1208', addressRegion: 'GE' },
+  // Yapeal AG HQ, Max-Högger-Strasse 6, 8048 Zürich ZH — confirmed via the
+  // company's own legal notice (yapeal.ch/en/private/legal-notice),
+  // cross-checked against Moneyhouse/LEI registry entries; no fallback needed.
+  'yapeal': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
+  // iGroove AG — registered legal seat per commercial-register (Northdata,
+  // company impressum) is actually Churerstrasse 135, 8808 Pfäffikon SZ
+  // (canton Schwyz), NOT Zürich. However the live Personio feed lists the
+  // only open position's office as "Zürich Hybrid", matching this crawler's
+  // Zürich-office assumption for day-to-day operations. Postal code 8001 is
+  // a safe Zürich-city-center FALLBACK (no confirmed street address for the
+  // Zürich office) — used only when a job's office field is empty/unmapped.
+  'igroove': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // Räffelstrasse 24, 8045 Zürich ZH — confirmed via Handelsregister
+  // (northdata/Moneyhouse CHE-267.003.435) + local.ch/search.ch directory
+  // listings; no fallback needed.
+  'felfel': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
 };
 
 /**

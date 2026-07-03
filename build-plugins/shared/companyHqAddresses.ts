@@ -76,6 +76,8 @@ export const COMPANY_HQ_ADDRESSES: Record<string, CompanyHqAddress> = {
   'galenica': { streetAddress: 'Untermattweg 8', postalCode: '3027', addressLocality: 'Bern', addressRegion: 'BE' },
   'fnz': { streetAddress: 'Via Cantonale 19', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
   'fust': { streetAddress: 'Zürcherstrasse 22', postalCode: '9246', addressLocality: 'Niederbüren', addressRegion: 'SG' },
+  // Crawler backlog #3337 batch 2
+  'zkb': { streetAddress: 'Bahnhofstrasse 9', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
 };
 
 /**

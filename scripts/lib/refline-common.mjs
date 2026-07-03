@@ -114,6 +114,13 @@ export function parseReflineAnchorListing(html = '', { listingHost, tenant } = {
 /**
  * Parse a Refline listing page using the "table-row" template.
  * Returns: [{ url, posId, rev, title, workplace, workload, entryDate }, ...]
+ *
+ * Tolerates two known sub-variants beyond the original Hohenegg/Caritas
+ * shape (kept backward-compatible — both bits are optional):
+ *  - detail URL without trailing `/index.html` (ZKB `792841`: bare
+ *    `.../{posId}/pub/{rev}"` anchors that resolve directly, no redirect).
+ *  - an extra `<td class="operationArea">` column between `position` and
+ *    `workplace` (ZKB table adds a department/business-area column).
  */
 export function parseReflineTableListing(html = '', { listingHost, tenant } = {}) {
   if (!html) return [];
@@ -121,7 +128,7 @@ export function parseReflineTableListing(html = '', { listingHost, tenant } = {}
   const seen = new Set();
 
   const rowRe = new RegExp(
-    `<tr[^>]*>\\s*<td class="position">\\s*<a\\s+href="(https?:\\/\\/${listingHost.replace(/\\./g, '\\.')}\\/${tenant}\\/([A-Za-z0-9]+)\\/pub\\/(\\d+)\\/index\\.html)"[^>]*>([\\s\\S]*?)<\\/a>\\s*<\\/td>\\s*(?:<td class="workplace">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="workload">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="entryDate">([\\s\\S]*?)<\\/td>)?`,
+    `<tr[^>]*>\\s*<td class="position">\\s*<a\\s+href="(https?:\\/\\/${listingHost.replace(/\\./g, '\\.')}\\/${tenant}\\/([A-Za-z0-9]+)\\/pub\\/(\\d+)(?:\\/index\\.html)?)"[^>]*>([\\s\\S]*?)<\\/a>\\s*<\\/td>\\s*(?:<td class="operationArea">[\\s\\S]*?<\\/td>\\s*)?(?:<td class="workplace">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="workload">([\\s\\S]*?)<\\/td>\\s*)?(?:<td class="entryDate">([\\s\\S]*?)<\\/td>)?`,
     'gi',
   );
   let m;
