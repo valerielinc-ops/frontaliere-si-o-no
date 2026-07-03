@@ -117,6 +117,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'berner-montage': '/images/brands/berner-montage.png',
  'bethesda-spital': cLogo('bethesda-spital.ch'),
  'bitfinex': '/images/brands/bitfinex.png',
+ 'bossard': cLogo('bossard.com'),
  'bkw': cLogo('bkw.ch'),
  'bls': '/images/brands/bls.png',
  'bms-building': '/images/brands/bms-building.png',
