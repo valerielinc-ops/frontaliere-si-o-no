@@ -496,6 +496,10 @@ export const COMPANY_HQ = {
   'beekeeper': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
   // ── Crawler backlog #3337 ──
   'saint-gobain-weber-isover': { city: 'Baden', canton: 'AG', postalCode: '5405', addressRegion: 'AG' },
+  // VZ Holding AG registered legal seat (Zefix CHE-102.060.456): Innere
+  // Güterstrasse 2, 6300 Zug ZG — confirmed via Zefix (Swiss commercial
+  // registry), cross-checked against Moneyhouse; no fallback needed.
+  'vz-vermoegenszentrum': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
 };
 
 /**
