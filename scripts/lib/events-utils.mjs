@@ -512,6 +512,52 @@ export function eventStableId(sourceKey, rawId) {
   return `${sourceKey}:${String(rawId).trim()}`;
 }
 
+// ── Price parsing ────────────────────────────────────────────
+// Shared by every crawler that scrapes a free-text price field (guidle's
+// price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
+// copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
+// must live in one shared module).
+const PRICE_FREE_RE = /\b(gratis|gratuit[oe]?|free|kostenlos|eintritt frei|entr[ée]e libre|ingresso libero)\b/i;
+const PRICE_AMOUNT_RE = /(\d+(?:[.,]\d{1,2})?)/g;
+
+/**
+ * Parse a free-text price snippet (e.g. "CHF 10.00 pro Person", "Ingresso 20
+ * franchi, Bambini gratis", "Eintritt frei") into `{amount, currency, isFree}`.
+ * Takes the CHEAPEST number found when several are present. Falls back to a
+ * free-keyword match when no number is present, and to `amount: null` (price
+ * info exists but isn't machine-parseable, e.g. "su richiesta" / "on
+ * request") otherwise. Returns `undefined` for empty/missing input — callers
+ * treat that as "no price signal at all", never as "free".
+ */
+export function parsePriceText(rawText) {
+  const t = typeof rawText === 'string' ? rawText.replace(/\s+/g, ' ').trim() : '';
+  if (!t) return undefined;
+  const numbers = [];
+  PRICE_AMOUNT_RE.lastIndex = 0;
+  let m;
+  while ((m = PRICE_AMOUNT_RE.exec(t))) {
+    const n = Number.parseFloat(m[1].replace(',', '.'));
+    if (Number.isFinite(n)) numbers.push(n);
+  }
+  if (numbers.length) {
+    const amount = Math.min(...numbers);
+    return { amount, currency: 'CHF', isFree: amount === 0 };
+  }
+  if (PRICE_FREE_RE.test(t)) return { amount: 0, currency: 'CHF', isFree: true };
+  return { amount: null, currency: 'CHF', isFree: false };
+}
+
+/**
+ * Whether a parsed `{amount, currency, isFree}` price carries a confident
+ * enough signal to publish as schema.org `offers` — `isFree: true` or a real
+ * parsed `amount`. Excludes the `amount: null` ambiguous bucket (price
+ * mentioned but not machine-parseable, e.g. "su richiesta"): asserting
+ * `price:"0"` there would fabricate "free" for a plausibly-paid event.
+ */
+export function hasConfidentPrice(price) {
+  return Boolean(price) && (price.isFree === true || typeof price.amount === 'number');
+}
+
 // ── Date helpers ─────────────────────────────────────────────
 /** Convert "YYYYMMDD" → "YYYY-MM-DD". Returns '' on malformed input. */
 export function isoFromCompactDate(compact) {
