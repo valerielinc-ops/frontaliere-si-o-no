@@ -37,13 +37,20 @@ permissions:
 jobs:
   crawl-events:
     runs-on: ubuntu-latest
-    # 12 min was enough for the single TI-only tio-agenda crawl. Nationwide
-    # guidle.com + myswitzerland.com are new (#3125) and a real full-catalog
-    # crawl duration hasn't been observed in production yet — 35 min is a
-    # deliberately generous placeholder judgment call, not a measurement.
-    # Revisit (tighten) once a few live runs show actual guidle/myswitzerland
-    # timing.
-    timeout-minutes: 35
+    # 12 min was enough for the single TI-only tio-agenda crawl before
+    # #3415's in-crawler geo/translation enrichment. That enrichment's
+    # one-time backlog pass (every pre-existing event needs geocoding +
+    # EN/DE/FR translation the first time it runs) measured at 30min08s
+    # alone (run 28683305065, 2026-07-03) — it ate the entire 35min budget
+    # and got the whole job cancelled before guidle/myswitzerland/assemble/
+    # commit ever ran. Once the geo/translation caches
+    # (data/events-geocode-cache.json, data/events-translation-cache.json —
+    # see the "Persist geo/translation caches" step below) are populated,
+    # only that day's genuinely new events need enrichment and tio-agenda
+    # should return close to its 12min baseline. 60 min gives headroom for
+    # today's one-time backlog plus nationwide guidle/myswitzerland, whose
+    # real full-catalog duration is still not independently measured.
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -64,6 +71,47 @@ jobs:
       - name: Crawl tio.ch agenda
         id: crawl-tio
         run: node scripts/crawl-tio-agenda.mjs --days "${{ github.event.inputs.days || '21' }}"
+
+      - name: Persist geo/translation caches (survives downstream failures)
+        id: persist-caches
+        # scripts/crawl-tio-agenda.mjs writes data/events-geocode-cache.json
+        # + data/events-translation-cache.json to disk once tio-agenda
+        # finishes, but the main "Commit dataset" step below only runs if
+        # guidle/myswitzerland/assemble/gate ALL also succeed. Without this
+        # step, a downstream failure or job timeout (run 28683305065,
+        # 2026-07-03) throws away the whole enrichment backlog and every
+        # future run redoes it from scratch. if: always() so it still fires
+        # even if a later step gets cancelled by timeout-minutes.
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          [ -f data/events-geocode-cache.json ] || exit 0
+          [ -f data/events-translation-cache.json ] || exit 0
+          git add data/events-geocode-cache.json data/events-translation-cache.json
+          if git diff --cached --quiet; then
+            echo "No cache diff, skipping commit"
+            exit 0
+          fi
+
+          git commit -m "🗺️ Persist tio-agenda geo/translation cache"
+
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "push ok on attempt $attempt"
+              exit 0
+            fi
+            echo "push failed (attempt $attempt), rebasing..."
+            git fetch origin main || true
+            git rebase origin/main || { git rebase --abort; sleep 2; continue; }
+            sleep $((attempt * 2))
+          done
+          echo "::warning::cache push failed after 5 attempts"
+          exit 0
 
       - name: Crawl guidle.com (nationwide)
         id: crawl-guidle
