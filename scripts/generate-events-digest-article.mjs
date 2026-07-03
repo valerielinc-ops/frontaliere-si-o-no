@@ -20,10 +20,11 @@
  */
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import { loadEventsDataset, isoDay } from './lib/events-utils.mjs';
 import { buildWeekendDigestArticle } from './lib/events-digest-content.mjs';
 import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
+import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -74,70 +75,11 @@ export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) 
   }
 }
 
-/** Bump (or insert) updatedAt on the ARTICLES entry so sitemap lastmod reflects the refresh. */
-export function bumpUpdatedAt(id, todayIso, repoRoot = REPO_ROOT) {
-  const file = path.join(repoRoot, 'data', 'blog-articles-data.ts');
-  let src = readFileSync(file, 'utf-8');
-  const entryRe = new RegExp(`(\\n([ \\t]*)id: '${id}',[\\s\\S]*?)(\\n[ \\t]*\\},)`);
-  const m = src.match(entryRe);
-  if (!m) return false;
-  const indent = m[2];
-  let block = m[1];
-  if (/updatedAt:/.test(block)) {
-    block = block.replace(/updatedAt: '[^']*'/, `updatedAt: '${todayIso}'`);
-  } else {
-    block = block.replace(/(\n[ \t]*date: '[^']*',)/, `$1\n${indent}updatedAt: '${todayIso}',`);
-  }
-  if (block === m[1]) return false;
-  src = src.replace(m[1], block);
-  writeFileSync(file, src);
-  return true;
-}
-
-/**
- * Bump the NewsArticle `dateModified` of the article's blog-SEO entry so the
- * freshness signal tracks the weekly body refresh (datePublished is left as the
- * original publish date). Scoped to this article's block only.
- */
-export function bumpDateModified(id, isoDateTime, repoRoot = REPO_ROOT) {
-  const file = path.join(repoRoot, 'services', 'seo', 'seo-blog-5.ts');
-  const src = readFileSync(file, 'utf-8');
-  const startIdx = src.indexOf(`'blog-${id}':`);
-  if (startIdx < 0) return false;
-  // Scope the rewrite to THIS entry's block (stop at the next top-level entry
-  // key) so a future nested object can never make us touch a sibling's date.
-  const after = src.slice(startIdx);
-  const nextKey = after.slice(1).search(/\n {2}'[^']+':\s*\{/);
-  const blockEnd = nextKey < 0 ? after.length : nextKey + 1;
-  const block = after.slice(0, blockEnd);
-  const dmRe = /"dateModified":\s*"[^"]*"/;
-  if (!dmRe.test(block)) return false;
-  // dateModified must never precede datePublished: on the publish day the fixed
-  // midnight stamp falls before the publish time → incoherent freshness signal
-  // in the indexed NewsArticle JSON-LD. Clamp up to datePublished when earlier.
-  const pub = block.match(/"datePublished":\s*"([^"]*)"/);
-  const effective = pub && Date.parse(pub[1]) > Date.parse(isoDateTime) ? pub[1] : isoDateTime;
-  const replaced = block.replace(dmRe, `"dateModified": "${effective}"`);
-  writeFileSync(file, src.slice(0, startIdx) + replaced + after.slice(blockEnd));
-  return true;
-}
-
-/** Bump the `<lastmod>` of the article's sitemap-blog entry to the refresh date. */
-export function bumpSitemapLastmod(slug, isoDate, repoRoot = REPO_ROOT) {
-  const file = path.join(repoRoot, 'public', 'sitemap-blog.xml');
-  let src = readFileSync(file, 'utf-8');
-  // Match the <url> block whose <loc> ends with /<slug>/ and rewrite ITS <lastmod>.
-  // The negative lookahead keeps the match inside this url block, so a missing
-  // lastmod can never make it bump a different article's date.
-  const urlBlockRe = new RegExp(
-    `(<url>\\s*<loc>[^<]*/${slug}/</loc>(?:(?!</url>)[\\s\\S])*?<lastmod>)[^<]*(</lastmod>)`,
-  );
-  const m = src.match(urlBlockRe);
-  if (!m) return false;
-  src = src.replace(urlBlockRe, `$1${isoDate}$2`);
-  writeFileSync(file, src);
-  return true;
-}
+// bumpUpdatedAt/bumpDateModified/bumpSitemapLastmod now live in
+// ./lib/evergreen-article-refresh.mjs (shared with the border-wait-ranking
+// digest — AGENTS.md §6). Re-exported so existing importers (tests,
+// publish-journalist-article.mjs) keep working unchanged.
+export { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod };
 
 async function main() {
   const dryRun = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true';

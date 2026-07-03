@@ -12,11 +12,20 @@
  *     è già bloccata dal gate deterministico pr-body-contract.yml. Il bucket ricorre
  *     per affermazioni ("sezioni presenti e sensate") ed etichette-di-posizione
  *     ("PR body ## Implementato L2" su un finding di altro tipo). Conta solo (a).
+ *   - #3325 `reviewer-finding/sibling-class-fix`: stessa classe di #2440 ma per il
+ *     bucket sibling-sweep (regex su `sibling`/`file gemello`/`stesso anti-pattern`/
+ *     `non toccat[o]`). Il bucket non aveva NESSUN filtro (a differenza del suo
+ *     gemello pr-body-contract, #3332) → ricorso ×6 in 14gg (#3319/#3317/#3312/
+ *     #3267/#3265) contando affermazioni ("nessun sibling residuo", "no
+ *     inconsistency") e persino un caso di emoji-come-parola ("nessun 🔴/🟡 da
+ *     propagare", #3319) che ingannava `detectSeverity`. Conta solo la violazione
+ *     genuina; scarta affermazioni e falsi-positivi dichiarati esplicitamente.
  */
 import { describe, it, expect } from 'vitest';
 import {
   isAvoidableMaxTurns,
   isGenuinePrBodyContractViolation,
+  isGenuineSiblingClassViolation,
   bucketFinding,
 } from '../scripts/ci/harvest-agent-lessons.mjs';
 
@@ -157,5 +166,62 @@ describe('bucketFinding — pr-body-contract scarta i falsi positivi e lascia ri
 
   it('violazione genuina di sezione mancante resta pr-body-contract', () => {
     expect(bucketFinding('🔴 process: manca la sezione `## Implementato`')).toBe('pr-body-contract');
+  });
+});
+
+describe('isGenuineSiblingClassViolation — conta solo il sibling non-sweepato, non affermazioni/falsi-positivi (#3325)', () => {
+  it('sibling non toccato con lo stesso anti-pattern → violazione (contabile, es. #3317)', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🔴 Important: stesso anti-pattern `.slice(0, 20)` keep-oldest cap-trim non-journalizzato che questa PR ha appena fixato resta intatto in 7 crawler company-specific attivi, non toccato da questa PR né dichiarato in `## Non implementato`.',
+    )).toBe(true);
+  });
+
+  it('nit di divergenza dal sibling anche se "deferred" resta violazione genuina (AGENTS.md #8 abolisce deferral-as-closure, es. #3312)', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🟡 Nit: pre-flight is awaited inline per-payload, unlike the sibling events poster which batches all checks upfront via Promise.allSettled — deferred, non funnel-critical.',
+    )).toBe(true);
+  });
+
+  it('affermazione "nessun 🔴/🟡 da propagare" → NON violazione, anche coi glifi emoji letterali (#3319)', () => {
+    expect(isGenuineSiblingClassViolation(
+      'Cross-file (sticky sibling-check): condividono token ma non replicano il pattern cap-check-con-auto-esclusione fixato qui — nessun 🔴/🟡 da propagare.',
+    )).toBe(false);
+  });
+
+  it('affermazione "correctly mirrors the sibling ... no inconsistency" → NON violazione (es. #3267)', () => {
+    expect(isGenuineSiblingClassViolation(
+      'isSystemicBoilerplateFailure correctly mirrors the sibling floor — ratio AND count AND total-eligible, not ratio alone. No inconsistency, not a candidate for the same split.',
+    )).toBe(false);
+  });
+
+  it('falso positivo dichiarato esplicitamente (AGENTS.md #6: lessicalmente simile, semanticamente diverso) → NON violazione', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🟡 Nit: il costrutto è solo lessicalmente simile ma semanticamente diverso — falso positivo, non è lo stesso anti-pattern del sibling.',
+    )).toBe(false);
+  });
+
+  it('vocabolario sibling senza affermazione né falso-positivo dichiarato → conservativo: violazione', () => {
+    expect(isGenuineSiblingClassViolation('🟡 sibling non toccato, verificare a mano')).toBe(true);
+  });
+
+  it('"non è un falso positivo" (rifiuto esplicito) → resta violazione genuina (issue #3367)', () => {
+    expect(isGenuineSiblingClassViolation(
+      '🔴 Important: non è un falso positivo, il sibling condivide lo stesso bug non sweepato.',
+    )).toBe(true);
+  });
+});
+
+describe('bucketFinding — sibling-class-fix scarta i falsi positivi (#3325)', () => {
+  it('violazione genuina di sibling non-sweepato resta sibling-class-fix', () => {
+    expect(bucketFinding(
+      '🔴 Important: stesso anti-pattern non toccato, resta intatto nei 7 crawler sibling',
+    )).toBe('sibling-class-fix');
+  });
+
+  it('affermazione con emoji-come-parola non finisce in sibling-class-fix', () => {
+    const b = bucketFinding(
+      'Cross-file (sticky sibling-check): non replicano il pattern fixato qui — nessun 🔴/🟡 da propagare.',
+    );
+    expect(b).not.toBe('sibling-class-fix');
   });
 });

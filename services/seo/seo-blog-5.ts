@@ -45300,7 +45300,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Eventi del weekend in Ticino"
       },
       "datePublished": "2026-06-29T23:19:06+02:00",
-      "dateModified": "2026-07-02T00:00:00+02:00",
+      "dateModified": "2026-07-03T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -45932,6 +45932,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-classifica-dogane-ticino': {
+    title: 'Classifica delle dogane in Ticino: le migliori e le peggiori',
+    description: 'Ogni dogana ticinese classificata per tempo medio di attesa, con trend settimanale e quanti minuti si perdono (o guadagnano) scegliendo un valico piuttosto che un altro.',
+    keywords: 'dogane ticino, tempi attesa dogana, classifica dogane, traffico confine ticino, valico ticino, coda dogana',
+    ogTitle: 'Classifica delle dogane in Ticino',
+    ogDescription: 'Le dogane ticinesi classificate per tempo di attesa: le più veloci, le più lente, e quanti minuti di vita si perdono a sceglierne una piuttosto che un\'altra.',
+    canonicalPath: '/articoli-frontaliere/classifica-dogane-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Classifica delle dogane in Ticino: le migliori e le peggiori per tempo di attesa",
+      "description": "Ogni dogana ticinese classificata per tempo medio di attesa, con trend settimanale e quanti minuti si perdono (o guadagnano) scegliendo un valico piuttosto che un altro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/mendrisio.webp`,
+        "width": 1200,
+        "height": 563,
+        "caption": "Traffico in coda a una dogana del Canton Ticino"
+      },
+      "datePublished": "2026-07-03T13:13:04+02:00",
+      "dateModified": "2026-07-03T13:13:04+02:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/classifica-dogane-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
