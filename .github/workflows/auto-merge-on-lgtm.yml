@@ -3,6 +3,11 @@ name: Auto-merge on Claude LGTM
 # Auto-merge scatta SOLO quando coesistono DUE condizioni, qualunque arrivi prima:
 #   A) review claude-bot sulla HEAD corrente con `## LGTM` e NO `🔴 Important`;
 #   B) check-run `vitest (unit + integration)` sulla HEAD == `success`.
+# Il check "NO 🔴 Important" per (A) NON vive nel job `if:` sotto — un `contains()`
+# YAML è una substring-match naive, e "🔴 Important" appare anche nella prosa di
+# NEGAZIONE del reviewer ("zero 🔴 Important findings...", PR #3330): il job veniva
+# skippato per una PR con `## LGTM` e zero findings reali. La decisione vive SOLO
+# in auto-merge-eval.mjs (REDFLAG_IMPORTANT_RE, negation-aware) — vedi sotto.
 # In passato il gate vitest bloccava SOLO su conclusion==failure: se vitest era
 # pending/mancante il merge PROCEDEVA → una PR poteva mergiare prima della fine
 # dei test e, se poi andavano rossi, main andava rosso (osservato #1454: LGTM
@@ -31,11 +36,13 @@ permissions:
 
 jobs:
   auto-merge:
-    # Pre-filtro a livello di evento (il resto dei gate è in auto-merge-eval.mjs,
-    # uguale per entrambi i trigger):
+    # Pre-filtro a livello di evento (il resto dei gate, incluso il check
+    # `🔴 Important` negation-aware, è in auto-merge-eval.mjs — single source of
+    # truth per entrambi i trigger):
     #   - pull_request_review: review autore = claude-bot (user.type=='Bot' +
-    #     startsWith 'claude'), state 'commented', body con `## LGTM` e senza
-    #     `🔴 Important`, PR non draft.
+    #     startsWith 'claude'), state 'commented', body con `## LGTM`, PR non
+    #     draft. NON filtra su `🔴 Important` qui (vedi commento header) — se il
+    #     body ha un 🔴 reale, auto-merge-eval.mjs lo blocca comunque a valle.
     #   - workflow_run: solo se la run di `tests` è conclusa con success (vitest
     #     verde) — altrimenti inutile valutare.
     if: |
@@ -44,7 +51,6 @@ jobs:
         startsWith(github.event.review.user.login, 'claude') &&
         github.event.review.state == 'commented' &&
         contains(github.event.review.body, '## LGTM') &&
-        !contains(github.event.review.body, '🔴 Important') &&
         github.event.pull_request.draft == false)
       ||
       (github.event_name == 'workflow_run' &&

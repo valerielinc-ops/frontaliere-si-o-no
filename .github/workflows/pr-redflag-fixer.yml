@@ -41,10 +41,12 @@ jobs:
     # esatta `🔴 Important` è FRAGILE al markdown del reviewer. Osservato su PR #2211:
     # round-1 "🔴 Important: ..." (match) → round-2 "🔴 **Important —** ..." (bold →
     # `contains('🔴 Important')` FALSO → redflag-fix SKIPPATO → 🔴 round-2 mai
-    # indirizzato, PR bloccata, niente auto-merge). `stale-pr-rescuer.yml` già usa la
-    # detection robusta `grep -q "🔴"`: qui ci allineiamo. Il match PRECISO (è davvero
-    # un finding Important, non un 🔴 decorativo) lo fa il preflight sotto, con una
-    # regex tollerante al bold/spaziatura — impossibile in un'espressione `if:` YAML.
+    # indirizzato, PR bloccata, niente auto-merge). Questo `if:` resta un pre-filter
+    # ECONOMICO e volutamente ampio (solo "contiene un 🔴 qualsiasi"). Il match
+    # PRECISO (è davvero un finding Important, non un 🔴 decorativo o prosa che lo
+    # nega) lo fa il preflight sotto, con una regex tollerante al bold/spaziatura MA
+    # che richiede un delimitatore dopo "Important" — impossibile in un'espressione
+    # `if:` YAML.
     if: |
       github.event.review.user.type == 'Bot' &&
       startsWith(github.event.review.user.login, 'claude') &&
@@ -68,10 +70,15 @@ jobs:
         run: |
           set -uo pipefail
           # Marker 🔴-Important tollerante al markdown: il reviewer a volte bolda
-          # ("🔴 **Important —**") o varia la spaziatura. `🔴\s*\*{0,2}\s*Important`
-          # copre `🔴 Important`, `🔴 **Important`, `🔴**Important**`. Un 🔴 NON seguito
-          # da "Important" (decorativo, es. "nessun 🔴") → no-op, niente round speso.
-          if ! printf '%s' "$REVIEW_BODY" | grep -qP '🔴\s*\*{0,2}\s*Important'; then
+          # ("🔴 **Important —**") o varia la spaziatura. Richiede un delimitatore
+          # (`:`, `—`, `-`) subito dopo "Important" (+ bold di chiusura opzionale) —
+          # senza, la stessa regex matchava anche la prosa di negazione del
+          # reviewer ("zero 🔴 Important findings", PR #3330): "Important" lì è un
+          # aggettivo che dice che non ce ne sono, non il marker. Un 🔴 NON seguito
+          # da "Important<delimitatore>" (decorativo o prosa, es. "nessun 🔴") →
+          # no-op, niente round speso. Stessa regex in scripts/ci/lib/constants.mjs
+          # (REDFLAG_IMPORTANT_RE) — YAML `if:` non può importarla, tenerle allineate.
+          if ! printf '%s' "$REVIEW_BODY" | grep -qP '🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
             echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi

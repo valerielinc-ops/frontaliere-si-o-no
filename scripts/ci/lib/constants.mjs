@@ -30,17 +30,31 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
 
 /**
  * Detects a `🔴 Important` finding in a reviewer body, TOLERANT to the reviewer's
- * markdown: `🔴 Important`, `🔴 **Important`, `🔴**Important**` all match. The plain
- * literal `'🔴 Important'` (used historically) misses the bold form, which the
- * reviewer emitted on PR #2211 round-2 ("🔴 **Important —**") → the redflag-fixer
- * skipped and the PR stalled with an unaddressed 🔴, and the auto-merge 🔴-guard
- * could likewise miss it. Single source for the JS-side gates (auto-merge-eval.mjs).
+ * markdown: `🔴 Important:`, `🔴 **Important —**`, `🔴**Important**:` all match. The
+ * plain literal `'🔴 Important'` (used historically) misses the bold form, which
+ * the reviewer emitted on PR #2211 round-2 ("🔴 **Important —**") → the
+ * redflag-fixer skipped and the PR stalled with an unaddressed 🔴, and the
+ * auto-merge 🔴-guard could likewise miss it. Single source for the JS-side gates
+ * (auto-merge-eval.mjs).
+ *
+ * Requires a delimiter (`:`, em-dash `—`, or `-`) right after `Important` (+
+ * optional closing bold). Without it, PR #3330 false-positived: the reviewer's
+ * own negation prose "zero 🔴 Important findings (both nits are non-blocking...)"
+ * matched the bare `🔴\s*\*{0,2}\s*Important` regex — "Important" there is an
+ * adjective inside a sentence saying there are NONE, not the marker — so the
+ * auto-merge 🔴-guard skipped a PR that actually had `## LGTM` and zero real
+ * findings, and the same text would also have mis-tripped stale-pr-rescuer.yml's
+ * Class B rescue. Every real marker observed (colon-delimited, or the PR #2211
+ * bold/dash form) has punctuation immediately after "Important"; plain
+ * continuation prose does not.
  *
  * NB: `pr-redflag-fixer.yml`'s preflight greps the SAME shape in bash
- * (`grep -qP '🔴\s*\*{0,2}\s*Important'`) — a YAML `if:` cannot import this regex,
- * so keep the two equivalent. `stale-pr-rescuer.yml` uses an even broader bare `🔴`.
+ * (`grep -qP '🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'`) — a YAML `if:` cannot
+ * import this regex, so keep the two equivalent. `stale-pr-rescuer.yml`'s Class B
+ * check now mirrors it too (previously an even broader bare `🔴`, with the same
+ * false-positive exposure).
  */
-export const REDFLAG_IMPORTANT_RE = /🔴\s*\*{0,2}\s*Important/;
+export const REDFLAG_IMPORTANT_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]/;
 
 /**
  * File la cui modifica impedisce STRUTTURALMENTE al reviewer Claude di girare
