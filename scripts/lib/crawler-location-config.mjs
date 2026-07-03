@@ -556,6 +556,13 @@ export const COMPANY_HQ = {
   // company's own imprint page (bossard.com/ch-en/imprint/); no fallback
   // needed.
   'bossard': { city: 'Zug', canton: 'ZG', postalCode: '6301', addressRegion: 'ZG' },
+  // Belimo Holding AG HQ, Brunnenbachstrasse 1, 8340 Hinwil ZH — confirmed
+  // via the company's own job-listing page footer text ("BELIMO Holding AG,
+  // Brunnenbachstrasse 1, 8340 Hinwil (Schweiz)"), cross-checked against the
+  // opencorpdata.com LEI record and GPS coordinates. NOT 8620 (a
+  // plausible-looking but wrong guess — that is Wetzikon's postal code, a
+  // different nearby ZH town); no fallback needed.
+  'belimo': { city: 'Hinwil', canton: 'ZH', postalCode: '8340', addressRegion: 'ZH' },
 };
 
 /**
