@@ -243,7 +243,18 @@ export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
     const minPct = j?.from?.value != null && j.from.value !== '' ? parseInt(j.from.value, 10) : null;
     const maxPct = j?.to?.value != null && j.to.value !== '' ? parseInt(j.to.value, 10) : null;
     const link = String(j?.link || '').replace(/^\/+/, '');
-    const detailUrl = link ? `${base}/${lang}/${link}` : `${base}/${lang}/jobs/--${id}`;
+    // Two shapes seen across `mode: 'api'` tenants: ipw's AngularJS board emits
+    // a tenant/lang-RELATIVE link (`jobs/{slug}--{id}`), so it belongs under
+    // `${base}/${lang}/…`. Kanton Zürich (`ktzh`) instead emits a SITE-ABSOLUTE
+    // link that already carries the tenant segment, mirroring the flat SSR
+    // `job/details/{id}` path (`ktzh/job/details/{id}/` once the leading slash
+    // is stripped) — routing that through `${base}/${lang}/…` would double the
+    // tenant (`.../ktzh/de/ktzh/job/details/…`) and 404. Detect the absolute
+    // form by its leading tenant segment and build off the site root instead.
+    const isSiteAbsoluteLink = link.startsWith(`${soliqueTenant}/`);
+    const detailUrl = link
+      ? (isSiteAbsoluteLink ? `https://live.solique.ch/${link}` : `${base}/${lang}/${link}`)
+      : `${base}/${lang}/jobs/--${id}`;
     out.push({
       id,
       title,
@@ -507,6 +518,13 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
  * @param {Array<string>} [config.extraTrustedHosts]
  * @param {function(string):string} [config.postalCodeForCity]  Optional mapper
  *                                              from primary city → postal code.
+ * @param {string} [config.sector='Sanità / Ospedali']  Overridable — every
+ *   established tenant is a healthcare operator, but the factory is also
+ *   reused by non-healthcare public employers (e.g. Kanton Zürich cantonal
+ *   administration), whose jobs must not be tagged "Sanità / Ospedali".
+ * @param {function(string):string} [config.categoryFn]  Overridable category
+ *   classifier, defaults to `detectHealthcareCategory` (whose catch-all
+ *   default is also "Sanità / Ospedali") — same rationale as `sector`.
  */
 export function createSoliqueParser(config) {
   const {
@@ -531,6 +549,10 @@ export function createSoliqueParser(config) {
     // `content` layout used by the ex-Umantis migrated boards (adullam, ipw).
     // Keep false for every established tenant so their extraction is untouched.
     migratedBoard = false,
+    // Defaults preserve byte-identical behavior for every established
+    // (healthcare) tenant; only non-healthcare consumers need to override.
+    sector = 'Sanità / Ospedali',
+    categoryFn = detectHealthcareCategory,
   } = config;
 
   if (!soliqueTenant || !companyKey || !companyName || !defaultCanton) {
@@ -685,11 +707,11 @@ export function createSoliqueParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         postalCode: postal,
-        category: detectHealthcareCategory(`${title} ${tile.area || ''}`),
+        category: categoryFn(`${title} ${tile.area || ''}`),
         contract,
         employmentType,
         experienceLevel: detectHealthcareExperienceLevel(title),
-        sector: 'Sanità / Ospedali',
+        sector,
         currency: 'CHF',
         featured: false,
         postedDate: todayIso,
