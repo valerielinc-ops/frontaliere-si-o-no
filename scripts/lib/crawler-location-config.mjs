@@ -538,6 +538,7 @@ export const COMPANY_HQ = {
   // registry), cross-checked against Moneyhouse; no fallback needed.
   'vz-vermoegenszentrum': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
   'css-versicherung': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
+  'spruengli': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
 };
 
 /**
