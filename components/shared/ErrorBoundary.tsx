@@ -301,7 +301,7 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  message: `[SilentBoundary:${props.boundary}] ${error.name}: ${decoded.slice(0, 160)}`,
  stack: error.stack?.slice(0, 500) || '',
  componentStack: stack,
- pagePath: typeof window !== 'undefined' ? window.location.href : '',
+ pagePath: typeof window !== 'undefined' ? window.location.pathname + window.location.search : '',
  pageTitle: typeof document !== 'undefined' ? document.title : '',
  fatal: false,
  });
