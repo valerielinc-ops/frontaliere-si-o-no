@@ -1,9 +1,12 @@
 /**
  * Real-time counterpart of `scripts/backfill-jobalerts-from-newsletter.mjs`.
- * Fires on every new `newsletter_subscribers/{email}` doc going forward
- * (see functions/index.js → `backfillJobAlertOnNewsletterSignup`), so a
- * `job_alert_subscribers/{email}/alerts/backfill-newsletter` entry exists the
- * day after signup without waiting for the next manual batch run.
+ * Invoked from an `onDocumentWritten` trigger on every
+ * `newsletter_subscribers/{email}` write going forward (see
+ * functions/index.js → `backfillJobAlertOnNewsletterSignup`), gated by
+ * `signalTierChanged` so it only does real work when eligibility actually
+ * flips — see the rationale in `jobAlertBackfillCore.js` for why a plain
+ * `onDocumentCreated` misses subscribers whose signal fields arrive via a
+ * later merge write.
  *
  * Shares the exact decision logic with the batch script via
  * `jobAlertBackfillCore.js` — no drift between "day-0 backfill of existing

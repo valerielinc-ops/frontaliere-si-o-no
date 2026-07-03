@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
+import { getSignalTier, signalTierChanged } from '../functions/src/jobAlertBackfillCore.js';
 
 interface AlertDoc {
   id: string;
@@ -34,6 +35,44 @@ function fakeDb({
     }),
   };
 }
+
+describe('signalTierChanged — race-condition guard (onDocumentWritten)', () => {
+  it('is true on doc creation when the doc already carries job signal', () => {
+    expect(signalTierChanged(null, { job_category: 'tech' })).toBe(true);
+  });
+
+  it('is false on doc creation when the doc carries no signal at all', () => {
+    expect(signalTierChanged(null, {})).toBe(false);
+  });
+
+  it('is true when a later merge adds the signal that a bare auth write omitted (the reviewer-flagged race)', () => {
+    // saveUserProfileToFirestore creates the doc with only auth fields...
+    const bareAuthWrite = { auth_uid: 'uid-1', name: 'Foo' };
+    // ...then upsertNewsletterSubscriber merges in the real signal moments later.
+    const fullUpsertMerge = { auth_uid: 'uid-1', name: 'Foo', job_category: 'tech' };
+    expect(signalTierChanged(bareAuthWrite, fullUpsertMerge)).toBe(true);
+  });
+
+  it('is false for an unrelated field update once the tier is already settled (engagement tracking)', () => {
+    const before = { job_category: 'tech', opens: 3 };
+    const after = { job_category: 'tech', opens: 4 };
+    expect(signalTierChanged(before, after)).toBe(false);
+  });
+
+  it('is true when tier upgrades from location-fallback to signal', () => {
+    const before = { location_interest: 'Lugano' };
+    const after = { location_interest: 'Lugano', job_category: 'tech' };
+    expect(signalTierChanged(before, after)).toBe(true);
+  });
+});
+
+describe('getSignalTier', () => {
+  it('returns none/location-fallback/signal in priority order', () => {
+    expect(getSignalTier({})).toBe('none');
+    expect(getSignalTier({ geo_city: 'Lugano' })).toBe('location-fallback');
+    expect(getSignalTier({ job_category: 'tech', geo_city: 'Lugano' })).toBe('signal');
+  });
+});
 
 describe('handleNewsletterSubscriberCreated — meta sentinel', () => {
   it('is a no-op for the _meta_ doc', async () => {

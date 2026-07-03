@@ -4,7 +4,7 @@
  * ALL `newsletter_subscribers` docs, regardless of `source_channel`.
  *
  * One-off batch pass over EXISTING docs. Going forward, new docs are covered
- * automatically by the `onDocumentCreated` trigger in
+ * automatically by the `onDocumentWritten` trigger in
  * `functions/index.js` → `functions/src/jobAlertBackfillTrigger.js`, which
  * shares the exact same decision logic via `functions/src/jobAlertBackfillCore.js`
  * (re-exported here through `scripts/lib/jobalert-backfill-core.mjs` so both

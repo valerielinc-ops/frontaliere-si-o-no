@@ -1,6 +1,6 @@
 /**
  * Shim — canonical module lives at `functions/src/jobAlertBackfillCore.js`
- * because the real-time `onDocumentCreated` trigger needs it inside
+ * because the real-time `onDocumentWritten` trigger needs it inside
  * `functions/` (no bundler, cannot import outside that dir). Re-exported
  * here so the batch backfill script resolves to the exact same logic —
  * no drift between the one-off backfill and the ongoing trigger.
@@ -11,4 +11,6 @@ export {
   normalizeEmail,
   shouldSkipSubscriber,
   buildAlertPayload,
+  getSignalTier,
+  signalTierChanged,
 } from '../../functions/src/jobAlertBackfillCore.js';

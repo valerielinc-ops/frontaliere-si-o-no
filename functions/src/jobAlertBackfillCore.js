@@ -2,11 +2,25 @@
  * Pure decision logic shared by the batch backfill script
  * (`scripts/backfill-jobalerts-from-newsletter.mjs`, via the
  * `scripts/lib/jobalert-backfill-core.mjs` shim) and the real-time
- * `onDocumentCreated` trigger (`jobAlertBackfillTrigger.js`) that fires on
- * every new `newsletter_subscribers/{email}` doc going forward.
+ * `onDocumentWritten` trigger (`jobAlertBackfillTrigger.js`) that fires on
+ * every `newsletter_subscribers/{email}` write going forward.
  *
  * Canonical here (not in `services/`) because Cloud Functions have no
  * bundler and cannot import anything outside `functions/`.
+ *
+ * Why `onDocumentWritten`, not `onDocumentCreated`: on every social sign-in
+ * (Google/Facebook/LinkedIn/One-Tap), `saveUserProfileToFirestore`
+ * (services/authService.ts) fires an un-awaited `setDoc(..., {merge:true})`
+ * with only auth fields (no job/location signal), racing the full
+ * `upsertNewsletterSubscriber` write that carries the real signal fields —
+ * and the bare write structurally tends to land first (fewer awaits, no
+ * pre-read). A one-shot `onDocumentCreated` would see zero signal at create
+ * time and skip the subscriber permanently, since the later merge is an
+ * UPDATE the create-hook never sees. `signalTierChanged` (below) lets the
+ * write-hook re-evaluate on every write cheaply (pure field diff, no
+ * Firestore read) and only do real work when eligibility actually flips —
+ * which both catches the delayed signal and keeps routine engagement writes
+ * (open/click tracking) a no-op.
  *
  * Signal tiers, cheapest-first:
  *  1. `job_category`/`job_location` — job-specific context (job_gate unlock,
@@ -34,9 +48,10 @@ export function normalizeEmail(raw) {
 }
 
 /**
+ * @param {Record<string, unknown>|null|undefined} data
  * @returns {'signal'|'location-fallback'|'none'}
  */
-function getSignalTier(data) {
+export function getSignalTier(data) {
   const category = String(data?.job_category || '').trim();
   const location = String(data?.job_location || '').trim();
   if (category || location) return 'signal';
@@ -44,6 +59,20 @@ function getSignalTier(data) {
   const geoCity = String(data?.geo_city || '').trim();
   if (locationInterest || geoCity) return 'location-fallback';
   return 'none';
+}
+
+/**
+ * True when the signal tier differs between the doc's prior and new state —
+ * i.e. this write is the one that actually made (or unmade) eligibility,
+ * not an unrelated field update (auth profile fields, engagement tracking).
+ * `beforeData` is null on doc creation (treated as tier 'none').
+ * @param {Record<string, unknown>|null} beforeData
+ * @param {Record<string, unknown>|null|undefined} afterData
+ * @returns {boolean}
+ */
+export function signalTierChanged(beforeData, afterData) {
+  const beforeTier = beforeData ? getSignalTier(beforeData) : 'none';
+  return getSignalTier(afterData) !== beforeTier;
 }
 
 /**
