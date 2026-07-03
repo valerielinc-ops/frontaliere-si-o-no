@@ -1,15 +1,20 @@
 {
   "version": 1,
   "snoozes": {
+    "A.1.cluster-monoculture": {
+      "consecutiveDays": 1,
+      "lastSeen": "2026-07-03",
+      "snoozedUntil": null
+    },
     "B.5.cluster-stats-degenerate": {
-      "consecutiveDays": 51,
-      "lastSeen": "2026-07-02",
-      "snoozedUntil": "2026-07-09"
+      "consecutiveDays": 52,
+      "lastSeen": "2026-07-03",
+      "snoozedUntil": "2026-07-10"
     },
     "C.4.engagement-dive": {
-      "consecutiveDays": 5,
-      "lastSeen": "2026-07-02",
-      "snoozedUntil": "2026-07-09"
+      "consecutiveDays": 6,
+      "lastSeen": "2026-07-03",
+      "snoozedUntil": "2026-07-10"
     }
   }
 }
