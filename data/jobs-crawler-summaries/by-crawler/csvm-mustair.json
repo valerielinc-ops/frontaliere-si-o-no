@@ -1,18 +1,19 @@
 {
   "key": "csvm-mustair",
   "label": "Center da Sanda Val Müstair (CSVM)",
-  "generatedAt": "2026-07-02T21:36:09.105Z",
-  "total": 6,
-  "newCount": 1,
-  "updatedCount": 4,
+  "generatedAt": "2026-07-03T10:59:20.016Z",
+  "total": 5,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5978,
-  "avgDurationMs": 5978,
+  "unchangedCount": 0,
+  "durationMs": 7285,
+  "avgDurationMs": 7285,
   "durationHistory": [
-    5978
+    7285
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csvm-mustair-a89bfd964d91",
       "slug": "lehrstellen-2027-csvm-mustair-mustair",
@@ -20,13 +21,13 @@
       "companyKey": "csvm-mustair",
       "companyDomain": "csvm.ch",
       "title": "Lehrstellen 2027",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Sta. Maria Val Müstair",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:36:04.800Z",
+      "crawledAt": "2026-07-03T10:59:14.828Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-07-02",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-02T21:36:04.800Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "csvm-mustair-8ebb8e6491dc",
       "slug": "einsatzleitung-spitex-80-100-csvm-mustair-mustair",
@@ -64,7 +64,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:36:04.803Z",
+      "crawledAt": "2026-07-03T10:59:14.830Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:36:05.844Z",
+      "crawledAt": "2026-07-03T10:59:16.197Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:36:06.548Z",
+      "crawledAt": "2026-07-03T10:59:17.032Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:36:07.021Z",
+      "crawledAt": "2026-07-03T10:59:17.724Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -201,46 +201,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "csvm-mustair-2ca53ce6ff78",
-      "slug": "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta",
-      "company": "Center da Sanda Val Müstair (CSVM)",
-      "companyKey": "csvm-mustair",
-      "companyDomain": "csvm.ch",
-      "title": "Lehrstellen 2026",
-      "needsRetranslation": true,
-      "location": "Sta",
-      "canton": "GR",
-      "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
-      "source": "CSVM Dedicated Parser (Joomla HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T10:55:28.464Z",
-      "addressLocality": "Sta",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7536",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
-      "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
