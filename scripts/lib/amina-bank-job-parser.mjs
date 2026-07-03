@@ -15,9 +15,13 @@
  *
  * AMINA posts jobs for both its Swiss HQ (Zug) and its India subsidiary
  * (AMINA India, a wholly-owned back-office/tech extension). Each listing
- * carries an `office` field ("Switzerland" | "India"); we gate on
- * `isChCountry(office)` (shared CH guard, AGENTS.md #6) so India-only
- * postings don't get mis-claimed as Swiss jobs.
+ * carries an `office` field ("Switzerland" | "India") and an `offices[]`
+ * array (can list more than one location). We gate on `isChCountry` against
+ * `offices[]` when present (more granular — surfaces a CH entry even if a
+ * different value sits in `office`), falling back to the singular `office`
+ * field otherwise (shared CH guard, AGENTS.md #6), so India-only postings
+ * don't get mis-claimed as Swiss jobs while multi-office CH postings aren't
+ * silently dropped.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllAminaBankJobs()  — Fetch and parse all jobs
@@ -160,10 +164,11 @@ export async function fetchAllAminaBankJobs() {
 
   const jobs = [];
   for (const rec of listings) {
-    const office = rec.office
-      || (Array.isArray(rec.offices) ? rec.offices.find((o) => isChCountry(o)) || rec.offices[0] : '')
-      || '';
-    if (!isChCountry(office)) continue; // skip AMINA India (and any other non-CH office)
+    const officesList = Array.isArray(rec.offices) && rec.offices.length
+      ? rec.offices
+      : [rec.office];
+    const isCh = officesList.some((o) => isChCountry(o));
+    if (!isCh) continue; // skip AMINA India (and any other non-CH office)
 
     const title = normalizeSpace(rec.name || '');
     if (!title || title.length < 3) continue;

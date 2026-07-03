@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   AMINA_BANK_KEY,
   AMINA_BANK_COMPANY_NAME,
   isAminaBankJob,
   isTrustedDomain,
+  fetchAllAminaBankJobs,
 } from '../scripts/lib/amina-bank-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -124,6 +125,52 @@ describe('AMINA Bank crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── fetchAllAminaBankJobs: office vs offices[] priority (follow-up #3381) ──
+  describe('fetchAllAminaBankJobs office/offices CH gate', () => {
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    function mockListings(listings) {
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve(listings),
+      }));
+    }
+
+    it('keeps a job whose offices[] contains a CH entry even if office (singular) is non-CH', async () => {
+      mockListings([{
+        id: 1,
+        name: 'Multi-office Role',
+        office: 'India',
+        offices: ['India', 'Switzerland'],
+      }]);
+      const jobs = await fetchAllAminaBankJobs();
+      expect(jobs).toHaveLength(1);
+    });
+
+    it('drops a job when neither office nor offices[] is CH', async () => {
+      mockListings([{
+        id: 2,
+        name: 'India-only Role',
+        office: 'India',
+        offices: ['India'],
+      }]);
+      const jobs = await fetchAllAminaBankJobs();
+      expect(jobs).toHaveLength(0);
+    });
+
+    it('falls back to office (singular) when offices[] is absent', async () => {
+      mockListings([{
+        id: 3,
+        name: 'Legacy Shape Role',
+        office: 'Switzerland',
+      }]);
+      const jobs = await fetchAllAminaBankJobs();
+      expect(jobs).toHaveLength(1);
     });
   });
 });
