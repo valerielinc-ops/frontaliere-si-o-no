@@ -552,6 +552,10 @@ export const COMPANY_HQ = {
   // Plan-les-Ouates GE — confirmed via patek.com's own legal-notices page
   // (terms-and-conditions imprint); no fallback needed.
   'patek-philippe': { city: 'Plan-les-Ouates', canton: 'GE', postalCode: '1228', addressRegion: 'GE' },
+  // Bossard AG HQ, Steinhauserstrasse 70, 6301 Zug ZG — confirmed via the
+  // company's own imprint page (bossard.com/ch-en/imprint/); no fallback
+  // needed.
+  'bossard': { city: 'Zug', canton: 'ZG', postalCode: '6301', addressRegion: 'ZG' },
 };
 
 /**
