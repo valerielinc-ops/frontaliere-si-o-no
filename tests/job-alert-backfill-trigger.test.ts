@@ -238,4 +238,104 @@ describe('handleNewsletterSubscriberCreated — tier-3 personalization fallback'
     expect(result.created).toBe(false);
     expect(result.reason).toBe('no-signal');
   });
+
+  it('derives personalization-fallback from a bare search query with no viewed jobs', () => {
+    const result = resolveSignalTier({}, { searches: [{ query: 'infermiera', ts: 1 }] });
+    expect(result.tier).toBe('personalization-fallback');
+    expect(result.patch).toEqual({ job_search_query: 'infermiera' });
+  });
+});
+
+describe('resolveSignalTier — tier-4 URL fallback', () => {
+  it('derives a canton from an Italian job-board consent URL', () => {
+    const result = resolveSignalTier({ consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' }, null);
+    expect(result).toEqual({ tier: 'url-fallback', patch: { location_interest: 'ti' } });
+  });
+
+  it('derives a canton from a French locale-prefixed source_page path', () => {
+    const result = resolveSignalTier({ source_page: '/fr/trouver-emploi-valais/some-job/' }, null);
+    expect(result).toEqual({ tier: 'url-fallback', patch: { location_interest: 'vs' } });
+  });
+
+  it('falls back to source_page when consent_source_url resolves nothing', () => {
+    const result = resolveSignalTier(
+      { consent_source_url: 'https://frontaliereticino.ch/', source_page: '/cerca-lavoro-ticino/some-job/' },
+      null,
+    );
+    expect(result).toEqual({ tier: 'url-fallback', patch: { location_interest: 'ti' } });
+  });
+
+  it('prefers tier-3 personalization over tier-4 URL when both are available', () => {
+    const result = resolveSignalTier(
+      { consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' },
+      { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] },
+    );
+    expect(result.tier).toBe('personalization-fallback');
+  });
+
+  it('stays none for the Switzerland-wide aggregator URL', () => {
+    const result = resolveSignalTier({ consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-svizzera/' }, null);
+    expect(result).toEqual({ tier: 'none', patch: null });
+  });
+
+  it('stays none for an ambiguous half-canton group URL', () => {
+    const result = resolveSignalTier({ consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-basilea/' }, null);
+    expect(result).toEqual({ tier: 'none', patch: null });
+  });
+
+  it('stays none when the URL is not a job-board page', () => {
+    const result = resolveSignalTier({ consent_source_url: 'https://frontaliereticino.ch/blog/some-article/' }, null);
+    expect(result).toEqual({ tier: 'none', patch: null });
+  });
+});
+
+describe('signalTierChanged — tier-4 URL awareness', () => {
+  it('is true on doc creation when the doc only carries a job-board consent URL', () => {
+    const after = { consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' };
+    expect(signalTierChanged(null, after)).toBe(true);
+  });
+
+  it('is false when a non-job-board URL is added (no eligibility flip)', () => {
+    const before = {};
+    const after = { consent_source_url: 'https://frontaliereticino.ch/blog/some-article/' };
+    expect(signalTierChanged(before, after)).toBe(false);
+  });
+
+  it('is false for an unrelated field update once the URL tier is already settled', () => {
+    const before = { consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/', opens: 3 };
+    const after = { consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/', opens: 4 };
+    expect(signalTierChanged(before, after)).toBe(false);
+  });
+
+  it('is true when tier upgrades from url-fallback to signal', () => {
+    const before = { consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' };
+    const after = { ...before, job_category: 'tech' };
+    expect(signalTierChanged(before, after)).toBe(true);
+  });
+});
+
+describe('handleNewsletterSubscriberCreated — tier-4 URL fallback', () => {
+  it('creates a url-fallback alert from a job-board consent URL with no other signal', async () => {
+    const db = fakeDb();
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { source_channel: 'popup', consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' },
+      { db: db as any },
+    );
+    expect(result.created).toBe(true);
+    expect(result.tier).toBe('newsletter_subscribers:popup:url-fallback');
+    const parentWrite = db.writes.find((w) => w.path === 'job_alert_subscribers/a@b.ch');
+    expect(parentWrite?.payload).toMatchObject({ location_interest: 'ti' });
+  });
+
+  it('does not derive url-fallback from a non-job-board URL', async () => {
+    const db = fakeDb();
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { source_channel: 'popup', consent_source_url: 'https://frontaliereticino.ch/blog/some-article/' },
+      { db: db as any },
+    );
+    expect(result.created).toBe(false);
+    expect(result.reason).toBe('no-signal');
+  });
 });
