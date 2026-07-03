@@ -142,6 +142,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'citta-di-mendrisio': gFavicon('mendrisio.ch'),
  'claraspital': cLogo('claraspital.ch'),
  'clienia-ag': cLogo('clienia.ch'),
+ 'climeworks': cLogo('climeworks.com'),
  'clinica-hildebrand': cLogo('clinica-hildebrand.ch'),
  'clinica-holistica-engiadina': cLogo('clinica-holistica.ch'),
  'clinica-varini': cLogo('clinicavarini.ch'),
