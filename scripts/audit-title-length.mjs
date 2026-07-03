@@ -34,6 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 
@@ -75,12 +76,16 @@ export function classifyFeature(relPath) {
   if (/(?:^|\/)(?:mercato-lavoro|mercato-lavoro-ticino|job-market|ticino-job-market|arbeitsmarkt|arbeitsmarkt-tessin|marche-emploi|marche-travail|marche-emploi-tessin|marche-travail-tessin)\//.test(p)) return 'job-market-snapshot';
   if (BLOG_SECTION_RX.test(p)) return 'blog';
   if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  // Ticino events hub + per-comune pages (all 4 locale section slugs). Split
-  // out so they don't pollute the spa-locale/spa-other catch-all — same
-  // classifier-drift class as #2853/#2910 fuel/svizzera leaks. Mirrors
-  // audit-text-html-ratio.mjs's classifyFeature (kept in sync manually since
-  // the two classifiers intentionally diverge on other buckets).
-  if (/(?:^|\/)(?:eventi\/ticino|events\/ticino|veranstaltungen\/tessin|evenements\/tessin)(?:\/|$)/.test(p)) return 'eventi';
+  // Canton-aware events sections (TI legacy + every canton + digest
+  // landings) → shared matcher. Split out so they don't pollute the
+  // spa-locale/spa-other catch-all — same classifier-drift class as
+  // #2853/#2910 fuel/svizzera leaks and the job-board TI-only leak fixed
+  // above. Was TI-only, which leaked non-TI canton events pages into
+  // spa-locale/spa-other once nationwide event sourcing shipped (#3125/
+  // #3243), causing the #3232 regression. Mirrors audit-text-html-ratio.mjs's
+  // classifyFeature (kept in sync manually since the two classifiers
+  // intentionally diverge on other buckets).
+  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
