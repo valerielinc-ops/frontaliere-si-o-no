@@ -82,12 +82,12 @@ function countUniqueWords(text = '') {
  * `/hr/` substring (inside "Le**hr**stelle") and end up as "Risorse Umane"
  * instead of "Formazione". We check apprentice / training keywords first.
  */
-function detectCategoryForSf(title = '') {
+function detectCategoryForSf(title = '', fallbackCategory = 'Sanità / Ospedali') {
   const t = normalize(title);
   if (/lehrstelle|lernend|ausbildung|praktik|apprend|stagia|tirocin|formaz|studierend/.test(t)) {
     return 'Formazione';
   }
-  return detectHealthcareCategory(title);
+  return detectHealthcareCategory(title, fallbackCategory);
 }
 
 /* ── Listing page parser ──────────────────────────────────── */
@@ -421,6 +421,12 @@ export function createSuccessFactorsParser(config) {
     sourceLabel,
     searchParams = null,
     acceptJob = null,
+    // Optional overrides for non-healthcare tenants reusing this CSB factory
+    // (originally built for hospital/clinic groups, hence the healthcare
+    // defaults below). Both default to the historical hardcoded values, so
+    // existing consumers that don't pass them see zero behavior change.
+    sector = 'Sanità / Ospedali',
+    fallbackCategory = 'Sanità / Ospedali',
   } = config;
 
   if (!companyKey || !companyName || !sfCompanyId || !publicCareerUrl || !defaultCanton) {
@@ -613,11 +619,11 @@ export function createSuccessFactorsParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         postalCode,
-        category: detectCategoryForSf(title),
+        category: detectCategoryForSf(title, fallbackCategory),
         contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
         employmentType,
         experienceLevel: detectHealthcareExperienceLevel(title),
-        sector: 'Sanità / Ospedali',
+        sector,
         currency: 'CHF',
         featured: false,
         postedDate,

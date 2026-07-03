@@ -30,6 +30,8 @@ const parser = createSuccessFactorsParser({
   defaultPostalCode: '8005',
   defaultSourceLang: 'en',
   sourceLabel: 'SIX Group Dedicated Parser (SuccessFactors CSB)',
+  sector: 'Finanza',
+  fallbackCategory: 'Amministrazione',
 });
 
 export const fetchAllSixGroupJobs = parser.fetchAllJobs;

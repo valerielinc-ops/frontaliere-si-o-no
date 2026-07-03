@@ -41,6 +41,8 @@ const parser = createSuccessFactorsParser({
   defaultSourceLang: 'en',
   searchParams: { locationsearch: 'Switzerland' },
   sourceLabel: 'Tecan Dedicated Parser (SuccessFactors CSB)',
+  sector: 'Tecnologia / Strumentazione di laboratorio',
+  fallbackCategory: 'Tecnica',
 });
 
 export const fetchAllTecanJobs = parser.fetchAllJobs;
