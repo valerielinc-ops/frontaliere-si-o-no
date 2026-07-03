@@ -339,6 +339,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'mks-pamp': '/images/brands/mks-pamp.png',
  'mobiliar': '/images/brands/mobiliar.png',
  'modellstation-somosa': cLogo('somosa.ch'),
+ 'molecular-partners': cLogo('molecularpartners.com'),
  'moncucco': '/images/brands/moncucco.png',
  'msc-cargo': cLogo('msc.com'),
  'mtic-group': gFavicon('mtic-group.org'),
