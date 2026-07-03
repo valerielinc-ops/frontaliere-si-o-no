@@ -1,0 +1,80 @@
+name: Cloudflare 5xx Monitor
+
+# Daily zone-wide 5xx watchdog. production-canary.yml already probes a FIXED
+# list of known URLs every 15min — this catches 5xx on ANY path across the
+# whole zone (unknown/new routes, CDN asset paths, locale-router shards),
+# reusing the same GraphQL dataset as scripts/cf-status-report.mjs via its
+# --json flag (no new integration, no duplicated CF-analytics construct —
+# AGENTS.md #6).
+#
+# Zero-Claude by design (pure node + the existing gh issue-creator) per the
+# frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
+#
+# Auth: CF_API_TOKEN lives in Firebase Remote Config, loaded via
+# scripts/load-rc-env.mjs (same mechanism as dmarc-monitor.yml /
+# discover-404s-via-cloudflare.yml).
+#
+# Free-plan retention is ~3 days and queries are capped at ~1 day per call
+# (see scripts/lib/cf-analytics.mjs), hence the daily cadence.
+
+on:
+  schedule:
+    # Daily 03:50 UTC — 10min after discover-404s-via-cloudflare (03:40),
+    # which already reads the same zone's GraphQL analytics; keeping the two
+    # CF-analytics reads close together avoids spreading the CF token budget
+    # window across the day.
+    - cron: '50 3 * * *'
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'Look-back window in hours (max ~23.9, free plan)'
+        required: false
+        type: string
+        default: '23'
+
+concurrency:
+  group: cf-5xx-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Sync Cloudflare 5xx issues to backlog
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CF_5XX_HOURS: ${{ inputs.hours || '23' }}
+        run: node scripts/cf-5xx-issue-sync.mjs

@@ -1,0 +1,80 @@
+name: PostHog Error Monitor
+
+# Weekly watchdog for real-user JS errors captured via PostHog `$exception`
+# autocapture. Companion to the GA4 app_error sync inside analytics.yml
+# (scripts/app-error-issue-sync.mjs) — same "top-N over threshold → backlog
+# issue" pattern (scripts/lib/error-issue-sync.mjs), different source, so an
+# error only PostHog captures (or vice versa, e.g. GA4 blocked by a
+# consent/ad-blocker edge case PostHog isn't) doesn't go unnoticed.
+#
+# Zero-Claude by design (pure node + the existing gh issue-creator) per the
+# frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
+#
+# Auth: POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID / POSTHOG_HOST live in
+# Firebase Remote Config, loaded via scripts/load-rc-env.mjs (same mechanism
+# as monitor-cls-posthog.mjs / triage-app-errors.mjs).
+
+on:
+  schedule:
+    # Weekly, Tuesday 07:25 UTC — offset from the GA4 sync (Monday 07:00,
+    # inside analytics.yml) so the two error-tracking passes don't land on
+    # the same weekly slot, and clear of every other 07:xx Monday cron
+    # (dmarc-monitor, app-auth-health-monitor, funnel-metrics-snapshot,
+    # gsc-frontaliere-monitor all run Monday).
+    - cron: '25 7 * * 2'
+  workflow_dispatch:
+    inputs:
+      windowDays:
+        description: 'Look-back window in days'
+        required: false
+        type: string
+        default: '7'
+
+concurrency:
+  group: posthog-error-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        # load-rc-env.mjs needs firebase-admin from node_modules to read
+        # Remote Config; the monitor itself only uses node built-ins + gh CLI.
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Sync PostHog exception issues to backlog
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WINDOW_DAYS: ${{ inputs.windowDays || '7' }}
+        run: node scripts/posthog-error-issue-sync.mjs
