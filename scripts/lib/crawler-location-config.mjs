@@ -344,6 +344,7 @@ export const COMPANY_HQ = {
   'mobiliar':                     { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
   // Cathedral CH-wide marquee batch (2026-05-10) — Pictet + HUG.
   'pictet':                       { city: 'Genève',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'proton':                       { city: 'Plan-les-Ouates',    canton: 'GE', postalCode: '1228', addressRegion: 'GE' },
   'hug':                          { city: 'Genève',             canton: 'GE', postalCode: '1205', addressRegion: 'GE' },
   'bms-building':                 { city: 'Naters',             canton: 'VS', postalCode: '3904', addressRegion: 'VS' },
   'bls':                          { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
@@ -479,6 +480,15 @@ export const COMPANY_HQ = {
   'georg-fischer': { city: 'Schaffhausen', canton: 'SH', postalCode: '8201', addressRegion: 'SH' },
   'temenos': { city: 'Genève', canton: 'GE', postalCode: '1196', addressRegion: 'GE' },
   'galderma': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
+  // ── Issue #3337 backlog wave ──
+  'ferring': { city: 'Saint-Prex', canton: 'VD', postalCode: '1162', addressRegion: 'VD' },
+  'thermo-fisher-scientific': { city: 'Reinach', canton: 'BL', postalCode: '4153', addressRegion: 'BL' },
+  'everest-re': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  'anybotics': { city: 'Zürich', canton: 'ZH', postalCode: '8050', addressRegion: 'ZH' },
+  'sonarsource': { city: 'Vernier', canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
+
+  // ── Wave B: 40 crawler batch (issue #3337) ──
+  'mistral-ai': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'swissquote': { city: 'Gland', canton: 'VD', postalCode: '1196', addressRegion: 'VD' },
   'talan': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'staubli': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },

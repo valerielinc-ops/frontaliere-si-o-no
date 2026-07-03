@@ -212,6 +212,18 @@ export function createWorkdaySwissParser(config) {
       facetApplied = false;
       listings = await fetchJobListings({ useCountryFacet: false });
     }
+
+    // Some tenants accept the locationCountry facet without erroring and
+    // simply return the full, unfiltered global board anyway (confirmed on
+    // Everest Re: identical `total` with/without the facet). A genuinely
+    // CH-scoped board never contains an explicitly-foreign listing, so any
+    // hit here proves the facet was silently ignored — downgrade to the
+    // strict per-listing gate using the SAME (already unfiltered) listings,
+    // no extra fetch needed.
+    if (facetApplied && listings.some((l) => isLocationExplicitlyForeign(l.locationRaw))) {
+      console.warn(`⚠️ ${companyName}: locationCountry facet silently ignored (foreign listings present in "filtered" board). Applying strict CH gate.`);
+      facetApplied = false;
+    }
     const strictSwiss = !facetApplied;
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
