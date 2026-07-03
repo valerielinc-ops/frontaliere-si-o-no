@@ -529,6 +529,9 @@ export const COMPANY_HQ = {
   'sygnum': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
   'postauto': { city: 'Bern', canton: 'BE', postalCode: '3030', addressRegion: 'BE' },
   'bucherer': { city: 'Luzern', canton: 'LU', postalCode: '6005', addressRegion: 'LU' },
+
+  // ── CordenPharma dedicated crawler (2026-07-03) ──
+  'cordenpharma': { city: 'Liestal', canton: 'BL', postalCode: '4410', addressRegion: 'BL' },
 };
 
 /**
