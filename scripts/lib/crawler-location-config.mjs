@@ -544,6 +544,14 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // dormakaba group HQ (2026-07-04): Hofwisenstrasse 24, 8153 Rümlang ZH —
+  // confirmed via dormakaba.com/ch-de/ruemlang location page + Zefix legal
+  // seat for dormakaba Holding AG / dormakaba International Holding AG /
+  // dormakaba Finance AG (all "Rümlang"). The actual CH operating subsidiary,
+  // dormakaba Schweiz AG, has its legal seat in Wetzikon ZH instead — see the
+  // city-gated `resolveAddress()` in scripts/lib/dormakaba-job-parser.mjs for
+  // the per-office street; this HQ entry is only the generic fallback.
+  'dormakaba': { city: 'Rümlang', canton: 'ZH', postalCode: '8153', addressRegion: 'ZH' },
 };
 
 /**
