@@ -544,6 +544,11 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Veeam Software Group GmbH — Baar ZG (Linden Park, Lindenstrasse 16,
+  // 6340 Baar). Confirmed via Veeam's own official contacts page
+  // (https://www.veeam.com/company/contacts.html) cross-checked against
+  // Zefix (Swiss commercial registry, firm id 1036504); no fallback needed.
+  'veeam': { city: 'Baar', canton: 'ZG', postalCode: '6340', addressRegion: 'ZG' },
 };
 
 /**
