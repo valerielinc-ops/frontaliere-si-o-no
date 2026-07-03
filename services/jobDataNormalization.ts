@@ -383,6 +383,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'rhne-reseau-hospitalier-neuchatelois': cLogo('rhne.ch'),
  'richemont': cLogo('richemont.com'),
  'rittmeyer-ag': '/images/brands/rittmeyer-ag.png',
+ 'rituals-cosmetics': cLogo('rituals.com'),
  'riveneuve': cLogo('riveneuve.ch'),
  'rivopharm': cLogo('rivopharm.com'),
  'roche': cLogo('roche.com'),
