@@ -544,6 +544,10 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Hintermättlistrasse 3, 5506 Mägenwil (BRACK.CH HQ). Second real site:
+  // Alltron logistics center, Rossgassmoos 10, 6131 Willisau (LU) — handled
+  // directly in brack-alltron-job-parser.mjs since this registry is single-site.
+  'brack-alltron': { city: 'Mägenwil', canton: 'AG', postalCode: '5506', addressRegion: 'AG' },
 };
 
 /**
