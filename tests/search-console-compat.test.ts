@@ -460,6 +460,42 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  it('strips a differently-cased leading duplicate hostname (GSC-indexed casing drift)', () => {
+    expect(
+      resolveSearchConsoleCompatTarget(
+        '/Frontaliereticino.ch/en/find-jobs-ticino/some-expired-job-slug',
+      ),
+    ).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'expired-job',
+      locale: 'en',
+    });
+  });
+
+  it('strips a www.-prefixed leading duplicate hostname', () => {
+    expect(
+      resolveSearchConsoleCompatTarget(
+        '/www.frontaliereticino.ch/en/find-jobs-ticino/some-expired-job-slug',
+      ),
+    ).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'expired-job',
+      locale: 'en',
+    });
+  });
+
+  it('strips a differently-cased www.-prefixed leading duplicate hostname', () => {
+    expect(
+      resolveSearchConsoleCompatTarget(
+        '/WWW.FrontaliereTicino.CH/en/find-jobs-ticino/some-expired-job-slug',
+      ),
+    ).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'expired-job',
+      locale: 'en',
+    });
+  });
+
   it('recovers the wrong-locale-word DE TI section guess to the real jobs-im-tessin section', () => {
     expect(resolveSearchConsoleCompatTarget('/de/jobs-in-ticino')).toEqual({
       canonicalPath: '/de/jobs-im-tessin/',

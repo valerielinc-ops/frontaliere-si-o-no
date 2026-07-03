@@ -212,8 +212,10 @@ export interface JobSlugCanonicalIndex {
 
 const ensureTrailingSlash = (p: string): string => (p.endsWith('/') ? p : `${p}/`);
 
+// URL#hostname is already lowercased per the URL spec, so these stay lowercase.
 const SITE_HOSTNAME = new URL(BASE_URL).hostname;
 const DUPLICATE_HOSTNAME_PREFIX = `/${SITE_HOSTNAME}/`;
+const DUPLICATE_HOSTNAME_WWW_PREFIX = `/www.${SITE_HOSTNAME}/`;
 
 function normalizePath(input: string): string {
  let clean = `/${String(input || '').trim().replace(/^\/+/, '')}`.replace(/\/+/g, '/');
@@ -222,7 +224,15 @@ function normalizePath(input: string): string {
  // an absolute-URL-built-as-relative artifact from a stray external backlink)
  // — without this the whole path never matches any branch below and is left
  // unresolved even though the real path after the duplicate IS recoverable.
- if (clean.startsWith(DUPLICATE_HOSTNAME_PREFIX)) clean = clean.slice(SITE_HOSTNAME.length + 1);
+ // Match case-insensitively (GSC may index `/Frontaliereticino.ch/...`) and
+ // also strip an optional `www.` variant. Slice the ORIGINAL (not lowercased)
+ // string so the remaining path keeps its real casing.
+ const lowerClean = clean.toLowerCase();
+ if (lowerClean.startsWith(DUPLICATE_HOSTNAME_WWW_PREFIX)) {
+  clean = clean.slice(DUPLICATE_HOSTNAME_WWW_PREFIX.length - 1);
+ } else if (lowerClean.startsWith(DUPLICATE_HOSTNAME_PREFIX)) {
+  clean = clean.slice(DUPLICATE_HOSTNAME_PREFIX.length - 1);
+ }
  if (clean === '/') return clean;
  return clean.replace(/\/$/, '');
 }
