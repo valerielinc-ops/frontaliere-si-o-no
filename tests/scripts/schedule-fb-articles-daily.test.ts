@@ -348,10 +348,12 @@ describe('run()', () => {
     expect(loadPosted(tmp).posted).toHaveLength(0);
   });
 
-  it('real run: posts each article (rescrape + feed) and updates the ledger', async () => {
+  it('real run: posts each article (preflight + rescrape + feed) and updates the ledger', async () => {
     const tmp = setupRepo({ articles: [{ id: 'a1', date: '2026-06-12' }] });
     const fetchSpy = vi.fn(async (url: string | URL | Request, init?: RequestInit) => {
       const u = String(url);
+      // Pre-flight HEAD probe of the landing page → live (2xx).
+      if (init?.method === 'HEAD') return new Response(null, { status: 200 });
       if (u.includes('scrape=true')) return new Response(JSON.stringify({ scraped: true }), { status: 200 });
       expect(init?.method).toBe('POST');
       return new Response(JSON.stringify({ id: 'pid_post_1' }), { status: 200 });
@@ -366,12 +368,33 @@ describe('run()', () => {
     });
     expect(result.posted).toBe(1);
     expect(result.ok).toBe(true);
-    // OG rescrape + /feed POST = 2 calls.
-    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    // pre-flight HEAD + OG rescrape + /feed POST = 3 calls.
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
     const ledger = loadPosted(tmp);
     expect(ledger.posted).toHaveLength(1);
     expect(ledger.posted[0].id).toBe('a1');
     expect(ledger.posted[0].fbPostId).toBe('pid_post_1');
+  });
+
+  it('skips the post when the landing page is not live yet (HEAD 4xx)', async () => {
+    const tmp = setupRepo({ articles: [{ id: 'a1', date: '2026-06-12' }] });
+    const fetchSpy = vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
+      if (init?.method === 'HEAD') return new Response(null, { status: 404 });
+      return new Response(JSON.stringify({ id: 'pid_post_1' }), { status: 200 });
+    });
+    const result = await run({
+      env: { FB_ARTICLE_MAX_AGE_DAYS: '2', FB_PAGE_ID: 'pid', FB_PAGE_ACCESS_TOKEN: 'tok' },
+      now: NOW,
+      repoRoot: tmp,
+      fetchImpl: fetchSpy as unknown as typeof fetch,
+      log: () => {},
+      warn: () => {},
+    });
+    expect(result.posted).toBe(0);
+    expect(result.skipped).toBe(1);
+    // a 4xx landing short-circuits before any rescrape/feed POST.
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(loadPosted(tmp).posted).toHaveLength(0);
   });
 
   it('does not re-post an article already in the ledger', async () => {
