@@ -302,6 +302,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'kzu': cLogo('kzu.ch'),
  'la-fonte': gFavicon('lafonte.ch'),
  'laderach': '/images/brands/laderach.png',
+ 'lalive': cLogo('lalive.law'),
  'lastminute-com': 'https://corporate.lastminute.com/wp-content/uploads/2025/07/lm_favicon.png',
  'leukerbad-clinic': cLogo('leukerbadclinic.ch'),
  'lhm-luzerner-hohenklinik-montana': cLogo('lhm.ch'),
