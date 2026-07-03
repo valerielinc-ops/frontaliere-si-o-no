@@ -498,6 +498,10 @@ export const COMPANY_HQ = {
   // directory listing (search.ch) + epi.ge.ch contact page; SmartRecruiters
   // tenant only exposes per-posting city, not always a street address.
   'epi-geneve': { city: 'Genève', canton: 'GE', postalCode: '1208', addressRegion: 'GE' },
+  // Yapeal AG HQ, Max-Högger-Strasse 6, 8048 Zürich ZH — confirmed via the
+  // company's own legal notice (yapeal.ch/en/private/legal-notice),
+  // cross-checked against Moneyhouse/LEI registry entries; no fallback needed.
+  'yapeal': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
 };
 
 /**
