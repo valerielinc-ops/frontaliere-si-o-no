@@ -82,12 +82,20 @@ function countUniqueWords(text = '') {
  * `/hr/` substring (inside "Le**hr**stelle") and end up as "Risorse Umane"
  * instead of "Formazione". We check apprentice / training keywords first.
  */
-function detectCategoryForSf(title = '') {
+function detectCategoryForSf(title = '', categoryFallback = null) {
   const t = normalize(title);
   if (/lehrstelle|lernend|ausbildung|praktik|apprend|stagia|tirocin|formaz|studierend/.test(t)) {
     return 'Formazione';
   }
-  return detectHealthcareCategory(title);
+  const detected = detectHealthcareCategory(title);
+  // `detectHealthcareCategory` is tuned for hospital/clinic tenants and
+  // defaults to 'Sanità / Ospedali' when nothing else matches. For
+  // non-healthcare SF tenants (industrial, finance, ...) that default is a
+  // mislabel — `categoryFallback` (from `createSuccessFactorsParser` config)
+  // substitutes a tenant-appropriate category instead. Healthcare tenants
+  // never pass `categoryFallback`, so their behavior is unchanged.
+  if (categoryFallback && detected === 'Sanità / Ospedali') return categoryFallback;
+  return detected;
 }
 
 /* ── Listing page parser ──────────────────────────────────── */
@@ -105,6 +113,13 @@ function detectCategoryForSf(title = '') {
  *     <td class="jobDate ..."> ... ISO date ... </td>
  *   </tr>
  *
+ * Some multi-brand/global tenants (e.g. Endress+Hauser's `careers.endress.com`,
+ * which fronts sub-brands like Analytik Jena) prefix the job path with a single
+ * country/brand segment instead of a flat `/job/...` link, e.g.
+ * `/Switzerland/job/{slug}/{jobId}/` or `/analytik-jena/job/{slug}/{jobId}/`.
+ * The link regex below tolerates one optional leading path segment so both
+ * shapes match.
+ *
  * We don't rely on column order — we extract the link + each cell's text and
  * use heuristics to identify the location cell and date cell.
  */
@@ -118,7 +133,7 @@ export function parseCsbSearchResults(html) {
   while ((rowMatch = rowRe.exec(html)) !== null) {
     const rowHtml = rowMatch[1];
 
-    const linkMatch = rowHtml.match(/<a[^>]+href="(\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/i);
+    const linkMatch = rowHtml.match(/<a[^>]+href="((?:\/[a-zA-Z0-9%._-]+)?\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/i);
     if (!linkMatch) continue;
 
     const relUrl = linkMatch[1].replace(/&amp;/g, '&');
@@ -393,6 +408,20 @@ export function parseCsbDetailPage(html) {
  * @param {string} config.defaultPostalCode  Fallback postal code (e.g. '5330').
  * @param {string} [config.defaultSourceLang='de']
  * @param {string} [config.sourceLabel]      Optional source label override.
+ * @param {string} [config.sector]           Job-category sector label (default
+ *   `'Sanità / Ospedali'` — this factory originated with hospital tenants; pass
+ *   an explicit sector for non-healthcare tenants, e.g. industrial/finance).
+ * @param {string} [config.descriptionFallbackTagline] One-sentence company
+ *   tagline used only inside the thin-description boilerplate guard (default
+ *   `'ist ein etablierter Schweizer Gesundheitsdienstleister'` — override for
+ *   non-healthcare tenants so the rare fallback text stays factually correct).
+ * @param {string} [config.categoryFallback] Category label substituted when
+ *   `detectHealthcareCategory()` (hospital-tuned, see
+ *   `hospital-custom-html-helpers.mjs`) falls through to its generic
+ *   `'Sanità / Ospedali'` default — set for non-healthcare tenants so titles
+ *   that don't match any clinical/technical/admin/HR keyword aren't mislabeled
+ *   as a hospital-sector job. Unset (default) preserves existing behavior for
+ *   genuine hospital/clinic tenants.
  * @param {Object<string,string>} [config.searchParams] Extra query params for
  *   the `/search/?...` listing endpoint (e.g. `{ locationsearch: 'Switzerland' }`
  *   to restrict a multi-country SF tenant to CH jobs). The factory always sets
@@ -419,6 +448,9 @@ export function createSuccessFactorsParser(config) {
     defaultPostalCode,
     defaultSourceLang = 'de',
     sourceLabel,
+    sector = 'Sanità / Ospedali',
+    descriptionFallbackTagline = 'ist ein etablierter Schweizer Gesundheitsdienstleister',
+    categoryFallback = null,
     searchParams = null,
     acceptJob = null,
   } = config;
@@ -570,7 +602,7 @@ export function createSuccessFactorsParser(config) {
       // back to the microdata `itemprop="description"` read) — otherwise
       // fall back to a brand summary.
       if (countUniqueWords(description) < MIN_DESCRIPTION_UNIQUE_WORDS) {
-        description = `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
+        description = `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ${descriptionFallbackTagline}. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
       }
 
       const postedDate = detail?.postedDate
@@ -613,11 +645,11 @@ export function createSuccessFactorsParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         postalCode,
-        category: detectCategoryForSf(title),
+        category: detectCategoryForSf(title, categoryFallback),
         contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
         employmentType,
         experienceLevel: detectHealthcareExperienceLevel(title),
-        sector: 'Sanità / Ospedali',
+        sector,
         currency: 'CHF',
         featured: false,
         postedDate,
