@@ -58,8 +58,7 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen",
-          "medicina-interna-generale-spital-thurgau-stgag-munsterlingen",
-          "medico-generale-senior-medicina-interna-spital-thurgau-stgag-munsterlingen"
+          "medicina-interna-generale-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "oberarzt-arztin-allgemeine-innere-medizin-stgag-munsterlingen"
@@ -212,8 +211,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-orthopadie-stgag-munsterlingen",
-          "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen"
+          "arztsekretar-in-orthopadie-stgag-munsterlingen"
         ],
         "en": [
           "arztsekretar-in-orthopadie-stgag-munsterlingen"
@@ -521,8 +519,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-psychotherapie-station-pt5-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-psychotherapie-station-pt5-spital-thurgau-stgag-munsterlingen",
-          "dipl-infermieristica-in-psicoterapia-reparto-pt5-spital-thurgau-stgag-munsterlingen-a21ad2"
+          "dipl-pflegefachmann-frau-psychotherapie-station-pt5-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-psychotherapie-station-pt5-stgag-munsterlingen"
@@ -690,12 +687,12 @@
     },
     {
       "id": "stgag-0970f4db21fb",
-      "slug": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen",
+      "slug": "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
-        "it": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
-        "fr": "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen"
+        "it": "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-munsterlingen",
+        "en": "dipl-nursing-professional-hf-fh-spital-thurgau-stgag-munsterlingen",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-fh-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -740,11 +737,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen"
+        ],
+        "fr": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen"
+        "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

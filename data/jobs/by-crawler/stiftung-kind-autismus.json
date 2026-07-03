@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stiftung-kind-autismus-c04f839d446c",
-      "slug": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
+      "slug": "lavoratore-sociale-in-servizio-civile-stiftung-kind-und-autismus-urdorf",
       "slugByLocale": {
         "de": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "it": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "en": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "fr": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        "it": "lavoratore-sociale-in-servizio-civile-stiftung-kind-und-autismus-urdorf",
+        "en": "social-worker-in-civil-service-stiftung-kind-und-autismus-urdorf",
+        "fr": "travailleur-social-dans-la-fonction-publique-stiftung-kind-und-autismus-urdorf"
       },
       "company": "Stiftung Kind und Autismus",
       "companyKey": "stiftung-kind-autismus",
@@ -65,7 +65,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:17:06.184Z"
+      "firstSeenAt": "2026-07-02T23:17:06.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ],
+        "en": [
+          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ],
+        "fr": [
+          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ]
+      },
+      "previousSlugs": [
+        "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+      ]
     },
     {
       "id": "stiftung-kind-autismus-3a72454bcdc5",
@@ -138,8 +152,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf",
-          "vorpraktikum-o-praticantato-nel-settore-sociale-stiftung-kind-und-autismus-urdorf"
+          "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T16:19:01.980Z",
@@ -225,8 +238,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-oder-sozialpadagoge-padagogische-mitarbeiterin-oder-padagogischer",
-          "educatore-sociale-o-educatrice-sociale-stiftung-kind-und-autismus-urdorf"
+          "sozialpadagogin-oder-sozialpadagoge-padagogische-mitarbeiterin-oder-padagogischer"
         ]
       },
       "firstSeenAt": "2026-05-19T16:19:00.513Z",

@@ -14250,9 +14250,9 @@
       "slug": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "it": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-olten"
+        "it": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-ch-2",
+        "en": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-ch-2",
+        "fr": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-ch-2"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14311,12 +14311,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-fbf4f94c85b8",
-      "slug": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "salute-professionale-nell-istruzione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "it": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "en": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "it": "salute-professionale-nell-istruzione-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "professional-health-in-education-f-m-d-solothurner-spitaler-ag-soh-solothurn-7948e1",
+        "fr": "sante-professionnelle-dans-le-domaine-de-l-education-f-m-d-solothurner-spitaler-ag-soh-solothurn-7948e1"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14371,7 +14371,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T22:57:42.105Z"
+      "firstSeenAt": "2026-07-02T22:57:42.105Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     }
   ]
 }

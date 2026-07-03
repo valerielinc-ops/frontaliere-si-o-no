@@ -1602,12 +1602,12 @@
     },
     {
       "id": "puk-zuerich-5013691af23e",
-      "slug": "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
+      "slug": "dottore-notturno-medico-assistito-medico-assistente-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-puk-zuerich-zurich",
-        "it": "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        "it": "dottore-notturno-medico-assistito-medico-assistente-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "night-doctor-assistant-doctor-assistant-doctor-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "medecin-de-nuit-medecin-assistant-assistant-medecin-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -1653,11 +1653,19 @@
       "externalId": "2712",
       "previousSlugsByLocale": {
         "it": [
-          "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+          "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+          "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "en": [
+          "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+        "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+        "nachtarztin-nachtarzt-assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
