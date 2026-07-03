@@ -1387,7 +1387,7 @@ export function renderEventDetailPage(params: {
   // guard in `renderEventCard`/`mirroredEventImageObject`.
   const heroImage =
     event.imageUrl && event.imageUrl.startsWith('/')
-      ? `<div class="mb-4 overflow-hidden rounded-lg border border-edge"><img class="aspect-[21/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="514" loading="lazy" alt="${esc(title)}"></div>`
+      ? `<div class="mb-4 overflow-hidden rounded-lg border border-edge"><img class="aspect-[21/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="514" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
       : '';
 
   const body = `<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
