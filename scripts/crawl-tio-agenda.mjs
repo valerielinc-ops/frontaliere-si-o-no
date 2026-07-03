@@ -331,7 +331,7 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
         if (translated) entry[locale] = translated;
         if (translateFn === freeTranslateWithRetry) await sleep(TRANSLATE_DELAY_MS);
       }
-      cache[key] = entry;
+      if (Object.keys(entry).length === TRANSLATE_LOCALES.length) cache[key] = entry;
     }
     if (Object.keys(entry).length === 0) {
       out.push({ ...ev });
