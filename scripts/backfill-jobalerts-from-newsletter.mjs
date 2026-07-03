@@ -161,6 +161,15 @@ async function main() {
       if (existingParent.exists) delete parentPayload.created_at;
       await subscriberRef.set(parentPayload, { merge: true });
 
+      if (patch) {
+        // buildAlertProfile (services/jobAlertMatching.mjs) reads
+        // job_category/location_interest off newsletter_subscribers/{email},
+        // NOT the job_alert_subscribers container doc above — merge the
+        // patch there too so the derived signal is actually visible to
+        // matching (mirrors functions/src/jobAlertBackfillTrigger.js).
+        await db.collection('newsletter_subscribers').doc(email).set(patch, { merge: true });
+      }
+
       await alertsRef.doc(ALERT_ID).set(
         {
           ...alertPayload,
