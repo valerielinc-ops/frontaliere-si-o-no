@@ -1,16 +1,16 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-07-03T11:32:42.673Z",
-  "total": 2,
+  "generatedAt": "2026-07-03T22:13:59.803Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3321,
-  "avgDurationMs": 3321,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3115,
+  "avgDurationMs": 3115,
   "durationHistory": [
-    3321
+    3115
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job153622?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T11:32:40.336Z",
+      "crawledAt": "2026-07-03T22:13:57.690Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -54,8 +54,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "igs-bern-9c98977693d2",
       "slug": "servizio-di-guardia-notturna-ca-30-40-interessengemeinschaft-sozialpsychiatrie-bern-bern",
@@ -98,5 +97,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
