@@ -777,6 +777,20 @@ export const ICON_MAP_PIN_SVG =
 export const ICON_NAVIGATION_SVG =
   '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>';
 
+/**
+ * OpenStreetMap `embed.html` iframe `src` for a lat/lng pin — no API key, no
+ * tracking script (just a same-origin-policy-free static map iframe). Shared
+ * by every static SEO page that shows a location map (fuel stations, events)
+ * so the bbox/marker formula lives in one place (AGENTS.md §6).
+ * `spanDeg` controls zoom: ~0.006° is a tight ~600m box, fine at the
+ * latitudes covered by all Swiss cantons.
+ */
+export function osmEmbedSrc(lat: number, lng: number, spanDeg = 0.006): string {
+  const bbox = `${(lng - spanDeg).toFixed(5)},${(lat - spanDeg).toFixed(5)},${(lng + spanDeg).toFixed(5)},${(lat + spanDeg).toFixed(5)}`;
+  const marker = `${lat.toFixed(6)},${lng.toFixed(6)}`;
+  return `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&layer=mapnik&marker=${encodeURIComponent(marker)}`;
+}
+
 /** Inline lucide "bar-chart-3" icon — used for ranking/leaderboard actions. 16×16. */
 export const ICON_BAR_CHART_SVG =
   '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>';

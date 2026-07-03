@@ -1,60 +1,39 @@
 /**
- * Guard for issue #3209 item 2: scripts/check-journalist-article-links.mjs
- * runs in the SAME workflow job as scripts/publish-journalist-article.mjs,
- * BEFORE that job's commit/push/deploy steps
- * (.github/workflows/publish-journalist-articles.yml). An article published
- * moments earlier in that exact run cannot possibly be live yet — its own
- * URL is guaranteed to fail. isRecentlyPublished()/processDoc() must skip
- * exactly that just-published doc (no fetch attempt, no bogus linkCheck
- * write) and leave it for the next cron tick, while still checking
- * already-live (earlier-run) articles normally.
+ * Guard for issue #3209 item 2 (follow-up): scripts/check-journalist-article-links.mjs
+ * must never fetch a journalist article's own URL before that article is
+ * confirmed live. It previously guessed via a fixed 5-minute post-publish
+ * skip window, which misfires whenever a deploy queues behind other commits
+ * for longer than that (the exact "email fired, site still 404" incident).
+ * processDoc() now gates on `doc.liveVerifiedAt`, stamped by
+ * scripts/notify-journalist-article-live.mjs only after it has confirmed the
+ * deploy actually landed — no fetch attempt, no bogus linkCheck write, for
+ * any doc missing that field, regardless of how long ago it was published.
  */
 import { describe, expect, it, vi, afterEach } from 'vitest';
-import { isRecentlyPublished, processDoc } from '../scripts/check-journalist-article-links.mjs';
+import { processDoc } from '../scripts/check-journalist-article-links.mjs';
 
-describe('isRecentlyPublished', () => {
-  const now = 1_000_000_000_000; // fixed reference instant
-
-  it('is true for a doc published seconds ago (same workflow run, not deployed yet)', () => {
-    expect(isRecentlyPublished(now - 10_000, now)).toBe(true);
-  });
-
-  it('is false once the doc is older than the skip window', () => {
-    expect(isRecentlyPublished(now - 6 * 60 * 1000, now)).toBe(false);
-  });
-
-  it('is false for a doc published a full cron interval ago (15 min, an earlier run)', () => {
-    expect(isRecentlyPublished(now - 15 * 60 * 1000, now)).toBe(false);
-  });
-
-  it('is false when there is no publishedAt timestamp at all', () => {
-    expect(isRecentlyPublished(null, now)).toBe(false);
-    expect(isRecentlyPublished(undefined, now)).toBe(false);
-  });
-});
-
-describe('processDoc — ordering tolerance (issue #3209 item 2)', () => {
+describe('processDoc — live gate (issue #3209 item 2 follow-up)', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
   });
 
-  function makeDocSnap({ publishedAtMs, publishedUrls }: { publishedAtMs: number | null; publishedUrls: Record<string, string> }) {
+  function makeDocSnap({ liveVerifiedAt, publishedUrls }: { liveVerifiedAt: unknown; publishedUrls: Record<string, string> }) {
     return {
       id: 'test-doc',
       data: () => ({
         publishedUrls,
-        publishedAt: publishedAtMs == null ? null : { toMillis: () => publishedAtMs },
+        liveVerifiedAt,
       }),
       ref: { update: vi.fn().mockResolvedValue(undefined) },
     };
   }
 
-  it('skips a just-published doc without fetching its not-yet-live URL or writing a linkCheck result', async () => {
+  it('skips a doc still missing liveVerifiedAt (deploy pending), no matter how long ago it was published', async () => {
     const fetchSpy = vi.fn();
     vi.stubGlobal('fetch', fetchSpy);
 
     const docSnap = makeDocSnap({
-      publishedAtMs: Date.now() - 5_000,
+      liveVerifiedAt: null,
       publishedUrls: { it: 'https://frontaliereticino.ch/articoli-frontaliere/test/' },
     });
 
@@ -64,7 +43,7 @@ describe('processDoc — ordering tolerance (issue #3209 item 2)', () => {
     expect(docSnap.ref.update).not.toHaveBeenCalled();
   });
 
-  it('checks a doc published a full cron interval ago normally (already deployed)', async () => {
+  it('checks a doc with liveVerifiedAt set normally (deploy confirmed live)', async () => {
     const fetchSpy = vi.fn().mockResolvedValue({
       ok: true,
       text: async () => '<html><body>no internal links here</body></html>',
@@ -72,7 +51,7 @@ describe('processDoc — ordering tolerance (issue #3209 item 2)', () => {
     vi.stubGlobal('fetch', fetchSpy);
 
     const docSnap = makeDocSnap({
-      publishedAtMs: Date.now() - 20 * 60 * 1000,
+      liveVerifiedAt: { toMillis: () => Date.now() },
       publishedUrls: { it: 'https://frontaliereticino.ch/articoli-frontaliere/test/' },
     });
 
