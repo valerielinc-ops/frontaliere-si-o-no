@@ -72,8 +72,9 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
-      {/* Inline Person JSON-LD for KG-linkable E-E-A-T signal. */}
+      {/* Inline Person JSON-LD — key forces remount (not just innerHTML patch) when author changes, guarding SSR-hydrated stale state after CSR merge. */}
       <script
+        key={`${author.slug}-jsonld`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
