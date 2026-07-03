@@ -324,7 +324,7 @@ export async function fetchAllStraumannJobs() {
 
       // ── Recommended fields ──
       addressLocality: location,
-      addressRegion: canton === HQ.canton ? HQ.region : undefined,
+      addressRegion: canton,
       postalCode: canton === HQ.canton ? HQ.postalCode : undefined,
       addressCountry: 'CH',
       country: 'CH',

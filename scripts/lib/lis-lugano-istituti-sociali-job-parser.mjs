@@ -35,6 +35,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 
 const HQ = getCompanyDefaults('lis');
 
@@ -270,10 +271,13 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   // Priority 3: largest <div class="descriptionContainer"> — fallback
   let description = '';
 
-  // Priority 1: itemprop="description" (may contain nested HTML)
-  const itemDescMatch = html.match(/<div\s+[^>]*itemprop=["']description["'][^>]*>([\s\S]*?)<\/div>/i);
-  if (itemDescMatch) {
-    const candidate = stripHtml(itemDescMatch[1]);
+  // Priority 1: itemprop="description" (may contain nested HTML). Rich-text
+  // description blocks commonly wrap paragraphs in nested `<div>`s (WYSIWYG
+  // output), so walk balanced nesting instead of stopping at the first inner
+  // close tag — sibling of the Arsanté/CSB truncation bug (#2823).
+  const located = locateTagByAttribute(html, 'itemprop=["\']description["\']');
+  if (located) {
+    const candidate = stripHtml(extractBalancedTagBlock(located.rest, located.tagName));
     if (candidate.length > 50) description = candidate;
   }
 
