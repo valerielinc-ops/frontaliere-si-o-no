@@ -543,6 +543,7 @@ export const COMPANY_HQ = {
   'kuehne-nagel': { city: 'Schindellegi', canton: 'SZ', postalCode: '8834', addressRegion: 'SZ' },
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
+  'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
 };
 
 /**
