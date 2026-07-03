@@ -348,8 +348,8 @@ export async function fetchAllCordenpharmaJobs() {
       // ── Recommended fields ──
       addressLocality: city || location,
       addressRegion: canton || HQ.addressRegion,
-      streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
-      postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
+      streetAddress,
+      postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
