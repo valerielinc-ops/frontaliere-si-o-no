@@ -532,6 +532,7 @@ export const COMPANY_HQ = {
 
   // ── CordenPharma dedicated crawler (2026-07-03) ──
   'cordenpharma': { city: 'Liestal', canton: 'BL', postalCode: '4410', addressRegion: 'BL' },
+  'bcv': { city: 'Lausanne', canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
 };
 
 /**
