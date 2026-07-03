@@ -340,6 +340,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'migros-hq': cLogo('migros.ch'),
  'migros-ticino': gFavicon('migros.ch'),
  'mikron': '/images/brands/mikron.png',
+ 'mistral-ai': cLogo('mistral.ai'),
  'mks-pamp': '/images/brands/mks-pamp.png',
  'mobiliar': '/images/brands/mobiliar.png',
  'modellstation-somosa': cLogo('somosa.ch'),

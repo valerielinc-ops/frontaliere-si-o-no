@@ -486,6 +486,9 @@ export const COMPANY_HQ = {
   'everest-re': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'anybotics': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
   'sonarsource': { city: 'Vernier', canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
+
+  // ── Wave B: 40 crawler batch (issue #3337) ──
+  'mistral-ai': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
 };
 
 /**
