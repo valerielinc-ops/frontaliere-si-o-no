@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-07-03T12:42:36.650Z",
+  "assembledAt": "2026-07-03T23:38:26.816Z",
   "jobs": [
     {
       "id": "vaudoise-002ece210d3a",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/65149268/Ing%C3%A9nieur-Ing%C3%A9nieure-Workplace-IT-h-f-x-80-100-?jobDbPVId=275647721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:33.822Z",
+      "crawledAt": "2026-07-03T23:38:23.995Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -54,7 +54,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
+          "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch",
+          "ingegnere-workplace-engineer-it-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "ingenieur-ingenieure-workplace-it-h-f-x-80-100-vaudoise-ch"
@@ -110,7 +111,7 @@
       "url": "https://vaudoise.softgarden.io/job/63296089/Chef-de-groupe-sp%C3%A9cialis%C3%A9-en-gestion-contrats-Cheffe-de-groupe-sp%C3%A9cialis%C3%A9e-en-gestion-contrats-h-f-x-100-?jobDbPVId=275833096&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:33.488Z",
+      "crawledAt": "2026-07-03T23:38:23.686Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -131,7 +132,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
+          "gruppo-leader-specializzato-nella-gestione-dei-contratti-gruppo-leader-specializzato-nella-gestione-dei-contratti-h-f-x"
         ],
         "en": [
           "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
@@ -187,7 +189,7 @@
       "url": "https://vaudoise.softgarden.io/job/63349219/Generalagent-in-Berner-Oberland-m-w-d-100-?jobDbPVId=275078778&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:33.160Z",
+      "crawledAt": "2026-07-03T23:38:23.372Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -208,7 +210,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "generalagent-in-berner-oberland-m-w-d-100-vaudoise-ch"
+          "generalagent-in-berner-oberland-m-w-d-100-vaudoise-ch",
+          "agente-generale-bernese-oberland-m-f-d-al-100-vaudoise-assurances-bern"
         ],
         "en": [
           "generalagent-in-berner-oberland-m-w-d-100-vaudoise-ch"
@@ -245,7 +248,7 @@
       "title": "Business Analyst RH (h/f/x) - 80-100%",
       "titleByLocale": {
         "it": "Business Analista RH (h/f/x) - 80-100%",
-        "en": "Business Analyst HR (h/f/x) - 80-100%",
+        "en": "Business Analyst RH (h/f/x) - 80-100%",
         "de": "Business Analyst HR (h/f/x) - 80-100%",
         "fr": "Business Analyste RH (h/f/x) - 80-100%"
       },
@@ -261,7 +264,7 @@
       "url": "https://vaudoise.softgarden.io/job/63990868/Business-Analyst-RH-h-f-x-80-100-?jobDbPVId=275309201&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:32.822Z",
+      "crawledAt": "2026-07-03T23:38:23.049Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -282,10 +285,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-rh-h-f-x-80-100-vaudoise-ch"
+          "business-analyst-rh-h-f-x-80-100-vaudoise-ch",
+          "business-analista-rh-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -332,7 +337,7 @@
       "url": "https://vaudoise.softgarden.io/job/62654354/Responsable-Formation-%E2%80%93-Insurance-Training-h-f-x-80-100-?jobDbPVId=275639876&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:32.504Z",
+      "crawledAt": "2026-07-03T23:38:22.737Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -353,7 +358,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
+          "formazione-responsabile-formazione-assicurativa-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
@@ -409,7 +415,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=275273571&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:32.174Z",
+      "crawledAt": "2026-07-03T23:38:22.423Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -474,7 +480,7 @@
       "title": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
       "titleByLocale": {
         "it": "Product Manager/in previdenza (m/w/d) - 80-100%",
-        "en": "Product Manager Provision (m/f/d) - 80-100 %",
+        "en": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
         "de": "Product Manager/in Vorsorge (m/w/d) - 80-100%",
         "fr": "Gestionnaire de produits/en Vorsorge (m/p/j) - 80-100%"
       },
@@ -490,7 +496,7 @@
       "url": "https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge-m-w-d-80-100-?jobDbPVId=275371581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:31.858Z",
+      "crawledAt": "2026-07-03T23:38:22.111Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -513,13 +519,15 @@
       "previousSlugsByLocale": {
         "it": [
           "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch",
-          "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne"
+          "product-manager-in-vorsorge-lunedi-mercoledi-d-80-100-vaudoise-assurances-lausanne",
+          "product-manager-in-previdenza-m-w-d-80-100-vaudoise-assurances-lausanne"
         ],
         "fr": [
           "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -566,7 +574,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060783/Sachbearbeiter-in-Inkasso-m-w-d-80-100-?jobDbPVId=275486456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:31.540Z",
+      "crawledAt": "2026-07-03T23:38:21.791Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -583,6 +591,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -629,7 +638,7 @@
       "url": "https://vaudoise.softgarden.io/job/65240161/Charg%C3%A9-Charg%C3%A9e-de-relation-client%C3%A8le-h-f-x-100-?jobDbPVId=275510721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:31.223Z",
+      "crawledAt": "2026-07-03T23:38:21.475Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -650,7 +659,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
+          "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch",
+          "charged-customer-relations-officer-h-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "charge-chargee-de-relation-clientele-h-f-x-100-vaudoise-ch"
@@ -706,7 +716,7 @@
       "url": "https://vaudoise.softgarden.io/job/64674339/Expert-Technique-Microsoft-365-h-f-x-80-100-?jobDbPVId=275648436&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:30.906Z",
+      "crawledAt": "2026-07-03T23:38:21.050Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -727,7 +737,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch"
+          "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch",
+          "microsoft-365-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch"
@@ -780,7 +791,7 @@
       "url": "https://vaudoise.softgarden.io/job/65279086/Product-Owner-Microsoft-365-Copilot-h-f-x-80-100-?jobDbPVId=275669596&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:30.589Z",
+      "crawledAt": "2026-07-03T23:38:20.734Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,6 +808,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "firstSeenAt": "2026-06-12T13:15:13.965Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -843,7 +855,7 @@
       "url": "https://vaudoise.softgarden.io/job/63905289/Quality-FinOps-Manager-h-f-x-80-100-?jobDbPVId=275739581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:30.272Z",
+      "crawledAt": "2026-07-03T23:38:20.414Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -864,13 +876,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
+          "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
+          "responsabile-qualita-finops-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "de": [
           "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -900,7 +914,7 @@
       "companyDomain": "vaudoise.ch",
       "title": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
       "titleByLocale": {
-        "it": "Esperto interno (m/f/d) - 80-100 %",
+        "it": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
         "en": "Interne/r Autoexperte (m/w/d) - 80-100 %",
         "de": "Interne/r Autoexperte/in (m/w/d) - 80-100%",
         "fr": "Interne/r Autoexperte (m/m/j) - 80-100 %"
@@ -917,7 +931,7 @@
       "url": "https://vaudoise.softgarden.io/job/64702594/Interne-r-Autoexperte-in-m-w-d-80-100-?jobDbPVId=275739726&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:29.942Z",
+      "crawledAt": "2026-07-03T23:38:20.099Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -938,10 +952,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+          "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
+          "esperto-interno-m-f-d-80-100-vaudoise-assurances-bern"
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -988,7 +1004,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=276097271&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:29.611Z",
+      "crawledAt": "2026-07-03T23:38:19.754Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1009,7 +1025,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
+          "vantaggi-specialistici-incidente-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
@@ -1065,7 +1082,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=276369111&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:29.279Z",
+      "crawledAt": "2026-07-03T23:38:19.439Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1095,7 +1112,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch",
+          "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch"
@@ -1136,7 +1154,7 @@
       "titleByLocale": {
         "it": "Perdita di testa/gruppo di guadagno di malattia - 80%-100% (h/f/x)",
         "en": "Head / Group Head Loss of sickness gain - 80%-100% (h/f/x)",
-        "de": "Leiter / Gruppenleiter Verlust des Krankheitsgewinns - 80% - 100% (h / f / x)",
+        "de": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)",
         "fr": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Au sein du Département Assurances de personnes, et afin de renforcer le service Perte de gain maladie (PGM), nous recherchons un/e Chef de groupe Perte de gain maladie entre 80 et 100% , basé à Lausanne. Le rôle comporte d’une part la conduite d’une équipe de gestionnaires spécialisés et d’autre part de la gestion de dossiers de sinistres. Les missions qui vous attendent :\n• Apporter votre soutien et vos conseils techniques à vos collaborateurs dans les dossiers\n• Organiser et coordonner le travail de votre groupe : tenue de séances d’équipe, bilatérales, organisation des plans de remplacements, etc.\n• Participer activement aux séances hebdomadaires des cadres du service et collaborer étroitement avec la cheffe de service ainsi que les autres chefs de groupe\n• Former vos collaborateurs (10 personnes) et veiller à la bonne application des règles de gestion\n• Planifier, organiser et contrôler le traitement des cas de prestations de votre équipe et participer activement à l'amélioration et à la simplification des processus de traitement\n• Traiter de manière autonome et proactive une partie des cas de sinistres de votre propre portefeuille de client (à partir de l’ouverture et en étroite collaboration avec les médecins-conseils et nos Care Managers)\n• Entretenir des contacts réguliers avec les partenaires, les assurés, les employeurs et les prestataires de soins Votre profil :\n• Brevet fédéral en assurances ou titre jugé équivalent\n• Expérience confirmée dans le domaine des prestations PGM\n• Leader expérimenté(e), reconnu(e) pour votre capacité à mobiliser les équipes, à instaurer une atmosphère de travail positive et à favoriser le développement des collaborateurs, tout en prenant des décisions efficaces dans des environnements exigeants\n• De langue maternelle française, une très bonne maîtrise de l’italien constitue un atout\n• A l’aise avec les outils informatiques usuels (MS Office) Si vous êtes également un leader investi, organisé, force de proposition et faites preuve d’une forte orientation client et disposez d’un caractère positif, vous êtes alors probablement la personne que nous recherchons ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
@@ -1151,7 +1169,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=276369151&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:28.964Z",
+      "crawledAt": "2026-07-03T23:38:19.128Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1173,7 +1191,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
+          "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne"
         ],
         "en": [
           "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
@@ -1184,6 +1203,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1230,7 +1250,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=276369181&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:28.632Z",
+      "crawledAt": "2026-07-03T23:38:18.816Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1251,7 +1271,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+          "responsabile-servizi-cassa-malattia-m-w-d-80-100-vaudoise-assurances-berne"
         ],
         "en": [
           "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
@@ -1307,7 +1328,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=276446426&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:28.317Z",
+      "crawledAt": "2026-07-03T23:38:18.180Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1328,7 +1349,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
+          "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+          "consulente-senior-m-w-d-80-100-vaudoise-assurances-bern"
         ],
         "en": [
           "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
@@ -1338,6 +1360,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1384,7 +1407,7 @@
       "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=276446476&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:27.988Z",
+      "crawledAt": "2026-07-03T23:38:17.865Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1405,7 +1428,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
+          "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
@@ -1445,7 +1469,7 @@
       "title": "Kundenberater/in Customer Service (m/w/d) – 100%",
       "titleByLocale": {
         "it": "Costumer Service Collaboratore/trice (m/w/d) – 100%",
-        "en": "Customer service consultant (m/f/d) – 100%",
+        "en": "Kundenberater/in Customer Service (m/w/d) – 100%",
         "de": "Kundenberater/in Kundendienst (m/w/d) – 100%",
         "fr": "Employé de service costumé (m/f/j) – 100%"
       },
@@ -1461,7 +1485,7 @@
       "url": "https://vaudoise.softgarden.io/job/65519536/Kundenberater-in-Customer-Service-m-w-d-%E2%80%93-100-?jobDbPVId=277501356&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:27.658Z",
+      "crawledAt": "2026-07-03T23:38:17.538Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1479,11 +1503,13 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "de": [
-          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch"
+          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch",
+          "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch"
         ],
         "it": [
           "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
-          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch"
+          "kundenberater-in-customer-service-m-w-d-100-vaudoise-ch",
+          "costumer-service-collaboratore-trice-m-w-d-100-vaudoise-assurances-fribourg"
         ],
         "en": [
           "costumer-service-mitarbeiter-in-m-w-d-100-vaudoise-ch",
@@ -1499,6 +1525,7 @@
         "costumer-service-employee-m-f-d-100-vaudoise-assurances-fribourg"
       ],
       "firstSeenAt": "2026-06-24T12:54:48.849Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1545,7 +1572,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=276977356&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:27.341Z",
+      "crawledAt": "2026-07-03T23:38:17.021Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1566,7 +1593,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
+          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
+          "responsabile-gruppo-delle-soluzioni-architetti-it-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
@@ -1622,7 +1650,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=276977446&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:27.003Z",
+      "crawledAt": "2026-07-03T23:38:16.687Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -1653,6 +1681,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.678Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1699,7 +1728,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=276977456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:26.669Z",
+      "crawledAt": "2026-07-03T23:38:16.360Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1724,6 +1753,9 @@
         ],
         "fr": [
           "conseiller-broker-m-w-d-100-vaudoise-assurances-bern"
+        ],
+        "de": [
+          "brokerbetreuer-in-m-w-d-100-vaudoise-assurances-bern"
         ]
       },
       "previousSlugs": [
@@ -1778,7 +1810,7 @@
       "url": "https://vaudoise.softgarden.io/job/64317263/%C3%9Cbersetzungspraktikant-in-Universit%C3%A4t-oder-Fachhochschule-m-w-x-%E2%80%93-100-?jobDbPVId=276977546&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:26.339Z",
+      "crawledAt": "2026-07-03T23:38:16.053Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1811,6 +1843,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1857,7 +1890,7 @@
       "url": "https://vaudoise.softgarden.io/job/65588916/Leiter-in-Ausbildung-%E2%80%93-Insurance-Training-m-w-d-80-100-?jobDbPVId=277043411&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:26.019Z",
+      "crawledAt": "2026-07-03T23:38:15.738Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1878,7 +1911,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
+          "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch",
+          "responsabile-ausbildung-insurance-training-m-w-d-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "leiter-in-ausbildung-insurance-training-m-w-d-80-100-vaudoise-ch"
@@ -1888,6 +1922,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:20:02.997Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1934,7 +1969,7 @@
       "url": "https://vaudoise.softgarden.io/job/65607556/Gestionnaire-Service-Client-et-Souscription-h-f-x-80-100-?jobDbPVId=277128006&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:25.685Z",
+      "crawledAt": "2026-07-03T23:38:15.419Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1959,7 +1994,8 @@
         "it": [
           "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
           "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
-          "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne"
+          "responsabile-servizio-clienti-e-abbonamento-h-f-x-80-100-vaudoise-assurances-lausanne",
+          "servizio-clienti-e-responsabile-abbonamenti-m-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
@@ -2000,7 +2036,7 @@
       "titleByLocale": {
         "it": "Capo dell'Agenzia (h/f/x) - 80-100%",
         "en": "Head of Agency (h/f/x) - 80-100%",
-        "de": "Leiter der Agentur (h/f/x) - 80-100%",
+        "de": "Chef / Cheffe d'agence (h/f/x) - 80-100%",
         "fr": "Chef / Cheffe d'agence (h/f/x) - 80-100%"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de soutenir le développement réjouissant de notre agence générale La Côte, nous recherchons, pour une entrée en fonction au 1er janvier 2027, un Chef ou une Cheffe d’agence rapportant directement à l'agent général, ayant pour mission de conduire une équipe de conseillers de l’agence de Nyon et de développer les affaires de la région Nyonnaise. Les missions qui vous attendent :\n• Former, accompagner et suivre régulièrement les conseillers au service externe\n• Participer à la stratégie de l’agence\n• Prendre en charge un portefeuille clients et contribuer à son développement ; déceler les besoins de la clientèle et leur soumettre des solutions adaptées et différenciées\n• Proposer des améliorations de processus en lien avec l'évolution des outils\n• Connaître les tendances de son marché ; s'informer régulièrement de leur évolution\n• Participer et contribuer à la vie économique et sociale de son périmètre ; se créer des opportunités de contact, développer des réseaux d'indicateurs et d'apporteurs d'affaires et les influencer activement Votre profil :\n• Certificat Intermédiaire d’assurance AFA obligatoire, diplôme IAF, brevet fédéral ou titre équivalent\n• Expérience de plusieurs années réussie dans le conseil en assurances et le management d’une équipe de vente\n• Leader orienté humain et culture de la performance\n• Fort esprit entrepreneurial\n• Compétences financières et analytiques Bien intégré dans le milieu économique et social de la région, vous aimez le contact et développez des relations. Vous êtes également doté d'un leadership naturel et savez prendre des décisions. Organisé, investi et d'un caractère positif, vous êtes force de propositions et prenez volontiers des initiatives. Votre orientation client ainsi que votre aptitude à soutenir vos collègues et à travailler en équipe vous apportent une réelle valeur ajoutée. De plus, vous êtes ouvert à former des jeunes. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
@@ -2015,7 +2051,7 @@
       "url": "https://vaudoise.softgarden.io/job/64916376/Chef-Cheffe-d-agence-h-f-x-80-100-?jobDbPVId=277246401&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:25.366Z",
+      "crawledAt": "2026-07-03T23:38:15.103Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2036,7 +2072,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+          "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
+          "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon"
         ],
         "en": [
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
@@ -2046,6 +2083,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2092,7 +2130,7 @@
       "url": "https://vaudoise.softgarden.io/job/63770144/D%C3%A9veloppeur-d%C3%A9veloppeuse-Power-Platform-et-.NET-h-f-x-80-100-?jobDbPVId=277266936&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:25.036Z",
+      "crawledAt": "2026-07-03T23:38:14.788Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2113,7 +2151,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch"
+          "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch",
+          "potere-piattaforma-e-net-sviluppatore-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "developpeur-developpeuse-power-platform-et-net-h-f-x-80-100-vaudoise-ch"
@@ -2169,7 +2208,7 @@
       "url": "https://vaudoise.softgarden.io/job/64946996/Ing%C3%A9nieur-ing%C3%A9nieure-Devops-h-f-x-80-%C3%A0-100-?jobDbPVId=277296641&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:24.710Z",
+      "crawledAt": "2026-07-03T23:38:14.469Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2188,7 +2227,11 @@
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-h-f-x-80-a-100-vaudoise-ch",
-          "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
+          "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch",
+          "devops-ingegnere-h-f-x-80-a-100-vaudoise-assurances-lausanne"
+        ],
+        "fr": [
+          "devops-engineer-h-f-x-80-a-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
@@ -2196,6 +2239,7 @@
         "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
       ],
       "firstSeenAt": "2026-05-28T00:47:16.925Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2226,7 +2270,7 @@
       "title": "Technical Lead Intégration Java (h/f/x) - 80-100%",
       "titleByLocale": {
         "it": "Intégration Java (h/f/x) - 80-100%",
-        "en": "Technical Lead Java Integration (h/f/x) - 80-100%",
+        "en": "Technical Lead Intégration Java (h/f/x) - 80-100%",
         "de": "Technical Lead Java Integration (h/f/x) - 80-100%",
         "fr": "Responsable technique Intégration Java (h/f/x) - 80-100%"
       },
@@ -2242,7 +2286,7 @@
       "url": "https://vaudoise.softgarden.io/job/65729431/Technical-Lead-Int%C3%A9gration-Java-h-f-x-80-100-?jobDbPVId=277672896&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:24.390Z",
+      "crawledAt": "2026-07-03T23:38:14.150Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2264,13 +2308,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-lead-integration-java-h-f-x-80-100-vaudoise-ch"
+          "technical-lead-integration-java-h-f-x-80-100-vaudoise-ch",
+          "integration-java-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "fr": [
           "responsable-technique-integration-java-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-01T12:59:42.807Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2317,7 +2363,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=277608006&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:24.055Z",
+      "crawledAt": "2026-07-03T23:38:13.837Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2338,7 +2384,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
+          "specialista-di-casi-complessi-francese-tedesco-laa-h-f-x-80-vaudoise-assurances-lausanne"
         ],
         "en": [
           "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
@@ -2394,7 +2441,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=277608021&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:23.733Z",
+      "crawledAt": "2026-07-03T23:38:13.525Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -2417,7 +2464,8 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100",
-          "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-m-w-d-80-100-vaudoise-assurances-suisse"
+          "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-m-w-d-80-100-vaudoise-assurances-suisse",
+          "gestore-prestazioni-animalia-incaricato-delle-assicurazioni-per-cani-e-gatti-m-f-x-80-100-vaudoise-assurances-suisse"
         ],
         "en": [
           "gestionnaire-prestations-animalia-charge-des-assurances-pour-chiens-et-chats-h-f-x-80-100"
@@ -2473,7 +2521,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=277608041&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:23.393Z",
+      "crawledAt": "2026-07-03T23:38:13.186Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -2555,7 +2603,7 @@
       "url": "https://vaudoise.softgarden.io/job/64517448/Mitarbeiter-in-Schaden-m-w-d-60-100-?jobDbPVId=277608161&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:42:23.067Z",
+      "crawledAt": "2026-07-03T23:38:12.864Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2576,7 +2624,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
+          "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch",
+          "collaboratore-trice-schaden-m-w-d-60-100-vaudoise-assurances-bern"
         ],
         "en": [
           "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
@@ -2632,7 +2681,7 @@
       "url": "https://vaudoise.softgarden.io/job/65778086/Senior-Fullstack-Engineer-Technical-Leader-.NET-Angular-Azure-h-f-x-80-100-?jobDbPVId=277737276&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:22.753Z",
+      "crawledAt": "2026-07-03T23:38:12.464Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2648,18 +2697,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
-      "firstSeenAt": "2026-07-02T23:18:24.014Z",
+      "previousSlugs": [
+        "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch"
+          "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch",
+          "senior-fullstack-ingegnere-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-assurances-lausanne"
         ],
         "de": [
           "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-fullstack-engineer-technical-leader-net-angular-azure-h-f-x-80-100-vaudoise-ch"
-      ],
+      "firstSeenAt": "2026-07-02T23:18:24.014Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2706,7 +2757,7 @@
       "url": "https://vaudoise.softgarden.io/job/65675871/R%C3%A9alisateur-r%C3%A9alisatrice-Publicitaire-Collaborateur-collaboratrice-%C3%89v%C3%A9nementiel-h-f-x-%E2%80%93-100-?jobDbPVId=277737816&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:22.423Z",
+      "crawledAt": "2026-07-03T23:38:12.142Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2725,12 +2776,16 @@
       "previousSlugsByLocale": {
         "it": [
           "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch",
-          "realisateur-realisatrice-publicitaire-collaborateur-collaboratrice-evenementiel-h-f-x-100"
+          "realisateur-realisatrice-publicitaire-collaborateur-collaboratrice-evenementiel-h-f-x-100",
+          "direttore-pubblicita-collaboratore-event-h-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
         ],
         "de": [
+          "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
+        ],
+        "fr": [
           "realisateur-trice-publicitaire-collaborateur-trice-evenementiel-le-h-f-x-100-vaudoise-ch"
         ]
       },
@@ -2739,6 +2794,7 @@
         "realisateur-realisatrice-publicitaire-collaborateur-collaboratrice-evenementiel-h-f-x-100"
       ],
       "firstSeenAt": "2026-06-29T14:29:04.890Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2785,7 +2841,7 @@
       "url": "https://vaudoise.softgarden.io/job/65778221/Soutien-client%C3%A8le-h-f-x-100-?jobDbPVId=277737846&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:22.087Z",
+      "crawledAt": "2026-07-03T23:38:11.817Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2806,7 +2862,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "soutien-clientele-h-f-x-100-vaudoise-ch"
+          "soutien-clientele-h-f-x-100-vaudoise-ch",
+          "supporto-clienti-h-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
           "soutien-clientele-h-f-x-100-vaudoise-ch"
@@ -2835,34 +2892,34 @@
       "id": "vaudoise-10d98fb9581d",
       "slug": "hris-expert-m-f-x-100-contratto-a-tempo-determinato-di-2-anni-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "fr": "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch",
         "it": "hris-expert-m-f-x-100-contratto-a-tempo-determinato-di-2-anni-vaudoise-assurances-lausanne",
         "en": "expert-sirh-expert-h-f-x-100-csd-2-years-vaudoise-assurances-lausanne",
-        "de": "experte-sirh-experte-h-f-x-100-csd-2-jahre-vaudoise-assurances-lausanne"
+        "de": "experte-sirh-experte-h-f-x-100-csd-2-jahre-vaudoise-assurances-lausanne",
+        "fr": "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
       "companyDomain": "vaudoise.ch",
       "title": "Expert / Experte SIRH (h/f/x) – 100% - CDD 2 ans",
       "titleByLocale": {
-        "fr": "Expert / Experte SIRH (h/f/x) – 100% - CDD 2 ans",
-        "en": "Expert / SIRH Expert (h/f/x) – 100% - CSD 2 years",
         "it": "HRIS Expert (m/f/x) – 100% - contratto a tempo determinato di 2 anni",
-        "de": "Experte / SIRH Experte (h/f/x) - 100% - CSD 2 Jahre"
+        "en": "Expert / Experte SIRH (h/f/x) – 100% - CDD 2 ans",
+        "de": "Experte / SIRH Experte (h/f/x) - 100% - CSD 2 Jahre",
+        "fr": "Expert / Experte SIRH (h/f/x) – 100% - CDD 2 ans"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Au sein de l'équipe Transformation digitale RH, l'Expert·e SIRH joue un rôle clé dans un programme stratégique de modernisation des Ressources Humaines, marqué par l'implémentation et l'évolution d'un nouveau SIRH. À l'interface entre les métiers RH, les utilisateurs et les technologies, il/elle contribue à la qualité des solutions RH, à l'amélioration continue des processus et à la valorisation des données. Par son expertise, il/elle accompagne l'adoption des nouveaux outils et usages digitaux, contribue à la réussite des projets de transformation et participe activement à l'évolution de l'expérience collaborateur. Vos missions :\n• Contribuer au succès du déploiement et à l'évolution d'une nouvelle solution SIRH au cœur de la transformation digitale RH de l'entreprise.\n• Assurer la qualité de service des outils SIRH, accompagner les utilisateurs et garantir une expérience utilisateur optimale.\n• Centraliser, qualifier et prioriser les demandes d'évolution, les besoins métier et les incidents, tout en contribuant à la gestion du backlog et aux phases de tests des nouvelles fonctionnalités.\n• Concevoir et maintenir une documentation claire, des guides utilisateurs et une base de connaissances favorisant l'autonomie et l'adoption des outils RH.\n• Piloter et améliorer la qualité, la fiabilité et la valorisation des données RH au travers du reporting et des indicateurs de pilotage.\n• Participer à la mise en place d'une gouvernance des données RH et contribuer au développement d'une culture de la donnée au sein de la fonction RH.\n• Accompagner les équipes RH dans l'adoption des nouveaux outils, des bonnes pratiques digitales et des usages liés à l'intelligence artificielle.\n• Identifier, proposer et mettre en œuvre des optimisations permettant d'améliorer en continu les processus, les outils et les pratiques RH.\n• Assurer une veille active sur les évolutions technologiques et les innovations susceptibles de créer de la valeur pour les équipes RH et les collaborateurs.\n• Collaborer étroitement avec les équipes RH, IT et les partenaires externes afin de garantir la cohérence et la performance de l'écosystème SIRH. Votre profil :\n• Expérience confirmée dans un rôle SIRH et participation à des projets d'implémentation ou d'évolution de solutions SIRH.\n• Bonne maîtrise des environnements HCM/SIRH SaaS ainsi que des outils d'analyse et de reporting (Excel, Power BI).\n• Capacité à faire le lien entre les besoins métier, les utilisateurs et les équipes techniques, et à traduire les enjeux fonctionnels en solutions concrètes.\n• Aisance dans l'accompagnement du changement, le support aux utilisateurs et l'amélioration continue des processus et outils RH.\n• Curieux·se des innovations digitales et des usages de l'intelligence artificielle appliquées aux Ressources Humaines.\n• Esprit d'analyse, orientation service, rigueur et excellentes compétences relationnelles.\n• Français courant et bon niveau d'anglais ; l'allemand ou l'italien sont un plus.. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée Great Place to Work\n• Des avantages sociaux multiples, dont la flexibilité dans l’organisation du travail\n• Un cadre de travail collaboratif favorisant l’apprentissage et le développement des compétences\n• Des projets variés au cœur des enjeux de la digitalisation Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
       "descriptionByLocale": {
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Au sein de l'équipe Transformation digitale RH, l'Expert·e SIRH joue un rôle clé dans un programme stratégique de modernisation des Ressources Humaines, marqué par l'implémentation et l'évolution d'un nouveau SIRH. À l'interface entre les métiers RH, les utilisateurs et les technologies, il/elle contribue à la qualité des solutions RH, à l'amélioration continue des processus et à la valorisation des données. Par son expertise, il/elle accompagne l'adoption des nouveaux outils et usages digitaux, contribue à la réussite des projets de transformation et participe activement à l'évolution de l'expérience collaborateur. Vos missions :\n• Contribuer au succès du déploiement et à l'évolution d'une nouvelle solution SIRH au cœur de la transformation digitale RH de l'entreprise.\n• Assurer la qualité de service des outils SIRH, accompagner les utilisateurs et garantir une expérience utilisateur optimale.\n• Centraliser, qualifier et prioriser les demandes d'évolution, les besoins métier et les incidents, tout en contribuant à la gestion du backlog et aux phases de tests des nouvelles fonctionnalités.\n• Concevoir et maintenir une documentation claire, des guides utilisateurs et une base de connaissances favorisant l'autonomie et l'adoption des outils RH.\n• Piloter et améliorer la qualité, la fiabilité et la valorisation des données RH au travers du reporting et des indicateurs de pilotage.\n• Participer à la mise en place d'une gouvernance des données RH et contribuer au développement d'une culture de la donnée au sein de la fonction RH.\n• Accompagner les équipes RH dans l'adoption des nouveaux outils, des bonnes pratiques digitales et des usages liés à l'intelligence artificielle.\n• Identifier, proposer et mettre en œuvre des optimisations permettant d'améliorer en continu les processus, les outils et les pratiques RH.\n• Assurer une veille active sur les évolutions technologiques et les innovations susceptibles de créer de la valeur pour les équipes RH et les collaborateurs.\n• Collaborer étroitement avec les équipes RH, IT et les partenaires externes afin de garantir la cohérence et la performance de l'écosystème SIRH. Votre profil :\n• Expérience confirmée dans un rôle SIRH et participation à des projets d'implémentation ou d'évolution de solutions SIRH.\n• Bonne maîtrise des environnements HCM/SIRH SaaS ainsi que des outils d'analyse et de reporting (Excel, Power BI).\n• Capacité à faire le lien entre les besoins métier, les utilisateurs et les équipes techniques, et à traduire les enjeux fonctionnels en solutions concrètes.\n• Aisance dans l'accompagnement du changement, le support aux utilisateurs et l'amélioration continue des processus et outils RH.\n• Curieux·se des innovations digitales et des usages de l'intelligence artificielle appliquées aux Ressources Humaines.\n• Esprit d'analyse, orientation service, rigueur et excellentes compétences relationnelles.\n• Français courant et bon niveau d'anglais ; l'allemand ou l'italien sont un plus.. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée Great Place to Work\n• Des avantages sociaux multiples, dont la flexibilité dans l’organisation du travail\n• Un cadre de travail collaboratif favorisant l’apprentissage et le développement des compétences\n• Des projets variés au cœur des enjeux de la digitalisation Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
         "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Nell'ambito del team HR Digital Transformation, l'esperto SIRH svolge un ruolo chiave in un programma strategico di ammodernamento delle risorse umane, segnato dall'implementazione e dall'evoluzione di un nuovo SIRH. Nell'interfaccia tra gli operatori HR, gli utenti e le tecnologie, contribuisce alla qualità delle soluzioni HR, al miglioramento continuo dei processi e al miglioramento dei dati. Attraverso la sua esperienza, accompagna l'adozione di nuovi strumenti e utilizzi digitali, contribuisce al successo dei progetti di trasformazione e partecipa attivamente all'evoluzione dell'esperienza collaborativa. Le vostre missioni:\n• Contribuisci alla riuscita distribuzione ed evoluzione di una nuova soluzione HRIS nel cuore della trasformazione digitale HR dell'azienda.\n• Assicurare la qualità del servizio degli strumenti HRIS, gli utenti di supporto e garantire un'esperienza utente ottimale.\n• Centralizzare, qualificare e dare priorità alle richieste di evoluzione, alle esigenze aziendali e agli incidenti, contribuendo al backlog management e alle fasi di test di nuove funzionalità.\n• Sviluppare e mantenere chiara documentazione, guide utente e una base di conoscenza che supporta l'autonomia e l'adozione di strumenti HR.\n• Pilota e migliora la qualità, l'affidabilità e il valore dei dati HR attraverso indicatori di report e controllo.\n• Partecipa allo sviluppo della governance dei dati HR e contribuisce allo sviluppo di una cultura dei dati all'interno della funzione HR.\n• Sostenere i team HR nell'adozione di nuovi strumenti, buone pratiche digitali e usi legati all'intelligenza artificiale.\n• Identificare, proporre e implementare ottimizzazioni per migliorare continuamente processi, strumenti e pratiche HR.\n• Monitorare attivamente gli sviluppi tecnologici e le innovazioni che possono creare valore per i team HR e i dipendenti.\n• Lavorare a stretto contatto con HR, IT e partner esterni per garantire la coerenza e le prestazioni dell'ecosistema HRIS. Il tuo profilo:\n• Esperienza confermata in un ruolo SIRH e partecipazione a progetti di attuazione o di evoluzione delle soluzioni SIRH.\n• Buon controllo degli ambienti HCM/SIRH SaaS e degli strumenti analitici e di reporting (Excel, Power BI).\n• Capacità di collegare esigenze aziendali, utenti e team tecnici, e tradurre problemi funzionali in soluzioni concrete.\n• Supporto per il cambiamento, il supporto per gli utenti e il miglioramento continuo dei processi e degli strumenti HR.\n• Curiose sono le innovazioni digitali e gli usi dell'intelligenza artificiale applicati alle Risorse Umane.\n• Spirito di analisi, orientamento di servizio, rigore e eccellenti capacità relazionali.\n• Corrente francese e buon livello inglese; tedesco o italiano sono un plus.. Vi offriamo:\n• Un ambiente di lavoro sano in una società comune certificata Great Place to Work\n• Prestazioni sociali multiple, compresa la flessibilità nell'organizzazione del lavoro\n• Un quadro collaborativo per l'apprendimento e lo sviluppo delle competenze\n• Diversi progetti nel cuore della digitalizzazione Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
         "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. Within the HR Digital Transformation team, the SIRH Expert plays a key role in a strategic human resources modernization program, marked by the implementation and evolution of a new SIRH. At the interface between HR trades, users and technologies, he/she contributes to the quality of HR solutions, continuous process improvement and data enhancement. Through his/her expertise, he/she accompanies the adoption of new digital tools and uses, contributes to the success of transformation projects and actively participates in the evolution of the collaborative experience. Your missions:\n• Contribute to the successful deployment and evolution of a new HRIS solution at the heart of the company's digital HR transformation.\n• Ensure the quality of service of HRIS tools, support users and ensure optimal user experience.\n• Centralize, qualify and prioritize evolution requests, business needs and incidents, while contributing to backlog management and testing phases of new features.\n• Develop and maintain clear documentation, user guides and a knowledge base that supports the autonomy and adoption of HR tools.\n• Pilot and improve the quality, reliability and value of HR data through reporting and control indicators.\n• Participate in the development of HR data governance and contribute to the development of a data culture within the HR function.\n• Support HR teams in the adoption of new tools, good digital practices and uses related to artificial intelligence.\n• Identify, propose and implement optimizations to continuously improve HR processes, tools and practices.\n• Actively monitor technological developments and innovations that can create value for HR teams and employees.\n• Work closely with HR, IT and external partners to ensure the coherence and performance of the HRIS ecosystem. Your profile:\n• Experience confirmed in a SIRH role and participation in projects implementing or evolving SIRH solutions.\n• Good control of HCM/SIRH SaaS environments as well as analytical and reporting tools (Excel, Power BI).\n• Ability to link business needs, users and technical teams, and translate functional issues into concrete solutions.\n• Support for change, support for users and continuous improvement of HR processes and tools.\n• Curious are the digital innovations and uses of artificial intelligence applied to Human Resources.\n• Spirit of analysis, service orientation, rigor and excellent relational skills.\n• French current and good English level; German or Italian are a plus.. We offer you :\n• A healthy working environment in a mutual company certified Great Place to Work\n• Multiple social benefits, including flexibility in work organisation\n• A collaborative framework for learning and skills development\n• Various projects at the heart of digitalisation issues We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und seinen Werten fördert es die Schaffung einer gesunden, integrativen und inspirierenden Arbeitsumgebung, die ideal ist, um Ihre Talente zu entwickeln. Innerhalb des HR Digital Transformation Teams spielt der SIRH Expert eine Schlüsselrolle in einem strategischen Personalmodernisierungsprogramm, das durch die Implementierung und Weiterentwicklung eines neuen SIRH gekennzeichnet ist. An der Schnittstelle zwischen HR Trades, Anwendern und Technologien trägt er zur Qualität von HR-Lösungen, zur kontinuierlichen Prozessverbesserung und Datenverbesserung bei. Durch sein Fachwissen begleitet er die Einführung neuer digitaler Werkzeuge und Anwendungen, trägt zum Erfolg von Transformationsprojekten bei und beteiligt sich aktiv an der Entwicklung der kollaborativen Erfahrung. Ihre Missionen:\n• Beitrag zur erfolgreichen Implementierung und Weiterentwicklung einer neuen HRIS-Lösung im Herzen der digitalen HR-Transformation des Unternehmens.\n• Gewährleistung der Servicequalität von HRIS-Tools, Unterstützung der Benutzer und Gewährleistung einer optimalen Benutzererfahrung.\n• Zentralisieren, Qualifizieren und Priorisieren von Evolutionsanforderungen, Geschäftsanforderungen und Vorfällen, während Sie zum Backlog-Management und Testphasen neuer Funktionen beitragen.\n• Entwickeln und pflegen Sie eine klare Dokumentation, Benutzerhandbücher und eine Wissensdatenbank, die die Autonomie und Einführung von HR-Tools unterstützt.\n• Pilotieren und verbessern Sie die Qualität, Zuverlässigkeit und den Wert von HR-Daten durch Berichts- und Kontrollindikatoren.\n• Beteiligen Sie sich an der Entwicklung der HR Data Governance und tragen Sie zur Entwicklung einer Datenkultur innerhalb der HR-Funktion bei.\n• Unterstützung von Personalteams bei der Einführung neuer Tools, guter digitaler Praktiken und Anwendungen im Zusammenhang mit künstlicher Intelligenz.\n• Identifizieren, Vorschlagen und Implementieren von Optimierungen zur kontinuierlichen Verbesserung von HR-Prozessen, Tools und Praktiken.\n• Beobachten Sie aktiv technologische Entwicklungen und Innovationen, die Wert für HR-Teams und Mitarbeiter schaffen können.\n• Enge Zusammenarbeit mit HR, IT und externen Partnern, um die Kohärenz und Leistung des HRIS-Ökosystems sicherzustellen. Ihr Profil:\n• Erfahrung bestätigt in einer SIRH-Rolle und Beteiligung an Projekten, die SIRH-Lösungen implementieren oder weiterentwickeln.\n• Gute Kontrolle über HCM/SIRH SaaS-Umgebungen sowie Analyse- und Reporting-Tools (Excel, Power BI).\n• Fähigkeit, Geschäftsanforderungen, Benutzer und technische Teams zu verknüpfen und funktionale Probleme in konkrete Lösungen zu übersetzen.\n• Unterstützung für Veränderungen, Unterstützung für Anwender und kontinuierliche Verbesserung von HR-Prozessen und Tools.\n• Neugierig sind die digitalen Innovationen und der Einsatz von künstlicher Intelligenz für Human Resources.\n• Analysegeist, Serviceorientierung, Strenge und ausgezeichnete Beziehungsfähigkeiten.\n• Französisch aktuell und gutes Englischniveau; Deutsch oder Italienisch sind ein Plus. Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert Great Place to Work\n• Mehrere Sozialleistungen, einschließlich Flexibilität in der Arbeitsorganisation\n• Ein kooperativer Rahmen für Lernen und Kompetenzentwicklung\n• Verschiedene Projekte im Zentrum von Digitalisierungsthemen Wir freuen uns auf Ihr komplettes Bewerbungspaket digital (mit Lebenslauf, Anschreiben, Kopien von Arbeitszertifikaten und Diplomen)."
+        "de": "Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und seinen Werten fördert es die Schaffung einer gesunden, integrativen und inspirierenden Arbeitsumgebung, die ideal ist, um Ihre Talente zu entwickeln. Innerhalb des HR Digital Transformation Teams spielt der SIRH Expert eine Schlüsselrolle in einem strategischen Personalmodernisierungsprogramm, das durch die Implementierung und Weiterentwicklung eines neuen SIRH gekennzeichnet ist. An der Schnittstelle zwischen HR Trades, Anwendern und Technologien trägt er zur Qualität von HR-Lösungen, zur kontinuierlichen Prozessverbesserung und Datenverbesserung bei. Durch sein Fachwissen begleitet er die Einführung neuer digitaler Werkzeuge und Anwendungen, trägt zum Erfolg von Transformationsprojekten bei und beteiligt sich aktiv an der Entwicklung der kollaborativen Erfahrung. Ihre Missionen:\n• Beitrag zur erfolgreichen Implementierung und Weiterentwicklung einer neuen HRIS-Lösung im Herzen der digitalen HR-Transformation des Unternehmens.\n• Gewährleistung der Servicequalität von HRIS-Tools, Unterstützung der Benutzer und Gewährleistung einer optimalen Benutzererfahrung.\n• Zentralisieren, Qualifizieren und Priorisieren von Evolutionsanforderungen, Geschäftsanforderungen und Vorfällen, während Sie zum Backlog-Management und Testphasen neuer Funktionen beitragen.\n• Entwickeln und pflegen Sie eine klare Dokumentation, Benutzerhandbücher und eine Wissensdatenbank, die die Autonomie und Einführung von HR-Tools unterstützt.\n• Pilotieren und verbessern Sie die Qualität, Zuverlässigkeit und den Wert von HR-Daten durch Berichts- und Kontrollindikatoren.\n• Beteiligen Sie sich an der Entwicklung der HR Data Governance und tragen Sie zur Entwicklung einer Datenkultur innerhalb der HR-Funktion bei.\n• Unterstützung von Personalteams bei der Einführung neuer Tools, guter digitaler Praktiken und Anwendungen im Zusammenhang mit künstlicher Intelligenz.\n• Identifizieren, Vorschlagen und Implementieren von Optimierungen zur kontinuierlichen Verbesserung von HR-Prozessen, Tools und Praktiken.\n• Beobachten Sie aktiv technologische Entwicklungen und Innovationen, die Wert für HR-Teams und Mitarbeiter schaffen können.\n• Enge Zusammenarbeit mit HR, IT und externen Partnern, um die Kohärenz und Leistung des HRIS-Ökosystems sicherzustellen. Ihr Profil:\n• Erfahrung bestätigt in einer SIRH-Rolle und Beteiligung an Projekten, die SIRH-Lösungen implementieren oder weiterentwickeln.\n• Gute Kontrolle über HCM/SIRH SaaS-Umgebungen sowie Analyse- und Reporting-Tools (Excel, Power BI).\n• Fähigkeit, Geschäftsanforderungen, Benutzer und technische Teams zu verknüpfen und funktionale Probleme in konkrete Lösungen zu übersetzen.\n• Unterstützung für Veränderungen, Unterstützung für Anwender und kontinuierliche Verbesserung von HR-Prozessen und Tools.\n• Neugierig sind die digitalen Innovationen und der Einsatz von künstlicher Intelligenz für Human Resources.\n• Analysegeist, Serviceorientierung, Strenge und ausgezeichnete Beziehungsfähigkeiten.\n• Französisch aktuell und gutes Englischniveau; Deutsch oder Italienisch sind ein Plus. Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert Great Place to Work\n• Mehrere Sozialleistungen, einschließlich Flexibilität in der Arbeitsorganisation\n• Ein kooperativer Rahmen für Lernen und Kompetenzentwicklung\n• Verschiedene Projekte im Zentrum von Digitalisierungsthemen Wir freuen uns auf Ihr komplettes Bewerbungspaket digital (mit Lebenslauf, Anschreiben, Kopien von Arbeitszertifikaten und Diplomen).",
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Au sein de l'équipe Transformation digitale RH, l'Expert·e SIRH joue un rôle clé dans un programme stratégique de modernisation des Ressources Humaines, marqué par l'implémentation et l'évolution d'un nouveau SIRH. À l'interface entre les métiers RH, les utilisateurs et les technologies, il/elle contribue à la qualité des solutions RH, à l'amélioration continue des processus et à la valorisation des données. Par son expertise, il/elle accompagne l'adoption des nouveaux outils et usages digitaux, contribue à la réussite des projets de transformation et participe activement à l'évolution de l'expérience collaborateur. Vos missions :\n• Contribuer au succès du déploiement et à l'évolution d'une nouvelle solution SIRH au cœur de la transformation digitale RH de l'entreprise.\n• Assurer la qualité de service des outils SIRH, accompagner les utilisateurs et garantir une expérience utilisateur optimale.\n• Centraliser, qualifier et prioriser les demandes d'évolution, les besoins métier et les incidents, tout en contribuant à la gestion du backlog et aux phases de tests des nouvelles fonctionnalités.\n• Concevoir et maintenir une documentation claire, des guides utilisateurs et une base de connaissances favorisant l'autonomie et l'adoption des outils RH.\n• Piloter et améliorer la qualité, la fiabilité et la valorisation des données RH au travers du reporting et des indicateurs de pilotage.\n• Participer à la mise en place d'une gouvernance des données RH et contribuer au développement d'une culture de la donnée au sein de la fonction RH.\n• Accompagner les équipes RH dans l'adoption des nouveaux outils, des bonnes pratiques digitales et des usages liés à l'intelligence artificielle.\n• Identifier, proposer et mettre en œuvre des optimisations permettant d'améliorer en continu les processus, les outils et les pratiques RH.\n• Assurer une veille active sur les évolutions technologiques et les innovations susceptibles de créer de la valeur pour les équipes RH et les collaborateurs.\n• Collaborer étroitement avec les équipes RH, IT et les partenaires externes afin de garantir la cohérence et la performance de l'écosystème SIRH. Votre profil :\n• Expérience confirmée dans un rôle SIRH et participation à des projets d'implémentation ou d'évolution de solutions SIRH.\n• Bonne maîtrise des environnements HCM/SIRH SaaS ainsi que des outils d'analyse et de reporting (Excel, Power BI).\n• Capacité à faire le lien entre les besoins métier, les utilisateurs et les équipes techniques, et à traduire les enjeux fonctionnels en solutions concrètes.\n• Aisance dans l'accompagnement du changement, le support aux utilisateurs et l'amélioration continue des processus et outils RH.\n• Curieux·se des innovations digitales et des usages de l'intelligence artificielle appliquées aux Ressources Humaines.\n• Esprit d'analyse, orientation service, rigueur et excellentes compétences relationnelles.\n• Français courant et bon niveau d'anglais ; l'allemand ou l'italien sont un plus.. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée Great Place to Work\n• Des avantages sociaux multiples, dont la flexibilité dans l’organisation du travail\n• Un cadre de travail collaboratif favorisant l’apprentissage et le développement des compétences\n• Des projets variés au cœur des enjeux de la digitalisation Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://vaudoise.softgarden.io/job/65812286/Expert-Experte-SIRH-h-f-x-%E2%80%93-100-CDD-2-ans-?jobDbPVId=277827526&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T12:42:21.749Z",
+      "crawledAt": "2026-07-03T23:38:11.495Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2876,10 +2933,25 @@
       "postedDate": "03/07/26",
       "applyUrl": "https://vaudoise.softgarden.io/job/65812286/Expert-Experte-SIRH-h-f-x-%E2%80%93-100-CDD-2-ans-?jobDbPVId=277827526&l=it",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
+      "previousSlugs": [
+        "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch",
+          "hris-expert-m-f-x-100-contratto-a-tempo-determinato-di-2-anni-vaudoise-assurances-lausanne"
+        ],
+        "en": [
+          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+        ],
+        "de": [
+          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T12:42:21.749Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2893,22 +2965,7 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-07-03T12:42:21.749Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
-        ],
-        "en": [
-          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
-        ],
-        "de": [
-          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
-        ]
-      },
-      "previousSlugs": [
-        "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
-      ]
+      "addressRegion": "VD"
     },
     {
       "id": "vaudoise-817b94e253ab",
@@ -2983,7 +3040,7 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
