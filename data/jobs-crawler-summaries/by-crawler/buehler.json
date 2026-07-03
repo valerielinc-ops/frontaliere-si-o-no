@@ -1,18 +1,19 @@
 {
   "key": "buehler",
   "label": "Bühler Group",
-  "generatedAt": "2026-07-03T10:40:43.362Z",
+  "generatedAt": "2026-07-03T21:40:50.469Z",
   "total": 162,
-  "newCount": 3,
-  "updatedCount": 156,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 159,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6730,
-  "avgDurationMs": 6730,
+  "durationMs": 6501,
+  "avgDurationMs": 6501,
   "durationHistory": [
-    6730
+    6501
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "buehler-04f8d2ad001d",
       "slug": "mechanical-engineer-buehler-makati-city",
@@ -20,18 +21,19 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Mechanical Engineer",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Makati City",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/job-vacancies/mechanical-engineer/2a152f0c-c400-4b89-aee2-dbfbc40eddbb",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.894Z",
+      "crawledAt": "2026-07-03T21:40:45.700Z",
       "addressLocality": "Makati City",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -41,12 +43,13 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2979",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T10:40:38.894Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 14
       }
     },
     {
@@ -56,18 +59,19 @@
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "GBS, AP Accountant",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Subang Jaya",
       "canton": "SG",
       "url": "https://jobs.buhlergroup.com/job-vacancies/gbs-ap-accountant/56043066-a79a-4a32-b133-f05f3c5c6e87",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.897Z",
+      "crawledAt": "2026-07-03T21:40:45.704Z",
       "addressLocality": "Subang Jaya",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "47500 Subang Jaya",
       "category": "Amministrazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -77,53 +81,15 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3260",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-07-03T10:40:38.897Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
-    {
-      "id": "buehler-aa596f7e9cee",
-      "slug": "technical-sales-engineer-buehler-subang-jaya",
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "Technical Sales Engineer",
-      "needsRetranslation": true,
-      "location": "Subang Jaya",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/job-vacancies/technical-sales-engineer/8294a87e-1efc-4ad8-8ecd-3d5e9b07cb04",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.877Z",
-      "addressLocality": "Subang Jaya",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-24",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2805",
-      "firstSeenAt": "2026-06-23T11:09:06.213Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 17
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "id": "buehler-ae8cf27a10c0",
       "slug": "solution-architect-sap-c4c-v2-buehler-uzwil",
@@ -137,12 +103,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-c4c-v2/f4d0350e-0c77-48e8-9d25-9af7c77e60fd",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.899Z",
+      "crawledAt": "2026-07-03T21:40:45.707Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -153,12 +120,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3239",
       "firstSeenAt": "2026-07-02T21:32:07.699Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -174,12 +141,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/buchhalterin-w-m-d-ab-30-wochenstunden/301c1489-03e0-4bf0-8c6c-dac9da80968d",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.902Z",
+      "crawledAt": "2026-07-03T21:40:45.711Z",
       "addressLocality": "Salzburg",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "Marie-Andeßner-Platz 2",
       "category": "Amministrazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -211,12 +179,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-pm-bpt/1f3e4277-8043-4877-90e1-f91e4a6f8a58",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.904Z",
+      "crawledAt": "2026-07-03T21:40:45.714Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -227,12 +196,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3240",
       "firstSeenAt": "2026-07-02T21:32:07.730Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -248,12 +217,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/cnc-schleifer-in/bd154486-e78c-4739-b5f5-6993a2cb03b9",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.905Z",
+      "crawledAt": "2026-07-03T21:40:45.716Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -264,12 +234,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=2003",
       "firstSeenAt": "2026-07-01T11:17:55.572Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -285,12 +255,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-installation-supervisor/42f28aae-7af3-466f-9168-c26c35a0b3d6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.908Z",
+      "crawledAt": "2026-07-03T21:40:45.719Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -301,12 +272,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2197",
       "firstSeenAt": "2026-07-01T11:17:55.574Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -322,12 +293,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/electrical-engineer/0ab190d0-330a-4432-8bbd-8b82c163020a",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.910Z",
+      "crawledAt": "2026-07-03T21:40:45.722Z",
       "addressLocality": "Beijing",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -338,12 +310,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/zh/apply?id=3285",
       "firstSeenAt": "2026-07-01T11:17:55.588Z",
-      "_qualityScore": 74,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 14
       }
     },
     {
@@ -359,12 +331,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/project-manager/5553ff04-5860-4483-864f-de72d67d7dd4",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.911Z",
+      "crawledAt": "2026-07-03T21:40:45.724Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -375,12 +348,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3182",
       "firstSeenAt": "2026-07-01T11:17:55.590Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -396,12 +369,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/speditionsfachfrau-speditionsfachmann/0a1e5607-7f10-45a0-8795-8867005e6715",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.913Z",
+      "crawledAt": "2026-07-03T21:40:45.726Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -412,12 +386,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=2892",
       "firstSeenAt": "2026-07-01T11:17:55.592Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -433,12 +407,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/backoffice-administrator/31a51bad-2a5f-4ad0-a2a5-2d0fa34eba39",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.915Z",
+      "crawledAt": "2026-07-03T21:40:45.729Z",
       "addressLocality": "Yokohama",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "3 Chome-22-11 Shinyokohama",
       "category": "Amministrazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -470,12 +445,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/sourcing-engineer/f402ca99-ece8-4ae4-a4f8-d297ca718c85",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.917Z",
+      "crawledAt": "2026-07-03T21:40:45.732Z",
       "addressLocality": "Wuxi",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -486,12 +462,12 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3252",
       "firstSeenAt": "2026-07-01T11:17:55.605Z",
-      "_qualityScore": 82,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 14
       }
     },
     {
@@ -507,12 +483,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/international-logistics-coordinator/ba27d8fa-997d-4ce0-8cbe-8b6b5b253ed4",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.921Z",
+      "crawledAt": "2026-07-03T21:40:45.737Z",
       "addressLocality": "Plymouth",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "12th Avenue North",
       "category": "Logistica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -544,12 +521,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/installation-supervisor/6cfdb113-f80d-421e-8655-82a90cfd9ce7",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.923Z",
+      "crawledAt": "2026-07-03T21:40:45.739Z",
       "addressLocality": "Toluca",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -560,12 +538,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3225",
       "firstSeenAt": "2026-06-30T21:59:11.307Z",
-      "_qualityScore": 87,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 14
       }
     },
     {
@@ -581,12 +559,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/team-manager-r-d-software/a8be3028-c9ee-4906-86d4-8183f1ea5bb3",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.924Z",
+      "crawledAt": "2026-07-03T21:40:45.741Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -597,12 +576,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3189",
       "firstSeenAt": "2026-07-01T11:17:55.613Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -618,12 +597,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/process-engineer-quotation-project-execution/cd607e44-2ced-4129-916a-634ead1ef476",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.928Z",
+      "crawledAt": "2026-07-03T21:40:45.745Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -634,12 +614,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3241",
       "firstSeenAt": "2026-06-30T21:59:11.309Z",
-      "_qualityScore": 82,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -655,12 +635,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/werkstudent-m-w-d-robotik-entwicklung/b9df2877-d8cd-4c18-8140-92ac7d86cd84",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.929Z",
+      "crawledAt": "2026-07-03T21:40:45.747Z",
       "addressLocality": "Alzenau",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "",
       "category": "Formazione",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -671,12 +652,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=2752",
       "firstSeenAt": "2026-06-30T21:59:11.313Z",
-      "_qualityScore": 74,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 14
       }
     },
     {
@@ -692,12 +673,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/anlagenfuehrer-m-w-d-stanzmaschine-abkantpresse/1b9f7665-8645-4cb4-b2bb-41a3cd720667",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.931Z",
+      "crawledAt": "2026-07-03T21:40:45.749Z",
       "addressLocality": "Beilngries",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "Eichstätter Str. 49",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -729,12 +711,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/sales-manager-semi/c81205f7-aee1-441c-ad7b-b86068d53f56",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.932Z",
+      "crawledAt": "2026-07-03T21:40:45.751Z",
       "addressLocality": "Beijing",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -745,12 +728,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3272",
       "firstSeenAt": "2026-06-30T11:06:18.430Z",
-      "_qualityScore": 74,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 14
       }
     },
     {
@@ -766,12 +749,13 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/sales-manager/fa6ffcc5-e689-4e16-b956-ba4c347c207a",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.934Z",
+      "crawledAt": "2026-07-03T21:40:45.752Z",
       "addressLocality": "Wuxi",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9240",
+      "postalCode": "",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -782,12 +766,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3235",
       "firstSeenAt": "2026-06-30T11:06:18.455Z",
-      "_qualityScore": 79,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 14
       }
     },
     {
@@ -803,12 +787,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-informatiker-in-plattformenentwicklung-efz/b7411fe4-8ed6-49ca-acb5-c723f1c519fd",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.946Z",
+      "crawledAt": "2026-07-03T21:40:45.769Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -819,12 +804,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3199",
       "firstSeenAt": "2026-07-01T11:17:55.639Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -840,12 +825,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-informatiker-in-applikationsentwicklung-efz/7225837c-8b95-4ae7-b21e-c6bb123e343c",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.947Z",
+      "crawledAt": "2026-07-03T21:40:45.770Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -856,12 +842,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3198",
       "firstSeenAt": "2026-07-01T11:17:55.641Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -877,12 +863,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-kauffrau-kaufmann-efz-e-bzw-m-profil/a3208058-b4db-4ac7-a8b6-1b2e1f74867f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.948Z",
+      "crawledAt": "2026-07-03T21:40:45.771Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -893,12 +880,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3202",
       "firstSeenAt": "2026-07-01T11:17:55.642Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -914,12 +901,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-konstrukteur-in-efz/f525fc5a-e3df-4499-b3e8-90d02a2616a6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.949Z",
+      "crawledAt": "2026-07-03T21:40:45.772Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -930,12 +918,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3203",
       "firstSeenAt": "2026-07-01T11:17:55.643Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -951,12 +939,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-logistiker-in-efz/8397c1a0-c23e-4475-9ce0-79b17935e3d4",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.950Z",
+      "crawledAt": "2026-07-03T21:40:45.774Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Logistica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -967,12 +956,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3204",
       "firstSeenAt": "2026-07-01T11:17:55.644Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -988,12 +977,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-polymechaniker-in-efz/099856c1-23e4-49f3-9ff2-f75fd901fafa",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.951Z",
+      "crawledAt": "2026-07-03T21:40:45.775Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1004,12 +994,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3205",
       "firstSeenAt": "2026-07-01T11:17:55.645Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1025,12 +1015,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-automatiker-in-efz/4b0e5e51-77a8-4d9e-bcea-a7838aaceac9",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.952Z",
+      "crawledAt": "2026-07-03T21:40:45.776Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1041,12 +1032,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3197",
       "firstSeenAt": "2026-07-01T11:17:55.646Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1062,12 +1053,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-anlagen-und-apparatebauer-in-efz/d4b06552-6af9-4d7e-9fbd-1477e7ca77db",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.953Z",
+      "crawledAt": "2026-07-03T21:40:45.777Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1078,12 +1070,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3196",
       "firstSeenAt": "2026-07-01T11:17:55.647Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1099,12 +1091,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-industrielackierer-in-efz/55cb4bc5-649a-4f85-b5f0-aa3372f6245e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.954Z",
+      "crawledAt": "2026-07-03T21:40:45.778Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1115,12 +1108,12 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3201",
       "firstSeenAt": "2026-07-01T11:17:55.648Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1136,12 +1129,13 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-entwickler-in-digitales-business-efz/16552bec-00c5-40ef-b104-93d212a0490e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.955Z",
+      "crawledAt": "2026-07-03T21:40:45.780Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1152,130 +1146,16 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3200",
       "firstSeenAt": "2026-07-01T11:17:55.649Z",
-      "_qualityScore": 74,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "buehler-e807be617f6a",
-      "slug": "warehouse-worker-buehler-plymouth",
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "Warehouse Worker",
-      "needsRetranslation": false,
-      "location": "Plymouth",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/job-vacancies/warehouse-worker/a3e99a21-184c-4eaf-99a7-693ea4a4f400",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-03T10:40:38.936Z",
-      "addressLocality": "Plymouth",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3262",
-      "firstSeenAt": "2026-06-29T21:51:38.579Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "buehler-d239ee21d66f",
-      "slug": "softwareentwickler-m-w-d-maschinenbau-buehler-alzenau",
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "Softwareentwickler (m/w/d) Maschinenbau",
-      "needsRetranslation": false,
-      "location": "Alzenau",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/offene-stellen/softwareentwickler-m-w-d-maschinenbau/3901d07a-af9d-4e5f-8ff1-67376eaf143f",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T10:40:38.940Z",
-      "addressLocality": "Alzenau",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3248",
-      "firstSeenAt": "2026-06-26T21:35:15.038Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "buehler-aa596f7e9cee",
-      "slug": "servizio-clienti-sales-manager-buhler-group-subang-jaya",
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "Customer Service Sales Manager",
-      "needsRetranslation": true,
-      "location": "Subang Jaya",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/job-vacancies/customer-service-sales-manager/8294a87e-1efc-4ad8-8ecd-3d5e9b07cb04",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:32:07.950Z",
-      "addressLocality": "Subang Jaya",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-24",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2805",
-      "firstSeenAt": "2026-06-23T11:09:06.213Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "buehler-e8918bc3f842",
@@ -1308,7 +1188,7 @@
       "firstSeenAt": "2026-06-23T11:09:06.154Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1348,12 +1228,12 @@
       "firstSeenAt": "2026-06-23T11:09:06.153Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 83,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -1388,7 +1268,7 @@
       "firstSeenAt": "2026-06-23T11:09:06.181Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
