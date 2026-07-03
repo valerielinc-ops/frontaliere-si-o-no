@@ -557,6 +557,25 @@ export const COMPANY_HQ = {
   // from the Prospective listing's own city field for the vast majority
   // of jobs (issue #3342).
   'raiffeisen': { city: 'St. Gallen', canton: 'SG', postalCode: '9001', addressRegion: 'SG' },
+  // Chopard HQ, Rte de Veyrot 8, C.P. 85, 1217 Meyrin GE — confirmed via
+  // the company's own legal notice page (chopard.com/it-it/legal-terms-of-
+  // website-use.html); no fallback needed.
+  'chopard': { city: 'Meyrin', canton: 'GE', postalCode: '1217', addressRegion: 'GE' },
+  // Patek Philippe SA HQ, Chemin du Pont-du-Centenaire 141, 1228
+  // Plan-les-Ouates GE — confirmed via patek.com's own legal-notices page
+  // (terms-and-conditions imprint); no fallback needed.
+  'patek-philippe': { city: 'Plan-les-Ouates', canton: 'GE', postalCode: '1228', addressRegion: 'GE' },
+  // Bossard AG HQ, Steinhauserstrasse 70, 6301 Zug ZG — confirmed via the
+  // company's own imprint page (bossard.com/ch-en/imprint/); no fallback
+  // needed.
+  'bossard': { city: 'Zug', canton: 'ZG', postalCode: '6301', addressRegion: 'ZG' },
+  // Belimo Holding AG HQ, Brunnenbachstrasse 1, 8340 Hinwil ZH — confirmed
+  // via the company's own job-listing page footer text ("BELIMO Holding AG,
+  // Brunnenbachstrasse 1, 8340 Hinwil (Schweiz)"), cross-checked against the
+  // opencorpdata.com LEI record and GPS coordinates. NOT 8620 (a
+  // plausible-looking but wrong guess — that is Wetzikon's postal code, a
+  // different nearby ZH town); no fallback needed.
+  'belimo': { city: 'Hinwil', canton: 'ZH', postalCode: '8340', addressRegion: 'ZH' },
 };
 
 /**
