@@ -36,6 +36,7 @@ import {
 } from './lib/alert-sent-jobs.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
+import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -89,6 +90,71 @@ const PREFERENCES_SLUGS = {
 
 // IT is canonical (no prefix); other locales get /{locale}/ prefix.
 const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
+
+// ── Pre-send live-link preflight (issue #3172) ──────────────────────
+// data/jobs.json is a periodic crawl snapshot; a job listed as "recent" at
+// crawl-time can be pulled/expired by an employer, or its per-locale SSG page
+// may not have deployed yet, before this script actually sends the alert.
+// Mirrors the HEAD-check pattern from check-journalist-article-links.mjs
+// (issue #3174) via scripts/lib/live-link-check.mjs — same HEAD → 405/501
+// ranged-GET fallback, same 8s timeout, same "network error = not-live, no
+// retry" semantics — so this preflight and that one can never silently drift
+// apart on what "live" means.
+const JOB_LIVE_CHECK_CONCURRENCY = 5;
+// Fail-open guard: check-journalist-article-links.mjs is a monitoring/report
+// tool (a failed check just marks one outlink broken in a report — never
+// empties anything), so it has no analogous "distrust the batch" step. Here
+// the check GATES what gets emailed, so a transient blip on OUR OWN outbound
+// fetch (e.g. GH Actions runner network hiccup) that makes every URL look
+// dead must not silently zero out a whole alert. Below this live-fraction, on
+// a large-enough sample, treat the batch as untrustworthy and send unfiltered
+// instead of empty.
+const JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE = 4;
+const JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO = 0.34;
+
+// The exact frontaliereticino.ch job-page URL that will be embedded in the
+// alert email for this locale (mirrors the `rawJobUrl` built inside
+// buildAlertEmail, minus the alert-specific utm query string — irrelevant to
+// liveness and would otherwise fragment the cache key per alertId).
+function jobPageUrl(job, locale) {
+  const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
+  const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
+  const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
+  return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
+}
+
+/**
+ * Filters `jobs` down to those whose live page resolves OK, checking each
+ * distinct URL at most once per run via `cache` (shared across alerts/locales
+ * so overlapping job pools aren't re-checked). Jobs with no resolvable slug
+ * fall back to the site root in the email (always live) and are never
+ * filtered. Exported for tests.
+ */
+async function filterLiveJobs(jobs, locale, cache) {
+  const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
+  // Dedupe by URL both across calls (via the shared `cache`) AND within this
+  // single call (two jobs — e.g. two locale variants — can resolve to the
+  // same page); otherwise a duplicate URL in the same batch would be
+  // HEAD-checked once per occurrence before either result lands in `cache`.
+  const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
+  if (uniqueToCheck.length > 0) {
+    await runWithConcurrency(uniqueToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
+      cache.set(url, await checkLink(url));
+    });
+  }
+  const results = withUrls.map(({ job, url }) => ({ job, live: !url || cache.get(url) !== false }));
+  const checked = results.length;
+  const liveCount = results.filter((r) => r.live).length;
+  if (checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
+    console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
+    return jobs;
+  }
+  const deadCount = checked - liveCount;
+  if (deadCount > 0) {
+    console.log(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
+  }
+  return results.filter((r) => r.live).map((r) => r.job);
+}
 
 // Brand logo lookup. Builds slug→filename map from public/images/brands/ at
 // startup (~72 logos). Used to render company logos in job cards instead of
@@ -1237,6 +1303,9 @@ async function main() {
   // 3. Match alerts to jobs
   const emailsToSend = [];
   let totalMatches = 0;
+  // Shared across every alert/locale below so the same job's page is never
+  // HEAD-checked twice in one run (#3172).
+  const jobLiveCheckCache = new Map();
 
   for (const alert of alerts) {
     // Enrich the alert with the subscriber's newsletter profile, browsing
@@ -1327,14 +1396,24 @@ async function main() {
       continue;
     }
 
-    totalMatches += matched.length;
+    // Preflight (#3172): drop any job whose live page 404s/times out before
+    // it gets baked into the email — data/jobs.json is a crawl snapshot and
+    // can lag the job actually being pulled/expired, or the deploy of its
+    // per-locale SSG page.
+    const liveMatched = await filterLiveJobs(matched, alert.locale || 'it', jobLiveCheckCache);
+    if (liveMatched.length === 0) {
+      console.log(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
+      continue;
+    }
+
+    totalMatches += liveMatched.length;
     const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
-    const { subject, html, text, unsubscribeUrl } = buildAlertEmail(alert, matched, autologinEnabled);
+    const { subject, html, text, unsubscribeUrl } = buildAlertEmail(alert, liveMatched, autologinEnabled);
 
     // Mark the jobs actually shown (the rendered cards) as sent so they rotate
     // out next run. buildAlertEmail renders up to 10 cards. References, not
     // copies — cheap to carry to the post-send persistence step.
-    const sentJobs = matched.slice(0, 10);
+    const sentJobs = liveMatched.slice(0, 10);
 
     emailsToSend.push({
       to: alert.email,
@@ -1451,4 +1530,4 @@ if (isEntryPoint) {
   });
 }
 
-export { buildAlertEmail };
+export { buildAlertEmail, filterLiveJobs, jobPageUrl };
