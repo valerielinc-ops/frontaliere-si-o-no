@@ -38,6 +38,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 
@@ -324,7 +325,10 @@ function classifyFeatureRatio(relPath) {
   if (/(?:^|\/)(?:mercato-lavoro-ticino|ticino-job-market|tessiner-arbeitsmarkt|tessin-arbeitsmarkt|marche-travail-tessin|tessin-marche-emploi|mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
   if (BLOG_SECTION_RX.test(p) || /(?:^|\/)(?:blog|articles)\//.test(p)) return 'blog';
   if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  if (/(?:^|\/)(?:eventi\/ticino|events\/ticino|veranstaltungen\/tessin|evenements\/tessin)(?:\/|$)/.test(p)) return 'eventi';
+  // Canton-aware events sections → shared matcher (scripts/lib/eventsSections.mjs).
+  // Was TI-only; leaked non-TI canton events pages into spa-locale/spa-other
+  // once nationwide event sourcing shipped (#3125/#3243), causing #3232.
+  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
@@ -340,7 +344,10 @@ function classifyFeatureTitle(relPath) {
   if (/(?:^|\/)(?:mercato-lavoro|mercato-lavoro-ticino|job-market|ticino-job-market|arbeitsmarkt|arbeitsmarkt-tessin|marche-emploi|marche-travail|marche-emploi-tessin|marche-travail-tessin)\//.test(p)) return 'job-market-snapshot';
   if (BLOG_SECTION_RX.test(p)) return 'blog';
   if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  if (/(?:^|\/)(?:eventi\/ticino|events\/ticino|veranstaltungen\/tessin|evenements\/tessin)(?:\/|$)/.test(p)) return 'eventi';
+  // Canton-aware events sections → shared matcher (scripts/lib/eventsSections.mjs).
+  // Was TI-only; leaked non-TI canton events pages into spa-locale/spa-other
+  // once nationwide event sourcing shipped (#3125/#3243), causing #3232.
+  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
@@ -356,7 +363,10 @@ function classifyFeatureH1(relPath) {
   if (/(?:^|\/)(?:mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
   if (BLOG_SECTION_RX.test(p)) return 'blog';
   if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  if (/(?:^|\/)(?:eventi\/ticino|events\/ticino|veranstaltungen\/tessin|evenements\/tessin)(?:\/|$)/.test(p)) return 'eventi';
+  // Canton-aware events sections → shared matcher (scripts/lib/eventsSections.mjs).
+  // Was TI-only; leaked non-TI canton events pages into spa-locale/spa-other
+  // once nationwide event sourcing shipped (#3125/#3243), causing #3232.
+  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }

@@ -22,6 +22,7 @@ import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { EJP_STRIPPED_MARKER } from '../build-plugins/shared/ejpMarker.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 
@@ -82,12 +83,16 @@ function classifyFeature(relPath) {
   if (BLOG_SECTION_RX.test(p) || /(?:^|\/)(?:blog|articles)\//.test(p)) return 'blog';
   if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
   if (/(?:^|\/)(?:meteo-frontalieri|commute-weather|pendler-wetter|meteo-frontaliers|allerte-meteo|weather-alerts|wetter-warnungen|alertes-meteo)\//.test(p)) return 'weather';
-  // Ticino events hub + per-comune pages (all 4 locale section slugs). These are
-  // inherently markup-heavy (event cards + Event JSON-LD + maps) with a low
-  // text-to-HTML ratio, exactly like border-wait/fuel-daily/weather. Give them
-  // their own ratchet bucket so they don't pollute the spa-locale/spa-other
-  // catch-all (same classifier-drift class as #2853/#2910 fuel/svizzera leaks).
-  if (/(?:^|\/)(?:eventi\/ticino|events\/ticino|veranstaltungen\/tessin|evenements\/tessin)(?:\/|$)/.test(p)) return 'eventi';
+  // Canton-aware events hub + per-comune pages (all 4 locale section slugs,
+  // every canton — shared matcher, scripts/lib/eventsSections.mjs). These
+  // are inherently markup-heavy (event cards + Event JSON-LD + maps) with a
+  // low text-to-HTML ratio, exactly like border-wait/fuel-daily/weather.
+  // Give them their own ratchet bucket so they don't pollute the
+  // spa-locale/spa-other catch-all. Was TI-only, which leaked non-TI canton
+  // events pages into spa-locale/spa-other once nationwide event sourcing
+  // shipped (#3125/#3243), causing the #3232 regression (same
+  // classifier-drift class as #2853/#2910 fuel/svizzera leaks).
+  if (EVENTS_SECTION_RX.test(p)) return 'eventi';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
