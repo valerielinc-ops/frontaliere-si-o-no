@@ -40,6 +40,7 @@ export const KUEHNE_NAGEL_COMPANY_NAME = 'Kuehne+Nagel';
 export const KUEHNE_NAGEL_COMPANY_DOMAIN = 'kuehne-nagel.com';
 
 const JOBS_HOST = 'jobs.kuehne-nagel.com';
+// locale-segment-ok: Kuehne+Nagel careers portal only publishes an English site, fixed regardless of our site locale
 const SEARCH_URL = `https://${JOBS_HOST}/global/en/search-results`;
 const WIDGETS_URL = `https://${JOBS_HOST}/widgets`;
 const CAREER_URL = `https://${JOBS_HOST}/global/en`;

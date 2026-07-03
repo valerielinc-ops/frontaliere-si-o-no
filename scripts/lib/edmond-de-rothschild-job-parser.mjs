@@ -217,6 +217,7 @@ async function fetchJson(url, timeoutMs = 15000) {
  * Build the public detail URL for a given Oracle HCM requisition.
  */
 function buildOracleDetailUrl(oracleBase, requisitionId) {
+  // locale-segment-ok: Oracle HCM candidate portal path, fixed regardless of our site locale
   return `${oracleBase}/hcmUI/CandidateExperience/en/sites/${ORACLE_SITE}/job/${requisitionId}`;
 }
 
