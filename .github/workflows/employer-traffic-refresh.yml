@@ -1,8 +1,15 @@
 name: Refresh Employer Traffic Metrics
 
-# Daily: compute per-company crawled-apply counts (PostHog) and write them to
-# Firestore `employer_crawled_traffic/{companyKey}` so the publisher dashboard
-# can show each employer "we sent you N candidates from your free listings".
+# Daily: compute per-company crawled-apply counts (GA4, sponsored excluded)
+# and write them to Firestore `employer_crawled_traffic/{companyKey}` so the
+# publisher dashboard can show each employer "we sent you N candidates from
+# your free listings". GA4 replaced PostHog as the production source
+# (#employer-traffic-ga4-sponsored-split): PostHog can't distinguish
+# sponsored/free ads from the item_id label alone (counts them together,
+# inflating the "free" pitch), and repeated PostHog quota exhaustion made it
+# unreliable as a daily cron dependency. GA4 custom dimensions
+# (employer_key, is_sponsored) are already emitted by trackJobApply on every
+# apply click, so the split is exact, not estimated.
 # Zero-Claude (deterministic data refresh).
 
 on:
@@ -47,11 +54,11 @@ jobs:
             echo "⚠️ FIREBASE_SERVICE_ACCOUNT_JSON not set — aborting"; exit 1
           fi
 
-      - name: Load secrets from Remote Config (PostHog keys, GA4 property)
+      - name: Load secrets from Remote Config (GA4 property)
         run: node scripts/load-rc-env.mjs
 
-      - name: Compute per-company crawled traffic (PostHog)
-        run: node scripts/employer-traffic-report.mjs --source posthog --days 90 --min 1 --json /tmp/employer-traffic.json
+      - name: Compute per-company crawled traffic (GA4)
+        run: node scripts/employer-traffic-report.mjs --source ga4 --days 90 --min 1 --json /tmp/employer-traffic.json
 
       - name: Write to Firestore (employer_crawled_traffic)
         run: node scripts/write-employer-traffic.mjs /tmp/employer-traffic.json

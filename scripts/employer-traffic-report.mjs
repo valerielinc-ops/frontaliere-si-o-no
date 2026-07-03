@@ -3,23 +3,29 @@
  * Employer traffic report — "candidati inviati per azienda".
  *
  * Conta i candidati che mandiamo (gratis) verso il sito di ogni azienda, cioè
- * i click "Candidati" sugli annunci, distinguendo sponsorizzati da crawlati.
+ * i click "Candidati" sugli annunci SOLO gratuiti — lo sponsorizzato arriva
+ * già diretto al datore (copy box dashboard), va escluso dalla pitch.
  * È il dato che alimenta sia la prova in-prodotto sia l'outreach commerciale
  * ("vi abbiamo mandato N candidati il mese scorso, gratis").
  *
  * DUE SORGENTI (i touchpoint emettono entrambi gli eventi via analytics.ts):
  *
- *   --source posthog  (DEFAULT) — interroga lo STORICO via HogQL su PostHog.
- *       Aggrega `select_content` con content_type IN (job_board_apply,
- *       job_board_apply_header_logo, job_board_apply_header_title) — tutti i
- *       punti da cui un candidato esce verso l'azienda (titolo, logo, bottone).
- *       Azienda estratta dalla label `item_id = "<company>_<title>"`.
- *       Vantaggio: HogQL legge le proprietà raw → dati RETROATTIVI, niente
- *       custom dimension richieste. Usalo per partire subito.
+ *   --source ga4  (PRODUZIONE, cron employer-traffic-refresh.yml) — interroga
+ *       l'evento pulito `job_apply` (employer_key + is_sponsored, custom
+ *       dimension registrate). Unica sorgente che sa DAVVERO distinguere
+ *       sponsorizzato da gratuito (aggregateGa4Rows esclude sponsored dal
+ *       conteggio) — niente stima, split esatto. Solo dati POST-deploy (le
+ *       custom dimension GA4 non sono retroattive).
  *
- *   --source ga4 — interroga l'evento pulito `job_apply` (employer_key +
- *       is_sponsored, custom dimension registrate). Solo dati POST-deploy
- *       (le custom dimension GA4 non sono retroattive).
+ *   --source posthog  (DEFAULT CLI, solo backfill manuale/storico) —
+ *       interroga lo STORICO via HogQL su PostHog. Aggrega `select_content`
+ *       con content_type IN (job_board_apply, job_board_apply_header_logo,
+ *       job_board_apply_header_title). Azienda estratta dalla label
+ *       `item_id = "<company>_<title>"`, che NON porta il flag sponsored →
+ *       impossibile escluderlo, il numero include sponsorizzato+gratuito
+ *       insieme (mai usarlo per il cron di produzione: gonfia la pitch "free"
+ *       e la quota API PostHog non è affidabile per un cron giornaliero).
+ *       Vantaggio: dati RETROATTIVI, niente custom dimension richieste.
  *
  * Metrica per la pitch (`candidates`) = MIN(persone distinte, sessioni distinte),
  * non i click grezzi: un candidato che clicca logo+titolo+bottone è UNA persona,
@@ -150,16 +156,30 @@ async function fromGa4(days) {
   });
   const j = await r.json();
   if (j.error) throw new Error(`GA4: ${JSON.stringify(j.error).slice(0, 200)}`);
+  return aggregateGa4Rows(j.rows || []);
+}
+
+/**
+ * Pure aggregator GA4 rows → per-employer conteggi (unit-testable, no fetch).
+ * La pitch "candidati inviati dagli annunci gratuiti" DEVE escludere lo
+ * sponsorizzato (con sponsorizzato le candidature arrivano già diretto al
+ * datore, copy box dashboard) — persons/sessions/clicks qui sono free-only,
+ * lo sponsored va solo nel campo `sponsored` (non sommato al resto).
+ */
+export function aggregateGa4Rows(rows) {
   const byKey = new Map();
-  for (const row of (j.rows || [])) {
+  for (const row of (rows || [])) {
     const key = row.dimensionValues[0].value;
     const sponsored = row.dimensionValues[1].value === 'sponsored';
     const users = Number(row.metricValues[0].value) || 0;
     const sessions = Number(row.metricValues[1].value) || 0;
     const clicks = Number(row.metricValues[2].value) || 0;
     const e = byKey.get(key) || { key, persons: 0, sessions: 0, clicks: 0, sponsored: 0 };
-    e.persons += users; e.sessions += sessions; e.clicks += clicks;
-    if (sponsored) e.sponsored += users;
+    if (sponsored) {
+      e.sponsored += users;
+    } else {
+      e.persons += users; e.sessions += sessions; e.clicks += clicks;
+    }
     byKey.set(key, e);
   }
   // Stesso numero conservativo del path PostHog (#2384): pitch = min(persone, sessioni).
@@ -219,4 +239,7 @@ async function run() {
   }
 }
 
-run().catch(e => { console.error(e.message || e); process.exit(1); });
+// Esegui solo se invocato direttamente (aggregateGa4Rows resta importabile per i test).
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  run().catch(e => { console.error(e.message || e); process.exit(1); });
+}
