@@ -106,27 +106,6 @@ export const borderCrossings: BorderCrossing[] = [
  bazgCoverage: true,
  webcams: [
  {
- label: 'A2 – Chiasso Brogeda direzione nord',
- imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3N.gif',
- sourceName: TI_POLCA_SOURCE_NAME,
- sourceUrl: TI_POLCA_SOURCE_URL,
- refreshIntervalMs: 60000,
- },
- {
- label: 'A2 – Chiasso Brogeda valico doganale',
- imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3S.gif',
- sourceName: TI_POLCA_SOURCE_NAME,
- sourceUrl: TI_POLCA_SOURCE_URL,
- refreshIntervalMs: 60000,
- },
- {
- label: 'A2 – Chiasso Brogeda valico commerciale',
- imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3O.gif',
- sourceName: TI_POLCA_SOURCE_NAME,
- sourceUrl: TI_POLCA_SOURCE_URL,
- refreshIntervalMs: 60000,
- },
- {
  label: 'A2 – Balerna (corridoio Chiasso-Mendrisio) direzione sud',
  imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/03.3S.gif',
  sourceName: TI_POLCA_SOURCE_NAME,

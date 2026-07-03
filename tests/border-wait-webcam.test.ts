@@ -40,11 +40,14 @@ const CURRENT: BorderWaitCurrent = {
 const pages = generateBorderWaitPages({ current: CURRENT, today: new Date('2026-04-21T06:00:00.000Z') });
 
 describe('webcam rendering — conditional display', () => {
-  it('Brogeda page contains the 3 ASTRA/PolCa webcam figures', () => {
+  it('Brogeda page contains the ASTRA/PolCa webcam figures', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     // Count <figure> blocks inside the main body
+    // NOTE: was 5 webcams (>=3 asserted); 3 dead 00.3{N,S,O}.gif feeds
+    // (0-byte body, issue #3274) were removed from data/borderCrossings.ts,
+    // leaving the 2 confirmed-live feeds (03.3S.gif, 04.4N.gif).
     const figureCount = (html.match(/<figure/g) ?? []).length;
-    expect(figureCount).toBeGreaterThanOrEqual(3);
+    expect(figureCount).toBeGreaterThanOrEqual(2);
   });
 
   it('Stabio (gaggiolo) page contains at least one webcam figure', () => {

@@ -20,6 +20,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity } from './lib/julius-baer-job-parser.mjs';
@@ -194,7 +195,7 @@ async function mergeJobs(discoveredJobs) {
       titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3),
-      previousSlugs: [...new Set([...(ex.previousSlugs || []), ...(d.previousSlugs || [])])].slice(0, 20),
+      previousSlugs: mergePreviousSlugsCapped(ex.previousSlugs, d.previousSlugs, { jobId: ex.id || d.id, source: 'update-julius-baer-jobs.mjs' }),
     }); updated++; }
     else { merged.push(d); added++; }
   }
