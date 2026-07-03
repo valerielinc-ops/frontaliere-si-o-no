@@ -346,6 +346,50 @@ describe('jobEditorialLanding', () => {
     );
   });
 
+  it('excludes jobs whose description mentions "OSS" as unrelated jargon, not the healthcare role', () => {
+    // Regression: rolex-5d5fcc9ce3ba ("Administrateur BI SAP BW/BO") was
+    // showing up on /oss-ginevra/ because its description mentions applying
+    // "notes de securite et OSS" (SAP's Online Service System support
+    // notes) — unrelated to "operatore socio-sanitario". Bare "oss" must
+    // only be trusted in the curated title, not free-text description.
+    const jobs = [
+      job({
+        slug: 'rolex-5d5fcc9ce3ba',
+        title: 'Administrateur BI SAP BW/BO (H/F)',
+        description: 'Appliquer les notes de securite et OSS. Administrer les serveurs associes a BW et BO.',
+        company: 'Rolex',
+        location: 'Geneve',
+        canton: 'GE',
+        category: 'Amministrazione',
+        postedDate: '2026-03-09',
+      }),
+      job({
+        slug: 'oss-casa-anziani-ge',
+        title: 'Operatore sociosanitario OSS',
+        company: 'Casa Anziani Serena',
+        location: 'Geneve',
+        canton: 'GE',
+        category: 'health',
+        postedDate: '2026-03-08',
+      }),
+    ];
+
+    const model = buildJobCareVariantLandingModel({
+      jobs,
+      locale: 'it',
+      clusterKey: 'oss',
+      now: '2026-03-09T10:00:00.000+01:00',
+      localizedSlug: (item) => String(item.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'cerca-lavoro-ginevra',
+      localePrefix: '',
+      canton: 'GE',
+    });
+
+    expect(model.totalJobs).toBe(1);
+    expect(model.feed.jobs[0]).toMatchObject({ company: 'Casa Anziani Serena' });
+  });
+
   it('keeps the canton display casing in lowercased care-variant labels', () => {
     const jobs = [
       job({ slug: 'educatore-comunita', title: 'Educatore sociale', company: 'Fondazione Crescere', location: 'Mendrisio', category: 'health', postedDate: '2026-03-07' }),

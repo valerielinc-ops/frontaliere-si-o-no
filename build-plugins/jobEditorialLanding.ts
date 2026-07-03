@@ -957,7 +957,17 @@ const CARE_CLUSTER_DEFS: Record<JobCareClusterKey, {
  oss: {
  slug: { it: careClusterSlug('oss', 'TI', 'it'), en: careClusterSlug('oss', 'TI', 'en'), de: careClusterSlug('oss', 'TI', 'de'), fr: careClusterSlug('oss', 'TI', 'fr') },
  label: { it: careClusterLabel('oss', 'TI', 'it'), en: careClusterLabel('oss', 'TI', 'en'), de: careClusterLabel('oss', 'TI', 'de'), fr: careClusterLabel('oss', 'TI', 'fr') },
- matcher: (job) => /\b(oss\b|operatore socio|operatrice socio|socioassist|socioassistenziale|healthcare assistant|pflegeassist|assistente di cura|addetto alle cure)\b/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''}`)),
+ matcher: (job) => {
+ const titleText = normalizeSpace(`${job.title || ''}`);
+ const contextText = normalizeSpace(`${job.title || ''} ${job.description || ''}`);
+ // Bare "oss" is a 3-letter token that collides with unrelated jargon
+ // when scanned across free-text descriptions (e.g. SAP's "OSS notes"
+ // support system on admin/BI job postings) — only trust it in the
+ // curated title, same guard jobSectorLanding.ts already applies via
+ // SECTOR_DESCRIPTION_SCOPE. The longer, unambiguous synonyms stay
+ // scoped to the full title+description context.
+ return /\boss\b/i.test(titleText) || /\b(operatore socio|operatrice socio|socioassist|socioassistenziale|healthcare assistant|pflegeassist|assistente di cura|addetto alle cure)\b/i.test(contextText);
+ },
  },
  educators: {
  slug: { it: careClusterSlug('educators', 'TI', 'it'), en: careClusterSlug('educators', 'TI', 'en'), de: careClusterSlug('educators', 'TI', 'de'), fr: careClusterSlug('educators', 'TI', 'fr') },
