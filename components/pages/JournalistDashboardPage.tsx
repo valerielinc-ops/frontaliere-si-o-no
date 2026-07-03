@@ -759,28 +759,18 @@ export default function JournalistDashboardPage(): React.ReactElement {
               <Link2 className="w-3.5 h-3.5" />
               {t('journalistDashboard.detail.linkCheckHeading')}
             </p>
-            <ul className="space-y-2 text-sm">
-              {ARTICLE_LOCALES.map((loc) => {
-                const check = openArticle.linkCheck?.[loc];
-                return (
-                  <li key={loc} className="flex items-start justify-between gap-2">
-                    <span className="text-muted shrink-0">{LOCALE_LABELS[loc]}</span>
-                    {check ? (
-                      <span className={`text-right ${check.brokenLinks ? 'text-danger' : 'text-success'}`}>
-                        {check.brokenLinks
-                          ? t('journalistDashboard.detail.linkCheck.broken', {
-                              broken: check.brokenLinks,
-                              total: check.totalLinks ?? 0,
-                            })
-                          : t('journalistDashboard.detail.linkCheck.ok', { total: check.totalLinks ?? 0 })}
-                      </span>
-                    ) : (
-                      <span className="text-muted">{t('journalistDashboard.detail.linkCheckUnavailable')}</span>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+            {openArticle.linkCheck ? (
+              <p className={`text-sm ${openArticle.linkCheck.brokenLinks ? 'text-danger' : 'text-success'}`}>
+                {openArticle.linkCheck.brokenLinks
+                  ? t('journalistDashboard.detail.linkCheck.broken', {
+                      broken: openArticle.linkCheck.brokenLinks,
+                      total: openArticle.linkCheck.totalLinks ?? 0,
+                    })
+                  : t('journalistDashboard.detail.linkCheck.ok', { total: openArticle.linkCheck.totalLinks ?? 0 })}
+              </p>
+            ) : (
+              <p className="text-sm text-muted">{t('journalistDashboard.detail.linkCheckUnavailable')}</p>
+            )}
           </div>
         </div>
       )}

@@ -12,6 +12,12 @@
  * and writes the result back onto the doc so the dashboard can surface
  * "3 broken links" without a human re-checking manually.
  *
+ * Result is a SINGLE aggregate across all locale pages, not one per locale
+ * (was: `linkCheck.<locale>`). Each locale page carries the same site chrome
+ * (nav/footer/breadcrumb), so a per-locale breakdown mostly repeated the same
+ * count 4x with no editorial signal — the redazione just needs one
+ * "N link, M broken" figure for the article.
+ *
  * Best-effort at every level: a network hiccup on one locale must not abort
  * the run, crash other docs, or block other locales of the same doc.
  *
@@ -120,17 +126,34 @@ async function processDoc(db, docSnap) {
   }
 
   console.log(`\n🔗 Checking links for journalist_articles/${docId} (${locales.length} locale(s))...`);
+  let totalLinks = 0;
+  let brokenLinks = 0;
+  const brokenUrls = [];
+  let localesChecked = 0;
   for (const locale of locales) {
     const url = publishedUrls[locale];
     try {
       const result = await checkPageLinks(url);
-      await docSnap.ref.update({ [`linkCheck.${locale}`]: result });
-      console.log(`  ${result.brokenLinks > 0 ? '⚠️ ' : '✅'} ${locale}: ${result.totalLinks} link(s), ${result.brokenLinks} broken`);
+      totalLinks += result.totalLinks;
+      brokenLinks += result.brokenLinks;
+      for (const brokenUrl of result.brokenUrls) {
+        if (brokenUrls.length < MAX_BROKEN_URLS_STORED) brokenUrls.push(brokenUrl);
+      }
+      localesChecked += 1;
     } catch (err) {
       // Best-effort per locale: log and move on, never abort the doc or the run.
       console.warn(`  ⚠️  ${docId}/${locale}: link check failed (non-fatal): ${err.message}`);
     }
   }
+
+  if (!localesChecked) {
+    console.warn(`  ⚠️  ${docId}: all locale link checks failed — leaving previous linkCheck untouched.`);
+    return;
+  }
+
+  const aggregate = { checkedAt: new Date().toISOString(), totalLinks, brokenLinks, brokenUrls, localesChecked };
+  await docSnap.ref.update({ linkCheck: aggregate });
+  console.log(`  ${brokenLinks > 0 ? '⚠️ ' : '✅'} ${totalLinks} link(s) across ${localesChecked} locale(s), ${brokenLinks} broken`);
 }
 
 async function main() {
