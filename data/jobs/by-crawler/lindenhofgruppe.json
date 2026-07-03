@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lindenhofgruppe",
-  "assembledAt": "2026-07-02T22:18:59.453Z",
+  "assembledAt": "2026-07-03T12:21:32.993Z",
   "jobs": [
     {
       "id": "lindenhofgruppe-1d79dde9cfc8",
@@ -33,7 +33,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-intensivpflege-weiterbildungsstelle/904cecb3-163d-446e-9a66-f35d06fbaa52",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.142Z",
+      "crawledAt": "2026-07-03T12:21:05.438Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -55,7 +55,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+          "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+          "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern"
         ],
         "en": [
           "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch"
@@ -109,7 +110,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-pflege/aae083da-17d7-407a-85a5-286afd988784",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.142Z",
+      "crawledAt": "2026-07-03T12:21:05.438Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -128,11 +129,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "praktikant-in-pflege-lindenhofgruppe-ch"
+          "praktikant-in-pflege-lindenhofgruppe-ch",
+          "praktikant-in-pflege-lindenhofgruppe-bern"
         ],
         "it": [
           "praktikant-in-pflege-lindenhofgruppe-ch",
-          "praktikant-in-pflege-lindenhofgruppe-bern"
+          "praktikant-in-pflege-lindenhofgruppe-bern",
+          "interno-in-cura-lindenhofgruppe-bern"
         ],
         "en": [
           "praktikant-in-pflege-lindenhofgruppe-bern"
@@ -190,7 +193,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-medizinische-klinik/ca79ce4a-c6b1-44b4-a339-5f7e0fa2d845",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.142Z",
+      "crawledAt": "2026-07-03T12:21:05.438Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +215,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch"
+          "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
+          "assistente-medico-medico-clinica-medica-lindenhofgruppe-bern"
         ],
         "en": [
           "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch"
@@ -249,7 +253,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing specialist FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/ère diplômé/e HES/HF"
@@ -266,7 +270,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/694cd906-d05d-4f2c-ae63-840ec84dc3e0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.141Z",
+      "crawledAt": "2026-07-03T12:21:05.437Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -305,6 +309,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.775Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -349,7 +354,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-operationstechnik/cb4be6b0-f503-4ea8-8352-351c6f904bda",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.141Z",
+      "crawledAt": "2026-07-03T12:21:05.437Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -373,7 +378,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-operationstechnik-lindenhofgruppe-ch",
-          "fachfrau-mann-operationstechnik-lindenhofgruppe-bern"
+          "fachfrau-mann-operationstechnik-lindenhofgruppe-bern",
+          "fachfrau-mann-operazionitechnik-lindenhofgruppe-bern"
         ],
         "en": [
           "fachfrau-mann-operationstechnik-lindenhofgruppe-ch"
@@ -427,7 +433,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-fachfrau-mann-operationstechnik-hf/bd79ef21-83e1-4b31-8712-c0e047446b6b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.141Z",
+      "crawledAt": "2026-07-03T12:21:05.437Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -453,6 +459,89 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.776Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "lindenhofgruppe-5cb473b69d7e",
+      "slug": "cure-di-stoccaggio-lindenhofgruppe-bern",
+      "slugByLocale": {
+        "it": "cure-di-stoccaggio-lindenhofgruppe-bern",
+        "en": "storage-career-lindenhofgruppe-bern",
+        "de": "lagerungspfleger-in-lindenhofgruppe-bern",
+        "fr": "carriere-de-stockage-lindenhofgruppe-bern"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Lagerungspfleger/in",
+      "titleByLocale": {
+        "it": "Cure di stoccaggio",
+        "en": "Storage Career",
+        "de": "Lagerungspfleger/in",
+        "fr": "Carrière de stockage"
+      },
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nSie sind für die fachgerechte und operationsspezifische Lagerung der Patientinnen und Patienten verantwortlich. In Zusammenarbeit mit dem Operationsteam gewährleisten und überwachen Sie deren Sicherheit und Wohlbefinden.\n• Bereitstellen, installieren, bedienen und in Stand stellen der für die Operationen benötigten Geräte, Operationstische und Lagerungsmaterialien\n\n• Verantwortlich für die fachgerechte Reinigung der verschiedenen Geräte sowie des Zubehörs\n\n• Instruieren und Mitbetreuen von neuen Mitarbeitenden\n\n• Bestellung und Kontrolle des täglichen Verbrauchsmaterials\n\n• Übernahme von Wochenend-, Nacht- und Schichtdiensten\n\nAnforderungen:\n• Sie haben idealerweise den Kurs \"Perioperative Assistenz\" oder \"Assistenz Lagerung und Zudienung\" (medi) absolviert und verfügen bereits über Erfahrung im Operationsbereich\n\n• Durch Ihr Flair für mechanisch-technische Vorgänge sowie Ihr Interesse im Umgang mit elektronischen Einrichtungen bringen Sie eine hohe Motivation für diese Tätigkeit mit\n\n• Sie begegnen Menschen mit Respekt und Wertschätzung und schätzen die interprofessionelle Zusammenarbeit\n\n• Sie arbeiten eigenverantwortlich und qualitätsbewusst sowie Flexibilität und Belastbarkeit zeichnen Sie aus\n\n• Sehr gute Deutschkenntnisse runden Ihr Profil ab\n\nWir bieten:\nIn der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
+      "descriptionByLocale": {
+        "it": "Descrizione Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti - Sono responsabili per lo stoccaggio professionale e funzionale-specifico dei pazienti. In collaborazione con il team operativo, garantire e monitorare la loro sicurezza e il loro benessere. - Fornire, installare, operare e mantenere le attrezzature, le tabelle operative e i materiali di stoccaggio necessari per le operazioni - Responsabile per la pulizia professionale dei vari dispositivi e accessori - Instruisci e supporta nuovi dipendenti - Ordinazione e controllo dei consumabili giornalieri - Assumere i servizi di fine settimana, notte e turno\n• Requisiti - Hanno completato idealmente il corso \"Assistenza Operativa\" o \"Asssistance Storage and Service\" (medi) e hanno già esperienza nel campo delle operazioni - Portare il tuo tocco a processi meccanici e tecnici e il tuo interesse a gestire dispositivi elettronici Hai un'alta motivazione per questa attività con - incontrano le persone con rispetto e apprezzamento e apprezzano la cooperazione interprofessionale - Si lavora in modo indipendente e di qualità-cosciente così come la flessibilità e la caricabilità - Molto buone competenze tedesche completano il tuo profilo Cosa? - Nella cura olistica dei nostri pazienti hai un ruolo eccezionale da svolgere. Tengono sempre una panoramica e danno un contributo indispensabile alla migliore terapia possibile e alla cura dei pazienti con le loro capacità funzionali. - Grazie agli investimenti infrastrutturali in corso Sempre con le più moderne attrezzature e può mantenere il vostro know-how professionale à jour. - Proteggi il tuo funzionamento consapevole della qualità Potrai godere del benessere dei pazienti e sperimentare la stretta, cooperazione interdisciplinare con i nostri medici, così come il nostro personale come un arricchimento. Contatto",
+        "en": "Descrizione Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks - They are responsible for the professional and operation-specific storage of patients. In cooperation with the operating team, ensure and monitor their safety and well-being. - Provide, install, operate and maintain the equipment, operating tables and storage materials required for operations - Responsible for the professional cleaning of the various devices and accessories - Instrue and support new employees - Ordering and control of daily consumables - Takeover of weekend, night and shift services\n• Requirements - They have ideally completed the course \"Perioperative Assistance\" or \"Asssistance Storage and Service\" (medi) and already have experience in the field of operations - Bringing your flair to mechanical and technical processes and your interest in handling electronic devices You have a high motivation for this activity with - They meet people with respect and appreciation and appreciate interprofessional cooperation - You work independently and quality-consciously as well as flexibility and loadability - Very good German skills complete your profile\n• Cosa offriamo - In the holistic care of our patients you have an outstanding role to play. They always keep an overview and make an indispensable contribution to the best possible therapy and care of patients with their functional skills. - Thanks to ongoing infrastructure investments Always with the most modern equipment and can keep your professional know-how à jour. - Secure your quality-conscious operation You will enjoy the well-being of patients and experience the close, interdisciplinary cooperation with our doctors as well as our staff as an enrichment. Contatto",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Sie sind für die fachgerechte und operationsspezifische Lagerung der Patientinnen und Patienten verantwortlich. In Zusammenarbeit mit dem Operationsteam gewährleisten und überwachen Sie deren Sicherheit und Wohlbefinden.\n• Bereitstellen, installieren, bedienen und in Stand stellen der für die Operationen benötigten Geräte, Operationstische und Lagerungsmaterialien\n• Verantwortlich für die fachgerechte Reinigung der verschiedenen Geräte sowie des Zubehörs\n• Instruieren und Mitbetreuen von neuen Mitarbeitenden\n• Bestellung und Kontrolle des täglichen Verbrauchsmaterials\n• Übernahme von Wochenend-, Nacht- und Schichtdiensten Anforderungen:\n• Sie haben idealerweise den Kurs \"Perioperative Assistenz\" oder \"Assistenz Lagerung und Zudienung\" (medi) absolviert und verfügen bereits über Erfahrung im Operationsbereich\n• Durch Ihr Flair für mechanisch-technische Vorgänge sowie Ihr Interesse im Umgang mit elektronischen Einrichtungen bringen Sie eine hohe Motivation für diese Tätigkeit mit\n• Sie begegnen Menschen mit Respekt und Wertschätzung und schätzen die interprofessionelle Zusammenarbeit\n• Sie arbeiten eigenverantwortlich und qualitätsbewusst sowie Flexibilität und Belastbarkeit zeichnen Sie aus\n• Sehr gute Deutschkenntnisse runden Ihr Profil ab Wir bieten: In der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
+        "fr": "Descrizione Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches - Ils sont responsables du stockage professionnel et opérationnel des patients. En coopération avec l'équipe opérationnelle, assurer et surveiller leur sécurité et leur bien-être. - Fournir, installer, exploiter et entretenir l'équipement, les tables d'opération et les matériaux de stockage nécessaires aux opérations - Responsable du nettoyage professionnel des différents appareils et accessoires - Instaurer et soutenir les nouveaux employés - Commande et contrôle des consommables quotidiens - Prise en charge des services de week-end, de nuit et de poste\n• Exigences - Ils ont idéalement terminé le cours \"Assistance Perioperative\" ou \"Assistance Storage and Service\" (média) et ont déjà une expérience dans le domaine des opérations - Apportez votre flair aux processus mécaniques et techniques et votre intérêt pour la manipulation des appareils électroniques Vous avez une forte motivation pour cette activité avec - Ils rencontrent les gens avec respect et appréciation et apprécient la coopération interprofessionnelle - Vous travaillez de façon indépendante et consciente de la qualité ainsi que la flexibilité et la chargeabilité - Très bonnes compétences allemandes compléter votre profil\n• Cosa offriamo - Dans le soin holistique de nos patients, vous avez un rôle remarquable à jouer. Ils gardent toujours une vue d'ensemble et apportent une contribution indispensable à la meilleure thérapie possible et aux soins des patients avec leurs compétences fonctionnelles. - Grâce à des investissements continus en infrastructures Toujours avec l'équipement le plus moderne et peut garder votre savoir-faire professionnel à jour. - Sécurisez votre fonctionnement conscient de la qualité Vous apprécierez le bien-être des patients et vivrez l'étroite collaboration interdisciplinaire avec nos médecins ainsi que notre personnel comme un enrichissement. Contatto"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/lagerungspfleger-in/088f1376-4ff4-4ae7-83f4-309eb3178143",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T12:21:05.436Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-06-19",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/lagerungspflegerin-1-de-f2227.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "lagerungspfleger-in-lindenhofgruppe-ch",
+          "lagerungspfleger-in-lindenhofgruppe-bern"
+        ],
+        "it": [
+          "lagerungspfleger-in-lindenhofgruppe-ch",
+          "lagerungspfleger-in-lindenhofgruppe-bern",
+          "cure-di-stoccaggio-lindenhofgruppe-bern"
+        ],
+        "en": [
+          "lagerungspfleger-in-lindenhofgruppe-bern"
+        ],
+        "fr": [
+          "lagerungspfleger-in-lindenhofgruppe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lagerungspfleger-in-lindenhofgruppe-ch",
+        "lagerungspfleger-in-lindenhofgruppe-bern"
+      ],
+      "firstSeenAt": "2026-05-10T21:57:57.774Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -497,7 +586,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.140Z",
+      "crawledAt": "2026-07-03T12:21:05.436Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -525,7 +614,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch"
+          "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch",
+          "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern"
         ],
         "en": [
           "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch"
@@ -579,7 +669,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-cand-med/90eea979-1118-4126-a17c-41ac745c05ae",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.140Z",
+      "crawledAt": "2026-07-03T12:21:05.436Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -601,7 +691,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-cand-med-lindenhofgruppe-ch"
+          "praktikant-in-cand-med-lindenhofgruppe-ch",
+          "interno-lindenhofgruppe-bern"
         ],
         "en": [
           "praktikant-in-cand-med-lindenhofgruppe-ch"
@@ -655,7 +746,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-experte-expertin-anaesthesie-nds-hf/5adceb3d-3a8a-420e-9261-52ee6dbe40c9",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.139Z",
+      "crawledAt": "2026-07-03T12:21:05.435Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -677,7 +768,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch"
+          "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch",
+          "dipl-esperto-esperto-anestesia-nds-hf-lindenhofgruppe-bern"
         ],
         "en": [
           "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch"
@@ -687,6 +779,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.771Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -731,7 +824,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026/2d83700a-8e64-42c2-a318-1413d8d4ee44",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.139Z",
+      "crawledAt": "2026-07-03T12:21:05.435Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -755,7 +848,8 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch",
-          "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-bern"
+          "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-bern",
+          "carriera-donna-fh-in-formazione-pratica-elettiva-2026-lindenhofgruppe-bern"
         ],
         "en": [
           "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch"
@@ -809,7 +903,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bachelor-of-science-in-pflege-zusatzmodul-b/ce745069-0f27-4caf-b4d6-8b9b9173c51a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.139Z",
+      "crawledAt": "2026-07-03T12:21:05.435Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -831,7 +925,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch"
+          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
+          "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern"
         ],
         "en": [
           "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch"
@@ -855,73 +950,70 @@
       }
     },
     {
-      "id": "lindenhofgruppe-5cb473b69d7e",
-      "slug": "cure-di-stoccaggio-lindenhofgruppe-bern",
+      "id": "lindenhofgruppe-c7be6e5771e0",
+      "slug": "dipl-pflegefachfrau-mann-hf-fh-con-weiterbildung-in-uberwachungspflege-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "cure-di-stoccaggio-lindenhofgruppe-bern",
-        "en": "storage-career-lindenhofgruppe-bern",
-        "de": "lagerungspfleger-in-lindenhofgruppe-bern",
-        "fr": "carriere-de-stockage-lindenhofgruppe-bern"
+        "it": "dipl-pflegefachfrau-mann-hf-fh-con-weiterbildung-in-uberwachungspflege-lindenhofgruppe-bern",
+        "en": "registered-nurse-with-monitoring-specialization-lindenhofgruppe-bern",
+        "de": "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
+        "fr": "infirmier-infirmiere-diplome-e-hf-fh-avec-specialisation-en-surveillance-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
       "companyDomain": "lindenhofgruppe.ch",
-      "title": "Lagerungspfleger/in",
+      "title": "Dipl. Pflegefachfrau/-mann HF/FH mit Weiterbildung in Überwachungspflege",
       "titleByLocale": {
-        "it": "Cure di stoccaggio",
-        "en": "Storage Career",
-        "de": "Lagerungspfleger/in",
-        "fr": "Carrière de stockage"
+        "it": "Infermiere/a diplomato/a HF/FH con specializzazione in monitoraggio",
+        "en": "Registered Nurse with Monitoring Specialization",
+        "de": "Dipl. Pflegefachfrau/-mann HF/FH mit Weiterbildung in Überwachungspflege",
+        "fr": "Infirmier/infirmière diplômé(e) HF/FH avec spécialisation en surveillance"
       },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nSie sind für die fachgerechte und operationsspezifische Lagerung der Patientinnen und Patienten verantwortlich. In Zusammenarbeit mit dem Operationsteam gewährleisten und überwachen Sie deren Sicherheit und Wohlbefinden.\n• Bereitstellen, installieren, bedienen und in Stand stellen der für die Operationen benötigten Geräte, Operationstische und Lagerungsmaterialien\n\n• Verantwortlich für die fachgerechte Reinigung der verschiedenen Geräte sowie des Zubehörs\n\n• Instruieren und Mitbetreuen von neuen Mitarbeitenden\n\n• Bestellung und Kontrolle des täglichen Verbrauchsmaterials\n\n• Übernahme von Wochenend-, Nacht- und Schichtdiensten\n\nAnforderungen:\n• Sie haben idealerweise den Kurs \"Perioperative Assistenz\" oder \"Assistenz Lagerung und Zudienung\" (medi) absolviert und verfügen bereits über Erfahrung im Operationsbereich\n\n• Durch Ihr Flair für mechanisch-technische Vorgänge sowie Ihr Interesse im Umgang mit elektronischen Einrichtungen bringen Sie eine hohe Motivation für diese Tätigkeit mit\n\n• Sie begegnen Menschen mit Respekt und Wertschätzung und schätzen die interprofessionelle Zusammenarbeit\n\n• Sie arbeiten eigenverantwortlich und qualitätsbewusst sowie Flexibilität und Belastbarkeit zeichnen Sie aus\n\n• Sehr gute Deutschkenntnisse runden Ihr Profil ab\n\nWir bieten:\nIn der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nUnsere Abklärungsbettenstation im Notfallzentrum wird umgebaut - unser Anspruch bleibt derselbe: eine hochwertige Betreuung und ein gutes Miteinander. Dafür suchen wir Verstärkung für unser Team.\n\nDie Station verfügt über 11 Behandlungsplätze. Hier betreuen und überwachen wir Patientinnen und Patienten, die über die Notfallabteilung aufgenommen werden und voraussichtlich 24-36 Stunden hospitalisiert bleiben.\n\n• Sie übernehmen die bedürfnisorientierte Pflege und Betreuung der Patientinnen und Patienten, die entweder umfangreiche Notfallabklärungen benötigen oder auf eine definitive Zimmerzuteilung warten\n\n• Sie organisieren, gestalten und steuern den gesamten Pflegeprozess - inklusive Leistungserfassung von Material und Pflege - mit Unterstützung des Klinik-Informationssystems KISIM\n\n• Sie arbeiten eng und interprofessionell mit den Teams der Abklärungsbettenstation sowie des Notfalls zusammen\n\n• Sie leisten Einsätze im Schichtbetrieb sowie an Wochenenden\n\nAnforderungen:\n• Sie sind Dipl. Pflegefachfrau/-mann HF/FH und verfügen über eine Weiterbildung in Überwachungspflege sowie Erfahrung im Akutbereich\n\n• Mit wechselnden und anspruchsvollen Patientensituationen gehen Sie sicher und kompetent um. Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihres Handelns\n\n• Sie sind eine selbständige, verantwortungsbewusste und belastbare Persönlichkeit\n\n• Sie begegnen Menschen mit Respekt und Wertschätzung, arbeiten teamorientiert und schätzen ein dynamisches Arbeitsumfeld\n\nSind Sie motiviert, in unserer neuen Abklärungsbettenstation mitzuwirken und sich aktiv am weiteren Aufbau sowie an der kontinuierlichen Weiterentwicklung zu beteiligen?\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
       "descriptionByLocale": {
-        "it": "Descrizione Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti - Sono responsabili per lo stoccaggio professionale e funzionale-specifico dei pazienti. In collaborazione con il team operativo, garantire e monitorare la loro sicurezza e il loro benessere. - Fornire, installare, operare e mantenere le attrezzature, le tabelle operative e i materiali di stoccaggio necessari per le operazioni - Responsabile per la pulizia professionale dei vari dispositivi e accessori - Instruisci e supporta nuovi dipendenti - Ordinazione e controllo dei consumabili giornalieri - Assumere i servizi di fine settimana, notte e turno\n• Requisiti - Hanno completato idealmente il corso \"Assistenza Operativa\" o \"Asssistance Storage and Service\" (medi) e hanno già esperienza nel campo delle operazioni - Portare il tuo tocco a processi meccanici e tecnici e il tuo interesse a gestire dispositivi elettronici Hai un'alta motivazione per questa attività con - incontrano le persone con rispetto e apprezzamento e apprezzano la cooperazione interprofessionale - Si lavora in modo indipendente e di qualità-cosciente così come la flessibilità e la caricabilità - Molto buone competenze tedesche completano il tuo profilo Cosa? - Nella cura olistica dei nostri pazienti hai un ruolo eccezionale da svolgere. Tengono sempre una panoramica e danno un contributo indispensabile alla migliore terapia possibile e alla cura dei pazienti con le loro capacità funzionali. - Grazie agli investimenti infrastrutturali in corso Sempre con le più moderne attrezzature e può mantenere il vostro know-how professionale à jour. - Proteggi il tuo funzionamento consapevole della qualità Potrai godere del benessere dei pazienti e sperimentare la stretta, cooperazione interdisciplinare con i nostri medici, così come il nostro personale come un arricchimento. Contatto",
-        "en": "Descrizione Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks - They are responsible for the professional and operation-specific storage of patients. In cooperation with the operating team, ensure and monitor their safety and well-being. - Provide, install, operate and maintain the equipment, operating tables and storage materials required for operations - Responsible for the professional cleaning of the various devices and accessories - Instrue and support new employees - Ordering and control of daily consumables - Takeover of weekend, night and shift services\n• Requirements - They have ideally completed the course \"Perioperative Assistance\" or \"Asssistance Storage and Service\" (medi) and already have experience in the field of operations - Bringing your flair to mechanical and technical processes and your interest in handling electronic devices You have a high motivation for this activity with - They meet people with respect and appreciation and appreciate interprofessional cooperation - You work independently and quality-consciously as well as flexibility and loadability - Very good German skills complete your profile\n• Cosa offriamo - In the holistic care of our patients you have an outstanding role to play. They always keep an overview and make an indispensable contribution to the best possible therapy and care of patients with their functional skills. - Thanks to ongoing infrastructure investments Always with the most modern equipment and can keep your professional know-how à jour. - Secure your quality-conscious operation You will enjoy the well-being of patients and experience the close, interdisciplinary cooperation with our doctors as well as our staff as an enrichment. Contatto",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Sie sind für die fachgerechte und operationsspezifische Lagerung der Patientinnen und Patienten verantwortlich. In Zusammenarbeit mit dem Operationsteam gewährleisten und überwachen Sie deren Sicherheit und Wohlbefinden.\n• Bereitstellen, installieren, bedienen und in Stand stellen der für die Operationen benötigten Geräte, Operationstische und Lagerungsmaterialien\n• Verantwortlich für die fachgerechte Reinigung der verschiedenen Geräte sowie des Zubehörs\n• Instruieren und Mitbetreuen von neuen Mitarbeitenden\n• Bestellung und Kontrolle des täglichen Verbrauchsmaterials\n• Übernahme von Wochenend-, Nacht- und Schichtdiensten Anforderungen:\n• Sie haben idealerweise den Kurs \"Perioperative Assistenz\" oder \"Assistenz Lagerung und Zudienung\" (medi) absolviert und verfügen bereits über Erfahrung im Operationsbereich\n• Durch Ihr Flair für mechanisch-technische Vorgänge sowie Ihr Interesse im Umgang mit elektronischen Einrichtungen bringen Sie eine hohe Motivation für diese Tätigkeit mit\n• Sie begegnen Menschen mit Respekt und Wertschätzung und schätzen die interprofessionelle Zusammenarbeit\n• Sie arbeiten eigenverantwortlich und qualitätsbewusst sowie Flexibilität und Belastbarkeit zeichnen Sie aus\n• Sehr gute Deutschkenntnisse runden Ihr Profil ab Wir bieten: In der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
-        "fr": "Descrizione Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches - Ils sont responsables du stockage professionnel et opérationnel des patients. En coopération avec l'équipe opérationnelle, assurer et surveiller leur sécurité et leur bien-être. - Fournir, installer, exploiter et entretenir l'équipement, les tables d'opération et les matériaux de stockage nécessaires aux opérations - Responsable du nettoyage professionnel des différents appareils et accessoires - Instaurer et soutenir les nouveaux employés - Commande et contrôle des consommables quotidiens - Prise en charge des services de week-end, de nuit et de poste\n• Exigences - Ils ont idéalement terminé le cours \"Assistance Perioperative\" ou \"Assistance Storage and Service\" (média) et ont déjà une expérience dans le domaine des opérations - Apportez votre flair aux processus mécaniques et techniques et votre intérêt pour la manipulation des appareils électroniques Vous avez une forte motivation pour cette activité avec - Ils rencontrent les gens avec respect et appréciation et apprécient la coopération interprofessionnelle - Vous travaillez de façon indépendante et consciente de la qualité ainsi que la flexibilité et la chargeabilité - Très bonnes compétences allemandes compléter votre profil\n• Cosa offriamo - Dans le soin holistique de nos patients, vous avez un rôle remarquable à jouer. Ils gardent toujours une vue d'ensemble et apportent une contribution indispensable à la meilleure thérapie possible et aux soins des patients avec leurs compétences fonctionnelles. - Grâce à des investissements continus en infrastructures Toujours avec l'équipement le plus moderne et peut garder votre savoir-faire professionnel à jour. - Sécurisez votre fonctionnement conscient de la qualité Vous apprécierez le bien-être des patients et vivrez l'étroite collaboration interdisciplinaire avec nos médecins ainsi que notre personnel comme un enrichissement. Contatto"
+        "it": "Il senso di responsabilità e l'iniziativa sono tra i tuoi punti di forza? Ti piacerebbe far parte di un team solidale e di successo? Allora sei perfetto per noi. Come Gruppo Lindenhof abbiamo successo solo perché oltre 800 infermieri, circa 100 medici ospedalieri, 300 medici curanti e altri 1.300 dipendenti lavorano fianco a fianco e possono contare l'uno sull'altro in ogni momento. Al centro della medicina di alta qualità c’è sempre una squadra forte. E stiamo cercando te per rafforzare questa squadra! Compiti: il nuovo posto letto valutativo nel centro di emergenza Lindenhof è in funzione da gennaio 2026 e dispone di 11 posti di trattamento. Qui i pazienti vengono curati e monitorati in caso di emergenza e si prevede che debbano essere ricoverati in ospedale per 24-36 ore.\n• Ti occupi dell'assistenza e del supporto orientati ai bisogni dei pazienti che necessitano di chiarimenti approfonditi in caso di emergenza o sono in attesa dell'assegnazione definitiva della stanza\n• Organizzi, progetti e controlli l'intero processo infermieristico - compresa la registrazione delle prestazioni dei materiali e dell'assistenza - con il supporto del sistema informativo clinico KISIM\n• Lavori a stretto contatto e in modo interprofessionale con le squadre del reparto letto di chiarificazione e del pronto soccorso\n• Lavori a turni e nei fine settimana Requisiti:\n• Sei uno specialista infermieristico qualificato HF/FH e hai una formazione ulteriore nel monitoraggio dell'assistenza nonché esperienza nel area acuta\n• Affrontate le situazioni mutevoli e impegnative dei pazienti in modo sicuro e competente. Il benessere dei pazienti è al centro delle tue azioni\n• Sei una personalità indipendente, responsabile e resiliente\n• Tratti le persone con rispetto e apprezzamento, lavori in modo orientato al team e apprezzi un ambiente di lavoro dinamico Sei motivato a lavorare nel nostro nuovo reparto di letti diagnostici e a partecipare attivamente al suo ulteriore sviluppo e sviluppo continuo? Offriamo: L'assistenza di qualità e la formazione infermieristica hanno una tradizione di lunga data nel Gruppo Lindenhof. In qualità di ospedale medico affiliato, attribuiamo grande importanza all'assistenza e l'abbiamo organizzata come un'area operativa separata. Siamo all'avanguardia nei nuovi sviluppi: garantiamo questa posizione pionieristica attraverso la stretta collaborazione con aziende di formazione e perfezionamento e attraverso lo sviluppo di nuovi corsi. Entra a far parte del nostro team infermieristico! I processi e i servizi del Gruppo Lindenhof si basano interamente sulle esigenze dei pazienti e la nostra collaborazione è caratterizzata da apertura, collegialità e interazione riconoscente. Ti offriamo l'opportunità di svilupparti professionalmente e di pianificare la tua carriera individualmente. Impara cose nuove ogni giorno in un ambiente di lavoro progressivo e piacevole.",
+        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: The new clarification bed station in the emergency center Lindenhof has been in operation since January 2026 and has 11 treatment sites. Here, patients are supervised and monitored, which have occurred due to the emergency and are expected to have to be hospitalized 24/36 hours.\n• You take care and care of patients with need, who either need extensive emergency clarifications or wait for a definitive room allocation\n• You organize, design and control the entire care process - including performance detection of material and care - with the support of the Clinical Information System KISIM\n• They work closely and interprofessionally with the teams of the reconnaissance bed station and the emergency\n• They make use of shiftwork and weekend requirements:\n• You're Dipl. Care specialist HF/FH and have further training in monitoring care and experience in the acute area\n• With changing and demanding patient situations, you can handle safely and competently. The well-being of patients is at the heart of your action\n• They are an independent, responsible and resilient personality\n• Do you encounter people with respect and appreciation, work team-oriented and appreciate a dynamic working environment Are you motivated to participate in our new reconnaissance bed station and actively participate in the further development and continuous development? We offer: Care quality and care training have a long tradition at the Lindenhof group. As a specialist hospital, we measure the care a high priority and organized it as a separate business area. We are at the forefront of new developments: We ensure this pioneering position by working closely with training and training companies and by developing new courses. Become part of our care team! The processes and services in the Lindenhof group are based entirely on the needs of patients, and our cooperation is characterised by openness, collegiateness and value-awareness. We offer you the opportunity to develop professionally and allow you to create individual career planning. Learn new in an advanced, pleasant working environment every day.",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Unsere Abklärungsbettenstation im Notfallzentrum wird umgebaut - unser Anspruch bleibt derselbe: eine hochwertige Betreuung und ein gutes Miteinander. Dafür suchen wir Verstärkung für unser Team. Die Station verfügt über 11 Behandlungsplätze. Hier betreuen und überwachen wir Patientinnen und Patienten, die über die Notfallabteilung aufgenommen werden und voraussichtlich 24-36 Stunden hospitalisiert bleiben.\n• Sie übernehmen die bedürfnisorientierte Pflege und Betreuung der Patientinnen und Patienten, die entweder umfangreiche Notfallabklärungen benötigen oder auf eine definitive Zimmerzuteilung warten\n• Sie organisieren, gestalten und steuern den gesamten Pflegeprozess - inklusive Leistungserfassung von Material und Pflege - mit Unterstützung des Klinik-Informationssystems KISIM\n• Sie arbeiten eng und interprofessionell mit den Teams der Abklärungsbettenstation sowie des Notfalls zusammen\n• Sie leisten Einsätze im Schichtbetrieb sowie an Wochenenden Anforderungen:\n• Sie sind Dipl. Pflegefachfrau/-mann HF/FH und verfügen über eine Weiterbildung in Überwachungspflege sowie Erfahrung im Akutbereich\n• Mit wechselnden und anspruchsvollen Patientensituationen gehen Sie sicher und kompetent um. Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihres Handelns\n• Sie sind eine selbständige, verantwortungsbewusste und belastbare Persönlichkeit\n• Sie begegnen Menschen mit Respekt und Wertschätzung, arbeiten teamorientiert und schätzen ein dynamisches Arbeitsumfeld Sind Sie motiviert, in unserer neuen Abklärungsbettenstation mitzuwirken und sich aktiv am weiteren Aufbau sowie an der kontinuierlichen Weiterentwicklung zu beteiligen? Wir bieten: Pflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge. Werden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
+        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : La nouvelle station-lit de clarification du centre d'urgence Lindenhof est en service depuis janvier 2026 et compte 11 sites de traitement. Ici, les patients sont surveillés et surveillés, qui sont survenus en raison de l'urgence et qui devraient être hospitalisés 24/36 heures.\n• Vous prenez soin des patients ayant besoin de soins, qui ont besoin d'éclaircissements d'urgence ou attendent une allocation définitive de la chambre\n• Vous organisez, concevez et contrôlez l'ensemble du processus de soins - y compris la détection des performances du matériel et des soins - avec le soutien du système d'information clinique KISIM\n• Ils travaillent en étroite collaboration et interprofessionnelle avec les équipes de la station-lit de reconnaissance et de l'urgence\n• Ils utilisent le travail posté et les exigences du week-end:\n• Vous êtes Dipl. Spécialiste des soins HF/FH et avoir une formation complémentaire en surveillance des soins et de l'expérience dans le domaine aigu\n• Avec des situations changeantes et exigeantes, vous pouvez gérer en toute sécurité et avec compétence. Le bien-être des patients est au cœur de votre action\n• Ils sont une personnalité indépendante, responsable et résistante\n• Rencontrez-vous des gens avec respect et appréciation, travaillant en équipe et appréciez un environnement de travail dynamique Êtes-vous motivé à participer à notre nouvelle station de reconnaissance et à participer activement au développement et au développement continu? Nous offrons: la qualité des soins et la formation de soins ont une longue tradition au sein du groupe Lindenhof. En tant qu'hôpital spécialisé, nous mesurons les soins comme une priorité élevée et nous les organisons comme un secteur d'activité distinct. Nous sommes à l'avant-garde des nouveaux développements : Nous assurons cette position de pionnier en collaborant étroitement avec les entreprises de formation et en développant de nouveaux cours. Faites partie de notre équipe de soins ! Les processus et les services du groupe Lindenhof sont entièrement basés sur les besoins des patients, et notre coopération se caractérise par l'ouverture, la collégialité et la connaissance de la valeur. Nous vous offrons la possibilité de vous développer professionnellement et de vous permettre de créer une planification de carrière individuelle. Apprenez-en davantage dans un environnement de travail avancé et agréable chaque jour."
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/lagerungspfleger-in/088f1376-4ff4-4ae7-83f4-309eb3178143",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-ueberwachungspflege/1e931b67-86f5-415c-b2d8-08390c7dde3e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.139Z",
+      "crawledAt": "2026-07-03T12:21:05.434Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3001",
-      "category": "Logistica",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-06-19",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/lagerungspflegerin-1-de-f2227.html?agid=20",
+      "postedDate": "2026-03-02",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/dipl-pflegefachfrau-mann-fhhf-abklaerungsbettenstation-de-f2604.html?agid=20",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
+        "infermiere-a-diplomato-a-hf-fh-con-specializzazione-in-monitoraggio-lindenhofgruppe-bern"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "lagerungspfleger-in-lindenhofgruppe-ch"
-        ],
         "it": [
-          "lagerungspfleger-in-lindenhofgruppe-ch",
-          "lagerungspfleger-in-lindenhofgruppe-bern"
+          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
+          "infermiere-a-diplomato-a-hf-fh-con-specializzazione-in-monitoraggio-lindenhofgruppe-bern"
         ],
         "en": [
-          "lagerungspfleger-in-lindenhofgruppe-bern"
+          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch"
         ],
         "fr": [
-          "lagerungspfleger-in-lindenhofgruppe-bern"
+          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch"
         ]
       },
-      "previousSlugs": [
-        "lagerungspfleger-in-lindenhofgruppe-ch",
-        "lagerungspfleger-in-lindenhofgruppe-bern"
-      ],
-      "firstSeenAt": "2026-05-10T21:57:57.774Z",
+      "firstSeenAt": "2026-05-10T21:57:57.763Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -966,7 +1058,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruehling-2027/807758b7-3a09-43dc-ae54-b9e6261a4d22",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.138Z",
+      "crawledAt": "2026-07-03T12:21:05.434Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -990,7 +1082,8 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
-          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-bern"
+          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-bern",
+          "carriera-moglie-hf-in-servizio-di-formazione-primavera-2027-lindenhofgruppe-bern"
         ],
         "en": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch"
@@ -1044,7 +1137,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.138Z",
+      "crawledAt": "2026-07-03T12:21:05.434Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1066,7 +1159,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch",
+          "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern"
         ],
         "en": [
           "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
@@ -1076,6 +1170,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.767Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1120,7 +1215,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-sekretariat-radiologie/c188de84-e812-4908-b7d2-dc8bd0e31f16",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.137Z",
+      "crawledAt": "2026-07-03T12:21:05.433Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1142,7 +1237,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
+          "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch",
+          "collaboratore-trice-sekretariat-radiologie-lindenhofgruppe-bern"
         ],
         "en": [
           "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
@@ -1196,7 +1292,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-nds-hf/ded5d810-044f-4250-96dd-dd60ebfab8cd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.137Z",
+      "crawledAt": "2026-07-03T12:21:05.433Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1216,11 +1312,13 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
-          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern"
+          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern",
+          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
         ],
         "it": [
           "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
-          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch"
+          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
+          "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
         ],
         "en": [
           "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
@@ -1249,37 +1347,37 @@
       }
     },
     {
-      "id": "lindenhofgruppe-c7be6e5771e0",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-con-weiterbildung-in-uberwachungspflege-lindenhofgruppe-bern",
+      "id": "lindenhofgruppe-bdd89c3c6be7",
+      "slug": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-con-weiterbildung-in-uberwachungspflege-lindenhofgruppe-bern",
-        "en": "registered-nurse-with-monitoring-specialization-lindenhofgruppe-bern",
-        "de": "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
-        "fr": "infirmier-infirmiere-diplome-e-hf-fh-avec-specialisation-en-surveillance-lindenhofgruppe-bern"
+        "it": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
+        "en": "healthcare-specialist-lindenhofgruppe-bern",
+        "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+        "fr": "specialiste-en-soins-de-sante-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
       "companyDomain": "lindenhofgruppe.ch",
-      "title": "Dipl. Pflegefachfrau/-mann HF/FH mit Weiterbildung in Überwachungspflege",
+      "title": "Fachfrau/-mann Gesundheit",
       "titleByLocale": {
-        "it": "Infermiere/a diplomato/a HF/FH con specializzazione in monitoraggio",
-        "en": "Registered Nurse with Monitoring Specialization",
-        "de": "Dipl. Pflegefachfrau/-mann HF/FH mit Weiterbildung in Überwachungspflege",
-        "fr": "Infirmier/infirmière diplômé(e) HF/FH avec spécialisation en surveillance"
+        "it": "Specialista della salute",
+        "en": "Healthcare Specialist",
+        "de": "Fachfrau/-mann Gesundheit",
+        "fr": "Spécialiste en soins de santé"
       },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nUnsere Abklärungsbettenstation im Notfallzentrum wird umgebaut - unser Anspruch bleibt derselbe: eine hochwertige Betreuung und ein gutes Miteinander. Dafür suchen wir Verstärkung für unser Team.\n\nDie Station verfügt über 11 Behandlungsplätze. Hier betreuen und überwachen wir Patientinnen und Patienten, die über die Notfallabteilung aufgenommen werden und voraussichtlich 24-36 Stunden hospitalisiert bleiben.\n\n• Sie übernehmen die bedürfnisorientierte Pflege und Betreuung der Patientinnen und Patienten, die entweder umfangreiche Notfallabklärungen benötigen oder auf eine definitive Zimmerzuteilung warten\n\n• Sie organisieren, gestalten und steuern den gesamten Pflegeprozess - inklusive Leistungserfassung von Material und Pflege - mit Unterstützung des Klinik-Informationssystems KISIM\n\n• Sie arbeiten eng und interprofessionell mit den Teams der Abklärungsbettenstation sowie des Notfalls zusammen\n\n• Sie leisten Einsätze im Schichtbetrieb sowie an Wochenenden\n\nAnforderungen:\n• Sie sind Dipl. Pflegefachfrau/-mann HF/FH und verfügen über eine Weiterbildung in Überwachungspflege sowie Erfahrung im Akutbereich\n\n• Mit wechselnden und anspruchsvollen Patientensituationen gehen Sie sicher und kompetent um. Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihres Handelns\n\n• Sie sind eine selbständige, verantwortungsbewusste und belastbare Persönlichkeit\n\n• Sie begegnen Menschen mit Respekt und Wertschätzung, arbeiten teamorientiert und schätzen ein dynamisches Arbeitsumfeld\n\nSind Sie motiviert, in unserer neuen Abklärungsbettenstation mitzuwirken und sich aktiv am weiteren Aufbau sowie an der kontinuierlichen Weiterentwicklung zu beteiligen?\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\n• Sie unterstützen unsere Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernehmen Sie Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\n• Sie übernehmen einfache medizinaltechnische Verrichtungen im Alltag und entlasten so die Pflegefachpersonen.\n\nAnforderungen:\n• Sie sind Fachfrau/-mann Gesundheit EFZ und bringen idealerweise Erfahrung im Akutbereich mit.\n\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n\n• Mit wechselnden Patientensituationen können Sie gut umgehen und Sie entwickeln sich gerne weiter.\n\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n\n• Gute Deutschkenntnisse runden Ihr Profil ab.\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
       "descriptionByLocale": {
-        "it": "Il senso di responsabilità e l'iniziativa sono tra i tuoi punti di forza? Ti piacerebbe far parte di un team solidale e di successo? Allora sei perfetto per noi. Come Gruppo Lindenhof abbiamo successo solo perché oltre 800 infermieri, circa 100 medici ospedalieri, 300 medici curanti e altri 1.300 dipendenti lavorano fianco a fianco e possono contare l'uno sull'altro in ogni momento. Al centro della medicina di alta qualità c’è sempre una squadra forte. E stiamo cercando te per rafforzare questa squadra! Compiti: il nuovo posto letto valutativo nel centro di emergenza Lindenhof è in funzione da gennaio 2026 e dispone di 11 posti di trattamento. Qui i pazienti vengono curati e monitorati in caso di emergenza e si prevede che debbano essere ricoverati in ospedale per 24-36 ore.\n• Ti occupi dell'assistenza e del supporto orientati ai bisogni dei pazienti che necessitano di chiarimenti approfonditi in caso di emergenza o sono in attesa dell'assegnazione definitiva della stanza\n• Organizzi, progetti e controlli l'intero processo infermieristico - compresa la registrazione delle prestazioni dei materiali e dell'assistenza - con il supporto del sistema informativo clinico KISIM\n• Lavori a stretto contatto e in modo interprofessionale con le squadre del reparto letto di chiarificazione e del pronto soccorso\n• Lavori a turni e nei fine settimana Requisiti:\n• Sei uno specialista infermieristico qualificato HF/FH e hai una formazione ulteriore nel monitoraggio dell'assistenza nonché esperienza nel area acuta\n• Affrontate le situazioni mutevoli e impegnative dei pazienti in modo sicuro e competente. Il benessere dei pazienti è al centro delle tue azioni\n• Sei una personalità indipendente, responsabile e resiliente\n• Tratti le persone con rispetto e apprezzamento, lavori in modo orientato al team e apprezzi un ambiente di lavoro dinamico Sei motivato a lavorare nel nostro nuovo reparto di letti diagnostici e a partecipare attivamente al suo ulteriore sviluppo e sviluppo continuo? Offriamo: L'assistenza di qualità e la formazione infermieristica hanno una tradizione di lunga data nel Gruppo Lindenhof. In qualità di ospedale medico affiliato, attribuiamo grande importanza all'assistenza e l'abbiamo organizzata come un'area operativa separata. Siamo all'avanguardia nei nuovi sviluppi: garantiamo questa posizione pionieristica attraverso la stretta collaborazione con aziende di formazione e perfezionamento e attraverso lo sviluppo di nuovi corsi. Entra a far parte del nostro team infermieristico! I processi e i servizi del Gruppo Lindenhof si basano interamente sulle esigenze dei pazienti e la nostra collaborazione è caratterizzata da apertura, collegialità e interazione riconoscente. Ti offriamo l'opportunità di svilupparti professionalmente e di pianificare la tua carriera individualmente. Impara cose nuove ogni giorno in un ambiente di lavoro progressivo e piacevole.",
-        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: The new clarification bed station in the emergency center Lindenhof has been in operation since January 2026 and has 11 treatment sites. Here, patients are supervised and monitored, which have occurred due to the emergency and are expected to have to be hospitalized 24/36 hours.\n• You take care and care of patients with need, who either need extensive emergency clarifications or wait for a definitive room allocation\n• You organize, design and control the entire care process - including performance detection of material and care - with the support of the Clinical Information System KISIM\n• They work closely and interprofessionally with the teams of the reconnaissance bed station and the emergency\n• They make use of shiftwork and weekend requirements:\n• You're Dipl. Care specialist HF/FH and have further training in monitoring care and experience in the acute area\n• With changing and demanding patient situations, you can handle safely and competently. The well-being of patients is at the heart of your action\n• They are an independent, responsible and resilient personality\n• Do you encounter people with respect and appreciation, work team-oriented and appreciate a dynamic working environment Are you motivated to participate in our new reconnaissance bed station and actively participate in the further development and continuous development? We offer: Care quality and care training have a long tradition at the Lindenhof group. As a specialist hospital, we measure the care a high priority and organized it as a separate business area. We are at the forefront of new developments: We ensure this pioneering position by working closely with training and training companies and by developing new courses. Become part of our care team! The processes and services in the Lindenhof group are based entirely on the needs of patients, and our cooperation is characterised by openness, collegiateness and value-awareness. We offer you the opportunity to develop professionally and allow you to create individual career planning. Learn new in an advanced, pleasant working environment every day.",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Unsere Abklärungsbettenstation im Notfallzentrum wird umgebaut - unser Anspruch bleibt derselbe: eine hochwertige Betreuung und ein gutes Miteinander. Dafür suchen wir Verstärkung für unser Team. Die Station verfügt über 11 Behandlungsplätze. Hier betreuen und überwachen wir Patientinnen und Patienten, die über die Notfallabteilung aufgenommen werden und voraussichtlich 24-36 Stunden hospitalisiert bleiben.\n• Sie übernehmen die bedürfnisorientierte Pflege und Betreuung der Patientinnen und Patienten, die entweder umfangreiche Notfallabklärungen benötigen oder auf eine definitive Zimmerzuteilung warten\n• Sie organisieren, gestalten und steuern den gesamten Pflegeprozess - inklusive Leistungserfassung von Material und Pflege - mit Unterstützung des Klinik-Informationssystems KISIM\n• Sie arbeiten eng und interprofessionell mit den Teams der Abklärungsbettenstation sowie des Notfalls zusammen\n• Sie leisten Einsätze im Schichtbetrieb sowie an Wochenenden Anforderungen:\n• Sie sind Dipl. Pflegefachfrau/-mann HF/FH und verfügen über eine Weiterbildung in Überwachungspflege sowie Erfahrung im Akutbereich\n• Mit wechselnden und anspruchsvollen Patientensituationen gehen Sie sicher und kompetent um. Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihres Handelns\n• Sie sind eine selbständige, verantwortungsbewusste und belastbare Persönlichkeit\n• Sie begegnen Menschen mit Respekt und Wertschätzung, arbeiten teamorientiert und schätzen ein dynamisches Arbeitsumfeld Sind Sie motiviert, in unserer neuen Abklärungsbettenstation mitzuwirken und sich aktiv am weiteren Aufbau sowie an der kontinuierlichen Weiterentwicklung zu beteiligen? Wir bieten: Pflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge. Werden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
-        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : La nouvelle station-lit de clarification du centre d'urgence Lindenhof est en service depuis janvier 2026 et compte 11 sites de traitement. Ici, les patients sont surveillés et surveillés, qui sont survenus en raison de l'urgence et qui devraient être hospitalisés 24/36 heures.\n• Vous prenez soin des patients ayant besoin de soins, qui ont besoin d'éclaircissements d'urgence ou attendent une allocation définitive de la chambre\n• Vous organisez, concevez et contrôlez l'ensemble du processus de soins - y compris la détection des performances du matériel et des soins - avec le soutien du système d'information clinique KISIM\n• Ils travaillent en étroite collaboration et interprofessionnelle avec les équipes de la station-lit de reconnaissance et de l'urgence\n• Ils utilisent le travail posté et les exigences du week-end:\n• Vous êtes Dipl. Spécialiste des soins HF/FH et avoir une formation complémentaire en surveillance des soins et de l'expérience dans le domaine aigu\n• Avec des situations changeantes et exigeantes, vous pouvez gérer en toute sécurité et avec compétence. Le bien-être des patients est au cœur de votre action\n• Ils sont une personnalité indépendante, responsable et résistante\n• Rencontrez-vous des gens avec respect et appréciation, travaillant en équipe et appréciez un environnement de travail dynamique Êtes-vous motivé à participer à notre nouvelle station de reconnaissance et à participer activement au développement et au développement continu? Nous offrons: la qualité des soins et la formation de soins ont une longue tradition au sein du groupe Lindenhof. En tant qu'hôpital spécialisé, nous mesurons les soins comme une priorité élevée et nous les organisons comme un secteur d'activité distinct. Nous sommes à l'avant-garde des nouveaux développements : Nous assurons cette position de pionnier en collaborant étroitement avec les entreprises de formation et en développant de nouveaux cours. Faites partie de notre équipe de soins ! Les processus et les services du groupe Lindenhof sont entièrement basés sur les besoins des patients, et notre coopération se caractérise par l'ouverture, la collégialité et la connaissance de la valeur. Nous vous offrons la possibilité de vous développer professionnellement et de vous permettre de créer une planification de carrière individuelle. Apprenez-en davantage dans un environnement de travail avancé et agréable chaque jour."
+        "it": "Il senso di responsabilità e l'iniziativa personale sono tra i suoi punti di forza? Vuoi far parte di un team solido e di successo? Allora siete perfetti per noi. Come gruppo Lindenhof, abbiamo successo solo perché oltre 800 infermieri, circa 100 medici ospedalieri, 300 medici veterinari e 1300 altri collaboratori lavorano fianco a fianco e possono fare affidamento l'uno sull'altro in qualsiasi momento. Al centro di una medicina di alta qualità c'è sempre una squadra forte. E per rinforzare questo team ti cerchiamo! Compiti:\n• Assistere i nostri infermieri nell'assistenza e nella cura dei nostri pazienti secondo le ultime conoscenze.\n• Eseguire il processo di cura (incl. Registrazione delle prestazioni del materiale e della cura) secondo le ultime conoscenze, supportata dal sistema informativo della clinica KISIM.\n• Oltre alla cura del corpo e all'accompagnamento di altre attività dei nostri pazienti, svolge compiti nel settore logistico, amministrativo e delle pulizie.\n• Svolgono semplici compiti medico-tecnici nella vita di tutti i giorni, alleggerendo così il carico di lavoro degli infermieri. Requisiti:\n• Lei è un professionista della salute AFC e porta idealmente esperienza nel settore acuto.\n• Il benessere dei pazienti è al centro del tuo lavoro e tratti le persone con rispetto e apprezzamento.\n• Con cambiamenti",
+        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of a high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks:\n• They support our nursing professionals in the care and care of our patients according to the latest findings.\n• In doing so, you carry out the care process (including performance detection of material and care) according to the latest findings, supported by the Clinic Information System KISIM.\n• In addition to the personal care and support of other activities of our patients, you are responsible for logistical, administrative and household tasks.\n• They take over simple medical devices in everyday life and thus relieve the care professionals. Requirements:\n• They are specialist health EFZ and ideally bring experience in the acute area.\n• The well-being of patients is at the heart of your work and you meet people with respect and appreciation.\n• With changing patient situations you can handle well and you will be happy to develop further.\n• Team skills as well as independent and quality-conscious work.\n• Good knowledge of German complete your profile. We offer: Care quality and care training have a long tradition at the Lindenhof group. As a specialist hospital, we measure the care a high priority and organized it as a separate business area. We are at the forefront of new developments: We ensure this pioneering position by working closely with training and training companies and by developing new courses. Become part of our care team! The processes and services in the Lindenhof group are based entirely on the needs of patients, and our cooperation is characterised by openness, collegiateness and value-awareness. We offer you the opportunity to develop professionally and allow you to create individual career planning. Learn new in an advanced, pleasant working environment every day.",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben:\n• Sie unterstützen unsere Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernehmen Sie Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n• Sie übernehmen einfache medizinaltechnische Verrichtungen im Alltag und entlasten so die Pflegefachpersonen. Anforderungen:\n• Sie sind Fachfrau/-mann Gesundheit EFZ und bringen idealerweise Erfahrung im Akutbereich mit.\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n• Mit wechselnden Patientensituationen können Sie gut umgehen und Sie entwickeln sich gerne weiter.\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n• Gute Deutschkenntnisse runden Ihr Profil ab. Wir bieten: Pflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge. Werden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
+        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent ensemble – et peuvent toujours compter les uns sur les autres. Le centre d'une médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches :\n• Ils soutiennent nos professionnels des soins infirmiers dans les soins et soins de nos patients selon les dernières découvertes.\n• Ce faisant, vous effectuez le processus de soins (y compris la détection des performances du matériel et des soins) selon les dernières découvertes, soutenues par le système d'information clinique KISIM.\n• En plus des soins personnels et du soutien d'autres activités de nos patients, vous êtes responsable des tâches logistiques, administratives et domestiques.\n• Ils prennent en charge des dispositifs médicaux simples dans la vie quotidienne et soulagent ainsi les professionnels de soins. Exigences:\n• Ils sont spécialisés en santé EFZ et apportent idéalement une expérience dans le domaine aigu.\n• Le bien-être des patients est au cœur de votre travail et vous rencontrez les gens avec respect et appréciation.\n• Avec des situations changeantes de patients, vous pouvez bien gérer et vous serez heureux de développer davantage.\n• Compétences d'équipe et travail indépendant et de qualité.\n• Bonne connaissance de l'allemand compléter votre profil. Nous offrons: La qualité des soins et la formation aux soins ont une longue tradition au sein du groupe Lindenhof. En tant qu'hôpital spécialisé, nous mesurons les soins comme une priorité élevée et nous les organisons comme un secteur d'activité distinct. Nous sommes à l'avant-garde des nouveaux développements : Nous assurons cette position de pionnier en collaborant étroitement avec les entreprises de formation et en développant de nouveaux cours. Faites partie de notre équipe de soins ! Les processus et les services du groupe Lindenhof sont entièrement basés sur les besoins des patients, et notre coopération se caractérise par l'ouverture, la collégialité et la sensibilisation à la valeur. Nous vous offrons la possibilité de vous développer professionnellement et vous permettent de créer une planification de carrière individuelle. Apprenez-en davantage dans un environnement de travail avancé et agréable chaque jour."
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-ueberwachungspflege/1e931b67-86f5-415c-b2d8-08390c7dde3e",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/d212d6f5-f1ab-4cef-af8c-47f68fe26e03",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.137Z",
+      "crawledAt": "2026-07-03T12:21:05.432Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1292,27 +1390,33 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-02",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/dipl-pflegefachfrau-mann-fhhf-abklaerungsbettenstation-de-f2604.html?agid=20",
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/fachfrau-mann-gesundheit-de-f2743.html?agid=20",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
-        "infermiere-a-diplomato-a-hf-fh-con-specializzazione-in-monitoraggio-lindenhofgruppe-bern"
+        "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+        "specialista-della-salute-lindenhofgruppe-bern",
+        "dipartimento-operazioni-di-salute-professionale-sonnenhof-lindenhofgruppe-bern",
+        "professional-health-operations-department-sonnenhof-lindenhofgruppe-bern",
+        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
+        "departement-des-operations-de-sante-professionnelle-sonnenhof-lindenhofgruppe-bern",
+        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
-          "infermiere-a-diplomato-a-hf-fh-con-specializzazione-in-monitoraggio-lindenhofgruppe-bern"
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+          "specialista-della-salute-lindenhofgruppe-bern"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch"
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch"
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
         ]
       },
-      "firstSeenAt": "2026-05-10T21:57:57.763Z",
+      "firstSeenAt": "2026-05-21T12:34:55.517Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1357,7 +1461,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz/64b173d5-520a-49f3-885c-ff5f2ba4a7a7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.136Z",
+      "crawledAt": "2026-07-03T12:21:05.432Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1383,7 +1487,8 @@
         "it": [
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
-          "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern"
+          "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
+          "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern"
         ],
         "en": [
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-"
@@ -1437,7 +1542,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/chief-financial-officer-cfo/1a1aebb7-b542-4092-91d7-121abca6938c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.135Z",
+      "crawledAt": "2026-07-03T12:21:05.431Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1459,7 +1564,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chief-financial-officer-cfo-lindenhofgruppe-ch"
+          "chief-financial-officer-cfo-lindenhofgruppe-ch",
+          "direttore-finanziario-cfo-lindenhofgruppe-lindenhofgruppe"
         ],
         "fr": [
           "chief-financial-officer-cfo-lindenhofgruppe-ch"
@@ -1476,89 +1582,6 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "lindenhofgruppe-bdd89c3c6be7",
-      "slug": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
-      "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
-        "en": "healthcare-specialist-lindenhofgruppe-bern",
-        "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "fr": "specialiste-en-soins-de-sante-lindenhofgruppe-bern"
-      },
-      "company": "Lindenhofgruppe",
-      "companyKey": "lindenhofgruppe",
-      "companyDomain": "lindenhofgruppe.ch",
-      "title": "Fachfrau/-mann Gesundheit",
-      "titleByLocale": {
-        "it": "Specialista della salute",
-        "en": "Healthcare Specialist",
-        "de": "Fachfrau/-mann Gesundheit",
-        "fr": "Spécialiste en soins de santé"
-      },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\n• Sie unterstützen unsere Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernehmen Sie Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\n• Sie übernehmen einfache medizinaltechnische Verrichtungen im Alltag und entlasten so die Pflegefachpersonen.\n\nAnforderungen:\n• Sie sind Fachfrau/-mann Gesundheit EFZ und bringen idealerweise Erfahrung im Akutbereich mit.\n\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n\n• Mit wechselnden Patientensituationen können Sie gut umgehen und Sie entwickeln sich gerne weiter.\n\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n\n• Gute Deutschkenntnisse runden Ihr Profil ab.\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
-      "descriptionByLocale": {
-        "it": "Il senso di responsabilità e l'iniziativa personale sono tra i suoi punti di forza? Vuoi far parte di un team solido e di successo? Allora siete perfetti per noi. Come gruppo Lindenhof, abbiamo successo solo perché oltre 800 infermieri, circa 100 medici ospedalieri, 300 medici veterinari e 1300 altri collaboratori lavorano fianco a fianco e possono fare affidamento l'uno sull'altro in qualsiasi momento. Al centro di una medicina di alta qualità c'è sempre una squadra forte. E per rinforzare questo team ti cerchiamo! Compiti:\n• Assistere i nostri infermieri nell'assistenza e nella cura dei nostri pazienti secondo le ultime conoscenze.\n• Eseguire il processo di cura (incl. Registrazione delle prestazioni del materiale e della cura) secondo le ultime conoscenze, supportata dal sistema informativo della clinica KISIM.\n• Oltre alla cura del corpo e all'accompagnamento di altre attività dei nostri pazienti, svolge compiti nel settore logistico, amministrativo e delle pulizie.\n• Svolgono semplici compiti medico-tecnici nella vita di tutti i giorni, alleggerendo così il carico di lavoro degli infermieri. Requisiti:\n• Lei è un professionista della salute AFC e porta idealmente esperienza nel settore acuto.\n• Il benessere dei pazienti è al centro del tuo lavoro e tratti le persone con rispetto e apprezzamento.\n• Con cambiamenti",
-        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of a high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks:\n• They support our nursing professionals in the care and care of our patients according to the latest findings.\n• In doing so, you carry out the care process (including performance detection of material and care) according to the latest findings, supported by the Clinic Information System KISIM.\n• In addition to the personal care and support of other activities of our patients, you are responsible for logistical, administrative and household tasks.\n• They take over simple medical devices in everyday life and thus relieve the care professionals. Requirements:\n• They are specialist health EFZ and ideally bring experience in the acute area.\n• The well-being of patients is at the heart of your work and you meet people with respect and appreciation.\n• With changing patient situations you can handle well and you will be happy to develop further.\n• Team skills as well as independent and quality-conscious work.\n• Good knowledge of German complete your profile. We offer: Care quality and care training have a long tradition at the Lindenhof group. As a specialist hospital, we measure the care a high priority and organized it as a separate business area. We are at the forefront of new developments: We ensure this pioneering position by working closely with training and training companies and by developing new courses. Become part of our care team! The processes and services in the Lindenhof group are based entirely on the needs of patients, and our cooperation is characterised by openness, collegiateness and value-awareness. We offer you the opportunity to develop professionally and allow you to create individual career planning. Learn new in an advanced, pleasant working environment every day.",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben:\n• Sie unterstützen unsere Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernehmen Sie Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n• Sie übernehmen einfache medizinaltechnische Verrichtungen im Alltag und entlasten so die Pflegefachpersonen. Anforderungen:\n• Sie sind Fachfrau/-mann Gesundheit EFZ und bringen idealerweise Erfahrung im Akutbereich mit.\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n• Mit wechselnden Patientensituationen können Sie gut umgehen und Sie entwickeln sich gerne weiter.\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n• Gute Deutschkenntnisse runden Ihr Profil ab. Wir bieten: Pflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge. Werden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
-        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent ensemble – et peuvent toujours compter les uns sur les autres. Le centre d'une médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches :\n• Ils soutiennent nos professionnels des soins infirmiers dans les soins et soins de nos patients selon les dernières découvertes.\n• Ce faisant, vous effectuez le processus de soins (y compris la détection des performances du matériel et des soins) selon les dernières découvertes, soutenues par le système d'information clinique KISIM.\n• En plus des soins personnels et du soutien d'autres activités de nos patients, vous êtes responsable des tâches logistiques, administratives et domestiques.\n• Ils prennent en charge des dispositifs médicaux simples dans la vie quotidienne et soulagent ainsi les professionnels de soins. Exigences:\n• Ils sont spécialisés en santé EFZ et apportent idéalement une expérience dans le domaine aigu.\n• Le bien-être des patients est au cœur de votre travail et vous rencontrez les gens avec respect et appréciation.\n• Avec des situations changeantes de patients, vous pouvez bien gérer et vous serez heureux de développer davantage.\n• Compétences d'équipe et travail indépendant et de qualité.\n• Bonne connaissance de l'allemand compléter votre profil. Nous offrons: La qualité des soins et la formation aux soins ont une longue tradition au sein du groupe Lindenhof. En tant qu'hôpital spécialisé, nous mesurons les soins comme une priorité élevée et nous les organisons comme un secteur d'activité distinct. Nous sommes à l'avant-garde des nouveaux développements : Nous assurons cette position de pionnier en collaborant étroitement avec les entreprises de formation et en développant de nouveaux cours. Faites partie de notre équipe de soins ! Les processus et les services du groupe Lindenhof sont entièrement basés sur les besoins des patients, et notre coopération se caractérise par l'ouverture, la collégialité et la sensibilisation à la valeur. Nous vous offrons la possibilité de vous développer professionnellement et vous permettent de créer une planification de carrière individuelle. Apprenez-en davantage dans un environnement de travail avancé et agréable chaque jour."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/d212d6f5-f1ab-4cef-af8c-47f68fe26e03",
-      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.135Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/fachfrau-mann-gesundheit-de-f2743.html?agid=20",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "specialista-della-salute-lindenhofgruppe-bern",
-        "dipartimento-operazioni-di-salute-professionale-sonnenhof-lindenhofgruppe-bern",
-        "professional-health-operations-department-sonnenhof-lindenhofgruppe-bern",
-        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
-        "departement-des-operations-de-sante-professionnelle-sonnenhof-lindenhofgruppe-bern",
-        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-          "specialista-della-salute-lindenhofgruppe-bern"
-        ],
-        "en": [
-          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
-        ],
-        "fr": [
-          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T12:34:55.517Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1594,7 +1617,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/51fe5499-d33e-4e66-816c-8e13577e011a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.133Z",
+      "crawledAt": "2026-07-03T12:21:05.429Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1618,7 +1641,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-          "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital"
+          "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital",
+          "professionista-della-salute-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
@@ -1657,7 +1681,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
       "titleByLocale": {
         "it": "Dipl. Expertin/Experte Intensivpflege NDS HF o dipl. Pflegefachfrau/-mann con IMC-Kurs",
-        "en": "Dipl. Expert/Expert Intensive Care NDS HF or dipl. Nursing professional with IMC course",
+        "en": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "fr": "Dipl. Expert/Expert Soins intensifs NDS HF ou dipl. Professionnel infirmier avec cours IMC"
       },
@@ -1673,7 +1697,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs/d729996e-84a5-483b-a3d0-e98c11d281f3",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.131Z",
+      "crawledAt": "2026-07-03T12:21:05.427Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1750,7 +1774,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin/46c96a5c-a4b1-4f78-9ca3-8c19fb1dc1c1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.129Z",
+      "crawledAt": "2026-07-03T12:21:05.425Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1772,7 +1796,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
+          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
+          "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
@@ -1810,7 +1835,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1827,7 +1852,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/0f4376e0-3adb-4d5a-a234-70e94913025a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.127Z",
+      "crawledAt": "2026-07-03T12:21:05.423Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1859,7 +1884,8 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
           "infermiere-laureato-fh-hf-lindenhofgruppe-sonnenhofspital",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-2"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-2",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
@@ -1914,7 +1940,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/koch-koechin-efz-in-ausbildung/502d4904-f78d-4644-ab66-a79f7cd5591b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.124Z",
+      "crawledAt": "2026-07-03T12:21:05.422Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1936,7 +1962,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
+          "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch",
+          "koch-kochin-cfc-in-ausbildung-lindenhofgruppe-engeried"
         ],
         "en": [
           "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
@@ -1991,7 +2018,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie/8727df5a-af23-4ee7-848f-e2ccdbaedb98",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.122Z",
+      "crawledAt": "2026-07-03T12:21:05.419Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2013,7 +2040,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie",
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-schwerpunkt-hotellerie-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
@@ -2068,7 +2096,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital/6e207f18-cc31-4a93-b690-c030b4f2b98c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.120Z",
+      "crawledAt": "2026-07-03T12:21:05.417Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2090,7 +2118,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
+          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
+          "fachfrau-mann-gesundheit-cfc-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
@@ -2145,7 +2174,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/kauffrau-mann-efz-in-ausbildung/a840ff72-8e82-418b-b27f-37af9eb49b31",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.118Z",
+      "crawledAt": "2026-07-03T12:21:05.415Z",
       "addressLocality": "Muristalden",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2167,7 +2196,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch"
+          "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch",
+          "kauffrau-mann-cfc-in-ausbildung-lindenhofgruppe-muristalden"
         ],
         "en": [
           "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch"
@@ -2205,7 +2235,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2222,7 +2252,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/7a607ba4-bbff-491b-9d81-e7ca55e6107b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.116Z",
+      "crawledAt": "2026-07-03T12:21:05.413Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2252,7 +2282,8 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
           "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
@@ -2290,7 +2321,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2307,7 +2338,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/e510ac1f-cdc1-42ac-ae56-d88c48b6f4e8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.114Z",
+      "crawledAt": "2026-07-03T12:21:05.411Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2335,7 +2366,8 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
@@ -2373,7 +2405,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2390,7 +2422,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/791ceed8-d154-4785-8cfe-19f032d5baf6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.112Z",
+      "crawledAt": "2026-07-03T12:21:05.409Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2416,7 +2448,8 @@
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
@@ -2426,6 +2459,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T23:10:13.885Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2470,7 +2504,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-dokumentarin-medizinischer-dokumentar/da2f27ad-b2cb-4bfc-900f-816e3224a336",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.110Z",
+      "crawledAt": "2026-07-03T12:21:05.407Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2492,7 +2526,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch"
+          "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch",
+          "documentario-medico-documentario-medico-lindenhofgruppe-engeried"
         ],
         "en": [
           "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch"
@@ -2529,7 +2564,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2546,7 +2581,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/17b5a6a9-54eb-410c-902d-3729d668ac6e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.108Z",
+      "crawledAt": "2026-07-03T12:21:05.405Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2572,7 +2607,8 @@
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
@@ -2582,6 +2618,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:57:35.236Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2609,7 +2646,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2626,7 +2663,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/193720a6-297c-46c6-9be6-893c8669c2b6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.106Z",
+      "crawledAt": "2026-07-03T12:21:05.403Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2652,7 +2689,8 @@
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8"
@@ -2662,6 +2700,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:10:49.710Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2706,7 +2745,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-r-codierer-in/3b081f53-43f0-44b7-a795-21f541e3ba3b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.104Z",
+      "crawledAt": "2026-07-03T12:21:05.401Z",
       "addressLocality": "Muristalden",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2730,7 +2769,8 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-codierer-in-lindenhofgruppe-ch",
-          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
+          "codice-medico-lindenhofgruppe-muristalden"
         ],
         "en": [
           "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
@@ -2784,7 +2824,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-zusatzfunktion-berufsbilder-in/eb3ddb94-7017-4ca4-a6c0-78ffc4ababe4",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.102Z",
+      "crawledAt": "2026-07-03T12:21:05.399Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2844,7 +2884,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2861,7 +2901,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/341e9372-91f2-4996-9213-08cf5a700c0b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.099Z",
+      "crawledAt": "2026-07-03T12:21:05.397Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2887,7 +2927,8 @@
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital"
+          "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8"
@@ -2897,6 +2938,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:31:35.584Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2941,7 +2983,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau-mann-mit-ndk-ueberwachungspflege/8e984e8d-e5de-4879-a7d7-0d112da5f1f9",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.097Z",
+      "crawledAt": "2026-07-03T12:21:05.394Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3017,7 +3059,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/teamleiter-in-fuer-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent/d3f2c5a3-4455-4212-a5bb-40f845f1624f",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.094Z",
+      "crawledAt": "2026-07-03T12:21:05.392Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3041,7 +3083,8 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch",
-          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe"
+          "teamleiter-in-fur-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent-lindenhofgruppe",
+          "team-leader-specialisti-farmacia-assistenti-farmaceutici-lindenhofgruppe-lindenhofgruppe"
         ],
         "en": [
           "teamleiter-in-fachpersonen-apotheke-pharma-assistenten-lindenhofgruppe-ch"
@@ -3081,7 +3124,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -3098,7 +3141,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/d639462c-bb88-4bf1-a2e7-8fee6955c26b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.092Z",
+      "crawledAt": "2026-07-03T12:21:05.390Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3124,7 +3167,8 @@
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital"
+          "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9"
@@ -3134,6 +3178,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:29:08.761Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3178,7 +3223,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/operative-r-einkaeufer-in/3a5bcbcc-a71b-4627-8a2e-e2ac3d6fbf8c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.089Z",
+      "crawledAt": "2026-07-03T12:21:05.388Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3204,7 +3249,8 @@
         "it": [
           "operative-r-einkaufer-in-lindenhofgruppe-ch",
           "operative-r-einkaufer-in-lindenhofgruppe-sonnenhofspital",
-          "funzionamento-acquisto-lindenhofgruppe-sonnenhofspital"
+          "funzionamento-acquisto-lindenhofgruppe-sonnenhofspital",
+          "acquirente-operativo-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "operative-r-einkaufer-in-lindenhofgruppe-sonnenhofspital"
@@ -3258,7 +3304,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann-oder-med-praxisassistent-in/b229f97b-ea46-4da1-8d80-727956e674f0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.087Z",
+      "crawledAt": "2026-07-03T12:21:05.385Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3334,7 +3380,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-fuer-unseren-pflegepool/3a285673-ab11-4c1b-9ae4-28fcb7c44d0f",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.084Z",
+      "crawledAt": "2026-07-03T12:21:05.383Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3366,6 +3412,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:35:12.828Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3393,7 +3440,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica Focus F - Neonatologia",
+        "it": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "en": "Dipl. Nursing specialist Focus F - Neonatology",
         "de": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "fr": "Dipl. Spécialiste des soins infirmiers Focus F - Néonatologie"
@@ -3410,7 +3457,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fokus-f-neonatologie/09d72517-c3ce-47d6-b53a-2737e8edf0a6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.081Z",
+      "crawledAt": "2026-07-03T12:21:05.380Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3436,7 +3483,8 @@
         "it": [
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital",
-          "dipl-infermieristica-focus-f-neonatologia-lindenhofgruppe-lindenhofspital"
+          "dipl-infermieristica-focus-f-neonatologia-lindenhofgruppe-lindenhofspital",
+          "dipl-infermiere-focus-f-neonatologia-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch"
@@ -3446,6 +3494,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:43:35.711Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3473,7 +3522,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -3490,7 +3539,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/f9beb725-7a87-4203-9129-ad85239e50f5",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.079Z",
+      "crawledAt": "2026-07-03T12:21:05.378Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3516,7 +3565,8 @@
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital"
+          "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e801eb"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10"
@@ -3526,6 +3576,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:43:35.708Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3570,7 +3621,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/51e0bf2b-4406-4a12-a245-f466c2818908",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:18:32.056Z",
+      "crawledAt": "2026-07-03T12:21:05.375Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3596,7 +3647,8 @@
         "it": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch-2",
           "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital",
-          "salute-professionale-lindenhofgruppe-lindenhofspital"
+          "salute-professionale-lindenhofgruppe-lindenhofspital",
+          "specialista-della-salute-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch-2"
@@ -3618,6 +3670,79 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "lindenhofgruppe-0e8fd51f8a6e",
+      "slug": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-sonnenhofspital",
+      "slugByLocale": {
+        "de": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
+        "it": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-sonnenhofspital",
+        "en": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
+        "fr": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Fachfrau/-mann Gesundheit Operationsabteilung Sonnenhof",
+      "titleByLocale": {
+        "de": "Fachfrau/-mann Gesundheit Operationsabteilung Sonnenhof",
+        "it": "Fachfrau/-mann Gesundheit Operationsabteilung Sonnenhof",
+        "en": "Fachfrau/-mann Gesundheit Operationsabteilung Sonnenhof",
+        "fr": "Fachfrau/-mann Gesundheit Operationsabteilung Sonnenhof"
+      },
+      "description": "Aufgaben:\nDu versorgst die OP-Säle mit dem benötigten Material (Schrauben, Implantate, Verbrauchsmaterialen) und arbeitest eng mit dem Fachpersonal OP-Technik zusammen.\n• Du unterstützt verschiedene Berufsgruppen im Rahmen deiner Kompetenzen und gleichst die Bestell- und Lieferscheine ab.\n\n• Du unterstützt unseren Logistiker bei der Bestellung und Versorgung des Verbrauchsmaterials für die Operationsabteilung und hilfst beim Auspacken der „Innight“-angelieferten Pakete sowie beim einräumen der Implantate und Prothesen mit.\n\n• Das Durchführen von Aufräum- und Reinigungsarbeiten gehört ebenso zu diesem spannenden Aufgabengebiet.\n\nAnforderungen:\n• Du bringst eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit.\n\n• Von Vorteil verfügst du bereits über Erfahrung in der OP-Versorgung oder über ein grosses Interesse sich einzuarbeiten.\n\n• Du arbeitest eigenverantwortlich, qualitätsbewusst und gerne im Team.\n\n• Flexibilität und gute Deutschkenntnisse runden Dein Profil ab.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\nDu versorgst die OP-Säle mit dem benötigten Material (Schrauben, Implantate, Verbrauchsmaterialen) und arbeitest eng mit dem Fachpersonal OP-Technik zusammen.\n• Du unterstützt verschiedene Berufsgruppen im Rahmen deiner Kompetenzen und gleichst die Bestell- und Lieferscheine ab.\n\n• Du unterstützt unseren Logistiker bei der Bestellung und Versorgung des Verbrauchsmaterials für die Operationsabteilung und hilfst beim Auspacken der „Innight“-angelieferten Pakete sowie beim einräumen der Implantate und Prothesen mit.\n\n• Das Durchführen von Aufräum- und Reinigungsarbeiten gehört ebenso zu diesem spannenden Aufgabengebiet.\n\nAnforderungen:\n• Du bringst eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit.\n\n• Von Vorteil verfügst du bereits über Erfahrung in der OP-Versorgung oder über ein grosses Interesse sich einzuarbeiten.\n\n• Du arbeitest eigenverantwortlich, qualitätsbewusst und gerne im Team.\n\n• Flexibilität und gute Deutschkenntnisse runden Dein Profil ab.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "it": "Aufgaben:\nDu versorgst die OP-Säle mit dem benötigten Material (Schrauben, Implantate, Verbrauchsmaterialen) und arbeitest eng mit dem Fachpersonal OP-Technik zusammen.\n• Du unterstützt verschiedene Berufsgruppen im Rahmen deiner Kompetenzen und gleichst die Bestell- und Lieferscheine ab.\n\n• Du unterstützt unseren Logistiker bei der Bestellung und Versorgung des Verbrauchsmaterials für die Operationsabteilung und hilfst beim Auspacken der „Innight“-angelieferten Pakete sowie beim einräumen der Implantate und Prothesen mit.\n\n• Das Durchführen von Aufräum- und Reinigungsarbeiten gehört ebenso zu diesem spannenden Aufgabengebiet.\n\nAnforderungen:\n• Du bringst eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit.\n\n• Von Vorteil verfügst du bereits über Erfahrung in der OP-Versorgung oder über ein grosses Interesse sich einzuarbeiten.\n\n• Du arbeitest eigenverantwortlich, qualitätsbewusst und gerne im Team.\n\n• Flexibilität und gute Deutschkenntnisse runden Dein Profil ab.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "en": "Aufgaben:\nDu versorgst die OP-Säle mit dem benötigten Material (Schrauben, Implantate, Verbrauchsmaterialen) und arbeitest eng mit dem Fachpersonal OP-Technik zusammen.\n• Du unterstützt verschiedene Berufsgruppen im Rahmen deiner Kompetenzen und gleichst die Bestell- und Lieferscheine ab.\n\n• Du unterstützt unseren Logistiker bei der Bestellung und Versorgung des Verbrauchsmaterials für die Operationsabteilung und hilfst beim Auspacken der „Innight“-angelieferten Pakete sowie beim einräumen der Implantate und Prothesen mit.\n\n• Das Durchführen von Aufräum- und Reinigungsarbeiten gehört ebenso zu diesem spannenden Aufgabengebiet.\n\nAnforderungen:\n• Du bringst eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit.\n\n• Von Vorteil verfügst du bereits über Erfahrung in der OP-Versorgung oder über ein grosses Interesse sich einzuarbeiten.\n\n• Du arbeitest eigenverantwortlich, qualitätsbewusst und gerne im Team.\n\n• Flexibilität und gute Deutschkenntnisse runden Dein Profil ab.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "fr": "Aufgaben:\nDu versorgst die OP-Säle mit dem benötigten Material (Schrauben, Implantate, Verbrauchsmaterialen) und arbeitest eng mit dem Fachpersonal OP-Technik zusammen.\n• Du unterstützt verschiedene Berufsgruppen im Rahmen deiner Kompetenzen und gleichst die Bestell- und Lieferscheine ab.\n\n• Du unterstützt unseren Logistiker bei der Bestellung und Versorgung des Verbrauchsmaterials für die Operationsabteilung und hilfst beim Auspacken der „Innight“-angelieferten Pakete sowie beim einräumen der Implantate und Prothesen mit.\n\n• Das Durchführen von Aufräum- und Reinigungsarbeiten gehört ebenso zu diesem spannenden Aufgabengebiet.\n\nAnforderungen:\n• Du bringst eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit.\n\n• Von Vorteil verfügst du bereits über Erfahrung in der OP-Versorgung oder über ein grosses Interesse sich einzuarbeiten.\n\n• Du arbeitest eigenverantwortlich, qualitätsbewusst und gerne im Team.\n\n• Flexibilität und gute Deutschkenntnisse runden Dein Profil ab.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)"
+      },
+      "location": "Sonnenhofspital",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit-operationsabteilung-sonnenhof/fb3bfa5b-670f-4a99-bfaf-6484203a27c0",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T12:21:05.353Z",
+      "addressLocality": "Sonnenhofspital",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3012",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-de-f2823.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-03T12:21:05.353Z"
     }
   ]
 }
