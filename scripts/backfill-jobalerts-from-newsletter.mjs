@@ -3,13 +3,20 @@
  * Backfill `job_alert_subscribers/{email}/alerts/backfill-newsletter` from
  * ALL `newsletter_subscribers` docs, regardless of `source_channel`.
  *
+ * One-off batch pass over EXISTING docs. Going forward, new docs are covered
+ * automatically by the `onDocumentCreated` trigger in
+ * `functions/index.js` → `functions/src/jobAlertBackfillTrigger.js`, which
+ * shares the exact same decision logic via `functions/src/jobAlertBackfillCore.js`
+ * (re-exported here through `scripts/lib/jobalert-backfill-core.mjs` so both
+ * paths can never drift apart).
+ *
  * Rationale: a subscriber who left a `job_category`/`job_location` signal
  * behind — no matter which CTA captured their email (job-detail unlock,
  * social sign-in on the job board, One Tap, generic footer signup, …) — is
  * signalling job-search intent even though they never explicitly created an
  * alert. Channel does not need to gate this: a live count against
- * `newsletter_subscribers` (2026-07, 5429 docs) showed the field-based signal
- * check below already discriminates correctly per channel without any
+ * `newsletter_subscribers` (2026-07-03, 5429 docs) showed the field-based
+ * signal check already discriminates correctly per channel without any
  * per-channel branching — `job_gate` (753 eligible), `auth_google` (993),
  * `auth_linkedin` (466) carry real signal; generic/unrelated CTAs
  * (`analysis_gate`, `post_calc_cta`, `newsletter_page`, `lead_magnet`,
@@ -19,6 +26,9 @@
  * source_channel values are dead code paths (`normalizeSourceChannel`,
  * services/newsletterSubscribers.ts, collapses them into `auth_google`/
  * `auth_facebook`/`job_gate` before storage) — 0 live docs, nothing to skip.
+ * A location-only fallback tier (`location_interest`/`geo_city`, see
+ * `jobAlertBackfillCore.js`) adds ~5 more — most no-signal docs have no geo
+ * data either, but it's a correct zero-cost catch-all.
  *
  * The backfilled alert is deliberately near-empty (`keywords: []`,
  * `locations: []`, `cantonFilter: null`): `buildAlertProfile`
@@ -44,63 +54,17 @@
 
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
+import {
+  MAX_ALERTS_PER_USER,
+  ALERT_ID,
+  normalizeEmail,
+  shouldSkipSubscriber,
+  buildAlertPayload,
+} from './lib/jobalert-backfill-core.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
-export const MAX_ALERTS_PER_USER = 3; // services/jobAlertService.ts:68
-export const ALERT_ID = 'backfill-newsletter';
 
-export function normalizeEmail(raw) {
-  return String(raw || '').trim().toLowerCase();
-}
-
-/**
- * Pure eligibility check for one `newsletter_subscribers` doc.
- * @returns {'invalid-email'|'suppressed'|'no-signal'|null} skip reason, null = eligible.
- */
-export function shouldSkipSubscriber(email, data) {
-  if (!email || !email.includes('@')) return 'invalid-email';
-  if (isNewsletterExcluded(data?.status)) return 'suppressed';
-  const category = String(data?.job_category || '').trim();
-  const location = String(data?.job_location || '').trim();
-  if (!category && !location) return 'no-signal';
-  return null;
-}
-
-/**
- * Pure payload builder — no Firestore I/O, no serverTimestamp (caller stamps
- * `createdAt`/`backfilled_at`/`updated_at` after this returns, so the shape
- * stays testable without mocking firebase-admin).
- *
- * `existingBackfill` is the full prior `backfill-newsletter` doc data (or
- * null on first creation). Its `active` flag is carried forward as-is so a
- * re-run never undoes a user's explicit unsubscribe (`deleteAlert` sets
- * `active: false`) — only a brand-new doc defaults to `active: true`.
- */
-export function buildAlertPayload(email, data, existingBackfill) {
-  return {
-    email,
-    userId: data?.user_id || null,
-    keywords: [],
-    locations: [],
-    contractTypes: [],
-    sectors: [],
-    cantonFilter: null,
-    frequency: 'daily',
-    locale: data?.preferred_locale || data?.locale || 'it',
-    sourceJobSlug: data?.job_slug || null,
-    sourceJobUrl: null,
-    sourceJobTitle: null,
-    specificJobId: null,
-    specificCompanyKey: null,
-    active: existingBackfill ? existingBackfill.active !== false : true,
-    matchCount: existingBackfill?.matchCount || 0,
-    lastMatchedAt: existingBackfill?.lastMatchedAt || null,
-    // Provenance — lets a future audit tell inferred alerts apart from
-    // explicit ones, and see which signup channel triggered it.
-    backfilled_from: `newsletter_subscribers:${data?.source_channel || 'unknown'}`,
-  };
-}
+export { MAX_ALERTS_PER_USER, ALERT_ID, normalizeEmail, shouldSkipSubscriber, buildAlertPayload };
 
 let _db = null;
 async function getFirestoreAdmin() {
@@ -161,7 +125,7 @@ async function main() {
     byChannel[channel].created++;
 
     if (DRY_RUN) {
-      console.log(` [dry] ${existingBackfillDoc ? 'merge' : 'create'} job_alert_subscribers/${email}/alerts/${ALERT_ID} (category=${data.job_category || '∅'}, location=${data.job_location || '∅'})`);
+      console.log(` [dry] ${existingBackfillDoc ? 'merge' : 'create'} job_alert_subscribers/${email}/alerts/${ALERT_ID} (${alertPayload.backfilled_from})`);
     } else {
       const parentPayload = {
         email,

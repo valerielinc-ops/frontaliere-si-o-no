@@ -30,6 +30,14 @@ describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
     expect(shouldSkipSubscriber('a@b.ch', { job_slug: 'some-job-abc123' })).toBe('no-signal');
     expect(shouldSkipSubscriber('a@b.ch', {})).toBe('no-signal');
   });
+
+  it('is eligible via the location-fallback tier when only location_interest is present', () => {
+    expect(shouldSkipSubscriber('a@b.ch', { location_interest: 'Lugano' })).toBeNull();
+  });
+
+  it('is eligible via the location-fallback tier when only geo_city is present', () => {
+    expect(shouldSkipSubscriber('a@b.ch', { geo_city: 'Bellinzona' })).toBeNull();
+  });
 });
 
 describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
@@ -56,6 +64,13 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
   it('falls back to "unknown" in backfilled_from when source_channel is missing', () => {
     const payload = buildAlertPayload('a@b.ch', { job_category: 'tech' }, null);
     expect(payload.backfilled_from).toBe('newsletter_subscribers:unknown');
+  });
+
+  it('tags backfilled_from with :location-fallback when built from the location-only tier', () => {
+    const payload = buildAlertPayload('a@b.ch', { location_interest: 'Lugano', source_channel: 'popup' }, null);
+    expect(payload.backfilled_from).toBe('newsletter_subscribers:popup:location-fallback');
+    expect(payload.cantonFilter).toBeNull();
+    expect(payload.keywords).toEqual([]);
   });
 
   it('defaults locale to it when the subscriber has none', () => {

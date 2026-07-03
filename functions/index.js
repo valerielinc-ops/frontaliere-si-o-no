@@ -41,6 +41,7 @@ import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
+import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
 
 ensureAdminApp();
 
@@ -1057,6 +1058,32 @@ export const syncNewsletterSubscriberAuth = onDocumentCreated(
  if (result.created) console.log(`[syncNewsletterSubscriberAuth] created Auth user for ${emailId}`);
  } catch (error) {
  console.error('[syncNewsletterSubscriberAuth]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Real-time counterpart of scripts/backfill-jobalerts-from-newsletter.mjs:
+// every new newsletter_subscribers doc that carries job-search signal (or,
+// failing that, a location signal) gets a near-empty job_alert_subscribers
+// entry the day after signup, instead of waiting for the next manual batch
+// run. Shares its decision logic with the batch script via
+// jobAlertBackfillCore.js.
+export const backfillJobAlertOnNewsletterSignup = onDocumentCreated(
+ { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
+ async (event) => {
+ const emailId = event.params.email;
+ const snap = event.data;
+ if (!snap || emailId === '_meta_') return;
+ try {
+ const result = await handleNewsletterSubscriberCreated(emailId, snap.data());
+ if (result.created) {
+ console.log(`[backfillJobAlertOnNewsletterSignup] created alert for ${emailId} (${result.tier})`);
+ }
+ } catch (error) {
+ console.error(
+ '[backfillJobAlertOnNewsletterSignup]',
+ error instanceof Error ? error.message : String(error),
+ );
  }
  },
 );
