@@ -13,6 +13,7 @@ import { ARTICLES } from '@/data/blog-articles-data';
 import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
 import { SWISS_ARTICLES } from '@/data/swiss-articles-data';
 import { ARTICLE_SECTIONS, type ArticleSection } from '@/services/articleSections';
+import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 
 const root = resolve(__dirname, '..');
 
@@ -54,8 +55,13 @@ function registerHreflangIntegrityChecks(opts: {
   sitemapXml: string;
   articleIds: readonly string[];
   slugs: Record<string, Record<string, string>>;
+  // Article IDs intentionally dropped from this sitemap (canonical-override
+  // shadowed variants, issue #3010 item 1) — excluded from the "every
+  // article has a hreflang alternate" forward check but still included in
+  // the reverse lookup map (harmless: they simply won't be found in the XML).
+  skipForwardCheckIds?: ReadonlySet<string>;
 }): void {
-  const { section, sitemapLabel, sitemapXml, articleIds, slugs } = opts;
+  const { section, sitemapLabel, sitemapXml, articleIds, slugs, skipForwardCheckIds } = opts;
 
   for (const locale of ALT_LOCALES) {
     const hreflangSlugs = extractHreflangSlugs(sitemapXml, section, locale);
@@ -78,6 +84,7 @@ function registerHreflangIntegrityChecks(opts: {
 
     describe(`every article has a ${locale} hreflang alternate in ${sitemapLabel}`, () => {
       for (const id of articleIds) {
+        if (skipForwardCheckIds?.has(id)) continue;
         it(`article "${id}" → has ${locale} slug present as hreflang in ${sitemapLabel}`, () => {
           const slug = slugs[id]?.[locale];
           expect(slug, `Article "${id}" has no ${locale} slug`).toBeTruthy();
@@ -228,6 +235,27 @@ for (const id of ALL_SWISS_ARTICLE_IDS) {
 // Build set of article IDs from swiss-articles-data.ts SWISS_ARTICLES array
 const swissArticlesComponentIds = new Set(SWISS_ARTICLES.map(a => a.id));
 
+// Articles whose IT slug is a shadowed key in
+// data/swiss-article-canonical-overrides.json (issue #3010 item 1) are
+// intentionally DROPPED from sitemap-blog-ch.xml / sitemap-news.xml — same
+// convention as data/job-canonical-overrides.json for jobs. Their
+// <link rel="canonical"> points at a different (authoritative) page, so
+// listing them in the sitemap would violate the hard self-canonical gate
+// (scripts/audit-sitemap-canonicals.mjs / scripts/validate-sitemap-pages.mjs).
+// The page itself stays live/reachable (repo anti-cut rule) — only its
+// sitemap presence is dropped. Derived from the override map (not
+// hardcoded) so a future override addition is automatically exempted here.
+const swissCanonicalOverrides = loadSwissArticleCanonicalOverrides(
+  { readFileSync },
+  resolve(root, 'data', 'swiss-article-canonical-overrides.json'),
+);
+const shadowedSwissArticleIds = new Set(
+  ALL_SWISS_ARTICLE_IDS.filter((id) => {
+    const itSlug = SWISS_SLUGS[id]?.it;
+    return !!itSlug && Object.prototype.hasOwnProperty.call(swissCanonicalOverrides, itSlug);
+  }),
+);
+
 describe('Swiss article sitemap slug integrity', () => {
   it('sitemap-blog-ch.xml has at least 1 article', () => {
     expect(swissSitemapSlugs.length).toBeGreaterThan(0);
@@ -257,8 +285,9 @@ describe('Swiss article sitemap slug integrity', () => {
     }
   });
 
-  describe('every article in ALL_SWISS_ARTICLE_IDS has a sitemap entry', () => {
+  describe('every non-shadowed article in ALL_SWISS_ARTICLE_IDS has a sitemap entry', () => {
     for (const id of ALL_SWISS_ARTICLE_IDS) {
+      if (shadowedSwissArticleIds.has(id)) continue; // covered below: must be ABSENT instead
       it(`article "${id}" → has IT slug in sitemap-blog-ch.xml`, () => {
         const itSlug = SWISS_SLUGS[id]?.it;
         expect(itSlug, `Article "${id}" has no IT slug in SWISS_SLUGS`).toBeTruthy();
@@ -266,6 +295,24 @@ describe('Swiss article sitemap slug integrity', () => {
           swissSitemapSlugs.includes(itSlug!),
           `Article "${id}" (slug: ${itSlug}) is missing from sitemap-blog-ch.xml`
         ).toBe(true);
+      });
+    }
+  });
+
+  // Issue #3010 item 1 correction (2026-07-03): a canonical-override-shadowed
+  // article must be ABSENT from sitemap-blog-ch.xml, not present. Locks in
+  // the sitemap-drop fix so a future re-add (e.g. a careless create-article
+  // sync) regresses the hard self-canonical CI gate instead of failing
+  // silently.
+  describe('every shadowed (canonical-overridden) article is ABSENT from sitemap-blog-ch.xml', () => {
+    for (const id of shadowedSwissArticleIds) {
+      it(`article "${id}" → IT slug is NOT in sitemap-blog-ch.xml`, () => {
+        const itSlug = SWISS_SLUGS[id]?.it;
+        expect(itSlug, `Article "${id}" has no IT slug in SWISS_SLUGS`).toBeTruthy();
+        expect(
+          swissSitemapSlugs.includes(itSlug!),
+          `Article "${id}" (slug: ${itSlug}) is canonical-overridden but still listed in sitemap-blog-ch.xml — violates "Sitemap <loc> URLs MUST self-canonicalize"`
+        ).toBe(false);
       });
     }
   });
@@ -290,6 +337,7 @@ describe('Swiss article sitemap hreflang alternate integrity (EN/DE/FR)', () => 
     sitemapXml: swissSitemap,
     articleIds: ALL_SWISS_ARTICLE_IDS,
     slugs: SWISS_SLUGS,
+    skipForwardCheckIds: shadowedSwissArticleIds,
   });
 });
 

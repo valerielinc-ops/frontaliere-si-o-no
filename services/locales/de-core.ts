@@ -3476,6 +3476,8 @@ Regeln:
   'journalistDashboard.detail.failedTitle': 'Veröffentlichung fehlgeschlagen',
   'journalistDashboard.detail.failedFallback': 'Bei der Veröffentlichung ist ein Fehler aufgetreten. Korrigiere den Artikel und sende ihn erneut.',
   'journalistDashboard.detail.queuedInfo': 'Dein Artikel wartet auf die Veröffentlichung und wird in Kürze bearbeitet.',
+  'journalistDashboard.status.publishing': 'Wird veröffentlicht',
+  'journalistDashboard.detail.publishingInfo': 'Deployment läuft: der Artikel ist in wenigen Minuten online.',
   'journalistDashboard.detail.publishedTitle': 'Artikel veröffentlicht',
   'journalistDashboard.detail.urlPending': 'Link noch nicht verfügbar',
   'journalistDashboard.detail.analyticsHeading': 'Statistiken',

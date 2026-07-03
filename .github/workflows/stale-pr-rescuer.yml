@@ -106,8 +106,11 @@ jobs:
               # non distinguibili via API, stesso fix per entrambe).
               REASON="tests verdi sull'head corrente da >2h ma nessuna review pr-review-loop l'ha coperto"
               RESCUE="\`git fetch origin main && git merge origin/main\` nel branch \`$BRANCH\` poi push (allinea i workflow file, sana un eventuale app-token 401). Se il merge non serve, attendi ancora — può essere coda congestionata. Vedi AGENTS.md → \"Workflow-validation drift\"."
-            elif echo "$LAST_BODY" | grep -q "🔴" && [ "$LAST_CID" = "$HEAD" ]; then
-              # Classe B: 🔴 sull'head corrente, non ripreso.
+            elif echo "$LAST_BODY" | grep -qP '🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]' && [ "$LAST_CID" = "$HEAD" ]; then
+              # Classe B: 🔴 Important sull'head corrente, non ripreso. Regex
+              # allineata a REDFLAG_IMPORTANT_RE (scripts/ci/lib/constants.mjs):
+              # un bare `grep -q "🔴"` avrebbe mis-triggerato su prosa di
+              # negazione del reviewer ("zero 🔴 Important findings", PR #3330).
               REASON="🔴 Important non ripreso (review sull'head corrente $HEAD, auto-merge skipped, nessun commit nuovo)"
               RESCUE="applica il fix del 🔴 in un nuovo commit sullo stesso branch \`$BRANCH\` → re-review automatica. Vedi la review più recente sulla PR."
             else

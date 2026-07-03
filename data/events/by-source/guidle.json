@@ -1,0 +1,1409 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "guidle",
+  "sourceName": "Guidle",
+  "assembledAt": "2026-07-03T12:40:35.764Z",
+  "events": [
+    {
+      "id": "guidle:AJdd68h",
+      "title": "30° Festival internazionale del cortometraggio di Winterthur",
+      "titleByLocale": {
+        "it": "30° Festival internazionale del cortometraggio di Winterthur",
+        "en": "30th Winterthur International Short Film Festival",
+        "de": "30. Internationale Kurzfilmtage Winterthur",
+        "fr": "30e Festival international du court métrage de Winterthur"
+      },
+      "description": "Il festival presenta programmi di cortometraggi accuratamente compilati su temi di attualità e su argomenti di cui si occupano i curatori.",
+      "descriptionByLocale": {
+        "it": "Il festival presenta programmi di cortometraggi accuratamente compilati su temi di attualità e su argomenti di cui si occupano i curatori.",
+        "en": "The festival shows carefully compiled short film programs on current affairs and topics that are on the curators' minds.",
+        "de": "Das Festival zeigt sorgfältig zusammengestellte Kurzfilmprogramme zum Zeitgeschehen und zu Themen, die den Kurator:innen unter den Nägeln brennen.",
+        "fr": "Le festival présente des programmes de courts métrages soigneusement sélectionnés sur l'actualité et les thèmes qui préoccupent les commissaires d'exposition."
+      },
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-08",
+      "startTime": "09:00",
+      "category": "Film festival",
+      "venue": "blue Cinema Maxx",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/winterthur/26th-winterthur-international-short-film-festival_AJdd68h",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zürcherstrasse 1 & 3",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4983235,
+        "lng": 8.7210772
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AJdd68h.jpg"
+    },
+    {
+      "id": "guidle:AZ3RYEB",
+      "title": "Öffentliche Stadtführung Zug",
+      "titleByLocale": {
+        "it": "Öffentliche Stadtführung Zug",
+        "en": "Öffentliche Stadtführung Zug",
+        "de": "Öffentliche Stadtführung Zug",
+        "fr": "Öffentliche Stadtführung Zug"
+      },
+      "description": "Die malerische Zuger Altstadt gibt mit ihren Erkern, bunten Fassaden und kleinen Gassen ein idyllisches Bild ab. Überzeugen Sie sich selbst!",
+      "descriptionByLocale": {
+        "it": "Die malerische Zuger Altstadt gibt mit ihren Erkern, bunten Fassaden und kleinen Gassen ein idyllisches Bild ab. Überzeugen Sie sich selbst!",
+        "en": "Die malerische Zuger Altstadt gibt mit ihren Erkern, bunten Fassaden und kleinen Gassen ein idyllisches Bild ab. Überzeugen Sie sich selbst!",
+        "de": "Die malerische Zuger Altstadt gibt mit ihren Erkern, bunten Fassaden und kleinen Gassen ein idyllisches Bild ab. Überzeugen Sie sich selbst!",
+        "fr": "Die malerische Zuger Altstadt gibt mit ihren Erkern, bunten Fassaden und kleinen Gassen ein idyllisches Bild ab. Überzeugen Sie sich selbst!"
+      },
+      "startDate": "2026-07-04",
+      "endDate": "2026-10-31",
+      "startTime": "09:50",
+      "category": "Visita guidata della città",
+      "venue": "Zytturm",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/zug/stadtfuehrung_AZ3RYEB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kolinplatz",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1661118,
+        "lng": 8.5151648
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AZ3RYEB.png"
+    },
+    {
+      "id": "guidle:AKq2sSA",
+      "title": "Öffentlicher Abend in der Sternwarte",
+      "titleByLocale": {
+        "it": "Öffentlicher Abend in der Sternwarte",
+        "en": "Öffentlicher Abend in der Sternwarte",
+        "de": "Öffentlicher Abend in der Sternwarte",
+        "fr": "Öffentlicher Abend in der Sternwarte"
+      },
+      "description": "Ein gemeinsamer Blick in die Sterne.",
+      "descriptionByLocale": {
+        "it": "Ein gemeinsamer Blick in die Sterne.",
+        "en": "Ein gemeinsamer Blick in die Sterne.",
+        "de": "Ein gemeinsamer Blick in die Sterne.",
+        "fr": "Ein gemeinsamer Blick in die Sterne."
+      },
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-26",
+      "startTime": "19:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/kreuzlingen/oeffentlicher-abend-in-der-sternwarte_AKq2sSA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 8,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AKq2sSA.jpg"
+    },
+    {
+      "id": "guidle:A64WBSC",
+      "title": "Tanznacht40",
+      "titleByLocale": {
+        "it": "Tanznacht40",
+        "en": "Tanznacht40",
+        "de": "Tanznacht40",
+        "fr": "Tanznacht40"
+      },
+      "description": "Per tutti da 40 anni",
+      "descriptionByLocale": {
+        "it": "Per tutti da 40 anni",
+        "en": "For all from 40 years",
+        "de": "Für alle ab 40 Jahren.",
+        "fr": "dès 40 ans"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2027-06-26",
+      "startTime": "21:00",
+      "category": "Pop generalmente",
+      "venue": "Atlantis",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/evenements/bale/tanznacht40_A64WBSC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Klosterberg 13",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.551958,
+        "lng": 7.5905583
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A64WBSC.jpg"
+    },
+    {
+      "id": "guidle:AfP32Xh",
+      "title": "Römische Spiele für Gross und Klein",
+      "titleByLocale": {
+        "it": "Römische Spiele für Gross und Klein",
+        "en": "Römische Spiele für Gross und Klein",
+        "de": "Römische Spiele für Gross und Klein",
+        "fr": "Römische Spiele für Gross und Klein"
+      },
+      "description": "Strategie-, Glücks- und Geschicklichkeitsspiele warten auf dich!",
+      "descriptionByLocale": {
+        "it": "Strategie-, Glücks- und Geschicklichkeitsspiele warten auf dich!",
+        "en": "Strategie-, Glücks- und Geschicklichkeitsspiele warten auf dich!",
+        "de": "Strategie-, Glücks- und Geschicklichkeitsspiele warten auf dich!",
+        "fr": "Strategie-, Glücks- und Geschicklichkeitsspiele warten auf dich!"
+      },
+      "startDate": "2026-07-05",
+      "endDate": "2026-12-27",
+      "startTime": "13:00",
+      "category": "Giochi d'abilità",
+      "venue": "Augusta Raurica",
+      "comune": "Augst",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/augst-bl/roemische-spiele-fuer-gross-und-klein_AfP32Xh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Giebenacherstrasse 17",
+        "postalCode": "4302"
+      },
+      "geo": {
+        "lat": 47.5340444,
+        "lng": 7.7215489
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AfP32Xh.jpg"
+    },
+    {
+      "id": "guidle:ADWKxVT",
+      "title": "Führung durch die Schatzkammer",
+      "titleByLocale": {
+        "it": "Führung durch die Schatzkammer",
+        "en": "Führung durch die Schatzkammer",
+        "de": "Führung durch die Schatzkammer",
+        "fr": "Führung durch die Schatzkammer"
+      },
+      "description": "Öffentlicher Rundgang durch die Sammlung.",
+      "descriptionByLocale": {
+        "it": "Öffentlicher Rundgang durch die Sammlung.",
+        "en": "Öffentlicher Rundgang durch die Sammlung.",
+        "de": "Öffentlicher Rundgang durch die Sammlung.",
+        "fr": "Öffentlicher Rundgang durch die Sammlung."
+      },
+      "startDate": "2026-07-07",
+      "endDate": "2026-12-01",
+      "startTime": "18:30",
+      "category": "Storia",
+      "venue": "Sammlungszentrum Museum Aargau",
+      "comune": "Egliswil",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/natur-mensch-tier/egliswil/fuehrung-durch-die-schatzkammer_ADWKxVT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Binzenholzstrasse 10",
+        "postalCode": "5704"
+      },
+      "geo": {
+        "lat": 47.3494743,
+        "lng": 8.1735913
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ADWKxVT.jpg"
+    },
+    {
+      "id": "guidle:ADQcRJ7",
+      "title": "Tanznacht40",
+      "titleByLocale": {
+        "it": "Tanznacht40",
+        "en": "Tanznacht40",
+        "de": "Tanznacht40",
+        "fr": "Tanznacht40"
+      },
+      "description": "Disco ab 40 Jahren.",
+      "descriptionByLocale": {
+        "it": "Disco ab 40 Jahren.",
+        "en": "Disco from the age of 40.",
+        "de": "Disco ab 40 Jahren.",
+        "fr": "Disco à partir de 40 ans."
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2027-06-04",
+      "startTime": "21:00",
+      "category": "Altri party",
+      "venue": "WÄBEREI Eventlocation",
+      "comune": "Liestal",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/party/liestal/tanznacht40_ADQcRJ7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Eichenweg 1",
+        "postalCode": "4410"
+      },
+      "geo": {
+        "lat": 47.4913588,
+        "lng": 7.7270673
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ADQcRJ7.jpg"
+    },
+    {
+      "id": "guidle:AW5Y1rV",
+      "title": "Krimi-Schiff",
+      "titleByLocale": {
+        "it": "Krimi-Schiff",
+        "en": "Krimi-Schiff",
+        "de": "Krimi-Schiff",
+        "fr": "Krimi-Schiff"
+      },
+      "description": "Ein spannender kulinarischer Abend.",
+      "descriptionByLocale": {
+        "it": "Ein spannender kulinarischer Abend.",
+        "en": "Ein spannender kulinarischer Abend.",
+        "de": "Ein spannender kulinarischer Abend.",
+        "fr": "Ein spannender kulinarischer Abend."
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-12-05",
+      "startTime": "19:30",
+      "category": "Cibo con divertimento",
+      "venue": "Schiffsteg Bürkliplatz",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/populaer/zuerich/krimi-schiff_AW5Y1rV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 3,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bürkliplatz",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3663515,
+        "lng": 8.5410558
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AW5Y1rV.jpg"
+    },
+    {
+      "id": "guidle:ACwguab",
+      "title": "Schiffsführungssimulator",
+      "titleByLocale": {
+        "it": "Schiffsführungssimulator",
+        "en": "Schiffsführungssimulator",
+        "de": "Schiffsführungssimulator",
+        "fr": "Schiffsführungssimulator"
+      },
+      "description": "Nach einer kurzen Einführung können auch Sie unter Anleitung der Instruktoren selbst mit dem Schiffsführungssimulator in ausgewählten Gewässern fahren.",
+      "descriptionByLocale": {
+        "it": "Nach einer kurzen Einführung können auch Sie unter Anleitung der Instruktoren selbst mit dem Schiffsführungssimulator in ausgewählten Gewässern fahren.",
+        "en": "Nach einer kurzen Einführung können auch Sie unter Anleitung der Instruktoren selbst mit dem Schiffsführungssimulator in ausgewählten Gewässern fahren.",
+        "de": "Nach einer kurzen Einführung können auch Sie unter Anleitung der Instruktoren selbst mit dem Schiffsführungssimulator in ausgewählten Gewässern fahren.",
+        "fr": "Nach einer kurzen Einführung können auch Sie unter Anleitung der Instruktoren selbst mit dem Schiffsführungssimulator in ausgewählten Gewässern fahren."
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-12-12",
+      "startTime": "10:00",
+      "category": "Nautica / Barca",
+      "venue": "Hafenmuseum",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/schiffsfuehrungssimulator_ACwguab",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 9,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Westquaistrasse 2",
+        "postalCode": "4057"
+      },
+      "geo": {
+        "lat": 47.582757,
+        "lng": 7.5894999
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ACwguab.jpg"
+    },
+    {
+      "id": "guidle:ANCUTHP",
+      "title": "Chaplin - Das Musical",
+      "titleByLocale": {
+        "it": "Chaplin - Das Musical",
+        "en": "Chaplin - Das Musical",
+        "de": "Chaplin - Das Musical",
+        "fr": "Chaplin - Das Musical"
+      },
+      "description": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
+      "descriptionByLocale": {
+        "it": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
+        "en": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
+        "de": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte.",
+        "fr": "Treten Sie ein in die Welt des legendären Charlie Chaplin – Komiker, Visionär und Ikone der Filmgeschichte."
+      },
+      "startDate": "2026-07-03",
+      "endDate": "2026-07-25",
+      "startTime": "19:45",
+      "category": "Musical",
+      "venue": "Walensee-Bühne",
+      "comune": "Walenstadt",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/walenstadt/chaplin-das-musical-1006-25072026_ANCUTHP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kasernenstrasse",
+        "postalCode": "8880"
+      },
+      "geo": {
+        "lat": 47.1229112,
+        "lng": 9.3017408
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ANCUTHP.jpg"
+    },
+    {
+      "id": "guidle:AXxhpH8",
+      "title": "Natur- und Waldbaden",
+      "titleByLocale": {
+        "it": "Natur- und Waldbaden",
+        "en": "Natur- und Waldbaden",
+        "de": "Natur- und Waldbaden",
+        "fr": "Natur- und Waldbaden"
+      },
+      "description": "Deine grüne BalanceZeit: Atmen. Loslassen. Achtsam sein. In Verbindung mit der heilenden Kraft der Natur.",
+      "descriptionByLocale": {
+        "it": "Deine grüne BalanceZeit: Atmen. Loslassen. Achtsam sein. In Verbindung mit der heilenden Kraft der Natur.",
+        "en": "Deine grüne BalanceZeit: Atmen. Loslassen. Achtsam sein. In Verbindung mit der heilenden Kraft der Natur.",
+        "de": "Deine grüne BalanceZeit: Atmen. Loslassen. Achtsam sein. In Verbindung mit der heilenden Kraft der Natur.",
+        "fr": "Deine grüne BalanceZeit: Atmen. Loslassen. Achtsam sein. In Verbindung mit der heilenden Kraft der Natur."
+      },
+      "startDate": "2026-07-04",
+      "endDate": "2026-09-05",
+      "startTime": "09:30",
+      "category": "Contemplazione / Meditazione",
+      "venue": "Soulness-Stübli",
+      "comune": "Bözberg",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/boezberg/natur-und-waldbaden_AXxhpH8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 150,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Gallenkirch 54",
+        "postalCode": "5225"
+      },
+      "geo": {
+        "lat": 47.4795493,
+        "lng": 8.125736
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AXxhpH8.jpg"
+    },
+    {
+      "id": "guidle:AVyD6pp",
+      "title": "Erlebniswanderung zu \"kraftvollen Bäumen\"",
+      "titleByLocale": {
+        "it": "Erlebniswanderung zu \"kraftvollen Bäumen\"",
+        "en": "Erlebniswanderung zu \"kraftvollen Bäumen\"",
+        "de": "Erlebniswanderung zu \"kraftvollen Bäumen\"",
+        "fr": "Erlebniswanderung zu \"kraftvollen Bäumen\""
+      },
+      "description": "Interessieren Sie sich für Mythen, Brauchtum und Weisheiten der heiligen Bäume der Kelten und indigenen Völkern? Dann ist diese Erlebniswanderung genau das Richtige für Sie!",
+      "descriptionByLocale": {
+        "it": "Interessieren Sie sich für Mythen, Brauchtum und Weisheiten der heiligen Bäume der Kelten und indigenen Völkern? Dann ist diese Erlebniswanderung genau das Richtige für Sie!",
+        "en": "Interessieren Sie sich für Mythen, Brauchtum und Weisheiten der heiligen Bäume der Kelten und indigenen Völkern? Dann ist diese Erlebniswanderung genau das Richtige für Sie!",
+        "de": "Interessieren Sie sich für Mythen, Brauchtum und Weisheiten der heiligen Bäume der Kelten und indigenen Völkern? Dann ist diese Erlebniswanderung genau das Richtige für Sie!",
+        "fr": "Interessieren Sie sich für Mythen, Brauchtum und Weisheiten der heiligen Bäume der Kelten und indigenen Völkern? Dann ist diese Erlebniswanderung genau das Richtige für Sie!"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-10-24",
+      "startTime": "09:30",
+      "category": "Escursionismo",
+      "venue": "Soulness-Stübli",
+      "comune": "Bözberg",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/sport/boezberg/erlebniswanderung-zukraftvollen-baeumen_AVyD6pp",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 60,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Gallenkirch 54",
+        "postalCode": "5225"
+      },
+      "geo": {
+        "lat": 47.4795493,
+        "lng": 8.125736
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AVyD6pp.jpg"
+    },
+    {
+      "id": "guidle:ARifGJW",
+      "title": "Schlager Open Air Flumserberg",
+      "titleByLocale": {
+        "it": "Schlager Open Air Flumserberg",
+        "en": "Schlager Open Air Flumserberg",
+        "de": "Schlager Open Air Flumserberg",
+        "fr": "Schlager Open Air Flumserberg"
+      },
+      "description": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
+      "descriptionByLocale": {
+        "it": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
+        "en": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
+        "de": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird.",
+        "fr": "Schlagerfans dürfen sich freuen, wenn zu neuen Hits geschaukelt und zu alten Klassikern mitgesungen wird."
+      },
+      "startDate": "2026-07-31",
+      "endDate": "2026-07-31",
+      "startTime": "12:30",
+      "category": "Open Air",
+      "venue": "Molseralp",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/flumserberg-tannenbodenalp/schlager-open-air-flumserberg_ARifGJW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Flumserberg-Tannenboden",
+        "postalCode": "8898"
+      },
+      "geo": {
+        "lat": 47.091991,
+        "lng": 9.2785321
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ARifGJW.jpg"
+    },
+    {
+      "id": "guidle:AeJEtS3",
+      "title": "Truuba-Brunch",
+      "titleByLocale": {
+        "it": "Truuba-Brunch",
+        "en": "Truuba-Brunch",
+        "de": "Truuba-Brunch",
+        "fr": "Truuba-Brunch"
+      },
+      "description": "Genuss, gemütliches Beisammensein und etwas Prickelndes dazu. Das und mehr vereint der Brunch durch ein kreatives, regionales und leckeres Angebot.",
+      "descriptionByLocale": {
+        "it": "Genuss, gemütliches Beisammensein und etwas Prickelndes dazu. Das und mehr vereint der Brunch durch ein kreatives, regionales und leckeres Angebot.",
+        "en": "Genuss, gemütliches Beisammensein und etwas Prickelndes dazu. Das und mehr vereint der Brunch durch ein kreatives, regionales und leckeres Angebot.",
+        "de": "Genuss, gemütliches Beisammensein und etwas Prickelndes dazu. Das und mehr vereint der Brunch durch ein kreatives, regionales und leckeres Angebot.",
+        "fr": "Genuss, gemütliches Beisammensein und etwas Prickelndes dazu. Das und mehr vereint der Brunch durch ein kreatives, regionales und leckeres Angebot."
+      },
+      "startDate": "2026-07-05",
+      "endDate": "2026-12-06",
+      "startTime": "10:30",
+      "category": "Altra offerta di Cottura, cibo / degustazione",
+      "venue": "Gasthaus Traube",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/museen/kinder/veranstaltungen/buchs-sg/truuba-brunch_AeJEtS3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "St. Gallerstrasse 7",
+        "postalCode": "9470"
+      },
+      "geo": {
+        "lat": 47.1654265,
+        "lng": 9.4694586
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AeJEtS3.jpg"
+    },
+    {
+      "id": "guidle:AfcbgtU",
+      "title": "Waves of silence: «Floating» Klangbaden",
+      "titleByLocale": {
+        "it": "Waves of silence: «Floating» Klangbaden",
+        "en": "Waves of silence: «Floating» Klangbaden",
+        "de": "Waves of silence: «Floating» Klangbaden",
+        "fr": "Waves of silence: «Floating» Klangbaden"
+      },
+      "description": "Ein besonderes Entspannungsritual im warmen, atmosphärisch beleuchteten Helenabad.",
+      "descriptionByLocale": {
+        "it": "Ein besonderes Entspannungsritual im warmen, atmosphärisch beleuchteten Helenabad.",
+        "en": "Ein besonderes Entspannungsritual im warmen, atmosphärisch beleuchteten Helenabad.",
+        "de": "Ein besonderes Entspannungsritual im warmen, atmosphärisch beleuchteten Helenabad.",
+        "fr": "Ein besonderes Entspannungsritual im warmen, atmosphärisch beleuchteten Helenabad."
+      },
+      "startDate": "2026-07-03",
+      "endDate": "2026-12-27",
+      "startTime": "20:15",
+      "category": "Musica meditativa",
+      "venue": "Grand Resort Bad Ragaz",
+      "comune": "Bad Ragaz",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bad-ragaz/waves-of-silence-floating-klangbaden_AfcbgtU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 120,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bernhard-Simon-Strasse",
+        "postalCode": "7310"
+      },
+      "geo": {
+        "lat": 47.0004272,
+        "lng": 9.5037097
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AfcbgtU.jpg"
+    },
+    {
+      "id": "guidle:AEadtBt",
+      "title": "AUREA Jukebox Night",
+      "titleByLocale": {
+        "it": "AUREA Jukebox Night",
+        "en": "AUREA Jukebox Night",
+        "de": "AUREA Jukebox Night",
+        "fr": "AUREA Jukebox Night"
+      },
+      "description": "Vote für Deinen Song.",
+      "descriptionByLocale": {
+        "it": "Vote für Deinen Song.",
+        "en": "Vote für Deinen Song.",
+        "de": "Vote für Deinen Song.",
+        "fr": "Vote für Deinen Song."
+      },
+      "startDate": "2026-07-09",
+      "endDate": "2026-12-17",
+      "startTime": "18:30",
+      "category": "Salsa",
+      "venue": "AUREA",
+      "comune": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/rheinfelden/aurea-jukebox-night_AEadtBt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Baslerstrasse 15",
+        "postalCode": "4310"
+      },
+      "geo": {
+        "lat": 47.5513376,
+        "lng": 7.7852593
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AEadtBt.jpg"
+    },
+    {
+      "id": "guidle:A8ge39M",
+      "title": "Internationale Pferderennen Maienfeld",
+      "titleByLocale": {
+        "it": "Internationale Pferderennen Maienfeld",
+        "en": "Internationale Pferderennen Maienfeld",
+        "de": "Internationale Pferderennen Maienfeld",
+        "fr": "Internationale Pferderennen Maienfeld"
+      },
+      "description": "Renntage in atemberaubender Herbstkulisse.",
+      "descriptionByLocale": {
+        "it": "Renntage in atemberaubender Herbstkulisse.",
+        "en": "Renntage in atemberaubender Herbstkulisse.",
+        "de": "Renntage in atemberaubender Herbstkulisse.",
+        "fr": "Renntage in atemberaubender Herbstkulisse."
+      },
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-11",
+      "startTime": "09:30",
+      "category": "Equestre",
+      "venue": "Rossriet Maienfeld",
+      "comune": "Maienfeld",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/sport/maienfeld/internationale-pferderennen-maienfeld_A8ge39M",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Landstrasse",
+        "postalCode": "7304"
+      },
+      "geo": {
+        "lat": 46.9874822,
+        "lng": 9.5455351
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A8ge39M.jpg"
+    },
+    {
+      "id": "guidle:A7Gmtwb",
+      "title": "Vivaldi - Die vier Jahreszeiten",
+      "titleByLocale": {
+        "it": "Vivaldi - Die vier Jahreszeiten",
+        "en": "Vivaldi - Die vier Jahreszeiten",
+        "de": "Vivaldi - Die vier Jahreszeiten",
+        "fr": "Vivaldi - Die vier Jahreszeiten"
+      },
+      "description": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+      "descriptionByLocale": {
+        "it": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "en": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "de": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "fr": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik."
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "17:00",
+      "category": "Barocco",
+      "venue": "Casino Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/bern/vivaldi-die-vier-jahreszeiten_A7Gmtwb",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Casinoplatz 1",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9469477,
+        "lng": 7.4482397
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A7Gmtwb.jpg"
+    },
+    {
+      "id": "guidle:AaPi9Aa",
+      "title": "Vivaldi - Die vier Jahreszeiten",
+      "titleByLocale": {
+        "it": "Vivaldi - Die vier Jahreszeiten",
+        "en": "Vivaldi - Die vier Jahreszeiten",
+        "de": "Vivaldi - Die vier Jahreszeiten",
+        "fr": "Vivaldi - Die vier Jahreszeiten"
+      },
+      "description": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+      "descriptionByLocale": {
+        "it": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "en": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "de": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "fr": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik."
+      },
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-23",
+      "startTime": "20:00",
+      "category": "Barocco",
+      "venue": "Volkshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/vivaldi-die-vier-jahreszeiten_AaPi9Aa",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 54.9,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Stauffacherstrasse 60",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AaPi9Aa.jpg"
+    },
+    {
+      "id": "guidle:AWAhWyd",
+      "title": "Eine Hommage an Ludovico Einaudi",
+      "titleByLocale": {
+        "it": "Eine Hommage an Ludovico Einaudi",
+        "en": "Eine Hommage an Ludovico Einaudi",
+        "de": "Eine Hommage an Ludovico Einaudi",
+        "fr": "Eine Hommage an Ludovico Einaudi"
+      },
+      "description": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+      "descriptionByLocale": {
+        "it": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "en": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "de": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "fr": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "20:00",
+      "category": "Musica moderna / seria",
+      "venue": "Volkshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/eine-hommage-an-ludovico-einaudi_AWAhWyd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 64.9,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Stauffacherstrasse 60",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AWAhWyd.jpg"
+    },
+    {
+      "id": "guidle:Ar6DnuC",
+      "title": "Vivaldi - Die vier Jahreszeiten",
+      "titleByLocale": {
+        "it": "Vivaldi - Die vier Jahreszeiten",
+        "en": "Vivaldi - Die vier Jahreszeiten",
+        "de": "Vivaldi - Die vier Jahreszeiten",
+        "fr": "Vivaldi - Die vier Jahreszeiten"
+      },
+      "description": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+      "descriptionByLocale": {
+        "it": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "en": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "de": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik.",
+        "fr": "Das Kammerorchester der Neuen Philharmonie Hamburg präsentiert unter der Leitung von Tigran Mikaelyan wunderbare Meisterwerke der europäischen klassischen Musik."
+      },
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-22",
+      "startTime": "20:00",
+      "category": "Barocco",
+      "venue": "Stadtcasino Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/vivaldi-die-vier-jahreszeiten_Ar6DnuC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Konzertgasse 1",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.554179,
+        "lng": 7.5900971
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ar6DnuC.jpg"
+    },
+    {
+      "id": "guidle:AYfb1Sf",
+      "title": "Eine Hommage an Ludovico Einaudi",
+      "titleByLocale": {
+        "it": "Eine Hommage an Ludovico Einaudi",
+        "en": "Eine Hommage an Ludovico Einaudi",
+        "de": "Eine Hommage an Ludovico Einaudi",
+        "fr": "Eine Hommage an Ludovico Einaudi"
+      },
+      "description": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+      "descriptionByLocale": {
+        "it": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "en": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "de": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "fr": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten."
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "startTime": "16:00",
+      "category": "Musica moderna / seria",
+      "venue": "Stadtcasino Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/eine-hommage-an-ludovico-einaudi_AYfb1Sf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Konzertgasse 1",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.554179,
+        "lng": 7.5900971
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AYfb1Sf.jpg"
+    },
+    {
+      "id": "guidle:AxjW4SA",
+      "title": "Eine Hommage an Ludovico Einaudi",
+      "titleByLocale": {
+        "it": "Eine Hommage an Ludovico Einaudi",
+        "en": "Eine Hommage an Ludovico Einaudi",
+        "de": "Eine Hommage an Ludovico Einaudi",
+        "fr": "Eine Hommage an Ludovico Einaudi"
+      },
+      "description": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+      "descriptionByLocale": {
+        "it": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "en": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "de": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "fr": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten."
+      },
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-15",
+      "startTime": "20:00",
+      "category": "Musica moderna / seria",
+      "venue": "Casino Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/bern/eine-hommage-an-ludovico-einaudi_AxjW4SA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Casinoplatz 1",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9469477,
+        "lng": 7.4482397
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AxjW4SA.jpg"
+    },
+    {
+      "id": "guidle:AvPhuZA",
+      "title": "Eine Hommage an Ludovico Einaudi",
+      "titleByLocale": {
+        "it": "Eine Hommage an Ludovico Einaudi",
+        "en": "Eine Hommage an Ludovico Einaudi",
+        "de": "Eine Hommage an Ludovico Einaudi",
+        "fr": "Eine Hommage an Ludovico Einaudi"
+      },
+      "description": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+      "descriptionByLocale": {
+        "it": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "en": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "de": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten.",
+        "fr": "Pianist Burak Çebi präsentiert gefühlvolle, minimalistische Werke des weltbekannten Neoklassik-Komponisten."
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "16:00",
+      "category": "Musica moderna / seria",
+      "venue": "Stadthaus Winterthur",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/winterthur/eine-hommage-an-ludovico-einaudi_AvPhuZA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Stadthausstrasse 4a",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.5010232,
+        "lng": 8.7313813
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AvPhuZA.jpg"
+    },
+    {
+      "id": "guidle:AgWtBX5",
+      "title": "Bachwochen Thun: Bach Trinity",
+      "titleByLocale": {
+        "it": "Bachwochen Thun: Bach Trinity",
+        "en": "Bachwochen Thun: Bach Trinity",
+        "de": "Bachwochen Thun: Bach Trinity",
+        "fr": "Bachwochen Thun: Bach Trinity"
+      },
+      "description": "«Was Albrecht Mayer mit der Oboe anstellt, hat magische Qualitäten... Die Inbrunst und Echtheit des Ausdrucks sind bei seinem Spiel spürbar.» Deutsche Grammophon",
+      "descriptionByLocale": {
+        "it": "«Was Albrecht Mayer mit der Oboe anstellt, hat magische Qualitäten... Die Inbrunst und Echtheit des Ausdrucks sind bei seinem Spiel spürbar.» Deutsche Grammophon",
+        "en": "«Was Albrecht Mayer mit der Oboe anstellt, hat magische Qualitäten... Die Inbrunst und Echtheit des Ausdrucks sind bei seinem Spiel spürbar.» Deutsche Grammophon",
+        "de": "«Was Albrecht Mayer mit der Oboe anstellt, hat magische Qualitäten... Die Inbrunst und Echtheit des Ausdrucks sind bei seinem Spiel spürbar.» Deutsche Grammophon",
+        "fr": "«Was Albrecht Mayer mit der Oboe anstellt, hat magische Qualitäten... Die Inbrunst und Echtheit des Ausdrucks sind bei seinem Spiel spürbar.» Deutsche Grammophon"
+      },
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-05",
+      "startTime": "17:00",
+      "category": "Musica da Camera",
+      "venue": "Evang.-ref. Kirche Amsoldingen",
+      "comune": "Amsoldingen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/amsoldingen/bachwochen-thun-bach-trinity_AgWtBX5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Chorherrengasse 4",
+        "postalCode": "3633"
+      },
+      "geo": {
+        "lat": 46.7270226,
+        "lng": 7.5785336
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AgWtBX5.jpg"
+    },
+    {
+      "id": "guidle:AYcuLYu",
+      "title": "First Friday in Mellingen",
+      "titleByLocale": {
+        "it": "First Friday in Mellingen",
+        "en": "First Friday in Mellingen",
+        "de": "First Friday in Mellingen",
+        "fr": "First Friday in Mellingen"
+      },
+      "description": "In der Altstadt warten aussergewöhnliche Aktivitäten und Angebote.",
+      "descriptionByLocale": {
+        "it": "In der Altstadt warten aussergewöhnliche Aktivitäten und Angebote.",
+        "en": "In der Altstadt warten aussergewöhnliche Aktivitäten und Angebote.",
+        "de": "In der Altstadt warten aussergewöhnliche Aktivitäten und Angebote.",
+        "fr": "In der Altstadt warten aussergewöhnliche Aktivitäten und Angebote."
+      },
+      "startDate": "2026-07-03",
+      "endDate": "2026-09-04",
+      "startTime": "17:00",
+      "category": "L'arte in generale",
+      "venue": "Altstadt",
+      "comune": "Mellingen",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/mellingen/first-friday-in-mellingen_AYcuLYu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "5507"
+      },
+      "geo": {
+        "lat": 47.4185155,
+        "lng": 8.2732245
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AYcuLYu.jpg"
+    },
+    {
+      "id": "guidle:AkDMs5x",
+      "title": "Festival del teatro di Basilea",
+      "titleByLocale": {
+        "it": "Festival del teatro di Basilea",
+        "en": "Theatre Festival",
+        "de": "Theaterfestival Basel",
+        "fr": "Le Festival de théâtre"
+      },
+      "description": "Il festival propone teatro, danza, performance, azioni urbane, tavole rotonde, film e feste create da 170 artisti di scena provenienti da numerosi Paesi.",
+      "descriptionByLocale": {
+        "it": "Il festival propone teatro, danza, performance, azioni urbane, tavole rotonde, film e feste create da 170 artisti di scena provenienti da numerosi Paesi.",
+        "en": "The festival offers theater, dance, performance, urban actions, panel discussions, films and party designed by 170 stage creators from numerous countries.",
+        "de": "Das Festival bietet Theater, Tanz, Performance, Stadtaktionen, Podiumsdiskussionen, Filme und Party gestaltet von 170 Bühnenschaffenden aus zahlreichen Ländern.",
+        "fr": "Le festival propose du théâtre, de la danse, des performances, des actions urbaines, des tables rondes, des films et des soirées organisées par 170 artistes de nombreux pays."
+      },
+      "startDate": "2026-08-26",
+      "endDate": "2026-09-06",
+      "startTime": "00:00",
+      "category": "Festival del teatro",
+      "venue": "Kaserne Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/events/basel/theatre-festival_AkDMs5x",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Klybeckstrasse 1b",
+        "postalCode": "4057"
+      },
+      "geo": {
+        "lat": 47.5638411,
+        "lng": 7.5911571
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AkDMs5x.jpg"
+    },
+    {
+      "id": "guidle:AKEg5yP",
+      "title": "Die Impronauten",
+      "titleByLocale": {
+        "it": "Die Impronauten",
+        "en": "Die Impronauten",
+        "de": "Die Impronauten",
+        "fr": "Die Impronauten"
+      },
+      "description": "Quello che è uno scenario orribile per alcuni attori è ciò che lo rende così attraente per questi attori: Stanno sul palco e non sanno cosa succederà dopo.",
+      "descriptionByLocale": {
+        "it": "Quello che è uno scenario orribile per alcuni attori è ciò che lo rende così attraente per questi attori: Stanno sul palco e non sanno cosa succederà dopo.",
+        "en": "What is a horror scenario for some actors is what makes it so appealing for them: They stand on stage and don't know what will happen next.",
+        "de": "Was für manche Schauspieler ein Horrorszenario ist, macht für diese den Reiz aus: Sie stehen auf der Bühne und wissen nicht, was als nächstes geschieht.",
+        "fr": "Ce qui est un scénario d'horreur pour certains acteurs fait le charme de ceux-ci : Ils sont sur scène et ne savent pas ce qui va se passer ensuite."
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-12-22",
+      "startTime": "20:00",
+      "category": "Teatro: improvisazione",
+      "venue": "Theater Fauteuil - Tabourettli",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/basel/die-impronauten_AKEg5yP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 19,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Spalenberg 12",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5573489,
+        "lng": 7.5864071
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AKEg5yP.jpg"
+    },
+    {
+      "id": "guidle:AimwjJr",
+      "title": "Riverside Festival Aarburg",
+      "titleByLocale": {
+        "it": "Riverside Festival Aarburg",
+        "en": "Riverside Festival Aarburg",
+        "de": "Riverside Festival Aarburg",
+        "fr": "Riverside Festival Aarburg"
+      },
+      "description": "Spettacoli esplosivi di headliner faranno ancora una volta scatenare la Riverside Arena.",
+      "descriptionByLocale": {
+        "it": "Spettacoli esplosivi di headliner faranno ancora una volta scatenare la Riverside Arena.",
+        "en": "Explosive headliner shows will once again make the Riverside Arena go wild.",
+        "de": "Explosive Headliner Shows werden die Riverside Arena einmal mehr zum Toben bringen.",
+        "fr": "Des spectacles explosifs en tête d'affiche feront une fois de plus vibrer la Riverside Arena."
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-23",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Riverside Open Air Arena",
+      "comune": "Aarburg",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/events/aarburg/riverside-festival-aarburg_AimwjJr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Landhausstrasse",
+        "postalCode": "4663"
+      },
+      "geo": {
+        "lat": 47.3159883,
+        "lng": 7.8961363
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AimwjJr.jpg"
+    },
+    {
+      "id": "guidle:A83niWh",
+      "title": "Afro-Pfingsten Festival",
+      "titleByLocale": {
+        "it": "Afro-Pfingsten Festival",
+        "en": "Afro-Pfingsten Festival",
+        "de": "Afro-Pfingsten Festival",
+        "fr": "Afro-Pfingsten Festival"
+      },
+      "description": "Durante la settimana di Pentecoste, l'intera Winterthur si trasformerà in una zona di incontro interculturale con un programma variegato.",
+      "descriptionByLocale": {
+        "it": "Durante la settimana di Pentecoste, l'intera Winterthur si trasformerà in una zona di incontro interculturale con un programma variegato.",
+        "en": "During the Whitsun week, the whole of Winterthur will be transformed into an intercultural meeting zone with a varied program.",
+        "de": "In der Pfingstwoche wird ganz Winterthur mit vielseitigem Programm in eine interkulturelle Begegnungszone verwandelt.",
+        "fr": "Pendant la semaine de Pentecôte, tout Winterthur sera transformé en une zone de rencontre interculturelle grâce à un programme varié."
+      },
+      "startDate": "2027-05-12",
+      "endDate": "2027-05-17",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Salzhaus",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/winterthur/afro-pfingsten-festival_A83niWh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Untere Vogelsangstrasse 6",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4975855,
+        "lng": 8.7226442
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A83niWh.jpg"
+    },
+    {
+      "id": "guidle:AKQMGWB",
+      "title": "Tanzvergnügen",
+      "titleByLocale": {
+        "it": "Tanzvergnügen",
+        "en": "Tanzvergnügen",
+        "de": "Tanzvergnügen",
+        "fr": "Tanzvergnügen"
+      },
+      "description": "Freies Tanzen zu Klassikern der 20er bis 70er Jahre.",
+      "descriptionByLocale": {
+        "it": "Freies Tanzen zu Klassikern der 20er bis 70er Jahre.",
+        "en": "Freies Tanzen zu Klassikern der 20er bis 70er Jahre.",
+        "de": "Freies Tanzen zu Klassikern der 20er bis 70er Jahre.",
+        "fr": "Freies Tanzen zu Klassikern der 20er bis 70er Jahre."
+      },
+      "startDate": "2026-07-14",
+      "endDate": "2026-12-22",
+      "startTime": "16:45",
+      "category": "Pop generalmente",
+      "venue": "Stadtkaserne Frauenfeld",
+      "comune": "Frauenfeld",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/frauenfeld/tanzvergnuegen_AKQMGWB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bahnhofplatz 78",
+        "postalCode": "8500"
+      },
+      "geo": {
+        "lat": 47.5583331,
+        "lng": 8.8976085
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AKQMGWB.jpg"
+    },
+    {
+      "id": "guidle:AZVmURc",
+      "title": "Info Point Baden im Kafi Royal",
+      "titleByLocale": {
+        "it": "Info Point Baden im Kafi Royal",
+        "en": "Info Point Baden im Kafi Royal",
+        "de": "Info Point Baden im Kafi Royal",
+        "fr": "Info Point Baden im Kafi Royal"
+      },
+      "description": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
+      "descriptionByLocale": {
+        "it": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
+        "en": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
+        "de": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
+        "fr": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration"
+      },
+      "startDate": "2026-08-18",
+      "endDate": "2026-08-18",
+      "startTime": "17:30",
+      "category": "Assistanza nella vita quotidiana",
+      "venue": "Royal",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/baden/info-point-baden_AZVmURc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Bahnhofstrasse 39",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4781559,
+        "lng": 8.3086597
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AZVmURc.jpg"
+    },
+    {
+      "id": "guidle:AaZy1DQ",
+      "title": "Open Air Gränichen 2026",
+      "titleByLocale": {
+        "it": "Open Air Gränichen 2026",
+        "en": "Open Air Gränichen 2026",
+        "de": "Open Air Gränichen 2026",
+        "fr": "Open Air Gränichen 2026"
+      },
+      "description": "Open Air Gränichen è un festival di due giorni senza scopo di lucro per la scena hardcore, punk, metalcore e rock.",
+      "descriptionByLocale": {
+        "it": "Open Air Gränichen è un festival di due giorni senza scopo di lucro per la scena hardcore, punk, metalcore e rock.",
+        "en": "Open Air Gränichen is a two-day non-profit festival for the hardcore, punk, metalcore and rock scene.",
+        "de": "Das Open Air Gränichen ist ein zweitägiges Non-Profit-Festival für die Hardcore-, Punk-, Metalcore- und Rock-Szene.",
+        "fr": "L'Open Air Gränichen est un festival de deux jours à but non lucratif pour la scène hardcore, punk, metalcore et rock."
+      },
+      "startDate": "2026-07-31",
+      "endDate": "2026-08-01",
+      "startTime": "12:00",
+      "category": "Festival / Incontro",
+      "venue": "Open Air Gränichen",
+      "comune": "Gränichen",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/graenichen/open-air-graenichen-2026_AaZy1DQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 100,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Moortalstrasse",
+        "postalCode": "5722"
+      },
+      "geo": {
+        "lat": 47.349127,
+        "lng": 8.104314
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AaZy1DQ.jpg"
+    },
+    {
+      "id": "guidle:AmDEyrf",
+      "title": "Ginial Bar – immer am 10. des Monats",
+      "titleByLocale": {
+        "it": "Ginial Bar – immer am 10. des Monats",
+        "en": "Ginial Bar – immer am 10. des Monats",
+        "de": "Ginial Bar – immer am 10. des Monats",
+        "fr": "Ginial Bar – immer am 10. des Monats"
+      },
+      "description": "Ginial Bar – Jeden 10. des Monats. Gin, Essen und Live Music mit Bands aus der Region oder auch mal von weiter her.",
+      "descriptionByLocale": {
+        "it": "Ginial Bar – Jeden 10. des Monats. Gin, Essen und Live Music mit Bands aus der Region oder auch mal von weiter her.",
+        "en": "Ginial Bar – Jeden 10. des Monats. Gin, Essen und Live Music mit Bands aus der Region oder auch mal von weiter her.",
+        "de": "Ginial Bar – Jeden 10. des Monats. Gin, Essen und Live Music mit Bands aus der Region oder auch mal von weiter her.",
+        "fr": "Ginial Bar – Jeden 10. des Monats. Gin, Essen und Live Music mit Bands aus der Region oder auch mal von weiter her."
+      },
+      "startDate": "2026-07-10",
+      "endDate": "2026-12-10",
+      "startTime": "17:00",
+      "category": "Pop generalmente",
+      "venue": "Genial Delikat",
+      "comune": "Romanshorn",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/romanshorn/ginial-bar-immer-am-10-des-monats_AmDEyrf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Arbonerstrasse 62",
+        "postalCode": "8590"
+      },
+      "geo": {
+        "lat": 47.5573213,
+        "lng": 9.369759
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AmDEyrf.jpg"
+    }
+  ]
+}

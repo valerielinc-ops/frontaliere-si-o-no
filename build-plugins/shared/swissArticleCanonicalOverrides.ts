@@ -9,11 +9,24 @@
  * contract is intentionally the same shape so both call sites read the same
  * way.
  *
- * Divergence from the job-plugin convention: overridden article slugs are
- * NOT dropped from the sitemap/RSS. Per issue #3010, the shadowed pages must
- * stay live and indexable-with-a-hint (repo anti-cut rule — no
- * removing/de-listing indexed pages without explicit per-URL owner
- * approval), only the canonical *hint* changes.
+ * Per issue #3010, the shadowed pages must stay live and reachable at their
+ * own URL (repo anti-cut rule — no removing/noindexing indexed pages
+ * without explicit per-URL owner approval); this loader only changes the
+ * canonical *hint*.
+ *
+ * CORRECTION (2026-07-03): the shadowed article's `<url>` block IS dropped
+ * from `public/sitemap-blog-ch.xml` and `public/sitemap-news.xml` — the
+ * same convention already used by `data/job-canonical-overrides.json` for
+ * jobs (see `build-plugins/jobsSeoPagesPlugin.ts`). A sitemap `<loc>` whose
+ * own page canonicalizes elsewhere is a hard CI gate failure
+ * (`scripts/audit-sitemap-canonicals.mjs` / `scripts/validate-sitemap-pages.mjs`,
+ * "Sitemap <loc> URLs MUST self-canonicalize") with no override exception,
+ * so listing a shadowed slug in the sitemap is never correct regardless of
+ * the anti-cut rule — the page stays live, it is just not advertised in the
+ * sitemap. RSS feeds (`public/rss-svizzera*.xml`) are intentionally left
+ * untouched: there is no equivalent self-canonical gate for RSS items, and
+ * normal RSS semantics list all published items regardless of canonical
+ * hint.
  */
 import type { readFileSync as ReadFileSync } from 'node:fs';
 

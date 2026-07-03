@@ -231,6 +231,44 @@ describe('jobEditorialLanding', () => {
     expect(sectorModel.feed.jobs[0]).toMatchObject({ title: 'Payroll Specialist', location: 'Chiasso' });
   });
 
+  it('keeps bare acronym collisions in free-text descriptions out of unrelated sector landings', () => {
+    const jobs = [
+      job({
+        slug: 'rolex-5d5fcc9ce3ba',
+        title: 'Administrateur BI SAP BW/BO (H/F)',
+        company: 'Rolex',
+        location: 'Chiasso',
+        category: 'operations',
+        description: 'Applique les notes de securite et OSS. Administre les serveurs SAP BW/BO. Ensure it meets client requirements. Contact Hr. Rossi for questions.',
+        postedDate: '2026-03-09',
+      }),
+      job({ slug: 'chiasso-health-1', title: 'OSS Ospedale Regionale', location: 'Chiasso', category: 'health', postedDate: '2026-03-09' }),
+      job({ slug: 'chiasso-tech-2', title: 'IT Specialist', location: 'Chiasso', category: 'tech', postedDate: '2026-03-09' }),
+      job({ slug: 'chiasso-admin-1', title: 'HR Assistant', location: 'Chiasso', category: 'admin', postedDate: '2026-03-09' }),
+    ];
+
+    for (const [sectorKey, expectedTitle] of [
+      ['health', 'OSS Ospedale Regionale'],
+      ['tech', 'IT Specialist'],
+      ['admin', 'HR Assistant'],
+    ] as const) {
+      const sectorModel = buildJobLocationSectorLandingModel({
+        jobs,
+        locale: 'it',
+        location: 'Chiasso',
+        sectorKey,
+        now: '2026-03-09T10:00:00.000+01:00',
+        localizedSlug: (item) => String(item.slug),
+        baseUrl: 'https://frontaliereticino.ch',
+        sectionSlug: 'cerca-lavoro-ticino',
+        localePrefix: '',
+      });
+
+      expect(sectorModel.totalJobs).toBe(1);
+      expect(sectorModel.feed.jobs[0]).toMatchObject({ title: expectedTitle });
+    }
+  });
+
   it('builds an official gazette landing from indexed canton competitions', () => {
     const jobs = [
       job({
@@ -344,6 +382,50 @@ describe('jobEditorialLanding', () => {
         expect.objectContaining({ label: 'Healthcare assistants in Ticino' }),
       ]),
     );
+  });
+
+  it('excludes jobs whose description mentions "OSS" as unrelated jargon, not the healthcare role', () => {
+    // Regression: rolex-5d5fcc9ce3ba ("Administrateur BI SAP BW/BO") was
+    // showing up on /oss-ginevra/ because its description mentions applying
+    // "notes de securite et OSS" (SAP's Online Service System support
+    // notes) — unrelated to "operatore socio-sanitario". Bare "oss" must
+    // only be trusted in the curated title, not free-text description.
+    const jobs = [
+      job({
+        slug: 'rolex-5d5fcc9ce3ba',
+        title: 'Administrateur BI SAP BW/BO (H/F)',
+        description: 'Appliquer les notes de securite et OSS. Administrer les serveurs associes a BW et BO.',
+        company: 'Rolex',
+        location: 'Geneve',
+        canton: 'GE',
+        category: 'Amministrazione',
+        postedDate: '2026-03-09',
+      }),
+      job({
+        slug: 'oss-casa-anziani-ge',
+        title: 'Operatore sociosanitario OSS',
+        company: 'Casa Anziani Serena',
+        location: 'Geneve',
+        canton: 'GE',
+        category: 'health',
+        postedDate: '2026-03-08',
+      }),
+    ];
+
+    const model = buildJobCareVariantLandingModel({
+      jobs,
+      locale: 'it',
+      clusterKey: 'oss',
+      now: '2026-03-09T10:00:00.000+01:00',
+      localizedSlug: (item) => String(item.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'cerca-lavoro-ginevra',
+      localePrefix: '',
+      canton: 'GE',
+    });
+
+    expect(model.totalJobs).toBe(1);
+    expect(model.feed.jobs[0]).toMatchObject({ company: 'Casa Anziani Serena' });
   });
 
   it('keeps the canton display casing in lowercased care-variant labels', () => {

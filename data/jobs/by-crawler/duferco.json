@@ -1,6 +1,6 @@
 {
   "crawlerKey": "duferco",
-  "assembledAt": "2026-07-02T21:38:36.974Z",
+  "assembledAt": "2026-07-03T10:55:26.568Z",
   "jobs": [
     {
       "id": "duferco-b77369d4-d159-4e52-8bd9-e56da3035df5",
@@ -33,7 +33,7 @@
       "url": "https://duferco.talentics.ai/job/b77369d4-d159-4e52-8bd9-e56da3035df5",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:38:34.758Z",
+      "crawledAt": "2026-07-03T10:55:24.092Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -55,8 +55,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-duferco-lugano",
-          "ingegnere-di-software-senior-duferco-lugano"
+          "senior-software-engineer-duferco-lugano"
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.064Z",
@@ -105,7 +104,7 @@
       "url": "https://duferco.talentics.ai/job/acf31343-af32-4da9-98d4-b985d14baa10",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:38:34.756Z",
+      "crawledAt": "2026-07-03T10:55:24.090Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -127,8 +126,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineering-manager-duferco-lugano",
-          "responsabile-ingegneria-del-software-duferco-lugano"
+          "software-engineering-manager-duferco-lugano"
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.061Z",
@@ -177,7 +175,7 @@
       "url": "https://duferco.talentics.ai/job/7d3cb7f4-0255-411c-98c5-92ad1132c9b1",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:38:34.753Z",
+      "crawledAt": "2026-07-03T10:55:24.089Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -205,8 +203,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "platform-engineer-duferco-lugano",
-          "ingegnere-della-piattaforma-duferco-lugano"
+          "platform-engineer-duferco-lugano"
         ],
         "de": [
           "plattformingenieur-duferco-lugano"
@@ -258,7 +255,7 @@
       "url": "https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:38:34.740Z",
+      "crawledAt": "2026-07-03T10:55:24.077Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -280,8 +277,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-engineer-duferco-lugano",
-          "ai-ingegnere-duferco-lugano"
+          "ai-engineer-duferco-lugano"
         ],
         "de": [
           "ai-engineer-duferco-lugano"
@@ -336,7 +332,7 @@
       "url": "https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-02T21:38:34.723Z",
+      "crawledAt": "2026-07-03T10:55:24.074Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -361,8 +357,7 @@
       "previousSlugsByLocale": {
         "it": [
           "forward-deployed-engineer-duferco-lugano",
-          "ingegnere-di-distribuzione-avanzato-duferco-lugano",
-          "ingegnere-dispiegato-in-avanti-duferco-lugano"
+          "ingegnere-di-distribuzione-avanzato-duferco-lugano"
         ],
         "de": [
           "forward-deployed-engineer-duferco-lugano",
@@ -386,6 +381,85 @@
         }
       },
       "postalCode": "6900"
+    },
+    {
+      "id": "duferco-24216bb0-34f2-4d8c-a640-1bbceaa47497",
+      "slug": "software-architetto-duferco-lugano",
+      "slugByLocale": {
+        "en": "software-architect-duferco-lugano",
+        "it": "software-architetto-duferco-lugano",
+        "de": "software-architekt-duferco-lugano",
+        "fr": "software-architecte-duferco-lugano"
+      },
+      "company": "Duferco",
+      "companyKey": "duferco",
+      "companyDomain": "duferco.talentics.ai",
+      "title": "Software Architect",
+      "titleByLocale": {
+        "en": "Software Architect",
+        "it": "Software Architetto",
+        "de": "Software Architekt",
+        "fr": "Software Architecte"
+      },
+      "description": "TL;DR\n We are expanding Duferco’s Corporate Innovation Team and are looking for a hands-on Software Architect who can shape how we design, build, and evolve internal software in an AI-native engineering environment.\n You will work across domains such as energy, trading, logistics, steel, insurance, sports, and other sectors, turning messy business problems into well-structured systems that AI and humans can implement safely and maintain over time.\n You will define pragmatic architectures, guide AI-assisted implementation, establish engineering patterns, and build internal platforms, AI-enabled tools, automation systems, and backend infrastructure that create leverage across the group.\n About the Team\n We sit close to real business problems and have the freedom to prototype and ship quickly. AI is already part of our daily workflow, and we expect architects to help us use it with discipline, not just speed.\n We care about building things well: clear boundaries, maintainable systems, observable services, useful abstractions, and technical decisions that fit the business context.\n We appreciate people who combine architectural thinking with hands-on delivery, collaborate effectively with AI tools, and help the team produce software that is coherent, testable, secure, and easy to evolve.\n What You’ll Do\n Shape the architecture of systems that make the organization faster and smarter:\n\n• Design target architectures for internal platforms, backend services, APIs, data flows, and AI-enabled applications\n\n• Translate ambiguous business processes into clear domain models, service boundaries, integration patterns, and implementation plans\n\n• Guide AI-assisted implementation by breaking work into well-structured tasks, reviewing generated code, and ensuring architectural consistency\n\n• Create reusable patterns, reference implementations, architectural decision records, and engineering guidelines for the team\n\n• Work hands-on with FastAPI, Postgres, AWS-based services, data platforms, LLM applications, agents, and automation tools where useful\n\n• Design integrations across internal and third-party systems with attention to reliability, security, data ownership, and maintainability\n\nYou will not just define diagrams or write specifications. You will help AI and humans implement the right architecture in real software, validate it in production, and improve it over time.\n What We Offer\n\n• A high-autonomy architecture role with direct influence on what gets built and how it gets built\n\n• Modern AI-assisted engineering tools and time to explore new technologies, patterns, and development workflows\n\n• A fast-moving, collaborative environment with talented and ambitious people\n\n• A broad variety of technical and business challenges across different domains\n\n• Competitive compensation and benefits\n\n• Flexible working hours and hybrid work setup\n\nYou’re Probably a Fit If\n\n• You have 5+ years building production software systems, with strong experience designing backend architectures and owning services from concept to deployment\n\n• A Master’s degree in Computer Science, Software Engineering, Computer Engineering, or a related discipline; equivalent advanced technical experience may also be considered\n\n• You can turn a messy business problem into a clean domain model, data model, service design, and implementation plan\n\n• You make pragmatic architecture decisions, explain trade-offs, and adapt designs as reality changes\n\n• You have strong Python backend experience and can work hands-on with FastAPI, Postgres, APIs, integrations, and AWS-based services\n\n• You use AI coding tools daily — Claude Code, Codex, Cursor, or similar — and know how to guide them with clear architecture, constraints, tests, and review practices\n\n• You care about software quality beyond the first implementation: modularity, observability, testing, security, migrations, operational reliability, and maintainability\n\nExperience with LLM applications, agent frameworks, MCP servers, event-driven architectures, data warehouses such as Redshift, or complex operational domains is a strong plus.\n You do not need experience with every technology we use. Strong architectural judgment, hands-on engineering ability, adaptability, and curiosity about AI-assisted software development matter much more.\n If this sounds like the right fit for you, we’d love to hear from you.",
+      "descriptionByLocale": {
+        "en": "TL;DR\n We are expanding Duferco’s Corporate Innovation Team and are looking for a hands-on Software Architect who can shape how we design, build, and evolve internal software in an AI-native engineering environment.\n You will work across domains such as energy, trading, logistics, steel, insurance, sports, and other sectors, turning messy business problems into well-structured systems that AI and humans can implement safely and maintain over time.\n You will define pragmatic architectures, guide AI-assisted implementation, establish engineering patterns, and build internal platforms, AI-enabled tools, automation systems, and backend infrastructure that create leverage across the group.\n About the Team\n We sit close to real business problems and have the freedom to prototype and ship quickly. AI is already part of our daily workflow, and we expect architects to help us use it with discipline, not just speed.\n We care about building things well: clear boundaries, maintainable systems, observable services, useful abstractions, and technical decisions that fit the business context.\n We appreciate people who combine architectural thinking with hands-on delivery, collaborate effectively with AI tools, and help the team produce software that is coherent, testable, secure, and easy to evolve.\n What You’ll Do\n Shape the architecture of systems that make the organization faster and smarter:\n\n• Design target architectures for internal platforms, backend services, APIs, data flows, and AI-enabled applications\n\n• Translate ambiguous business processes into clear domain models, service boundaries, integration patterns, and implementation plans\n\n• Guide AI-assisted implementation by breaking work into well-structured tasks, reviewing generated code, and ensuring architectural consistency\n\n• Create reusable patterns, reference implementations, architectural decision records, and engineering guidelines for the team\n\n• Work hands-on with FastAPI, Postgres, AWS-based services, data platforms, LLM applications, agents, and automation tools where useful\n\n• Design integrations across internal and third-party systems with attention to reliability, security, data ownership, and maintainability\n\nYou will not just define diagrams or write specifications. You will help AI and humans implement the right architecture in real software, validate it in production, and improve it over time.\n What We Offer\n\n• A high-autonomy architecture role with direct influence on what gets built and how it gets built\n\n• Modern AI-assisted engineering tools and time to explore new technologies, patterns, and development workflows\n\n• A fast-moving, collaborative environment with talented and ambitious people\n\n• A broad variety of technical and business challenges across different domains\n\n• Competitive compensation and benefits\n\n• Flexible working hours and hybrid work setup\n\nYou’re Probably a Fit If\n\n• You have 5+ years building production software systems, with strong experience designing backend architectures and owning services from concept to deployment\n\n• A Master’s degree in Computer Science, Software Engineering, Computer Engineering, or a related discipline; equivalent advanced technical experience may also be considered\n\n• You can turn a messy business problem into a clean domain model, data model, service design, and implementation plan\n\n• You make pragmatic architecture decisions, explain trade-offs, and adapt designs as reality changes\n\n• You have strong Python backend experience and can work hands-on with FastAPI, Postgres, APIs, integrations, and AWS-based services\n\n• You use AI coding tools daily — Claude Code, Codex, Cursor, or similar — and know how to guide them with clear architecture, constraints, tests, and review practices\n\n• You care about software quality beyond the first implementation: modularity, observability, testing, security, migrations, operational reliability, and maintainability\n\nExperience with LLM applications, agent frameworks, MCP servers, event-driven architectures, data warehouses such as Redshift, or complex operational domains is a strong plus.\n You do not need experience with every technology we use. Strong architectural judgment, hands-on engineering ability, adaptability, and curiosity about AI-assisted software development matter much more.\n If this sounds like the right fit for you, we’d love to hear from you.",
+        "it": "TL; RD\n Stiamo espandendo il Corporate Innovation Team di Duferco e stiamo cercando un Software Architetto pratico che possa modellare come progettiamo, costruiamo ed evolviamo il software interno in un ambiente di ingegneria AI-native.\n Potrai lavorare attraverso domini come l'energia, il trading, la logistica, l'acciaio, l'assicurazione, lo sport e altri settori, trasformando i problemi aziendali disordinati in sistemi ben strutturati che AI e umani possono implementare in modo sicuro e mantenere nel tempo.\n Definirai architetture pragmatiche, guiderai l'implementazione assistita dall'IA, stabilirai modelli di ingegneria e costruirai piattaforme interne, strumenti abilitati all'IA, sistemi di automazione e infrastrutture di backend che creano leva su tutto il gruppo.\n Informazioni sulla squadra\n Ci sediamo vicino a veri problemi di affari e abbiamo la libertà di prototipo e nave rapidamente. L'IA è già parte del nostro flusso di lavoro quotidiano, e ci aspettiamo che gli architetti ci aiutino ad usarlo con la disciplina, non solo la velocità.\n Ci preoccupiamo di costruire bene le cose: confini chiari, sistemi manutenbili, servizi osservabili, astrazioni utili e decisioni tecniche che si adattano al contesto aziendale.\n Apprezziamo le persone che combinano il pensiero architettonico con la consegna pratica, collaboriamo efficacemente con gli strumenti AI e aiutiamo il team a produrre software coerente, testabile, sicuro e facile da evolvere.\n Cosa farai\n Formare l'architettura dei sistemi che rendono l'organizzazione più veloce e intelligente:\n\n• Progettazione di architetture di destinazione per piattaforme interne, servizi di backend, API, flussi di dati e applicazioni AI-enabled\n\n• Tradurre processi aziendali ambigui in modelli di dominio chiaro, confini di servizio, modelli di integrazione e piani di implementazione\n\n• Guidare l'implementazione assistita dall'IA, spezzando il lavoro in compiti ben strutturati, rivedendo il codice generato e garantendo la coerenza architettonica\n\n• Crea modelli riutilizzabili, implementazioni di riferimento, record di decisioni architettoniche e linee guida ingegneristiche per il team\n\n• Lavorare con FastAPI, Postgres, servizi basati su AWS, piattaforme dati, applicazioni LLM, agenti e strumenti di automazione dove utili\n\n• Integrazioni di progettazione in sistemi interni e terzi con attenzione all'affidabilità, alla sicurezza, alla proprietà dei dati e alla manutenbilità\n\nNon sarà solo definire diagrammi o scrivere specifiche. Aiuterai AI e gli esseri umani ad implementare la giusta architettura nel software reale, convalidarla nella produzione e migliorarla nel tempo.\n Cosa offriamo\n\n• Un ruolo di architettura ad alta autonomia con influenza diretta su ciò che viene costruito e come viene costruito\n\n• Moderni strumenti di ingegneria assistiti da AI e tempo per esplorare nuove tecnologie, modelli e flussi di lavoro di sviluppo\n\n• Un ambiente veloce e collaborativo con persone di talento e ambiziose\n\n• Una vasta gamma di sfide tecniche e aziendali in diversi ambiti\n\n• Compensazioni e vantaggi competitivi\n\n• Ore lavorative flessibili e installazione ibrida\n\nSei probabilmente un Fit Se\n\n• Hai 5+ anni di costruzione di sistemi software di produzione, con una forte esperienza di progettazione di architetture backend e servizi di gestione dal concetto alla distribuzione\n\n• Un Master in Informatica, Ingegneria Software, Ingegneria Informatica, o una disciplina relativa; equivalente esperienza tecnica avanzata può anche essere considerato\n\n• È possibile trasformare un problema business disordinato in un modello di dominio pulito, modello di dati, progettazione di servizi e piano di implementazione\n\n• Si prendono decisioni di architettura pragmatica, spiegare i trade-off e adattare i disegni come cambiamenti di realtà\n\n• Hai una forte esperienza di backend Python e puoi lavorare in modo pratico con FastAPI, Postgres, API, integrazioni e servizi basati su AWS\n\n• Utilizzare gli strumenti di codifica AI ogni giorno — Claude Code, Codex, Cursor, o simili — e sapere come guidarli con chiara architettura, vincoli, prove e pratiche di revisione\n\n• Ti preoccupi della qualità del software oltre la prima implementazione: modularità, osservanza, test, sicurezza, migrazioni, affidabilità operativa e manutenbilità\n\nEsperienza con applicazioni LLM, framework di agenti, server MCP, architetture basate su eventi, data warehouse come Redshift o complessi domini operativi è un vantaggio forte.\n Non avete bisogno di esperienza con ogni tecnologia che usiamo. Forte giudizio architettonico, abilità ingegneristiche pratiche, adattabilità e curiosità sullo sviluppo software assistita dall'IA conta molto di più.\n Se questo suona come la soluzione giusta per voi, ci piacerebbe sentire da voi.",
+        "de": "TL;DR\n Wir erweitern das Corporate Innovation Team von Duferco und suchen einen praxisorientierten Software-Architekten, der die Art und Weise, wie wir interne Software in einer KI-nativen Engineering-Umgebung entwerfen, bauen und weiterentwickeln, gestalten kann.\n Sie arbeiten in Bereichen wie Energie, Handel, Logistik, Stahl, Versicherungen, Sport und anderen Bereichen und verwandeln chaotische Geschäftsprobleme in gut strukturierte Systeme, die KI und Menschen im Laufe der Zeit sicher implementieren und pflegen können.\n Sie definieren pragmatische Architekturen, leiten die KI-gestützte Implementierung, etablieren Engineering-Muster und erstellen interne Plattformen, KI-fähige Tools, Automatisierungssysteme und Backend-Infrastruktur, die eine Hebelwirkung in der gesamten Gruppe schaffen.\n Über das Team\n Wir sitzen in der Nähe von echten Geschäftsproblemen und haben die Freiheit, schnell Prototypen zu erstellen und zu versenden. KI ist bereits Teil unseres täglichen Workflows, und wir erwarten, dass Architekten uns dabei helfen, sie mit Disziplin und nicht nur mit Geschwindigkeit zu nutzen.\n Wir legen Wert darauf, Dinge gut zu bauen: klare Grenzen, wartbare Systeme, beobachtbare Dienste, nützliche Abstraktionen und technische Entscheidungen, die zum Geschäftskontext passen.\n Wir schätzen Menschen, die architektonisches Denken mit praktischer Bereitstellung kombinieren, effektiv mit KI-Tools zusammenarbeiten und dem Team helfen, Software zu erstellen, die kohärent, testbar, sicher und einfach zu entwickeln ist.\n Was du tun wirst\n Gestalten Sie die Architektur von Systemen, die die Organisation schneller und intelligenter machen:\n\n• Design von Zielarchitekturen für interne Plattformen, Backend-Services, APIs, Datenflüsse und KI-fähige Anwendungen\n\n• Mehrdeutige Geschäftsprozesse in klare Domänenmodelle, Servicegrenzen, Integrationsmuster und Implementierungspläne übersetzen\n\n• Führen Sie die KI-gestützte Implementierung, indem Sie die Arbeit in gut strukturierte Aufgaben unterteilen, den generierten Code überprüfen und die architektonische Konsistenz sicherstellen\n\n• Erstellen Sie wiederverwendbare Muster, Referenzimplementierungen, architektonische Entscheidungsaufzeichnungen und technische Richtlinien für das Team\n\n• Hands-on mit FastAPI, Postgres, AWS-basierten Diensten, Datenplattformen, LLM-Anwendungen, Agenten und Automatisierungstools, wo nützlich\n\n• Design-Integrationen in interne und externe Systeme mit Blick auf Zuverlässigkeit, Sicherheit, Datenbesitz und Wartbarkeit\n\nSie werden nicht nur Diagramme definieren oder Spezifikationen schreiben. Sie helfen KI und Menschen, die richtige Architektur in reale Software zu implementieren, sie in der Produktion zu validieren und im Laufe der Zeit zu verbessern.\n Was wir anbieten\n\n• Eine hochautonomische Architekturrolle mit direktem Einfluss darauf, was gebaut wird und wie es gebaut wird\n\n• Moderne KI-gestützte Engineering-Tools und Zeit, neue Technologien, Muster und Entwicklungs-Workflows zu erkunden\n\n• Eine schnelllebige, kollaborative Umgebung mit talentierten und ehrgeizigen Menschen\n\n• Eine breite Palette von technischen und geschäftlichen Herausforderungen in verschiedenen Bereichen\n\n• Wettbewerbliche Vergütung und Leistungen\n\n• Flexible Arbeitszeiten und hybrider Arbeitsaufbau\n\nSie sind wahrscheinlich ein Fit, wenn\n\n• Sie haben mehr als 5 Jahre Zeit, Produktionssoftwaresysteme zu entwickeln, mit großer Erfahrung beim Entwerfen von Backend-Architekturen und dem Besitz von Dienstleistungen vom Konzept bis zur Bereitstellung\n\n• Ein Master-Abschluss in Informatik, Software Engineering, Computer Engineering oder einer verwandten Disziplin; gleichwertige fortgeschrittene technische Erfahrung kann auch in Betracht gezogen werden\n\n• Sie können ein chaotisches Geschäftsproblem in ein sauberes Domänenmodell, Datenmodell, Servicedesign und Implementierungsplan verwandeln\n\n• Sie treffen pragmatische Architekturentscheidungen, erklären Kompromisse und passen Designs an, wenn sich die Realität ändert\n\n• Sie verfügen über eine starke Python-Backend-Erfahrung und können praktisch mit FastAPI, Postgres, APIs, Integrationen und AWS-basierten Diensten arbeiten.\n\n• Sie verwenden täglich KI-Codierungstools - Claude Code, Codex, Cursor oder ähnliches - und wissen, wie Sie sie mit klaren Architekturen, Einschränkungen, Tests und Überprüfungspraktiken führen können.\n\n• Softwarequalität liegt Ihnen über die erste Implementierung hinaus am Herzen: Modularität, Beobachtbarkeit, Testen, Sicherheit, Migrationen, Betriebszuverlässigkeit und Wartbarkeit\n\nErfahrung mit LLM-Anwendungen, Agent-Frameworks, MCP-Servern, ereignisgesteuerten Architekturen, Data Warehouses wie Redshift oder komplexen operativen Domänen ist ein starkes Plus.\n Sie brauchen keine Erfahrung mit jeder Technologie, die wir verwenden. Starkes architektonisches Urteilsvermögen, praktische Engineering-Fähigkeit, Anpassungsfähigkeit und Neugierde auf KI-gestützte Softwareentwicklung sind viel wichtiger.\n Wenn das klingt wie die richtige Passform für Sie, würden wir gerne von Ihnen hören.",
+        "fr": "TL;DR\n Nous développons l'équipe d'innovation d'entreprise de Duferco et nous cherchons un architecte logiciel pratique qui peut façonner la façon dont nous concevons, construisons et développons des logiciels internes dans un environnement d'ingénierie native de l'IA.\n Vous travaillerez dans des domaines tels que l'énergie, le commerce, la logistique, l'acier, l'assurance, le sport et d'autres secteurs, transformant les problèmes d'affaires en systèmes bien structurés que l'IA et les humains peuvent mettre en œuvre en toute sécurité et maintenir au fil du temps.\n Vous définirez des architectures pragmatiques, guiderez la mise en œuvre assistée par l'IA, établirez des modèles d'ingénierie et créerez des plates-formes internes, des outils compatibles avec l'IA, des systèmes d'automatisation et une infrastructure backend qui créeront un effet de levier sur l'ensemble du groupe.\n À propos de l'équipe\n Nous sommes proches de vrais problèmes d'affaires et avons la liberté de prototype et expédier rapidement. L'IA fait déjà partie de notre workflow quotidien, et nous attendons des architectes qu'ils nous aident à l'utiliser avec discipline et pas seulement avec rapidité.\n Nous nous soucions de bien construire les choses : des frontières claires, des systèmes durables, des services observables, des abstractions utiles et des décisions techniques adaptées au contexte opérationnel.\n Nous apprécions les gens qui combinent la pensée architecturale et la livraison pratique, collaborent efficacement avec les outils d'IA et aident l'équipe à produire des logiciels cohérents, testables, sécurisés et faciles à utiliser.\n Ce que vous allez faire\n Formez l'architecture des systèmes qui rendent l'organisation plus rapide et plus intelligente :\n\n• Concevoir des architectures cibles pour les plateformes internes, les services de backend, les API, les flux de données et les applications compatibles avec l'IA\n\n• Traduire les processus commerciaux ambigus en modèles de domaine clairs, limites de service, modèles d'intégration et plans de mise en oeuvre\n\n• Guider la mise en oeuvre assistée par l'IA en répartissant le travail en tâches bien structurées, en examinant le code généré et en assurant la cohérence architecturale\n\n• Créer des modèles réutilisables, des implémentations de référence, des dossiers de décision architecturale et des lignes directrices techniques pour l'équipe\n\n• Travaillez avec FastAPI, Postgres, services basés sur AWS, plateformes de données, applications LLM, agents et outils d'automatisation là où cela est utile\n\n• Intégrations de conception à l'échelle des systèmes internes et des systèmes tiers en tenant compte de la fiabilité, de la sécurité, de la propriété des données et de la maintenance\n\nVous ne définirez pas simplement des diagrammes ou des spécifications d'écriture. Vous aiderez l'IA et les humains à mettre en œuvre la bonne architecture dans les logiciels réels, à la valider en production et à l'améliorer au fil du temps.\n Ce que nous offrons\n\n• Un rôle d'architecture de haute autonomie avec une influence directe sur ce qui se construit et comment il se construit\n\n• Outils modernes d'ingénierie assistée par l'IA et temps pour explorer les nouvelles technologies, les modèles et les flux de développement\n\n• Un environnement de collaboration rapide avec des gens talentueux et ambitieux\n\n• Un large éventail de défis techniques et commerciaux dans différents domaines\n\n• Rémunération et avantages concurrentiels\n\n• Temps de travail flexible et configuration du travail hybride\n\nVous êtes probablement un bon\n\n• Vous disposez de 5 ans et plus de systèmes logiciels de production, avec une solide expérience de conception d'architectures backend et de propriété de services du concept au déploiement\n\n• Une maîtrise en informatique, génie logiciel, génie informatique ou une discipline connexe; une expérience technique équivalente avancée peut également être considérée\n\n• Vous pouvez transformer un problème d'affaires désordonné en un modèle de domaine propre, modèle de données, conception de service et plan de mise en œuvre\n\n• Vous prenez des décisions d'architecture pragmatiques, vous expliquez les compromis et vous adaptez aux changements de réalité\n\n• Vous avez une solide expérience de moteur Python et pouvez travailler avec FastAPI, Postgres, API, intégrations et services basés sur AWS\n\n• Vous utilisez des outils de codage d'IA quotidiennement — Claude Code, Codex, Cursor, ou similaire — et savez les guider avec une architecture claire, des contraintes, des tests et des pratiques de révision\n\n• Vous vous souciez de la qualité des logiciels au-delà de la première mise en œuvre : modularité, observabilité, tests, sécurité, migrations, fiabilité opérationnelle et maintenance\n\nExpérience avec les applications LLM, les cadres d'agents, les serveurs MCP, les architectures événementielles, les entrepôts de données comme Redshift ou les domaines opérationnels complexes est un plus fort.\n Vous n'avez pas besoin d'expérience avec chaque technologie que nous utilisons. Un jugement architectural fort, une capacité d'ingénierie pratique, l'adaptabilité et la curiosité au sujet du développement de logiciels assistés par l'IA comptent beaucoup plus.\n Si ça te va, on aimerait avoir de tes nouvelles."
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://duferco.talentics.ai/job/24216bb0-34f2-4d8c-a640-1bbceaa47497",
+      "source": "Duferco Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-03T10:55:24.056Z",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia & IT",
+      "department": "Innovation",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://duferco.talentics.ai/job/24216bb0-34f2-4d8c-a640-1bbceaa47497",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900",
+      "firstSeenAt": "2026-07-03T10:55:24.056Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-architect-duferco-lugano"
+        ],
+        "de": [
+          "software-architect-duferco-lugano"
+        ],
+        "fr": [
+          "software-architect-duferco-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "software-architect-duferco-lugano"
+      ]
     }
   ]
 }

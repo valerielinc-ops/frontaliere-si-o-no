@@ -70,6 +70,12 @@ export const RELATED_SEARCH_JUNK_TERMS = new Set([
   'ensure', 'ensuring', 'providing', 'including',
   'environment', 'development', 'management', 'quality',
   'projects', 'tasks', 'employees', 'staff', 'requirements',
+  // 'owner' — generic possessive noun harvested from job body text
+  // ("business owner", "process owner"), never itself a searchable role.
+  // Combined with a leaked cross-canton location it produced
+  // /search-owner-zurich/ (0 live matches once source job rotated out —
+  // thin/empty page, 100% bounce all 4 locales, GA4-flagged 2026-07-03).
+  'owner', 'owners',
   // ── Scraped web/UI noise ──
   'cookie', 'cookies', 'javascript', 'browser', 'newsletter', 'website',
 ]);

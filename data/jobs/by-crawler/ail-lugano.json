@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ail-lugano",
-  "assembledAt": "2026-07-02T21:11:59.955Z",
+  "assembledAt": "2026-07-03T10:30:17.434Z",
   "jobs": [
     {
       "title": "Responsabile gruppo Manutenzione Impianti Acqua",
@@ -44,30 +44,21 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "id": "ail-lugano-dff5ee00d3ee",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-gruppo-manutenzione-impianti-acqua-ail-lugano",
-          "consulente-clientela-b2b-ail-lugano"
-        ],
-        "en": [
-          "b2b-customer-advisor-aziende-industriali-di-lugano-ail-sa-lugano"
-        ],
-        "de": [
-          "b2b-kundenberater-aziende-industriali-di-lugano-ail-sa-lugano"
-        ],
-        "fr": [
-          "b2b-conseiller-client-aziende-industriali-di-lugano-ail-sa-lugano"
+          "product-manager-ail-lugano",
+          "sorvegliante-acquedotti-di-pianura-ail-lugano",
+          "sorvegliante-acquedotti-di-montagna-ail-lugano",
+          "responsabile-gruppo-manutenzione-impianti-acqua-ail-lugano"
         ]
       },
       "previousSlugs": [
-        "responsabile-gruppo-manutenzione-impianti-acqua-ail-lugano",
+        "product-manager-ail-lugano",
+        "sorvegliante-acquedotti-di-pianura-ail-lugano",
         "sorvegliante-acquedotti-di-montagna-ail-lugano",
-        "consulente-clientela-b2b-ail-lugano",
-        "b2b-customer-advisor-aziende-industriali-di-lugano-ail-sa-lugano",
-        "b2b-kundenberater-aziende-industriali-di-lugano-ail-sa-lugano",
-        "b2b-conseiller-client-aziende-industriali-di-lugano-ail-sa-lugano"
+        "responsabile-gruppo-manutenzione-impianti-acqua-ail-lugano"
       ],
+      "id": "ail-lugano-dff5ee00d3ee",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -86,7 +77,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-02T21:11:59.955Z"
+      "firstSeenAt": "2026-07-03T10:30:17.434Z"
     }
   ]
 }

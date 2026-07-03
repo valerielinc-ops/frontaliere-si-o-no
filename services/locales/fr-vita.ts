@@ -266,6 +266,17 @@ const frVita: Record<string, string> = {
  'profile.tip.marriedDesc': 'Essayez de simuler votre situation fiscale en tant que célibataire pour comparer les résultats.',
  'profile.tip.single': 'Que changerait si vous vous mariiez ?',
  'profile.tip.singleDesc': 'Essayez de simuler votre situation fiscale en tant que marié(e) pour comparer les résultats.',
+
+ // --- Profile enrichment (progressive one-question prompt) ---
+ 'profileEnrichment.provinceQuickPick.title': 'Où habitez-vous ?',
+ 'profileEnrichment.frontaliereType.title': 'Quel permis avez-vous (ou souhaitez-vous) ?',
+ 'profileEnrichment.workPosition.title': 'Quel est votre métier ?',
+ 'profileEnrichment.grossSalary.title': 'Quel est votre salaire brut annuel ?',
+ 'profileEnrichment.cantonFilter.title': 'Voulez-vous limiter votre alerte à un canton ?',
+ 'profileEnrichment.sectors.title': 'Dans quel secteur cherchez-vous du travail ?',
+ 'profileEnrichment.other': 'Autre',
+ 'profileEnrichment.submit': 'Ok',
+
  'leave.title': 'Calculateur Congé Maternité/Paternité',
  'leave.subtitle': 'Comparaison des droits et montants pour frontaliers : APG suisse vs INPS italienne',
  'leave.maternity': 'Maternité',

@@ -129,6 +129,7 @@ const JSDOM_TS_FILES = [
   'tests/services/jobDetailAlertGating.test.ts',
   'tests/services/pdf-report.test.ts',
   'tests/services/posthog.test.ts',
+  'tests/services/profileEnrichmentGating.test.ts',
   'tests/soft-landing-seo.test.ts',
   'tests/swisscom-crawler.test.ts',
   'tests/switzerland-unemployment-parser.test.ts',

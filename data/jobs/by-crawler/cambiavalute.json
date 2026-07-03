@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-07-02T21:26:55.689Z",
+  "assembledAt": "2026-07-03T10:51:13.122Z",
   "jobs": [
     {
       "id": "company-kbhp6",
@@ -84,8 +84,7 @@
       "addressLocality": "2026 CambiaValute",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-viaqie",
@@ -177,8 +176,7 @@
       "addressLocality": "2026 CambiaValute",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fooban",
@@ -254,18 +252,17 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "fr": [
-          "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino"
-        ],
         "en": [
           "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban"
+        ],
+        "fr": [
+          "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino"
         ]
       },
       "previousSlugs": [
-        "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino",
-        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban"
-      ],
-      "crawlerMissStreak": 1
+        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino-fooban",
+        "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-ticino"
+      ]
     },
     {
       "id": "company-a24znt",

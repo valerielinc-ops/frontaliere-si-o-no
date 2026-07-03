@@ -8893,7 +8893,7 @@ ${staticAnalyticsHtml}
      switch (locale) {
        case 'it':
          return [
-           `<section class="s-0P4kC8">`,
+           `<section class="s-0P4kC8" data-canton-context-prose>`,
            `<h2 class="s-iZTOT1">Lavorare ${display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`} come frontaliere</h2>`,
            `<p>${display === 'Svizzera' ? 'La Svizzera resta la destinazione più stabile per i lavoratori italiani in cerca di salari competitivi e ammortizzatori sociali solidi.' : `Il cantone ${display} rientra fra le mete principali dei frontalieri italiani in cerca di stipendi più alti rispetto alla media italiana.`} Le posizioni elencate qui coprono tutti i settori — sanità, costruzioni, industria, terziario, IT, logistica — e includono sia ruoli a tempo pieno (100 %) sia part-time (50–80 %), tipici dei contratti svizzeri.</p>`,
            `<p>Per il regime frontaliere occorre rispettare i requisiti del Nuovo Accordo del 2026: residenza italiana entro 20 km dal confine, rientro giornaliero (con eccezione del 25 % delle giornate per smart-working), permesso di lavoro G. Il salario lordo svizzero in CHF, una volta convertito in EUR e dedotti AVS/AI/IPG, LPP (secondo pilastro) e LAINF, va confrontato con il costo della vita in Italia per stimare il guadagno reale.</p>`,
@@ -8902,7 +8902,7 @@ ${staticAnalyticsHtml}
          ].join('');
        case 'en':
          return [
-           `<section class="s-0P4kC8">`,
+           `<section class="s-0P4kC8" data-canton-context-prose>`,
            `<h2 class="s-iZTOT1">Working ${display === 'Switzerland' ? 'in Switzerland' : `in the canton of ${display}`} as a cross-border worker</h2>`,
            `<p>${display === 'Switzerland' ? 'Switzerland remains the most attractive destination for Italian workers seeking higher wages and stronger social protection than the Italian average.' : `The canton of ${display} is one of the main destinations for Italian cross-border workers (frontalieri) chasing salaries that exceed the Italian average.`} The positions listed here cover every sector — healthcare, construction, manufacturing, services, IT, logistics — and include both full-time (100 %) and part-time (50–80 %) contracts that are standard in Switzerland.</p>`,
            `<p>To qualify for the cross-border tax regime under the 2026 New Agreement you must reside in Italy within 20 km of the Swiss border, return home daily (with up to 25 % of days allowed in smart-working from Italy), and hold a G-type work permit. The Swiss gross salary in CHF — once converted to EUR and net of AVS/AI/IPG, LPP (second pillar) and LAINF contributions — should be compared against the Italian cost of living to estimate the real take-home.</p>`,
@@ -8911,7 +8911,7 @@ ${staticAnalyticsHtml}
          ].join('');
        case 'de':
          return [
-           `<section class="s-0P4kC8">`,
+           `<section class="s-0P4kC8" data-canton-context-prose>`,
            `<h2 class="s-iZTOT1">Arbeiten ${display === 'Schweiz' ? 'in der Schweiz' : `${germanCantonPrep(display)}`} als Grenzgänger</h2>`,
            `<p>${display === 'Schweiz' ? 'Die Schweiz bleibt das attraktivste Ziel für italienische Arbeitnehmer, die höhere Löhne und einen stärkeren Sozialschutz als im italienischen Durchschnitt suchen.' : `Der Kanton ${display} zählt zu den Hauptzielen italienischer Grenzgänger (frontalieri), die ein höheres Gehalt als den italienischen Durchschnitt anstreben.`} Die hier aufgeführten Stellen decken alle Branchen ab — Gesundheitswesen, Bau, Industrie, Dienstleistungen, IT, Logistik — und umfassen sowohl Vollzeit- (100 %) als auch Teilzeitverträge (50–80 %), wie sie in der Schweiz üblich sind.</p>`,
            `<p>Für die Grenzgänger-Besteuerung nach dem neuen Abkommen 2026 müssen Sie innerhalb von 20 km von der Schweizer Grenze in Italien wohnen, täglich nach Hause zurückkehren (mit bis zu 25 % der Tage als Homeoffice aus Italien zulässig) und eine G-Bewilligung besitzen. Der Schweizer Bruttolohn in CHF — nach Umrechnung in EUR und Abzug von AHV/IV/EO, BVG (zweite Säule) und UVG-Beiträgen — sollte den italienischen Lebenshaltungskosten gegenübergestellt werden, um den realen Nettoverdienst abzuschätzen.</p>`,
@@ -8921,7 +8921,7 @@ ${staticAnalyticsHtml}
        case 'fr':
        default:
          return [
-           `<section class="s-0P4kC8">`,
+           `<section class="s-0P4kC8" data-canton-context-prose>`,
            `<h2 class="s-iZTOT1">Travailler ${display === 'Suisse' ? 'en Suisse' : `${frenchCantonPrep(display)}`} en tant que frontalier</h2>`,
            `<p>${display === 'Suisse' ? 'La Suisse reste la destination la plus attractive pour les travailleurs italiens en quête de salaires supérieurs et d\'une protection sociale plus solide que la moyenne italienne.' : `Le canton ${display} compte parmi les principales destinations des frontaliers italiens (frontalieri) en recherche de salaires supérieurs à la moyenne italienne.`} Les postes listés ici couvrent tous les secteurs — santé, construction, industrie, services, informatique, logistique — et incluent à la fois les contrats à temps plein (100 %) et à temps partiel (50–80 %), typiques du marché suisse.</p>`,
            `<p>Pour le régime fiscal frontalier prévu par le nouvel accord 2026, il faut résider en Italie dans un rayon de 20 km de la frontière suisse, rentrer chaque jour au domicile (avec un quota de 25 % de jours autorisés en télétravail depuis l\'Italie) et détenir un permis de travail G. Le salaire brut suisse en CHF — une fois converti en EUR et net des cotisations AVS/AI/APG, LPP (deuxième pilier) et LAA — doit être confronté au coût de la vie italien pour estimer le revenu net réel.</p>`,
