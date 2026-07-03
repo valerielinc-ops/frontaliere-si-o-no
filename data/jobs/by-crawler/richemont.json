@@ -3077,7 +3077,7 @@
       "slug": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "it": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
-        "en": "termineur-en-habillage-horloger-richemont-le-sentier",
+        "en": "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "de": "finisher-im-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "fr": "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier"
       },
@@ -3123,7 +3123,7 @@
       "previousSlugsByLocale": {
         "en": [
           "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
-          "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier"
+          "termineur-en-habillage-horloger-richemont-le-sentier"
         ],
         "it": [
           "termineur-en-habillage-horloger-richemont-le-sentier"
@@ -3134,8 +3134,7 @@
       },
       "previousSlugs": [
         "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
-        "termineur-en-habillage-horloger-richemont-le-sentier",
-        "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier"
+        "termineur-en-habillage-horloger-richemont-le-sentier"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.724Z",
       "salaryMin": 60500,
@@ -9902,7 +9901,7 @@
       "slug": "responsable-coordination-projets-finanza-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "responsable-coordination-projets-finanza-cartier-manufacture-le-cret-du-locle",
-        "en": "responsable-coordination-projets-finance-richemont-le-cret-du-locle",
+        "en": "project-coordinator-finance-cartier-manufacture-le-cret-du-locle",
         "de": "responsable-coordination-projets-finanzen-cartier-manufacture-le-cret-du-locle",
         "fr": "responsable-coordination-projets-finance-cartier-manufacture-le-cret-du-locle"
       },
@@ -9947,7 +9946,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "project-coordinator-finance-cartier-manufacture-le-cret-du-locle"
+          "responsable-coordination-projets-finance-richemont-le-cret-du-locle"
         ],
         "it": [
           "responsable-coordination-projets-finance-richemont-le-cret-du-locle"
@@ -9957,8 +9956,7 @@
         ]
       },
       "previousSlugs": [
-        "responsable-coordination-projets-finance-richemont-le-cret-du-locle",
-        "project-coordinator-finance-cartier-manufacture-le-cret-du-locle"
+        "responsable-coordination-projets-finance-richemont-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-05-28T14:05:30.864Z",
       "salaryMin": 60500,
@@ -12284,7 +12282,7 @@
         "it": "nuove-fondazioni-responsabile-tecnico-della-trasformazione-s4hana-richemont-meyrin",
         "en": "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin",
         "de": "technischer-leiter-s4hana-transformation-neue-grundlagen-richemont-meyrin",
-        "fr": "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin"
+        "fr": "nouvelles-fondations-s4hana-transformation-gestionnaire-technique-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -12330,7 +12328,7 @@
           "responsable-technique-transformation-sap-s-4hana-new-foundations-richemont-meyrin",
           "nouvelles-fondations-responsable-technique-de-la-transformation-s4hana-richemont-meyrin",
           "responsable-technique-de-la-transformation-s4hana-nouvelles-fondations-richemont-meyrin",
-          "nouvelles-fondations-s4hana-transformation-gestionnaire-technique-richemont-meyrin"
+          "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin"
         ],
         "it": [
           "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin",
@@ -12347,7 +12345,6 @@
         "nouvelles-fondations-responsable-technique-de-la-transformation-s4hana-richemont-meyrin",
         "responsable-technique-de-la-transformation-s4hana-nouvelles-fondations-richemont-meyrin",
         "new-foundations-s4hana-transformation-technical-manager-richemont-meyrin",
-        "nouvelles-fondations-s4hana-transformation-gestionnaire-technique-richemont-meyrin",
         "responsabile-trasformazione-tecnologica-s-4hana-new-foundations-richemont-meyrin",
         "nuove-fondazioni-s4hana-transformation-technical-manager-richemont-meyrin",
         "neue-stiftungen-s4hana-transformation-technical-manager-richemont-meyrin"
@@ -14700,9 +14697,9 @@
     },
     {
       "id": "richemont-97afd78fa509",
-      "slug": "chef-de-produits-richemont-buttes",
+      "slug": "capo-dei-prodotti-valfleurier-buttes",
       "slugByLocale": {
-        "it": "chef-de-produits-richemont-buttes",
+        "it": "capo-dei-prodotti-valfleurier-buttes",
         "en": "head-of-products-valfleurier-buttes",
         "de": "kopf-der-produkte-valfleurier-buttes",
         "fr": "chef-de-produits-richemont-buttes"
@@ -14748,11 +14745,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "capo-dei-prodotti-valfleurier-buttes"
+          "chef-de-produits-richemont-buttes"
         ]
       },
       "previousSlugs": [
-        "capo-dei-prodotti-valfleurier-buttes"
+        "chef-de-produits-richemont-buttes"
       ],
       "firstSeenAt": "2026-06-30T23:17:28.793Z",
       "salaryMin": 83500,
@@ -15201,12 +15198,12 @@
     },
     {
       "id": "richemont-86e8be070d78",
-      "slug": "polisseur-en-cdm-2-ans-richemont-villars-sur-glane",
+      "slug": "hom-poliziotto-2-anni-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "fr": "polisseur-en-cdm-2-ans-richemont-villars-sur-glane",
-        "it": "polisseur-en-cdm-2-ans-richemont-villars-sur-glane",
-        "en": "polisseur-en-cdm-2-ans-richemont-villars-sur-glane",
-        "de": "polisseur-en-cdm-2-ans-richemont-villars-sur-glane"
+        "it": "hom-poliziotto-2-anni-cartier-manufacture-villars-sur-glane",
+        "en": "hom-policeman-2-years-cartier-manufacture-villars-sur-glane",
+        "de": "hom-polizist-2-jahre-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -15262,7 +15259,21 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-07-02T22:59:24.472Z"
+      "firstSeenAt": "2026-07-02T22:59:24.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polisseur-en-cdm-2-ans-richemont-villars-sur-glane"
+        ],
+        "en": [
+          "polisseur-en-cdm-2-ans-richemont-villars-sur-glane"
+        ],
+        "de": [
+          "polisseur-en-cdm-2-ans-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "polisseur-en-cdm-2-ans-richemont-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-dcf9869a1627",

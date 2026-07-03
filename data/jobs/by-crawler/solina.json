@@ -57,8 +57,7 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-solina-spiez",
-          "praktikantin-praktikant-solina-standortubergreifend",
-          "prakticante-prakticante-stiftung-solina-spiez"
+          "praktikantin-praktikant-solina-standortubergreifend"
         ],
         "de": [
           "praktikantin-praktikant-solina-spiez"
@@ -80,12 +79,12 @@
     },
     {
       "id": "solina-746b8f358dcc",
-      "slug": "vorpraktikant-in-solina-spiez",
+      "slug": "pre-pratico-in-stiftung-solina-spiez",
       "slugByLocale": {
         "de": "vorpraktikant-in-solina-spiez",
-        "it": "vorpraktikant-in-solina-spiez",
-        "en": "vorpraktikant-in-solina-spiez",
-        "fr": "vorpraktikant-in-stiftung-solina-spiez"
+        "it": "pre-pratico-in-stiftung-solina-spiez",
+        "en": "pre-practical-in-stiftung-solina-spiez",
+        "fr": "pre-pratique-en-stiftung-solina-spiez"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -140,7 +139,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:51.435Z"
+      "firstSeenAt": "2026-07-02T23:10:51.435Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikant-in-solina-spiez"
+        ],
+        "en": [
+          "vorpraktikant-in-solina-spiez"
+        ],
+        "fr": [
+          "vorpraktikant-in-stiftung-solina-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikant-in-solina-spiez",
+        "vorpraktikant-in-stiftung-solina-spiez"
+      ]
     },
     {
       "id": "solina-42e3d3c66cf5",
@@ -148,8 +162,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-solina-standortubergreifend",
         "it": "apprendistato-fachfrau-fachmann-hotellerie-hauswirtschaft-stiftung-solina-standortubergreifend",
-        "en": "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-solina-standortubergreifend",
-        "fr": "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-solina-standortubergreifend"
+        "en": "apprenticeship-specialist-professional-hotel-industry-stiftung-solina-standortubergreifend",
+        "fr": "specialiste-de-l-apprentissage-industrie-hoteliere-professionnelle-stiftung-solina-standortubergreifend"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -195,6 +209,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-solina-standortubergreifend"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-solina-standortubergreifend"
+        ],
+        "fr": [
+          "lehrstelle-fachfrau-fachmann-hotellerie-hauswirtschaft-solina-standortubergreifend"
         ]
       },
       "previousSlugs": [
@@ -220,8 +240,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-mit-ohne-berufsbildung-solina-spiez",
         "it": "fachfrau-fachmann-gesundheit-mit-ohne-berufsbildung-solina-spiez",
-        "en": "fachfrau-fachmann-gesundheit-mit-ohne-berufsbildung-solina-spiez",
-        "fr": "fachfrau-fachmann-gesundheit-mit-ohne-berufsbildung-solina-spiez"
+        "en": "professional-health-with-without-vocational-training-stiftung-solina-spiez",
+        "fr": "sante-professionnelle-avec-sans-formation-professionnelle-stiftung-solina-spiez"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -284,8 +304,8 @@
       "slugByLocale": {
         "de": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-spiez",
         "it": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-spiez",
-        "en": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-spiez",
-        "fr": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-spiez"
+        "en": "stv-residential-management-with-professional-responsibility-stiftung-solina-spiez",
+        "fr": "stv-gestion-residentielle-avec-responsabilite-professionnelle-stiftung-solina-spiez"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -344,12 +364,12 @@
     },
     {
       "id": "solina-22ac4d2a2d29",
-      "slug": "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
+      "slug": "salute-professionale-stiftung-solina-steffisburg-kirchbuhl",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "it": "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "en": "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "fr": "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
+        "it": "salute-professionale-stiftung-solina-steffisburg-kirchbuhl",
+        "en": "professional-health-stiftung-solina-steffisburg-kirchbuhl",
+        "fr": "sante-professionnelle-stiftung-solina-steffisburg-kirchbuhl"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -404,16 +424,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:49.750Z"
+      "firstSeenAt": "2026-07-02T23:10:49.750Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
+      ]
     },
     {
       "id": "solina-743abb579ed8",
-      "slug": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+      "slug": "salute-professionale-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "it": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "en": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "fr": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        "it": "salute-professionale-stiftung-solina-steffisburg-ziegelei",
+        "en": "professional-health-stiftung-solina-steffisburg-ziegelei",
+        "fr": "sante-professionnelle-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -468,7 +502,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:49.328Z"
+      "firstSeenAt": "2026-07-02T23:10:49.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-a3f15d8810ae",
@@ -476,8 +524,8 @@
       "slugByLocale": {
         "de": "stv-wohnbereichsleitung-mit-fachverantwortung-und-rai-supervisorin-solina-steffisburg",
         "it": "stv-wohnbereichsleitung-con-fachverantwortung-e-rai-supervisorin-stiftung-solina-steffisburg-ziegelei",
-        "en": "stv-wohnbereichsleitung-mit-fachverantwortung-und-rai-supervisorin-solina-steffisburg",
-        "fr": "stv-wohnbereichsleitung-mit-fachverantwortung-und-rai-supervisorin-solina-steffisburg"
+        "en": "stv-residential-management-with-professional-responsibility-and-rai-supervisor-stiftung-solina-steffisburg-ziegelei",
+        "fr": "gestion-residentielle-stv-avec-responsabilite-professionnelle-et-superviseur-rai-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -523,6 +571,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-wohnbereichsleitung-mit-fachverantwortung-und-rai-supervisorin-solina-steffisburg"
+        ],
+        "en": [
+          "stv-wohnbereichsleitung-mit-fachverantwortung-und-rai-supervisorin-solina-steffisburg"
+        ],
+        "fr": [
+          "stv-wohnbereichsleitung-mit-fachverantwortung-und-rai-supervisorin-solina-steffisburg"
         ]
       },
       "previousSlugs": [
@@ -548,8 +602,8 @@
       "slugByLocale": {
         "de": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-steffisburg-kirchbuhl",
         "it": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-steffisburg-kirchbuhl",
-        "en": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-steffisburg-kirchbuhl",
-        "fr": "stv-wohnbereichsleitung-mit-fachverantwortung-solina-steffisburg-kirchbuhl"
+        "en": "stv-residential-management-with-professional-responsibility-stiftung-solina-steffisburg-kirchbuhl",
+        "fr": "stv-gestion-residentielle-avec-responsabilite-professionnelle-stiftung-solina-steffisburg-kirchbuhl"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -608,12 +662,12 @@
     },
     {
       "id": "solina-14237c1aa560",
-      "slug": "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei",
+      "slug": "assistenza-specialistica-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei",
-        "it": "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei",
-        "en": "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei",
-        "fr": "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
+        "it": "assistenza-specialistica-stiftung-solina-steffisburg-ziegelei",
+        "en": "specialist-care-stiftung-solina-steffisburg-ziegelei",
+        "fr": "soins-specialises-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -668,16 +722,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:48.064Z"
+      "firstSeenAt": "2026-07-02T23:10:48.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betreuung-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-f93e286e974c",
-      "slug": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2",
+      "slug": "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "it": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2",
-        "en": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2",
-        "fr": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2"
+        "it": "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509",
+        "en": "professional-health-stiftung-solina-steffisburg-ziegelei-f58509",
+        "fr": "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f58509"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -732,16 +800,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:47.641Z"
+      "firstSeenAt": "2026-07-02T23:10:47.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2"
+      ]
     },
     {
       "id": "solina-69e7d948f656",
-      "slug": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
+      "slug": "infermieristica-stiftung-solina-steffisburg-kirchbuhl",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "it": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "en": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "fr": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
+        "it": "infermieristica-stiftung-solina-steffisburg-kirchbuhl",
+        "en": "nurse-practitioner-stiftung-solina-steffisburg-kirchbuhl",
+        "fr": "infirmiere-praticienne-stiftung-solina-steffisburg-kirchbuhl"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -796,16 +878,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:47.219Z"
+      "firstSeenAt": "2026-07-02T23:10:47.219Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
+      ]
     },
     {
       "id": "solina-d5f0e43b3629",
-      "slug": "fachfrau-fachmann-betreuung-solina-spiez",
+      "slug": "assistenza-specialistica-stiftung-solina-spiez",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-solina-spiez",
-        "it": "fachfrau-fachmann-betreuung-solina-spiez",
-        "en": "fachfrau-fachmann-betreuung-solina-spiez",
-        "fr": "fachfrau-fachmann-betreuung-solina-spiez"
+        "it": "assistenza-specialistica-stiftung-solina-spiez",
+        "en": "specialist-care-stiftung-solina-spiez",
+        "fr": "soins-specialises-stiftung-solina-spiez"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -860,16 +956,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:46.794Z"
+      "firstSeenAt": "2026-07-02T23:10:46.794Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betreuung-solina-spiez"
+        ],
+        "en": [
+          "fachfrau-fachmann-betreuung-solina-spiez"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betreuung-solina-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betreuung-solina-spiez"
+      ]
     },
     {
       "id": "solina-c9c3564c1dc8",
-      "slug": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
+      "slug": "infermieristica-stiftung-solina-steffisburg-kirchbuhl-9deefe",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "it": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
-        "en": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
-        "fr": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2"
+        "it": "infermieristica-stiftung-solina-steffisburg-kirchbuhl-9deefe",
+        "en": "nurse-practitioner-stiftung-solina-steffisburg-kirchbuhl-9deefe",
+        "fr": "infirmiere-praticienne-stiftung-solina-steffisburg-kirchbuhl-9deefe"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -924,16 +1034,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:46.370Z"
+      "firstSeenAt": "2026-07-02T23:10:46.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2"
+      ]
     },
     {
       "id": "solina-a994af5bf19e",
-      "slug": "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez",
+      "slug": "infermiera-hf-health-professionista-di-notte-stiftung-solina-spiez",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez",
-        "it": "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez",
-        "en": "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez",
-        "fr": "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez"
+        "it": "infermiera-hf-health-professionista-di-notte-stiftung-solina-spiez",
+        "en": "nurse-hf-health-professional-at-night-stiftung-solina-spiez",
+        "fr": "infirmiere-hf-professionnel-de-la-sante-la-nuit-stiftung-solina-spiez"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -988,16 +1112,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:45.949Z"
+      "firstSeenAt": "2026-07-02T23:10:45.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez"
+        ],
+        "en": [
+          "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez"
+      ]
     },
     {
       "id": "solina-529b9056876d",
-      "slug": "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
+      "slug": "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
         "de": "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
-        "it": "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
-        "en": "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
-        "fr": "wohnbereichsleitung-kader-solina-steffisburg-ziegelei"
+        "it": "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
+        "en": "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei",
+        "fr": "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1052,16 +1190,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:45.528Z"
+      "firstSeenAt": "2026-07-02T23:10:45.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnbereichsleitung-kader-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "wohnbereichsleitung-kader-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "wohnbereichsleitung-kader-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "wohnbereichsleitung-kader-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-66f9f7f7d069",
-      "slug": "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
+      "slug": "assistente-infermieristico-srk-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
         "de": "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
-        "it": "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
-        "en": "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
-        "fr": "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei"
+        "it": "assistente-infermieristico-srk-stiftung-solina-steffisburg-ziegelei",
+        "en": "nursing-assistant-srk-stiftung-solina-steffisburg-ziegelei",
+        "fr": "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1116,7 +1268,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:45.107Z"
+      "firstSeenAt": "2026-07-02T23:10:45.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-9f7648c89115",
@@ -1124,8 +1290,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-mit-berufsbildner-solina-steffisburg-ziegelei",
         "it": "fachfrau-fachmann-gesundheit-mit-berufsbildner-solina-steffisburg-ziegelei",
-        "en": "fachfrau-fachmann-gesundheit-mit-berufsbildner-solina-steffisburg-ziegelei",
-        "fr": "fachfrau-fachmann-gesundheit-mit-berufsbildner-solina-steffisburg-ziegelei"
+        "en": "professional-health-with-vocational-trainee-stiftung-solina-steffisburg-ziegelei",
+        "fr": "sante-professionnelle-avec-stagiaire-professionnel-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1184,12 +1350,12 @@
     },
     {
       "id": "solina-95005a388c19",
-      "slug": "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei",
+      "slug": "salute-notturna-professionale-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
         "de": "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei",
-        "it": "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei",
-        "en": "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei",
-        "fr": "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei"
+        "it": "salute-notturna-professionale-stiftung-solina-steffisburg-ziegelei",
+        "en": "night-health-professional-stiftung-solina-steffisburg-ziegelei",
+        "fr": "professionnels-de-la-sante-de-nuit-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1244,16 +1410,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:44.263Z"
+      "firstSeenAt": "2026-07-02T23:10:44.263Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-a0d805a42011",
-      "slug": "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei",
+      "slug": "specialista-in-rai-responsabile-r-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
         "de": "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei",
-        "it": "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei",
-        "en": "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei",
-        "fr": "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei"
+        "it": "specialista-in-rai-responsabile-r-stiftung-solina-steffisburg-ziegelei",
+        "en": "care-expert-in-rai-responsible-r-stiftung-solina-steffisburg-ziegelei",
+        "fr": "expert-en-soins-in-rai-responsable-r-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1308,16 +1488,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:43.839Z"
+      "firstSeenAt": "2026-07-02T23:10:43.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpert-in-rai-verantwortliche-r-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-1d354242170c",
-      "slug": "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
+      "slug": "carriera-carriera-stiftung-solina-steffisburg-kirchbuhl",
       "slugByLocale": {
         "de": "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
-        "it": "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
-        "en": "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
-        "fr": "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl"
+        "it": "carriera-carriera-stiftung-solina-steffisburg-kirchbuhl",
+        "en": "caregiver-caregiver-stiftung-solina-steffisburg-kirchbuhl",
+        "fr": "aide-soins-stiftung-solina-steffisburg-kirchbuhl"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1372,16 +1566,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:43.416Z"
+      "firstSeenAt": "2026-07-02T23:10:43.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl"
+        ],
+        "fr": [
+          "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl"
+      ]
     },
     {
       "id": "solina-d8faa97eaa88",
-      "slug": "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
+      "slug": "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-kirchbuhl",
       "slugByLocale": {
         "de": "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
-        "it": "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
-        "en": "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
-        "fr": "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl"
+        "it": "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-kirchbuhl",
+        "en": "living-area-management-cadre-stiftung-solina-steffisburg-kirchbuhl",
+        "fr": "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1436,16 +1644,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:42.994Z"
+      "firstSeenAt": "2026-07-02T23:10:42.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl"
+        ],
+        "en": [
+          "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl"
+        ],
+        "fr": [
+          "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl"
+      ]
     },
     {
       "id": "solina-d057e736c0e1",
-      "slug": "sozialpadagoge-sozialpadagogin-solina-spiez",
+      "slug": "pedagoga-sociale-pedagoga-sociale-stiftung-solina-spiez",
       "slugByLocale": {
         "de": "sozialpadagoge-sozialpadagogin-solina-spiez",
-        "it": "sozialpadagoge-sozialpadagogin-solina-spiez",
-        "en": "sozialpadagoge-sozialpadagogin-solina-spiez",
-        "fr": "sozialpadagoge-sozialpadagogin-solina-spiez"
+        "it": "pedagoga-sociale-pedagoga-sociale-stiftung-solina-spiez",
+        "en": "social-pedagogue-social-pedagogue-stiftung-solina-spiez",
+        "fr": "pedagogue-sociale-pedagogue-sociale-stiftung-solina-spiez"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1500,7 +1722,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:10:42.571Z"
+      "firstSeenAt": "2026-07-02T23:10:42.571Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagoge-sozialpadagogin-solina-spiez"
+        ],
+        "en": [
+          "sozialpadagoge-sozialpadagogin-solina-spiez"
+        ],
+        "fr": [
+          "sozialpadagoge-sozialpadagogin-solina-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagoge-sozialpadagogin-solina-spiez"
+      ]
     }
   ]
 }

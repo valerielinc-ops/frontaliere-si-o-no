@@ -4357,8 +4357,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen",
         "it": "collaboratore-trice-hegebe-con-medizinischer-verantwortung-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
+        "en": "employee-in-hegebe-with-medical-responsibility-spitaler-schaffhausen-schaffhausen",
+        "fr": "employe-en-hegebe-avec-responsabilite-medicale-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4403,6 +4403,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
         ]
       },
