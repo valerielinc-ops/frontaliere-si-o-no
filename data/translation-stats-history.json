@@ -1,233 +1,5 @@
 [
   {
-    "timestamp": "2026-06-16T14:06:43.530Z",
-    "label": "after",
-    "total": 16758,
-    "needsRetranslation": 4671,
-    "suppressed": 682,
-    "incomplete": 3212,
-    "complete": 13546,
-    "missingByLocale": {
-      "it": 1682,
-      "en": 1336,
-      "de": 1557,
-      "fr": 1375
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1952
-      },
-      {
-        "company": "Lonza",
-        "pending": 150
-      },
-      {
-        "company": "Manor AG",
-        "pending": 116
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 93
-      },
-      {
-        "company": "Fielmann Group",
-        "pending": 86
-      },
-      {
-        "company": "Roche",
-        "pending": 73
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 71
-      },
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 58
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 45
-      },
-      {
-        "company": "UBS",
-        "pending": 43
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-16T16:05:10.808Z",
-    "label": "before",
-    "total": 16643,
-    "needsRetranslation": 10003,
-    "suppressed": 536,
-    "incomplete": 3445,
-    "complete": 13198,
-    "missingByLocale": {
-      "it": 1825,
-      "en": 1528,
-      "de": 1468,
-      "fr": 1518
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1885
-      },
-      {
-        "company": "Manor AG",
-        "pending": 115
-      },
-      {
-        "company": "Richemont",
-        "pending": 105
-      },
-      {
-        "company": "Roche",
-        "pending": 104
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 95
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 72
-      },
-      {
-        "company": "Lonza",
-        "pending": 66
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 62
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 58
-      },
-      {
-        "company": "UBS",
-        "pending": 56
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-16T19:04:14.337Z",
-    "label": "after",
-    "total": 16643,
-    "needsRetranslation": 4840,
-    "suppressed": 622,
-    "incomplete": 3264,
-    "complete": 13379,
-    "missingByLocale": {
-      "it": 1684,
-      "en": 1341,
-      "de": 1491,
-      "fr": 1340
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1873
-      },
-      {
-        "company": "Manor AG",
-        "pending": 115
-      },
-      {
-        "company": "Roche",
-        "pending": 104
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 95
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 70
-      },
-      {
-        "company": "Lonza",
-        "pending": 66
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 61
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 58
-      },
-      {
-        "company": "UBS",
-        "pending": 56
-      },
-      {
-        "company": "Implenia",
-        "pending": 45
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-16T19:59:59.060Z",
-    "label": "before",
-    "total": 16643,
-    "needsRetranslation": 10003,
-    "suppressed": 536,
-    "incomplete": 3445,
-    "complete": 13198,
-    "missingByLocale": {
-      "it": 1825,
-      "en": 1528,
-      "de": 1468,
-      "fr": 1518
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1885
-      },
-      {
-        "company": "Manor AG",
-        "pending": 115
-      },
-      {
-        "company": "Richemont",
-        "pending": 105
-      },
-      {
-        "company": "Roche",
-        "pending": 104
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 95
-      },
-      {
-        "company": "Süddeutsche Truthahn AG",
-        "pending": 72
-      },
-      {
-        "company": "Lonza",
-        "pending": 66
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 62
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 58
-      },
-      {
-        "company": "UBS",
-        "pending": 56
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-16T22:21:49.030Z",
     "label": "after",
     "total": 16643,
@@ -11486,6 +11258,120 @@
       {
         "company": "Sunrise Communications AG",
         "pending": 22
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-03T11:23:32.747Z",
+    "label": "before",
+    "total": 18563,
+    "needsRetranslation": 2638,
+    "suppressed": 325,
+    "incomplete": 809,
+    "complete": 17754,
+    "missingByLocale": {
+      "it": 432,
+      "en": 279,
+      "de": 339,
+      "fr": 155
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 634
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 60
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 20
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 4
+      },
+      {
+        "company": "IKEA",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-03T12:39:06.463Z",
+    "label": "after",
+    "total": 18563,
+    "needsRetranslation": 2191,
+    "suppressed": 331,
+    "incomplete": 809,
+    "complete": 17754,
+    "missingByLocale": {
+      "it": 430,
+      "en": 270,
+      "de": 351,
+      "fr": 149
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 635
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 60
+      },
+      {
+        "company": "Manor AG",
+        "pending": 22
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
       },
       {
         "company": "Julius Baer",
