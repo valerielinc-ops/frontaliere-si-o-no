@@ -130,8 +130,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva",
-          "assc-in-home-care-80-100-cdi-imad-geneva",
-          "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva"
+          "assc-in-home-care-80-100-cdi-imad-geneva"
         ],
         "de": [
           "assc-in-heimpflege-80-100-cdi-imad-geneva"
@@ -207,8 +206,7 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva",
-          "infermiera-in-home-hospital-had-80-cdm-12-mesi-imad-geneva",
-          "infermiere-di-ricovero-domiciliare-had-80-cdm-12-mesi-imad-geneva"
+          "infermiera-in-home-hospital-had-80-cdm-12-mesi-imad-geneva"
         ],
         "en": [
           "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-12-mois-imad-geneva"
@@ -319,8 +317,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
-          "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
-          "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva"
+          "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
         ],
         "de": [
           "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva"
@@ -497,8 +494,7 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-          "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo",
-          "infermiere-i-di-riferimento-a-domicilio-a-tempo-pieno-o-part-time-a-tempo-indeterminato-presso-l-equipe-centralizzata"
+          "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo"
         ],
         "en": [
           "infirmary-refer-e-at-home-at-80-or-100-in-cdi-within-the-centralized-team-for-long-term-replacement-missions-6-to-15"
@@ -660,8 +656,7 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva",
-          "infermiera-in-home-hospital-had-80-cdm-9-mesi-imad-geneva-2f948d",
-          "infermiera-di-ricovero-domiciliare-had-80-in-cdm-9-mesi-imad-geneva"
+          "infermiera-in-home-hospital-had-80-cdm-9-mesi-imad-geneva-2f948d"
         ],
         "en": [
           "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois-imad-geneva"
@@ -687,12 +682,12 @@
     },
     {
       "id": "imad-f43fda27097b",
-      "slug": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
+      "slug": "segretario-receptionist-istituzionale-100-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
-        "it": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
-        "en": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
-        "de": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        "it": "segretario-receptionist-istituzionale-100-cdi-imad-geneva",
+        "en": "secretary-receptionist-institutional-100-in-cdi-imad-geneva-b64b58",
+        "de": "secretary-receptionist-institutionell-100-in-cdi-imad-geneva-b64b58"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -750,20 +745,31 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-07-03T11:34:44.234Z",
       "previousSlugs": [
-        "segretario-receptionist-istituzionale-100-cdi-imad-geneva",
+        "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
         "segretaria-receptionist-reception-istituzionale-100-permanente-imad-geneva",
         "secretary-receptionist-institutional-100-in-cdi-imad-geneva",
         "secretary-receptionist-institutionell-100-in-cdi-imad-geneva"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
+        ]
+      }
     },
     {
       "id": "imad-e72c0543b334",
-      "slug": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
+      "slug": "infermiera-di-collegamento-100-in-7-mesi-cdm-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-        "it": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-        "en": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva",
-        "de": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        "it": "infermiera-di-collegamento-100-in-7-mesi-cdm-imad-geneva",
+        "en": "liaison-nurse-100-in-7-month-cdm-imad-geneva",
+        "de": "liaison-nure-100-in-7-monaten-cdm-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -821,19 +827,28 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-07-03T11:34:44.233Z",
       "previousSlugs": [
-        "infermiera-di-collegamento-100-in-7-mesi-cdm-imad-geneva",
-        "liaison-nurse-100-in-7-month-cdm-imad-geneva",
-        "liaison-nure-100-in-7-monaten-cdm-imad-geneva"
-      ]
+        "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ]
+      }
     },
     {
       "id": "imad-ca152903a383",
-      "slug": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
+      "slug": "executive-secretary-legal-affairs-service-direzione-servizi-condivisi-50-4-mesi-csd-imad-geneva",
       "slugByLocale": {
         "fr": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
-        "it": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
-        "en": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
-        "de": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        "it": "executive-secretary-legal-affairs-service-direzione-servizi-condivisi-50-4-mesi-csd-imad-geneva",
+        "en": "executive-secretary-legal-affairs-service-shared-services-directorate-50-4-month-csd-imad-geneva-ed1047",
+        "de": "executive-secretary-legal-affairs-service-direktion-shared-services-50-4-monate-csd-imad-geneva-ed1047"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -891,14 +906,25 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-07-03T11:34:44.232Z",
       "previousSlugs": [
+        "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
         "segretario-a-di-direzione-ufficio-affari-legali-direzione-servizi-condivisi-50-contratto-a-tempo-determinato-di-4-mesi",
         "direktionsassistent-in-rechtsabteilung-direktion-fur-shared-services-50-4-monatiger-befristeter-vertrag-imad-geneva",
-        "executive-secretary-legal-affairs-service-direzione-servizi-condivisi-50-4-mesi-csd-imad-geneva",
         "segretario-esecutivo-dipartimento-affari-legali-dipartimento-servizi-condivisi-50-su-contratto-a-tempo-determinato-di-4",
         "executive-assistant-legal-affairs-department-shared-services-directorate-50-4-month-fixed-term-contract-imad-geneva",
         "executive-secretary-legal-affairs-service-shared-services-directorate-50-4-month-csd-imad-geneva",
         "executive-secretary-legal-affairs-service-direktion-shared-services-50-4-monate-csd-imad-geneva"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        ],
+        "en": [
+          "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        ],
+        "de": [
+          "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
+        ]
+      }
     },
     {
       "id": "imad-3e3a81b79da5",
@@ -982,12 +1008,12 @@
     },
     {
       "id": "imad-13d146731012",
-      "slug": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
+      "slug": "9-mesi-hom-liaison-infermiera-100-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
-        "it": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
-        "en": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
-        "de": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        "it": "9-mesi-hom-liaison-infermiera-100-imad-geneva",
+        "en": "9-month-hom-liaison-nurse-100-imad-geneva",
+        "de": "9-monate-hom-liaison-nurse-100-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -1045,14 +1071,26 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-07-03T11:34:44.229Z",
       "previousSlugs": [
+        "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
         "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        ]
+      }
     },
     {
       "id": "imad-8544edda7c32",
       "slug": "segretario-esecutivo-dipartimento-affari-legali-dipartimento-servizi-condivisi-50-su-contratto-a-tempo-determinato-di-4",
       "slugByLocale": {
-        "it": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
+        "it": "segretario-esecutivo-dipartimento-affari-legali-dipartimento-servizi-condivisi-50-su-contratto-a-tempo-determinato-di-4",
         "en": "executive-secretary-legal-affairs-service-shared-services-directorate-50-4-month-csd-imad-geneva",
         "de": "executive-secretary-legal-affairs-service-direktion-shared-services-50-4-monate-csd-imad-geneva",
         "fr": "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
@@ -1098,20 +1136,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
         "segretario-a-di-direzione-ufficio-affari-legali-direzione-servizi-condivisi-50-contratto-a-tempo-determinato-di-4-mesi",
         "direktionsassistent-in-rechtsabteilung-direktion-fur-shared-services-50-4-monatiger-befristeter-vertrag-imad-geneva",
         "executive-secretary-legal-affairs-service-direzione-servizi-condivisi-50-4-mesi-csd-imad-geneva",
-        "executive-assistant-legal-affairs-department-shared-services-directorate-50-4-month-fixed-term-contract-imad-geneva",
-        "segretario-esecutivo-dipartimento-affari-legali-dipartimento-servizi-condivisi-50-su-contratto-a-tempo-determinato-di-4",
-        "executive-secretary-legal-affairs-service-shared-services-directorate-50-4-month-csd-imad-geneva",
-        "executive-secretary-legal-affairs-service-direktion-shared-services-50-4-monate-csd-imad-geneva"
+        "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
+        "executive-assistant-legal-affairs-department-shared-services-directorate-50-4-month-fixed-term-contract-imad-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "segretario-a-di-direzione-ufficio-affari-legali-direzione-servizi-condivisi-50-contratto-a-tempo-determinato-di-4-mesi",
           "direktionsassistent-in-rechtsabteilung-direktion-fur-shared-services-50-4-monatiger-befristeter-vertrag-imad-geneva",
-          "executive-secretary-legal-affairs-service-direzione-servizi-condivisi-50-4-mesi-csd-imad-geneva"
+          "executive-secretary-legal-affairs-service-direzione-servizi-condivisi-50-4-mesi-csd-imad-geneva",
+          "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a"
         ],
         "en": [
           "secretaire-de-direction-service-des-affaires-juridiques-direction-des-services-partages-a",
@@ -1142,7 +1178,7 @@
       "slug": "segretaria-receptionist-reception-istituzionale-100-permanente-imad-geneva",
       "slugByLocale": {
         "fr": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
-        "it": "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
+        "it": "segretaria-receptionist-reception-istituzionale-100-permanente-imad-geneva",
         "en": "secretary-receptionist-institutional-100-in-cdi-imad-geneva",
         "de": "secretary-receptionist-institutionell-100-in-cdi-imad-geneva"
       },
@@ -1203,7 +1239,8 @@
       "firstSeenAt": "2026-07-02T11:43:15.518Z",
       "previousSlugsByLocale": {
         "it": [
-          "segretario-receptionist-istituzionale-100-cdi-imad-geneva"
+          "segretario-receptionist-istituzionale-100-cdi-imad-geneva",
+          "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
         ],
         "en": [
           "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
@@ -1213,11 +1250,8 @@
         ]
       },
       "previousSlugs": [
-        "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva",
         "segretario-receptionist-istituzionale-100-cdi-imad-geneva",
-        "segretaria-receptionist-reception-istituzionale-100-permanente-imad-geneva",
-        "secretary-receptionist-institutional-100-in-cdi-imad-geneva",
-        "secretary-receptionist-institutionell-100-in-cdi-imad-geneva"
+        "secretaire-receptionniste-accueil-institutionnel-a-100-en-cdi-imad-geneva"
       ],
       "crawlerMissStreak": 2
     }

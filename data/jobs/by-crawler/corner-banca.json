@@ -77,8 +77,7 @@
         "it": [
           "consulente-clienti-40-corner-banca-wallisellen",
           "customer-advisor-60-corner-banca-wallisellen",
-          "customer-advisor-40-corner-banca-wallisellen",
-          "customer-consulente-40-corner-banca-wallisellen"
+          "customer-advisor-40-corner-banca-wallisellen"
         ],
         "en": [
           "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
@@ -255,8 +254,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-          "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano"
+          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-06-10T11:54:50.675Z",
@@ -469,8 +467,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-advisor-100-team-lugano-corner-banca-lugano",
-          "consulente-clienti-100-team-lugano-corner-banca-lugano"
+          "customer-advisor-100-team-lugano-corner-banca-lugano"
         ],
         "de": [
           "customer-advisor-100-team-lugano-corner-banca-lugano"
@@ -576,8 +573,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-collection-team-zurich-corner-banca-wallisellen",
-          "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
+          "employee-collection-team-zurich-corner-banca-wallisellen"
         ],
         "de": [
           "employee-collection-team-zurich-corner-banca-wallisellen"
@@ -678,8 +674,7 @@
       "previousSlugsByLocale": {
         "it": [
           "employee-front-office-collection-corner-banca-wallisellen",
-          "employee-front-office-corner-banca-wallisellen",
-          "collezione-dei-dipendenti-corner-banca-wallisellen"
+          "employee-front-office-corner-banca-wallisellen"
         ],
         "de": [
           "employee-front-office-collection-corner-banca-wallisellen"
@@ -774,8 +769,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-advisor-60-team-zurich-corner-banca-wallisellen",
-          "consulente-clienti-60-team-zurigo-corner-banca-wallisellen"
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
         ],
         "de": [
           "customer-advisor-60-team-zurich-corner-banca-wallisellen"
@@ -959,8 +953,7 @@
       "previousSlugsByLocale": {
         "it": [
           "customer-advisor-100-team-zurich-corner-banca-wallisellen",
-          "customer-advisor-60-team-zurich-corner-banca-wallisellen",
-          "consulente-clienti-100-team-zurigo-corner-banca-wallisellen"
+          "customer-advisor-60-team-zurich-corner-banca-wallisellen"
         ],
         "fr": [
           "customer-advisor-100-team-zurich-corner-banca-wallisellen"
@@ -1054,8 +1047,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-collection-case-manager-corner-banca-wallisellen",
-          "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen"
+          "legal-collection-case-manager-corner-banca-wallisellen"
         ],
         "de": [
           "legal-collection-case-manager-corner-banca-wallisellen"
@@ -1160,11 +1152,7 @@
       "previousSlugsByLocale": {
         "it": [
           "customer-analytics-officer-corner-banca-lugano",
-          "customer-analytics-officer-corner-banca-wallisellen",
-          "responsabile-customer-analytics-corner-banca-wallisellen"
-        ],
-        "en": [
-          "customer-analytics-officer-corner-banca-lugano"
+          "customer-analytics-officer-corner-banca-wallisellen"
         ]
       },
       "previousSlugs": [
@@ -1271,8 +1259,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-project-manager-corner-banca-lugano",
-          "responsabile-del-progetto-di-marketing-corner-banca-lugano"
+          "marketing-project-manager-corner-banca-lugano"
         ],
         "de": [
           "marketing-project-manager-corner-banca-lugano"
@@ -1524,8 +1511,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-e-solutions-ecash-employee-corner-banca-lugano",
-          "vendite-e-soluzioni-e-dipendente-cash-corner-banca-lugano"
+          "sales-e-solutions-ecash-employee-corner-banca-lugano"
         ],
         "fr": [
           "sales-e-solutions-ecash-employee-corner-banca-lugano"
@@ -1552,12 +1538,12 @@
     },
     {
       "id": "corner-banca-a430d0999e85",
-      "slug": "fi-administration-e-business-support-2-corner-banca-lugano",
+      "slug": "amministrazione-fi-e-supporto-commerciale-2-corner-banca-lugano",
       "slugByLocale": {
-        "it": "fi-administration-e-business-support-2-corner-banca-lugano",
+        "it": "amministrazione-fi-e-supporto-commerciale-2-corner-banca-lugano",
         "en": "fi-administration-e-business-support-2-corner-banca-lugano",
         "de": "fi-administration-e-business-support-2-corner-banca-lugano",
-        "fr": "fi-administration-e-business-support-2-corner-banca-lugano"
+        "fr": "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1640,7 +1626,18 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-03T11:34:34.536Z"
+      "firstSeenAt": "2026-07-03T11:34:34.536Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fi-administration-e-business-support-2-corner-banca-lugano"
+        ],
+        "fr": [
+          "fi-administration-e-business-support-2-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "fi-administration-e-business-support-2-corner-banca-lugano"
+      ]
     }
   ]
 }
