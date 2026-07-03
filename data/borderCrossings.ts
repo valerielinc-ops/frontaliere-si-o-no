@@ -341,13 +341,13 @@ export const borderCrossings: BorderCrossing[] = [
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
  },
- {
- label: 'A2 – Mendrisio (uscita Stabio) direzione nord',
- imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/07.2N.gif',
- sourceName: TI_POLCA_SOURCE_NAME,
- sourceUrl: TI_POLCA_SOURCE_URL,
- refreshIntervalMs: 60000,
- },
+ // NOTE: 'A2 – Mendrisio (uscita Stabio) direzione nord' (07.2N.gif) was
+ // removed 2026-07-03 (issue #3372) — upstream www4.ti.ch feed returns a
+ // confirmed HTTP 404 (checked from multiple vantage points, with and
+ // without cookies/Referer; not a transient cloud-IP block — still listed
+ // on the ti.ch webcam gallery page but the underlying image is gone). No
+ // replacement feed exists at this exact vantage point; 02.0N.gif and
+ // 06.8S.gif above still cover this crossing.
  ],
  },
  {
