@@ -356,8 +356,9 @@ export async function fetchAllKuehneNagelJobs() {
     const postedDate = (stub.postedDate && String(stub.postedDate).slice(0, 10))
       || new Date().toISOString().split('T')[0];
 
-    const postalCode = detail.postalCode || (canton === HQ.canton ? HQ.postalCode : '');
-    const streetAddress = canton === HQ.canton ? HQ.streetAddress : '';
+    const isHqCity = /schindellegi/i.test(city);
+    const postalCode = detail.postalCode || (isHqCity ? HQ.postalCode : '');
+    const streetAddress = isHqCity ? HQ.streetAddress : '';
 
     const job = {
       // ── Required fields ──
