@@ -112,6 +112,28 @@ jobs:
             { echo "pr_number=$PRN"; echo "should_review=false"; } >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          # Debounce (#3153): un burst di push rapidi sullo stesso branch (agent
+          # che itera fix in <1min) può produrre PIÙ eventi `tests`-success in
+          # sequenza prima che il precedente abbia esaurito il suo `tests` run —
+          # il `cancel-in-progress` di `tests` (keyed sul ref) elimina già gran
+          # parte, ma una corsa dove ogni push arriva DOPO che il precedente ha
+          # già completato con successo (non cancellato) fa comunque partire una
+          # review Claude per uno SHA che sta per essere superato. Fix: dormi una
+          # finestra breve, poi ricontrolla la head LIVE della PR. Se è già
+          # avanzata oltre lo SHA di questo evento, un push più recente è già
+          # arrivato → il SUO `tests` (gira su OGNI push, niente paths-ignore,
+          # vedi header) farà scattare il proprio resolve/review — bail out qui
+          # non lascia MAI la PR senza review. Se invece la head non è cambiata
+          # (caso normale, non-burst) si prosegue subito dopo i ~25s: costo fisso
+          # di latenza, non un giro di Claude sprecato.
+          echo "Debounce: attesa 25s per assorbire push rapidi in burst prima di invocare Claude..."
+          sleep 25
+          LIVE_SHA=$(gh pr view "$PRN" --repo "$REPO" --json headRefOid --jq '.headRefOid // empty' 2>/dev/null || true)
+          if [ -n "${LIVE_SHA:-}" ] && [ "$LIVE_SHA" != "$RUN_HEAD_SHA" ]; then
+            echo "Debounce: PR #$PRN è avanzata a $LIVE_SHA (questo evento era per $RUN_HEAD_SHA) — un push più recente è già arrivato, la sua run di tests/review se ne occuperà. Skip."
+            { echo "pr_number=$PRN"; echo "should_review=false"; } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           {
             echo "pr_number=$PRN"
             echo "should_review=true"
