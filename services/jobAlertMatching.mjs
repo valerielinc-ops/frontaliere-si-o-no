@@ -15,6 +15,11 @@
  *                                      `location_interest`, `job_location`,
  *                                      `geo_city`, and the city `preferences`
  *                                      flags (lugano/bellinzona/mendrisio/chiasso).
+ *   4. Progressive-enrichment profile → `workPosition` (soft tokens, same
+ *                                      treatment as `sourceJobTitle`) and
+ *                                      `municipality` (resolved to its
+ *                                      commute-canton affinity — soft
+ *                                      `preferredCantons` signal only).
  *
  * Why this matters: a "one-tap" subscriber (no typed keywords, just a
  * `sourceJobSlug`) used to match EVERY recent job — keywords were the only
@@ -29,6 +34,7 @@
 
 import { extractKeywords } from './newsletter-content.mjs';
 import { locTokenHit } from './locToken.mjs';
+import { municipalityToCantons } from './provinceCantonAffinity.ts';
 
 /** @typedef {Set<string>} TokenSet */
 
@@ -171,6 +177,10 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   addTokens(sub.job_category);
   addTokens(sub.sector_interest);
   addTokens(sub.job_slug);
+  // Profile-enrichment signal (services/profileEnrichmentGating.ts):
+  // the job title/role the subscriber entered on their profile — same
+  // token treatment as sourceJobTitle above.
+  addTokens(sub.workPosition);
   // Browsing-derived intent (searches + viewed-job categories) from the
   // personalization subdoc.
   for (const t of ex.behaviorTokens || []) addTokens(t);
@@ -245,7 +255,14 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
     const mapped = cityToCanton instanceof Map ? cityToCanton.get(t) : cityToCanton[t];
     return mapped ? String(mapped).toLowerCase() : '';
   };
-  const preferredCantons = uniq(preferredLocations.map(lookupCanton));
+  const preferredCantons = uniq([
+    ...preferredLocations.map(lookupCanton),
+    // Profile-enrichment signal (services/profileEnrichmentGating.ts): the
+    // subscriber's Italian residence municipality, resolved to its
+    // cross-border-commute canton(s) (services/provinceCantonAffinity.ts) —
+    // soft-only, same graduated preference as the other preferredCantons signals.
+    ...municipalityToCantons(sub.municipality).map((c) => c.toLowerCase()),
+  ]);
 
   return {
     hardKeywords, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
