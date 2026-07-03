@@ -2981,7 +2981,7 @@
         "de": "safety-officer-confederazione-bern",
         "it": "responsabile-della-sicurezza-confederazione-svizzera-bern",
         "en": "safety-officer-confederazione-bern",
-        "fr": "specialiste-de-la-securite-confederazione-svizzera-bern"
+        "fr": "responsable-de-la-securite-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-df3b45b80bbc",
       "salaryMin": 77000,
@@ -3005,12 +3005,12 @@
         ],
         "fr": [
           "safety-officer-confederazione-bern",
-          "responsable-de-la-securite-confederazione-svizzera-bern"
+          "specialiste-de-la-securite-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "safety-officer-confederazione-bern",
-        "responsable-de-la-securite-confederazione-svizzera-bern"
+        "specialiste-de-la-securite-confederazione-svizzera-bern"
       ]
     },
     {
@@ -14470,7 +14470,8 @@
       "previousSlugs": [
         "rechenzentrum-spezialist-in-ikt-confederazione-frauenfeld"
       ],
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Leiter/-in Fachstelle medizinische ABC-Abwehr (CBRN)",

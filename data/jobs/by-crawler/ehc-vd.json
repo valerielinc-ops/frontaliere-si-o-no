@@ -1813,7 +1813,7 @@
       "title": "Chef de clinique en pédiatrie (F/H)",
       "titleByLocale": {
         "fr": "Chef de clinique en pédiatrie (F/H)",
-        "it": "Responsabile della Clinica Paediatrica (F/H)",
+        "it": "Medico Senior in Pediatria (F/M)",
         "en": "Head of Paediatric Clinic (F/H)",
         "de": "Leiterin der Pädiatrischen Klinik (F/H)"
       },
@@ -1890,7 +1890,7 @@
       "title": "Auxiliaire de santé (F/H)",
       "titleByLocale": {
         "fr": "Auxiliaire de santé (F/H)",
-        "it": "Assistente sanitario (F/H)",
+        "it": "Assistente sanitario (F/M)",
         "en": "Health assistant (F/H)",
         "de": "Gesundheitsassistent (F/H)"
       },
@@ -1927,19 +1927,15 @@
       },
       "previousSlugs": [
         "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
-        "auxiliaire-de-sante-f-h-ehc-vd-morges",
-        "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "auxiliaire-de-sante-f-h-ehc-vd-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
-          "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "auxiliaire-de-sante-f-h-ehc-vd-morges"
         ],
         "fr": [
-          "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "auxiliaire-de-sante-f-h-ehc-vd-morges"
         ]
       },
       "salaryMin": 60500,
@@ -4165,7 +4161,7 @@
       "title": "Neuropsychologue sous supervision (F/H)",
       "titleByLocale": {
         "fr": "Neuropsychologue sous supervision (F/H)",
-        "it": "Neuropsicologo sotto supervisione (F/H)",
+        "it": "Neuropsicologo Supervisionato (F/M)",
         "en": "Neuropsychologist under supervision (F/H)",
         "de": "Neuropsychologe unter Aufsicht (F/H)"
       },

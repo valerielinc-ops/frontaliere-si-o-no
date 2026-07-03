@@ -38,7 +38,7 @@
 
 import fs from 'node:fs';
 import np from 'node:path';
-import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
+import { buildSimplePage, esc, type SimplePageOpts } from '../htmlTemplate';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { buildTitleWithBrand, TITLE_BRAND_SUFFIX } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
@@ -56,7 +56,13 @@ import { SPA_ENTRY_JS_RX, SPA_ENTRY_CSS_RX } from './spaBundleRx';
 const BRAND_SUFFIX_RX = /\s*\|\s*Frontaliere Ticino\s*$/i;
 function normalizeShellTitle(rawTitle: string): string {
   const stripped = String(rawTitle || '').replace(BRAND_SUFFIX_RX, '').trim();
-  return buildTitleWithBrand(stripped, TITLE_BRAND_SUFFIX);
+  // htmlTemplate.ts renders this title through `esc(title)` exactly once
+  // (single-escape shell) — budget on the ESCAPED length so a raw `&`/`<`/
+  // `>`/`"` in a callsite-provided headline (company/city name interpolated
+  // upstream, e.g. generateComboPage in jobsSeoPagesPlugin.ts) can't expand
+  // past TITLE_MAX_CHARS after this decision is already made. The string
+  // itself stays unescaped here — htmlTemplate.ts does the actual escape.
+  return buildTitleWithBrand(stripped, TITLE_BRAND_SUFFIX, undefined, (s) => esc(s).length);
 }
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */

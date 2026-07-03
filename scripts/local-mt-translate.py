@@ -197,7 +197,17 @@ def translate_stream():
     (content, from, to) units → pre-warm directions single-threaded → translate
     unique units across a thread pool → reassemble + flush each request as soon
     as all its units resolve (partial-result safe under an external timeout kill).
-    Models load ONCE (argostranslate caches them in-process)."""
+    Models load ONCE (argostranslate caches them in-process).
+
+    Cache-hit offline guarantee (verified against argostranslate 1.11.0 source,
+    follow-up to #3334): tr.translate() -> get_translation_from_codes() ->
+    get_installed_languages() builds its language/pivot graph from
+    package.get_installed_packages(), which scans the on-disk package dirs
+    directly. It never reads settings.local_package_index — that file (and the
+    in-memory list get_available_packages() parses from it) is only touched by
+    update_package_index()/install_models(), used solely to discover packages
+    to INSTALL. So skipping update_package_index() on a models_ready() cache
+    hit cannot desync translate_stream(): the two paths don't share state."""
     import argostranslate.translate as tr
 
     started = time.time()
