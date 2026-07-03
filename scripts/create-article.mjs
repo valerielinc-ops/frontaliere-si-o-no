@@ -7112,7 +7112,14 @@ function buildMetaBlock(data, locale) {
   return lines.join('\n');
 }
 
-/** Build a standalone per-article body file (body1, body2, body3) */
+// body1/2/3 are always emitted if the key exists on `c` (even '' — matches
+// the historic fixed-3 schema); body4+ is opt-in per article (only emitted
+// when the content builder actually sets that key) so older 3-body articles
+// (e.g. events-digest) are untouched. Cap matches collectBodyParts' body1..
+// body20 scan in components/community/BlogArticles.tsx.
+const MAX_BODY_KEYS = 20;
+
+/** Build a standalone per-article body file (body1..bodyN, N ≤ MAX_BODY_KEYS) */
 function buildBodyFile(data, locale) {
   const c = data.content[locale];
   const id = data.id;
@@ -7134,10 +7141,15 @@ function buildBodyFile(data, locale) {
     }
   }
 
+  const bodyLines = [];
+  for (let i = 1; i <= MAX_BODY_KEYS; i += 1) {
+    const key = `body${i}`;
+    if (!(key in c) || typeof c[key] !== 'string') continue;
+    bodyLines.push(`    'blog.article.${id}.${key}': '${escapeForSingleQuoteTS(c[key])}',`);
+  }
+
   return `const ${varName}: Record<string, string> = {
-    'blog.article.${id}.body1': '${escapeForSingleQuoteTS(c.body1)}',
-    'blog.article.${id}.body2': '${escapeForSingleQuoteTS(c.body2)}',
-    'blog.article.${id}.body3': '${escapeForSingleQuoteTS(c.body3)}',${faqLine}
+${bodyLines.join('\n')}${faqLine}
 };
 
 export default ${varName};
@@ -7154,7 +7166,8 @@ export default ${varName};
 function decodeLocaleContentEntities(data, locale) {
   const c = data.content?.[locale];
   if (c) {
-    for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
+    const bodyFields = Array.from({ length: MAX_BODY_KEYS }, (_, i) => `body${i + 1}`);
+    for (const field of ['title', 'excerpt', ...bodyFields]) {
       if (typeof c[field] === 'string') c[field] = decodeHtmlEntities(c[field]);
     }
     if (Array.isArray(c.faq)) {

@@ -25,8 +25,8 @@ const ranking = BORDER_WAIT_CROSSINGS.slice(0, 4).map((slug, i) => ({
   rank: i + 1,
 }));
 const trend = {
-  [BORDER_WAIT_CROSSINGS[0]]: { direction: 'better' as const },
-  [BORDER_WAIT_CROSSINGS[1]]: { direction: 'worse' as const },
+  [BORDER_WAIT_CROSSINGS[0]]: { direction: 'better' as const, deltaMinutes: -3 },
+  [BORDER_WAIT_CROSSINGS[1]]: { direction: 'worse' as const, deltaMinutes: 7 },
 };
 const funFacts = {
   bestSlug: ranking[0].slug,
@@ -35,6 +35,12 @@ const funFacts = {
   minutesPerYear: 13800,
   hoursPerYear: 230,
   workingDaysLostPerYear: 9.6,
+};
+const weekStart = '2026-12-25';
+const weekEnd = '2026-12-31';
+const movers = {
+  improved: [{ slug: BORDER_WAIT_CROSSINGS[0], deltaMinutes: -3 }],
+  worsened: [{ slug: BORDER_WAIT_CROSSINGS[1], deltaMinutes: 7 }],
 };
 
 function cell(avg: number, samples = 10) {
@@ -65,9 +71,12 @@ describe('border-wait ranking article generator', () => {
   });
 
   it('buildRankingJson matches the shape services/borderWaitRankingService.ts expects', () => {
-    const json = buildRankingJson({ ranking, trend, funFacts, todayIso: '2027-01-01' });
+    const json = buildRankingJson({ ranking, trend, funFacts, todayIso: '2027-01-01', weekStart, weekEnd, movers });
     expect(json.updatedAt).toBe('2027-01-01');
     expect(json.windowDays).toBe(7);
+    expect(json.weekStart).toBe(weekStart);
+    expect(json.weekEnd).toBe(weekEnd);
+    expect(json.movers).toEqual(movers);
     expect(json.ranking).toHaveLength(ranking.length);
     for (const [i, row] of json.ranking.entries()) {
       expect(row.slug).toBe(ranking[i].slug);
@@ -77,7 +86,9 @@ describe('border-wait ranking article generator', () => {
       expect(['better', 'worse', 'flat']).toContain(row.trend);
     }
     expect(json.ranking[0].trend).toBe('better'); // trend[ranking[0].slug] -> 'better'
+    expect(json.ranking[0].deltaMinutes).toBe(-3);
     expect(json.ranking[2].trend).toBe('flat'); // no trend entry -> falls back to 'flat'
+    expect(json.ranking[2].deltaMinutes).toBeNull();
     expect(json.funFacts).toEqual(funFacts);
   });
 
@@ -105,11 +116,15 @@ describe('border-wait ranking article generator', () => {
     expect(snapshot.ranking[0].avgMinutes).toBeCloseTo(5, 5);
     expect(snapshot.funFacts?.bestSlug).toBe(best);
     expect(snapshot.funFacts?.worstSlug).toBe(worst);
+    expect(snapshot.weekStart).toBe('2026-12-25');
+    expect(snapshot.weekEnd).toBe('2026-12-31');
+    expect(snapshot.movers).toEqual({ improved: [], worsened: [] }); // both crossings flat week-over-week (no prior-window data)
 
     const data = buildData('2027-01-01', dir);
     expect(data.id).toBe('classifica-dogane-ticino');
     expect(data._rankedCount).toBe(2);
     expect(data.content.it.body2).toContain('|'); // has a ranking table, not the no-data fallback
+    expect(data.content.it.body4).toContain('##'); // advice/movers section (task #6)
     expect(data.slugs.it).toBe('classifica-dogane-ticino');
   });
 

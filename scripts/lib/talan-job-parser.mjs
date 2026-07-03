@@ -254,7 +254,7 @@ export async function fetchAllTalanJobs() {
       // ── Recommended fields ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
+      postalCode: postalCode || (/gen[eè]ve|geneva/i.test(location) ? HQ.postalCode : ''),
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

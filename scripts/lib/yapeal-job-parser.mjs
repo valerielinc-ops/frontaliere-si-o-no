@@ -154,11 +154,12 @@ function resolveAddress(officeRaw = '') {
   const canton = office ? inferSwissTargetCanton(office) : null;
 
   if (office && canton) {
+    const isHqCity = /z[üu]rich/i.test(office);
     return {
       city: office,
       canton,
-      postalCode: canton === HQ.canton ? HQ.postalCode : '',
-      streetAddress: canton === HQ.canton ? HQ.streetAddress : '',
+      postalCode: isHqCity ? HQ.postalCode : '',
+      streetAddress: isHqCity ? HQ.streetAddress : '',
       region: canton,
     };
   }
