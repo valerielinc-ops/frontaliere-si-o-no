@@ -4248,7 +4248,12 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const aliasHtml = buildCanonicalBridgePage({
  canonicalUrl,
  pathLabel: canonicalPath,
- title: `${esc(companyName)} | Frontaliere Ticino`,
+ // Route through buildTitleWithBrand (same policy as every other <title> in
+ // this plugin) instead of a raw concat — long company/legal names (e.g.
+ // "Ospedale Regionale di Lugano e Mendrisio") overflow the 66-char cap
+ // when the brand suffix is appended unconditionally; buildTitleWithBrand
+ // drops the brand once the headline alone fills the budget.
+ title: esc(buildTitleWithBrand(companyName)),
  description: `Pagina alternativa per ${companyName}. Apri la pagina canonica per gli annunci aggiornati.`,
  body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell'azienda per gli annunci aggiornati.`,
  ctaLabel: String(companyName || 'Apri azienda'),
@@ -8275,22 +8280,22 @@ ${staticAnalyticsHtml}
  // audit:h1-title-duplicates is zero-tolerance — guard at source.
  generateComboPage(comboKey, {
  it: {
- title: `Offerte ${compName} a ${cityName} | Frontaliere Ticino`,
+ title: buildTitleWithBrand(`Offerte ${compName} a ${cityName}`),
  description: (c) => `${c} offerte di lavoro ${compName} a ${cityName}. Scopri le posizioni aperte e candidati subito.`,
  heading: `Lavoro ${compName} a ${cityName}`,
  },
  en: {
- title: `${compName} careers in ${cityName} | Frontaliere Ticino`,
+ title: buildTitleWithBrand(`${compName} careers in ${cityName}`),
  description: (c) => `${c} ${compName} job openings in ${cityName}. Browse available positions and apply today.`,
  heading: `${compName} jobs in ${cityName}`,
  },
  de: {
- title: `${compName} Stellenangebote in ${cityName} | Frontaliere Ticino`,
+ title: buildTitleWithBrand(`${compName} Stellenangebote in ${cityName}`),
  description: (c) => `${c} offene Stellen bei ${compName} in ${cityName}. Entdecke aktuelle Positionen und bewirb dich direkt.`,
  heading: `${compName} Jobs in ${cityName}`,
  },
  fr: {
- title: `Postes ${compName} à ${cityName} | Frontaliere Ticino`,
+ title: buildTitleWithBrand(`Postes ${compName} à ${cityName}`),
  description: (c) => `${c} offres d'emploi ${compName} à ${cityName}. Consultez les postes ouverts et postulez directement.`,
  heading: `Emploi ${compName} à ${cityName}`,
  },

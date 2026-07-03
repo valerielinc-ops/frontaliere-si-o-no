@@ -22,6 +22,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { ColCityId, ColLocale } from './costOfLivingLandingsData';
 import { COL_CITY_DISPLAY } from './costOfLivingLandingsData';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 // Note: table head/cell styling now lives in a single <style> block emitted
 // at the top of <main> by costOfLivingLandingsPlugin.ts. The rendered HTML
 // uses class="t-h" / class="t-c" instead of inline `class="s-thd"`
@@ -284,7 +285,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       sources: 'Fonti e metodologia',
     },
     h1: (city) => `Costo della vita ${city} 2026: affitti, spesa, trasporti`,
-    title: (city) => `Costo della vita ${city} 2026: affitti, spesa, trasporti | Frontaliere Ticino`,
+    title: (city) => buildTitleWithBrand(`Costo della vita ${city} 2026: affitti, spesa, trasporti`),
     description: (city, prov) =>
       `Costo della vita ${city} 2026: affitti FSO, spesa ISTAT, confronto con ${prov} per frontalieri. Dati ufficiali aggiornati.`,
     related: [
@@ -359,7 +360,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
     },
     h1: (city) => `Cost of living in ${city} 2026: rents, groceries, transport`,
     title: (city) =>
-      `Cost of living in ${city} 2026: rents, groceries, transport | Frontaliere Ticino`,
+      buildTitleWithBrand(`Cost of living in ${city} 2026: rents, groceries, transport`),
     description: (city, prov) =>
       `Cost of living in ${city} 2026: FSO rents, ISTAT basket, comparison with ${prov} for cross-border workers. Official data.`,
     related: [
@@ -437,7 +438,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
     },
     h1: (city) => `Lebenshaltungskosten ${city} 2026: Mieten, Einkäufe, Verkehr`,
     title: (city) =>
-      `Lebenshaltungskosten ${city} 2026: Mieten, Einkauf, Verkehr | Frontaliere Ticino`,
+      buildTitleWithBrand(`Lebenshaltungskosten ${city} 2026: Mieten, Einkauf, Verkehr`),
     description: (city, prov) =>
       `Lebenshaltungskosten in ${city} 2026: BFS-Mieten, ISTAT-Warenkorb, Vergleich mit ${prov} für Grenzgänger.`,
     related: [
@@ -515,7 +516,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
     },
     h1: (city) => `Coût de la vie à ${city} 2026 : loyers, courses, transports`,
     title: (city) =>
-      `Coût de la vie à ${city} 2026 : loyers, courses, transports | Frontaliere Ticino`,
+      buildTitleWithBrand(`Coût de la vie à ${city} 2026 : loyers, courses, transports`),
     description: (city, prov) =>
       `Coût de la vie à ${city} 2026 : loyers OFS, panier ISTAT, comparaison avec ${prov} pour les frontaliers.`,
     related: [

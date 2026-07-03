@@ -16,6 +16,7 @@ import { buildFullPath, LOCALE_CALC_PREFIX, type SalaryHubScenario } from './sal
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -372,7 +373,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
     titles: {
       it: 'Da 50.000 a 150.000 CHF: come cambia il netto di un frontaliere',
       en: 'From 50,000 to 150,000 CHF: how a cross-border worker\'s net changes',
-      de: 'Von 50.000 bis 150.000 CHF: Wie sich das Netto eines Grenzgängers ändert',
+      de: 'Von 50.000 bis 150.000 CHF: So ändert sich das Nettogehalt',
       fr: 'De 50.000 à 150.000 CHF: comment le net d\'un frontalier change',
     },
     descriptions: {
@@ -478,7 +479,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
     titles: {
       it: 'Il costo nascosto del cambio CHF-EUR sullo stipendio netto',
       en: 'The hidden cost of CHF-EUR exchange on net salary',
-      de: 'Die versteckten Kosten des CHF-EUR Wechselkurses auf das Nettogehalt',
+      de: 'CHF-EUR Wechselkurs: versteckte Kosten fürs Nettogehalt',
       fr: 'Le coût caché du change CHF-EUR sur le salaire net',
     },
     descriptions: {
@@ -650,7 +651,7 @@ export function generateArticleHtml(
 
   return buildSeoPageHtml({
     locale,
-    title: `${title} | Frontaliere Ticino`,
+    title: buildTitleWithBrand(title),
     description,
     canonicalUrl,
     hreflangHtml,
