@@ -3225,6 +3225,7 @@ export const COMPANY_DEFAULTS = {
   'vf-international-the-north-face-timberland': { streetAddress: 'Via Laveggio 5',    postalCode: '6855', addressLocality: 'Stabio',            addressRegion: 'TI', addressCountry: 'CH' },
   'hamilton-bonaduz-ag':                  { streetAddress: 'Via Crusch 8',             postalCode: '7402', addressLocality: 'Bonaduz',           addressRegion: 'GR', addressCountry: 'CH' },
   'amministrazione-cantonale-ti':         { streetAddress: 'Piazza Governo',           postalCode: '6501', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'etat-de-fribourg':                     { streetAddress: 'Rue des Chanoines 17',     postalCode: '1701', addressLocality: 'Fribourg',          addressRegion: 'FR', addressCountry: 'CH' },
   'relewant':                             { streetAddress: 'Via Cantonale 2A',         postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
   'grand-hotel-des-bains-kempinski':      { streetAddress: 'Via Mezdi 27',             postalCode: '7500', addressLocality: 'St. Moritz',        addressRegion: 'GR', addressCountry: 'CH' },
   'abb-svizzera-sede-ticino':             { streetAddress: 'Via Luserte Sud 9',        postalCode: '6572', addressLocality: 'Quartino',          addressRegion: 'TI', addressCountry: 'CH' },
