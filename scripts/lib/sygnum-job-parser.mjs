@@ -228,19 +228,20 @@ function mapEmploymentType(raw = '', title = '') {
 
 /**
  * Resolve city/canton/postalCode/streetAddress for a job, gating BOTH the
- * postal code and street address on canton match with HQ — never emit HQ's
- * street address for a job located in a different canton.
+ * postal code and street address on city match with HQ — never emit HQ's
+ * street address for a job located in a different city.
  */
 function resolveAddress(localityRaw = '', postalRaw = '') {
   const locality = normalizeSpace(localityRaw);
   const canton = locality ? inferSwissTargetCanton(locality) : null;
 
   if (locality && canton) {
+    const isHqCity = /z[üu]rich/i.test(locality);
     return {
       city: locality,
       canton,
-      postalCode: postalRaw || (canton === HQ.canton ? HQ.postalCode : ''),
-      streetAddress: canton === HQ.canton ? HQ.streetAddress : '',
+      postalCode: postalRaw || (isHqCity ? HQ.postalCode : ''),
+      streetAddress: isHqCity ? HQ.streetAddress : '',
       region: canton,
     };
   }
@@ -473,8 +474,8 @@ export async function fetchAllSygnumJobs() {
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
-      postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
+      streetAddress,
+      postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
