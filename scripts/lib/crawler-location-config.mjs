@@ -494,6 +494,10 @@ export const COMPANY_HQ = {
   // fallback needed.
   'hospice-general': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'zkb': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // HQ address (Route de Chêne 48, 1208 Genève) confirmed via public
+  // directory listing (search.ch) + epi.ge.ch contact page; SmartRecruiters
+  // tenant only exposes per-posting city, not always a street address.
+  'epi-geneve': { city: 'Genève', canton: 'GE', postalCode: '1208', addressRegion: 'GE' },
 };
 
 /**
