@@ -9,12 +9,20 @@
  * dashboard's slugify(companyName) lookup). Read-only public collection
  * (firestore.rules); writes happen here via the Admin SDK only.
  *
+ * Stale-doc pruning: buildTrafficDocs() only emits rows with candidates > 0
+ * (no "0 candidati" noise), so a company that drops OUT of this run's set —
+ * e.g. its previous count came from a source that couldn't exclude sponsored
+ * traffic and the corrected free-only count is now 0 — must not keep its old
+ * (now-wrong) doc forever. Any existing `employer_crawled_traffic/{key}` doc
+ * whose key is NOT in the current run's key set is deleted every run.
+ *
  * Usage (CI, after the report):
  *   node scripts/employer-traffic-report.mjs --json /tmp/report.json
  *   node scripts/write-employer-traffic.mjs /tmp/report.json
  *
  * Auth: GOOGLE_APPLICATION_CREDENTIALS (service-account file) or
- * FIREBASE_SERVICE_ACCOUNT_JSON. No-op-safe: empty/invalid report → exit 0.
+ * FIREBASE_SERVICE_ACCOUNT_JSON. No-op-safe: empty/invalid report → exit 0
+ * (skips pruning too — a broken/empty report must never wipe the collection).
  */
 
 import fs from 'node:fs';
@@ -67,14 +75,25 @@ async function run() {
   catch (e) { console.error(`report illeggibile: ${e.message}`); process.exit(1); }
 
   const docs = buildTrafficDocs(report);
-  if (!docs.length) { console.log('Nessuna azienda con candidati > 0 — niente da scrivere.'); return; }
+  if (!docs.length) { console.log('Nessuna azienda con candidati > 0 — niente da scrivere (pruning skippato, report vuoto).'); return; }
 
   const { db, FieldValue } = await getDb();
   const { commitInChunks } = await import('./lib/firestore-batch.mjs');
   const written = await commitInChunks(db, docs, (batch, { key, data }) => {
     batch.set(db.collection(COLLECTION).doc(key), { ...data, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   });
-  console.log(`✅ ${COLLECTION}: scritte ${written} aziende (window ${report.days}gg, source ${report.source}).`);
+
+  // Prune stale docs (see header comment): delete every existing doc whose key
+  // is NOT in this run's set, so a company that dropped to 0 candidates loses
+  // its old (possibly inflated) doc instead of keeping it forever.
+  const currentKeys = new Set(docs.map((d) => d.key));
+  const existingSnap = await db.collection(COLLECTION).select().get();
+  const staleRefs = existingSnap.docs.filter((d) => !currentKeys.has(d.id)).map((d) => d.ref);
+  const deleted = staleRefs.length
+    ? await commitInChunks(db, staleRefs, (batch, ref) => batch.delete(ref))
+    : 0;
+
+  console.log(`✅ ${COLLECTION}: scritte ${written} aziende (window ${report.days}gg, source ${report.source})${deleted ? `, ${deleted} stale rimosse` : ''}.`);
 }
 
 // Esegui solo se invocato direttamente (buildTrafficDocs resta importabile per i test).
