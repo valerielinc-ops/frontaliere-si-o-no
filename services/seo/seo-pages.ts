@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3085,
+ "numberOfItems": 3084,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4799,7 +4799,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "ListItem", "position": 128, "name": "Frontalieri in calo: economia ticinese", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-economia-ticino` },
  { "@type": "ListItem", "position": 129, "name": "Inflazione stabile: cosa cambia per i frontalieri", "url": `${BASE_URL}/articoli-frontaliere/inflazione-frontalieri-ticino` },
  { "@type": "ListItem", "position": 130, "name": "Aprire un conto bancario svizzero", "url": `${BASE_URL}/articoli-frontaliere/aprire-conto-bancario-frontalieri` },
- { "@type": "ListItem", "position": 131, "name": "Ristorni fiscali frontalieri", "url": `${BASE_URL}/articoli-frontaliere/ristorni-fiscali-frontaliere` },
  { "@type": "ListItem", "position": 132, "name": "Guida contributi sociali frontalieri", "url": `${BASE_URL}/articoli-frontaliere/contributi-sociali-busta-paga` },
  { "@type": "ListItem", "position": 133, "name": "Strada Vezia-Cureglia: troppi incidenti", "url": `${BASE_URL}/articoli-frontaliere/strada-incidenti-vezia-cureglia` },
  { "@type": "ListItem", "position": 134, "name": "Assicurazione malattia frontalieri", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-malattia-famiglia` },
