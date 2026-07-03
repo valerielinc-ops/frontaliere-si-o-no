@@ -3440,6 +3440,9 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3560.title': 'Real-time border crossing ranking',
+  'whatsNew.v3560.borderWaitRanking.title': 'Best and worst border crossings',
+  'whatsNew.v3560.borderWaitRanking.desc': 'New weekly-updated article ranking every Ticino border crossing by wait time, with trends and how many minutes you lose or save picking one crossing over another.',
   'whatsNew.v3550.title': 'Smoother job search',
   'whatsNew.v3550.fastLoading.title': 'Animated loading',
   'whatsNew.v3550.fastLoading.desc': 'While we look up offers you no longer see an annoying "0 results": an animated loader with rotating messages now keeps you company until the list is ready.',

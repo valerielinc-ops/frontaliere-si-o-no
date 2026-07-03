@@ -3530,6 +3530,9 @@ Regole:
   'survey.feature.thanks.title': 'Grazie!',
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
+  'whatsNew.v3560.title': 'Classifica dogane in tempo reale',
+  'whatsNew.v3560.borderWaitRanking.title': 'Migliori e peggiori dogane',
+  'whatsNew.v3560.borderWaitRanking.desc': 'Nuovo articolo aggiornato ogni settimana con la classifica di tutte le dogane del Ticino per tempo d\'attesa, trend e minuti persi o guadagnati scegliendo un valico invece di un altro.',
   'whatsNew.v3550.title': 'Ricerca offerte più fluida',
   'whatsNew.v3550.fastLoading.title': 'Caricamento animato',
   'whatsNew.v3550.fastLoading.desc': 'Mentre cerchiamo le offerte non vedi più un fastidioso «0 risultati»: ora un caricamento animato con messaggi ti accompagna finché la lista è pronta.',

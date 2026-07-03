@@ -8237,6 +8237,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'Ristournes suspendues: la convention et la «taxe santé»',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Analysons la suspension des restaurants Italie-Suisse à la lumière de la Convention fiscale et de la « taxe sur la santé », en évaluant les implications juridiques et',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Image éditoriale relative à: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    'blog.article.classifica-dogane-ticino.title': 'Classement des douanes tessinoises : les plus rapides et les plus lentes',
+    'blog.article.classifica-dogane-ticino.excerpt': 'Chaque douane du Tessin, classée selon son temps d\'attente moyen : laquelle est la plus rapide, laquelle est la plus lente, et combien de minutes de vie on gagne (ou on perd) en choisissant l\'une plutôt que l\'autre.',
+    'blog.article.classifica-dogane-ticino.imageAlt': 'File de voitures à une douane du canton du Tessin',
 };
 
 export default blogMetaFr;
