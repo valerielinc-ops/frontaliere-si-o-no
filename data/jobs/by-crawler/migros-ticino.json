@@ -63,9 +63,9 @@
       },
       "slugByLocale": {
         "it": "venditore-con-salario-orario-denner-ag-binningen",
-        "en": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
+        "en": "seller-in-the-hourly-wage-denner-ag-binningen",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
-        "fr": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-binningen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -84,6 +84,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-binningen",
+          "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
+        ],
+        "fr": [
           "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
         ]
       },
@@ -158,8 +164,8 @@
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-wetzikon",
-        "en": "seller-denner-ag-wetzikon-8e6f7a",
-        "fr": "vendeur-denner-ag-wetzikon-8e6f7a",
+        "en": "seller-denner-ag-wetzikon",
+        "fr": "vendeur-denner-ag-wetzikon",
         "de": "verkaufer-in-denner-ag-wetzikon"
       },
       "titleByLocale": {
@@ -193,17 +199,16 @@
           "verkaufer-in-denner-ag-wetzikon-douzkp"
         ],
         "en": [
-          "seller-denner-ag-wetzikon"
+          "seller-denner-ag-wetzikon-8e6f7a"
         ],
         "fr": [
-          "vendeur-denner-ag-wetzikon"
+          "vendeur-denner-ag-wetzikon-8e6f7a"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-wetzikon-douzkp",
-        "seller-denner-ag-wetzikon",
-        "vendeur-denner-ag-wetzikon",
-        "verkaufer-in-denner-ag-wetzikon",
+        "seller-denner-ag-wetzikon-8e6f7a",
+        "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-dubendorf",
         "seller-denner-ag-dubendorf",
         "verkaufer-in-denner-ag-dubendorf",
@@ -487,9 +492,9 @@
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-dubendorf",
-        "en": "verkaufer-in-denner-ag-dubendorf",
+        "en": "seller-denner-ag-dubendorf",
         "de": "verkaufer-in-denner-ag-dubendorf",
-        "fr": "verkaufer-in-denner-ag-dubendorf"
+        "fr": "vendeur-denner-ag-dubendorf"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -539,15 +544,18 @@
         "it": [
           "verkaufer-in-denner-ag-dubendorf",
           "venditore-denner-ag-wetzikon"
+        ],
+        "en": [
+          "verkaufer-in-denner-ag-dubendorf"
+        ],
+        "fr": [
+          "verkaufer-in-denner-ag-dubendorf"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-dubendorf",
         "venditore-denner-ag-wetzikon",
         "verkaufer-in-denner-ag-wetzikon",
-        "venditore-denner-ag-dubendorf",
-        "seller-denner-ag-dubendorf",
-        "vendeur-denner-ag-dubendorf",
         "verkaufer-in-denner-ag-dubendorf-9wcq9n"
       ]
     },
@@ -614,9 +622,9 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
-        "en": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
+        "en": "stv-branch-manager-in-denner-ag-schaffhausen",
         "de": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-        "fr": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
+        "fr": "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -635,6 +643,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-schaffhausen",
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
+        ],
+        "fr": [
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ]
       },
@@ -722,9 +736,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa",
-        "en": "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa",
+        "en": "employees-in-warehouse-management-genossenschaft-migros-zurich-zurich",
         "de": "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa",
-        "fr": "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa"
+        "fr": "salaries-dans-la-gestion-des-entrepots-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -744,10 +758,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa"
+        ],
+        "fr": [
+          "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich"
+        "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich",
+        "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-jjy9pa"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -844,8 +865,8 @@
       },
       "slugByLocale": {
         "it": "responsabile-amministrativo-e-tecnico-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
-        "en": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
-        "de": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
+        "en": "administrative-and-technical-manager-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+        "de": "verwaltungs-und-technischer-leiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "fr": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx"
       },
       "requirementsByLocale": {
@@ -868,6 +889,12 @@
         "it": [
           "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
           "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
+        ],
+        "en": [
+          "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx"
+        ],
+        "de": [
+          "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx"
         ]
       },
       "previousSlugs": [
@@ -957,9 +984,9 @@
       },
       "slugByLocale": {
         "it": "frutta-e-verdura-del-venditore-genossenschaft-migros-zurich-zurich-2db340",
-        "en": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z",
+        "en": "seller-in-fruits-vegetables-genossenschaft-migros-zurich-zurich-2db340",
         "de": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z",
-        "fr": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z"
+        "fr": "vendeur-en-fruits-et-legumes-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -979,6 +1006,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich",
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z"
+        ],
+        "en": [
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z"
+        ],
+        "fr": [
           "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z"
         ]
       },
@@ -1065,9 +1098,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-della-gestione-degli-ordini-m-f-d-delica-ag-buchs-ag",
-        "en": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o",
+        "en": "personnel-order-management-m-f-d-delica-ag-buchs-ag",
         "de": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o",
-        "fr": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o"
+        "fr": "gestion-des-commandes-de-personnel-m-f-d-delica-ag-buchs-ag"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1084,6 +1117,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag",
+          "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o"
+        ],
+        "en": [
+          "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o"
+        ],
+        "fr": [
           "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o"
         ]
       },
@@ -1165,9 +1204,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-restaurant-migros-restaurant-schaffhausen-89t3t3",
-        "en": "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen-89t3t3",
+        "en": "employee-in-the-restaurant-migros-restaurant-schaffhausen",
         "de": "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen-89t3t3",
-        "fr": "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen-89t3t3"
+        "fr": "employe-au-restaurant-migros-restaurant-schaffhausen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1188,10 +1227,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen-89t3t3"
+        ],
+        "fr": [
+          "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen-89t3t3"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen"
+        "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen",
+        "mitarbeiter-in-restaurant-migros-restaurant-schaffhausen-89t3t3"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1269,8 +1315,8 @@
       },
       "slugByLocale": {
         "it": "consulente-per-clienti-privati-banque-migros-neuenburg",
-        "en": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
-        "de": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
+        "en": "adviser-private-customers-banque-migros-neuenburg",
+        "de": "berater-privatkunden-banque-migros-neuenburg",
         "fr": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
       },
       "requirementsByLocale": {
@@ -1290,6 +1336,12 @@
       "previousSlugsByLocale": {
         "it": [
           "conseiller-clients-prives-banque-migros-neuenburg",
+          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
+        ],
+        "en": [
+          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
+        ],
+        "de": [
           "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
         ]
       },
@@ -1370,9 +1422,9 @@
       },
       "slugByLocale": {
         "it": "assistente-di-negozio-genossenschaft-migros-ostschweiz-nurensdorf",
-        "en": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg",
+        "en": "seller-in-whole-store-genossenschaft-migros-ostschweiz-nurensdorf",
         "de": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg",
-        "fr": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg"
+        "fr": "vendeur-dans-tout-le-magasin-genossenschaft-migros-ostschweiz-nurensdorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1388,6 +1440,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf",
+          "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg"
+        ],
+        "en": [
+          "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg"
+        ],
+        "fr": [
           "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg"
         ]
       },
@@ -6563,9 +6621,9 @@
       "firstSeenAt": "2026-07-02T12:16:59.926Z",
       "slugByLocale": {
         "it": "venditore-denner-ag-frauenfeld",
-        "en": "seller-denner-ag-frauenfeld-008421",
+        "en": "seller-denner-ag-frauenfeld",
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "fr": "vendeur-denner-ag-frauenfeld-008421"
+        "fr": "vendeur-denner-ag-frauenfeld"
       },
       "titleByLocale": {
         "de": "Verkäufer*in",
@@ -6613,9 +6671,7 @@
       "country": "CH",
       "previousSlugs": [
         "seller-denner-ag-frauenfeld-008421",
-        "seller-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld",
         "verkaufer-in-denner-ag-langenthal",
         "verkaufer-in-denner-ag-wattwil",
         "vendeur-denner-ag-wattwil",
@@ -6635,12 +6691,10 @@
       ],
       "previousSlugsByLocale": {
         "en": [
-          "seller-denner-ag-frauenfeld-008421",
-          "seller-denner-ag-frauenfeld"
+          "seller-denner-ag-frauenfeld-008421"
         ],
         "fr": [
-          "vendeur-denner-ag-frauenfeld-008421",
-          "vendeur-denner-ag-frauenfeld"
+          "vendeur-denner-ag-frauenfeld-008421"
         ],
         "it": [
           "verkaufer-in-denner-ag-langenthal",
@@ -64980,8 +65034,7 @@
         "teaching-groupfitness-in-hourly-wage-genossenschaft-migros-ostschweiz-chur",
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
-        "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
-        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur"
+        "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -69184,8 +69237,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,

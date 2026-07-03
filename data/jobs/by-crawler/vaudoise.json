@@ -2837,8 +2837,8 @@
       "slugByLocale": {
         "fr": "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch",
         "it": "hris-expert-m-f-x-100-contratto-a-tempo-determinato-di-2-anni-vaudoise-assurances-lausanne",
-        "en": "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch",
-        "de": "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+        "en": "expert-sirh-expert-h-f-x-100-csd-2-years-vaudoise-assurances-lausanne",
+        "de": "experte-sirh-experte-h-f-x-100-csd-2-jahre-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2897,6 +2897,12 @@
       "firstSeenAt": "2026-07-03T12:42:21.749Z",
       "previousSlugsByLocale": {
         "it": [
+          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+        ],
+        "en": [
+          "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
+        ],
+        "de": [
           "expert-experte-sirh-h-f-x-100-cdd-2-ans-vaudoise-ch"
         ]
       },

@@ -690,8 +690,8 @@
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
         "it": "specialista-diplomatico-in-radiologia-hf-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+        "en": "dipl-radiology-specialist-hf-spital-thurgau-stgag-munsterlingen",
+        "fr": "dipl-specialiste-de-radiologie-hf-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -738,6 +738,12 @@
         "it": [
           "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
           "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [

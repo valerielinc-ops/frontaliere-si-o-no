@@ -560,8 +560,8 @@
       "slugByLocale": {
         "fr": "medecin-chef-fe-adjoint-e-a-70-90-soins-intensifs-rhne-reseau-hospitalier-neuchatelois",
         "it": "vice-capo-medico-in-terapia-intensiva-70-90-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "medecin-chef-fe-adjoint-e-a-70-90-soins-intensifs-rhne-reseau-hospitalier-neuchatelois",
-        "de": "medecin-chef-fe-adjoint-e-a-70-90-soins-intensifs-rhne-reseau-hospitalier-neuchatelois"
+        "en": "70-90-assistant-chief-medical-officer-intensive-care-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "70-90-assistant-chief-medical-officer-intensivpflege-reseau-hospitalier-neuchatelois-rhne-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
@@ -609,6 +609,12 @@
         "it": [
           "medecin-chef-fe-adjoint-e-a-70-90-soins-intensifs-rhne-reseau-hospitalier-neuchatelois",
           "medecin-chef-fe-adjoint-e-a-70-90-soins-intensifs-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+        ],
+        "en": [
+          "medecin-chef-fe-adjoint-e-a-70-90-soins-intensifs-rhne-reseau-hospitalier-neuchatelois"
+        ],
+        "de": [
+          "medecin-chef-fe-adjoint-e-a-70-90-soins-intensifs-rhne-reseau-hospitalier-neuchatelois"
         ]
       },
       "previousSlugs": [

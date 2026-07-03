@@ -1508,8 +1508,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug",
         "it": "fachperson-gesundheit-cfc-im-stunden-o-monatslohn-40-100-region-agerital-senevita-zug-zg",
-        "en": "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug",
-        "fr": "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug"
+        "en": "health-professional-efz-in-hourly-or-monthly-wage-40-100-region-agerital-senevita-zug-zg",
+        "fr": "efz-professionnel-de-la-sante-en-salaire-horaire-ou-mensuel-40-100-region-agerital-senevita-zug-zg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1555,6 +1555,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-im-stunden-oder-monatslohn-40-100-region-agerital-senevita-zug"
         ]
       },
@@ -2175,8 +2181,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-im-monats-oder-stundenlohnbis-100-senevita-casa-luzern-senevita",
         "it": "fachfrau-mann-gesundheit-im-monats-o-stundenlohnbis-100-senevita-casa-luzern-senevita-casa-unterwalden",
-        "en": "fachfrau-mann-gesundheit-im-monats-oder-stundenlohnbis-100-senevita-casa-luzern-senevita",
-        "fr": "fachfrau-mann-gesundheit-im-monats-oder-stundenlohnbis-100-senevita-casa-luzern-senevita"
+        "en": "professional-health-in-monthly-or-hourly-wages-up-to-100-senevita-casa-luzern-senevita-casa-unterwalden",
+        "fr": "sante-professionnelle-en-salaire-mensuel-ou-horaire-jusqu-a-100-senevita-casa-luzern-senevita-casa-unterwalden"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -2222,6 +2228,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-im-monats-oder-stundenlohnbis-100-senevita-casa-luzern-senevita"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-im-monats-oder-stundenlohnbis-100-senevita-casa-luzern-senevita"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-im-monats-oder-stundenlohnbis-100-senevita-casa-luzern-senevita"
         ]
       },
@@ -4625,8 +4637,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg",
         "it": "dipl-pflegefachperson-im-monats-o-stundenlohn-50-100-region-agerital-senevita-zug-zg",
-        "en": "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg",
-        "fr": "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg"
+        "en": "dipl-nurse-in-monthly-or-hourly-wage-50-100-region-agerital-senevita-zug-zg",
+        "fr": "dipl-infirmiere-en-salaire-mensuel-ou-horaire-50-100-region-agerital-senevita-zug-zg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -4672,6 +4684,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg"
+        ],
+        "fr": [
           "dipl-pflegefachperson-im-monats-oder-stundenlohn-50-100-region-agerital-senevita-zug-zg"
         ]
       },
@@ -5332,8 +5350,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-bis-100-senevita-casa-luzern-senevita-casa-unterwalden",
         "it": "infermiere-hf-qualificato-fino-al-100-senevita-casa-luzern-senevita-casa-unterwalden",
-        "en": "dipl-pflegefachperson-hf-bis-100-senevita-casa-luzern-senevita-casa-unterwalden",
-        "fr": "dipl-pflegefachperson-hf-bis-100-senevita-casa-luzern-senevita-casa-unterwalden"
+        "en": "dipl-nurse-hf-up-to-100-senevita-casa-luzern-senevita-casa-unterwalden",
+        "fr": "dipl-infirmiere-hf-jusqu-a-100-senevita-casa-luzern-senevita-casa-unterwalden"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -5392,6 +5410,12 @@
       "firstSeenAt": "2026-07-03T12:13:05.458Z",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-bis-100-senevita-casa-luzern-senevita-casa-unterwalden"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-bis-100-senevita-casa-luzern-senevita-casa-unterwalden"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-bis-100-senevita-casa-luzern-senevita-casa-unterwalden"
         ]
       },
@@ -7595,8 +7619,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh",
         "it": "assistent-in-gesundheit-afp-o-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh",
-        "en": "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh",
-        "fr": "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
+        "en": "assistant-health-eba-or-nursing-assistant-srk-60-100-senevita-affoltern-am-albis-zh",
+        "fr": "assistant-en-sante-eba-ou-infirmier-adjoint-srk-60-100-senevita-affoltern-am-albis-zh"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7642,6 +7666,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
+        ],
+        "en": [
+          "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
+        ],
+        "fr": [
           "assistent-in-gesundheit-eba-oder-pflegehelfer-in-srk-60-100-senevita-affoltern-am-albis-zh"
         ]
       },

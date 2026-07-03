@@ -9677,8 +9677,8 @@
       "slugByLocale": {
         "fr": "stage-ressources-humaines-evenements-formation-rolex-ch",
         "it": "tirocinio-risorse-umane-eventi-formazione-rolex-autres-domaines",
-        "en": "stage-ressources-humaines-evenements-formation-rolex-ch",
-        "de": "stage-ressources-humaines-evenements-formation-rolex-ch"
+        "en": "internship-human-resources-events-training-rolex-autres-domaines",
+        "de": "praktikum-human-resources-veranstaltungen-training-rolex-autres-domaines"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9734,6 +9734,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stage-ressources-humaines-evenements-formation-rolex-ch"
+        ],
+        "en": [
+          "stage-ressources-humaines-evenements-formation-rolex-ch"
+        ],
+        "de": [
+          "stage-ressources-humaines-evenements-formation-rolex-ch"
         ]
       },
       "previousSlugs": [
@@ -9746,8 +9752,8 @@
       "slugByLocale": {
         "fr": "controleur-qualite-h-f-rolex-ch",
         "it": "controller-di-qualita-m-f-rolex-bienne",
-        "en": "controleur-qualite-h-f-rolex-ch",
-        "de": "controleur-qualite-h-f-rolex-ch"
+        "en": "quality-controller-h-f-rolex-bienne",
+        "de": "qualitatskontrolleur-h-f-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9804,6 +9810,12 @@
       "firstSeenAt": "2026-07-03T12:03:29.034Z",
       "previousSlugsByLocale": {
         "it": [
+          "controleur-qualite-h-f-rolex-ch"
+        ],
+        "en": [
+          "controleur-qualite-h-f-rolex-ch"
+        ],
+        "de": [
           "controleur-qualite-h-f-rolex-ch"
         ]
       },

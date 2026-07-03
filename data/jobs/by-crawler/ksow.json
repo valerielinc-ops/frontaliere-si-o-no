@@ -847,8 +847,8 @@
       "slugByLocale": {
         "de": "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
         "it": "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen",
-        "en": "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-        "fr": "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
+        "en": "lead-doctor-doctor-of-internal-medicine-focus-on-geriatrics-kantonsspital-obwalden-sarnen",
+        "fr": "medecin-chef-de-file-docteur-en-medecine-interne-focalisation-sur-la-geriatrie-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -906,6 +906,12 @@
       "firstSeenAt": "2026-07-03T11:40:10.443Z",
       "previousSlugsByLocale": {
         "it": [
+          "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
+        ],
+        "en": [
+          "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
+        ],
+        "fr": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
         ]
       },
