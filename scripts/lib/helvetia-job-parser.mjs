@@ -12,6 +12,14 @@
  *
  * Canton SG, postal 9001 (Dufourstrasse 40, St. Gallen).
  *
+ * Post-merger overlap (2026-07): medium 1005736 also carries "Baloise Bank"
+ * postings (workplace = Solothurn/Oensingen, `sza_workplace` starting with
+ * "Baloise ") — these are branded/operated as Baloise, not Helvetia, so they
+ * are excluded here via `filterListing` and instead surface under the
+ * dedicated `baloise-job-parser.mjs` (same tenant, inverse filter). Without
+ * this split every "Baloise ..." listing would double-count under both
+ * companyKeys.
+ *
  * Uses the shared Prospective.ch factory.
  */
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
@@ -32,6 +40,8 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://jobs.helvetia.com/',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.helvetia.com'],
+  sharedMedium: true,
+  filterListing: (listing) => !/^\s*baloise/i.test(String(listing?.szas?.sza_workplace || '')),
 });
 
 export const fetchAllHelvetiaJobs = parser.fetchAllJobs;
