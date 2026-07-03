@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
   printPublishedJobUrls,
@@ -282,7 +283,7 @@ async function mergeJobs(discoveredJobs) {
         titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
-        previousSlugs: [...new Set([...(existingJob.previousSlugs || []), ...(discovered.previousSlugs || [])])].slice(0, 20),
+        previousSlugs: mergePreviousSlugsCapped(existingJob.previousSlugs, discovered.previousSlugs, { jobId: existingJob.id || discovered.id, source: 'update-guess-jobs.mjs' }),
       });
       updated += 1;
     } else {

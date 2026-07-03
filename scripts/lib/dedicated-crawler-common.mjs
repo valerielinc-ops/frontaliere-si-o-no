@@ -5642,7 +5642,17 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         const oldArr = Array.isArray(old.previousSlugsByLocale[locale]) ? old.previousSlugsByLocale[locale] : [];
         const freshArr = Array.isArray(fresh.previousSlugsByLocale?.[locale]) ? fresh.previousSlugsByLocale[locale] : [];
         const merged = [...new Set([...oldArr, ...freshArr])];
-        if (merged.length > 0) fresh.previousSlugsByLocale[locale] = merged.slice(0, 20);
+        if (merged.length > 0) {
+          const capped = merged.slice(0, 20);
+          if (merged.length > capped.length) {
+            recordSlugMutation({
+              jobId: fresh.id, locale, slug: '<oldest>', action: 'cap-trim',
+              source: 'dedicated-crawler-common.mergePreserveLocaleData',
+              reason: `cap=20, trimmed=${merged.length - capped.length}`,
+            });
+          }
+          fresh.previousSlugsByLocale[locale] = capped;
+        }
       }
     }
     // Sync flat previousSlugs from locale-aware entries (ensures no desync
@@ -6072,20 +6082,37 @@ function syncLegacyPreviousSlugs(job, cap = 20) {
   if (all.size === 0) {
     delete job.previousSlugs;
   } else {
-    job.previousSlugs = [...all].slice(0, cap);
+    const union = [...all];
+    const capped = union.slice(0, cap);
+    if (union.length > capped.length) {
+      recordSlugMutation({
+        jobId: job.id, locale: null, slug: '<oldest>', action: 'cap-trim',
+        source: 'dedicated-crawler-common.syncLegacyPreviousSlugs',
+        reason: `cap=${cap}, trimmed=${union.length - capped.length}`,
+      });
+    }
+    job.previousSlugs = capped;
   }
 }
 
 /**
  * Merge two previousSlugsByLocale objects. Used by preferJob and dedup merges.
  */
-function mergePreviousSlugsByLocale(a, b) {
+function mergePreviousSlugsByLocale(a, b, jobId = null, source = 'mergePreviousSlugsByLocale') {
   if (!a && !b) return undefined;
   const result = {};
   for (const locale of LOCALES) {
     const aArr = (a && Array.isArray(a[locale])) ? a[locale] : [];
     const bArr = (b && Array.isArray(b[locale])) ? b[locale] : [];
-    const merged = [...new Set([...aArr, ...bArr])].slice(0, 20);
+    const union = [...new Set([...aArr, ...bArr])];
+    const merged = union.slice(0, 20);
+    if (jobId && union.length > merged.length) {
+      recordSlugMutation({
+        jobId, locale, slug: '<oldest>', action: 'cap-trim',
+        source: `dedicated-crawler-common.${source}`,
+        reason: `cap=20, trimmed=${union.length - merged.length}`,
+      });
+    }
     if (merged.length > 0) result[locale] = merged;
   }
   return Object.keys(result).length > 0 ? result : undefined;
@@ -6121,13 +6148,24 @@ export function preferJob(a, b) {
  * captureLostSlugs) — no new mechanism.
  */
 function mergeDuplicateJobPreservingSlugHistory(a, b) {
-  const mergedPreviousSlugs = [
+  const jobId = a.id || b.id;
+  const previousSlugsUnion = [
     ...new Set([
       ...(Array.isArray(a.previousSlugs) ? a.previousSlugs : []),
       ...(Array.isArray(b.previousSlugs) ? b.previousSlugs : []),
     ]),
-  ].slice(0, 20);
-  const mergedPreviousSlugsByLocale = mergePreviousSlugsByLocale(a.previousSlugsByLocale, b.previousSlugsByLocale);
+  ];
+  const mergedPreviousSlugs = previousSlugsUnion.slice(0, 20);
+  if (previousSlugsUnion.length > mergedPreviousSlugs.length) {
+    recordSlugMutation({
+      jobId, locale: null, slug: '<oldest>', action: 'cap-trim',
+      source: 'dedicated-crawler-common.mergeDuplicateJobPreservingSlugHistory',
+      reason: `cap=20, trimmed=${previousSlugsUnion.length - mergedPreviousSlugs.length}`,
+    });
+  }
+  const mergedPreviousSlugsByLocale = mergePreviousSlugsByLocale(
+    a.previousSlugsByLocale, b.previousSlugsByLocale, jobId, 'mergeDuplicateJobPreservingSlugHistory',
+  );
 
   const chosen = preferJob(a, b);
   if (mergedPreviousSlugs.length > 0) chosen.previousSlugs = mergedPreviousSlugs;
@@ -6236,6 +6274,21 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       insertedByCompany[next.company] = (insertedByCompany[next.company] || 0) + 1;
       continue;
     }
+    const mergeJobId = prev.id || next.id;
+    const previousSlugsUnion = [
+      ...new Set([
+        ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),
+        ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
+      ])
+    ];
+    const mergedPreviousSlugsCapped = previousSlugsUnion.slice(0, 20);
+    if (previousSlugsUnion.length > mergedPreviousSlugsCapped.length) {
+      recordSlugMutation({
+        jobId: mergeJobId, locale: null, slug: '<oldest>', action: 'cap-trim',
+        source: 'dedicated-crawler-common.mergeAndDeduplicate',
+        reason: `cap=20, trimmed=${previousSlugsUnion.length - mergedPreviousSlugsCapped.length}`,
+      });
+    }
     const best = {
       ...prev,
       ...next,
@@ -6252,13 +6305,8 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120, next.sourceLang || prev.sourceLang || null),
       requirementsByLocale: mergeLocaleRequirementsMap(prev.requirementsByLocale || {}, next.requirementsByLocale || {}),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
-      previousSlugs: [
-        ...new Set([
-          ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),
-          ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
-        ])
-      ].slice(0, 20),
-      previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale),
+      previousSlugs: mergedPreviousSlugsCapped,
+      previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale, mergeJobId, 'mergeAndDeduplicate'),
     };
     if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
       best.titleByLocale = { ...(prev.titleByLocale || {}) };
@@ -6315,6 +6363,15 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (best._targetScope && !chosen._targetScope) {
       chosen._targetScope = best._targetScope;
     }
+    // preferJob() may return `prev` wholesale (e.g. quality/recency tie) even
+    // though `best` holds the properly-unioned, cap-trimmed, journaled
+    // previousSlugs/previousSlugsByLocale — same bare-preferJob() pattern
+    // #3284 fixed for mergeDuplicateJobPreservingSlugHistory. Without this,
+    // whichever side preferJob discards takes its slug history down with it,
+    // untracked. Force the merged history onto whichever side won.
+    chosen.previousSlugs = mergedPreviousSlugsCapped;
+    if (best.previousSlugsByLocale) chosen.previousSlugsByLocale = best.previousSlugsByLocale;
+    else delete chosen.previousSlugsByLocale;
     // Preserve lost slugs: applied after preferJob so it works regardless of which
     // object was picked. Uses shared captureLostSlugs function.
     captureLostSlugs(chosen, prev.slugByLocale || {}, prev.slug || '');

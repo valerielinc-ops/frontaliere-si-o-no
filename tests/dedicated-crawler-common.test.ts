@@ -2,7 +2,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
 describe('dedicated-crawler-common locale hardening', () => {
   it('flags wrong-language copied locales for retranslation without deleting (deploy has no AI)', () => {
@@ -953,5 +954,126 @@ describe('mergeAndDeduplicate — previousSlugs history preserved across duplica
       ...(Array.isArray(merged.previousSlugs) ? merged.previousSlugs : []),
     ];
     expect(allEn).toContain('sales-associate-coop-old');
+  });
+
+  // Regression tests for issues #3313/#3314: every previousSlugs-history
+  // cap-trim (`.slice(0, 20)` keep-oldest) in this file used to drop the
+  // overflow silently, with no journal entry — the same un-journaled
+  // cap-trim construct #3284 fixed for the bare preferJob() drop, just at
+  // a different step (trimming AFTER the union, not the union itself).
+  // Each site must now call recordSlugMutation({action: 'cap-trim', ...})
+  // for every entry it trims beyond the 20-cap.
+  it('journals cap-trim (not silent-drop) when the existing-vs-existing union exceeds the 20-entry cap (mergeDuplicateJobPreservingSlugHistory)', () => {
+    clearSlugHistoryJournal();
+    const base = {
+      title: 'Warehouse Operator',
+      company: 'Coop',
+      location: 'Ticino',
+      url: 'https://example.com/jobs/dup-cap-1',
+      description: 'C'.repeat(50),
+      slug: 'warehouse-operator-coop',
+      slugByLocale: { it: 'warehouse-operator-coop' },
+      postedDate: '2026-06-30',
+      crawledAt: '2026-06-30T00:00:00.000Z',
+    };
+    const existingA = { ...base, id: 'job-cap-a', previousSlugs: Array.from({ length: 15 }, (_, i) => `a-slug-${i}`) };
+    const existingB = { ...base, id: 'job-cap-b', previousSlugs: Array.from({ length: 15 }, (_, i) => `b-slug-${i}`) };
+
+    const result = mergeAndDeduplicate([existingA, existingB], [], cfg);
+    const jobs = result.merged;
+    expect(jobs.length).toBe(1);
+    const merged = jobs[0];
+
+    // 30 unique entries capped to 20 — the merge must not silently drop
+    // the other 10; it must journal a cap-trim event for them.
+    expect(merged.previousSlugs.length).toBe(20);
+    const trims = getEvents().filter((e) => e.action === 'cap-trim');
+    expect(trims.some((e) => e.source.includes('mergeDuplicateJobPreservingSlugHistory'))).toBe(true);
+  });
+
+  it('journals cap-trim (not silent-drop) on the incoming-vs-existing merge path when previousSlugs/previousSlugsByLocale union exceeds the cap (mergeAndDeduplicate "best" merge)', () => {
+    clearSlugHistoryJournal();
+    const existing = {
+      id: 'job-cap-c',
+      title: 'Logistics Coordinator',
+      company: 'Coop',
+      location: 'Ticino',
+      url: 'https://example.com/jobs/dup-cap-2',
+      description: 'D'.repeat(50),
+      slug: 'logistics-coordinator-coop',
+      slugByLocale: { it: 'logistics-coordinator-coop' },
+      postedDate: '2026-06-30',
+      crawledAt: '2026-06-30T00:00:00.000Z',
+      previousSlugs: Array.from({ length: 15 }, (_, i) => `existing-slug-${i}`),
+      previousSlugsByLocale: { it: Array.from({ length: 15 }, (_, i) => `existing-it-${i}`) },
+    };
+    const incoming = {
+      ...existing,
+      id: undefined,
+      crawledAt: '2026-07-01T00:00:00.000Z',
+      previousSlugs: Array.from({ length: 15 }, (_, i) => `incoming-slug-${i}`),
+      previousSlugsByLocale: { it: Array.from({ length: 15 }, (_, i) => `incoming-it-${i}`) },
+    };
+
+    const result = mergeAndDeduplicate([existing], [incoming], cfg);
+    const jobs = result.merged;
+    expect(jobs.length).toBe(1);
+    const merged = jobs[0];
+
+    // Both the flat union (30→20) and the per-locale union (30→20) must be
+    // capped WITHOUT silently discarding the overflow — each must journal.
+    expect(merged.previousSlugs.length).toBe(20);
+    expect(merged.previousSlugsByLocale.it.length).toBe(20);
+    const trims = getEvents().filter((e) => e.action === 'cap-trim');
+    expect(trims.some((e) => e.source.includes('mergeAndDeduplicate'))).toBe(true);
+  });
+});
+
+describe('mergePreserveLocaleData — cap-trim journaling (#3313/#3314)', () => {
+  beforeEach(() => clearSlugHistoryJournal());
+
+  it('journals cap-trim when merged previousSlugsByLocale[locale] exceeds the 20-entry cap', () => {
+    const oldArr = Array.from({ length: 15 }, (_, i) => `old-it-${i}`);
+    const freshArr = Array.from({ length: 15 }, (_, i) => `fresh-it-${i}`);
+    const existingJobs = [{
+      id: 'job-mpl-1',
+      url: 'https://example.com/jobs/mpl-1',
+      previousSlugsByLocale: { it: oldArr },
+    }];
+    const freshJobs = [{
+      id: 'job-mpl-1',
+      url: 'https://example.com/jobs/mpl-1',
+      previousSlugsByLocale: { it: freshArr },
+    }];
+
+    const [merged] = mergePreserveLocaleData(existingJobs, freshJobs, { matchKey: (j) => j.id });
+    expect(merged.previousSlugsByLocale.it).toHaveLength(20);
+    const trims = getEvents().filter((e) => e.action === 'cap-trim');
+    expect(trims.some((e) => e.source.includes('mergePreserveLocaleData'))).toBe(true);
+  });
+
+  it('journals cap-trim in syncLegacyPreviousSlugs when the flat previousSlugs union across locales exceeds the cap', () => {
+    const existingJobs = [{
+      id: 'job-mpl-2',
+      url: 'https://example.com/jobs/mpl-2',
+      previousSlugsByLocale: {
+        it: Array.from({ length: 8 }, (_, i) => `it-${i}`),
+        en: Array.from({ length: 8 }, (_, i) => `en-${i}`),
+        de: Array.from({ length: 8 }, (_, i) => `de-${i}`),
+      },
+    }];
+    const freshJobs = [{
+      id: 'job-mpl-2',
+      url: 'https://example.com/jobs/mpl-2',
+      previousSlugsByLocale: {},
+    }];
+
+    const [merged] = mergePreserveLocaleData(existingJobs, freshJobs, { matchKey: (j) => j.id });
+    // Each locale array stays under its own 20-cap (8 entries each), so the
+    // per-locale trim never fires — but the flat legacy union across all
+    // three locales is 24, which DOES exceed the 20-cap.
+    expect(merged.previousSlugs.length).toBe(20);
+    const trims = getEvents().filter((e) => e.action === 'cap-trim');
+    expect(trims.some((e) => e.source.includes('syncLegacyPreviousSlugs'))).toBe(true);
   });
 });

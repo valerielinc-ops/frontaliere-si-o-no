@@ -13,6 +13,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -206,7 +207,7 @@ async function mergeJobs(discoveredJobs) {
       descriptionByLocale: mergedDescByLocale,
       slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
       needsRetranslation: true,
-      previousSlugs: [...new Set([...(old.previousSlugs || []), ...(d.previousSlugs || [])])].slice(0, 20),
+      previousSlugs: mergePreviousSlugsCapped(old.previousSlugs, d.previousSlugs, { jobId: old.id || d.id, source: 'update-zambon-jobs.mjs' }),
     }); updated++; }
     else { merged.push(d); added++; }
   }

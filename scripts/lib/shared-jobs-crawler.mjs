@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
+import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, printRunSummary } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
 import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
@@ -5623,6 +5623,10 @@ async function main() {
     if (aiStats.exhaustedModels.length > 0) {
       console.log(`🚫 Exhausted: ${aiStats.exhaustedModels.join(', ')}`);
     }
+    // FRO-325: full run summary (cache hits, provider cooldowns, 429
+    // streaks, error count) — superset of the calls/successes/retries
+    // lines above, not tracked anywhere else in this pipeline (#3091).
+    printRunSummary();
     _lastPrintedAiCallCount = currentAiCallCount;
   }
 

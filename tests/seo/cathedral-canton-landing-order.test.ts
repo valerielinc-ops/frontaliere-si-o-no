@@ -51,7 +51,23 @@ describe('canton landing mobile-first element order (CLAUDE.md #17)', () => {
         // the real assertions.
         return;
       }
-      const html = fs.readFileSync(file, 'utf8');
+      const rawHtml = fs.readFileSync(file, 'utf8');
+      // Strip <script>...</script> blocks (JSON-LD structured data) before
+      // measuring element order. The CollectionPage/ItemList schema emitted
+      // in <head> embeds each job's raw title (`mainEntity.itemListElement[]
+      // .name`), and those titles are free text pulled straight from the
+      // source job posting — e.g. a Swiss job board commonly titles listings
+      // "... (Working Student) 60%". That English loanword collided with the
+      // `proseCandidates` marker below and put a false "prose" hit inside
+      // <head>, far before the real prose section, even though the actual
+      // rendered body order was correct all along (root cause of #3232 —
+      // zurigo just happened to have a job titled with "Working" in the
+      // canton page's job list; ginevra/vaud's current job titles didn't
+      // happen to contain "Travailler"/"Working", masking the same
+      // false-positive risk). Stripping <script> blocks scopes every marker
+      // search to actual rendered markup, closing this class of false
+      // positive for every locale/canton, not just zurigo.
+      const html = rawHtml.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
 
       const h1 = html.indexOf('<h1');
       const tiles = html.indexOf('data-stat-tile-grid');

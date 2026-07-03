@@ -36,6 +36,7 @@
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FETCH_TIMEOUT_MS = 10_000;
@@ -93,40 +94,6 @@ function extractSameOriginLinks(html, pageUrl) {
   return [...out];
 }
 
-/** Run `worker(item)` over `items` with at most `concurrency` in flight. */
-async function runWithConcurrency(items, concurrency, worker) {
-  let cursor = 0;
-  const results = new Array(items.length);
-  async function run() {
-    while (cursor < items.length) {
-      const i = cursor;
-      cursor += 1;
-      results[i] = await worker(items[i], i);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(concurrency, items.length || 1) }, run));
-  return results;
-}
-
-/** HEAD-check a single URL; falls back to a ranged GET if the origin rejects
- * HEAD (some static hosts / edge configs return 405/501 for it). */
-async function checkLink(url) {
-  try {
-    const res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(HEAD_TIMEOUT_MS) });
-    if (res.status === 405 || res.status === 501) {
-      const getRes = await fetch(url, {
-        method: 'GET',
-        headers: { Range: 'bytes=0-0' },
-        signal: AbortSignal.timeout(HEAD_TIMEOUT_MS),
-      });
-      return getRes.ok || getRes.status === 206;
-    }
-    return res.ok;
-  } catch {
-    return false;
-  }
-}
-
 /** Fetch a live page + check all its same-origin outlinks. Returns the
  * linkCheck result shape (services/journalistTypes.ts JournalistArticleLinkCheckResult). */
 async function checkPageLinks(pageUrl) {
@@ -138,7 +105,7 @@ async function checkPageLinks(pageUrl) {
   const brokenUrls = [];
   let brokenCount = 0;
   await runWithConcurrency(links, HEAD_CONCURRENCY, async (url) => {
-    const ok = await checkLink(url);
+    const ok = await checkLink(url, HEAD_TIMEOUT_MS);
     if (ok) return;
     brokenCount += 1;
     if (brokenUrls.length < MAX_BROKEN_URLS_STORED) brokenUrls.push(url);
