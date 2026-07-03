@@ -78,6 +78,17 @@ jobs:
           node scripts/analytics-report.mjs $FLAGS
         continue-on-error: true
 
+      - name: Sync app_error issues to backlog
+        # Turns the errorHealth.appErrors block just computed above into
+        # deduplicated GitHub issues (top offenders, threshold-gated) — see
+        # scripts/app-error-issue-sync.mjs. Report-only: never fails the job.
+        if: always()
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/app-error-issue-sync.mjs
+        continue-on-error: true
+
       - name: Generate Report Summary
         if: always()
         run: |
