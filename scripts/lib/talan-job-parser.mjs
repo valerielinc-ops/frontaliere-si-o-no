@@ -39,8 +39,9 @@ const CAREER_URL = `https://careers.smartrecruiters.com/${SR_TENANT}`;
 const HQ = {
   city: 'Genève',
   canton: 'GE',
-  postalCode: '1204',
+  postalCode: '1201',
   region: 'Genève',
+  streetAddress: 'Place Ruth-Bösiger 6',
 };
 
 const SECTOR = 'IT / SAP / AI Consulting';
@@ -134,18 +135,22 @@ function detectEmploymentType(text = '') {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Pick the best postal code / region / city from a raw SmartRecruiters
- * posting location, falling back to the documented Geneva HQ address.
+ * Pick the best postal code / street address / region / city from a raw
+ * SmartRecruiters posting location. Raw values only — the HQ canton-gated
+ * fallback (postalCode/streetAddress) is applied by the caller once the
+ * job's resolved canton is known, never unconditionally here.
  */
 function resolveAddress(rawLoc = {}) {
   const city = (rawLoc.city || rawLoc.fullLocation || '').trim();
   const postalCode = (rawLoc.postalCode || '').trim();
   const region = (rawLoc.region || '').trim();
+  const streetAddress = normalizeSpace(rawLoc.address || '');
 
   return {
     city: city || HQ.city,
     postalCode,
     region: region || '',
+    streetAddress,
   };
 }
 
@@ -211,7 +216,7 @@ export async function fetchAllTalanJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const { city, postalCode, region } = resolveAddress(listing.rawLocation);
+    const { city, postalCode, region, streetAddress } = resolveAddress(listing.rawLocation);
     const location = normalizeSpace(listing.location || city || HQ.city);
     const canton =
       inferSwissTargetCanton(location) ||
@@ -255,6 +260,7 @@ export async function fetchAllTalanJobs() {
       addressLocality: city || location,
       addressRegion: region || canton,
       postalCode: postalCode || (/gen[eè]ve|geneva/i.test(location) ? HQ.postalCode : ''),
+      streetAddress: streetAddress || (/gen[eè]ve|geneva/i.test(location) ? HQ.streetAddress : ''),
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
