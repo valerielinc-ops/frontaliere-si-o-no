@@ -452,6 +452,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'swisscom-sede-ticino': gFavicon('swisscom.ch'),
  'swissquote': cLogo('swissquote.com'),
  'szb-chb': cLogo('szb-chb.ch'),
+ 'talan': cLogo('talan.com'),
  'tally-weijl': '/images/brands/tally-weijl.png',
  'tarchini-group': cLogo('tarchinigroup.com'),
  'tecan': cLogo('tecan.com'),
