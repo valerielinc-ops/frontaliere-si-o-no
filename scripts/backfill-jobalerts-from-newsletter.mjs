@@ -31,7 +31,13 @@
  * data either, but it's a correct zero-cost catch-all. A 3rd tier derives
  * signal from the `private/personalization` subcollection (`viewedJobs[]`,
  * `filterUsage`) for subscribers still unresolved after tiers 1/2 — read
- * lazily, only for the `no-signal` remainder, via `resolveSignalTier`.
+ * lazily, gated on `getSignalTier` (tiers 1/2 only, NOT the 4th URL
+ * fallback below — a job-board URL alone must never skip this read, since
+ * `resolveSignalTier` prefers the richer tier-3 signal over tier 4 when
+ * both are available). A 4th tier derives a canton from the job-board URL
+ * the subscriber landed on (`consent_source_url`/`source_page`) when tiers
+ * 1/2/3 all found nothing — see `jobAlertBackfillCore.js` for the full
+ * tier rationale.
  *
  * The backfilled alert is deliberately near-empty (`keywords: []`,
  * `locations: []`, `cantonFilter: null`): `buildAlertProfile`
@@ -61,6 +67,7 @@ import {
   MAX_ALERTS_PER_USER,
   ALERT_ID,
   normalizeEmail,
+  getSignalTier,
   shouldSkipSubscriber,
   buildAlertPayload,
   resolveSignalTier,
@@ -68,7 +75,15 @@ import {
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
-export { MAX_ALERTS_PER_USER, ALERT_ID, normalizeEmail, shouldSkipSubscriber, buildAlertPayload, resolveSignalTier };
+export {
+  MAX_ALERTS_PER_USER,
+  ALERT_ID,
+  normalizeEmail,
+  getSignalTier,
+  shouldSkipSubscriber,
+  buildAlertPayload,
+  resolveSignalTier,
+};
 
 let _db = null;
 async function getFirestoreAdmin() {
@@ -104,13 +119,18 @@ async function main() {
     const channel = data.source_channel || 'unknown';
     byChannel[channel] = byChannel[channel] || { created: 0, skipped: 0 };
 
-    let skipReason = shouldSkipSubscriber(email, data);
     // Lazy tier-3 lookup: only pay for the extra `private/personalization`
-    // read when the flat fields alone resolve nothing — cheap for the
-    // majority who already carry job_category/location_interest, an extra
-    // read only for the "no-signal" remainder (see resolveSignalTier).
+    // read when tiers 1/2 (flat job_category/location_interest/geo_city)
+    // alone resolve nothing — cheap for the majority who already carry
+    // those fields. Gated on `getSignalTier` (tiers 1/2 ONLY), not on
+    // `shouldSkipSubscriber`/`resolveSignalTier` — those also resolve tier
+    // 4 (URL) from the same flat data, and tier 4 alone finding a canton
+    // must never skip this read: resolveSignalTier checks tier 3 before
+    // tier 4, so a subscriber with both a job-board URL AND real browsing
+    // data (job_category/sector, not just canton) deserves the richer
+    // signal, not just whatever tier 4 found first.
     let personalization = null;
-    if (skipReason === 'no-signal') {
+    if (getSignalTier(data) === 'none') {
       const personalizationSnap = await db
         .collection('newsletter_subscribers')
         .doc(email)
@@ -119,9 +139,9 @@ async function main() {
         .get();
       if (personalizationSnap.exists) {
         personalization = personalizationSnap.data();
-        skipReason = shouldSkipSubscriber(email, data, personalization);
       }
     }
+    const skipReason = shouldSkipSubscriber(email, data, personalization);
     if (skipReason) {
       counts[skipReason]++;
       byChannel[channel].skipped++;
