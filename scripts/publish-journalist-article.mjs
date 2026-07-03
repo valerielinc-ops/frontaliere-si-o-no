@@ -14,8 +14,19 @@
  *   4. Runs the article through translateArticle() → enforceStrongInternalLinks()
  *      → registerArticleFiles() — the IDENTICAL multi-language registration
  *      pipeline automated content goes through (no parallel/duplicate system).
- *   5. Stamps the Firestore doc `published`/`failed` and sends a best-effort
- *      "your article is live" email.
+ *   5. Stamps the Firestore doc `published`/`failed` with `liveVerifiedAt: null`.
+ *
+ * `published` here means "files registered, awaiting the CALLING WORKFLOW's
+ * commit + the deploy it triggers" — NOT yet live. The "your article is
+ * online" email is intentionally NOT sent from this script: at this point
+ * the commit/push/deploy haven't even started, so the URLs in that email
+ * would 404 for minutes (deploy queues get backed up behind other commits —
+ * see incident notes). scripts/notify-journalist-article-live.mjs, triggered
+ * after "Deploy to GitHub Pages" actually succeeds, curls the published URLs
+ * and only then stamps `liveVerifiedAt` + sends the email. The dashboard
+ * (JournalistDashboardPage.tsx) mirrors this: status 'published' without
+ * `liveVerifiedAt` shows an "in fase di pubblicazione" pending state, not
+ * clickable links.
  *
  * Repo file writes (router/registry/i18n/SEO/sitemap/RSS) are committed to main
  * by the CALLING WORKFLOW (.github/workflows/publish-journalist-articles.yml),
@@ -46,6 +57,7 @@ import {
   validateAndEnforceCTA,
   optimizeSeoMetadata,
   normalizeTitleCasing,
+  collapseShoutingTitle,
   splitBodyIntoSections,
   generateExcerpt,
   checkTranslatedSlugCollisions,
@@ -119,7 +131,7 @@ function buildPipelineData(docId, doc) {
     // auto-generation uses (it never translates alt text either — see its
     // `data.imageAlt = { it/en/de/fr: ... itTitle ... }` fallback block).
     imageAlt: {
-      it: doc.imageAlt || `Immagine editoriale relativa a: ${title}`,
+      it: doc.imageAlt ? collapseShoutingTitle(doc.imageAlt) : `Immagine editoriale relativa a: ${title}`,
       en: `Editorial image related to: ${title}`,
       de: `Redaktionelles Bild zu: ${title}`,
       fr: `Image éditoriale relative à: ${title}`,
@@ -213,44 +225,6 @@ async function resolveHeroImage(data, doc) {
   return { source: 'static-fallback', path: data.image };
 }
 
-/** Best-effort "your article is live" email — never throws. */
-async function sendPublishedEmail(doc, publishedUrls) {
-  try {
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      console.warn('  ⚠️  RESEND_API_KEY not set — skipping publish notification email.');
-      return;
-    }
-    const to = doc.authorEmail;
-    if (!to) return;
-    const linkList = Object.entries(publishedUrls)
-      .map(([locale, url]) => `<li>${locale.toUpperCase()}: <a href="${url}">${url}</a></li>`)
-      .join('');
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        from: 'Frontaliere Ticino <redazione@frontaliereticino.ch>',
-        to,
-        subject: 'Il tuo articolo è online',
-        html:
-          `<h2>Il tuo articolo è stato pubblicato</h2>` +
-          `<p>Ciao ${doc.authorName || ''},</p>` +
-          `<p>Il tuo articolo "${doc.content?.it?.title || ''}" è ora online nelle 4 lingue del sito:</p>` +
-          `<ul>${linkList}</ul>` +
-          `<p>Puoi seguire statistiche e stato pubblicazione dalla tua dashboard.</p>`,
-      }),
-      signal: AbortSignal.timeout(15000),
-    });
-    if (!res.ok) {
-      const errText = await res.text().catch(() => '');
-      console.warn(`  ⚠️  publish notification email failed: Resend ${res.status}: ${errText.slice(0, 200)}`);
-    }
-  } catch (err) {
-    console.warn(`  ⚠️  publish notification email failed (non-fatal): ${err.message}`);
-  }
-}
-
 async function processDoc(db, FieldValue, docSnap) {
   const docId = docSnap.id;
   const doc = docSnap.data();
@@ -329,10 +303,15 @@ async function processDoc(db, FieldValue, docSnap) {
       slugs,
       publishedUrls,
       errorMessage: null,
+      // Explicit null (not omitted): makes "not yet live-verified" a real,
+      // queryable field value from the moment a doc is published, instead of
+      // relying on absence — scripts/notify-journalist-article-live.mjs and
+      // check-journalist-article-links.mjs both filter on falsy
+      // `liveVerifiedAt` in memory (Firestore equality-null wouldn't match
+      // pre-existing docs where the field is absent rather than null).
+      liveVerifiedAt: null,
     });
-    console.log(`  ✅ published: ${publishedUrls.it}`);
-
-    await sendPublishedEmail(doc, publishedUrls);
+    console.log(`  ✅ registered (awaiting deploy): ${publishedUrls.it}`);
 
     return { ok: true, id: data.id };
   } catch (err) {

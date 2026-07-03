@@ -3479,6 +3479,8 @@ Règles :
   'journalistDashboard.detail.failedTitle': 'Échec de la publication',
   'journalistDashboard.detail.failedFallback': 'Une erreur s’est produite lors de la publication. Corrigez l’article et soumettez-le à nouveau.',
   'journalistDashboard.detail.queuedInfo': 'Votre article est en file d’attente pour la publication. Il sera traité sous peu.',
+  'journalistDashboard.status.publishing': 'En publication',
+  'journalistDashboard.detail.publishingInfo': 'Déploiement en cours : l\'article sera en ligne d\'ici quelques minutes.',
   'journalistDashboard.detail.publishedTitle': 'Article publié',
   'journalistDashboard.detail.urlPending': 'Lien pas encore disponible',
   'journalistDashboard.detail.analyticsHeading': 'Statistiques',

@@ -8235,7 +8235,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Aerial view of Lugano lakefront with tax documents on a desk in the foreground',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'Italy-Switzerland Rebates: The \'Health Tax\' Case',
     'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Let\'s analyze the suspension of the Italy-Switzerland rebates in the light of the Tax Convention and the "health tax", evaluating legal and',
-    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Editorial image related to: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Editorial image related to: La sospensione dei ristorni alla prova della convenzione Italia-Svizzera: il caso della “tassa sulla salute”',
     'blog.article.classifica-dogane-ticino.title': 'Ticino border crossing ranking: the fastest and slowest for wait times',
     'blog.article.classifica-dogane-ticino.excerpt': 'Every border crossing in Ticino, ranked by average wait time: which one is fastest, which is slowest, and how many minutes of your life you gain (or lose) picking one over another.',
     'blog.article.classifica-dogane-ticino.imageAlt': 'Queuing traffic at a Canton Ticino border crossing',

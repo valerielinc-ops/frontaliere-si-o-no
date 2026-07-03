@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-07-02T22:44:59.445Z",
+  "assembledAt": "2026-07-03T11:51:31.791Z",
   "jobs": [
     {
       "id": "company-2oxpfe",
@@ -69,16 +69,16 @@
           "global-payroll-hr-systems-manager-lastminute-com-chiasso",
           "global-payroll-risorse-umane-systems-manager-switzerlandteam"
         ],
-        "fr": [
-          "global-payroll-ressources-humaines-systems-manager-chiasso",
-          "gestionnaire-mondial-des-systemes-de-paye-et-de-rh-switzerlandteam"
-        ],
         "en": [
           "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam",
           "global-payroll-hr-systems-manager-switzerlandteam"
         ],
         "de": [
           "global-payroll-personalwesen-systems-manager-switzerlandteam"
+        ],
+        "fr": [
+          "global-payroll-ressources-humaines-systems-manager-chiasso",
+          "gestionnaire-mondial-des-systemes-de-paye-et-de-rh-switzerlandteam"
         ]
       },
       "previousSlugs": [
@@ -86,10 +86,10 @@
         "global-payroll-hr-systems-manager-switzerlandteam",
         "global-payroll-hr-systems-manager-lastminute-com-chiasso",
         "global-payroll-risorse-umane-systems-manager-switzerlandteam",
-        "global-payroll-ressources-humaines-systems-manager-chiasso",
-        "gestionnaire-mondial-des-systemes-de-paye-et-de-rh-switzerlandteam",
         "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam",
-        "global-payroll-personalwesen-systems-manager-switzerlandteam"
+        "global-payroll-personalwesen-systems-manager-switzerlandteam",
+        "global-payroll-ressources-humaines-systems-manager-chiasso",
+        "gestionnaire-mondial-des-systemes-de-paye-et-de-rh-switzerlandteam"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -107,7 +107,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }

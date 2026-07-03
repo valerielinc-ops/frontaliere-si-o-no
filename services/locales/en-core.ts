@@ -3476,6 +3476,8 @@ Rules:
   'journalistDashboard.detail.failedTitle': 'Publishing failed',
   'journalistDashboard.detail.failedFallback': 'An error occurred while publishing. Fix the article and resubmit.',
   'journalistDashboard.detail.queuedInfo': 'Your article is queued for publishing. It will be processed shortly.',
+  'journalistDashboard.status.publishing': 'Publishing',
+  'journalistDashboard.detail.publishingInfo': 'Deploy in progress: the article will be online within a few minutes.',
   'journalistDashboard.detail.publishedTitle': 'Article published',
   'journalistDashboard.detail.urlPending': 'Link not yet available',
   'journalistDashboard.detail.analyticsHeading': 'Analytics',
