@@ -65,7 +65,7 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary } from './lib/ai-models.mjs';
 // Quota-free MT cascade (DeepL-free / Google / MyMemory / LibreTranslate /
 // local Opus-MT) — the SAME translator the job crawlers + FAQ batch use
 // (scripts/lib/dedicated-crawler-common.mjs, batch-add-faq-to-articles.mjs).
@@ -8914,6 +8914,10 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       console.error(`   ${i + 1}. ${model}: ${score >= 0 ? '+' : ''}${score}`)
     );
   }
+  // FRO-325: full run summary (cache hits, exhausted models, cooldowns,
+  // 429 streaks, error count) — superset of the calls/successes/retries
+  // line above, not tracked anywhere else in this script (#3091).
+  printRunSummary();
 
   finalizeRunReport('generated');
 }
