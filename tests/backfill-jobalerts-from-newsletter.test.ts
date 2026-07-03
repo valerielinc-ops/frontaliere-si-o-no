@@ -34,14 +34,28 @@ describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
 
 describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
   it('builds a near-empty alert that leans on the linked newsletter_subscribers doc for matching', () => {
-    const payload = buildAlertPayload('a@b.ch', { job_category: 'tech', job_slug: 'dev-abc123', locale: 'it' }, null);
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      { job_category: 'tech', job_slug: 'dev-abc123', locale: 'it', source_channel: 'job_gate' },
+      null,
+    );
     expect(payload.keywords).toEqual([]);
     expect(payload.locations).toEqual([]);
     expect(payload.cantonFilter).toBeNull();
     expect(payload.frequency).toBe('daily');
     expect(payload.sourceJobSlug).toBe('dev-abc123');
     expect(payload.active).toBe(true);
-    expect(payload.backfilled_from).toBe('newsletter_subscribers_job_gate');
+    expect(payload.backfilled_from).toBe('newsletter_subscribers:job_gate');
+  });
+
+  it('records the actual source_channel in backfilled_from, not just job_gate', () => {
+    const payload = buildAlertPayload('a@b.ch', { job_category: 'tech', source_channel: 'auth_google' }, null);
+    expect(payload.backfilled_from).toBe('newsletter_subscribers:auth_google');
+  });
+
+  it('falls back to "unknown" in backfilled_from when source_channel is missing', () => {
+    const payload = buildAlertPayload('a@b.ch', { job_category: 'tech' }, null);
+    expect(payload.backfilled_from).toBe('newsletter_subscribers:unknown');
   });
 
   it('defaults locale to it when the subscriber has none', () => {
@@ -69,6 +83,21 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
     expect(payload.matchCount).toBe(0);
     expect(payload.lastMatchedAt).toBeNull();
   });
+
+  it('defaults active to true on first creation', () => {
+    const payload = buildAlertPayload('a@b.ch', { job_category: 'tech' }, null);
+    expect(payload.active).toBe(true);
+  });
+
+  it('never reactivates an alert the user explicitly disabled (deleteAlert sets active:false)', () => {
+    const payload = buildAlertPayload('a@b.ch', { job_category: 'tech' }, { active: false, matchCount: 3 });
+    expect(payload.active).toBe(false);
+  });
+
+  it('keeps active true when the existing backfill doc never set it to false', () => {
+    const payload = buildAlertPayload('a@b.ch', { job_category: 'tech' }, { matchCount: 3 });
+    expect(payload.active).toBe(true);
+  });
 });
 
 describe('backfill-jobalerts-from-newsletter — normalizeEmail', () => {
@@ -79,7 +108,7 @@ describe('backfill-jobalerts-from-newsletter — normalizeEmail', () => {
 
 describe('backfill-jobalerts-from-newsletter — constants', () => {
   it('uses a stable, deterministic alert id for idempotent re-runs', () => {
-    expect(ALERT_ID).toBe('backfill-jobgate');
+    expect(ALERT_ID).toBe('backfill-newsletter');
   });
 
   it('matches the client-side active-alerts cap (services/jobAlertService.ts)', () => {
