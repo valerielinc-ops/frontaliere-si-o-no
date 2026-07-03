@@ -490,7 +490,7 @@ export const COMPANY_HQ = {
   // ── Wave B: 40 crawler batch (issue #3337) ──
   'mistral-ai': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'swissquote': { city: 'Gland', canton: 'VD', postalCode: '1196', addressRegion: 'VD' },
-  'talan': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'talan': { city: 'Genève', canton: 'GE', postalCode: '1201', addressRegion: 'GE' },
   'staubli': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
   'cern': { city: 'Meyrin', canton: 'GE', postalCode: '1211', addressRegion: 'GE' },
   'beekeeper': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
