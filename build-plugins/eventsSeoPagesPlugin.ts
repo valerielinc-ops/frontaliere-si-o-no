@@ -52,6 +52,7 @@ import {
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
+import { osmEmbedSrc } from './shared/seoContentTokens';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -488,6 +489,45 @@ function categoryLabel(category: string | undefined, locale: Locale): string {
   return CATEGORY_LABEL[category]?.[locale] ?? category.charAt(0).toUpperCase() + category.slice(1);
 }
 
+type CategoryTone = 'accent' | 'info' | 'success' | 'warning' | 'neutral';
+
+/** Emoji + color tone per category — decorative only, drives the card media
+ * placeholder and the category chip. `warning`/`success`/etc. here are just
+ * the semantic token names reused for variety, no alert meaning implied. */
+const CATEGORY_VISUAL: Record<string, { emoji: string; tone: CategoryTone }> = {
+  arte: { emoji: '🎨', tone: 'accent' },
+  musica: { emoji: '🎵', tone: 'info' },
+  teatro: { emoji: '🎭', tone: 'warning' },
+  cinema: { emoji: '🎬', tone: 'neutral' },
+  feste: { emoji: '🎉', tone: 'warning' },
+  musei: { emoji: '🖼️', tone: 'accent' },
+  conferenze: { emoji: '🎤', tone: 'info' },
+  sport: { emoji: '⚽', tone: 'success' },
+  appuntamenti: { emoji: '📅', tone: 'neutral' },
+  sociale: { emoji: '🤝', tone: 'success' },
+  altro: { emoji: '✨', tone: 'neutral' },
+};
+
+function categoryVisual(category: string | undefined): { emoji: string; tone: CategoryTone } {
+  return CATEGORY_VISUAL[category ?? ''] ?? CATEGORY_VISUAL.altro;
+}
+
+const TONE_CHIP_CLASSES: Record<CategoryTone, string> = {
+  accent: 'border-accent-border bg-accent-subtle text-accent',
+  info: 'border-info-border bg-info-subtle text-info',
+  success: 'border-success-border bg-success-subtle text-success',
+  warning: 'border-warning-border bg-warning-subtle text-warning',
+  neutral: 'border-neutral-border bg-neutral-subtle text-neutral',
+};
+
+const TONE_GRADIENT_CLASSES: Record<CategoryTone, string> = {
+  accent: 'from-accent-subtle to-surface-raised',
+  info: 'from-info-subtle to-surface-raised',
+  success: 'from-success-subtle to-surface-raised',
+  warning: 'from-warning-subtle to-surface-raised',
+  neutral: 'from-neutral-subtle to-surface-raised',
+};
+
 function esc(value: unknown): string {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -758,6 +798,7 @@ function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
  */
 function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string | null): string {
   const cat = categoryLabel(event.category, locale);
+  const visual = categoryVisual(event.category);
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const place = event.venue ? `${esc(event.venue)}` : '';
@@ -766,16 +807,26 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   const titleLink = detailHref
     ? `<a class="text-link hover:text-link-hover" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
     : `<a class="text-link hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
-  return `<article class="rounded-md border border-edge bg-surface p-4">
-    <div class="flex flex-wrap items-center gap-2 text-xs">
-      <span class="rounded-full border border-info-border bg-info-subtle px-2.5 py-0.5 font-semibold text-info">${esc(cat)}</span>
-      <span class="font-medium text-muted">${esc(when)}${time}</span>
-      ${comuneTag}
+  // `imageUrl` only ever holds a mirrored site-relative path (see
+  // `mirrorEventImage()`); a raw third-party URL is never rendered here
+  // (defense-in-depth, mirrors the same guard in `mirroredEventImageObject`).
+  const media =
+    event.imageUrl && event.imageUrl.startsWith('/')
+      ? `<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(cardTitle)}">`
+      : `<div class="flex h-full w-full items-center justify-center bg-gradient-to-br ${TONE_GRADIENT_CLASSES[visual.tone]} text-5xl" aria-hidden="true">${visual.emoji}</div>`;
+  return `<article class="group overflow-hidden rounded-lg border border-edge bg-surface transition-shadow hover:shadow-lg">
+    <div class="aspect-video w-full overflow-hidden bg-surface-raised">${media}</div>
+    <div class="p-4">
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <span class="rounded-full border px-2.5 py-0.5 font-semibold ${TONE_CHIP_CLASSES[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
+        <span class="font-medium text-muted">${esc(when)}${time}</span>
+        ${comuneTag}
+      </div>
+      <h3 class="mt-2 text-base font-bold leading-snug text-heading">
+        ${titleLink}
+      </h3>
+      ${place ? `<p class="mt-1 text-sm text-body">${esc(COPY[locale].at)} ${place}</p>` : ''}
     </div>
-    <h3 class="mt-2 text-base font-bold leading-snug text-heading">
-      ${titleLink}
-    </h3>
-    ${place ? `<p class="mt-1 text-sm text-body">${esc(COPY[locale].at)} ${place}</p>` : ''}
   </article>`;
 }
 
@@ -843,9 +894,12 @@ export function renderHubPage(params: {
   const comuneGrid = comuneEntries
     .map(
       ([comune, list]) =>
-        `<a class="rounded-md border border-edge bg-surface p-4 hover:border-accent-border" href="${pathFor(locale, canton, comune)}">
-          <span class="block text-sm font-semibold text-heading">${esc(comune)}</span>
-          <span class="mt-1 block text-xs text-muted">${list.length} ${esc(copy.eventsWord)}</span>
+        `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-md" href="${pathFor(locale, canton, comune)}">
+          <span class="min-w-0">
+            <span class="block truncate text-sm font-semibold text-heading">${esc(comune)}</span>
+            <span class="mt-1 block text-xs text-muted">${list.length} ${esc(copy.eventsWord)}</span>
+          </span>
+          <span class="shrink-0 text-lg text-subtle transition-transform group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden="true">→</span>
         </a>`,
     )
     .join('');
@@ -869,10 +923,11 @@ export function renderHubPage(params: {
       <span>${esc(copy.hubLabel)}</span>
     </nav>
 
-    <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
-      <h1 class="max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.hubH1)}</h1>
-      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.hubLede)}</p>
-      <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
+    <header class="relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 sm:p-8" data-speakable>
+      <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">🎉</div>
+      <h1 class="relative max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.hubH1)}</h1>
+      <p class="relative mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.hubLede)}</p>
+      <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
 
     ${cantonSwitcher}
@@ -983,10 +1038,11 @@ export function renderComunePage(params: {
       <span>${esc(comune)}</span>
     </nav>
 
-    <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
-      <h1 class="max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.comuneH1(comune))}</h1>
-      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.comuneLede(comune))}</p>
-      <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
+    <header class="relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-success-subtle p-5 sm:p-8" data-speakable>
+      <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">📍</div>
+      <h1 class="relative max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.comuneH1(comune))}</h1>
+      <p class="relative mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.comuneLede(comune))}</p>
+      <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
 
     <dl class="mt-5 grid gap-3 sm:grid-cols-3">
@@ -1280,6 +1336,28 @@ function addressLine(event: SiteEvent, dc: DetailCopy): string {
   return renderMetric(dc.addressLabel, esc(value));
 }
 
+/** Combined address + map card ("visualizza direttamente l'indirizzo e la
+ * mappa nella pagina" ask): always shows venue/address text, embeds a plain
+ * OpenStreetMap iframe only when the event has real coordinates — never a
+ * fabricated pin from a text search. Google Maps is never embedded (same
+ * outbound-link policy as `osmLink`). */
+function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, map: { href: string; place: string }): string {
+  const addressText =
+    event.address?.street || event.address?.postalCode ? [event.address.street, event.address.postalCode].filter(Boolean).join(', ') : '';
+  const venueOrComune = event.venue || comune;
+  const embed = event.geo
+    ? `<div class="aspect-video w-full overflow-hidden bg-surface-raised"><iframe src="${esc(osmEmbedSrc(event.geo.lat, event.geo.lng))}" width="100%" height="100%" style="border:0;display:block;width:100%;height:100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${esc(dc.mapLinkLabel(map.place))}" aria-label="${esc(dc.mapLinkLabel(map.place))}"></iframe></div>`
+    : '';
+  return `<section class="mt-6 overflow-hidden rounded-lg border border-edge bg-surface">
+    ${embed}
+    <div class="p-5">
+      <h2 class="flex items-center gap-2 text-lg font-bold text-heading"><span aria-hidden="true">📍</span> ${esc(dc.whereLabel)}</h2>
+      <p class="mt-2 text-sm leading-6 text-body">${esc(venueOrComune)}${addressText ? ` · ${esc(addressText)}` : ''}</p>
+      <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
+    </div>
+  </section>`;
+}
+
 export function renderEventDetailPage(params: {
   locale: Locale;
   event: SiteEvent;
@@ -1304,6 +1382,13 @@ export function renderEventDetailPage(params: {
   const others = sameComuneEvents.filter((e) => e.id !== event.id).slice(0, 6);
   const map = osmLink(event, comune);
   const description = localizedDescription(event, locale);
+  const visual = categoryVisual(event.category);
+  // `imageUrl` only ever holds a mirrored site-relative path — see the same
+  // guard in `renderEventCard`/`mirroredEventImageObject`.
+  const heroImage =
+    event.imageUrl && event.imageUrl.startsWith('/')
+      ? `<div class="mb-4 overflow-hidden rounded-lg border border-edge"><img class="aspect-[21/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="514" loading="lazy" alt="${esc(title)}"></div>`
+      : '';
 
   const body = `<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
@@ -1316,8 +1401,10 @@ export function renderEventDetailPage(params: {
       <span>${esc(title)}</span>
     </nav>
 
+    ${heroImage}
+
     <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
-      <span class="inline-block rounded-full border border-info-border bg-info-subtle px-2.5 py-0.5 text-xs font-semibold text-info">${esc(cat)}</span>
+      <span class="inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold ${TONE_CHIP_CLASSES[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
       ${event.recurring ? `<span class="ml-2 inline-block rounded-full border border-edge bg-surface-raised px-2.5 py-0.5 text-xs font-semibold text-heading">${esc(dc.recurringLabel)}</span>` : ''}
       <h1 class="mt-3 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(title)}</h1>
       <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', comune))}</p>
@@ -1333,9 +1420,10 @@ export function renderEventDetailPage(params: {
       ${addressLine(event, dc)}
     </dl>
 
+    ${renderLocationCard(event, comune, dc, map)}
+
     <section class="mt-6 flex flex-wrap gap-3">
       <a class="inline-flex items-center gap-2 rounded-md border border-info-border bg-info-subtle px-4 py-2 text-sm font-semibold text-info hover:bg-info-subtle/80" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
-      <a class="inline-flex items-center gap-2 rounded-md border border-edge px-4 py-2 text-sm font-semibold text-link hover:text-link-hover" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
       <a class="inline-flex items-center gap-2 rounded-md border border-edge px-4 py-2 text-sm font-semibold text-link hover:text-link-hover" href="${comunePath}">${esc(dc.allInComune(comune))} →</a>
     </section>
 

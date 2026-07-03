@@ -103,6 +103,7 @@ import {
   STAT_TILE_WARNING,
   clampSiteSuffix,
   differentiateH1FromTitle,
+  osmEmbedSrc,
 } from './shared/seoContentTokens';
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -2726,12 +2727,8 @@ interface StationLocationInput {
 function renderStationLocationCard(inp: StationLocationInput): string {
   const labels = STATION_REDESIGN[inp.locale];
   const { lat, lng } = inp;
-  // ~600m bbox at the equator; tighter near the poles. OK for the latitudes
-  // covered by Ticino + 4 border cantons.
-  const span = 0.006;
-  const bbox = `${(lng - span).toFixed(5)},${(lat - span).toFixed(5)},${(lng + span).toFixed(5)},${(lat + span).toFixed(5)}`;
   const marker = `${lat.toFixed(6)},${lng.toFixed(6)}`;
-  const iframeSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&amp;layer=mapnik&amp;marker=${encodeURIComponent(marker)}`;
+  const iframeSrc = esc(osmEmbedSrc(lat, lng));
   const gmapsHref = `https://www.google.com/maps/search/?api=1&query=${marker}`;
   const wazeHref = `https://www.waze.com/ul?ll=${marker.replace(',', '%2C')}&navigate=yes`;
 
