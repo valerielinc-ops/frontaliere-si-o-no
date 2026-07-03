@@ -122,7 +122,7 @@ describe('run() dry-run', () => {
       env: { FB_EVENT_VOLUME: '2' },
       repoRoot: root,
       todayIso: '2099-01-01',
-      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) }),
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) }),
       log: () => {},
       warn: () => {},
     });
@@ -199,7 +199,7 @@ describe('run() weekend digest', () => {
       env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK' },
       repoRoot: root,
       todayIso: '2027-01-01', // Friday → digest day
-      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost1' }) }),
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost1', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) }),
       log: () => {},
       warn: () => {},
     });
@@ -216,7 +216,7 @@ describe('run() weekend digest', () => {
       env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK' },
       repoRoot: root,
       todayIso: '2027-01-01', // Friday
-      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost1' }) }),
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost1', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) }),
       log: () => {},
       warn: () => {},
     });
@@ -234,7 +234,7 @@ describe('run() weekend digest', () => {
       env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
       repoRoot: root,
       todayIso: '2026-12-31', // Thursday → not the digest day
-      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) }),
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) }),
       log: () => {},
       warn: () => {},
     });
@@ -279,7 +279,7 @@ describe('run() weekend digest', () => {
       env: { FB_PAGE_ID: 'PAGE', FB_PAGE_ACCESS_TOKEN: 'TOK', FB_EVENT_VOLUME: '5' },
       repoRoot: root,
       todayIso: '2027-01-01', // Friday, but the weekend window (Jan 2-3) has no events
-      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x' }) }),
+      fetchImpl: () => Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'x', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) }),
       log: () => {},
       warn: () => {},
     });
@@ -354,7 +354,7 @@ describe('run() landing page pre-flight before posting', () => {
           return Promise.resolve({ status });
         }
         if (String(url).includes('/feed')) feedPosts += 1;
-        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost' }) });
+        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) });
       },
       log: () => {},
       warn: (...args: unknown[]) => warnings.push(args.join(' ')),
@@ -375,7 +375,7 @@ describe('run() landing page pre-flight before posting', () => {
       fetchImpl: (url: string, options?: { method?: string }) => {
         if (options?.method === 'HEAD') return Promise.reject(new Error('timeout'));
         if (String(url).includes('/feed')) feedPosts += 1;
-        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost' }) });
+        return Promise.resolve({ ok: true, json: () => Promise.resolve({ id: 'fbpost', og_object: { image: [{ url: 'https://example.com/og.webp' }] } }) });
       },
       log: () => {},
       warn: () => {},

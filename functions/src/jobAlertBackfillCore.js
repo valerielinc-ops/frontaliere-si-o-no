@@ -146,8 +146,18 @@ export function resolveSignalTier(data, personalization) {
   const tier = getSignalTier(data);
   if (tier !== 'none') return { tier, patch: null };
 
+  // `derivePersonalizationPatch` already guarantees a non-null return has at
+  // least one non-blank field (see its own `Object.keys(patch).length > 0`
+  // check) — so `if (patch)` alone is correct and complete. A prior version
+  // of this check instead named 4 of the 6 `PERSONALIZATION_FIELDS`
+  // (`job_category`/`location_interest`/`geo_city`/`job_search_query`),
+  // silently dropping any patch whose ONLY derived field was `job_company` or
+  // `sector_interest` — e.g. a subscriber who clicked a specific employer's
+  // job (the strongest signal this module derives, `CLICK_WEIGHT`) but has no
+  // location/category signal at all would fall through to a weaker tier or
+  // 'none', losing real derived data instead of using it.
   const patch = derivePersonalizationPatch({ subscriber: data, personalization, alerts: [] });
-  if (patch && (patch.job_category || patch.location_interest || patch.geo_city || patch.job_search_query)) {
+  if (patch) {
     return { tier: 'personalization-fallback', patch };
   }
 
