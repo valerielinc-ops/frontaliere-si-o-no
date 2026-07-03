@@ -51,12 +51,13 @@ const PROVIDERS = [
   // dmarc=pass at p=reject (dis=NONE), delivered to inbox. Placed before cloudflare so
   // the purely-free providers are preferred over the paid Workers quota.
   { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
-  // Cloudflare Email Service: limit is MONTHLY (3000/mo included on Workers Paid),
-  // there is no documented per-day cap. dailyLimit is the 3000/30 ≈ 100/day spread
-  // so the in-memory guard keeps a single day from burning a disproportionate
-  // share of the monthly allowance. Placed last: it draws on the paid-plan quota,
-  // so prefer the purely-free providers first.
-  { id: 'cloudflare', dailyLimit: 100, monthlyLimit: 3000 },
+  // Cloudflare Email Service: 3000/mo is the included allowance on Workers Paid;
+  // no documented per-day cap. dailyLimit=1000, monthlyLimit=30000 (owner request
+  // 2026-07-03) — owner accepted paid overage above the included 3000/mo, up to
+  // ~$9.45/mo worst case ($0.35/1000 past the included allowance, if cloudflare
+  // maxes out every day of the month). Placed last: it draws on the paid-plan
+  // quota, so prefer the purely-free providers first.
+  { id: 'cloudflare', dailyLimit: 1000, monthlyLimit: 30000 },
 ];
 
 // In-memory daily counters (reset on new UTC day)
@@ -319,7 +320,7 @@ async function syncQuotasFromAPIs() {
   _counters.cloudflare = cloudflare;
   _quotasSynced = true;
 
-  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, resend=${resend}/100, maileroo=${maileroo}/100, cloudflare=${cloudflare}/100`);
+  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, resend=${resend}/100, maileroo=${maileroo}/100, cloudflare=${cloudflare}/1000`);
 }
 
 // ── Provider availability check ──────────────────────────────
@@ -892,7 +893,7 @@ function campaignIdTag(email) {
 /**
  * Total theoretical daily send capacity across the whole cascade —
  * the sum of every provider's daily limit (currently mailgun 100 + resend 100
- * + mailjet 200 + mailtrap 150 + maileroo 100 + cloudflare 100 = 750). Single
+ * + mailjet 200 + mailtrap 150 + maileroo 100 + cloudflare 1000 = 1650). Single
  * source of truth so callers (e.g. the newsletter per-run cap) stay in sync when
  * providers change.
  */
