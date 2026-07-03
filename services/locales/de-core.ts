@@ -3443,6 +3443,9 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3560.title': 'Grenzübergänge in Echtzeit im Ranking',
+  'whatsNew.v3560.borderWaitRanking.title': 'Beste und schlechteste Grenzübergänge',
+  'whatsNew.v3560.borderWaitRanking.desc': 'Neuer, wöchentlich aktualisierter Artikel mit dem Ranking aller Tessiner Grenzübergänge nach Wartezeit, mit Trends und wie viele Minuten du gewinnst oder verlierst, je nachdem welchen Übergang du wählst.',
   'whatsNew.v3550.title': 'Flüssigere Stellensuche',
   'whatsNew.v3550.fastLoading.title': 'Animiertes Laden',
   'whatsNew.v3550.fastLoading.desc': 'Während wir Angebote suchen, siehst du kein störendes «0 Ergebnisse» mehr: Ein animierter Ladevorgang mit wechselnden Hinweisen begleitet dich jetzt, bis die Liste bereit ist.',

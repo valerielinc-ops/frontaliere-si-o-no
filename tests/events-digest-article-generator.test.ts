@@ -59,6 +59,33 @@ describe('events digest article generator', () => {
     expect(src).toContain("updatedAt: '2027-01-16'");
   });
 
+  it('bumpUpdatedAt skips a same-day bump that would precede the timestamped `date` (registration-day refresh)', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-bump-sameday-'));
+    mkdirSync(path.join(root, 'data'), { recursive: true });
+    const file = path.join(root, 'data', 'blog-articles-data.ts');
+    writeFileSync(
+      file,
+      [
+        'const RAW_ARTICLES = [',
+        '  {',
+        "    id: 'eventi-weekend-ticino',",
+        "    category: 'novita',",
+        "    date: '2027-01-09T11:13:04.641Z',", // registered later today
+        "    image: '/x.webp',",
+        '    hasCalculator: false,',
+        '  },',
+        '];',
+        '',
+      ].join('\n'),
+    );
+
+    // A date-only updatedAt anchored at midnight would parse as *before*
+    // the 11:13 registration timestamp — an incoherent freshness signal
+    // (google-news-compliance.test.ts). Must be skipped, not written.
+    expect(bumpUpdatedAt('eventi-weekend-ticino', '2027-01-09', root)).toBe(true);
+    expect(readFileSync(file, 'utf-8')).not.toContain('updatedAt:');
+  });
+
   it('bumpUpdatedAt is a no-op for an unknown id', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'digest-bump-none-'));
     mkdirSync(path.join(root, 'data'), { recursive: true });
