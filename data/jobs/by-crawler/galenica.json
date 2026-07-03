@@ -31,7 +31,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
+        "it": "Pharma-Assistente / Farmaceutico - Assistente (lavori/l/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -90,15 +90,15 @@
       "postedDate": "2026-06-22",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-apotecherina-w-m-d-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-apotecherina-w-m-d-galenica-galenica-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "de": "apotheker-apotherin-w-m-d-galenica-galenica-bern",
         "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Apotheker / Apothekerin (w/m/d)",
+        "it": "Farmacista/Apotecherina (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
         "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
@@ -125,9 +125,14 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
-        "farmacista-apotecherina-w-m-d-galenica-galenica-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
+        ]
+      }
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
@@ -452,10 +457,10 @@
       "description": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Descrizione Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Galenica Group), con sede a Berna, Untermattweg 8, Svizzera. Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con ottime prospettive di sviluppo professionale.",
-        "en": "Description\n\nPharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Beschreibung Pharma-Assistent / Pharma-Assistentin (w/m/d) bei der Galenica AG (Galenica Group) mit Sitz in Bern, Unter Mattweg 8, Schweiz. Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality. Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten.",
-        "fr": "Description Pharma-Assistant / Pharma-Assistant (w/m/d) chez Galenica AG (Groupe Galenica), situé à Berne, Untermatweg 8, Suisse. Galenica est le premier groupe suisse de soins de santé et exploite le plus grand réseau de pharmacies du pays, avec des marques dont Amavita, Sun Store et Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et axé sur le patient avec d'excellentes perspectives de développement professionnel."
+        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), gelegen in Bern, Untermattweg 8, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
+        "fr": "Pharma-Assistent / Pharma-Assistentin (w/m/d) chez Galenica AG (Galenica Group), situé à Bern, Untermattweg 8, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
       },
       "applyUrl": "",
       "postedDate": "2026-06-23",
@@ -469,10 +474,10 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-d7dda1"
       },
       "titleByLocale": {
-        "it": "Assistente Farmaceutico / Assistente Farmaceutica (w/m/d)",
-        "en": "Pharma Assistant (f/m/d)",
+        "it": "Pharma-Assistente / Farmaceutico - Assistente (lavori/l/d)",
+        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "fr": "Assistant(e) en pharmacie (w/m/d)"
+        "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
       },
       "id": "galenica-74d20cf71733",
       "previousSlugsByLocale": {
@@ -596,15 +601,15 @@
       "postedDate": "2026-06-23",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "de": "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern",
         "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Apotheker / Apothekerin (w/m/d)",
+        "it": "Farmacista/Apotecherina (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
         "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
@@ -631,8 +636,13 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
-        "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern"
-      ]
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        ]
+      }
     },
     {
       "title": "Senior Category Manager (w/m/d)",
@@ -663,7 +673,7 @@
         "fr": "gestionnaire-principal-de-categorie-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Senior Categoria Manager (w/m/d)",
+        "it": "Senior Category Manager (mi/lm/d)",
         "en": "Senior Category Manager (w/m/d)",
         "de": "Senior Category Manager (w/m/d)",
         "fr": "Gestionnaire de catégorie principal (m/j)"
@@ -702,10 +712,10 @@
       "description": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Descrizione Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Galenica Group), con sede a Berna, Untermattweg 8, Svizzera. Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con ottime prospettive di sviluppo professionale.",
-        "en": "Description\n\nPharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Beschreibung Pharma-Assistent / Pharma-Assistentin (w/m/d) bei der Galenica AG (Galenica Group) mit Sitz in Bern, Unter Mattweg 8, Schweiz. Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality. Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten.",
-        "fr": "Description Pharma-Assistant / Pharma-Assistant (w/m/d) chez Galenica AG (Groupe Galenica), situé à Berne, Untermatweg 8, Suisse. Galenica est le premier groupe suisse de soins de santé et exploite le plus grand réseau de pharmacies du pays, avec des marques dont Amavita, Sun Store et Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et axé sur le patient avec d'excellentes perspectives de développement professionnel."
+        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica AG (Galenica Group), gelegen in Bern, Untermattweg 8, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
+        "fr": "Pharma-Assistent / Pharma-Assistentin (w/m/d) chez Galenica AG (Galenica Group), situé à Bern, Untermattweg 8, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
       },
       "applyUrl": "",
       "postedDate": "2026-06-23",
@@ -719,10 +729,10 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Assistente Farmaceutico / Assistente Farmaceutica (w/m/d)",
-        "en": "Pharma Assistant (f/m/d)",
+        "it": "Pharma-Assistente / Farmaceutico - Assistente (lavori/l/d)",
+        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "fr": "Assistant(e) en pharmacie (w/m/d)"
+        "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
       },
       "id": "galenica-a1d9aad2a44b",
       "previousSlugsByLocale": {
@@ -778,15 +788,15 @@
       "postedDate": "2026-06-16",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-8cc78b",
+      "slug": "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-8cc78b",
+        "it": "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-8cc78b"
+        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
+        "it": "Pharma-Assistente / Farmaceutico - Assistente (lavori/l/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -812,23 +822,14 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern",
-        "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-ag-galenica-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-          "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-ag-galenica-bern"
-        ],
-        "fr": [
-          "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern",
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
-      }
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      ]
     },
     {
       "title": "Apotheker für FPH-Weiterbildung (w/m/d)",
@@ -1111,10 +1112,10 @@
       "description": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Descrizione Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Galenica Group), con sede a Berna, Untermattweg 8, Svizzera. Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con ottime prospettive di sviluppo professionale.",
-        "en": "Description\n\nPharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Beschreibung Pharma-Assistent / Pharma-Assistentin (w/m/d) bei Galenica (Galenica Group), Bern, Unter Mattweg 8, Schweiz. Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality. Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit ausgezeichneten Karriereaussichten zu arbeiten.",
-        "fr": "Description Pharma-Assistant / Pharma-Assistant (w/m/d) chez Galenica (Groupe Galenica), situé à Berne, Untermatweg 8, Suisse. Galenica est le premier groupe suisse de soins de santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles que Amavita, Sun Store et Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et axé sur le patient avec d'excellentes perspectives de développement professionnel."
+        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d) at Galenica (Galenica Group), gelegen in Bern, Untermattweg 8, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
+        "fr": "Pharma-Assistent / Pharma-Assistentin (w/m/d) chez Galenica (Galenica Group), situé à Bern, Untermattweg 8, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
       },
       "applyUrl": "",
       "postedDate": "2026-06-23",
@@ -1128,10 +1129,10 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-3b4a69"
       },
       "titleByLocale": {
-        "it": "Assistente Farmaceutico / Assistente Farmaceutica (w/m/d)",
-        "en": "Pharma Assistant (f/m/d)",
+        "it": "Pharma-Assistente / Farmaceutico - Assistente (lavori/l/d)",
+        "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "fr": "Assistant(e) en pharmacie (w/m/d)"
+        "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
       },
       "id": "galenica-709e10b6b5c2",
       "previousSlugsByLocale": {
@@ -1188,15 +1189,15 @@
       "postedDate": "2026-06-16",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+      "slug": "pharma-asistentin-im-kundenservicecenter-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+        "it": "pharma-asistentin-im-kundenservicecenter-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-p-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
+        "it": "Pharma-Asistentin im Kundenservicecenter (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant im Kundenservicecenter (p/m/d)"
@@ -1223,9 +1224,14 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
-        "pharma-asistentin-im-kundenservicecenter-w-m-d-galenica-ag-galenica-bern",
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "assistente-farmaceutico-assistente-farmaceutico-nel-centro-servizi-per-i-consumatori-w-m-d-galenica-ag-galenica-bern"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        ]
+      }
     },
     {
       "title": "Apotheker / Apothekerin als Stellvertretung (w/m/d)",
@@ -1368,15 +1374,15 @@
       "postedDate": "2026-06-17",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4e482e",
+      "slug": "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4e482e",
+        "it": "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-galenica-bern",
         "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4e482e"
+        "fr": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
+        "it": "Pharma-Assistente / Farmaceutico - Assistente (lavori/l/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -1402,22 +1408,14 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-3b4a69",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-3b4a69",
-        "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-galenica-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-3b4a69",
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "fr": [
-          "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-3b4a69",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
-      }
+      },
+      "previousSlugs": [
+        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
@@ -1512,7 +1510,7 @@
         "fr": "etudiante-auchulfe-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Studentische Aushilfe (w/m/d)",
+        "it": "Studentische Aushilfe (l/m/d)",
         "en": "Studentische Aushilfe (w/m/d)",
         "de": "Studentische Aushilfe (w/m/d)",
         "fr": "Étudiante auchulfe (w/m/d)"
@@ -1616,15 +1614,15 @@
       "postedDate": "2026-06-23",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
+      "slug": "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
+        "it": "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
         "de": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
-        "fr": "proprietaire-de-la-demande-de-crm-w-m-d-galenica-ag-galenica-bern"
+        "fr": "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Titolare dell'applicazione CRM (w/m/d)",
+        "it": "Proprietario dell'applicazione CRM (w/m/d)",
         "en": "CRM Application Owner (w/m/d)",
         "de": "CRM Application Owner (w/m/d)",
         "fr": "Propriétaire de la demande de CRM (w/m/d)"
@@ -1652,16 +1650,11 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
-          "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern"
-        ],
-        "fr": [
           "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
-        "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern"
+        "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
       ]
     },
     {
@@ -1887,7 +1880,7 @@
         "fr": "galenica-galenica-ag-marketing-praktikant-marketing-praktikantin-m-w-d-bern"
       },
       "titleByLocale": {
-        "it": "Marketing Praktikant / Marketing Praktikantin (m/w/d)",
+        "it": "Marketing Praktikant / Marketing Praktikantin (lunedì/mercoledì/d)",
         "en": "Marketing Praktikant / Marketing Praktikantin (m/w/d)",
         "de": "Marketing Praktikant / Marketing Praktikantin (m/w/d)",
         "fr": "Commercialisation Praktikant / Commercialisation Praktikantin (m/w/d)"
@@ -2767,7 +2760,7 @@
         "fr": "galenica-galenica-ag-verkaufsberaterin-verkaufsberater-naturkosmetik-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (w/m/d)",
+        "it": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (con la scadenza)",
         "en": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (w/m/d)",
         "de": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (w/m/d)",
         "fr": "Verkaufsberaterin / Verkaufsberater Naturkosmetik (m/d)"
@@ -2823,7 +2816,7 @@
         "fr": "galenica-galenica-ag-sachbearbeiter-kundenservice-retouren-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Sachbearbeiter Kundenservice / Retouren (w/m/d)",
+        "it": "Sachbearbeiter Kundenservice / Retouren (c/m/d)",
         "en": "Sachbearbeiter Kundenservice / Retouren (w/m/d)",
         "de": "Sachbearbeiter Kundenservice / Retouren (w/m/d)",
         "fr": "Sachbearbeiter Kundenservice / Retour (w/m/d)"
@@ -2943,7 +2936,7 @@
         "fr": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Sachbearbeiter / Sachbearbeiterin Inchiostro frontale. Teamleitung (w/m/d)",
+        "it": "Sachbearbeiter / Sachbearbeiter in Headoffice inkl. Teamleitung (w/m/d)",
         "en": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)",
         "de": "Sachbearbeiter/Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)",
         "fr": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)"
@@ -3007,7 +3000,7 @@
         "fr": "drogistine-drogist-p-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Drogistin / Drogist (w/m/d)",
+        "it": "Drogistin / Drogist (squadra/smarr/d)",
         "en": "Drogistin / Drogist (w/m/d)",
         "de": "Drogistin / Drogist (w/m/d)",
         "fr": "Drogistine / Drogist (p/m/d)"
@@ -3046,33 +3039,32 @@
       "description": "Qualitätsmanager (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Qualitätsmanager (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Qualitätsmanager (w/m/d) presso Galenica AG (Galenica Group), con sede a Berna, Untermattweg 8, Svizzera. Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con ottime prospettive di sviluppo professionale.",
+        "it": "Qualitätsmanager (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
         "en": "Qualitätsmanager (w/m/d) at Galenica AG (Galenica Group), located in Bern, Untermattweg 8, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Qualitätsmanager (w/m/d) der Galenica AG (Galenica Group) mit Sitz in Bern, Untermattweg 8, Schweiz. Galenica ist der führende Schweizer Gesundheitskonzern und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality. Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten.",
-        "fr": "Qualitätsmanager (w/m/d) chez Galenica AG (Groupe Galenica), situé à Berne, Untermatweg 8, Suisse. Galenica est le premier groupe suisse de soins de santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu'Amavita, Sun Store et Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et axé sur le patient avec d'excellentes perspectives de développement professionnel."
+        "de": "Qualitätsmanager (w/m/d) at Galenica AG (Galenica Group), gelegen in Bern, Untermattweg 8, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
+        "fr": "Qualitätsmanager (w/m/d) chez Galenica AG (Galenica Group), situé à Bern, Untermattweg 8, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
       },
       "applyUrl": "",
       "postedDate": "2026-06-23",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "responsabile-qualita-w-m-d-galenica-ag-galenica-bern",
+      "slug": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "responsabile-qualita-w-m-d-galenica-ag-galenica-bern",
+        "it": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
         "en": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
         "de": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
-        "fr": "responsable-qualite-h-f-d-galenica-ag-galenica-bern"
+        "fr": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Responsabile Qualità (w/m/d)",
-        "en": "Quality manager (w/m/d)",
+        "it": "Qualitätsmanager (mi/l/m)",
+        "en": "Qualitätsmanager (w/m/d)",
         "de": "Qualitätsmanager (w/m/d)",
-        "fr": "Responsable Qualité (h/f/d)"
+        "fr": "Qualitätsmanager (w/m/d)"
       },
       "id": "galenica-ed642a10befe",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-qualitatsmanager-w-m-d-bern",
-          "qualitatsmanager-w-m-d-galenica-ag-galenica-bern"
+          "galenica-galenica-ag-qualitatsmanager-w-m-d-bern"
         ],
         "en": [
           "galenica-galenica-ag-qualitatsmanager-w-m-d-bern"
@@ -3083,14 +3075,13 @@
         "fr": [
           "galenica-galenica-ag-qualitatsmanager-w-m-d-bern",
           "responsable-de-la-qualite-h-f-galenica-ag-galenica-bern",
-          "qualitatsmanager-w-m-d-galenica-ag-galenica-bern"
+          "responsable-qualite-h-f-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
         "galenica-galenica-ag-qualitatsmanager-w-m-d-bern",
-        "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
-        "responsable-de-la-qualite-h-f-galenica-ag-galenica-bern",
         "responsabile-della-qualita-m-f-galenica-ag-galenica-bern",
+        "responsable-qualite-h-f-d-galenica-ag-galenica-bern",
         "responsabile-qualita-m-f-d-galenica-ag-galenica-bern"
       ],
       "salaryMin": 68500,
@@ -3390,6 +3381,8 @@
       "postalCode": "2300",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
@@ -3407,9 +3400,7 @@
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-nyon",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon"
+        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3424,8 +3415,7 @@
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
@@ -3438,8 +3428,7 @@
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve",
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey",
-          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion",
-          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-nyon"
+          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion"
         ]
       }
     },
@@ -3552,32 +3541,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "assistente-di-farmacia-afc-coop-vitality-galenica-bern",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-tenero",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-kriens",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberwil-bl",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-oberwil-bl",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc092",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal-1nc090",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-langenthal",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nbzp3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-di-farmacia-afc-coop-vitality-galenica-bern"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3853,33 +3817,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-moutier",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-delemont",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-pratteln",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-delemont",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-bulach",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve",
-        "galenica-amavita-assistente-di-farmacia-afc-pratteln",
-        "galenica-amavita-assistente-di-farmacia-afc-delemont-1nc14w",
-        "galenica-amavita-assistente-di-farmacia-afc-delemont",
-        "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6",
-        "galenica-amavita-assistente-di-farmacia-afc-bulach",
-        "galenica-amavita-assistente-di-farmacia-afc-dietikon",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-moutier",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4156,51 +4094,52 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+        "galenica-amavita-assistente-di-farmacia-afc-st-moritz",
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq",
+        "galenica-amavita-assistente-di-farmacia-afc-luzern",
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t",
+        "galenica-amavita-assistente-di-farmacia-afc-spiez",
+        "galenica-amavita-assistente-di-farmacia-afc-le-landeron",
+        "galenica-amavita-assistente-di-farmacia-afc-basel",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne",
+        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
+        "galenica-amavita-assistente-di-farmacia-afc-moutier",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
+        "galenica-amavita-assistente-di-farmacia-afc-bern",
         "galenica-amavita-assistente-di-farmacia-afc-pully",
         "galenica-amavita-assistente-di-farmacia-afc-epalinges",
         "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich",
-        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne",
-        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb",
-        "galenica-amavita-assistente-di-farmacia-afc-riehen",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc11b",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc133",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
-        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f",
-        "galenica-amavita-assistente-di-farmacia-afc-winterthur",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
-        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-pratteln"
+        "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-chur-1nc1s5",
+          "galenica-amavita-assistente-di-farmacia-afc-chur",
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
+          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+          "galenica-amavita-assistente-di-farmacia-afc-st-moritz",
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq",
+          "galenica-amavita-assistente-di-farmacia-afc-luzern",
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t",
+          "galenica-amavita-assistente-di-farmacia-afc-spiez",
+          "galenica-amavita-assistente-di-farmacia-afc-le-landeron",
+          "galenica-amavita-assistente-di-farmacia-afc-basel",
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne",
           "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
           "galenica-amavita-assistente-di-farmacia-afc-moutier",
           "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
           "galenica-amavita-assistente-di-farmacia-afc-bern",
           "galenica-amavita-assistente-di-farmacia-afc-pully",
           "galenica-amavita-assistente-di-farmacia-afc-epalinges",
-          "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
-          "galenica-amavita-assistente-di-farmacia-afc-biel-bienne",
-          "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb",
-          "galenica-amavita-assistente-di-farmacia-afc-riehen",
-          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc11b",
-          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc133",
-          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
-          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew",
-          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg",
-          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f",
-          "galenica-amavita-assistente-di-farmacia-afc-winterthur",
-          "galenica-amavita-assistente-di-farmacia-afc-neuchatel",
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
-          "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh"
+          "galenica-amavita-assistente-di-farmacia-afc-st-gallen"
         ],
         "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-delemont",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
@@ -4219,10 +4158,10 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biel-bienne",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-chur",
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln"
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
         ],
         "en": [
+          "galenica-amavita-assistant-e-en-pharmacie-cfc-delemont",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-bulach",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-st-moritz",
@@ -4241,8 +4180,7 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-biel-bienne",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-riehen",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-chur",
-          "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich",
-          "galenica-amavita-assistant-e-en-pharmacie-cfc-pratteln"
+          "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich"
         ]
       }
     },
@@ -4490,33 +4428,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "7500",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-dietikon",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t",
-        "galenica-amavita-assistente-di-farmacia-afc-spiez",
-        "galenica-amavita-assistente-di-farmacia-afc-le-landeron",
-        "galenica-amavita-assistente-di-farmacia-afc-basel",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
-        "galenica-amavita-assistente-di-farmacia-afc-bern",
-        "galenica-amavita-assistente-di-farmacia-afc-pully",
-        "galenica-amavita-assistente-di-farmacia-afc-epalinges",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-dietikon"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4653,31 +4565,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sion",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4842,34 +4730,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1201",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbzlo",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bulle",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzmm",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vevey",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-vevey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds-1nbzmk",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5318,15 +5179,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1201",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1s2"
-        ]
-      },
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1s2"
-      ]
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6061,6 +5914,8 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbzlo",
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bulle",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzmm",
@@ -6078,12 +5933,12 @@
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
@@ -6101,9 +5956,7 @@
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
@@ -6292,6 +6145,8 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln",
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-delemont",
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach",
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
@@ -6309,9 +6164,7 @@
         "galenica-amavita-assistente-di-farmacia-afc-dietikon",
         "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
-        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt"
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -6335,9 +6188,7 @@
           "galenica-amavita-assistente-di-farmacia-afc-delemont",
           "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6",
           "galenica-amavita-assistente-di-farmacia-afc-bulach",
-          "galenica-amavita-assistente-di-farmacia-afc-dietikon",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
-          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt"
+          "galenica-amavita-assistente-di-farmacia-afc-dietikon"
         ]
       }
     },
@@ -7088,6 +6939,7 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-tenero",
         "assistente-di-farmacia-afc-coop-vitality-galenica-tenero",
         "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc0at",
         "galenica-coop-vitality-assistente-di-farmacia-afc-zurich",
@@ -7106,8 +6958,7 @@
         "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
         "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-zurich",
         "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-basel",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-bern",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberwil-bl"
+        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7129,8 +6980,7 @@
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern",
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberwil-bl"
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens"
         ],
         "en": [
           "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-zurich",
@@ -7194,53 +7044,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1260",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sion",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbzlo",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bulle",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzmm",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vevey",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-vevey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds-1nbzmk",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbzlo",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzmm",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds-1nbzmk",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens"
-        ],
-        "de": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vevey",
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds"
-        ],
-        "en": [
-          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bulle",
-          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-vevey",
-          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-la-chaux-de-fonds"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7556,12 +7360,12 @@
       },
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-lugano",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lugano",
+        "galenica-amavita-assistant-e-en-pharmacie-cfc-lugano",
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-lugano",
         "galenica-amavita-apotheke-assistente-di-farmacia-afc-lugano",
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-balerna",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lugano",
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lugano",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-lugano",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lugano",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano",
         "galenica-amavita-assistente-di-farmacia-afc-balerna",
@@ -7642,31 +7446,7 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-moutier",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-delemont",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-delemont",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-bulach",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich",
-        "galenica-amavita-assistente-di-farmacia-afc-delemont-1nc14w",
-        "galenica-amavita-assistente-di-farmacia-afc-delemont",
-        "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6",
-        "galenica-amavita-assistente-di-farmacia-afc-bulach",
-        "galenica-amavita-assistente-di-farmacia-afc-dietikon",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-moutier"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8164,6 +7944,8 @@
       "postalCode": "7000",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich",
         "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
         "galenica-amavita-assistente-di-farmacia-afc-pratteln",
         "galenica-amavita-assistente-di-farmacia-afc-delemont-1nc14w",
@@ -8181,9 +7963,7 @@
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
         "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich",
         "galenica-amavita-assistant-e-en-pharmacie-cfc-pratteln",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-delemont",
-        "galenica-amavita-assistant-e-en-pharmacie-cfc-biel-bienne",
-        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne"
+        "galenica-amavita-assistant-e-en-pharmacie-cfc-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8198,8 +7978,7 @@
           "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1tt",
           "galenica-amavita-assistente-di-farmacia-afc-dietikon",
           "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
-          "galenica-amavita-assistente-di-farmacia-afc-riehen",
-          "galenica-amavita-assistente-di-farmacia-afc-biel-bienne"
+          "galenica-amavita-assistente-di-farmacia-afc-riehen"
         ],
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
@@ -8213,8 +7992,7 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-pratteln",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-delemont",
           "galenica-amavita-assistant-e-en-pharmacie-cfc-bulach",
-          "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve",
-          "galenica-amavita-assistant-e-en-pharmacie-cfc-biel-bienne"
+          "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve"
         ]
       }
     },
@@ -9605,33 +9383,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-dietikon",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
-        "galenica-amavita-assistente-di-farmacia-afc-st-moritz",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t",
-        "galenica-amavita-assistente-di-farmacia-afc-spiez",
-        "galenica-amavita-assistente-di-farmacia-afc-le-landeron",
-        "galenica-amavita-assistente-di-farmacia-afc-basel",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
-        "galenica-amavita-assistente-di-farmacia-afc-bern",
-        "galenica-amavita-assistente-di-farmacia-afc-pully",
-        "galenica-amavita-assistente-di-farmacia-afc-epalinges",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-dietikon"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9686,33 +9438,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-dietikon",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
-        "galenica-amavita-assistente-di-farmacia-afc-st-moritz",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t",
-        "galenica-amavita-assistente-di-farmacia-afc-spiez",
-        "galenica-amavita-assistente-di-farmacia-afc-le-landeron",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
-        "galenica-amavita-assistente-di-farmacia-afc-bern",
-        "galenica-amavita-assistente-di-farmacia-afc-pully",
-        "galenica-amavita-assistente-di-farmacia-afc-epalinges",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-dietikon"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9988,6 +9714,8 @@
       "postalCode": "1630",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
@@ -10005,9 +9733,7 @@
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-nyon",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon"
+        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10022,8 +9748,7 @@
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens"
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
@@ -10036,8 +9761,7 @@
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve",
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey",
-          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion",
-          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-nyon"
+          "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion"
         ]
       }
     },
@@ -10314,32 +10038,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10881,8 +10580,7 @@
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-nyon",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11226,31 +10924,7 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "assistente-di-farmacia-afc-coop-vitality-galenica-bern",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-tenero",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-bern",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-bern",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-kriens",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc092",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal-1nc090",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-langenthal",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nbzp3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-di-farmacia-afc-coop-vitality-galenica-bern"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11470,31 +11144,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-tenero",
-        "assistente-di-farmacia-afc-coop-vitality-galenica-tenero",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc0at",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09x",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-bern",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc091",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
-        "assistente-di-farmacia-afc-coop-vitality-galenica-bern",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern",
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
-        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12840,31 +12490,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1800",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbzlo",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bulle",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzmm",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds-1nbzmk",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-ecublens"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15311,8 +14937,7 @@
           "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
           "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nbzp3",
           "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc091"
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa"
         ],
         "de": [
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
@@ -15332,6 +14957,8 @@
         ]
       },
       "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-tenero",
+        "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-bern",
         "galenica-coop-vitality-assistente-di-farmacia-afc-bern",
         "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
         "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
@@ -15350,8 +14977,7 @@
         "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
         "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nbzp3",
         "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc091"
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
