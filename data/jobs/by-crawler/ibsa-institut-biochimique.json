@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-07-02T22:15:38.736Z",
+  "assembledAt": "2026-07-03T11:48:34.604Z",
   "jobs": [
     {
       "id": "company-bm0ep4",
@@ -73,7 +73,8 @@
       },
       "previousSlugs": [
         "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-u7vkyi",
@@ -147,7 +148,8 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-24q2ge",
@@ -281,6 +283,9 @@
       "sourceLang": "it",
       "country": "CH",
       "previousSlugsByLocale": {
+        "it": [
+          "general-services-plant-security-coordinatore-ibsa-institut-biochimique-all-area-all-clear-apply-now-general-services"
+        ],
         "en": [
           "general-services-plant-security-coordinator-ibsa-institut-biochimique-all-area-all-clear-apply-now-general-services",
           "general-services-plant-security-coordinator-ibsa-institut-biochimique-ticino"
@@ -290,9 +295,6 @@
         ],
         "fr": [
           "services-generaux-coordonnateur-de-la-securite-des-installations-ibsa-institut-biochimique-ticino"
-        ],
-        "it": [
-          "general-services-plant-security-coordinatore-ibsa-institut-biochimique-all-area-all-clear-apply-now-general-services"
         ]
       },
       "previousSlugs": [
@@ -320,7 +322,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2pgzo8",
@@ -382,6 +385,9 @@
       "sourceLang": "it",
       "country": "CH",
       "previousSlugsByLocale": {
+        "it": [
+          "ot-security-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-ot-security-specialist-location-collina-d"
+        ],
         "en": [
           "ot-security-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-ot-security-specialist-location-collina-d",
           "ot-security-specialist-ibsa-institut-biochimique-collina-d-oro"
@@ -393,9 +399,6 @@
         "fr": [
           "ot-security-specialiste-ibsa-institut-biochimique-collina-d-oro",
           "ot-specialiste-de-la-securite-ibsa-institut-biochimique-collina-d-oro"
-        ],
-        "it": [
-          "ot-security-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-ot-security-specialist-location-collina-d"
         ]
       },
       "previousSlugs": [
@@ -431,7 +434,8 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-toyw1a",
@@ -465,7 +469,7 @@
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
       },
       "titleByLocale": {
-        "fr": "Comptable (maternité)",
+        "fr": "Accounting Officer (sost. maternità)",
         "it": "Accounting Officer (sost. maternità)",
         "en": "Accounting Officer (Maternity Substance)",
         "de": "Rechnungsführer (Mutterschaft)"
@@ -480,11 +484,11 @@
       "sourceLang": "it",
       "country": "CH",
       "previousSlugsByLocale": {
-        "fr": [
-          "accounting-officer-sost-maternita-ibsa-institut-biochimique-all-area-all-clear-apply-now-accounting-officer-sost"
-        ],
         "en": [
           "accounting-officer-maternity-substance-ibsa-institut-biochimique-all-area-all-clear-apply-now-accounting-officer-sost"
+        ],
+        "fr": [
+          "accounting-officer-sost-maternita-ibsa-institut-biochimique-all-area-all-clear-apply-now-accounting-officer-sost"
         ]
       },
       "previousSlugs": [
@@ -509,7 +513,8 @@
       "addressLocality": "All Area All Clear Apply now » Accounting Officer (sost",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-um2f7f",
@@ -582,13 +587,13 @@
           "industrial-controlling-manager-ibsa-institut-biochimique-collina",
           "industrial-controlling-manager-ibsa-institut-biochimique-collina-um2f7f"
         ],
-        "fr": [
-          "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
-          "industrial-controlling-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-manager"
-        ],
         "de": [
           "industrieller-controlling-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-manager",
           "industrieller-controlling-manager-ibsa-institut-biochimique-collina"
+        ],
+        "fr": [
+          "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
+          "industrial-controlling-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-manager"
         ]
       },
       "salaryMin": 142000,
@@ -608,7 +613,8 @@
       "addressLocality": "Collina",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-399kaj",
@@ -666,13 +672,13 @@
       "sourceLang": "it",
       "country": "CH",
       "previousSlugsByLocale": {
-        "en": [
-          "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-drug-safety-unit-specialist",
-          "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-collina"
-        ],
         "it": [
           "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-drug-safety-unit-specialist",
           "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-collina"
+        ],
+        "en": [
+          "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-drug-safety-unit-specialist",
+          "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-collina"
         ]
       },
       "previousSlugs": [
@@ -699,7 +705,8 @@
       "addressLocality": "Collina",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cohd02",
@@ -748,6 +755,10 @@
       "sourceLang": "it",
       "country": "CH",
       "previousSlugsByLocale": {
+        "it": [
+          "contractors-audits-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-contractors-audits-specialist",
+          "contractors-audits-specialista-ibsa-institut-biochimique-collina"
+        ],
         "en": [
           "contractors-audits-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-contractors-audits-specialist",
           "contractors-audits-specialist-ibsa-institut-biochimique-collina"
@@ -759,10 +770,6 @@
         "fr": [
           "contractors-audits-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-contractors-audits-specialist",
           "contractors-audits-specialiste-ibsa-institut-biochimique-collina"
-        ],
-        "it": [
-          "contractors-audits-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-contractors-audits-specialist",
-          "contractors-audits-specialista-ibsa-institut-biochimique-collina"
         ]
       },
       "previousSlugs": [
