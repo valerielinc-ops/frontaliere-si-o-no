@@ -105,7 +105,7 @@ async function run() {
 
   let deleted = 0;
   let pruneSkipped = false;
-  if (staleRefs.length && staleRatio > PRUNE_FLOOR_PCT && !process.env.EMPLOYER_TRAFFIC_PRUNE_FORCE) {
+  if (staleRefs.length && staleRatio > PRUNE_FLOOR_PCT && process.env.EMPLOYER_TRAFFIC_PRUNE_FORCE !== '1') {
     pruneSkipped = true;
     console.warn(`⚠️ prune skippato: rimuoverebbe ${staleRefs.length}/${existingSnap.size} doc (${staleRatio.toFixed(0)}%), oltre il floor ${PRUNE_FLOOR_PCT}% — probabile report parziale, non churn reale. Per il cutover one-time PostHog→GA4 forza con EMPLOYER_TRAFFIC_PRUNE_FORCE=1.`);
   } else if (staleRefs.length) {
