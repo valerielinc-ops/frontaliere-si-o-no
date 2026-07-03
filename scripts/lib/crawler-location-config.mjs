@@ -570,6 +570,10 @@ export const COMPANY_HQ = {
   // Clariant's own postings label the same physical HQ campus "Pratteln");
   // this HQ entry is only the generic city/canton fallback.
   'clariant': { city: 'Muttenz', canton: 'BL', postalCode: '4132', addressRegion: 'BL' },
+  // Planzer Transport AG, Lerzenstrasse 14, 8953 Dietikon ZH — confirmed
+  // via the company's own Impressum page (https://www.planzer.ch/de/impressum/,
+  // "Kontaktadresse & Hauptsitz").
+  'planzer': { city: 'Dietikon', canton: 'ZH', postalCode: '8953', addressRegion: 'ZH' },
 };
 
 /**
