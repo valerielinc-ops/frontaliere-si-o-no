@@ -169,6 +169,23 @@ jobs:
 
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
+      # Re-mint immediately before the late dispatch below: the URL Inspection
+      # sweep + Cloudflare sweep above can run up to ~64min (this job's actual
+      # observed duration), longer than the App installation token's ~1hr TTL
+      # by the time we reach this step on a slow run. The early mint (~90 lines
+      # up) can already be expired here, and the `env.APP_TOKEN || env.GITHUB_PAT`
+      # fallback below only covers unset/empty — an expired-but-non-empty
+      # APP_TOKEN short-circuits the `||` and 401s trigger-deploy.sh (#3320).
+      # Re-minting fresh here restores full TTL headroom for the dispatch.
+      - name: Re-mint App token (fresh, avoids TTL expiry after long sweep)
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Trigger deploy if compat changed
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
         run: |

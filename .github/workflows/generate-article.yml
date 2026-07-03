@@ -696,6 +696,24 @@ jobs:
             echo "| Section (this → next) | \`$CUR_SECTION\` → \`$NEXT_SECTION\` |"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # Re-mint immediately before the late dispatch below: the frontaliere
+      # generation budget alone allows up to 55min, and observed runs on this
+      # workflow have taken up to ~62min end-to-end — long enough to outlive
+      # the App installation token's ~1hr TTL from the early mint (near the
+      # top of this job). The `env.APP_TOKEN || env.GITHUB_PAT` fallback below
+      # only covers unset/empty — an expired-but-non-empty APP_TOKEN
+      # short-circuits the `||` and 401s the self-trigger dispatch, silently
+      # breaking the self-trigger chain (same class of bug as #3320). Re-minting
+      # fresh here restores full TTL headroom.
+      - name: Re-mint App token (fresh, avoids TTL expiry after long generation)
+        if: steps.decide_trigger.outputs.should_trigger == 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Self-trigger next run
         if: steps.decide_trigger.outputs.should_trigger == 'true'
         continue-on-error: true
