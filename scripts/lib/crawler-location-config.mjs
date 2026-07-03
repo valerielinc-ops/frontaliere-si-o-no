@@ -552,6 +552,10 @@ export const COMPANY_HQ = {
   // city-gated `resolveAddress()` in scripts/lib/dormakaba-job-parser.mjs for
   // the per-office street; this HQ entry is only the generic fallback.
   'dormakaba': { city: 'Rümlang', canton: 'ZH', postalCode: '8153', addressRegion: 'ZH' },
+  // Rieter AG HQ, Klosterstrasse 20, 8406 Winterthur ZH — confirmed via the
+  // company's own job-posting recruiter-info block AND independent
+  // Moneyhouse/imprint sources; no fallback needed.
+  'rieter': { city: 'Winterthur', canton: 'ZH', postalCode: '8406', addressRegion: 'ZH' },
 };
 
 /**
