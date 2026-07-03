@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-07-02T23:22:10.026Z",
+  "assembledAt": "2026-07-03T12:49:31.329Z",
   "jobs": [
     {
       "id": "company-g1g1m",
@@ -258,7 +258,7 @@
       "crawledAt": "2026-06-26T12:28:41.768Z",
       "firstSeenAt": "2026-06-26T12:28:41.768Z",
       "titleByLocale": {
-        "en": "Vehicle Expert",
+        "en": "Fahrzeugexperte/-in",
         "de": "Fahrzeugexperte/-in",
         "it": "Esperto di veicoli",
         "fr": "Expert du véhicule"
@@ -311,7 +311,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qf6gqz",
@@ -577,7 +578,7 @@
       "firstSeenAt": "2026-06-22T23:55:42.785Z",
       "titleByLocale": {
         "de": "Chef/-in Troubleshooter Hornet",
-        "it": "Head of Troubleshooter Hornet",
+        "it": "Chef/-in Troubleshooter Hornet",
         "en": "Chief/-in-Marie-Marthornet",
         "fr": "Chef/in-Marie-Marthornet"
       },
@@ -628,7 +629,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-qxa6ru",
@@ -1397,10 +1399,10 @@
           "operator-in-support-swiss-armed-forces-vtg-bern",
           "operatore-in-support-swiss-armed-forces-vtg-bern-ibos0f"
         ],
-        "de": [
+        "en": [
           "operator-in-support-swiss-armed-forces-vtg-bern-ibos0f"
         ],
-        "en": [
+        "de": [
           "operator-in-support-swiss-armed-forces-vtg-bern-ibos0f"
         ],
         "fr": [
@@ -1697,7 +1699,7 @@
       "firstSeenAt": "2026-06-05T12:56:27.382Z",
       "titleByLocale": {
         "de": "Rechenzentrum-Spezialist/-in IKT",
-        "it": "Specialista del centro dati ICT",
+        "it": "Rechenzentrum-Spezialist/-in IKT",
         "en": "ICT data centre specialist",
         "fr": "Spécialiste des centres informatiques"
       },
@@ -1752,7 +1754,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-vvystb",
@@ -2039,12 +2042,12 @@
           "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
           "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern"
         ],
+        "en": [
+          "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        ],
         "de": [
           "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona",
           "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern"
-        ],
-        "en": [
-          "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
         ],
         "fr": [
           "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
@@ -2053,8 +2056,8 @@
       "previousSlugs": [
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
         "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
-        "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona",
-        "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2389,13 +2392,13 @@
           "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bellinzona",
           "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern"
         ],
-        "de": [
-          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona",
-          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bern"
-        ],
         "en": [
           "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
           "team-und-kader-im-bereich-infrastructure-m-w-swiss-armed-forces-vtg-bern"
+        ],
+        "de": [
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona",
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
           "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
@@ -2588,12 +2591,12 @@
         "en": [
           "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci"
         ],
-        "fr": [
-          "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci"
-        ],
         "de": [
           "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bellinzona",
           "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci"
         ]
       },
       "previousSlugs": [
@@ -2643,7 +2646,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "titleByLocale": {
         "de": "Pionier Maurer (m/w)",
-        "it": "Pioneer Maurer (m/f)",
+        "it": "Pionier Maurer (m/w)",
         "en": "Projektleiter (m/w)",
         "fr": "Projektleiter (m/m)"
       },
@@ -2695,7 +2698,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2745,12 +2749,12 @@
         "en": [
           "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
         ],
-        "fr": [
-          "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
-        ],
         "de": [
           "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bellinzona",
           "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
         ]
       },
       "previousSlugs": [
@@ -2832,13 +2836,13 @@
         "en": [
           "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw"
         ],
-        "fr": [
-          "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
-          "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bellinzona"
-        ],
         "de": [
           "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bellinzona",
           "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
+          "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
@@ -2999,12 +3003,12 @@
         "en": [
           "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n"
         ],
-        "fr": [
-          "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n"
-        ],
         "de": [
           "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bellinzona",
           "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n"
         ]
       },
       "previousSlugs": [
@@ -3085,12 +3089,12 @@
         "en": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d"
         ],
-        "fr": [
-          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d"
-        ],
         "de": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-swiss-armed-forces-vtg-bellinzona",
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d"
         ]
       },
       "previousSlugs": [
@@ -3255,15 +3259,15 @@
           "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern",
           "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
         ],
-        "fr": [
-          "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
-        ],
         "en": [
           "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
         ],
         "de": [
           "observer-lmt-lot-m-w-swiss-armed-forces-vtg-bellinzona",
           "observer-lmt-lot-m-w-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
         ]
       },
       "previousSlugs": [

@@ -1,18 +1,19 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-07-02T23:17:08.391Z",
+  "generatedAt": "2026-07-03T12:45:11.132Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5722,
-  "avgDurationMs": 5722,
+  "durationMs": 6410,
+  "avgDurationMs": 6410,
   "durationHistory": [
-    5722
+    6410
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "stiftung-kind-autismus-c04f839d446c",
       "slug": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
@@ -20,13 +21,13 @@
       "companyKey": "stiftung-kind-autismus",
       "companyDomain": "kind-autismus.ch",
       "title": "Zivildienstleistende/r im Sozialwesen",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Urdorf",
       "canton": "ZH",
       "url": "https://app.reflinejobs.io/2044/0102/pub/99/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T23:17:06.184Z",
+      "crawledAt": "2026-07-03T12:45:08.497Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://app.reflinejobs.io/2044/0102/pub/99/index.html",
       "externalId": "0102",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-02T23:17:06.184Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "stiftung-kind-autismus-3a72454bcdc5",
       "slug": "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/2044/0081/pub/68/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T23:17:05.532Z",
+      "crawledAt": "2026-07-03T12:45:07.637Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "firstSeenAt": "2026-05-19T16:19:00.513Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
