@@ -212,9 +212,9 @@ function parseDeloitteDate(raw = '') {
  *
  * Deloitte routinely posts one role across several offices at once (e.g.
  * "Basel, Geneva, Zurich") — postalCode/streetAddress must ONLY be filled
- * from HQ when the RESOLVED canton is actually the HQ canton (ZH), never
- * unconditionally, or a Basel/Geneva/Bern/Lausanne/Lugano job would get
- * mislabeled with the Zürich street address.
+ * from HQ when the RESOLVED CITY is actually Zürich, never unconditionally
+ * and never on canton alone (a Winterthur job is ZH-canton too but isn't
+ * Zürich-city, so it must not get the Zürich street address).
  */
 function resolveAddress(cityRaw = '') {
   const raw = normalizeSpace(cityRaw);
@@ -245,12 +245,13 @@ function resolveAddress(cityRaw = '') {
   const segments = raw.split(',').map((s) => s.trim()).filter(Boolean);
   const matchingSegment = segments.find((seg) => inferSwissTargetCanton(seg) === canton);
   const city = matchingSegment || segments[0] || HQ.city;
+  const isHqCity = /z[üu]rich/i.test(city);
 
   return {
     city,
     canton,
-    postalCode: canton === HQ.canton ? HQ.postalCode : '',
-    streetAddress: canton === HQ.canton ? HQ.streetAddress : '',
+    postalCode: isHqCity ? HQ.postalCode : '',
+    streetAddress: isHqCity ? HQ.streetAddress : '',
     region: canton,
   };
 }
