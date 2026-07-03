@@ -6,6 +6,7 @@
  * API endpoint: https://casale.recruitee.com/api/offers
  * Fallback HTML: https://recruit.casale.ch/
  */
+import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -100,7 +101,7 @@ async function mergeJobs(discoveredJobs) {
       titleByLocale: mergeLocaleTextMap(old.titleByLocale, d.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
-      previousSlugs: [...new Set([...(old.previousSlugs || []), ...(d.previousSlugs || [])])].slice(0, 20),
+      previousSlugs: mergePreviousSlugsCapped(old.previousSlugs, d.previousSlugs, { jobId: old.id || d.id, source: 'update-casale-jobs.mjs' }),
     }); updated++; }
     else { merged.push(d); added++; }
   }
