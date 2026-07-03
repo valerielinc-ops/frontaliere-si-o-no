@@ -1,6 +1,6 @@
 {
   "crawlerKey": "globus",
-  "assembledAt": "2026-07-03T10:18:08.184Z",
+  "assembledAt": "2026-07-03T11:34:06.362Z",
   "jobs": [
     {
       "id": "globus-c6d4e2d4e95a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.globus.ch/Mitarbeiterin-Visual-Merchandising-Damenmode-100-wmd-de-j2309.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.157Z",
+      "crawledAt": "2026-07-03T11:34:01.455Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -60,7 +60,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-visual-merchandising-damenmode-100-w-m-d-globus-ch"
+          "mitarbeiter-in-visual-merchandising-damenmode-100-w-m-d-globus-ch",
+          "dipendente-visual-merchandising-moda-donna-100-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "needsRetranslation": true,
@@ -109,7 +110,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Metzgerei-100-wmd-de-j2409.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.156Z",
+      "crawledAt": "2026-07-03T11:34:01.453Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -134,7 +135,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-metzgerei-100-w-m-d-globus-ch",
-          "consulente-di-vendita-in-butchery-100-f-m-d-globus-zurich-bahnhofstrasse"
+          "consulente-di-vendita-in-butchery-100-f-m-d-globus-zurich-bahnhofstrasse",
+          "consulente-di-vendita-macellaio-100-f-m-d-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "verkaufsberater-in-metzgerei-100-w-m-d-globus-ch"
@@ -172,7 +174,7 @@
       "title": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
       "titleByLocale": {
         "it": "Supporto di vendita per incarichi nel settore non alimentare 20% - principalmente assegnazioni di sabato (f/m/d)",
-        "en": "Sales Support for assignments in the non-food sector 20% - mainly Saturday assignments (f/m/d)",
+        "en": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "de": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "fr": "Soutien aux ventes pour les missions dans le secteur non alimentaire 20% - principalement les missions du samedi (f/m/d)"
       },
@@ -188,7 +190,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Non-Food-Bereich-20-vorwie-de-j2086.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.156Z",
+      "crawledAt": "2026-07-03T11:34:01.454Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -211,13 +213,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus"
+          "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+          "supporto-di-vendita-per-incarichi-nel-settore-non-alimentare-20-principalmente-assegnazioni-di-sabato-f-m-d-globus"
         ],
         "en": [
           "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.191Z",
+      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -246,7 +250,7 @@
       "title": "Burberry - Sales Consultant Premium Segment 70-80% (w/m/d)",
       "titleByLocale": {
         "it": "Burberry - Sales Consulente Premium Segment 70-80% (w/m/d)",
-        "en": "Burberry - Sales Consultant Premium Segment 70-80% (f/m/d)",
+        "en": "Burberry - Sales Consultant Premium Segment 70-80% (w/m/d)",
         "de": "Burberry - Sales Berater Premium Segment 70-80% (w/m/d)",
         "fr": "Burberry - Consultant en ventes Segment Premium 70-80 % (f/m/d)"
       },
@@ -262,7 +266,7 @@
       "url": "https://jobs.globus.ch/Burberry-Sales-Consultant-Premium-Segment-70-80-wmd-de-j2422.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.155Z",
+      "crawledAt": "2026-07-03T11:34:01.452Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -285,10 +289,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "burberry-sales-consultant-premium-segment-70-80-w-m-d-globus-ch"
+          "burberry-sales-consultant-premium-segment-70-80-w-m-d-globus-ch",
+          "burberry-consulente-vendite-segmento-premium-70-80-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.176Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -333,7 +339,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Parfuemerie-80-wmd-befristet-Juni-Dezemb-de-j2421.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.155Z",
+      "crawledAt": "2026-07-03T11:34:01.453Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -378,10 +384,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-parfumerie-80-w-m-d-befristet-juni-dezember-2026-globus-ch"
+          "verkaufsberater-in-parfumerie-80-w-m-d-befristet-juni-dezember-2026-globus-ch",
+          "venditore-a-parfumeria-80-w-m-d-temporaneo-giugno-dicembre-2026-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.178Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -426,7 +434,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-20-wmd-de-j2424.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.154Z",
+      "crawledAt": "2026-07-03T11:34:01.451Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -449,10 +457,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-home-lifestyle-20-w-m-d-globus-ch"
+          "verkaufsberater-in-home-lifestyle-20-w-m-d-globus-ch",
+          "consulente-commerciale-in-home-lifestyle-20-f-m-d-globus-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.172Z",
+      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -497,7 +507,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Diptyque-40-wmd-de-j2428.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.152Z",
+      "crawledAt": "2026-07-03T11:34:01.449Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -520,10 +530,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-diptyque-40-w-m-d-globus-ch"
+          "verkaufsberater-in-diptyque-40-w-m-d-globus-ch",
+          "consulente-commerciale-in-diptyque-40-f-m-d-globus-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.170Z",
+      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -552,7 +564,7 @@
       "title": "Sales Support - Samstagseinsätze 20% im Bereich Parfümerie & Herrenmode (w/m/d)",
       "titleByLocale": {
         "it": "Supporto di vendita - Sabato assegna 20% in profumeria e moda maschile (f/m/d)",
-        "en": "Sales Support - Saturday assignments 20% in perfumery & men's fashion (f/m/d)",
+        "en": "Sales Support - Samstagseinsätze 20% im Bereich Parfümerie & Herrenmode (w/m/d)",
         "de": "Sales Support - Samstagseinsätze 20% im Bereich Parfümerie & Herrenmode (w/m/d)",
         "fr": "Soutien aux ventes - Affectations du samedi 20 % dans le secteur de la Parfumerie et de la Mode Masculine (f/m/d)"
       },
@@ -568,7 +580,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-Samstagseinsaetze-20-im-Bereich-Parfuemerie--de-j2430.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.150Z",
+      "crawledAt": "2026-07-03T11:34:01.447Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -591,13 +603,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch"
+          "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch",
+          "supporto-di-vendita-sabato-assegna-20-in-profumeria-e-moda-maschile-f-m-d-globus-wallisellen"
         ],
         "en": [
           "sales-support-samstagseinsatze-20-im-bereich-parfumerie-herrenmode-w-m-d-globus-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.169Z",
+      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -626,7 +640,7 @@
       "title": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite - Incarichi del sabato 20% nel settore alimentare (f/m/d)",
-        "en": "Sales Support - Saturday assignments 20% in the food sector (f/m/d)",
+        "en": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
         "de": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
         "fr": "Soutien aux ventes - affectations du samedi 20 % dans le secteur alimentaire (f/m/d)"
       },
@@ -642,7 +656,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-Samstagseinsaetze-20-im-Bereich-Food-wmd-de-j2431.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.148Z",
+      "crawledAt": "2026-07-03T11:34:01.445Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -665,13 +679,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch"
+          "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch",
+          "supporto-alle-vendite-incarichi-del-sabato-20-nel-settore-alimentare-f-m-d-globus-wallisellen"
         ],
         "en": [
           "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.165Z",
+      "needsRetranslation": true,
       "salaryMin": 14700,
       "salaryMax": 22300,
       "baseSalary": {
@@ -716,7 +732,7 @@
       "url": "https://jobs.globus.ch/Eventkoordinatorin-delicatessa-Gastronomie-80-100-wmd-de-j2433.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.146Z",
+      "crawledAt": "2026-07-03T11:34:01.443Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -739,7 +755,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "eventkoordinator-in-delicatessa-gastronomie-80-100-w-m-d-globus-ch"
+          "eventkoordinator-in-delicatessa-gastronomie-80-100-w-m-d-globus-ch",
+          "coordinatore-eventi-delicatessa-gastronomia-80-100-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.151Z",
@@ -787,7 +804,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Beauty-20-40-wmd-de-j2438.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.144Z",
+      "crawledAt": "2026-07-03T11:34:01.442Z",
       "addressLocality": "Luzern",
       "streetAddress": "Pilatusstrasse 4",
       "postalCode": "6002",
@@ -816,7 +833,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-beauty-20-40-w-m-d-globus-ch",
-          "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern"
+          "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern",
+          "consulente-di-vendita-in-beauty-20-40-f-m-d-globus-luzern"
         ]
       },
       "firstSeenAt": "2026-06-12T22:25:40.028Z",
@@ -864,7 +882,7 @@
       "url": "https://jobs.globus.ch/Ex-Nihilo-Verkaufsberaterin-Parfuemerie-100-wmd-de-j2436.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.144Z",
+      "crawledAt": "2026-07-03T11:34:01.442Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -887,7 +905,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ex-nihilo-verkaufsberater-in-parfumerie-100-w-m-d-globus-ch"
+          "ex-nihilo-verkaufsberater-in-parfumerie-100-w-m-d-globus-ch",
+          "ex-nihilo-consulente-di-vendita-profumeria-100-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.146Z",
@@ -935,7 +954,7 @@
       "url": "https://jobs.globus.ch/Stellvertretender-Verkaufsleiterin-Delicatessa-100-wmd-de-j2442.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.143Z",
+      "crawledAt": "2026-07-03T11:34:01.441Z",
       "addressLocality": "Luzern",
       "streetAddress": "Pilatusstrasse 4",
       "postalCode": "6002",
@@ -958,7 +977,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-r-verkaufsleiter-in-delicatessa-100-w-m-d-globus-ch"
+          "stellvertretende-r-verkaufsleiter-in-delicatessa-100-w-m-d-globus-ch",
+          "vice-direttore-vendite-in-delicatessa-100-f-m-d-globus-luzern"
         ],
         "en": [
           "stellvertretende-r-verkaufsleiter-in-delicatessa-100-w-m-d-globus-ch"
@@ -996,7 +1016,7 @@
       "title": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite per incarichi nel settore della moda 20% - principalmente incarichi del sabato (f/m/d)",
-        "en": "Sales Support for assignments in fashion 20% - mainly Saturday assignments (f/m/d)",
+        "en": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "de": "Sales Support für Einsätze im Bereich Fashion 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "fr": "Soutien commercial pour les missions dans le secteur de la mode 20 % - principalement les devoirs du samedi (vendredi / mois/d)"
       },
@@ -1012,7 +1032,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Bereich-Fashion-20-vorwieg-de-j2447.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.142Z",
+      "crawledAt": "2026-07-03T11:34:01.440Z",
       "addressLocality": "Bern",
       "streetAddress": "Spitalgasse 17 - 21",
       "postalCode": "3001",
@@ -1047,6 +1067,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:37:46.359Z",
+      "needsRetranslation": true,
       "salaryMin": 13700,
       "salaryMax": 20800,
       "baseSalary": {
@@ -1091,7 +1112,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Kids-Papeterie-Home-Lifestyle-80-wmd-de-j2446.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.142Z",
+      "crawledAt": "2026-07-03T11:34:01.440Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -1114,7 +1135,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-kids-papeterie-home-lifestyle-80-w-m-d-globus-ch"
+          "verkaufsberater-in-kids-papeterie-home-lifestyle-80-w-m-d-globus-ch",
+          "consulente-di-vendita-figli-cartoleria-casa-e-stile-di-vita-80-f-m-d-globus-basel"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.131Z",
@@ -1162,7 +1184,7 @@
       "url": "https://jobs.globus.ch/Bottega-Veneta-Verkaufsberaterin-Parfuemerie-80-100-wmd-de-j2449.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.141Z",
+      "crawledAt": "2026-07-03T11:34:01.439Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1185,7 +1207,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bottega-veneta-verkaufsberater-in-parfumerie-80-100-w-m-d-globus-ch"
+          "bottega-veneta-verkaufsberater-in-parfumerie-80-100-w-m-d-globus-ch",
+          "bottega-veneta-consulente-vendite-profumeria-80-100-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.120Z",
@@ -1233,7 +1256,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-80-wmd-de-j2448.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.141Z",
+      "crawledAt": "2026-07-03T11:34:01.439Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1256,10 +1279,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-home-lifestyle-80-w-m-d-globus-ch"
+          "verkaufsberater-in-home-lifestyle-80-w-m-d-globus-ch",
+          "consulente-di-vendita-casa-stile-di-vita-80-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.122Z",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -1304,7 +1329,7 @@
       "url": "https://jobs.globus.ch/Bottega-Veneta-Verkaufsberaterin-Parfuemerie-20-40-wmd-de-j2450.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.140Z",
+      "crawledAt": "2026-07-03T11:34:01.438Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1327,7 +1352,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bottega-veneta-verkaufsberater-in-parfumerie-20-40-w-m-d-globus-ch"
+          "bottega-veneta-verkaufsberater-in-parfumerie-20-40-w-m-d-globus-ch",
+          "bottega-veneta-consulente-di-vendita-in-profumeria-20-40-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.097Z",
@@ -1375,7 +1401,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Damenschuhe-50-wmd-de-j2451.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.139Z",
+      "crawledAt": "2026-07-03T11:34:01.437Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -1398,7 +1424,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-damenschuhe-50-w-m-d-globus-ch"
+          "verkaufsberater-in-damenschuhe-50-w-m-d-globus-ch",
+          "verkaufsberater-in-damenschuhe-50-w-m-d-globus-basel"
         ]
       },
       "firstSeenAt": "2026-06-11T22:42:23.628Z",
@@ -1446,7 +1473,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Paul-Shark-100-wmd-de-j2453.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.138Z",
+      "crawledAt": "2026-07-03T11:34:01.436Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -1469,7 +1496,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-paul-shark-100-w-m-d-globus-ch"
+          "verkaufsberater-in-paul-shark-100-w-m-d-globus-ch",
+          "consulente-di-vendita-paul-shark-100-w-m-d-globus-wallisellen"
         ],
         "en": [
           "verkaufsberater-in-paul-shark-100-w-m-d-globus-ch"
@@ -1523,7 +1551,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Parfuemerie-Pflege-Haarpflege-100-wmd-de-j2452.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.138Z",
+      "crawledAt": "2026-07-03T11:34:01.437Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1546,7 +1574,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch"
+          "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch",
+          "consulente-di-vendita-in-profumeria-cura-e-cura-dei-capelli-100-f-m-d-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch"
@@ -1585,7 +1614,7 @@
       "title": "Sales Support - Samstagseinsätze 20% Fashion (w/m/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite - Assegnazioni del sabato 20% Moda (f/m/d)",
-        "en": "Sales Support - Saturday assignments 20% fashion (f/m/d)",
+        "en": "Sales Support - Samstagseinsätze 20% Fashion (w/m/d)",
         "de": "Sales Support - Samstagseinsätze 20% Fashion (w/m/d)",
         "fr": "Support commercial - Affectations du samedi 20 % mode (f/m/d)"
       },
@@ -1601,7 +1630,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-Samstagseinsaetze-20-Fashion-wmd-de-j2455.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.135Z",
+      "crawledAt": "2026-07-03T11:34:01.433Z",
       "addressLocality": "St. Gallen",
       "streetAddress": "Multergasse 47",
       "postalCode": "9001",
@@ -1624,13 +1653,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch"
+          "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch",
+          "supporto-alle-vendite-assegnazioni-del-sabato-20-moda-f-m-d-globus-st-gallen"
         ],
         "fr": [
           "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T12:37:46.296Z",
+      "needsRetranslation": true,
       "salaryMin": 11500,
       "salaryMax": 17400,
       "baseSalary": {
@@ -1659,7 +1690,7 @@
       "title": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite per gli incarichi nel settore alimentare 20% - Principalmente compiti del sabato (f/m/d)",
-        "en": "Sales Support for assignments in the food sector 20% - mainly Saturday assignments (f/m/d)",
+        "en": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "de": "Sales Support für Einsätze im Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
         "fr": "Soutien commercial pour les devoirs dans le secteur alimentaire 20 % - Principalement les devoirs du samedi (vendredi/mois/j)"
       },
@@ -1675,7 +1706,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2454.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.135Z",
+      "crawledAt": "2026-07-03T11:34:01.434Z",
       "addressLocality": "Bern",
       "streetAddress": "Spitalgasse 17 - 21",
       "postalCode": "3001",
@@ -1712,6 +1743,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:37:46.301Z",
+      "needsRetranslation": true,
       "salaryMin": 13700,
       "salaryMax": 20800,
       "baseSalary": {
@@ -1740,7 +1772,7 @@
       "title": "Sales Support à 20% (samedis)",
       "titleByLocale": {
         "it": "Supporto vendite 20% (sabati)",
-        "en": "Sales Support 20% (Saturdays)",
+        "en": "Sales Support à 20% (samedis)",
         "de": "Sales Support 20% (Samstags)",
         "fr": "Sales Support à 20% (samedis)"
       },
@@ -1756,7 +1788,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-20-samedis-fr-j2272.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T21:54:15.133Z",
+      "crawledAt": "2026-07-03T11:34:01.431Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1779,13 +1811,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-a-20-samedis-globus-ch"
+          "sales-support-a-20-samedis-globus-ch",
+          "supporto-vendite-20-sabati-globus-geneve"
         ],
         "de": [
           "sales-support-a-20-samedis-globus-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T21:50:13.019Z",
+      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "baseSalary": {
@@ -1814,7 +1848,7 @@
       "title": "Sales Consultant Women Shoes/Fashion 60% (w/m/d)",
       "titleByLocale": {
         "it": "Sales Consulente Women Shoes/Fashion 60% (w/m/d)",
-        "en": "Sales Consultant Women Shoes/Fashion 60% (f/m/d)",
+        "en": "Sales Consultant Women Shoes/Fashion 60% (w/m/d)",
         "de": "Sales Berater Women Shoes/Fashion 60% (w/m/d)",
         "fr": "Conseil en ventes Femmes Chaussures/Fashion 60% (f/m/j)"
       },
@@ -1830,7 +1864,7 @@
       "url": "https://jobs.globus.ch/Sales-Consultant-Women-ShoesFashion-60-wmd-de-j2457.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.132Z",
+      "crawledAt": "2026-07-03T11:34:01.430Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1853,10 +1887,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-women-shoes-fashion-60-w-m-d-globus-ch"
+          "sales-consultant-women-shoes-fashion-60-w-m-d-globus-ch",
+          "sales-consulente-women-shoes-fashion-60-w-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-22T14:19:19.665Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -1901,7 +1937,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-AccessoiresSchuhe-60-wmd-befristet-bis-3-de-j2458.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.130Z",
+      "crawledAt": "2026-07-03T11:34:01.429Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -1926,7 +1962,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-accessoires-schuhe-60-w-m-d-befristet-bis-31-12-2026-globus-ch",
-          "verkaufsberater-in-accessoires-schuhe-60-m-w-d-befristet-bis-31-12-2026-globus-wallisellen"
+          "verkaufsberater-in-accessoires-schuhe-60-m-w-d-befristet-bis-31-12-2026-globus-wallisellen",
+          "consulente-di-vendita-in-accessori-footwear-60-f-m-d-limitato-al-31-12-2026-globus-wallisellen"
         ],
         "en": [
           "verkaufsberater-in-accessoires-schuhe-60-w-m-d-befristet-bis-31-12-2026-globus-ch"
@@ -1980,7 +2017,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Herrenmode-80-100-mwd-de-j2459.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.128Z",
+      "crawledAt": "2026-07-03T11:34:01.427Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -2003,7 +2040,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-herrenmode-80-100-m-w-d-globus-ch"
+          "verkaufsberater-in-herrenmode-80-100-m-w-d-globus-ch",
+          "consulente-commerciale-in-menswear-80-100-m-f-d-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "verkaufsberater-in-herrenmode-80-100-m-w-d-globus-ch"
@@ -2057,7 +2095,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-Beauty-pour-notre-Corner-Maison-Fran-fr-j2460.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-02T21:54:15.124Z",
+      "crawledAt": "2026-07-03T11:34:01.423Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -2080,7 +2118,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-de-vente-beauty-pour-notre-corner-maison-francis-kurkdjian-a-100-globus-ch"
+          "conseiller-ere-de-vente-beauty-pour-notre-corner-maison-francis-kurkdjian-a-100-globus-ch",
+          "consulente-di-vendita-di-bellezza-per-il-nostro-corner-maison-francis-kurkdjian-100-globus-geneve"
         ],
         "en": [
           "conseiller-ere-de-vente-beauty-pour-notre-corner-maison-francis-kurkdjian-a-100-globus-ch"
@@ -2134,7 +2173,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-MetzgereiCharcuterie-80-100-wmd-de-j2461.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.123Z",
+      "crawledAt": "2026-07-03T11:34:01.421Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -2157,7 +2196,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-metzgerei-charcuterie-80-100-w-m-d-globus-ch"
+          "verkaufsberater-in-metzgerei-charcuterie-80-100-w-m-d-globus-ch",
+          "consulente-di-vendita-in-butchery-charcuterie-80-100-f-m-d-globus-wallisellen"
         ],
         "en": [
           "verkaufsberater-in-metzgerei-charcuterie-80-100-w-m-d-globus-ch"
@@ -2211,7 +2251,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-Kasse-Kundendienst-Geschenks-de-j2464.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.103Z",
+      "crawledAt": "2026-07-03T11:34:01.402Z",
       "addressLocality": "Bern",
       "streetAddress": "Spitalgasse 17 - 21",
       "postalCode": "3001",
@@ -2236,7 +2276,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-delicatessa-kasse-kundendienst-geschenkservice-50-w-m-d-globus-ch",
-          "consulente-di-vendita-in-cassiere-di-delicatessa-servizio-clienti-e-servizio-regalo-50-f-m-d-globus-bern"
+          "consulente-di-vendita-in-cassiere-di-delicatessa-servizio-clienti-e-servizio-regalo-50-f-m-d-globus-bern",
+          "consulente-vendite-checkout-delicatessa-servizio-clienti-e-servizio-regalo-50-f-m-d-globus-bern"
         ],
         "en": [
           "verkaufsberater-in-delicatessa-kasse-kundendienst-geschenkservice-50-w-m-d-globus-ch"
@@ -2290,7 +2331,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Herrenmode-50-wmd-de-j2465.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.102Z",
+      "crawledAt": "2026-07-03T11:34:01.401Z",
       "addressLocality": "Bern",
       "streetAddress": "Spitalgasse 17 - 21",
       "postalCode": "3001",
@@ -2317,7 +2358,8 @@
         "it": [
           "verkaufsberater-in-herrenmode-50-w-m-d-globus-ch",
           "verkaufsberater-in-herrenmode-50-w-m-d-globus-bern",
-          "consulente-commerciale-in-menswear-50-f-m-d-globus-bern"
+          "consulente-commerciale-in-menswear-50-f-m-d-globus-bern",
+          "consulente-vendite-moda-maschile-50-f-m-d-globus-bern"
         ],
         "en": [
           "verkaufsberater-in-herrenmode-50-w-m-d-globus-bern"
@@ -2344,9 +2386,9 @@
       "id": "globus-b2baed982c01",
       "slug": "consulente-di-vendita-in-wine-more-60-80-temporaneo-settembre-dicembre-2026-f-m-d-globus-wallisellen",
       "slugByLocale": {
-        "de": "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-w-m-d-globus-ch",
         "it": "consulente-di-vendita-in-wine-more-60-80-temporaneo-settembre-dicembre-2026-f-m-d-globus-wallisellen",
         "en": "sales-consultant-in-wine-more-60-80-temporary-september-december-2026-f-m-d-globus-wallisellen",
+        "de": "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-w-m-d-globus-ch",
         "fr": "consultant-commercial-en-vin-plus-60-80-temporaire-septembre-decembre-2026-f-m-d-globus-wallisellen"
       },
       "company": "Globus",
@@ -2354,24 +2396,24 @@
       "companyDomain": "globus.ch",
       "title": "Verkaufsberater:in Wine & More 60-80% (befristet September - Dezember 2026) (w/m/d)",
       "titleByLocale": {
-        "de": "Verkaufsberater:in Wine & More 60-80% (befristet September - Dezember 2026) (w/m/d)",
         "it": "Consulente di vendita: in Wine & More 60-80% (temporaneo settembre - dicembre 2026) (f/m/d)",
         "en": "Sales consultant: in Wine & More 60-80% (temporary September - December 2026) (f/m/d)",
+        "de": "Verkaufsberater:in Wine & More 60-80% (befristet September - Dezember 2026) (w/m/d)",
         "fr": "Consultant commercial : en Vin & Plus 60-80% (temporaire septembre - décembre 2026) (f/m/d)"
       },
       "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken.\n HIER MACHST DU DEN UNTERSCHIED\n\n• Vom 14. September bis 8. Oktober liegt der Schwerpunkt dieser Position auf Einsätzen an der Weinmesse im Glattzentrum. Anschliessend übernimmst du eine vielseitige Allrounder-Funktion im Bereich ***delicatessa und unterstützt unser Team in unterschiedlichen Aufgabenbereichen .\n\n• Mit Gespür für individuelle Wünsche berätst du unsere Kundschaft kompetent und überzeugend.\n\n• Du planst Degustationen und Events und führst sie sicher durch.\n\n• Auch über dein Fachgebiet hinaus bringst du dich in die Sortimentspräsentation ein.\n\n• Du achtest auf gesetzliche Vorgaben und ein gepflegtes Erscheinungsbild.\n\n• Beim Visual Merchandising und bei Promotionen setzt du dein Auge für Details ein.\n\n• Du unterstützt an der vier tägigen Weinmesse im Glattzentrum.\n DAS ZEICHNET DICH AUS\n\n• Erfahrung im Verkauf oder in der Gastronomie – idealerweise mit Fokus auf Wein – bringst du mit.\n\n• Du hast eine Ausbildung im Bereich Wein, Gastronomie oder Detailhandel – z. B. als Sommelier/Sommelière, Weinfachberater:in oder Winzer:in.\n\n• Du trittst mit natürlicher Präsenz auf und verstehst dich als Gastgeber:in mit Stil.\n\n• Eigeninitiative, Teamgeist und Verlässlichkeit gehören zu deinem Arbeitsstil.\n\n• Sehr gutes Deutsch, gute Englischkenntnisse und Einsatzbereitschaft von Montag bis Samstag bringst du mit.\n DARAUF KANNST DU DICH FREUEN\n\n• Auf ein aussergewöhnliches Arbeitsumfeld im umsatzstärksten und beliebtesten Einkaufszentrum der Schweiz.\n\n• Auf eine ausgezeichnete &Ouml;V-Anbindung – Tram und Bus halten direkt vor dem Glattzentrum.\n\n• Auf direkte Autobahnanbindung (A1) , falls du mit dem Auto zur Arbeit kommst.\n\n• Auf Gratis-Parkplätze für Mitarbeitende sowie Tankstellen und E-Tankstellen unmittelbar vor dem Gebäude.\n\n• Auf eine tolle Dachterrasse für Mitarbeitende , um an der frischen Luft Zmittag zu essen oder einfach Sonne zu tanken.\n\n• Auf Top-Verpflegungsmöglichkeiten dank Glatt-Gastronomie: 14 Restaurants und Bars bieten alles von Delikatessen, mediterranen Leckereien, asiatischen Köstlichkeiten bis Take-aways.\n\n• Auf 100 Shops, darunter auch Apotheken, eine Post und vieles mehr – das Glatt, die kleine Einkaufsstadt! PS: Dank der Glatt-Karte bekommst du diverse Vergünstigungen.\n\n• Auf attraktive Sozialleistungen .\n\n• Auf mindestens 5 Wochen Ferien .\n\n• Auf den Outfitpass mit rund 50% auf 30 Kleidungsstücke pro Jahr für dich.\n\n• Auf bis zu 30% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie .\n\n• Auf eine märchenhafte Atmosphäre während der aussergewöhnlichen Glatt-Weihnachtszeit.\n DEIN KONTAKT\nKlingt das nach dir? Wenn du deine Erfahrung und dein Feingefühl im Verkauf edler Weine in ein stilvolles Umfeld einbringen möchtest, bist du bei uns richtig. GLOBUS bietet dir die Bühne – du bringst die Kompetenz.\n\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert, statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Ich bin gerne für dich da.",
       "descriptionByLocale": {
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken.\n HIER MACHST DU DEN UNTERSCHIED\n\n• Vom 14. September bis 8. Oktober liegt der Schwerpunkt dieser Position auf Einsätzen an der Weinmesse im Glattzentrum. Anschliessend übernimmst du eine vielseitige Allrounder-Funktion im Bereich ***delicatessa und unterstützt unser Team in unterschiedlichen Aufgabenbereichen .\n\n• Mit Gespür für individuelle Wünsche berätst du unsere Kundschaft kompetent und überzeugend.\n\n• Du planst Degustationen und Events und führst sie sicher durch.\n\n• Auch über dein Fachgebiet hinaus bringst du dich in die Sortimentspräsentation ein.\n\n• Du achtest auf gesetzliche Vorgaben und ein gepflegtes Erscheinungsbild.\n\n• Beim Visual Merchandising und bei Promotionen setzt du dein Auge für Details ein.\n\n• Du unterstützt an der vier tägigen Weinmesse im Glattzentrum.\n DAS ZEICHNET DICH AUS\n\n• Erfahrung im Verkauf oder in der Gastronomie – idealerweise mit Fokus auf Wein – bringst du mit.\n\n• Du hast eine Ausbildung im Bereich Wein, Gastronomie oder Detailhandel – z. B. als Sommelier/Sommelière, Weinfachberater:in oder Winzer:in.\n\n• Du trittst mit natürlicher Präsenz auf und verstehst dich als Gastgeber:in mit Stil.\n\n• Eigeninitiative, Teamgeist und Verlässlichkeit gehören zu deinem Arbeitsstil.\n\n• Sehr gutes Deutsch, gute Englischkenntnisse und Einsatzbereitschaft von Montag bis Samstag bringst du mit.\n DARAUF KANNST DU DICH FREUEN\n\n• Auf ein aussergewöhnliches Arbeitsumfeld im umsatzstärksten und beliebtesten Einkaufszentrum der Schweiz.\n\n• Auf eine ausgezeichnete &Ouml;V-Anbindung – Tram und Bus halten direkt vor dem Glattzentrum.\n\n• Auf direkte Autobahnanbindung (A1) , falls du mit dem Auto zur Arbeit kommst.\n\n• Auf Gratis-Parkplätze für Mitarbeitende sowie Tankstellen und E-Tankstellen unmittelbar vor dem Gebäude.\n\n• Auf eine tolle Dachterrasse für Mitarbeitende , um an der frischen Luft Zmittag zu essen oder einfach Sonne zu tanken.\n\n• Auf Top-Verpflegungsmöglichkeiten dank Glatt-Gastronomie: 14 Restaurants und Bars bieten alles von Delikatessen, mediterranen Leckereien, asiatischen Köstlichkeiten bis Take-aways.\n\n• Auf 100 Shops, darunter auch Apotheken, eine Post und vieles mehr – das Glatt, die kleine Einkaufsstadt! PS: Dank der Glatt-Karte bekommst du diverse Vergünstigungen.\n\n• Auf attraktive Sozialleistungen .\n\n• Auf mindestens 5 Wochen Ferien .\n\n• Auf den Outfitpass mit rund 50% auf 30 Kleidungsstücke pro Jahr für dich.\n\n• Auf bis zu 30% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie .\n\n• Auf eine märchenhafte Atmosphäre während der aussergewöhnlichen Glatt-Weihnachtszeit.\n DEIN KONTAKT\nKlingt das nach dir? Wenn du deine Erfahrung und dein Feingefühl im Verkauf edler Weine in ein stilvolles Umfeld einbringen möchtest, bist du bei uns richtig. GLOBUS bietet dir die Bühne – du bringst die Kompetenz.\n\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert, statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Ich bin gerne für dich da.",
-        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso in Svizzera. Sono persone come te che fanno la differenza e portano il posto che amiamo per vivere insieme a noi.\n Qui fai la differenza\n\n• Dal 14 settembre all'8 settembre Nel mese di ottobre, il focus di questa posizione è sulle operazioni alla fiera del vino nel Glatttzentrum. Successivamente, si assume una versatile funzione di tuttofare nella zona *delicatessa e sostenere il nostro team in varie aree di responsabilità.\n\n• Con un senso di desideri individuali, consiglia i nostri clienti in modo competente e convincente.\n\n• Pianifichi degustazioni ed eventi e li conduci in modo sicuro.\n\n• Anche al di là della vostra area di competenza, siete coinvolti nella presentazione assortimento.\n\n• Si presta attenzione ai requisiti legali e un aspetto ben tenuto.\n\n• In visual merchandising e promozioni, si utilizza l'occhio per i dettagli.\n\n• Sostieni la fiera del vino di quattro giorni nel Glattzentrum.\n Questo ti tira fuori\n\n• Esperienza nelle vendite o nella gastronomia – idealmente con un focus sul vino – porti con te.\n\n• Hai una formazione nel settore del vino, della gastronomia o del commercio al dettaglio – ad esempio come sommelier/sommelière, consulente specializzato in vini:in o winemaker:in.\n\n• Si esibisce con una presenza naturale e si vede come un ospite: in stile.\n\n• Iniziativa, spirito di squadra e affidabilità fanno parte del vostro stile di lavoro.\n\n• Molto buono tedesco, buona conoscenza dell'inglese e impegno da lunedì a sabato si porta con voi.\n Puoi gioire.\n\n• Ad un ambiente di lavoro eccezionale nel centro commerciale più alto e popolare della Svizzera.\n\n• Su un'eccellente connessione &Ouml;V – fermata tram e bus direttamente di fronte al Glattzentrum.\n\n• Collegamento autostradale diretto (A1) se si arriva a lavorare in auto.\n\n• Parcheggio gratuito per i dipendenti e stazioni di rifornimento e e-gas immediatamente davanti all'edificio.\n\n• Su una grande terrazza sul tetto per i dipendenti di mangiare nell'aria fresca Zmittag o semplicemente per ricaricare il sole.\n\n• Sulle migliori opzioni di cibo grazie alla gastronomia liscio: 14 ristoranti e bar offrono tutto dalle prelibatezze, i piatti mediterranei, le prelibatezze asiatiche ai takeaway.\n\n• Su 100 negozi, tra cui farmacie, un ufficio postale e molto altro – il Glatt, la piccola città dello shopping! PS: Grazie alla carta liscia si ottengono vari vantaggi.\n\n• Su benefici sociali attraenti.\n\n• Almeno 5 settimane di vacanza.\n\n• Sul pass vestito con circa il 50% su 30 vestiti all'anno per voi.\n\n• Fino al 30% di sconto prodotti dal mondo del mondo per voi e la vostra famiglia.\n\n• In un'atmosfera da favola durante la straordinaria stagione natalizia liscia.\n Il tuo contatto\nTi sembra? Se vuoi portare la tua esperienza e sensibilità nella vendita di vini pregiati in un ambiente elegante, sei al posto giusto. GLOBUS vi offre la fase – portate la competenza.\n\nAttendiamo con ansia la vostra applicazione online. Questo è molto semplice, invece di una lettera di motivazione siamo desiderosi delle vostre risposte alle nostre tre domande - basta seguire il link sottostante \"Applica ora!\". Sono felice di esserci per te.",
-        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and bring the place we love to be to life together with us.\n Here you make the difference\n\n• From 14 September to 8 September In October, the focus of this position is on operations at the wine fair in the Glattzentrum. Afterwards, you take on a versatile all-rounder function in the area *delicatessa and support our team in various areas of responsibility.\n\n• With a sense of individual wishes, you advise our customers competently and convincingly.\n\n• You plan tastings and events and conduct them safely.\n\n• Also beyond your area of expertise, you are involved in the assortment presentation.\n\n• You pay attention to legal requirements and a well-kept appearance.\n\n• In visual merchandising and promotions, you use your eye for details.\n\n• You support at the four-day wine fair in the Glattzentrum.\n That draws you out\n\n• Experience in sales or in gastronomy – ideally with a focus on wine – you bring with you.\n\n• You have an education in the field of wine, gastronomy or retail trade – e.g. as a sommelier/sommelière, wine specialist consultant:in or winemaker:in.\n\n• You perform with a natural presence and see yourself as a host: in style.\n\n• Initiative, team spirit and reliability are part of your working style.\n\n• Very good German, good knowledge of English and commitment from Monday to Saturday you bring with you.\n You can rejoice.\n\n• To an exceptional working environment in the highest-grossing and most popular shopping centre in Switzerland.\n\n• On an excellent &Ouml;V connection – tram and bus stop directly in front of the Glattzentrum.\n\n• Direct motorway connection (A1) if you come to work by car.\n\n• On free parking for employees as well as filling stations and e-gas stations immediately in front of the building.\n\n• On a great roof terrace for employees to eat in the fresh air Zmittag or simply to recharge the sun.\n\n• On top food options thanks to smooth gastronomy: 14 restaurants and bars offer everything from delicacies, Mediterranean treats, Asian delicacies to takeaways.\n\n• On 100 shops, including pharmacies, a post office and much more – the Glatt, the small shopping town! PS: Thanks to the smooth card you get various perks.\n\n• On attractive social benefits.\n\n• At least 5 weeks of vacation.\n\n• On the outfit pass with around 50% on 30 clothes per year for you.\n\n• Up to 30% off products from the globe world for you and your family.\n\n• To a fairytale atmosphere during the extraordinary smooth Christmas season.\n Your contact\nDoes that sound like you? If you want to bring your experience and sensitivity in selling fine wines into a stylish environment, you are at the right place. GLOBUS offers you the stage – you bring the competence.\n\nWe look forward to your online application. This is very uncomplicated, instead of a letter of motivation we are eager for your answers to our three questions - just follow the link below \"Apply now!\". I'm happy to be there for you.",
-        "fr": "Avec une grande attention aux détails, nos collaborateurs font de GLOBUS la première adresse haut de gamme et de luxe en Suisse. Ce sont des gens comme vous qui font la différence et apportent l'endroit où nous aimons être à la vie ensemble avec nous.\n Ici vous faites la différence\n\n• Du 14 septembre au 8 septembre En octobre, l'accent est mis sur les opérations à la foire des vins du Glattzentrum. Ensuite, vous assumez une fonction polyvalente et polyvalente dans la région *delicatessa et soutenez notre équipe dans différents domaines de responsabilité.\n\n• Avec un sens des souhaits individuels, vous conseillez nos clients de manière compétente et convaincante.\n\n• Vous planifiez des dégustations et des événements et les conduisez en toute sécurité.\n\n• Aussi au-delà de votre domaine d'expertise, vous êtes impliqué dans la présentation de l'assortiment.\n\n• Vous faites attention aux exigences légales et une apparence bien gardée.\n\n• Dans le merchandising visuel et les promotions, vous utilisez votre œil pour les détails.\n\n• Vous soutenez la foire du vin de quatre jours au Glattzentrum.\n Ça vous attire.\n\n• Expérience en vente ou en gastronomie – idéalement axée sur le vin – vous apportez avec vous.\n\n• Vous avez une formation dans le domaine du vin, de la gastronomie ou du commerce de détail – par exemple comme sommelier/sommelière, spécialiste du vin consultant:in ou vigneron:in.\n\n• Vous effectuez avec une présence naturelle et vous voyez comme un hôte: dans le style.\n\n• Initiative, esprit d'équipe et fiabilité font partie de votre style de travail.\n\n• Très bon allemand, bonne connaissance de l'anglais et engagement du lundi au samedi que vous apportez avec vous.\n Vous pouvez vous réjouir.\n\n• Dans un environnement de travail exceptionnel dans le centre commercial le plus gros et le plus populaire de Suisse.\n\n• Sur une excellente connexion &Ouml;V – tramway et arrêt de bus directement en face du Glattzentrum.\n\n• Connexion autoroutière directe (A1) si vous venez travailler en voiture.\n\n• Sur un parking gratuit pour les employés ainsi que les stations de ravitaillement et les stations de gaz électronique immédiatement en face du bâtiment.\n\n• Sur un grand toit terrasse pour les employés à manger dans l'air frais Zmittag ou simplement pour recharger le soleil.\n\n• Au-dessus de la gastronomie : 14 restaurants et bars offrent tout, des spécialités méditerranéennes, des spécialités asiatiques aux plats à emporter.\n\n• Sur 100 magasins, dont des pharmacies, un bureau de poste et bien plus encore – le Glatt, la petite ville commerçante ! PS: Grâce à la carte lisse vous obtenez différents avantages.\n\n• Sur les avantages sociaux attractifs.\n\n• Au moins 5 semaines de vacances.\n\n• Sur la tenue passent avec environ 50% sur 30 vêtements par an pour vous.\n\n• Jusqu'à 30% de rabais sur les produits du monde entier pour vous et votre famille.\n\n• À une ambiance de conte de fées pendant l'extraordinaire saison de Noël.\n Votre contact\nÇa te ressemble ? Si vous voulez apporter votre expérience et votre sensibilité dans la vente de vins fins dans un environnement élégant, vous êtes au bon endroit. GLOBUS vous offre la scène – vous apportez la compétence.\n\nNous nous réjouissons de votre candidature en ligne. C'est très simple, au lieu d'une lettre de motivation nous sommes impatients de vos réponses à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquer maintenant!\". Je suis heureux d'être là pour toi."
+        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso in Svizzera. Sono persone come te che fanno la differenza e portano il posto che amiamo per vivere insieme a noi. Qui fai la differenza\n• Dal 14 settembre all'8 settembre Nel mese di ottobre, il focus di questa posizione è sulle operazioni alla fiera del vino nel Glatttzentrum. Successivamente, si assume una versatile funzione di tuttofare nella zona *delicatessa e sostenere il nostro team in varie aree di responsabilità.\n• Con un senso di desideri individuali, consiglia i nostri clienti in modo competente e convincente.\n• Pianifichi degustazioni ed eventi e li conduci in modo sicuro.\n• Anche al di là della vostra area di competenza, siete coinvolti nella presentazione assortimento.\n• Si presta attenzione ai requisiti legali e un aspetto ben tenuto.\n• In visual merchandising e promozioni, si utilizza l'occhio per i dettagli.\n• Sostieni la fiera del vino di quattro giorni nel Glattzentrum. Questo ti tira fuori\n• Esperienza nelle vendite o nella gastronomia – idealmente con un focus sul vino – porti con te.\n• Hai una formazione nel settore del vino, della gastronomia o del commercio al dettaglio – ad esempio come sommelier/sommelière, consulente specializzato in vini:in o winemaker:in.\n• Si esibisce con una presenza naturale e si vede come un ospite: in stile.\n• Iniziativa, spirito di squadra e affidabilità fanno parte del vostro stile di lavoro.\n• Molto buono tedesco, buona conoscenza dell'inglese e impegno da lunedì a sabato si porta con voi. Puoi gioire.\n• Ad un ambiente di lavoro eccezionale nel centro commerciale più alto e popolare della Svizzera.\n• Su un'eccellente connessione &Ouml;V – fermata tram e bus direttamente di fronte al Glattzentrum.\n• Collegamento autostradale diretto (A1) se si arriva a lavorare in auto.\n• Parcheggio gratuito per i dipendenti e stazioni di rifornimento e e-gas immediatamente davanti all'edificio.\n• Su una grande terrazza sul tetto per i dipendenti di mangiare nell'aria fresca Zmittag o semplicemente per ricaricare il sole.\n• Sulle migliori opzioni di cibo grazie alla gastronomia liscio: 14 ristoranti e bar offrono tutto dalle prelibatezze, i piatti mediterranei, le prelibatezze asiatiche ai takeaway.\n• Su 100 negozi, tra cui farmacie, un ufficio postale e molto altro – il Glatt, la piccola città dello shopping! PS: Grazie alla carta liscia si ottengono vari vantaggi.\n• Su benefici sociali attraenti.\n• Almeno 5 settimane di vacanza.\n• Sul pass vestito con circa il 50% su 30 vestiti all'anno per voi.\n• Fino al 30% di sconto prodotti dal mondo del mondo per voi e la vostra famiglia.\n• In un'atmosfera da favola durante la straordinaria stagione natalizia liscia. Il tuo contatto Ti sembra? Se vuoi portare la tua esperienza e sensibilità nella vendita di vini pregiati in un ambiente elegante, sei al posto giusto. GLOBUS vi offre la fase – portate la competenza. Attendiamo con ansia la vostra applicazione online. Questo è molto semplice, invece di una lettera di motivazione siamo desiderosi delle vostre risposte alle nostre tre domande - basta seguire il link sottostante \"Applica ora!\". Sono felice di esserci per te.",
+        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and bring the place we love to be to life together with us. Here you make the difference\n• From 14 September to 8 September In October, the focus of this position is on operations at the wine fair in the Glattzentrum. Afterwards, you take on a versatile all-rounder function in the area *delicatessa and support our team in various areas of responsibility.\n• With a sense of individual wishes, you advise our customers competently and convincingly.\n• You plan tastings and events and conduct them safely.\n• Also beyond your area of expertise, you are involved in the assortment presentation.\n• You pay attention to legal requirements and a well-kept appearance.\n• In visual merchandising and promotions, you use your eye for details.\n• You support at the four-day wine fair in the Glattzentrum. That draws you out\n• Experience in sales or in gastronomy – ideally with a focus on wine – you bring with you.\n• You have an education in the field of wine, gastronomy or retail trade – e.g. as a sommelier/sommelière, wine specialist consultant:in or winemaker:in.\n• You perform with a natural presence and see yourself as a host: in style.\n• Initiative, team spirit and reliability are part of your working style.\n• Very good German, good knowledge of English and commitment from Monday to Saturday you bring with you. You can rejoice.\n• To an exceptional working environment in the highest-grossing and most popular shopping centre in Switzerland.\n• On an excellent &Ouml;V connection – tram and bus stop directly in front of the Glattzentrum.\n• Direct motorway connection (A1) if you come to work by car.\n• On free parking for employees as well as filling stations and e-gas stations immediately in front of the building.\n• On a great roof terrace for employees to eat in the fresh air Zmittag or simply to recharge the sun.\n• On top food options thanks to smooth gastronomy: 14 restaurants and bars offer everything from delicacies, Mediterranean treats, Asian delicacies to takeaways.\n• On 100 shops, including pharmacies, a post office and much more – the Glatt, the small shopping town! PS: Thanks to the smooth card you get various perks.\n• On attractive social benefits.\n• At least 5 weeks of vacation.\n• On the outfit pass with around 50% on 30 clothes per year for you.\n• Up to 30% off products from the globe world for you and your family.\n• To a fairytale atmosphere during the extraordinary smooth Christmas season. Your contact Does that sound like you? If you want to bring your experience and sensitivity in selling fine wines into a stylish environment, you are at the right place. GLOBUS offers you the stage – you bring the competence. We look forward to your online application. This is very uncomplicated, instead of a letter of motivation we are eager for your answers to our three questions - just follow the link below \"Apply now!\". I'm happy to be there for you.",
+        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Vom 14. September bis 8. Oktober liegt der Schwerpunkt dieser Position auf Einsätzen an der Weinmesse im Glattzentrum. Anschliessend übernimmst du eine vielseitige Allrounder-Funktion im Bereich ***delicatessa und unterstützt unser Team in unterschiedlichen Aufgabenbereichen .\n• Mit Gespür für individuelle Wünsche berätst du unsere Kundschaft kompetent und überzeugend.\n• Du planst Degustationen und Events und führst sie sicher durch.\n• Auch über dein Fachgebiet hinaus bringst du dich in die Sortimentspräsentation ein.\n• Du achtest auf gesetzliche Vorgaben und ein gepflegtes Erscheinungsbild.\n• Beim Visual Merchandising und bei Promotionen setzt du dein Auge für Details ein.\n• Du unterstützt an der vier tägigen Weinmesse im Glattzentrum. DAS ZEICHNET DICH AUS\n• Erfahrung im Verkauf oder in der Gastronomie – idealerweise mit Fokus auf Wein – bringst du mit.\n• Du hast eine Ausbildung im Bereich Wein, Gastronomie oder Detailhandel – z. B. als Sommelier/Sommelière, Weinfachberater:in oder Winzer:in.\n• Du trittst mit natürlicher Präsenz auf und verstehst dich als Gastgeber:in mit Stil.\n• Eigeninitiative, Teamgeist und Verlässlichkeit gehören zu deinem Arbeitsstil.\n• Sehr gutes Deutsch, gute Englischkenntnisse und Einsatzbereitschaft von Montag bis Samstag bringst du mit. DARAUF KANNST DU DICH FREUEN\n• Auf ein aussergewöhnliches Arbeitsumfeld im umsatzstärksten und beliebtesten Einkaufszentrum der Schweiz.\n• Auf eine ausgezeichnete &Ouml;V-Anbindung – Tram und Bus halten direkt vor dem Glattzentrum.\n• Auf direkte Autobahnanbindung (A1) , falls du mit dem Auto zur Arbeit kommst.\n• Auf Gratis-Parkplätze für Mitarbeitende sowie Tankstellen und E-Tankstellen unmittelbar vor dem Gebäude.\n• Auf eine tolle Dachterrasse für Mitarbeitende , um an der frischen Luft Zmittag zu essen oder einfach Sonne zu tanken.\n• Auf Top-Verpflegungsmöglichkeiten dank Glatt-Gastronomie: 14 Restaurants und Bars bieten alles von Delikatessen, mediterranen Leckereien, asiatischen Köstlichkeiten bis Take-aways.\n• Auf 100 Shops, darunter auch Apotheken, eine Post und vieles mehr – das Glatt, die kleine Einkaufsstadt! PS: Dank der Glatt-Karte bekommst du diverse Vergünstigungen.\n• Auf attraktive Sozialleistungen .\n• Auf mindestens 5 Wochen Ferien .\n• Auf den Outfitpass mit rund 50% auf 30 Kleidungsstücke pro Jahr für dich.\n• Auf bis zu 30% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie .\n• Auf eine märchenhafte Atmosphäre während der aussergewöhnlichen Glatt-Weihnachtszeit. DEIN KONTAKT Klingt das nach dir? Wenn du deine Erfahrung und dein Feingefühl im Verkauf edler Weine in ein stilvolles Umfeld einbringen möchtest, bist du bei uns richtig. GLOBUS bietet dir die Bühne – du bringst die Kompetenz. Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert, statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Ich bin gerne für dich da.",
+        "fr": "Avec une grande attention aux détails, nos collaborateurs font de GLOBUS la première adresse haut de gamme et de luxe en Suisse. Ce sont des gens comme vous qui font la différence et apportent l'endroit où nous aimons être à la vie ensemble avec nous. Ici vous faites la différence\n• Du 14 septembre au 8 septembre En octobre, l'accent est mis sur les opérations à la foire des vins du Glattzentrum. Ensuite, vous assumez une fonction polyvalente et polyvalente dans la région *delicatessa et soutenez notre équipe dans différents domaines de responsabilité.\n• Avec un sens des souhaits individuels, vous conseillez nos clients de manière compétente et convaincante.\n• Vous planifiez des dégustations et des événements et les conduisez en toute sécurité.\n• Aussi au-delà de votre domaine d'expertise, vous êtes impliqué dans la présentation de l'assortiment.\n• Vous faites attention aux exigences légales et une apparence bien gardée.\n• Dans le merchandising visuel et les promotions, vous utilisez votre œil pour les détails.\n• Vous soutenez la foire du vin de quatre jours au Glattzentrum. Ça vous attire.\n• Expérience en vente ou en gastronomie – idéalement axée sur le vin – vous apportez avec vous.\n• Vous avez une formation dans le domaine du vin, de la gastronomie ou du commerce de détail – par exemple comme sommelier/sommelière, spécialiste du vin consultant:in ou vigneron:in.\n• Vous effectuez avec une présence naturelle et vous voyez comme un hôte: dans le style.\n• Initiative, esprit d'équipe et fiabilité font partie de votre style de travail.\n• Très bon allemand, bonne connaissance de l'anglais et engagement du lundi au samedi que vous apportez avec vous. Vous pouvez vous réjouir.\n• Dans un environnement de travail exceptionnel dans le centre commercial le plus gros et le plus populaire de Suisse.\n• Sur une excellente connexion &Ouml;V – tramway et arrêt de bus directement en face du Glattzentrum.\n• Connexion autoroutière directe (A1) si vous venez travailler en voiture.\n• Sur un parking gratuit pour les employés ainsi que les stations de ravitaillement et les stations de gaz électronique immédiatement en face du bâtiment.\n• Sur un grand toit terrasse pour les employés à manger dans l'air frais Zmittag ou simplement pour recharger le soleil.\n• Au-dessus de la gastronomie : 14 restaurants et bars offrent tout, des spécialités méditerranéennes, des spécialités asiatiques aux plats à emporter.\n• Sur 100 magasins, dont des pharmacies, un bureau de poste et bien plus encore – le Glatt, la petite ville commerçante ! PS: Grâce à la carte lisse vous obtenez différents avantages.\n• Sur les avantages sociaux attractifs.\n• Au moins 5 semaines de vacances.\n• Sur la tenue passent avec environ 50% sur 30 vêtements par an pour vous.\n• Jusqu'à 30% de rabais sur les produits du monde entier pour vous et votre famille.\n• À une ambiance de conte de fées pendant l'extraordinaire saison de Noël. Votre contact Ça te ressemble ? Si vous voulez apporter votre expérience et votre sensibilité dans la vente de vins fins dans un environnement élégant, vous êtes au bon endroit. GLOBUS vous offre la scène – vous apportez la compétence. Nous nous réjouissons de votre candidature en ligne. C'est très simple, au lieu d'une lettre de motivation nous sommes impatients de vos réponses à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquer maintenant!\". Je suis heureux d'être là pour toi."
       },
       "location": "Wallisellen",
       "canton": "ZH",
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Wine-More-60-80-befristet-September-Deze-de-j2463.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.100Z",
+      "crawledAt": "2026-07-03T11:34:01.400Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -2388,13 +2430,16 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Wine-More-60-80-befristet-September-Deze-de-j2463.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-w-m-d-globus-ch",
+        "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-m-w-d-globus-wallisellen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-w-m-d-globus-ch",
-          "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-m-w-d-globus-wallisellen"
+          "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-m-w-d-globus-wallisellen",
+          "consulente-di-vendita-in-wine-more-60-80-temporaneo-settembre-dicembre-2026-f-m-d-globus-wallisellen"
         ],
         "en": [
           "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-w-m-d-globus-ch"
@@ -2403,10 +2448,7 @@
           "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-w-m-d-globus-ch"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-w-m-d-globus-ch",
-        "verkaufsberater-in-wine-more-60-80-befristet-september-dezember-2026-m-w-d-globus-wallisellen"
-      ],
+      "firstSeenAt": "2026-07-02T21:54:15.100Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -2418,16 +2460,15 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-02T21:54:15.100Z"
+      }
     },
     {
       "id": "globus-301aaa7f822e",
       "slug": "consulente-commerciale-in-home-lifestyle-50-f-m-d-globus-zurich-bahnhofstrasse",
       "slugByLocale": {
-        "de": "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch",
         "it": "consulente-commerciale-in-home-lifestyle-50-f-m-d-globus-zurich-bahnhofstrasse",
         "en": "sales-consultant-in-home-lifestyle-50-f-m-d-globus-zurich-bahnhofstrasse",
+        "de": "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch",
         "fr": "consultant-en-ventes-dans-home-lifestyle-50-f-m-d-globus-zurich-bahnhofstrasse"
       },
       "company": "Globus",
@@ -2435,24 +2476,24 @@
       "companyDomain": "globus.ch",
       "title": "Verkaufsberater:in Home & Lifestyle 50% (w/m/d)",
       "titleByLocale": {
-        "de": "Verkaufsberater:in Home & Lifestyle 50% (w/m/d)",
         "it": "Consulente commerciale: in Home & Lifestyle 50% (f/m/d)",
         "en": "Sales consultant: in Home & Lifestyle 50% (f/m/d)",
+        "de": "Verkaufsberater:in Home & Lifestyle 50% (w/m/d)",
         "fr": "Consultant en ventes: dans Home & Lifestyle 50% (f/m/d)"
       },
       "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Produkte und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Premium Produkte aus dem Bereich Home & Lifestyle - insbesondere für den Bereich Heimtextilien wie hochwertige Bettwäsche, Vorhänge, Handtücher, etc. - trägst du entscheidend zum Unternehmenserfolg bei.\n\n• Du unterstützt beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert.\n DAS ZEICHNET DICH AUS\n\n• Du hast eine Berufsausbildung im Detailhandel abgeschlossen und/oder verfügst über umfassende Verkaufserfahrung; von Vorteil im Bereich Home & Lifestyle oder im Textilbereich.\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für den Verkauf hochwertiger Inneneinrichtung.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig, flexibel (Einsätze von Montag bis Samstag) und handelst aus Eigeninitiative.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 180 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\n Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\".\n\nWeitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\n Ich bin gerne für dich da.\n PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
       "descriptionByLocale": {
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services, deiner Faszination für unsere Produkte und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Premium Produkte aus dem Bereich Home & Lifestyle - insbesondere für den Bereich Heimtextilien wie hochwertige Bettwäsche, Vorhänge, Handtücher, etc. - trägst du entscheidend zum Unternehmenserfolg bei.\n\n• Du unterstützt beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert.\n DAS ZEICHNET DICH AUS\n\n• Du hast eine Berufsausbildung im Detailhandel abgeschlossen und/oder verfügst über umfassende Verkaufserfahrung; von Vorteil im Bereich Home & Lifestyle oder im Textilbereich.\n\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für den Verkauf hochwertiger Inneneinrichtung.\n\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n\n• Du bist sehr zuverlässig, flexibel (Einsätze von Montag bis Samstag) und handelst aus Eigeninitiative.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 180 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\n Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\".\n\nWeitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\n Ich bin gerne für dich da.\n PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso in Svizzera. Sono persone come te che fanno la differenza e portano il posto che amiamo per vivere insieme a noi. Qui fai la differenza\n\n• Come ospite, si assicura che i nostri clienti si sentono benvenuti e accolti come ospiti.\n\n• Grazie al vostro servizio eccellente, il vostro fascino con i nostri prodotti e il vostro consiglio individuale, è possibile garantire esperienze di shopping uniche.\n\n• Con il vostro carisma positivo e la vostra passione per i prodotti premium dal campo della casa e dello stile di vita - soprattutto per i tessuti domestici come biancheria da letto di alta qualità, tende, asciugamani, ecc - contribuite in modo decisivo al successo dell'azienda.\n\n• Supporti merchandising visivo, che ispira i nostri ospiti ad acquistare i nostri marchi esclusivi.\n Questo ti tira fuori\n\n• Hai completato la formazione professionale nel commercio al dettaglio e/o hai una vasta esperienza di vendita; di vantaggio nel settore della casa e dello stile di vita o nel settore tessile.\n\n• Sei una personalità orientata al servizio con un'alta passione per la vendita di interior design di qualità.\n\n• Ami e vivi il ruolo di host:in e hai un orientamento del cliente pronunciato.\n\n• Hai una buona relazione e un buon aspetto.\n\n• Sei molto affidabile, flessibile (assegnazioni da lunedì a sabato) e agisci su tua iniziativa.\n\n• Hai una conoscenza eccellente del tedesco; altre lingue non sono un must, ma di grande vantaggio per i nostri ospiti internazionali.\n PERSONE\nInsieme a circa 1.700 altri amanti del dettaglio, siete una parte importante del nostro affascinante mondo premium e di lusso. Vivi un vero apprezzamento, lavori in una grande squadra e ci fidiamo di te in modo da poter usare lo spazio e fare la differenza con le tue abilità. Se si capisce il vostro mestiere e portare una grande porzione di passione, allora molte porte di carriera sono aperte a voi. Siamo lieti di sostenervi con formazione interna ma anche esterna e ulteriore istruzione.\n\nInoltre, non vedo l'ora di:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Zurigo.\n\n• Premi basati sui benefici e benefici sociali interessanti.\n\n• Modelli di tempo di lavoro flessibili e almeno 5 settimane vacanze (PS: Si ottiene più tempo libero grazie all'opzione \"vacanza non pagata\" - da 7 a 180 giorni).\n\n• fino al 50% di sconto sui prodotti del mondo mondiale per voi e la vostra famiglia.\n\n• Molto di più...\n Il tuo contatto\n Attendiamo con ansia la vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, siamo ansiosi per le vostre risposte alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\".\n\nPer ulteriori informazioni sulle origini su GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/\n Sono felice di esserci per te.\n PS: Curioso sulla vera sensazione di GLOBUS? Fare clic su e afferrare le informazioni insider direttamente dalla fonte su Linked Nella vita. Tra le foto, i video e le storie dei dipendenti senza fine, scoprirete cosa ci guida davvero. Dare per saperne di più:\n LinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n (Nota per i reclutatori: Sono considerate solo le domande dirette.)",
-        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and bring the place we love to be to life together with us. Here you make the difference\n\n• As a host, you ensure that our customers feel welcome and welcomed as guests.\n\n• Thanks to your excellent service, your fascination with our products and your individual advice, you can ensure unique shopping experiences.\n\n• With your positive charisma and your passion for premium products from the field of home & lifestyle - especially for home textiles such as high-quality bedding, curtains, towels, etc. - you contribute decisively to the company's success.\n\n• You support visual merchandising, which inspires our guests to buy our exclusive brands.\n That draws you out\n\n• You have completed vocational training in the retail trade and/or have extensive sales experience; of advantage in the area of home & lifestyle or in the textile sector.\n\n• You are a service-oriented personality with a high passion for selling quality interior design.\n\n• You love and live the role as a host:in and have a pronounced customer orientation.\n\n• You have a good relationship and a good appearance.\n\n• You are very reliable, flexible (assignments from Monday to Saturday) and act on your own initiative.\n\n• You have excellent knowledge of German; Other languages are not a must, but of great advantage for our international guests.\n BENEFITS FOR YOU\nTogether with around 1,700 other detail lovers, you are an important part of our fascinating premium and luxury world. You experience real appreciation, work in a great team and we trust you so that you can use space and make a difference with your skills. If you understand your craft and bring a large portion of passion, then many career doors are open to you. We are happy to support you with internal but also external training and further education.\n\nAlso, look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Zurich.\n\n• Benefit-based premiums and attractive social benefits.\n\n• Flexible working time models and at least 5 weeks holidays (PS: You get more free time thanks to the option \"unpaid holiday\" - from 7 to 180 days).\n\n• up to 50% discount on products from the globe world for you and your family.\n\n• Much more...\n Your contact\n We look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are eager for your answers to our three questions - just follow the link below \"Apply now!\".\n\nFor more behind-the-scenes insights on GLOBUS and more information, click here: https://karriere.globus.ch/\n I'm happy to be there for you.\n PS: Curious about the real GLOBUS feeling? Click in and grab insider information directly from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you will discover what really drives us. Dare to know more:\n LinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n (Note for recruiters: Only direct applications are considered.)",
-        "fr": "Avec une grande attention aux détails, nos collaborateurs font de GLOBUS la première adresse haut de gamme et de luxe en Suisse. Ce sont des gens comme vous qui font la différence et apportent l'endroit où nous aimons être à la vie ensemble avec nous. Ici vous faites la différence\n\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent accueillis et accueillis en tant qu'invités.\n\n• Grâce à votre excellent service, votre fascination pour nos produits et vos conseils individuels, vous pouvez vous assurer des expériences d'achat uniques.\n\n• Avec votre charisme positif et votre passion pour les produits haut de gamme du domaine de la maison et du style de vie - en particulier pour les textiles à la maison comme la literie de haute qualité, rideaux, serviettes, etc. - vous contribuez de manière décisive au succès de l'entreprise.\n\n• Vous soutenez le merchandising visuel, qui inspire nos clients à acheter nos marques exclusives.\n Ça vous attire.\n\n• Vous avez suivi une formation professionnelle dans le commerce de détail et/ou avez une vaste expérience de vente; d'avantage dans le domaine de la maison et du mode de vie ou dans le secteur textile.\n\n• Vous êtes une personnalité orientée service avec une grande passion pour la vente de design d'intérieur de qualité.\n\n• Vous aimez et vivez le rôle d'hôte: dans et avoir une orientation client prononcée.\n\n• Vous avez une bonne relation et une bonne apparence.\n\n• Vous êtes très fiable, flexible (affectations du lundi au samedi) et agissez de votre propre initiative.\n\n• Vous avez une excellente connaissance de l'allemand; D'autres langues ne sont pas un must, mais d'un grand avantage pour nos invités internationaux.\n AVANTAGES POUR VOUS\nAvec environ 1700 autres amateurs de détail, vous êtes une partie importante de notre monde de luxe et de luxe fascinant. Vous éprouvez une réelle appréciation, travaillez dans une grande équipe et nous vous faisons confiance afin que vous puissiez utiliser l'espace et faire une différence avec vos compétences. Si vous comprenez votre métier et apportez une grande partie de la passion, alors de nombreuses portes de carrière vous sont ouvertes. Nous sommes heureux de vous soutenir avec la formation interne mais aussi externe et la formation continue.\n\nEn outre, attendez avec impatience :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Zurich.\n\n• Primes fondées sur les prestations et avantages sociaux attrayants.\n\n• Modèles flexibles de temps de travail et au moins 5 semaines de vacances (PS: Vous obtenez plus de temps libre grâce à l'option \"vacances non payées\" - de 7 à 180 jours).\n\n• jusqu'à 50% de réduction sur les produits du monde entier pour vous et votre famille.\n\n• Beaucoup plus...\n Votre contact\n Nous nous réjouissons de votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous sommes impatients de répondre à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquez maintenant!\".\n\nPour plus d'informations sur GLOBUS et plus d'informations, cliquez ici: https://karriere.globus.ch/\n Je suis heureux d'être là pour toi.\n PS : Curieuse au sujet du vrai sentiment GLOBUS ? Cliquez dans et saisir les informations d'initié directement à partir de la source sur Linked Dans la vie. Entre photos, vidéos et histoires d'employés non vernies, vous découvrirez ce qui nous motive vraiment. Osez en savoir plus :\n LinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n (Note pour les recruteurs : Seules les demandes directes sont prises en considération.)"
+        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso in Svizzera. Sono persone come te che fanno la differenza e portano il posto che amiamo per vivere insieme a noi. Qui fai la differenza\n• Come ospite, si assicura che i nostri clienti si sentono benvenuti e accolti come ospiti.\n• Grazie al vostro servizio eccellente, il vostro fascino con i nostri prodotti e il vostro consiglio individuale, è possibile garantire esperienze di shopping uniche.\n• Con il vostro carisma positivo e la vostra passione per i prodotti premium dal campo della casa e dello stile di vita - soprattutto per i tessuti domestici come biancheria da letto di alta qualità, tende, asciugamani, ecc - contribuite in modo decisivo al successo dell'azienda.\n• Supporti merchandising visivo, che ispira i nostri ospiti ad acquistare i nostri marchi esclusivi. Questo ti tira fuori\n• Hai completato la formazione professionale nel commercio al dettaglio e/o hai una vasta esperienza di vendita; di vantaggio nel settore della casa e dello stile di vita o nel settore tessile.\n• Sei una personalità orientata al servizio con un'alta passione per la vendita di interior design di qualità.\n• Ami e vivi il ruolo di host:in e hai un orientamento del cliente pronunciato.\n• Hai una buona relazione e un buon aspetto.\n• Sei molto affidabile, flessibile (assegnazioni da lunedì a sabato) e agisci su tua iniziativa.\n• Hai una conoscenza eccellente del tedesco; altre lingue non sono un must, ma di grande vantaggio per i nostri ospiti internazionali. PERSONE Insieme a circa 1.700 altri amanti del dettaglio, siete una parte importante del nostro affascinante mondo premium e di lusso. Vivi un vero apprezzamento, lavori in una grande squadra e ci fidiamo di te in modo da poter usare lo spazio e fare la differenza con le tue abilità. Se si capisce il vostro mestiere e portare una grande porzione di passione, allora molte porte di carriera sono aperte a voi. Siamo lieti di sostenervi con formazione interna ma anche esterna e ulteriore istruzione. Inoltre, non vedo l'ora di:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Zurigo.\n• Premi basati sui benefici e benefici sociali interessanti.\n• Modelli di tempo di lavoro flessibili e almeno 5 settimane vacanze (PS: Si ottiene più tempo libero grazie all'opzione \"vacanza non pagata\" - da 7 a 180 giorni).\n• fino al 50% di sconto sui prodotti del mondo mondiale per voi e la vostra famiglia.\n• Molto di più... Il tuo contatto Attendiamo con ansia la vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, siamo ansiosi per le vostre risposte alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\". Per ulteriori informazioni sulle origini su GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/ Sono felice di esserci per te. PS: Curioso sulla vera sensazione di GLOBUS? Fare clic su e afferrare le informazioni insider direttamente dalla fonte su Linked Nella vita. Tra le foto, i video e le storie dei dipendenti senza fine, scoprirete cosa ci guida davvero. Dare per saperne di più: LinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Nota per i reclutatori: Sono considerate solo le domande dirette.)",
+        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and bring the place we love to be to life together with us. Here you make the difference\n• As a host, you ensure that our customers feel welcome and welcomed as guests.\n• Thanks to your excellent service, your fascination with our products and your individual advice, you can ensure unique shopping experiences.\n• With your positive charisma and your passion for premium products from the field of home & lifestyle - especially for home textiles such as high-quality bedding, curtains, towels, etc. - you contribute decisively to the company's success.\n• You support visual merchandising, which inspires our guests to buy our exclusive brands. That draws you out\n• You have completed vocational training in the retail trade and/or have extensive sales experience; of advantage in the area of home & lifestyle or in the textile sector.\n• You are a service-oriented personality with a high passion for selling quality interior design.\n• You love and live the role as a host:in and have a pronounced customer orientation.\n• You have a good relationship and a good appearance.\n• You are very reliable, flexible (assignments from Monday to Saturday) and act on your own initiative.\n• You have excellent knowledge of German; Other languages are not a must, but of great advantage for our international guests. BENEFITS FOR YOU Together with around 1,700 other detail lovers, you are an important part of our fascinating premium and luxury world. You experience real appreciation, work in a great team and we trust you so that you can use space and make a difference with your skills. If you understand your craft and bring a large portion of passion, then many career doors are open to you. We are happy to support you with internal but also external training and further education. Also, look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Zurich.\n• Benefit-based premiums and attractive social benefits.\n• Flexible working time models and at least 5 weeks holidays (PS: You get more free time thanks to the option \"unpaid holiday\" - from 7 to 180 days).\n• up to 50% discount on products from the globe world for you and your family.\n• Much more... Your contact We look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are eager for your answers to our three questions - just follow the link below \"Apply now!\". For more behind-the-scenes insights on GLOBUS and more information, click here: https://karriere.globus.ch/ I'm happy to be there for you. PS: Curious about the real GLOBUS feeling? Click in and grab insider information directly from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you will discover what really drives us. Dare to know more: LinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note for recruiters: Only direct applications are considered.)",
+        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n• Dank deines exzellenten Services, deiner Faszination für unsere Produkte und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für Premium Produkte aus dem Bereich Home & Lifestyle - insbesondere für den Bereich Heimtextilien wie hochwertige Bettwäsche, Vorhänge, Handtücher, etc. - trägst du entscheidend zum Unternehmenserfolg bei.\n• Du unterstützt beim Visual Merchandising, was unsere Gäste zum Kauf unserer exklusiven Marken inspiriert. DAS ZEICHNET DICH AUS\n• Du hast eine Berufsausbildung im Detailhandel abgeschlossen und/oder verfügst über umfassende Verkaufserfahrung; von Vorteil im Bereich Home & Lifestyle oder im Textilbereich.\n• Du bist eine serviceorientierte Persönlichkeit mit hoher Leidenschaft für den Verkauf hochwertiger Inneneinrichtung.\n• Du liebst und lebst die Rolle als Gastgeber:in und hast eine ausgeprägte Kundenorientierung.\n• Du pflegst einwandfreie Umgangsformen und verfügst über ein gepflegtes Erscheinungsbild.\n• Du bist sehr zuverlässig, flexibel (Einsätze von Montag bis Samstag) und handelst aus Eigeninitiative.\n• Du verfügst über ausgezeichnete Deutschkenntnisse; weitere Sprachen sind kein Muss, aber von grossem Vorteil für unsere internationalen Gäste. BENEFITS FÜR DICH Zusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen. Freue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Zürich .\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 180 Tagen).\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n• vieles mehr... Dein Kontakt Wir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/ Ich bin gerne für dich da. PS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren: LinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "fr": "Avec une grande attention aux détails, nos collaborateurs font de GLOBUS la première adresse haut de gamme et de luxe en Suisse. Ce sont des gens comme vous qui font la différence et apportent l'endroit où nous aimons être à la vie ensemble avec nous. Ici vous faites la différence\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent accueillis et accueillis en tant qu'invités.\n• Grâce à votre excellent service, votre fascination pour nos produits et vos conseils individuels, vous pouvez vous assurer des expériences d'achat uniques.\n• Avec votre charisme positif et votre passion pour les produits haut de gamme du domaine de la maison et du style de vie - en particulier pour les textiles à la maison comme la literie de haute qualité, rideaux, serviettes, etc. - vous contribuez de manière décisive au succès de l'entreprise.\n• Vous soutenez le merchandising visuel, qui inspire nos clients à acheter nos marques exclusives. Ça vous attire.\n• Vous avez suivi une formation professionnelle dans le commerce de détail et/ou avez une vaste expérience de vente; d'avantage dans le domaine de la maison et du mode de vie ou dans le secteur textile.\n• Vous êtes une personnalité orientée service avec une grande passion pour la vente de design d'intérieur de qualité.\n• Vous aimez et vivez le rôle d'hôte: dans et avoir une orientation client prononcée.\n• Vous avez une bonne relation et une bonne apparence.\n• Vous êtes très fiable, flexible (affectations du lundi au samedi) et agissez de votre propre initiative.\n• Vous avez une excellente connaissance de l'allemand; D'autres langues ne sont pas un must, mais d'un grand avantage pour nos invités internationaux. AVANTAGES POUR VOUS Avec environ 1700 autres amateurs de détail, vous êtes une partie importante de notre monde de luxe et de luxe fascinant. Vous éprouvez une réelle appréciation, travaillez dans une grande équipe et nous vous faisons confiance afin que vous puissiez utiliser l'espace et faire une différence avec vos compétences. Si vous comprenez votre métier et apportez une grande partie de la passion, alors de nombreuses portes de carrière vous sont ouvertes. Nous sommes heureux de vous soutenir avec la formation interne mais aussi externe et la formation continue. En outre, attendez avec impatience :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Zurich.\n• Primes fondées sur les prestations et avantages sociaux attrayants.\n• Modèles flexibles de temps de travail et au moins 5 semaines de vacances (PS: Vous obtenez plus de temps libre grâce à l'option \"vacances non payées\" - de 7 à 180 jours).\n• jusqu'à 50% de réduction sur les produits du monde entier pour vous et votre famille.\n• Beaucoup plus... Votre contact Nous nous réjouissons de votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous sommes impatients de répondre à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquez maintenant!\". Pour plus d'informations sur GLOBUS et plus d'informations, cliquez ici: https://karriere.globus.ch/ Je suis heureux d'être là pour toi. PS : Curieuse au sujet du vrai sentiment GLOBUS ? Cliquez dans et saisir les informations d'initié directement à partir de la source sur Linked Dans la vie. Entre photos, vidéos et histoires d'employés non vernies, vous découvrirez ce qui nous motive vraiment. Osez en savoir plus : LinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true (Note pour les recruteurs : Seules les demandes directes sont prises en considération.)"
       },
       "location": "Zürich Bahnhofstrasse",
       "canton": "ZH",
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-50-wmd-de-j2466.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T21:54:15.074Z",
+      "crawledAt": "2026-07-03T11:34:01.373Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -2469,9 +2510,24 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-50-wmd-de-j2466.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch",
+          "consulente-commerciale-in-home-lifestyle-50-f-m-d-globus-zurich-bahnhofstrasse"
+        ],
+        "en": [
+          "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch"
+        ]
       },
+      "firstSeenAt": "2026-07-02T21:54:15.074Z",
+      "needsRetranslation": true,
       "salaryMin": 36800,
       "salaryMax": 55800,
       "baseSalary": {
@@ -2483,22 +2539,7 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-02T21:54:15.074Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch"
-        ],
-        "en": [
-          "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch"
-        ],
-        "fr": [
-          "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-home-lifestyle-50-w-m-d-globus-ch"
-      ]
+      }
     }
   ]
 }
