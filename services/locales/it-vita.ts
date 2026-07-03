@@ -274,6 +274,16 @@ const translations: Record<string, string> = {
  'profile.tip.single': 'Cosa cambierebbe se ti sposassi?',
  'profile.tip.singleDesc': 'Prova a simulare la tua situazione fiscale da sposato/a per confrontare i risultati.',
 
+ // --- Profile enrichment (progressive one-question prompt) ---
+ 'profileEnrichment.provinceQuickPick.title': 'Dove abiti?',
+ 'profileEnrichment.frontaliereType.title': 'Che permesso hai (o vorresti)?',
+ 'profileEnrichment.workPosition.title': 'Che lavoro fai?',
+ 'profileEnrichment.grossSalary.title': 'Qual è il tuo stipendio lordo annuo?',
+ 'profileEnrichment.cantonFilter.title': 'Vuoi restringere l\'alert a un cantone?',
+ 'profileEnrichment.sectors.title': 'In che settore cerchi lavoro?',
+ 'profileEnrichment.other': 'Altro',
+ 'profileEnrichment.submit': 'Ok',
+
  // --- Feedback ---
  'leave.title': 'Calcolatore Congedo Maternità/Paternità',
  'leave.subtitle': 'Confronto diritti e importi per frontalieri: IPG svizzera vs INPS italiana',
