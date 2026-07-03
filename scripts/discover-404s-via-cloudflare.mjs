@@ -19,20 +19,35 @@
  * test (`tests/search-console-compat.test.ts`) stays green. Same gate as the
  * GSC producers; do NOT commit this file without running the prune step.
  *
+ * Windowed sweep (not a single query): a single httpRequestsAdaptiveGroups
+ * query caps at 10k rows ordered by count_DESC, so a plain 23h-in-one-call
+ * sweep silently truncates the long tail of real content 404s past the
+ * 10,000 hottest paths — every single day, forever (confirmed via 8
+ * consecutive days of workflow run logs all saturating at exactly 10,000
+ * rows, while the same window swept with sweepErrorPathsWindowed surfaces
+ * 4-6x more distinct paths). Uses the shared helper
+ * (scripts/lib/cf-analytics.mjs, also used by build-cf-hot-404s.mjs, AGENTS.md
+ * #6) that sums per-path counts across many narrow contiguous windows instead
+ * of one capped query.
+ *
  * Usage:
  *   node scripts/load-rc-env.mjs && node scripts/discover-404s-via-cloudflare.mjs
  *   node scripts/discover-404s-via-cloudflare.mjs --dry-run
- *   node scripts/discover-404s-via-cloudflare.mjs --hours=23 --limit=10000
+ *   node scripts/discover-404s-via-cloudflare.mjs --windows=48 --window-hours=1
+ *   node scripts/discover-404s-via-cloudflare.mjs --hours=23   # legacy alias,
+ *     reinterpreted as total lookback (windowCount = ceil(hours/windowHours))
  *
  * Environment (required): CF_API_TOKEN (Zone→Analytics→Read). Optional:
  *   CF_ZONE_ID, CF_ZONE_NAME (defaults to frontaliereticino.ch).
+ *   CF_SWEEP_WINDOW_HOURS, CF_SWEEP_WINDOWS (same knobs as
+ *   build-cf-hot-404s.mjs, kept consistent across both consumers).
  */
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths, COMPAT_SHARD_DIR } from './lib/compat-paths-store.mjs';
-import { fetchErrorPaths, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
+import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -58,14 +73,28 @@ function parseArgs(argv) {
   // throwaway bot URLs into the accumulator → needless bridge pages → dist
   // bloat (against the dist-shrink program). prune + resolver still gate
   // resolvability on top of this.
-  const opts = { dryRun: false, hours: 23, limit: 10000, minCount: 2 };
+  //
+  // windowHours/windowCount mirror build-cf-hot-404s.mjs's knobs (same shared
+  // sweepErrorPathsWindowed helper + same env vars) so both CF sweeps default
+  // to the same ~48h/1h-window coverage instead of drifting independently.
+  const opts = {
+    dryRun: false,
+    windowHours: Number(process.env.CF_SWEEP_WINDOW_HOURS || 1),
+    windowCount: Number(process.env.CF_SWEEP_WINDOWS || 48),
+    minCount: 2,
+  };
   for (const arg of argv) {
     const m = arg.match(/^--([^=]+)(?:=(.*))?$/);
     if (!m) continue;
     const [, key, val] = m;
     if (key === 'dry-run') opts.dryRun = true;
-    else if (key === 'hours') opts.hours = Number(val);
-    else if (key === 'limit') opts.limit = Number(val);
+    else if (key === 'window-hours') opts.windowHours = Number(val);
+    else if (key === 'windows') opts.windowCount = Number(val);
+    // Legacy alias: --hours used to size the (single, capped) query window.
+    // Reinterpreted as total lookback hours at the current windowHours
+    // granularity, so old invocations keep working with the same intent
+    // (sweep "the last N hours") instead of silently being ignored.
+    else if (key === 'hours') opts.windowCount = Math.max(1, Math.ceil(Number(val) / opts.windowHours));
     else if (key === 'min-count') opts.minCount = Number(val);
   }
   return opts;
@@ -97,18 +126,22 @@ async function main() {
   // is exact (min=max=404): a `>= 404` filter would also sweep in 5xx — e.g.
   // the intermittent shard 504s on LIVE /en /de /fr pages — and feeding those
   // into the 404 reconciler would emit bridge/redirect pages for working pages.
-  const rows = await fetchErrorPaths(token, zoneId, {
-    hours: opts.hours,
+  //
+  // Windowed, not a single capped query (see file header): a lone query tops
+  // out at 10k rows and silently drops the long tail of real content 404s
+  // past that. sweepErrorPathsWindowed sums per-path counts across
+  // opts.windowCount narrow windows so paths outside any one window's top-10k
+  // still surface.
+  const { rows, windowsOk } = await sweepErrorPathsWindowed(token, zoneId, {
+    windowHours: opts.windowHours,
+    windowCount: opts.windowCount,
     minStatus: 404,
     maxStatus: 404,
     host: APEX_HOST,
-    limit: opts.limit,
   });
-  if (rows.length >= opts.limit) {
-    console.warn(
-      `[cf-sweep] window saturated: ${opts.hours}h window hit ${opts.limit}-row CF cap — some 404 paths may be missing`,
-    );
-  }
+  console.log(
+    `🛰️  Swept ${windowsOk}/${opts.windowCount} × ${opts.windowHours}h windows → ${rows.length} distinct 404 paths.`,
+  );
 
   // Normalize → candidate set (dedup, trailing-slash-stripped to match the
   // accumulator's convention used by the GSC producers).

@@ -31,7 +31,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { fetchErrorPaths, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
+import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -257,48 +257,20 @@ async function main() {
   // count_DESC, so ONE 24h window only ever surfaces the 10k hottest paths — the
   // long-tail of distinct expired / wrong-canton job URLs (each hit a handful of
   // times) never enters the result, so it never gets a recovery bridge and keeps
-  // 404ing. CF's free-plan adaptive retention is ~3 days, so sweep the last
-  // WINDOW_COUNT contiguous hourly windows and SUM the per-path counts: a path
-  // outside one window's top-10k still surfaces in another, and summing the
-  // non-overlapping windows reconstructs its true multi-day hit total. This
-  // lifts distinct coverage from ~10k to tens of thousands at the cost of
-  // WINDOW_COUNT cheap GraphQL calls (sequential — stays well under CF rate
-  // limits). Tunable via env for backfill vs daily cadence.
+  // 404ing. Windowing (sweepErrorPathsWindowed, scripts/lib/cf-analytics.mjs)
+  // sweeps the last WINDOW_COUNT contiguous hourly windows and SUMs the
+  // per-path counts: a path outside one window's top-10k still surfaces in
+  // another, and summing the non-overlapping windows reconstructs its true
+  // multi-day hit total. Tunable via env for backfill vs daily cadence.
   const WINDOW_HOURS = Number(process.env.CF_SWEEP_WINDOW_HOURS || 1);
   const WINDOW_COUNT = Number(process.env.CF_SWEEP_WINDOWS || 48);
-  const swept = new Map(); // normalized path -> summed hits across windows
-  let windowsOk = 0;
-  const nowMs = Date.now();
-  for (let i = 0; i < WINDOW_COUNT; i++) {
-    const until = new Date(nowMs - i * WINDOW_HOURS * 3600 * 1000);
-    let windowRows;
-    try {
-      windowRows = await fetchErrorPaths(token, zoneId, {
-        hours: WINDOW_HOURS,
-        minStatus: 404,
-        maxStatus: 404,
-        host: APEX_HOST,
-        limit: 10000,
-        until,
-      });
-    } catch {
-      // A single failed window (transient CF 5xx / retention edge) must not
-      // abort the sweep — skip it, keep everything gathered so far.
-      continue;
-    }
-    windowsOk++;
-    if (windowRows.length >= 10000) {
-      const windowLabel = `${until.toISOString().slice(0, 13)}h (window ${i})`;
-      console.warn(
-        `[cf-sweep] window saturated: ${windowLabel} hit 10k cap — sub-window split may be needed`,
-      );
-    }
-    for (const r of windowRows) {
-      const norm = r.path.replace(/\/+$/, '');
-      swept.set(norm, (swept.get(norm) || 0) + r.count);
-    }
-  }
-  const rows = [...swept.entries()].map(([path, count]) => ({ path, count }));
+  const { rows, windowsOk } = await sweepErrorPathsWindowed(token, zoneId, {
+    windowHours: WINDOW_HOURS,
+    windowCount: WINDOW_COUNT,
+    minStatus: 404,
+    maxStatus: 404,
+    host: APEX_HOST,
+  });
   console.log(
     `🛰️  Swept ${windowsOk}/${WINDOW_COUNT} × ${WINDOW_HOURS}h windows → ${rows.length} distinct 404 paths.`,
   );

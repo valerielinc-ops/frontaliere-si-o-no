@@ -2,11 +2,15 @@
  * Shared Cloudflare GraphQL Analytics primitives.
  *
  * Extracted (AGENTS.md #6 — no literal duplication of funnel-critical
- * constructs across sibling scripts) so the two CF-analytics consumers share
+ * constructs across sibling scripts) so the CF-analytics consumers share
  * one implementation instead of drifting copies:
  *   - scripts/cf-status-report.mjs        (human/JSON status-code report)
  *   - scripts/discover-404s-via-cloudflare.mjs (feeds 404 paths to the
  *                                              seo-404-compat reconciler)
+ *   - scripts/build-cf-hot-404s.mjs       (bounded job-detail hot-list for
+ *                                          cfHot404BridgePlugin)
+ * The latter two both need the FULL distinct-path universe, not just the
+ * top 10k by count — see sweepErrorPathsWindowed() below.
  *
  * Free-plan facts baked in:
  *   - The httpRequestsAdaptiveGroups dataset accepts a time range of AT MOST
@@ -123,4 +127,82 @@ export async function fetchErrorPaths(token, zoneId, opts = {}) {
     path: r.dimensions.clientRequestPath,
     count: r.count,
   }));
+}
+
+/**
+ * Time-sliced sweep across `windowCount` contiguous `windowHours` windows,
+ * summing per-path counts. A single httpRequestsAdaptiveGroups query is
+ * capped at 10k rows ordered by count_DESC, so one day-long window only ever
+ * surfaces the 10k HOTTEST paths — the long tail of distinct lower-frequency
+ * 404 paths (each hit a handful of times, but numerous) never enters the
+ * result and is silently lost, every call, forever. CF's free-plan adaptive
+ * retention is ~3 days, so sweeping the last `windowCount` contiguous narrow
+ * windows and summing non-overlapping per-path counts reconstructs each
+ * path's true multi-window hit total: a path outside one window's top-10k
+ * still surfaces in another.
+ *
+ * Extracted from build-cf-hot-404s.mjs (AGENTS.md #6 — no literal
+ * duplication of a funnel-critical construct across sibling scripts) so
+ * every CF-sweep consumer shares ONE windowing implementation instead of
+ * drifting copies:
+ *   - scripts/build-cf-hot-404s.mjs         (bounded non-Ticino job-detail
+ *                                            hot-list, cfHot404BridgePlugin)
+ *   - scripts/discover-404s-via-cloudflare.mjs (general seo-404-compat
+ *     accumulator feed — previously a single un-windowed 10k-row query that
+ *     saturated its cap every single day, silently truncating the long tail
+ *     of real content 404s before they could ever reach the compat
+ *     accumulator / prune / bridge pipeline)
+ *
+ * @param {string} token   CF API token (Analytics:Read)
+ * @param {string} zoneId  resolved zone tag
+ * @param {object} [opts]
+ * @param {number} [opts.windowHours=1]   size of each window, in hours
+ * @param {number} [opts.windowCount=48]  number of contiguous windows to sweep
+ * @param {number} [opts.minStatus=404]   floor on edgeResponseStatus (>=)
+ * @param {number} [opts.maxStatus]       ceiling on edgeResponseStatus (<=)
+ * @param {string} [opts.host]            filter to one clientRequestHTTPHost
+ * @param {Date|string} [opts.until=now]  end of the most recent window
+ * @returns {Promise<{rows:Array<{path:string,count:number}>, windowsOk:number, windowCount:number}>}
+ *   `rows` — normalized (trailing-slash-stripped) path + summed count across
+ *   all windows. `windowsOk` — windows that returned successfully (a single
+ *   failed window is skipped, not fatal, to tolerate transient CF 5xx).
+ */
+export async function sweepErrorPathsWindowed(token, zoneId, opts = {}) {
+  const windowHours = opts.windowHours ?? 1;
+  const windowCount = opts.windowCount ?? 48;
+  const until = opts.until ? new Date(opts.until) : new Date();
+  const nowMs = until.getTime();
+  const swept = new Map(); // normalized path -> summed count across windows
+  let windowsOk = 0;
+  for (let i = 0; i < windowCount; i++) {
+    const windowUntil = new Date(nowMs - i * windowHours * 3600 * 1000);
+    let windowRows;
+    try {
+      windowRows = await fetchErrorPaths(token, zoneId, {
+        hours: windowHours,
+        minStatus: opts.minStatus ?? 404,
+        maxStatus: opts.maxStatus,
+        host: opts.host,
+        limit: 10000,
+        until: windowUntil,
+      });
+    } catch {
+      // A single failed window (transient CF 5xx / retention edge) must not
+      // abort the sweep — skip it, keep everything gathered so far.
+      continue;
+    }
+    windowsOk++;
+    if (windowRows.length >= 10000) {
+      const windowLabel = `${windowUntil.toISOString().slice(0, 13)}h (window ${i})`;
+      console.warn(
+        `[cf-sweep] window saturated: ${windowLabel} hit 10k cap — sub-window split may be needed`,
+      );
+    }
+    for (const r of windowRows) {
+      const norm = r.path.replace(/\/+$/, '');
+      swept.set(norm, (swept.get(norm) || 0) + r.count);
+    }
+  }
+  const rows = [...swept.entries()].map(([path, count]) => ({ path, count }));
+  return { rows, windowsOk, windowCount };
 }
