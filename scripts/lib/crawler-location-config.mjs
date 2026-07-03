@@ -483,6 +483,7 @@ export const COMPANY_HQ = {
   'talan': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'staubli': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
   'cern': { city: 'Meyrin', canton: 'GE', postalCode: '1211', addressRegion: 'GE' },
+  'beekeeper': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
 };
 
 /**

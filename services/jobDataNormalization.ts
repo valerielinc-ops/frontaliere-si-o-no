@@ -106,6 +106,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'bancastato': cLogo('bancastato.ch'),
  'baronie': '/images/brands/baronie.png',
  'bcvs': '/images/brands/bcvs.png',
+ 'beekeeper': cLogo('beekeeper.io'),
  'berit-klinik': cLogo('beritklinik.ch'),
  'berner-klinik-montana': cLogo('bernerklinik.ch'),
  'berner-montage': '/images/brands/berner-montage.png',
