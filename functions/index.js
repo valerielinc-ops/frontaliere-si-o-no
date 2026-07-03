@@ -30,7 +30,7 @@ import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { Resend } from 'resend';
 import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
-import { onDocumentCreated } from 'firebase-functions/v2/firestore';
+import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import {
   handleForwardApplication,
@@ -41,6 +41,8 @@ import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
+import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
+import { signalTierChanged } from './src/jobAlertBackfillCore.js';
 
 ensureAdminApp();
 
@@ -1057,6 +1059,45 @@ export const syncNewsletterSubscriberAuth = onDocumentCreated(
  if (result.created) console.log(`[syncNewsletterSubscriberAuth] created Auth user for ${emailId}`);
  } catch (error) {
  console.error('[syncNewsletterSubscriberAuth]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Real-time counterpart of scripts/backfill-jobalerts-from-newsletter.mjs:
+// every newsletter_subscribers doc that carries job-search signal (or,
+// failing that, a location signal) gets a near-empty job_alert_subscribers
+// entry, instead of waiting for the next manual batch run. Shares its
+// decision logic with the batch script via jobAlertBackfillCore.js.
+//
+// onDocumentWritten (not onDocumentCreated): social sign-in flows
+// (services/authService.ts) write this doc twice, unsequenced — an
+// un-awaited auth-fields-only write races the full signal-carrying upsert,
+// and the bare write structurally tends to land first. A one-shot create
+// hook would see zero signal and skip the subscriber permanently once the
+// real signal arrives via a later merge. signalTierChanged gates the write
+// hook so it only does real work when eligibility actually flips, which
+// both catches the delayed signal and keeps routine engagement writes
+// (open/click tracking) a cheap no-op.
+export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
+ { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
+ async (event) => {
+ const emailId = event.params.email;
+ if (emailId === '_meta_') return;
+ const after = event.data?.after;
+ if (!after?.exists) return; // ignore deletes
+ const afterData = after.data();
+ const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
+ if (!signalTierChanged(beforeData, afterData)) return;
+ try {
+ const result = await handleNewsletterSubscriberCreated(emailId, afterData);
+ if (result.created) {
+ console.log(`[backfillJobAlertOnNewsletterSignup] created alert for ${emailId} (${result.tier})`);
+ }
+ } catch (error) {
+ console.error(
+ '[backfillJobAlertOnNewsletterSignup]',
+ error instanceof Error ? error.message : String(error),
+ );
  }
  },
 );
