@@ -29,4 +29,13 @@ describe('isAggregate — aggregate follow-ups bypass the already-resolved short
   it('does not trigger on sweep/batch substrings inside unrelated words', () => {
     expect(isAggregate('fix: swept the floor', 'a debatable approach')).toBe(false);
   });
+  it('explicit "1 item deferred" wins over an ordinary "batch"/"sweep"/"bulk" word in the same title — count is authoritative, no keyword fallback (#3378)', () => {
+    expect(isAggregate(
+      'follow-up(#3371): 1 item deferred — fix(job-alerts): batch backfill re-checks tier-3 before tier-4 URL fallback',
+      '',
+    )).toBe(false);
+  });
+  it('still flags a genuine count-less sweep even when it would also match the "N items" regex loosely (no regression on #1826)', () => {
+    expect(isAggregate('Sweep: ~30 crawlers need shared fetchHtml', '')).toBe(true);
+  });
 });
