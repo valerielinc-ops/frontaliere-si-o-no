@@ -4252,8 +4252,11 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // this plugin) instead of a raw concat — long company/legal names (e.g.
  // "Ospedale Regionale di Lugano e Mendrisio") overflow the 66-char cap
  // when the brand suffix is appended unconditionally; buildTitleWithBrand
- // drops the brand once the headline alone fills the budget.
- title: esc(buildTitleWithBrand(companyName)),
+ // drops the brand once the headline alone fills the budget. esc() runs
+ // BEFORE the budget decision, not after — audit-title-length.mjs measures
+ // the raw <title> HTML source, so entity-escaping (e.g. "&" -> "&amp;")
+ // after the length check could push an already-budgeted headline over cap.
+ title: buildTitleWithBrand(esc(companyName)),
  description: `Pagina alternativa per ${companyName}. Apri la pagina canonica per gli annunci aggiornati.`,
  body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell'azienda per gli annunci aggiornati.`,
  ctaLabel: String(companyName || 'Apri azienda'),

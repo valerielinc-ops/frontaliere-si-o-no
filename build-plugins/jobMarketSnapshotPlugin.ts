@@ -105,7 +105,6 @@ import {
 import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
 import { getCantonCities } from './shared/cantonCities';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { buildTitleWithBrand } from './shared/titleSuffix';
 
 // ── Canton-aware section helpers (P2.S1) ──────────────────────────
 //
@@ -2510,13 +2509,8 @@ const CITY_SECTOR_HUB_PREFIX: Record<JobMarketSnapshotLocale, string> = {
 const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
   it: {
     h1: (label) => `Mercato lavoro ${label} Ticino — offerte attive oggi`,
-    // Shortened tail (was "stipendi, datori di lavoro, trend"): the longest
-    // curated sector labels (e.g. "impiegati amministrativi", 24 chars) blew
-    // the 66-char cap even before the brand suffix — buildTitleWithBrand's
-    // "return verbatim, never mid-headline truncate" policy can't rescue an
-    // over-budget headline, so the template itself had to shrink.
     metaTitle: (label) =>
-      buildTitleWithBrand(`Mercato lavoro ${label} Ticino — stipendi e trend`),
+      `Mercato lavoro ${label} Ticino — stipendi, datori di lavoro, trend | Frontaliere Ticino`,
     metaDesc: (label, count) =>
       `${count} offerte attive per ${label} in Ticino. Top datori di lavoro, stipendio mediano, trend delle ultime 12 settimane, delta settimanale e mensile.`,
     kicker: 'Report di settore · Ticino',
@@ -2566,7 +2560,7 @@ const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
   en: {
     h1: (label) => `${label} job market in Ticino — openings today`,
     metaTitle: (label) =>
-      buildTitleWithBrand(`${label} job market Ticino — pay & trends`),
+      `${label} job market in Ticino — salaries, employers, trends | Frontaliere Ticino`,
     metaDesc: (label, count) =>
       `${count} active openings for ${label} in Ticino. Top employers, median salary, 12-week trend, week-over-week and month-over-month deltas.`,
     kicker: 'Sector report · Ticino',
@@ -2616,7 +2610,7 @@ const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
   de: {
     h1: (label) => `Arbeitsmarkt ${label} Tessin — aktive Stellen heute`,
     metaTitle: (label) =>
-      buildTitleWithBrand(`Arbeitsmarkt ${label} Tessin — Löhne & Trends`),
+      `Arbeitsmarkt ${label} Tessin — Löhne, Arbeitgeber, Trends | Frontaliere Ticino`,
     metaDesc: (label, count) =>
       `${count} aktive Stellen für ${label} im Tessin. Top-Arbeitgeber, Medianlohn, 12-Wochen-Trend, Wochen- und Monatsdelta.`,
     kicker: 'Branchenbericht · Tessin',
@@ -2666,7 +2660,7 @@ const SECTOR_COPY: Record<JobMarketSnapshotLocale, SectorCopy> = {
   fr: {
     h1: (label) => `Marché du travail ${label} Tessin — offres actives aujourd'hui`,
     metaTitle: (label) =>
-      buildTitleWithBrand(`Marché travail ${label} Tessin — salaires 2026`),
+      `Marché du travail ${label} Tessin — salaires, employeurs, tendances | Frontaliere Ticino`,
     metaDesc: (label, count) =>
       `${count} offres actives pour ${label} au Tessin. Employeurs les plus actifs, salaire médian, tendance sur 12 semaines, deltas hebdomadaire et mensuel.`,
     kicker: 'Rapport sectoriel · Tessin',
