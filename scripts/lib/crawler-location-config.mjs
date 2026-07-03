@@ -549,6 +549,14 @@ export const COMPANY_HQ = {
   // own school-building street/ZIP via the Prospective API; this is only the
   // fallback for postings that omit those fields.
   'volksschule-luzern': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
+  // Raiffeisen Schweiz (national cooperative bank group) HQ —
+  // Raiffeisenplatz, 9001 St. Gallen SG. Confirmed via the group's own
+  // "Contact" / imprint page. Used only as a fallback for postings whose
+  // per-job location can't be resolved to a canton — the CH-wide dedicated
+  // crawler (scripts/update-raiffeisen-jobs.mjs) infers canton per-posting
+  // from the Prospective listing's own city field for the vast majority
+  // of jobs (issue #3342).
+  'raiffeisen': { city: 'St. Gallen', canton: 'SG', postalCode: '9001', addressRegion: 'SG' },
 };
 
 /**
