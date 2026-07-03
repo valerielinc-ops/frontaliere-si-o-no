@@ -399,6 +399,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'sintetica': cLogo('sintetica.com'),
  'six-group': cLogo('six-group.com'),
  'skyguide-sa': 'https://www.skyguide.ch/favicons/apple-icon-180x180.png',
+ 'smg-swiss-marketplace-group': cLogo('swissmarketplace.group'),
  'sobi': cLogo('sobi.com'),
  'soh-solothurner-spitaeler': cLogo('solothurnerspitaeler.ch'),
  'solina': cLogo('solina.ch'),
