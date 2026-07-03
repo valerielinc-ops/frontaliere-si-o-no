@@ -623,9 +623,16 @@ describe('run() — DRY_RUN mode', () => {
       if (u.includes('/scheduled_posts')) {
         return new Response(JSON.stringify({ data: [] }), { status: 200 });
       }
-      // OG rescrape call (best-effort, fire-and-forget).
+      // OG rescrape POST call (force FB to re-fetch og:* tags).
       if (u.includes('scrape=true')) {
         return new Response(JSON.stringify({ scraped: true }), { status: 200 });
+      }
+      // OG rescrape verify GET call (checks og_object.image resolved).
+      if (u.includes('graph.facebook.com') && !init?.method) {
+        return new Response(
+          JSON.stringify({ og_object: { image: [{ url: 'https://example.com/og/jobs/x.webp' }] } }),
+          { status: 200 },
+        );
       }
       // /feed POST call.
       expect(init?.method).toBe('POST');
@@ -643,8 +650,8 @@ describe('run() — DRY_RUN mode', () => {
 
     expect(result.scheduled).toBe(1);
     expect(result.ok).toBe(true);
-    // Pre-flight + OG rescrape + /feed POST = 3 fetch calls.
-    expect(fetchSpy).toHaveBeenCalledTimes(3);
+    // Pre-flight + OG rescrape POST + OG rescrape verify GET + /feed POST = 4 fetch calls.
+    expect(fetchSpy).toHaveBeenCalledTimes(4);
 
     // Ledger has the entry now.
     const ledger = loadPosted(tmp);
