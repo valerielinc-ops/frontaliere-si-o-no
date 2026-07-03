@@ -165,6 +165,49 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
 }
 
 /**
+ * Locate an HTML element's opening tag by a literal attribute/value snippet
+ * (e.g. `itemprop="description"` or `data-careersite-propertyid="description"`)
+ * and return `{ tagName, attrs, rest }` — `rest` is everything immediately
+ * after the opening tag's `>`. Returns `null` if not found. Caller decides
+ * how to read the value; for long/nested fields use `extractBalancedTagBlock`
+ * below instead of a naive `[\s\S]*?</tag>` scan.
+ */
+export function locateTagByAttribute(html, attrMatcher) {
+  const openRe = new RegExp(`<(\\w+)((?:(?!>)[\\s\\S])*?\\b${attrMatcher}(?:(?!>)[\\s\\S])*?)>`, 'i');
+  const m = openRe.exec(html);
+  if (!m) return null;
+  return { tagName: m[1], attrs: m[2], rest: html.slice(m.index + m[0].length) };
+}
+
+/**
+ * Given HTML immediately following an element's opening tag (as returned by
+ * `locateTagByAttribute`'s `rest`), return the raw inner HTML up to that
+ * SAME tag's true matching close tag — not just the first `</tag>`
+ * encountered. Long fields (job description blocks in SuccessFactors CSB /
+ * Jobs2Web templates, etc.) wrap many nested same-name tags
+ * (`<span>`/`<p>` …), so a naive non-greedy regex stops at the first inner
+ * close tag and silently truncates to a fraction of the real content — this
+ * walks nesting depth instead. The scan window is capped defensively in
+ * case the close tag is never found.
+ */
+export function extractBalancedTagBlock(rest, tagName, scanCap = 20000) {
+  const scoped = String(rest || '').slice(0, scanCap);
+  const tagRe = new RegExp(`<(/?)${tagName}\\b[^>]*>`, 'gi');
+  let depth = 1;
+  let end = scoped.length;
+  let tagMatch;
+  while ((tagMatch = tagRe.exec(scoped)) !== null) {
+    if (tagMatch[1] === '/') {
+      depth -= 1;
+      if (depth === 0) { end = tagMatch.index; break; }
+    } else {
+      depth += 1;
+    }
+  }
+  return scoped.slice(0, end);
+}
+
+/**
  * Healthcare-tuned category detector. Default = "Sanità / Ospedali" because
  * most jobs at a hospital are clinical.
  */
