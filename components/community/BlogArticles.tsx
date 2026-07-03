@@ -9,7 +9,7 @@ import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
-import { getArticleAuthorOverride, type ArticleAuthorOverride } from '@/services/authorProfileService';
+import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
@@ -1757,8 +1757,7 @@ function BlogArticles({
  if (selectedArticle) {
  const article = selectedArticleObj;
  if (!article) return null;
- const effectiveAuthorSlug = articleAuthorOverride?.authorSlug ?? article.authorSlug;
- const effectiveAuthorName = articleAuthorOverride?.authorName ?? article.authorName;
+ const { authorSlug: effectiveAuthorSlug, authorName: effectiveAuthorName } = mergeArticleByline(articleAuthorOverride, article);
 
  // Wait for article body translations to load
  if (!bodyReady) {

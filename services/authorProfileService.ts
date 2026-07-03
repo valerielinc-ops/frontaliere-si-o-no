@@ -130,11 +130,26 @@ export async function getArticleAuthorOverride(articleId: string): Promise<Artic
   return overrides.get(articleId);
 }
 
+/**
+ * Pure override-then-fallback merge, per field. Shared by
+ * `getEffectiveArticleByline` (fetch + merge) and `BlogArticles.tsx` (which
+ * already holds a fetched override in state and only needs the merge step) —
+ * kept as one function so the two call sites can't drift (review nit, PR #3356).
+ */
+export function mergeArticleByline(
+  override: ArticleAuthorOverride | null | undefined,
+  article: { authorSlug?: string; authorName?: string },
+): { authorSlug?: string; authorName?: string } {
+  return {
+    authorSlug: override?.authorSlug ?? article.authorSlug,
+    authorName: override?.authorName ?? article.authorName,
+  };
+}
+
 /** Resolves the byline to show for an AI-catalog article, override applied. */
 export async function getEffectiveArticleByline(
   article: { id: string; authorSlug?: string; authorName?: string },
 ): Promise<{ authorSlug?: string; authorName?: string }> {
   const override = await getArticleAuthorOverride(article.id);
-  if (override) return override;
-  return { authorSlug: article.authorSlug, authorName: article.authorName };
+  return mergeArticleByline(override, article);
 }

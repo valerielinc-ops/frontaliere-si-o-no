@@ -64,7 +64,11 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
     );
   }
 
-  const { jsonLd } = buildAuthorSeo(author.slug, 'it');
+  // Pass the CSR-merged author (admin persona patch applied on top of the
+  // static registry), not the slug — otherwise buildAuthorSeo re-derives
+  // from the static registry and the JSON-LD goes stale vs. the visible
+  // bio/photo/social above (review nit, PR #3356).
+  const { jsonLd } = buildAuthorSeo(author, 'it');
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
