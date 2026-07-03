@@ -8233,6 +8233,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.deduzione-figli-frontalieri-2026.title': 'Cross-border commuters: possible removal of tax deduction for children',
     'blog.article.deduzione-figli-frontalieri-2026.excerpt': 'One initiative proposes to eliminate the tax deduction for the children of cross-border workers with children abroad.',
     'blog.article.deduzione-figli-frontalieri-2026.imageAlt': 'Aerial view of Lugano lakefront with tax documents on a desk in the foreground',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.title': 'Italy-Switzerland Rebates: The \'Health Tax\' Case',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.excerpt': 'Let\'s analyze the suspension of the Italy-Switzerland rebates in the light of the Tax Convention and the "health tax", evaluating legal and',
+    'blog.article.la-sospensione-dei-ristorni-alla-prova-della-convenzione-italia-svizzera-il-caso.imageAlt': 'Editorial image related to: LA SOSPENSIONE DEI RISTORNI ALLA PROVA DELLA CONVENZIONE ITALIA-SVIZZERA: IL CASO DELLA “TASSA SULLA SALUTE”',
 };
 
 export default blogMetaEn;
