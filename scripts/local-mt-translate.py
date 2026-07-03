@@ -349,6 +349,15 @@ def main():
     args = ap.parse_args()
 
     if args.install:
+        # OFFLINE check first: a restored actions/cache of package_data_dir makes
+        # get_installed_languages() report every locale already present, so we can
+        # skip install_models() entirely — it otherwise re-hits update_package_index()
+        # (network) and re-downloads every .argosmodel unconditionally (Package.install()
+        # always calls download(), which only skips the fetch if the file is already in
+        # settings.downloads_dir — a separate, uncached directory — not package_data_dir).
+        if models_ready():
+            log("✅ All Argos models already installed (cache hit) — skipping install_models()")
+            sys.exit(0)
         installed = install_models()
         sys.exit(0 if installed > 0 else 1)
 
