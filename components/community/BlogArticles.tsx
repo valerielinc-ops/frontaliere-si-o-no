@@ -142,7 +142,11 @@ function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
  fmtSpans.push([fm.index, fm.index + fm[0].length]);
  }
 
- // 3. Detect pre-existing [text](nav:action) links so we skip those regions
+ // 3. Detect pre-existing [text](nav:action)/[text](https://...)/[text](/path) links so
+ // we skip those regions — otherwise a keyword match landing inside an already-linked
+ // phrase (e.g. "offerte di lavoro" inside "[offerte di lavoro in Ticino](/cerca-lavoro-ticino/)")
+ // gets wrapped again, nesting a [word](nav:action) inside the existing brackets and
+ // corrupting the markdown.
  const existingLinkSpans: Array<[number, number]> = [];
  const usedActions = new Set<string>();
  const navLinkRe = /\[([^\]]+)\]\(nav:([a-z0-9\-]+)\)/g;
@@ -150,6 +154,11 @@ function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
  while ((nlm = navLinkRe.exec(text)) !== null) {
  existingLinkSpans.push([nlm.index, nlm.index + nlm[0].length]);
  usedActions.add(nlm[2]); // mark action as already linked
+ }
+ const urlLinkRe = /\[([^\]]+)\]\((?:https?:\/\/|\/)[^)]+\)/g;
+ let ulm: RegExpExecArray | null;
+ while ((ulm = urlLinkRe.exec(text)) !== null) {
+ existingLinkSpans.push([ulm.index, ulm.index + ulm[0].length]);
  }
 
  // 4. Match keyword patterns against the stripped text
@@ -205,8 +214,8 @@ function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
 
 function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactNode[] {
  const parts: ReactNode[] = [];
- // Match [link](nav:xxx), [link](https://...), **bold**, or *italic* — links take priority
- const regex = /(\[([^\]]+)\]\(nav:([a-z0-9\-]+)\))|(\[([^\]]+)\]\((https?:\/\/[^)]+)\))|(\*\*(.+?)\*\*)|(\*(.+?)\*)/g;
+ // Match [link](nav:xxx), [link](https://...), [link](/relative-path/), **bold**, or *italic* — links take priority
+ const regex = /(\[([^\]]+)\]\(nav:([a-z0-9\-]+)\))|(\[([^\]]+)\]\((https?:\/\/[^)]+)\))|(\[([^\]]+)\]\((\/[^)]+)\))|(\*\*(.+?)\*\*)|(\*(.+?)\*)/g;
  let lastIndex = 0;
  let match: RegExpExecArray | null;
  let key = 0;
@@ -248,12 +257,23 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  {match[5]}
  </a>
  );
- } else if (match[8]) {
+ } else if (match[8] && match[9]) {
+ // [text](/relative-path/) — internal link, plain <a> (no SPA intercept for arbitrary content paths)
+ parts.push(
+ <a
+ key={`il${key++}`}
+ href={match[9]}
+ className="inline text-accent font-medium underline underline-offset-2 decoration-accent-border hover:decoration-accent transition-colors"
+ >
+ {match[8]}
+ </a>
+ );
+ } else if (match[11]) {
  // Recursively process bold content so nested links/italic are rendered
- parts.push(<strong key={`b${key++}`} className="font-semibold text-strong">{renderInlineFormatting(match[8], navigators)}</strong>);
- } else if (match[10]) {
+ parts.push(<strong key={`b${key++}`} className="font-semibold text-strong">{renderInlineFormatting(match[11], navigators)}</strong>);
+ } else if (match[13]) {
  // Recursively process italic content so nested links are rendered (e.g. *Fonte: [text](url)*)
- parts.push(<em key={`i${key++}`} className="italic">{renderInlineFormatting(match[10], navigators)}</em>);
+ parts.push(<em key={`i${key++}`} className="italic">{renderInlineFormatting(match[13], navigators)}</em>);
  }
  lastIndex = regex.lastIndex;
  }
@@ -298,6 +318,39 @@ function tryRenderMdTable(text: string, keyPrefix: string, navigators?: Navigato
  </tbody>
  </table>
  </div>
+ );
+}
+
+/** True when every non-blank line in a block is a `- ` markdown list item. */
+function isListBlock(value: string): boolean {
+ return value.split('\n').every(line => line.trim().startsWith('- ') || line.trim() === '');
+}
+
+/** Render a heading's inline body as a table, a bullet list, or a plain paragraph —
+ *  shared by the H2/H3/H4 branches so a heading immediately followed by list lines
+ *  (no blank line between them, e.g. `### [Lugano](...)\n- item\n- item`) renders
+ *  the list instead of collapsing it into flat paragraph text. */
+function renderInlineBodyContent(inlineBody: string, keyPrefix: string, navigators?: NavigatorMap): ReactElement | null {
+ if (!inlineBody) return null;
+ const tableEl = tryRenderMdTable(inlineBody, `${keyPrefix}-tbl`, navigators);
+ if (tableEl) return tableEl;
+ if (isListBlock(inlineBody)) {
+ const items = inlineBody.split('\n').filter(l => l.trim().startsWith('- ')).map(l => l.trim().slice(2));
+ return (
+ <ul key={`${keyPrefix}-list`} className="space-y-2 pl-1">
+ {items.map((item, i) => (
+ <li key={i} className="flex items-start gap-2 text-body leading-relaxed">
+ <CheckCircle2 size={16} className="text-success shrink-0 mt-0.5" />
+ <span>{renderInlineFormatting(item, navigators)}</span>
+ </li>
+ ))}
+ </ul>
+ );
+ }
+ return (
+ <p key={`${keyPrefix}-p`} className="text-body leading-relaxed">
+ {renderInlineFormatting(inlineBody, navigators)}
+ </p>
  );
 }
 
@@ -359,9 +412,6 @@ function renderFormattedContent(
  const isToolsHeading = (value: string): boolean => {
  return /^(tool utili|tool consigliati|recommended tools|useful tools|empfohlene tools|nützliche tools|outils recommandés|outils utiles)\b/i.test(value.trim());
  };
- const isListBlock = (value: string): boolean => {
- return value.split('\n').every(line => line.trim().startsWith('- ') || line.trim() === '');
- };
  const looksLikeToolBody = (value: string): boolean => {
  const v = value.trim();
  if (!v) return false;
@@ -380,17 +430,12 @@ function renderFormattedContent(
  const heading = lines[0].replace(/^####\s+/, '').trim();
  const inlineBody = lines.slice(1).join('\n').trim();
  const headingId = generateHeadingSlug(heading);
- const tableEl = inlineBody ? tryRenderMdTable(inlineBody, `h4tbl-${idx}`, navigators) : null;
  renderedBlocks.push(
  <div key={`h4-${idx}`} className="space-y-1.5">
  <h4 id={headingId} className="text-base font-semibold text-strong mt-3 mb-1 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h4>
- {tableEl || (inlineBody && (
- <p className="text-body leading-relaxed">
- {renderInlineFormatting(inlineBody, navigators)}
- </p>
- ))}
+ {renderInlineBodyContent(inlineBody, `h4-${idx}`, navigators)}
  </div>
  );
  if (inlineBody) markContent(countWordsIn(inlineBody));
@@ -403,17 +448,12 @@ function renderFormattedContent(
  const heading = lines[0].replace(/^###\s+/, '').trim();
  const inlineBody = lines.slice(1).join('\n').trim();
  const headingId = generateHeadingSlug(heading);
- const tableEl = inlineBody ? tryRenderMdTable(inlineBody, `h3tbl-${idx}`, navigators) : null;
  renderedBlocks.push(
  <div key={`h3-${idx}`} className="space-y-1.5">
  <h3 id={headingId} className="text-lg font-semibold font-display text-strong mt-4 mb-1 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h3>
- {tableEl || (inlineBody && (
- <p className="text-body leading-relaxed">
- {renderInlineFormatting(inlineBody, navigators)}
- </p>
- ))}
+ {renderInlineBodyContent(inlineBody, `h3-${idx}`, navigators)}
  </div>
  );
  if (inlineBody) markContent(countWordsIn(inlineBody));
@@ -466,17 +506,12 @@ function renderFormattedContent(
  continue;
  }
 
- const h2TableEl = inlineBody ? tryRenderMdTable(inlineBody, `h2tbl-${idx}`, navigators) : null;
  renderedBlocks.push(
  <div key={`heading-${idx}`} className="space-y-2">
  <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold font-display text-heading mt-8 mb-3 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h2>
- {h2TableEl || (inlineBody && (
- <p className="text-body leading-relaxed">
- {renderInlineFormatting(inlineBody, navigators)}
- </p>
- ))}
+ {renderInlineBodyContent(inlineBody, `h2-${idx}`, navigators)}
  </div>
  );
  if (inlineBody) markContent(countWordsIn(inlineBody));
