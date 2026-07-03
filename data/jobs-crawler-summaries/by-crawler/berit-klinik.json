@@ -1,18 +1,19 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-07-03T10:37:16.205Z",
+  "generatedAt": "2026-07-03T21:24:21.972Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3109,
-  "avgDurationMs": 3109,
+  "durationMs": 2537,
+  "avgDurationMs": 2537,
   "durationHistory": [
-    3109
+    2537
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Dipl. Fachperson Op Technik 80–100%",
       "slug": "dipl-fachperson-op-technik-80-100-berit-klinik",
@@ -40,16 +41,16 @@
       "_meta": {
         "sourceFilename": "stelleninserat_dipl._fachperson_op_technik__80_100__c2a1d5b03e.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-30d607aea7c2",
+      "firstSeenAt": "2026-07-03T10:37:16.203Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Mitarbeiter Technischer Dienst, 100%",
       "slug": "mitarbeiter-technischer-dienst-100-berit-klinik",
@@ -343,7 +344,7 @@
       "salaryMin": 64800,
       "salaryMax": 90400,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -384,7 +385,7 @@
       "salaryMin": 57100,
       "salaryMax": 79800,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
