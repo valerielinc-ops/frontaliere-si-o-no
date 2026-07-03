@@ -405,6 +405,7 @@ export const COMPANY_HQ = {
   'solothurner-spitaeler':        { city: 'Solothurn',          canton: 'SO', postalCode: '4500', addressRegion: 'SO' },
   // ── Cathedral Phase 6 T6.5 wave 1 — tier-3 marquee (banking/luxury/shipping/industrial/insurance) ──
   'lombard-odier':                { city: 'Geneva',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'edmond-de-rothschild':         { city: 'Genève',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'richemont':                    { city: 'Bellevue',           canton: 'GE', postalCode: '1293', addressRegion: 'GE' },
   'msc-cargo':                    { city: 'Geneva',             canton: 'GE', postalCode: '1201', addressRegion: 'GE' },
   'bobst':                        { city: 'Mex',                canton: 'VD', postalCode: '1031', addressRegion: 'VD' },
@@ -490,7 +491,7 @@ export const COMPANY_HQ = {
   // ── Wave B: 40 crawler batch (issue #3337) ──
   'mistral-ai': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   'swissquote': { city: 'Gland', canton: 'VD', postalCode: '1196', addressRegion: 'VD' },
-  'talan': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'talan': { city: 'Genève', canton: 'GE', postalCode: '1201', addressRegion: 'GE' },
   'staubli': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
   'cern': { city: 'Meyrin', canton: 'GE', postalCode: '1211', addressRegion: 'GE' },
   'beekeeper': { city: 'Zürich', canton: 'ZH', postalCode: '8048', addressRegion: 'ZH' },
@@ -524,6 +525,25 @@ export const COMPANY_HQ = {
   // (northdata/Moneyhouse CHE-267.003.435) + local.ch/search.ch directory
   // listings; no fallback needed.
   'felfel': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
+  'sophia-genetics': { city: 'Rolle', canton: 'VD', postalCode: '1180', addressRegion: 'VD' },
+  'sygnum': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
+  'postauto': { city: 'Bern', canton: 'BE', postalCode: '3030', addressRegion: 'BE' },
+  'bucherer': { city: 'Luzern', canton: 'LU', postalCode: '6005', addressRegion: 'LU' },
+
+  // ── CordenPharma dedicated crawler (2026-07-03) ──
+  'cordenpharma': { city: 'Liestal', canton: 'BL', postalCode: '4410', addressRegion: 'BL' },
+  'bcv': { city: 'Lausanne', canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
+  // VZ Holding AG registered legal seat (Zefix CHE-102.060.456): Innere
+  // Güterstrasse 2, 6300 Zug ZG — confirmed via Zefix (Swiss commercial
+  // registry), cross-checked against Moneyhouse; no fallback needed.
+  'vz-vermoegenszentrum': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
+  'css-versicherung': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
+  'spruengli': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  'deloitte': { city: 'Zürich', canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  'kuehne-nagel': { city: 'Schindellegi', canton: 'SZ', postalCode: '8834', addressRegion: 'SZ' },
+  // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
+  'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
+  'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
 };
 
 /**

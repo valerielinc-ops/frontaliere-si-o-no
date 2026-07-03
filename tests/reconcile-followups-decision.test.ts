@@ -27,6 +27,11 @@ describe('isAggregateTitle — multi-item follow-ups never auto-close', () => {
     // word-boundary: substrings inside unrelated words don't trigger
     expect(isAggregateTitle('fix: swept the floor reference')).toBe(false);
   });
+  it('explicit "1 item deferred" wins over an ordinary "batch"/"sweep"/"bulk" word in the same title — count is authoritative, no keyword fallback (#3378)', () => {
+    expect(isAggregateTitle(
+      'follow-up(#3371): 1 item deferred — fix(job-alerts): batch backfill re-checks tier-3 before tier-4 URL fallback',
+    )).toBe(false);
+  });
 });
 
 describe('isStrongAutoCloseEvidence — weak single tokens never auto-close', () => {

@@ -101,14 +101,17 @@ jobs:
             // marks residual work COMPLETED while items stay due (real recurrence:
             // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
             // FULL mirror of isAggregate() — single source scripts/ci/check-issue-already-resolved.mjs:
-            // OR of BOTH branches: "N item(s) deferred" (N>=2) OR the sweep/batch/bulk
-            // fallback (aggregates that enumerate N targets WITHOUT the count, e.g.
-            // "Sweep: ~30 crawlers" #1826). Omitting the 2nd branch would let a
-            // `Closes #<sweep-aggregate>` slip through — same bug class, sweep subtype.
+            // an explicit "N item(s) deferred" count is authoritative once present
+            // (a single-item follow-up whose title merely contains the ordinary word
+            // "batch"/"sweep"/"bulk" — e.g. "1 item deferred ... batch backfill..." —
+            // must not be misclassified as an aggregate, #3378); the sweep/batch/bulk
+            // keyword fallback only applies when NO count is stated (aggregates that
+            // enumerate N targets WITHOUT the count, e.g. "Sweep: ~30 crawlers" #1826).
             const isAggregateTitleBody = (t, b) => {
               const text = `${t}\n${b}`;
               const m = text.match(/(\d+)\s+items?\s+deferred/i);
-              return (!!(m && Number(m[1]) >= 2)) || /\b(?:sweep|batch|bulk)\b/i.test(text);
+              if (m) return Number(m[1]) >= 2;
+              return /\b(?:sweep|batch|bulk)\b/i.test(text);
             };
             // Strip code-formatted text first: GitHub does NOT honour a closing
             // keyword inside a fenced block or inline `code` span, so neither should

@@ -51,6 +51,13 @@ describe('isAvoidableAlreadyFixed — non escalare il burn che nessun gate sicur
     expect(isAvoidableAlreadyFixed('follow-up(#9): 1 item deferred — fix(x)', ['follow-up'])).toBe(true);
   });
 
+  it('"1 item deferred" con parola ordinaria "batch"/"sweep"/"bulk" nel titolo → NON aggregate, il count esplicito vince sul keyword fallback (#3378)', () => {
+    expect(isAvoidableAlreadyFixed(
+      'follow-up(#3371): 1 item deferred — fix(job-alerts): batch backfill re-checks tier-3 before tier-4 URL fallback',
+      ['follow-up'],
+    )).toBe(true);
+  });
+
   it('input degeneri → NON contabile (proceed-safe: non gonfia il bucket)', () => {
     expect(isAvoidableAlreadyFixed(undefined as unknown as string, undefined as unknown as string[])).toBe(false);
     expect(isAvoidableAlreadyFixed('', null as unknown as string[])).toBe(false);
