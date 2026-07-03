@@ -548,6 +548,11 @@ export const COMPANY_HQ = {
   // Impressum (valora.com/de/imprint) + Zefix/Moneyhouse Handelsregister
   // (Valora Holding AG / Valora Schweiz AG, CHE-103.468.185).
   'valora': { city: 'Muttenz', canton: 'BL', postalCode: '4132', addressRegion: 'BL' },
+  // Seestrasse 204, 8802 Kilchberg ZH — Zefix-verified (northdata.com), cross-checked
+  // across 3 Lindt & Sprüngli group entities (CHE-105.927.933, CHE-102.231.350,
+  // CHE-102.232.125) sharing this registered seat. NOT the same company as
+  // 'spruengli' (Confiserie Sprüngli AG, Zürich) — unaffiliated, see issue #3337.
+  'lindt-spruengli': { city: 'Kilchberg', canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
 };
 
 /**
