@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-xtkyuv",
-      "slug": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
+      "slug": "venditore-con-salario-orario-denner-ag-binningen",
       "company": "Denner AG",
       "title": "Verkäufer*in im Stundenlohn",
       "location": "Binningen",
@@ -63,7 +63,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
+        "it": "venditore-con-salario-orario-denner-ag-binningen",
         "en": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
         "fr": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
@@ -84,11 +84,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-ag-binningen"
+          "verkaufer-in-im-stundenlohn-denner-ag-binningen",
+          "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-ag-binningen"
+        "verkaufer-in-im-stundenlohn-denner-ag-binningen",
+        "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -423,7 +425,7 @@
     },
     {
       "id": "company-9wcq9n",
-      "slug": "verkaufer-in-denner-ag-dubendorf",
+      "slug": "venditore-denner-ag-dubendorf",
       "company": "Denner AG",
       "title": "Verkäufer*in",
       "location": "Dübendorf",
@@ -469,7 +471,7 @@
       "crawledAt": "2026-07-03T12:10:52.243Z",
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-ag-dubendorf",
+        "it": "venditore-denner-ag-dubendorf",
         "en": "verkaufer-in-denner-ag-dubendorf",
         "de": "verkaufer-in-denner-ag-dubendorf",
         "fr": "verkaufer-in-denner-ag-dubendorf"
@@ -518,11 +520,19 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8600",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner-ag-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner-ag-dubendorf"
+      ]
     },
     {
       "id": "company-w85cd4",
-      "slug": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
+      "slug": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
       "company": "Denner AG",
       "title": "Stv. Filialleiter*in",
       "location": "Schaffhausen",
@@ -583,7 +593,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
+        "it": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
         "en": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
         "de": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
         "fr": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
@@ -604,11 +614,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-ag-schaffhausen"
+          "stv-filialleiter-in-denner-ag-schaffhausen",
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner-ag-schaffhausen"
+        "stv-filialleiter-in-denner-ag-schaffhausen",
+        "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -739,7 +751,7 @@
     },
     {
       "id": "company-u8icqx",
-      "slug": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+      "slug": "responsabile-amministrativo-e-tecnico-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
       "company": "Société coopérative Migros Neuchâtel-Fribourg",
       "title": "Gestionnaire administratif et technique",
       "location": "Marin-Epagnier",
@@ -813,7 +825,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+        "it": "responsabile-amministrativo-e-tecnico-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "en": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
         "de": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
         "fr": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx"
@@ -836,11 +848,13 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx"
+          "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
+          "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx"
+        "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
+        "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -864,7 +878,7 @@
     },
     {
       "id": "company-uvf3z",
-      "slug": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z",
+      "slug": "frutta-e-verdura-del-venditore-genossenschaft-migros-zurich-zurich-2db340",
       "company": "Genossenschaft Migros Zürich",
       "title": "Verkäufer*in Früchte & Gemüse",
       "location": "Zürich",
@@ -925,7 +939,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z",
+        "it": "frutta-e-verdura-del-venditore-genossenschaft-migros-zurich-zurich-2db340",
         "en": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z",
         "de": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z",
         "fr": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z"
@@ -947,11 +961,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich"
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich",
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich"
+        "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich",
+        "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-0uvf3z"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -974,7 +990,7 @@
     },
     {
       "id": "company-jbeu5o",
-      "slug": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o",
+      "slug": "impiegato-della-gestione-degli-ordini-m-f-d-delica-ag-buchs-ag",
       "company": "Delica AG",
       "title": "Sachbearbeiter Order Management (m/w/d)",
       "location": "Buchs AG",
@@ -1032,7 +1048,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o",
+        "it": "impiegato-della-gestione-degli-ordini-m-f-d-delica-ag-buchs-ag",
         "en": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o",
         "de": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o",
         "fr": "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o"
@@ -1051,11 +1067,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag"
+          "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag",
+          "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag"
+        "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag",
+        "sachbearbeiter-order-management-m-w-d-delica-ag-buchs-ag-jbeu5o"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1181,7 +1199,7 @@
     },
     {
       "id": "company-ks0z80",
-      "slug": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
+      "slug": "consulente-per-clienti-privati-banque-migros-neuenburg",
       "company": "Banque Migros",
       "title": "Conseiller Clients privés",
       "location": "Neuenburg",
@@ -1236,7 +1254,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
+        "it": "consulente-per-clienti-privati-banque-migros-neuenburg",
         "en": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
         "de": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
         "fr": "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
@@ -1257,11 +1275,13 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-clients-prives-banque-migros-neuenburg"
+          "conseiller-clients-prives-banque-migros-neuenburg",
+          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
         ]
       },
       "previousSlugs": [
-        "conseiller-clients-prives-banque-migros-neuenburg"
+        "conseiller-clients-prives-banque-migros-neuenburg",
+        "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1284,7 +1304,7 @@
     },
     {
       "id": "company-azardg",
-      "slug": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg",
+      "slug": "assistente-di-negozio-genossenschaft-migros-ostschweiz-nurensdorf",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Verkäufer*in ganzer Laden",
       "location": "Nürensdorf",
@@ -1336,7 +1356,7 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg",
+        "it": "assistente-di-negozio-genossenschaft-migros-ostschweiz-nurensdorf",
         "en": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg",
         "de": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg",
         "fr": "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg"
@@ -1354,11 +1374,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf"
+          "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf",
+          "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf"
+        "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf",
+        "verkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-nurensdorf-azardg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -39665,7 +39687,7 @@
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
         "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a",
-        "fr": "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a"
+        "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-baar-jwmq7a"
       },
       "requirementsByLocale": {
         "it": [],
@@ -39693,6 +39715,7 @@
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-baar",
         "vice-direttore-del-fitness-club-lunedi-venerdi-activ-fitness-baar",
+        "club-de-remise-en-forme-m-w-d-activ-fitness-baar-jwmq7a",
         "club-de-remise-en-forme-m-f-d-activ-fitness-baar"
       ],
       "salaryMin": 96000,
@@ -40256,9 +40279,6 @@
         "it": [
           "manager-fitness-club-m-w-d-activ-fitness-stans",
           "responsabile-del-fitness-club-lun-f-d-activ-fitness-stans"
-        ],
-        "de": [
-          "manager-fitnessclub-m-w-d-activ-fitness-stans-a2ntgs"
         ]
       },
       "previousSlugs": [
@@ -65418,8 +65438,7 @@
         "teaching-groupfitness-in-hourly-wage-genossenschaft-migros-ostschweiz-chur",
         "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
-        "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona",
-        "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur"
+        "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -69388,9 +69407,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-st-moritz",
           "istruttore-di-fitness-f-m-d-activ-fitness-st-moritz"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-st-moritz-8hd2h2"
         ]
       },
       "previousSlugs": [
@@ -69626,8 +69642,7 @@
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-st-moritz",
-        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s",
-        "responsabile-assistente-fitness-club-m-w-d-activ-fitness-st-moritz"
+        "responsable-assistant-fitness-club-m-w-d-activ-fitness-st-moritz-dp877s"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -73657,9 +73672,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-wadenswil",
           "istruttore-di-fitness-f-m-d-activ-fitness-wadenswil"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-wadenswil-1wnagn"
         ]
       },
       "previousSlugs": [
@@ -75124,9 +75136,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-horgen",
           "istruttore-di-fitness-f-m-d-activ-fitness-horgen"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-horgen-tdafr5"
         ]
       },
       "previousSlugs": [
@@ -82848,9 +82857,6 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-zurich"
-        ],
-        "de": [
-          "fitnesstrainer-m-w-d-activ-fitness-zurich-6yyz7w"
         ]
       },
       "previousSlugs": [

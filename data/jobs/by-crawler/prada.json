@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-889043a83077",
-      "slug": "client-advisor-topanga-prada-group-topanga-client-advisor-topanga",
+      "slug": "client-consulente-topanga-prada-group-topanga-client-advisor-topanga",
       "slugByLocale": {
         "en": "client-advisor-topanga-prada-group-topanga-client-advisor-topanga",
-        "it": "client-advisor-topanga-prada-group-topanga-client-advisor-topanga",
-        "de": "client-advisor-topanga-prada-group-topanga-client-advisor-topanga",
-        "fr": "client-advisor-topanga-prada-group-topanga-client-advisor-topanga"
+        "it": "client-consulente-topanga-prada-group-topanga-client-advisor-topanga",
+        "de": "client-berater-topanga-prada-group-topanga-client-advisor-topanga",
+        "fr": "client-conseiller-topanga-prada-group-topanga-client-advisor-topanga"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -62,7 +62,21 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-03T12:05:00.060Z"
+      "firstSeenAt": "2026-07-03T12:05:00.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-topanga-prada-group-topanga-client-advisor-topanga"
+        ],
+        "de": [
+          "client-advisor-topanga-prada-group-topanga-client-advisor-topanga"
+        ],
+        "fr": [
+          "client-advisor-topanga-prada-group-topanga-client-advisor-topanga"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-topanga-prada-group-topanga-client-advisor-topanga"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
@@ -108,8 +122,7 @@
       "crawledAt": "2026-07-03T12:04:56.803Z",
       "previousSlugsByLocale": {
         "en": [
-          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+          "miu-miu-store-manager-saint-moritz-prada-group-st-moritz"
         ],
         "it": [
           "miu-miu-store-manager-saint-moritz-prada-mendrisio",

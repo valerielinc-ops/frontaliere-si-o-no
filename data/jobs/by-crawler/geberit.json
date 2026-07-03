@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "geberit-1855",
-      "slug": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
+      "slug": "regione-tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "servicetechniker-region-westschweiz-geberit-ch",
-        "it": "servicetechniker-region-westschweiz-geberit-sales-switzerland",
+        "it": "regione-tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
         "en": "servicetechniker-region-westschweiz-geberit-ch",
         "fr": "servicetechniker-region-westschweiz-geberit-ch"
       },
@@ -60,12 +60,12 @@
         "servizio-tecnico-svizzera-occidentale-geberit-sales-switzerland",
         "tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland",
         "servicetechniker-region-westschweiz-geberit-ch",
+        "servicetechniker-region-westschweiz-geberit-sales-switzerland",
         "service-technician-region-lausanne-vevey-yverdon-a-80-100-geberit-sales-switzerland",
         "service-technician-western-switzerland-region-geberit-sales-switzerland",
         "technicien-de-service-region-lausanne-vevey-yverdon-a-80-100-geberit-sales-switzerland",
         "technicien-des-services-region-suisse-occidentale-geberit-sales-switzerland",
-        "technicien-des-services-region-de-suisse-occidentale-geberit-sales-switzerland",
-        "regione-tecnico-di-servizio-svizzera-occidentale-geberit-sales-switzerland"
+        "technicien-des-services-region-de-suisse-occidentale-geberit-sales-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -80,14 +80,12 @@
         ],
         "en": [
           "service-technician-region-lausanne-vevey-yverdon-a-80-100-geberit-sales-switzerland",
-          "service-technician-western-switzerland-region-geberit-sales-switzerland",
-          "servicetechniker-region-westschweiz-geberit-ch"
+          "service-technician-western-switzerland-region-geberit-sales-switzerland"
         ],
         "fr": [
           "technicien-de-service-region-lausanne-vevey-yverdon-a-80-100-geberit-sales-switzerland",
           "technicien-des-services-region-suisse-occidentale-geberit-sales-switzerland",
-          "technicien-des-services-region-de-suisse-occidentale-geberit-sales-switzerland",
-          "servicetechniker-region-westschweiz-geberit-ch"
+          "technicien-des-services-region-de-suisse-occidentale-geberit-sales-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -1167,12 +1165,10 @@
           "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
         ],
         "en": [
-          "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland",
-          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+          "regional-sales-manager-zurich-and-central-switzerland-a-100-geberit-sales-switzerland"
         ],
         "fr": [
-          "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland",
-          "regionalverkaufsleiter-zurich-und-zentralschweiz-a-100-geberit-ch"
+          "directeur-regional-des-ventes-zurich-et-suisse-centrale-a-100-geberit-sales-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -1358,11 +1354,11 @@
     },
     {
       "id": "geberit-1989",
-      "slug": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
+      "slug": "responsabile-rischi-e-due-diligence-acquisti-aziendali-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
         "fr": "gestionnaire-des-risques-et-de-la-diligence-raisonnable-approvisionnement-ministeriel-a-100-geberit-rapperswil-jona",
-        "it": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
+        "it": "responsabile-rischi-e-due-diligence-acquisti-aziendali-a-100-geberit-rapperswil-jona",
         "en": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch"
       },
       "company": "Geberit",
@@ -1420,15 +1416,16 @@
       },
       "firstSeenAt": "2026-06-30T22:20:07.510Z",
       "previousSlugs": [
-        "responsabile-gestione-rischi-e-due-diligence-procurement-corporate-geberit-rapperswil-jona",
         "responsabile-del-rischio-e-del-debito-discreto-corporate-pupers-a-100-geberit-rapperswil-jona",
         "manager-dei-rischi-e-due-diligence-acquisti-corporate-a-100-geberit-rapperswil-jona",
         "responsabile-risk-and-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona",
         "responsabile-risk-e-due-diligence-procurement-corporate-a-100-geberit-rapperswil-jona",
         "responsabile-rischio-e-due-diligence-acquisti-aziendali-a-100-geberit-rapperswil-jona",
+        "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
         "manager-des-risques-et-due-diligence-achats-corporatifs-a-100-geberit-rapperswil-jona",
         "responsable-des-risques-et-de-la-diligence-raisonnable-achats-d-entreprise-a-a-100-geberit-rapperswil-jona",
-        "responsable-risques-et-due-diligence-achats-corporate-a-100-geberit-rapperswil-jona"
+        "responsable-risques-et-due-diligence-achats-corporate-a-100-geberit-rapperswil-jona",
+        "responsabile-gestione-rischi-e-due-diligence-procurement-corporate-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1436,7 +1433,8 @@
           "manager-dei-rischi-e-due-diligence-acquisti-corporate-a-100-geberit-rapperswil-jona",
           "responsabile-risk-and-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona",
           "responsabile-risk-e-due-diligence-procurement-corporate-a-100-geberit-rapperswil-jona",
-          "responsabile-rischio-e-due-diligence-acquisti-aziendali-a-100-geberit-rapperswil-jona"
+          "responsabile-rischio-e-due-diligence-acquisti-aziendali-a-100-geberit-rapperswil-jona",
+          "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch"
         ],
         "fr": [
           "manager-des-risques-et-due-diligence-achats-corporatifs-a-100-geberit-rapperswil-jona",
@@ -1520,10 +1518,10 @@
     },
     {
       "id": "geberit-2008",
-      "slug": "technischer-berater-region-aargau-a-100-geberit-ch",
+      "slug": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
       "slugByLocale": {
         "de": "technischer-berater-region-aargau-a-100-geberit-ch",
-        "it": "technischer-berater-region-aargau-a-100-geberit-ch",
+        "it": "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
         "en": "technischer-berater-region-aargau-a-100-geberit-ch",
         "fr": "technischer-berater-region-aargau-a-100-geberit-ch"
       },
@@ -1570,23 +1568,20 @@
       },
       "previousSlugs": [
         "consulente-tecnico-regione-argovia-a-100-geberit-sales-switzerland",
-        "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
+        "technischer-berater-region-aargau-a-100-geberit-ch",
         "technical-consultant-region-aargau-a-100-geberit-sales-switzerland",
         "consultant-technique-region-argovie-a-100-geberit-sales-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-tecnico-regione-argovia-a-100-geberit-sales-switzerland",
-          "consulente-tecnico-regione-aargau-a-100-geberit-sales-switzerland",
           "technischer-berater-region-aargau-a-100-geberit-ch"
         ],
         "en": [
-          "technical-consultant-region-aargau-a-100-geberit-sales-switzerland",
-          "technischer-berater-region-aargau-a-100-geberit-ch"
+          "technical-consultant-region-aargau-a-100-geberit-sales-switzerland"
         ],
         "fr": [
-          "consultant-technique-region-argovie-a-100-geberit-sales-switzerland",
-          "technischer-berater-region-aargau-a-100-geberit-ch"
+          "consultant-technique-region-argovie-a-100-geberit-sales-switzerland"
         ]
       },
       "needsRetranslation": true,

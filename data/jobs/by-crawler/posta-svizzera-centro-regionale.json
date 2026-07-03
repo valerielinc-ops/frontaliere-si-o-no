@@ -22,9 +22,9 @@
         "en": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-leukerbad",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-leukerbad",
         "en": "zusteller-in-briefe-und-pakete-post",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "zusteller-in-briefe-und-pakete-post"
@@ -63,7 +63,15 @@
       "addressRegion": "VS",
       "addressCountry": "CH",
       "postalCode": "1950",
-      "firstSeenAt": "2026-07-03T12:39:28.649Z"
+      "firstSeenAt": "2026-07-03T12:39:28.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Programmleiterin-CRM-Transformation/74103-de_DE",
