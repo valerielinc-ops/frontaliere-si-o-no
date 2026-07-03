@@ -253,6 +253,16 @@ const EMPTY_OK_CRAWLERS = new Set([
   // roles) — the architecture/design firm has 0 open positions right now.
   // The parser is healthy and re-arms when a vacancy is published (#3198).
   'a-group',
+  // Medics Labor AG (Bern, Refline tenant 1474): the listing page
+  // (https://app.reflinejobs.io/1474/positions.html?lang=de) returns HTTP 200
+  // with the unchanged anchor-list structure and explicitly states "Zurzeit
+  // haben wir keine Vakanzen. Schauen Sie gerne später wieder bei uns vorbei."
+  // (currently no vacancies). The small private lab (2 open roles as of
+  // 2026-06-29) legitimately went to 0 openings; the shared Refline parser
+  // (`refline-common.mjs`) is healthy and re-arms when a new posting appears.
+  // Same legitimately-empty small-employer case as linnea and
+  // wuerth-international (#3344).
+  'medics-labor',
 ]);
 
 /** Read JSON file, return null on any error. */
