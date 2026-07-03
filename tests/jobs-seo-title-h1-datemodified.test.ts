@@ -7,7 +7,7 @@ import {
  fnv8,
  titleCompareKey,
 } from '../build-plugins/jobsSeoPagesPlugin';
-import { composeSerpJobTitle, truncateHeadline, TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
+import { composeSerpJobTitle, truncateHeadline, TITLE_MAX_CHARS, TITLE_BRAND_SUFFIX } from '../build-plugins/shared/titleSuffix';
 import { stripLeadingSectionLabel } from '../build-plugins/shared/jobDescription/parser';
 
 describe('safeIsoDate', () => {
@@ -114,6 +114,51 @@ describe('composeSerpJobTitle (role > city > company > brand cascade)', () => {
  const malformedCity = ': Ticino, Switzerland.Availability to work on-site is required. What we offer youAt ALTEN you benefit from a permanent contract.';
  const out = composeSerpJobTitle('Java Software Ingegnere', 'ALTEN Switzerland', malformedCity, 'it');
  expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ });
+});
+
+describe('composeSerpJobTitle measureLength (#3402: disambiguator-branch escape-budget gap)', () => {
+ // Follow-up from PR #3365's adversarial check: the internal recursive
+ // buildTitleWithBrand call at titleSuffix.ts:286 (the disambiguator branch)
+ // did not forward measureLength, so the brand-append decision was always
+ // budgeted on the RAW (pre-escape) length even for callers whose composed
+ // title is later HTML-escaped exactly once (jobsSeoPagesPlugin.ts's
+ // `<title>${esc(title)}</title>`). A company/role/city containing `&`
+ // expands by 4 chars on escape ("&" -> "&amp;"), which can silently push
+ // an already-budgeted title past the 66-char cap post-escape.
+ const esc = (s: string): string => s
+ .replace(/&/g, '&amp;')
+ .replace(/</g, '&lt;')
+ .replace(/>/g, '&gt;')
+ .replace(/"/g, '&quot;');
+ const role = 'Addetto vendite senior';
+ const company = 'C&A';
+ const city = 'Lugano';
+ const disambiguator = '80%';
+
+ it('without measureLength (raw default): brand is appended but the escaped title overflows the cap', () => {
+ const out = composeSerpJobTitle(role, company, city, 'it', { disambiguator });
+ expect(out.endsWith(TITLE_BRAND_SUFFIX)).toBe(true);
+ expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ // The string that actually ships in <title>${esc(title)}</title> blows
+ // the cap — this is the exact gap #3402 flagged for the reachable path.
+ expect(esc(out).length).toBeGreaterThan(TITLE_MAX_CHARS);
+ });
+
+ it('with escape-aware measureLength: brand is dropped so the escaped title respects the cap', () => {
+ const out = composeSerpJobTitle(role, company, city, 'it', {
+ disambiguator,
+ measureLength: (s) => esc(s).length,
+ });
+ expect(out.endsWith(TITLE_BRAND_SUFFIX)).toBe(false);
+ expect(esc(out).length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ });
+
+ it('composeJobPageTitle wrapper forwards measureLength to the disambiguator branch (live call-site shape)', () => {
+ const withoutFix = composeJobPageTitle(role, company, city, 'it', disambiguator);
+ const withFix = composeJobPageTitle(role, company, city, 'it', disambiguator, undefined, (s) => esc(s).length);
+ expect(esc(withoutFix).length).toBeGreaterThan(TITLE_MAX_CHARS);
+ expect(esc(withFix).length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
  });
 });
 

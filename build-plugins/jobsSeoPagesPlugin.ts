@@ -253,6 +253,15 @@ export function safeIsoDate(raw: unknown): string | null {
  *
  * The optional `disambiguator` is appended as ` · {token}` INSIDE the
  * 66-char cap (audit:title-length) for collision-prone titles.
+ *
+ * `measureLength` mirrors {@link composeSerpJobTitle}'s option: the result
+ * of this wrapper is emitted as `<title>${esc(title)}</title>` further down
+ * this file, so callers MUST pass `(s) => esc(s).length` (the local `esc`
+ * defined inside {@link jobsSeoPagesPlugin}) so the brand-append decision is
+ * budgeted on the escaped string that actually ships, not the pre-escape
+ * one — a raw `&`/`<`/`>`/`"` in the role/company/city expands on escape and
+ * can otherwise let a title exceed the cap post-escape (same class fixed in
+ * seoPageShell.ts's `normalizeShellTitle`, PR #3365 / #3402).
  */
 export function composeJobPageTitle(
  jobTitle: string,
@@ -261,8 +270,9 @@ export function composeJobPageTitle(
  locale: string,
  disambiguator?: string,
  cityOptional?: boolean,
+ measureLength?: (s: string) => number,
 ): string {
- return composeSerpJobTitle(jobTitle, company, city, locale, { disambiguator, cityOptional });
+ return composeSerpJobTitle(jobTitle, company, city, locale, { disambiguator, cityOptional, measureLength });
 }
 
 /**
@@ -2271,10 +2281,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const locale of localeList) {
  const lt = String(job?.titleByLocale?.[locale] || job.title || '');
  const loc = String(job.location || '').trim();
- const baseTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale);
+ const baseTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, undefined, (s) => esc(s).length);
  const bucket = titleCollisionByLocale[locale];
  bucket.set(baseTitle, (bucket.get(baseTitle) || 0) + 1);
- const noCityTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, true);
+ const noCityTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, true, (s) => esc(s).length);
  const noCityBucket = noCityTitleCollisionByLocale[locale];
  noCityBucket.set(noCityTitle, (noCityBucket.get(noCityTitle) || 0) + 1);
  }
@@ -2579,7 +2589,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // locale. The non-disambiguated probe doubles as `ogTitle` (social
  // cards omit the disambiguator by design — see comment below). Saves
  // 1 call per page always, 2 when no collision (the common case).
- const baseTitleProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale);
+ const baseTitleProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, undefined, undefined, (s) => esc(s).length);
  const collidesInLocale = (titleCollisionByLocale[locale].get(baseTitleProbe) || 0) > 1;
  // City-drop decision (#1932): drop the city ONLY when this page does not
  // collide on the full (with-city) title AND its city-less "role — company"
@@ -2587,7 +2597,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // collapse two multi-sede pages into a duplicate <title> (audit:title-
  // uniqueness). On the residual mid-`…` pages (role+city > 66 char) this lets
  // the bare role fill the budget verbatim instead of truncating mid-word.
- const noCityProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, undefined, true);
+ const noCityProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, undefined, true, (s) => esc(s).length);
  const cityIsDroppable = !collidesInLocale
   && (noCityTitleCollisionByLocale[locale].get(noCityProbe) || 0) <= 1;
  // Build a HUMAN-READABLE disambiguator from the job's metadata (cascade:
@@ -2602,7 +2612,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `cityIsDroppable` only ever holds when the page does NOT collide, so
  // `disambiguatorToken` is empty here and the droppable branch is `noCityProbe`.
  let title = disambiguatorToken
- ? composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken)
+ ? composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken, undefined, (s) => esc(s).length)
  : (cityIsDroppable ? noCityProbe : baseTitleProbe);
  // <title> must differ from the <h1> (audit:h1-title-duplicates). With the
  // role>city>company cascade the title normally carries the city or brand
@@ -2616,6 +2626,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   localizedTitle, String(job.company || ''), jobLocation, locale,
   h1AvoidToken || `${REF_LABEL[locale] || REF_LABEL.it} ${fnv8(String(job.slug || job.id || localizedTitle))}`,
   cityIsDroppable,
+  (s) => esc(s).length,
  );
  }
  // Cross-corpus uniqueness net (see claimUniqueTitle above): guarantees no
@@ -2623,7 +2634,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The recompose preserves the city-drop decision so a clash falls back to a
  // disambiguator on the SAME (city-less or city-bearing) headline shape.
  title = claimUniqueTitle(locale, title, `${String(job.slug || job.id || '')}::${locale}`,
- (d) => composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, d, cityIsDroppable));
+ (d) => composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, d, cityIsDroppable, (s) => esc(s).length));
  // Clean variant for og:title — the city-bearing probe minus any trailing
  // " · {disambiguator}". The disambig is needed in the HTML <title> for SEO
  // uniqueness, but social cards look better without the trailing metadata.
@@ -10991,9 +11002,16 @@ ${staticAnalyticsHtml}
  // word-truncated the headline to make room for it. Uniqueness is now
  // guaranteed by claimUniqueTitle (cross-corpus registry, see above)
  // which only suffixes a `rif.` token on an ACTUAL collision.
- // Note: we work on the RAW headline (no HTML-escape) so `&` / `<` are not
- // expanded into multi-char entities that fool the length-based budget;
- // esc() is applied ONCE at the <title> call site downstream.
+ // Note: candidate/headline SELECTION works on the RAW strings (no
+ // HTML-escape) so `&` / `<` are not expanded into multi-char entities that
+ // fool the cascade's length-based budget; the concatenated headline itself
+ // stays unescaped here. The FINAL brand-append decision, though, is
+ // budgeted on the escaped length (`measureLength: (s) => esc(s).length`,
+ // #3402) because esc() is applied ONCE at the <title> call site downstream
+ // and a raw `&`/`<`/`>`/`"` expands on that escape — checking pre-escape
+ // length there could let a title exceed the cap post-escape. Must match
+ // the measureLength used to populate `noCityTitleCollisionByLocale`
+ // (composeJobPageTitle call sites above) so the probe keys line up.
  // City-drop on expired soft-landings (#1932): the city is droppable when the
  // city-less "role — company" headline is unique among ACTIVE pages in this
  // locale (noCityTitleCollisionByLocale). The shared claimUniqueTitle registry
@@ -11003,14 +11021,14 @@ ${staticAnalyticsHtml}
  // on the non-colliding majority (22.8 % of expired titles overflowed at
  // role+city > 66 char).
  const __expiredNoCityProbe = hasRealTitle
-  ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { cityOptional: true })
-  : composeSerpJobTitle(copy.title, '', jobLocation, locale, { cityOptional: true });
+  ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { cityOptional: true, measureLength: (s) => esc(s).length })
+  : composeSerpJobTitle(copy.title, '', jobLocation, locale, { cityOptional: true, measureLength: (s) => esc(s).length });
  const __expiredCityDroppable = hasRealTitle
   && (noCityTitleCollisionByLocale[locale].get(__expiredNoCityProbe) || 0) <= 1;
  const __expiredCompose = (disambiguator?: string): string =>
   hasRealTitle
-   ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { disambiguator, cityOptional: __expiredCityDroppable })
-   : composeSerpJobTitle(copy.title, '', jobLocation, locale, { disambiguator });
+   ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { disambiguator, cityOptional: __expiredCityDroppable, measureLength: (s) => esc(s).length })
+   : composeSerpJobTitle(copy.title, '', jobLocation, locale, { disambiguator, measureLength: (s) => esc(s).length });
  let pageTitleRaw = __expiredCompose();
  // <h1> equality guard (audit:h1-title-duplicates): the static H1 below is
  // "role — company"; when the cascade lands on that exact string and the

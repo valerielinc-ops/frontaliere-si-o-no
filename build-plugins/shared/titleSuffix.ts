@@ -189,6 +189,18 @@ export interface SerpJobTitleOptions {
    * (17.8 % active / 22.8 % expired) on non-colliding role+company pages.
    */
   cityOptional?: boolean;
+  /**
+   * Length function used for the FINAL brand-decision (mirrors
+   * {@link buildTitleWithBrand}'s `measureLength` param). Default raw
+   * `.length`. Callers whose composed title is emitted through a render
+   * layer that HTML-escapes it exactly once (e.g. `<title>${esc(title)}</title>`
+   * in `jobsSeoPagesPlugin.ts`) must pass `(s) => esc(s).length` so the
+   * brand-append decision is budgeted on the string that actually ships —
+   * see {@link buildTitleWithBrand} for the "C&A Schweiz" rationale. Only
+   * applied to the internal {@link buildTitleWithBrand} call; the candidate
+   * cascade above still selects on raw length (unaffected by this option).
+   */
+  measureLength?: (s: string) => number;
 }
 
 /**
@@ -283,7 +295,7 @@ export function composeSerpJobTitle(
       ? truncateHeadline(role, roleBudget) + cityTail
       : truncateHeadline(role, budget);
   }
-  return buildTitleWithBrand(headline + disamb, brand, maxChars);
+  return buildTitleWithBrand(headline + disamb, brand, maxChars, options.measureLength);
 }
 
 /**
