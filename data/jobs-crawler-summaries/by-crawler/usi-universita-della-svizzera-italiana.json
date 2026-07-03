@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-07-03T12:56:15.614Z",
+  "generatedAt": "2026-07-03T23:32:49.135Z",
   "total": 20,
   "newCount": 0,
   "updatedCount": 12,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 21204,
-  "avgDurationMs": 21204,
+  "durationMs": 571317,
+  "avgDurationMs": 571317,
   "durationHistory": [
-    21204
+    571317
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -495,48 +495,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-postdoc-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-postdoc-2026.pdf",
-      "title": "Due ricercatori post-dottorato",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "due-ricercatori-post-dottorato-usi-mendrisio",
-      "department": "Academy of Architecture – Institute of Urban and Landscape Studies (ISUP)",
-      "category": "researcher",
-      "datePosted": "2026-04-27",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-4b2fc8ac7c62",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-04-27T22:43:52.463Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-postdoc-saturna-2026.pdf",
