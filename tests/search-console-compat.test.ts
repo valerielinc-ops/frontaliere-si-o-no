@@ -448,6 +448,26 @@ describe('Search Console 404 compatibility resolver', () => {
     }
   });
 
+  it('strips an accidental leading duplicate of the site hostname before resolving', () => {
+    expect(
+      resolveSearchConsoleCompatTarget(
+        '/frontaliereticino.ch/en/find-jobs-ticino/some-expired-job-slug',
+      ),
+    ).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'expired-job',
+      locale: 'en',
+    });
+  });
+
+  it('recovers the wrong-locale-word DE TI section guess to the real jobs-im-tessin section', () => {
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-in-ticino')).toEqual({
+      canonicalPath: '/de/jobs-im-tessin/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+  });
+
   it('still returns null for truly unknown paths', () => {
     expect(resolveSearchConsoleCompatTarget('/totally-unknown-path')).toBeNull();
     expect(resolveSearchConsoleCompatTarget('/en/unknown-section/something')).toBeNull();
