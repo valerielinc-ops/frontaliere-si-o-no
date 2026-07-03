@@ -1,18 +1,21 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-07-02T23:06:28.623Z",
+  "generatedAt": "2026-07-03T12:20:29.088Z",
   "total": 60,
-  "newCount": 2,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 58,
-  "durationMs": 43989,
-  "avgDurationMs": 43989,
+  "unchangedCount": 60,
+  "durationMs": 42647,
+  "avgDurationMs": 42647,
   "durationHistory": [
-    43989
+    42647
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135556319-sage-femme",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135556319-sage-femme?oga=true",
@@ -25,7 +28,7 @@
       "canton": "BE",
       "country": "CH",
       "postalCode": "2610",
-      "slug": "sage-femme-swiss-medical-network",
+      "slug": "sage-woman-swiss-medical-network-saint-imier",
       "category": "healthcare",
       "datePosted": "2026-07-02",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -38,12 +41,16 @@
       },
       "sourceLang": "fr",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-02T23:06:28.617Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 19,
+        "completeness": 17
       }
     },
     {
@@ -58,7 +65,7 @@
       "canton": "BS",
       "country": "CH",
       "postalCode": "4010",
-      "slug": "facharztin-facharzt-innere-medizin-50-100-swiss-medical-network",
+      "slug": "specialista-in-medicina-interna-50-100-swiss-medical-network-basel",
       "category": "medical",
       "datePosted": "2026-07-02",
       "source": "swiss-medical-smartrecruiters-crawler",
@@ -71,18 +78,18 @@
       },
       "sourceLang": "de",
       "addressCountry": "CH",
-      "_qualityScore": 58,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-02T23:06:28.617Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 8,
-        "completeness": 12
+        "translation": 21,
+        "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical?oga=true",
@@ -1115,79 +1122,6 @@
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133349716-assistant-e-medical-e-en-pneumologie-et-cardiologie-cdm",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133349716-assistant-e-medical-e-en-pneumologie-et-cardiologie-cdm?oga=true",
-      "title": "Assistant(e) médical(e) en pneumologie et cardiologie CDM",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "canton": "GE",
-      "country": "CH",
-      "slug": "assistente-medico-in-pneumologia-e-cardiologia-cdm-swiss-medical-network-geneve",
-      "category": "admin",
-      "datePosted": "2026-06-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Genève"
-      },
-      "sourceLang": "fr",
-      "addressCountry": "CH",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133279989-hdp-tso-ou-instrumentiste-au-bloc-operatoire",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133279989-hdp-tso-ou-instrumentiste-au-bloc-operatoire?oga=true",
-      "title": "HDP_TSO ou instrumentiste au bloc opératoire",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Neuchâtel",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2000",
-      "slug": "hdp-tso-o-strumentalista-del-blocco-operativo-swiss-medical-network-neuchatel",
-      "category": "healthcare",
-      "datePosted": "2026-06-29",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Neuchâtel"
-      },
-      "sourceLang": "fr",
-      "addressCountry": "CH",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-29T23:34:11.527Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
         "translation": 21,
         "completeness": 17
       }
