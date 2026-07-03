@@ -342,6 +342,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'nestle': cLogo('nestle.ch'),
  'novartis': cLogo('novartis.ch'),
  'nsn-medical': cLogo('nsn.ch'),
+ 'nvidia-zurich': cLogo('nvidia.com'),
  'octapharma': cLogo('octapharma.com'),
  'ophtalmique': cLogo('ophtalmique.ch'),
  'oscam': gFavicon('oscam.ch'),
