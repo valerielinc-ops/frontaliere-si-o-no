@@ -2,16 +2,20 @@
 /**
  * Shared factory for Swiss employers using **Solique** (live.solique.ch)
  * as their careers-portal SaaS. Solique is a Swiss-built recruiting
- * platform that server-renders the entire job list in one HTML payload
- * (no JSON API, no pagination — verified May 2026: /api/v1, /feed all 404).
+ * platform that server-renders the job list as HTML. Most (small/mid)
+ * tenants fit their whole board on one payload (no JSON API, no pagination
+ * — verified May 2026: /api/v1, /feed all 404); large retail tenants (e.g.
+ * OTTO'S AG, ~167 openings) instead paginate the SSR listing 25-per-page via
+ * a `?page=N` query param (verified Jul 2026) — see `paginate` config below.
  *
  * Public endpoints (no authentication):
  *
  *   GET https://live.solique.ch/{TENANT}/
- *     → HTML listing with `<div class="job">` tiles. Tile structure varies
+ *     → HTML listing with `<div class="job…">` tiles. Tile structure varies
  *       by tenant template:
  *
- *       a) "Anchor-wrap" template (Spital Emmental):
+ *       a) "Anchor-wrap" template (Spital Emmental; OTTO'S AG is a variant —
+ *          see (c) below):
  *          <div class="job">
  *            <a href="job/details/{ID}" id="{ID}">
  *              <div class="jobtitle">…</div>
@@ -34,6 +38,16 @@
  *            </div>
  *          </div>
  *
+ *       c) "Prefixed anchor-wrap" template (OTTO'S AG, `ottosag` — Jul 2026):
+ *          a same-shape variant of (a) whose outer `<div>` carries an EXTRA
+ *          class token (`class="job standard"`, not bare `class="job"`) and
+ *          whose anchor `href` is site-absolute with the tenant segment
+ *          (`/ottosag/job/details/{ID}`, not the bare relative
+ *          `job/details/{ID}` (a)/(b) use), with the title in a `<span
+ *          class="jobtitle">` instead of a `<div>`/`<h[1-6]>`. `parseSoliqueListing`
+ *          template (a)'s regex tolerates both variants (multi-class-token
+ *          and prefixed-path superset), so this is not a separate branch.
+ *
  *   GET https://live.solique.ch/{TENANT}/job/details/{ID}
  *     → Server-rendered detail HTML. Body content varies:
  *
@@ -45,11 +59,20 @@
  *         `<div class="offer">…</div>` with `<h4 class="sub-subtitle">…</h4>`
  *         then `<ul>…</ul>` content.
  *
- * Confirmed tenants (May 2026):
+ *       Template "tasks-profile-wrapper" (OTTO'S AG — Jul 2026): a balanced
+ *         `<div class="tasks-profile-wrapper">` container (no `<section>`
+ *         tags on the page at all) nesting `<div class="tasks-wrapper">` /
+ *         `<div class="profile-wrapper">`, each opened by an `<h3
+ *         class="subtitle">` heading + `<ul>` body. See
+ *         `extractBalancedDivByClass` + Template (vi) below.
+ *
+ * Confirmed tenants (Jul 2026):
  *   - Spital Emmental (`spital-emmental`) ~50 active openings — see
  *     `scripts/lib/spital-emmental-job-parser.mjs`.
  *   - SVAR Spitalverbund Appenzell Ausserrhoden (`svar`) ~10 active
  *     openings — see `scripts/lib/svar-spitalverbund-ar-job-parser.mjs`.
+ *   - OTTO'S AG (`ottosag`) ~167 active openings (retail, paginated) — see
+ *     `scripts/lib/ottos-job-parser.mjs`.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -123,7 +146,16 @@ export function parseSoliqueListing(html = '') {
   // Template (a): anchor-wrap. The `<a href="job/details/{ID}">` wraps the
   // tile body. Accept both `<div class="job">` (Spital Emmental) and
   // `<article class="job">` (Spital Oberengadin / SGO) container elements.
-  const tileWrapRx = /<(?:div|article)\s+class="job">\s*<a\s+(?:id="\d+"\s+)?href="job\/details\/(\d+)"[^>]*>([\s\S]*?)<\/a>\s*<\/(?:div|article)>/g;
+  // Also covers template (c) (OTTO'S AG): the class attribute allows an
+  // extra token after "job" (`class="job standard"` — `job(?:\s[^"]*)?`
+  // requires a quote or whitespace right after "job", so it does NOT
+  // false-match unrelated chrome classes like "job-counter"/"job-section"),
+  // and the href allows an optional site-absolute `/{tenant}/` prefix before
+  // `job/details/{ID}` (OTTO'S emits `/ottosag/job/details/{ID}` instead of
+  // the bare relative `job/details/{ID}` templates (a)/(b) use). Both
+  // extensions are strict supersets of the original pattern, so established
+  // tenants match byte-identically.
+  const tileWrapRx = /<(?:div|article)\s+class="job(?:\s[^"]*)?"\s*>\s*<a\s+(?:id="\d+"\s+)?href="(?:\/[a-z0-9_-]+\/)?job\/details\/(\d+)"[^>]*>([\s\S]*?)<\/a>\s*<\/(?:div|article)>/g;
   let m;
   while ((m = tileWrapRx.exec(html))) {
     const id = m[1];
@@ -147,7 +179,10 @@ export function parseSoliqueListing(html = '') {
 
 function parseSoliqueTileBody(id, body) {
   if (!body) return null;
-  const titleMatch = body.match(/<(?:div|h[1-6])\s+class="jobtitle"[^>]*>([\s\S]*?)<\/(?:div|h[1-6])>/i);
+  // OTTO'S AG (template c) wraps the title in `<span class="jobtitle">`
+  // instead of the `<div>`/`<h[1-6]>` established tenants use — `span` is
+  // additive to the tag alternation, established tenants never emit it.
+  const titleMatch = body.match(/<(?:div|span|h[1-6])\s+class="jobtitle"[^>]*>([\s\S]*?)<\/(?:div|span|h[1-6])>/i);
   const title = sanitizeField(titleMatch ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1]))) : '');
   const minMatch = body.match(/<span\s+class="min[^"]*"[^>]*>\s*(\d{1,3})\s*<\/span>/);
   const maxMatch = body.match(/<span\s+class="max[^"]*"[^>]*>\s*(\d{1,3})\s*<\/span>/);
@@ -162,6 +197,23 @@ function parseSoliqueTileBody(id, body) {
   const startMatch = body.match(/<div\s+class="startdate"[^>]*>([\s\S]*?)<\/div>/);
   const startDate = startMatch ? normalizeSpace(decodeEntities(stripHtml(startMatch[1]))) : '';
   return { id, title, minPct, maxPct, location, area, employment, startDate };
+}
+
+/**
+ * Extract the total job count from the Solique "counter" badge
+ * (`<div class="job-counter"><span class="counter">167</span>…`). Large
+ * (retail) tenants like OTTO'S AG paginate the SSR listing 25-per-page, so
+ * this is used to detect and drive `?page=N` pagination in `fetchAllJobs`
+ * below (see the `paginate` config flag). Established tenants whose whole
+ * board fits on page 1 (spital-emmental ~50, svar ~10) never trigger the
+ * pagination loop even if this badge is present, because `total <=
+ * tiles.length` there — so this addition is inert for them.
+ * @param {string} html
+ * @returns {number|null}
+ */
+export function parseSoliqueCounterTotal(html = '') {
+  const m = /<div\s+class="job-counter">\s*<span\s+class="counter">\s*(\d+)\s*<\/span>/i.exec(html);
+  return m ? parseInt(m[1], 10) : null;
 }
 
 /**
@@ -284,6 +336,31 @@ function extractBalancedSectionById(html, idValue) {
   if (!open) return '';
   const start = open.index + open[0].length;
   const tagRx = /<(\/?)section\b[^>]*>/gi;
+  tagRx.lastIndex = start;
+  let depth = 1;
+  let m;
+  while ((m = tagRx.exec(html))) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(start, m.index);
+  }
+  return html.slice(start);
+}
+
+/**
+ * Return the inner HTML of the first `<div>` whose `class` attribute is
+ * exactly `className` (no other tokens), balancing nested `<div>` tags —
+ * same rationale as `extractBalancedSectionById` above, but for tenants
+ * whose detail page has NO `<section>` tags at all (OTTO'S AG), where the
+ * job body instead lives inside a balanced `<div class="…-wrapper">`
+ * container. Returns '' when no matching open tag is found.
+ * @param {string} html
+ * @param {string} className exact class value to match (e.g. `tasks-profile-wrapper`)
+ */
+function extractBalancedDivByClass(html, className) {
+  const open = new RegExp(`<div\\s+[^>]*class=["']?${className}["']?[^>]*>`, 'i').exec(html);
+  if (!open) return '';
+  const start = open.index + open[0].length;
+  const tagRx = /<(\/?)div\b[^>]*>/gi;
   tagRx.lastIndex = start;
   let depth = 1;
   let m;
@@ -443,6 +520,39 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
     if (ivSections.length) return ivSections.join('\n\n');
   }
 
+  // Template (vi): the "wrapper" redesign (OTTO'S AG, `ottosag` — Jul 2026).
+  // Unlike SVAR's Template (v), OTTO'S detail page has ZERO `<section>` tags
+  // anywhere, so (v)'s `</section>` lookahead-stop can never fire — its
+  // capture would run off the end of the document and swallow every sibling
+  // block (benefits/contact/share chrome) as plain text. Instead the job body
+  // is nested in a balanced `<div class="tasks-profile-wrapper">` container
+  // (`<div class="tasks-wrapper">` + `<div class="profile-wrapper">`, each
+  // opened by an `<h3 class="subtitle">` heading + `<ul>` body), so this
+  // template scopes the capture to that balanced container FIRST — bounded by
+  // real DOM nesting rather than a lookahead — before any classAttrRx scan can
+  // run unbounded. Checked BEFORE (v) (both gated on `sections.length === 0`)
+  // so OTTO'S never reaches (v)'s unbounded scan; established tenants have no
+  // `tasks-profile-wrapper` container, so `extractBalancedDivByClass` returns
+  // '' for them and this block is a no-op — extraction stays byte-identical.
+  if (sections.length === 0) {
+    const wrapperInner = extractBalancedDivByClass(cleaned, 'tasks-profile-wrapper');
+    if (wrapperInner) {
+      const subtitleRx = /<h3[^>]*class="subtitle"[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3[^>]*class="subtitle"|$)/g;
+      let sm;
+      while ((sm = subtitleRx.exec(wrapperInner))) {
+        const title = sanitizeField(normalizeSpace(decodeEntities(stripHtml(sm[1]))));
+        if (!title) continue;
+        let body = sm[2]
+          .replace(/<li[^>]*>/gi, '\n• ')
+          .replace(/<\/li\s*>/gi, '')
+          .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+          .replace(/<[^>]+>/g, ' ');
+        body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+        if (body && body.length > 5) sections.push(`${title}\n${body}`);
+      }
+    }
+  }
+
   // Template (v): the "section/tasks-profile" redesign (SVAR, 2026-06 — #2034).
   // Solique rebuilt the detail page around `<section id="…">` blocks: the job
   // body now lives in `<div class="tasks">` (Aufgaben) and `<div class="profile">`
@@ -520,11 +630,16 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
  *                                              from primary city → postal code.
  * @param {string} [config.sector='Sanità / Ospedali']  Overridable — every
  *   established tenant is a healthcare operator, but the factory is also
- *   reused by non-healthcare public employers (e.g. Kanton Zürich cantonal
- *   administration), whose jobs must not be tagged "Sanità / Ospedali".
+ *   reused by non-healthcare employers (e.g. Kanton Zürich cantonal
+ *   administration, retail chains), whose jobs must not be tagged
+ *   "Sanità / Ospedali".
  * @param {function(string):string} [config.categoryFn]  Overridable category
  *   classifier, defaults to `detectHealthcareCategory` (whose catch-all
  *   default is also "Sanità / Ospedali") — same rationale as `sector`.
+ * @param {boolean} [config.paginate=false]  Opt-in: follow `?page=N` SSR
+ *   pagination (see `parseSoliqueCounterTotal`) when the tenant's job-counter
+ *   badge reports more jobs than fit on page 1. Established tenants' whole
+ *   board fits on one page, so this must stay off for them (default false).
  */
 export function createSoliqueParser(config) {
   const {
@@ -553,6 +668,8 @@ export function createSoliqueParser(config) {
     // (healthcare) tenant; only non-healthcare consumers need to override.
     sector = 'Sanità / Ospedali',
     categoryFn = detectHealthcareCategory,
+    // Opt-in SSR pagination — see JSDoc above. Off by default.
+    paginate = false,
   } = config;
 
   if (!soliqueTenant || !companyKey || !companyName || !defaultCanton) {
@@ -619,6 +736,36 @@ export function createSoliqueParser(config) {
       tiles = parseSoliqueApiListing(data, soliqueTenant, apiLang);
     } else {
       tiles = parseSoliqueListing(listingRaw);
+      // Opt-in SSR pagination (large retail tenants — see `paginate` JSDoc).
+      // Established tenants never set `paginate`, so this whole block is
+      // skipped and their extraction is untouched.
+      if (paginate) {
+        const total = parseSoliqueCounterTotal(listingRaw);
+        if (total && total > tiles.length) {
+          const seenIds = new Set(tiles.map((t) => t.id));
+          const pageSize = Math.max(tiles.length, 1);
+          // +2 page buffer above the exact ceil-division so a mid-crawl count
+          // drift (job posted/closed between page fetches) can't strand
+          // reachable jobs just below the safety cap.
+          const maxPages = Math.ceil(total / pageSize) + 2;
+          let page = 2;
+          while (tiles.length < total && page <= maxPages) {
+            let pageRaw;
+            try {
+              pageRaw = await fetchHtml(`${listingUrl}?page=${page}`);
+            } catch (err) {
+              console.warn(`⚠️ Solique pagination fetch failed for ${soliqueTenant} (page ${page}): ${err?.message || err}`);
+              break;
+            }
+            const pageTiles = parseSoliqueListing(pageRaw).filter((t) => !seenIds.has(t.id));
+            if (!pageTiles.length) break;
+            for (const t of pageTiles) seenIds.add(t.id);
+            tiles.push(...pageTiles);
+            page += 1;
+            await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+          }
+        }
+      }
     }
     if (!tiles.length) {
       console.warn(`⚠️ No openings parsed from Solique listing for ${soliqueTenant}`);
