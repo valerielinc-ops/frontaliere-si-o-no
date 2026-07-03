@@ -47,7 +47,12 @@
  * @property {string|null} postedAt     ISO timestamp — prefers `createdAt` (ms),
  *                                      falls back to `updatedAt`, else null.
  * @property {string} applyUrl          Lever `hostedUrl`.
- * @property {string} [descriptionHtml] HTML body, if available (`descriptionHtml`).
+ * @property {string} [descriptionHtml] HTML body, assembled from the posting's
+ *   `description` (intro), `lists[]` (qualifications/requirements sections,
+ *   each with a `text` heading + HTML `content`) and `additional` (closing
+ *   boilerplate) fields — the real Lever `mode=json` response has no single
+ *   `descriptionHtml` field; those three together are what the hosted page
+ *   actually renders.
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
@@ -283,10 +288,7 @@ export function normalizeLeverJob(rawJob, options = {}) {
   const applyUrl = String(rawJob?.hostedUrl || '').trim();
   const postedAt = msToIso(rawJob?.createdAt) || msToIso(rawJob?.updatedAt) || null;
   const slug = slugify(title) || (id ? `lever-${id.slice(0, 8)}` : '');
-  const descriptionHtml =
-    typeof rawJob?.descriptionHtml === 'string' && rawJob.descriptionHtml
-      ? rawJob.descriptionHtml
-      : undefined;
+  const descriptionHtml = buildLeverDescriptionHtml(rawJob) || undefined;
 
   /** @type {NormalizedJob} */
   const out = {
@@ -300,6 +302,48 @@ export function normalizeLeverJob(rawJob, options = {}) {
   };
   if (descriptionHtml) out.descriptionHtml = descriptionHtml;
   return out;
+}
+
+/**
+ * Assemble the full job description HTML from a raw Lever posting.
+ *
+ * Lever's public postings API (mode=json) does NOT populate a single
+ * `descriptionHtml` field on most tenants — that field only appears on
+ * legacy/custom-configured boards. The real, universally-present shape is:
+ *   - `description` (HTML, intro/opening section) — falls back to
+ *     `descriptionBody`/`opening` when absent.
+ *   - `lists[]` — array of `{ text: heading, content: HTML }` sections
+ *     (e.g. "Your Impact", "Your Profile", "Bonus Points").
+ *   - `additional` (HTML, closing section, e.g. benefits/agency policy).
+ * Concatenating these reproduces the full posting body as shown on the
+ * public Lever job page. See https://github.com/lever/postings-api.
+ *
+ * @param {Object} rawJob
+ * @returns {string|undefined}
+ */
+function buildLeverDescriptionHtml(rawJob) {
+  if (typeof rawJob?.descriptionHtml === 'string' && rawJob.descriptionHtml.trim()) {
+    return rawJob.descriptionHtml;
+  }
+
+  const parts = [];
+  const intro = rawJob?.description || rawJob?.descriptionBody || rawJob?.opening || '';
+  if (typeof intro === 'string' && intro.trim()) parts.push(intro.trim());
+
+  if (Array.isArray(rawJob?.lists)) {
+    for (const item of rawJob.lists) {
+      const heading = normalizeSpace(item?.text || '');
+      const content = typeof item?.content === 'string' ? item.content.trim() : '';
+      if (!content) continue;
+      parts.push(heading ? `<h3>${heading}</h3>${content}` : content);
+    }
+  }
+
+  if (typeof rawJob?.additional === 'string' && rawJob.additional.trim()) {
+    parts.push(rawJob.additional.trim());
+  }
+
+  return parts.length > 0 ? parts.join('\n') : undefined;
 }
 
 /**

@@ -337,7 +337,7 @@ export async function fetchAllGivaudanJobs() {
       // ── Recommended fields ──
       addressLocality,
       postalCode: listing.postalCode || (addressLocality === HQ.city ? HQ.postalCode : ''),
-      addressRegion: canton === HQ.canton ? HQ.addressRegion : '',
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

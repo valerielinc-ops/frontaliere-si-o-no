@@ -325,7 +325,7 @@ export async function fetchAllGeberitJobs() {
       addressLocality: location,
       postalCode: addr.postalCode || (location === HQ.city ? HQ.postalCode : undefined),
       streetAddress: addr.street || undefined,
-      addressRegion: canton === HQ.canton ? HQ.addressRegion : undefined,
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

@@ -5258,7 +5258,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'australia', 'brazil', 'mexico', 'south africa',
     'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
     'poland', 'czech republic', 'hungary', 'romania', 'greece',
-    'russia', 'ukraine', 'turkey',
+    'russia', 'ukraine', 'turkey', 'bermuda',
   ];
   const foreignCities = [
     // Italian cities
@@ -5283,7 +5283,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'new york', 'los angeles', 'san francisco', 'toronto', 'mexico city',
     'buenos aires', 'sao paulo', 'são paulo', 'rio de janeiro',
     'bogota', 'bogotá', 'medellin', 'medellín', 'montevideo',
-    'dallas', 'west hartford', 'durham',
+    'dallas', 'west hartford', 'durham', 'warren', 'miami',
     // Oceania & Africa
     'sydney', 'melbourne', 'cape town', 'johannesburg',
     // Liechtenstein & micro-states
@@ -5315,7 +5315,7 @@ export function isLocationExplicitlyForeign(locationField) {
 const JOB_LOCATION_BLOCK_RE = /\bjob\s*location\b([\s\S]*?)\bcompany\s*address\b/i;
 const JOB_LOCATION_BLOCK_SWISS_RE = /\b(switzerland|suisse|svizzera|schweiz)\b/i;
 const JOB_LOCATION_BLOCK_FOREIGN_RE = /\b(united states|u\.?s\.?a\.?|united kingdom|u\.?k\.?|england|scotland|wales|ireland|canada|australia|new zealand|singapore|malaysia|thailand|indonesia|vietnam|philippines|taiwan|hong kong|china|japan|south korea|korea|india|united arab emirates|u\.?a\.?e\.?|saudi arabia|qatar|kuwait|bahrain|israel|turkey|greece|italy|italia|france|germany|deutschland|austria|österreich|spain|españa|espana|portugal|netherlands|nederland|belgium|belgi[eë]|luxembourg|sweden|norway|denmark|finland|poland|czech republic|czechia|hungary|romania|bulgaria|croatia|slovenia|slovakia|serbia|ukraine|russia|mexico|méxico|brazil|brasil|argentina|chile|colombia|peru|uruguay|south africa|egypt|morocco|nigeria|kenya)\b/i;
-const JOB_LOCATION_BLOCK_FOREIGN_CITY_RE = /\b(sydney|melbourne|perth|brisbane|adelaide|canberra|auckland|wellington|new york|los angeles|san francisco|chicago|dallas|houston|miami|austin|denver|atlanta|boston|seattle|philadelphia|phoenix|orlando|tampa|nashville|charlotte|honolulu|las vegas|san antonio|aventura|paramus|bloomington|mclean|toronto|montreal|vancouver|edmonton|calgary|ottawa|london|manchester|birmingham|liverpool|leeds|glasgow|edinburgh|southampton|dublin|paris|madrid|barcelona|lisbon|amsterdam|eindhoven|rotterdam|brussels|berlin|munich|frankfurt|hamburg|vienna|milan|milano|rome|roma|naples|napoli|athens|marousi|kuala lumpur|bangkok|tokyo|osaka|seoul|shanghai|beijing|shenzhen|mumbai|delhi|bangalore|dubai|abu dhabi|riyadh|doha|tel aviv|istanbul)\b/i;
+const JOB_LOCATION_BLOCK_FOREIGN_CITY_RE = /\b(sydney|melbourne|perth|brisbane|adelaide|canberra|auckland|wellington|new york|los angeles|san francisco|chicago|dallas|houston|miami|austin|denver|atlanta|boston|seattle|philadelphia|phoenix|orlando|tampa|nashville|charlotte|honolulu|las vegas|san antonio|aventura|paramus|bloomington|mclean|warren|bermuda|toronto|montreal|vancouver|edmonton|calgary|ottawa|london|manchester|birmingham|liverpool|leeds|glasgow|edinburgh|southampton|dublin|paris|madrid|barcelona|lisbon|amsterdam|eindhoven|rotterdam|brussels|berlin|munich|frankfurt|hamburg|vienna|milan|milano|rome|roma|naples|napoli|athens|marousi|kuala lumpur|bangkok|tokyo|osaka|seoul|shanghai|beijing|shenzhen|mumbai|delhi|bangalore|dubai|abu dhabi|riyadh|doha|tel aviv|istanbul)\b/i;
 
 export function jobLocationBlockCountryIsForeign(text = '') {
   const flat = String(text || '').replace(/[•·|]/g, ' ').replace(/\s+/g, ' ');
