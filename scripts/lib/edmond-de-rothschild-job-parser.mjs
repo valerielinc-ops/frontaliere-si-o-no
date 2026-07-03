@@ -171,14 +171,14 @@ function resolveAddress(rawLocationText = '') {
   const isForeignLoc = isLocationExplicitlyForeign(cleaned);
   const explicitCanton = !isForeignLoc ? inferAnyCanton(cleaned) : '';
   const canton = explicitCanton || (isForeignLoc ? '' : HQ.canton);
-  const isHqCanton = Boolean(canton) && canton === HQ.canton;
-  const city = (explicitCanton && explicitCanton !== HQ.canton && cleaned) ? cleaned : HQ.city;
+  const isHqCity = !cleaned || /gen[eè]ve|geneva/i.test(cleaned);
+  const city = (cleaned && !isHqCity) ? cleaned : HQ.city;
 
   return {
     city,
     canton,
-    postalCode: isHqCanton ? (HQ.postalCode || '') : '',
-    streetAddress: isHqCanton ? HQ_STREET_ADDRESS : '',
+    postalCode: isHqCity ? (HQ.postalCode || '') : '',
+    streetAddress: isHqCity ? HQ_STREET_ADDRESS : '',
   };
 }
 
@@ -334,7 +334,7 @@ export async function fetchAllEdmondDeRothschildJobs() {
 
     const rawLocation = normalizeSpace(req.PrimaryLocation || '') || HQ.city;
     const { city, canton, postalCode, streetAddress } = resolveAddress(rawLocation);
-    const location = canton && canton !== HQ.canton ? rawLocation : (HQ.city || rawLocation);
+    const location = city;
 
     // Fetch full description from detail API
     let descriptionText = '';
