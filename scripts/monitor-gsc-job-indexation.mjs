@@ -606,9 +606,9 @@ async function main() {
 
 // ── GitHub Issue ────────────────────────────────────────────
 async function createGithubIssue(failedPages, results, priority = 1, titlePrefix = '') {
-  const apiKey = process.env.GITHUB_TOKEN;
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
   if (!apiKey) {
-    log('ℹ️', 'GITHUB_TOKEN not set — skipping');
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
     return;
   }
 
@@ -647,9 +647,9 @@ async function createGithubIssue(failedPages, results, priority = 1, titlePrefix
 }
 
 async function createStructuredDataIssue(pages) {
-  const apiKey = process.env.GITHUB_TOKEN;
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
   if (!apiKey) {
-    log('ℹ️', 'GITHUB_TOKEN not set — skipping');
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
     return;
   }
 
