@@ -39,6 +39,8 @@ import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
+  locateTagByAttribute,
+  extractBalancedTagBlock,
 } from './hospital-custom-html-helpers.mjs';
 
 export const ARSANTE_KEY = 'arsante-clinique-de-carouge';
@@ -104,12 +106,19 @@ function extractEntity(html) {
   return normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
 }
 
-function extractDetailBody(html) {
+export function extractDetailBody(html) {
   // The full description sits inside a JobPosting microdata block on the
-  // detail page too. Prefer it; otherwise fall back to <main>.
-  const micro = html.match(/itemtype="https:\/\/schema\.org\/JobPosting"[\s\S]*?(<div[^>]*itemprop="description"[\s\S]*?<\/div>\s*<\/div>)/i);
-  if (micro) {
-    return normalizeSpace(htmlToText(micro[1])).slice(0, 6000);
+  // detail page too. Prefer it; otherwise fall back to <main>. Rich-text
+  // description blocks commonly wrap paragraphs in nested `<div>`s (WYSIWYG
+  // output), so walk balanced nesting instead of stopping at the first
+  // inner close tag.
+  const jobPostingIdx = html.search(/itemtype="https:\/\/schema\.org\/JobPosting"/i);
+  if (jobPostingIdx !== -1) {
+    const located = locateTagByAttribute(html.slice(jobPostingIdx), 'itemprop="description"');
+    if (located) {
+      const inner = extractBalancedTagBlock(located.rest, located.tagName);
+      return normalizeSpace(htmlToText(inner)).slice(0, 6000);
+    }
   }
   const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
   if (mainMatch) return normalizeSpace(htmlToText(mainMatch[1])).slice(0, 6000);

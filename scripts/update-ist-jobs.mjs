@@ -60,6 +60,7 @@ import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locat
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { locateTagByAttribute, extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -310,11 +311,16 @@ async function fetchJobDetail(url) {
 
   const data = extractMicrodata(html);
 
-  // Extract full description from the description span (it includes HTML content)
-  const descRe = /data-careersite-propertyid="description"[^>]*>([\s\S]*?)<\/span>/i;
-  const descMatch = html.match(descRe);
-  if (descMatch) {
-    data.description = stripHtml(descMatch[1]);
+  // Extract the full description from the description block. The block is
+  // heavily nested (`<span data-careersite-propertyid="description">` wraps
+  // an inner `<span class="jobdescription">` with many nested `<p>`/`<span>`
+  // paragraphs), so a naive non-greedy `[\s\S]*?</span>` regex stops at the
+  // FIRST inner close tag and truncates to a short generic intro instead of
+  // the real job-specific content — use the shared balanced-tag walker.
+  const descLoc = locateTagByAttribute(html, 'data-careersite-propertyid="description"');
+  if (descLoc) {
+    const descBlock = extractBalancedTagBlock(descLoc.rest, descLoc.tagName);
+    if (descBlock) data.description = stripHtml(descBlock);
   }
 
   // Get canonical URL if available

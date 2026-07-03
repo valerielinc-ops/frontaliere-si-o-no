@@ -47,6 +47,8 @@ import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
+  locateTagByAttribute,
+  extractBalancedTagBlock,
   USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
 
@@ -54,8 +56,24 @@ const PAGE_SIZE = 25; // SF CSB default — observed 78 jobs returned on a singl
                       // page for ZURZACH Care, so larger sites may need it.
 const DETAIL_DELAY_MS = 250;
 
+// Boilerplate guard threshold: descriptions with fewer unique words than
+// this are treated as too-thin/empty (extraction gap) rather than a real
+// job description. Shared by the propertyid→microdata fallback in
+// `parseCsbDetailPage` and the brand-summary fallback in `fetchAllJobs`.
+const MIN_DESCRIPTION_UNIQUE_WORDS = 30;
+
 function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
+}
+
+function countUniqueWords(text = '') {
+  return new Set(
+    String(text || '')
+      .toLowerCase()
+      .replace(/[^a-zà-ÿäöüß\s]/g, ' ')
+      .split(/\s+/)
+      .filter((w) => w.length > 2),
+  ).size;
 }
 
 /**
@@ -226,14 +244,43 @@ function readPropertyBlock(html, propId) {
 }
 
 /**
+ * Locate a schema.org microdata field's opening tag (`itemprop="prop"`) via
+ * the shared `locateTagByAttribute`. Returns `{ tagName, contentAttr, rest }`
+ * — `contentAttr` is set when the element carries a `content="..."`
+ * attribute (typical for `<meta>` fields like `datePosted`/`hiringOrganization`).
+ * Returns `null` if not found.
+ */
+function locateItemprop(html, prop) {
+  const loc = locateTagByAttribute(html, `itemprop="${prop}"`);
+  if (!loc) return null;
+  const contentMatch = loc.attrs.match(/\bcontent="([^"]*)"/i);
+  return { tagName: loc.tagName, contentAttr: contentMatch ? contentMatch[1] : null, rest: loc.rest };
+}
+
+/**
+ * Read a schema.org microdata field's raw inner HTML by `itemprop="..."`.
+ * Returns '' when the field is expressed via a `content="..."` attribute
+ * instead of inner HTML (see `readItemprop` for that case). Uses the shared
+ * `extractBalancedTagBlock` so nested same-name tags (long fields like
+ * `description` wrap many nested `<span>`/`<p>` blocks) don't get truncated
+ * at the first inner close tag.
+ */
+function readItempropBlock(html, prop) {
+  const loc = locateItemprop(html, prop);
+  if (!loc || loc.contentAttr != null) return '';
+  return extractBalancedTagBlock(loc.rest, loc.tagName);
+}
+
+/**
  * Read a schema.org microdata field by `itemprop="..."`. Returns text content
- * (with the `content="..."` attribute taking priority if present).
+ * (with the `content="..."` attribute taking priority if present, otherwise
+ * strips the element's inner HTML via `readItempropBlock`/`extractBalancedTagBlock`).
  */
 function readItemprop(html, prop) {
-  const re = new RegExp(`itemprop="${prop}"[^>]*?(?:content="([^"]+)"|>([\\s\\S]{0,1500}?)</)`, 'i');
-  const m = html.match(re);
-  if (!m) return '';
-  return decodeEntities(normalizeSpace(stripHtml(m[1] || m[2] || ''))).trim();
+  const loc = locateItemprop(html, prop);
+  if (!loc) return '';
+  if (loc.contentAttr != null) return decodeEntities(normalizeSpace(loc.contentAttr)).trim();
+  return decodeEntities(normalizeSpace(stripHtml(extractBalancedTagBlock(loc.rest, loc.tagName)))).trim();
 }
 
 /**
@@ -247,8 +294,23 @@ export function parseCsbDetailPage(html) {
   const titleHtml = readPropertyBlock(html, 'title');
   const title = decodeEntities(normalizeSpace(stripHtml(titleHtml)));
 
-  const descriptionHtml = readPropertyBlock(html, 'description');
-  const descriptionText = htmlToText(descriptionHtml);
+  let descriptionHtml = readPropertyBlock(html, 'description');
+  let descriptionText = htmlToText(descriptionHtml);
+
+  // Some CSB tenants (e.g. Helsana, as of mid-2026) stopped emitting the
+  // `data-careersite-propertyid="description"` attribute entirely — the
+  // current template uses schema.org microdata instead
+  // (`itemprop="description"`). Fall back to that when the propertyid-based
+  // read is empty/too-thin, so the boilerplate guard downstream (see
+  // `createSuccessFactorsParser`) doesn't fire on a plain extraction gap.
+  if (countUniqueWords(descriptionText) < MIN_DESCRIPTION_UNIQUE_WORDS) {
+    const fallbackHtml = readItempropBlock(html, 'description');
+    const fallbackText = fallbackHtml ? htmlToText(fallbackHtml) : '';
+    if (countUniqueWords(fallbackText) > countUniqueWords(descriptionText)) {
+      descriptionHtml = fallbackHtml;
+      descriptionText = fallbackText;
+    }
+  }
 
   const locationHtml = readPropertyBlock(html, 'location');
   // CSB location block usually starts with "City, Region, CH, Postal" then a
@@ -503,12 +565,11 @@ export function createSuccessFactorsParser(config) {
         : detectLang(detail?.descriptionText || title, defaultSourceLang);
 
       let description = detail?.descriptionText || '';
-      // Boilerplate guard: require ≥30 unique words (matches the threshold
-      // mentioned in the task spec) — otherwise fall back to a brand summary.
-      const uniqueWords = new Set(
-        description.toLowerCase().replace(/[^a-zà-ÿäöüß\s]/g, ' ').split(/\s+/).filter((w) => w.length > 2),
-      );
-      if (uniqueWords.size < 30) {
+      // Boilerplate guard: require ≥MIN_DESCRIPTION_UNIQUE_WORDS unique words
+      // (same threshold `parseCsbDetailPage` uses to decide whether to fall
+      // back to the microdata `itemprop="description"` read) — otherwise
+      // fall back to a brand summary.
+      if (countUniqueWords(description) < MIN_DESCRIPTION_UNIQUE_WORDS) {
         description = `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
       }
 

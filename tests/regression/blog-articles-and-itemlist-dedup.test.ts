@@ -19,13 +19,59 @@
  * guards against both duplicate classes recurring (e.g. a future
  * copy-paste of an evergreen batch, or `create-article.mjs` being invoked
  * twice for the same slug).
+ *
+ * Regression: ItemList position/numberOfItems/name-corruption (issue #3358)
+ *
+ * A separate, more severe corruption was found in the same "Articoli
+ * Frontaliere" ItemList block: 78 `ListItem` entries had their `name` field
+ * overwritten with a raw, truncated JSON fragment (either a full JSON-LD
+ * dump like `{\"@context\":\"https://schema.org\",...` or a locale-object
+ * dump like `{\"it\":\"Daverio: i pazienti...`) instead of the real article
+ * title, two `position` numbers were reused by two different articles, and
+ * `numberOfItems` (3085) didn't match the true entry count (3058, later
+ * 3055 once 3 unrecoverable dead entries were removed). Fixed by
+ * `scripts/one-off/fix-itemlist-articoli-frontaliere.mjs`: recovered names
+ * from `blog-meta-it.ts` titles, removed the 3 confirmed-dead entries, and
+ * renumbered `position` sequentially. This test guards against the same
+ * class of corruption recurring undetected.
  */
 
 import { describe, expect, it } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
+import { locateItemListBlock } from '../../scripts/lib/seo-pages-article-list.mjs';
 
 const ROOT = path.resolve(__dirname, '../..');
+
+/**
+ * Extracts every `ListItem` entry (position + name + url) from the
+ * "Articoli Frontaliere" `itemListElement` array in the given seo-pages.ts
+ * source, using the same block-locating helper the production append/rename
+ * tooling relies on (`locateItemListBlock`), so this test is bounded to the
+ * exact same array instead of re-implementing a second, potentially
+ * drifting "find the block" heuristic.
+ */
+function extractArticoliFrontaliereListItems(source: string) {
+  const block = locateItemListBlock(source);
+  expect(block, '"Articoli Frontaliere" ItemList block not found').not.toBeNull();
+  const blockSrc = source.slice(block!.blockStart, block!.blockEnd);
+
+  const numberOfItemsMatch = source
+    .slice(Math.max(0, block!.blockStart - 200), block!.blockStart)
+    .match(/"numberOfItems":\s*(\d+)\s*$/);
+  expect(numberOfItemsMatch, 'numberOfItems value not found immediately before the block').not.toBeNull();
+  const numberOfItems = Number(numberOfItemsMatch![1]);
+
+  const ENTRY_RE =
+    /\{\s*"@type":\s*"ListItem",\s*"position":\s*(\d+),\s*"name":\s*"((?:[^"\\]|\\.)*)",\s*"url":\s*`([^`]*)`\s*\}/g;
+  const entries: Array<{ position: number; name: string; url: string }> = [];
+  let m: RegExpExecArray | null;
+  while ((m = ENTRY_RE.exec(blockSrc))) {
+    entries.push({ position: Number(m[1]), name: m[2], url: m[3] });
+  }
+
+  return { entries, numberOfItems };
+}
 
 describe('blog-articles-data.ts — no duplicate ids', () => {
   it('every `id:` field in RAW_ARTICLES is unique', () => {
@@ -93,6 +139,62 @@ describe('seo-pages.ts — "Articoli Frontaliere" ItemList has no duplicate URLs
     expect(
       duplicates,
       `duplicate ListItem url(s) found in "Articoli Frontaliere" ItemList: ${JSON.stringify(duplicates)}`,
+    ).toEqual([]);
+  });
+});
+
+describe('seo-pages.ts — "Articoli Frontaliere" ItemList position/numberOfItems/name integrity (issue #3358)', () => {
+  // Matches a `name` value that is actually an escaped JSON fragment
+  // instead of a plain article title — the corruption class fixed by
+  // scripts/one-off/fix-itemlist-articoli-frontaliere.mjs. Two shapes seen:
+  //   "{\"@context\":\"https://schema.org\",\"@type\":\"Artic..."  (JSON-LD dump)
+  //   "{\"it\":\"Daverio: i pazienti si spostano a Gazzad..."      (locale-object dump)
+  const CORRUPTED_NAME_RE = /^\{\s*\\"[a-zA-Z@][a-zA-Z0-9_]*\\"\s*:/;
+
+  it('every ListItem "position" equals its 1-based index in array order, with no gaps or duplicates', () => {
+    const filePath = path.join(ROOT, 'services/seo/seo-pages.ts');
+    const source = fs.readFileSync(filePath, 'utf-8');
+    const { entries } = extractArticoliFrontaliereListItems(source);
+
+    expect(entries.length, 'sanity check: expected a substantial number of ListItem entries').toBeGreaterThan(1000);
+
+    const seen = new Map<number, number>();
+    for (const e of entries) {
+      seen.set(e.position, (seen.get(e.position) ?? 0) + 1);
+    }
+    const duplicatePositions = [...seen.entries()].filter(([, count]) => count > 1);
+    expect(
+      duplicatePositions,
+      `duplicate ListItem position(s) found: ${JSON.stringify(duplicatePositions)}`,
+    ).toEqual([]);
+
+    const positions = entries.map((e) => e.position);
+    const expected = entries.map((_, idx) => idx + 1);
+    expect(
+      positions,
+      'ListItem "position" values must be exactly 1..N in array order, with no gaps',
+    ).toEqual(expected);
+  });
+
+  it('"numberOfItems" equals the true ListItem entry count', () => {
+    const filePath = path.join(ROOT, 'services/seo/seo-pages.ts');
+    const source = fs.readFileSync(filePath, 'utf-8');
+    const { entries, numberOfItems } = extractArticoliFrontaliereListItems(source);
+
+    expect(numberOfItems).toBe(entries.length);
+  });
+
+  it('no ListItem "name" is a corrupted escaped-JSON fragment', () => {
+    const filePath = path.join(ROOT, 'services/seo/seo-pages.ts');
+    const source = fs.readFileSync(filePath, 'utf-8');
+    const { entries } = extractArticoliFrontaliereListItems(source);
+
+    const corrupted = entries.filter((e) => CORRUPTED_NAME_RE.test(e.name));
+    expect(
+      corrupted,
+      `ListItem entries with a corrupted JSON-fragment "name" found: ${JSON.stringify(
+        corrupted.map((e) => ({ position: e.position, url: e.url, name: e.name.slice(0, 60) })),
+      )}`,
     ).toEqual([]);
   });
 });

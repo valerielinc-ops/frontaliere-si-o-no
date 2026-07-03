@@ -331,6 +331,28 @@ describe('LIS Arca24 parser — detail page', () => {
     expect(parseArca24DetailPage('')).toBeNull();
     expect(parseArca24DetailPage('<html><body><h1>About Us</h1></body></html>')).toBeNull();
   });
+
+  it('does not truncate itemprop="description" at the first nested </div> (regression: WYSIWYG wrapper div closing early, sibling of #2823)', () => {
+    const htmlNestedDivs = `
+      <html><body>
+      <h1 itemprop="title">Capireparto <a>Invia</a></h1>
+      <span itemprop="addressLocality">Pregassona</span>
+      <span itemprop="datePosted">01/01/2026</span>
+      <div itemprop="description">
+        <div>
+          <div><p>Premier paragraphe avec des détails importants sur le poste et les responsabilités.</p></div>
+        </div>
+        <div><p>Deuxième paragraphe qui serait tronqué par un regex non-greedy naïf sur le premier div fermant.</p></div>
+        <div><p>Troisième paragraphe, le vrai contenu se termine ici avec les conditions d'engagement.</p></div>
+      </div>
+      </body></html>
+    `;
+    const parsed = parseArca24DetailPage(htmlNestedDivs);
+    expect(parsed).not.toBeNull();
+    expect(parsed!.description).toContain('Premier paragraphe');
+    expect(parsed!.description).toContain('Deuxième paragraphe');
+    expect(parsed!.description).toContain('Troisième paragraphe, le vrai contenu se termine ici');
+  });
 });
 
 describe('LIS Arca24 parser — extractLisSalary', () => {
