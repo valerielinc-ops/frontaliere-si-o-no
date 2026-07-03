@@ -128,6 +128,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'buehler': cLogo('buhlergroup.com'),
  'buergenstock-hotels': cLogo('buergenstock.ch'),
  'burkhalter-group': '/images/brands/burkhalter-group.png',
+ 'c-and-a-schweiz': cLogo('c-and-a.com'),
  'cambiavalute': gFavicon('cambiavalute.ch'),
  'canton-ticino-osc': '/images/brands/canton-ticino-osc.ico',
  'capri-holdings': cLogo('capriholdings.com'),
