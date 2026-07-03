@@ -55,7 +55,7 @@ import {
 } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
-import { osmEmbedSrc } from './shared/seoContentTokens';
+import { osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -531,6 +531,24 @@ const TONE_GRADIENT_CLASSES: Record<CategoryTone, string> = {
   neutral: 'from-neutral-subtle to-surface-raised',
 };
 
+/**
+ * Shared presentation-only CSS for every events page (hub, comune, "other
+ * events", detail, digest). Pure visual layer — no data/JSON-LD impact:
+ *   - `.ev-grid` — breakpoint-free responsive card grid.
+ *   - `.ev-card` / `.ev-in` — a single tasteful entrance rise on load,
+ *     staggered per grid position; fully disabled under
+ *     prefers-reduced-motion (both the animation itself and its resting
+ *     opacity/transform are reset so content is never stuck hidden).
+ *   - `.ev-featured` — opt-in wrapper (hub/comune/other-events/digest only,
+ *     never the detail page's secondary "more events" list) that gives the
+ *     soonest event (always `events[0]`, see `upcomingEvents()` sort order
+ *     in scripts/lib/events-utils.mjs) a wider, image-forward treatment
+ *     from `sm:` up.
+ * Emitted once per page body; safe to duplicate across independently
+ * generated static HTML documents.
+ */
+const EVENTS_STYLE_BLOCK = `<style>.ev-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.ev-card,.ev-in{animation:ev-rise .5s cubic-bezier(.16,1,.3,1) both}.ev-grid>.ev-card:nth-child(2){animation-delay:70ms}.ev-grid>.ev-card:nth-child(3){animation-delay:140ms}.ev-grid>.ev-card:nth-child(4){animation-delay:210ms}.ev-grid>.ev-card:nth-child(5){animation-delay:280ms}.ev-grid>.ev-card:nth-child(n+6){animation-delay:350ms}.ev-featured .ev-grid>.ev-card:first-child{grid-column:1/-1}@media(min-width:640px){.ev-featured .ev-grid>.ev-card:first-child{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch}.ev-featured .ev-grid>.ev-card:first-child .ev-media{aspect-ratio:auto;height:100%;min-height:220px}.ev-featured .ev-grid>.ev-card:first-child h3{font-size:1.375rem;line-height:1.3}}@keyframes ev-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@media (prefers-reduced-motion:reduce){.ev-card,.ev-in{animation:none;opacity:1;transform:none}}</style>`;
+
 function esc(value: unknown): string {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -624,9 +642,9 @@ function buildEventAlternates(canton: string, comune: string, eventSlug: string)
 }
 
 function renderMetric(label: string, value: string, detail?: string): string {
-  return `<div class="rounded-md border border-edge bg-surface p-4">
+  return `<div class="rounded-md border border-edge bg-surface p-4 shadow-stripe-sm">
     <dt class="text-sm font-medium text-subtle">${esc(label)}</dt>
-    <dd class="mt-1 text-2xl font-bold text-heading">${esc(value)}</dd>
+    <dd class="mt-1 font-display text-2xl font-bold tabular-nums text-heading">${esc(value)}</dd>
     ${detail ? `<p class="mt-1 text-sm text-muted">${esc(detail)}</p>` : ''}
   </div>`;
 }
@@ -810,9 +828,12 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   const place = event.venue ? `${esc(event.venue)}` : '';
   const comuneTag = event.comune ? `<span class="text-subtle">${esc(event.comune)}</span>` : '';
   const cardTitle = localizedTitle(event, locale);
+  // `after:absolute after:inset-0` makes the whole card clickable (stretched
+  // link) while the visible accessible name/href/rel/target stay exactly the
+  // same as before — `article.relative` below is its positioning context.
   const titleLink = detailHref
-    ? `<a class="text-link hover:text-link-hover" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
-    : `<a class="text-link hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
+    ? `<a class="static after:absolute after:inset-0 hover:text-link-hover" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
+    : `<a class="static after:absolute after:inset-0 hover:text-link-hover" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
   // `imageUrl` only ever holds a mirrored site-relative path (see
   // `mirrorEventImage()`); a raw third-party URL is never rendered here
   // (defense-in-depth, mirrors the same guard in `mirroredEventImageObject`).
@@ -820,18 +841,20 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
     event.imageUrl && event.imageUrl.startsWith('/')
       ? `<img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src="${esc(event.imageUrl)}" width="480" height="270" loading="lazy" alt="${esc(cardTitle)}">`
       : `<div class="flex h-full w-full items-center justify-center bg-gradient-to-br ${TONE_GRADIENT_CLASSES[visual.tone]} text-5xl" aria-hidden="true">${visual.emoji}</div>`;
-  return `<article class="group overflow-hidden rounded-lg border border-edge bg-surface transition-shadow hover:shadow-lg">
-    <div class="aspect-video w-full overflow-hidden bg-surface-raised">${media}</div>
+  return `<article class="ev-card group relative overflow-hidden rounded-lg border border-edge bg-surface shadow-stripe-sm transition-[box-shadow,border-color] duration-300 hover:border-accent-border hover:shadow-stripe-md">
+    <div class="ev-media relative aspect-video w-full overflow-hidden bg-surface-raised">
+      ${media}
+      <span class="pointer-events-none absolute left-2 top-2 inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-semibold ${TONE_CHIP_CLASSES[visual.tone]} bg-surface/95">${visual.emoji} ${esc(cat)}</span>
+    </div>
     <div class="p-4">
-      <div class="flex flex-wrap items-center gap-2 text-xs">
-        <span class="rounded-full border px-2.5 py-0.5 font-semibold ${TONE_CHIP_CLASSES[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
-        <span class="font-medium text-muted">${esc(when)}${time}</span>
-        ${comuneTag}
-      </div>
-      <h3 class="mt-2 text-base font-bold leading-snug text-heading">
+      <h3 class="font-display text-base font-semibold leading-snug text-heading line-clamp-2">
         ${titleLink}
       </h3>
-      ${place ? `<p class="mt-1 text-sm text-body">${esc(COPY[locale].at)} ${place}</p>` : ''}
+      <p class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-body">
+        <span class="inline-flex items-center gap-1 font-medium text-muted"><span aria-hidden="true">🕒</span>${esc(when)}${time}</span>
+        ${place ? `<span class="inline-flex items-center gap-1"><span aria-hidden="true">📍</span>${esc(COPY[locale].at)} ${place}</span>` : ''}
+      </p>
+      ${comuneTag ? `<p class="mt-1 text-xs">${comuneTag}</p>` : ''}
     </div>
   </article>`;
 }
@@ -843,24 +866,24 @@ function renderEventList(events: SiteEvent[], locale: Locale, detailHref?: Detai
   if (events.length === 0) {
     return `<p class="rounded-md border border-edge bg-surface p-4 text-sm text-body">${esc(COPY[locale].noEventsSoon)}</p>`;
   }
-  return `<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${events
+  return `<div class="ev-grid">${events
     .map((e) => renderEventCard(e, locale, detailHref ? detailHref(e) : null))
     .join('')}</div>`;
 }
 
 function renderCrosslinks(locale: Locale): string {
   const copy = COPY[locale];
-  return `<section class="mt-8 rounded-md border border-edge bg-surface p-5">
-    <h2 class="text-xl font-bold text-heading">${esc(copy.exploreMore)}</h2>
+  return `<section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+    <h2 class="font-display text-xl font-bold text-heading">${esc(copy.exploreMore)}</h2>
     <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      ${CROSSLINKS.map((l) => `<a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${l.href[locale]}">${esc(l.label[locale])}</a>`).join('')}
+      ${CROSSLINKS.map((l) => `<a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading transition-colors hover:border-accent-border hover:text-accent" href="${l.href[locale]}">${esc(l.label[locale])}</a>`).join('')}
     </div>
   </section>`;
 }
 
 function renderFaq(items: Array<{ q: string; a: string }>, title: string): string {
-  return `<section class="mt-8 rounded-md border border-edge bg-surface p-5">
-    <h2 class="text-xl font-bold text-heading">${esc(title)}</h2>
+  return `<section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+    <h2 class="font-display text-xl font-bold text-heading">${esc(title)}</h2>
     <div class="mt-4 divide-y divide-edge">
       ${items
         .map(
@@ -905,7 +928,7 @@ export function renderHubPage(params: {
     comuneEntries
       .map(
         ([comune, list]) =>
-          `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-md" href="${pathFor(locale, canton, comune)}">
+          `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 shadow-stripe-sm transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-stripe-md" href="${pathFor(locale, canton, comune)}">
           <span class="min-w-0">
             <span class="block truncate text-sm font-semibold text-heading">${esc(comune)}</span>
             <span class="mt-1 block text-xs text-muted">${list.length} ${esc(copy.eventsWord)}</span>
@@ -915,7 +938,7 @@ export function renderHubPage(params: {
       )
       .join('') +
     (otherEvents.length > 0
-      ? `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-md" href="${pathFor(locale, canton, OTHER_EVENTS_COMUNE_KEY)}">
+      ? `<a class="group flex items-center justify-between gap-2 rounded-lg border border-edge bg-surface p-4 shadow-stripe-sm transition-all hover:-translate-y-0.5 hover:border-accent-border hover:shadow-stripe-md" href="${pathFor(locale, canton, OTHER_EVENTS_COMUNE_KEY)}">
           <span class="min-w-0">
             <span class="block truncate text-sm font-semibold text-heading">${esc(otherEventsCopyFor(canton, locale).tileLabel)}</span>
             <span class="mt-1 block text-xs text-muted">${otherEvents.length} ${esc(copy.eventsWord)}</span>
@@ -936,16 +959,16 @@ export function renderHubPage(params: {
     </section>`
       : '';
 
-  const body = `<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
       <span>${esc(copy.hubLabel)}</span>
     </nav>
 
-    <header class="relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 sm:p-8" data-speakable>
+    <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
       <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">🎉</div>
-      <h1 class="relative max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.hubH1)}</h1>
+      <h1 class="relative max-w-4xl font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.hubH1)}</h1>
       <p class="relative mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.hubLede)}</p>
       <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
@@ -961,13 +984,13 @@ export function renderHubPage(params: {
 
     ${renderDigestNav(locale, canton)}
 
-    <section class="mt-8">
-      <h2 class="text-2xl font-bold text-heading">${esc(copy.upcoming)}</h2>
+    <section class="mt-8 ev-featured">
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.upcoming)}</h2>
       <div class="mt-4">${renderEventList(upcoming, locale, detailHref)}</div>
     </section>
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-2xl font-bold text-heading">${esc(copy.byComune)}</h2>
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.byComune)}</h2>
       <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.byComuneText)}</p>
       <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">${comuneGrid}</div>
     </section>
@@ -982,8 +1005,8 @@ export function renderHubPage(params: {
       copy.faqTitle,
     )}
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
       <p class="mt-3 max-w-3xl text-sm leading-6 text-body">${esc(copy.methodology)}</p>
     </section>
   </div>`;
@@ -1049,7 +1072,7 @@ export function renderComunePage(params: {
   const list = events.slice(0, 40);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
 
-  const body = `<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -1058,9 +1081,9 @@ export function renderComunePage(params: {
       <span>${esc(comune)}</span>
     </nav>
 
-    <header class="relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-success-subtle p-5 sm:p-8" data-speakable>
+    <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-success-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
       <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">📍</div>
-      <h1 class="relative max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.comuneH1(comune))}</h1>
+      <h1 class="relative max-w-4xl font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.comuneH1(comune))}</h1>
       <p class="relative mt-3 max-w-3xl text-base leading-7 text-body">${esc(copy.comuneLede(comune))}</p>
       <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
@@ -1071,12 +1094,12 @@ export function renderComunePage(params: {
       ${renderMetric(copy.statCategories, String(distinctCategories(events)))}
     </dl>
 
-    <section class="mt-8">
-      <h2 class="text-2xl font-bold text-heading">${esc(copy.eventsIn(comune))}</h2>
+    <section class="mt-8 ev-featured">
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(copy.eventsIn(comune))}</h2>
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
     </section>
 
@@ -1090,8 +1113,8 @@ export function renderComunePage(params: {
       copy.faqTitle,
     )}
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
       <p class="mt-3 max-w-3xl text-sm leading-6 text-body">${esc(copy.methodology)}</p>
     </section>
   </div>`;
@@ -1284,7 +1307,7 @@ export function renderOtherEventsPage(params: {
   const list = events.slice(0, 40);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
 
-  const body = `<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -1293,9 +1316,9 @@ export function renderOtherEventsPage(params: {
       <span>${esc(oeCopy.breadcrumbLabel)}</span>
     </nav>
 
-    <header class="relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-success-subtle p-5 sm:p-8" data-speakable>
+    <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-success-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
       <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">📍</div>
-      <h1 class="relative max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(oeCopy.h1)}</h1>
+      <h1 class="relative max-w-4xl font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(oeCopy.h1)}</h1>
       <p class="relative mt-3 max-w-3xl text-base leading-7 text-body">${esc(oeCopy.lede)}</p>
       <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
@@ -1306,12 +1329,12 @@ export function renderOtherEventsPage(params: {
       ${renderMetric(copy.statCategories, String(distinctCategories(events)))}
     </dl>
 
-    <section class="mt-8">
-      <h2 class="text-2xl font-bold text-heading">${esc(oeCopy.h1)}</h2>
+    <section class="mt-8 ev-featured">
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(oeCopy.h1)}</h2>
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
     </section>
 
@@ -1325,8 +1348,8 @@ export function renderOtherEventsPage(params: {
       copy.faqTitle,
     )}
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
       <p class="mt-3 max-w-3xl text-sm leading-6 text-body">${esc(copy.methodology)}</p>
     </section>
   </div>`;
@@ -1603,12 +1626,12 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
   const embed = event.geo
     ? `<div class="aspect-video w-full overflow-hidden bg-surface-raised"><iframe src="${esc(osmEmbedSrc(event.geo.lat, event.geo.lng))}" width="100%" height="100%" style="border:0;display:block;width:100%;height:100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${esc(dc.mapLinkLabel(map.place))}" aria-label="${esc(dc.mapLinkLabel(map.place))}"></iframe></div>`
     : '';
-  return `<section class="mt-6 overflow-hidden rounded-lg border border-edge bg-surface">
+  return `<section class="mt-6 overflow-hidden rounded-lg border border-edge bg-surface shadow-stripe-sm">
     ${embed}
     <div class="p-5">
-      <h2 class="flex items-center gap-2 text-lg font-bold text-heading"><span aria-hidden="true">📍</span> ${esc(dc.whereLabel)}</h2>
+      <h2 class="flex items-center gap-2 font-display text-lg font-bold text-heading"><span aria-hidden="true">📍</span> ${esc(dc.whereLabel)}</h2>
       <p class="mt-2 text-sm leading-6 text-body">${esc(venueOrComune)}${addressText ? ` · ${esc(addressText)}` : ''}</p>
-      <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
+      <a class="mt-3 inline-flex items-center gap-2 rounded-md border border-edge bg-surface-raised px-3 py-1.5 text-sm font-semibold text-link transition-colors hover:border-accent-border hover:text-link-hover" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
     </div>
   </section>`;
 }
@@ -1648,10 +1671,10 @@ export function renderEventDetailPage(params: {
   // guard in `renderEventCard`/`mirroredEventImageObject`.
   const heroImage =
     event.imageUrl && event.imageUrl.startsWith('/')
-      ? `<div class="mb-4 overflow-hidden rounded-lg border border-edge"><img class="aspect-[16/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
+      ? `<div class="ev-in mb-4 overflow-hidden rounded-lg border border-edge shadow-stripe-md"><img class="aspect-[16/9] w-full object-cover" src="${esc(event.imageUrl)}" width="1200" height="675" loading="eager" fetchpriority="high" alt="${esc(title)}"></div>`
       : '';
 
-  const body = `<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -1664,10 +1687,10 @@ export function renderEventDetailPage(params: {
 
     ${heroImage}
 
-    <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
+    <header class="${heroImage ? '' : 'ev-in '}rounded-md border border-edge bg-surface p-5 shadow-stripe-sm sm:p-7" data-speakable>
       <span class="inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold ${TONE_CHIP_CLASSES[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
       ${event.recurring ? `<span class="ml-2 inline-block rounded-full border border-edge bg-surface-raised px-2.5 py-0.5 text-xs font-semibold text-heading">${esc(dc.recurringLabel)}</span>` : ''}
-      <h1 class="mt-3 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(title)}</h1>
+      <h1 class="mt-3 font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(title)}</h1>
       <p class="mt-3 text-base leading-7 text-body">${esc(dc.lede(when, time, event.venue ? event.venue : '', displayComune))}</p>
       ${description ? `<p class="mt-3 text-sm leading-6 text-body">${esc(description)}</p>` : ''}
     </header>
@@ -1684,25 +1707,25 @@ export function renderEventDetailPage(params: {
     ${renderLocationCard(event, displayComune, dc, map)}
 
     <section class="mt-6 flex flex-wrap gap-3">
-      <a class="inline-flex items-center gap-2 rounded-md border border-info-border bg-info-subtle px-4 py-2 text-sm font-semibold text-info hover:bg-info-subtle/80" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
-      <a class="inline-flex items-center gap-2 rounded-md border border-edge px-4 py-2 text-sm font-semibold text-link hover:text-link-hover" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
+      <a class="${CTA_PRIMARY_CLASS}" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
+      <a class="inline-flex items-center gap-2 rounded-md border border-edge bg-surface px-4 py-2 text-sm font-semibold text-link transition-colors hover:border-accent-border hover:text-link-hover" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
 
     <section class="mt-8">
-      <h2 class="text-2xl font-bold text-heading">${esc(dc.aboutTitle)}</h2>
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(dc.aboutTitle)}</h2>
       <p class="mt-3 text-base leading-7 text-body">${esc(dc.about(title, displayComune, `${when}${event.startTime ? ` (${event.startTime})` : ''}`, cat, event.venue))}</p>
       ${description ? `<h3 class="mt-4 text-lg font-semibold text-heading">${esc(dc.descriptionTitle)}</h3><p class="mt-2 text-base leading-7 text-body">${esc(description)}</p>` : ''}
     </section>
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(dc.practicalTitle)}</h2>
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-xl font-bold text-heading">${esc(dc.practicalTitle)}</h2>
       <p class="mt-3 text-sm leading-6 text-body">${esc(dc.practical(displayComune))}</p>
     </section>
 
     ${
       others.length > 0
         ? `<section class="mt-8">
-      <h2 class="text-2xl font-bold text-heading">${esc(dc.moreTitle(displayComune))}</h2>
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(dc.moreTitle(displayComune))}</h2>
       <div class="mt-4">${renderEventList(others, locale, detailHref)}</div>
     </section>`
         : ''
@@ -1874,7 +1897,7 @@ function buildDigestAlternates(canton: string, slug: Record<Locale, string>): st
 function renderDigestNav(locale: Locale, canton: string): string {
   const links = DIGESTS.map(
     (d) =>
-      `<a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${pathForDigest(locale, canton, d.slug)}">${esc(digestCopyFor(d, canton, locale).h1)}</a>`,
+      `<a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading shadow-stripe-sm transition-colors hover:border-accent-border hover:text-accent" href="${pathForDigest(locale, canton, d.slug)}">${esc(digestCopyFor(d, canton, locale).h1)}</a>`,
   ).join('');
   return `<section class="mt-6 grid gap-3 sm:grid-cols-2">${links}</section>`;
 }
@@ -1900,11 +1923,11 @@ export function renderDigestPage(params: {
     .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
     .map(
       ([comune, l]) =>
-        `<a class="rounded-md border border-edge bg-surface p-4 hover:border-accent-border" href="${pathFor(locale, canton, comune)}"><span class="block text-sm font-semibold text-heading">${esc(comune)}</span><span class="mt-1 block text-xs text-muted">${l.length} ${esc(copy.eventsWord)}</span></a>`,
+        `<a class="rounded-md border border-edge bg-surface p-4 shadow-stripe-sm transition-colors hover:border-accent-border" href="${pathFor(locale, canton, comune)}"><span class="block text-sm font-semibold text-heading">${esc(comune)}</span><span class="mt-1 block text-xs text-muted">${l.length} ${esc(copy.eventsWord)}</span></a>`,
     )
     .join('');
 
-  const body = `<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
       <span class="mx-2">/</span>
@@ -1913,8 +1936,8 @@ export function renderDigestPage(params: {
       <span>${esc(dc.h1)}</span>
     </nav>
 
-    <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
-      <h1 class="max-w-4xl text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(dc.h1)}</h1>
+    <header class="ev-in rounded-md border border-edge bg-surface p-5 shadow-stripe-sm sm:p-7" data-speakable>
+      <h1 class="max-w-4xl font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(dc.h1)}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(dc.lede)}</p>
       <p class="mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
@@ -1925,18 +1948,18 @@ export function renderDigestPage(params: {
       ${renderMetric(copy.statCategories, String(distinctCategories(events)))}
     </dl>
 
-    <section class="mt-8">
-      <h2 class="text-2xl font-bold text-heading">${esc(dc.h1)}</h2>
+    <section class="mt-8 ev-featured">
+      <h2 class="font-display text-2xl font-bold text-heading">${esc(dc.h1)}</h2>
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
     ${
       comuneGrid
-        ? `<section class="mt-8 rounded-md border border-edge bg-surface p-5"><h2 class="text-2xl font-bold text-heading">${esc(copy.byComune)}</h2><div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">${comuneGrid}</div></section>`
+        ? `<section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm"><h2 class="font-display text-2xl font-bold text-heading">${esc(copy.byComune)}</h2><div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">${comuneGrid}</div></section>`
         : ''
     }
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
     </section>
 
@@ -1944,8 +1967,8 @@ export function renderDigestPage(params: {
 
     ${renderFaq([{ q: dc.faqQ, a: dc.faqA }], copy.faqTitle)}
 
-    <section class="mt-8 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
+    <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
+      <h2 class="font-display text-xl font-bold text-heading">${esc(copy.methodologyTitle)}</h2>
       <p class="mt-3 max-w-3xl text-sm leading-6 text-body">${esc(copy.methodology)}</p>
     </section>
   </div>`;
