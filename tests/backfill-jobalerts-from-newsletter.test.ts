@@ -2,11 +2,28 @@ import { describe, expect, it } from 'vitest';
 import {
   ALERT_ID,
   buildAlertPayload,
+  getSignalTier,
   MAX_ALERTS_PER_USER,
   normalizeEmail,
   resolveSignalTier,
   shouldSkipSubscriber,
 } from '../scripts/backfill-jobalerts-from-newsletter.mjs';
+
+describe('backfill-jobalerts-from-newsletter — getSignalTier stays URL-blind', () => {
+  // main()'s lazy `private/personalization` fetch is gated on
+  // `getSignalTier(data) === 'none'`, NOT on `shouldSkipSubscriber`/
+  // `resolveSignalTier` — those also resolve the URL-derived tier 4 from
+  // the same flat data, and tier 4 finding a canton must never skip the
+  // read: a subscriber landing on a job-board page may ALSO have richer
+  // tier-3 browsing data (job_category/sector, not just canton), which
+  // resolveSignalTier is supposed to prefer over tier 4 — but only gets
+  // the chance to if the caller actually fetches personalization first.
+  it('is "none" for a subscriber whose only signal is a job-board consent URL', () => {
+    expect(getSignalTier({ consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' })).toBe(
+      'none',
+    );
+  });
+});
 
 describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
   it('is eligible when job_category is present', () => {
