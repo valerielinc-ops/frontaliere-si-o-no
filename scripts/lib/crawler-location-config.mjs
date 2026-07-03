@@ -245,6 +245,7 @@ export const COMPANY_HQ = {
   'institution-lavigny':          { city: 'Lavigny',            canton: 'VD', postalCode: '1175', addressRegion: 'VD' },
   'ophtalmique':                  { city: 'Lausanne',           canton: 'VD', postalCode: '1004', addressRegion: 'VD' },
   'clinique-la-source':           { city: 'Lausanne',           canton: 'VD', postalCode: '1004', addressRegion: 'VD' },
+  'fondation-soins-lausanne':     { city: 'Lausanne',           canton: 'VD', postalCode: '1010', addressRegion: 'VD' },
   // ── Batch 5 (SPA + EMS networks + Prospective discovery) ──
   'spital-buelach':               { city: 'Bülach',             canton: 'ZH', postalCode: '8180', addressRegion: 'ZH' },
   'gzo-wetzikon':                 { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
