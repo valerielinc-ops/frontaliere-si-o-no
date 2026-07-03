@@ -104,8 +104,14 @@ import {
   eventStableId,
   resolveComuneNationwide,
   mirrorEventImage,
+  parsePriceText,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+
+// Re-exported so existing importers (tests/crawl-guidle-events.test.ts) keep
+// working — the parser itself now lives in events-utils.mjs, shared with
+// crawl-tio-agenda.mjs's own free-text "Prezzo:" field (AGENTS.md §6).
+export { parsePriceText } from './lib/events-utils.mjs';
 
 const SOURCE = EVENT_SOURCES.guidle;
 const SITE_ORIGIN = 'https://www.guidle.com';
@@ -287,35 +293,6 @@ export function extractCategory(doc, locale) {
   const li = acc?.querySelector('li');
   const value = li ? text(li) : '';
   return value || undefined;
-}
-
-const FREE_RE = /\b(gratis|gratuit[oe]?|free|kostenlos|eintritt frei|entr[ée]e libre|ingresso libero)\b/i;
-const AMOUNT_RE = /(\d+(?:[.,]\d{1,2})?)/g;
-
-/**
- * Parse guidle's free-text price accordion (e.g. "CHF 10.00 pro Person…",
- * "Ingresso 20 franchi, Bambini gratis") into `{amount, currency, isFree}`.
- * Takes the CHEAPEST number found (same "cheapest of several prices" rule as
- * the myswitzerland crawler's `extractPrice`). Falls back to a free-keyword
- * match when no number is present, and to `amount: null` (price info exists
- * but isn't machine-parseable, e.g. "su richiesta" / "on request") otherwise.
- */
-export function parsePriceText(rawText) {
-  const t = cleanText(rawText);
-  if (!t) return undefined;
-  const numbers = [];
-  AMOUNT_RE.lastIndex = 0;
-  let m;
-  while ((m = AMOUNT_RE.exec(t))) {
-    const n = Number.parseFloat(m[1].replace(',', '.'));
-    if (Number.isFinite(n)) numbers.push(n);
-  }
-  if (numbers.length) {
-    const amount = Math.min(...numbers);
-    return { amount, currency: 'CHF', isFree: amount === 0 };
-  }
-  if (FREE_RE.test(t)) return { amount: 0, currency: 'CHF', isFree: true };
-  return { amount: null, currency: 'CHF', isFree: false };
 }
 
 /** Price from the "Preis"/"Prezzo"/… accordion, or undefined when absent. */

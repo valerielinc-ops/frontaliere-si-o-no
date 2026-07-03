@@ -19,6 +19,14 @@
  * the same convention `crawl-guidle-events.mjs` / `crawl-myswitzerland-events.mjs`
  * already use.
  *
+ * Price ("offers" JSON-LD gap): the day-page card never carries a price, only
+ * the per-event detail page does (a "Prezzo:" label, empty/hidden when tio.ch
+ * has no price on file). `enrichEventsWithPrice` below fetches each event's
+ * own detail page once and parses it with the same `parsePriceText` guidle
+ * uses, so `eventLd()` (build-plugins/eventsSeoPagesPlugin.ts) can emit a
+ * real `offers` block instead of omitting it — never fabricated: an event
+ * with no price signal at all still gets no `offers`, by design.
+ *
  * Usage:
  *   node scripts/crawl-tio-agenda.mjs                 # next 21 days
  *   node scripts/crawl-tio-agenda.mjs --days 30       # custom horizon
@@ -41,6 +49,7 @@ import {
   resolveComune,
   loadCantonComuni,
   mirrorEventImage,
+  parsePriceText,
 } from './lib/events-utils.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
@@ -54,6 +63,12 @@ const POLITE_DELAY_MS = 600;
 // already on disk from a previous run), so a steady-state re-crawl only pays
 // this for genuinely new events.
 const IMAGE_MIRROR_DELAY_MS = 150;
+// Politeness delay between per-event detail-page fetches (price extraction —
+// same tio.ch host as the day pages, so same order of magnitude delay). Not
+// idempotent/cached like the image mirror: price can change run to run, so
+// every event is re-fetched every crawl. At ~136 events/run this adds ~80s,
+// well inside the 35min crawl-events.yml budget.
+const PRICE_FETCH_DELAY_MS = 600;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -177,8 +192,9 @@ export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
  * tio.ch/biglietteria.ch flyer URL `parseDayHtml` extracts from the DOM.
  * Mirrors the guidle/myswitzerland crawlers' convention (map → mirror →
  * store), just applied as a post-pass here since tio-agenda parses every
- * event straight off the already-fetched day pages (no per-event detail
- * fetch to hang the mirror call off of).
+ * event straight off the already-fetched day pages — the card itself never
+ * carries a price either, that's a separate per-event fetch, see
+ * `enrichEventsWithPrice` below.
  *
  * Returns a NEW array (does not mutate `events`). `mirrorFn` is injectable so
  * tests can verify the replace-or-drop contract without a live network call.
@@ -191,6 +207,47 @@ export async function mirrorEventImages(events, mirrorFn = mirrorEventImage) {
     // Only pace real network attempts (skipped for events with no source
     // image at all, and skipped entirely under an injected test mirrorFn).
     if (mirrorFn === mirrorEventImage && ev.imageUrl) await sleep(IMAGE_MIRROR_DELAY_MS);
+  }
+  return out;
+}
+
+/**
+ * Parse an event detail page's "Prezzo:" label into `{amount, currency,
+ * isFree}` via the shared `parsePriceText` (same parser guidle's price
+ * accordion uses). tio.ch renders the label unconditionally but leaves it
+ * empty when no price is on file — `parsePriceText('')` correctly returns
+ * `undefined` for that case, so no price signal never becomes a fabricated
+ * one. Returns `undefined` when the label itself is missing (page shape
+ * changed, or fetch returned something unexpected).
+ */
+export function extractTioPrice(html) {
+  const m = /<strong>\s*Prezzo:\s*<\/strong>\s*([^<]*)/i.exec(html || '');
+  if (!m) return undefined;
+  return parsePriceText(m[1]);
+}
+
+/**
+ * Fetch each event's own detail page once and attach a `price` (the day-page
+ * card this crawler otherwise parses never carries one — see file header).
+ * Populating `price` here is what lets `eventLd()`
+ * (build-plugins/eventsSeoPagesPlugin.ts) emit a real schema.org `offers`
+ * block for tio-agenda events instead of always omitting it.
+ *
+ * Not idempotent/cached like `mirrorEventImages` — every event is re-fetched
+ * every run since price can change. A fetch failure (network/timeout) just
+ * leaves `price` unset, same soft-fail convention as `fetchHtml` callers
+ * elsewhere in this file.
+ *
+ * Returns a NEW array (does not mutate `events`). `fetchFn` is injectable so
+ * tests can verify parsing without a live network call.
+ */
+export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
+  const out = [];
+  for (const ev of events) {
+    const html = ev.url ? await fetchFn(ev.url) : null;
+    const price = html ? extractTioPrice(html) : undefined;
+    out.push(price ? { ...ev, price } : { ...ev });
+    if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
   return out;
 }
@@ -259,10 +316,17 @@ async function main() {
     return;
   }
 
+  // Per-event detail fetch (offers/JSON-LD gap): attach `price` where tio.ch
+  // has one on file, BEFORE mirroring images or writing the slice — see
+  // `enrichEventsWithPrice` above.
+  const pricedEvents = await enrichEventsWithPrice(events);
+  const withPrice = pricedEvents.filter((e) => e.price).length;
+  console.log(`[tio-agenda] price resolved ${withPrice}/${pricedEvents.length}`);
+
   // No-hotlink policy (events-utils.mjs mirrorEventImage): replace every raw
   // tio.ch/biglietteria.ch flyer URL with our own mirrored copy (or drop it)
   // BEFORE it reaches the dry-run preview or the written slice.
-  const mirroredEvents = await mirrorEventImages(events);
+  const mirroredEvents = await mirrorEventImages(pricedEvents);
 
   if (dryRun) {
     console.log('🏃 dry-run — slice not written');
