@@ -493,6 +493,7 @@ export const COMPANY_HQ = {
   // directory sources (search.ch, local.ch, official annual reports); no
   // fallback needed.
   'hospice-general': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'zkb': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
 };
 
 /**
