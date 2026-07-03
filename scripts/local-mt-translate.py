@@ -109,15 +109,22 @@ def _resolve_workers():
 
 
 def models_ready():
-    """True if every locale we need is already installed locally — checked WITHOUT
-    any network call. The streaming path uses this to avoid re-hitting
+    """True if every REQUIRED_PAIRS direction is already installed locally — checked
+    WITHOUT any network call. The streaming path uses this to avoid re-hitting
     update_package_index() (a network fetch) on every run: in CI the models are
     installed once in a dedicated `--install` step, so the translate step must
-    work fully offline."""
+    work fully offline.
+
+    Checks installed *packages* (from_code, to_code), not installed *language
+    codes*: a partial install (e.g. de->en/it->en/fr->en present but every en->X
+    direction missing) still covers every LOCALES code as a language endpoint on
+    one side or the other, so a codes-only check would report ready and — once
+    that partial state is cached — permanently skip retrying the missing
+    directions."""
     try:
-        import argostranslate.translate as tr
-        codes = {l.code for l in tr.get_installed_languages()}
-        return all(loc in codes for loc in LOCALES)
+        import argostranslate.package as pkg
+        installed_pairs = {(p.from_code, p.to_code) for p in pkg.get_installed_packages()}
+        return all(pair in installed_pairs for pair in REQUIRED_PAIRS)
     except Exception:  # noqa: BLE001
         return False
 
@@ -349,6 +356,15 @@ def main():
     args = ap.parse_args()
 
     if args.install:
+        # OFFLINE check first: a restored actions/cache of package_data_dir makes
+        # get_installed_languages() report every locale already present, so we can
+        # skip install_models() entirely — it otherwise re-hits update_package_index()
+        # (network) and re-downloads every .argosmodel unconditionally (Package.install()
+        # always calls download(), which only skips the fetch if the file is already in
+        # settings.downloads_dir — a separate, uncached directory — not package_data_dir).
+        if models_ready():
+            log("✅ All Argos models already installed (cache hit) — skipping install_models()")
+            sys.exit(0)
         installed = install_models()
         sys.exit(0 if installed > 0 else 1)
 
