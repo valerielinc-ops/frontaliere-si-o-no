@@ -479,6 +479,8 @@ export const COMPANY_HQ = {
   'georg-fischer': { city: 'Schaffhausen', canton: 'SH', postalCode: '8201', addressRegion: 'SH' },
   'temenos': { city: 'Genève', canton: 'GE', postalCode: '1196', addressRegion: 'GE' },
   'galderma': { city: 'Zug', canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
+  // ── Crawler backlog #3337 ──
+  'saint-gobain-weber-isover': { city: 'Baden', canton: 'AG', postalCode: '5405', addressRegion: 'AG' },
 };
 
 /**
