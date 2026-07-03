@@ -369,8 +369,8 @@ export function parsePostings(postings = []) {
       // ── Recommended fields (structured-data completeness, Non-Negotiable #3) ──
       addressLocality: city || location,
       addressRegion: region || canton,
-      streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
-      postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
+      streetAddress: streetAddress || (/luzern|lucerne/i.test(location) ? HQ.streetAddress : ''),
+      postalCode: postalCode || (/luzern|lucerne/i.test(location) ? HQ.postalCode : ''),
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
