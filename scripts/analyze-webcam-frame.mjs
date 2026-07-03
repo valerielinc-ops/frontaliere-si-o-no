@@ -24,7 +24,7 @@
  * scored (informational), but reported as visibility:'warming-up' with
  * queueDetected:false, so aggregateWebcamResults excludes it from the vote.
  *
- * MAJORITY VOTE: with several cameras per crossing (chiasso-brogeda now sees 4),
+ * MAJORITY VOTE: with several cameras per crossing (chiasso-brogeda now sees 2),
  * a queue flagged on a SINGLE camera is no longer enough — aggregateWebcamResults
  * requires a majority of the good feeds to agree before emitting queueDetected,
  * cutting the structural false-positive rate of the previous any-one-frame rule.
@@ -104,34 +104,13 @@ export const WEBCAM_FEEDS = {
     // Short at-booth urban view (Chiasso centro). Live free-flow ~2 cars (0.20).
     capacity: 10,
   },
-  '00.3S': {
-    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3S.gif',
-    crossings: ['chiasso-brogeda'],
-    box: [0, 30, 400, 195],
-    // At-booth Brogeda. Live free-flow ~4 cars (0.29).
-    capacity: 14,
-  },
-  // North view over the Brogeda interchange: permanent multi-lane gantries/buildings.
-  // The old variance heuristic read those structures as a permanent "queue"; YOLO
-  // ignores them (no vehicle class), but the lanes here serve commercial/interchange
-  // flow rather than the passenger-car wait, so this view stays DISPLAY-only
-  // (`cvDetect:false`) and is excluded from queue-detection.
-  '00.3N': {
-    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3N.gif',
-    crossings: ['chiasso-brogeda'],
-    box: [0, 30, 400, 195],
-    capacity: 14,
-    cvDetect: false,
-  },
-  // Commercial-customs lane (Brogeda merci): parked/queuing trucks are a constant
-  // regardless of passenger-car wait. Display/CLI only; excluded from queue-detection.
-  '00.3O': {
-    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3O.gif',
-    crossings: ['chiasso-brogeda'],
-    box: [0, 30, 400, 195],
-    capacity: 14,
-    cvDetect: false,
-  },
+  // '00.3S'/'00.3N'/'00.3O' (Brogeda at-booth + interchange + commercial-customs
+  // views) REMOVED 2026-07-03 (sibling of issue #3372/#3274): the upstream
+  // www4.ti.ch feeds now consistently return HTTP 200 with a 0-byte body
+  // (confirmed 3x, ~10s apart). Already dropped from the display catalog in
+  // data/borderCrossings.ts (#3274); this registry still had them wired into
+  // queue detection, so chiasso-brogeda's vote silently included a dead feed.
+  // No replacement filename found. chiasso-brogeda now votes on 03.3S + 04.4N.
   // Stabio/Gaggiolo near road view. This is the camera whose variance heuristic
   // false-reported a 15-min wait on a free-flowing road; vehicle counting fixes it.
   '02.0N': {
@@ -191,7 +170,7 @@ export const WEBCAM_FEEDS = {
 export const CROSSING_TO_PRIMARY_FEED = {
   'chiasso-centro': '01.2S',
   'chiasso-strada': '01.2S',
-  'chiasso-brogeda': '00.3S',
+  'chiasso-brogeda': '03.3S',
   'gaggiolo': '02.0N',
   'san-pietro': '02.0N',
   'campione-d-italia-bissone': '17.84S',
