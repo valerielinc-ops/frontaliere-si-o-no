@@ -524,6 +524,11 @@ export const COMPANY_HQ = {
   // (northdata/Moneyhouse CHE-267.003.435) + local.ch/search.ch directory
   // listings; no fallback needed.
   'felfel': { city: 'Zürich', canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
+  // Rektorat Volksschule Stadt Luzern, Winkelriedstrasse 12a, 6002 Luzern LU
+  // (confirmed via stadtluzern.ch contact page). Most postings carry their
+  // own school-building street/ZIP via the Prospective API; this is only the
+  // fallback for postings that omit those fields.
+  'volksschule-luzern': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
 };
 
 /**

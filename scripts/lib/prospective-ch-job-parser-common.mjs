@@ -95,7 +95,24 @@ function pickPostalCode(job, defaultPostal) {
   const workplaceZip = String(job?.szas?.['sza_workplace.zip'] || '').trim();
   const m2 = workplaceZip.match(/\b(\d{4})\b/);
   if (m2) return m2[1];
+  // Third schema variant seen on e.g. Volksschule Luzern (medium 1005619):
+  // an explicit `sza_location.zip` field, distinct from both the embedded
+  // 4-digit code in `sza_location.city` and the `sza_workplace.zip` field.
+  const locationZip = String(job?.szas?.['sza_location.zip'] || '').trim();
+  const m3 = locationZip.match(/\b(\d{4})\b/);
+  if (m3) return m3[1];
   return defaultPostal;
+}
+
+function pickStreetAddress(job) {
+  const szas = job?.szas || {};
+  const street = normalizeSpace(szas['sza_location.street'] || '');
+  if (street) return street;
+  // Newer schema fallback, mirrors the workplace.zip/location.zip variance
+  // above (some tenants key the workplace fields separately from location).
+  const workplaceStreet = normalizeSpace(szas['sza_workplace.street'] || '');
+  if (workplaceStreet) return workplaceStreet;
+  return '';
 }
 
 function pickEmploymentType(job) {
@@ -166,6 +183,14 @@ function detectExperienceLevel(title = '') {
  *   `links.directlink` hostname matches one of these. Use for shared Prospective
  *   tenants that mix multiple employers (e.g. medium 1008606 serves both PZM
  *   Münsingen and UPD Bern). Default: no filtering.
+ * @param {string} [config.sector='Sanità / Ospedali']  Override the sector
+ *   label. All Prospective tenants onboarded so far are hospitals/clinics, so
+ *   this defaults to healthcare; non-healthcare tenants (e.g. a school
+ *   district) should pass their own sector.
+ * @param {(title: string, department: string) => string} [config.categoryFn]
+ *   Override the per-job category classifier. Defaults to the shared
+ *   healthcare-biased `detectCategory()` (its unmatched-role fallback is
+ *   'Sanità / Ospedali', wrong for a non-healthcare tenant).
  */
 export function createProspectiveChParser(config) {
   const {
@@ -182,6 +207,8 @@ export function createProspectiveChParser(config) {
     extraTrustedHosts = [],
     acceptDirectlinkHosts = [],
     filterListing,
+    sector = 'Sanità / Ospedali',
+    categoryFn = detectCategory,
   } = config;
 
   if (!companyKey || !companyName || !mediumId || !defaultCanton) {
@@ -357,11 +384,12 @@ export function createProspectiveChParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         postalCode: pickPostalCode(listing, defaultPostalCode),
-        category: detectCategory(title, department),
+        streetAddress: pickStreetAddress(listing),
+        category: categoryFn(title, department),
         contract: 'full-time',
         employmentType: pickEmploymentType(listing),
         experienceLevel: detectExperienceLevel(title),
-        sector: 'Sanità / Ospedali',
+        sector,
         currency: 'CHF',
         featured: false,
         postedDate,
