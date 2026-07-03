@@ -50,7 +50,14 @@ import {
   loadCantonComuni,
   mirrorEventImage,
   parsePriceText,
+  normalizeText,
+  geocodeVenue,
+  loadGeocodeCache,
+  saveGeocodeCache,
+  loadEventTitleTranslationCache,
+  saveEventTitleTranslationCache,
 } from './lib/events-utils.mjs';
+import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -252,6 +259,89 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
   return out;
 }
 
+// Nominatim usage policy caps free/anonymous search at ~1 request/second.
+const GEOCODE_DELAY_MS = 1100;
+
+/**
+ * Attach `geo` (lat/lng) to every event that has neither — tio-agenda cards
+ * carry no coordinates at all (unlike guidle/myswitzerland), so a detail page
+ * previously had nothing to put on a map (see events-utils.mjs `geocodeVenue`
+ * header). Resolves via free OpenStreetMap Nominatim, disk-cached by
+ * normalized "venue, comune, Ticino, Switzerland" query so a venue already
+ * geocoded on a previous run never re-hits the network — the crawler
+ * rewrites its whole slice from scratch every run (see `main` below), so
+ * without this cache every event would pay a fresh geocode every day.
+ * Skips events with neither `venue` nor `comune` (nothing to search for) —
+ * never fabricates a location.
+ *
+ * Returns a NEW array (does not mutate `events`). `geocodeFn`/`cache` are
+ * injectable so tests can verify the enrichment without a live network call.
+ */
+export async function enrichEventsWithGeo(events, cache, geocodeFn = geocodeVenue) {
+  const out = [];
+  for (const ev of events) {
+    if (ev.geo || (!ev.venue && !ev.comune)) {
+      out.push({ ...ev });
+      continue;
+    }
+    const query = [ev.venue, ev.comune, 'Ticino', 'Switzerland'].filter(Boolean).join(', ');
+    const wasCached = Object.prototype.hasOwnProperty.call(cache, normalizeText(query));
+    const geo = await geocodeFn(query, cache);
+    out.push(geo ? { ...ev, geo } : { ...ev });
+    if (geocodeFn === geocodeVenue && !wasCached) await sleep(GEOCODE_DELAY_MS);
+  }
+  return out;
+}
+
+const TRANSLATE_DELAY_MS = 200;
+const TRANSLATE_LOCALES = ['en', 'de', 'fr'];
+
+/**
+ * Attach `titleByLocale` to every event — tio-agenda cards carry only a
+ * single Italian `title` (unlike guidle/myswitzerland, which already ship
+ * real per-locale titles), so en/de/fr readers previously saw untranslated
+ * Italian text. Translates via the free-translate.mjs cascade, disk-cached by
+ * normalized Italian title so a recurring event title already translated on
+ * a previous run never re-hits the network — the crawler rewrites its whole
+ * slice from scratch every run (see `main` below), so without this cache the
+ * same recurring titles would be re-translated every single day.
+ *
+ * Returns a NEW array (does not mutate `events`). `translateFn`/`cache` are
+ * injectable so tests can verify the enrichment without a live network call.
+ */
+export async function enrichEventsWithTranslations(events, cache, translateFn = freeTranslateWithRetry) {
+  const out = [];
+  for (const ev of events) {
+    const key = normalizeText(ev.title);
+    if (!key) {
+      out.push({ ...ev });
+      continue;
+    }
+    let entry = cache[key];
+    if (!entry) {
+      entry = {};
+      for (const locale of TRANSLATE_LOCALES) {
+        const translated = await translateFn({
+          text: ev.title,
+          sourceLang: 'it',
+          targetLang: locale,
+          fieldType: 'title',
+          maxRetries: 1,
+        });
+        if (translated) entry[locale] = translated;
+        if (translateFn === freeTranslateWithRetry) await sleep(TRANSLATE_DELAY_MS);
+      }
+      cache[key] = entry;
+    }
+    if (Object.keys(entry).length === 0) {
+      out.push({ ...ev });
+      continue;
+    }
+    out.push({ ...ev, titleByLocale: { it: ev.title, ...entry } });
+  }
+  return out;
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
@@ -328,11 +418,30 @@ async function main() {
   // BEFORE it reaches the dry-run preview or the written slice.
   const mirroredEvents = await mirrorEventImages(pricedEvents);
 
+  // Geo + title-translation enrichment (tio-agenda cards carry neither, see
+  // enrichEventsWithGeo/enrichEventsWithTranslations above) — disk-cached so
+  // a from-scratch daily rebuild never re-pays the network for a venue/title
+  // it already resolved on a previous run.
+  const geocodeCache = loadGeocodeCache();
+  const geoEvents = await enrichEventsWithGeo(mirroredEvents, geocodeCache);
+  const withGeo = geoEvents.filter((e) => e.geo).length;
+  console.log(`[tio-agenda] geo resolved ${withGeo}/${geoEvents.length}`);
+
+  const translationCache = loadEventTitleTranslationCache();
+  const translatedEvents = await enrichEventsWithTranslations(geoEvents, translationCache);
+  const withTranslation = translatedEvents.filter((e) => e.titleByLocale).length;
+  console.log(`[tio-agenda] title translated ${withTranslation}/${translatedEvents.length}`);
+
   if (dryRun) {
     console.log('🏃 dry-run — slice not written');
-    console.log(JSON.stringify(mirroredEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
     return;
   }
+
+  // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
+  // invocation never pollutes the tracked cache files with speculative data.
+  saveGeocodeCache(geocodeCache);
+  saveEventTitleTranslationCache(translationCache);
 
   mkdirSync(EVENTS_SLICE_DIR, { recursive: true });
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
@@ -342,10 +451,10 @@ async function main() {
     sourceName: SOURCE.label,
     canton: SOURCE.canton,
     assembledAt: crawledAt,
-    events: mirroredEvents,
+    events: translatedEvents,
   };
   writeFileSync(slicePath, `${JSON.stringify(slice, null, 2)}\n`, 'utf-8');
-  console.log(`[tio-agenda] wrote ${mirroredEvents.length} events → ${path.relative(process.cwd(), slicePath)}`);
+  console.log(`[tio-agenda] wrote ${translatedEvents.length} events → ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so

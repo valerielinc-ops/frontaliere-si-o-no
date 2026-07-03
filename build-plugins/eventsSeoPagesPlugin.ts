@@ -1110,7 +1110,7 @@ export function renderComunePage(params: {
     title: copy.comuneTitle(comune),
     description: copy.comuneDesc(comune),
     canonicalUrl,
-    hreflangHtml: buildAlternates(comune),
+    hreflangHtml: buildAlternates(canton, comune),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml: body,
