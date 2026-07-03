@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-07-03T12:28:43.955Z",
+  "assembledAt": "2026-07-03T23:17:01.207Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:28:41.395Z",
+      "crawledAt": "2026-07-03T23:16:58.654Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -120,7 +120,7 @@
       "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
       "titleByLocale": {
         "it": "Apprendistato come Kaufmann/-frau CFC Marketing & Kommunikation 2027",
-        "en": "Apprenticeship as a businessman/woman EFZ Marketing & Communication 2027",
+        "en": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "de": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "fr": "Apprentissage en tant qu'homme d'affaires/femme EFZ Marketing & Communication 2027"
       },
@@ -136,7 +136,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:28:40.577Z",
+      "crawledAt": "2026-07-03T23:16:57.841Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,7 +236,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Audio-Video-100-de-j396.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:28:39.753Z",
+      "crawledAt": "2026-07-03T23:16:57.031Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -283,6 +283,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:13:56.684Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -328,7 +329,7 @@
       "url": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-j403.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:28:38.715Z",
+      "crawledAt": "2026-07-03T23:16:56.013Z",
       "addressLocality": "Chur, Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -386,6 +387,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:21:43.552Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
