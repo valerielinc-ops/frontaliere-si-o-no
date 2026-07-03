@@ -489,6 +489,10 @@ export const COMPANY_HQ = {
   // Oetiker Schweiz AG HQ, Spätzstrasse 11, 8810 Horgen ZH (confirmed via
   // company imprint page — not a fallback guess).
   'oetiker': { city: 'Horgen', canton: 'ZH', postalCode: '8810', addressRegion: 'ZH' },
+  // Cours de Rive 12, 1204 Genève — confirmed via multiple independent
+  // directory sources (search.ch, local.ch, official annual reports); no
+  // fallback needed.
+  'hospice-general': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
 };
 
 /**
