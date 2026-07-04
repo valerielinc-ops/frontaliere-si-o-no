@@ -719,6 +719,15 @@ export const COMPANY_HQ = {
   // mirror — all three agree exactly. City-gated in
   // scripts/lib/josef-mueller-job-parser.mjs's `resolveAddress()`.
   'josef-mueller': { city: 'Hünenberg', canton: 'ZG', postalCode: '6331', addressRegion: 'ZG' },
+  // Kuhn Rikon AG HQ, Neschwilerstrasse 4, 8486 Rikon im Tösstal ZH — confirmed
+  // via (1) the company's own JSON-LD Organization block + Impressum page
+  // (kuhnrikon.com), (2) Northdata's mirror of the Zefix commercial register
+  // entry (CHE-102.058.330, "KUHN RIKON AG, Rikon im Tösstal"), (3) search.ch
+  // directory listing. City-gated fallback only — see `resolveAddress()` in
+  // scripts/lib/kuhn-rikon-job-parser.mjs (per-outlet postings, e.g. Landquart/
+  // Genève, keep their own street address; only a Rikon-city posting or an
+  // empty city inherits this HQ street).
+  'kuhn-rikon': { city: 'Rikon im Tösstal', canton: 'ZH', postalCode: '8486', addressRegion: 'ZH' },
 };
 
 /**
