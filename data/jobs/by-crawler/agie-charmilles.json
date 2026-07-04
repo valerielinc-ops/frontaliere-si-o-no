@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agie-charmilles",
-  "assembledAt": "2026-07-04T10:03:11.786Z",
+  "assembledAt": "2026-07-04T21:06:00.159Z",
   "jobs": [
     {
       "title": "Montagemitarbeiter",
@@ -1028,7 +1028,8 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-28T10:23:00.911Z"
+      "firstSeenAt": "2026-06-28T10:23:00.911Z",
+      "needsRetranslation": true
     },
     {
       "title": "Service Engineer Laser",
@@ -1164,7 +1165,8 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-29T12:25:47.142Z"
+      "firstSeenAt": "2026-06-29T12:25:47.142Z",
+      "needsRetranslation": true
     },
     {
       "title": "Teamleiter*in Qualitätssicherung & Wareneingang 100%",
@@ -2457,8 +2459,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Goldau 7",
-      "postalCode": "6616",
+      "streetAddress": "",
+      "postalCode": "6500",
       "firstSeenAt": "2026-06-10T22:08:16.902Z",
       "previousSlugsByLocale": {
         "it": [
