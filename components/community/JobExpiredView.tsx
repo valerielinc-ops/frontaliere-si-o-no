@@ -375,7 +375,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  width={48}
  height={48}
  className="w-12 h-12 rounded-lg object-contain bg-surface-alt flex-shrink-0"
- loading="lazy"
+ decoding="async"
  onError={handleCompanyLogoError}
  />
  )}
