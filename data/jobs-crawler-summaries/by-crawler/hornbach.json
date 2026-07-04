@@ -1,18 +1,19 @@
 {
   "key": "hornbach",
   "label": "Hornbach",
-  "generatedAt": "2026-07-04T10:58:59.623Z",
+  "generatedAt": "2026-07-04T22:06:16.270Z",
   "total": 32,
-  "newCount": 32,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 32,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3615,
-  "avgDurationMs": 3615,
+  "durationMs": 2719,
+  "avgDurationMs": 2719,
   "durationHistory": [
-    3615
+    2719
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hornbach-153726",
       "slug": "mitarbeiter-in-warenbeschaffung-hornbach-sirnach",
@@ -25,7 +26,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNzI2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.898Z",
+      "crawledAt": "2026-07-04T22:06:14.195Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -41,11 +42,12 @@
       "postedDate": "2026-12-05",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153726&company=Hornbach&username=",
       "jobReqId": "153726",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.898Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -61,7 +63,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMjI5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.902Z",
+      "crawledAt": "2026-07-04T22:06:14.197Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -77,11 +79,12 @@
       "postedDate": "2026-12-03",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153229&company=Hornbach&username=",
       "jobReqId": "153229",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.902Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -97,7 +100,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDY3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.893Z",
+      "crawledAt": "2026-07-04T22:06:14.190Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -113,17 +116,18 @@
       "postedDate": "2026-09-06",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154067&company=Hornbach&username=",
       "jobReqId": "154067",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.893Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "hornbach-154063",
-      "slug": "bad-und-kuchenplaner-in-hornbach-sirnach",
+      "slug": "bad-e-kuchenplaner-in-hornbach-sirnach",
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
@@ -133,7 +137,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDYz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.894Z",
+      "crawledAt": "2026-07-04T22:06:14.191Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -149,17 +153,18 @@
       "postedDate": "2026-09-06",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154063&company=Hornbach&username=",
       "jobReqId": "154063",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.894Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "hornbach-153763",
-      "slug": "verkaufer-in-holz-turen-und-fenster-hornbach-biel-bienne",
+      "slug": "verkaufer-in-holz-turen-e-fenster-hornbach-biel-bienne",
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
@@ -169,7 +174,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNzYz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.891Z",
+      "crawledAt": "2026-07-04T22:06:14.186Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -185,11 +190,12 @@
       "postedDate": "2026-07-05",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153763&company=Hornbach&username=",
       "jobReqId": "153763",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.891Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -205,7 +211,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjAw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.887Z",
+      "crawledAt": "2026-07-04T22:06:14.183Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -221,11 +227,12 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154200&company=Hornbach&username=",
       "jobReqId": "154200",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.887Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -241,7 +248,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTg1&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.890Z",
+      "crawledAt": "2026-07-04T22:06:14.185Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -257,11 +264,12 @@
       "postedDate": "2026-06-19",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154185&company=Hornbach&username=",
       "jobReqId": "154185",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.890Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -277,7 +285,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTQz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.891Z",
+      "crawledAt": "2026-07-04T22:06:14.187Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -293,11 +301,12 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154143&company=Hornbach&username=",
       "jobReqId": "154143",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.891Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -313,7 +322,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDMx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.892Z",
+      "crawledAt": "2026-07-04T22:06:14.188Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -329,11 +338,12 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154031&company=Hornbach&username=",
       "jobReqId": "154031",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.892Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -349,7 +359,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzOTg2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.897Z",
+      "crawledAt": "2026-07-04T22:06:14.195Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -365,11 +375,12 @@
       "postedDate": "2026-05-28",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153986&company=Hornbach&username=",
       "jobReqId": "153986",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.897Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -385,7 +396,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzOTM3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.886Z",
+      "crawledAt": "2026-07-04T22:06:14.182Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -401,11 +412,12 @@
       "postedDate": "2026-05-22",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153937&company=Hornbach&username=",
       "jobReqId": "153937",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.886Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -421,7 +433,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNjA5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.889Z",
+      "crawledAt": "2026-07-04T22:06:14.184Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -437,17 +449,18 @@
       "postedDate": "2026-04-21",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153609&company=Hornbach&username=",
       "jobReqId": "153609",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.889Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "hornbach-153752",
-      "slug": "bad-und-kuchenplaner-in-hornbach-biel-bienne",
+      "slug": "bad-e-kuchenplaner-in-hornbach-biel-bienne",
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
@@ -457,7 +470,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzNzUy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.898Z",
+      "crawledAt": "2026-07-04T22:06:14.196Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -473,11 +486,12 @@
       "postedDate": "2026-04-05",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153752&company=Hornbach&username=",
       "jobReqId": "153752",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.898Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -493,7 +507,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMzkx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.899Z",
+      "crawledAt": "2026-07-04T22:06:14.196Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -509,11 +523,12 @@
       "postedDate": "2026-03-26",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153391&company=Hornbach&username=",
       "jobReqId": "153391",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.899Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -529,7 +544,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMzgx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.902Z",
+      "crawledAt": "2026-07-04T22:06:14.197Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -545,11 +560,12 @@
       "postedDate": "2026-03-26",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153381&company=Hornbach&username=",
       "jobReqId": "153381",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.902Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -565,7 +581,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0Mjgw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.881Z",
+      "crawledAt": "2026-07-04T22:06:14.176Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -581,11 +597,12 @@
       "postedDate": "2026-03-07",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154280&company=Hornbach&username=",
       "jobReqId": "154280",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.881Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -601,7 +618,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDUz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.895Z",
+      "crawledAt": "2026-07-04T22:06:14.192Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -617,17 +634,18 @@
       "postedDate": "2026-03-06",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154053&company=Hornbach&username=",
       "jobReqId": "154053",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.895Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "hornbach-154042",
-      "slug": "verkaufer-in-farben-und-bodenbelage-hornbach-galgenen",
+      "slug": "verkaufer-in-farben-e-bodenbelage-hornbach-galgenen",
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
@@ -637,7 +655,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MDQy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.896Z",
+      "crawledAt": "2026-07-04T22:06:14.193Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -653,11 +671,12 @@
       "postedDate": "2026-03-06",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154042&company=Hornbach&username=",
       "jobReqId": "154042",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.896Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -673,7 +692,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUzMDkx&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.903Z",
+      "crawledAt": "2026-07-04T22:06:14.198Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -689,17 +708,18 @@
       "postedDate": "2026-02-23",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=153091&company=Hornbach&username=",
       "jobReqId": "153091",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.903Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "hornbach-154262",
-      "slug": "verkaufer-in-gartenmaschinen-und-bewasserung-hornbach-affoltern-am-albis",
+      "slug": "verkaufer-in-gartenmaschinen-e-bewasserung-hornbach-affoltern-am-albis",
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
@@ -709,7 +729,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjYy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.882Z",
+      "crawledAt": "2026-07-04T22:06:14.178Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -725,11 +745,12 @@
       "postedDate": "2026-02-07",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154262&company=Hornbach&username=",
       "jobReqId": "154262",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.882Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -745,7 +766,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjYw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.883Z",
+      "crawledAt": "2026-07-04T22:06:14.179Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -761,11 +782,12 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154260&company=Hornbach&username=",
       "jobReqId": "154260",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.883Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -781,7 +803,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjM5&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.883Z",
+      "crawledAt": "2026-07-04T22:06:14.179Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -797,11 +819,12 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154239&company=Hornbach&username=",
       "jobReqId": "154239",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.883Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -817,7 +840,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjU3&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.884Z",
+      "crawledAt": "2026-07-04T22:06:14.181Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -833,11 +856,12 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154257&company=Hornbach&username=",
       "jobReqId": "154257",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.884Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -853,7 +877,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MjUy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.884Z",
+      "crawledAt": "2026-07-04T22:06:14.182Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -869,11 +893,12 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154252&company=Hornbach&username=",
       "jobReqId": "154252",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.884Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -889,7 +914,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTU0MTg2&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.885Z",
+      "crawledAt": "2026-07-04T22:06:14.182Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -905,11 +930,12 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154186&company=Hornbach&username=",
       "jobReqId": "154186",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.885Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -925,7 +951,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTMw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.901Z",
+      "crawledAt": "2026-07-04T22:06:14.197Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -941,11 +967,12 @@
       "postedDate": "2025-12-24",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=152530&company=Hornbach&username=",
       "jobReqId": "152530",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.901Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -961,7 +988,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTIz&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.900Z",
+      "crawledAt": "2026-07-04T22:06:14.197Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -977,17 +1004,18 @@
       "postedDate": "2025-12-23",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=152523&company=Hornbach&username=",
       "jobReqId": "152523",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.900Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "hornbach-152522",
-      "slug": "verkaufer-in-eisenwaren-und-werkzeuge-hornbach-luzern-littau",
+      "slug": "verkaufer-in-eisenwaren-e-werkzeuge-hornbach-luzern-littau",
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
@@ -997,7 +1025,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNTIy&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.906Z",
+      "crawledAt": "2026-07-04T22:06:14.198Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1013,11 +1041,12 @@
       "postedDate": "2025-12-23",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=152522&company=Hornbach&username=",
       "jobReqId": "152522",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.906Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1033,7 +1062,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTUyNDUw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.906Z",
+      "crawledAt": "2026-07-04T22:06:14.198Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1049,11 +1078,12 @@
       "postedDate": "2025-12-15",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=152450&company=Hornbach&username=",
       "jobReqId": "152450",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.906Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1069,7 +1099,7 @@
       "url": "https://jobs.hornbach.ch/offer-redirect/?offerApiId=MTQ5NDQw&showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T10:58:56.893Z",
+      "crawledAt": "2026-07-04T22:06:14.189Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1085,16 +1115,16 @@
       "postedDate": "2025-04-06",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=149440&company=Hornbach&username=",
       "jobReqId": "149440",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-04T10:58:56.893Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
