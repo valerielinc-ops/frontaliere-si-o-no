@@ -702,6 +702,15 @@ export const COMPANY_HQ = {
   // address — see the city-gated `resolveAddress()` in that parser for the
   // per-store street (the retail chain spans 8+ Swiss cantons).
   'new-yorker': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
+  // Rue de Bourg 16, 1003 Lausanne (VD) — Kiabi Suisse SA's registered legal
+  // seat (Moneyhouse CHE-442.567.929 + local.ch/FOSC gazette entry, both
+  // agree). This is a fiduciary/law-firm domiciliation ("c/o LEGAL INSIGHTS
+  // Sàrl"), NOT an operational site — Kiabi Suisse's actual stores are
+  // Fribourg-Sud (Villars-sur-Glâne FR) and Marin Centre (Marin-Epagnier NE),
+  // both opened April 2026. See scripts/lib/kiabi-job-parser.mjs for the
+  // city-gated resolveAddress() that keeps this fallback scoped to a literal
+  // "Lausanne" match only.
+  'kiabi': { city: 'Lausanne', canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
 };
 
 /**
