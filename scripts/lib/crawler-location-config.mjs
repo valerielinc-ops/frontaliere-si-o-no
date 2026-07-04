@@ -681,6 +681,11 @@ export const COMPANY_HQ = {
   // Swisslog parser's own resolveCanton() gates on the city text BEFORE
   // calling inferSwissTargetCanton, forcing 'AG' for this company.
   'swisslog': { city: 'Buchs', canton: 'AG', postalCode: '5033', addressRegion: 'AG' },
+  // Ricola Group AG HQ, Baselstrasse 31, 4242 Laufen BL — confirmed via the
+  // company's own Impressum page (ricola.com/it-it/chi-siamo/impressum/)
+  // AND cross-checked against Zefix (Swiss commercial register: legalSeat
+  // "Laufen", UID CHE-439.050.235); no fallback needed.
+  'ricola': { city: 'Laufen', canton: 'BL', postalCode: '4242', addressRegion: 'BL' },
 };
 
 /**
