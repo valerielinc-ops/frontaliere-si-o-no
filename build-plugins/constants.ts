@@ -371,6 +371,7 @@ export function buildFlatRedirect(
  <meta property="og:title" content="${esc(og.title)}">
  <meta property="og:description" content="${desc}">
  <meta property="og:image" content="${esc(og.image)}">
+ <meta property="og:image:alt" content="${esc(og.title)}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">`
  : '';

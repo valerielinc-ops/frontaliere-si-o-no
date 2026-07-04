@@ -298,6 +298,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="${esc(model.title)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(

@@ -3055,6 +3055,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
+ <meta property="og:image:alt" content="${esc(ogTitle)}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
  <script type="application/ld+json">${jobLd}</script>
@@ -4783,6 +4784,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -4945,6 +4947,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -5114,6 +5117,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -5295,6 +5299,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -5473,6 +5478,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -5668,6 +5674,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(pageOgTitle)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -5887,6 +5894,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -6048,6 +6056,7 @@ ${staticAnalyticsHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
+ <meta property="og:image:alt" content="${esc(model.title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>

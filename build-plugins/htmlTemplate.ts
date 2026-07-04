@@ -212,6 +212,7 @@ export interface SimplePageOpts {
  ogImageWidth?: number;
  ogImageHeight?: number;
  ogImageType?: string;
+ /** og:image:alt text. Defaults to `title` (same fallback the runtime seoService applies). */
  ogImageAlt?: string;
  /** Additional <head> HTML (prev/next links, extra meta, etc.). MUST NOT contain og:image — use ogImage. */
  extraHeadHtml?: string;
@@ -420,7 +421,8 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  <meta property="og:image" content="${esc(ogImage ?? `${BASE_URL}/og-image.png`)}">
  <meta property="og:image:width" content="${ogImageWidth ?? 1200}">
  <meta property="og:image:height" content="${ogImageHeight ?? 630}">
- <meta property="og:image:type" content="${esc(ogImageType ?? 'image/png')}">${ogImageAlt ? `\n <meta property="og:image:alt" content="${esc(ogImageAlt)}">` : ''}
+ <meta property="og:image:type" content="${esc(ogImageType ?? 'image/png')}">
+ <meta property="og:image:alt" content="${esc(ogImageAlt ?? title)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}${extraHead}
 ${ldTags}${cssHead}${staticAnalyticsHtml}
