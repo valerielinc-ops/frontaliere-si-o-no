@@ -62,6 +62,27 @@ function cleanWorkdayLocation(raw = '') {
   return parts[0];
 }
 
+/**
+ * Fallback location signal for multi-site rollup postings ("2 Locations",
+ * "3 Locations") that `cleanWorkdayLocation` can't resolve. Workday's
+ * `externalPath` follows a stable `/job/{PrimaryLocation}/{titleSlug}_{reqId}`
+ * shape across tenants — the second path segment is always the requisition's
+ * primary work location, even when `locationsText` degrades to a rollup
+ * count. Used only as a last-resort strict-mode fallback (never overrides a
+ * resolvable `locationsText`), so it can only recover jobs that would
+ * otherwise be dropped — never changes behaviour for tenants where
+ * `locationsText` already resolves.
+ */
+function locationFromExternalPath(externalPath = '') {
+  const parts = String(externalPath || '').split('/').filter(Boolean);
+  if (parts.length < 2 || parts[0].toLowerCase() !== 'job') return '';
+  try {
+    return decodeURIComponent(parts[1]).trim();
+  } catch {
+    return parts[1].trim();
+  }
+}
+
 function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(regulatory|qualit|qa|qc|validation|compliance|gxp|gmp)/.test(t)) return 'Qualità / Compliance';
@@ -247,14 +268,34 @@ export function createWorkdaySwissParser(config) {
         console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
         continue;
       }
-      const cleaned = cleanWorkdayLocation(rawLocation);
+      let cleaned = cleanWorkdayLocation(rawLocation);
       // In strict mode an empty `cleaned` means the listing exposed no usable
-      // single Swiss location — a multi-site "N Locations" rollup, an
-      // unparseable string, or an absent location. Defaulting it to the HQ city
-      // (below) would let `inferSwissTargetCanton` resolve the HQ canton and
-      // silently pass the confidence gate, mislabelling a possibly mixed-/non-CH
-      // posting as the HQ canton. None of these carry per-site detail to recover
-      // the CH location from, so drop the posting instead of guessing HQ.
+      // single Swiss location from `locationsText` — a multi-site "N Locations"
+      // rollup, an unparseable string, or an absent location. Before dropping,
+      // try the `externalPath` primary-location segment (Workday's stable
+      // `/job/{Location}/...` convention across tenants) — some tenants (e.g.
+      // Eraneos, Medbase) publish some postings as a multi-site rollup in
+      // `locationsText` even though `externalPath` always carries the actual
+      // primary work city. Only accepted when it resolves to a confident Swiss
+      // canton and isn't explicitly foreign, so this can only recover
+      // legitimate CH jobs that would otherwise be dropped — never widens the
+      // gate for tenants where `locationsText` already resolves.
+      if (strictSwiss && !cleaned) {
+        const pathLocation = locationFromExternalPath(listing.externalPath);
+        if (
+          pathLocation &&
+          !isLocationExplicitlyForeign(pathLocation) &&
+          inferSwissTargetCanton(pathLocation)
+        ) {
+          cleaned = pathLocation;
+        }
+      }
+      // Defaulting an unresolved location to the HQ city (below) would let
+      // `inferSwissTargetCanton` resolve the HQ canton and silently pass the
+      // confidence gate, mislabelling a possibly mixed-/non-CH posting as the
+      // HQ canton. None of the remaining cases carry per-site detail to
+      // recover the CH location from, so drop the posting instead of
+      // guessing HQ.
       if (strictSwiss && !cleaned) {
         console.log(`  ⏭️  Skipped unresolved multi-site/empty location: ${rawLocation} — ${title}`);
         continue;
