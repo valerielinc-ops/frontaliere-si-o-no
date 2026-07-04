@@ -690,6 +690,16 @@ export const COMPANY_HQ = {
   // AND cross-checked against Zefix (Swiss commercial register: legalSeat
   // "Laufen", UID CHE-439.050.235); no fallback needed.
   'ricola': { city: 'Laufen', canton: 'BL', postalCode: '4242', addressRegion: 'BL' },
+  // AnswerConsulting SA HQ, Via Penate 4, 6850 Mendrisio TI — confirmed via
+  // the company's own site/careers page (answerconsulting.ch); no fallback
+  // needed. Small single-office ICT/OpenText ECM consultancy — Workable ATS
+  // account "answermodules" currently has 0 open postings.
+  'answerconsulting': { city: 'Mendrisio', canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  // Vision Management Services GmbH (VISIONAPARTMENTS brand), Talstrasse 62,
+  // 8001 Zürich ZH — confirmed via Zefix/Moneyhouse/Northdata (Swiss
+  // commercial register, CHE-114.735.781) AND matches the live jobs.ch
+  // vacancy's own jobLocation.address; no fallback needed.
+  'visionapartments': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
   // HORNBACH Baumarkt (Schweiz) AG HQ, Schellenrain 9, 6210 Sursee LU —
   // confirmed via the company's own Impressum (jobs.hornbach.ch/impressum),
   // cross-checked against Zefix (uid CHE-101.079.884, legal seat Oberkirch

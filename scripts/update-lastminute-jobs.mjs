@@ -40,6 +40,7 @@ import {
   normalizeKey,
   mergeLocaleTextMap,
   hasFullLocaleCoverage,
+  normalizeSpace,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   extractSrIdFromUrl,
@@ -659,6 +660,14 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         // returns a description within 20% of the current length — which is
         // most re-crawls, not just genuine content changes.
         const wasFullyLocalized = hasFullLocaleCoverage(existing);
+        // Snapshot the prior synced source text too (review #3454): coverage
+        // alone freezes the flag forever once a job reaches full 4-locale
+        // coverage, even if the live SR posting is later rewritten.
+        // `existing.description` stays synced with the SR API every crawl
+        // (see below), so comparing it to the fresh `detail.description`
+        // detects genuine content drift — mirrors the sourceTitleStable gate
+        // in mergePreserveLocaleData.
+        const priorDescription = existing.description || '';
         existing.description = detail.description;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
         existing.descriptionByLocale = mergeLocaleTextMap(
@@ -666,8 +675,11 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
           { en: detail.description },
           30,
         );
-        // Mark for re-translation so AI refreshes IT/DE/FR from the richer English
-        if (!wasFullyLocalized) {
+        // Mark for re-translation so AI refreshes IT/DE/FR from the richer
+        // English — either the job wasn't fully localized yet, or the SR
+        // content genuinely changed since the last sync.
+        const sourceContentChanged = normalizeSpace(priorDescription) !== normalizeSpace(detail.description);
+        if (!wasFullyLocalized || sourceContentChanged) {
           existing.needsRetranslation = true;
         }
         existing.title = detail.title || existing.title;

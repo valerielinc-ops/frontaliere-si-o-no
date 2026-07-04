@@ -422,6 +422,34 @@ export function parseCsbDetailPage(html) {
  *   When the listing endpoint cannot restrict to CH (or the filter is fuzzy),
  *   return `false` to drop a parsed job. Receives the same shape as the final
  *   ParsedJob (location, canton, addressLocality, addressCountry resolved).
+ * @param {boolean} [config.trustPageLangAttr=true] Whether to trust the CSB
+ *   detail page's `<html lang>` / `xml:lang` attribute (`detail.language`,
+ *   see `parseCsbDetailPage`) as the job's content language. Defaults to
+ *   `true` for backward compatibility with existing tenants. Set `false` for
+ *   tenants whose CSB template hardcodes a fixed UI locale (e.g.
+ *   `lang="en-GB"`) on every page regardless of the actual job-content
+ *   language (observed on SICPA, whose French Vaud postings all carry a
+ *   fixed `en-GB` page lang) — in that case content language is always
+ *   derived from `detectLang(descriptionText || title, defaultSourceLang)`.
+ * @param {string} [config.sector='Sanità / Ospedali'] Sector label written onto
+ *   every job. Defaults to the healthcare label this factory originally
+ *   shipped with (all confirmed tenants so far are hospital/pharma/biotech).
+ *   Override for tenants in an unrelated industry (e.g. a manufacturing or
+ *   financial-services CSB tenant) so `sector` isn't silently mislabeled.
+ * @param {(title: string) => string} [config.detectCategory] Category
+ *   detector applied to the job title. Defaults to the shared
+ *   `detectCategoryForSf` (healthcare-oriented keyword buckets, catch-all
+ *   fallback `'Sanità / Ospedali'`). Override for non-healthcare tenants —
+ *   the healthcare fallback otherwise mislabels any title that doesn't match
+ *   a healthcare keyword (e.g. "Chemist", "Automation Technician") as
+ *   healthcare.
+ * @param {(title: string, companyName: string, city: string) => string}
+ *   [config.boilerplateFallback] Thin-description fallback text builder,
+ *   invoked when the detail page's real description has fewer than
+ *   `MIN_DESCRIPTION_UNIQUE_WORDS` unique words. Defaults to the shared
+ *   German "etablierter Schweizer Gesundheitsdienstleister" (healthcare)
+ *   summary. Override for non-healthcare / non-German-primary tenants so the
+ *   fallback text isn't wrong-industry and/or wrong-language.
  * @returns {{
  *   fetchAllJobs: () => Promise<ParsedJob[]>,
  *   isCompanyJob: (job: any) => boolean,
@@ -445,6 +473,9 @@ export function createSuccessFactorsParser(config) {
     fallbackCategory = 'Sanità / Ospedali',
     searchParams = null,
     acceptJob = null,
+    trustPageLangAttr = true,
+    detectCategory = detectCategoryForSf,
+    boilerplateFallback = null,
   } = config;
 
   if (!companyKey || !companyName || !sfCompanyId || !publicCareerUrl || !defaultCanton) {
@@ -584,7 +615,7 @@ export function createSuccessFactorsParser(config) {
       const canton = inferSwissTargetCanton(city) || region || defaultCanton;
       const postalCode = detail?.postalCode || defaultPostalCode;
 
-      const sourceLang = (detail?.language && /^(de|fr|it|en)$/.test(detail.language))
+      const sourceLang = (trustPageLangAttr && detail?.language && /^(de|fr|it|en)$/.test(detail.language))
         ? detail.language
         : detectLang(detail?.descriptionText || title, defaultSourceLang);
 
@@ -594,7 +625,9 @@ export function createSuccessFactorsParser(config) {
       // back to the microdata `itemprop="description"` read) — otherwise
       // fall back to a brand summary.
       if (countUniqueWords(description) < MIN_DESCRIPTION_UNIQUE_WORDS) {
-        description = `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ${descriptionFallbackTagline}. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
+        description = typeof boilerplateFallback === 'function'
+          ? boilerplateFallback(title, companyName, city || defaultCity)
+          : `${title} bei ${companyName} in ${city || defaultCity}.\n\n${companyName} ${descriptionFallbackTagline}. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.`;
       }
 
       const postedDate = detail?.postedDate
@@ -637,7 +670,7 @@ export function createSuccessFactorsParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         postalCode,
-        category: detectCategoryForSf(title, fallbackCategory),
+        category: detectCategory(title, fallbackCategory),
         contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
         employmentType,
         experienceLevel: detectHealthcareExperienceLevel(title),

@@ -32,6 +32,31 @@ describe('Hermès crawler parser', () => {
       expect(isHermesJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });
 
+    // Collision guard: 'thermo-fisher-scientific' and 'bosch-thermotechnik-ag'
+    // both contain the bare substring 'herm' (t-HERM-o / thermo-tecHnik) — if
+    // isHermesJob ever regresses to a naive 'herm' substring check instead of
+    // exact key/'hermès'/'hermes.com' matching, these two crawlers would
+    // false-positive as Hermès jobs.
+    it('does not fuzzy-match Thermo Fisher Scientific (substring "herm" in "thermo")', () => {
+      expect(
+        isHermesJob({
+          companyKey: 'thermo-fisher-scientific',
+          company: 'Thermo Fisher Scientific',
+          url: 'https://jobs.thermofisher.com/global/en/job/123',
+        })
+      ).toBe(false);
+    });
+
+    it('does not fuzzy-match Bosch Thermotechnik AG (substring "herm" in "thermotechnik")', () => {
+      expect(
+        isHermesJob({
+          companyKey: 'bosch-thermotechnik-ag',
+          company: 'Bosch Thermotechnik AG',
+          url: 'https://www.bosch.com/careers/job/456',
+        })
+      ).toBe(false);
+    });
+
     it('handles null/undefined gracefully', () => {
       expect(isHermesJob(null)).toBe(false);
       expect(isHermesJob(undefined)).toBe(false);
