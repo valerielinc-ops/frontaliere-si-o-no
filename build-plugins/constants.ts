@@ -451,8 +451,19 @@ export const GTAG_INIT_FILENAME = 'gtag-init.js';
 // (it ran synchronously in <head> before) so first paint no longer waits on a
 // cross-origin script fetch — the deferred order still runs it before the
 // async gtag/js library consumes the queue. The library tag stays `async`.
+/**
+ * Cloudflare Web Analytics (RUM/CWV field data) — MANUAL snippet: the
+ * zone-level auto-inject never provisions its injection ruleset on this zone
+ * (apex HTML flows through the locale-router Worker), so every emitted page
+ * ships the beacon directly. Appended to GTAG_SNIPPET so all static emitters
+ * get it by construction; index.html carries its own copy for the SPA.
+ * The token is public by design (it is meant to appear in served HTML). #3503
+ */
+export const CF_BEACON_SNIPPET = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "52ad88ab198a42df98d2f363531b6429"}'></script>`;
+
 export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
- <script defer src="/assets/${GTAG_INIT_FILENAME}"></script>`;
+ <script defer src="/assets/${GTAG_INIT_FILENAME}"></script>
+ ${CF_BEACON_SNIPPET}`;
 
 /**
  * PostHog EU Cloud init snippet for standalone static pages that don't load the
