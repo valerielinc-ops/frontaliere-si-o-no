@@ -93,10 +93,12 @@ node ../../scripts/cf-locale-failover-setup.mjs   # SEMPRE dopo il deploy (vedi 
 Il deploy può resettare il flag `request_limit_fail_open` delle route al
 default fail-closed (errore 1027 su tutto sopra il cap free 100k/day).
 `scripts/cf-locale-failover-setup.mjs` (idempotente, CF_API_TOKEN da
-`load-rc-env.mjs`) ri-asserisce fail-open + la cache rule di zona che permette
-alla CDN di servire le pagine apex-keyed scritte dal Worker (`cache.put`)
-quando il Worker è bypassato. `deploy-worker.yml` lo esegue da solo; solo i
-deploy manuali devono ricordarselo.
+`load-rc-env.mjs`) ri-asserisce fail-open + le zone rule gestite: la cache rule
+che permette alla CDN di servire le pagine apex-keyed scritte dal Worker
+(`cache.put`) quando il Worker è bypassato, la WAF rule bot-throttle e la
+dynamic redirect rule `trailing-slash-301` (no-slash → slash, #3472).
+`deploy-worker.yml` lo esegue da solo; solo i deploy manuali devono
+ricordarselo.
 
 ### 2.5 Verifica end-to-end (URL pubblico = identico, servito dallo shard)
 ```bash
