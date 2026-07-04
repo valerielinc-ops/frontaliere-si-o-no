@@ -4,6 +4,7 @@ import {
   VALORA_COMPANY_NAME,
   isValoraJob,
   isTrustedDomain,
+  resolveAddress,
 } from '../scripts/lib/valora-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -157,26 +158,6 @@ describe('Valora Group crawler parser', () => {
   // canton-wide "Agenturpartner" posting resolved to Basel) must NOT
   // inherit the Muttenz street address.
   describe('city-gated HQ address fallback', () => {
-    // Mirrors the parser's own resolveAddress() gating logic (regex on
-    // resolved city text, never canton equality) to pin the contract at
-    // the test layer independent of the parser's internals.
-    const HQ = {
-      city: 'Muttenz',
-      postalCode: '4132',
-      streetAddress: 'Hofackerstrasse 40',
-    };
-
-    function resolveAddress(rawLoc: { city?: string; postalCode?: string; streetAddress?: string }) {
-      const city = (rawLoc.city || '').trim();
-      const postalCode = (rawLoc.postalCode || '').trim();
-      const streetAddress = (rawLoc.streetAddress || '').trim();
-      return {
-        city: city || HQ.city,
-        postalCode: postalCode || (!city || /muttenz/i.test(city) ? HQ.postalCode : ''),
-        streetAddress: streetAddress || (!city || /muttenz/i.test(city) ? HQ.streetAddress : ''),
-      };
-    }
-
     it('backfills HQ street address for a Muttenz-city job with no address block', () => {
       const resolved = resolveAddress({ city: 'Muttenz' });
       expect(resolved.streetAddress).toBe('Hofackerstrasse 40');

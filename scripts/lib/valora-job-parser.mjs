@@ -219,7 +219,7 @@ function parseValoraDate(raw = '') {
  * equality alone (a Liestal or Pratteln job is BL-canton too but isn't
  * Muttenz-city, so it must not receive the Muttenz street address).
  */
-function resolveAddress(rawLoc = {}) {
+export function resolveAddress(rawLoc = {}) {
   const city = dedupeAdjacentWords(rawLoc.city || rawLoc.shortLocation || '');
   const postalCode = (rawLoc.postalCode || '').trim();
   const streetAddress = (rawLoc.streetAddress || '').trim();
