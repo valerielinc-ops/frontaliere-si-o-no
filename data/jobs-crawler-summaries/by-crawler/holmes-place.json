@@ -1,18 +1,19 @@
 {
   "key": "holmes-place",
   "label": "Holmes Place",
-  "generatedAt": "2026-07-04T11:00:08.068Z",
+  "generatedAt": "2026-07-04T22:30:52.762Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5487,
-  "avgDurationMs": 5487,
+  "durationMs": 4464,
+  "avgDurationMs": 4464,
   "durationHistory": [
-    5487
+    4464
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "holmes-place-2c12260d3ad6",
       "slug": "sich-bewerben-holmes-place-oberrieden",
@@ -25,7 +26,7 @@
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:00:05.798Z",
+      "crawledAt": "2026-07-04T22:30:50.898Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -49,7 +50,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
