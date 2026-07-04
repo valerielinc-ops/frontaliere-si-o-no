@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-07-03T22:10:44.337Z",
+  "assembledAt": "2026-07-04T10:48:21.727Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.799Z",
+      "crawledAt": "2026-07-04T10:48:19.273Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -88,82 +89,6 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-ff11106c27c6",
-      "slug": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-      "slugByLocale": {
-        "it": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "en": "care-and-support-assistant-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "de": "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "fr": "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Aide en Soins et Accompagnement",
-      "titleByLocale": {
-        "it": "Cura e supporto",
-        "en": "Care and Support",
-        "de": "Pflege und Support",
-        "fr": "Aide en Soins et Accompagnement"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\n Niveau de formation :\n Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\n Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\n Avantages :\n Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n Intégrer une équipe dynamique et motivée\n Participation active au projet d’accompagnement des résidents·es\n Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\n Salaire en fonction de la grille salariale de la CCT SAN",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL. L'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità. Il nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n• Lavoro nei due servizi dello SME (geriatria e psicogeriatria)\n• Sostenere un gruppo di residenti stimolando la loro autonomia o, se necessario, sostituendo le loro esigenze in base al loro livello di dipendenza\n• Assicurare un supporto personalizzato\n• Collaborare in un team interdisciplinare\n• Trasmettere e ritrasmettere le sue osservazioni in modo mirato e rilevante nel file computerizzato del residente Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n• Pazienza, empatia, ascolto attivo, elevata capacità di comunicazione verbale e non verbale\n• Buona resistenza fisica e psicologica\n• Flessibilità in termini di programmazione (lavoro diurno/notte/orario continuo e di taglio) Livello di formazione: Certificazione della formazione professionale nella cura e nel supporto (AFP ASA) o equivalente desiderato Certificato di Croce Rossa svizzera (minimo) Vantaggi: Coinvolgere in un ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati Integrare un team dinamico e motivato Partecipazione attiva al progetto per sostenere i residenti Valorizzazione della funzione di accompagnamento ai residenti attraverso il tempo e i mezzi dedicati a questa missione Salario basato su SAN CTC scala salariale",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL. The aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities. Our accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff. Description of the post: In your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n• Work within the two services of EMS (geriatrics and psycho-geriatrics)\n• Support a group of residents by stimulating their autonomy or if necessary by replacing their needs according to their level of dependency\n• Ensure personalized support\n• Collaborate in an interdisciplinary team\n• Transmit and retransmit its observations in a targeted and relevant manner in the resident's computerized file Profile required: We are convinced of your rapid success in your future functions through your:\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n• Good physical and psychological resistance\n• Flexibility in terms of scheduling (day/night work/continuous and cut-off hours) Level of training: Certification of Vocational Training in Care and Support (AFP ASA) or desired equivalent Swiss Red Cross Certificate (minimum) Benefits: Evolve in a pleasant working environment, recent premises, specially equipped outdoor spaces Integrating a dynamic and motivated team Active participation in the project to support residents Valorisation of the function of accompaniment to residents through time and means dedicated to this mission Salary based on SAN CTC salary scale",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung von GHOL teilnehmen. Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist. Unser Begleitansatz basiert auf dem Aufbau einer Vertrauensbeziehung mit Bewohnern, ihren Angehörigen und medizinischen Mitarbeitern sowie unter Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Diese Achtung der Person spiegelt sich in der medizinischen Versorgung unserer qualifizierten Gesundheitspersonal wider. Beschreibung des Beitrags: In Ihren neuen Aufgaben haben Ihre Missionen Auswirkungen auf die Qualität der Pflege für Bewohner. Ihre Rolle wird beinhalten:\n• Arbeiten in den beiden Diensten des EMS (Kriminellen und Psycho-Kriminellen)\n• Unterstützung einer Gruppe von Bewohnern durch Förderung ihrer Autonomie oder erforderlichenfalls durch Austausch ihrer Bedürfnisse nach ihrer Abhängigkeit\n• Persönliche Unterstützung gewährleisten\n• Zusammenarbeit in einem interdisziplinären Team\n• Transmittieren und erneut seine Beobachtungen gezielt und relevant in der computergestützten Datei des Anwohners übertragen Profil erforderlich: Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n• Interesse an der Pflege älterer und/oder abhängiger und/oder kognitiver Beeinträchtigungen\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nicht-verbale Kommunikationsfähigkeiten\n• Guter körperlicher und psychologischer Widerstand\n• Flexibilität bei der Planung (Tag/Nachtarbeit/kontinuierliche und abgeschnittene Stunden) Ausbildungsstufe: Zertifizierung der Berufsbildung in Pflege und Unterstützung (AFP ASA) oder gewünschtes Äquivalent Swiss Red Cross Certificate (minimum) Vorteile: Entwickeln Sie in einer angenehmen Arbeitsumgebung, neueren Räumlichkeiten, speziell ausgestatteten Außenräumen Integration eines dynamischen und motivierten Teams Aktive Beteiligung am Projekt zur Unterstützung der Bewohner Valorisierung der Funktion der Begleitung der Bewohner durch die Zeit und Mittel, die dieser Mission gewidmet sind Salary basierend auf SAN CTC Gehaltsskala",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL. L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités. Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié. Descriptif du poste : Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n• Assurer une prise en charge personnalisée\n• Collaborer au sein d’une équipe interdisciplinaire\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e Profil requis : Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n• Bonne résistance physique et psychique\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés) Niveau de formation : Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima) Avantages : Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés Intégrer une équipe dynamique et motivée Participation active au projet d’accompagnement des résidents·es Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission Salaire en fonction de la grille salariale de la CCT SAN"
-      },
-      "location": "Rolle",
-      "canton": "VD",
-      "addressLocality": "Rolle",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1180",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://app.beehire.com/invite/Wn7TRyXkp",
-      "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.798Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-        ],
-        "de": [
-          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T11:59:27.233Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -222,7 +147,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.798Z",
+      "crawledAt": "2026-07-04T10:48:19.272Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -281,6 +207,158 @@
       }
     },
     {
+      "id": "ghol-ff11106c27c6",
+      "slug": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+      "slugByLocale": {
+        "it": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "en": "care-and-support-assistant-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "de": "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "fr": "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Aide en Soins et Accompagnement",
+      "titleByLocale": {
+        "it": "Cura e supporto",
+        "en": "Care and Support",
+        "de": "Pflege und Support",
+        "fr": "Aide en Soins et Accompagnement"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\n Niveau de formation :\n Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\n Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\n Avantages :\n Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n Intégrer une équipe dynamique et motivée\n Participation active au projet d’accompagnement des résidents·es\n Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\n Salaire en fonction de la grille salariale de la CCT SAN",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL. L'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità. Il nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n• Lavoro nei due servizi dello SME (geriatria e psicogeriatria)\n• Sostenere un gruppo di residenti stimolando la loro autonomia o, se necessario, sostituendo le loro esigenze in base al loro livello di dipendenza\n• Assicurare un supporto personalizzato\n• Collaborare in un team interdisciplinare\n• Trasmettere e ritrasmettere le sue osservazioni in modo mirato e rilevante nel file computerizzato del residente Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n• Pazienza, empatia, ascolto attivo, elevata capacità di comunicazione verbale e non verbale\n• Buona resistenza fisica e psicologica\n• Flessibilità in termini di programmazione (lavoro diurno/notte/orario continuo e di taglio) Livello di formazione: Certificazione della formazione professionale nella cura e nel supporto (AFP ASA) o equivalente desiderato Certificato di Croce Rossa svizzera (minimo) Vantaggi: Coinvolgere in un ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati Integrare un team dinamico e motivato Partecipazione attiva al progetto per sostenere i residenti Valorizzazione della funzione di accompagnamento ai residenti attraverso il tempo e i mezzi dedicati a questa missione Salario basato su SAN CTC scala salariale",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL. The aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities. Our accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff. Description of the post: In your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n• Work within the two services of EMS (geriatrics and psycho-geriatrics)\n• Support a group of residents by stimulating their autonomy or if necessary by replacing their needs according to their level of dependency\n• Ensure personalized support\n• Collaborate in an interdisciplinary team\n• Transmit and retransmit its observations in a targeted and relevant manner in the resident's computerized file Profile required: We are convinced of your rapid success in your future functions through your:\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n• Good physical and psychological resistance\n• Flexibility in terms of scheduling (day/night work/continuous and cut-off hours) Level of training: Certification of Vocational Training in Care and Support (AFP ASA) or desired equivalent Swiss Red Cross Certificate (minimum) Benefits: Evolve in a pleasant working environment, recent premises, specially equipped outdoor spaces Integrating a dynamic and motivated team Active participation in the project to support residents Valorisation of the function of accompaniment to residents through time and means dedicated to this mission Salary based on SAN CTC salary scale",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung von GHOL teilnehmen. Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist. Unser Begleitansatz basiert auf dem Aufbau einer Vertrauensbeziehung mit Bewohnern, ihren Angehörigen und medizinischen Mitarbeitern sowie unter Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Diese Achtung der Person spiegelt sich in der medizinischen Versorgung unserer qualifizierten Gesundheitspersonal wider. Beschreibung des Beitrags: In Ihren neuen Aufgaben haben Ihre Missionen Auswirkungen auf die Qualität der Pflege für Bewohner. Ihre Rolle wird beinhalten:\n• Arbeiten in den beiden Diensten des EMS (Kriminellen und Psycho-Kriminellen)\n• Unterstützung einer Gruppe von Bewohnern durch Förderung ihrer Autonomie oder erforderlichenfalls durch Austausch ihrer Bedürfnisse nach ihrer Abhängigkeit\n• Persönliche Unterstützung gewährleisten\n• Zusammenarbeit in einem interdisziplinären Team\n• Transmittieren und erneut seine Beobachtungen gezielt und relevant in der computergestützten Datei des Anwohners übertragen Profil erforderlich: Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n• Interesse an der Pflege älterer und/oder abhängiger und/oder kognitiver Beeinträchtigungen\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nicht-verbale Kommunikationsfähigkeiten\n• Guter körperlicher und psychologischer Widerstand\n• Flexibilität bei der Planung (Tag/Nachtarbeit/kontinuierliche und abgeschnittene Stunden) Ausbildungsstufe: Zertifizierung der Berufsbildung in Pflege und Unterstützung (AFP ASA) oder gewünschtes Äquivalent Swiss Red Cross Certificate (minimum) Vorteile: Entwickeln Sie in einer angenehmen Arbeitsumgebung, neueren Räumlichkeiten, speziell ausgestatteten Außenräumen Integration eines dynamischen und motivierten Teams Aktive Beteiligung am Projekt zur Unterstützung der Bewohner Valorisierung der Funktion der Begleitung der Bewohner durch die Zeit und Mittel, die dieser Mission gewidmet sind Salary basierend auf SAN CTC Gehaltsskala",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL. L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités. Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié. Descriptif du poste : Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n• Assurer une prise en charge personnalisée\n• Collaborer au sein d’une équipe interdisciplinaire\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e Profil requis : Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n• Bonne résistance physique et psychique\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés) Niveau de formation : Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima) Avantages : Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés Intégrer une équipe dynamique et motivée Participation active au projet d’accompagnement des résidents·es Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission Salaire en fonction de la grille salariale de la CCT SAN"
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "addressLocality": "Rolle",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1180",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "url": "https://app.beehire.com/invite/Wn7TRyXkp",
+      "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-04T10:48:19.270Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        ],
+        "de": [
+          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        ]
+      },
+      "firstSeenAt": "2026-05-21T11:59:27.233Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-7d0331e993ab",
+      "slug": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "biomedical-analysis-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "biomedizinische-analysetechnik-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Technicien·ne en analyses biomédicales",
+      "titleByLocale": {
+        "it": "Analisi Biomedica Tecnica",
+        "en": "Biomedical Analysis Technician",
+        "de": "Biomedizinische Analysetechnik",
+        "fr": "Technicien·ne en analyses biomédicales"
+      },
+      "description": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
+      "descriptionByLocale": {
+        "it": "Descrizione\n• Come parte di un sostituto per il congedo di maternità, si unirà al nostro laboratorio di microbiologia dove si avrà una variegata attività. Sarete coinvolti in: - partecipazione alla risposta collettiva a oltre 100.000 richieste annuali di analisi mediche di laboratorio (tutte le discipline) - il monitoraggio, la manutenzione e la manutenzione delle attrezzature secondo le responsabilità matrice definite all'interno del servizio - la gestione e lo sviluppo di un campo di attività specifico (ad esempio PCR) Obbligo\n• Sarete l'architetto del vostro successo grazie al vostro - esperienza lavorativa di almeno 2 anni in un ambiente simile, idealmente compreso il lavoro di fine settimana (senza lavoro notturno), - padronanza di tecniche e conoscenze chiave di microbiologia, come la semina, la cultura, l'identificazione batterica, la lettura e l'interpretazione di tecniche antibiogrammi e PCR, - versatilità riconosciuta che consente di eseguire in modo indipendente, convalidare e trasmettere tutte le analisi di un laboratorio di microbiologia, - curiosità professionale e capacità di pensiero che ti portano a mettere in discussione il significato e lo scopo delle tue attività quotidiane. Cosa fare\n• Unire il team del laboratorio GHOL è integrare un team di solidarietà, lavorando in trasversalità con tutti i suoi partner di assistenza. Si evolverà all'interno di una struttura di dimensioni umane, dove versatilità, autonomia e collaborazione hanno un valore reale.\n• Nell'ambito della vostra carriera professionale, potrete beneficiare di un adeguato supporto durante la vostra integrazione, nonché delle opportunità di formazione continua che vi aiuteranno a sviluppare e sviluppare le vostre competenze. Contatto",
+        "en": "Descrizione\n• As part of a replacement for maternity leave, you will join our microbiology laboratory where you will have a varied activity. You will be involved in: - participation in the collective response to over 100,000 annual requests for laboratory medical analyses (all disciplines) - the monitoring, maintenance and maintenance of equipment according to the responsibilities matrix defined within the service - the management and development of a specific field of activity (e.g. PCR) Required\n• You will be the architect of your success thanks to your - work experience of at least 2 years in a similar environment, ideally including weekend work (no night work), - mastery of key microbiology techniques and knowledge, such as seeding, culture, bacterial identification, reading and interpretation of antibiograms and PCR techniques, - recognized versatility allowing you to independently perform, validate and transmit all analyses of a microbiology laboratory, - professional curiosity and thinking ability leading you to question the meaning and purpose of your daily activities. Cosa offeriamo\n• Joining the team of the GHOL laboratory is to integrate a team of solidarity, working in transversality with all its care partners. You will evolve within a structure of human size, where versatility, autonomy and collaboration have real value.\n• As part of your professional career, you will benefit from appropriate support during your integration as well as opportunities for continuing training that will help you develop and develop your skills. Contatto",
+        "de": "Beschreibung\n• Im Rahmen eines Ersatzes für den Mutterschaftsurlaub nehmen Sie an unserem Mikrobiologielabor teil, wo Sie eine abwechslungsreiche Aktivität haben werden. Sie werden an: - Teilnahme an der kollektiven Reaktion auf über 100.000 jährliche Anfragen für Labormedizinische Analysen (alle Disziplinen) - die Überwachung, Wartung und Wartung von Geräten gemäß der im Dienst definierten Verantwortungsmatrix - Verwaltung und Entwicklung eines spezifischen Tätigkeitsbereichs (z.B. PCR) Erforderlich\n• Sie werden der Architekt Ihres Erfolgs dank Ihrer - Arbeitserfahrung von mindestens 2 Jahren in einer ähnlichen Umgebung, ideal einschließlich Wochenendarbeit (keine Nachtarbeit), - Beherrschung der wichtigsten Mikrobiologie Techniken und Wissen, wie Saat, Kultur, bakterielle Identifizierung, Lesen und Interpretation von Antibiogrammen und PCR Techniken, - anerkannte Vielseitigkeit, die es Ihnen ermöglicht, unabhängig alle Analysen eines Mikrobiologielabors durchzuführen, zu validieren und zu übermitteln, - professionelle Neugier und Denkfähigkeit führen Sie dazu, die Bedeutung und den Zweck Ihrer täglichen Aktivitäten zu hinterfragen. Cosa offeriamo\n• Das Team des GHOL-Labors ist die Integration eines Teams von Solidarität, das in Transversalität mit allen seinen Pflegepartnern arbeitet. Sie entwickeln sich in einer Struktur menschlicher Größe, wo Vielseitigkeit, Autonomie und Zusammenarbeit einen echten Wert haben.\n• Im Rahmen Ihrer beruflichen Karriere profitieren Sie von einer angemessenen Unterstützung während Ihrer Integration sowie Möglichkeiten für Weiterbildung, die Ihnen helfen, Ihre Fähigkeiten zu entwickeln und zu entwickeln. Contattoo",
+        "fr": "Description de poste : Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR) Profil requis : Vous serez l’artisan de votre réussite grâce à votre\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes. Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées. Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire. Niveau de formation : Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé Avantages : Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur. Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "logistics",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "url": "https://app.beehire.com/invite/SAEhDyjSq",
+      "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-04T10:48:19.269Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-05-29T12:28:12.409Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ghol-c0180cff0ed5",
       "slug": "codificatore-medico-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
@@ -325,7 +403,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.797Z",
+      "crawledAt": "2026-07-04T10:48:19.269Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -412,7 +491,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.796Z",
+      "crawledAt": "2026-07-04T10:48:19.268Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -439,81 +518,6 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-7d0331e993ab",
-      "slug": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "biomedical-analysis-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "biomedizinische-analysetechnik-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Technicien·ne en analyses biomédicales",
-      "titleByLocale": {
-        "it": "Analisi Biomedica Tecnica",
-        "en": "Biomedical Analysis Technician",
-        "de": "Biomedizinische Analysetechnik",
-        "fr": "Technicien·ne en analyses biomédicales"
-      },
-      "description": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
-      "descriptionByLocale": {
-        "it": "Descrizione\n• Come parte di un sostituto per il congedo di maternità, si unirà al nostro laboratorio di microbiologia dove si avrà una variegata attività. Sarete coinvolti in: - partecipazione alla risposta collettiva a oltre 100.000 richieste annuali di analisi mediche di laboratorio (tutte le discipline) - il monitoraggio, la manutenzione e la manutenzione delle attrezzature secondo le responsabilità matrice definite all'interno del servizio - la gestione e lo sviluppo di un campo di attività specifico (ad esempio PCR) Obbligo\n• Sarete l'architetto del vostro successo grazie al vostro - esperienza lavorativa di almeno 2 anni in un ambiente simile, idealmente compreso il lavoro di fine settimana (senza lavoro notturno), - padronanza di tecniche e conoscenze chiave di microbiologia, come la semina, la cultura, l'identificazione batterica, la lettura e l'interpretazione di tecniche antibiogrammi e PCR, - versatilità riconosciuta che consente di eseguire in modo indipendente, convalidare e trasmettere tutte le analisi di un laboratorio di microbiologia, - curiosità professionale e capacità di pensiero che ti portano a mettere in discussione il significato e lo scopo delle tue attività quotidiane. Cosa fare\n• Unire il team del laboratorio GHOL è integrare un team di solidarietà, lavorando in trasversalità con tutti i suoi partner di assistenza. Si evolverà all'interno di una struttura di dimensioni umane, dove versatilità, autonomia e collaborazione hanno un valore reale.\n• Nell'ambito della vostra carriera professionale, potrete beneficiare di un adeguato supporto durante la vostra integrazione, nonché delle opportunità di formazione continua che vi aiuteranno a sviluppare e sviluppare le vostre competenze. Contatto",
-        "en": "Descrizione\n• As part of a replacement for maternity leave, you will join our microbiology laboratory where you will have a varied activity. You will be involved in: - participation in the collective response to over 100,000 annual requests for laboratory medical analyses (all disciplines) - the monitoring, maintenance and maintenance of equipment according to the responsibilities matrix defined within the service - the management and development of a specific field of activity (e.g. PCR) Required\n• You will be the architect of your success thanks to your - work experience of at least 2 years in a similar environment, ideally including weekend work (no night work), - mastery of key microbiology techniques and knowledge, such as seeding, culture, bacterial identification, reading and interpretation of antibiograms and PCR techniques, - recognized versatility allowing you to independently perform, validate and transmit all analyses of a microbiology laboratory, - professional curiosity and thinking ability leading you to question the meaning and purpose of your daily activities. Cosa offeriamo\n• Joining the team of the GHOL laboratory is to integrate a team of solidarity, working in transversality with all its care partners. You will evolve within a structure of human size, where versatility, autonomy and collaboration have real value.\n• As part of your professional career, you will benefit from appropriate support during your integration as well as opportunities for continuing training that will help you develop and develop your skills. Contatto",
-        "de": "Beschreibung\n• Im Rahmen eines Ersatzes für den Mutterschaftsurlaub nehmen Sie an unserem Mikrobiologielabor teil, wo Sie eine abwechslungsreiche Aktivität haben werden. Sie werden an: - Teilnahme an der kollektiven Reaktion auf über 100.000 jährliche Anfragen für Labormedizinische Analysen (alle Disziplinen) - die Überwachung, Wartung und Wartung von Geräten gemäß der im Dienst definierten Verantwortungsmatrix - Verwaltung und Entwicklung eines spezifischen Tätigkeitsbereichs (z.B. PCR) Erforderlich\n• Sie werden der Architekt Ihres Erfolgs dank Ihrer - Arbeitserfahrung von mindestens 2 Jahren in einer ähnlichen Umgebung, ideal einschließlich Wochenendarbeit (keine Nachtarbeit), - Beherrschung der wichtigsten Mikrobiologie Techniken und Wissen, wie Saat, Kultur, bakterielle Identifizierung, Lesen und Interpretation von Antibiogrammen und PCR Techniken, - anerkannte Vielseitigkeit, die es Ihnen ermöglicht, unabhängig alle Analysen eines Mikrobiologielabors durchzuführen, zu validieren und zu übermitteln, - professionelle Neugier und Denkfähigkeit führen Sie dazu, die Bedeutung und den Zweck Ihrer täglichen Aktivitäten zu hinterfragen. Cosa offeriamo\n• Das Team des GHOL-Labors ist die Integration eines Teams von Solidarität, das in Transversalität mit allen seinen Pflegepartnern arbeitet. Sie entwickeln sich in einer Struktur menschlicher Größe, wo Vielseitigkeit, Autonomie und Zusammenarbeit einen echten Wert haben.\n• Im Rahmen Ihrer beruflichen Karriere profitieren Sie von einer angemessenen Unterstützung während Ihrer Integration sowie Möglichkeiten für Weiterbildung, die Ihnen helfen, Ihre Fähigkeiten zu entwickeln und zu entwickeln. Contattoo",
-        "fr": "Description de poste : Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR) Profil requis : Vous serez l’artisan de votre réussite grâce à votre\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes. Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées. Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire. Niveau de formation : Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé Avantages : Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur. Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "logistics",
-      "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "url": "https://app.beehire.com/invite/SAEhDyjSq",
-      "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.796Z",
-      "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-05-29T12:28:12.409Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -563,7 +567,7 @@
       "applyUrl": "https://app.beehire.com/invite/B-qFH1Hv4Y",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.795Z",
+      "crawledAt": "2026-07-04T10:48:19.267Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-e-medical-e-cabinet-dr-barriol-urologie-groupement-hospitalier-de-l-ouest"
@@ -639,7 +643,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.793Z",
+      "crawledAt": "2026-07-04T10:48:19.265Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -717,7 +721,7 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.791Z",
+      "crawledAt": "2026-07-04T10:48:19.264Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -793,7 +797,7 @@
       "applyUrl": "https://app.beehire.com/invite/Hx8j9fccF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:10:41.790Z",
+      "crawledAt": "2026-07-04T10:48:19.263Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -823,193 +827,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "ghol-fe34aa66233b",
-      "slug": "fisioterapista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "fisioterapista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "physiotherapist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "physiotherapeut-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Physiothérapeute",
-      "titleByLocale": {
-        "it": "Fisioterapista",
-        "en": "Physiotherapist",
-        "de": "Physiotherapeut",
-        "fr": "Physiothérapeute"
-      },
-      "description": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Poste ouvert à un taux entre 80 et 100% .\n Description du poste :\n Dans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie.\n Dans votre nouveau rôle de physiothérapeute, vous :\n\n• Prenez en charge des patients·es hospitalisés·ées (médecine, chirurgie, neurologie, orthopédie, soins intensifs, pédiatrie) ainsi que des patients·es ambulatoires.\n\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité\n Profil requis :\n Votre succès dans vos nouvelles fonctions sera favorisé par :\n\n• Une expérience réussie en milieu hospitalier serait un atout cependant les nouveaux·velles diplômé·e·s sont les bienvenus·es\n\n• Une sensibilité à une approche individualisée du patient\n\n• Des capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n\n• Une aspiration à travailler en équipe\n Niveau de formation :\n Bachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé)\n Avantages :\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et à l’opportunité d’intervenir dans les différentes spécialités que propose l’établissement.\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique)\n Intéressé(e) par ce challenge ? Alors adressez-nous votre candidature !",
-      "descriptionByLocale": {
-        "it": "Descrizione Il GHOL è l’ospedale regionale di riferimento per il Lemano occidentale con le sue strutture su Nyon e Rolle. Unirsi a noi significa cogliere l’opportunità di lavorare quotidianamente con oltre 900 collaboratori per garantire la salute e il benessere dei pazienti e delle loro famiglie. Posizione aperta a un tasso tra l'80 e il 100% . Descrizione del lavoro: Nelle tue nuove funzioni, entri a far parte di un team a misura d'uomo (15 persone) nel sito di Nyon nel reparto di fisioterapia. Mansioni Nel suo nuovo ruolo di fisioterapista, lei: - si prende cura dei pazienti ospedalizzati (medicina, chirurgia, neurologia, ortopedia, terapia intensiva, pediatria) nonché dei pazienti ambulatoriali. - Stabilire una diagnosi fisioterapica e costruire un adeguato programma di cure riabilitative. - Implementa le tue capacità di fisioterapista in interdisciplinarietà\n• Requisiti Il tuo successo nelle tue nuove funzioni sarà favorito da: - Un'esperienza ospedaliera di successo sarebbe un vantaggio, tuttavia i nuovi diplomati sono i benvenuti- Una sensibilità per un approccio individualizzato al paziente - Capacità riconosciute di empatia e comunicazione efficiente - Un'aspirazione a lavorare in team Formazione Livello di formazione: - Bachelor of Science SUP- SO in Fisioterapia o un diploma equivalente riconosciuto dalla",
-        "en": "Descrizione The GHOL is the reference regional hospital for the Lake Geneva West with its structures on Nyon and Rolle. Joining us means taking the opportunity to work daily with more than 900 employees to ensure the health and well-being of patients and their families. Open position at a rate between 80 and 100% . Job Description: In your new role, you join a human-sized team (15 people) at the Nyon site in the physiotherapy department. Mansioni In your new role as physiotherapist, you: - Take care of inpatients (medicine, surgery, neurology, orthopaedics, intensive care, pediatrics) as well as outpatients. - Establish a physiotherapeutic diagnosis and build an adapted rehabilitation care program. - Implement your skills as a physiotherapist in interdisciplinarity\n• Requisiti Your success in your new functions will be promoted by: - A successful experience in a hospital environment would be an asset however newgraduates are welcome- A sensitivity to an individualized approach to the patient - Recognized abilities to show empathy and communicate efficiently - An aspiration to work in a team Formazione Level of training: - Bachelor of Science HES-SO in Physiotherapy or an equivalent diploma recognized by the",
-        "de": "Descrizione Das GHOL ist das regionale Referenzkrankenhaus für den Genfersee-Westen mit seinen Strukturen in Nyon und Rolle. Bei uns zu sein bedeutet, die Gelegenheit zu nutzen, täglich mit mehr als 900 Mitarbeiter * innen zusammenzuarbeiten, um die Gesundheit und das Wohlbefinden der Patient*innen und ihrer Familien zu gewährleisten. Offene Position mit einer Rate zwischen 80 und 100% . Stellenbeschreibung: In Ihrer neuen Funktion schließen Sie sich einem überschaubaren Team (15 Personen) am Standort Nyon in der Physiotherapie-Abteilung an. Mansioni In Ihrer neuen Rolle als Physiotherapeut/in betreuen Sie: - stationäre Patient/innen (Medizin, Chirurgie, Neurologie, Orthopädie, Intensivmedizin, Pädiatrie) sowie ambulante Patient/innen. - Stellen Sie eine physiotherapeutische Diagnose und erstellen Sie ein passendes Rehabilitationsprogramm. - Setzen Sie Ihre Fähigkeiten als Physiotherapeutin interdisziplinär ein\n• Requisiti Ihr Erfolg in Ihren neuen Funktionen wird gefördert durch: - Eine erfolgreiche Erfahrung im Krankenhaus wäre von Vorteil, aber neue Absolventen sind willkommen- Sensibilität für eine individuelle Herangehensweise an den Patienten - Anerkannte Fähigkeiten, Empathie zu zeigen und effizient zu kommunizieren - Bestreben, in einem Team zu arbeiten Formazione Bildungsniveau: - Bachelor of Science FH-SO in Physiotherapie oder einem gleichwertigen Abschluss, der von der",
-        "fr": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille. Poste ouvert à un taux entre 80 et 100% . Description du poste : Dans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie. Dans votre nouveau rôle de physiothérapeute, vous :\n• Prenez en charge des patients·es hospitalisés·ées (médecine, chirurgie, neurologie, orthopédie, soins intensifs, pédiatrie) ainsi que des patients·es ambulatoires.\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité Profil requis : Votre succès dans vos nouvelles fonctions sera favorisé par :\n• Une expérience réussie en milieu hospitalier serait un atout cependant les nouveaux·velles diplômé·e·s sont les bienvenus·es\n• Une sensibilité à une approche individualisée du patient\n• Des capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n• Une aspiration à travailler en équipe Niveau de formation : Bachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé) Avantages : Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et à l’opportunité d’intervenir dans les différentes spécialités que propose l’établissement. Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique) Intéressé(e) par ce challenge ? Alors adressez-nous votre candidature !"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "url": "https://app.beehire.com/invite/bpjuF3PTM",
-      "applyUrl": "https://app.beehire.com/invite/bpjuF3PTM",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-02T21:47:49.688Z",
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza positiva in un ambiente ospedaliero",
-          "Sensibilità per un approccio individuale al paziente",
-          "Competenze riconosciute nel dimostrare empatia e comunicare in modo efficace",
-          "Desiderio di lavorare in squadra"
-        ],
-        "en": [
-          "Successful experience in a hospital environment",
-          "Sensitivity to an individualized approach to the patient",
-          "Recognized skills in demonstrating empathy and communicating effectively",
-          "Desire to work in a team"
-        ],
-        "de": [
-          "Erfolgreiche Erfahrung in einer Krankenhausumgebung",
-          "Sensibilität für einen individualisierten Ansatz bei Patienten",
-          "Erkannte Fähigkeiten bei der Demonstration von Empathie und effektiver Kommunikation",
-          "Verlangen, im Team zu arbeiten"
-        ]
-      },
-      "previousSlugs": [
-        "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermieri-che-di-cure-intensive-intermedie-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infirmier-iere-soins-intensifs-intermediaires-groupement-hospitalier-de-l-ouest-lemanique",
-        "intensive-intermediate-care-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "intensiv-intermediatepfleger-in-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiere-a-cure-intensive-cdd-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infirmier-iere-soins-intensifs-cdd-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "intensive-care-nurse-fixed-term-contract-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "intensivpfleger-in-befristet-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "direttore-risorse-umane-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "hr-director-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "personalleiter-in-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "directeur-trice-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "elettricista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "electrician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "elektriker-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "electricien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-05-20T05:15:42.712Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ghol-1be9997cdcbd",
-      "slug": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "clinical-respondent-specialized-in-surgical-instrumentation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "klinische-respondentin-spezialisiert-auf-chirurgische-instrumente-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Répondant·e clinique spécialisé·e en instrumentation chirurgicale",
-      "titleByLocale": {
-        "it": "Risponsabile clinico specializzato nella strumentazione chirurgica",
-        "en": "Clinical respondent specialized in surgical instrumentation",
-        "de": "Klinische Respondentin, spezialisiert auf chirurgische Instrumente",
-        "fr": "Répondant·e clinique spécialisé·e en instrumentation chirurgicale"
-      },
-      "description": "Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions auront un impact sur la qualité de prise en charge des patient·e·s. Votre rôle consistera notamment à :\n\n• Expertise Clinique : vous êtes la référence. Vous implémentez les meilleures pratiques (Evidence Based Practice) et veillez à ce que les recommandations de sécurité (Médecine Santé et Sécurité au Travail) et d’hygiène (Hygiène Prévention et Contrôle de l’infection) ne soient pas juste des documents, mais une réalité vécue sur le terrain. Vous encadrez, formez et accompagnez notre équipe.\n\n• Transmission & Coaching : en binôme avec l’ICS, vous accueillez et formez les nouveaux collaborateurs·trices et soutenez le développement de tous les membres de l’équipe. Vous suscitez le questionnement au sein de l’équipe et pilotez des projets de développement de techniques de soins innovantes. Vous transformez le potentiel en compétence.\n\n• Pilotage & Organisation : en vous appuyant sur les indicateurs de performance (type ANAP), vous participez à l’optimisation de l'offre de soins Exigences et savoir-être : faire preuve de rigueur, initiative et loyauté, tout en travaillant en équipe avec flexibilité et créativité, dans le respect de la confidentialité et des règles institutionnelles. Vous réalisez vos missions en étroite relation avec l’équipe soignante et médicale.\n Profil requis :\n\n• Un diplôme en instrumentation chirurgicale (infirmier·ière diplômé·e du domaine opératoire, technicien·ne de salle d’opération avec une solide expérience en bloc opératoire) idéalement avec une spécialisation ou un intérêt marqué pour la formation/qualité .\n\n• 5 ans de pratique en instrumentation au sein d’un bloc opératoire\n\n• Une maîtrise du cadre légal suisse et des normes de sécurité\n\n• ​Un leadership naturel : vous savez convaincre plutôt qu'imposer.\n\n• Une rigueur scientifique alliée à un pragmatisme de terrain.\n Pourquoi nous rejoindre ?\n Ici, on travaille « sérieusement sans se prendre au sérieux ». Nous vous offrons un cadre où votre autonomie est respectée et où vos projets de développement de soins seront soutenus.\n Véritable spécialiste clinique, dans votre nouveau rôle, vous pouvez désormais vous investir dans le développement et l’optimisation des pratiques de soins dans le domaine de l’instrumentation.",
-      "descriptionByLocale": {
-        "it": "Descrizione della posizione: Nei vostri nuovi doveri, le vostre missioni avranno un impatto sulla qualità della cura del paziente. Il vostro ruolo includerà:\n• Competenza clinica: siete il riferimento. L'utente implementa le migliori pratiche (Evidence Based Practice) e assicura che le raccomandazioni di sicurezza (Health and Safety at Work) e l'igiene (Health Prevention and Infection Control) non siano solo documenti, ma una realtà a terra. Incorniciate, allenatevi e accompagnate la nostra squadra.\n• Transmission & Coaching: In coppia con ICS, si accolgono e formare nuovi dipendenti e sostenere lo sviluppo di tutti i membri del team. Si pone domande all'interno del team e progetti pilota per sviluppare tecniche di cura innovative. Trasforma il potenziale in competenza.\n• Pilotage & Organisation: Usando gli indicatori di performance (tipoANAP), sei coinvolto nell'ottimizzazione dell'offerta di cure Requisiti e know-how: esercitare rigore, iniziativa e lealtà, mentre lavori come team con flessibilità e creatività, nel rispetto della riservatezza e delle regole istituzionali. Esegui le tue missioni in stretto contatto con il team sanitario e medico. Profilo richiesto:\n• Un diploma in strumentazione chirurgica (un'infermiera laureata nel campo della chirurgia, tecnico della sala operatoria con una solida esperienza di unità operativa) idealmente con una specializzazione o un forte interesse per la formazione / qualità.\n• 5 anni di pratica strumentale in un'unità operativa\n• Una padronanza del quadro giuridico svizzero e degli standard di sicurezza\n• Una leadership naturale: sai come convincere piuttosto che imporre.\n• Rigor scientifico combinato con il pragmatismo sul campo. Perché unirsi a noi? Qui, lavoriamo \"seriosamente senza prenderci sul serio\". Vi offriamo un quadro in cui la vostra autonomia è rispettata e dove i vostri progetti di sviluppo della cura saranno sostenuti. Un vero specialista clinico, nel tuo nuovo ruolo, ora puoi investire nello sviluppo e nell'ottimizzazione delle pratiche sanitarie nel campo della strumentazione.",
-        "en": "Position Description: In your new duties, your missions will have an impact on the quality of patient care. Your role will include:\n• Clinical expertise: you are the reference. You implement best practices (Evidence Based Practice) and ensure that safety recommendations (Health and Safety at Work) and hygiene (Health Prevention and Infection Control) are not just documents, but a reality on the ground. You frame, train and accompany our team.\n• Transmission & Coaching: In pairs with ICS, you welcome and train new employees and support the development of all team members. You raise questions within the team and pilot projects to develop innovative care techniques. You turn potential into competence.\n• Pilotage & Organisation: By using the performance indicators (ANAP type), you are involved in optimising the care offer Requirements and know-how: to exercise rigour, initiative and loyalty, while working as a team with flexibility and creativity, respecting confidentiality and institutional rules. You perform your missions in close contact with the healthcare and medical team. Profile required:\n• A diploma in surgical instrumentation (a graduate nurse in the field of surgery, operating room technician with a solid operating unit experience) ideally with a specialization or a strong interest in training/quality.\n• 5 years of instrumentation practice in an operating unit\n• A mastery of the Swiss legal framework and safety standards\n• A natural leadership: you know how to convince rather than impose.\n• Scientific rigor combined with field pragmatism. Why join us? Here, we work \"seriously without taking ourselves seriously\". We offer you a framework where your autonomy is respected and where your care development projects will be supported. A true clinical specialist, in your new role, you can now invest in the development and optimization of healthcare practices in the field of instrumentation.",
-        "de": "Positionsbeschreibung: In Ihren neuen Aufgaben werden sich Ihre Missionen auf die Qualität der Patientenversorgung auswirken. Ihre Rolle umfasst:\n• Klinische Expertise: Sie sind die Referenz. Sie implementieren Best Practices (Evidence Based Practice) und stellen sicher, dass Sicherheitsempfehlungen (Health and Safety at Work) und Hygiene (Health Prevention and Infection Control) nicht nur Dokumente sind, sondern eine Realität vor Ort. Sie gestalten, trainieren und begleiten unser Team.\n• Transmission & Coaching: In Paaren mit ICS begrüßen und schulen Sie neue Mitarbeiter und unterstützen die Entwicklung aller Teammitglieder. Sie stellen Fragen innerhalb des Teams und Pilotprojekte zur Entwicklung innovativer Pflegetechniken. Sie verwandeln Potenzial in Kompetenz.\n• Pilotage & Organisation: Durch die Verwendung der Leistungsindikatoren (ANAP-Typ) sind Sie an der Optimierung des Pflegeangebots beteiligt Anforderungen und Know-how: Strenge, Initiative und Loyalität, während Sie als Team mit Flexibilität und Kreativität arbeiten und Vertraulichkeit und institutionelle Regeln respektieren. Sie erfüllen Ihre Missionen in engem Kontakt mit dem Gesundheits- und Medizinteam. Profil erforderlich:\n• Ein Diplom in chirurgischen Instrumenten (ein Diplom-Krankenschwester im Bereich der Chirurgie, Operationssaaltechniker mit einer soliden Operationseinheit Erfahrung) idealerweise mit einer Spezialisierung oder einem starken Interesse an Ausbildung / Qualität.\n• 5 Jahre Instrumentierungspraxis in einer operativen Einheit\n• Die Beherrschung des schweizerischen Rechtsrahmens und der Sicherheitsstandards\n• Eine natürliche Führung: Sie wissen, wie man überzeugt, anstatt es durchzusetzen.\n• Wissenschaftliche Strenge kombiniert mit Feldpragmatismus. Warum mitmachen? Hier arbeiten wir \"ernsthaft, ohne uns selbst ernst zu nehmen\". Wir bieten Ihnen einen Rahmen, in dem Ihre Autonomie respektiert wird und in dem Ihre Pflegeentwicklungsprojekte unterstützt werden. Ein echter klinischer Spezialist, in Ihrer neuen Rolle können Sie jetzt in die Entwicklung und Optimierung von Gesundheitspraktiken im Bereich der Instrumentierung investieren.",
-        "fr": "Descriptif du poste : Dans vos nouvelles fonctions, vos missions auront un impact sur la qualité de prise en charge des patient·e·s. Votre rôle consistera notamment à :\n• Expertise Clinique : vous êtes la référence. Vous implémentez les meilleures pratiques (Evidence Based Practice) et veillez à ce que les recommandations de sécurité (Médecine Santé et Sécurité au Travail) et d’hygiène (Hygiène Prévention et Contrôle de l’infection) ne soient pas juste des documents, mais une réalité vécue sur le terrain. Vous encadrez, formez et accompagnez notre équipe.\n• Transmission & Coaching : en binôme avec l’ICS, vous accueillez et formez les nouveaux collaborateurs·trices et soutenez le développement de tous les membres de l’équipe. Vous suscitez le questionnement au sein de l’équipe et pilotez des projets de développement de techniques de soins innovantes. Vous transformez le potentiel en compétence.\n• Pilotage & Organisation : en vous appuyant sur les indicateurs de performance (type ANAP), vous participez à l’optimisation de l'offre de soins Exigences et savoir-être : faire preuve de rigueur, initiative et loyauté, tout en travaillant en équipe avec flexibilité et créativité, dans le respect de la confidentialité et des règles institutionnelles. Vous réalisez vos missions en étroite relation avec l’équipe soignante et médicale. Profil requis :\n• Un diplôme en instrumentation chirurgicale (infirmier·ière diplômé·e du domaine opératoire, technicien·ne de salle d’opération avec une solide expérience en bloc opératoire) idéalement avec une spécialisation ou un intérêt marqué pour la formation/qualité .\n• 5 ans de pratique en instrumentation au sein d’un bloc opératoire\n• Une maîtrise du cadre légal suisse et des normes de sécurité\n• ​Un leadership naturel : vous savez convaincre plutôt qu'imposer.\n• Une rigueur scientifique alliée à un pragmatisme de terrain. Pourquoi nous rejoindre ? Ici, on travaille « sérieusement sans se prendre au sérieux ». Nous vous offrons un cadre où votre autonomie est respectée et où vos projets de développement de soins seront soutenus. Véritable spécialiste clinique, dans votre nouveau rôle, vous pouvez désormais vous investir dans le développement et l’optimisation des pratiques de soins dans le domaine de l’instrumentation."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://app.beehire.com/invite/etyOQWpII",
-      "applyUrl": "https://app.beehire.com/invite/etyOQWpII",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-02T21:47:49.682Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-        ],
-        "en": [
-          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-        ],
-        "de": [
-          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T14:27:39.539Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
