@@ -695,6 +695,70 @@ export const COMPANY_HQ = {
   // jobs.ch company-profile Organization JSON-LD (both known company ids
   // resolve to the same address) and gim.ch imprint/contact page.
   'gim-architekten': { city: 'Bern', canton: 'BE', postalCode: '3013', addressRegion: 'BE' },
+  // HORNBACH Baumarkt (Schweiz) AG HQ, Schellenrain 9, 6210 Sursee LU —
+  // confirmed via the company's own Impressum (jobs.hornbach.ch/impressum),
+  // cross-checked against Zefix (uid CHE-101.079.884, legal seat Oberkirch
+  // LU) and Moneyhouse (same street/postal-code/city). Individual Swiss
+  // branch postings outside Sursee use their own city-gated address in
+  // scripts/lib/hornbach-job-parser.mjs; this entry is only the HQ fallback.
+  'hornbach': { city: 'Sursee', canton: 'LU', postalCode: '6210', addressRegion: 'LU' },
+  // NEW YORKER (Schweiz) GmbH, Rietbrunnen 2, 8808 Pfäffikon SZ (legal seat
+  // registered as the municipality "Freienbach"), UID CHE-112.007.794 —
+  // confirmed via the official Zefix REST API
+  // (zefix.ch/ZefixREST/api/v1/firm/768755.json) AND cross-checked against
+  // northdata.com + moneyhouse.ch (see scripts/lib/new-yorker-job-parser.mjs
+  // docblock for full source detail). No stores are actually posted at this
+  // address — see the city-gated `resolveAddress()` in that parser for the
+  // per-store street (the retail chain spans 8+ Swiss cantons).
+  'new-yorker': { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808', addressRegion: 'SZ' },
+  // Rue de Bourg 16, 1003 Lausanne (VD) — Kiabi Suisse SA's registered legal
+  // seat (Moneyhouse CHE-442.567.929 + local.ch/FOSC gazette entry, both
+  // agree). This is a fiduciary/law-firm domiciliation ("c/o LEGAL INSIGHTS
+  // Sàrl"), NOT an operational site — Kiabi Suisse's actual stores are
+  // Fribourg-Sud (Villars-sur-Glâne FR) and Marin Centre (Marin-Epagnier NE),
+  // both opened April 2026. See scripts/lib/kiabi-job-parser.mjs for the
+  // city-gated resolveAddress() that keeps this fallback scoped to a literal
+  // "Lausanne" match only.
+  'kiabi': { city: 'Lausanne', canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
+  // Josef Müller Gemüse AG HQ, Rothusstrasse 26, 6331 Hünenberg ZG — legal
+  // entity confirmed via Zefix/Moneyhouse/North Data (UID CHE-100.379.852,
+  // legal seat Hünenberg). Address cross-checked across THREE independent
+  // sources: jobs.ch company-profile JSON-LD, the company's own
+  // muellergemuese.com site footer, and North Data's Handelsregister
+  // mirror — all three agree exactly. City-gated in
+  // scripts/lib/josef-mueller-job-parser.mjs's `resolveAddress()`.
+  'josef-mueller': { city: 'Hünenberg', canton: 'ZG', postalCode: '6331', addressRegion: 'ZG' },
+  // Kuhn Rikon AG HQ, Neschwilerstrasse 4, 8486 Rikon im Tösstal ZH — confirmed
+  // via (1) the company's own JSON-LD Organization block + Impressum page
+  // (kuhnrikon.com), (2) Northdata's mirror of the Zefix commercial register
+  // entry (CHE-102.058.330, "KUHN RIKON AG, Rikon im Tösstal"), (3) search.ch
+  // directory listing. City-gated fallback only — see `resolveAddress()` in
+  // scripts/lib/kuhn-rikon-job-parser.mjs (per-outlet postings, e.g. Landquart/
+  // Genève, keep their own street address; only a Rikon-city posting or an
+  // empty city inherits this HQ street).
+  'kuhn-rikon': { city: 'Rikon im Tösstal', canton: 'ZH', postalCode: '8486', addressRegion: 'ZH' },
+  // migrolino AG HQ, Wynenfeldstrasse 3, 5034 Suhr AG — confirmed via 3
+  // independent sources: the company's own JSON-LD (LocalBusiness +
+  // JobPosting) on migrolino.ch/migrolino-ag.ch, help.ch Handelsregister
+  // (UID CHE-105.489.643), and Moneyhouse/NorthData. migrolino is a
+  // convenience-store chain with ~700 shop locations nationwide — per-job
+  // addresses come from the shared jobs.migros.ch JobPosting JSON-LD
+  // (real per-store address); this HQ entry is only the city-gated
+  // fallback for HQ/regional roles, see resolveAddress() in
+  // scripts/lib/migrolino-job-parser.mjs.
+  'migrolino': { city: 'Suhr', canton: 'AG', postalCode: '5034', addressRegion: 'AG' },
+  // Holmes Place (Schweiz) GmbH HQ, Seestrasse 97, 8942 Oberrieden ZH —
+  // confirmed via 2 independent sources: Zefix (Swiss commercial register
+  // public API, firm search "Holmes Place") + jobs.ch company profile page
+  // (independent third-party listing), both agreeing on this address. Legal
+  // form converted AG → GmbH in 2024 (SHAB-confirmed via Zefix mutation
+  // history) — several third-party sources (jobs.ch prose, general web
+  // results) still say "Holmes Place AG"; that is stale. Holmes Place runs
+  // MULTIPLE gym branches across Switzerland (Zürich x2, Genève, Lausanne) —
+  // the per-branch street address lives in the city/branch-gated
+  // `resolveAddress()` in scripts/lib/holmes-place-job-parser.mjs; this HQ
+  // entry is only the generic canton/postal fallback.
+  'holmes-place': { city: 'Oberrieden', canton: 'ZH', postalCode: '8942', addressRegion: 'ZH' },
 };
 
 /**
