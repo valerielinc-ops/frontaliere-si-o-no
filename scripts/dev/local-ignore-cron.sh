@@ -129,7 +129,11 @@ case "$cmd" in
     fi
     git pull --rebase "$@"
     if [ "$stashed" = "1" ]; then
-      git stash pop >/dev/null || true
+      if ! git stash pop >/dev/null; then
+        echo "error: failed to restore stashed changes after pull --rebase (conflict with rebased tree)." >&2
+        echo "Stash left in stack for manual recovery — resolve, then re-run '$0 apply' yourself." >&2
+        exit 1
+      fi
     fi
     "$0" apply
     ;;
