@@ -88,6 +88,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'ameos-ch': cLogo('karriere.ameos.eu'),
  'amina-bank': cLogo('amina.jobs.personio.com'),
  'amministrazione-cantonale-ti': gFavicon('ti.ch'),
+ 'amstein-walthert': cLogo('amstein-walthert.ch'),
  'apple-retail-switzerland': cLogo('jobs.apple.com'),
  'anybotics': cLogo('anybotics.com'),
  'ardentis': cLogo('ardentis.ch'),
