@@ -1,18 +1,19 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-07-04T10:25:57.796Z",
+  "generatedAt": "2026-07-04T21:38:09.882Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4491,
-  "avgDurationMs": 4491,
+  "durationMs": 5318,
+  "avgDurationMs": 5318,
   "durationHistory": [
-    4491
+    5318
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clariant-0f4a3cc6e705",
       "slug": "intern-corporate-strategy-innovation-clariant-pratteln",
@@ -25,7 +26,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T10:25:55.536Z",
+      "crawledAt": "2026-07-04T21:38:07.457Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -41,16 +42,16 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
       "jobReqId": "41492",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-07-04T10:25:55.536Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
