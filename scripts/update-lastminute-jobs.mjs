@@ -39,6 +39,7 @@ import {
   normalize,
   normalizeKey,
   mergeLocaleTextMap,
+  hasFullLocaleCoverage,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   extractSrIdFromUrl,
@@ -649,6 +650,15 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
     if (existing) {
       // Only replace if SR API content is richer
       if (detail.description.length > (existing.description || '').length * 0.8) {
+        // Snapshot BEFORE mergeLocaleTextMap below mutates descriptionByLocale
+        // (issue #3442): this enrichment loop runs after runDedicatedBaseCrawler,
+        // so the merge-time translation stability lock in
+        // dedicated-crawler-common.mjs never sees this job. Without this guard,
+        // an already fully-translated job gets re-flagged (and re-translated,
+        // with MT non-determinism churning slugByLocale) every time the SR API
+        // returns a description within 20% of the current length — which is
+        // most re-crawls, not just genuine content changes.
+        const wasFullyLocalized = hasFullLocaleCoverage(existing);
         existing.description = detail.description;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
         existing.descriptionByLocale = mergeLocaleTextMap(
@@ -657,7 +667,9 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
           30,
         );
         // Mark for re-translation so AI refreshes IT/DE/FR from the richer English
-        existing.needsRetranslation = true;
+        if (!wasFullyLocalized) {
+          existing.needsRetranslation = true;
+        }
         existing.title = detail.title || existing.title;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
         existing.location = detail.location || existing.location || 'Chiasso';
