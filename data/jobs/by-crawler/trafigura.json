@@ -84,7 +84,7 @@
       "slugByLocale": {
         "en": "risk-quant-analyst-trafigura-ch",
         "it": "risk-quant-analyst-trafigura-ch",
-        "de": "risk-quant-analyst-trafigura-ch",
+        "de": "risikoquantenanalytiker-trafigura-geneva",
         "fr": "risk-quant-analyst-trafigura-ch"
       },
       "company": "Trafigura",
@@ -150,7 +150,7 @@
         "en": "senior-gas-originator-trafigura-ch",
         "it": "senior-gas-originator-trafigura-ch",
         "de": "senior-gas-originator-trafigura-ch",
-        "fr": "senior-gas-originator-trafigura-ch"
+        "fr": "auteur-principal-de-gaz-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -210,12 +210,12 @@
     },
     {
       "id": "trafigura-01401977788d",
-      "slug": "market-risk-manager-oil-products-trafigura-ch",
+      "slug": "market-risk-manager-prodotti-petroliferi-trafigura-geneva",
       "slugByLocale": {
         "en": "market-risk-manager-oil-products-trafigura-ch",
-        "it": "market-risk-manager-oil-products-trafigura-ch",
+        "it": "market-risk-manager-prodotti-petroliferi-trafigura-geneva",
         "de": "market-risk-manager-oil-products-trafigura-ch",
-        "fr": "market-risk-manager-oil-products-trafigura-ch"
+        "fr": "gestionnaire-des-risques-du-marche-produits-petroliers-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -271,7 +271,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-03T23:40:58.890Z"
+      "firstSeenAt": "2026-07-03T23:40:58.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-risk-manager-oil-products-trafigura-ch"
+        ],
+        "fr": [
+          "market-risk-manager-oil-products-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "market-risk-manager-oil-products-trafigura-ch"
+      ]
     },
     {
       "id": "trafigura-f8f26ef992eb",
@@ -280,7 +291,7 @@
         "en": "precious-metals-trade-finance-officer-trafigura-ch",
         "it": "precious-metals-trade-finance-officer-trafigura-ch",
         "de": "precious-metals-trade-finance-officer-trafigura-ch",
-        "fr": "precious-metals-trade-finance-officer-trafigura-ch"
+        "fr": "agent-des-finances-commerciales-des-metaux-precieux-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -470,12 +481,12 @@
     },
     {
       "id": "trafigura-de6b5a1f5e62",
-      "slug": "geneva-commercial-graduate-programme-trafigura-ch",
+      "slug": "programma-di-laurea-commerciale-di-ginevra-trafigura-geneva",
       "slugByLocale": {
         "en": "geneva-commercial-graduate-programme-trafigura-ch",
-        "it": "geneva-commercial-graduate-programme-trafigura-ch",
-        "de": "geneva-commercial-graduate-programme-trafigura-ch",
-        "fr": "geneva-commercial-graduate-programme-trafigura-ch"
+        "it": "programma-di-laurea-commerciale-di-ginevra-trafigura-geneva",
+        "de": "genf-commercial-graduate-programm-trafigura-geneva",
+        "fr": "programme-des-diplomes-en-commerce-de-geneve-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
@@ -531,7 +542,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-07-03T23:40:55.303Z"
+      "firstSeenAt": "2026-07-03T23:40:55.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geneva-commercial-graduate-programme-trafigura-ch"
+        ],
+        "de": [
+          "geneva-commercial-graduate-programme-trafigura-ch"
+        ],
+        "fr": [
+          "geneva-commercial-graduate-programme-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "geneva-commercial-graduate-programme-trafigura-ch"
+      ]
     }
   ]
 }

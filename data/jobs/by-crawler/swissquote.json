@@ -136,12 +136,12 @@
     },
     {
       "id": "swissquote-cea795446be0",
-      "slug": "product-owner-institutional-wealth-swissquote-gland",
+      "slug": "proprietario-del-prodotto-istituzionale-ricchezza-swissquote-gland",
       "slugByLocale": {
         "en": "product-owner-institutional-wealth-swissquote-gland",
-        "it": "product-owner-institutional-wealth-swissquote-gland",
+        "it": "proprietario-del-prodotto-istituzionale-ricchezza-swissquote-gland",
         "de": "product-owner-institutional-wealth-swissquote-gland",
-        "fr": "product-owner-institutional-wealth-swissquote-gland"
+        "fr": "proprietaire-du-produit-institutional-wealth-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -198,16 +198,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:37:13.820Z"
+      "firstSeenAt": "2026-07-03T23:37:13.820Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-institutional-wealth-swissquote-gland"
+        ],
+        "fr": [
+          "product-owner-institutional-wealth-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-institutional-wealth-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-21d5c63d1263",
-      "slug": "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland",
+      "slug": "agente-compliance-aggiunto-onboarding-private-5-mesi-swissquote-gland",
       "slugByLocale": {
         "en": "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland",
-        "it": "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland",
+        "it": "agente-compliance-aggiunto-onboarding-private-5-mesi-swissquote-gland",
         "de": "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland",
-        "fr": "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland"
+        "fr": "agent-de-conformite-adjoint-a-bord-prive-5-mois-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -264,7 +275,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:37:13.818Z"
+      "firstSeenAt": "2026-07-03T23:37:13.818Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland"
+        ],
+        "fr": [
+          "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "deputy-compliance-officer-onboarding-private-5-months-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-7e1352abe2ad",
@@ -339,7 +361,7 @@
         "en": "compliance-officer-onboarding-corporate-9-months-contract-swissquote-gland",
         "it": "compliance-officer-onboarding-corporate-9-months-contract-swissquote-gland",
         "de": "compliance-officer-onboarding-corporate-9-months-contract-swissquote-gland",
-        "fr": "compliance-officer-onboarding-corporate-9-months-contract-swissquote-gland"
+        "fr": "agent-de-conformite-entreprise-embarquee-contrat-de-9-mois-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -405,7 +427,7 @@
         "en": "document-digitization-records-management-agent-swissquote-gland",
         "it": "document-digitization-records-management-agent-swissquote-gland",
         "de": "document-digitization-records-management-agent-swissquote-gland",
-        "fr": "document-digitization-records-management-agent-swissquote-gland"
+        "fr": "numerisation-de-documents-et-agent-de-gestion-des-dossiers-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -471,7 +493,7 @@
         "en": "junior-business-application-support-swissquote-gland",
         "it": "junior-business-application-support-swissquote-gland",
         "de": "junior-business-application-support-swissquote-gland",
-        "fr": "junior-business-application-support-swissquote-gland"
+        "fr": "soutien-aux-petites-entreprises-et-aux-applications-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -603,7 +625,7 @@
         "en": "post-execution-officer-swissquote-gland",
         "it": "post-execution-officer-swissquote-gland",
         "de": "post-execution-officer-swissquote-gland",
-        "fr": "post-execution-officer-swissquote-gland"
+        "fr": "agent-d-execution-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -669,7 +691,7 @@
         "en": "settlement-officer-retail-team-swissquote-gland",
         "it": "settlement-officer-retail-team-swissquote-gland",
         "de": "settlement-officer-retail-team-swissquote-gland",
-        "fr": "settlement-officer-retail-team-swissquote-gland"
+        "fr": "agent-de-reglement-equipe-de-vente-au-detail-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -878,7 +900,7 @@
         "en": "settlement-officer-institutional-team-swissquote-gland",
         "it": "settlement-officer-institutional-team-swissquote-gland",
         "de": "settlement-officer-institutional-team-swissquote-gland",
-        "fr": "settlement-officer-institutional-team-swissquote-gland"
+        "fr": "agent-de-reglement-equipe-institutionnelle-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -944,7 +966,7 @@
         "en": "customer-care-representative-20-swissquote-dubendorf",
         "it": "customer-care-representative-20-swissquote-dubendorf",
         "de": "customer-care-representative-20-swissquote-dubendorf",
-        "fr": "customer-care-representative-20-swissquote-dubendorf"
+        "fr": "representant-du-service-a-la-clientele-20-swissquote-dubendorf"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1071,12 +1093,12 @@
     },
     {
       "id": "swissquote-831d2af99097",
-      "slug": "customer-care-representative-swissquote-dubendorf",
+      "slug": "rappresentante-del-cliente-swissquote-dubendorf",
       "slugByLocale": {
         "en": "customer-care-representative-swissquote-dubendorf",
-        "it": "customer-care-representative-swissquote-dubendorf",
+        "it": "rappresentante-del-cliente-swissquote-dubendorf",
         "de": "customer-care-representative-swissquote-dubendorf",
-        "fr": "customer-care-representative-swissquote-dubendorf"
+        "fr": "representant-du-service-clientele-swissquote-dubendorf"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1133,7 +1155,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:37:13.790Z"
+      "firstSeenAt": "2026-07-03T23:37:13.790Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-care-representative-swissquote-dubendorf"
+        ],
+        "fr": [
+          "customer-care-representative-swissquote-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "customer-care-representative-swissquote-dubendorf"
+      ]
     },
     {
       "id": "swissquote-23ebd4ae9025",
@@ -1203,12 +1236,12 @@
     },
     {
       "id": "swissquote-d9355f617195",
-      "slug": "design-manager-swissquote-gland",
+      "slug": "responsabile-design-swissquote-gland",
       "slugByLocale": {
         "en": "design-manager-swissquote-gland",
-        "it": "design-manager-swissquote-gland",
-        "de": "design-manager-swissquote-gland",
-        "fr": "design-manager-swissquote-gland"
+        "it": "responsabile-design-swissquote-gland",
+        "de": "entwurfsleiter-swissquote-gland",
+        "fr": "gestionnaire-de-conception-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1265,7 +1298,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:37:13.783Z"
+      "firstSeenAt": "2026-07-03T23:37:13.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "design-manager-swissquote-gland"
+        ],
+        "de": [
+          "design-manager-swissquote-gland"
+        ],
+        "fr": [
+          "design-manager-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "design-manager-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-f82a877dede4",
@@ -1274,7 +1321,7 @@
         "en": "senior-legal-officer-swissquote-gland",
         "it": "senior-legal-officer-swissquote-gland",
         "de": "senior-legal-officer-swissquote-gland",
-        "fr": "senior-legal-officer-swissquote-gland"
+        "fr": "juriste-hors-classe-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",

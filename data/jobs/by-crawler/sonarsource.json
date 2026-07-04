@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sonarsource-ac3e5b1dc0bc",
-      "slug": "vp-domain-leader-sonarsource-ch",
+      "slug": "leader-del-dominio-vp-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "vp-domain-leader-sonarsource-ch",
-        "it": "vp-domain-leader-sonarsource-ch",
+        "it": "leader-del-dominio-vp-sonarsource-sonar-geneva",
         "de": "vp-domain-leader-sonarsource-sonar-geneva",
-        "fr": "vp-domain-leader-sonarsource-ch"
+        "fr": "vp-chef-de-domaine-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -64,14 +64,25 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:45.827Z"
+      "firstSeenAt": "2026-07-03T23:17:45.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vp-domain-leader-sonarsource-ch"
+        ],
+        "fr": [
+          "vp-domain-leader-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vp-domain-leader-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-717344024479",
-      "slug": "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
+      "slug": "responsabile-del-prodotto-tecnico-qualita-del-codice-f-m-d-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
-        "it": "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
+        "it": "responsabile-del-prodotto-tecnico-qualita-del-codice-f-m-d-sonarsource-sonar-geneva",
         "de": "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
         "fr": "technical-product-manager-code-quality-f-m-d-sonarsource-ch"
       },
@@ -128,14 +139,22 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:45.525Z"
+      "firstSeenAt": "2026-07-03T23:17:45.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-manager-code-quality-f-m-d-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-manager-code-quality-f-m-d-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-572b49e7791c",
-      "slug": "technical-product-manager-code-quality-sonarsource-ch",
+      "slug": "responsabile-del-prodotto-tecnico-codice-qualita-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "technical-product-manager-code-quality-sonarsource-ch",
-        "it": "technical-product-manager-code-quality-sonarsource-ch",
+        "it": "responsabile-del-prodotto-tecnico-codice-qualita-sonarsource-sonar-geneva",
         "de": "technical-product-manager-code-quality-sonarsource-ch",
         "fr": "technical-product-manager-code-quality-sonarsource-ch"
       },
@@ -192,7 +211,15 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:45.224Z"
+      "firstSeenAt": "2026-07-03T23:17:45.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-manager-code-quality-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-manager-code-quality-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-610c905855c1",
@@ -200,8 +227,8 @@
       "slugByLocale": {
         "en": "technical-account-manager-technical-advisory-sonarsource-ch",
         "it": "technical-account-manager-technical-advisory-sonarsource-ch",
-        "de": "technical-account-manager-technical-advisory-sonarsource-ch",
-        "fr": "technical-account-manager-technical-advisory-sonarsource-ch"
+        "de": "technischer-account-manager-technische-beratung-sonarsource-sonar-geneva",
+        "fr": "gestionnaire-de-comptes-techniques-conseil-technique-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -591,12 +618,12 @@
     },
     {
       "id": "sonarsource-72dcff8e007b",
-      "slug": "sales-development-representative-sonarsource-ch",
+      "slug": "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "sales-development-representative-sonarsource-ch",
-        "it": "sales-development-representative-sonarsource-ch",
-        "de": "sales-development-representative-sonarsource-ch",
-        "fr": "sales-development-representative-sonarsource-ch"
+        "it": "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva",
+        "de": "vertriebsentwicklungsbeauftragter-sonarsource-sonar-geneva",
+        "fr": "representant-pour-le-developpement-des-ventes-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -651,16 +678,30 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:43.110Z"
+      "firstSeenAt": "2026-07-03T23:17:43.110Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-development-representative-sonarsource-ch"
+        ],
+        "de": [
+          "sales-development-representative-sonarsource-ch"
+        ],
+        "fr": [
+          "sales-development-representative-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-development-representative-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-87fcf1ff5268",
-      "slug": "product-designer-sonarsource-ch",
+      "slug": "designer-del-prodotto-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "product-designer-sonarsource-ch",
-        "it": "product-designer-sonarsource-ch",
-        "de": "product-designer-sonarsource-ch",
-        "fr": "product-designer-sonarsource-ch"
+        "it": "designer-del-prodotto-sonarsource-sonar-geneva",
+        "de": "produktdesigner-sonarsource-sonar-geneva",
+        "fr": "conception-de-produits-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -715,16 +756,30 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:42.808Z"
+      "firstSeenAt": "2026-07-03T23:17:42.808Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-designer-sonarsource-ch"
+        ],
+        "de": [
+          "product-designer-sonarsource-ch"
+        ],
+        "fr": [
+          "product-designer-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-designer-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-72059ea37058",
-      "slug": "platform-product-manager-sonarsource-ch",
+      "slug": "gestione-dei-prodotti-della-piattaforma-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "platform-product-manager-sonarsource-ch",
-        "it": "platform-product-manager-sonarsource-ch",
-        "de": "platform-product-manager-sonarsource-ch",
-        "fr": "platform-product-manager-sonarsource-ch"
+        "it": "gestione-dei-prodotti-della-piattaforma-sonarsource-sonar-geneva",
+        "de": "plattformproduktmanager-sonarsource-sonar-geneva",
+        "fr": "gestionnaire-de-produits-de-la-plateforme-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -779,16 +834,30 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:42.506Z"
+      "firstSeenAt": "2026-07-03T23:17:42.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "platform-product-manager-sonarsource-ch"
+        ],
+        "de": [
+          "platform-product-manager-sonarsource-ch"
+        ],
+        "fr": [
+          "platform-product-manager-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "platform-product-manager-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-0bd9e5a951ec",
-      "slug": "partner-business-manager-southern-europe-sonarsource-ch",
+      "slug": "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "partner-business-manager-southern-europe-sonarsource-ch",
-        "it": "partner-business-manager-southern-europe-sonarsource-ch",
+        "it": "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva",
         "de": "partner-business-manager-southern-europe-sonarsource-ch",
-        "fr": "partner-business-manager-southern-europe-sonarsource-ch"
+        "fr": "chef-d-entreprise-partenaire-europe-du-sud-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -843,16 +912,27 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:42.206Z"
+      "firstSeenAt": "2026-07-03T23:17:42.206Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "partner-business-manager-southern-europe-sonarsource-ch"
+        ],
+        "fr": [
+          "partner-business-manager-southern-europe-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "partner-business-manager-southern-europe-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-34e55e045c73",
-      "slug": "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
+      "slug": "partner-business-manager-europa-orientale-f-m-d-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
-        "it": "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
+        "it": "partner-business-manager-europa-orientale-f-m-d-sonarsource-sonar-geneva",
         "de": "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
-        "fr": "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
+        "fr": "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -907,7 +987,18 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:41.904Z"
+      "firstSeenAt": "2026-07-03T23:17:41.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
+        ],
+        "fr": [
+          "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-a79f251cee92",
@@ -991,7 +1082,7 @@
         "en": "netsuite-payroll-systems-administrator-sonarsource-ch",
         "it": "netsuite-payroll-systems-administrator-sonarsource-ch",
         "de": "netsuite-payroll-systems-administrator-sonarsource-ch",
-        "fr": "netsuite-payroll-systems-administrator-sonarsource-ch"
+        "fr": "administrateur-des-systemes-netsuite-payroll-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1055,7 +1146,7 @@
         "en": "mid-market-account-executive-italy-sonarsource-ch",
         "it": "mid-market-account-executive-italy-sonarsource-ch",
         "de": "mid-market-account-executive-italy-sonarsource-ch",
-        "fr": "mid-market-account-executive-italy-sonarsource-ch"
+        "fr": "executif-de-compte-mid-market-italie-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1119,7 +1210,7 @@
         "en": "major-account-manager-dach-sonarsource-ch",
         "it": "major-account-manager-dach-sonarsource-ch",
         "de": "major-account-manager-dach-sonarsource-ch",
-        "fr": "major-account-manager-dach-sonarsource-ch"
+        "fr": "directeur-principal-des-comptes-dach-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1439,7 +1530,7 @@
       "slugByLocale": {
         "en": "data-product-analyst-sonarsource-ch",
         "it": "data-product-analyst-sonarsource-ch",
-        "de": "data-product-analyst-sonarsource-ch",
+        "de": "datenproduktanalytiker-sonarsource-sonar-geneva",
         "fr": "data-product-analyst-sonarsource-ch"
       },
       "company": "SonarSource (Sonar)",

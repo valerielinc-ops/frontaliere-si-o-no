@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "staubli-a3a4e5e71536",
-      "slug": "material-supply-planner-staubli-allschwil-switzerland",
+      "slug": "piano-di-alimentazione-del-materiale-staubli-allschwil-switzerland",
       "slugByLocale": {
         "de": "material-supply-planner-staubli-allschwil-switzerland",
-        "it": "material-supply-planner-staubli-allschwil-switzerland",
+        "it": "piano-di-alimentazione-del-materiale-staubli-allschwil-switzerland",
         "en": "material-supply-planner-staubli-allschwil-switzerland",
-        "fr": "material-supply-planner-staubli-allschwil-switzerland"
+        "fr": "planificateur-d-approvisionnement-en-materiel-staubli-allschwil-switzerland"
       },
       "company": "Stäubli",
       "companyKey": "staubli",
@@ -66,7 +66,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:34:24.714Z"
+      "firstSeenAt": "2026-07-03T23:34:24.714Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "material-supply-planner-staubli-allschwil-switzerland"
+        ],
+        "fr": [
+          "material-supply-planner-staubli-allschwil-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "material-supply-planner-staubli-allschwil-switzerland"
+      ]
     },
     {
       "id": "staubli-efe1352ccfb0",
@@ -202,12 +213,12 @@
     },
     {
       "id": "staubli-2464f3ac2a8e",
-      "slug": "division-procurement-controller-staubli-allschwil-switzerland",
+      "slug": "controllore-degli-appalti-staubli-allschwil-switzerland",
       "slugByLocale": {
         "de": "division-procurement-controller-staubli-allschwil-switzerland",
-        "it": "division-procurement-controller-staubli-allschwil-switzerland",
+        "it": "controllore-degli-appalti-staubli-allschwil-switzerland",
         "en": "division-procurement-controller-staubli-allschwil-switzerland",
-        "fr": "division-procurement-controller-staubli-allschwil-switzerland"
+        "fr": "controleur-des-achats-de-la-division-staubli-allschwil-switzerland"
       },
       "company": "Stäubli",
       "companyKey": "staubli",
@@ -264,7 +275,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:34:24.710Z"
+      "firstSeenAt": "2026-07-03T23:34:24.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "division-procurement-controller-staubli-allschwil-switzerland"
+        ],
+        "fr": [
+          "division-procurement-controller-staubli-allschwil-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "division-procurement-controller-staubli-allschwil-switzerland"
+      ]
     },
     {
       "id": "staubli-2fc74e902ff2",
@@ -334,12 +356,12 @@
     },
     {
       "id": "staubli-75ecf02828cb",
-      "slug": "head-group-processes-data-governance-staubli-pfaffikon-switzerland",
+      "slug": "processi-e-governance-dei-dati-staubli-pfaffikon-switzerland",
       "slugByLocale": {
         "en": "head-group-processes-data-governance-staubli-pfaffikon-switzerland",
-        "it": "head-group-processes-data-governance-staubli-pfaffikon-switzerland",
+        "it": "processi-e-governance-dei-dati-staubli-pfaffikon-switzerland",
         "de": "head-group-processes-data-governance-staubli-pfaffikon-switzerland",
-        "fr": "head-group-processes-data-governance-staubli-pfaffikon-switzerland"
+        "fr": "processus-du-groupe-principal-et-gouvernance-des-donnees-staubli-pfaffikon-switzerland"
       },
       "company": "Stäubli",
       "companyKey": "staubli",
@@ -396,7 +418,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-03T23:34:24.708Z"
+      "firstSeenAt": "2026-07-03T23:34:24.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-group-processes-data-governance-staubli-pfaffikon-switzerland"
+        ],
+        "fr": [
+          "head-group-processes-data-governance-staubli-pfaffikon-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "head-group-processes-data-governance-staubli-pfaffikon-switzerland"
+      ]
     }
   ]
 }
