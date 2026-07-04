@@ -4,7 +4,7 @@
 
 ## Canonical URL
 
-**Always use `https://frontaliereticino.ch/`** — no `www`, no trailing slash (except root). All sitemaps, hreflang, JSON-LD, and workflow scripts must use this form.
+**Always use `https://frontaliereticino.ch`** — no `www`. Every page URL is slash-terminated (site-wide trailing-slash convention: `buildPath()` forces it; no-slash variants 301 to the slash form at the edge) — only the bare origin string carries no trailing path slash. All sitemaps, hreflang, JSON-LD, and workflow scripts must use this form.
 
 ## Static Page Generation
 

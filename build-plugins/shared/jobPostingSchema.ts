@@ -191,7 +191,8 @@ export type EmploymentType =
 /**
  * Canonical prod origin — fallback base for absolutizing a same-origin
  * (root-relative) `hiringOrganization.logo` path when the caller omits
- * `opts.baseUrl` (every current caller passes it).
+ * `opts.baseUrl` (publisherAdPagesPlugin relies on this fallback; all
+ * other callers pass it explicitly).
  */
 const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
 
