@@ -202,7 +202,7 @@ function detectEmploymentType(text = '') {
  *
  * @param {string} locationName Raw Greenhouse `location.name` string.
  */
-function resolveAddress(locationName = '') {
+export function resolveAddress(locationName = '') {
   const parts = String(locationName || '').split(',').map((s) => s.trim()).filter(Boolean);
   // "Remote, Switzerland" → first token "Remote" is not a real city; treat
   // it (and the bare country name) as "no city" rather than a place name.

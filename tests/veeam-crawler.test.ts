@@ -4,6 +4,7 @@ import {
   VEEAM_COMPANY_NAME,
   isVeeamJob,
   isTrustedDomain,
+  resolveAddress,
 } from '../scripts/lib/veeam-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -169,30 +170,14 @@ describe('Veeam Software crawler parser', () => {
   // only an actual city-text match (or no city info at all, e.g. "Remote,
   // Switzerland" postings) may backfill the HQ street/postal code.
   describe('city-gated address fallback (not canton-only)', () => {
-    // Mirrors scripts/lib/veeam-job-parser.mjs resolveAddress() logic.
-    function resolveLikeParser(locationName: string) {
-      const HQ = { city: 'Baar', canton: 'ZG', postalCode: '6340', streetAddress: 'Lindenstrasse 16' };
-      const parts = String(locationName || '').split(',').map((s) => s.trim()).filter(Boolean);
-      const rawCity = parts.find(
-        (p) => !/^remote$/i.test(p) && !/^(switzerland|schweiz|suisse|svizzera)$/i.test(p),
-      ) || '';
-      const city = rawCity;
-      const cityMatchesHq = !city || /\bbaar\b/i.test(city);
-      return {
-        city: city || HQ.city,
-        postalCode: cityMatchesHq ? HQ.postalCode : '',
-        streetAddress: cityMatchesHq ? HQ.streetAddress : '',
-      };
-    }
-
     it('backfills HQ address when no city is present ("Remote, Switzerland")', () => {
-      const result = resolveLikeParser('Remote, Switzerland');
+      const result = resolveAddress('Remote, Switzerland');
       expect(result.postalCode).toBe('6340');
       expect(result.streetAddress).toBe('Lindenstrasse 16');
     });
 
     it('backfills HQ address when city explicitly is Baar', () => {
-      const result = resolveLikeParser('Baar, Switzerland');
+      const result = resolveAddress('Baar, Switzerland');
       expect(result.postalCode).toBe('6340');
       expect(result.streetAddress).toBe('Lindenstrasse 16');
     });
@@ -201,13 +186,13 @@ describe('Veeam Software crawler parser', () => {
       // Zug and Baar are both canton ZG, but Zug is a different city — a
       // canton-only gate would wrongly backfill here; a city-only gate
       // (correct) must not.
-      const result = resolveLikeParser('Zug, Switzerland');
+      const result = resolveAddress('Zug, Switzerland');
       expect(result.postalCode).toBe('');
       expect(result.streetAddress).toBe('');
     });
 
     it('does NOT backfill HQ street/postal for an out-of-canton Swiss city', () => {
-      const result = resolveLikeParser('Zürich, Switzerland');
+      const result = resolveAddress('Zürich, Switzerland');
       expect(result.postalCode).toBe('');
       expect(result.streetAddress).toBe('');
     });
