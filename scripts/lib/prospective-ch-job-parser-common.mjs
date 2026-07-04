@@ -117,11 +117,18 @@ function pickPostalCode(job, defaultPostal, location, defaultCity) {
 }
 
 function pickStreetAddress(job, defaultStreet, location, defaultCity) {
+  const szas = job?.szas || {};
+  // Explicit street fields (e.g. Volksschule Luzern medium 1005619), tried
+  // before the free-text `sza_workplace` parse below.
+  const explicitStreet = normalizeSpace(szas['sza_location.street'] || '');
+  if (explicitStreet) return explicitStreet;
+  const workplaceStreetField = normalizeSpace(szas['sza_workplace.street'] || '');
+  if (workplaceStreetField) return workplaceStreetField;
   // `sza_workplace` is often a free-text "Label, Street Number, ZIP City"
   // triple (e.g. "Baloise Solothurn, Amthausplatz 4, 4500 Solothurn"). The
   // comma-segment containing a digit but not starting with a 4-digit ZIP
   // is the street address.
-  const workplace = String(job?.szas?.sza_workplace || '').trim();
+  const workplace = String(szas.sza_workplace || '').trim();
   if (workplace) {
     const parts = workplace.split(',').map((p) => p.trim()).filter(Boolean);
     const streetPart = parts.find((p) => /\d/.test(p) && !/^\d{4}\b/.test(p));
@@ -212,15 +219,14 @@ function detectExperienceLevel(title = '') {
  *   Disables the bare `/medium/{id}/` URL fallback in `isCompanyJob`, which
  *   would otherwise match jobs belonging to the *other* company sharing the
  *   tenant — that fallback is only safe when one company owns the medium.
- * @param {string} [config.sector='Sanità / Ospedali']  Sector label stamped
- *   on every job. Prospective.ch is used by hospitals as well as
- *   non-healthcare employers (retail, industry, insurance) — default kept
- *   as the historical hospital label for backward compat with existing
- *   consumers that don't pass this; non-healthcare tenants should override.
- * @param {string} [config.defaultCategory='Sanità / Ospedali']  Fallback
- *   category returned by keyword-based `detectCategory()` when a title
- *   matches none of its healthcare/tech/admin/etc. buckets. Non-healthcare
- *   tenants should override so unmatched titles don't get mislabeled.
+ * @param {string} [config.sector='Sanità / Ospedali']  Override the sector
+ *   label. All Prospective tenants onboarded so far are hospitals/clinics, so
+ *   this defaults to healthcare; non-healthcare tenants (e.g. a school
+ *   district) should pass their own sector.
+ * @param {(title: string, department: string) => string} [config.categoryFn]
+ *   Override the per-job category classifier. Defaults to the shared
+ *   healthcare-biased `detectCategory()` (its unmatched-role fallback is
+ *   'Sanità / Ospedali', wrong for a non-healthcare tenant).
  */
 export function createProspectiveChParser(config) {
   const {
@@ -239,12 +245,8 @@ export function createProspectiveChParser(config) {
     acceptDirectlinkHosts = [],
     sharedMedium = false,
     filterListing,
-    // Both default to the historical hardcoded literals so every
-    // pre-existing consumer (hospitals, insurers, finance — see file
-    // header) is unaffected. Only a genuinely different-industry tenant
-    // (e.g. a hospitality employer) needs to pass these.
     sector = 'Sanità / Ospedali',
-    defaultCategory = 'Sanità / Ospedali',
+    categoryFn = detectCategory,
   } = config;
 
   if (!companyKey || !companyName || !mediumId || !defaultCanton) {
@@ -429,7 +431,7 @@ export function createProspectiveChParser(config) {
         country: 'CH',
         postalCode: pickPostalCode(listing, defaultPostalCode, location, defaultCity),
         streetAddress: pickStreetAddress(listing, defaultStreetAddress, location, defaultCity),
-        category: detectCategory(title, department, defaultCategory),
+        category: categoryFn(title, department),
         contract: 'full-time',
         employmentType: pickEmploymentType(listing),
         experienceLevel: detectExperienceLevel(title),

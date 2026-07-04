@@ -554,6 +554,19 @@ export const COMPANY_HQ = {
   // Alltron logistics center, Rossgassmoos 10, 6131 Willisau (LU) — handled
   // directly in brack-alltron-job-parser.mjs since this registry is single-site.
   'brack-alltron': { city: 'Mägenwil', canton: 'AG', postalCode: '5506', addressRegion: 'AG' },
+  // Rektorat Volksschule Stadt Luzern, Winkelriedstrasse 12a, 6002 Luzern LU
+  // (confirmed via stadtluzern.ch contact page). Most postings carry their
+  // own school-building street/ZIP via the Prospective API; this is only the
+  // fallback for postings that omit those fields.
+  'volksschule-luzern': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
+  // Raiffeisen Schweiz (national cooperative bank group) HQ —
+  // Raiffeisenplatz, 9001 St. Gallen SG. Confirmed via the group's own
+  // "Contact" / imprint page. Used only as a fallback for postings whose
+  // per-job location can't be resolved to a canton — the CH-wide dedicated
+  // crawler (scripts/update-raiffeisen-jobs.mjs) infers canton per-posting
+  // from the Prospective listing's own city field for the vast majority
+  // of jobs (issue #3342).
+  'raiffeisen': { city: 'St. Gallen', canton: 'SG', postalCode: '9001', addressRegion: 'SG' },
   // Chopard HQ, Rte de Veyrot 8, C.P. 85, 1217 Meyrin GE — confirmed via
   // the company's own legal notice page (chopard.com/it-it/legal-terms-of-
   // website-use.html); no fallback needed.
@@ -573,6 +586,17 @@ export const COMPANY_HQ = {
   // plausible-looking but wrong guess — that is Wetzikon's postal code, a
   // different nearby ZH town); no fallback needed.
   'belimo': { city: 'Hinwil', canton: 'ZH', postalCode: '8340', addressRegion: 'ZH' },
+  // Clariant AG, Rothausstrasse 61, 4132 Muttenz BL — confirmed via Zefix
+  // (Swiss commercial register, firm ehraid 356887, legalSeat "Muttenz").
+  // Real street address lives in the city-gated `resolveAddress()` in
+  // scripts/lib/clariant-job-parser.mjs (gate matches Muttenz OR Pratteln —
+  // Clariant's own postings label the same physical HQ campus "Pratteln");
+  // this HQ entry is only the generic city/canton fallback.
+  'clariant': { city: 'Muttenz', canton: 'BL', postalCode: '4132', addressRegion: 'BL' },
+  // Planzer Transport AG, Lerzenstrasse 14, 8953 Dietikon ZH — confirmed
+  // via the company's own Impressum page (https://www.planzer.ch/de/impressum/,
+  // "Kontaktadresse & Hauptsitz").
+  'planzer': { city: 'Dietikon', canton: 'ZH', postalCode: '8953', addressRegion: 'ZH' },
 };
 
 /**

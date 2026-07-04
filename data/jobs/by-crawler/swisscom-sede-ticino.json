@@ -107,9 +107,9 @@
         "de": "ServiceNow Berater",
         "fr": "ServiceNow Consultant"
       },
-      "slug": "servicenow-consultant-swisscom-zurich-drxygi",
+      "slug": "servicenow-consulente-swisscom-sede-ticino-zurich",
       "slugByLocale": {
-        "it": "servicenow-consultant-swisscom-zurich-drxygi",
+        "it": "servicenow-consulente-swisscom-sede-ticino-zurich",
         "en": "servicenow-consultant-swisscom-zurich-drxygi",
         "de": "servicenow-consultant-swisscom-zurich-drxygi",
         "fr": "servicenow-consultant-swisscom-zurich-drxygi"
@@ -145,7 +145,15 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-03T23:11:01.417Z"
+      "firstSeenAt": "2026-07-03T23:11:01.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicenow-consultant-swisscom-zurich-drxygi"
+        ]
+      },
+      "previousSlugs": [
+        "servicenow-consultant-swisscom-zurich-drxygi"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-DDI-Services_R-0005800",

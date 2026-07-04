@@ -23,9 +23,9 @@
  * per job.
  *
  * Uses the shared Prospective.ch factory. This tenant is hospitality, not
- * healthcare, so `sector`/`defaultCategory` are overridden (factory
- * defaults to 'Sanità / Ospedali' for its original hospital consumers —
- * see prospective-ch-job-parser-common.mjs).
+ * healthcare, so `sector`/`categoryFn` are overridden (factory defaults to
+ * 'Sanità / Ospedali' for its original hospital consumers — see
+ * prospective-ch-job-parser-common.mjs).
  */
 import { createProspectiveChParser } from './prospective-ch-job-parser-common.mjs';
 
@@ -54,7 +54,7 @@ const parser = createProspectiveChParser({
     'www.resortragaz-gruppe.ch',
   ],
   sector: 'Turismo / Ospitalità',
-  defaultCategory: 'Ospitalità',
+  categoryFn: () => 'Ospitalità',
 });
 
 export const fetchAllGrandResortBadRagazJobs = parser.fetchAllJobs;
