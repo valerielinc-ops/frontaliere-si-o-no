@@ -597,6 +597,29 @@ export const COMPANY_HQ = {
   // via the company's own Impressum page (https://www.planzer.ch/de/impressum/,
   // "Kontaktadresse & Hauptsitz").
   'planzer': { city: 'Dietikon', canton: 'ZH', postalCode: '8953', addressRegion: 'ZH' },
+  // Veeam Software Group GmbH — Baar ZG (Linden Park, Lindenstrasse 16,
+  // 6340 Baar). Confirmed via Veeam's own official contacts page
+  // (https://www.veeam.com/company/contacts.html) cross-checked against
+  // Zefix (Swiss commercial registry, firm id 1036504); no fallback needed.
+  'veeam': { city: 'Baar', canton: 'ZG', postalCode: '6340', addressRegion: 'ZG' },
+  // Brandschenkestrasse 110, CH-8002 Zürich — registered seat of "Google
+  // Switzerland GmbH" (Swiss commercial register CHE-110.474.423,
+  // https://www.northdata.com/Google%20Switzerland%20GmbH,%20Z%C3%BCrich/CHE-110.474.423),
+  // matching Google's own Zurich office listing (Google Maps / about.google
+  // location directory). Issue #3337 Wave D row 2 ("Zurigo, R&D hub").
+  'google-switzerland': { city: 'Zürich', canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
+  // dormakaba group HQ (2026-07-04): Hofwisenstrasse 24, 8153 Rümlang ZH —
+  // confirmed via dormakaba.com/ch-de/ruemlang location page + Zefix legal
+  // seat for dormakaba Holding AG / dormakaba International Holding AG /
+  // dormakaba Finance AG (all "Rümlang"). The actual CH operating subsidiary,
+  // dormakaba Schweiz AG, has its legal seat in Wetzikon ZH instead — see the
+  // city-gated `resolveAddress()` in scripts/lib/dormakaba-job-parser.mjs for
+  // the per-office street; this HQ entry is only the generic fallback.
+  'dormakaba': { city: 'Rümlang', canton: 'ZH', postalCode: '8153', addressRegion: 'ZH' },
+  // Rieter AG HQ, Klosterstrasse 20, 8406 Winterthur ZH — confirmed via the
+  // company's own job-posting recruiter-info block AND independent
+  // Moneyhouse/imprint sources; no fallback needed.
+  'rieter': { city: 'Winterthur', canton: 'ZH', postalCode: '8406', addressRegion: 'ZH' },
 };
 
 /**
