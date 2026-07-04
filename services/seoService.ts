@@ -68,6 +68,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // hide it from non-mocked consumers like services/seo/schema-normalizers.ts.
 export { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
+import { ORGANIZATION_LD } from './seo/organizationLd';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
@@ -94,9 +95,10 @@ export const SCHEMA_AUTHOR = {
  ],
 } as const;
 
-export const SCHEMA_PUBLISHER = {
- "@id": `${BASE_URL}/#organization`,
-} as const;
+// Full inline Organization node (shared canonical entity) — a bare `@id`
+// pointer dangles for page-local structured-data parsers when the graph
+// doesn't also define the entity (#3524).
+export const SCHEMA_PUBLISHER = ORGANIZATION_LD;
 
 /**
  * Organization author for blog articles and editorial content.

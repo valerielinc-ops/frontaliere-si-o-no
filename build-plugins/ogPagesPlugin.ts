@@ -881,13 +881,15 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  image: imgU,
  url: full,
  inLanguage: locale,
- author: {
- '@type': 'Organization',
- name: 'Redazione Frontaliere Ticino',
- url: `${BASE_URL}/chi-siamo`,
- },
+ // Author matches the visible "Di Valerie Linc" byline and the SPA-side
+ // Person schema (#3520) — Google's guidance: structured-data author must
+ // match the byline. Person object defined once above (authorObj).
+ author: authorObj,
  publisher: {
  '@type': 'Organization',
+ // Same canonical entity as index.html / SPA (#3524); inline name+logo
+ // keep it resolvable by page-local structured-data parsers.
+ '@id': `${BASE_URL}/#organization`,
  name: 'Frontaliere Ticino',
  url: BASE_URL,
  logo: imageObjectLd({
