@@ -4,6 +4,7 @@ import {
   CORDENPHARMA_COMPANY_NAME,
   isCordenpharmaJob,
   isTrustedDomain,
+  resolveAddress,
 } from '../scripts/lib/cordenpharma-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -153,36 +154,46 @@ describe('CordenPharma crawler parser', () => {
     });
   });
 
-  // ── Canton-gating regression guard (see AGENTS.md sibling-pattern fix) ──
-  // A job whose site could not be matched to a known Swiss address (e.g. an
-  // out-of-scope location slipping through) must NOT be silently backfilled
-  // with the Liestal HQ street address/postal code — only when its resolved
-  // canton actually equals HQ.canton.
-  describe('canton-gated address fallback', () => {
-    function resolveLikeParser(canton: string, postalCode: string, streetAddress: string) {
-      const HQ = { canton: 'BL', postalCode: '4410', streetAddress: 'Eichenweg 1 A' };
-      return {
-        postalCode: postalCode || (canton === HQ.canton ? HQ.postalCode : ''),
-        streetAddress: streetAddress || (canton === HQ.canton ? HQ.streetAddress : ''),
-      };
-    }
-
-    it('backfills HQ address when canton matches (Liestal/Ettingen, both BL)', () => {
-      const result = resolveLikeParser('BL', '', '');
+  // ── Site-id-gated address fallback (see AGENTS.md sibling-pattern fix) ──
+  // Both Swiss sites are known ground truth, keyed by the d.vinci
+  // `locations[].id`. A job whose site id doesn't match a known Swiss
+  // worksite (e.g. an out-of-scope location slipping through the
+  // location-filtered fetch) must NOT be silently backfilled with the
+  // Liestal/Ettingen address — it falls through to whatever the listing
+  // itself reported, never a wrong site's ground truth.
+  describe('site-id-gated address fallback', () => {
+    it('resolves the known Liestal site by id', () => {
+      const result = resolveAddress({ id: 'LIESTAL' });
+      expect(result.city).toBe('Liestal');
+      expect(result.canton).toBe('BL');
       expect(result.postalCode).toBe('4410');
       expect(result.streetAddress).toBe('Eichenweg 1 A');
     });
 
-    it('does NOT backfill HQ address when canton differs', () => {
-      const result = resolveLikeParser('FR', '', '');
-      expect(result.postalCode).toBe('');
-      expect(result.streetAddress).toBe('');
-    });
-
-    it('preserves explicit per-site values without overwriting them', () => {
-      const result = resolveLikeParser('BL', '4107', 'Brühlstrasse 50');
+    it('resolves the known Ettingen site by id, case-insensitively', () => {
+      const result = resolveAddress({ id: 'ettingen' });
+      expect(result.city).toBe('Ettingen');
+      expect(result.canton).toBe('BL');
       expect(result.postalCode).toBe('4107');
       expect(result.streetAddress).toBe('Brühlstrasse 50');
+    });
+
+    it('does NOT backfill a known site address for an unrecognised site id', () => {
+      // An out-of-scope location that slipped through must fall back to
+      // whatever the listing itself reported, not the Liestal/Ettingen HQ.
+      const result = resolveAddress({ id: 'PARIS', city: 'Paris', postalCode: '75001', streetAddress: 'Rue Something' });
+      expect(result.city).toBe('Paris');
+      expect(result.canton).toBe('');
+      expect(result.postalCode).toBe('75001');
+      expect(result.streetAddress).toBe('Rue Something');
+    });
+
+    it('returns empty fields when neither the site id nor raw location carries an address', () => {
+      const result = resolveAddress({});
+      expect(result.city).toBe('');
+      expect(result.canton).toBe('');
+      expect(result.postalCode).toBe('');
+      expect(result.streetAddress).toBe('');
     });
   });
 });

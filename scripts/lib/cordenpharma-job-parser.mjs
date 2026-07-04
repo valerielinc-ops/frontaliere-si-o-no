@@ -146,7 +146,7 @@ function detectEmploymentType(text = '') {
  * site's HQ address — only fall back to HQ when the inferred canton actually
  * matches HQ.canton.
  */
-function resolveAddress(rawLoc = {}) {
+export function resolveAddress(rawLoc = {}) {
   const locId = String(rawLoc.id || '').toUpperCase();
   const known = SITE_ADDRESS[locId] || null;
   const city = (known?.city || rawLoc.city || rawLoc.name || '').trim();
