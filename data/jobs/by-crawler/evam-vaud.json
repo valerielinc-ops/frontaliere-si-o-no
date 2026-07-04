@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "evam-vaud-6629394",
-      "slug": "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch",
+      "slug": "2-100-cdi-assistente-sociale-evam-vevey",
       "slugByLocale": {
         "fr": "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch",
-        "it": "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch",
-        "en": "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch",
+        "it": "2-100-cdi-assistente-sociale-evam-vevey",
+        "en": "2-100-cdi-social-assistant-evam-vevey",
         "de": "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -62,7 +62,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:58:13.369Z"
+      "firstSeenAt": "2026-07-04T10:58:13.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch"
+        ],
+        "en": [
+          "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "2-assistant-e-s-sociaux-ales-en-antenne-en-cdi-a-100-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-6931372",
@@ -70,8 +81,8 @@
       "slugByLocale": {
         "fr": "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
         "it": "educatori-sociali-80-contratti-a-tempo-determinato-evam-lausanne",
-        "en": "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch",
-        "de": "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch"
+        "en": "social-workers-80-csd-evam-lausanne",
+        "de": "sozialarbeiter-80-csd-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -128,6 +139,12 @@
       "previousSlugsByLocale": {
         "it": [
           "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch"
+        ],
+        "en": [
+          "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch"
+        ],
+        "de": [
+          "educateurs-trices-sociaux-ales-80-cdd-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -136,11 +153,11 @@
     },
     {
       "id": "evam-vaud-7046090",
-      "slug": "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch",
+      "slug": "antenna-social-assistant-100-cdi-e-100-cdd-evam-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch",
-        "it": "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch",
-        "en": "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch",
+        "it": "antenna-social-assistant-100-cdi-e-100-cdd-evam-lausanne",
+        "en": "antenna-social-assistant-100-cdi-and-100-cdd-evam-lausanne",
         "de": "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -194,7 +211,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:58:13.349Z"
+      "firstSeenAt": "2026-07-04T10:58:13.349Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch"
+        ],
+        "en": [
+          "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-sociaux-ales-en-antenne-en-cdi-a-100-et-en-cdd-a-100-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-7163896",
@@ -202,8 +230,8 @@
       "slugByLocale": {
         "fr": "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch",
         "it": "formatore-responsabile-delle-informazioni-per-migranti-50-70-contratto-a-tempo-determinato-evam-lausanne",
-        "en": "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-lausanne",
-        "de": "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
+        "en": "a-trainer-in-charge-of-information-to-migrants-50-70-csd-evam-lausanne",
+        "de": "ein-trainer-der-fur-informationen-fur-migranten-verantwortlich-ist-50-70-csd-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -260,10 +288,17 @@
       "previousSlugsByLocale": {
         "it": [
           "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
+        ],
+        "en": [
+          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-lausanne"
+        ],
+        "de": [
+          "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
-        "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch"
+        "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-vaud-ch",
+        "un-e-formateur-trice-en-charge-de-l-information-aux-migrants-50-70-cdd-evam-lausanne"
       ]
     },
     {
@@ -272,8 +307,8 @@
       "slugByLocale": {
         "fr": "un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-vaud-ch",
         "it": "un-responsabile-di-casi-investigativi-80-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-vaud-ch",
-        "de": "un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-vaud-ch"
+        "en": "a-case-manager-investigations-80-cdi-evam-lausanne",
+        "de": "ein-case-manager-untersuchungen-80-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -318,6 +353,12 @@
         "it": [
           "un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-vaud-ch",
           "un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-lausanne"
+        ],
+        "en": [
+          "un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "un-e-gestionnaire-de-dossiers-enquetes-80-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -344,8 +385,8 @@
       "slugByLocale": {
         "fr": "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-vaud-ch",
         "it": "un-responsabile-amministrativo-100-contratto-a-tempo-determinato-di-9-mesi-evam-lausanne",
-        "en": "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-vaud-ch",
-        "de": "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-vaud-ch"
+        "en": "1st-administrative-manager-100-csd-9-months-evam-lausanne",
+        "de": "1-administrative-manager-100-csd-9-monate-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -390,6 +431,12 @@
         "it": [
           "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-vaud-ch",
           "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-lausanne"
+        ],
+        "en": [
+          "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-vaud-ch"
+        ],
+        "de": [
+          "un-e-gerant-e-administratif-ve-100-cdd-9-mois-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -412,11 +459,11 @@
     },
     {
       "id": "evam-vaud-7535392",
-      "slug": "assistant-e-social-e-80-cdd-evam-vaud-ch",
+      "slug": "assistente-sociale-80-csd-evam-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-social-e-80-cdd-evam-vaud-ch",
-        "it": "assistant-e-social-e-80-cdd-evam-vaud-ch",
-        "en": "assistant-e-social-e-80-cdd-evam-vaud-ch",
+        "it": "assistente-sociale-80-csd-evam-lausanne",
+        "en": "social-assistant-80-csd-evam-lausanne",
         "de": "assistent-e-social-e-80-cdd-evam-lausanne"
       },
       "company": "EVAM",
@@ -470,7 +517,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:58:13.299Z"
+      "firstSeenAt": "2026-07-04T10:58:13.299Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-80-cdd-evam-vaud-ch"
+        ],
+        "en": [
+          "assistant-e-social-e-80-cdd-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-80-cdd-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-7579015",
@@ -478,7 +536,7 @@
       "slugByLocale": {
         "fr": "directeur-trice-administratif-ve-80-100-cdi-evam-vaud-ch",
         "it": "direttore-administratif-ve-80-100-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "directeur-trice-administratif-ve-80-100-cdi-evam-vaud-ch",
+        "en": "administrative-director-ve-80-100-cdi-evam-lausanne",
         "de": "directeur-trice-administratif-ve-80-100-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -536,6 +594,9 @@
       "previousSlugsByLocale": {
         "it": [
           "directeur-trice-administratif-ve-80-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "directeur-trice-administratif-ve-80-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -548,8 +609,8 @@
       "slugByLocale": {
         "fr": "specialiste-contentieux-100-cdi-evam-vaud-ch",
         "it": "specialista-in-contenzioso-100-contratto-permanente-evam-lausanne",
-        "en": "specialiste-contentieux-100-cdi-evam-vaud-ch",
-        "de": "specialiste-contentieux-100-cdi-evam-vaud-ch"
+        "en": "litigation-specialist-100-cdi-evam-lausanne",
+        "de": "litigment-specialist-100-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -606,6 +667,12 @@
       "previousSlugsByLocale": {
         "it": [
           "specialiste-contentieux-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "specialiste-contentieux-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "specialiste-contentieux-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -618,8 +685,8 @@
       "slugByLocale": {
         "fr": "responsable-de-foyer-100-cdd-10-mois-evam-vaud-ch",
         "it": "gestore-di-famiglia-100-contratto-a-tempo-determinato-di-10-mesi-evam-chavannes-pres-renens",
-        "en": "responsable-de-foyer-100-cdd-10-mois-evam-vaud-ch",
-        "de": "responsable-de-foyer-100-cdd-10-mois-evam-vaud-ch"
+        "en": "head-of-home-100-csd-10-months-evam-chavannes-pres-renens",
+        "de": "head-of-home-100-csd-10-monate-evam-chavannes-pres-renens"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -676,6 +743,12 @@
       "previousSlugsByLocale": {
         "it": [
           "responsable-de-foyer-100-cdd-10-mois-evam-vaud-ch"
+        ],
+        "en": [
+          "responsable-de-foyer-100-cdd-10-mois-evam-vaud-ch"
+        ],
+        "de": [
+          "responsable-de-foyer-100-cdd-10-mois-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -684,10 +757,10 @@
     },
     {
       "id": "evam-vaud-7730808",
-      "slug": "assistant-e-social-e-100-cdi-evam-vaud-ch",
+      "slug": "assistente-sociale-100-cdi-evam-vevey",
       "slugByLocale": {
         "fr": "assistant-e-social-e-100-cdi-evam-vaud-ch",
-        "it": "assistant-e-social-e-100-cdi-evam-vaud-ch",
+        "it": "assistente-sociale-100-cdi-evam-vevey",
         "en": "assistant-e-social-e-100-cdi-evam-vaud-ch",
         "de": "assistant-e-social-e-100-cdi-evam-vaud-ch"
       },
@@ -742,15 +815,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:58:13.256Z"
+      "firstSeenAt": "2026-07-04T10:58:13.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-100-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-7731741",
-      "slug": "assistant-e-social-e-80-cdd-evam-vaud-ch-2",
+      "slug": "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
       "slugByLocale": {
         "fr": "assistant-e-social-e-80-cdd-evam-vaud-ch",
-        "it": "assistant-e-social-e-80-cdd-evam-vaud-ch-2",
-        "en": "assistant-e-social-e-80-cdd-evam-vaud-ch-2",
+        "it": "assistente-sociale-80-csd-evam-lausanne-eb1ee8",
+        "en": "social-assistant-80-csd-evam-lausanne-eb1ee8",
         "de": "assistent-e-social-e-80-cdd-evam-lausanne-eb1ee8"
       },
       "company": "EVAM",
@@ -794,11 +875,16 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-social-e-80-cdd-evam-vaud-ch"
+          "assistant-e-social-e-80-cdd-evam-vaud-ch",
+          "assistant-e-social-e-80-cdd-evam-vaud-ch-2"
+        ],
+        "en": [
+          "assistant-e-social-e-80-cdd-evam-vaud-ch-2"
         ]
       },
       "previousSlugs": [
-        "assistant-e-social-e-80-cdd-evam-vaud-ch"
+        "assistant-e-social-e-80-cdd-evam-vaud-ch",
+        "assistant-e-social-e-80-cdd-evam-vaud-ch-2"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -820,7 +906,7 @@
       "slugByLocale": {
         "fr": "charge-e-de-missions-en-prospection-immobiliere-100-cdd-evam-vaud-ch",
         "it": "responsabile-del-progetto-di-prospezione-immobiliare-100-contratto-a-tempo-determinato-evam-lausanne",
-        "en": "charge-e-de-missions-en-prospection-immobiliere-100-cdd-evam-vaud-ch",
+        "en": "head-of-property-exploration-missions-100-csd-evam-lausanne",
         "de": "charge-e-de-missions-en-prospection-immobiliere-100-cdd-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -878,6 +964,9 @@
       "previousSlugsByLocale": {
         "it": [
           "charge-e-de-missions-en-prospection-immobiliere-100-cdd-evam-vaud-ch"
+        ],
+        "en": [
+          "charge-e-de-missions-en-prospection-immobiliere-100-cdd-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -890,7 +979,7 @@
       "slugByLocale": {
         "fr": "intendant-e-100-cdd-evam-vaud-ch",
         "it": "intendant-e-100-contratto-a-tempo-determinato-evam-renens",
-        "en": "intendant-e-100-cdd-evam-vaud-ch",
+        "en": "hosting-100-csd-evam-renens",
         "de": "intendant-e-100-cdd-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -948,6 +1037,9 @@
       "previousSlugsByLocale": {
         "it": [
           "intendant-e-100-cdd-evam-vaud-ch"
+        ],
+        "en": [
+          "intendant-e-100-cdd-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -956,10 +1048,10 @@
     },
     {
       "id": "evam-vaud-7879384",
-      "slug": "assistant-e-social-e-100-cdd-evam-vaud-ch",
+      "slug": "assistente-sociale-100-csd-evam-ecublens",
       "slugByLocale": {
         "fr": "assistant-e-social-e-100-cdd-evam-vaud-ch",
-        "it": "assistant-e-social-e-100-cdd-evam-vaud-ch",
+        "it": "assistente-sociale-100-csd-evam-ecublens",
         "en": "assistant-e-social-e-100-cdd-evam-vaud-ch",
         "de": "assistant-e-social-e-100-cdd-evam-vaud-ch"
       },
@@ -1014,7 +1106,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:58:13.218Z"
+      "firstSeenAt": "2026-07-04T10:58:13.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-100-cdd-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-100-cdd-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-7891231",
@@ -1022,8 +1122,8 @@
       "slugByLocale": {
         "fr": "specialiste-rh-100-cdd-evam-vaud-ch",
         "it": "specialista-hr-100-contratto-a-tempo-determinato-evam-lausanne",
-        "en": "specialiste-rh-100-cdd-evam-vaud-ch",
-        "de": "specialiste-rh-100-cdd-evam-vaud-ch"
+        "en": "hr-specialist-100-csd-evam-lausanne",
+        "de": "hr-spezialist-100-csd-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1080,6 +1180,12 @@
       "previousSlugsByLocale": {
         "it": [
           "specialiste-rh-100-cdd-evam-vaud-ch"
+        ],
+        "en": [
+          "specialiste-rh-100-cdd-evam-vaud-ch"
+        ],
+        "de": [
+          "specialiste-rh-100-cdd-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1092,8 +1198,8 @@
       "slugByLocale": {
         "fr": "specialiste-rh-100-cdi-evam-vaud-ch",
         "it": "specialista-hr-100-contratto-permanente-evam-lausanne",
-        "en": "specialiste-rh-100-cdi-evam-vaud-ch",
-        "de": "specialiste-rh-100-cdi-evam-vaud-ch"
+        "en": "hr-specialist-100-cdi-evam-lausanne",
+        "de": "hr-spezialist-100-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1150,6 +1256,12 @@
       "previousSlugsByLocale": {
         "it": [
           "specialiste-rh-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "specialiste-rh-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "specialiste-rh-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1162,8 +1274,8 @@
       "slugByLocale": {
         "fr": "responsable-du-pole-controle-de-gestion-100-cdi-evam-vaud-ch",
         "it": "capo-del-dipartimento-di-controllo-gestionale-100-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "responsable-du-pole-controle-de-gestion-100-cdi-evam-vaud-ch",
-        "de": "responsable-du-pole-controle-de-gestion-100-cdi-evam-vaud-ch"
+        "en": "head-of-management-control-100-cdi-evam-lausanne",
+        "de": "leiter-management-control-100-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1220,6 +1332,12 @@
       "previousSlugsByLocale": {
         "it": [
           "responsable-du-pole-controle-de-gestion-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "responsable-du-pole-controle-de-gestion-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "responsable-du-pole-controle-de-gestion-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1232,8 +1350,8 @@
       "slugByLocale": {
         "fr": "responsable-du-pole-comptabilite-100-cdi-evam-vaud-ch",
         "it": "capo-del-dipartimento-contabilita-100-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "responsable-du-pole-comptabilite-100-cdi-evam-vaud-ch",
-        "de": "responsable-du-pole-comptabilite-100-cdi-evam-vaud-ch"
+        "en": "head-of-accounting-100-cdi-evam-lausanne",
+        "de": "leiter-der-buchhaltung-100-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1290,6 +1408,12 @@
       "previousSlugsByLocale": {
         "it": [
           "responsable-du-pole-comptabilite-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "responsable-du-pole-comptabilite-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "responsable-du-pole-comptabilite-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1302,8 +1426,8 @@
       "slugByLocale": {
         "fr": "responsable-du-pole-debiteurs-100-cdi-evam-vaud-ch",
         "it": "capo-del-dipartimento-crediti-100-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "responsable-du-pole-debiteurs-100-cdi-evam-vaud-ch",
-        "de": "responsable-du-pole-debiteurs-100-cdi-evam-vaud-ch"
+        "en": "head-of-debtors-100-cdi-evam-lausanne",
+        "de": "hauptschuldner-100-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1360,6 +1484,12 @@
       "previousSlugsByLocale": {
         "it": [
           "responsable-du-pole-debiteurs-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "responsable-du-pole-debiteurs-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "responsable-du-pole-debiteurs-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1372,7 +1502,7 @@
       "slugByLocale": {
         "fr": "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch",
         "it": "formatore-fli-nel-campo-dell-integrazione-80-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch",
+        "en": "fli-trainer-in-integration-80-cdi-evam-lausanne",
         "de": "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -1430,6 +1560,9 @@
       "previousSlugsByLocale": {
         "it": [
           "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "formateur-trice-fli-dans-le-domaine-de-l-integration-80-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1438,10 +1571,10 @@
     },
     {
       "id": "evam-vaud-7926440",
-      "slug": "assistant-e-social-e-100-cdd-evam-vaud-ch-2",
+      "slug": "assistente-sociale-100-csd-evam-fechy",
       "slugByLocale": {
         "fr": "assistant-e-social-e-100-cdd-evam-vaud-ch",
-        "it": "assistant-e-social-e-100-cdd-evam-vaud-ch-2",
+        "it": "assistente-sociale-100-csd-evam-fechy",
         "en": "assistant-e-social-e-100-cdd-evam-vaud-ch-2",
         "de": "assistant-e-social-e-100-cdd-evam-vaud-ch-2"
       },
@@ -1486,11 +1619,13 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-social-e-100-cdd-evam-vaud-ch"
+          "assistant-e-social-e-100-cdd-evam-vaud-ch",
+          "assistant-e-social-e-100-cdd-evam-vaud-ch-2"
         ]
       },
       "previousSlugs": [
-        "assistant-e-social-e-100-cdd-evam-vaud-ch"
+        "assistant-e-social-e-100-cdd-evam-vaud-ch",
+        "assistant-e-social-e-100-cdd-evam-vaud-ch-2"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1512,8 +1647,8 @@
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-80-100-cdd-evam-vaud-ch",
         "it": "assistente-amministrativo-80-100-contratto-a-tempo-determinato-evam-savigny",
-        "en": "collaborateur-trice-administratif-ve-80-100-cdd-evam-vaud-ch",
-        "de": "collaborateur-trice-administratif-ve-80-100-cdd-evam-vaud-ch"
+        "en": "administrative-worker-ve-80-100-csd-evam-savigny",
+        "de": "verwaltungsangestellte-ve-80-100-csd-evam-savigny"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1558,6 +1693,12 @@
         "it": [
           "collaborateur-trice-administratif-ve-80-100-cdd-evam-vaud-ch",
           "collaborateur-trice-administratif-ve-80-100-cdd-evam-savigny"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-80-100-cdd-evam-vaud-ch"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-80-100-cdd-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1584,7 +1725,7 @@
       "slugByLocale": {
         "fr": "secretaire-juridique-80-cdi-evam-vaud-ch",
         "it": "segretario-legale-80-cdi-evam-lausanne",
-        "en": "secretaire-juridique-80-cdi-evam-vaud-ch",
+        "en": "legal-secretary-80-cdi-evam-lausanne",
         "de": "secretaire-juridique-80-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -1642,6 +1783,9 @@
       "previousSlugsByLocale": {
         "it": [
           "secretaire-juridique-80-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "secretaire-juridique-80-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1654,8 +1798,8 @@
       "slugByLocale": {
         "fr": "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-vaud-ch",
         "it": "corso-online-per-trainer-fle-fli-100-contratto-a-tempo-determinato-di-12-mesi-evam-lausanne",
-        "en": "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-lausanne",
-        "de": "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-vaud-ch"
+        "en": "fle-fli-trainer-online-course-100-csd-12-months-evam-lausanne",
+        "de": "fle-fli-trainer-online-kurs-100-csd-12-monate-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1712,10 +1856,17 @@
       "previousSlugsByLocale": {
         "it": [
           "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-vaud-ch"
+        ],
+        "en": [
+          "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-lausanne"
+        ],
+        "de": [
+          "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
-        "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-vaud-ch"
+        "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-vaud-ch",
+        "formateur-trice-fle-fli-cours-en-ligne-100-cdd-12-mois-evam-lausanne"
       ]
     },
     {
@@ -1724,7 +1875,7 @@
       "slugByLocale": {
         "fr": "responsable-des-ressources-humaines-100-cdi-evam-vaud-ch",
         "it": "responsabile-risorse-umane-100-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "responsable-des-ressources-humaines-100-cdi-evam-vaud-ch",
+        "en": "human-resources-officer-100-cdi-evam-lausanne",
         "de": "responsable-des-ressources-humaines-100-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -1782,6 +1933,9 @@
       "previousSlugsByLocale": {
         "it": [
           "responsable-des-ressources-humaines-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "responsable-des-ressources-humaines-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1794,8 +1948,8 @@
       "slugByLocale": {
         "fr": "responsable-d-atelier-velo-et-d-insertion-90-cdi-evam-vaud-ch",
         "it": "responsabile-del-laboratorio-biciclette-e-integrazione-90-contratto-a-tempo-indeterminato-evam-lausanne",
-        "en": "responsable-d-atelier-velo-et-d-insertion-90-cdi-evam-vaud-ch",
-        "de": "responsable-d-atelier-velo-et-d-insertion-90-cdi-evam-vaud-ch"
+        "en": "head-of-bicycle-and-integration-workshop-90-cdi-evam-lausanne",
+        "de": "leiterin-fahrrad-und-integrationsworkshop-90-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1852,6 +2006,12 @@
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-atelier-velo-et-d-insertion-90-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "responsable-d-atelier-velo-et-d-insertion-90-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "responsable-d-atelier-velo-et-d-insertion-90-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1860,10 +2020,10 @@
     },
     {
       "id": "evam-vaud-8014800",
-      "slug": "assistant-e-social-e-80-cdi-evam-vaud-ch",
+      "slug": "assistente-sociale-80-cdi-evam-gryon",
       "slugByLocale": {
         "fr": "assistant-e-social-e-80-cdi-evam-vaud-ch",
-        "it": "assistant-e-social-e-80-cdi-evam-vaud-ch",
+        "it": "assistente-sociale-80-cdi-evam-gryon",
         "en": "assistant-e-social-e-80-cdi-evam-vaud-ch",
         "de": "assistent-e-social-e-80-cdi-evam-gryon"
       },
@@ -1918,14 +2078,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:58:13.051Z"
+      "firstSeenAt": "2026-07-04T10:58:13.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-80-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-80-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8014947",
-      "slug": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
+      "slug": "assistente-sociale-80-cdi-evam-blonay-saint-legier",
       "slugByLocale": {
         "fr": "assistant-e-social-e-80-cdi-evam-vaud-ch",
-        "it": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
+        "it": "assistente-sociale-80-cdi-evam-blonay-saint-legier",
         "en": "assistant-e-social-e-80-cdi-evam-vaud-ch-2",
         "de": "assistent-e-social-e-80-cdi-evam-blonay-saint-legier"
       },
@@ -1970,11 +2138,13 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-social-e-80-cdi-evam-vaud-ch"
+          "assistant-e-social-e-80-cdi-evam-vaud-ch",
+          "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
         ]
       },
       "previousSlugs": [
-        "assistant-e-social-e-80-cdi-evam-vaud-ch"
+        "assistant-e-social-e-80-cdi-evam-vaud-ch",
+        "assistant-e-social-e-80-cdi-evam-vaud-ch-2"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -1996,7 +2166,7 @@
       "slugByLocale": {
         "fr": "chef-fe-d-equipe-du-pole-interface-80-100-cdi-evam-vaud-ch",
         "it": "capo-squadra-della-divisione-interface-80-100-contratto-permanente-evam-lausanne",
-        "en": "chef-fe-d-equipe-du-pole-interface-80-100-cdi-evam-vaud-ch",
+        "en": "team-leader-of-the-interface-pole-80-100-cdi-evam-lausanne",
         "de": "chef-fe-d-equipe-du-pole-interface-80-100-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -2053,6 +2223,9 @@
       "firstSeenAt": "2026-07-04T10:58:13.019Z",
       "previousSlugsByLocale": {
         "it": [
+          "chef-fe-d-equipe-du-pole-interface-80-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
           "chef-fe-d-equipe-du-pole-interface-80-100-cdi-evam-vaud-ch"
         ]
       },

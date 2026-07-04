@@ -689,10 +689,10 @@
     },
     {
       "id": "sfs-group-096b86a82b9f",
-      "slug": "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
+      "slug": "group-finanza-specialista-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
         "de": "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
-        "it": "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
+        "it": "group-finanza-specialista-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
         "en": "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg",
         "fr": "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
       },
@@ -753,7 +753,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:18:31.642Z"
+      "firstSeenAt": "2026-07-04T12:18:31.642Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "group-finance-specialist-sap-fi-key-user-m-f-d-80-sfs-group-heerbrugg"
+      ]
     },
     {
       "id": "sfs-group-753c32b5db95",

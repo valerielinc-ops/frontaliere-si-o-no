@@ -76,7 +76,7 @@
         "en": "tax-assistant-consultant-swiss-individual-tax-tax-legal-deloitte-basel",
         "it": "tax-assistant-consultant-swiss-individual-tax-tax-legal-deloitte-basel",
         "de": "tax-assistant-consultant-swiss-individual-tax-tax-legal-deloitte-basel",
-        "fr": "tax-assistant-consultant-swiss-individual-tax-tax-legal-deloitte-basel"
+        "fr": "assistant-fiscal-conseiller-fiscal-fiscalite-juridique-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -209,8 +209,8 @@
       "slugByLocale": {
         "en": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich",
         "it": "senior-manager-assicurazioni-sulla-vita-servizi-attuariali-audit-e-assicurazioni-deloitte-zurich",
-        "de": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich",
-        "fr": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich"
+        "de": "senior-manager-lebensversicherung-versicherungsmathematische-dienstleistungen-audit-assurance-deloitte-zurich",
+        "fr": "gestionnaire-principal-assurance-vie-services-actuariels-verification-et-assurance-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -272,6 +272,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich"
+        ],
+        "de": [
+          "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich"
+        ],
+        "fr": [
+          "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich"
         ]
       },
       "previousSlugs": [
@@ -284,7 +290,7 @@
       "slugByLocale": {
         "en": "senior-manager-data-architect-artificial-intelligence-data-deloitte-geneva",
         "it": "senior-manager-data-architect-artificial-intelligence-data-deloitte-geneva",
-        "de": "senior-manager-data-architect-artificial-intelligence-data-deloitte-geneva",
+        "de": "senior-manager-data-architect-kunstliche-intelligenz-daten-deloitte-geneva",
         "fr": "senior-manager-data-architect-artificial-intelligence-data-deloitte-geneva"
       },
       "company": "Deloitte",
@@ -352,7 +358,7 @@
         "en": "senior-manager-ai-data-ai-strategy-deloitte-geneva",
         "it": "senior-manager-ai-data-ai-strategy-deloitte-geneva",
         "de": "senior-manager-ai-data-ai-strategy-deloitte-geneva",
-        "fr": "senior-manager-ai-data-ai-strategy-deloitte-geneva"
+        "fr": "gestionnaire-principal-ai-data-strategie-ai-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -419,7 +425,7 @@
         "en": "senior-consultant-manager-global-trade-service-gts-deloitte-zurich",
         "it": "senior-consultant-manager-global-trade-service-gts-deloitte-zurich",
         "de": "senior-consultant-manager-global-trade-service-gts-deloitte-zurich",
-        "fr": "senior-consultant-manager-global-trade-service-gts-deloitte-zurich"
+        "fr": "consultant-principal-gestionnaire-service-du-commerce-mondial-stm-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -553,7 +559,7 @@
         "en": "senior-consultant-manager-it-m-a-technology-strategy-transformation-deloitte-zurich",
         "it": "senior-consultant-manager-it-m-a-technology-strategy-transformation-deloitte-zurich",
         "de": "senior-consultant-manager-it-m-a-technology-strategy-transformation-deloitte-zurich",
-        "fr": "senior-consultant-manager-it-m-a-technology-strategy-transformation-deloitte-zurich"
+        "fr": "consultant-gestionnaire-principal-m-a-en-ti-strategie-technologique-et-transformation-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -620,7 +626,7 @@
         "en": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-basel",
         "it": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-basel",
         "de": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-basel",
-        "fr": "senior-consultant-swiss-individual-tax-tax-legal-deloitte-basel"
+        "fr": "consultant-senior-taxe-individuelle-suisse-fiscalite-droit-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -687,7 +693,7 @@
         "en": "senior-consultant-in-cyber-security-deloitte-geneva",
         "it": "senior-consultant-in-cyber-security-deloitte-geneva",
         "de": "senior-consultant-in-cyber-security-deloitte-geneva",
-        "fr": "senior-consultant-in-cyber-security-deloitte-geneva"
+        "fr": "consultant-principal-en-cybersecurite-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -955,7 +961,7 @@
         "en": "senior-consultant-manager-sap-sd-sales-and-distribution-deloitte-zurich",
         "it": "senior-consultant-manager-sap-sd-sales-and-distribution-deloitte-zurich",
         "de": "senior-consultant-manager-sap-sd-sales-and-distribution-deloitte-zurich",
-        "fr": "senior-consultant-manager-sap-sd-sales-and-distribution-deloitte-zurich"
+        "fr": "consultant-principal-gestionnaire-dd-sap-ventes-et-distribution-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1022,7 +1028,7 @@
         "en": "senior-consultant-manager-financial-consolidation-reporting-epm-deloitte-zurich",
         "it": "senior-consultant-manager-financial-consolidation-reporting-epm-deloitte-zurich",
         "de": "senior-consultant-manager-financial-consolidation-reporting-epm-deloitte-zurich",
-        "fr": "senior-consultant-manager-financial-consolidation-reporting-epm-deloitte-zurich"
+        "fr": "consultant-principal-gestionnaire-consolidation-financiere-et-rapports-epm-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1156,7 +1162,7 @@
         "en": "senior-consultant-manager-banking-fpsl-sap-consulting-deloitte-zurich",
         "it": "senior-consultant-manager-banking-fpsl-sap-consulting-deloitte-zurich",
         "de": "senior-consultant-manager-banking-fpsl-sap-consulting-deloitte-zurich",
-        "fr": "senior-consultant-manager-banking-fpsl-sap-consulting-deloitte-zurich"
+        "fr": "consultant-principal-gestionnaire-services-bancaires-fpsl-sap-consulting-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1223,7 +1229,7 @@
         "en": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
         "it": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
         "de": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich",
-        "fr": "senior-consultant-manager-insurance-innovation-transformation-deloitte-zurich"
+        "fr": "consultant-principal-gestionnaire-innovation-et-transformation-en-assurance-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1290,7 +1296,7 @@
         "en": "senior-consultant-manager-technology-risk-advisory-technology-transformation-deloitte",
         "it": "senior-consultant-manager-technology-risk-advisory-technology-transformation-deloitte",
         "de": "senior-consultant-manager-technology-risk-advisory-technology-transformation-deloitte",
-        "fr": "senior-consultant-manager-technology-risk-advisory-technology-transformation-deloitte"
+        "fr": "conseiller-principal-gestionnaire-technologie-risque-conseil-technologie-et-transformation-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1357,7 +1363,7 @@
         "en": "senior-consultant-valuation-and-modelling-deloitte-geneva",
         "it": "senior-consultant-valuation-and-modelling-deloitte-geneva",
         "de": "senior-consultant-valuation-and-modelling-deloitte-geneva",
-        "fr": "senior-consultant-valuation-and-modelling-deloitte-geneva"
+        "fr": "consultant-principal-evaluation-et-modelisation-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1424,7 +1430,7 @@
         "en": "senior-consultant-risk-audit-and-controls-deloitte-geneva",
         "it": "senior-consultant-risk-audit-and-controls-deloitte-geneva",
         "de": "senior-consultant-risk-audit-and-controls-deloitte-geneva",
-        "fr": "senior-consultant-risk-audit-and-controls-deloitte-geneva"
+        "fr": "consultant-principal-risque-verification-et-controles-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1558,7 +1564,7 @@
         "en": "senior-consultant-ethical-hacker-in-cyber-risk-services-deloitte-zurich",
         "it": "senior-consultant-ethical-hacker-in-cyber-risk-services-deloitte-zurich",
         "de": "senior-consultant-ethical-hacker-in-cyber-risk-services-deloitte-zurich",
-        "fr": "senior-consultant-ethical-hacker-in-cyber-risk-services-deloitte-zurich"
+        "fr": "consultant-senior-hacker-ethique-dans-les-services-de-cyberrisque-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1625,7 +1631,7 @@
         "en": "senior-consultant-treasury-advisory-deloitte-basel",
         "it": "senior-consultant-treasury-advisory-deloitte-basel",
         "de": "senior-consultant-treasury-advisory-deloitte-basel",
-        "fr": "senior-consultant-treasury-advisory-deloitte-basel"
+        "fr": "consultant-principal-conseil-de-tresorerie-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1692,7 +1698,7 @@
         "en": "senior-consultant-third-party-advisory-technology-transformation-deloitte-zurich",
         "it": "senior-consultant-third-party-advisory-technology-transformation-deloitte-zurich",
         "de": "senior-consultant-third-party-advisory-technology-transformation-deloitte-zurich",
-        "fr": "senior-consultant-third-party-advisory-technology-transformation-deloitte-zurich"
+        "fr": "consultant-principal-avis-de-tiers-et-transformation-technologique-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1759,7 +1765,7 @@
         "en": "senior-consultant-sap-internal-controls-deloitte-zurich",
         "it": "senior-consultant-sap-internal-controls-deloitte-zurich",
         "de": "senior-consultant-sap-internal-controls-deloitte-zurich",
-        "fr": "senior-consultant-sap-internal-controls-deloitte-zurich"
+        "fr": "consultant-principal-sap-controles-internes-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1826,7 +1832,7 @@
         "en": "senior-consultant-artificial-intelligence-data-data-management-data-platforms-focus",
         "it": "senior-consultant-artificial-intelligence-data-data-management-data-platforms-focus",
         "de": "senior-consultant-artificial-intelligence-data-data-management-data-platforms-focus",
-        "fr": "senior-consultant-artificial-intelligence-data-data-management-data-platforms-focus"
+        "fr": "consultant-senior-intelligence-artificielle-donnees-gestion-de-donnees-plateformes-de-donnees-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1893,7 +1899,7 @@
         "en": "senior-consultant-artificial-intelligence-data-ai-insights-focus-deloitte-basel",
         "it": "senior-consultant-artificial-intelligence-data-ai-insights-focus-deloitte-basel",
         "de": "senior-consultant-artificial-intelligence-data-ai-insights-focus-deloitte-basel",
-        "fr": "senior-consultant-artificial-intelligence-data-ai-insights-focus-deloitte-basel"
+        "fr": "consultant-principal-intelligence-artificielle-et-donnees-ai-insights-focus-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1960,7 +1966,7 @@
         "en": "senior-assistant-assistant-manager-audit-assurance-insurance-deloitte-zurich",
         "it": "senior-assistant-assistant-manager-audit-assurance-insurance-deloitte-zurich",
         "de": "senior-assistant-assistant-manager-audit-assurance-insurance-deloitte-zurich",
-        "fr": "senior-assistant-assistant-manager-audit-assurance-insurance-deloitte-zurich"
+        "fr": "assistant-principal-gestionnaire-adjoint-assurance-verification-et-assurance-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2089,12 +2095,12 @@
     },
     {
       "id": "deloitte-2500ef3afe55",
-      "slug": "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva",
+      "slug": "senior-assistant-manager-audit-grande-e-complesso-ginevra-deloitte-geneva",
       "slugByLocale": {
         "en": "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva",
-        "it": "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva",
+        "it": "senior-assistant-manager-audit-grande-e-complesso-ginevra-deloitte-geneva",
         "de": "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva",
-        "fr": "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva"
+        "fr": "directeur-principal-assistant-audit-grand-et-complexe-geneve-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2152,7 +2158,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.259Z"
+      "firstSeenAt": "2026-07-04T10:47:03.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva"
+        ],
+        "fr": [
+          "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-assistant-manager-large-complex-audit-geneva-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-ad1c099c39d2",
@@ -2295,7 +2312,7 @@
         "en": "sap-master-data-governance-lead-deloitte-basel",
         "it": "responsabile-della-governance-dei-dati-master-di-sap-deloitte-basel",
         "de": "sap-master-data-governance-lead-deloitte-basel",
-        "fr": "sap-master-data-governance-lead-deloitte-basel"
+        "fr": "responsable-de-la-gouvernance-des-donnees-de-base-sap-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2356,6 +2373,9 @@
       "firstSeenAt": "2026-07-04T10:47:03.256Z",
       "previousSlugsByLocale": {
         "it": [
+          "sap-master-data-governance-lead-deloitte-basel"
+        ],
+        "fr": [
           "sap-master-data-governance-lead-deloitte-basel"
         ]
       },
@@ -2437,7 +2457,7 @@
         "en": "manager-senior-manager-finance-strategy-and-performance-re-insurance-industry-focus",
         "it": "manager-senior-manager-finance-strategy-and-performance-re-insurance-industry-focus",
         "de": "manager-senior-manager-finance-strategy-and-performance-re-insurance-industry-focus",
-        "fr": "manager-senior-manager-finance-strategy-and-performance-re-insurance-industry-focus"
+        "fr": "gestionnaire-gestionnaire-principal-strategie-financiere-et-rendement-re-l-orientation-de-l-industrie-de-l-assurance"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2570,8 +2590,8 @@
       "slugByLocale": {
         "en": "manager-financial-services-audit-deloitte-zurich",
         "it": "manager-servizi-finanziari-audit-deloitte-zurich",
-        "de": "manager-financial-services-audit-deloitte-zurich",
-        "fr": "manager-financial-services-audit-deloitte-zurich"
+        "de": "manager-finanzdienstleistungen-audit-deloitte-zurich",
+        "fr": "gestionnaire-services-financiers-verification-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2633,6 +2653,12 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-financial-services-audit-deloitte-zurich"
+        ],
+        "de": [
+          "manager-financial-services-audit-deloitte-zurich"
+        ],
+        "fr": [
+          "manager-financial-services-audit-deloitte-zurich"
         ]
       },
       "previousSlugs": [
@@ -2646,7 +2672,7 @@
         "en": "manager-audit-assurance-insurance-deloitte-zurich",
         "it": "responsabile-audit-assicurazioni-deloitte-zurich",
         "de": "manager-audit-assurance-insurance-deloitte-zurich",
-        "fr": "manager-audit-assurance-insurance-deloitte-zurich"
+        "fr": "gestionnaire-assurance-verification-et-assurance-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2708,6 +2734,9 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-audit-assurance-insurance-deloitte-zurich"
+        ],
+        "fr": [
+          "manager-audit-assurance-insurance-deloitte-zurich"
         ]
       },
       "previousSlugs": [
@@ -2721,7 +2750,7 @@
         "en": "manager-m-a-advisory-corporate-finance-life-sciences-healthcare-deloitte-zurich",
         "it": "manager-m-a-advisory-corporate-finance-life-sciences-healthcare-deloitte-zurich",
         "de": "manager-m-a-advisory-corporate-finance-life-sciences-healthcare-deloitte-zurich",
-        "fr": "manager-m-a-advisory-corporate-finance-life-sciences-healthcare-deloitte-zurich"
+        "fr": "gestionnaire-avis-de-fusions-et-acquisitions-finances-d-entreprise-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2788,7 +2817,7 @@
         "de": "manager-large-complex-audit-zurich-deloitte-bern",
         "it": "manager-audit-grandi-e-complessi-zurigo-deloitte-bern",
         "en": "manager-large-complex-audit-zurich-deloitte-bern",
-        "fr": "manager-large-complex-audit-zurich-deloitte-bern"
+        "fr": "gestionnaire-audit-grand-et-complexe-zurich-deloitte-bern"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2850,6 +2879,9 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-large-complex-audit-zurich-deloitte-bern"
+        ],
+        "fr": [
+          "manager-large-complex-audit-zurich-deloitte-bern"
         ]
       },
       "previousSlugs": [
@@ -2863,7 +2895,7 @@
         "de": "manager-treuhand-business-tax-tax-legal-deloitte-bern",
         "it": "manager-treuhand-fiscalita-aziendale-fiscalita-e-legale-deloitte-bern",
         "en": "manager-treuhand-business-tax-tax-legal-deloitte-bern",
-        "fr": "manager-treuhand-business-tax-tax-legal-deloitte-bern"
+        "fr": "gestionnaire-fiducie-impot-des-entreprises-fiscalite-et-juridique-deloitte-bern"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -2925,6 +2957,9 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-treuhand-business-tax-tax-legal-deloitte-bern"
+        ],
+        "fr": [
+          "manager-treuhand-business-tax-tax-legal-deloitte-bern"
         ]
       },
       "previousSlugs": [
@@ -2937,8 +2972,8 @@
       "slugByLocale": {
         "en": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel",
         "it": "manager-intelligenza-artificiale-e-dati-strategia-di-ia-deloitte-basel",
-        "de": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel",
-        "fr": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel"
+        "de": "manager-kunstliche-intelligenz-daten-ki-strategie-deloitte-basel",
+        "fr": "gestionnaire-intelligence-artificielle-et-donnees-strategie-ai-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3000,6 +3035,12 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-artificial-intelligence-data-ai-strategy-deloitte-basel"
+        ],
+        "de": [
+          "manager-artificial-intelligence-data-ai-strategy-deloitte-basel"
+        ],
+        "fr": [
+          "manager-artificial-intelligence-data-ai-strategy-deloitte-basel"
         ]
       },
       "previousSlugs": [
@@ -3012,8 +3053,8 @@
       "slugByLocale": {
         "en": "manager-artificial-intelligence-data-data-management-data-platforms-focus-deloitte-basel",
         "it": "manager-artificial-intelligence-data-data-management-data-platforms-focus-deloitte-basel",
-        "de": "manager-artificial-intelligence-data-data-management-data-platforms-focus-deloitte-basel",
-        "fr": "manager-artificial-intelligence-data-data-management-data-platforms-focus-deloitte-basel"
+        "de": "manager-kunstliche-intelligenz-daten-fokus-datenmanagement-datenplattformen-deloitte-basel",
+        "fr": "gestionnaire-intelligence-artificielle-donnees-gestion-de-donnees-plateformes-de-donnees-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3155,7 +3196,7 @@
         "de": "it-support-spezialist-in-2nd-level-support-deloitte-zurich",
         "it": "specialista-supporto-it-supporto-di-2-livello-deloitte-zurich",
         "en": "it-support-spezialist-in-2nd-level-support-deloitte-zurich",
-        "fr": "it-support-spezialist-in-2nd-level-support-deloitte-zurich"
+        "fr": "specialiste-du-soutien-informatique-en-2e-niveau-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3216,6 +3257,9 @@
       "firstSeenAt": "2026-07-04T10:47:03.244Z",
       "previousSlugsByLocale": {
         "it": [
+          "it-support-spezialist-in-2nd-level-support-deloitte-zurich"
+        ],
+        "fr": [
           "it-support-spezialist-in-2nd-level-support-deloitte-zurich"
         ]
       },
@@ -3498,7 +3542,7 @@
         "en": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel",
         "it": "hacker-etico-tester-di-penetrazione-servizi-di-rischio-informatico-deloitte-basel",
         "de": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel",
-        "fr": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel"
+        "fr": "hacker-ethique-testeur-de-penetration-cyber-risque-services-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3560,6 +3604,9 @@
       "previousSlugsByLocale": {
         "it": [
           "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel"
+        ],
+        "fr": [
+          "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel"
         ]
       },
       "previousSlugs": [
@@ -3573,7 +3620,7 @@
         "en": "director-sap-finance-deloitte-zurich",
         "it": "direttore-sap-finanza-deloitte-zurich",
         "de": "direktor-sap-finanzen-deloitte-zurich",
-        "fr": "director-sap-finance-deloitte-zurich"
+        "fr": "directeur-finances-sap-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3638,6 +3685,9 @@
         ],
         "de": [
           "director-sap-finance-deloitte-zurich"
+        ],
+        "fr": [
+          "director-sap-finance-deloitte-zurich"
         ]
       },
       "previousSlugs": [
@@ -3651,7 +3701,7 @@
         "en": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva",
         "it": "responsabile-della-strategia-cibernetica-e-della-trasformazione-tecnologia-e-trasformazione-deloitte-geneva",
         "de": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva",
-        "fr": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva"
+        "fr": "cyber-strategie-et-transformation-gestionnaire-technologie-et-transformation-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3713,6 +3763,9 @@
       "previousSlugsByLocale": {
         "it": [
           "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva"
+        ],
+        "fr": [
+          "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva"
         ]
       },
       "previousSlugs": [
@@ -3726,7 +3779,7 @@
         "en": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich",
         "it": "responsabile-crisi-e-resilienza-cyber-risk-services-deloitte-zurich",
         "de": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich",
-        "fr": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich"
+        "fr": "gestionnaire-de-crise-et-resilience-cyberrisk-services-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3788,6 +3841,9 @@
       "previousSlugsByLocale": {
         "it": [
           "crisis-resilience-manager-cyber-risk-services-deloitte-zurich"
+        ],
+        "fr": [
+          "crisis-resilience-manager-cyber-risk-services-deloitte-zurich"
         ]
       },
       "previousSlugs": [
@@ -3801,7 +3857,7 @@
         "en": "consultant-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
         "it": "consultant-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
         "de": "consultant-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
-        "fr": "consultant-business-tax-financial-services-industries-tax-legal-deloitte-zurich"
+        "fr": "consultant-en-fiscalite-des-entreprises-industries-des-services-financiers-fiscalite-et-juridique-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3867,7 +3923,7 @@
       "slugByLocale": {
         "en": "cloud-and-infrastructure-security-architect-deloitte-geneva",
         "it": "cloud-and-infrastructure-security-architect-deloitte-geneva",
-        "de": "cloud-and-infrastructure-security-architect-deloitte-geneva",
+        "de": "cloud-und-infrastruktursicherheit-architekt-deloitte-geneva",
         "fr": "cloud-and-infrastructure-security-architect-deloitte-geneva"
       },
       "company": "Deloitte",
@@ -3935,7 +3991,7 @@
         "de": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern",
         "it": "inizio-carriera-audit-large-complex-zurich-bern-inizio-ottobre-2026-deloitte-bern",
         "en": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern",
-        "fr": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern"
+        "fr": "debut-de-carriere-audit-grand-et-complexe-zurich-berne-debut-octobre-2026-deloitte-bern"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -3997,6 +4053,9 @@
       "previousSlugsByLocale": {
         "it": [
           "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern"
+        ],
+        "fr": [
+          "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern"
         ]
       },
       "previousSlugs": [
@@ -4010,7 +4069,7 @@
         "en": "career-entry-consultant-corporate-international-tax-start-september-2026-deloitte-zurich",
         "it": "career-entry-consultant-corporate-international-tax-start-september-2026-deloitte-zurich",
         "de": "career-entry-consultant-corporate-international-tax-start-september-2026-deloitte-zurich",
-        "fr": "career-entry-consultant-corporate-international-tax-start-september-2026-deloitte-zurich"
+        "fr": "entree-dans-la-carriere-consultant-impot-sur-les-societes-international-debut-septembre-2026-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -4407,12 +4466,12 @@
     },
     {
       "id": "deloitte-0da0ac6013ec",
-      "slug": "assistant-2-senior-assurance-controls-assurance-deloitte-geneva",
+      "slug": "assistente-2-senior-assicurazione-controlli-assicurazione-deloitte-geneva",
       "slugByLocale": {
         "en": "assistant-2-senior-assurance-controls-assurance-deloitte-geneva",
-        "it": "assistant-2-senior-assurance-controls-assurance-deloitte-geneva",
+        "it": "assistente-2-senior-assicurazione-controlli-assicurazione-deloitte-geneva",
         "de": "assistant-2-senior-assurance-controls-assurance-deloitte-geneva",
-        "fr": "assistant-2-senior-assurance-controls-assurance-deloitte-geneva"
+        "fr": "assistant-2-aine-assurance-controle-assurance-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -4470,7 +4529,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.222Z"
+      "firstSeenAt": "2026-07-04T10:47:03.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-2-senior-assurance-controls-assurance-deloitte-geneva"
+        ],
+        "fr": [
+          "assistant-2-senior-assurance-controls-assurance-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-2-senior-assurance-controls-assurance-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-fca23b34ff15",
@@ -4479,7 +4549,7 @@
         "en": "senior-manager-infrastructure-and-cloud-security-deloitte-basel",
         "it": "senior-manager-infrastruttura-e-sicurezza-cloud-deloitte-basel",
         "de": "senior-manager-infrastructure-and-cloud-security-deloitte-basel",
-        "fr": "senior-manager-infrastructure-and-cloud-security-deloitte-basel"
+        "fr": "gestionnaire-principal-infrastructure-et-securite-cloud-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -4541,6 +4611,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-infrastructure-and-cloud-security-deloitte-basel"
+        ],
+        "fr": [
+          "senior-manager-infrastructure-and-cloud-security-deloitte-basel"
         ]
       },
       "previousSlugs": [
@@ -4553,8 +4626,8 @@
       "slugByLocale": {
         "de": "senior-manager-mehrwertsteuerberatung-deloitte-zurich",
         "it": "senior-responsabile-consulenza-iva-deloitte-zurich",
-        "en": "senior-manager-mehrwertsteuerberatung-deloitte-zurich",
-        "fr": "senior-manager-mehrwertsteuerberatung-deloitte-zurich"
+        "en": "senior-manager-vat-consultancy-deloitte-zurich",
+        "fr": "directeur-principal-conseil-en-matiere-de-tva-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -4616,6 +4689,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-mehrwertsteuerberatung-deloitte-zurich"
+        ],
+        "en": [
+          "senior-manager-mehrwertsteuerberatung-deloitte-zurich"
+        ],
+        "fr": [
+          "senior-manager-mehrwertsteuerberatung-deloitte-zurich"
         ]
       },
       "previousSlugs": [
@@ -4629,7 +4708,7 @@
         "en": "senior-manager-sap-consulting-deloitte-zurich",
         "it": "senior-manager-sap-consulting-deloitte-zurich",
         "de": "senior-manager-sap-consulting-deloitte-zurich",
-        "fr": "senior-manager-sap-consulting-deloitte-zurich"
+        "fr": "gestionnaire-principal-sap-consulting-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -4696,7 +4775,7 @@
         "en": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
         "it": "senior-manager-fiscalita-aziendale-industrie-dei-servizi-finanziari-fiscalita-e-legale-deloitte-zurich",
         "de": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
-        "fr": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich"
+        "fr": "aine-gestionnaire-fiscalite-des-entreprises-industries-des-services-financiers-fiscalite-et-droit-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -4758,6 +4837,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich"
+        ],
+        "fr": [
+          "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich"
         ]
       },
       "previousSlugs": [
@@ -4771,7 +4853,7 @@
         "en": "senior-consultant-it-architecture-technology-strategy-transformation-deloitte-zurich",
         "it": "senior-consultant-it-architecture-technology-strategy-transformation-deloitte-zurich",
         "de": "senior-consultant-it-architecture-technology-strategy-transformation-deloitte-zurich",
-        "fr": "senior-consultant-it-architecture-technology-strategy-transformation-deloitte-zurich"
+        "fr": "consultant-principal-architecture-de-la-ti-strategie-technologique-et-transformation-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -4838,7 +4920,7 @@
         "en": "assistant-manager-individual-us-tax-tax-legal-deloitte-basel",
         "it": "assistant-manager-individual-us-tax-tax-legal-deloitte-basel",
         "de": "assistant-manager-individual-us-tax-tax-legal-deloitte-basel",
-        "fr": "assistant-manager-individual-us-tax-tax-legal-deloitte-basel"
+        "fr": "assistant-gestionnaire-fiscalite-individuelle-americaine-fiscalite-et-juridique-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",

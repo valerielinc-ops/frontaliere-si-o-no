@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "barry-callebaut-9d49e2b2a306",
-      "slug": "executive-assistant-cpco-barry-callebaut-ch",
+      "slug": "assistente-esecutivo-cpco-barry-callebaut-zurich",
       "slugByLocale": {
-        "it": "executive-assistant-cpco-barry-callebaut-ch",
+        "it": "assistente-esecutivo-cpco-barry-callebaut-zurich",
         "en": "executive-assistant-cpco-barry-callebaut-ch",
         "de": "executive-assistent-cpco-barry-callebaut-zurich",
         "fr": "executive-assistant-cpco-barry-callebaut-ch"
@@ -62,7 +62,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-cpco-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-cpco-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-1d1b99cb02aa",
@@ -115,8 +123,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investor-relations-manager-barry-callebaut-ch",
-          "responsabile-relazioni-investitori-barry-callebaut-zurich"
+          "investor-relations-manager-barry-callebaut-ch"
         ],
         "fr": [
           "investor-relations-manager-barry-callebaut-ch"

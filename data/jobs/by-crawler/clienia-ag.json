@@ -8133,8 +8133,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich",
         "it": "diplomierte-pflegefachperson-come-dauernachtwache-50-clienia-ag-pfaffikon",
-        "en": "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-pfaffikon",
-        "fr": "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-pfaffikon"
+        "en": "qualified-nurse-as-a-permanent-night-watch-50-clienia-ag-pfaffikon-zh",
+        "fr": "infirmiere-qualifiee-en-veille-permanente-50-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8180,10 +8180,17 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich",
+        "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-pfaffikon"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -8205,8 +8212,8 @@
       "slugByLocale": {
         "de": "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
         "it": "vice-direttore-di-quartiere-80-100-clienia-ag-pfaffikon-zh",
-        "en": "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon",
-        "fr": "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon"
+        "en": "deputy-station-manager-80-100-clienia-ag-pfaffikon-zh",
+        "fr": "directeur-adjoint-de-station-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8252,6 +8259,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
+          "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
           "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon"
         ]
       },

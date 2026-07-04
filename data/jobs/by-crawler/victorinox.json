@@ -71,12 +71,12 @@
     },
     {
       "id": "victorinox-42839b5cb5a1",
-      "slug": "quality-coordinator-h-f-d-victorinox-delemont",
+      "slug": "quality-coordinatore-f-m-d-victorinox-delemont",
       "slugByLocale": {
         "fr": "quality-coordinator-h-f-d-victorinox-delemont",
-        "it": "quality-coordinator-h-f-d-victorinox-delemont",
+        "it": "quality-coordinatore-f-m-d-victorinox-delemont",
         "en": "quality-coordinator-h-f-d-victorinox-delemont",
-        "de": "quality-coordinator-h-f-d-victorinox-delemont"
+        "de": "qualitat-koordinator-h-f-d-victorinox-delemont"
       },
       "company": "Victorinox",
       "companyKey": "victorinox",
@@ -134,7 +134,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:22:26.636Z"
+      "firstSeenAt": "2026-07-04T12:22:26.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-coordinator-h-f-d-victorinox-delemont"
+        ],
+        "de": [
+          "quality-coordinator-h-f-d-victorinox-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "quality-coordinator-h-f-d-victorinox-delemont"
+      ]
     },
     {
       "id": "victorinox-5ee65a218866",
@@ -690,12 +701,12 @@
     },
     {
       "id": "victorinox-cc7818c12e2b",
-      "slug": "it-support-specialist-m-w-d-victorinox-ibach-schwyz",
+      "slug": "it-support-specialista-m-w-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "de": "it-support-specialist-m-w-d-victorinox-ibach-schwyz",
-        "it": "it-support-specialist-m-w-d-victorinox-ibach-schwyz",
+        "it": "it-support-specialista-m-w-d-victorinox-ibach-schwyz",
         "en": "it-support-specialist-m-w-d-victorinox-ibach-schwyz",
-        "fr": "it-support-specialist-m-w-d-victorinox-ibach-schwyz"
+        "fr": "it-support-specialiste-m-w-d-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
       "companyKey": "victorinox",
@@ -753,7 +764,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:22:22.012Z"
+      "firstSeenAt": "2026-07-04T12:22:22.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-support-specialist-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "fr": [
+          "it-support-specialist-m-w-d-victorinox-ibach-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "it-support-specialist-m-w-d-victorinox-ibach-schwyz"
+      ]
     },
     {
       "id": "victorinox-4cfbdb4ead6b",

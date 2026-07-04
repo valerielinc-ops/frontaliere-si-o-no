@@ -1184,8 +1184,8 @@
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-livit-zurich",
         "it": "gestore-immobiliare-livit-ag-zurich",
-        "en": "immobilienbewirtschafter-in-livit-zurich",
-        "fr": "immobilienbewirtschafter-in-livit-zurich"
+        "en": "property-manager-in-livit-ag-zurich",
+        "fr": "gestionnaire-immobilier-in-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1245,6 +1245,12 @@
       "firstSeenAt": "2026-07-04T11:42:21.240Z",
       "previousSlugsByLocale": {
         "it": [
+          "immobilienbewirtschafter-in-livit-zurich"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-livit-zurich"
+        ],
+        "fr": [
           "immobilienbewirtschafter-in-livit-zurich"
         ]
       },
