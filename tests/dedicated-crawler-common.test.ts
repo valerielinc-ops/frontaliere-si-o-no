@@ -2,8 +2,28 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, normalizeContract } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
+
+describe('normalizeContract — workload percentage-range classification (#3482)', () => {
+  it('classifies a range title by its upper bound, not the first number found', () => {
+    expect(normalizeContract('', '70% - 100%', '')).toBe('full-time');
+    expect(normalizeContract('', 'IT-Support (m/w/d) 70% - 100%', '')).toBe('full-time');
+    expect(normalizeContract('80% - 100%', '', '')).toBe('full-time');
+  });
+
+  it('still classifies a range whose upper bound stays below the full-time threshold as part-time', () => {
+    expect(normalizeContract('', '40% - 60%', '')).toBe('part-time');
+  });
+
+  it('still classifies a single below-threshold percentage as part-time', () => {
+    expect(normalizeContract('', 'Verkäufer 60%', '')).toBe('part-time');
+  });
+
+  it('still classifies a single at/above-threshold percentage as full-time', () => {
+    expect(normalizeContract('', 'Verkäufer 100%', '')).toBe('full-time');
+  });
+});
 
 describe('dedicated-crawler-common locale hardening', () => {
   it('flags wrong-language copied locales for retranslation without deleting (deploy has no AI)', () => {

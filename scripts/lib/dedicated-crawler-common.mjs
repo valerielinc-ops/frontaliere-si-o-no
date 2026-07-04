@@ -4338,7 +4338,13 @@ export function guessCategory(title = '', description = '') {
 
 export function normalizeContract(raw = '', title = '', description = '') {
   const s = String(`${raw} ${title} ${description}`).replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
-  const percent = Number((s.match(/\b(\d{1,3})\s*%/)?.[1] || ''));
+  // Workload can be a RANGE (e.g. "70% - 100%"): classify by the range's
+  // upper bound, not the first number found - a job is only genuinely
+  // part-time when even its maximum workload stays below the full-time
+  // threshold. Matching the lower bound would misread a full-time-eligible
+  // "70% - 100%" role as part-time (#3482).
+  const percents = [...s.matchAll(/\b(\d{1,3})\s*%/g)].map((m) => Number(m[1]));
+  const percent = percents.length ? Math.max(...percents) : NaN;
   if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
   for (const [k, v] of Object.entries(CONTRACT_MAP)) {
     if (s.replace(/[\s-]/g, '_').includes(k)) return v;
