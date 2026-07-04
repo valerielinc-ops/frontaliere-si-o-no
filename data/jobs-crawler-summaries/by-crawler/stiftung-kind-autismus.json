@@ -1,16 +1,16 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-07-03T12:45:11.132Z",
-  "total": 3,
+  "generatedAt": "2026-07-03T23:02:35.362Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6410,
-  "avgDurationMs": 6410,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5971,
+  "avgDurationMs": 5971,
   "durationHistory": [
-    6410
+    5971
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/2044/0102/pub/99/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:45:08.497Z",
+      "crawledAt": "2026-07-03T23:02:33.166Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/2044/0081/pub/68/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:45:07.637Z",
+      "crawledAt": "2026-07-03T23:02:32.524Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -91,8 +91,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "stiftung-kind-autismus-f7cbaaf9aa8a",
       "slug": "educatore-sociale-o-educatrice-sociale-stiftung-kind-und-autismus-urdorf",
@@ -133,5 +132,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

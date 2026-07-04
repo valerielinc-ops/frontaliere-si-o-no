@@ -544,6 +544,49 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Rektorat Volksschule Stadt Luzern, Winkelriedstrasse 12a, 6002 Luzern LU
+  // (confirmed via stadtluzern.ch contact page). Most postings carry their
+  // own school-building street/ZIP via the Prospective API; this is only the
+  // fallback for postings that omit those fields.
+  'volksschule-luzern': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
+  // Raiffeisen Schweiz (national cooperative bank group) HQ —
+  // Raiffeisenplatz, 9001 St. Gallen SG. Confirmed via the group's own
+  // "Contact" / imprint page. Used only as a fallback for postings whose
+  // per-job location can't be resolved to a canton — the CH-wide dedicated
+  // crawler (scripts/update-raiffeisen-jobs.mjs) infers canton per-posting
+  // from the Prospective listing's own city field for the vast majority
+  // of jobs (issue #3342).
+  'raiffeisen': { city: 'St. Gallen', canton: 'SG', postalCode: '9001', addressRegion: 'SG' },
+  // Chopard HQ, Rte de Veyrot 8, C.P. 85, 1217 Meyrin GE — confirmed via
+  // the company's own legal notice page (chopard.com/it-it/legal-terms-of-
+  // website-use.html); no fallback needed.
+  'chopard': { city: 'Meyrin', canton: 'GE', postalCode: '1217', addressRegion: 'GE' },
+  // Patek Philippe SA HQ, Chemin du Pont-du-Centenaire 141, 1228
+  // Plan-les-Ouates GE — confirmed via patek.com's own legal-notices page
+  // (terms-and-conditions imprint); no fallback needed.
+  'patek-philippe': { city: 'Plan-les-Ouates', canton: 'GE', postalCode: '1228', addressRegion: 'GE' },
+  // Bossard AG HQ, Steinhauserstrasse 70, 6301 Zug ZG — confirmed via the
+  // company's own imprint page (bossard.com/ch-en/imprint/); no fallback
+  // needed.
+  'bossard': { city: 'Zug', canton: 'ZG', postalCode: '6301', addressRegion: 'ZG' },
+  // Belimo Holding AG HQ, Brunnenbachstrasse 1, 8340 Hinwil ZH — confirmed
+  // via the company's own job-listing page footer text ("BELIMO Holding AG,
+  // Brunnenbachstrasse 1, 8340 Hinwil (Schweiz)"), cross-checked against the
+  // opencorpdata.com LEI record and GPS coordinates. NOT 8620 (a
+  // plausible-looking but wrong guess — that is Wetzikon's postal code, a
+  // different nearby ZH town); no fallback needed.
+  'belimo': { city: 'Hinwil', canton: 'ZH', postalCode: '8340', addressRegion: 'ZH' },
+  // Clariant AG, Rothausstrasse 61, 4132 Muttenz BL — confirmed via Zefix
+  // (Swiss commercial register, firm ehraid 356887, legalSeat "Muttenz").
+  // Real street address lives in the city-gated `resolveAddress()` in
+  // scripts/lib/clariant-job-parser.mjs (gate matches Muttenz OR Pratteln —
+  // Clariant's own postings label the same physical HQ campus "Pratteln");
+  // this HQ entry is only the generic city/canton fallback.
+  'clariant': { city: 'Muttenz', canton: 'BL', postalCode: '4132', addressRegion: 'BL' },
+  // Planzer Transport AG, Lerzenstrasse 14, 8953 Dietikon ZH — confirmed
+  // via the company's own Impressum page (https://www.planzer.ch/de/impressum/,
+  // "Kontaktadresse & Hauptsitz").
+  'planzer': { city: 'Dietikon', canton: 'ZH', postalCode: '8953', addressRegion: 'ZH' },
   // Veeam Software Group GmbH — Baar ZG (Linden Park, Lindenstrasse 16,
   // 6340 Baar). Confirmed via Veeam's own official contacts page
   // (https://www.veeam.com/company/contacts.html) cross-checked against

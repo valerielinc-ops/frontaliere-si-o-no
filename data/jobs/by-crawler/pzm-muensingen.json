@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pzm-muensingen",
-  "assembledAt": "2026-07-03T12:35:09.722Z",
+  "assembledAt": "2026-07-03T23:17:37.556Z",
   "jobs": [
     {
       "id": "pzm-muensingen-ff675d67a9c1",
@@ -34,12 +34,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/stv-stationsleitung/271652bf-8b49-460c-94ad-7d44ae6e9fbb",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.704Z",
+      "crawledAt": "2026-07-03T23:17:35.100Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -58,8 +59,7 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-pzm-muensingen-munsingen",
-          "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen",
-          "stv-gestione-stazione-psychiatriezentrum-munsingen-munsingen"
+          "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen"
         ],
         "en": [
           "stv-stationsleitung-psychiatriezentrum-munsingen-munsingen"
@@ -69,79 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:19:29.759Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pzm-muensingen-dc51e71b726b",
-      "slug": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-      "slugByLocale": {
-        "it": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "de": "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
-        "fr": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
-      },
-      "company": "Psychiatriezentrum Münsingen",
-      "companyKey": "pzm-muensingen",
-      "companyDomain": "pzmag.ch",
-      "title": "Dipl. Pflegefachperson im Tagdienst",
-      "titleByLocale": {
-        "it": "Dipl. Cura professionale di giorno",
-        "en": "Dipl. Day care professional",
-        "de": "Dipl. Pflegefachperson im Tagdienst",
-        "fr": "Dipl. Professionnels de jour"
-      },
-      "description": "Aufgaben:\n• Du schaffst gemeinsam mit deinen Teamkolleg:innen ein sicheres und angenehmes Umfeld für unsere Patient:innen\n\n• Durch Kompetenz und gelungene Beziehungsgestaltung trägst du zu einer hohen Patient:innenzufriedenheit bei\n\n• Mit deinem professionellen, wertschätzenden Auftreten und deinem konstruktiven, kritischen Denkansatz trägst du aktiv zur Weiterentwicklung unserer Strukturen und Prozesse bei\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung zur Dipl. Pflegefachperson HF/FH\n\n• Du bringst idealerweise Berufserfahrung im Bereich Psychiatrie mit\n\n• Du denkst ziel- und ergebnisorientiert, arbeitest patient:innenorientiert und verfügst über eine hohe Sozialkompetenz\n\n• Du interessierst dich fürs gesamte Spektrum der Erwachsenenpsychiatrie, insbesondere für Patient:innen mit psychotischen Störungen\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Insieme al tuo compagno di squadra, crei un ambiente sicuro e piacevole per i nostri pazienti:\n• Attraverso la competenza e la formazione di relazioni di successo contribuisce ad un elevato paziente: soddisfazione interiore\n• Con il vostro atteggiamento professionale, apprezzativo e il vostro approccio costruttivo e critico, contribuite attivamente all'ulteriore sviluppo delle nostre strutture e processi. Requisiti\n• Hai una formazione completa per il Dipl. Professionista HF/FH\n• È idealmente portare esperienza professionale in psichiatria\n• Pensate che l'obiettivo e il risultato siano orientati al lavoro e abbiano un alto livello di competenza sociale\n• Sei interessato all'intero spettro della psichiatria adulta, soprattutto per i pazienti con disturbi psicotici Offriamo: Famiglia? Sì! Con il nostro centro diurno e modelli di tempo di lavoro flessibili, è possibile conciliare famiglia e lavoro. Oltre all'indennità di famiglia, abbiamo anche un'indennità di assistenza generosa. Il Münsingen Psychiatric Center (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo più di 3100 pazienti: dentro.",
-        "en": "Tasks:\n• Together with your teammate, you create a safe and pleasant environment for our patients:\n• Through competence and successful relationship formation you contribute to a high patient: inner satisfaction\n• With your professional, appreciative attitude and your constructive, critical approach, you actively contribute to the further development of our structures and processes. Requirements\n• You have a completed training for the Dipl. Care professional HF/FH\n• You ideally bring professional experience in psychiatry\n• You think goal- and result-oriented, work patient-oriented and have a high level of social competence\n• You are interested in the entire spectrum of adult psychiatry, especially for patients with psychotic disorders We offer: Family? Yes! With our day-care centre and flexible working time models, you can reconcile family and work. In addition to the family allowance, we also have a generous care allowance. The Münsingen Psychiatric Center (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat more than 3100 patients: inside.",
-        "de": "Aufgaben:\n• Du schaffst gemeinsam mit deinen Teamkolleg:innen ein sicheres und angenehmes Umfeld für unsere Patient:innen\n• Durch Kompetenz und gelungene Beziehungsgestaltung trägst du zu einer hohen Patient:innenzufriedenheit bei\n• Mit deinem professionellen, wertschätzenden Auftreten und deinem konstruktiven, kritischen Denkansatz trägst du aktiv zur Weiterentwicklung unserer Strukturen und Prozesse bei Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung zur Dipl. Pflegefachperson HF/FH\n• Du bringst idealerweise Berufserfahrung im Bereich Psychiatrie mit\n• Du denkst ziel- und ergebnisorientiert, arbeitest patient:innenorientiert und verfügst über eine hohe Sozialkompetenz\n• Du interessierst dich fürs gesamte Spektrum der Erwachsenenpsychiatrie, insbesondere für Patient:innen mit psychotischen Störungen Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-        "fr": "Tâches :\n• Avec votre coéquipier, vous créez un environnement sûr et agréable pour nos patients:\n• Grâce à la compétence et à la formation réussie de relations, vous contribuez à un patient élevé: satisfaction intérieure\n• Avec votre attitude professionnelle, reconnaissante et votre approche constructive et critique, vous contribuez activement au développement de nos structures et processus. Exigences\n• Vous avez une formation complète pour le Dipl. Soins professionnels HF/FH\n• Vous apportez idéalement une expérience professionnelle en psychiatrie\n• Vous pensez que l'objectif et les résultats sont orientés vers le travail et le patient et avez un haut niveau de compétence sociale\n• Vous êtes intéressé par tout le spectre de la psychiatrie adulte, en particulier pour les patients atteints de troubles psychotiques Nous offrons: La famille ? Oui ! Avec notre garderie et nos modèles flexibles de temps de travail, vous pouvez concilier famille et travail. En plus de l'allocation familiale, nous avons également une allocation de soins généreuse. Le Centre psychiatrique de Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients : à l'intérieur."
-      },
-      "needsRetranslation": false,
-      "location": "Münsingen",
-      "canton": "BE",
-      "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-im-tagdienst/110dad50-f7c4-4809-a81e-69ac7a956a9e",
-      "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.702Z",
-      "addressLocality": "Münsingen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3110",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=B17FD0A3635583272E0731728832BEB0&company=1000-FIRMA-ID&tenant=&lang=D#position,id=22ebf371-a0c3-4831-b138-83a5a675ab9a,popup=y",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
-        "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen-wj2jm5"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
-          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
-        ]
-      },
-      "firstSeenAt": "2026-06-18T12:57:56.828Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -187,12 +114,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/assistenzaerztin-assistenzarzt/1b666918-a1aa-4aea-8ec3-6555d0e96118",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.702Z",
+      "crawledAt": "2026-07-03T23:17:35.099Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3110",
+      "postalCode": "2502",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -209,11 +137,83 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-pzm-muensingen-biel",
-          "assistenzarztin-assistenzarzt-psychiatriezentrum-munsingen-biel"
+          "assistenzarztin-assistenzarzt-pzm-muensingen-biel"
         ]
       },
       "firstSeenAt": "2026-06-05T12:26:29.777Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "pzm-muensingen-dc51e71b726b",
+      "slug": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
+      "slugByLocale": {
+        "it": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
+        "en": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
+        "de": "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
+        "fr": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+      },
+      "company": "Psychiatriezentrum Münsingen",
+      "companyKey": "pzm-muensingen",
+      "companyDomain": "pzmag.ch",
+      "title": "Dipl. Pflegefachperson im Tagdienst",
+      "titleByLocale": {
+        "it": "Dipl. Cura professionale di giorno",
+        "en": "Dipl. Day care professional",
+        "de": "Dipl. Pflegefachperson im Tagdienst",
+        "fr": "Dipl. Professionnels de jour"
+      },
+      "description": "Aufgaben:\n• Du schaffst gemeinsam mit deinen Teamkolleg:innen ein sicheres und angenehmes Umfeld für unsere Patient:innen\n\n• Durch Kompetenz und gelungene Beziehungsgestaltung trägst du zu einer hohen Patient:innenzufriedenheit bei\n\n• Mit deinem professionellen, wertschätzenden Auftreten und deinem konstruktiven, kritischen Denkansatz trägst du aktiv zur Weiterentwicklung unserer Strukturen und Prozesse bei\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung zur Dipl. Pflegefachperson HF/FH\n\n• Du bringst idealerweise Berufserfahrung im Bereich Psychiatrie mit\n\n• Du denkst ziel- und ergebnisorientiert, arbeitest patient:innenorientiert und verfügst über eine hohe Sozialkompetenz\n\n• Du interessierst dich fürs gesamte Spektrum der Erwachsenenpsychiatrie, insbesondere für Patient:innen mit psychotischen Störungen\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Insieme al tuo compagno di squadra, crei un ambiente sicuro e piacevole per i nostri pazienti:\n• Attraverso la competenza e la formazione di relazioni di successo contribuisce ad un elevato paziente: soddisfazione interiore\n• Con il vostro atteggiamento professionale, apprezzativo e il vostro approccio costruttivo e critico, contribuite attivamente all'ulteriore sviluppo delle nostre strutture e processi. Requisiti\n• Hai una formazione completa per il Dipl. Professionista HF/FH\n• È idealmente portare esperienza professionale in psichiatria\n• Pensate che l'obiettivo e il risultato siano orientati al lavoro e abbiano un alto livello di competenza sociale\n• Sei interessato all'intero spettro della psichiatria adulta, soprattutto per i pazienti con disturbi psicotici Offriamo: Famiglia? Sì! Con il nostro centro diurno e modelli di tempo di lavoro flessibili, è possibile conciliare famiglia e lavoro. Oltre all'indennità di famiglia, abbiamo anche un'indennità di assistenza generosa. Il Münsingen Psychiatric Center (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo più di 3100 pazienti: dentro.",
+        "en": "Tasks:\n• Together with your teammate, you create a safe and pleasant environment for our patients:\n• Through competence and successful relationship formation you contribute to a high patient: inner satisfaction\n• With your professional, appreciative attitude and your constructive, critical approach, you actively contribute to the further development of our structures and processes. Requirements\n• You have a completed training for the Dipl. Care professional HF/FH\n• You ideally bring professional experience in psychiatry\n• You think goal- and result-oriented, work patient-oriented and have a high level of social competence\n• You are interested in the entire spectrum of adult psychiatry, especially for patients with psychotic disorders We offer: Family? Yes! With our day-care centre and flexible working time models, you can reconcile family and work. In addition to the family allowance, we also have a generous care allowance. The Münsingen Psychiatric Center (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat more than 3100 patients: inside.",
+        "de": "Aufgaben:\n• Du schaffst gemeinsam mit deinen Teamkolleg:innen ein sicheres und angenehmes Umfeld für unsere Patient:innen\n• Durch Kompetenz und gelungene Beziehungsgestaltung trägst du zu einer hohen Patient:innenzufriedenheit bei\n• Mit deinem professionellen, wertschätzenden Auftreten und deinem konstruktiven, kritischen Denkansatz trägst du aktiv zur Weiterentwicklung unserer Strukturen und Prozesse bei Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung zur Dipl. Pflegefachperson HF/FH\n• Du bringst idealerweise Berufserfahrung im Bereich Psychiatrie mit\n• Du denkst ziel- und ergebnisorientiert, arbeitest patient:innenorientiert und verfügst über eine hohe Sozialkompetenz\n• Du interessierst dich fürs gesamte Spektrum der Erwachsenenpsychiatrie, insbesondere für Patient:innen mit psychotischen Störungen Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+        "fr": "Tâches :\n• Avec votre coéquipier, vous créez un environnement sûr et agréable pour nos patients:\n• Grâce à la compétence et à la formation réussie de relations, vous contribuez à un patient élevé: satisfaction intérieure\n• Avec votre attitude professionnelle, reconnaissante et votre approche constructive et critique, vous contribuez activement au développement de nos structures et processus. Exigences\n• Vous avez une formation complète pour le Dipl. Soins professionnels HF/FH\n• Vous apportez idéalement une expérience professionnelle en psychiatrie\n• Vous pensez que l'objectif et les résultats sont orientés vers le travail et le patient et avez un haut niveau de compétence sociale\n• Vous êtes intéressé par tout le spectre de la psychiatrie adulte, en particulier pour les patients atteints de troubles psychotiques Nous offrons: La famille ? Oui ! Avec notre garderie et nos modèles flexibles de temps de travail, vous pouvez concilier famille et travail. En plus de l'allocation familiale, nous avons également une allocation de soins généreuse. Le Centre psychiatrique de Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients : à l'intérieur."
+      },
+      "needsRetranslation": false,
+      "location": "Münsingen",
+      "canton": "BE",
+      "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-im-tagdienst/110dad50-f7c4-4809-a81e-69ac7a956a9e",
+      "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T23:17:35.098Z",
+      "addressLocality": "Münsingen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3110",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=B17FD0A3635583272E0731728832BEB0&company=1000-FIRMA-ID&tenant=&lang=D#position,id=22ebf371-a0c3-4831-b138-83a5a675ab9a,popup=y",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
+        "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen-wj2jm5"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen"
+        ]
+      },
+      "firstSeenAt": "2026-06-18T12:57:56.828Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -259,12 +259,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-im-tagdienst-opm/cb9ac7b5-450c-49ea-99a3-2ac7548480bf",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.700Z",
+      "crawledAt": "2026-07-03T23:17:35.097Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -281,85 +282,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-im-tagdienst-opm-pzm-muensingen-munsingen",
-          "dipl-pflegefachperson-im-tagdienst-opm-psychiatriezentrum-munsingen-munsingen"
+          "dipl-pflegefachperson-im-tagdienst-opm-pzm-muensingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-06-09T22:58:30.526Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pzm-muensingen-400c0b83607e",
-      "slug": "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
-      "slugByLocale": {
-        "it": "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
-        "en": "fachperson-betreuung-fabe-psychiatriezentrum-munsingen-munsingen",
-        "de": "fachperson-betreuung-fabe-pzm-muensingen-munsingen",
-        "fr": "assistant-e-socio-educatif-ve-ase-psychiatriezentrum-munsingen-munsingen"
-      },
-      "company": "Psychiatriezentrum Münsingen",
-      "companyKey": "pzm-muensingen",
-      "companyDomain": "pzmag.ch",
-      "title": "Fachperson Betreuung (FaBe)",
-      "titleByLocale": {
-        "it": "Cura professionale (Fabe)",
-        "en": "Professional Care (FaBe)",
-        "de": "Fachperson Betreuung (FaBe)",
-        "fr": "Assistant-e socio-éducatif-ve (ASE)"
-      },
-      "description": "Aufgaben:\n• Du unterstützt die Entwicklung der Kunden, während dem zeitlich beschränkten Aufenthalt im Wohnhaus und durchläufst mit Ihnen verschiedenen Phasen des Aufenthaltes\n\n• Gemeinsam mit deinen Kolleg:innen zieht du am selben Strick und feierst gemeinsam Erfolge\n\n• Die Konzepte des Wohnhauses werden stetig weiterentwickelt, deine Ideen und Innovationen sind willkommen und gefragt\n\nAnforderungen:\n• Du hast eine abgeschlossene Berufslehre als Fachfperson Betreuung und verfügst über Erfahrung in der Arbeit mit Menschen mit einer psychischen Beeinträchtigung\n\n• Mit Menschen die an einer chronischen, psychischen Beeinträchtigung leiden bis du vertraut und vertrittst eine Haltung die unterschiedliche Lebensentwürfe integriert\n\n• Du bist belastbar und verantwortungsbewusst und freust dich auf die kooperative Prozessgestaltung der Kunden\n\n• Du bist einfühlsam, flexibel und hast eine humorvolle Persönlichkeit\n\n• Du interessierst dich für die interdisziplinäre Zusammenarbeit und geniesst die Nähe zur Klinik und deren breites Bildungsangebot\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-      "descriptionByLocale": {
-        "it": "Descrizione - Sostieni la crescita dei clienti durante il loro soggiorno nel residence e attraverso diverse fasi del loro soggiorno - insieme ai tuoi sforzi: a un obiettivo comune e festggia insieme i risultati raggiunti - I concetti del residence vengono accidentali, le tue idee e innovazioni sono benvenute e richieste\n• Requisiti - Hai completato un corso di formazione come Specialist Assistanta e hai esperienza nell'opera con persone con disabilità psichiche - Con le persone che soffrono di una disabilità psichica cronica, fino a quando non hai familiarità e rappresentai una posizione che integra diversi stili di vita - Be attend e responsabile e ti manca della gestione cooperativa dei clienti - Empatico, flessibile e hai una personalità umorale - Sei interessato all'opera interdisciplinare e apprezzai la vicinanza alla clinica e il suo ampia offerta di formazione Cosa di Friamo - Famiglia? Sì, naturalmente! - Con la nostra scuola materna e i nostri modelli flessibili, porti la famiglia e il lavoro sotto un tetto. Inoltre, offriamo una generosa indennità di assistenza familiare. Il Centro Psichiatrico Münsingen (BE) è una delle cliniche psichiatriche più grandi della Svizzera. Ogni anno curiamo oltre 3100 pazienti.",
-        "en": "Descrizione - Sostieni la crescita dei clienti durante il loro soggiorno nel residence e attraverso diverse fasi del loro soggiorno - Lavora insieme ai tuoi colleghi: a un obiettivo comune e festggia insieme i risultati raggiunti - I concetti del residence vengono continuamente sviluppati, le tue idee e innovazioni sono benvenute e richieste\n• Requirements - Hai completato un corso di formazione come Specialist Assistanta e hai esperienza nell'opera con persone con disabilità psichiche - Con le persone che soffrono di una disabilità psichica cronica, fino a quando non hai familiarità e rappresenti una posizione che integra diversi stili di vita - Be affidabile e responsabile e ti entusiasti della gestione cooperativa dei clienti - Empatico, flessibile e hai una personalità umorale - Sei interessato all'opera interdisciplinare e apprezzi la vicinanza alla clinica e il suo ampio offerta di formazione Cosa of Friamo - Famiglia? Sì, naturalmente! - Con la nostra scuola materna e i nostri modelli orari flessibili, porti la famiglia e il lavoro sotto un tetto. Inoltre, offriamo una generosa indennità di assistenza familiare. Il Centro Psichiatrico Münsingen (BE) è una delle cliniche psichiatriche più grandi della Svizzera. Ogni anno curiamo oltre 3100 pazienti.",
-        "de": "Aufgaben:\n• Du unterstützt die Entwicklung der Kunden, während dem zeitlich beschränkten Aufenthalt im Wohnhaus und durchläufst mit Ihnen verschiedenen Phasen des Aufenthaltes\n• Gemeinsam mit deinen Kolleg:innen zieht du am selben Strick und feierst gemeinsam Erfolge\n• Die Konzepte des Wohnhauses werden stetig weiterentwickelt, deine Ideen und Innovationen sind willkommen und gefragt Anforderungen:\n• Du hast eine abgeschlossene Berufslehre als Fachfperson Betreuung und verfügst über Erfahrung in der Arbeit mit Menschen mit einer psychischen Beeinträchtigung\n• Mit Menschen die an einer chronischen, psychischen Beeinträchtigung leiden bis du vertraut und vertrittst eine Haltung die unterschiedliche Lebensentwürfe integriert\n• Du bist belastbar und verantwortungsbewusst und freust dich auf die kooperative Prozessgestaltung der Kunden\n• Du bist einfühlsam, flexibel und hast eine humorvolle Persönlichkeit\n• Du interessierst dich für die interdisziplinäre Zusammenarbeit und geniesst die Nähe zur Klinik und deren breites Bildungsangebot Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-        "fr": "Descrizione - Sostieni la crescita dei clienti durante il loro soggiorno nel residence e attraverso divers fasi del loro soggiorno - Lavora insieme ai tuoi colleghi: a un obiettivo comune e festggia insieme i risultati raggiunti - I concetti del residence vengono continuamente sviluppati, le tue idee e innovazioni sono benvenute e richeste\n• Exigences - Hai completato un corso di formazione come Spécialiste Assistanta e hai espérienza nell'opera con persone con disabilità psichiche - Con le persone che soffrono di una disabilità psichica cronica, fino a quando non hai familiità e rappresenti una posizione che integra diversi stili di vita - Être affidabile e responsabile e ti entusiasti della gestion cooperativa dei clienti - Empatico, flessibile et hai una personalità umorale - Sei interessato all'opera interdisciplinere e apprezzi la vicinanza alla clinica e il suo ampio offreta di formazione Cosa de Friamo - Famiglia ? Sì, naturel ! - Con la nostra scuola materna e i nostri modelli orari flessibili, porti la famiglia e il lavoro sotto un tetto. Inoltre, offriamo una generosa indennità di assistenza familiare. Il Centro Psichiatrico Münsingen (BE) è una delle cliniche psichiatriche più grandi della Svizzera. Ogni anno curiamo oltre 3100 pazienti."
-      },
-      "location": "Münsingen",
-      "canton": "BE",
-      "url": "https://jobs.pzmag.ch/offene-stellen/fachperson-betreuung-fabe/cce7e3f8-2227-484c-a5e6-db8afcba2120",
-      "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.699Z",
-      "addressLocality": "Münsingen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3110",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=DD60F5C77AA8528AC8A20E13D5301845&company=1000-FIRMA-ID&tenant=&lang=D#position,id=33c05c28-6e51-43e7-ab74-0c75d855749d,popup=y",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-betreuung-fabe-pzm-muensingen-munsingen",
-          "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen"
-        ],
-        "fr": [
-          "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T12:44:30.487Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -405,12 +331,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/assistenzaerztin-assistenzarzt-alterspsychiatrie-ddm/fc076c02-641e-4906-b103-27178b86d91a",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.698Z",
+      "crawledAt": "2026-07-03T23:17:35.095Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -427,11 +354,85 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-pzm-muensingen-munsingen",
-          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-psychiatriezentrum-munsingen-munsingen"
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-ddm-pzm-muensingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-06-12T22:59:08.931Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "pzm-muensingen-400c0b83607e",
+      "slug": "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
+      "slugByLocale": {
+        "it": "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
+        "en": "fachperson-betreuung-fabe-psychiatriezentrum-munsingen-munsingen",
+        "de": "fachperson-betreuung-fabe-pzm-muensingen-munsingen",
+        "fr": "assistant-e-socio-educatif-ve-ase-psychiatriezentrum-munsingen-munsingen"
+      },
+      "company": "Psychiatriezentrum Münsingen",
+      "companyKey": "pzm-muensingen",
+      "companyDomain": "pzmag.ch",
+      "title": "Fachperson Betreuung (FaBe)",
+      "titleByLocale": {
+        "it": "Cura professionale (Fabe)",
+        "en": "Fachperson Betreuung (FaBe)",
+        "de": "Fachperson Betreuung (FaBe)",
+        "fr": "Assistant-e socio-éducatif-ve (ASE)"
+      },
+      "description": "Aufgaben:\n• Du unterstützt die Entwicklung der Kunden, während dem zeitlich beschränkten Aufenthalt im Wohnhaus und durchläufst mit Ihnen verschiedenen Phasen des Aufenthaltes\n\n• Gemeinsam mit deinen Kolleg:innen zieht du am selben Strick und feierst gemeinsam Erfolge\n\n• Die Konzepte des Wohnhauses werden stetig weiterentwickelt, deine Ideen und Innovationen sind willkommen und gefragt\n\nAnforderungen:\n• Du hast eine abgeschlossene Berufslehre als Fachfperson Betreuung und verfügst über Erfahrung in der Arbeit mit Menschen mit einer psychischen Beeinträchtigung\n\n• Mit Menschen die an einer chronischen, psychischen Beeinträchtigung leiden bis du vertraut und vertrittst eine Haltung die unterschiedliche Lebensentwürfe integriert\n\n• Du bist belastbar und verantwortungsbewusst und freust dich auf die kooperative Prozessgestaltung der Kunden\n\n• Du bist einfühlsam, flexibel und hast eine humorvolle Persönlichkeit\n\n• Du interessierst dich für die interdisziplinäre Zusammenarbeit und geniesst die Nähe zur Klinik und deren breites Bildungsangebot\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+      "descriptionByLocale": {
+        "it": "Descrizione - Sostieni la crescita dei clienti durante il loro soggiorno nel residence e attraverso diverse fasi del loro soggiorno - insieme ai tuoi sforzi: a un obiettivo comune e festggia insieme i risultati raggiunti - I concetti del residence vengono accidentali, le tue idee e innovazioni sono benvenute e richieste\n• Requisiti - Hai completato un corso di formazione come Specialist Assistanta e hai esperienza nell'opera con persone con disabilità psichiche - Con le persone che soffrono di una disabilità psichica cronica, fino a quando non hai familiarità e rappresentai una posizione che integra diversi stili di vita - Be attend e responsabile e ti manca della gestione cooperativa dei clienti - Empatico, flessibile e hai una personalità umorale - Sei interessato all'opera interdisciplinare e apprezzai la vicinanza alla clinica e il suo ampia offerta di formazione Cosa di Friamo - Famiglia? Sì, naturalmente! - Con la nostra scuola materna e i nostri modelli flessibili, porti la famiglia e il lavoro sotto un tetto. Inoltre, offriamo una generosa indennità di assistenza familiare. Il Centro Psichiatrico Münsingen (BE) è una delle cliniche psichiatriche più grandi della Svizzera. Ogni anno curiamo oltre 3100 pazienti.",
+        "en": "Descrizione - Sostieni la crescita dei clienti durante il loro soggiorno nel residence e attraverso diverse fasi del loro soggiorno - Lavora insieme ai tuoi colleghi: a un obiettivo comune e festggia insieme i risultati raggiunti - I concetti del residence vengono continuamente sviluppati, le tue idee e innovazioni sono benvenute e richieste\n• Requirements - Hai completato un corso di formazione come Specialist Assistanta e hai esperienza nell'opera con persone con disabilità psichiche - Con le persone che soffrono di una disabilità psichica cronica, fino a quando non hai familiarità e rappresenti una posizione che integra diversi stili di vita - Be affidabile e responsabile e ti entusiasti della gestione cooperativa dei clienti - Empatico, flessibile e hai una personalità umorale - Sei interessato all'opera interdisciplinare e apprezzi la vicinanza alla clinica e il suo ampio offerta di formazione Cosa of Friamo - Famiglia? Sì, naturalmente! - Con la nostra scuola materna e i nostri modelli orari flessibili, porti la famiglia e il lavoro sotto un tetto. Inoltre, offriamo una generosa indennità di assistenza familiare. Il Centro Psichiatrico Münsingen (BE) è una delle cliniche psichiatriche più grandi della Svizzera. Ogni anno curiamo oltre 3100 pazienti.",
+        "de": "Aufgaben:\n• Du unterstützt die Entwicklung der Kunden, während dem zeitlich beschränkten Aufenthalt im Wohnhaus und durchläufst mit Ihnen verschiedenen Phasen des Aufenthaltes\n• Gemeinsam mit deinen Kolleg:innen zieht du am selben Strick und feierst gemeinsam Erfolge\n• Die Konzepte des Wohnhauses werden stetig weiterentwickelt, deine Ideen und Innovationen sind willkommen und gefragt Anforderungen:\n• Du hast eine abgeschlossene Berufslehre als Fachfperson Betreuung und verfügst über Erfahrung in der Arbeit mit Menschen mit einer psychischen Beeinträchtigung\n• Mit Menschen die an einer chronischen, psychischen Beeinträchtigung leiden bis du vertraut und vertrittst eine Haltung die unterschiedliche Lebensentwürfe integriert\n• Du bist belastbar und verantwortungsbewusst und freust dich auf die kooperative Prozessgestaltung der Kunden\n• Du bist einfühlsam, flexibel und hast eine humorvolle Persönlichkeit\n• Du interessierst dich für die interdisziplinäre Zusammenarbeit und geniesst die Nähe zur Klinik und deren breites Bildungsangebot Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+        "fr": "Descrizione - Sostieni la crescita dei clienti durante il loro soggiorno nel residence e attraverso divers fasi del loro soggiorno - Lavora insieme ai tuoi colleghi: a un obiettivo comune e festggia insieme i risultati raggiunti - I concetti del residence vengono continuamente sviluppati, le tue idee e innovazioni sono benvenute e richeste\n• Exigences - Hai completato un corso di formazione come Spécialiste Assistanta e hai espérienza nell'opera con persone con disabilità psichiche - Con le persone che soffrono di una disabilità psichica cronica, fino a quando non hai familiità e rappresenti una posizione che integra diversi stili di vita - Être affidabile e responsabile e ti entusiasti della gestion cooperativa dei clienti - Empatico, flessibile et hai una personalità umorale - Sei interessato all'opera interdisciplinere e apprezzi la vicinanza alla clinica e il suo ampio offreta di formazione Cosa de Friamo - Famiglia ? Sì, naturel ! - Con la nostra scuola materna e i nostri modelli orari flessibili, porti la famiglia e il lavoro sotto un tetto. Inoltre, offriamo una generosa indennità di assistenza familiare. Il Centro Psichiatrico Münsingen (BE) è una delle cliniche psichiatriche più grandi della Svizzera. Ogni anno curiamo oltre 3100 pazienti."
+      },
+      "needsRetranslation": true,
+      "location": "Münsingen",
+      "canton": "BE",
+      "url": "https://jobs.pzmag.ch/offene-stellen/fachperson-betreuung-fabe/cce7e3f8-2227-484c-a5e6-db8afcba2120",
+      "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T23:17:35.095Z",
+      "addressLocality": "Münsingen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3110",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=DD60F5C77AA8528AC8A20E13D5301845&company=1000-FIRMA-ID&tenant=&lang=D#position,id=33c05c28-6e51-43e7-ab74-0c75d855749d,popup=y",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
+        ],
+        "fr": [
+          "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
+        ]
+      },
+      "firstSeenAt": "2026-06-12T12:44:30.487Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -477,12 +478,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst/52b0602f-7d27-4000-bcdb-2e2eade234f1",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.697Z",
+      "crawledAt": "2026-07-03T23:17:35.094Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -499,83 +501,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-pzm-muensingen",
-          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
+          "dipl-pflegefachperson-mit-zusatzfunktion-berufsbildner-in-schwerpunkt-angst-pzm-muensingen"
         ]
       },
       "firstSeenAt": "2026-06-12T22:59:08.926Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pzm-muensingen-395df6c1703d",
-      "slug": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
-      "slugByLocale": {
-        "it": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
-        "en": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
-        "de": "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen",
-        "fr": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
-      },
-      "company": "Psychiatriezentrum Münsingen",
-      "companyKey": "pzm-muensingen",
-      "companyDomain": "pzmag.ch",
-      "title": "Teamleiterin / Teamleiter Reinigungsservice",
-      "titleByLocale": {
-        "it": "Servizio di pulizia Capo Squadra",
-        "en": "Team Leader Cleaning Service",
-        "de": "Teamleiterin / Teamleiter Reinigungsservice",
-        "fr": "Service de nettoyage de chef d'équipe"
-      },
-      "description": "Aufgaben:\n• Mit deinem Know-how und deiner Erfahrung in der Reinigung kannst du dich einbringen und die Weiterentwicklung des Reinigungsservices aktiv mitgestalten\n\n• Du trägst zu einem angenehmen und gepflegten Umfeld für unsere Patient:innen und Mitarbeitenden bei\n\n• Mit deinem Flair für Planung und Organisation trägst du unter anderem massgeblich dazu bei, dass sich dein Team auf dich verlassen kann\n\n• Du leistest einen wichtigen Beitrag zur Sicherstellung der vorgegebenen Reinigungsqualität und Hygienestandards im PZM\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Hotellerie / Hauswirtschaft EFZ oder Reinigungstechnik EFZ\n\n• Mehrjährige Berufs- und von Vorteil Führungserfahrung in der Reinigung\n\n• Flair für Planung und Organisation\n\n• Du arbeitest gerne in einem Team und schätzt dennoch selbständiges Arbeiten\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie ein sicherer Umgang mit den gängigen Office-Programmen\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Con il vostro know-how e la vostra esperienza nel campo delle pulizie potete contribuire e dare forma attivamente all'ulteriore sviluppo del servizio di pulizia\n• Contribuite a creare un ambiente piacevole e curato per i nostri pazienti e collaboratori\n• Con il vostro senso della pianificazione e dell'organizzazione date un contributo significativo, tra l'altro, a garantire che il vostro team possa contare su di voi\n• Date un contributo importante a garantire gli standard di qualità e igiene della pulizia specificati nel PZM Requisiti:\n• Formazione completata come specialista / specialista nel settore alberghiero / pulizia EFZ o tecnologia di pulizia EFZ\n• Diversi anni di esperienza manageriale professionale e vantaggiosa nel settore delle pulizie\n• Un talento per la pianificazione e l'organizzazione\n• Ti piace lavorare in gruppo e apprezzi comunque il lavoro indipendente\n• Ottime competenze orali e scritte del tedesco e un uso sicuro dei comuni programmi per ufficio Offriamo: Famiglia? Sì, volentieri! Con il nostro asilo nido e i nostri modelli di orario di lavoro flessibili puoi conciliare famiglia e lavoro. Oltre all’assegno familiare offriamo anche un generoso assegno per la custodia dei figli. Il Centro psichiatrico di Münsingen (BE) è uno dei più grandi ospedali psichiatrici della Svizzera. Ogni anno trattiamo oltre 3.100 pazienti.",
-        "en": "Tasks:\n• With your know-how and experience in cleaning, you can contribute and actively shape the further development of the cleaning service\n• You contribute to a pleasant and well-maintained environment for our patients and employees\n• With your flair for planning and organization, you make a significant contribution, among other things, to ensuring that your team can rely on you\n• You make an important contribution to ensuring the specified cleaning quality and hygiene standards in the PZM Requirements:\n• Completed training as Specialist / specialist in the hotel industry / housekeeping EFZ or cleaning technology EFZ\n• Several years of professional and advantageous management experience in cleaning\n• A flair for planning and organization\n• You like working in a team and still value independent work\n• Very good oral and written German skills as well as a confident use of common office programs We offer: Family? Yes gladly! With our daycare center and our flexible working time models, you can balance family and work. In addition to the family allowance, we also provide a generous childcare allowance. The Münsingen Psychiatry Center (BE) is one of the largest psychiatric hospitals in Switzerland. Every year we treat over 3,100 patients.",
-        "de": "Aufgaben:\n• Mit deinem Know-how und deiner Erfahrung in der Reinigung kannst du dich einbringen und die Weiterentwicklung des Reinigungsservices aktiv mitgestalten\n• Du trägst zu einem angenehmen und gepflegten Umfeld für unsere Patient:innen und Mitarbeitenden bei\n• Mit deinem Flair für Planung und Organisation trägst du unter anderem massgeblich dazu bei, dass sich dein Team auf dich verlassen kann\n• Du leistest einen wichtigen Beitrag zur Sicherstellung der vorgegebenen Reinigungsqualität und Hygienestandards im PZM Anforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Hotellerie / Hauswirtschaft EFZ oder Reinigungstechnik EFZ\n• Mehrjährige Berufs- und von Vorteil Führungserfahrung in der Reinigung\n• Flair für Planung und Organisation\n• Du arbeitest gerne in einem Team und schätzt dennoch selbständiges Arbeiten\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie ein sicherer Umgang mit den gängigen Office-Programmen Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-        "fr": "Tâches :\n• Grâce à votre savoir-faire et à votre expérience dans le domaine du nettoyage, vous pouvez contribuer et façonner activement le développement futur du service de nettoyage.\n• Vous contribuez à un environnement agréable et bien entretenu pour nos patients et nos collaborateurs.\n• Grâce à votre sens de la planification et de l'organisation, vous contribuez, entre autres, de manière significative à ce que votre équipe puisse compter sur vous.\n• Vous apportez une contribution importante à garantir la qualité de nettoyage et les normes d'hygiène spécifiées dans le PZM. EFZ\n• Plusieurs années d'expérience professionnelle et avantageuse en gestion dans le secteur du nettoyage\n• Un sens de la planification et de l'organisation\n• Vous aimez travailler en équipe et valorisez toujours le travail indépendant\n• De très bonnes compétences en allemand oral et écrit ainsi qu'une utilisation confiante des programmes de bureau courants Nous proposons : Famille ? Oui volontiers ! Grâce à notre garderie et à nos modèles d'horaires de travail flexibles, vous pouvez concilier famille et travail. En plus des allocations familiales, nous offrons également une généreuse allocation de garde d'enfants. Le Centre Psychiatrique de Münsingen (BE) est l'un des plus grands hôpitaux psychiatriques de Suisse. Chaque année, nous traitons plus de 3 100 patients."
-      },
-      "needsRetranslation": false,
-      "location": "Münsingen",
-      "canton": "BE",
-      "url": "https://jobs.pzmag.ch/offene-stellen/teamleiterin-teamleiter-reinigungsservice/16b7cba3-3948-42f6-be8f-059f86ef4b31",
-      "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.696Z",
-      "addressLocality": "Münsingen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3110",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=649215899CC2F040A387C701996523EF&company=1000-FIRMA-ID&tenant=&lang=DS#position,id=0759b407-249e-4a4b-b728-4a05366e7f8e,popup=y",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen",
-          "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
-        ]
-      },
-      "firstSeenAt": "2026-06-19T13:12:28.364Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -621,12 +550,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir/40f2d3f7-9f39-4635-92bb-1ac71c1fd758",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.696Z",
+      "crawledAt": "2026-07-03T23:17:35.093Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -643,8 +573,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen",
-          "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-e-delir-psychiatriezentrum-munsingen"
+          "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
         ],
         "en": [
           "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
@@ -699,12 +628,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/bachelor-of-science-in-pflege-zusatzmodul-b/b81e9b42-03e2-45df-8d8e-1ab3d66c6e71",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.695Z",
+      "crawledAt": "2026-07-03T23:17:35.092Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -721,8 +651,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bachelor-of-science-in-pflege-zusatzmodul-b-pzm-muensingen-munsingen",
-          "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-psychiatriezentrum-munsingen-munsingen"
+          "bachelor-of-science-in-pflege-zusatzmodul-b-pzm-muensingen-munsingen"
         ],
         "en": [
           "bachelor-of-science-in-pflege-zusatzmodul-b-pzm-muensingen-munsingen"
@@ -746,72 +675,64 @@
       }
     },
     {
-      "id": "pzm-muensingen-9a075bd07600",
-      "slug": "dipl-servizio-notturno-infermiere-icm-psychiatriezentrum-munsingen-munsingen",
+      "id": "pzm-muensingen-395df6c1703d",
+      "slug": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "dipl-servizio-notturno-infermiere-icm-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-night-service-nurse-icm-psychiatriezentrum-munsingen-munsingen",
-        "de": "dipl-pflegefachperson-im-nachtdienst-icm-pzm-muensingen-munsingen",
-        "fr": "dipl-infirmiere-de-nuit-icm-psychiatriezentrum-munsingen-munsingen"
+        "it": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
+        "en": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen",
+        "de": "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen",
+        "fr": "teamleiterin-teamleiter-reinigungsservice-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
       "companyDomain": "pzmag.ch",
-      "title": "Dipl. Pflegefachperson im Nachtdienst ICM",
+      "title": "Teamleiterin / Teamleiter Reinigungsservice",
       "titleByLocale": {
-        "it": "Specialista infermieristico del servizio notturno ICM",
-        "en": "Dipl. nursing specialist in the night service ICM",
-        "de": "Dipl. Pflegefachperson im Nachtdienst ICM",
-        "fr": "Dipl. spécialiste en soins infirmiers dans le service de nuit ICM"
+        "it": "Servizio di pulizia Capo Squadra",
+        "en": "Team Leader Cleaning Service",
+        "de": "Teamleiterin / Teamleiter Reinigungsservice",
+        "fr": "Service de nettoyage de chef d'équipe"
       },
-      "description": "Aufgaben:\n• Du begleitest unsere Patient:innen individuell und menschenzentriert\n\n• Du beteiligst dich als Teil des interprofessionellen Teams aktiv an der Umsetzung und Weiterentwicklung des neuen Stationskonzeptes\n\n• Du bringst deine wertvolle Erfahrung ein und beteiligst dich aktiv an der Einhaltung und Optimierung unserer hohen Qualitätsstandards\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n\n• Du begeisterst dich für die interdisziplinäre Zusammenarbeit, für komplexe, psychiatrische Fragestellungen und schätzt die Herausforderungen auf einer intensiv Akutstation\n\n• Du bist eine flexible und motivierte Persönlichkeit, die Freude hat Veränderungen aktiv mit zu gestalten\n\n• Du verfügst über eine ziel- und ergebnisorientierte Denkweise und bist belastbar\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+      "description": "Aufgaben:\n• Mit deinem Know-how und deiner Erfahrung in der Reinigung kannst du dich einbringen und die Weiterentwicklung des Reinigungsservices aktiv mitgestalten\n\n• Du trägst zu einem angenehmen und gepflegten Umfeld für unsere Patient:innen und Mitarbeitenden bei\n\n• Mit deinem Flair für Planung und Organisation trägst du unter anderem massgeblich dazu bei, dass sich dein Team auf dich verlassen kann\n\n• Du leistest einen wichtigen Beitrag zur Sicherstellung der vorgegebenen Reinigungsqualität und Hygienestandards im PZM\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Hotellerie / Hauswirtschaft EFZ oder Reinigungstechnik EFZ\n\n• Mehrjährige Berufs- und von Vorteil Führungserfahrung in der Reinigung\n\n• Flair für Planung und Organisation\n\n• Du arbeitest gerne in einem Team und schätzt dennoch selbständiges Arbeiten\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie ein sicherer Umgang mit den gängigen Office-Programmen\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
       "descriptionByLocale": {
-        "it": "Compiti:\n• Lei accompagna i nostri pazienti: individualmente e umanamente centrati\n• Come parte del team interprof-sional, partecipa attivamente all'implementazione e allo sviluppo del nuovo concetto di stazione\n• Lei porta la sua preziosa esperienza e partecipa attivamente alla conformità e all'ottimizzazione dei nostri standard di alta qualità Requisiti:\n• Lei ha completato la sua formazione come laureato. Specialista di assistenza HF/FH\n• Sei entusiasta di una cooperazione interdisciplinare, di questioni complesse e psichiche e apprezza le sfide di una stazione di emergenza intensiva\n• Sei una personalità flessibile e motivata, che ha il piacere di modellare attivamente i cambiamenti\n• Hai un modo di pensare orientato agli obiettivi e ai risultati e sono resilienti Offriamo: Famiglia? Sì, volentieri! Con la nostra assistenza diurna e i nostri modelli flessibili di orario di lavoro si mette famiglia e lavoro sotto un unico tetto. Oltre all'assegno familiare, abbiamo anche un generoso assegno di assistenza. Il Psychiatry Center Münsingen (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo oltre 3100 pazienti: all'interno.",
-        "en": "Tasks:\n• You accompany our patients: individually and humanly centered\n• As part of the interprof-essional team, you actively participate in the implementation and further development of the new station concept\n• You bring your valuable experience and actively participate in the compliance and optimization of our high quality standards Requirements:\n• You have completed your training as a graduate. Care specialist HF/FH\n• You are enthusiastic about interdisciplinary cooperation, complex, psy-chiatric issues and appreciates the challenges on an intensive emergency station\n• You are a flexible and motivated personality, who has the pleasure of actively shaping changes\n• You have a goal-oriented and result-oriented way of thinking and are resilient We offer: Family? Yes, gladly! With our day care and our flexible working time models you put family and work under one roof. In addition to the family allowance, we also have a generous care allowance. The Psychiatry Center Münsingen (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat over 3100 patients:inside.",
-        "de": "Aufgaben:\n• Du begleitest unsere Patient:innen individuell und menschenzentriert\n• Du beteiligst dich als Teil des interprofessionellen Teams aktiv an der Umsetzung und Weiterentwicklung des neuen Stationskonzeptes\n• Du bringst deine wertvolle Erfahrung ein und beteiligst dich aktiv an der Einhaltung und Optimierung unserer hohen Qualitätsstandards Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n• Du begeisterst dich für die interdisziplinäre Zusammenarbeit, für komplexe, psychiatrische Fragestellungen und schätzt die Herausforderungen auf einer intensiv Akutstation\n• Du bist eine flexible und motivierte Persönlichkeit, die Freude hat Veränderungen aktiv mit zu gestalten\n• Du verfügst über eine ziel- und ergebnisorientierte Denkweise und bist belastbar Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-        "fr": "Tâches:\n• Vous accompagnez nos patients: individuellement et humainement centrés\n• Dans le cadre de l'équipe interprof-sionnelle, vous participez activement à la mise en œuvre et au développement du nouveau concept de station\n• Vous apportez votre expérience précieuse et participez activement à la conformité et à l'optimisation de nos standards de qualité élevés. Spécialiste des soins HF/FH\n• Vous êtes enthousiaste par la coopération interdisciplinaire, les problèmes complexes et psychiatriques et vous appréciez les défis d'une station d'urgence intensive\n• Vous êtes une personnalité flexible et motivée, qui a le plaisir de façonner activement les changements\n• Vous avez une façon de penser orientée vers les objectifs et les résultats et sont résilients Nous vous proposons : Famille? Oui, volontiers! Avec nos garderies et nos modèles de temps de travail flexibles, vous mettez la famille et le travail sous un même toit. En plus de l'allocation familiale, nous avons également une allocation de soins généreux. Le Centre de Psychiatrie Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients:à l'intérieur."
+        "it": "Compiti:\n• Con il vostro know-how e la vostra esperienza nel campo delle pulizie potete contribuire e dare forma attivamente all'ulteriore sviluppo del servizio di pulizia\n• Contribuite a creare un ambiente piacevole e curato per i nostri pazienti e collaboratori\n• Con il vostro senso della pianificazione e dell'organizzazione date un contributo significativo, tra l'altro, a garantire che il vostro team possa contare su di voi\n• Date un contributo importante a garantire gli standard di qualità e igiene della pulizia specificati nel PZM Requisiti:\n• Formazione completata come specialista / specialista nel settore alberghiero / pulizia EFZ o tecnologia di pulizia EFZ\n• Diversi anni di esperienza manageriale professionale e vantaggiosa nel settore delle pulizie\n• Un talento per la pianificazione e l'organizzazione\n• Ti piace lavorare in gruppo e apprezzi comunque il lavoro indipendente\n• Ottime competenze orali e scritte del tedesco e un uso sicuro dei comuni programmi per ufficio Offriamo: Famiglia? Sì, volentieri! Con il nostro asilo nido e i nostri modelli di orario di lavoro flessibili puoi conciliare famiglia e lavoro. Oltre all’assegno familiare offriamo anche un generoso assegno per la custodia dei figli. Il Centro psichiatrico di Münsingen (BE) è uno dei più grandi ospedali psichiatrici della Svizzera. Ogni anno trattiamo oltre 3.100 pazienti.",
+        "en": "Tasks:\n• With your know-how and experience in cleaning, you can contribute and actively shape the further development of the cleaning service\n• You contribute to a pleasant and well-maintained environment for our patients and employees\n• With your flair for planning and organization, you make a significant contribution, among other things, to ensuring that your team can rely on you\n• You make an important contribution to ensuring the specified cleaning quality and hygiene standards in the PZM Requirements:\n• Completed training as Specialist / specialist in the hotel industry / housekeeping EFZ or cleaning technology EFZ\n• Several years of professional and advantageous management experience in cleaning\n• A flair for planning and organization\n• You like working in a team and still value independent work\n• Very good oral and written German skills as well as a confident use of common office programs We offer: Family? Yes gladly! With our daycare center and our flexible working time models, you can balance family and work. In addition to the family allowance, we also provide a generous childcare allowance. The Münsingen Psychiatry Center (BE) is one of the largest psychiatric hospitals in Switzerland. Every year we treat over 3,100 patients.",
+        "de": "Aufgaben:\n• Mit deinem Know-how und deiner Erfahrung in der Reinigung kannst du dich einbringen und die Weiterentwicklung des Reinigungsservices aktiv mitgestalten\n• Du trägst zu einem angenehmen und gepflegten Umfeld für unsere Patient:innen und Mitarbeitenden bei\n• Mit deinem Flair für Planung und Organisation trägst du unter anderem massgeblich dazu bei, dass sich dein Team auf dich verlassen kann\n• Du leistest einen wichtigen Beitrag zur Sicherstellung der vorgegebenen Reinigungsqualität und Hygienestandards im PZM Anforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Hotellerie / Hauswirtschaft EFZ oder Reinigungstechnik EFZ\n• Mehrjährige Berufs- und von Vorteil Führungserfahrung in der Reinigung\n• Flair für Planung und Organisation\n• Du arbeitest gerne in einem Team und schätzt dennoch selbständiges Arbeiten\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie ein sicherer Umgang mit den gängigen Office-Programmen Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+        "fr": "Tâches :\n• Grâce à votre savoir-faire et à votre expérience dans le domaine du nettoyage, vous pouvez contribuer et façonner activement le développement futur du service de nettoyage.\n• Vous contribuez à un environnement agréable et bien entretenu pour nos patients et nos collaborateurs.\n• Grâce à votre sens de la planification et de l'organisation, vous contribuez, entre autres, de manière significative à ce que votre équipe puisse compter sur vous.\n• Vous apportez une contribution importante à garantir la qualité de nettoyage et les normes d'hygiène spécifiées dans le PZM. EFZ\n• Plusieurs années d'expérience professionnelle et avantageuse en gestion dans le secteur du nettoyage\n• Un sens de la planification et de l'organisation\n• Vous aimez travailler en équipe et valorisez toujours le travail indépendant\n• De très bonnes compétences en allemand oral et écrit ainsi qu'une utilisation confiante des programmes de bureau courants Nous proposons : Famille ? Oui volontiers ! Grâce à notre garderie et à nos modèles d'horaires de travail flexibles, vous pouvez concilier famille et travail. En plus des allocations familiales, nous offrons également une généreuse allocation de garde d'enfants. Le Centre Psychiatrique de Münsingen (BE) est l'un des plus grands hôpitaux psychiatriques de Suisse. Chaque année, nous traitons plus de 3 100 patients."
       },
       "needsRetranslation": false,
       "location": "Münsingen",
       "canton": "BE",
-      "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-im-nachtdienst-icm/3eeb8182-46d5-468c-b205-23c159835328",
+      "url": "https://jobs.pzmag.ch/offene-stellen/teamleiterin-teamleiter-reinigungsservice/16b7cba3-3948-42f6-be8f-059f86ef4b31",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.694Z",
+      "crawledAt": "2026-07-03T23:17:35.092Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
-      "category": "Sanità / Ospedali",
+      "streetAddress": "",
+      "category": "Ospitalità",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=5EB1E7DFD6DB0625754749DFDE767C27&company=1000-FIRMA-ID&tenant=&lang=D#position,id=26f5e14b-34a4-479d-a19a-18c069dc70f1,popup=y",
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=649215899CC2F040A387C701996523EF&company=1000-FIRMA-ID&tenant=&lang=DS#position,id=0759b407-249e-4a4b-b728-4a05366e7f8e,popup=y",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-im-nachtdienst-icm-pzm-muensingen-munsingen",
-        "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen"
+        "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-im-nachtdienst-icm-pzm-muensingen-munsingen",
-          "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen",
-          "dipl-servizio-notturno-infermiere-icm-psychiatriezentrum-munsingen-munsingen"
-        ],
-        "en": [
-          "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen"
+          "teamleiterin-teamleiter-reinigungsservice-pzm-muensingen-munsingen"
         ]
       },
-      "firstSeenAt": "2026-06-23T12:09:56.904Z",
+      "firstSeenAt": "2026-06-19T13:12:28.364Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -857,12 +778,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/praktikantin-praktikant-pflege/9eea4814-c025-4386-8046-a2c178024986",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.694Z",
+      "crawledAt": "2026-07-03T23:17:35.091Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -879,8 +801,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-pflege-pzm-muensingen-munsingen",
-          "intern-internship-care-psychiatriezentrum-munsingen-munsingen"
+          "praktikantin-praktikant-pflege-pzm-muensingen-munsingen"
         ],
         "en": [
           "praktikantin-praktikant-pflege-pzm-muensingen-munsingen"
@@ -904,72 +825,72 @@
       }
     },
     {
-      "id": "pzm-muensingen-56d08d66bb00",
-      "slug": "dipl-specialista-hf-fh-focus-sulla-dipendenza-in-eta-avanzata-psychiatriezentrum-munsingen-munsingen",
+      "id": "pzm-muensingen-9a075bd07600",
+      "slug": "dipl-servizio-notturno-infermiere-icm-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "dipl-specialista-hf-fh-focus-sulla-dipendenza-in-eta-avanzata-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-care-specialist-hf-fh-focus-on-dependence-in-old-age-psychiatriezentrum-munsingen-munsingen",
-        "de": "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-pzm-muensingen-munsingen",
-        "fr": "dipl-specialiste-des-soins-hf-fh-se-concentrer-sur-la-dependance-chez-les-personnes-agees-psychiatriezentrum-munsingen"
+        "it": "dipl-servizio-notturno-infermiere-icm-psychiatriezentrum-munsingen-munsingen",
+        "en": "dipl-night-service-nurse-icm-psychiatriezentrum-munsingen-munsingen",
+        "de": "dipl-pflegefachperson-im-nachtdienst-icm-pzm-muensingen-munsingen",
+        "fr": "dipl-infirmiere-de-nuit-icm-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
       "companyDomain": "pzmag.ch",
-      "title": "Dipl. Pflegefachperson HF/FH - Schwerpunkt Abhängigkeit im Alter",
+      "title": "Dipl. Pflegefachperson im Nachtdienst ICM",
       "titleByLocale": {
-        "it": "Dipl. Care Specialist HF/FH - Focus sulla dipendenza in età avanzata",
-        "en": "Dipl. Care Specialist HF/FH - Focus on dependency in old age",
-        "de": "Dipl. Pflegefachperson HF/FH - Schwerpunkt Abhängigkeit im Alter",
-        "fr": "Dipl. Spécialiste des soins HF/FH - Focus sur la dépendance chez les personnes âgées"
+        "it": "Specialista infermieristico del servizio notturno ICM",
+        "en": "Dipl. nursing specialist in the night service ICM",
+        "de": "Dipl. Pflegefachperson im Nachtdienst ICM",
+        "fr": "Dipl. spécialiste en soins infirmiers dans le service de nuit ICM"
       },
-      "description": "Aufgaben:\n• Du unterstützt uns beim Wiederaufbau unserer offenen alterspsychiatrischen Akutstation und kannst dabei dein Fachwissen und deine Erfahrung gezielt einbringen\n\n• Du hilfst mit bei der Umsetzung unseres neuen Stationskonzepts und entwickelst es mit uns stetig weiter\n\n• Du trägst gemeinsam mit deinem interprofessionellen Behandlungsteam zu einer Stabilisierung der Patient:innen und damit zu einer grösseren Lebensqualität bei\n\n• Du unterstützt unsere Berufsbildner:innen bei der Ausbildung von Lernenden und kannst deine Erfahrung an die nächste Generation weitergeben\n\nAnforderungen:\n• Du bist Dipl. Pflegefachfrau/Pflegefachmann HF/FH (oder hast ein Diplom, das in der Schweiz anerkannt ist)\n\n• Du hast Erfahrung in der Psychiatrie oder Erfahrung in der Somatik mit Interesse an der Psychiatrie\n\n• Du bringst idealerweise Berufserfahrung in der Pflege von älteren Menschen mit\n\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n\n• Du hast Freude an der Arbeit mit Menschen in akuten Krisensituationen\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+      "description": "Aufgaben:\n• Du begleitest unsere Patient:innen individuell und menschenzentriert\n\n• Du beteiligst dich als Teil des interprofessionellen Teams aktiv an der Umsetzung und Weiterentwicklung des neuen Stationskonzeptes\n\n• Du bringst deine wertvolle Erfahrung ein und beteiligst dich aktiv an der Einhaltung und Optimierung unserer hohen Qualitätsstandards\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n\n• Du begeisterst dich für die interdisziplinäre Zusammenarbeit, für komplexe, psychiatrische Fragestellungen und schätzt die Herausforderungen auf einer intensiv Akutstation\n\n• Du bist eine flexible und motivierte Persönlichkeit, die Freude hat Veränderungen aktiv mit zu gestalten\n\n• Du verfügst über eine ziel- und ergebnisorientierte Denkweise und bist belastbar\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
       "descriptionByLocale": {
-        "it": "Compiti:\n• Ci aiuti a ricostruire la nostra unità di cura acuta psicodiatrica, aperta e di vecchia età, e puoi contribuire alla tua esperienza e competenza in questo processo\n• Ci aiuti ad implementare il nostro nuovo concetto di stazione e a svilupparlo con noi continuamente\n• Contribuisci insieme al tuo team di trattamento interprof-sinale a stabilizzare il paziente:in e contribuendo così ad una maggiore qualità di vita\n• Supporti i nostri educatori professionali:nella formazione dei lavoratori e puoi trasmettere la tua esperienza alla prossima generazione Requisiti:\n• Tu sono Dipl. Specialista di assistenza HF/FH (o diploma riconosciuto in Svizzera)\n• Hai esperienza in psichiatria o in somatica con interesse in psichiatria\n• Porta idealmente esperienza professionale nella cura degli anziani\n• Sei entusiasta della cooperazione interprof e di complesse questioni psichiatriche\n• Ti piace lavorare con persone in situazioni di crisi acuta Offriamo: Famiglia? Sì, siamo felici! Con la nostra assistenza sanitaria e modelli flessibili di orario di lavoro, metti la tua famiglia e lavori sotto un unico cappello. Oltre all'assegno familiare, abbiamo anche un generoso assegno di assistenza. Il Psychiatry Center Münsingen (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo oltre 3100 pazienti: all'interno.",
-        "en": "Tasks:\n• You help us rebuild our open-minded, old-age psycho-diatric acute care unit and can contribute your expertise and experience in this process\n• You help us implement our new station concept and develop it with us continuously\n• You contribute together with your interprof-essional treatment team to stabilizing the patient:in and thus contributing to a greater quality of life\n• You support our professional educators:in the training of learners and can pass your experience on to the next generation Requirements:\n• You are Dipl. Care specialist HF/FH (or have a diploma recognised in Switzerland)\n• You have experience in psychiatry or in somatics with interest in psychiatry\n• You ideally bring professional experience in caring for older people\n• You are enthusiastic about interprof's cooperation and complex psychiatric issues\n• You enjoy working with people in acute crisis situations We offer: Family? Yes, we are happy! With our day care and flexible working time models, you put your family and work under one hat. In addition to the family allowance, we also have a generous care allowance. The Psychiatry Center Münsingen (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat over 3100 patients:inside.",
-        "de": "Aufgaben:\n• Du unterstützt uns beim Wiederaufbau unserer offenen alterspsychiatrischen Akutstation und kannst dabei dein Fachwissen und deine Erfahrung gezielt einbringen\n• Du hilfst mit bei der Umsetzung unseres neuen Stationskonzepts und entwickelst es mit uns stetig weiter\n• Du trägst gemeinsam mit deinem interprofessionellen Behandlungsteam zu einer Stabilisierung der Patient:innen und damit zu einer grösseren Lebensqualität bei\n• Du unterstützt unsere Berufsbildner:innen bei der Ausbildung von Lernenden und kannst deine Erfahrung an die nächste Generation weitergeben Anforderungen:\n• Du bist Dipl. Pflegefachfrau/Pflegefachmann HF/FH (oder hast ein Diplom, das in der Schweiz anerkannt ist)\n• Du hast Erfahrung in der Psychiatrie oder Erfahrung in der Somatik mit Interesse an der Psychiatrie\n• Du bringst idealerweise Berufserfahrung in der Pflege von älteren Menschen mit\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n• Du hast Freude an der Arbeit mit Menschen in akuten Krisensituationen Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-        "fr": "Tâches:\n• Vous nous aidez à reconstruire notre unité de soins psychodiatriques de vieillesse ouverte et à apporter votre expertise et votre expérience dans ce processus\n• Vous nous aidez à mettre en œuvre notre nouveau concept de station et à le développer en permanence avec nous\n• Vous contribuez avec votre équipe de traitement interprofessionnelle à stabiliser le patient:en contribuant ainsi à une meilleure qualité de vie\n• Vous soutenez nos éducateurs professionnels:en formant les apprenants et vous pouvez passer votre expérience à la prochaine génération. sont Dipl. Spécialiste des soins HF/FH (ou diplôme reconnu en Suisse)\n• Vous avez une expérience en psychiatrie ou en somatique avec intérêt en psychiatrie\n• Vous apportez idéalement une expérience professionnelle dans les soins aux personnes âgées\n• Vous êtes enthousiastes par la coopération interprof et les problèmes psychiatriques complexes\n• Vous aimez travailler avec des personnes en situation de crise aiguë Nous offrons: Famille? Oui, nous sommes heureux! Avec nos modèles de garde et de temps de travail flexibles, vous mettez votre famille et votre travail sous un seul chapeau. En plus de l'allocation familiale, nous avons également une allocation de soins généreux. Le Centre de Psychiatrie Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients:à l'intérieur."
+        "it": "Compiti:\n• Lei accompagna i nostri pazienti: individualmente e umanamente centrati\n• Come parte del team interprof-sional, partecipa attivamente all'implementazione e allo sviluppo del nuovo concetto di stazione\n• Lei porta la sua preziosa esperienza e partecipa attivamente alla conformità e all'ottimizzazione dei nostri standard di alta qualità Requisiti:\n• Lei ha completato la sua formazione come laureato. Specialista di assistenza HF/FH\n• Sei entusiasta di una cooperazione interdisciplinare, di questioni complesse e psichiche e apprezza le sfide di una stazione di emergenza intensiva\n• Sei una personalità flessibile e motivata, che ha il piacere di modellare attivamente i cambiamenti\n• Hai un modo di pensare orientato agli obiettivi e ai risultati e sono resilienti Offriamo: Famiglia? Sì, volentieri! Con la nostra assistenza diurna e i nostri modelli flessibili di orario di lavoro si mette famiglia e lavoro sotto un unico tetto. Oltre all'assegno familiare, abbiamo anche un generoso assegno di assistenza. Il Psychiatry Center Münsingen (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo oltre 3100 pazienti: all'interno.",
+        "en": "Tasks:\n• You accompany our patients: individually and humanly centered\n• As part of the interprof-essional team, you actively participate in the implementation and further development of the new station concept\n• You bring your valuable experience and actively participate in the compliance and optimization of our high quality standards Requirements:\n• You have completed your training as a graduate. Care specialist HF/FH\n• You are enthusiastic about interdisciplinary cooperation, complex, psy-chiatric issues and appreciates the challenges on an intensive emergency station\n• You are a flexible and motivated personality, who has the pleasure of actively shaping changes\n• You have a goal-oriented and result-oriented way of thinking and are resilient We offer: Family? Yes, gladly! With our day care and our flexible working time models you put family and work under one roof. In addition to the family allowance, we also have a generous care allowance. The Psychiatry Center Münsingen (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat over 3100 patients:inside.",
+        "de": "Aufgaben:\n• Du begleitest unsere Patient:innen individuell und menschenzentriert\n• Du beteiligst dich als Teil des interprofessionellen Teams aktiv an der Umsetzung und Weiterentwicklung des neuen Stationskonzeptes\n• Du bringst deine wertvolle Erfahrung ein und beteiligst dich aktiv an der Einhaltung und Optimierung unserer hohen Qualitätsstandards Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n• Du begeisterst dich für die interdisziplinäre Zusammenarbeit, für komplexe, psychiatrische Fragestellungen und schätzt die Herausforderungen auf einer intensiv Akutstation\n• Du bist eine flexible und motivierte Persönlichkeit, die Freude hat Veränderungen aktiv mit zu gestalten\n• Du verfügst über eine ziel- und ergebnisorientierte Denkweise und bist belastbar Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+        "fr": "Tâches:\n• Vous accompagnez nos patients: individuellement et humainement centrés\n• Dans le cadre de l'équipe interprof-sionnelle, vous participez activement à la mise en œuvre et au développement du nouveau concept de station\n• Vous apportez votre expérience précieuse et participez activement à la conformité et à l'optimisation de nos standards de qualité élevés. Spécialiste des soins HF/FH\n• Vous êtes enthousiaste par la coopération interdisciplinaire, les problèmes complexes et psychiatriques et vous appréciez les défis d'une station d'urgence intensive\n• Vous êtes une personnalité flexible et motivée, qui a le plaisir de façonner activement les changements\n• Vous avez une façon de penser orientée vers les objectifs et les résultats et sont résilients Nous vous proposons : Famille? Oui, volontiers! Avec nos garderies et nos modèles de temps de travail flexibles, vous mettez la famille et le travail sous un même toit. En plus de l'allocation familiale, nous avons également une allocation de soins généreux. Le Centre de Psychiatrie Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients:à l'intérieur."
       },
       "needsRetranslation": false,
       "location": "Münsingen",
       "canton": "BE",
-      "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-hf-fh-schwerpunkt-abhaengigkeit-im-alter/a0cab3d0-2721-4efa-b611-c5d2bb3a4fb2",
+      "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-im-nachtdienst-icm/3eeb8182-46d5-468c-b205-23c159835328",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.693Z",
+      "crawledAt": "2026-07-03T23:17:35.090Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-22",
-      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=5710F2B977F2197E02F1A4795DE2C2A1&company=1000-FIRMA-ID&tenant=&lang=D#position,id=438d50cb-b532-45e9-a5d8-15ffc4705daf,popup=y",
+      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=5EB1E7DFD6DB0625754749DFDE767C27&company=1000-FIRMA-ID&tenant=&lang=D#position,id=26f5e14b-34a4-479d-a19a-18c069dc70f1,popup=y",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-pzm-muensingen-munsingen",
-        "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen"
+        "dipl-pflegefachperson-im-nachtdienst-icm-pzm-muensingen-munsingen",
+        "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-pzm-muensingen-munsingen",
-          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen",
-          "dipl-specialista-hf-fh-focus-sulla-dipendenza-in-eta-avanzata-psychiatriezentrum-munsingen-munsingen"
+          "dipl-pflegefachperson-im-nachtdienst-icm-pzm-muensingen-munsingen",
+          "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen"
+          "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen"
+          "dipl-pflegefachperson-im-nachtdienst-icm-psychiatriezentrum-munsingen-munsingen"
         ]
       },
-      "firstSeenAt": "2026-06-23T12:09:56.902Z",
+      "firstSeenAt": "2026-06-23T12:09:56.904Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1015,12 +936,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-schwerpunkt-demenz-und-delir/080a7a1a-5abb-4ada-a900-b39a04237dce",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.692Z",
+      "crawledAt": "2026-07-03T23:17:35.089Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1038,8 +960,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen",
-          "dipl-pflegefachperson-schwerpunkt-demenz-e-delir-psychiatriezentrum-munsingen"
+          "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
         ],
         "en": [
           "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-psychiatriezentrum-munsingen-munsingen"
@@ -1049,6 +970,86 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:09:56.901Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "pzm-muensingen-56d08d66bb00",
+      "slug": "dipl-specialista-hf-fh-focus-sulla-dipendenza-in-eta-avanzata-psychiatriezentrum-munsingen-munsingen",
+      "slugByLocale": {
+        "it": "dipl-specialista-hf-fh-focus-sulla-dipendenza-in-eta-avanzata-psychiatriezentrum-munsingen-munsingen",
+        "en": "dipl-care-specialist-hf-fh-focus-on-dependence-in-old-age-psychiatriezentrum-munsingen-munsingen",
+        "de": "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-pzm-muensingen-munsingen",
+        "fr": "dipl-specialiste-des-soins-hf-fh-se-concentrer-sur-la-dependance-chez-les-personnes-agees-psychiatriezentrum-munsingen"
+      },
+      "company": "Psychiatriezentrum Münsingen",
+      "companyKey": "pzm-muensingen",
+      "companyDomain": "pzmag.ch",
+      "title": "Dipl. Pflegefachperson HF/FH - Schwerpunkt Abhängigkeit im Alter",
+      "titleByLocale": {
+        "it": "Dipl. Care Specialist HF/FH - Focus sulla dipendenza in età avanzata",
+        "en": "Dipl. Care Specialist HF/FH - Focus on dependency in old age",
+        "de": "Dipl. Pflegefachperson HF/FH - Schwerpunkt Abhängigkeit im Alter",
+        "fr": "Dipl. Spécialiste des soins HF/FH - Focus sur la dépendance chez les personnes âgées"
+      },
+      "description": "Aufgaben:\n• Du unterstützt uns beim Wiederaufbau unserer offenen alterspsychiatrischen Akutstation und kannst dabei dein Fachwissen und deine Erfahrung gezielt einbringen\n\n• Du hilfst mit bei der Umsetzung unseres neuen Stationskonzepts und entwickelst es mit uns stetig weiter\n\n• Du trägst gemeinsam mit deinem interprofessionellen Behandlungsteam zu einer Stabilisierung der Patient:innen und damit zu einer grösseren Lebensqualität bei\n\n• Du unterstützt unsere Berufsbildner:innen bei der Ausbildung von Lernenden und kannst deine Erfahrung an die nächste Generation weitergeben\n\nAnforderungen:\n• Du bist Dipl. Pflegefachfrau/Pflegefachmann HF/FH (oder hast ein Diplom, das in der Schweiz anerkannt ist)\n\n• Du hast Erfahrung in der Psychiatrie oder Erfahrung in der Somatik mit Interesse an der Psychiatrie\n\n• Du bringst idealerweise Berufserfahrung in der Pflege von älteren Menschen mit\n\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n\n• Du hast Freude an der Arbeit mit Menschen in akuten Krisensituationen\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Ci aiuti a ricostruire la nostra unità di cura acuta psicodiatrica, aperta e di vecchia età, e puoi contribuire alla tua esperienza e competenza in questo processo\n• Ci aiuti ad implementare il nostro nuovo concetto di stazione e a svilupparlo con noi continuamente\n• Contribuisci insieme al tuo team di trattamento interprof-sinale a stabilizzare il paziente:in e contribuendo così ad una maggiore qualità di vita\n• Supporti i nostri educatori professionali:nella formazione dei lavoratori e puoi trasmettere la tua esperienza alla prossima generazione Requisiti:\n• Tu sono Dipl. Specialista di assistenza HF/FH (o diploma riconosciuto in Svizzera)\n• Hai esperienza in psichiatria o in somatica con interesse in psichiatria\n• Porta idealmente esperienza professionale nella cura degli anziani\n• Sei entusiasta della cooperazione interprof e di complesse questioni psichiatriche\n• Ti piace lavorare con persone in situazioni di crisi acuta Offriamo: Famiglia? Sì, siamo felici! Con la nostra assistenza sanitaria e modelli flessibili di orario di lavoro, metti la tua famiglia e lavori sotto un unico cappello. Oltre all'assegno familiare, abbiamo anche un generoso assegno di assistenza. Il Psychiatry Center Münsingen (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo oltre 3100 pazienti: all'interno.",
+        "en": "Tasks:\n• You help us rebuild our open-minded, old-age psycho-diatric acute care unit and can contribute your expertise and experience in this process\n• You help us implement our new station concept and develop it with us continuously\n• You contribute together with your interprof-essional treatment team to stabilizing the patient:in and thus contributing to a greater quality of life\n• You support our professional educators:in the training of learners and can pass your experience on to the next generation Requirements:\n• You are Dipl. Care specialist HF/FH (or have a diploma recognised in Switzerland)\n• You have experience in psychiatry or in somatics with interest in psychiatry\n• You ideally bring professional experience in caring for older people\n• You are enthusiastic about interprof's cooperation and complex psychiatric issues\n• You enjoy working with people in acute crisis situations We offer: Family? Yes, we are happy! With our day care and flexible working time models, you put your family and work under one hat. In addition to the family allowance, we also have a generous care allowance. The Psychiatry Center Münsingen (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat over 3100 patients:inside.",
+        "de": "Aufgaben:\n• Du unterstützt uns beim Wiederaufbau unserer offenen alterspsychiatrischen Akutstation und kannst dabei dein Fachwissen und deine Erfahrung gezielt einbringen\n• Du hilfst mit bei der Umsetzung unseres neuen Stationskonzepts und entwickelst es mit uns stetig weiter\n• Du trägst gemeinsam mit deinem interprofessionellen Behandlungsteam zu einer Stabilisierung der Patient:innen und damit zu einer grösseren Lebensqualität bei\n• Du unterstützt unsere Berufsbildner:innen bei der Ausbildung von Lernenden und kannst deine Erfahrung an die nächste Generation weitergeben Anforderungen:\n• Du bist Dipl. Pflegefachfrau/Pflegefachmann HF/FH (oder hast ein Diplom, das in der Schweiz anerkannt ist)\n• Du hast Erfahrung in der Psychiatrie oder Erfahrung in der Somatik mit Interesse an der Psychiatrie\n• Du bringst idealerweise Berufserfahrung in der Pflege von älteren Menschen mit\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n• Du hast Freude an der Arbeit mit Menschen in akuten Krisensituationen Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+        "fr": "Tâches:\n• Vous nous aidez à reconstruire notre unité de soins psychodiatriques de vieillesse ouverte et à apporter votre expertise et votre expérience dans ce processus\n• Vous nous aidez à mettre en œuvre notre nouveau concept de station et à le développer en permanence avec nous\n• Vous contribuez avec votre équipe de traitement interprofessionnelle à stabiliser le patient:en contribuant ainsi à une meilleure qualité de vie\n• Vous soutenez nos éducateurs professionnels:en formant les apprenants et vous pouvez passer votre expérience à la prochaine génération. sont Dipl. Spécialiste des soins HF/FH (ou diplôme reconnu en Suisse)\n• Vous avez une expérience en psychiatrie ou en somatique avec intérêt en psychiatrie\n• Vous apportez idéalement une expérience professionnelle dans les soins aux personnes âgées\n• Vous êtes enthousiastes par la coopération interprof et les problèmes psychiatriques complexes\n• Vous aimez travailler avec des personnes en situation de crise aiguë Nous offrons: Famille? Oui, nous sommes heureux! Avec nos modèles de garde et de temps de travail flexibles, vous mettez votre famille et votre travail sous un seul chapeau. En plus de l'allocation familiale, nous avons également une allocation de soins généreux. Le Centre de Psychiatrie Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients:à l'intérieur."
+      },
+      "needsRetranslation": false,
+      "location": "Münsingen",
+      "canton": "BE",
+      "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-hf-fh-schwerpunkt-abhaengigkeit-im-alter/a0cab3d0-2721-4efa-b611-c5d2bb3a4fb2",
+      "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-03T23:17:35.089Z",
+      "addressLocality": "Münsingen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3110",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=5710F2B977F2197E02F1A4795DE2C2A1&company=1000-FIRMA-ID&tenant=&lang=D#position,id=438d50cb-b532-45e9-a5d8-15ffc4705daf,popup=y",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-pzm-muensingen-munsingen",
+        "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-pzm-muensingen-munsingen",
+          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-schwerpunkt-abhangigkeit-im-alter-psychiatriezentrum-munsingen-munsingen"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T12:09:56.902Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1083,22 +1084,24 @@
       },
       "description": "Aufgaben:\n• Du unterstützt den weiteren Aufbau unserer recovery-orientierten Akutstation mit Orientierung am High Intensiv Care (HIC) Modell\n\n• Du begleitest unsere Patient:innen individuell und menschenzentriert\n\n• Du beteiligst dich an der Weiterentwicklung des Stationskonzepts und der Therapieangebote\n\n• Du bringst dich mit deiner wertvollen Erfahrung und deiner Perspektive aktiv im interprofessionellen Team ein\n\n• Du hilfst in der praktischen Ausbildung von Pflegestudierenden und Lernenden mit\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n\n• Du hast Erfahrung in der Psychiatrie oder in der Somatik mit Interesse an der Psychiatrie\n\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n\n• Du bist belastbar sowie engagiert und schätzt die Herausforderungen auf der neu organisierten (HIC) Akutstation\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
       "descriptionByLocale": {
-        "it": "Attività: • Sostieni l'ulteriore sviluppo della nostra unità di cura acuta orientata al kurino con orientamento al modello High Intensive Care (HIC) • accompagni il nostro paziente: individualmente e umanamente centrato • Partecipa allo sviluppo ulteriore del concetto di stazione e offerte terapeutiche • Contribuisci attivamente al team interprofessionelen con la tua preziosa esperienza e prospettiva • Contribuisci nella formazione pratica di studenti infermieristici e studenti con esigenze: • Hai completato il tuo addestramento come Dipl.\n\nSpecialista di assistenza HF/FH • Hai esperienza in psichiatria o somatica con interesse per la psichiatria • Sei entusiasta della cooperazione tra i professionisti del settore e di questioni complesse e psichiatriche • Sei resiliente e impegnato e apprezza le sfide della nuova stazione di assistenza acuta organizzata (HIC) Offriamo: Famiglia? Sì, volentieri! Con la nostra assistenza sanitaria e i nostri modelli flessibili di orario di lavoro, è possibile mettere la tua famiglia e lavorare sotto un unico tetto. Oltre all'assegno familiare, abbiamo anche una generosa indennità di assistenza.\n\nIl Centro Psichiatrico Münsingen (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo più di 3100 pazienti.",
-        "en": "Tasks: • You support the further development of our kuringian-oriented acute care unit with orientation to the High Intensive Care (HIC) model • You accompany our patient: individually and humanly centered • You participate in the further development of the station concept and therapy offers • You actively contribute to the interprofessionellen team with your valuable experience and perspective • You help in the practical training of nursing students and students with requirements: • You have completed your training as a Dipl.\n\nCare specialist HF/FH • You have experience in psychiatry or in somatics with interest in psychiatry • You are enthusiastic about interprof's business cooperation and complex, psy-chiatric issues • You are resilient and committed and appreciates the challenges at the newly organized (HIC) acute care station We offer: Family? Yes, gladly! With our day care and our flexible working time models, you can put your family and work under one roof. In addition to the family allowance, we also have a generous care allowance.\n\nThe Psychiatry Center Münsingen (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat over 3100 patients.",
-        "de": "Aufgaben:\n• Du unterstützt den weiteren Aufbau unserer recovery-orientierten Akutstation mit Orientierung am High Intensiv Care (HIC) Modell\n\n• Du begleitest unsere Patient:innen individuell und menschenzentriert\n\n• Du beteiligst dich an der Weiterentwicklung des Stationskonzepts und der Therapieangebote\n\n• Du bringst dich mit deiner wertvollen Erfahrung und deiner Perspektive aktiv im interprofessionellen Team ein\n\n• Du hilfst in der praktischen Ausbildung von Pflegestudierenden und Lernenden mit\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n\n• Du hast Erfahrung in der Psychiatrie oder in der Somatik mit Interesse an der Psychiatrie\n\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n\n• Du bist belastbar sowie engagiert und schätzt die Herausforderungen auf der neu organisierten (HIC) Akutstation\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDas Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
-        "fr": "Tâches: • Vous soutenez le développement de notre unité de soins aigus à orientation kuringienne avec orientation vers le modèle de soins intensifs (HIC) • Vous accompagnez notre patient: individuellement et humainement centré • Vous participez au développement du concept de station et des offres thérapeutiques • Vous contribuez activement à l'équipe interprofessionnelle avec votre expérience et perspective précieuses • Vous aidez à la formation pratique des étudiants en soins infirmiers avec des exigences: • Vous avez terminé votre formation en tant que Dipl.\n\nSpécialiste des soins HF/FH • Vous avez une expérience en psychiatrie ou en somatique avec intérêt en psychiatrie • Vous êtes enthousiastes par la coopération d'interprof et les problèmes complexes et psychiatriques • Vous êtes résilient et engagé et apprécie les défis de la nouvelle station de soins actifs (HIC) Nous offrons: Famille? Oui, heureux! Avec nos soins de jour et nos modèles de temps de travail flexibles, vous pouvez placer votre famille et votre travail sous un même toit.\n\nLe Centre de Psychiatrie Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients."
+        "it": "Attività:\n• Sostieni l'ulteriore sviluppo della nostra unità di cura acuta orientata al kurino con orientamento al modello High Intensive Care (HIC)\n• accompagni il nostro paziente: individualmente e umanamente centrato\n• Partecipa allo sviluppo ulteriore del concetto di stazione e offerte terapeutiche\n• Contribuisci attivamente al team interprofessionelen con la tua preziosa esperienza e prospettiva\n• Contribuisci nella formazione pratica di studenti infermieristici e studenti con esigenze:\n• Hai completato il tuo addestramento come Dipl. Specialista di assistenza HF/FH\n• Hai esperienza in psichiatria o somatica con interesse per la psichiatria\n• Sei entusiasta della cooperazione tra i professionisti del settore e di questioni complesse e psichiatriche\n• Sei resiliente e impegnato e apprezza le sfide della nuova stazione di assistenza acuta organizzata (HIC) Offriamo: Famiglia? Sì, volentieri! Con la nostra assistenza sanitaria e i nostri modelli flessibili di orario di lavoro, è possibile mettere la tua famiglia e lavorare sotto un unico tetto. Oltre all'assegno familiare, abbiamo anche una generosa indennità di assistenza. Il Centro Psichiatrico Münsingen (BE) è una delle più grandi cliniche psichiatriche in Svizzera. Ogni anno trattiamo più di 3100 pazienti.",
+        "en": "Tasks:\n• You support the further development of our kuringian-oriented acute care unit with orientation to the High Intensive Care (HIC) model\n• You accompany our patient: individually and humanly centered\n• You participate in the further development of the station concept and therapy offers\n• You actively contribute to the interprofessionellen team with your valuable experience and perspective\n• You help in the practical training of nursing students and students with requirements:\n• You have completed your training as a Dipl. Care specialist HF/FH\n• You have experience in psychiatry or in somatics with interest in psychiatry\n• You are enthusiastic about interprof's business cooperation and complex, psy-chiatric issues\n• You are resilient and committed and appreciates the challenges at the newly organized (HIC) acute care station We offer: Family? Yes, gladly! With our day care and our flexible working time models, you can put your family and work under one roof. In addition to the family allowance, we also have a generous care allowance. The Psychiatry Center Münsingen (BE) is one of the largest psychiatric clinics in Switzerland. Every year we treat over 3100 patients.",
+        "de": "Aufgaben:\n• Du unterstützt den weiteren Aufbau unserer recovery-orientierten Akutstation mit Orientierung am High Intensiv Care (HIC) Modell\n• Du begleitest unsere Patient:innen individuell und menschenzentriert\n• Du beteiligst dich an der Weiterentwicklung des Stationskonzepts und der Therapieangebote\n• Du bringst dich mit deiner wertvollen Erfahrung und deiner Perspektive aktiv im interprofessionellen Team ein\n• Du hilfst in der praktischen Ausbildung von Pflegestudierenden und Lernenden mit Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n• Du hast Erfahrung in der Psychiatrie oder in der Somatik mit Interesse an der Psychiatrie\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n• Du bist belastbar sowie engagiert und schätzt die Herausforderungen auf der neu organisierten (HIC) Akutstation Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
+        "fr": "Tâches:\n• Vous soutenez le développement de notre unité de soins aigus à orientation kuringienne avec orientation vers le modèle de soins intensifs (HIC)\n• Vous accompagnez notre patient: individuellement et humainement centré\n• Vous participez au développement du concept de station et des offres thérapeutiques\n• Vous contribuez activement à l'équipe interprofessionnelle avec votre expérience et perspective précieuses\n• Vous aidez à la formation pratique des étudiants en soins infirmiers avec des exigences:\n• Vous avez terminé votre formation en tant que Dipl. Spécialiste des soins HF/FH\n• Vous avez une expérience en psychiatrie ou en somatique avec intérêt en psychiatrie\n• Vous êtes enthousiastes par la coopération d'interprof et les problèmes complexes et psychiatriques\n• Vous êtes résilient et engagé et apprécie les défis de la nouvelle station de soins actifs (HIC) Nous offrons: Famille? Oui, heureux! Avec nos soins de jour et nos modèles de temps de travail flexibles, vous pouvez placer votre famille et votre travail sous un même toit. Le Centre de Psychiatrie Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients."
       },
+      "needsRetranslation": true,
       "location": "Münsingen",
       "canton": "BE",
       "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-icm/455edb18-5a98-4c01-afb4-3d33a400abc3",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-02T22:53:50.292Z",
+      "crawledAt": "2026-07-03T23:17:35.088Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1111,8 +1114,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-icm-pzm-muensingen-munsingen",
-        "dipl-icm-infermiere-psychiatriezentrum-munsingen-munsingen"
+        "dipl-pflegefachperson-icm-pzm-muensingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1165,12 +1167,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung/2319aac3-e83d-4f9d-9cdb-f5864d4a7e2a",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.688Z",
+      "crawledAt": "2026-07-03T23:17:35.087Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1189,8 +1192,7 @@
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-pzm-muensingen-munsingen",
-          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-psychiatriezentrum-munsingen-munsingen",
-          "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-psychiatriezentrum-munsingen-munsingen"
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-psychiatriezentrum-munsingen-munsingen"
         ],
         "en": [
           "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-psychiatriezentrum-munsingen-munsingen"
@@ -1228,7 +1230,7 @@
       "title": "Pflegeexpertin / Pflegeexperte / Advanced Practice Nurse APN",
       "titleByLocale": {
         "it": "esperto di cura / esperto di cura / infermiera di pratica avanzata APN",
-        "en": "Care expert / Care expert / Advanced Practice Nurse APN",
+        "en": "Pflegeexpertin / Pflegeexperte / Advanced Practice Nurse APN",
         "de": "Pflegeexpertin / Pflegeexperte / Advanced Practice Nurse APN",
         "fr": "Experte en soins / Experte en soins / Infirmière praticienne APN"
       },
@@ -1239,17 +1241,19 @@
         "de": "Aufgaben:\n• Du prägst die Pflege in der Alterspsychiatrie nachhaltig und trägst entscheidend zu ihrer Weiterentwicklung bei.\n• Du hast eine Schlüsselrolle in der integrierten, pflegerischen Versorgung innerhalb der Alterspsychiatrie sowie mit externen Stakeholdern\n• Du coachst das Pflegepersonal bei Assessments und Prozessen in komplexen Pflegesituationen für mehr Sicherheit und Professionalität.\n• Du initiierst und leitest Diskussionen zu tabuisierten und stigmatisierten Themen sowie ethischen Entscheidungsfindungen Anforderungen:\n• Du verfügst über einen Abschluss als Master of Science in Nursing\n• Du bist fähig im Team zu arbeiten, bist begeisterungsfähig, zielorientiert und kannst wissenschaftliche Erkenntnisse mit der Praxis zusammenbringen\n• Du bist bereit Fachworkshops zu leiten und bringst eine hohe Beratungskompetenz mit\n• Idealerweise verfügst Du über Pflegeerfahrung im psychiatrischen und somatischen Umfeld Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
         "fr": "Tâches :\n• Vous façonnez les soins en psychiatrie de vieillesse de manière durable et contribuez de façon décisive à son développement ultérieur.\n• Vous avez un rôle clé dans les soins intégrés au sein de la psychiatrie d'âge et avec les intervenants externes\n• Vous entraînez le personnel infirmier pendant les évaluations et les processus dans des situations de soins complexes pour une plus grande sécurité et professionnalisme.\n• Vous lancez et dirigez des discussions sur des sujets tabous et stigmatisés ainsi que la prise de décisions éthiques Exigences\n• Vous avez une maîtrise en sciences infirmières\n• Vous êtes en mesure de travailler en équipe, sont enthousiastes, orientés vers l'objectif et peuvent combiner les connaissances scientifiques avec la pratique\n• Vous êtes prêt à diriger des ateliers spécialisés et apporter un haut niveau d'expertise conseil\n• Idéalement, vous avez une expérience infirmière dans l'environnement psychiatrique et somatique. Nous offrons: La famille ? Oui ! Avec notre garderie et nos modèles flexibles de temps de travail, vous pouvez concilier famille et travail. En plus de l'allocation familiale, nous avons également une allocation de soins généreuse. Le Centre psychiatrique de Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients : à l'intérieur."
       },
+      "needsRetranslation": true,
       "location": "Münsingen",
       "canton": "BE",
       "url": "https://jobs.pzmag.ch/offene-stellen/pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn/89ae3ed5-b384-4763-9334-9ce7ad0c1039",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.687Z",
+      "crawledAt": "2026-07-03T23:17:35.084Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1271,8 +1275,7 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-pzm-muensingen-munsingen-2",
-          "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-pzm-muensingen-munsingen",
-          "esperto-di-cura-esperto-di-cura-infermiera-di-pratica-avanzata-apn-psychiatriezentrum-munsingen-munsingen"
+          "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-pzm-muensingen-munsingen"
         ],
         "fr": [
           "pflegeexpertin-pflegeexperte-advanced-practice-nurse-apn-pzm-muensingen-munsingen-2"
@@ -1324,12 +1327,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/fachperson-gesundheit-schwerpunkt-demenz-und-delir/ac5c4558-ee64-4233-a410-eee07d87f78a",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.685Z",
+      "crawledAt": "2026-07-03T23:17:35.082Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1352,8 +1356,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen",
-          "fachperson-gesundheit-schwerpunkt-demenz-e-delir-psychiatriezentrum-munsingen"
+          "fachperson-gesundheit-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
         ],
         "en": [
           "fachperson-gesundheit-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
@@ -1391,7 +1394,7 @@
       "title": "Dipl. Pflegefachperson - Schwerpunkt Angst",
       "titleByLocale": {
         "it": "Dipl. Caregiver - Focus sulla paura",
-        "en": "Dipl. Caregiver - Focus on fear",
+        "en": "Dipl. Pflegefachperson - Schwerpunkt Angst",
         "de": "Dipl. Pflegefachperson - Schwerpunkt Angst",
         "fr": "Dipl. Caregiiver - Se concentrer sur la peur"
       },
@@ -1402,17 +1405,19 @@
         "de": "Aufgaben:\n• Du unterstützt uns beim Wiederaufbau unserer offenen alterspsychiatrischen Akutstation und kannst dabei dein Fachwissen und deine Erfahrung gezielt einbringen\n• Du hilfst mit bei der Umsetzung unseres neuen Stationskonzepts und entwickelst es mit uns stetig weiter\n• Du trägst gemeinsam mit deinem interprofessionellen Behandlungsteam zu einer Stabilisierung der Patient:innen und damit zu einer grösseren Lebensqualität bei\n• Du unterstützt unsere Berufsbildner:innen bei der Ausbildung von Lernenden und kannst deine Erfahrung an die nächste Generation weitergeben Anforderungen:\n• Du bist Dipl. Pflegefachfrau/Pflegefachmann HF/FH (oder hast ein Diplom, das in der Schweiz anerkannt ist)\n• Du hast Erfahrung in der Psychiatrie oder Erfahrung in der Somatik mit Interesse an der Psychiatrie\n• Du bringst idealerweise Berufserfahrung in der Pflege von älteren Menschen mit\n• Du begeisterst dich für die interprofessionelle Zusammenarbeit und für komplexe, psychiatrische Fragestellungen\n• Du hast Freude an der Arbeit mit Menschen in akuten Krisensituationen Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Das Psychiatriezentrum Münsingen (BE) gehört zu den grössten psychiatrischen Kliniken in der Schweiz. Jedes Jahr behandeln wir über 3100 Patient:innen.",
         "fr": "Tâches :\n• Vous nous aidez dans la reconstruction de notre unité de soins psychiatriques actifs à âge ouvert et pouvez utiliser votre expertise et votre expérience de manière ciblée.\n• Vous aidez à la mise en œuvre de notre nouveau concept de station et continuez à le développer avec nous\n• Avec votre équipe de traitement interprofessionnelle, vous contribuerez à la stabilisation des patients et donc à une meilleure qualité de vie.\n• Vous soutenez nos formateurs professionnels dans la formation des apprenants et pouvez transmettre votre expérience à la prochaine génération Exigences\n• Vous êtes Dipl. Spécialiste des soins infirmiers HF/FH (ou diplôme reconnu en Suisse)\n• Vous avez une expérience en psychiatrie ou en somatique avec un intérêt pour la psychiatrie\n• Vous apportez idéalement une expérience professionnelle dans le soin des personnes âgées\n• Vous êtes enthousiaste par la coopération interprofessionnelle et les problèmes psychiatriques complexes\n• Vous aimez travailler avec des gens en situation de crise aiguë Nous offrons: La famille ? Oui ! Avec notre garderie et nos modèles flexibles de temps de travail, vous pouvez concilier famille et travail. En plus de l'allocation familiale, nous avons également une allocation de soins généreuse. Le Centre psychiatrique de Münsingen (BE) est l'une des plus grandes cliniques psychiatriques de Suisse. Chaque année, nous traitons plus de 3100 patients : à l'intérieur."
       },
+      "needsRetranslation": true,
       "location": "Münsingen",
       "canton": "BE",
       "url": "https://jobs.pzmag.ch/offene-stellen/dipl-pflegefachperson-schwerpunkt-angst/2052902e-fc61-4c3d-a04c-00705a72627f",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.684Z",
+      "crawledAt": "2026-07-03T23:17:35.081Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1433,8 +1438,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-schwerpunkt-angst-pzm-muensingen-munsingen",
-          "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
-          "dipl-caregiver-focus-sulla-paura-psychiatriezentrum-munsingen-munsingen"
+          "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
         ],
         "en": [
           "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
@@ -1489,12 +1493,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/mitarbeiter-in-kueche-patisserie/68de38df-8115-4f63-aa1a-ae269a301e74",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.682Z",
+      "crawledAt": "2026-07-03T23:17:35.079Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1512,8 +1517,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kuche-patisserie-pzm-muensingen-munsingen",
-          "collaboratore-trice-kuche-patisserie-psychiatriezentrum-munsingen"
+          "mitarbeiter-in-kuche-patisserie-pzm-muensingen-munsingen"
         ],
         "fr": [
           "mitarbeiter-in-kuche-patisserie-psychiatriezentrum-munsingen-munsingen"
@@ -1565,12 +1569,13 @@
       "url": "https://jobs.pzmag.ch/offene-stellen/psychologin-psychologe-kim/b493b491-579b-465b-833d-fdab8e0646d5",
       "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:35:07.674Z",
+      "crawledAt": "2026-07-03T23:17:35.070Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
+      "streetAddress": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1587,8 +1592,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologe-kim-pzm-muensingen-munsingen",
-          "psicologo-psicologo-kim-psychiatriezentrum-munsingen-munsingen"
+          "psychologin-psychologe-kim-pzm-muensingen-munsingen"
         ],
         "en": [
           "psychologin-psychologe-kim-pzm-muensingen-munsingen"
@@ -1610,96 +1614,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "pzm-muensingen-311897141285",
-      "slug": "responsabile-responsabile-dipl-infermieristica-professionale-psychiatriezentrum-munsingen-biel",
-      "slugByLocale": {
-        "it": "responsabile-responsabile-dipl-infermieristica-professionale-psychiatriezentrum-munsingen-biel",
-        "en": "responsible-responsible-dipl-nursing-professional-psychiatriezentrum-munsingen-biel",
-        "de": "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-pzm-muensingen-biel",
-        "fr": "responsable-responsable-dipl-professionnels-des-soins-infirmiers-psychiatriezentrum-munsingen-biel"
-      },
-      "company": "Psychiatriezentrum Münsingen",
-      "companyKey": "pzm-muensingen",
-      "companyDomain": "pzmag.ch",
-      "title": "Fachverantwortliche / Fachverantwortlicher / Dipl. Pflegefachperson",
-      "titleByLocale": {
-        "it": "Responsabile / Responsabile / Dipl. Infermieristica professionale",
-        "en": "Responsible / Responsible / Dipl. Nursing professional",
-        "de": "Fachverantwortliche / Fachverantwortlicher / Dipl. Pflegefachperson",
-        "fr": "Responsable / Responsable / Dipl. Professionnels des soins infirmiers"
-      },
-      "description": "Aufgaben:\n• Du kannst dein Fachwissen und deine Erfahrung gezielt einbringen und uns aktiv dabei unterstützen, die Prozesse auf der Station zu verbessern\n\n• Du trägst dazu bei, dass die Zusammenarbeit im Team auf Augenhöhe, konstruktiv und interprofessionell gelebt wird\n\n• Du hilfst mit bei der Umsetzung unseres Stationskonzepts und entwickelst es mit uns stetig weiter\n\n• Du trägst gemeinsam mit dem interprofessionellen Behandlungsteam zu einer Stabilisierung der Patient:innen und damit zu einer grösseren Lebensqualität bei\n\nAnforderungen:\n• Du verfügen über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n\n• Du kannst mind. 2 Jahre Berufserfahrung in der Psychiatrie vorweisen, vorzugsweise auf einer Therapiestation oder einem vergleichbaren Bereich\n\n• Du denkst ziel- und menschenorientiert\n\n• Du bist belastbar und schätzt die Herausforderungen auf einer akutpsychiatrischen Station\n\nWir bieten:\nFamilie? Ja gerne!\nMit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage.\n\nDie Psychiatrie Biel ist ein Betrieb des Psychiatriezentrums Münsingen. Sie ist am Spitalzentrum Biel zu Hause und führt dort eine Kriseninterventionsstation und ein Ambulatorium.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Puoi contribuire alla tua esperienza e alla tua esperienza e supportarci attivamente nel migliorare i processi della stazione\n• Contribuisci al fatto che la cooperazione nel team è vissuta a livello degli occhi, costruttivamente e interprofessionalmente.\n• Si aiuta con l'implementazione del nostro concetto di stazione e continuare a svilupparlo con noi\n• Insieme al team di trattamento interprofessionale, si contribuisce ad una stabilizzazione dei pazienti e quindi ad una maggiore qualità della vita. Requisiti\n• Hai completato l'allenamento come Dipl. Infermieristica professionale HF/FH\n• Ti dispiace. 2 anni di esperienza professionale in psichiatria, preferibilmente in una stazione di terapia o area comparabile\n• Pensi orientato agli obiettivi e orientato alle persone\n• Sei resiliente e apprezzi le sfide di una stazione psichiatrica acuta Offriamo: Famiglia? Sì! Con il nostro centro diurno e modelli di tempo di lavoro flessibili, è possibile conciliare famiglia e lavoro. Oltre all'indennità di famiglia, abbiamo anche un'indennità di assistenza generosa. La Psichiatria Biel è un'operazione del Psychiatry Center Münsingen. Lei è a casa al Biel Hospital Center e gestisce una stazione di intervento di crisi e un ambulatorio lì.",
-        "en": "Tasks:\n• You can contribute your expertise and experience and actively support us in improving the processes on the station\n• You contribute to the fact that the cooperation in the team is lived at eye level, constructively and interprofessionally.\n• You help with the implementation of our station concept and continue to develop it with us\n• Together with the interprofessional treatment team, you contribute to a stabilization of patients and thus to a greater quality of life. Requirements\n• You have completed training as a Dipl. Nursing professional HF/FH\n• You can mind. 2 years of professional experience in psychiatry, preferably in a therapy station or comparable area\n• You think goal-oriented and people-oriented\n• You are resilient and appreciate the challenges on an acute psychiatric station We offer: Family? Yes! With our day-care centre and flexible working time models, you can reconcile family and work. In addition to the family allowance, we also have a generous care allowance. The Psychiatry Biel is an operation of the Psychiatry Center Münsingen. She is at home at the Biel Hospital Center and runs a crisis intervention station and an ambulatory there.",
-        "de": "Aufgaben:\n• Du kannst dein Fachwissen und deine Erfahrung gezielt einbringen und uns aktiv dabei unterstützen, die Prozesse auf der Station zu verbessern\n• Du trägst dazu bei, dass die Zusammenarbeit im Team auf Augenhöhe, konstruktiv und interprofessionell gelebt wird\n• Du hilfst mit bei der Umsetzung unseres Stationskonzepts und entwickelst es mit uns stetig weiter\n• Du trägst gemeinsam mit dem interprofessionellen Behandlungsteam zu einer Stabilisierung der Patient:innen und damit zu einer grösseren Lebensqualität bei Anforderungen:\n• Du verfügen über eine abgeschlossene Ausbildung als Dipl. Pflegefachfrau/Pflegefachmann HF/FH\n• Du kannst mind. 2 Jahre Berufserfahrung in der Psychiatrie vorweisen, vorzugsweise auf einer Therapiestation oder einem vergleichbaren Bereich\n• Du denkst ziel- und menschenorientiert\n• Du bist belastbar und schätzt die Herausforderungen auf einer akutpsychiatrischen Station Wir bieten: Familie? Ja gerne! Mit unserer Kita und unseren flexiblen Arbeitszeitmodellen bringst du Familie und Beruf unter einen Hut. Zusätzlich zur Familienzulage gibt's bei uns zudem eine grosszügige Betreuungszulage. Die Psychiatrie Biel ist ein Betrieb des Psychiatriezentrums Münsingen. Sie ist am Spitalzentrum Biel zu Hause und führt dort eine Kriseninterventionsstation und ein Ambulatorium.",
-        "fr": "Tâches :\n• Vous pouvez apporter votre expertise et votre expérience et nous soutenir activement dans l'amélioration des processus de la station\n• Vous contribuez au fait que la coopération dans l'équipe est vécue au niveau des yeux, de manière constructive et interprofessionnelle.\n• Vous aidez à la mise en œuvre de notre concept de station et continuez à le développer avec nous\n• Avec l'équipe de traitement interprofessionnelle, vous contribuez à la stabilisation des patients et donc à une meilleure qualité de vie. Exigences\n• Vous avez terminé la formation en tant que Dipl. Professionnels des soins infirmiers HF/FH\n• Ça vous dérange. 2 ans d'expérience professionnelle en psychiatrie, de préférence dans un poste de thérapie ou dans une zone comparable\n• Vous pensez orientés vers le but et vers les gens\n• Vous êtes résilient et appréciez les défis sur un poste psychiatrique aigu Nous offrons: La famille ? Oui ! Avec notre garderie et nos modèles flexibles de temps de travail, vous pouvez concilier famille et travail. En plus de l'allocation familiale, nous avons également une allocation de soins généreuse. La psychiatrie Biel est une opération du Centre de psychiatrie Münsingen. Elle est à la maison au centre hospitalier de Biel et gère une station d'intervention de crise et une ambulatoire."
-      },
-      "needsRetranslation": false,
-      "location": "Biel",
-      "canton": "BE",
-      "url": "https://jobs.pzmag.ch/offene-stellen/fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson/8af2f0e8-6513-446d-9390-74eeb2c65be4",
-      "source": "Psychiatriezentrum Münsingen Dedicated Parser (Prospective medium 1008606)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-02T12:25:57.239Z",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3110",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "applyUrl": "https://pzm.pi-asp.de/bewerber-web/?xsrf=B06E35E6BA4A63885B680FD082FE49E5&company=1000-FIRMA-ID&tenant=&lang=DS#position,id=663070c5-7267-4716-a24c-fc0fc33b85ee,popup=y",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-pzm-muensingen-biel-2",
-        "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-psychiatriezentrum-munsingen-biel",
-        "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-pzm-muensingen-biel",
-        "specialista-specialista-dipl-argomento-della-cura-psychiatriezentrum-munsingen-biel",
-        "specialist-specialist-dipl-care-subject-psychiatriezentrum-munsingen-biel",
-        "specialiste-specialiste-dipl-sujet-psychiatriezentrum-munsingen-biel",
-        "infermiere-a-professionale-psychiatriezentrum-munsingen-biel",
-        "dipl-pflegefachperson-psychiatriezentrum-munsingen-biel",
-        "dipl-pflegefachperson-pzm-muensingen-biel",
-        "infirmier-ere-professionnel-le-psychiatriezentrum-munsingen-biel",
-        "dipl-das-ist-eine-gute-idee-psychiatriezentrum-munsingen-biel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-pzm-muensingen-biel-2",
-          "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-psychiatriezentrum-munsingen-biel",
-          "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-pzm-muensingen-biel"
-        ],
-        "en": [
-          "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-psychiatriezentrum-munsingen-biel"
-        ],
-        "fr": [
-          "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-psychiatriezentrum-munsingen-biel"
-        ]
-      },
-      "firstSeenAt": "2026-06-24T12:02:39.091Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
