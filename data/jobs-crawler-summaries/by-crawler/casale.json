@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-07-04T10:19:46.727Z",
+  "generatedAt": "2026-07-04T21:21:46.584Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2115,
-  "avgDurationMs": 2115,
+  "durationMs": 1857,
+  "avgDurationMs": 1857,
   "durationHistory": [
-    2115
+    1857
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -167,6 +167,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
       "id": "casale-7e2513dafd4a",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
