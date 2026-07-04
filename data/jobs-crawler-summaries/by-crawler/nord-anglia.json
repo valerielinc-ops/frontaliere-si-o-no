@@ -1,18 +1,19 @@
 {
   "key": "nord-anglia",
   "label": "La Côte International School (Nord Anglia Education)",
-  "generatedAt": "2026-07-04T11:24:04.408Z",
+  "generatedAt": "2026-07-04T22:30:36.389Z",
   "total": 4,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2702,
-  "avgDurationMs": 2702,
+  "durationMs": 3545,
+  "avgDurationMs": 3545,
   "durationHistory": [
-    2702
+    3545
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "nord-anglia-8720a5afd8ce",
       "slug": "teacher-of-biology-nord-anglia-aubonne",
@@ -25,7 +26,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T11:24:02.378Z",
+      "crawledAt": "2026-07-04T22:30:33.991Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -42,11 +43,13 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "jobReqId": "1399902133",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:24:02.378Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -62,7 +65,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Mathematics/1410365433/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T11:24:02.379Z",
+      "crawledAt": "2026-07-04T22:30:33.992Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -79,11 +82,13 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Mathematics/1410365433/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "jobReqId": "1410365433",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:24:02.379Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -99,7 +104,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Chauffeur-scolaire-et-concierge-polyvalent/1402171933/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:24:02.381Z",
+      "crawledAt": "2026-07-04T22:30:33.993Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -116,11 +121,13 @@
       "postedDate": "2026-06-09",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-Chauffeur-scolaire-et-concierge-polyvalent/1402171933/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "jobReqId": "1402171933",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:24:02.381Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -136,7 +143,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Coordinateur-des-transports-scolaires-&-concierge-polyvalent/1402176733/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:24:02.382Z",
+      "crawledAt": "2026-07-04T22:30:33.995Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -153,16 +160,17 @@
       "postedDate": "2026-06-09",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-Coordinateur-des-transports-scolaires-&-concierge-polyvalent/1402176733/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "jobReqId": "1402176733",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T11:24:02.382Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
