@@ -1,18 +1,19 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-07-03T21:38:35.087Z",
+  "generatedAt": "2026-07-04T10:26:51.221Z",
   "total": 10,
-  "newCount": 4,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4177,
-  "avgDurationMs": 4177,
+  "durationMs": 3030,
+  "avgDurationMs": 3030,
   "durationHistory": [
-    4177
+    3030
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Product Manager – Critical Power",
       "slug": "product-manager-critical-power-centiel-ticino",
@@ -31,16 +32,23 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 61,
+      "id": "centiel-5b2ad723a13f",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -61,16 +69,23 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 63,
+      "id": "centiel-6c09b1f01934",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -91,16 +106,23 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 63,
+      "id": "centiel-5d6623fa2ed6",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -121,20 +143,25 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 63,
+      "id": "centiel-807453cca7cd",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Technical Services Manager – Centiel UK",
       "slug": "technical-services-manager-centiel-uk-centiel-ticino",
@@ -153,7 +180,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -190,7 +217,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -227,7 +254,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -264,7 +291,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -301,7 +328,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
@@ -338,7 +365,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-03",
+      "postedDate": "2026-07-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
