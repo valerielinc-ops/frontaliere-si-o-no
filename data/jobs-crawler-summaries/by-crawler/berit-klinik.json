@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-07-03T21:24:21.972Z",
-  "total": 10,
+  "generatedAt": "2026-07-04T10:23:39.043Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2537,
-  "avgDurationMs": 2537,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 2701,
+  "avgDurationMs": 2701,
   "durationHistory": [
-    2537
+    2701
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Mitarbeiter:In Restaurant 60–80%",
       "slug": "collaboratore-trice-restaurant-60-80-berit-klinik-speicher",
@@ -345,7 +344,6 @@
       "salaryMax": 90400,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -386,7 +384,6 @@
       "salaryMax": 79800,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -395,5 +392,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
