@@ -167,10 +167,28 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/previous-slug-winners.json
           git commit -m "chore(seo): sync previous-slug winners registry"
-          git stash push --keep-index --include-untracked -m "validation-build-tree" || true
+          # Same silent-stash-pop anti-pattern flagged in PR #3445 (review
+          # 2026-07-04): `|| true` on push tolerated the benign "nothing to
+          # stash" case, but also swallowed real push failures, and `|| true`
+          # on pop masked a genuine pop-conflict — leaving the working tree
+          # mid-conflict while the job's downstream steps (indexing API
+          # submit, LinkedIn/Reddit, IndexNow) ran on incomplete state with no
+          # signal. Only pop-guard when something was actually stashed; a real
+          # pop failure now fails the job loudly instead of continuing silent.
+          stash_output=$(git stash push --keep-index --include-untracked -m "validation-build-tree")
+          echo "$stash_output"
+          stashed=0
+          if [ "$stash_output" != "No local changes to save" ]; then
+            stashed=1
+          fi
           bash scripts/lib/git-push-with-retry.sh \
             --in-place-resolver-cmd "node scripts/lib/resolve-winners-conflict.mjs && git add -A"
-          git stash pop || true
+          if [ "$stashed" = "1" ]; then
+            if ! git stash pop; then
+              echo "::error::Failed to restore stashed validation-build-tree state after push-retry; stash left in stack for manual recovery"
+              exit 1
+            fi
+          fi
 
       - name: Read deploy metadata from Firestore
         id: deploy-meta
