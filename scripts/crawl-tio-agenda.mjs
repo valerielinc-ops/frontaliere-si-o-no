@@ -318,7 +318,14 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
       continue;
     }
     let entry = cache[key];
-    if (!entry) {
+    // Re-validate, not just presence-check: an entry with fewer than
+    // TRANSLATE_LOCALES.length keys is a partial hit from a run where one or
+    // more locale calls failed (network hiccup, provider down). Pre-#3415
+    // crawls could persist those partial entries verbatim, so a plain
+    // truthiness guard here would serve them forever without ever retrying
+    // the missing locale(s) — this is the #3427 correctness fix (bad state
+    // that already exists on disk heals itself the next time this runs).
+    if (!entry || Object.keys(entry).length < TRANSLATE_LOCALES.length) {
       entry = {};
       for (const locale of TRANSLATE_LOCALES) {
         const translated = await translateFn({

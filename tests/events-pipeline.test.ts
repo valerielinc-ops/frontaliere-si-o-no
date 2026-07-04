@@ -16,6 +16,7 @@ import {
   mirrorEventImages,
   extractTioPrice,
   enrichEventsWithPrice,
+  enrichEventsWithTranslations,
 } from '../scripts/crawl-tio-agenda.mjs';
 import {
   resolveComune,
@@ -437,6 +438,44 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     const failingFetch = async () => null;
     const out = await enrichEventsWithPrice(events, failingFetch);
     expect(out[0].price).toBeUndefined();
+  });
+});
+
+describe('enrichEventsWithTranslations — disk-cache re-validation (issue #3427)', () => {
+  // #3415 added the translation cache; a reviewer follow-up (#3427) found the
+  // original `if (!entry)` guard was truthiness-only, so a partial entry
+  // persisted by a pre-fix crawl (fewer than TRANSLATE_LOCALES.length keys,
+  // e.g. one locale failed) would be served forever, never retried. The fix
+  // treats "fewer keys than expected" the same as "no entry at all".
+  it('does NOT re-translate a genuinely complete cache entry (happy path, no regression)', async () => {
+    const cache = { 'evento completo': { en: 'Complete event', de: 'Vollständiges Ereignis', fr: 'Événement complet' } };
+    const translateFn = vi.fn(async () => 'SHOULD NOT BE CALLED');
+    const events = [{ title: 'Evento completo' }];
+    const out = await enrichEventsWithTranslations(events, cache, translateFn);
+    expect(translateFn).not.toHaveBeenCalled();
+    expect(out[0].titleByLocale).toEqual({
+      it: 'Evento completo',
+      en: 'Complete event',
+      de: 'Vollständiges Ereignis',
+      fr: 'Événement complet',
+    });
+  });
+
+  it('retries a partial cache entry (fewer than TRANSLATE_LOCALES.length keys) instead of serving it as-is', async () => {
+    // Simulates a pre-#3415 crawl where only "en" ever succeeded and "de"/"fr"
+    // silently failed — this shape could be persisted to disk indefinitely.
+    const cache = { 'evento parziale': { en: 'Stale partial title' } };
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => `${targetLang}-translated`);
+    const events = [{ title: 'Evento parziale' }];
+    const out = await enrichEventsWithTranslations(events, cache, translateFn);
+    // All 3 locales re-requested — the partial entry was NOT trusted as-is.
+    expect(translateFn).toHaveBeenCalledTimes(3);
+    expect(out[0].titleByLocale).toEqual({
+      it: 'Evento parziale',
+      en: 'en-translated',
+      de: 'de-translated',
+      fr: 'fr-translated',
+    });
   });
 });
 
