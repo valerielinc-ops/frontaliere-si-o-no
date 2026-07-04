@@ -1197,6 +1197,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta property="og:description" content="${esc(clampMetaDescription(description))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:alt" content="${esc(pageTitle)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1804,6 +1805,7 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:description" content="${esc(clampMetaDescription(intro))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:alt" content="${esc(pageTitle)}">
     <link rel="canonical" href="${canonicalUrl}">
     <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
