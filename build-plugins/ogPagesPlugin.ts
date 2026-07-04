@@ -11,7 +11,7 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, OFFERWALL_FC_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
 import { asyncCssLink } from './htmlTemplate';
-import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
+import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, clampMetaDescription } from './shared/titleSuffix';
 import { truncateCodeUnits } from './shared/safeTruncate';
@@ -1064,7 +1064,7 @@ ${href}
  const bodyDerivedSections = bodySections.map(({ key, html }) => {
  const n = parseInt(key.replace(/^body/, ''), 10);
  return {
- heading: n === 1 ? 'Contesto' : n === 2 ? 'Dettagli operativi' : 'Punti chiave',
+ heading: articleBodySectionLabel(articleBodyLocale, n),
  html,
  };
  });
@@ -1077,9 +1077,9 @@ ${href}
  : (bodyWordCount < 360
  ? [...bodyDerivedSections, ...fallbackDerivedSections]
  : bodyDerivedSections);
- const articleBodyHtml = sectionSource
- .map((section) => `<section><h2>${esc(section.heading)}</h2>${section.html}</section>`)
- .join('');
+ // Duplicate generic headings (bodyN, n>=3 all map to the third label)
+ // collapse to a single visible <h2>; repeats keep content + aria-label (#3521).
+ const articleBodyHtml = renderArticleDerivedSectionsHtml(sectionSource);
  return `<!DOCTYPE html>
 <html lang="${locale}">
  <head>
@@ -1099,7 +1099,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di <a href="/chi-siamo/" rel="author">Valerie Linc</a> · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

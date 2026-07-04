@@ -84,6 +84,23 @@ describe('data/image CDN preconnect injection', () => {
     expect(hintAt).toBeLessThan(scriptAt);
   });
 
+  it('skips the hint when the page already preconnects to the same origin (#3530)', () => {
+    // When the data CDN origin coincides with the asset CDN origin, the build
+    // already ships this exact preconnect (asyncCssPlugin / template heads) —
+    // the offload pass must not add a second one, and must not add a
+    // dns-prefetch either (an existing preconnect supersedes it). The base
+    // script is still required.
+    const preHinted = BASE_HTML.replace(
+      '<head>',
+      `<head><link rel="preconnect" href="${CDN_ORIGIN}" crossorigin>`,
+    );
+    const { html } = runOffload(preHinted);
+    const count = (s: string) => s.split('rel="preconnect"').length - 1;
+    expect(count(html)).toBe(1);
+    expect(html).not.toContain(`<link rel="dns-prefetch" href="${CDN_ORIGIN}">`);
+    expect(html).toContain(`window.__CDN_DATA_BASE__="${CDN_BASE}"`);
+  });
+
   it('is idempotent — a re-run does not duplicate the hint', () => {
     const { html, tmp } = runOffload(BASE_HTML);
     // Re-run against the already-injected tree.

@@ -7929,7 +7929,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  key={chip.id}
  type="button"
  onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
+ className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
  chip.active
  ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
  : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
@@ -7955,7 +7955,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  key={chip.id}
  type="button"
  onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
+ className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
  chip.active
  ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
  : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'

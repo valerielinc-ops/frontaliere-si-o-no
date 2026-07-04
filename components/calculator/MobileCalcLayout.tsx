@@ -283,12 +283,14 @@ const MobileCalcLayout: React.FC<Props> = ({
  >+</button>
  </div>
  {/* Quick salary pills — flex-wrap + overflow-hidden shows only what fits in one row */}
- <div className="flex flex-wrap gap-1.5 mt-2.5 pb-0.5 max-h-[28px] overflow-hidden">
+ {/* max-h tracks the 44px chip height (min-h-11): one row visible, the
+     overflow row (44+6px gap) stays clipped. */}
+ <div className="flex flex-wrap gap-1.5 mt-2.5 pb-0.5 max-h-12 overflow-hidden">
  {SALARY_PRESETS.map(s => (
  <button
  key={s}
  onClick={() => handleChange('annualIncomeCHF', s)}
- className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
+ className={`shrink-0 px-2.5 py-1 min-h-11 rounded-lg text-xs font-bold transition-colors ${
  inputs.annualIncomeCHF === s
  ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-muted hover:bg-surface-raised'
@@ -479,7 +481,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {result && !showFullResults && !sheetOpen && (
  <button
  onClick={openSheet}
- className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-muted hover:text-body transition-colors"
+ className="w-full flex items-center justify-center gap-2 py-2 min-h-11 text-xs font-semibold text-muted hover:text-body transition-colors"
  >
  <Settings2 size={12} />
  {t('mobileCalc.adjustParams')}
