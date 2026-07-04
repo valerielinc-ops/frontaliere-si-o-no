@@ -646,6 +646,18 @@ export const COMPANY_HQ = {
   // (gate matches Dierikon only — Komax also posts jobs from Thun BE, a
   // different canton, which must NOT inherit this HQ).
   'komax': { city: 'Dierikon', canton: 'LU', postalCode: '6036', addressRegion: 'LU' },
+  // Selecta AG HQ, Hinterbergstrasse 16, 6312 Steinhausen ZG — confirmed via
+  // Moneyhouse's company extract (mirrors the Swiss commercial register /
+  // Zefix record), which shows the registered seat moved to Steinhausen per
+  // SHAB publication No. 154 of 13.08.2025 (previously Cham ZG — do NOT use
+  // the older Cham address). NOT Rotkreuz ZG either — a plausible-looking
+  // but wrong guess from some secondary sources; Rotkreuz was never
+  // Selecta's registered seat. Selecta's own Swiss postings are region-
+  // based (e.g. "Region Solothurn"), not tied to this legal seat — see the
+  // city-gated (never canton-gated) `resolveAddress()` in
+  // scripts/lib/selecta-job-parser.mjs for the per-job-posting fallback
+  // logic; this HQ entry is only the generic never-drop fallback.
+  'selecta': { city: 'Steinhausen', canton: 'ZG', postalCode: '6312', addressRegion: 'ZG' },
 };
 
 /**
