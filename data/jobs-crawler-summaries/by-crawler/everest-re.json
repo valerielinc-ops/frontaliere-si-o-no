@@ -1,18 +1,56 @@
 {
   "key": "everest-re",
   "label": "Everest Re",
-  "generatedAt": "2026-07-03T21:59:55.236Z",
-  "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "generatedAt": "2026-07-04T10:50:45.654Z",
+  "total": 3,
+  "newCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6288,
-  "avgDurationMs": 6288,
+  "durationMs": 7490,
+  "avgDurationMs": 7490,
   "durationHistory": [
-    6288
+    7490
   ],
   "newJobs": [
+    {
+      "id": "everest-re-9dabf53a2d5a",
+      "slug": "senior-actuarial-analyst-everest-re-ch",
+      "company": "Everest Re",
+      "companyKey": "everest-re",
+      "companyDomain": "everestre.com",
+      "title": "Senior Actuarial Analyst",
+      "needsRetranslation": true,
+      "location": "Zurich-Switzerland",
+      "canton": "ZH",
+      "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Actuarial-Analyst_R7238",
+      "source": "Everest Re Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-04T10:50:43.313Z",
+      "addressLocality": "Zurich-Switzerland",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Assicurazioni / Riassicurazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "applyUrl": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Actuarial-Analyst_R7238",
+      "jobReqId": "R7238",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "everest-re-c78959051657",
       "slug": "underwriter-i-reinsurance-everest-re-ch",
@@ -20,13 +58,13 @@
       "companyKey": "everest-re",
       "companyDomain": "everestre.com",
       "title": "Underwriter I, Reinsurance",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriter-I--Reinsurance_R7228",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:59:52.543Z",
+      "crawledAt": "2026-07-04T10:50:41.713Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +79,12 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriter-I--Reinsurance_R7228",
       "jobReqId": "R7228",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T21:59:52.543Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -56,13 +95,13 @@
       "companyKey": "everest-re",
       "companyDomain": "everestre.com",
       "title": "Senior Underwriting Assistant",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T21:59:53.293Z",
+      "crawledAt": "2026-07-04T10:50:42.571Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,16 +116,16 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "jobReqId": "R7298",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-03T21:59:53.293Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
