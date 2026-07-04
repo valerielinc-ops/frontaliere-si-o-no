@@ -16,6 +16,7 @@ import {
   mirrorEventImages,
   extractTioPrice,
   enrichEventsWithPrice,
+  enrichEventsWithTranslations,
 } from '../scripts/crawl-tio-agenda.mjs';
 import {
   resolveComune,
@@ -437,6 +438,29 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     const failingFetch = async () => null;
     const out = await enrichEventsWithPrice(events, failingFetch);
     expect(out[0].price).toBeUndefined();
+  });
+});
+
+describe('enrichEventsWithTranslations — partial cache re-validation (#3427)', () => {
+  const events = [{ title: 'Concerto sinfonico', id: 'tio-agenda:1' }];
+  const fakeTranslate = async ({ targetLang }: { targetLang: string }) => `Translated-${targetLang}`;
+
+  it('re-translates a partial cache entry that is missing locales (the #3427 bug)', async () => {
+    // Pre-existing entry has only 'en' — 'de' and 'fr' are absent (partial).
+    const cache: Record<string, Record<string, string>> = { 'concerto sinfonico': { en: 'Old-en' } };
+    const out = await enrichEventsWithTranslations(events, cache, fakeTranslate);
+    // Must contain all three locales after re-translation.
+    expect(out[0].titleByLocale).toMatchObject({ it: 'Concerto sinfonico', en: 'Translated-en', de: 'Translated-de', fr: 'Translated-fr' });
+    // Cache entry must be updated with the full set.
+    expect(Object.keys(cache['concerto sinfonico'])).toHaveLength(3);
+  });
+
+  it('skips re-translation when cache entry is already complete', async () => {
+    const cache: Record<string, Record<string, string>> = { 'concerto sinfonico': { en: 'Good-en', de: 'Good-de', fr: 'Good-fr' } };
+    const noopTranslate = vi.fn();
+    const out = await enrichEventsWithTranslations(events, cache, noopTranslate);
+    expect(noopTranslate).not.toHaveBeenCalled();
+    expect(out[0].titleByLocale?.en).toBe('Good-en');
   });
 });
 
