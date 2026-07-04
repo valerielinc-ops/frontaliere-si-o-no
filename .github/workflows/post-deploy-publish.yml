@@ -156,6 +156,15 @@ jobs:
         # The updated file is downloaded from the winners artifact above.
         # If it changed relative to HEAD, commit and push it here.
         if: success()
+        # continue-on-error: matches every sibling step in this job. Without
+        # it, a genuine stash-pop conflict (see the `exit 1` path below) would
+        # hard-fail this step and skip the downstream success()-gated steps
+        # (last-known-good marker, indexing API submit, LinkedIn/Reddit,
+        # IndexNow) over an unrelated winners-registry stash conflict on an
+        # otherwise-good deploy (review on PR #3445, round 2, 2026-07-04).
+        # The `::error::` annotation already gives visibility without the
+        # added blast radius.
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -175,10 +184,14 @@ jobs:
           # submit, LinkedIn/Reddit, IndexNow) ran on incomplete state with no
           # signal. Only pop-guard when something was actually stashed; a real
           # pop failure now fails the job loudly instead of continuing silent.
-          stash_output=$(git stash push --keep-index --include-untracked -m "validation-build-tree")
-          echo "$stash_output"
+          # `stashed` is derived from `git status --porcelain` BEFORE the
+          # stash (like scripts/lib/git-push-with-retry.sh's --stash-dirty),
+          # not by string-matching stash's human-readable output — the prior
+          # version's "No local changes to save" match would misfire on a
+          # runner-image git wording/locale change (review round 2 nit).
           stashed=0
-          if [ "$stash_output" != "No local changes to save" ]; then
+          if [ -n "$(git status --porcelain)" ]; then
+            git stash push --keep-index --include-untracked -m "validation-build-tree"
             stashed=1
           fi
           bash scripts/lib/git-push-with-retry.sh \
