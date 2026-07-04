@@ -16,7 +16,7 @@ import { resolveStaticPagesFlushed } from './shared/buildSignals';
 import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
-import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
+import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
@@ -4344,12 +4344,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const statsSlugs = ['statistiche', 'statistics', 'statistiken', 'statistiques'];
  const blogSlugs = ['articoli-frontaliere', 'cross-border-articles', 'frontier-articles', 'grenzgaenger-artikel', 'articles-frontalier'];
  const vitaSlugs = ['vivere-in-ticino', 'living-in-ticino', 'leben-im-tessin', 'vivre-au-tessin'];
- const bodyHeadingByLocale: Record<string, string[]> = {
- it: ['Contesto', 'Dettagli operativi', 'Punti chiave'],
- en: ['Context', 'Operational details', 'Key points'],
- de: ['Kontext', 'Operative Details', 'Wichtige Punkte'],
- fr: ['Contexte', 'Details pratiques', 'Points cles'],
- };
  const isBlogDetailPage = blogSlugs.includes(firstSeg) && urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1);
  const localeKey = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const articleSlug = isBlogDetailPage ? (urlSegs[urlSegs.length - 1] ?? '') : '';
@@ -4375,9 +4369,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const bodyWordCount = blogBodySections.map((s) => s.html).join(' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
  // Pair each rendered body with its heading by stable key (not post-filter array
  // index) — an empty body2 must not shift body3's html onto body2's heading.
- const bodyKeyHeadingIndex: Record<string, number> = { body1: 0, body2: 1, body3: 2 };
  const blogBodyDerivedSections = blogBodySections.map(({ key, html }) => ({
- heading: bodyHeadingByLocale[localeKey][bodyKeyHeadingIndex[key] ?? 2] ?? bodyHeadingByLocale[localeKey][2],
+ heading: articleBodySectionLabel(localeKey, parseInt(key.replace(/^body/, ''), 10)),
  html,
  }));
  const blogFallbackDerivedSections = blogFallbackSections.map((section) => ({
@@ -4389,9 +4382,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  : (bodyWordCount < 360
  ? [...blogBodyDerivedSections, ...blogFallbackDerivedSections]
  : blogBodyDerivedSections);
- const blogArticleHtml = blogSectionData
- .map((section) => `<section class="s-Zua2Uq"><h2 class="s-pIiivc">${esc(section.heading)}</h2>${section.html}</section>`)
- .join('');
+ // Duplicate generic headings collapse to one visible <h2>; repeats keep
+ // content + aria-label (#3521).
+ const blogArticleHtml = renderArticleDerivedSectionsHtml(blogSectionData, { sectionClass: 's-Zua2Uq', headingClass: 's-pIiivc' });
 
  // Build skeleton-matching HTML for #root to minimize CLS at hydration
  let rootHtml: string;
