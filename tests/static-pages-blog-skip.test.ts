@@ -7,7 +7,9 @@ describe('static pages blog detail rendering', () => {
   it('renders rich blog detail content instead of the generic editorial stub', () => {
     const source = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
     expect(source).toContain('const isBlogDetailPage = blogSlugs.includes(firstSeg)');
-    expect(source).toContain('const blogArticleHtml = blogSectionData');
+    // Rich content still derives from blogSectionData; since #3521 the html is
+    // rendered via the shared dedupe-heading renderer instead of an inline map.
+    expect(source).toContain('const blogArticleHtml = renderArticleDerivedSectionsHtml(blogSectionData');
     // The wrapper div previously carried `style="max-width:56rem;margin:0 auto;padding:1rem"`
     // inline; after the 2026-05-20 inline-style → class extraction, the same rule lives
     // in seo-static.css under a content-hashed class (s-wWmcGm at time of writing).

@@ -31,10 +31,17 @@ import { BASE_URL } from './constants';
  *  - `sitemap.xml` — the index we're regenerating
  *  - `sitemap_news.xml` — legacy alias of sitemap-news.xml (same content;
  *    listing both would be a duplicate entry)
+ *  - `sitemap-index.xml` — the cathedral per-canton job-shard index
+ *    (scripts/lib/sitemap-shard.mjs) is itself a `<sitemapindex>`; the
+ *    sitemap protocol forbids an index from listing another index and
+ *    Google reports the nested entry as an error (#3506). No coverage is
+ *    lost: every `sitemap-jobs-<canton>.xml` shard it references is also
+ *    discovered directly by this sweep.
  */
 const EXCLUDED_SITEMAP_FILES = new Set<string>([
   'sitemap.xml',
   'sitemap_news.xml',
+  'sitemap-index.xml',
 ]);
 
 /** Match `sitemap-<name>.xml` — underscore separator is reserved for legacy. */

@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import correctionsLog from '@/data/corrections-log.json';
+import { ORGANIZATION_LD } from '@/services/seo/organizationLd';
 
 /**
  * Correzioni — /correzioni/ public corrections policy + chronological log.
@@ -113,7 +114,7 @@ export const Correzioni: React.FC = () => {
         '@type': 'CreativeWork',
         name: 'Politica di correzione di Frontaliere Ticino',
         about: 'Editorial corrections policy and public log',
-        publisher: { '@id': 'https://frontaliereticino.ch/#organization' },
+        publisher: ORGANIZATION_LD,
       },
     };
   }, [lastReviewed]);

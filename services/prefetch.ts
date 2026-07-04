@@ -61,6 +61,10 @@ const TAB_LOADERS: Record<string, PrefetchFn[]> = {
  ],
  blog: [
  () => import('@/components/community/BlogArticles'),
+ // Warm the blog slug map on intent: it no longer preloads at App mount
+ // (#3528/#3532), so hover/focus on the blog tab kicks it early and
+ // article hrefs are canonical the moment BlogArticles renders.
+ () => import('@/services/router').then(m => m.preloadBlogData()),
  ],
  faq: [
  () => import('@/components/pages/FaqSection'),

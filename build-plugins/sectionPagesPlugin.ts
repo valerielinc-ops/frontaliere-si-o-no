@@ -1045,12 +1045,12 @@ function renderSectionPage(opts: {
     isPartOf: {
       '@type': 'WebSite',
       name: localeCopy.editorialOrg,
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
     publisher: {
       '@type': 'Organization',
       name: localeCopy.editorialOrg,
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       logo: imageObjectLd({
         url: `${BASE_URL}/icons/icon-512x512.png`,
         width: 512,

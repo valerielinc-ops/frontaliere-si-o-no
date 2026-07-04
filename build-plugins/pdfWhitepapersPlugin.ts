@@ -422,7 +422,7 @@ function renderBackPage(doc: PDFKit.PDFDocument): void {
  doc.text('frontaliereticino.ch/calcola-stipendio', MARGIN.left, doc.y, {
  width: CONTENT_WIDTH,
  align: 'center',
- link: `${BASE_URL}/calcola-stipendio`,
+ link: `${BASE_URL}/calcola-stipendio/`,
  });
 
  doc.moveDown(4);
@@ -454,8 +454,8 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
  url: canonical,
  encodingFormat: 'application/pdf',
  encoding: { '@type': 'MediaObject', contentUrl: pdfUrl, encodingFormat: 'application/pdf' },
- author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
- publisher: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+ author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+ publisher: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  datePublished: dateStamp,
  dateModified: dateStamp,
  inLanguage: 'it',

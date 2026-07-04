@@ -27,6 +27,8 @@
 import {
   COMPANY_HQ_ADDRESSES,
   deriveCantonFromCity,
+  localityMatchesHq,
+  regionLocalityCapital,
   resolveFallbackAddress,
 } from './companyHqAddresses';
 import {
@@ -252,6 +254,18 @@ function todayIso(): string {
   return new Date().toISOString();
 }
 
+/** Floor a derived `validThrough` to at least now+30d (#3505): derived windows
+ * (crawledAt+60d / datePosted+90d) feed ACTIVE emissions — a stale timestamp
+ * would emit an already-past validThrough on a live page, which Google treats
+ * as an expired posting (dropped from Google Jobs). Explicit source-provided
+ * `validThrough` values are NOT floored: they are source truth (real
+ * deadlines), and the expired soft-landing deliberately passes a past one. */
+function floorToFuture(computed: Date): string {
+  const floor = new Date();
+  floor.setUTCDate(floor.getUTCDate() + 30);
+  return (computed.getTime() < floor.getTime() ? floor : computed).toISOString();
+}
+
 /** Compute a future `validThrough` given a `datePosted` ISO string. */
 function computeValidThrough(
   explicit: string | null | undefined,
@@ -265,14 +279,14 @@ function computeValidThrough(
   if (crawledIso) {
     const out = new Date(crawledIso);
     out.setUTCDate(out.getUTCDate() + 60);
-    return out.toISOString();
+    return floorToFuture(out);
   }
 
   const posted = new Date(datePosted);
   if (!Number.isNaN(posted.getTime())) {
     const out = new Date(posted);
     out.setUTCDate(out.getUTCDate() + 90);
-    return out.toISOString();
+    return floorToFuture(out);
   }
 
   const fallback = new Date();
@@ -371,9 +385,14 @@ function resolveAddress(
   locale: string,
 ): PostalAddressSchema {
   const companySlug = job.companySlug || job.companyKey || '';
-  const cityRaw = String(
+  let cityRaw = String(
     job.addressLocality || job.city || job.location || '',
   ).trim();
+  // #3513: a REGION name shipped as locality ("Ticino") is not a schema.org
+  // locality — substitute the canton capital's coherent locality so
+  // street/CAP/locality all anchor on one real place.
+  const regionCapital = regionLocalityCapital(cityRaw);
+  if (regionCapital) cityRaw = regionCapital.addressLocality;
 
   const hqEntry = companySlug
     ? COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()]
@@ -389,18 +408,20 @@ function resolveAddress(
   const addressLocality =
     cityRaw.length > 0 ? cityRaw : fallback.addressLocality;
 
-  // A curated company HQ address is only trustworthy for jobs in the HQ's own
-  // canton. A posting in a different canton (e.g. a Zurich job for a Ticino-seat
-  // employer) must NOT inherit the HQ street/CAP — that yields a Bellinzona
-  // address on a Zurich job. Fall through to the city lookup instead.
+  // A curated company HQ address is only trustworthy for jobs with no own
+  // city or in the HQ's own CITY (#3513). Canton-level matching is not
+  // enough: a Lugano posting for a Bellinzona-seat employer (same canton)
+  // must not pair the HQ street/CAP with the Lugano locality. Fall through
+  // to the city lookup instead, which anchors on the job's own city.
   const hqUsable =
     !!hqEntry &&
-    String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase();
+    String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase() &&
+    localityMatchesHq(cityRaw, hqEntry);
 
-  // Precedence: explicit source value → company HQ (only when same canton) →
-  // city lookup → canton-capital fallback. Company HQ wins over city lookup
-  // because the HQ registry is curated and therefore more accurate than
-  // a generic-city postal code.
+  // Precedence: explicit source value → company HQ (only when same city, or
+  // no city signal) → city lookup → canton-capital fallback. Company HQ wins
+  // over city lookup because the HQ registry is curated and therefore more
+  // accurate than a generic-city postal code.
   const postalCode = isValidPostalCode(job.postalCode)
     ? String(job.postalCode).trim()
     : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||

@@ -28,6 +28,7 @@ import {
   buildCantonSeoProseFaqItems,
   type CantonSeoLocale,
 } from './shared/cantonSeoProse';
+import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import {
   GROSSREGION_MEDIAN_MONTHLY,
   NATIONAL_MEDIAN_MONTHLY,
@@ -317,6 +318,13 @@ export function renderSalaryStatsPage(opts: {
 
   const methodology = `<h2 style="${H2_STYLE}">${esc(c.methodologyHeading)}</h2><p style="${BODY_STYLE}">${esc(c.methodology(cantonName))}</p>`;
 
+  // EEAT (#3515): the methodology paragraph cites BFS/LSE and the 2024 tax
+  // agreement textually — link the actual primary sources right below it.
+  const sourcesBlock = renderAuthoritativeSourcesHtml(locale, undefined, {
+    headingStyle: H2_STYLE,
+    list: 'my-2.5 ml-5 list-disc space-y-1.5 text-body',
+  });
+
   const cta = `<p class="my-4"><a href="${esc(calcHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta)} →</a></p>`;
 
   // Reuse the canton-aware SEO prose (already carries per-canton salary copy +
@@ -340,6 +348,7 @@ ${sectorTable}
 ${netBlock}
 ${cta}
 ${methodology}
+${sourcesBlock}
 ${prose}</div>`;
 
   const breadcrumbLd = {

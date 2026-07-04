@@ -151,7 +151,7 @@ describe('eventLd nationwide fields (#3125)', () => {
     expect(ld.image.creator).toEqual({
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: 'https://frontaliereticino.ch',
+      url: 'https://frontaliereticino.ch/',
     });
     expect(ld.image.copyrightNotice).toBeTruthy();
   });
@@ -574,5 +574,65 @@ describe('renderEventDetailPage about-paragraph venue differentiation (#3141 ite
     expect(page.html).toContain('a Lugano, in Ticino');
     expect(page.html).not.toContain('a Lugano – ');
     expect(page.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+  });
+});
+
+// #3508: aggregate ItemList markup quality — no expired events marked
+// EventScheduled, no fabricated Ticino address on canton-less nationwide
+// events. All dates are anchored to the injected dateStamp (deterministic,
+// no wall-clock dependency).
+describe('events schema data quality (#3508)', () => {
+  const distDir = mkdtempSync(path.join(os.tmpdir(), 'events-3508-'));
+
+  it('eventLd uses the real crawled venue for canton-less events instead of stamping Ticino/TI', () => {
+    const glarus = {
+      ...EVENT,
+      id: 'myswitzerland:9',
+      canton: '',
+      comune: null,
+      region: null,
+      venue: 'Niederurnen',
+      sourceKey: 'myswitzerland',
+      sourceName: 'MySwitzerland',
+      geo: { lat: 47.125875, lng: 9.058327 },
+    };
+    const ld = eventLd(glarus as never, 'it') as {
+      location: { address: Record<string, unknown> };
+      description: string;
+    };
+    expect(ld.location.address.addressLocality).toBe('Niederurnen');
+    expect(ld.location.address.addressRegion).toBeUndefined();
+    // Validator contract: description stays >= 30 chars without a canton name.
+    expect(String(ld.description).trim().length).toBeGreaterThanOrEqual(30);
+  });
+
+  it('eventLd keeps comune + canton for canton-resolved events', () => {
+    const ld = eventLd(EVENT as never, 'it') as { location: { address: Record<string, unknown> } };
+    expect(ld.location.address.addressLocality).toBe('Lugano');
+    expect(ld.location.address.addressRegion).toBe('TI');
+  });
+
+  it('hub ItemList markup excludes events whose startDate is already past, page HTML keeps them', () => {
+    const dateStamp = '2026-06-30';
+    const stale = { ...EVENT, id: 'myswitzerland:10', title: 'Chilbi Vecchia', startDate: '2025-09-06', endDate: '2026-09-06' };
+    const fresh = { ...EVENT, id: 'tio-agenda:11', title: 'Concerto Futuro', startDate: '2026-07-02', endDate: '2026-07-02' };
+    const events = [stale, fresh];
+    const page = renderHubPage({
+      locale: 'it',
+      canton: 'TI',
+      events: events as never,
+      byComune: new Map([['Lugano', events]]) as never,
+      dateStamp,
+      weekendDays: new Set<string>(),
+      distDir,
+    });
+    const itemLists = [...page.html.matchAll(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"ItemList".*?\})<\/script>/g)];
+    expect(itemLists.length).toBeGreaterThan(0);
+    const parsed = JSON.parse(itemLists[0][1]) as { itemListElement: Array<{ item: { name: string } }> };
+    const names = parsed.itemListElement.map((li) => li.item.name);
+    expect(names).toContain('Concerto Futuro');
+    expect(names).not.toContain('Chilbi Vecchia');
+    // Markup-only filter: the stale event must still be visible in the HTML list.
+    expect(page.html).toContain('Chilbi Vecchia');
   });
 });

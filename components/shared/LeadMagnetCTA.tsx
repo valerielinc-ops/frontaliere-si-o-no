@@ -32,6 +32,7 @@ import {
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
+import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 
 // ─── Types ───────────────────────────────────────────────────────────────
 
@@ -54,7 +55,7 @@ interface LeadMagnetCTAProps {
 // ─── Constants ───────────────────────────────────────────────────────────
 
 const DISMISSED_KEY = 'lead_magnet_dismissed';
-const SUBSCRIBED_KEY = 'newsletter_subscribed';
+// Canonical key shared via services/newsletterCtaState (#3529 dedup).
 const DISMISS_DAYS = 14;
 
 const VARIANT_ICONS: Record<LeadMagnetVariant, typeof FileText> = {

@@ -317,3 +317,62 @@ describe('buildJobPostingSchema — hiringOrganization.logo absolutization (#347
     expect(schema.hiringOrganization.logo).toBeUndefined();
   });
 });
+
+// #3505: active emissions must never carry an already-past validThrough —
+// Google treats validThrough < now as an expired posting and drops the page
+// from Google Jobs while it still renders as active ("Apply now").
+describe('buildJobPostingSchema — validThrough floor (#3505)', () => {
+  const daysFromNow = (n: number): Date => {
+    const d = new Date();
+    d.setUTCDate(d.getUTCDate() + n);
+    return d;
+  };
+  const daysAgoIso = (n: number): string => daysFromNow(-n).toISOString();
+
+  const staleJob = (over: Partial<JobInput> = {}): JobInput => ({
+    title: 'Consultant Wealth Management',
+    description:
+      'Consulenza patrimoniale per clientela regionale a Lugano. Gestione portafogli, sviluppo relazioni e supporto al team advisory della sede.',
+    company: 'Colin & Cie',
+    city: 'Lugano',
+    ...over,
+  });
+
+  it('floors validThrough to a future date when crawledAt is stale (>60d ago)', () => {
+    const schema = buildJobPostingSchema(
+      staleJob({ crawledAt: daysAgoIso(200), postedDate: daysAgoIso(220) }),
+      OPTS,
+    );
+    // crawledAt+60d would be ~140 days in the past → floored to ≥ now+30d.
+    expect(new Date(schema.validThrough!).getTime()).toBeGreaterThan(
+      daysFromNow(29).getTime(),
+    );
+  });
+
+  it('floors validThrough when only a stale postedDate exists (>90d ago)', () => {
+    const schema = buildJobPostingSchema(staleJob({ postedDate: daysAgoIso(400) }), OPTS);
+    expect(new Date(schema.validThrough!).getTime()).toBeGreaterThan(
+      daysFromNow(29).getTime(),
+    );
+  });
+
+  it('keeps a computed validThrough that is already comfortably in the future', () => {
+    const crawled = daysAgoIso(5);
+    const schema = buildJobPostingSchema(
+      staleJob({ crawledAt: crawled, postedDate: daysAgoIso(10) }),
+      OPTS,
+    );
+    const expected = new Date(crawled);
+    expected.setUTCDate(expected.getUTCDate() + 60);
+    expect(schema.validThrough).toBe(expected.toISOString());
+  });
+
+  it('never floors an explicit source-provided validThrough (expired soft-landing contract)', () => {
+    const explicitPast = daysAgoIso(120);
+    const schema = buildJobPostingSchema(
+      staleJob({ validThrough: explicitPast, crawledAt: daysAgoIso(200) }),
+      OPTS,
+    );
+    expect(schema.validThrough).toBe(new Date(explicitPast).toISOString());
+  });
+});

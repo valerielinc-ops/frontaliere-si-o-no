@@ -383,3 +383,54 @@ export function cleanupArticleBodySections(sections: ArticleBodySectionInput[]):
  .map((section) => ({ key: section.key, html: renderArticleBodyHtml(section.text) }))
  .filter((section) => !!section.html);
 }
+
+/**
+ * Positional wrapper labels for localized bodyN article sections: body1 →
+ * "Contesto", body2 → "Dettagli operativi", body3+ → "Punti chiave". Single
+ * shared list for ogPagesPlugin + staticPagesPlugin — the copy was previously
+ * duplicated (inline ternary in ogPagesPlugin, IT-only, vs a localized array
+ * in staticPagesPlugin), the exact drift class AGENTS.md Non-Negotiable #6
+ * bans (flagged in issue #3521).
+ */
+export const ARTICLE_BODY_SECTION_LABELS: Record<Locale, [string, string, string]> = {
+ it: ['Contesto', 'Dettagli operativi', 'Punti chiave'],
+ en: ['Context', 'Operational details', 'Key points'],
+ de: ['Kontext', 'Operative Details', 'Wichtige Punkte'],
+ fr: ['Contexte', 'Details pratiques', 'Points cles'],
+};
+
+/** Wrapper label for the bodyN section (1-based); n >= 3 shares the third label. */
+export function articleBodySectionLabel(locale: string, n: number): string {
+ const labels = ARTICLE_BODY_SECTION_LABELS[locale as Locale] ?? ARTICLE_BODY_SECTION_LABELS.it;
+ return labels[Math.min(Math.max(n, 1), 3) - 1];
+}
+
+export type ArticleDerivedSection = { heading: string; html: string };
+
+/**
+ * Renders derived article sections, emitting each distinct heading as an <h2>
+ * only on its FIRST occurrence. bodyN sections with n >= 3 all share the same
+ * generic positional label, so long articles repeated `<h2>Punti chiave</h2>`
+ * up to 9x — demoting every DESCRIPTIVE per-section title to an <h3> under a
+ * duplicate generic heading, hurting scannability and passage-level citability
+ * (issue #3521). Repeat sections keep ALL their content and stay labelled for
+ * assistive tech via aria-label; only the duplicated visible <h2> collapses
+ * into the single preceding one.
+ */
+export function renderArticleDerivedSectionsHtml(
+ sections: ArticleDerivedSection[],
+ opts: { sectionClass?: string; headingClass?: string } = {},
+): string {
+ const sectionCls = opts.sectionClass ? ` class="${opts.sectionClass}"` : '';
+ const headingCls = opts.headingClass ? ` class="${opts.headingClass}"` : '';
+ const seen = new Set<string>();
+ return sections
+ .map((section) => {
+ if (seen.has(section.heading)) {
+ return `<section${sectionCls} aria-label="${esc(section.heading)}">${section.html}</section>`;
+ }
+ seen.add(section.heading);
+ return `<section${sectionCls}><h2${headingCls}>${esc(section.heading)}</h2>${section.html}</section>`;
+ })
+ .join('');
+}

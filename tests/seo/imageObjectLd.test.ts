@@ -32,7 +32,7 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(ld.creator).toEqual({
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: 'https://frontaliereticino.ch',
+      url: 'https://frontaliereticino.ch/',
     });
   });
 
@@ -67,7 +67,7 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(ld.creator).toEqual({
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: 'https://frontaliereticino.ch',
+      url: 'https://frontaliereticino.ch/',
     });
     expect(ld.license).toBe(SITE_LICENSE_PAGE);
     expect(ld.acquireLicensePage).toBe(SITE_LICENSE_PAGE);

@@ -183,15 +183,16 @@ ${sourcesHtml}
     '@type': 'Article',
     headline: copy.h1,
     description: copy.description,
+    image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
     datePublished: dateStamp,
     dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
     },
   });

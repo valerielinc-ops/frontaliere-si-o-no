@@ -331,7 +331,16 @@ function offloadAll(distDir, cdnBase) {
         const m = out.match(/<head[^>]*>/i);
         if (m) {
           const at = m.index + m[0].length;
-          out = out.slice(0, at) + injectTag + out.slice(at);
+          // The hint comment above assumes the data CDN is a DISTINCT host
+          // from the asset CDN; when config points both at the same origin the
+          // build already ships this exact preconnect (asyncCssPlugin /
+          // template heads) and re-adding it duplicates the hint on every page
+          // (#3530). An existing preconnect also supersedes dns-prefetch, so
+          // only the data-base script tag is still required.
+          const tag = cdnOrigin && out.includes(`<link rel="preconnect" href="${cdnOrigin}"`)
+            ? injectTag.replace(hintTags, '')
+            : injectTag;
+          out = out.slice(0, at) + tag + out.slice(at);
           injected++;
         }
         // no <head>: leave it (its SPA fetch degrades gracefully)

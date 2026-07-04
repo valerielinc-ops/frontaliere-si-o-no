@@ -168,9 +168,19 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   // while changing the slice at most once/day (no 30-min deploy churn). When the
   // subscription lapses the ad drops from the slice entirely.
   const crawledAtIso = String(nowIso || postedIso || '').slice(0, 10) || null;
-  const validThroughIso =
+  let validThroughIso =
     crawledAtIso ? new Date(new Date(crawledAtIso).getTime() + validDays * 86400000).toISOString()
       : (postedIso ? new Date(new Date(postedIso).getTime() + validDays * 86400000).toISOString() : null);
+  // Floor to reference-now + validDays (#3505, same class as jobsSeoPagesPlugin
+  // toValidThrough): a projection run without nowIso anchors crawledAt to the
+  // (possibly old) postedDate → a still-live paid ad would emit an already-past
+  // validThrough and be dropped from Google Jobs as expired. Day granularity
+  // (like crawledAtIso) keeps the "changes at most once/day" no-churn property.
+  const refDayIso = String(nowIso || new Date().toISOString()).slice(0, 10);
+  const floorIso = new Date(new Date(refDayIso).getTime() + validDays * 86400000).toISOString();
+  if (!validThroughIso || new Date(validThroughIso).getTime() < new Date(floorIso).getTime()) {
+    validThroughIso = floorIso;
+  }
 
   const locations = distinctLocations(pubJob.locations);
   if (locations.length === 0) return [];

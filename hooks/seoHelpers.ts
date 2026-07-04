@@ -31,10 +31,16 @@ export const updateMetaTags = (section: string) => {
  setLocale(pathLocale);
  const runUpdate = () => import('@/services/seoService').then(m => m.updateMetaTags(section)).catch(err => reportCaughtError(err, 'seo.updateMetaTags'));
  if (section === 'blog' || section.startsWith('blog-')) {
- import('@/services/i18n')
+ const metaReady = import('@/services/i18n')
  .then(m => m.loadBlogMeta())
- .catch(err => reportCaughtError(err, 'seo.loadBlogMeta'))
- .finally(runUpdate);
+ .catch(err => reportCaughtError(err, 'seo.loadBlogMeta'));
+ // Pair the slug map with blog meta (#3528/#3532): it no longer preloads
+ // unconditionally at App mount, and canonical/article URLs built for
+ // blog sections need BLOG_SLUGS populated to emit localized slugs.
+ const slugsReady = import('@/services/router')
+ .then(m => m.preloadBlogData())
+ .catch(err => reportCaughtError(err, 'seo.preloadBlogData'));
+ Promise.all([metaReady, slugsReady]).finally(runUpdate);
  return;
  }
  runUpdate();

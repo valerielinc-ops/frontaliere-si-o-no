@@ -496,7 +496,7 @@ function renderPage(opts: {
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
     },
   });
 

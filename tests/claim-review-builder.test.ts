@@ -29,7 +29,7 @@ describe('buildClaimReview', () => {
     const cr = buildClaimReview({ ...BASE_INPUT, rating: 'true' });
     expect(cr.author['@type']).toBe('Organization');
     expect(cr.author.name).toBe('Frontaliere Ticino');
-    expect(cr.author.url).toBe('https://frontaliereticino.ch');
+    expect(cr.author.url).toBe('https://frontaliereticino.ch/');
   });
 
   it('maps rating "true" → 5/5 Vero', () => {

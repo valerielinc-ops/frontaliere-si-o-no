@@ -10,6 +10,7 @@ import react from '@vitejs/plugin-react';
 
 /* ── Custom build plugins (extracted for clarity) ─────────────── */
 import { buildIdPlugin } from './build-plugins/buildIdPlugin';
+import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
@@ -135,6 +136,9 @@ export default defineConfig(({ mode }) => {
  buildIdPlugin(__dirname),
  staticScriptsPlugin(__dirname),
  asyncCssPlugin(),
+ // Slim homepage news-ticker payload (5 latest articles, per-locale title+slug)
+ // served in place of data/news-ticker-data.ts — dev + FAST_BUILD + full builds.
+ newsTickerDataPlugin(__dirname),
  preloadLocalePlugin(__dirname),
  sitemapAliasPlugin(__dirname),
  adminDataPlugin(__dirname),

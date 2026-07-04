@@ -12,6 +12,7 @@
  */
 
 import { AUTHORS, getAuthorBySlug, type Author } from '@/data/authors';
+import { ORGANIZATION_ID } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -91,7 +92,7 @@ function buildPersonJsonLd(author: Author, canonical: string): Record<string, un
     url: canonical,
     sameAs,
     knowsAbout: author.expertise,
-    worksFor: { '@id': `${BASE_URL}/#organization` },
+    worksFor: { '@type': 'Organization', '@id': ORGANIZATION_ID, name: 'Frontaliere Ticino' },
     knowsLanguage: ['it', 'en'],
   };
 }

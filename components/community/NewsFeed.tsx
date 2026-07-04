@@ -1,59 +1,55 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { useTranslation, loadBlogMeta } from '@/services/i18n';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
-import type { Article } from '@/data/blog-articles-data';
+import { TICKER_ARTICLES } from '@/data/news-ticker-data';
 import { ChevronRight, ChevronLeft, Newspaper } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 
 interface NewsFeedProps {
- onNavigate: (activeTab: string, blogArticle?: string) => void;
+ /**
+  * `blogSlug` is the locale-specific URL slug of the article (from the
+  * build-time ticker payload) so the caller can push the canonical
+  * `/guida-frontalieri/<slug>/` URL without waiting for the lazy
+  * routerBlogData chunk (issues #3528/#3532: the ticker must not force
+  * ~1.9 MB of blog metadata JS onto the homepage).
+  */
+ onNavigate: (activeTab: string, blogArticle?: string, blogSlug?: string) => void;
 }
 
 /**
  * Compact rotating news ticker — single-line marquee-style widget.
  * Auto-rotates every 6s, manual prev/next navigation.
+ *
+ * Data source: `data/news-ticker-data.ts`, generated at build time by
+ * `build-plugins/newsTickerDataPlugin.ts` (5 newest articles with
+ * per-locale titles + URL slugs). No runtime blog-meta / registry /
+ * slug-map chunk loads — that used to cost ~385 KB tx and two long
+ * main-thread parse tasks on every homepage view.
  */
 const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  const { t, locale } = useTranslation();
- const [blogReady, setBlogReady] = useState(false);
  const [idx, setIdx] = useState(0);
- // FRO-346: Dynamic import so blog-articles-data chunk isn't loaded until NewsFeed mounts
- const [articles, setArticles] = useState<Article[]>([]);
 
- useEffect(() => {
- Promise.all([
- loadBlogMeta(),
- import('@/data/blog-articles-data').then(m => m.ARTICLES),
- ]).then(([, data]) => {
- setArticles(data);
- setBlogReady(true);
- }).catch(() => {});
- }, []);
+ const latestArticles = TICKER_ARTICLES;
+ const count = latestArticles.length;
 
  useEffect(() => {
  Analytics.trackUIInteraction('newsfeed', 'widget', 'ticker', 'view');
  }, []);
 
- const latestArticles = useMemo(() => {
- return [...articles]
- .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
- .slice(0, 5);
- }, [articles]);
-
- const count = latestArticles.length;
-
  // Auto-rotate every 6 seconds
  useEffect(() => {
- if (!blogReady || count === 0) return;
+ if (count === 0) return;
  const timer = setInterval(() => setIdx(i => (i + 1) % count), 6000);
  return () => clearInterval(timer);
- }, [blogReady, count]);
+ }, [count]);
 
  const prev = useCallback(() => setIdx(i => (i - 1 + count) % count), [count]);
  const next = useCallback(() => setIdx(i => (i + 1) % count), [count]);
 
- // Keep placeholder while loading to prevent CLS — matches SkeletonNewsTicker height
- if (!blogReady || count === 0) return <div className="animate-pulse h-[34px] bg-surface-raised rounded-xl" />;
+ // Keep placeholder when payload is absent (vitest placeholder module) —
+ // matches SkeletonNewsTicker height to prevent CLS.
+ if (count === 0) return <div className="animate-pulse h-[34px] bg-surface-raised rounded-xl" />;
 
  const formatDate = (dateStr: string) => {
  const d = new Date(dateStr);
@@ -76,13 +72,16 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  {/* Rotating headline with horizontal slide */}
  <div className="flex-1 min-w-0 relative h-5 overflow-hidden">
  {latestArticles.map((art, i) => {
- const artTitle = t(`blog.article.${art.id}.title`);
- const artHref = buildPath({ activeTab: 'blog', blogArticle: art.id }, locale);
+ const artTitle = art.title[locale];
+ const artSlug = art.slug[locale];
+ // blogSlug (not blogArticle) so buildPath emits the canonical
+ // localized URL without needing the lazy BLOG_SLUGS chunk.
+ const artHref = buildPath({ activeTab: 'blog', blogSlug: artSlug }, locale);
  return (
  <a
  key={art.id}
  href={artHref}
- onClick={(e) => { e.preventDefault(); onNavigate('blog', art.id); }}
+ onClick={(e) => { e.preventDefault(); onNavigate('blog', art.id, artSlug); }}
  onClickCapture={() => {
  Analytics.trackSelectContent('news_article', art.id);
  Analytics.trackUIInteraction('newsfeed', 'ticker', 'headline', 'open_article', art.id);

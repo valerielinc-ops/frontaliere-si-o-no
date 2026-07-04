@@ -175,8 +175,16 @@ export function emitSitemapXml(urls) {
   const lines = [];
   lines.push('<?xml version="1.0" encoding="UTF-8"?>');
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+  // Per-file <loc> dedup, keep-first (#3516): N distinct dedup-groups can
+  // collide onto the same (canton, locale, slug) URL upstream — only one HTML
+  // page wins, so a repeated <loc> WITHIN one shard file is always noise.
+  // Cross-shard dual-emit (same URL in *different* files) is intentional and
+  // untouched: this Set is scoped to the single file being emitted.
+  const seenLocs = new Set();
   for (const entry of list) {
     if (!entry || !entry.loc) continue;
+    if (seenLocs.has(entry.loc)) continue;
+    seenLocs.add(entry.loc);
     lines.push('  <url>');
     lines.push(`    <loc>${escapeXml(entry.loc)}</loc>`);
     if (entry.lastmod) {

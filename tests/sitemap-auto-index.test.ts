@@ -1,8 +1,8 @@
 /**
  * sitemap-auto-index — verifies `sitemapAliasPlugin` correctly discovers
  * every `sitemap-*.xml` in `dist/`, deduplicates them, excludes
- * `sitemap.xml` and the legacy `sitemap_news.xml`, and emits a well-formed
- * sitemap-index XML.
+ * `sitemap.xml`, the legacy `sitemap_news.xml` and the nested
+ * `sitemap-index.xml` (#3506), and emits a well-formed sitemap-index XML.
  *
  * Strategy: seed a tmpdir with fixture files, call `discoverSitemapFiles`
  * and `buildSitemapIndexXml` directly (pure functions), and assert on the
@@ -94,6 +94,21 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
     expect(names).toContain('sitemap-news.xml');
     expect(names).not.toContain('sitemap_news.xml');
     expect(names).toHaveLength(2);
+  });
+
+  it('excludes sitemap-index.xml (nested index is forbidden by the sitemap protocol)', async () => {
+    // sitemap-index.xml is itself a <sitemapindex> (cathedral per-canton
+    // job-shard index) — listing it inside sitemap.xml is an index-in-index
+    // protocol violation that Google reports as an error (#3506).
+    seedSitemap(distDir, 'sitemap-index.xml');
+    seedSitemap(distDir, 'sitemap-jobs-ticino.xml');
+    seedSitemap(distDir, 'sitemap-pages.xml');
+
+    const discovered = await discoverSitemapFiles(distDir);
+    const names = discovered.map((s) => s.file);
+
+    expect(names).not.toContain('sitemap-index.xml');
+    expect(names).toEqual(['sitemap-jobs-ticino.xml', 'sitemap-pages.xml']);
   });
 
   it('does not pick up non-sitemap files or files with the wrong prefix', async () => {
@@ -240,6 +255,7 @@ describe('sitemapAliasPlugin — integration: discover + build', () => {
     // Poison the dist with files that must be ignored.
     seedSitemap(distDir, 'sitemap.xml'); // index — excluded
     seedSitemap(distDir, 'sitemap_news.xml'); // legacy alias — excluded
+    seedSitemap(distDir, 'sitemap-index.xml'); // nested index — excluded (#3506)
     fs.writeFileSync(path.join(distDir, 'index.html'), '<!doctype html>', 'utf-8');
 
     const discovered = await discoverSitemapFiles(distDir);
@@ -254,6 +270,7 @@ describe('sitemapAliasPlugin — integration: discover + build', () => {
     // None of the excluded files leak in.
     expect(xml).not.toContain('<loc>https://frontaliereticino.ch/sitemap.xml</loc>');
     expect(xml).not.toContain('<loc>https://frontaliereticino.ch/sitemap_news.xml</loc>');
+    expect(xml).not.toContain('<loc>https://frontaliereticino.ch/sitemap-index.xml</loc>');
 
     // <loc> count matches expected list length.
     expect((xml.match(/<loc>/g) ?? []).length).toBe(expected.length);

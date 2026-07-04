@@ -34,6 +34,7 @@ import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
 import {
   loadEventsDataset,
@@ -705,8 +706,12 @@ export function zurichOffset(isoDate: string): string {
  * safe fallback.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
-  const cantonName = getCantonLabel(event.canton || 'TI', locale as CantonLocale);
-  const locality = event.comune || cantonName;
+  // Real location only (#3508): nationwide sources (guidle, myswitzerland)
+  // can ship events with an unresolved canton (''). Never stamp Ticino/TI
+  // on those — addressLocality falls back to the crawled venue (a town
+  // name for those sources) and addressRegion is omitted when unknown.
+  const cantonName = event.canton ? getCantonLabel(event.canton, locale as CantonLocale) : '';
+  const locality = event.comune || (event.canton ? cantonName : event.venue || 'Svizzera');
   const venueName = event.venue || locality;
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
@@ -718,7 +723,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const when = humanDate(event.startDate, locale);
   const title = localizedTitle(event, locale);
   const synthDescription =
-    `${title} — ${cat} ${COPY[locale].at} ${venueName} (${locality}, ${cantonName}), ${when}` +
+    `${title} — ${cat} ${COPY[locale].at} ${venueName} (${[locality, cantonName].filter(Boolean).join(', ')}), ${when}` +
     `${event.startTime ? ` ${event.startTime}` : ''}. ${event.sourceName}.`;
   // Nationwide sources (guidle, myswitzerland) crawl a real description —
   // prefer it over the synthesized one when it clears the >=30 char gate
@@ -744,14 +749,14 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         ...(event.address?.street ? { streetAddress: event.address.street } : {}),
         ...(event.address?.postalCode ? { postalCode: event.address.postalCode } : {}),
         addressLocality: locality,
-        addressRegion: event.canton || 'TI',
+        ...(event.canton ? { addressRegion: event.canton } : {}),
         addressCountry: 'CH',
       },
       ...(event.geo
         ? { geo: { '@type': 'GeoCoordinates', latitude: event.geo.lat, longitude: event.geo.lng } }
         : {}),
     },
-    description: description.length >= 30 ? description : `${description} Evento in ${cantonName}.`,
+    description: description.length >= 30 ? description : `${description} Evento in ${cantonName || 'Svizzera'}.`,
     image: mirroredEventImageObject(event) ?? SITE_IMAGE,
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
@@ -899,6 +904,23 @@ function distinctCategories(events: SiteEvent[]): number {
   return new Set(events.map((e) => e.category).filter(Boolean)).size;
 }
 
+/**
+ * Events eligible for Event JSON-LD markup on aggregate ItemList pages
+ * (#3508): Google's event structured-data guidelines say not to mark up
+ * already-started/expired events as EventScheduled, but some crawler
+ * sources ship stale startDates (e.g. a recurring series stored as one
+ * year-long start→end span). Markup-only filter — the visible HTML list
+ * is NOT affected (no page/content cut): keep events whose startDate is
+ * today or later, with a 1-day grace window for timezone skew.
+ * ISO yyyy-mm-dd strings compare lexicographically.
+ */
+function markupEligibleEvents(events: SiteEvent[], dateStamp: string): SiteEvent[] {
+  const cutoff = new Date(`${dateStamp}T00:00:00Z`);
+  cutoff.setUTCDate(cutoff.getUTCDate() - 1);
+  const cutoffIso = cutoff.toISOString().slice(0, 10);
+  return events.filter((e) => e.startDate >= cutoffIso);
+}
+
 export function renderHubPage(params: {
   locale: Locale;
   canton: string;
@@ -1015,7 +1037,7 @@ export function renderHubPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: copy.hubTitle,
-    itemListElement: upcoming.map((event, i) => ({
+    itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: eventLd(event, locale),
@@ -1123,7 +1145,7 @@ export function renderComunePage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: copy.comuneTitle(comune),
-    itemListElement: list.map((event, i) => ({
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: eventLd(event, locale),
@@ -1358,7 +1380,7 @@ export function renderOtherEventsPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: oeCopy.h1,
-    itemListElement: list.map((event, i) => ({
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: eventLd(event, locale),
@@ -1977,7 +1999,7 @@ export function renderDigestPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: dc.title,
-    itemListElement: list.map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: eventLd(event, locale) })),
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: eventLd(event, locale) })),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -2032,7 +2054,9 @@ function buildSitemap(
   }
   // Per-event detail pages
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp));
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`;
+  // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
+  // hub <loc> twice within this one file — dedupe keep-first at assembly.
+  return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`);
 }
 
 function eventDetailSitemapUrl(canton: string, comune: string, slug: string, dateStamp: string): string {

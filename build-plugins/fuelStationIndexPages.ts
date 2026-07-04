@@ -899,7 +899,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     datePublished: today.toISOString(),
     isPartOf: {
       '@type': 'WebSite',
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       name: 'Frontaliere Ticino',
     },
     mainEntity: {

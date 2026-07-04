@@ -85,8 +85,12 @@ const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashbo
 // UserProfile component is lazy-loaded; utility functions loaded on demand
 const UserProfile = lazyRetry(() => import('@/components/pages/UserProfile'));
 const BlogArticles = lazyRetry(() => {
- // Prefetch blog meta translations in parallel with component chunk
+ // Prefetch blog meta translations + slug map in parallel with component
+ // chunk. preloadBlogData is paired with every loadBlogMeta call site so
+ // buildPath always has BLOG_SLUGS once blog UI is on screen (the slug map
+ // no longer preloads unconditionally at App mount — #3528/#3532).
  import('@/services/i18n').then(m => m.loadBlogMeta()).catch(() => {});
+ import('@/services/router').then(m => m.preloadBlogData()).catch(() => {});
  return import('@/components/community/BlogArticles');
 });
 const AdminPanel = lazyRetry(() => import('@/components/pages/AdminPanel'));

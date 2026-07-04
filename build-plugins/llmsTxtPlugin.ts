@@ -221,7 +221,10 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  lines.push('');
  for (const url of catUrls) {
  const seo = seoMap.get(url);
- const fullUrl = `${BASE_URL}${url}`;
+ // Emit with trailing slash: the internal form is slash-stripped (seoMap
+ // key contract), but every canonical page URL is slash-terminated and
+ // no-slash links now 301 at the edge (#3525).
+ const fullUrl = url === '/' ? `${BASE_URL}/` : `${BASE_URL}${url}/`;
  if (seo) {
  lines.push(`- [${seo.title}](${fullUrl}) — ${seo.desc || 'No description available'}`);
  } else {
@@ -235,7 +238,31 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  return lines.join('\n');
  }
 
+ // Concise summary for llms.txt (#3527): the full per-URL index made
+ // llms.txt ~915KB (97% of llms-full.txt), defeating the concise/full
+ // two-file contract. llms.txt gets category counts + a pointer; the
+ // complete index lives only in llms-full.txt.
+ function buildPageIndexSummary(urls: string[]): string {
+ const cats = categorizeUrls(urls, 'it');
+ const lines: string[] = [
+ '',
+ '---',
+ '',
+ '## Page Index (Auto-Generated Summary)',
+ '',
+ `> ${urls.length} pages across the site, auto-counted at build time from all sitemaps. The complete per-URL index with titles and descriptions is in [/llms-full.txt](${BASE_URL}/llms-full.txt).`,
+ '',
+ ];
+ for (const [category, catUrls] of cats) {
+ if (catUrls.length === 0) continue;
+ lines.push(`- **${category}**: ${catUrls.length} pages`);
+ }
+ lines.push('');
+ return lines.join('\n');
+ }
+
  const pageIndexSection = buildPageIndex(allUrls, 'it');
+ const pageIndexSummarySection = buildPageIndexSummary(allUrls);
 
  // Update llms.txt
  const llmsPath = path.join(distDir, 'llms.txt');
@@ -265,15 +292,19 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  }
  } catch { /* jobs.json not parseable, keep static counts */ }
  }
- // Append auto-generated page index (replace existing if present)
- const autoGenMarker = '## Complete Page Index (Auto-Generated)';
- const markerIdx = content.indexOf(autoGenMarker);
- if (markerIdx !== -1) {
+ // Append auto-generated page-index SUMMARY (#3527) — replace an existing
+ // summary or a legacy full index (old marker) if present, idempotently.
+ const summaryMarker = '## Page Index (Auto-Generated Summary)';
+ const legacyMarker = '## Complete Page Index (Auto-Generated)';
+ const markerIdx = [content.indexOf(summaryMarker), content.indexOf(legacyMarker)]
+ .filter((i) => i !== -1)
+ .reduce((a, b) => Math.min(a, b), Infinity);
+ if (markerIdx !== Infinity) {
  // Find the separator before the auto-generated section
  const beforeMarker = content.lastIndexOf('---', markerIdx);
- content = content.substring(0, beforeMarker !== -1 ? beforeMarker : markerIdx).trimEnd() + '\n' + pageIndexSection;
+ content = content.substring(0, beforeMarker !== -1 ? beforeMarker : markerIdx).trimEnd() + '\n' + pageIndexSummarySection;
  } else {
- content = content.trimEnd() + '\n' + pageIndexSection;
+ content = content.trimEnd() + '\n' + pageIndexSummarySection;
  }
  fs.writeFileSync(llmsPath, content);
  }

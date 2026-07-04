@@ -10,6 +10,7 @@
  * includes `lastReviewed` so search engines see freshness signals.
  */
 import correctionsLog from '@/data/corrections-log.json';
+import { ORGANIZATION_LD } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -90,7 +91,7 @@ export function buildCorrezioniSeo(locale: CorrezioniLocale = 'it'): CorrezioniS
       '@type': 'CreativeWork',
       name: 'Editorial corrections policy',
     },
-    publisher: { '@id': `${BASE_URL}/#organization` },
+    publisher: ORGANIZATION_LD,
   };
 
   return {
