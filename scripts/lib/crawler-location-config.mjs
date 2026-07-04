@@ -544,6 +544,19 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Rektorat Volksschule Stadt Luzern, Winkelriedstrasse 12a, 6002 Luzern LU
+  // (confirmed via stadtluzern.ch contact page). Most postings carry their
+  // own school-building street/ZIP via the Prospective API; this is only the
+  // fallback for postings that omit those fields.
+  'volksschule-luzern': { city: 'Luzern', canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
+  // Raiffeisen Schweiz (national cooperative bank group) HQ —
+  // Raiffeisenplatz, 9001 St. Gallen SG. Confirmed via the group's own
+  // "Contact" / imprint page. Used only as a fallback for postings whose
+  // per-job location can't be resolved to a canton — the CH-wide dedicated
+  // crawler (scripts/update-raiffeisen-jobs.mjs) infers canton per-posting
+  // from the Prospective listing's own city field for the vast majority
+  // of jobs (issue #3342).
+  'raiffeisen': { city: 'St. Gallen', canton: 'SG', postalCode: '9001', addressRegion: 'SG' },
   // Chopard HQ, Rte de Veyrot 8, C.P. 85, 1217 Meyrin GE — confirmed via
   // the company's own legal notice page (chopard.com/it-it/legal-terms-of-
   // website-use.html); no fallback needed.
