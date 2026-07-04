@@ -1,16 +1,16 @@
 {
   "key": "medtronic",
   "label": "Medtronic",
-  "generatedAt": "2026-07-03T22:38:58.027Z",
-  "total": 9,
+  "generatedAt": "2026-07-04T11:29:34.925Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9583,
-  "avgDurationMs": 9583,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10989,
+  "avgDurationMs": 10989,
   "durationHistory": [
-    9583
+    10989
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Quality-Technician-II_R64998-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:38:50.545Z",
+      "crawledAt": "2026-07-04T11:29:26.931Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Mounds-View-Minnesota-United-States-of-America/Senior-Engineering-Program-Manager_R64445",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T22:38:51.254Z",
+      "crawledAt": "2026-07-04T11:29:27.641Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Representative--m-w-d----Patient-Monitoring---Digital-Health_R69063-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:38:52.871Z",
+      "crawledAt": "2026-07-04T11:29:29.136Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Specialist-Operating-Room-Essentials---Surgical-Innovations--h-f-d-_R65064-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-03T22:38:53.766Z",
+      "crawledAt": "2026-07-04T11:29:30.001Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Consultant-Cardiac-Rhythm-management--m-w-d-_R65639-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:38:54.436Z",
+      "crawledAt": "2026-07-04T11:29:30.639Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Zurich-Zurich-Switzerland/Business-Development-Sales-Representative---Ablation-Interventional-Schweiz_R67468-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:38:55.260Z",
+      "crawledAt": "2026-07-04T11:29:31.617Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Representative-Neurovascular--m-w-d-_R63231-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T22:38:56.079Z",
+      "crawledAt": "2026-07-04T11:29:32.439Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Service-Specialist--m-w-d-_R58182-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-03T22:38:52.069Z",
+      "crawledAt": "2026-07-04T11:29:28.293Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "medtronic-00447637d12b",
       "slug": "eccellenza-operativa-interna-medtronic-lausanne",
@@ -354,5 +353,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
