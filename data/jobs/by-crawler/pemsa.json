@@ -118,7 +118,23 @@
       },
       "postalCode": "1700",
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "previousSlugsByLocale": {
+        "en": [
+          "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-fribourg"
+        ],
+        "de": [
+          "teamleiter-industrielle-infrastruktur-eisenbahn-elektroleitungen-pemsa-fribourg"
+        ],
+        "fr": [
+          "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-fribourg",
+        "teamleiter-industrielle-infrastruktur-eisenbahn-elektroleitungen-pemsa-fribourg",
+        "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
+      ]
     },
     {
       "title": "IDRAULICO",
@@ -354,7 +370,19 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-07-03T22:39:11.228Z"
+      "firstSeenAt": "2026-07-03T22:39:11.228Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "hvac-plumber-pemsa-lugano"
+        ],
+        "de": [
+          "hlk-installateur-pemsa-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "hvac-plumber-pemsa-lugano",
+        "hlk-installateur-pemsa-lugano"
+      ]
     },
     {
       "title": "IDRAULICO Imp. Sanitari",
@@ -413,7 +441,19 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-07-03T22:39:11.228Z"
+      "firstSeenAt": "2026-07-03T22:39:11.228Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "plumber-sanitary-installations-pemsa-manno"
+        ],
+        "de": [
+          "klempner-sanitarinstallationen-pemsa-manno"
+        ]
+      },
+      "previousSlugs": [
+        "plumber-sanitary-installations-pemsa-manno",
+        "klempner-sanitarinstallationen-pemsa-manno"
+      ]
     },
     {
       "title": "Caposquadra edile",
@@ -900,7 +940,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-07-03T22:39:11.228Z"
+      "firstSeenAt": "2026-07-03T22:39:11.228Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "roof-tiler-afc-aep-m-f-d-pemsa-basel"
+        ]
+      },
+      "previousSlugs": [
+        "roof-tiler-afc-aep-m-f-d-pemsa-basel"
+      ]
     },
     {
       "title": "Carpentiere AFC / AEP (m/f/d)",
@@ -1075,7 +1123,23 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-07-03T22:39:11.228Z"
+      "firstSeenAt": "2026-07-03T22:39:11.228Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "metalworker-afc-aep-operator-m-f-d-pemsa-basel"
+        ],
+        "de": [
+          "metallarbeiter-afc-aep-m-w-d-pemsa-basel"
+        ],
+        "fr": [
+          "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
+        ]
+      },
+      "previousSlugs": [
+        "metalworker-afc-aep-operator-m-f-d-pemsa-basel",
+        "metallarbeiter-afc-aep-m-w-d-pemsa-basel",
+        "operateur-metallurgique-afc-aep-h-f-d-pemsa-basel"
+      ]
     },
     {
       "title": "Stuccatore EFZ / EBA (m/f/d)",

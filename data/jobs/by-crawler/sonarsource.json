@@ -1623,7 +1623,23 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva"
+        ],
+        "de": [
+          "datenwissenschaftler-marketing-analytics-sonarsource-sonar-geneva"
+        ],
+        "fr": [
+          "scientifique-des-donnees-analyse-du-marketing-sonarsource-sonar-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
+        "datenwissenschaftler-marketing-analytics-sonarsource-sonar-geneva",
+        "scientifique-des-donnees-analyse-du-marketing-sonarsource-sonar-geneva"
+      ]
     },
     {
       "id": "sonarsource-f25599f7dec9",
