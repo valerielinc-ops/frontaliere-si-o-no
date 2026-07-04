@@ -146,15 +146,20 @@ export interface SourcesBlockClassNames {
   readonly heading?: string;
   readonly list?: string;
   readonly item?: string;
+  /** Inline style for the <h2> — for template families styled via inline tokens (e.g. H2_STYLE) instead of classes. */
+  readonly headingStyle?: string;
+  /** Inline style for the <ul>. */
+  readonly listStyle?: string;
 }
 
 const cls = (name?: string): string => (name ? ` class="${name}"` : '');
+const sty = (style?: string): string => (style ? ` style="${style}"` : '');
 
 /**
  * Renders the localized "Fonti ufficiali" block as a self-contained
- * <section>. Class names are injectable so each SSG template can reuse its
- * existing heading/list styling; markup structure stays identical across
- * page classes.
+ * <section>. Class names / inline styles are injectable so each SSG
+ * template can reuse its existing heading/list styling; markup structure
+ * stays identical across page classes.
  */
 export function renderAuthoritativeSourcesHtml(
   locale: SourcesLocale,
@@ -167,5 +172,5 @@ export function renderAuthoritativeSourcesHtml(
       return `<li${cls(classNames.item)}><a href="${source.href[locale]}" target="_blank" rel="noopener">${source.label[locale]}</a></li>`;
     })
     .join('');
-  return `<section${cls(classNames.section)} data-sources-block><h2${cls(classNames.heading)}>${SOURCES_HEADING[locale]}</h2><ul${cls(classNames.list)}>${items}</ul></section>`;
+  return `<section${cls(classNames.section)} data-sources-block><h2${cls(classNames.heading)}${sty(classNames.headingStyle)}>${SOURCES_HEADING[locale]}</h2><ul${cls(classNames.list)}${sty(classNames.listStyle)}>${items}</ul></section>`;
 }
