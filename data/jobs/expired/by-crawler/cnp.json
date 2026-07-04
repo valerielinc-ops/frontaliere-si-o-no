@@ -22,7 +22,7 @@
       "fr": "medecin-chef-de-clinique-equipe-mobile-cnp-la-tene"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-04T10:33:45.695Z",
+    "expiredAt": "2026-07-04T21:36:44.438Z",
     "postalCode": "2074",
     "salaryMin": 60500,
     "salaryMax": 91500,
@@ -52,7 +52,7 @@
       "fr": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-04T10:33:45.695Z",
+    "expiredAt": "2026-07-04T21:36:44.438Z",
     "postalCode": "2074",
     "salaryMin": 60500,
     "salaryMax": 91500,
@@ -82,7 +82,245 @@
       "fr": "responsable-de-la-cellule-securite-et-crise-cnp-marin-epagnier"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-04T10:33:45.695Z",
+    "expiredAt": "2026-07-04T21:36:44.438Z",
+    "postalCode": "2074",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "medico-capo-clinica-aggiunto-psicogeriatria-rif-r2026011-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+    "title": "Médecin chef·fe de clinique adjoint·e Psychogériatrie s/réf : R2026011",
+    "titleByLocale": {
+      "it": "Médecin chef·fe de clinique adjoint·e Psychogériatrie s/réf : R2026011",
+      "fr": "Médecin chef·fe de clinique adjoint·e Psychogériatrie s/réf : R2026011",
+      "en": "Médecin chef·fe de clinique adjoint·e Psychogériatrie s/réf : R2026011",
+      "de": "Médecin chef·fe de clinique adjoint·e Psychogériatrie s/réf : R2026011"
+    },
+    "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
+    "companyKey": "cnp",
+    "location": "Neuchâtel",
+    "addressLocality": "Neuchâtel",
+    "descriptionByLocale": {
+      "it": "2530334 · Contrat : PERMANENT · Taux : 100-100%"
+    },
+    "slugByLocale": {
+      "it": "medico-capo-clinica-aggiunto-psicogeriatria-rif-r2026011-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "de": "stellvertretende-chefarztin-psychogeriatrie-ref-r2026011-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "en": "deputy-chief-physician-in-psychogeriatrics-ref-r2026011-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "fr": "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-04T21:36:44.438Z",
+    "previousSlugs": [
+      "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel"
+      ]
+    },
+    "postalCode": "2000",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "medico-primario-emergenza-e-collegamento-80-100-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+    "title": "Médecin-Chef Urgence et Liaison 80-100 %",
+    "titleByLocale": {
+      "it": "Médecin-Chef Urgence et Liaison 80-100 %",
+      "fr": "Médecin-Chef Urgence et Liaison 80-100 %",
+      "en": "Médecin-Chef Urgence et Liaison 80-100 %",
+      "de": "Médecin-Chef Urgence et Liaison 80-100 %"
+    },
+    "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
+    "companyKey": "cnp",
+    "location": "Neuchâtel",
+    "addressLocality": "Neuchâtel",
+    "descriptionByLocale": {
+      "it": "2541254 · Contrat : PERMANENT · Taux : 80-100%"
+    },
+    "slugByLocale": {
+      "it": "medico-primario-emergenza-e-collegamento-80-100-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "de": "chefarzt-notfall-und-liaison-80-100-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "en": "chief-physician-emergency-and-liaison-80-100-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "fr": "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-04T21:36:44.438Z",
+    "previousSlugs": [
+      "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel"
+      ]
+    },
+    "postalCode": "2000",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "medecin-chef-de-clinique-cnp-marin-epagnier",
+    "title": "Médecin-chef de clinique",
+    "titleByLocale": {
+      "it": "Médecin-chef de clinique",
+      "fr": "Médecin-chef de clinique",
+      "en": "Médecin-chef de clinique",
+      "de": "Médecin-chef de clinique"
+    },
+    "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
+    "companyKey": "cnp",
+    "location": "Marin-Epagnier",
+    "addressLocality": "Marin-Epagnier",
+    "descriptionByLocale": {
+      "it": "2546213 · Contrat : PERMANENT · Taux : 50-100%"
+    },
+    "slugByLocale": {
+      "it": "medecin-chef-de-clinique-cnp-marin-epagnier",
+      "en": "medecin-chef-de-clinique-cnp-marin-epagnier",
+      "de": "medecin-chef-de-clinique-cnp-marin-epagnier",
+      "fr": "medecin-chef-de-clinique-cnp-marin-epagnier"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-04T21:36:44.438Z",
+    "postalCode": "2074",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+    "title": "Médecin assistant",
+    "titleByLocale": {
+      "it": "Médecin assistant",
+      "fr": "Médecin assistant",
+      "en": "Médecin assistant",
+      "de": "Médecin Assistent"
+    },
+    "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
+    "companyKey": "cnp",
+    "location": "Neuchâtel",
+    "addressLocality": "Neuchâtel",
+    "descriptionByLocale": {
+      "it": "2559301 · Contrat : PERMANENT · Taux : 100-100%"
+    },
+    "slugByLocale": {
+      "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "fr": "medecin-assistant-cnp-neuchatel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-04T21:36:44.438Z",
+    "previousSlugs": [
+      "medecin-assistant-cnp-neuchatel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medecin-assistant-cnp-neuchatel"
+      ]
+    },
+    "postalCode": "2000",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+    "title": "Infirmier·ère (unité hospitalière adulte)",
+    "titleByLocale": {
+      "it": "Infermiera (unità ospedale per adulti)",
+      "en": "Nurse (adult hospital unit)",
+      "de": "Krankenschwester (Erwachsenenkrankenhauseinheit)",
+      "fr": "Infirmier·ère (unité hospitalière adulte)"
+    },
+    "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
+    "companyKey": "cnp",
+    "location": "Marin-Epagnier",
+    "addressLocality": "Marin-Epagnier",
+    "descriptionByLocale": {
+      "it": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie. Le Département de l’adulte recherche, pour une de ses unités hospitalières adultes, un·e : Infirmier·ère 80-100% CDMax Vous êtes titulaire d’un diplôme d’infirmier HES ou titre jugé équivalent reconnu par la Croix-Rouge Suisse. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique. Dans le cadre de votre fonction vous serez amené·e à :\n• Identifier les besoins et les ressources du patient, au début de l'intervention de soins et élaborer les objectifs et actions de soins en tenant compte d'un projet thérapeutique global et interprofessionnel.\n• Conduire des entretiens individuels, des entretiens de famille et de réseau en collaboration avec une équipe interprofessionnelle.\n• Établir une documentation écrite du début à la fin de l'intervention des soins.\n• Collaborer avec une équipe pluridisciplinaire. Les compétences requises pour ce poste sont les suivantes :\n• Avoir de l’expérience de plusieurs années dans le domaine de la psychiatrie, un atout.\n• Être flexible et avoir la capacité de travailler en équipe interprofessionnelle.\n• Faire preuve d’esprit d’analyse et de synthèse.\n• Grande résistance face un environnement exigeant.\n• Être doté·e d'une excellente capacité de communication, en français. Début de contrat : Dès que possible Fin du contrat : 31 mars 2027 Type de contrat : Contrat de durée maximale (CDMax) Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier Renseignements : Maureen Magnan, Spécialiste sourcing et recrutement Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Site de Préfargier 2074 Marin-Epagnier",
+      "en": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie. Le Département de l’adulte recherche, pour une de ses unités hospitalières adultes, un·e : Infirmier·ère 80-100% CDMax Vous êtes titulaire d’un diplôme d’infirmier HES ou titre jugé équivalent reconnu par la Croix-Rouge Suisse. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique. Dans le cadre de votre fonction vous serez amené·e à :\n• Identifier les besoins et les ressources du patient, au début de l'intervention de soins et élaborer les objectifs et actions de soins en tenant compte d'un projet thérapeutique global et interprofessionnel.\n• Conduire des entretiens individuels, des entretiens de famille et de réseau en collaboration avec une équipe interprofessionnelle.\n• Établir une documentation écrite du début à la fin de l'intervention des soins.\n• Collaborer avec une équipe pluridisciplinaire. Les compétences requises pour ce poste sont les suivantes :\n• Avoir de l’expérience de plusieurs années dans le domaine de la psychiatrie, un atout.\n• Être flexible et avoir la capacité de travailler en équipe interprofessionnelle.\n• Faire preuve d’esprit d’analyse et de synthèse.\n• Grande résistance face un environnement exigeant.\n• Être doté·e d'une excellente capacité de communication, en français. Début de contrat : Dès que possible Fin du contrat : 31 mars 2027 Type de contrat : Contrat de durée maximale (CDMax) Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier Renseignements : Maureen Magnan, Spécialiste sourcing et recrutement Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Site de Préfargier 2074 Marin-Epagnier",
+      "de": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie. Le Département de l’adulte recherche, pour une de ses unités hospitalières adultes, un·e : Infirmier·ère 80-100% CDMax Vous êtes titulaire d’un diplôme d’infirmier HES ou titre jugé équivalent reconnu par la Croix-Rouge Suisse. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique. Dans le cadre de votre fonction vous serez amené·e à :\n• Identifier les besoins et les ressources du patient, au début de l'intervention de soins et élaborer les objectifs et actions de soins en tenant compte d'un projet thérapeutique global et interprofessionnel.\n• Conduire des entretiens individuels, des entretiens de famille et de réseau en collaboration avec une équipe interprofessionnelle.\n• Établir une documentation écrite du début à la fin de l'intervention des soins.\n• Collaborer avec une équipe pluridisciplinaire. Les compétences requises pour ce poste sont les suivantes :\n• Avoir de l’expérience de plusieurs années dans le domaine de la psychiatrie, un atout.\n• Être flexible et avoir la capacité de travailler en équipe interprofessionnelle.\n• Faire preuve d’esprit d’analyse et de synthèse.\n• Grande résistance face un environnement exigeant.\n• Être doté·e d'une excellente capacité de communication, en français. Début de contrat : Dès que possible Fin du contrat : 31 mars 2027 Type de contrat : Contrat de durée maximale (CDMax) Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier Renseignements : Maureen Magnan, Spécialiste sourcing et recrutement Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Site de Préfargier 2074 Marin-Epagnier",
+      "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie. Le Département de l’adulte recherche, pour une de ses unités hospitalières adultes, un·e : Infirmier·ère 80-100% CDMax Vous êtes titulaire d’un diplôme d’infirmier HES ou titre jugé équivalent reconnu par la Croix-Rouge Suisse. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique. Dans le cadre de votre fonction vous serez amené·e à :\n• Identifier les besoins et les ressources du patient, au début de l'intervention de soins et élaborer les objectifs et actions de soins en tenant compte d'un projet thérapeutique global et interprofessionnel.\n• Conduire des entretiens individuels, des entretiens de famille et de réseau en collaboration avec une équipe interprofessionnelle.\n• Établir une documentation écrite du début à la fin de l'intervention des soins.\n• Collaborer avec une équipe pluridisciplinaire. Les compétences requises pour ce poste sont les suivantes :\n• Avoir de l’expérience de plusieurs années dans le domaine de la psychiatrie, un atout.\n• Être flexible et avoir la capacité de travailler en équipe interprofessionnelle.\n• Faire preuve d’esprit d’analyse et de synthèse.\n• Grande résistance face un environnement exigeant.\n• Être doté·e d'une excellente capacité de communication, en français. Début de contrat : Dès que possible Fin du contrat : 31 mars 2027 Type de contrat : Contrat de durée maximale (CDMax) Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier Renseignements : Maureen Magnan, Spécialiste sourcing et recrutement Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Site de Préfargier 2074 Marin-Epagnier"
+    },
+    "slugByLocale": {
+      "it": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+      "en": "nurse-adult-hospital-unit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+      "de": "krankenschwester-erwachsenenkrankenhauseinheit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+      "fr": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-04T21:36:41.213Z",
+    "previousSlugs": [
+      "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+      ],
+      "en": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+      ],
+      "de": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+      ]
+    },
+    "postalCode": "2074",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier-da8696",
+    "title": "Infirmier·ère (unité hospitalière adulte)",
+    "titleByLocale": {
+      "it": "Infermiera (unità ospedale per adulti)",
+      "en": "Nurse (adult hospital unit)",
+      "de": "Krankenschwester (Erwachsenenkrankenhauseinheit)",
+      "fr": "Infirmier·ère (unité hospitalière adulte)"
+    },
+    "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
+    "companyKey": "cnp",
+    "location": "Marin-Epagnier",
+    "addressLocality": "Marin-Epagnier",
+    "descriptionByLocale": {
+      "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. Il NPC mira a riabilitare i pazienti affetti da disturbi mentali adottando un modello di psichiatria integrata e comunitaria; implementa le politiche pubbliche per promuovere e prevenire la salute mentale; Esso funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica. Il Dipartimento Adulto sta cercando una delle sue unità ospedaliere adulte: Infermiera 100% CDMax Ha un diploma HES o una qualifica equivalente riconosciuta dalla Croce Rossa svizzera. Si desidera unire un'istituzione riconosciuta specializzata in salute mentale. Nell'ambito della vostra funzione sarete tenuti a:\n• Identificare le esigenze e le risorse del paziente all'inizio dell'intervento di cura e sviluppare obiettivi e azioni di cura tenendo conto di un progetto terapeutico completo e interprofessionale.\n• Condurre interviste individuali, interviste familiari e di rete in collaborazione con un team interprofessionale.\n• Preparare la documentazione scritta dall'inizio alla fine dell'intervento di cura.\n• Collabora con un team multidisciplinare. Le competenze richieste per questa posizione sono:\n• Avendo diversi anni di esperienza nel campo della psichiatria, un bene.\n• Sii flessibile e avere la capacità di lavorare come team interprofessionale.\n• Dimostrare uno spirito di analisi e sintesi.\n• Grande resistenza a un ambiente esigente.\n• Avere eccellenti capacità di comunicazione in francese. Inizio del contratto: 1 settembre 2026 Tipo di contratto: Contratto di durata indefinita (CDI) Luogo di lavoro: Prefargier site, 2074 Marin-Epagnier Informazioni: Maureen Magnan, Sourcing specialistico e reclutamento Le domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online. Sito web Prefargier 2074 Marin-Epagnier",
+      "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with partner institutions. The NPC aims to rehabilitate patients suffering from mental disorders by adopting an integrated and community psychiatry model; implements public policies to promote and prevent mental health; It acts as a reference centre in the field of vocational training and psychiatry research. The Adult Department is looking for one of its adult hospital units: Nurse 100% CDMax You have a HES diploma or an equivalent qualification recognised by the Swiss Red Cross. You want to join a recognized institution specializing in mental health. As part of your function you will be required to:\n• Identify patient needs and resources at the beginning of the care intervention and develop care objectives and actions taking into account a comprehensive and interprofessional therapeutic project.\n• Conduct individual interviews, family and network interviews in collaboration with an interprofessional team.\n• Prepare written documentation from beginning to end of care intervention.\n• Collaborate with a multidisciplinary team. The competencies required for this position are:\n• Having several years of experience in the field of psychiatry, an asset.\n• Be flexible and have the ability to work as an interprofessional team.\n• Demonstrate a spirit of analysis and synthesis.\n• Great resistance to a demanding environment.\n• Have excellent communication skills in French. Start of contract: September 1, 2026 Type of contract: Contract of indefinite duration (CDI) Place of work : Prefargier site, 2074 Marin-Epagnier Information: Maureen Magnan, Specialist sourcing and recruitment Full applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application. Prefargier website 2074 Marin-Epagnier",
+      "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten, die an psychischen Störungen leiden, durch die Annahme eines integrierten und gemeinschaftlichen Psychiatriemodells zu rehabilitieren; setzt öffentliche Maßnahmen zur Förderung und Prävention der psychischen Gesundheit um; Sie fungiert als Referenzzentrum im Bereich der Berufsbildung und Psychiatrieforschung. Die Erwachsenenabteilung sucht eine ihrer erwachsenen Krankenhauseinheiten: Krankenschwester 100% CDMax Sie haben ein HES-Diplom oder eine gleichwertige Qualifikation, die vom Schweizerischen Roten Kreuz anerkannt ist. Sie möchten einer anerkannten Institution beitreten, die sich auf psychische Gesundheit spezialisiert hat. Als Teil Ihrer Funktion müssen Sie:\n• Identifizieren Sie die Bedürfnisse und Ressourcen der Patienten zu Beginn der Pflegemaßnahme und entwickeln Sie Pflegeziele und -maßnahmen unter Berücksichtigung eines umfassenden und interprofessionellen Therapieprojekts.\n• Führen Sie Einzelinterviews, Familien- und Netzwerkinterviews in Zusammenarbeit mit einem interprofessionellen Team durch.\n• Bereiten Sie schriftliche Dokumentation von Anfang bis Ende der Pflege Intervention.\n• Arbeiten Sie mit einem multidisziplinären Team zusammen. Die für diese Position erforderlichen Kompetenzen sind:\n• Mehrjährige Erfahrung auf dem Gebiet der Psychiatrie, eine Bereicherung.\n• Seien Sie flexibel und können Sie als interprofessionelles Team arbeiten.\n• Demonstrieren Sie einen Geist der Analyse und Synthese.\n• Großer Widerstand gegen ein anspruchsvolles Umfeld.\n• Haben ausgezeichnete Kommunikationsfähigkeiten in Französisch. Vertragsbeginn: 1. September 2026 Art des Vertrags: Vertrag mit unbefristeter Laufzeit (CDI) Arbeitsort: Prefargier, 2074 Marin-Epagnier Informationen: Maureen Magnan, Specialist Sourcing and Recruitment Vollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden. Prefargier Website 2074 Marin-Epagnier",
+      "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie. Le Département de l’adulte recherche, pour une de ses unités hospitalières adultes, un·e : Infirmier·ère 100% CDMax Vous êtes titulaire d’un diplôme d’infirmier HES ou titre jugé équivalent reconnu par la Croix-Rouge Suisse. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique. Dans le cadre de votre fonction vous serez amené·e à :\n• Identifier les besoins et les ressources du patient, au début de l'intervention de soins et élaborer les objectifs et actions de soins en tenant compte d'un projet thérapeutique global et interprofessionnel.\n• Conduire des entretiens individuels, des entretiens de famille et de réseau en collaboration avec une équipe interprofessionnelle.\n• Établir une documentation écrite du début à la fin de l'intervention des soins.\n• Collaborer avec une équipe pluridisciplinaire. Les compétences requises pour ce poste sont les suivantes :\n• Avoir de l’expérience de plusieurs années dans le domaine de la psychiatrie, un atout.\n• Être flexible et avoir la capacité de travailler en équipe interprofessionnelle.\n• Faire preuve d’esprit d’analyse et de synthèse.\n• Grande résistance face un environnement exigeant.\n• Être doté·e d'une excellente capacité de communication, en français. Début de contrat : 1er septembre 2026 Type de contrat : Contrat de durée indéterminée (CDI) Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier Renseignements : Maureen Magnan, Spécialiste sourcing et recrutement Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Site de Préfargier 2074 Marin-Epagnier"
+    },
+    "slugByLocale": {
+      "it": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier-da8696",
+      "en": "nurse-adult-hospital-unit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier-da8696",
+      "de": "krankenschwester-erwachsenenkrankenhauseinheit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier-da8696",
+      "fr": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-04T21:36:41.213Z",
+    "previousSlugs": [
+      "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier-2"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier-2"
+      ],
+      "en": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier-2"
+      ],
+      "de": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier-2"
+      ]
+    },
     "postalCode": "2074",
     "salaryMin": 60500,
     "salaryMax": 91500,
