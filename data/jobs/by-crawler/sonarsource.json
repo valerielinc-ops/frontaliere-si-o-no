@@ -1461,12 +1461,12 @@
     },
     {
       "id": "sonarsource-f44e2cd68511",
-      "slug": "data-scientist-marketing-analytics-sonarsource-ch",
+      "slug": "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "data-scientist-marketing-analytics-sonarsource-ch",
-        "it": "data-scientist-marketing-analytics-sonarsource-ch",
-        "de": "data-scientist-marketing-analytics-sonarsource-ch",
-        "fr": "data-scientist-marketing-analytics-sonarsource-ch"
+        "it": "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
+        "de": "datenwissenschaftler-marketing-analytics-sonarsource-sonar-geneva",
+        "fr": "scientifique-des-donnees-analyse-du-marketing-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1521,7 +1521,21 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-07-03T23:17:39.488Z"
+      "firstSeenAt": "2026-07-03T23:17:39.488Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-marketing-analytics-sonarsource-ch"
+        ],
+        "de": [
+          "data-scientist-marketing-analytics-sonarsource-ch"
+        ],
+        "fr": [
+          "data-scientist-marketing-analytics-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-marketing-analytics-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-f25599f7dec9",

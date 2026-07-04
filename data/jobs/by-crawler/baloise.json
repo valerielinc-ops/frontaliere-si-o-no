@@ -303,11 +303,11 @@
     },
     {
       "id": "baloise-7cdadd17bafe",
-      "slug": "legal-counsel-bank-w-m-d-baloise-solothurn",
+      "slug": "banca-di-consulenza-legale-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "legal-counsel-bank-w-m-d-helvetia-solothurn",
         "fr": "conseil-juridique-banque-f-m-d-helvetia-versicherungen-solothurn",
-        "it": "legal-counsel-bank-w-m-d-baloise-solothurn",
+        "it": "banca-di-consulenza-legale-f-m-d-baloise-solothurn",
         "en": "legal-counsel-bank-w-m-d-baloise-solothurn"
       },
       "company": "Baloise",
@@ -365,7 +365,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:31:58.423Z"
+      "firstSeenAt": "2026-07-04T10:31:58.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-bank-w-m-d-baloise-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-bank-w-m-d-baloise-solothurn"
+      ]
     },
     {
       "id": "baloise-d2f458ea5312",
@@ -745,10 +753,10 @@
     },
     {
       "id": "baloise-5ca3a3e1160d",
-      "slug": "leiter-zahlungsverkehr-m-w-d-baloise-solothurn",
+      "slug": "responsabile-delle-transazioni-di-pagamento-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
-        "it": "leiter-zahlungsverkehr-m-w-d-baloise-solothurn",
+        "it": "responsabile-delle-transazioni-di-pagamento-f-m-d-baloise-solothurn",
         "en": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
         "fr": "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
       },
@@ -797,11 +805,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
+          "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
+          "leiter-zahlungsverkehr-m-w-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
-        "leiter-zahlungsverkehr-w-m-d-baloise-solothurn"
+        "leiter-zahlungsverkehr-w-m-d-baloise-solothurn",
+        "leiter-zahlungsverkehr-m-w-d-baloise-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -819,10 +829,10 @@
     },
     {
       "id": "baloise-bbd002bfba56",
-      "slug": "leiter-kundenzonen-m-w-d-baloise-solothurn",
+      "slug": "capo-delle-zone-clienti-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "leiter-kundenzonen-w-m-d-baloise-solothurn",
-        "it": "leiter-kundenzonen-m-w-d-baloise-solothurn",
+        "it": "capo-delle-zone-clienti-f-m-d-baloise-solothurn",
         "en": "leiter-kundenzonen-w-m-d-baloise-solothurn",
         "fr": "leiter-kundenzonen-w-m-d-baloise-solothurn"
       },
@@ -871,11 +881,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-kundenzonen-w-m-d-baloise-solothurn"
+          "leiter-kundenzonen-w-m-d-baloise-solothurn",
+          "leiter-kundenzonen-m-w-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
-        "leiter-kundenzonen-w-m-d-baloise-solothurn"
+        "leiter-kundenzonen-w-m-d-baloise-solothurn",
+        "leiter-kundenzonen-m-w-d-baloise-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -893,10 +905,10 @@
     },
     {
       "id": "baloise-cf98e175f826",
-      "slug": "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn",
+      "slug": "capo-assistente-hub-private-banking-f-m-d-baloise-solothurn",
       "slugByLocale": {
         "de": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
-        "it": "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn",
+        "it": "capo-assistente-hub-private-banking-f-m-d-baloise-solothurn",
         "en": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
         "fr": "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
       },
@@ -945,11 +957,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
+          "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
+          "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn"
         ]
       },
       "previousSlugs": [
-        "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn"
+        "leiter-assistenz-hub-privatkunden-bank-w-m-d-baloise-solothurn",
+        "leiter-assistenz-hub-privatkunden-bank-m-w-d-baloise-solothurn"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,

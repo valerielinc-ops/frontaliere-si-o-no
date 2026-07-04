@@ -152,10 +152,10 @@
     },
     {
       "id": "kanton-basel-landschaft-28a04464fae3",
-      "slug": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-munchenstein",
+      "slug": "tirocinante-kindergarten-kantonale-verwaltung-basel-landschaft-munchenstein",
       "slugByLocale": {
         "de": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-munchenstein",
-        "it": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-munchenstein",
+        "it": "tirocinante-kindergarten-kantonale-verwaltung-basel-landschaft-munchenstein",
         "en": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-munchenstein",
         "fr": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-munchenstein"
       },
@@ -214,14 +214,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.032Z"
+      "firstSeenAt": "2026-07-04T11:06:06.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-munchenstein"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-munchenstein"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-e9d15be8a424",
-      "slug": "schulische-heilpadagogin-schulischer-heilpadagoge-kanton-basel-landschaft-runenberg",
+      "slug": "insegnante-di-recupero-scolastico-kantonale-verwaltung-basel-landschaft-runenberg",
       "slugByLocale": {
         "de": "schulische-heilpadagogin-schulischer-heilpadagoge-kanton-basel-landschaft-runenberg",
-        "it": "schulische-heilpadagogin-schulischer-heilpadagoge-kanton-basel-landschaft-runenberg",
+        "it": "insegnante-di-recupero-scolastico-kantonale-verwaltung-basel-landschaft-runenberg",
         "en": "schulische-heilpadagogin-schulischer-heilpadagoge-kanton-basel-landschaft-runenberg",
         "fr": "schulische-heilpadagogin-schulischer-heilpadagoge-kanton-basel-landschaft-runenberg"
       },
@@ -280,14 +288,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.032Z"
+      "firstSeenAt": "2026-07-04T11:06:06.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulische-heilpadagogin-schulischer-heilpadagoge-kanton-basel-landschaft-runenberg"
+        ]
+      },
+      "previousSlugs": [
+        "schulische-heilpadagogin-schulischer-heilpadagoge-kanton-basel-landschaft-runenberg"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-dfbf118bcf4b",
-      "slug": "dipl-logopadin-dipl-logopade-kanton-basel-landschaft-munchenstein",
+      "slug": "dipl-logopedista-kantonale-verwaltung-basel-landschaft-munchenstein",
       "slugByLocale": {
         "de": "dipl-logopadin-dipl-logopade-kanton-basel-landschaft-munchenstein",
-        "it": "dipl-logopadin-dipl-logopade-kanton-basel-landschaft-munchenstein",
+        "it": "dipl-logopedista-kantonale-verwaltung-basel-landschaft-munchenstein",
         "en": "dipl-logopadin-dipl-logopade-kanton-basel-landschaft-munchenstein",
         "fr": "dipl-logopadin-dipl-logopade-kanton-basel-landschaft-munchenstein"
       },
@@ -346,14 +362,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.031Z"
+      "firstSeenAt": "2026-07-04T11:06:06.031Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-logopadin-dipl-logopade-kanton-basel-landschaft-munchenstein"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-logopadin-dipl-logopade-kanton-basel-landschaft-munchenstein"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-5cae4f11f87a",
-      "slug": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg",
+      "slug": "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-lampenberg",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg",
-        "it": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg",
+        "it": "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-lampenberg",
         "en": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg",
         "fr": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg"
       },
@@ -402,11 +426,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg"
+          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg",
+          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg"
         ]
       },
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg"
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-lampenberg",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-lampenberg"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -424,10 +450,10 @@
     },
     {
       "id": "kanton-basel-landschaft-b600aa8e1849",
-      "slug": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
+      "slug": "veterinario-ufficiale-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
-        "it": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
+        "it": "veterinario-ufficiale-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
         "fr": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
       },
@@ -486,14 +512,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.030Z"
+      "firstSeenAt": "2026-07-04T11:06:06.030Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-b0b7f61d2c2b",
-      "slug": "betreuung-lernoase-kanton-basel-landschaft-grellingen",
+      "slug": "supporta-lernoase-kantonale-verwaltung-basel-landschaft-grellingen",
       "slugByLocale": {
         "de": "betreuung-lernoase-kanton-basel-landschaft-grellingen",
-        "it": "betreuung-lernoase-kanton-basel-landschaft-grellingen",
+        "it": "supporta-lernoase-kantonale-verwaltung-basel-landschaft-grellingen",
         "en": "betreuung-lernoase-kanton-basel-landschaft-grellingen",
         "fr": "betreuung-lernoase-kanton-basel-landschaft-grellingen"
       },
@@ -552,14 +586,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.029Z"
+      "firstSeenAt": "2026-07-04T11:06:06.029Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuung-lernoase-kanton-basel-landschaft-grellingen"
+        ]
+      },
+      "previousSlugs": [
+        "betreuung-lernoase-kanton-basel-landschaft-grellingen"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-d44fe5ce061a",
-      "slug": "lehrperson-isf-kanton-basel-landschaft-bottmingen",
+      "slug": "insegnante-isf-kantonale-verwaltung-basel-landschaft-bottmingen",
       "slugByLocale": {
         "de": "lehrperson-isf-kanton-basel-landschaft-bottmingen",
-        "it": "lehrperson-isf-kanton-basel-landschaft-bottmingen",
+        "it": "insegnante-isf-kantonale-verwaltung-basel-landschaft-bottmingen",
         "en": "lehrperson-isf-kantonale-verwaltung-basel-landschaft-bottmingen",
         "fr": "lehrperson-isf-kanton-basel-landschaft-bottmingen"
       },
@@ -618,14 +660,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.028Z"
+      "firstSeenAt": "2026-07-04T11:06:06.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-isf-kanton-basel-landschaft-bottmingen"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-isf-kanton-basel-landschaft-bottmingen"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-a3d722cd36e7",
-      "slug": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-tecknau",
+      "slug": "tirocinante-kindergarten-kantonale-verwaltung-basel-landschaft-tecknau",
       "slugByLocale": {
         "de": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-tecknau",
-        "it": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-tecknau",
+        "it": "tirocinante-kindergarten-kantonale-verwaltung-basel-landschaft-tecknau",
         "en": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-tecknau",
         "fr": "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-tecknau"
       },
@@ -684,14 +734,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.028Z"
+      "firstSeenAt": "2026-07-04T11:06:06.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-tecknau"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-kindergarten-kanton-basel-landschaft-tecknau"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-4a25f1d282df",
-      "slug": "verfahrensleitung-pfandungen-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "procedimenti-per-sequestri-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "verfahrensleitung-pfandungen-kanton-basel-landschaft-liestal",
-        "it": "verfahrensleitung-pfandungen-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "procedimenti-per-sequestri-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "verfahrensleitung-pfandungen-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "verfahrensleitung-pfandungen-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -740,11 +798,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verfahrensleitung-pfandungen-kanton-basel-landschaft-liestal"
+          "verfahrensleitung-pfandungen-kanton-basel-landschaft-liestal",
+          "verfahrensleitung-pfandungen-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "verfahrensleitung-pfandungen-kanton-basel-landschaft-liestal"
+        "verfahrensleitung-pfandungen-kanton-basel-landschaft-liestal",
+        "verfahrensleitung-pfandungen-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -902,10 +962,10 @@
     },
     {
       "id": "kanton-basel-landschaft-6cce35250bf8",
-      "slug": "logopadin-logopade-kanton-basel-landschaft-frenkendorf",
+      "slug": "logopedista-kantonale-verwaltung-basel-landschaft-frenkendorf",
       "slugByLocale": {
         "de": "logopadin-logopade-kanton-basel-landschaft-frenkendorf",
-        "it": "logopadin-logopade-kanton-basel-landschaft-frenkendorf",
+        "it": "logopedista-kantonale-verwaltung-basel-landschaft-frenkendorf",
         "en": "logopadin-logopade-kanton-basel-landschaft-frenkendorf",
         "fr": "logopadin-logopade-kanton-basel-landschaft-frenkendorf"
       },
@@ -964,14 +1024,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.026Z"
+      "firstSeenAt": "2026-07-04T11:06:06.026Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logopadin-logopade-kanton-basel-landschaft-frenkendorf"
+        ]
+      },
+      "previousSlugs": [
+        "logopadin-logopade-kanton-basel-landschaft-frenkendorf"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-2bac215d88f5",
-      "slug": "verfahrensleitung-erbschaften-kantonale-verwaltung-basel-landschaft-arlesheim",
+      "slug": "procedimenti-di-successione-kantonale-verwaltung-basel-landschaft-arlesheim",
       "slugByLocale": {
         "de": "verfahrensleitung-erbschaften-kanton-basel-landschaft-arlesheim",
-        "it": "verfahrensleitung-erbschaften-kantonale-verwaltung-basel-landschaft-arlesheim",
+        "it": "procedimenti-di-successione-kantonale-verwaltung-basel-landschaft-arlesheim",
         "en": "verfahrensleitung-erbschaften-kantonale-verwaltung-basel-landschaft-arlesheim",
         "fr": "verfahrensleitung-erbschaften-kantonale-verwaltung-basel-landschaft-arlesheim"
       },
@@ -1020,11 +1088,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verfahrensleitung-erbschaften-kanton-basel-landschaft-arlesheim"
+          "verfahrensleitung-erbschaften-kanton-basel-landschaft-arlesheim",
+          "verfahrensleitung-erbschaften-kantonale-verwaltung-basel-landschaft-arlesheim"
         ]
       },
       "previousSlugs": [
-        "verfahrensleitung-erbschaften-kanton-basel-landschaft-arlesheim"
+        "verfahrensleitung-erbschaften-kanton-basel-landschaft-arlesheim",
+        "verfahrensleitung-erbschaften-kantonale-verwaltung-basel-landschaft-arlesheim"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1042,10 +1112,10 @@
     },
     {
       "id": "kanton-basel-landschaft-2c5d01523a80",
-      "slug": "sozialpadagogin-sozialpadagoge-einzelintegration-kantonale-verwaltung-basel-landschaft-ettingen",
+      "slug": "pedagogia-sociale-integrazione-individuale-kantonale-verwaltung-basel-landschaft-ettingen",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-einzelintegration-kanton-basel-landschaft-ettingen",
-        "it": "sozialpadagogin-sozialpadagoge-einzelintegration-kantonale-verwaltung-basel-landschaft-ettingen",
+        "it": "pedagogia-sociale-integrazione-individuale-kantonale-verwaltung-basel-landschaft-ettingen",
         "en": "sozialpadagogin-sozialpadagoge-einzelintegration-kantonale-verwaltung-basel-landschaft-ettingen",
         "fr": "sozialpadagogin-sozialpadagoge-einzelintegration-kantonale-verwaltung-basel-landschaft-ettingen"
       },
@@ -1094,11 +1164,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-einzelintegration-kanton-basel-landschaft-ettingen"
+          "sozialpadagogin-sozialpadagoge-einzelintegration-kanton-basel-landschaft-ettingen",
+          "sozialpadagogin-sozialpadagoge-einzelintegration-kantonale-verwaltung-basel-landschaft-ettingen"
         ]
       },
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-einzelintegration-kanton-basel-landschaft-ettingen"
+        "sozialpadagogin-sozialpadagoge-einzelintegration-kanton-basel-landschaft-ettingen",
+        "sozialpadagogin-sozialpadagoge-einzelintegration-kantonale-verwaltung-basel-landschaft-ettingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1116,10 +1188,10 @@
     },
     {
       "id": "kanton-basel-landschaft-a045686079ef",
-      "slug": "klassenlehrperson-mittelstufe-1-kantonale-verwaltung-basel-landschaft-grellingen",
+      "slug": "insegnante-di-classe-scuola-media-1-kantonale-verwaltung-basel-landschaft-grellingen",
       "slugByLocale": {
         "de": "klassenlehrperson-mittelstufe-1-kanton-basel-landschaft-grellingen",
-        "it": "klassenlehrperson-mittelstufe-1-kantonale-verwaltung-basel-landschaft-grellingen",
+        "it": "insegnante-di-classe-scuola-media-1-kantonale-verwaltung-basel-landschaft-grellingen",
         "en": "klassenlehrperson-mittelstufe-1-kantonale-verwaltung-basel-landschaft-grellingen",
         "fr": "klassenlehrperson-mittelstufe-1-kantonale-verwaltung-basel-landschaft-grellingen"
       },
@@ -1168,11 +1240,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "klassenlehrperson-mittelstufe-1-kanton-basel-landschaft-grellingen"
+          "klassenlehrperson-mittelstufe-1-kanton-basel-landschaft-grellingen",
+          "klassenlehrperson-mittelstufe-1-kantonale-verwaltung-basel-landschaft-grellingen"
         ]
       },
       "previousSlugs": [
-        "klassenlehrperson-mittelstufe-1-kanton-basel-landschaft-grellingen"
+        "klassenlehrperson-mittelstufe-1-kanton-basel-landschaft-grellingen",
+        "klassenlehrperson-mittelstufe-1-kantonale-verwaltung-basel-landschaft-grellingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1190,10 +1264,10 @@
     },
     {
       "id": "kanton-basel-landschaft-bdb1a67a3d4a",
-      "slug": "sozialarbeiterin-sozialarbeiter-primarstufe-kantonale-verwaltung-basel-landschaft-binningen",
+      "slug": "assistente-sociale-livello-primaria-kantonale-verwaltung-basel-landschaft-binningen",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-primarstufe-kanton-basel-landschaft-binningen",
-        "it": "sozialarbeiterin-sozialarbeiter-primarstufe-kantonale-verwaltung-basel-landschaft-binningen",
+        "it": "assistente-sociale-livello-primaria-kantonale-verwaltung-basel-landschaft-binningen",
         "en": "sozialarbeiterin-sozialarbeiter-primarstufe-kantonale-verwaltung-basel-landschaft-binningen",
         "fr": "sozialarbeiterin-sozialarbeiter-primarstufe-kantonale-verwaltung-basel-landschaft-binningen"
       },
@@ -1242,11 +1316,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiterin-sozialarbeiter-primarstufe-kanton-basel-landschaft-binningen"
+          "sozialarbeiterin-sozialarbeiter-primarstufe-kanton-basel-landschaft-binningen",
+          "sozialarbeiterin-sozialarbeiter-primarstufe-kantonale-verwaltung-basel-landschaft-binningen"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-primarstufe-kanton-basel-landschaft-binningen"
+        "sozialarbeiterin-sozialarbeiter-primarstufe-kanton-basel-landschaft-binningen",
+        "sozialarbeiterin-sozialarbeiter-primarstufe-kantonale-verwaltung-basel-landschaft-binningen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1412,10 +1488,10 @@
     },
     {
       "id": "kanton-basel-landschaft-d7f576475853",
-      "slug": "schulsozialarbeiterin-schulsozialarbeiter-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "assistente-sociale-scolastico-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "schulsozialarbeiterin-schulsozialarbeiter-kanton-basel-landschaft-liestal",
-        "it": "schulsozialarbeiterin-schulsozialarbeiter-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "assistente-sociale-scolastico-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "schulsozialarbeiterin-schulsozialarbeiter-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "schulsozialarbeiterin-schulsozialarbeiter-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -1464,11 +1540,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiterin-schulsozialarbeiter-kanton-basel-landschaft-liestal"
+          "schulsozialarbeiterin-schulsozialarbeiter-kanton-basel-landschaft-liestal",
+          "schulsozialarbeiterin-schulsozialarbeiter-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "schulsozialarbeiterin-schulsozialarbeiter-kanton-basel-landschaft-liestal"
+        "schulsozialarbeiterin-schulsozialarbeiter-kanton-basel-landschaft-liestal",
+        "schulsozialarbeiterin-schulsozialarbeiter-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1486,10 +1564,10 @@
     },
     {
       "id": "kanton-basel-landschaft-0d0cfa8e0f75",
-      "slug": "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "strutture-protettive-specialistiche-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kanton-basel-landschaft-liestal",
-        "it": "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "strutture-protettive-specialistiche-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -1538,11 +1616,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kanton-basel-landschaft-liestal"
+          "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kanton-basel-landschaft-liestal",
+          "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kanton-basel-landschaft-liestal"
+        "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kanton-basel-landschaft-liestal",
+        "fachmitarbeiterin-fachmitarbeiter-schutzbauten-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1700,10 +1780,10 @@
     },
     {
       "id": "kanton-basel-landschaft-4ff9f1012893",
-      "slug": "a-o-jugendanwaltin-a-o-jugendanwalt-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "a-o-avvocato-minorile-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "a-o-jugendanwaltin-a-o-jugendanwalt-kanton-basel-landschaft-liestal",
-        "it": "a-o-jugendanwaltin-a-o-jugendanwalt-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "a-o-avvocato-minorile-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "a-o-jugendanwaltin-a-o-jugendanwalt-kanton-basel-landschaft-liestal",
         "fr": "a-o-jugendanwaltin-a-o-jugendanwalt-kanton-basel-landschaft-liestal"
       },
@@ -1752,11 +1832,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "a-o-jugendanwaltin-a-o-jugendanwalt-kanton-basel-landschaft-liestal"
+          "a-o-jugendanwaltin-a-o-jugendanwalt-kanton-basel-landschaft-liestal",
+          "a-o-jugendanwaltin-a-o-jugendanwalt-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "a-o-jugendanwaltin-a-o-jugendanwalt-kanton-basel-landschaft-liestal"
+        "a-o-jugendanwaltin-a-o-jugendanwalt-kanton-basel-landschaft-liestal",
+        "a-o-jugendanwaltin-a-o-jugendanwalt-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1774,10 +1856,10 @@
     },
     {
       "id": "kanton-basel-landschaft-9c24b5a7e70d",
-      "slug": "gefangenenbetreuerin-gefangenenbetreuer-kantonale-verwaltung-basel-landschaft-muttenz",
+      "slug": "consigliere-per-i-detenuti-kantonale-verwaltung-basel-landschaft-muttenz",
       "slugByLocale": {
         "de": "gefangenenbetreuerin-gefangenenbetreuer-kanton-basel-landschaft-muttenz",
-        "it": "gefangenenbetreuerin-gefangenenbetreuer-kantonale-verwaltung-basel-landschaft-muttenz",
+        "it": "consigliere-per-i-detenuti-kantonale-verwaltung-basel-landschaft-muttenz",
         "en": "gefangenenbetreuerin-gefangenenbetreuer-kantonale-verwaltung-basel-landschaft-muttenz",
         "fr": "gefangenenbetreuerin-gefangenenbetreuer-kantonale-verwaltung-basel-landschaft-muttenz"
       },
@@ -1826,11 +1908,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gefangenenbetreuerin-gefangenenbetreuer-kanton-basel-landschaft-muttenz"
+          "gefangenenbetreuerin-gefangenenbetreuer-kanton-basel-landschaft-muttenz",
+          "gefangenenbetreuerin-gefangenenbetreuer-kantonale-verwaltung-basel-landschaft-muttenz"
         ]
       },
       "previousSlugs": [
-        "gefangenenbetreuerin-gefangenenbetreuer-kanton-basel-landschaft-muttenz"
+        "gefangenenbetreuerin-gefangenenbetreuer-kanton-basel-landschaft-muttenz",
+        "gefangenenbetreuerin-gefangenenbetreuer-kantonale-verwaltung-basel-landschaft-muttenz"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1848,10 +1932,10 @@
     },
     {
       "id": "kanton-basel-landschaft-6e4472c1598e",
-      "slug": "sozialpadagogin-sozialpadagoge-geschlossene-abteilung-kanton-basel-landschaft-niederdorf",
+      "slug": "dipartimento-chiuso-di-pedagogia-sociale-kantonale-verwaltung-basel-landschaft-niederdorf",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-geschlossene-abteilung-kanton-basel-landschaft-niederdorf",
-        "it": "sozialpadagogin-sozialpadagoge-geschlossene-abteilung-kanton-basel-landschaft-niederdorf",
+        "it": "dipartimento-chiuso-di-pedagogia-sociale-kantonale-verwaltung-basel-landschaft-niederdorf",
         "en": "sozialpadagogin-sozialpadagoge-geschlossene-abteilung-kanton-basel-landschaft-niederdorf",
         "fr": "sozialpadagogin-sozialpadagoge-geschlossene-abteilung-kanton-basel-landschaft-niederdorf"
       },
@@ -1910,7 +1994,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.019Z"
+      "firstSeenAt": "2026-07-04T11:06:06.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-geschlossene-abteilung-kanton-basel-landschaft-niederdorf"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-geschlossene-abteilung-kanton-basel-landschaft-niederdorf"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-3d3cbf382715",
@@ -2062,10 +2154,10 @@
     },
     {
       "id": "kanton-basel-landschaft-995f4db96dc9",
-      "slug": "sicherheitsangestellte-sicherheitsangestellter-kantonale-verwaltung-basel-landschaft-muttenz",
+      "slug": "dipendente-della-sicurezza-dipendente-della-sicurezza-kantonale-verwaltung-basel-landschaft-muttenz",
       "slugByLocale": {
         "de": "sicherheitsangestellte-sicherheitsangestellter-kanton-basel-landschaft-muttenz",
-        "it": "sicherheitsangestellte-sicherheitsangestellter-kantonale-verwaltung-basel-landschaft-muttenz",
+        "it": "dipendente-della-sicurezza-dipendente-della-sicurezza-kantonale-verwaltung-basel-landschaft-muttenz",
         "en": "sicherheitsangestellte-sicherheitsangestellter-kantonale-verwaltung-basel-landschaft-muttenz",
         "fr": "sicherheitsangestellte-sicherheitsangestellter-kantonale-verwaltung-basel-landschaft-muttenz"
       },
@@ -2114,11 +2206,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsangestellte-sicherheitsangestellter-kanton-basel-landschaft-muttenz"
+          "sicherheitsangestellte-sicherheitsangestellter-kanton-basel-landschaft-muttenz",
+          "sicherheitsangestellte-sicherheitsangestellter-kantonale-verwaltung-basel-landschaft-muttenz"
         ]
       },
       "previousSlugs": [
-        "sicherheitsangestellte-sicherheitsangestellter-kanton-basel-landschaft-muttenz"
+        "sicherheitsangestellte-sicherheitsangestellter-kanton-basel-landschaft-muttenz",
+        "sicherheitsangestellte-sicherheitsangestellter-kantonale-verwaltung-basel-landschaft-muttenz"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2136,10 +2230,10 @@
     },
     {
       "id": "kanton-basel-landschaft-044f45db6103",
-      "slug": "klassenassistenz-1-klasse-kantonale-verwaltung-basel-landschaft-seltisberg",
+      "slug": "assistente-di-classe-1-classe-kantonale-verwaltung-basel-landschaft-seltisberg",
       "slugByLocale": {
         "de": "klassenassistenz-1-klasse-kanton-basel-landschaft-seltisberg",
-        "it": "klassenassistenz-1-klasse-kantonale-verwaltung-basel-landschaft-seltisberg",
+        "it": "assistente-di-classe-1-classe-kantonale-verwaltung-basel-landschaft-seltisberg",
         "en": "klassenassistenz-1-klasse-kantonale-verwaltung-basel-landschaft-seltisberg",
         "fr": "klassenassistenz-1-klasse-kantonale-verwaltung-basel-landschaft-seltisberg"
       },
@@ -2188,11 +2282,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "klassenassistenz-1-klasse-kanton-basel-landschaft-seltisberg"
+          "klassenassistenz-1-klasse-kanton-basel-landschaft-seltisberg",
+          "klassenassistenz-1-klasse-kantonale-verwaltung-basel-landschaft-seltisberg"
         ]
       },
       "previousSlugs": [
-        "klassenassistenz-1-klasse-kanton-basel-landschaft-seltisberg"
+        "klassenassistenz-1-klasse-kanton-basel-landschaft-seltisberg",
+        "klassenassistenz-1-klasse-kantonale-verwaltung-basel-landschaft-seltisberg"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2350,10 +2446,10 @@
     },
     {
       "id": "kanton-basel-landschaft-03ed09bdfd52",
-      "slug": "schulische-sozialpadagogin-schulischer-sozialpadagoge-kanton-basel-landschaft-reinach",
+      "slug": "pedagogia-sociale-scolastica-kantonale-verwaltung-basel-landschaft-reinach",
       "slugByLocale": {
         "de": "schulische-sozialpadagogin-schulischer-sozialpadagoge-kanton-basel-landschaft-reinach",
-        "it": "schulische-sozialpadagogin-schulischer-sozialpadagoge-kanton-basel-landschaft-reinach",
+        "it": "pedagogia-sociale-scolastica-kantonale-verwaltung-basel-landschaft-reinach",
         "en": "schulische-sozialpadagogin-schulischer-sozialpadagoge-kanton-basel-landschaft-reinach",
         "fr": "schulische-sozialpadagogin-schulischer-sozialpadagoge-kanton-basel-landschaft-reinach"
       },
@@ -2412,7 +2508,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.013Z"
+      "firstSeenAt": "2026-07-04T11:06:06.013Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulische-sozialpadagogin-schulischer-sozialpadagoge-kanton-basel-landschaft-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "schulische-sozialpadagogin-schulischer-sozialpadagoge-kanton-basel-landschaft-reinach"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-1d92e093d6bd",
@@ -2490,10 +2594,10 @@
     },
     {
       "id": "kanton-basel-landschaft-3bffcd5a6fc4",
-      "slug": "praktikum-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
+      "slug": "tirocinio-guest-service-museum-bl-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "praktikum-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
-        "it": "praktikum-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
+        "it": "tirocinio-guest-service-museum-bl-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "praktikum-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
         "fr": "praktikum-gasteservice-museum-bl-kanton-basel-landschaft-liestal"
       },
@@ -2552,14 +2656,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.012Z"
+      "firstSeenAt": "2026-07-04T11:06:06.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-gasteservice-museum-bl-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-gasteservice-museum-bl-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-e8df0fd0ca9a",
-      "slug": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil",
+      "slug": "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-allschwil",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-allschwil",
-        "it": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil",
+        "it": "pedagogico-sociale-kantonale-verwaltung-basel-landschaft-allschwil",
         "en": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil",
         "fr": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil"
       },
@@ -2608,11 +2720,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-allschwil"
+          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-allschwil",
+          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil"
         ]
       },
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-allschwil"
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-allschwil",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-allschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2704,10 +2818,10 @@
     },
     {
       "id": "kanton-basel-landschaft-fa4f357431ce",
-      "slug": "juristische-volontariate-kanton-basel-landschaft-liestal",
+      "slug": "tirocini-legali-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "juristische-volontariate-kanton-basel-landschaft-liestal",
-        "it": "juristische-volontariate-kanton-basel-landschaft-liestal",
+        "it": "tirocini-legali-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "juristische-volontariate-kanton-basel-landschaft-liestal",
         "fr": "juristische-volontariate-kanton-basel-landschaft-liestal"
       },
@@ -2766,14 +2880,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.009Z"
+      "firstSeenAt": "2026-07-04T11:06:06.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-volontariate-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "juristische-volontariate-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-d3af98f74e6b",
-      "slug": "springerin-springer-kanton-basel-landschaft-reigoldswil",
+      "slug": "jumper-kantonale-verwaltung-basel-landschaft-reigoldswil",
       "slugByLocale": {
         "de": "springerin-springer-kanton-basel-landschaft-reigoldswil",
-        "it": "springerin-springer-kanton-basel-landschaft-reigoldswil",
+        "it": "jumper-kantonale-verwaltung-basel-landschaft-reigoldswil",
         "en": "springerin-springer-kantonale-verwaltung-basel-landschaft-reigoldswil",
         "fr": "springerin-springer-kanton-basel-landschaft-reigoldswil"
       },
@@ -2832,14 +2954,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.008Z"
+      "firstSeenAt": "2026-07-04T11:06:06.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "springerin-springer-kanton-basel-landschaft-reigoldswil"
+        ]
+      },
+      "previousSlugs": [
+        "springerin-springer-kanton-basel-landschaft-reigoldswil"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-fd79e356f111",
-      "slug": "sachbearbeitung-buchhaltung-kantonale-verwaltung-basel-landschaft-frenkendorf",
+      "slug": "addetto-contabile-kantonale-verwaltung-basel-landschaft-frenkendorf",
       "slugByLocale": {
         "de": "sachbearbeitung-buchhaltung-kanton-basel-landschaft-frenkendorf",
-        "it": "sachbearbeitung-buchhaltung-kantonale-verwaltung-basel-landschaft-frenkendorf",
+        "it": "addetto-contabile-kantonale-verwaltung-basel-landschaft-frenkendorf",
         "en": "sachbearbeitung-buchhaltung-kantonale-verwaltung-basel-landschaft-frenkendorf",
         "fr": "sachbearbeitung-buchhaltung-kantonale-verwaltung-basel-landschaft-frenkendorf"
       },
@@ -2888,11 +3018,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-buchhaltung-kanton-basel-landschaft-frenkendorf"
+          "sachbearbeitung-buchhaltung-kanton-basel-landschaft-frenkendorf",
+          "sachbearbeitung-buchhaltung-kantonale-verwaltung-basel-landschaft-frenkendorf"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-buchhaltung-kanton-basel-landschaft-frenkendorf"
+        "sachbearbeitung-buchhaltung-kanton-basel-landschaft-frenkendorf",
+        "sachbearbeitung-buchhaltung-kantonale-verwaltung-basel-landschaft-frenkendorf"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2910,10 +3042,10 @@
     },
     {
       "id": "kanton-basel-landschaft-929177e0db4f",
-      "slug": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
+      "slug": "assistente-amministrativo-nel-registro-del-tribunale-kantonale-verwaltung-basel-landschaft-arlesheim",
       "slugByLocale": {
         "de": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
-        "it": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
+        "it": "assistente-amministrativo-nel-registro-del-tribunale-kantonale-verwaltung-basel-landschaft-arlesheim",
         "en": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim",
         "fr": "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
       },
@@ -2972,14 +3104,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:06.005Z"
+      "firstSeenAt": "2026-07-04T11:06:06.005Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-aushilfe-in-der-gerichtskanzlei-kanton-basel-landschaft-arlesheim"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-54f1052b3ba8",
-      "slug": "fachspezialistin-fachspezialist-baubewilligungen-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "specialista-in-permessi-di-costruzione-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-baubewilligungen-kanton-basel-landschaft-liestal",
-        "it": "fachspezialistin-fachspezialist-baubewilligungen-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "specialista-in-permessi-di-costruzione-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "fachspezialistin-fachspezialist-baubewilligungen-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "fachspezialistin-fachspezialist-baubewilligungen-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -3028,11 +3168,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialistin-fachspezialist-baubewilligungen-kanton-basel-landschaft-liestal"
+          "fachspezialistin-fachspezialist-baubewilligungen-kanton-basel-landschaft-liestal",
+          "fachspezialistin-fachspezialist-baubewilligungen-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "fachspezialistin-fachspezialist-baubewilligungen-kanton-basel-landschaft-liestal"
+        "fachspezialistin-fachspezialist-baubewilligungen-kanton-basel-landschaft-liestal",
+        "fachspezialistin-fachspezialist-baubewilligungen-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3050,10 +3192,10 @@
     },
     {
       "id": "kanton-basel-landschaft-b1efa048e677",
-      "slug": "sachbearbeiterin-sachbearbeiter-hundewesen-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "impiegato-canino-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-hundewesen-kanton-basel-landschaft-liestal",
-        "it": "sachbearbeiterin-sachbearbeiter-hundewesen-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "impiegato-canino-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "sachbearbeiterin-sachbearbeiter-hundewesen-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "sachbearbeiterin-sachbearbeiter-hundewesen-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -3102,11 +3244,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-hundewesen-kanton-basel-landschaft-liestal"
+          "sachbearbeiterin-sachbearbeiter-hundewesen-kanton-basel-landschaft-liestal",
+          "sachbearbeiterin-sachbearbeiter-hundewesen-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-hundewesen-kanton-basel-landschaft-liestal"
+        "sachbearbeiterin-sachbearbeiter-hundewesen-kanton-basel-landschaft-liestal",
+        "sachbearbeiterin-sachbearbeiter-hundewesen-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3124,10 +3268,10 @@
     },
     {
       "id": "kanton-basel-landschaft-c97ff596010d",
-      "slug": "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen",
+      "slug": "insegnante-di-classe-6-sostituzione-maternita-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
         "de": "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen",
-        "it": "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "it": "insegnante-di-classe-6-sostituzione-maternita-kantonale-verwaltung-basel-landschaft-ormalingen",
         "en": "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen",
         "fr": "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
@@ -3176,11 +3320,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen"
+          "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen",
+          "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen"
         ]
       },
       "previousSlugs": [
-        "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen"
+        "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen",
+        "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3198,10 +3344,10 @@
     },
     {
       "id": "kanton-basel-landschaft-af54361abaf7",
-      "slug": "immobilienbewirtschafterin-immobilienbewirtschafter-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "gestore-immobiliare-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "immobilienbewirtschafterin-immobilienbewirtschafter-kanton-basel-landschaft-liestal",
-        "it": "immobilienbewirtschafterin-immobilienbewirtschafter-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "gestore-immobiliare-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "immobilienbewirtschafterin-immobilienbewirtschafter-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "immobilienbewirtschafterin-immobilienbewirtschafter-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -3250,11 +3396,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafterin-immobilienbewirtschafter-kanton-basel-landschaft-liestal"
+          "immobilienbewirtschafterin-immobilienbewirtschafter-kanton-basel-landschaft-liestal",
+          "immobilienbewirtschafterin-immobilienbewirtschafter-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafterin-immobilienbewirtschafter-kanton-basel-landschaft-liestal"
+        "immobilienbewirtschafterin-immobilienbewirtschafter-kanton-basel-landschaft-liestal",
+        "immobilienbewirtschafterin-immobilienbewirtschafter-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3272,10 +3420,10 @@
     },
     {
       "id": "kanton-basel-landschaft-b1a8b08c0f7f",
-      "slug": "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "specialista-specialista-nella-manutenzione-presso-la-base-di-polizia-di-liestal-kantonale-verwaltung-basel-landschaft",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kanton-basel-landschaft",
-        "it": "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "specialista-specialista-nella-manutenzione-presso-la-base-di-polizia-di-liestal-kantonale-verwaltung-basel-landschaft",
         "en": "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -3324,11 +3472,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kanton-basel-landschaft"
+          "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kanton-basel-landschaft",
+          "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kanton-basel-landschaft"
+        "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kanton-basel-landschaft",
+        "fachfrau-fachmann-betriebsunterhalt-polizeistutzpunkt-liestal-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3420,12 +3570,12 @@
     },
     {
       "id": "kanton-basel-landschaft-1f6e8d9f915f",
-      "slug": "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal",
+      "slug": "risorse-umane-beraterin-risorse-umane-berater-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal",
-        "it": "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal",
+        "it": "risorse-umane-beraterin-risorse-umane-berater-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal",
-        "fr": "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal"
+        "fr": "ressources-humaines-beraterin-ressources-humaines-berater-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -3482,7 +3632,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:06:05.991Z"
+      "firstSeenAt": "2026-07-04T11:06:05.991Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "hr-beraterin-hr-berater-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-3dd52f1f14fb",

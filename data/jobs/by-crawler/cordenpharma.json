@@ -284,10 +284,10 @@
     },
     {
       "id": "cordenpharma-1263a8707362",
-      "slug": "analytical-scientist-100-m-w-d-cordenpharma-liestal",
+      "slug": "scienziato-analitico-100-m-f-d-cordenpharma-liestal",
       "slugByLocale": {
         "de": "analytical-scientist-100-m-w-d-cordenpharma-liestal",
-        "it": "analytical-scientist-100-m-w-d-cordenpharma-liestal",
+        "it": "scienziato-analitico-100-m-f-d-cordenpharma-liestal",
         "en": "analytical-scientist-100-m-w-d-cordenpharma-liestal",
         "fr": "analytical-scientist-100-m-w-d-cordenpharma-liestal"
       },
@@ -346,14 +346,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:48.722Z"
+      "firstSeenAt": "2026-07-04T10:47:48.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analytical-scientist-100-m-w-d-cordenpharma-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "analytical-scientist-100-m-w-d-cordenpharma-liestal"
+      ]
     },
     {
       "id": "cordenpharma-4605023155c6",
-      "slug": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
+      "slug": "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal",
       "slugByLocale": {
         "de": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
-        "it": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
+        "it": "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal",
         "en": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
         "fr": "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
       },
@@ -412,7 +420,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:48.276Z"
+      "firstSeenAt": "2026-07-04T10:47:48.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
+      ]
     }
   ]
 }
