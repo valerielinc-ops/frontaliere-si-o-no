@@ -11398,5 +11398,119 @@
         "pending": 81
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-04T20:22:06.860Z",
+    "label": "before",
+    "total": 23291,
+    "needsRetranslation": 12368,
+    "suppressed": 300,
+    "incomplete": 4386,
+    "complete": 18905,
+    "missingByLocale": {
+      "it": 4077,
+      "en": 3696,
+      "de": 725,
+      "fr": 3707
+    },
+    "topPending": [
+      {
+        "company": "Kanton Aargau",
+        "pending": 427
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 382
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 276
+      },
+      {
+        "company": "Raiffeisen",
+        "pending": 207
+      },
+      {
+        "company": "OTTO'S AG",
+        "pending": 162
+      },
+      {
+        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+        "pending": 145
+      },
+      {
+        "company": "Kantonale Verwaltung Zürich",
+        "pending": 138
+      },
+      {
+        "company": "Medbase",
+        "pending": 130
+      },
+      {
+        "company": "Etat de Fribourg",
+        "pending": 118
+      },
+      {
+        "company": "Manor AG",
+        "pending": 104
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-04T20:24:54.955Z",
+    "label": "after",
+    "total": 23291,
+    "needsRetranslation": 6108,
+    "suppressed": 290,
+    "incomplete": 4386,
+    "complete": 18905,
+    "missingByLocale": {
+      "it": 4077,
+      "en": 3696,
+      "de": 725,
+      "fr": 3707
+    },
+    "topPending": [
+      {
+        "company": "Kanton Aargau",
+        "pending": 427
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 382
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 276
+      },
+      {
+        "company": "Raiffeisen",
+        "pending": 207
+      },
+      {
+        "company": "OTTO'S AG",
+        "pending": 162
+      },
+      {
+        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+        "pending": 145
+      },
+      {
+        "company": "Kantonale Verwaltung Zürich",
+        "pending": 138
+      },
+      {
+        "company": "Medbase",
+        "pending": 130
+      },
+      {
+        "company": "Etat de Fribourg",
+        "pending": 118
+      },
+      {
+        "company": "Manor AG",
+        "pending": 104
+      }
+    ]
   }
 ]
