@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-hotel-des-bains-kempinski",
-  "assembledAt": "2026-07-03T22:11:58.206Z",
+  "assembledAt": "2026-07-04T11:15:36.504Z",
   "jobs": [
     {
       "title": "Public Area Attendant (Night work) (f/m/d)",
@@ -44,7 +44,7 @@
         "de": "offentlicher-betreuer-nachtarbeit-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "presence-dans-la-zone-publique-travail-de-nuit-f-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-07-03T22:11:57.956Z",
+      "crawledAt": "2026-07-04T11:15:36.259Z",
       "id": "grand-hotel-des-bains-kempinski-c2b39a22272d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -63,20 +63,20 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-06-29T13:20:35.666Z",
       "previousSlugsByLocale": {
+        "fr": [
+          "presence-dans-la-zone-publique-travail-de-nuit-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "public-area-attendant-night-work-f-m-d-347699"
+        ],
         "it": [
           "public-area-attendant-night-work-f-m-d-347699"
         ],
         "de": [
           "public-area-attendant-night-work-f-m-d-347699"
-        ],
-        "fr": [
-          "public-area-attendant-night-work-f-m-d-347699",
-          "presence-dans-la-zone-publique-travail-de-nuit-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
-        "public-area-attendant-night-work-f-m-d-347699",
-        "presence-dans-la-zone-publique-travail-de-nuit-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "presence-dans-la-zone-publique-travail-de-nuit-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "public-area-attendant-night-work-f-m-d-347699"
       ]
     },
     {
@@ -121,7 +121,7 @@
         "de": "junior-housekeeping-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "junior-housekeeping-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-07-03T22:11:57.957Z",
+      "crawledAt": "2026-07-04T11:15:36.260Z",
       "id": "grand-hotel-des-bains-kempinski-654eb613a331",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -196,19 +196,19 @@
         "de": "cluster-groups-event-manager-m-w-deutschsprachig-440723",
         "fr": "cluster-groups-event-manager-m-w-deutschsprachig-kempinski-palace-engelberg-engelberg"
       },
-      "crawledAt": "2026-07-03T22:11:57.959Z",
+      "crawledAt": "2026-07-04T11:15:36.261Z",
       "id": "grand-hotel-des-bains-kempinski-f2cb76113aff",
       "previousSlugsByLocale": {
-        "it": [
-          "cluster-groups-event-manager-m-w-deutschsprachig-440723"
-        ],
         "fr": [
           "groupe-de-groupes-et-gestionnaire-d-evenements-m-w-allemand-kempinski-palace-engelberg-engelberg"
+        ],
+        "it": [
+          "cluster-groups-event-manager-m-w-deutschsprachig-440723"
         ]
       },
       "previousSlugs": [
-        "cluster-groups-event-manager-m-w-deutschsprachig-440723",
-        "groupe-de-groupes-et-gestionnaire-d-evenements-m-w-allemand-kempinski-palace-engelberg-engelberg"
+        "groupe-de-groupes-et-gestionnaire-d-evenements-m-w-allemand-kempinski-palace-engelberg-engelberg",
+        "cluster-groups-event-manager-m-w-deutschsprachig-440723"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -267,16 +267,8 @@
         "de": "vertriebsleiter-m-w-kempinski-palace-engelberg-engelberg",
         "fr": "directeur-des-ventes-en-grappe-m-m-kempinski-palace-engelberg-engelberg"
       },
-      "crawledAt": "2026-07-03T22:11:57.960Z",
+      "crawledAt": "2026-07-04T11:15:36.263Z",
       "id": "grand-hotel-des-bains-kempinski-f564ef0355f2",
-      "previousSlugsByLocale": {
-        "it": [
-          "cluster-senior-sales-manager-m-w-451348"
-        ]
-      },
-      "previousSlugs": [
-        "cluster-senior-sales-manager-m-w-451348"
-      ],
       "salaryMin": 96000,
       "salaryMax": 146000,
       "currency": "CHF",
@@ -290,7 +282,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T11:26:32.876Z"
+      "firstSeenAt": "2026-07-02T11:26:32.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cluster-senior-sales-manager-m-w-451348"
+        ]
+      },
+      "previousSlugs": [
+        "cluster-senior-sales-manager-m-w-451348"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Florist (f/m/d)",
@@ -317,7 +318,7 @@
       "contractType": "seasonal",
       "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has traveled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. What actually makes a grand hotel? It is ahead of its time, creating and nurturing traditions. Would you like to develop your own traditions and strengthen the positioning of your department as a sporty, inviting, warm, and refreshingly uncomplicated 5-star hotel? Do you have an eye for detail and work creatively and independently? We are looking for you as a florist to support our housekeeping team for the upcoming summerseason 2026! | Key Responsibilities:\n• Responsible for floral decorations throughout the hotel (rooms, spa, restaurants, event rooms, and all public areas)\n• Responsible for designing and planning decorations for events (birthdays, gala dinners, New Year's Eve celebrations, etc.)\n• Preparation of floral decorations based on guest requests\n• Care and maintenance of cut flowers and plants\n• Determination of material consumption, price calculation, ordering and receiving goods, handling internal inquiries and orders\n• Overall budget management for the floristry department | Skills, Knowledge and Expertise:\n• Completed training as a florist\n• Professional experience in a similar position in a comparable hotel Professional competence, creativity, and attention to detail, as well as a very high awareness of quality\n• Structured and organized way of working\n• Keen interest in team-oriented work\n• Good knowledge of German and English | Benefits:\n• Live and work in the heart of the Engadin Alps\n• A wide range of creative opportunities\n• A pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities\n• Outstanding employee benefits in all Kempinski hotels, among others\n• Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen, and a wide range of dishes in our staff restaurant\n• Free use of the in-house daycare center for employees' children\n• Monthly employee activities such as skiing, snowboarding, and cross-country skiing courses, hiking trips, spa evenings, and German courses\n• Internal “Feel Good Committee” to help shape all welfare issues",
       "titleByLocale": {
-        "it": "Fiorista (f/m/d)",
+        "it": "Florist (f/m/d)",
         "en": "Florist (f/m/d)",
         "de": "Florist (m/m/d)",
         "fr": "Fleuriste (f/m/d)"
@@ -334,13 +335,13 @@
         "de": "florist-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "fleuriste-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-07-03T22:11:57.964Z",
+      "crawledAt": "2026-07-04T11:15:36.264Z",
       "id": "grand-hotel-des-bains-kempinski-0d48596e0883",
       "previousSlugsByLocale": {
         "it": [
-          "florist-f-m-d-454356",
           "florist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-          "fioraio-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+          "fioraio-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "florist-f-m-d-454356"
         ],
         "fr": [
           "florist-f-m-d-454356"
@@ -350,9 +351,9 @@
         ]
       },
       "previousSlugs": [
-        "florist-f-m-d-454356",
         "florist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "fioraio-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "fioraio-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "florist-f-m-d-454356"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -369,7 +370,8 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-06-29T13:20:35.672Z"
+      "firstSeenAt": "2026-06-29T13:20:35.672Z",
+      "needsRetranslation": true
     },
     {
       "title": "In-Room Dining Supervisor (f/m/d)",
@@ -413,7 +415,7 @@
         "de": "room-service-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "room-service-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-07-03T22:11:57.965Z",
+      "crawledAt": "2026-07-04T11:15:36.267Z",
       "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -433,28 +435,28 @@
       "firstSeenAt": "2026-05-17T10:31:20.144Z",
       "previousSlugsByLocale": {
         "it": [
-          "in-room-dining-supervisor-f-m-d-461567",
-          "room-service-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+          "room-service-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "in-room-dining-supervisor-f-m-d-461567"
         ],
         "de": [
-          "in-room-dining-supervisor-f-m-d-461567",
-          "in-room-dining-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+          "in-room-dining-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "in-room-dining-supervisor-f-m-d-461567"
         ],
         "fr": [
-          "in-room-dining-supervisor-f-m-d-461567",
-          "in-room-dining-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+          "in-room-dining-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "in-room-dining-supervisor-f-m-d-461567"
         ],
         "en": [
           "in-room-dining-supervisor-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
-        "in-room-dining-supervisor-f-m-d-461567",
         "room-service-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "in-room-dining-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "in-room-dining-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "in-room-dining-supervisor-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "in-room-dining-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "in-room-dining-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "in-room-dining-supervisor-f-m-d-461567"
       ]
     },
     {
@@ -499,22 +501,11 @@
         "de": "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz",
         "fr": "apprenti-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st"
       },
-      "crawledAt": "2026-07-03T22:11:57.965Z",
+      "crawledAt": "2026-07-04T11:15:36.268Z",
       "id": "grand-hotel-des-bains-kempinski-f76a49b25e01",
-      "previousSlugsByLocale": {
-        "it": [
-          "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
-        ],
-        "en": [
-          "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
-        ],
-        "fr": [
-          "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
-        ]
-      },
       "previousSlugs": [
-        "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313",
-        "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz"
+        "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz",
+        "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -531,7 +522,18 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-05-19T22:37:17.857Z"
+      "firstSeenAt": "2026-05-19T22:37:17.857Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
+        ],
+        "en": [
+          "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
+        ],
+        "fr": [
+          "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
+        ]
+      }
     },
     {
       "title": "Apprentice \"Hotel-Kommunikationsfach EFZ\" (f/m/d) from August 2027",
@@ -575,20 +577,20 @@
         "de": "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprentissage-hotel-kommunikationsfach-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st-moritz-st"
       },
-      "crawledAt": "2026-07-03T22:11:57.965Z",
+      "crawledAt": "2026-07-04T11:15:36.268Z",
       "id": "grand-hotel-des-bains-kempinski-a9bbd3ecacbf",
       "previousSlugsByLocale": {
         "it": [
-          "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-511324",
-          "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+          "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-511324"
         ],
         "fr": [
           "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
-        "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-511324",
-        "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-511324"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -649,7 +651,7 @@
         "de": "apprentice-koch-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-koch-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-07-03T22:11:57.966Z",
+      "crawledAt": "2026-07-04T11:15:36.269Z",
       "id": "grand-hotel-des-bains-kempinski-f5bd3c6e6c87",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -669,8 +671,8 @@
       "firstSeenAt": "2026-05-19T22:37:17.858Z",
       "previousSlugsByLocale": {
         "it": [
-          "apprentice-koch-efz-f-m-d-from-august-2027-511326",
-          "apprentice-koch-cfc-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+          "apprentice-koch-cfc-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "apprentice-koch-efz-f-m-d-from-august-2027-511326"
         ],
         "fr": [
           "apprentice-koch-efz-f-m-d-from-august-2027-511326"
@@ -680,14 +682,14 @@
         ]
       },
       "previousSlugs": [
-        "apprentice-koch-efz-f-m-d-from-august-2027-511326",
         "apprentice-koch-cfc-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprendista-koch-efz-f-m-d-da-agosto-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprentice-koch-efz-f-m-d-from-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprenti-koch-efz-f-m-j-a-partir-d-aout-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprentice-koch-cfc-f-m-d-from-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprentice-koch-efz-f-m-d-from-august-2026-328957",
-        "auszubildende-koch-efz-f-m-d-ab-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "auszubildende-koch-efz-f-m-d-ab-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "apprentice-koch-efz-f-m-d-from-august-2027-511326"
       ]
     },
     {
@@ -718,7 +720,7 @@
         "it": "Laundry Attendant/ Seamstress (f/m/d)",
         "en": "Laundry Attendant/Seamstress (f/m/d)",
         "de": "Laundry Attendant/ Seamstress (w/m/d)",
-        "fr": "Service de blanchisserie/soutien (m/j)"
+        "fr": "Laundry Attendant/ Seamstress (w/m/d)"
       },
       "descriptionByLocale": {
         "it": "Hai un occhio per i dettagli e anche lavorare in situazioni stressanti organizzate e accurate? Per supportare il nostro team di pulizia dinamico e altamente motivato, ti stiamo cercando per la prossima stagione invernale! # I vostri compiti principali:\n• Pulizia di uniformi, vestiti privati e materiali\n• Servizio stiratura\n• Cucitura di utensili\n• Adozione di lavanderia all'ordine | Competenze e qualifiche desiderate:\n• Resilienza, pulizia, così come la consapevolezza di qualità molto alta\n• Metodi di lavoro strutturati e organizzati\n• Grande interesse per il lavoro orientato al team\n• Buona conoscenza della lingua tedesca e inglese\n• Conoscenza significativa dell'utilizzo di una macchina da cucire | Attendere per voi:\n• Vivere e lavorare al centro delle Alpi Engadine\n• Varie possibilità di design\n• Piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali per i dipendenti in tutti gli hotel Kempinski\n• Alloggio personale nelle immediate vicinanze dell'hotel incl. Lavatrice, sala comune fitness, cucina e una ricca offerta di cibo nel nostro ristorante personale\n• Uso gratuito dell'asilo interno per la cura dei bambini dipendenti\n• Attività mensili dei dipendenti come corsi di sci, snowboard e cross-country, escursioni, serate spa e corsi di tedesco\n• Interno “Feel Good Committee” per la co-creazione in tutti gli argomenti del welfare",
@@ -730,9 +732,9 @@
         "it": "laundry-attendant-seamstress-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "laundry-attendant-seamstress-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "de": "laundry-attendant-seamstress-w-m-d-534444",
-        "fr": "service-de-blanchisserie-soutien-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "fr": "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-07-03T22:11:57.966Z",
+      "crawledAt": "2026-07-04T11:15:36.269Z",
       "id": "grand-hotel-des-bains-kempinski-b523a0cd6007",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -753,6 +755,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "service-de-blanchisserie-soutien-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+          "service-de-blanchisserie-soutien-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
           "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ],
         "it": [
@@ -765,8 +768,9 @@
       "previousSlugs": [
         "service-de-blanchisserie-soutien-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "laundry-attendant-seamstress-w-m-d-534444",
-        "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ]
+        "service-de-blanchisserie-soutien-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Staff House Cleaner (f/m/d)",
@@ -796,7 +800,7 @@
         "it": "Addetto alle pulizie della casa del personale (f/m/d)",
         "en": "Staff House Cleaner (f/m/d)",
         "de": "Personal Reiniger (m/m/d)",
-        "fr": "Nettoyeur de la maison du personnel (f/m/d)"
+        "fr": "Staff House Cleaner (f/m/d)"
       },
       "descriptionByLocale": {
         "it": "Sotto un nome ricco di tradizione, Kempinski, albergatori dal 1897, ha viaggiato nel mondo alla ricerca di destinazioni affascinanti senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. I rinomati resort e gli eleganti hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio a 5 stelle e il lusso quando viaggiano per affari o per piacere. | Responsabilità chiave:\n• Pulizia delle case del personale (camere, camere comuni e cucine, corridoi, ecc.)\n• Pulizia degli impianti sanitari del personale\n• Pulire i guardaroba\n• Controllare la funzionalità e la buona condizione degli articoli in cucina, lavanderia e camere durante la pulizia\n• Garantire la manutenzione e la pulizia dell'attrezzatura e degli uffici del pavimento Sostenere gli addetti alle sale come richiesto | Competenze, Conoscenza e Competenza: Hai un occhio per i dettagli e il lavoro in modo organizzato e preciso anche in situazioni stressanti? Siamo alla ricerca di unire il nostro team di pulizia dinamico e altamente motivato per la prossima stagione invernale! Per questo compito impegnativo dovete avere:\n• Capacità di lavorare sotto pressione, timidezza e consapevolezza di altissima qualità\n• Modo di lavoro strutturato e organizzato\n• Grande interesse per il lavoro orientato al team\n• Buona conoscenza della lingua tedesca e inglese\n• Possessione di una patente di guida valida per la classe di veicolo B | Vantaggi:\n• Vivere e lavorare nel cuore delle Alpi Engadine\n• Una vasta gamma di opportunità creative\n• Piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali per i dipendenti in tutti gli hotel Kempinski\n• Alloggio personale nelle immediate vicinanze dell'hotel incl. lavanderia, sala fitness e una vasta gamma di pasti nel nostro ristorante personale Uso gratuito del centro diurno interno per badare ai bambini dei dipendenti. Servizio lavanderia, sala fitness, cucina e una vasta gamma di pasti nel nostro ristorante personale\n• Uso gratuito del centro diurno interno per occuparsi dei bambini dei dipendenti\n• Attività mensili dei dipendenti come corsi di sci, snowboard e sci di fondo, escursioni, serate spa e corsi di tedesco\n• Interno «Comitato Buono» per contribuire a plasmare tutte le questioni di benessere",
@@ -808,9 +812,9 @@
         "it": "addetto-alle-pulizie-della-casa-del-personale-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "staff-house-cleaner-f-m-d-534446",
         "de": "personal-reiniger-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "fr": "nettoyeur-de-la-maison-du-personnel-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        "fr": "staff-house-cleaner-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-07-03T22:11:57.967Z",
+      "crawledAt": "2026-07-04T11:15:36.269Z",
       "id": "grand-hotel-des-bains-kempinski-730dd5cf2312",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -829,22 +833,86 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-06-29T13:20:35.675Z",
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
+          "personal-reiniger-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
           "staff-house-cleaner-f-m-d-534446"
         ],
-        "de": [
-          "staff-house-cleaner-f-m-d-534446",
-          "personal-reiniger-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-        ],
         "fr": [
+          "nettoyeur-de-la-maison-du-personnel-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
           "staff-house-cleaner-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+        ],
+        "it": [
+          "staff-house-cleaner-f-m-d-534446"
         ]
       },
       "previousSlugs": [
-        "staff-house-cleaner-f-m-d-534446",
         "personal-reiniger-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "staff-house-cleaner-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ]
+        "staff-house-cleaner-f-m-d-534446",
+        "nettoyeur-de-la-maison-du-personnel-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "title": "Room Attendant (f/m/d)",
+      "slug": "room-attendant-f-m-d-537572",
+      "url": "https://kempinski.pinpointhq.com/en/postings/a6358d0a-5757-4d1a-be23-5f4b124f6005",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/a6358d0a-5757-4d1a-be23-5f4b124f6005",
+      "company": "Grand Hotel des Bains Kempinski St. Moritz",
+      "companyKey": "grand-hotel-des-bains-kempinski",
+      "companyDomain": "kempinski.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "department": "Rooms Division, Front Office & Guest Services",
+      "source": "kempinski-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-04",
+      "validThrough": "",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities:\n• Cleaning the guest rooms\n• Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors\n• Ensuring the maintenance and cleanliness of the equipment and the floor offices\n• Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have\n• Ability to work under pressure, tidiness and very high quality awareness\n• Structured and organised way of working\n• Great interest in team-oriented work\n• Good knowledge of German and English | We offer:\n• Live and work in the heart of the Engadine Alps\n• A wide range of creative opportunities\n• Pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels\n• Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant\n• Free use of the in-house childcare centre for employees' children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+      "titleByLocale": {
+        "fr": "Room Attendant (f/m/d)",
+        "en": "Room Attendant (f/m/d)",
+        "it": "Room Attendant (f/m/d)",
+        "de": "Room Attendant (f/m/d)"
+      },
+      "descriptionByLocale": {
+        "en": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities:\n• Cleaning the guest rooms\n• Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors\n• Ensuring the maintenance and cleanliness of the equipment and the floor offices\n• Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have\n• Ability to work under pressure, tidiness and very high quality awareness\n• Structured and organised way of working\n• Great interest in team-oriented work\n• Good knowledge of German and English | We offer:\n• Live and work in the heart of the Engadine Alps\n• A wide range of creative opportunities\n• Pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels\n• Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant\n• Free use of the in-house childcare centre for employees' children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "it": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities:\n• Cleaning the guest rooms\n• Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors\n• Ensuring the maintenance and cleanliness of the equipment and the floor offices\n• Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have\n• Ability to work under pressure, tidiness and very high quality awareness\n• Structured and organised way of working\n• Great interest in team-oriented work\n• Good knowledge of German and English | We offer:\n• Live and work in the heart of the Engadine Alps\n• A wide range of creative opportunities\n• Pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels\n• Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant\n• Free use of the in-house childcare centre for employees' children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "de": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities:\n• Cleaning the guest rooms\n• Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors\n• Ensuring the maintenance and cleanliness of the equipment and the floor offices\n• Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have\n• Ability to work under pressure, tidiness and very high quality awareness\n• Structured and organised way of working\n• Great interest in team-oriented work\n• Good knowledge of German and English | We offer:\n• Live and work in the heart of the Engadine Alps\n• A wide range of creative opportunities\n• Pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels\n• Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant\n• Free use of the in-house childcare centre for employees' children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "fr": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities:\n• Cleaning the guest rooms\n• Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors\n• Ensuring the maintenance and cleanliness of the equipment and the floor offices\n• Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have\n• Ability to work under pressure, tidiness and very high quality awareness\n• Structured and organised way of working\n• Great interest in team-oriented work\n• Good knowledge of German and English | We offer:\n• Live and work in the heart of the Engadine Alps\n• A wide range of creative opportunities\n• Pleasant working atmosphere in a young and dynamic team\n• International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels\n• Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant\n• Free use of the in-house childcare centre for employees' children\n• Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses\n• Internal ‘Feel Good Committee’ to help shape all welfare issues"
+      },
+      "slugByLocale": {
+        "it": "room-attendant-f-m-d-537572",
+        "en": "room-attendant-f-m-d-537572",
+        "de": "room-attendant-f-m-d-537572",
+        "fr": "room-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      },
+      "crawledAt": "2026-07-04T11:15:36.270Z",
+      "id": "grand-hotel-des-bains-kempinski-01ad278bee64",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Mezdi 27",
+      "postalCode": "7500",
+      "firstSeenAt": "2026-07-04T11:15:36.270Z"
     }
   ]
 }
