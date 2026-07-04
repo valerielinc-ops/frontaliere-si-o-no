@@ -132,6 +132,12 @@
          fetched, without contributing to LCP blocking. -->
     <link rel="preconnect" href="https://fundingchoicesmessages.google.com" crossorigin>
     <link rel="dns-prefetch" href="https://fundingchoicesmessages.google.com">
+    <!-- The Funding Choices consent dialog pulls Open Sans from fonts.gstatic.com;
+         the late font swap re-wraps the dialog text and counts as layout shift
+         (#3529). Warming the connection narrows the swap window. The site's own
+         fonts are self-hosted, so this only serves the CMP dialog. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
     <!-- Favicon (Calculator with CH/IT flags) -->
     <!-- ICO for Google Search & legacy browsers (most reliable for SERP favicon) -->

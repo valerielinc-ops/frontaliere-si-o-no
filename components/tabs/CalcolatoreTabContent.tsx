@@ -39,7 +39,14 @@ const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'
 import { AD_SLOTS } from '@/services/adsenseSlots';
 
 
-const LazyFallback = () => <SkeletonWeeklyFact />;
+/* CLS fix (#3529): the ResultsView chunk resolves >500ms after the toggle /
+   idle auto-calc, so its Suspense swap counts as layout shift. A 34px
+   fallback (the old LazyFallback) understated the real pane by ~2700px;
+   h-full + a tall min-height keeps the desktop grid row (and everything
+   below it) far more stable while the chunk loads. */
+const ResultsPaneFallback = () => (
+ <div aria-hidden="true" className="h-full min-h-[600px] rounded-2xl bg-surface-raised animate-pulse" />
+);
 
 export default function CalcolatoreTabContent() {
  const { calcolatoreSubTab } = useNavigation();
@@ -159,7 +166,7 @@ export default function CalcolatoreTabContent() {
  result={result}
  renderResultView={(focusArea, onProfileTagClick) =>
  result ? (
- <Suspense fallback={<LazyFallback />}>
+ <Suspense fallback={<ResultsPaneFallback />}>
  <ResultsView result={result} inputs={inputs} focusArea={focusArea ?? null} onProfileTagClick={onProfileTagClick} />
  </Suspense>
  ) : null
@@ -193,7 +200,7 @@ export default function CalcolatoreTabContent() {
  </div>
  <div className={`md:col-span-8 lg:col-span-8 xl:col-span-8 h-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
  {result && (
- <Suspense fallback={<LazyFallback />}>
+ <Suspense fallback={<ResultsPaneFallback />}>
  <ResultsView result={result} inputs={inputs} />
  </Suspense>
  )}
@@ -279,16 +286,16 @@ export default function CalcolatoreTabContent() {
  </SilentErrorBoundary>
  </div>
 
- {result && (
- <div className="mt-3">
- <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
+ {/* CLS fix (#3529): slots below stay in flow from first paint and only
+     their CONTENT is result-gated. The result now arrives via the idle
+     auto-calc (~1–2.5s, hooks/useSimulationState.ts) — mounting these
+     wrappers at that moment shifted everything below them. */}
+ <div className="mt-3 min-h-[34px]">
+ {result && <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>}
  </div>
- )}
- {result && (
- <div className="hidden md:block mt-6 w-full">
- <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
+ <div className="hidden md:block mt-6 w-full min-h-[34px]">
+ {result && <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>}
  </div>
- )}
  {/* AdSense — homepage mid-content display (reserveSpace prevents CLS when result appears) */}
  <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.HOMEPAGE_MID_DISPLAY.placeholderMinHeight}px` } as React.CSSProperties} className="mt-6 mb-4 min-h-[var(--ad-mh)] [contain:content]" />}>
  <AdSenseBanner
