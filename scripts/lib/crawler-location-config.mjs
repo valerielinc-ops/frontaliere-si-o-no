@@ -619,6 +619,11 @@ export const COMPANY_HQ = {
   // CHE-102.232.125) sharing this registered seat. NOT the same company as
   // 'spruengli' (Confiserie Sprüngli AG, Zürich) — unaffiliated, see issue #3337.
   'lindt-spruengli': { city: 'Kilchberg', canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
+  // AnswerConsulting SA HQ, Via Penate 4, 6850 Mendrisio TI — confirmed via
+  // the company's own site/careers page (answerconsulting.ch); no fallback
+  // needed. Small single-office ICT/OpenText ECM consultancy — Workable ATS
+  // account "answermodules" currently has 0 open postings.
+  'answerconsulting': { city: 'Mendrisio', canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
 };
 
 /**
