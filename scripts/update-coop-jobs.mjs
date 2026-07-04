@@ -43,7 +43,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, hasFullLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import {
   fetchCoopJsonLd,
@@ -540,6 +540,15 @@ async function postProcessCoopJobs() {
   // there is no shared mutable state between jobs here).
   function repairJobFromJsonLd(job, jsonLd) {
     let changed = false;
+    // Snapshot BEFORE any mutation below: gates the needsRetranslation flag
+    // further down (issue #3442). Coop's detail page is re-fetched every
+    // crawl cycle, so `descLang !== 'it'` is a near-permanent condition for
+    // German/French postings — flagging needsRetranslation unconditionally
+    // on every cycle bypasses the merge-time stability lock in
+    // dedicated-crawler-common.mjs (runBaseCrawler already ran before this
+    // post-processing step), forcing the AI pipeline to re-translate an
+    // already fully-translated title every run and churn slugByLocale.
+    const wasFullyLocalized = hasFullLocaleCoverage(job);
 
     // ── Location & company update from JSON-LD ──
     const ldResult = applyCoopJsonLdToJob(job, jsonLd);
@@ -617,7 +626,12 @@ async function postProcessCoopJobs() {
           // the guard correctly excludes it (translation backlog ≠ parser
           // failure) and the next localization pass fills IT. Jobs whose source
           // already IS Italian keep IT populated and pass the guard directly.
-          if (descLang !== 'it' || !String(job.descriptionByLocale?.it || '').trim()) {
+          // Guard (issue #3442): skip the flag entirely when the job already had
+          // full 4-locale coverage BEFORE this repair ran — descLang !== 'it' is
+          // near-permanent for German/French Coop postings, so without this guard
+          // an already-translated job gets re-flagged (and re-translated, with MT
+          // non-determinism churning slugByLocale) on every single re-crawl.
+          if (!wasFullyLocalized && (descLang !== 'it' || !String(job.descriptionByLocale?.it || '').trim())) {
             job.needsRetranslation = true;
           }
           changed = true;

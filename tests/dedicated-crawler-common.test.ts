@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
 
 describe('dedicated-crawler-common locale hardening', () => {
@@ -1113,5 +1113,43 @@ describe('mergePreserveLocaleData — cap-trim journaling (#3313/#3314)', () => 
     expect(merged.previousSlugs.length).toBe(20);
     const trims = getEvents().filter((e) => e.action === 'cap-trim');
     expect(trims.some((e) => e.source.includes('syncLegacyPreviousSlugs'))).toBe(true);
+  });
+});
+
+describe('hasFullLocaleCoverage — post-merge needsRetranslation guard (#3442)', () => {
+  // Dedicated crawlers that set `needsRetranslation = true` in their OWN
+  // post-processing step (after runDedicatedBaseCrawler's merge already ran)
+  // bypass the merge-time translation-stability lock entirely. Coop
+  // (repairJobFromJsonLd) and Lastminute (SR API enrichment) both used to
+  // unconditionally re-flag an already fully-translated job on every
+  // re-crawl, forcing the AI pipeline to re-translate the same source title
+  // and churn slugByLocale (and, downstream, previousSlugs) every cycle.
+  // hasFullLocaleCoverage() is the shared guard both call sites now check
+  // before setting the flag.
+  const fullJob = {
+    titleByLocale: { it: 'Venditore', en: 'Salesperson', de: 'Verkaufer', fr: 'Vendeur' },
+    slugByLocale: { it: 'venditore-x', en: 'salesperson-x', de: 'verkaufer-x', fr: 'vendeur-x' },
+    descriptionByLocale: {
+      it: 'x'.repeat(150), en: 'x'.repeat(150), de: 'x'.repeat(150), fr: 'x'.repeat(150),
+    },
+  };
+
+  it('returns true when title/slug/description are all present in every locale', () => {
+    expect(hasFullLocaleCoverage(fullJob)).toBe(true);
+  });
+
+  it('returns false when a locale description is missing (translation genuinely pending)', () => {
+    const partial = { ...fullJob, descriptionByLocale: { ...fullJob.descriptionByLocale, en: '' } };
+    expect(hasFullLocaleCoverage(partial)).toBe(false);
+  });
+
+  it('returns false when a locale slug is missing', () => {
+    const partial = { ...fullJob, slugByLocale: { ...fullJob.slugByLocale, fr: '' } };
+    expect(hasFullLocaleCoverage(partial)).toBe(false);
+  });
+
+  it('returns false for an empty/undefined job (never crashes)', () => {
+    expect(hasFullLocaleCoverage({})).toBe(false);
+    expect(hasFullLocaleCoverage(undefined)).toBe(false);
   });
 });
