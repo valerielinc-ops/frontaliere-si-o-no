@@ -248,16 +248,10 @@ export function parseMigrolinoDetail(html = '', url = '') {
   const employmentTypeRaw = normalizeSpace(jsonLd?.employmentType || '');
   const workHours = normalizeSpace(jsonLd?.workHours || '');
   // migrolino JSON-LD `workHours` is a workload RANGE (e.g. "80% - 100%"),
-  // not a single figure. `normalizeContract()` keys off the FIRST percentage
-  // it finds in the string, so feeding it the raw range would misclassify a
-  // "80% - 100%" role (full-time-eligible) as part-time by matching the
-  // range's lower bound. Feed it the range's upper bound instead — a job is
-  // only genuinely part-time when even its maximum workload stays below the
-  // full-time threshold.
-  const workHoursPercents = [...workHours.matchAll(/(\d{1,3})\s*%/g)].map((m) => Number(m[1]));
-  const maxWorkHoursPercent = workHoursPercents.length ? Math.max(...workHoursPercents) : NaN;
-  const workHoursForContract = Number.isFinite(maxWorkHoursPercent) ? `${maxWorkHoursPercent}%` : workHours;
-  const contract = normalizeContract(`${employmentTypeRaw} ${workHoursForContract}`, title, description);
+  // not a single figure. Since #3482 `normalizeContract()` is range-aware
+  // (classifies a range by its upper bound), so the raw value can be fed
+  // straight through — the old local max-percent workaround is redundant.
+  const contract = normalizeContract(`${employmentTypeRaw} ${workHours}`, title, description);
   const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
 
   const postedDate = normalizeSpace(jsonLd?.datePosted || '').slice(0, 10);
