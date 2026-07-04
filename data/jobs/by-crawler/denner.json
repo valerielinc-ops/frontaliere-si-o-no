@@ -1451,8 +1451,8 @@
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
         "de": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-        "en": "stv-branch-manager-in-denner-schaffhausen",
-        "fr": "directeur-de-succursale-stv-in-denner-schaffhausen"
+        "en": "stv-branch-manager-in-denner-ag-schaffhausen",
+        "fr": "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1512,10 +1512,18 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner"
+        ],
+        "en": [
+          "stv-branch-manager-in-denner-schaffhausen"
+        ],
+        "fr": [
+          "directeur-de-succursale-stv-in-denner-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-schaffhausen",
+        "directeur-de-succursale-stv-in-denner-schaffhausen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1538,8 +1546,8 @@
       "slugByLocale": {
         "it": "venditore-denner-ag-dubendorf",
         "de": "verkaufer-in-denner-ag-dubendorf",
-        "en": "seller-denner-dubendorf",
-        "fr": "vendeur-denner-dubendorf"
+        "en": "seller-denner-ag-dubendorf",
+        "fr": "vendeur-denner-ag-dubendorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1601,15 +1609,19 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-dubendorf"
+          "verkaufer-in-denner-dubendorf",
+          "seller-denner-dubendorf"
         ],
         "fr": [
-          "verkaufer-in-denner-dubendorf"
+          "verkaufer-in-denner-dubendorf",
+          "vendeur-denner-dubendorf"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-dubendorf"
+        "verkaufer-in-denner-dubendorf",
+        "seller-denner-dubendorf",
+        "vendeur-denner-dubendorf"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -1806,8 +1818,8 @@
       "slugByLocale": {
         "it": "venditore-con-salario-orario-denner-ag-binningen",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-binningen-xtkyuv",
-        "en": "seller-in-the-hourly-wage-denner-binningen",
-        "fr": "vendeur-dans-le-salaire-horaire-denner-binningen"
+        "en": "seller-in-the-hourly-wage-denner-ag-binningen",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-binningen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1867,10 +1879,18 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "seller-in-the-hourly-wage-denner-binningen"
+        ],
+        "fr": [
+          "vendeur-dans-le-salaire-horaire-denner-binningen"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "seller-in-the-hourly-wage-denner-binningen",
+        "vendeur-dans-le-salaire-horaire-denner-binningen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,

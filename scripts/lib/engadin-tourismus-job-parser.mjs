@@ -69,7 +69,13 @@ function parseListingPage(html = '') {
   for (const link of moreLinks) {
     const title = (link.getAttribute('title') || '').trim();
     let href = link.getAttribute('href') || '';
-    href = href.replace(/[?&]print=1/, '').replace(/[?&]cHash=[^&]*/, '').replace(/[?&]$/, '');
+    // Detail pages are canonical without any query string (verified via
+    // <link rel="canonical">); the site's TYPO3 cache has been observed
+    // appending stray/malformed query params (e.g. `print=1'a'a=0&cHash=...`)
+    // onto these links, so drop the query string entirely instead of trying
+    // to surgically strip known params — a partial strip can leave garbage
+    // glued onto the slug and produce a 404 (#3421).
+    href = href.split('?')[0];
     if (!href || !title) continue;
 
     const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
@@ -84,7 +90,9 @@ function parseListingPage(html = '') {
     for (const link of links) {
       let href = link.getAttribute('href') || '';
       if (!href.includes('ueber-uns/jobs/jobs/')) continue;
-      href = href.replace(/[?&]print=1/, '').replace(/[?&]cHash=[^&]*/, '').replace(/[?&]$/, '');
+      // See Strategy 1 above: drop the entire query string rather than
+      // surgically stripping known params (#3421).
+      href = href.split('?')[0];
 
       const title = normalizeSpace(link.textContent || '');
       if (!title || title.length < 5 || /mehr lesen/i.test(title)) continue;
