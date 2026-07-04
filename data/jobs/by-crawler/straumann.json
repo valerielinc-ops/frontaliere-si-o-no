@@ -1,6 +1,6 @@
 {
   "crawlerKey": "straumann",
-  "assembledAt": "2026-07-04T12:34:55.302Z",
+  "assembledAt": "2026-07-04T23:05:00.302Z",
   "jobs": [
     {
       "id": "straumann-551d2a777a02",
@@ -33,7 +33,7 @@
       "url": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:34:52.889Z",
+      "crawledAt": "2026-07-04T23:04:57.903Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://careers.straumann.com/global/en/job/P-100083/product-manufacturing-engineer-medical-devices-80-100-galvosurge",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:34:52.566Z",
+      "crawledAt": "2026-07-04T23:04:57.179Z",
       "addressLocality": "Berneck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -178,6 +178,7 @@
           "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:55:16.719Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -224,7 +225,7 @@
       "url": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:34:52.180Z",
+      "crawledAt": "2026-07-04T23:04:57.546Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -303,7 +304,7 @@
       "url": "https://careers.straumann.com/global/en/job/20937/senior-global-growth-lead-single-tooth-solutions-sdis-temporary",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:34:51.843Z",
+      "crawledAt": "2026-07-04T23:04:56.679Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -341,7 +342,8 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "straumann-53f1f679bfa5",
@@ -374,7 +376,7 @@
       "url": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:34:51.427Z",
+      "crawledAt": "2026-07-04T23:04:56.201Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -450,7 +452,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:34:50.987Z",
+      "crawledAt": "2026-07-04T23:04:55.744Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
