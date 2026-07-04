@@ -548,6 +548,16 @@ export const COMPANY_HQ = {
   // Aeschengraben 21, CH-4001 Basel (https://www.baloise.com/en/home/information/site-notice.html).
   'baloise': { city: 'Basel', canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
   'victorinox': { city: 'Ibach-Schwyz', canton: 'SZ', postalCode: '6438', addressRegion: 'SZ' },
+  // Fallback only — ETAVIS is a multi-canton electrical-installation group
+  // (ETAVIS AG, ETAVIS Grossenbacher, ETAVIS Elettro-Impianti SA, etc.);
+  // every job carries a real per-branch address from Softgarden JSON-LD, so
+  // this entry is only used on the rare row where the detail-page fetch
+  // fails. Zürich chosen as the group's largest hub (etavis.ch legal seat).
+  'etavis': { city: 'Zürich', canton: 'ZH', postalCode: '8050', addressRegion: 'ZH' },
+  // Hintermättlistrasse 3, 5506 Mägenwil (BRACK.CH HQ). Second real site:
+  // Alltron logistics center, Rossgassmoos 10, 6131 Willisau (LU) — handled
+  // directly in brack-alltron-job-parser.mjs since this registry is single-site.
+  'brack-alltron': { city: 'Mägenwil', canton: 'AG', postalCode: '5506', addressRegion: 'AG' },
   // Rektorat Volksschule Stadt Luzern, Winkelriedstrasse 12a, 6002 Luzern LU
   // (confirmed via stadtluzern.ch contact page). Most postings carry their
   // own school-building street/ZIP via the Prospective API; this is only the
@@ -690,6 +700,15 @@ export const COMPANY_HQ = {
   // AND cross-checked against Zefix (Swiss commercial register: legalSeat
   // "Laufen", UID CHE-439.050.235); no fallback needed.
   'ricola': { city: 'Laufen', canton: 'BL', postalCode: '4242', addressRegion: 'BL' },
+  // Bucher + Suter AG HQ, Lindenpark, Lindenhofstrasse 1, CH-3048 Worblaufen
+  // (Bern) BE — confirmed via the company's own imprint page
+  // (bucher-suter.com/imprint/, "Lindenhofstrasse 1, CH-3048 Worblaufen");
+  // no fallback needed.
+  'bucher-suter': { city: 'Bern', canton: 'BE', postalCode: '3048', addressRegion: 'BE' },
+  // GIM Architekten AG HQ, Altenbergstrasse 28, 3013 Bern — confirmed via
+  // jobs.ch company-profile Organization JSON-LD (both known company ids
+  // resolve to the same address) and gim.ch imprint/contact page.
+  'gim-architekten': { city: 'Bern', canton: 'BE', postalCode: '3013', addressRegion: 'BE' },
   // AnswerConsulting SA HQ, Via Penate 4, 6850 Mendrisio TI — confirmed via
   // the company's own site/careers page (answerconsulting.ch); no fallback
   // needed. Small single-office ICT/OpenText ECM consultancy — Workable ATS
