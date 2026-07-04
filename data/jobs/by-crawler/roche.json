@@ -82730,7 +82730,7 @@
       "slug": "marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "it": "marketing-tirocinante-roche-mexico-city",
-        "en": "marketing-intern-roche-mexico-city",
+        "en": "internal-marketing-roche-mexico-city",
         "de": "marketing-praktikant-roche-mexico-city",
         "fr": "marketing-intern-roche-ch"
       },
@@ -82773,14 +82773,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-intern-roche-ch-2",
-        "internal-marketing-roche-mexico-city"
+        "marketing-intern-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-intern-roche-ch-2"
         ],
         "en": [
-          "internal-marketing-roche-mexico-city"
+          "marketing-intern-roche-mexico-city"
         ],
         "de": [
           "marketing-intern-roche-ch-2"
@@ -92228,8 +92228,8 @@
       "slugByLocale": {
         "en": "internship-master-thesis-near-patient-care-development-m-f-d-roche-ch",
         "it": "internship-master-thesis-near-patient-care-development-m-f-d-roche-ch",
-        "de": "internship-master-thesis-near-patient-care-development-m-f-d-roche-ch",
-        "fr": "internship-master-thesis-near-patient-care-development-m-f-d-roche-ch"
+        "de": "praktikum-masterarbeit-near-patient-care-development-m-w-d-roche-mannheim",
+        "fr": "stage-et-these-de-maitrise-developpement-des-soins-a-proximite-des-patients-m-f-d-roche-mannheim"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -92572,10 +92572,10 @@
     },
     {
       "id": "roche-bd197e348d03",
-      "slug": "calibration-technician-roche-ch",
+      "slug": "tecnico-di-calibrazione-roche-indianapolis",
       "slugByLocale": {
         "en": "calibration-technician-roche-ch",
-        "it": "calibration-technician-roche-ch",
+        "it": "tecnico-di-calibrazione-roche-indianapolis",
         "de": "calibration-techniker-roche-indianapolis",
         "fr": "calibration-technicien-roche-indianapolis"
       },
@@ -92632,7 +92632,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-03T23:21:26.972Z"
+      "firstSeenAt": "2026-07-03T23:21:26.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "calibration-technician-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "calibration-technician-roche-ch"
+      ]
     },
     {
       "id": "roche-e05a1c2198a8",

@@ -196,12 +196,12 @@
     },
     {
       "id": "smg-swiss-marketplace-group-269bfab987b8",
-      "slug": "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich",
+      "slug": "account-manager-autoscout24-regione-svizzera-settentrionale-f-m-d-100-modello-di-lavoro-ibrido-zurigo-smg-swiss",
       "slugByLocale": {
         "de": "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich",
-        "it": "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich",
+        "it": "account-manager-autoscout24-regione-svizzera-settentrionale-f-m-d-100-modello-di-lavoro-ibrido-zurigo-smg-swiss",
         "en": "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich",
-        "fr": "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich"
+        "fr": "responsable-de-compte-autoscout24-region-nord-est-de-la-suisse-f-m-d-smg-swiss-marketplace-group-zurich"
       },
       "company": "SMG Swiss Marketplace Group",
       "companyKey": "smg-swiss-marketplace-group",
@@ -256,7 +256,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T23:27:59.013Z"
+      "firstSeenAt": "2026-07-03T23:27:59.013Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich"
+        ],
+        "fr": [
+          "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich"
+      ]
     },
     {
       "id": "smg-swiss-marketplace-group-be2a781ffe0f",
@@ -388,12 +399,12 @@
     },
     {
       "id": "smg-swiss-marketplace-group-4477f61b3a64",
-      "slug": "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace",
+      "slug": "account-manager-immobiliare-f-m-d-smg-swiss-marketplace-group-fribourg",
       "slugByLocale": {
         "fr": "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace",
-        "it": "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace",
-        "en": "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace",
-        "de": "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace"
+        "it": "account-manager-immobiliare-f-m-d-smg-swiss-marketplace-group-fribourg",
+        "en": "account-manager-real-estate-f-m-d-smg-swiss-marketplace-group-fribourg",
+        "de": "account-manager-immobilien-w-m-d-smg-swiss-marketplace-group-fribourg"
       },
       "company": "SMG Swiss Marketplace Group",
       "companyKey": "smg-swiss-marketplace-group",
@@ -448,16 +459,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-03T23:27:59.005Z"
+      "firstSeenAt": "2026-07-03T23:27:59.005Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace"
+        ],
+        "en": [
+          "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace"
+        ],
+        "de": [
+          "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie-smg-swiss-marketplace"
+      ]
     },
     {
       "id": "smg-swiss-marketplace-group-4b30c7282c4f",
-      "slug": "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich",
+      "slug": "account-manager-autoscout24-regione-svizzera-centrale-f-m-d-100-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace",
       "slugByLocale": {
         "de": "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich",
-        "it": "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich",
+        "it": "account-manager-autoscout24-regione-svizzera-centrale-f-m-d-100-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace",
         "en": "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich",
-        "fr": "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich"
+        "fr": "responsable-de-compte-autoscout24-region-suisse-centrale-f-m-d-smg-swiss-marketplace-group-zurich"
       },
       "company": "SMG Swiss Marketplace Group",
       "companyKey": "smg-swiss-marketplace-group",
@@ -512,7 +537,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-03T23:27:59.002Z"
+      "firstSeenAt": "2026-07-03T23:27:59.002Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich"
+        ],
+        "fr": [
+          "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich"
+      ]
     }
   ]
 }

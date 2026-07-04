@@ -158,12 +158,12 @@
     },
     {
       "id": "schindler-19b55441bbf4",
-      "slug": "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich",
+      "slug": "riparazioni-di-supporto-di-vendita-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
         "de": "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich",
-        "it": "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich",
-        "en": "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich",
-        "fr": "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich"
+        "it": "riparazioni-di-supporto-di-vendita-m-f-d-80-100-schindler-zurich",
+        "en": "sales-support-repairs-m-f-d-80-100-schindler-zurich",
+        "fr": "reparations-d-appui-aux-ventes-m-f-j-80-100-schindler-zurich"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -219,7 +219,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-03T23:07:10.042Z"
+      "firstSeenAt": "2026-07-03T23:07:10.042Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich"
+        ],
+        "en": [
+          "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich"
+        ],
+        "fr": [
+          "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufssupport-reparaturen-m-w-d-80-100-schindler-zurich"
+      ]
     },
     {
       "id": "schindler-304589c4c334",
@@ -286,12 +300,12 @@
     },
     {
       "id": "schindler-ab67fe3550af",
-      "slug": "head-employee-safety-m-w-d-80-100-schindler-ebikon",
+      "slug": "sicurezza-dei-dipendenti-della-testa-m-f-d-80-100-schindler-ebikon",
       "slugByLocale": {
         "de": "head-employee-safety-m-w-d-80-100-schindler-ebikon",
-        "it": "head-employee-safety-m-w-d-80-100-schindler-ebikon",
+        "it": "sicurezza-dei-dipendenti-della-testa-m-f-d-80-100-schindler-ebikon",
         "en": "head-employee-safety-m-w-d-80-100-schindler-ebikon",
-        "fr": "head-employee-safety-m-w-d-80-100-schindler-ebikon"
+        "fr": "securite-des-employes-m-f-d-80-100-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -347,14 +361,25 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-07-03T23:07:08.421Z"
+      "firstSeenAt": "2026-07-03T23:07:08.421Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-employee-safety-m-w-d-80-100-schindler-ebikon"
+        ],
+        "fr": [
+          "head-employee-safety-m-w-d-80-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "head-employee-safety-m-w-d-80-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-cda7f34fdf93",
-      "slug": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden",
+      "slug": "tecnico-di-servizio-m-f-d-nella-regione-di-lenzburg-80-100-schindler-oberentfelden",
       "slugByLocale": {
         "de": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden",
-        "it": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden",
+        "it": "tecnico-di-servizio-m-f-d-nella-regione-di-lenzburg-80-100-schindler-oberentfelden",
         "en": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden",
         "fr": "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden"
       },
@@ -412,16 +437,24 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-07-03T23:07:07.623Z"
+      "firstSeenAt": "2026-07-03T23:07:07.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-m-w-d-in-der-region-lenzburg-80-100-schindler-oberentfelden"
+      ]
     },
     {
       "id": "schindler-0a642a1511b0",
-      "slug": "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp",
+      "slug": "tecnico-di-servizio-a-oberwallis-m-f-d-80-100-schindler-visp",
       "slugByLocale": {
         "de": "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp",
-        "it": "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp",
+        "it": "tecnico-di-servizio-a-oberwallis-m-f-d-80-100-schindler-visp",
         "en": "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp",
-        "fr": "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp"
+        "fr": "technicien-en-oberwallis-m-f-d-80-100-schindler-visp"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -477,7 +510,18 @@
         }
       },
       "postalCode": "3930",
-      "firstSeenAt": "2026-07-03T23:07:06.830Z"
+      "firstSeenAt": "2026-07-03T23:07:06.830Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp"
+        ],
+        "fr": [
+          "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp"
+        ]
+      },
+      "previousSlugs": [
+        "service-techniker-in-im-oberwallis-m-w-d-80-100-schindler-visp"
+      ]
     },
     {
       "id": "schindler-9a46569d7838",
@@ -3011,9 +3055,9 @@
       "slug": "gestore-consenso-ai-cookie-schindler-locarno",
       "slugByLocale": {
         "it": "gestore-consenso-ai-cookie-schindler-locarno",
-        "en": "gestore-consenso-ai-cookie-schindler-locarno",
-        "de": "gestore-consenso-ai-cookie-schindler-locarno",
-        "fr": "gestore-consenso-ai-cookie-schindler-locarno"
+        "en": "manager-consent-to-cookies-schindler-locarno",
+        "de": "zustimmung-des-managers-zu-cookies-schindler-locarno",
+        "fr": "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -6326,8 +6370,8 @@
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-        "en": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
+        "en": "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
+        "fr": "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -6381,16 +6425,13 @@
           "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
           "manager-fur-cookie-einwilligungen-schindler-basel",
           "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+          "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
         ]
       },
       "previousSlugs": [
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-per-cookie-einwilligungen-schindler-bern-nycz98",
         "manager-per-cookie-einwilligungen-schindler-basel-8f2wpd",
         "manager-per-cookie-einwilligungen-schindler-bern-8f3fzf",
@@ -6408,7 +6449,8 @@
         "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
         "manager-fur-cookie-einwilligungen-schindler-basel",
         "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "gestionnaire-pour-les-consentements-de-cookies-schindler-oberentfelden"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,

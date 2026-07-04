@@ -86,8 +86,8 @@
       "slugByLocale": {
         "de": "fachperson-fur-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
         "it": "fachperson-per-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
-        "en": "fachperson-per-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
-        "fr": "fachperson-per-neurophysiologische-diagnostik-a-spital-emmental-burgdorf"
+        "en": "specialist-in-neurophysiological-diagnosis-a-spital-emmental-burgdorf",
+        "fr": "specialiste-en-diagnostic-neurophysiologique-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -164,8 +164,8 @@
       "slugByLocale": {
         "de": "lehrstellen-als-kauffrau-kaufmann-efz-a-spital-emmental-burgdorf",
         "it": "lehrstellen-come-kauffrau-kaufmann-cfc-a-spital-emmental-burgdorf",
-        "en": "lehrstellen-als-kauffrau-kaufmann-efz-a-spital-emmental-burgdorf",
-        "fr": "lehrstellen-als-kauffrau-kaufmann-efz-a-spital-emmental-burgdorf"
+        "en": "apprenticeships-as-a-merchant-merchant-efz-a-spital-emmental-burgdorf",
+        "fr": "apprentissage-en-tant-que-commercant-marchand-efz-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -216,6 +216,12 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstellen-als-kauffrau-kaufmann-efz-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "lehrstellen-als-kauffrau-kaufmann-efz-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "lehrstellen-als-kauffrau-kaufmann-efz-a-spital-emmental-burgdorf"
         ]
       },
