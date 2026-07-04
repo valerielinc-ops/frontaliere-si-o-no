@@ -43,6 +43,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
 import { decodeHtmlEntities } from './decode-html-entities.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 export const KOMAX_KEY = 'komax';
 export const KOMAX_COMPANY_NAME = 'Komax';
@@ -155,6 +156,28 @@ export function resolveAddress(city = '', postalCodeFromFeed = '') {
   };
 }
 
+/**
+ * Resolve the canton for a job, or signal (via null) that it should be
+ * skipped.
+ *
+ * isSwissLocation() filters on the feed's ", CH," country-code segment
+ * only — it is NOT restricted to Dierikon/Thun, so a real, non-empty city
+ * text that is neither Dierikon nor Thun (nor otherwise inferable) must
+ * never fabricate the Dierikon HQ canton (LU) for a job that isn't
+ * positively there (AGENTS.md Non-Negotiable #3, mirrors
+ * clariant-job-parser.mjs / swisslog-job-parser.mjs / debiopharm). Only
+ * default to HQ.canton when there's no real city text at all.
+ */
+export function resolveKomaxCanton(rawCity = '') {
+  const cityText = String(rawCity || '').trim();
+  if (/dierikon/i.test(cityText)) return 'LU';
+  if (/thun/i.test(cityText)) return 'BE';
+  const inferredCanton = inferAnyCanton(cityText);
+  if (inferredCanton) return inferredCanton;
+  if (cityText) return null;
+  return HQ.canton;
+}
+
 function detectCategory(title = '') {
   const t = normalize(title);
   if (/procurement|einkauf|supply chain|logistik|logistic/.test(t)) return 'Logistica';
@@ -205,7 +228,11 @@ export async function fetchAllKomaxGroupJobs() {
     if (!title || title.length < 3) continue;
     const { city: rawCity, postalCode: feedPostalCode } = parseLocation(listing.location);
     const address = resolveAddress(rawCity, feedPostalCode);
-    const canton = /dierikon/i.test(rawCity) ? 'LU' : /thun/i.test(rawCity) ? 'BE' : HQ.canton;
+    const canton = resolveKomaxCanton(rawCity);
+    if (canton === null) {
+      console.warn(` ⚠️ Komax: skipping unresolvable location "${rawCity}" (${title})`);
+      continue;
+    }
     const descriptionHtml = listing.descriptionHtml || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;

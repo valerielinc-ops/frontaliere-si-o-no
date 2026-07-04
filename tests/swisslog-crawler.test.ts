@@ -4,6 +4,7 @@ import {
   SWISSLOG_COMPANY_NAME,
   isSwisslogJob,
   isTrustedDomain,
+  resolveCanton,
 } from '../scripts/lib/swisslog-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -12,6 +13,30 @@ describe('Swisslog crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(SWISSLOG_KEY).toBe('swisslog');
     expect(SWISSLOG_COMPANY_NAME).toBe('Swisslog');
+  });
+
+  // ── resolveCanton (unresolved-canton skip guard — Switzerland-wide crawl, task-critical) ──
+  describe('resolveCanton', () => {
+    it('resolves the Buchs/Mägenwil HQ cities directly, bypassing generic inference', () => {
+      expect(resolveCanton('Buchs', '')).toBe('AG');
+      expect(resolveCanton('Mägenwil', '')).toBe('AG');
+    });
+
+    it('resolves a known Swiss city outside the HQ cantons via generic inference', () => {
+      expect(resolveCanton('Bern', '', 'Bern')).toBe('BE');
+    });
+
+    it('falls back to the Buchs HQ canton when no real city text was scraped at all', () => {
+      expect(resolveCanton('Buchs', '', '')).toBe('AG');
+    });
+
+    it('returns null (skip) when real city text is present but unresolvable — never fabricates the HQ canton', () => {
+      expect(resolveCanton('Nonexistentburg', '', 'Nonexistentburg')).toBeNull();
+    });
+
+    it('does NOT fabricate AG for the negative-control case (Bern, not AG)', () => {
+      expect(resolveCanton('Bern', '', 'Bern')).not.toBe('AG');
+    });
   });
 
   // ── isCompanyJob ──

@@ -196,6 +196,7 @@ export async function fetchAllBeekeeperJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
+      needsRetranslation: true,
       location,
       canton,
       url: publicUrl,
