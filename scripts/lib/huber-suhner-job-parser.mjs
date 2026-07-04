@@ -403,7 +403,7 @@ export async function fetchAllHuberSuhnerJobs() {
       postalCode,
       streetAddress,
       category: detectCategory(entry.title),
-      contract: detectContractDuration(contractText) === 'temporary' ? 'temporary' : 'full-time',
+      contract: detectEmploymentTypeFromWorkload(workload) === 'PART_TIME' ? 'part-time' : 'full-time',
       contractDuration: detectContractDuration(contractText),
       employmentType: detectEmploymentTypeFromWorkload(workload),
       experienceLevel: detectExperienceLevel(entry.title),

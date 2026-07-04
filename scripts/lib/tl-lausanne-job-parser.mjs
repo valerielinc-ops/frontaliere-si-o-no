@@ -88,6 +88,26 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
+/**
+ * Transit-operator category detector (tl is not a healthcare employer).
+ * Without this override, the shared factory's default `detectCategoryForSf`
+ * falls through to its catch-all `'Sanità / Ospedali'` for driver/mechanic/
+ * technician titles that don't match any of its healthcare keyword buckets
+ * — the same class of mislabeling SICPA's own `detectSicpaCategory` exists
+ * to avoid (see `sicpa-job-parser.mjs`).
+ */
+function detectTlLausanneCategory(title = '') {
+  const t = normalize(title);
+  if (/stage|stagiaire|apprenti|apprend|formaz|lernend/.test(t)) return 'Formazione';
+  if (/conducteur|conductrice|chauffeur|wattman|machiniste/.test(t)) return 'Guida / Conduzione';
+  if (/mécanicien|mecanicien|électricien|electricien|technicien de maintenance|maintenance/.test(t)) return 'Tecnica';
+  if (/ingénieur|ingenieur|engineer/.test(t)) return 'Ingegneria';
+  if (/informatiq|développeur|developpeur|software|it\b/.test(t)) return 'IT';
+  if (/vente|commercial|guichet|contrôleur|controleur/.test(t)) return 'Commerciale';
+  if (/rh\b|ressources humaines|comptab|administrat|secrétariat|secretariat/.test(t)) return 'Amministrazione';
+  return 'Trasporto pubblico urbano (TPL)';
+}
+
 /* ── Company Matchers (deliberately NOT reusing the factory's fuzzy
  *    brand-token matcher — see module docblock) ─────────────────────── */
 
@@ -156,6 +176,7 @@ const parser = createSuccessFactorsParser({
   defaultPostalCode: HQ.postalCode,
   defaultSourceLang: 'fr',
   sourceLabel: `${TL_LAUSANNE_COMPANY_NAME} Dedicated Parser (SuccessFactors CSB)`,
+  detectCategory: detectTlLausanneCategory,
 });
 
 /**
