@@ -74,6 +74,15 @@ interface InjectionTarget {
   readonly professionIds: readonly ProfessionId[];
 }
 
+/**
+ * Public accessor for the per-locale anchor label — reused by the
+ * frontaliere pillar (#3393) so profession link text can't drift between
+ * the links injector and the pillar grid (CLAUDE.md regola #6).
+ */
+export function getProfessionAnchorLabel(locale: ProfessionLocale, id: ProfessionId): string {
+  return ANCHOR_LABELS[locale][id];
+}
+
 const ANCHOR_LABELS: Record<ProfessionLocale, Record<ProfessionId, string>> = {
   it: {
     infermiere: 'Lavoro infermiere in Ticino',
@@ -86,6 +95,20 @@ const ANCHOR_LABELS: Record<ProfessionLocale, Record<ProfessionId, string>> = {
     cuoco: 'Lavoro cuoco in Ticino',
     cameriere: 'Lavoro cameriere in Ticino',
     elettricista: 'Lavoro elettricista in Ticino',
+    psicologo: 'Lavoro psicologo in Ticino',
+    fisioterapista: 'Lavoro fisioterapista in Ticino',
+    logopedista: 'Lavoro logopedista in Ticino',
+    farmacista: 'Lavoro farmacista in Ticino',
+    ostetrica: 'Lavoro ostetrica in Ticino',
+    'assistente-dentale': 'Lavoro assistente dentale in Ticino',
+    'tecnico-radiologia': 'Lavoro tecnico di radiologia in Ticino',
+    oss: 'Lavoro OSS in Ticino',
+    'ottico-optometrista': 'Lavoro ottico optometrista in Ticino',
+    contabile: 'Lavoro contabile in Ticino',
+    'assistente-sociale': 'Lavoro assistente sociale in Ticino',
+    macellaio: 'Lavoro macellaio in Ticino',
+    saldatore: 'Lavoro saldatore in Ticino',
+    architetto: 'Lavoro architetto in Ticino',
   },
   en: {
     infermiere: 'Nurse jobs in Ticino',
@@ -98,6 +121,20 @@ const ANCHOR_LABELS: Record<ProfessionLocale, Record<ProfessionId, string>> = {
     cuoco: 'Cook jobs in Ticino',
     cameriere: 'Waiter jobs in Ticino',
     elettricista: 'Electrician jobs in Ticino',
+    psicologo: 'Psychologist jobs in Ticino',
+    fisioterapista: 'Physiotherapist jobs in Ticino',
+    logopedista: 'Speech therapist jobs in Ticino',
+    farmacista: 'Pharmacist jobs in Ticino',
+    ostetrica: 'Midwife jobs in Ticino',
+    'assistente-dentale': 'Dental assistant jobs in Ticino',
+    'tecnico-radiologia': 'Radiographer jobs in Ticino',
+    oss: 'Healthcare assistant jobs in Ticino',
+    'ottico-optometrista': 'Optician-optometrist jobs in Ticino',
+    contabile: 'Accountant jobs in Ticino',
+    'assistente-sociale': 'Social worker jobs in Ticino',
+    macellaio: 'Butcher jobs in Ticino',
+    saldatore: 'Welder jobs in Ticino',
+    architetto: 'Architect jobs in Ticino',
   },
   de: {
     infermiere: 'Krankenpfleger-Jobs im Tessin',
@@ -110,6 +147,20 @@ const ANCHOR_LABELS: Record<ProfessionLocale, Record<ProfessionId, string>> = {
     cuoco: 'Koch-Jobs im Tessin',
     cameriere: 'Kellner-Jobs im Tessin',
     elettricista: 'Elektriker-Jobs im Tessin',
+    psicologo: 'Psychologen-Jobs im Tessin',
+    fisioterapista: 'Physiotherapeuten-Jobs im Tessin',
+    logopedista: 'Logopäden-Jobs im Tessin',
+    farmacista: 'Apotheker-Jobs im Tessin',
+    ostetrica: 'Hebammen-Jobs im Tessin',
+    'assistente-dentale': 'Dentalassistenz-Jobs im Tessin',
+    'tecnico-radiologia': 'Radiologiefach-Jobs im Tessin',
+    oss: 'FaGe-Jobs im Tessin',
+    'ottico-optometrista': 'Optiker-Optometristen-Jobs im Tessin',
+    contabile: 'Buchhalter-Jobs im Tessin',
+    'assistente-sociale': 'Sozialarbeiter-Jobs im Tessin',
+    macellaio: 'Metzger-Jobs im Tessin',
+    saldatore: 'Schweisser-Jobs im Tessin',
+    architetto: 'Architekten-Jobs im Tessin',
   },
   fr: {
     infermiere: 'Emploi infirmier au Tessin',
@@ -122,6 +173,20 @@ const ANCHOR_LABELS: Record<ProfessionLocale, Record<ProfessionId, string>> = {
     cuoco: 'Emploi cuisinier au Tessin',
     cameriere: 'Emploi serveur au Tessin',
     elettricista: 'Emploi électricien au Tessin',
+    psicologo: 'Emploi psychologue au Tessin',
+    fisioterapista: 'Emploi physiothérapeute au Tessin',
+    logopedista: 'Emploi logopédiste au Tessin',
+    farmacista: 'Emploi pharmacien au Tessin',
+    ostetrica: 'Emploi sage-femme au Tessin',
+    'assistente-dentale': 'Emploi assistant dentaire au Tessin',
+    'tecnico-radiologia': 'Emploi TRM au Tessin',
+    oss: 'Emploi ASSC au Tessin',
+    'ottico-optometrista': 'Emploi opticien-optométriste au Tessin',
+    contabile: 'Emploi comptable au Tessin',
+    'assistente-sociale': 'Emploi assistant social au Tessin',
+    macellaio: 'Emploi boucher au Tessin',
+    saldatore: 'Emploi soudeur au Tessin',
+    architetto: 'Emploi architecte au Tessin',
   },
 };
 

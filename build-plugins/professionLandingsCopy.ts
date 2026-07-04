@@ -225,6 +225,146 @@ const IT_PROFESSION_STRINGS: Record<ProfessionId, ProfessionStrings> = {
     typicalTasks:
       'Posa di canaline e cavi, realizzazione di quadri elettrici, test di isolamento, diagnostica guasti, messa in servizio di impianti domotici, compilazione della documentazione ESTI.',
   },
+  psicologo: {
+    role: 'psicologo',
+    descriptor: 'il lavoro da psicologo in Ticino',
+    roleSummary:
+      'In Svizzera il titolo di psicologo è protetto dalla LPPsi e la psicoterapia richiede un perfezionamento riconosciuto più l\'autorizzazione cantonale. In Ticino i principali datori sono l\'Organizzazione Sociopsichiatrica Cantonale, le cliniche private e gli studi associati.',
+    requisiti:
+      'Laurea magistrale in Psicologia (LM-51), riconoscimento PsyCo (Commissione delle professioni psicologiche, UFSP); per esercitare la psicoterapia servono il titolo federale di perfezionamento e l\'autorizzazione cantonale.',
+    typicalTasks:
+      'Colloqui clinici, diagnostica e testistica psicologica, psicoterapia sotto supervisione, relazioni per enti e assicurazioni, lavoro in équipe multidisciplinare, progetti di prevenzione.',
+  },
+  fisioterapista: {
+    role: 'fisioterapista',
+    descriptor: 'il lavoro da fisioterapista in Ticino',
+    roleSummary:
+      'La fisioterapia è una professione sanitaria regolamentata dalla LPSan: il diploma italiano va riconosciuto dalla CRS prima dell\'assunzione stabile. La domanda ticinese è trainata da EOC, cliniche riabilitative e studi privati convenzionati.',
+    requisiti:
+      'Laurea triennale in Fisioterapia (L/SNT2), riconoscimento CRS (Croce Rossa Svizzera), autorizzazione cantonale per l\'esercizio indipendente, registrazione NAREG; il tedesco amplia le opportunità fuori Ticino.',
+    typicalTasks:
+      'Valutazione funzionale, terapia manuale e strumentale, riabilitazione post-operatoria e sportiva, ginnastica terapeutica di gruppo, documentazione clinica, coordinamento con medici prescrittori.',
+  },
+  logopedista: {
+    role: 'logopedista',
+    descriptor: 'il lavoro da logopedista in Ticino',
+    roleSummary:
+      'In Svizzera la logopedia si esercita in ambito scolastico e clinico; il riconoscimento dei diplomi esteri passa dalla CDPE/EDK. L\'italiano madrelingua è un vantaggio concreto nei servizi scolastici e nei reparti di neuroriabilitazione ticinesi.',
+    requisiti:
+      'Laurea in Logopedia (L/SNT2), riconoscimento CDPE/EDK del diploma estero, esperienza pediatrica apprezzata per i servizi scolastici, conoscenza dei percorsi cantonali di sostegno.',
+    typicalTasks:
+      'Valutazione dei disturbi del linguaggio e della deglutizione, terapia individuale a bambini e adulti, consulenza a docenti e famiglie, documentazione, collaborazione con ORL e servizi scolastici.',
+  },
+  farmacista: {
+    role: 'farmacista',
+    descriptor: 'il lavoro da farmacista in Ticino',
+    roleSummary:
+      'Il farmacista è una professione medica universitaria secondo la LPMed: il diploma va riconosciuto dalla MEBEKO. In Ticino si lavora in farmacia pubblica, farmacia ospedaliera EOC e industria; la responsabilità di una farmacia richiede il diploma federale riconosciuto.',
+    requisiti:
+      'Laurea magistrale in Farmacia o CTF, riconoscimento MEBEKO, iscrizione al registro delle professioni mediche (MedReg); per la gerenza serve inoltre l\'autorizzazione cantonale.',
+    typicalTasks:
+      'Validazione e dispensazione delle ricette, consulenza al paziente, preparazioni galeniche, gestione di scorte e stupefacenti, vaccinazioni in farmacia, farmacovigilanza.',
+  },
+  ostetrica: {
+    role: 'ostetrica',
+    descriptor: 'il lavoro da ostetrica in Ticino',
+    roleSummary:
+      'L\'ostetricia rientra nella procedura armonizzata della direttiva UE 2005/36/CE: il riconoscimento CRS è tra i più rapidi delle professioni sanitarie. In Ticino i punti nascita EOC concentrano la domanda, con reperibilità e turni notturni retribuiti secondo CCL.',
+    requisiti:
+      'Laurea in Ostetricia (L/SNT1), riconoscimento CRS con procedura armonizzata UE, registrazione NAREG, autorizzazione cantonale per la libera professione.',
+    typicalTasks:
+      'Assistenza a gravidanza, parto e puerperio, monitoraggio CTG, sostegno all\'allattamento, corsi preparto, documentazione clinica, reperibilità in sala parto.',
+  },
+  'assistente-dentale': {
+    role: 'assistente dentale',
+    descriptor: 'il lavoro da assistente dentale in Ticino',
+    roleSummary:
+      'La professione non è regolamentata a livello federale: gli studi ticinesi assumono anche con qualifica italiana ASO, mentre il riconoscimento SEFRI del titolo AFC resta facoltativo ma apprezzato. Le raccomandazioni salariali SSO fanno da riferimento di settore.',
+    requisiti:
+      'Qualifica di assistente alla poltrona (ASO) o equivalente, radioprotezione secondo le norme svizzere per le radiografie endorali, riconoscimento SEFRI facoltativo del titolo.',
+    typicalTasks:
+      'Assistenza alla poltrona a quattro mani, preparazione e sterilizzazione dello strumentario, radiografie endorali, gestione agenda e richiami, amministrazione e fatturazione, igiene dello studio.',
+  },
+  'tecnico-radiologia': {
+    role: 'tecnico di radiologia medica',
+    descriptor: 'il lavoro da tecnico di radiologia (TRM) in Ticino',
+    roleSummary:
+      'Il TRM è una professione sanitaria regolamentata: il diploma italiano va riconosciuto dalla CRS e la radioprotezione segue l\'ORaP svizzera. EOC e cliniche private ticinesi assumono su convenzionale, TAC, risonanza e radioterapia.',
+    requisiti:
+      'Laurea in Tecniche di Radiologia Medica per Immagini e Radioterapia (L/SNT3), riconoscimento CRS, formazione in radioprotezione secondo ORaP, registrazione NAREG.',
+    typicalTasks:
+      'Esami radiologici convenzionali, TAC e risonanza magnetica, trattamenti di radioterapia, gestione delle dosi e radioprotezione del paziente, controllo qualità delle apparecchiature.',
+  },
+  oss: {
+    role: 'operatore socio sanitario',
+    descriptor: 'il lavoro da OSS in Ticino',
+    roleSummary:
+      'L\'equivalente svizzero dell\'OSS è l\'operatore sociosanitario AFC (FaGe nella Svizzera tedesca); il riconoscimento del titolo italiano passa dalla CRS. Case per anziani, EOC e spitex ticinesi assumono con continuità, con salari regolati da CCL EOC e ROCA.',
+    requisiti:
+      'Qualifica OSS italiana (corso ≥1000 ore), riconoscimento CRS verso l\'AFC di operatore sociosanitario; per molte case per anziani basta il titolo italiano con esperienza documentata.',
+    typicalTasks:
+      'Cure di base e igiene, mobilizzazione, rilevazione dei parametri vitali, supporto nelle attività quotidiane, documentazione delle cure, collaborazione con il personale infermieristico.',
+  },
+  'ottico-optometrista': {
+    role: 'ottico optometrista',
+    descriptor: 'il lavoro da ottico e optometrista in Ticino',
+    roleSummary:
+      'L\'optometrista è professione sanitaria LPSan (riconoscimento CRS), mentre l\'ottico AFC passa dal riconoscimento SEFRI. In Ticino assumono le catene (Fielmann, Visilab, McOptic) e le ottiche indipendenti; la refrazione autonoma richiede il titolo di optometrista riconosciuto.',
+    requisiti:
+      'Diploma di ottico o laurea in Ottica e Optometria; riconoscimento CRS per l\'optometrista (LPSan) o SEFRI per l\'ottico AFC; italiano indispensabile, tedesco utile nelle catene.',
+    typicalTasks:
+      'Refrazione ed esame visivo, adattamento di lenti a contatto, consulenza su montature e lenti, vendita assistita, piccole riparazioni e manutenzione, gestione dell\'officina.',
+  },
+  contabile: {
+    role: 'contabile',
+    descriptor: 'il lavoro da contabile in Ticino',
+    roleSummary:
+      'La contabilità non è una professione regolamentata: il diploma italiano di ragioneria o la laurea in economia sono spendibili subito. Fiduciarie, multinazionali e PMI ticinesi cercano profili con IVA svizzera, salari e Swiss GAAP RPC.',
+    requisiti:
+      'Diploma di ragioneria o laurea in economia; conoscenza di IVA svizzera, certificato di salario e assicurazioni sociali (AVS/LPP); l\'attestato federale di specialista in finanza e contabilità è il titolo di riferimento svizzero.',
+    typicalTasks:
+      'Contabilità generale e clienti/fornitori, chiusure mensili e annuali, dichiarazioni IVA, gestione salari e assicurazioni sociali, riconciliazioni bancarie, reporting alla direzione.',
+  },
+  'assistente-sociale': {
+    role: 'assistente sociale',
+    descriptor: 'il lavoro da assistente sociale in Ticino',
+    roleSummary:
+      'Il lavoro sociale in Svizzera non è regolamentato a livello federale: il riconoscimento SEFRI del titolo SUP è facoltativo ma spesso richiesto dagli enti pubblici. In Ticino assumono servizi sociali comunali e cantonali, istituti e fondazioni del settore socio-educativo.',
+    requisiti:
+      'Laurea in Servizio Sociale (L-39/LM-87), riconoscimento SEFRI facoltativo del titolo SUP, conoscenza della LAS e della rete dei servizi ticinesi apprezzata.',
+    typicalTasks:
+      'Presa a carico di utenti e famiglie, valutazioni sociali, progetti d\'intervento, coordinamento con servizi cantonali e comunali, gestione di curatele, documentazione.',
+  },
+  macellaio: {
+    role: 'macellaio',
+    descriptor: 'il lavoro da macellaio in Ticino',
+    roleSummary:
+      'La grande distribuzione (Coop, Migros) e l\'industria della carne assumono macellai con costanza; il CCL per l\'industria svizzera della carne ha obbligatorietà generale e fissa i minimi salariali. Il riconoscimento SEFRI verso l\'AFC di macellaio-salumiere è facoltativo.',
+    requisiti:
+      'Qualifica IeFP di settore o esperienza equivalente in macelleria o industria della carne, igiene HACCP secondo la legislazione svizzera sulle derrate alimentari, riconoscimento SEFRI facoltativo.',
+    typicalTasks:
+      'Disosso e sezionamento, preparazione del banco, produzione di salumeria, confezionamento, rispetto della catena del freddo e HACCP, consulenza alla clientela.',
+  },
+  saldatore: {
+    role: 'saldatore',
+    descriptor: 'il lavoro da saldatore in Ticino',
+    roleSummary:
+      'La saldatura non richiede riconoscimenti di titolo: contano le certificazioni EN ISO 9606 in corso di validità, richieste da officine e carpenterie per ogni procedimento. I salari seguono i CCL dell\'industria MEM e della metalcostruzione.',
+    requisiti:
+      'Certificazioni di saldatura EN ISO 9606 valide (TIG/MIG/MAG/elettrodo), lettura del disegno tecnico, esperienza su acciaio, inox o alluminio; nessun riconoscimento obbligatorio del titolo.',
+    typicalTasks:
+      'Saldatura TIG/MIG/MAG su acciaio, inox e alluminio, preparazione dei giunti, controllo qualità visivo e dimensionale, manutenzione degli impianti, lavoro su commessa in officina o in cantiere.',
+  },
+  architetto: {
+    role: 'architetto',
+    descriptor: 'il lavoro da architetto in Ticino',
+    roleSummary:
+      'Per firmare progetti in Ticino serve l\'iscrizione all\'OTIA (o al registro REG A/B): è il passaggio chiave per i frontalieri del settore. Gli studi ticinesi e i general contractor cercano profili con esperienza di direzione lavori e norme SIA.',
+    requisiti:
+      'Laurea magistrale in Architettura con abilitazione, iscrizione OTIA per l\'esercizio in Ticino o registro REG, conoscenza delle norme SIA e delle procedure edilizie cantonali.',
+    typicalTasks:
+      'Progettazione preliminare e definitiva, domande di costruzione, direzione lavori, computi e capitolati secondo SIA, coordinamento degli specialisti, rilievi e sopralluoghi.',
+  },
 };
 
 // Minimal profession strings for non-IT locales — shorter roleSummary/task
@@ -330,6 +470,146 @@ const EN_PROFESSION_STRINGS: Record<ProfessionId, ProfessionStrings> = {
     typicalTasks:
       'Cable-tray and cable laying, switchboard assembly, insulation testing, fault diagnostics, smart-home commissioning, ESTI documentation compilation.',
   },
+  psicologo: {
+    role: 'psychologist',
+    descriptor: 'psychologist roles in Ticino',
+    roleSummary:
+      'The psychologist title is protected under Swiss PsyA law; psychotherapy additionally requires a recognised postgraduate title plus cantonal authorisation. Main Ticino employers: cantonal psychiatry (OSC), private clinics and group practices.',
+    requisiti:
+      'Master\'s degree in Psychology, PsyCo recognition (Federal Psychology Professions Commission); psychotherapy practice requires the federal postgraduate title and cantonal licence.',
+    typicalTasks:
+      'Clinical interviews, psychological assessment and testing, supervised psychotherapy, reports for agencies and insurers, multidisciplinary teamwork, prevention projects.',
+  },
+  fisioterapista: {
+    role: 'physiotherapist',
+    descriptor: 'physiotherapist roles in Ticino',
+    roleSummary:
+      'Physiotherapy is a HealthPA-regulated profession: foreign diplomas need Swiss Red Cross (SRC) recognition before permanent hiring. Demand is driven by EOC hospitals, rehab clinics and private practices.',
+    requisiti:
+      'Physiotherapy degree, SRC recognition, cantonal authorisation for independent practice, NAREG registration; German widens options outside Ticino.',
+    typicalTasks:
+      'Functional assessment, manual and instrumental therapy, post-operative and sports rehabilitation, therapeutic group exercise, clinical documentation, coordination with prescribing physicians.',
+  },
+  logopedista: {
+    role: 'speech therapist',
+    descriptor: 'speech therapist roles in Ticino',
+    roleSummary:
+      'Speech therapy is practised in school and clinical settings; foreign diploma recognition goes through the EDK. Native Italian is a real advantage in Ticino school services and neuro-rehabilitation wards.',
+    requisiti:
+      'Speech therapy degree, EDK recognition of the foreign diploma, paediatric experience valued for school services.',
+    typicalTasks:
+      'Assessment of language and swallowing disorders, individual therapy for children and adults, counselling for teachers and families, documentation, collaboration with ENT and school services.',
+  },
+  farmacista: {
+    role: 'pharmacist',
+    descriptor: 'pharmacist roles in Ticino',
+    roleSummary:
+      'Pharmacist is a university medical profession under MedPA: diplomas are recognised by MEBEKO. Work spans retail pharmacies, EOC hospital pharmacy and industry; managing a pharmacy requires the recognised federal diploma.',
+    requisiti:
+      'Master\'s degree in Pharmacy, MEBEKO recognition, MedReg registration; pharmacy management additionally requires cantonal authorisation.',
+    typicalTasks:
+      'Prescription validation and dispensing, patient counselling, galenic preparations, stock and narcotics management, pharmacy vaccinations, pharmacovigilance.',
+  },
+  ostetrica: {
+    role: 'midwife',
+    descriptor: 'midwife roles in Ticino',
+    roleSummary:
+      'Midwifery falls under the harmonised EU 2005/36/EC procedure: SRC recognition is among the fastest for health professions. EOC birth centres concentrate demand, with on-call duty paid per collective agreement.',
+    requisiti:
+      'Midwifery degree, SRC recognition via the harmonised EU procedure, NAREG registration, cantonal authorisation for independent practice.',
+    typicalTasks:
+      'Care through pregnancy, birth and postpartum, CTG monitoring, breastfeeding support, antenatal classes, clinical documentation, delivery-room on-call shifts.',
+  },
+  'assistente-dentale': {
+    role: 'dental assistant',
+    descriptor: 'dental assistant roles in Ticino',
+    roleSummary:
+      'The profession is not federally regulated: Ticino practices also hire with foreign qualifications, while optional SEFRI recognition of the AFC title is appreciated. SSO salary recommendations set the sector benchmark.',
+    requisiti:
+      'Dental assistant qualification, radiation protection per Swiss rules for intraoral X-rays, optional SEFRI title recognition.',
+    typicalTasks:
+      'Four-handed chairside assistance, instrument preparation and sterilisation, intraoral X-rays, appointment and recall management, administration and billing, practice hygiene.',
+  },
+  'tecnico-radiologia': {
+    role: 'radiographer',
+    descriptor: 'radiographer (TRM) roles in Ticino',
+    roleSummary:
+      'The radiographer is a regulated health profession: foreign diplomas need SRC recognition and radiation protection follows the Swiss RPO. EOC and private clinics hire across conventional imaging, CT, MRI and radiotherapy.',
+    requisiti:
+      'Medical radiology technology degree, SRC recognition, radiation-protection training per Swiss RPO, NAREG registration.',
+    typicalTasks:
+      'Conventional radiology exams, CT and MRI, radiotherapy treatments, dose management and patient radiation protection, equipment quality control.',
+  },
+  oss: {
+    role: 'healthcare assistant',
+    descriptor: 'healthcare assistant (FaGe/OSS) roles in Ticino',
+    roleSummary:
+      'The Swiss equivalent is the healthcare assistant AFC (FaGe): foreign title recognition goes through the SRC. Nursing homes, EOC and Spitex hire steadily, with pay set by EOC and ROCA collective agreements.',
+    requisiti:
+      'Healthcare assistant qualification (≥1000 hours), SRC recognition toward the Swiss AFC; many nursing homes accept the foreign title with documented experience.',
+    typicalTasks:
+      'Basic care and hygiene, mobilisation, vital-signs monitoring, support with daily activities, care documentation, collaboration with nursing staff.',
+  },
+  'ottico-optometrista': {
+    role: 'optician-optometrist',
+    descriptor: 'optician and optometrist roles in Ticino',
+    roleSummary:
+      'The optometrist is a HealthPA profession (SRC recognition), while the optician AFC goes through SEFRI. Chains (Fielmann, Visilab, McOptic) and independent shops hire; autonomous refraction requires the recognised optometrist title.',
+    requisiti:
+      'Optician diploma or optometry degree; SRC recognition for optometrists or SEFRI for opticians; Italian essential, German useful in chains.',
+    typicalTasks:
+      'Refraction and eye exams, contact-lens fitting, frame and lens consulting, assisted sales, small repairs and maintenance, workshop management.',
+  },
+  contabile: {
+    role: 'accountant',
+    descriptor: 'accountant roles in Ticino',
+    roleSummary:
+      'Accounting is not a regulated profession: foreign diplomas are usable immediately. Fiduciaries, multinationals and Ticino SMEs look for Swiss VAT, payroll and Swiss GAAP RPC experience.',
+    requisiti:
+      'Accounting diploma or economics degree; Swiss VAT, salary certificates and social insurance (AVS/LPP) knowledge; the federal specialist diploma in finance and accounting is the Swiss reference title.',
+    typicalTasks:
+      'General and AR/AP accounting, monthly and annual closings, VAT returns, payroll and social insurance, bank reconciliations, management reporting.',
+  },
+  'assistente-sociale': {
+    role: 'social worker',
+    descriptor: 'social worker roles in Ticino',
+    roleSummary:
+      'Social work is not federally regulated: optional SEFRI recognition of the UAS title is often requested by public bodies. Municipal and cantonal social services, institutes and foundations hire in Ticino.',
+    requisiti:
+      'Social work degree, optional SEFRI recognition of the UAS title, knowledge of the Ticino service network valued.',
+    typicalTasks:
+      'Case management for clients and families, social assessments, intervention plans, coordination with cantonal and municipal services, guardianships, documentation.',
+  },
+  macellaio: {
+    role: 'butcher',
+    descriptor: 'butcher roles in Ticino',
+    roleSummary:
+      'Large retail (Coop, Migros) and the meat industry hire butchers steadily; the Swiss meat-industry collective agreement is generally binding and sets minimum wages. SEFRI recognition toward the butcher AFC is optional.',
+    requisiti:
+      'Vocational qualification or equivalent butchery/meat-industry experience, HACCP hygiene per Swiss food law, optional SEFRI recognition.',
+    typicalTasks:
+      'Deboning and cutting, counter preparation, charcuterie production, packaging, cold-chain and HACCP compliance, customer advice.',
+  },
+  saldatore: {
+    role: 'welder',
+    descriptor: 'welder roles in Ticino',
+    roleSummary:
+      'Welding requires no title recognition: valid EN ISO 9606 certifications per process are what workshops and steel-construction firms ask for. Pay follows the MEM-industry and metal-construction collective agreements.',
+    requisiti:
+      'Valid EN ISO 9606 welding certifications (TIG/MIG/MAG/electrode), technical-drawing literacy, experience on steel, stainless or aluminium.',
+    typicalTasks:
+      'TIG/MIG/MAG welding on steel, stainless and aluminium, joint preparation, visual and dimensional quality control, plant maintenance, job-order work in workshop or on site.',
+  },
+  architetto: {
+    role: 'architect',
+    descriptor: 'architect roles in Ticino',
+    roleSummary:
+      'Signing projects in Ticino requires OTIA registration (or REG A/B): the key step for cross-border professionals. Ticino firms and general contractors seek site-management experience and SIA standards.',
+    requisiti:
+      'Master\'s degree in Architecture with professional qualification, OTIA registration for Ticino practice or REG registry, knowledge of SIA standards and cantonal building procedures.',
+    typicalTasks:
+      'Preliminary and final design, building permit applications, site management, SIA bills of quantities, specialist coordination, surveys and site visits.',
+  },
 };
 
 const DE_PROFESSION_STRINGS: Record<ProfessionId, ProfessionStrings> = {
@@ -433,6 +713,146 @@ const DE_PROFESSION_STRINGS: Record<ProfessionId, ProfessionStrings> = {
     typicalTasks:
       'Kabelkanal- und Kabelverlegung, Schaltschrankbau, Isolationsprüfung, Fehlerdiagnose, Inbetriebnahme von Smart-Home-Anlagen, ESTI-Dokumentation.',
   },
+  psicologo: {
+    role: 'Psychologe',
+    descriptor: 'Psychologen-Stellen im Tessin',
+    roleSummary:
+      'Der Psychologentitel ist durch das PsyG geschützt; Psychotherapie erfordert zusätzlich einen anerkannten Weiterbildungstitel und die kantonale Bewilligung. Hauptarbeitgeber im Tessin: kantonale Psychiatrie (OSC), Privatkliniken und Gemeinschaftspraxen.',
+    requisiti:
+      'Master in Psychologie, PsyKo-Anerkennung (Psychologieberufekommission); für Psychotherapie eidgenössischer Weiterbildungstitel plus kantonale Berufsausübungsbewilligung.',
+    typicalTasks:
+      'Klinische Gespräche, Diagnostik und Testpsychologie, Psychotherapie unter Supervision, Berichte für Behörden und Versicherer, interdisziplinäre Teamarbeit, Präventionsprojekte.',
+  },
+  fisioterapista: {
+    role: 'Physiotherapeut',
+    descriptor: 'Physiotherapeuten-Stellen im Tessin',
+    roleSummary:
+      'Physiotherapie ist ein GesBG-regulierter Beruf: ausländische Diplome brauchen die SRK-Anerkennung vor der Festanstellung. Die Nachfrage tragen EOC-Spitäler, Reha-Kliniken und Privatpraxen.',
+    requisiti:
+      'Physiotherapie-Abschluss, SRK-Anerkennung, kantonale Bewilligung für selbständige Tätigkeit, NAREG-Registrierung; Deutsch erweitert die Optionen ausserhalb des Tessins.',
+    typicalTasks:
+      'Funktionsdiagnostik, manuelle und apparative Therapie, postoperative und Sport-Rehabilitation, therapeutische Gruppengymnastik, klinische Dokumentation, Koordination mit verordnenden Ärzten.',
+  },
+  logopedista: {
+    role: 'Logopäde',
+    descriptor: 'Logopäden-Stellen im Tessin',
+    roleSummary:
+      'Logopädie wird im Schul- und Klinikbereich ausgeübt; die Anerkennung ausländischer Diplome läuft über die EDK. Italienisch als Muttersprache ist in Tessiner Schuldiensten und Neuroreha-Abteilungen ein echter Vorteil.',
+    requisiti:
+      'Logopädie-Abschluss, EDK-Anerkennung des ausländischen Diploms, pädiatrische Erfahrung für Schuldienste geschätzt.',
+    typicalTasks:
+      'Abklärung von Sprach- und Schluckstörungen, Einzeltherapie für Kinder und Erwachsene, Beratung von Lehrpersonen und Familien, Dokumentation, Zusammenarbeit mit HNO und Schuldiensten.',
+  },
+  farmacista: {
+    role: 'Apotheker',
+    descriptor: 'Apotheker-Stellen im Tessin',
+    roleSummary:
+      'Apotheker ist ein universitärer Medizinalberuf nach MedBG: Diplome anerkennt die MEBEKO. Gearbeitet wird in öffentlichen Apotheken, der EOC-Spitalpharmazie und der Industrie; die Leitung einer Apotheke erfordert das anerkannte eidgenössische Diplom.',
+    requisiti:
+      'Master in Pharmazie, MEBEKO-Anerkennung, MedReg-Registrierung; für die Geschäftsführung zusätzlich kantonale Bewilligung.',
+    typicalTasks:
+      'Rezeptvalidierung und -abgabe, Patientenberatung, galenische Herstellungen, Lager- und Betäubungsmittelverwaltung, Impfungen in der Apotheke, Pharmakovigilanz.',
+  },
+  ostetrica: {
+    role: 'Hebamme',
+    descriptor: 'Hebammen-Stellen im Tessin',
+    roleSummary:
+      'Das Hebammenwesen fällt unter das harmonisierte Verfahren der EU-Richtlinie 2005/36/EG: die SRK-Anerkennung gehört zu den schnellsten der Gesundheitsberufe. Die EOC-Geburtenabteilungen bündeln die Nachfrage, Pikettdienst wird nach GAV vergütet.',
+    requisiti:
+      'Hebammen-Abschluss, SRK-Anerkennung im harmonisierten EU-Verfahren, NAREG-Registrierung, kantonale Bewilligung für freiberufliche Tätigkeit.',
+    typicalTasks:
+      'Begleitung von Schwangerschaft, Geburt und Wochenbett, CTG-Überwachung, Stillberatung, Geburtsvorbereitungskurse, klinische Dokumentation, Pikett im Gebärsaal.',
+  },
+  'assistente-dentale': {
+    role: 'Dentalassistent',
+    descriptor: 'Dentalassistenz-Stellen im Tessin',
+    roleSummary:
+      'Der Beruf ist eidgenössisch nicht reglementiert: Tessiner Praxen stellen auch mit ausländischer Qualifikation ein; die freiwillige SEFRI-Anerkennung des EFZ-Titels wird geschätzt. Die SSO-Lohnempfehlungen sind der Branchenmassstab.',
+    requisiti:
+      'Dentalassistenz-Qualifikation, Strahlenschutz nach Schweizer Vorgaben für intraorale Röntgenaufnahmen, freiwillige SEFRI-Titelanerkennung.',
+    typicalTasks:
+      'Assistenz am Behandlungsstuhl, Instrumentenaufbereitung und Sterilisation, intraorale Röntgenbilder, Termin- und Recall-Verwaltung, Administration und Abrechnung, Praxishygiene.',
+  },
+  'tecnico-radiologia': {
+    role: 'Radiologiefachmann',
+    descriptor: 'Radiologiefach-Stellen (MTR) im Tessin',
+    roleSummary:
+      'Die Radiologiefachperson ist ein reglementierter Gesundheitsberuf: ausländische Diplome brauchen die SRK-Anerkennung, der Strahlenschutz folgt der StSV. EOC und Privatkliniken stellen für konventionelles Röntgen, CT, MRI und Radiotherapie ein.',
+    requisiti:
+      'Abschluss in medizinisch-technischer Radiologie, SRK-Anerkennung, Strahlenschutzausbildung nach StSV, NAREG-Registrierung.',
+    typicalTasks:
+      'Konventionelle Röntgenuntersuchungen, CT und MRI, Radiotherapie-Behandlungen, Dosismanagement und Patientenstrahlenschutz, Qualitätskontrolle der Geräte.',
+  },
+  oss: {
+    role: 'Fachperson Gesundheit',
+    descriptor: 'FaGe-Stellen im Tessin',
+    roleSummary:
+      'Das Schweizer Pendant zum italienischen OSS ist die Fachperson Gesundheit EFZ: die Titelanerkennung läuft über das SRK. Alters- und Pflegeheime, EOC und Spitex stellen laufend ein; die Löhne regeln GAV EOC und ROCA.',
+    requisiti:
+      'OSS-Qualifikation (≥1000 Stunden), SRK-Anerkennung Richtung FaGe EFZ; viele Heime akzeptieren den ausländischen Titel mit belegter Erfahrung.',
+    typicalTasks:
+      'Grundpflege und Hygiene, Mobilisation, Vitalzeichenkontrolle, Unterstützung im Alltag, Pflegedokumentation, Zusammenarbeit mit dem Pflegefachpersonal.',
+  },
+  'ottico-optometrista': {
+    role: 'Optiker-Optometrist',
+    descriptor: 'Optiker- und Optometristen-Stellen im Tessin',
+    roleSummary:
+      'Der Optometrist ist ein GesBG-Beruf (SRK-Anerkennung), der Optiker EFZ läuft über das SEFRI. Ketten (Fielmann, Visilab, McOptic) und unabhängige Geschäfte stellen ein; selbständige Refraktion erfordert den anerkannten Optometristentitel.',
+    requisiti:
+      'Optiker-Diplom oder Optometrie-Abschluss; SRK-Anerkennung für Optometristen bzw. SEFRI für Optiker; Italienisch unerlässlich, Deutsch in Ketten von Vorteil.',
+    typicalTasks:
+      'Refraktion und Sehtests, Kontaktlinsenanpassung, Fassungs- und Glasberatung, begleiteter Verkauf, kleine Reparaturen und Wartung, Werkstattführung.',
+  },
+  contabile: {
+    role: 'Buchhalter',
+    descriptor: 'Buchhalter-Stellen im Tessin',
+    roleSummary:
+      'Buchhaltung ist kein reglementierter Beruf: ausländische Abschlüsse sind sofort einsetzbar. Treuhandbüros, Multis und Tessiner KMU suchen Profile mit Schweizer MWST-, Lohn- und Swiss-GAAP-RPC-Erfahrung.',
+    requisiti:
+      'Handelsdiplom oder Wirtschaftsstudium; Kenntnisse in Schweizer MWST, Lohnausweis und Sozialversicherungen (AHV/BVG); der eidgenössische Fachausweis Finanz- und Rechnungswesen ist der Referenztitel.',
+    typicalTasks:
+      'Haupt- und Nebenbuchhaltung, Monats- und Jahresabschlüsse, MWST-Abrechnungen, Lohn- und Sozialversicherungswesen, Bankabstimmungen, Management-Reporting.',
+  },
+  'assistente-sociale': {
+    role: 'Sozialarbeiter',
+    descriptor: 'Sozialarbeiter-Stellen im Tessin',
+    roleSummary:
+      'Soziale Arbeit ist eidgenössisch nicht reglementiert: die freiwillige SEFRI-Anerkennung des FH-Titels verlangen öffentliche Stellen aber oft. Im Tessin stellen kommunale und kantonale Sozialdienste, Institute und Stiftungen ein.',
+    requisiti:
+      'Abschluss in Sozialer Arbeit, freiwillige SEFRI-Anerkennung des FH-Titels, Kenntnis des Tessiner Dienstleistungsnetzes geschätzt.',
+    typicalTasks:
+      'Fallführung für Klienten und Familien, Sozialabklärungen, Interventionspläne, Koordination mit kantonalen und kommunalen Diensten, Beistandschaften, Dokumentation.',
+  },
+  macellaio: {
+    role: 'Metzger',
+    descriptor: 'Metzger-Stellen im Tessin',
+    roleSummary:
+      'Grossverteiler (Coop, Migros) und die Fleischindustrie stellen laufend Metzger ein; der GAV der Schweizer Fleischwirtschaft ist allgemeinverbindlich und setzt Mindestlöhne. Die SEFRI-Anerkennung Richtung Fleischfachmann EFZ ist freiwillig.',
+    requisiti:
+      'Berufsqualifikation oder gleichwertige Erfahrung in Metzgerei/Fleischindustrie, HACCP-Hygiene nach Schweizer Lebensmittelrecht, freiwillige SEFRI-Anerkennung.',
+    typicalTasks:
+      'Ausbeinen und Zerlegen, Thekenvorbereitung, Charcuterie-Produktion, Verpackung, Kühlketten- und HACCP-Einhaltung, Kundenberatung.',
+  },
+  saldatore: {
+    role: 'Schweisser',
+    descriptor: 'Schweisser-Stellen im Tessin',
+    roleSummary:
+      'Schweissen erfordert keine Titelanerkennung: Werkstätten und Metallbaufirmen verlangen gültige EN-ISO-9606-Zertifikate pro Verfahren. Die Löhne folgen den GAV der MEM-Industrie und des Metallbaus.',
+    requisiti:
+      'Gültige EN-ISO-9606-Schweisszertifikate (WIG/MIG/MAG/Elektrode), technisches Zeichnungslesen, Erfahrung mit Stahl, Inox oder Aluminium.',
+    typicalTasks:
+      'WIG/MIG/MAG-Schweissen an Stahl, Inox und Aluminium, Nahtvorbereitung, visuelle und dimensionale Qualitätskontrolle, Anlagenwartung, Auftragsarbeit in Werkstatt oder auf Baustelle.',
+  },
+  architetto: {
+    role: 'Architekt',
+    descriptor: 'Architekten-Stellen im Tessin',
+    roleSummary:
+      'Wer im Tessin Projekte unterzeichnen will, braucht den OTIA-Eintrag (oder REG A/B) — der Schlüsselschritt für Grenzgänger der Branche. Tessiner Büros und Generalunternehmer suchen Bauleitungserfahrung und SIA-Normen-Kenntnis.',
+    requisiti:
+      'Master in Architektur mit Berufsbefähigung, OTIA-Eintrag für die Tätigkeit im Tessin oder REG-Register, Kenntnis der SIA-Normen und kantonalen Bauverfahren.',
+    typicalTasks:
+      'Vor- und Bauprojekt, Baugesuche, Bauleitung, Ausmasse und Leistungsverzeichnisse nach SIA, Koordination der Fachplaner, Aufnahmen und Begehungen.',
+  },
 };
 
 const FR_PROFESSION_STRINGS: Record<ProfessionId, ProfessionStrings> = {
@@ -535,6 +955,146 @@ const FR_PROFESSION_STRINGS: Record<ProfessionId, ProfessionStrings> = {
       'Qualification italienne IeFP électrotechnique ou diplôme ITIS perito elettrotecnico, reconnaissance SEFRI, autorisation ESTI pour interventions sous tension, connaissance NIBT basse tension.',
     typicalTasks:
       'Pose de chemins de câbles et câblage, montage d\'armoires, tests d\'isolement, diagnostic de pannes, mise en service domotique, documentation ESTI.',
+  },
+  psicologo: {
+    role: 'psychologue',
+    descriptor: 'les postes de psychologue au Tessin',
+    roleSummary:
+      'Le titre de psychologue est protégé par la LPsy; la psychothérapie exige en plus un titre postgrade reconnu et l\'autorisation cantonale. Principaux employeurs tessinois: psychiatrie cantonale (OSC), cliniques privées et cabinets de groupe.',
+    requisiti:
+      'Master en psychologie, reconnaissance PsyCo (Commission des professions de la psychologie); pour la psychothérapie, titre postgrade fédéral plus autorisation cantonale de pratiquer.',
+    typicalTasks:
+      'Entretiens cliniques, bilans et tests psychologiques, psychothérapie sous supervision, rapports pour institutions et assureurs, travail en équipe pluridisciplinaire, projets de prévention.',
+  },
+  fisioterapista: {
+    role: 'physiothérapeute',
+    descriptor: 'les postes de physiothérapeute au Tessin',
+    roleSummary:
+      'La physiothérapie est une profession réglementée par la LPSan: les diplômes étrangers doivent être reconnus par la CRS avant un engagement stable. La demande vient des hôpitaux EOC, des cliniques de réadaptation et des cabinets privés.',
+    requisiti:
+      'Diplôme de physiothérapie, reconnaissance CRS, autorisation cantonale pour la pratique indépendante, inscription NAREG; l\'allemand élargit les options hors du Tessin.',
+    typicalTasks:
+      'Bilan fonctionnel, thérapie manuelle et instrumentale, réadaptation post-opératoire et sportive, gymnastique thérapeutique de groupe, documentation clinique, coordination avec les médecins prescripteurs.',
+  },
+  logopedista: {
+    role: 'logopédiste',
+    descriptor: 'les postes de logopédiste au Tessin',
+    roleSummary:
+      'La logopédie s\'exerce en milieu scolaire et clinique; la reconnaissance des diplômes étrangers passe par la CDIP. L\'italien langue maternelle est un vrai atout dans les services scolaires et la neuro-réadaptation tessinoise.',
+    requisiti:
+      'Diplôme de logopédie, reconnaissance CDIP du diplôme étranger, expérience pédiatrique appréciée pour les services scolaires.',
+    typicalTasks:
+      'Bilan des troubles du langage et de la déglutition, thérapie individuelle enfants et adultes, conseil aux enseignants et aux familles, documentation, collaboration avec ORL et services scolaires.',
+  },
+  farmacista: {
+    role: 'pharmacien',
+    descriptor: 'les postes de pharmacien au Tessin',
+    roleSummary:
+      'Le pharmacien est une profession médicale universitaire selon la LPMéd: les diplômes sont reconnus par la MEBEKO. On travaille en officine, en pharmacie hospitalière EOC et dans l\'industrie; diriger une pharmacie exige le diplôme fédéral reconnu.',
+    requisiti:
+      'Master en pharmacie, reconnaissance MEBEKO, inscription MedReg; la gérance exige en outre l\'autorisation cantonale.',
+    typicalTasks:
+      'Validation et délivrance des ordonnances, conseil au patient, préparations galéniques, gestion des stocks et des stupéfiants, vaccinations en officine, pharmacovigilance.',
+  },
+  ostetrica: {
+    role: 'sage-femme',
+    descriptor: 'les postes de sage-femme au Tessin',
+    roleSummary:
+      'La profession de sage-femme relève de la procédure harmonisée de la directive UE 2005/36/CE: la reconnaissance CRS est parmi les plus rapides des professions de santé. Les maternités EOC concentrent la demande, avec piquets rémunérés selon CCT.',
+    requisiti:
+      'Diplôme de sage-femme, reconnaissance CRS via la procédure harmonisée UE, inscription NAREG, autorisation cantonale pour la pratique indépendante.',
+    typicalTasks:
+      'Suivi de la grossesse, de l\'accouchement et du post-partum, monitoring CTG, soutien à l\'allaitement, cours de préparation à la naissance, documentation clinique, piquets en salle d\'accouchement.',
+  },
+  'assistente-dentale': {
+    role: 'assistant dentaire',
+    descriptor: 'les postes d\'assistant dentaire au Tessin',
+    roleSummary:
+      'La profession n\'est pas réglementée au niveau fédéral: les cabinets tessinois engagent aussi avec une qualification étrangère; la reconnaissance SEFRI facultative du titre CFC est appréciée. Les recommandations salariales SSO servent de référence.',
+    requisiti:
+      'Qualification d\'assistant dentaire, radioprotection selon les règles suisses pour les radiographies intra-orales, reconnaissance SEFRI facultative.',
+    typicalTasks:
+      'Assistance au fauteuil à quatre mains, préparation et stérilisation des instruments, radiographies intra-orales, gestion de l\'agenda et des rappels, administration et facturation, hygiène du cabinet.',
+  },
+  'tecnico-radiologia': {
+    role: 'technicien en radiologie médicale',
+    descriptor: 'les postes de TRM au Tessin',
+    roleSummary:
+      'Le TRM est une profession de santé réglementée: les diplômes étrangers doivent être reconnus par la CRS et la radioprotection suit l\'ORaP suisse. L\'EOC et les cliniques privées recrutent en radiologie conventionnelle, CT, IRM et radiothérapie.',
+    requisiti:
+      'Diplôme de technicien en radiologie médicale, reconnaissance CRS, formation en radioprotection selon l\'ORaP, inscription NAREG.',
+    typicalTasks:
+      'Examens radiologiques conventionnels, CT et IRM, traitements de radiothérapie, gestion des doses et radioprotection du patient, contrôle qualité des équipements.',
+  },
+  oss: {
+    role: 'assistant en soins et santé communautaire',
+    descriptor: 'les postes ASSC/OSS au Tessin',
+    roleSummary:
+      'L\'équivalent suisse de l\'OSS italien est l\'assistant en soins et santé communautaire CFC: la reconnaissance du titre passe par la CRS. EMS, EOC et Spitex recrutent en continu, avec des salaires régis par les CCT EOC et ROCA.',
+    requisiti:
+      'Qualification OSS (≥1000 heures), reconnaissance CRS vers le CFC d\'ASSC; beaucoup d\'EMS acceptent le titre étranger avec expérience documentée.',
+    typicalTasks:
+      'Soins de base et hygiène, mobilisation, contrôle des signes vitaux, aide aux activités quotidiennes, documentation des soins, collaboration avec le personnel infirmier.',
+  },
+  'ottico-optometrista': {
+    role: 'opticien-optométriste',
+    descriptor: 'les postes d\'opticien et optométriste au Tessin',
+    roleSummary:
+      'L\'optométriste est une profession LPSan (reconnaissance CRS), l\'opticien CFC passe par le SEFRI. Les chaînes (Fielmann, Visilab, McOptic) et les magasins indépendants recrutent; la réfraction autonome exige le titre d\'optométriste reconnu.',
+    requisiti:
+      'Diplôme d\'opticien ou bachelor en optométrie; reconnaissance CRS pour l\'optométriste ou SEFRI pour l\'opticien; italien indispensable, allemand utile dans les chaînes.',
+    typicalTasks:
+      'Réfraction et examens de la vue, adaptation de lentilles de contact, conseil montures et verres, vente assistée, petites réparations et entretien, gestion de l\'atelier.',
+  },
+  contabile: {
+    role: 'comptable',
+    descriptor: 'les postes de comptable au Tessin',
+    roleSummary:
+      'La comptabilité n\'est pas une profession réglementée: les diplômes étrangers sont utilisables immédiatement. Fiduciaires, multinationales et PME tessinoises recherchent TVA suisse, salaires et Swiss GAAP RPC.',
+    requisiti:
+      'Diplôme de comptabilité ou études d\'économie; connaissance de la TVA suisse, du certificat de salaire et des assurances sociales (AVS/LPP); le brevet fédéral de spécialiste en finance et comptabilité est le titre de référence.',
+    typicalTasks:
+      'Comptabilité générale et auxiliaire, clôtures mensuelles et annuelles, décomptes TVA, salaires et assurances sociales, rapprochements bancaires, reporting à la direction.',
+  },
+  'assistente-sociale': {
+    role: 'assistant social',
+    descriptor: 'les postes d\'assistant social au Tessin',
+    roleSummary:
+      'Le travail social n\'est pas réglementé au niveau fédéral: la reconnaissance SEFRI facultative du titre HES est toutefois souvent demandée par les employeurs publics. Au Tessin recrutent les services sociaux communaux et cantonaux, instituts et fondations.',
+    requisiti:
+      'Diplôme en travail social, reconnaissance SEFRI facultative du titre HES, connaissance du réseau tessinois appréciée.',
+    typicalTasks:
+      'Suivi d\'usagers et de familles, évaluations sociales, projets d\'intervention, coordination avec les services cantonaux et communaux, curatelles, documentation.',
+  },
+  macellaio: {
+    role: 'boucher',
+    descriptor: 'les postes de boucher au Tessin',
+    roleSummary:
+      'La grande distribution (Coop, Migros) et l\'industrie de la viande recrutent en continu; la CCT de l\'économie carnée suisse a force obligatoire générale et fixe les minima salariaux. La reconnaissance SEFRI vers le CFC de boucher-charcutier est facultative.',
+    requisiti:
+      'Qualification professionnelle ou expérience équivalente en boucherie/industrie de la viande, hygiène HACCP selon le droit alimentaire suisse, reconnaissance SEFRI facultative.',
+    typicalTasks:
+      'Désossage et découpe, préparation du comptoir, production de charcuterie, conditionnement, respect de la chaîne du froid et HACCP, conseil à la clientèle.',
+  },
+  saldatore: {
+    role: 'soudeur',
+    descriptor: 'les postes de soudeur au Tessin',
+    roleSummary:
+      'La soudure n\'exige aucune reconnaissance de titre: comptent les certifications EN ISO 9606 en cours de validité, exigées par ateliers et constructions métalliques pour chaque procédé. Les salaires suivent les CCT de l\'industrie MEM et de la construction métallique.',
+    requisiti:
+      'Certifications de soudage EN ISO 9606 valides (TIG/MIG/MAG/électrode), lecture de plans, expérience sur acier, inox ou aluminium.',
+    typicalTasks:
+      'Soudage TIG/MIG/MAG sur acier, inox et aluminium, préparation des joints, contrôle qualité visuel et dimensionnel, entretien des installations, travail à la commande en atelier ou sur chantier.',
+  },
+  architetto: {
+    role: 'architecte',
+    descriptor: 'les postes d\'architecte au Tessin',
+    roleSummary:
+      'Signer des projets au Tessin exige l\'inscription à l\'OTIA (ou au registre REG A/B): l\'étape clé pour les frontaliers du secteur. Les bureaux tessinois et les entreprises générales recherchent l\'expérience de direction de travaux et les normes SIA.',
+    requisiti:
+      'Master en architecture avec habilitation, inscription OTIA pour exercer au Tessin ou registre REG, connaissance des normes SIA et des procédures cantonales de construction.',
+    typicalTasks:
+      'Avant-projet et projet définitif, demandes de permis de construire, direction des travaux, métrés et devis selon SIA, coordination des spécialistes, relevés et visites de chantier.',
   },
 };
 

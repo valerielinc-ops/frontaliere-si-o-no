@@ -85,6 +85,7 @@ import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
+import { frontalierePillarPlugin } from './build-plugins/frontalierePillarPlugin';
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 import { publisherAdPagesPlugin } from './build-plugins/publisherAdPagesPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
@@ -182,6 +183,8 @@ export default defineConfig(({ mode }) => {
  // AE-4 — cost-of-living city landings (6 cities × 4 locales = 24 HTML).
  // FSO + ISTAT public data; Place + LocalBusiness JSON-LD + sitemap.
  costOfLivingLandingsPlugin(__dirname),
+ // Pillar hub "frontaliere" (#3393) — 4 static pages + sitemap-frontaliere-pillar.xml.
+ frontalierePillarPlugin(__dirname),
  // AE-7 — comparisons hub (static HTML × 4 locales + sitemap-comparisons.xml).
  // Must run AFTER annualReportPlugin so the CSV path referenced in the
  // DataDownload JSON-LD (/data/jobs-salary-aggregate.csv) already exists.

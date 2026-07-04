@@ -3443,6 +3443,9 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3570.title': 'Kompletter Grenzgänger-Ratgeber und neue Berufs-Guides',
+  'whatsNew.v3570.frontalierePillar.title': 'Grenzgänger-Pillar + 14 Stellen-Guides',
+  'whatsNew.v3570.frontalierePillar.desc': 'Neue Seite /de/grenzgaenger/ mit dem ganzen Weg (G-Bewilligung, Lohn, Steuern, Krankenkasse) und 14 neuen Berufs-Guides: Psychologe, Physiotherapeut, Apotheker, Hebamme, FaGe, Buchhalter und mehr.',
   'whatsNew.v3560.title': 'Grenzübergänge in Echtzeit im Ranking',
   'whatsNew.v3560.borderWaitRanking.title': 'Beste und schlechteste Grenzübergänge',
   'whatsNew.v3560.borderWaitRanking.desc': 'Neuer, wöchentlich aktualisierter Artikel mit dem Ranking aller Tessiner Grenzübergänge nach Wartezeit, mit Trends und wie viele Minuten du gewinnst oder verlierst, je nachdem welchen Übergang du wählst.',

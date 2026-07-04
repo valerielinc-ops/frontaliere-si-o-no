@@ -149,6 +149,7 @@ export const PROFESSION_TAXONOMY = [
   { id: 'cuoco', label: 'Cuoco', feedFilter: 'cuoc', aliases: ['cuoco', 'cuoca', 'commis di cucina', 'koch', 'kochin', 'cuisinier', 'cuisiniere', 'cook', 'chef de partie', 'sous chef', 'souschef'] },
   { id: 'cameriere', label: 'Cameriere', feedFilter: 'camerier', aliases: ['cameriere', 'cameriera', 'kellner', 'kellnerin', 'serveur', 'serveuse', 'waiter', 'waitress', 'chef de rang'] },
   { id: 'elettricista', label: 'Elettricista', feedFilter: 'elettricist', aliases: ['elettricista', 'elektriker', 'elektrikerin', 'elektroinstallateur', 'elektromonteur', 'electricien', 'electricienne', 'electrician'] },
+  { id: 'architetto', label: 'Architetto', feedFilter: 'architett', aliases: ['architetto', 'architetta', 'architekt', 'architektin', 'architecte', 'architect'] },
 ];
 
 /**

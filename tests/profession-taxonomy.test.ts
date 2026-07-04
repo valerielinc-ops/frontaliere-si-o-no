@@ -95,7 +95,9 @@ describe('taxonomy invariants', () => {
     // Mirror of build-plugins/professionLandingsData.ts PROFESSION_IDS: the
     // opportunities script relies on these matching so dedicated landings
     // land in the covered section instead of the unmapped list.
-    const dedicated = ['infermiere', 'operaio', 'impiegato', 'ingegnere', 'educatore', 'autista', 'muratore', 'cuoco', 'cameriere', 'elettricista'];
+    const dedicated = ['infermiere', 'operaio', 'impiegato', 'ingegnere', 'educatore', 'autista', 'muratore', 'cuoco', 'cameriere', 'elettricista',
+      'psicologo', 'fisioterapista', 'logopedista', 'farmacista', 'ostetrica', 'assistente-dentale', 'tecnico-radiologia', 'oss',
+      'ottico-optometrista', 'contabile', 'assistente-sociale', 'macellaio', 'saldatore', 'architetto'];
     for (const id of dedicated) {
       expect(matchProfession(id), id).toBe(id);
     }

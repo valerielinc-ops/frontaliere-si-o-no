@@ -44,6 +44,126 @@
       "compensationMeasures": "Integrazione curricolare o tirocinio supervisionato in struttura ticinese",
       "canStartBeforeRecognition": true,
       "notes": "SUPSI Dipartimento Economia Aziendale, Sanità e Sociale (DEASS) offre programmi di allineamento."
+    },
+    "psicologo": {
+      "itTitle": "Psicologo / Psicologa",
+      "authority": "PsyCo — Commissione delle professioni psicologiche (UFSP, LPPsi)",
+      "authorityUrl": "https://www.bag.admin.ch/it",
+      "diplomaTypeIt": "Laurea magistrale in Psicologia (LM-51)",
+      "swissEquivalent": "Titolo di psicologo riconosciuto LPPsi; psicoterapia con titolo federale di perfezionamento",
+      "leadTimeMonths": [
+        3,
+        8
+      ],
+      "compensationMeasures": "Eventuali misure di compensazione decise dalla PsyCo caso per caso",
+      "canStartBeforeRecognition": false,
+      "regulated": true,
+      "notes": "Il titolo di psicologo è protetto dalla LPPsi; l'esercizio della psicoterapia richiede anche l'autorizzazione cantonale."
+    },
+    "fisioterapista": {
+      "itTitle": "Fisioterapista",
+      "authority": "CRS (Croce Rossa Svizzera) — professioni LPSan",
+      "authorityUrl": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+      "diplomaTypeIt": "Laurea triennale in Fisioterapia (L/SNT2)",
+      "swissEquivalent": "Bachelor SUP in Fisioterapia",
+      "leadTimeMonths": [
+        4,
+        9
+      ],
+      "compensationMeasures": "Tirocinio di adattamento o esame attitudinale secondo esito CRS",
+      "canStartBeforeRecognition": false,
+      "regulated": true,
+      "notes": "Registrazione NAREG; autorizzazione cantonale per l'esercizio indipendente."
+    },
+    "logopedista": {
+      "itTitle": "Logopedista",
+      "authority": "CDPE/EDK — riconoscimento diplomi esteri di logopedia",
+      "authorityUrl": "https://www.edk.ch",
+      "diplomaTypeIt": "Laurea in Logopedia (L/SNT2)",
+      "swissEquivalent": "Diploma di logopedia riconosciuto CDPE",
+      "leadTimeMonths": [
+        3,
+        7
+      ],
+      "compensationMeasures": "Misure di compensazione secondo esame del dossier",
+      "canStartBeforeRecognition": false,
+      "regulated": true,
+      "notes": "Competenza CDPE per l'ambito pedagogico-terapeutico; per l'ambito clinico valgono i requisiti cantonali."
+    },
+    "farmacista": {
+      "itTitle": "Farmacista",
+      "authority": "MEBEKO — Commissione delle professioni mediche (UFSP)",
+      "authorityUrl": "https://www.bag.admin.ch/it/commissione-delle-professioni-mediche-mebeko",
+      "diplomaTypeIt": "Laurea magistrale in Farmacia o CTF",
+      "swissEquivalent": "Diploma federale di farmacista (LPMed)",
+      "leadTimeMonths": [
+        3,
+        6
+      ],
+      "compensationMeasures": "Riconoscimento diretto per diplomi UE conformi alla direttiva 2005/36/CE",
+      "canStartBeforeRecognition": false,
+      "regulated": true,
+      "notes": "Iscrizione MedReg; la gerenza di farmacia richiede autorizzazione cantonale."
+    },
+    "ostetrica": {
+      "itTitle": "Ostetrica / Ostetrico",
+      "authority": "CRS — procedura armonizzata direttiva UE 2005/36/CE",
+      "authorityUrl": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+      "diplomaTypeIt": "Laurea in Ostetricia (L/SNT1)",
+      "swissEquivalent": "Bachelor SUP in Ostetricia",
+      "leadTimeMonths": [
+        2,
+        6
+      ],
+      "compensationMeasures": "Riconoscimento diretto (procedura armonizzata UE) nella maggior parte dei casi",
+      "canStartBeforeRecognition": false,
+      "regulated": true,
+      "notes": "Registrazione NAREG; autorizzazione cantonale per la libera professione."
+    },
+    "tecnico-radiologia": {
+      "itTitle": "Tecnico sanitario di radiologia medica (TRM)",
+      "authority": "CRS (Croce Rossa Svizzera)",
+      "authorityUrl": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+      "diplomaTypeIt": "Laurea in Tecniche di Radiologia Medica (L/SNT3)",
+      "swissEquivalent": "Diploma SSS/SUP di tecnico di radiologia medica",
+      "leadTimeMonths": [
+        3,
+        6
+      ],
+      "compensationMeasures": "Modulo di adattamento o esame attitudinale secondo esito CRS",
+      "canStartBeforeRecognition": false,
+      "regulated": true,
+      "notes": "Radioprotezione secondo ORaP; registrazione NAREG."
+    },
+    "oss": {
+      "itTitle": "Operatore socio sanitario (OSS)",
+      "authority": "CRS (Croce Rossa Svizzera) — professioni sanitarie non universitarie",
+      "authorityUrl": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+      "diplomaTypeIt": "Qualifica OSS (corso ≥1000 ore)",
+      "swissEquivalent": "Operatore sociosanitario AFC (FaGe)",
+      "leadTimeMonths": [
+        3,
+        6
+      ],
+      "compensationMeasures": "Eventuale complemento formativo secondo esito CRS",
+      "canStartBeforeRecognition": true,
+      "regulated": false,
+      "notes": "Molte case per anziani assumono con titolo italiano ed esperienza documentata; il riconoscimento resta consigliato per il salario da CCL."
+    },
+    "ottico-optometrista": {
+      "itTitle": "Ottico / Optometrista",
+      "authority": "CRS (optometrista, LPSan) / SEFRI (ottico AFC)",
+      "authorityUrl": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+      "diplomaTypeIt": "Diploma di ottico o Laurea in Ottica e Optometria",
+      "swissEquivalent": "Optometrista BSc SUP (LPSan) oppure Ottico AFC",
+      "leadTimeMonths": [
+        3,
+        6
+      ],
+      "compensationMeasures": "Secondo esito dell'esame del dossier",
+      "canStartBeforeRecognition": true,
+      "regulated": true,
+      "notes": "La refrazione autonoma richiede il titolo di optometrista riconosciuto; la vendita assistita no."
     }
   },
   "note": "Curated, hand-verified equivalence summary. Live fetch is used only for source probing (citation freshness). Update HEALTHCARE_PROFESSIONS when MEBEKO/SRK publish procedural changes.",

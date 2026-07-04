@@ -3530,6 +3530,9 @@ Regole:
   'survey.feature.thanks.title': 'Grazie!',
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
+  'whatsNew.v3570.title': 'Guida frontaliere completa e nuove guide per professione',
+  'whatsNew.v3570.frontalierePillar.title': 'Pillar frontaliere + 14 guide di lavoro',
+  'whatsNew.v3570.frontalierePillar.desc': 'Nuova pagina /frontaliere/ con tutto il percorso (permesso G, stipendio, tasse, cassa malati) e 14 nuove guide di lavoro per professione: psicologo, fisioterapista, farmacista, ostetrica, OSS, contabile e altre.',
   'whatsNew.v3560.title': 'Classifica dogane in tempo reale',
   'whatsNew.v3560.borderWaitRanking.title': 'Migliori e peggiori dogane',
   'whatsNew.v3560.borderWaitRanking.desc': 'Nuovo articolo aggiornato ogni settimana con la classifica di tutte le dogane del Ticino per tempo d\'attesa, trend e minuti persi o guadagnati scegliendo un valico invece di un altro.',
