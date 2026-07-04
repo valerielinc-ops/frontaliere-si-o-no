@@ -691,6 +691,11 @@ export const COMPANY_HQ = {
   // needed. Small single-office ICT/OpenText ECM consultancy — Workable ATS
   // account "answermodules" currently has 0 open postings.
   'answerconsulting': { city: 'Mendrisio', canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  // Vision Management Services GmbH (VISIONAPARTMENTS brand), Talstrasse 62,
+  // 8001 Zürich ZH — confirmed via Zefix/Moneyhouse/Northdata (Swiss
+  // commercial register, CHE-114.735.781) AND matches the live jobs.ch
+  // vacancy's own jobLocation.address; no fallback needed.
+  'visionapartments': { city: 'Zürich', canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
 };
 
 /**
