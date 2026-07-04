@@ -114,10 +114,14 @@ export default function CalcolatoreTabContent() {
  <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
  <div className="md:col-span-13 h-full">
  <Suspense fallback={<SkeletonNewsTicker />}>
- <NewsFeed onNavigate={(tab, article) => {
+ <NewsFeed onNavigate={(tab, article, slug) => {
  setActiveTab(tab as ActiveTab);
  if (article) setBlogArticle(article as BlogArticleId);
- pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
+ // Prefer the ticker-provided localized slug: pushes the canonical
+ // /<blog>/<slug>/ URL without the lazy BLOG_SLUGS chunk (#3532).
+ pushRoute(article && slug
+ ? { activeTab: tab as ActiveTab, blogSlug: slug }
+ : { activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
  window.scrollTo({ top: 0, behavior: 'instant' });
  }} />
  </Suspense>
@@ -233,10 +237,14 @@ export default function CalcolatoreTabContent() {
     REMOVE+ADD div.space-y-2 at the flip). Matches the desktop branch pattern. */
  <div className="space-y-2">
  <Suspense fallback={<SkeletonNewsTicker />}>
- <NewsFeed onNavigate={(tab, article) => {
+ <NewsFeed onNavigate={(tab, article, slug) => {
  setActiveTab(tab as ActiveTab);
  if (article) setBlogArticle(article as BlogArticleId);
- pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
+ // Prefer the ticker-provided localized slug: pushes the canonical
+ // /<blog>/<slug>/ URL without the lazy BLOG_SLUGS chunk (#3532).
+ pushRoute(article && slug
+ ? { activeTab: tab as ActiveTab, blogSlug: slug }
+ : { activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
  window.scrollTo({ top: 0, behavior: 'instant' });
  }} />
  </Suspense>
