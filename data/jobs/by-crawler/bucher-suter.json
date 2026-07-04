@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "bucher-suter-2abc155c1813",
-      "slug": "it-project-manager-bucher-suter-bern",
+      "slug": "responsabile-progetto-it-bucher-suter-ag-bern",
       "slugByLocale": {
         "en": "it-project-manager-bucher-suter-bern",
-        "it": "it-project-manager-bucher-suter-bern",
+        "it": "responsabile-progetto-it-bucher-suter-ag-bern",
         "de": "it-project-manager-bucher-suter-bern",
         "fr": "it-project-manager-bucher-suter-bern"
       },
@@ -66,7 +66,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:22:03.403Z"
+      "firstSeenAt": "2026-07-04T10:22:03.403Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-project-manager-bucher-suter-bern"
+        ]
+      },
+      "previousSlugs": [
+        "it-project-manager-bucher-suter-bern"
+      ]
     },
     {
       "id": "bucher-suter-34ff734d6739",
@@ -202,10 +210,10 @@
     },
     {
       "id": "bucher-suter-b5d13e2b0baa",
-      "slug": "it-project-manager-50-60-bucher-suter-bern",
+      "slug": "responsabile-di-progetto-it-50-60-bucher-suter-ag-bern",
       "slugByLocale": {
         "en": "it-project-manager-50-60-bucher-suter-bern",
-        "it": "it-project-manager-50-60-bucher-suter-bern",
+        "it": "responsabile-di-progetto-it-50-60-bucher-suter-ag-bern",
         "de": "it-project-manager-50-60-bucher-suter-bern",
         "fr": "it-project-manager-50-60-bucher-suter-bern"
       },
@@ -264,7 +272,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:22:02.913Z"
+      "firstSeenAt": "2026-07-04T10:22:02.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-project-manager-50-60-bucher-suter-bern"
+        ]
+      },
+      "previousSlugs": [
+        "it-project-manager-50-60-bucher-suter-bern"
+      ]
     }
   ]
 }

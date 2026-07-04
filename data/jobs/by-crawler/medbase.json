@@ -6287,12 +6287,12 @@
     },
     {
       "id": "medbase-4f1dba124476",
-      "slug": "head-of-customer-service-b2c-a-80-100-medbase-ch",
+      "slug": "responsabile-servizio-clienti-b2c-a-80-100-medbase-frauenfeld",
       "slugByLocale": {
         "de": "head-of-customer-service-b2c-a-80-100-medbase-ch",
-        "it": "head-of-customer-service-b2c-a-80-100-medbase-ch",
+        "it": "responsabile-servizio-clienti-b2c-a-80-100-medbase-frauenfeld",
         "en": "head-of-customer-service-b2c-a-80-100-medbase-ch",
-        "fr": "head-of-customer-service-b2c-a-80-100-medbase-ch"
+        "fr": "responsable-service-client-b2c-a-80-100-medbase-frauenfeld"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -6349,7 +6349,18 @@
         }
       },
       "postalCode": "8500",
-      "firstSeenAt": "2026-07-04T11:44:06.250Z"
+      "firstSeenAt": "2026-07-04T11:44:06.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-customer-service-b2c-a-80-100-medbase-ch"
+        ],
+        "fr": [
+          "head-of-customer-service-b2c-a-80-100-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-customer-service-b2c-a-80-100-medbase-ch"
+      ]
     },
     {
       "id": "medbase-d640400bb38c",

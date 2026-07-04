@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "nord-anglia-87015b4d4335",
-      "slug": "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne",
+      "slug": "coordinatore-del-trasporto-scolastico-e-portinaio-polifunzionale-la-cote-international-school-nord-anglia-education",
       "slugByLocale": {
         "fr": "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne",
-        "it": "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne",
+        "it": "coordinatore-del-trasporto-scolastico-e-portinaio-polifunzionale-la-cote-international-school-nord-anglia-education",
         "en": "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne",
         "de": "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne"
       },
@@ -67,14 +67,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:24:02.382Z"
+      "firstSeenAt": "2026-07-04T11:24:02.382Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-des-transports-scolaires-concierge-polyvalent-nord-anglia-aubonne"
+      ]
     },
     {
       "id": "nord-anglia-c018141ec307",
-      "slug": "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne",
+      "slug": "autista-scolastico-e-concierge-versatile-la-cote-international-school-nord-anglia-education-aubonne",
       "slugByLocale": {
         "fr": "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne",
-        "it": "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne",
+        "it": "autista-scolastico-e-concierge-versatile-la-cote-international-school-nord-anglia-education-aubonne",
         "en": "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne",
         "de": "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne"
       },
@@ -134,14 +142,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:24:02.381Z"
+      "firstSeenAt": "2026-07-04T11:24:02.381Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-scolaire-et-concierge-polyvalent-nord-anglia-aubonne"
+      ]
     },
     {
       "id": "nord-anglia-fb7a19af4090",
-      "slug": "teacher-of-mathematics-nord-anglia-aubonne",
+      "slug": "insegnante-di-matematica-la-cote-international-school-nord-anglia-education-aubonne",
       "slugByLocale": {
         "en": "teacher-of-mathematics-nord-anglia-aubonne",
-        "it": "teacher-of-mathematics-nord-anglia-aubonne",
+        "it": "insegnante-di-matematica-la-cote-international-school-nord-anglia-education-aubonne",
         "de": "teacher-of-mathematics-nord-anglia-aubonne",
         "fr": "teacher-of-mathematics-nord-anglia-aubonne"
       },
@@ -201,14 +217,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:24:02.379Z"
+      "firstSeenAt": "2026-07-04T11:24:02.379Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teacher-of-mathematics-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "teacher-of-mathematics-nord-anglia-aubonne"
+      ]
     },
     {
       "id": "nord-anglia-8720a5afd8ce",
-      "slug": "teacher-of-biology-nord-anglia-aubonne",
+      "slug": "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne",
       "slugByLocale": {
         "en": "teacher-of-biology-nord-anglia-aubonne",
-        "it": "teacher-of-biology-nord-anglia-aubonne",
+        "it": "insegnante-di-biologia-la-cote-international-school-nord-anglia-education-aubonne",
         "de": "teacher-of-biology-nord-anglia-aubonne",
         "fr": "teacher-of-biology-nord-anglia-aubonne"
       },
@@ -268,7 +292,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:24:02.378Z"
+      "firstSeenAt": "2026-07-04T11:24:02.378Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teacher-of-biology-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "teacher-of-biology-nord-anglia-aubonne"
+      ]
     }
   ]
 }

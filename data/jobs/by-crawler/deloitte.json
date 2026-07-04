@@ -8,8 +8,8 @@
       "slugByLocale": {
         "en": "supply-chain-planning-consultant-deloitte-basel",
         "it": "supply-chain-planning-consultant-deloitte-basel",
-        "de": "supply-chain-planning-consultant-deloitte-basel",
-        "fr": "supply-chain-planning-consultant-deloitte-basel"
+        "de": "lieferkette-planning-berater-deloitte-basel",
+        "fr": "chaine-d-approvisionnement-planning-consultant-deloitte-basel"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -208,10 +208,10 @@
     },
     {
       "id": "deloitte-2126689bbf6b",
-      "slug": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich",
+      "slug": "senior-manager-assicurazioni-sulla-vita-servizi-attuariali-audit-e-assicurazioni-deloitte-zurich",
       "slugByLocale": {
         "en": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich",
-        "it": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich",
+        "it": "senior-manager-assicurazioni-sulla-vita-servizi-attuariali-audit-e-assicurazioni-deloitte-zurich",
         "de": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich",
         "fr": "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich"
       },
@@ -272,7 +272,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.290Z"
+      "firstSeenAt": "2026-07-04T10:47:03.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-life-insurance-actuarial-services-audit-assurance-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-104b937c81f2",
@@ -484,7 +492,7 @@
       "slugByLocale": {
         "en": "senior-consultant-manager-supply-chain-planning-deloitte-basel",
         "it": "senior-consultant-manager-supply-chain-planning-deloitte-basel",
-        "de": "senior-consultant-manager-supply-chain-planning-deloitte-basel",
+        "de": "senior-berater-manager-lieferkette-planning-deloitte-basel",
         "fr": "senior-consultant-manager-supply-chain-planning-deloitte-basel"
       },
       "company": "Deloitte",
@@ -2316,10 +2324,10 @@
     },
     {
       "id": "deloitte-15570ecca03f",
-      "slug": "sap-master-data-governance-lead-deloitte-basel",
+      "slug": "responsabile-della-governance-dei-dati-master-di-sap-deloitte-basel",
       "slugByLocale": {
         "en": "sap-master-data-governance-lead-deloitte-basel",
-        "it": "sap-master-data-governance-lead-deloitte-basel",
+        "it": "responsabile-della-governance-dei-dati-master-di-sap-deloitte-basel",
         "de": "sap-master-data-governance-lead-deloitte-basel",
         "fr": "sap-master-data-governance-lead-deloitte-basel"
       },
@@ -2380,7 +2388,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.256Z"
+      "firstSeenAt": "2026-07-04T10:47:03.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-master-data-governance-lead-deloitte-basel"
+        ]
+      },
+      "previousSlugs": [
+        "sap-master-data-governance-lead-deloitte-basel"
+      ]
     },
     {
       "id": "deloitte-fb450f8694ef",
@@ -2588,10 +2604,10 @@
     },
     {
       "id": "deloitte-a5edbd64f7f3",
-      "slug": "manager-financial-services-audit-deloitte-zurich",
+      "slug": "manager-servizi-finanziari-audit-deloitte-zurich",
       "slugByLocale": {
         "en": "manager-financial-services-audit-deloitte-zurich",
-        "it": "manager-financial-services-audit-deloitte-zurich",
+        "it": "manager-servizi-finanziari-audit-deloitte-zurich",
         "de": "manager-financial-services-audit-deloitte-zurich",
         "fr": "manager-financial-services-audit-deloitte-zurich"
       },
@@ -2652,14 +2668,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.252Z"
+      "firstSeenAt": "2026-07-04T10:47:03.252Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-financial-services-audit-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "manager-financial-services-audit-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-b5afab2962d9",
-      "slug": "manager-audit-assurance-insurance-deloitte-zurich",
+      "slug": "responsabile-audit-assicurazioni-deloitte-zurich",
       "slugByLocale": {
         "en": "manager-audit-assurance-insurance-deloitte-zurich",
-        "it": "manager-audit-assurance-insurance-deloitte-zurich",
+        "it": "responsabile-audit-assicurazioni-deloitte-zurich",
         "de": "manager-audit-assurance-insurance-deloitte-zurich",
         "fr": "manager-audit-assurance-insurance-deloitte-zurich"
       },
@@ -2720,7 +2744,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.251Z"
+      "firstSeenAt": "2026-07-04T10:47:03.251Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-audit-assurance-insurance-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "manager-audit-assurance-insurance-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-3fbb99638adb",
@@ -2792,10 +2824,10 @@
     },
     {
       "id": "deloitte-5615724e7af7",
-      "slug": "manager-large-complex-audit-zurich-deloitte-bern",
+      "slug": "manager-audit-grandi-e-complessi-zurigo-deloitte-bern",
       "slugByLocale": {
         "de": "manager-large-complex-audit-zurich-deloitte-bern",
-        "it": "manager-large-complex-audit-zurich-deloitte-bern",
+        "it": "manager-audit-grandi-e-complessi-zurigo-deloitte-bern",
         "en": "manager-large-complex-audit-zurich-deloitte-bern",
         "fr": "manager-large-complex-audit-zurich-deloitte-bern"
       },
@@ -2856,14 +2888,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.250Z"
+      "firstSeenAt": "2026-07-04T10:47:03.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-large-complex-audit-zurich-deloitte-bern"
+        ]
+      },
+      "previousSlugs": [
+        "manager-large-complex-audit-zurich-deloitte-bern"
+      ]
     },
     {
       "id": "deloitte-eb02ac7a8b61",
-      "slug": "manager-treuhand-business-tax-tax-legal-deloitte-bern",
+      "slug": "manager-treuhand-fiscalita-aziendale-fiscalita-e-legale-deloitte-bern",
       "slugByLocale": {
         "de": "manager-treuhand-business-tax-tax-legal-deloitte-bern",
-        "it": "manager-treuhand-business-tax-tax-legal-deloitte-bern",
+        "it": "manager-treuhand-fiscalita-aziendale-fiscalita-e-legale-deloitte-bern",
         "en": "manager-treuhand-business-tax-tax-legal-deloitte-bern",
         "fr": "manager-treuhand-business-tax-tax-legal-deloitte-bern"
       },
@@ -2924,14 +2964,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.248Z"
+      "firstSeenAt": "2026-07-04T10:47:03.248Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-treuhand-business-tax-tax-legal-deloitte-bern"
+        ]
+      },
+      "previousSlugs": [
+        "manager-treuhand-business-tax-tax-legal-deloitte-bern"
+      ]
     },
     {
       "id": "deloitte-c48f299c7959",
-      "slug": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel",
+      "slug": "manager-intelligenza-artificiale-e-dati-strategia-di-ia-deloitte-basel",
       "slugByLocale": {
         "en": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel",
-        "it": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel",
+        "it": "manager-intelligenza-artificiale-e-dati-strategia-di-ia-deloitte-basel",
         "de": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel",
         "fr": "manager-artificial-intelligence-data-ai-strategy-deloitte-basel"
       },
@@ -2992,7 +3040,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.247Z"
+      "firstSeenAt": "2026-07-04T10:47:03.247Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-artificial-intelligence-data-ai-strategy-deloitte-basel"
+        ]
+      },
+      "previousSlugs": [
+        "manager-artificial-intelligence-data-ai-strategy-deloitte-basel"
+      ]
     },
     {
       "id": "deloitte-ce334de4c241",
@@ -3064,10 +3120,10 @@
     },
     {
       "id": "deloitte-a33b0b5fac5d",
-      "slug": "manager-ai-data-ai-insights-deloitte-geneva",
+      "slug": "gestore-ai-data-ai-approfondimenti-deloitte-geneva",
       "slugByLocale": {
         "en": "manager-ai-data-ai-insights-deloitte-geneva",
-        "it": "manager-ai-data-ai-insights-deloitte-geneva",
+        "it": "gestore-ai-data-ai-approfondimenti-deloitte-geneva",
         "de": "manager-ai-data-ai-insights-deloitte-geneva",
         "fr": "manager-ai-data-ai-insights-deloitte-geneva"
       },
@@ -3128,14 +3184,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.245Z"
+      "firstSeenAt": "2026-07-04T10:47:03.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-ai-data-ai-insights-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "manager-ai-data-ai-insights-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-8ff2f493d5f7",
-      "slug": "it-support-spezialist-in-2nd-level-support-deloitte-zurich",
+      "slug": "specialista-supporto-it-supporto-di-2-livello-deloitte-zurich",
       "slugByLocale": {
         "de": "it-support-spezialist-in-2nd-level-support-deloitte-zurich",
-        "it": "it-support-spezialist-in-2nd-level-support-deloitte-zurich",
+        "it": "specialista-supporto-it-supporto-di-2-livello-deloitte-zurich",
         "en": "it-support-spezialist-in-2nd-level-support-deloitte-zurich",
         "fr": "it-support-spezialist-in-2nd-level-support-deloitte-zurich"
       },
@@ -3196,7 +3260,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.244Z"
+      "firstSeenAt": "2026-07-04T10:47:03.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-support-spezialist-in-2nd-level-support-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "it-support-spezialist-in-2nd-level-support-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-44cd23c629d7",
@@ -3472,10 +3544,10 @@
     },
     {
       "id": "deloitte-38acc99e2a35",
-      "slug": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel",
+      "slug": "hacker-etico-tester-di-penetrazione-servizi-di-rischio-informatico-deloitte-basel",
       "slugByLocale": {
         "en": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel",
-        "it": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel",
+        "it": "hacker-etico-tester-di-penetrazione-servizi-di-rischio-informatico-deloitte-basel",
         "de": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel",
         "fr": "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel"
       },
@@ -3536,15 +3608,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.238Z"
+      "firstSeenAt": "2026-07-04T10:47:03.238Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel"
+        ]
+      },
+      "previousSlugs": [
+        "ethical-hacker-penetration-tester-cyber-risk-services-deloitte-basel"
+      ]
     },
     {
       "id": "deloitte-edf21194a611",
-      "slug": "director-sap-finance-deloitte-zurich",
+      "slug": "direttore-sap-finanza-deloitte-zurich",
       "slugByLocale": {
         "en": "director-sap-finance-deloitte-zurich",
-        "it": "director-sap-finance-deloitte-zurich",
-        "de": "director-sap-finance-deloitte-zurich",
+        "it": "direttore-sap-finanza-deloitte-zurich",
+        "de": "direktor-sap-finanzen-deloitte-zurich",
         "fr": "director-sap-finance-deloitte-zurich"
       },
       "company": "Deloitte",
@@ -3604,14 +3684,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.237Z"
+      "firstSeenAt": "2026-07-04T10:47:03.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-sap-finance-deloitte-zurich"
+        ],
+        "de": [
+          "director-sap-finance-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "director-sap-finance-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-f02a4e4fe036",
-      "slug": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva",
+      "slug": "responsabile-della-strategia-cibernetica-e-della-trasformazione-tecnologia-e-trasformazione-deloitte-geneva",
       "slugByLocale": {
         "en": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva",
-        "it": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva",
+        "it": "responsabile-della-strategia-cibernetica-e-della-trasformazione-tecnologia-e-trasformazione-deloitte-geneva",
         "de": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva",
         "fr": "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva"
       },
@@ -3672,14 +3763,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.236Z"
+      "firstSeenAt": "2026-07-04T10:47:03.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "cyber-strategy-transformation-manager-technology-transformation-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-44cc622b6ee0",
-      "slug": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich",
+      "slug": "responsabile-crisi-e-resilienza-cyber-risk-services-deloitte-zurich",
       "slugByLocale": {
         "en": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich",
-        "it": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich",
+        "it": "responsabile-crisi-e-resilienza-cyber-risk-services-deloitte-zurich",
         "de": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich",
         "fr": "crisis-resilience-manager-cyber-risk-services-deloitte-zurich"
       },
@@ -3740,7 +3839,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.235Z"
+      "firstSeenAt": "2026-07-04T10:47:03.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crisis-resilience-manager-cyber-risk-services-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "crisis-resilience-manager-cyber-risk-services-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-03c3c9de0095",
@@ -3880,10 +3987,10 @@
     },
     {
       "id": "deloitte-d5a1e0e0e7d0",
-      "slug": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern",
+      "slug": "inizio-carriera-audit-large-complex-zurich-bern-inizio-ottobre-2026-deloitte-bern",
       "slugByLocale": {
         "de": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern",
-        "it": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern",
+        "it": "inizio-carriera-audit-large-complex-zurich-bern-inizio-ottobre-2026-deloitte-bern",
         "en": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern",
         "fr": "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern"
       },
@@ -3944,7 +4051,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.231Z"
+      "firstSeenAt": "2026-07-04T10:47:03.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern"
+        ]
+      },
+      "previousSlugs": [
+        "career-start-large-complex-audit-zurich-bern-start-october-2026-deloitte-bern"
+      ]
     },
     {
       "id": "deloitte-bfe5aee6c865",
@@ -4424,10 +4539,10 @@
     },
     {
       "id": "deloitte-fca23b34ff15",
-      "slug": "senior-manager-infrastructure-and-cloud-security-deloitte-basel",
+      "slug": "senior-manager-infrastruttura-e-sicurezza-cloud-deloitte-basel",
       "slugByLocale": {
         "en": "senior-manager-infrastructure-and-cloud-security-deloitte-basel",
-        "it": "senior-manager-infrastructure-and-cloud-security-deloitte-basel",
+        "it": "senior-manager-infrastruttura-e-sicurezza-cloud-deloitte-basel",
         "de": "senior-manager-infrastructure-and-cloud-security-deloitte-basel",
         "fr": "senior-manager-infrastructure-and-cloud-security-deloitte-basel"
       },
@@ -4488,14 +4603,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.222Z"
+      "firstSeenAt": "2026-07-04T10:47:03.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-infrastructure-and-cloud-security-deloitte-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-infrastructure-and-cloud-security-deloitte-basel"
+      ]
     },
     {
       "id": "deloitte-8a1a54c56849",
-      "slug": "senior-manager-mehrwertsteuerberatung-deloitte-zurich",
+      "slug": "senior-responsabile-consulenza-iva-deloitte-zurich",
       "slugByLocale": {
         "de": "senior-manager-mehrwertsteuerberatung-deloitte-zurich",
-        "it": "senior-manager-mehrwertsteuerberatung-deloitte-zurich",
+        "it": "senior-responsabile-consulenza-iva-deloitte-zurich",
         "en": "senior-manager-mehrwertsteuerberatung-deloitte-zurich",
         "fr": "senior-manager-mehrwertsteuerberatung-deloitte-zurich"
       },
@@ -4556,7 +4679,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.220Z"
+      "firstSeenAt": "2026-07-04T10:47:03.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-mehrwertsteuerberatung-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-mehrwertsteuerberatung-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-9793a3b4de13",
@@ -4628,10 +4759,10 @@
     },
     {
       "id": "deloitte-8b237423337b",
-      "slug": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
+      "slug": "senior-manager-fiscalita-aziendale-industrie-dei-servizi-finanziari-fiscalita-e-legale-deloitte-zurich",
       "slugByLocale": {
         "en": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
-        "it": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
+        "it": "senior-manager-fiscalita-aziendale-industrie-dei-servizi-finanziari-fiscalita-e-legale-deloitte-zurich",
         "de": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich",
         "fr": "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich"
       },
@@ -4692,7 +4823,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:47:03.217Z"
+      "firstSeenAt": "2026-07-04T10:47:03.217Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-business-tax-financial-services-industries-tax-legal-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-6e07bb63a861",

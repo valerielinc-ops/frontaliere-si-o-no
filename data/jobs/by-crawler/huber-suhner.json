@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "huber-suhner-ab080184a94a",
-      "slug": "automatiker-instandhaltungstechniker-huber-suhner-herisau",
+      "slug": "tecnico-di-automazione-manutenzione-huber-suhner-ag-herisau",
       "slugByLocale": {
         "de": "automatiker-instandhaltungstechniker-huber-suhner-herisau",
-        "it": "automatiker-instandhaltungstechniker-huber-suhner-herisau",
+        "it": "tecnico-di-automazione-manutenzione-huber-suhner-ag-herisau",
         "en": "automatiker-instandhaltungstechniker-huber-suhner-herisau",
         "fr": "automatiker-instandhaltungstechniker-huber-suhner-herisau"
       },
@@ -70,14 +70,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:51.736Z"
+      "firstSeenAt": "2026-07-04T11:08:51.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-instandhaltungstechniker-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-instandhaltungstechniker-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-aa1bb70ac296",
-      "slug": "projektleiter-hlk-huber-suhner-ag-pfaffikon",
+      "slug": "responsabile-di-progetto-hvac-huber-suhner-ag-pfaffikon",
       "slugByLocale": {
         "de": "projektleiter-hlk-huber-suhner-pfaffikon",
-        "it": "projektleiter-hlk-huber-suhner-ag-pfaffikon",
+        "it": "responsabile-di-progetto-hvac-huber-suhner-ag-pfaffikon",
         "en": "projektleiter-hlk-huber-suhner-pfaffikon",
         "fr": "projektleiter-hlk-huber-suhner-pfaffikon"
       },
@@ -130,11 +138,13 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-hlk-huber-suhner-pfaffikon"
+          "projektleiter-hlk-huber-suhner-pfaffikon",
+          "projektleiter-hlk-huber-suhner-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "projektleiter-hlk-huber-suhner-pfaffikon"
+        "projektleiter-hlk-huber-suhner-pfaffikon",
+        "projektleiter-hlk-huber-suhner-ag-pfaffikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -152,10 +162,10 @@
     },
     {
       "id": "huber-suhner-0e606958f677",
-      "slug": "internship-learning-development-huber-suhner-herisau",
+      "slug": "apprendimento-e-sviluppo-stage-huber-suhner-ag-herisau",
       "slugByLocale": {
         "de": "internship-learning-development-huber-suhner-herisau",
-        "it": "internship-learning-development-huber-suhner-herisau",
+        "it": "apprendimento-e-sviluppo-stage-huber-suhner-ag-herisau",
         "en": "internship-learning-development-huber-suhner-herisau",
         "fr": "internship-learning-development-huber-suhner-herisau"
       },
@@ -218,14 +228,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:49.944Z"
+      "firstSeenAt": "2026-07-04T11:08:49.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-learning-development-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "internship-learning-development-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-9889439ecd19",
-      "slug": "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau",
+      "slug": "ingegneria-dei-processi-e-della-tecnologia-rf-per-studenti-lavoratori-huber-suhner-ag-herisau",
       "slugByLocale": {
         "de": "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau",
-        "it": "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau",
+        "it": "ingegneria-dei-processi-e-della-tecnologia-rf-per-studenti-lavoratori-huber-suhner-ag-herisau",
         "en": "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau",
         "fr": "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau"
       },
@@ -288,14 +306,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:49.057Z"
+      "firstSeenAt": "2026-07-04T11:08:49.057Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-358fcf9c3347",
-      "slug": "praktikum-forschung-entwicklung-huber-suhner-herisau",
+      "slug": "tirocinio-ricerca-sviluppo-huber-suhner-ag-herisau",
       "slugByLocale": {
         "de": "praktikum-forschung-entwicklung-huber-suhner-herisau",
-        "it": "praktikum-forschung-entwicklung-huber-suhner-herisau",
+        "it": "tirocinio-ricerca-sviluppo-huber-suhner-ag-herisau",
         "en": "praktikum-forschung-entwicklung-huber-suhner-herisau",
         "fr": "praktikum-forschung-entwicklung-huber-suhner-herisau"
       },
@@ -358,14 +384,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:48.265Z"
+      "firstSeenAt": "2026-07-04T11:08:48.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-forschung-entwicklung-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-forschung-entwicklung-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-4736f30660c7",
-      "slug": "technical-product-support-rf-cable-assembly-huber-suhner-herisau",
+      "slug": "supporto-tecnico-del-prodotto-assemblaggio-di-cavi-rf-huber-suhner-ag-herisau",
       "slugByLocale": {
         "en": "technical-product-support-rf-cable-assembly-huber-suhner-herisau",
-        "it": "technical-product-support-rf-cable-assembly-huber-suhner-herisau",
+        "it": "supporto-tecnico-del-prodotto-assemblaggio-di-cavi-rf-huber-suhner-ag-herisau",
         "de": "technical-product-support-rf-cable-assembly-huber-suhner-herisau",
         "fr": "technical-product-support-rf-cable-assembly-huber-suhner-herisau"
       },
@@ -428,7 +462,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:47.455Z"
+      "firstSeenAt": "2026-07-04T11:08:47.455Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-support-rf-cable-assembly-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-support-rf-cable-assembly-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-f998d8e93f1f",
@@ -502,10 +544,10 @@
     },
     {
       "id": "huber-suhner-14c47d1d983e",
-      "slug": "maschinenfuhrer-huber-suhner-herisau",
+      "slug": "operatore-macchina-huber-suhner-ag-herisau",
       "slugByLocale": {
         "de": "maschinenfuhrer-huber-suhner-herisau",
-        "it": "maschinenfuhrer-huber-suhner-herisau",
+        "it": "operatore-macchina-huber-suhner-ag-herisau",
         "en": "maschinenfuhrer-huber-suhner-herisau",
         "fr": "maschinenfuhrer-huber-suhner-herisau"
       },
@@ -568,7 +610,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:46.020Z"
+      "firstSeenAt": "2026-07-04T11:08:46.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maschinenfuhrer-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "maschinenfuhrer-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-be8e5912b713",
@@ -712,10 +762,10 @@
     },
     {
       "id": "huber-suhner-41d3426cfd8b",
-      "slug": "fertigungstechniker-kabelproduktion-rf-huber-suhner-herisau",
+      "slug": "tecnico-di-produzione-cavi-rf-huber-suhner-ag-herisau",
       "slugByLocale": {
         "de": "fertigungstechniker-kabelproduktion-rf-huber-suhner-herisau",
-        "it": "fertigungstechniker-kabelproduktion-rf-huber-suhner-herisau",
+        "it": "tecnico-di-produzione-cavi-rf-huber-suhner-ag-herisau",
         "en": "fertigungstechniker-kabelproduktion-rf-huber-suhner-herisau",
         "fr": "fertigungstechniker-kabelproduktion-rf-huber-suhner-herisau"
       },
@@ -778,14 +828,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:43.250Z"
+      "firstSeenAt": "2026-07-04T11:08:43.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fertigungstechniker-kabelproduktion-rf-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "fertigungstechniker-kabelproduktion-rf-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-ddd329a6155c",
-      "slug": "corporate-controller-huber-suhner-pfaffikon",
+      "slug": "controllore-aziendale-huber-suhner-ag-pfaffikon",
       "slugByLocale": {
         "de": "corporate-controller-huber-suhner-pfaffikon",
-        "it": "corporate-controller-huber-suhner-pfaffikon",
+        "it": "controllore-aziendale-huber-suhner-ag-pfaffikon",
         "en": "corporate-controller-huber-suhner-pfaffikon",
         "fr": "corporate-controller-huber-suhner-pfaffikon"
       },
@@ -848,7 +906,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:08:42.354Z"
+      "firstSeenAt": "2026-07-04T11:08:42.354Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "corporate-controller-huber-suhner-pfaffikon"
+        ]
+      },
+      "previousSlugs": [
+        "corporate-controller-huber-suhner-pfaffikon"
+      ]
     }
   ]
 }

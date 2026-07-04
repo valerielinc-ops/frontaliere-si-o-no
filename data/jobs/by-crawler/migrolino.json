@@ -443,10 +443,10 @@
     },
     {
       "id": "migrolino-0576b1008778",
-      "slug": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
+      "slug": "rappresentante-vendite-migrolino-worblaufen-ittigen",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-        "it": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
+        "it": "rappresentante-vendite-migrolino-worblaufen-ittigen",
         "en": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
         "fr": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
       },
@@ -504,7 +504,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:29:06.536Z"
+      "firstSeenAt": "2026-07-04T11:29:06.536Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
+      ]
     },
     {
       "id": "migrolino-e7e5fb312642",
@@ -584,10 +592,10 @@
     },
     {
       "id": "migrolino-e6cd5db263e1",
-      "slug": "verkaufsmitarbeiter-in-migrolino-gumligen",
+      "slug": "rappresentante-vendite-migrolino-gumligen",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-migrolino-gumligen",
-        "it": "verkaufsmitarbeiter-in-migrolino-gumligen",
+        "it": "rappresentante-vendite-migrolino-gumligen",
         "en": "verkaufsmitarbeiter-in-migrolino-gumligen",
         "fr": "verkaufsmitarbeiter-in-migrolino-gumligen"
       },
@@ -645,7 +653,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:29:05.569Z"
+      "firstSeenAt": "2026-07-04T11:29:05.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-gumligen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-gumligen"
+      ]
     },
     {
       "id": "migrolino-94e287ef4ef9",
@@ -1902,12 +1918,12 @@
     },
     {
       "id": "migrolino-e7b0842424f0",
-      "slug": "schichtleiter-in-migrolino-siebnen",
+      "slug": "capo-turno-in-migrolino-siebnen",
       "slugByLocale": {
         "de": "schichtleiter-in-migrolino-siebnen",
-        "it": "schichtleiter-in-migrolino-siebnen",
-        "en": "schichtleiter-in-migrolino-siebnen",
-        "fr": "schichtleiter-in-migrolino-siebnen"
+        "it": "capo-turno-in-migrolino-siebnen",
+        "en": "shift-leader-in-migrolino-siebnen",
+        "fr": "chef-d-equipe-in-migrolino-siebnen"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -1963,7 +1979,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:28:56.541Z"
+      "firstSeenAt": "2026-07-04T11:28:56.541Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schichtleiter-in-migrolino-siebnen"
+        ],
+        "en": [
+          "schichtleiter-in-migrolino-siebnen"
+        ],
+        "fr": [
+          "schichtleiter-in-migrolino-siebnen"
+        ]
+      },
+      "previousSlugs": [
+        "schichtleiter-in-migrolino-siebnen"
+      ]
     },
     {
       "id": "migrolino-fd7d82c39c27",

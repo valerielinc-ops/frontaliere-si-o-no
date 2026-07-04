@@ -1226,10 +1226,10 @@
     },
     {
       "id": "rheinmetall-air-defence-3068183e93e7",
-      "slug": "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "electrical-ingegnere-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "electrical-ingegnere-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich"
       },
@@ -1289,7 +1289,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T11:46:20.932Z"
+      "firstSeenAt": "2026-07-04T11:46:20.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-engineer-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-b4565adf0b54",
@@ -5264,7 +5272,7 @@
         "de": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "it": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "quality-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "qualite-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
