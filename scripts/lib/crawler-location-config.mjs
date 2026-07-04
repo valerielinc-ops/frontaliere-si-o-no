@@ -691,6 +691,10 @@ export const COMPANY_HQ = {
   // (bucher-suter.com/imprint/, "Lindenhofstrasse 1, CH-3048 Worblaufen");
   // no fallback needed.
   'bucher-suter': { city: 'Bern', canton: 'BE', postalCode: '3048', addressRegion: 'BE' },
+  // GIM Architekten AG HQ, Altenbergstrasse 28, 3013 Bern — confirmed via
+  // jobs.ch company-profile Organization JSON-LD (both known company ids
+  // resolve to the same address) and gim.ch imprint/contact page.
+  'gim-architekten': { city: 'Bern', canton: 'BE', postalCode: '3013', addressRegion: 'BE' },
 };
 
 /**
