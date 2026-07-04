@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mobiliar",
-  "assembledAt": "2026-07-04T11:41:14.722Z",
+  "assembledAt": "2026-07-04T22:34:30.551Z",
   "jobs": [
     {
       "id": "mobiliar-1abbf3348556",
@@ -33,7 +33,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/1164849455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:41:11.148Z",
+      "crawledAt": "2026-07-04T22:34:26.525Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -54,6 +54,7 @@
         "conseiller-en-assurances-et-en-prevoyance-f-m-d-a-l-agence-generale-de-moutier-saint-imier-die-mobiliar-moutier"
       ],
       "firstSeenAt": "2026-06-05T12:19:23.540Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -99,7 +100,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Cyber-Governance-&-Risk-Manager-%28wmd%29/1165025955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:10.163Z",
+      "crawledAt": "2026-07-04T22:34:25.700Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -130,6 +131,7 @@
       },
       "sfJobId": "1165025955",
       "firstSeenAt": "2026-07-02T11:36:28.724Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -176,7 +178,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Business-Analyst-%28wmd%29/1164992955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:09.254Z",
+      "crawledAt": "2026-07-04T22:34:24.878Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,6 +223,7 @@
         ]
       },
       "firstSeenAt": "2026-06-26T11:58:09.624Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -267,7 +270,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thurgau-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164155255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:08.377Z",
+      "crawledAt": "2026-07-04T22:34:24.052Z",
       "addressLocality": "Thurgau",
       "addressCountry": "CH",
       "country": "CH",
@@ -315,6 +318,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:29.807Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -361,7 +365,7 @@
       "url": "https://jobs.mobiliar.ch/job/Yverdon-les-Bains-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-courtiers-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois-%28fhd%29/1164176155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:41:07.533Z",
+      "crawledAt": "2026-07-04T22:34:23.228Z",
       "addressLocality": "Yverdon",
       "addressCountry": "CH",
       "country": "CH",
@@ -406,6 +410,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:32.866Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -452,7 +457,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schwyz-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz/1164207255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:06.700Z",
+      "crawledAt": "2026-07-04T22:34:22.200Z",
       "addressLocality": "Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -503,6 +508,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.137Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -548,7 +554,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Versicherungs-und-Vorsorgeberater-%28wm%29-Generalagentur-Glattal-%28Z%C3%BCrich-Nord%29/1164271355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:05.865Z",
+      "crawledAt": "2026-07-04T22:34:21.379Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -594,7 +600,8 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-00e6ccaa6f24",
@@ -627,7 +634,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-%28Senior%29-Brokerbetreuer-und-Underwriter-Sachversicherung-Unternehmensgesch%C3%A4ft-%28wmd%29/1164253555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:05.034Z",
+      "crawledAt": "2026-07-04T22:34:20.558Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -659,6 +666,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:40.510Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -705,7 +713,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BCtschwil-Leiter-Vorsorge-Generalagentur-Wil-%28wmd%29/1164253255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:04.196Z",
+      "crawledAt": "2026-07-04T22:34:19.733Z",
       "addressLocality": "Bütschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -799,7 +807,7 @@
       "url": "https://jobs.mobiliar.ch/job/Ebikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Seetal-Rontal/1164548055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:03.354Z",
+      "crawledAt": "2026-07-04T22:34:18.903Z",
       "addressLocality": "Ebikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -834,6 +842,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.228Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -880,7 +889,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Verkaufssupportmitarbeiter-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164539255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:02.510Z",
+      "crawledAt": "2026-07-04T22:34:18.059Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -928,6 +937,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.981Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -973,7 +983,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164537855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:41:01.659Z",
+      "crawledAt": "2026-07-04T22:34:17.227Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1025,6 +1035,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:50.868Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1071,7 +1082,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Lausanne-Nord-vaudois-%28fhd%29/1164511555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:41:00.812Z",
+      "crawledAt": "2026-07-04T22:34:16.400Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1108,6 +1119,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:48.954Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1154,7 +1166,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Burgdorf-%28wmd%29/1164040155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:59.963Z",
+      "crawledAt": "2026-07-04T22:34:15.577Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1202,6 +1214,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:54.660Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1247,7 +1260,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Bienne/1164040055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:40:59.108Z",
+      "crawledAt": "2026-07-04T22:34:14.748Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1265,6 +1278,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1164040055",
       "firstSeenAt": "2026-05-10T22:09:55.414Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1311,7 +1325,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Biel/1164039955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:58.143Z",
+      "crawledAt": "2026-07-04T22:34:13.918Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1329,26 +1343,25 @@
       "requirementsByLocale": {},
       "sfJobId": "1164039955",
       "previousSlugs": [
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
+        "consulente-senior-m-d-die-mobiliar-kreuzlingen",
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-w-m-agenzia-generale-olten-die-mobiliar-olten",
+        "conseiller-en-assurances-et-prevoyance-h-f-agence-generale-spiez-die-mobiliar-lenk",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-spiez-die-mobiliar-lenk",
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
+        "versicherungs-und-vorsorgeberater-m-w-d-bei-der-generalagentur-bienne-die-mobiliar-biel",
         "consulente-senior-m-w-die-mobiliar-olten",
         "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-winterthur-die-mobiliar-winterthur",
         "versicherungs-und-vorsorgeberater-m-w-generalagentur-winterthur-mobiliar-ch",
         "directeur-principal-des-comptes-m-m-die-mobiliar-winterthur",
         "senior-account-manager-m-w-die-mobiliar-winterthur",
         "senior-consultant-m-w-die-mobiliar-olten",
-        "consultant-principal-m-m-die-mobiliar-olten",
-        "senior-consultant-m-d-die-mobiliar-kreuzlingen",
-        "consultant-principal-m-j-die-mobiliar-kreuzlingen",
-        "versicherungs-e-vorsorgeberater-m-w-agenzia-generale-winterthur-die-mobiliar-winterthur",
         "consulente-assicurativo-e-previdenziale-m-f-agenzia-generale-spiez-die-mobiliar-lenk",
         "insurance-and-pension-advisor-m-f-general-agency-spiez-die-mobiliar-lenk",
-        "versicherungs-und-vorsorgeberater-w-m-generalagentur-spiez-mobiliar-ch",
-        "versicherungs-und-vorsorgeberater-w-m-generalagentur-olten-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-olten-die-mobiliar-olten",
-        "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-kreuzlingen-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-kreuzlingen-die-mobiliar-kreuzlingen",
-        "consulente-senior-m-d-die-mobiliar-kreuzlingen",
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch"
+        "consultant-principal-m-m-die-mobiliar-olten",
+        "senior-consultant-m-d-die-mobiliar-kreuzlingen",
+        "consultant-principal-m-j-die-mobiliar-kreuzlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1370,8 +1383,8 @@
           "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-winterthur-die-mobiliar-winterthur",
           "versicherungs-und-vorsorgeberater-m-w-generalagentur-winterthur-mobiliar-ch",
           "directeur-principal-des-comptes-m-m-die-mobiliar-winterthur",
-          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
@@ -1386,6 +1399,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1432,7 +1446,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Responsable-des-sinistres-%28fhd%29-Agence-g%C3%A9n%C3%A9rale-Moutier-Saint-Imier/1164297555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:40:57.275Z",
+      "crawledAt": "2026-07-04T22:34:13.080Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -1465,6 +1479,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:22.847Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -1510,7 +1525,7 @@
       "url": "https://jobs.mobiliar.ch/job/St_-Gallen-Schadenmitarbeiter-in-Personenschaden-%28mw%29-Generalagentur-St_-Gallen/1164288655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:56.330Z",
+      "crawledAt": "2026-07-04T22:34:12.245Z",
       "addressLocality": "St_",
       "addressCountry": "CH",
       "country": "CH",
@@ -1602,7 +1617,7 @@
       "url": "https://jobs.mobiliar.ch/job/Hochdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Seetal-Rontal/1164010655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:55.462Z",
+      "crawledAt": "2026-07-04T22:34:11.409Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1644,6 +1659,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:31.342Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1689,7 +1705,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:54.619Z",
+      "crawledAt": "2026-07-04T22:34:10.578Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -1775,7 +1791,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Schadenspezialist-%28wmd%29-Generalagentur-Wil-SG/1164087255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:53.777Z",
+      "crawledAt": "2026-07-04T22:34:09.754Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1827,6 +1843,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1872,7 +1889,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sirnach-Versicherungs-und-Vorsorgeberater-%28mw%29-Generalagentur-Frauenfeld/1164919855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:52.939Z",
+      "crawledAt": "2026-07-04T22:34:08.931Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1921,6 +1938,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:57:58.126Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1967,7 +1985,7 @@
       "url": "https://jobs.mobiliar.ch/job/Uster-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Uster/1164775855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:52.081Z",
+      "crawledAt": "2026-07-04T22:34:08.096Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -2008,6 +2026,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:48.388Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2054,7 +2073,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Teamleiter-Underwriting-KMU-Markt-West-%28wmd%29/1164874755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:51.107Z",
+      "crawledAt": "2026-07-04T22:34:07.267Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2106,6 +2125,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:44:25.620Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2152,7 +2172,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lenzburg-Schadenmitarbeiter-%28wmd%29-Generalagentur-Lenzburg/1164762355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:50.140Z",
+      "crawledAt": "2026-07-04T22:34:06.439Z",
       "addressLocality": "Lenzburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2204,6 +2224,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2249,7 +2270,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-Mitarbeiterin-Innendienst-%28wmd%29-Generalagentur-Luzern/1164803855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:49.180Z",
+      "crawledAt": "2026-07-04T22:34:05.494Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2300,6 +2321,7 @@
         ]
       },
       "firstSeenAt": "2026-05-29T13:23:27.178Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2346,7 +2368,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Kundendialog-und-Triage-%28wmd%29/1164806655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:47.717Z",
+      "crawledAt": "2026-07-04T22:34:04.114Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2395,6 +2417,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:35:25.063Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2439,7 +2462,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Berater-Assistance-Soforthilfe-%28wmd%29/1164806555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:46.403Z",
+      "crawledAt": "2026-07-04T22:34:02.780Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2484,6 +2507,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:58:07.052Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2530,7 +2554,7 @@
       "url": "https://jobs.mobiliar.ch/job/Herisau-Verkaufssupportmitarbeiter-%28wm%29-Generalagentur-AusserRhoden/1164822255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:45.419Z",
+      "crawledAt": "2026-07-04T22:34:01.807Z",
       "addressLocality": "Herisau",
       "addressCountry": "CH",
       "country": "CH",
@@ -2565,6 +2589,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:06:05.067Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -2610,7 +2635,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dielsdorf-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Dielsdorf/1164899755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:44.597Z",
+      "crawledAt": "2026-07-04T22:34:00.968Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2649,6 +2674,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:51:54.290Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2695,7 +2721,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Young-Insurance-Professional-%28wmd%29-Generalagentur-Wil/1164879755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:43.753Z",
+      "crawledAt": "2026-07-04T22:34:00.132Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2738,6 +2764,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:37:04.137Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2784,7 +2811,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Basel/1164878055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:42.913Z",
+      "crawledAt": "2026-07-04T22:33:59.311Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2863,7 +2890,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vevey-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Riviera-R%C3%A9gion-de-Pully/1164884655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:40:42.082Z",
+      "crawledAt": "2026-07-04T22:33:58.476Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -2941,7 +2968,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Informatik-Lehrstelle-EFZ-2027/1165001455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:41.247Z",
+      "crawledAt": "2026-07-04T22:33:57.653Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2986,6 +3013,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:53.909Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3032,7 +3060,7 @@
       "url": "https://jobs.mobiliar.ch/job/Glattpark-%28Opfikon%29-Schadenspezialist-%28wmd%29-Generalagentur-Glattal/1165017455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:40.415Z",
+      "crawledAt": "2026-07-04T22:33:56.823Z",
       "addressLocality": "Glattpark",
       "addressCountry": "CH",
       "country": "CH",
@@ -3109,7 +3137,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Haustechnik-Bern-%28wmd%29/1165016555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:39.583Z",
+      "crawledAt": "2026-07-04T22:33:55.985Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3163,6 +3191,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:05:18.771Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3209,7 +3238,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Horgen/1164802255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:38.749Z",
+      "crawledAt": "2026-07-04T22:33:55.161Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3284,6 +3313,7 @@
         ]
       },
       "firstSeenAt": "2026-05-29T13:23:25.575Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3330,7 +3360,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Stv_-Leiter-Schadendienst-im-innen-und-Aussendienst-%28wm%29-Generalagentur-Burgdorf/1164843655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:37.905Z",
+      "crawledAt": "2026-07-04T22:33:54.312Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3382,6 +3412,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T15:26:58.827Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3428,7 +3459,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Betriebswirtschafter-Applikationen-&-Daten-Immobilien-%28wmd%29/1165027055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:37.066Z",
+      "crawledAt": "2026-07-04T22:33:53.487Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3477,6 +3508,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T23:05:52.766Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3523,7 +3555,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Sp%C3%A9cialiste-assurances-de-personnes-%28fhd%29/1165024455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:40:36.240Z",
+      "crawledAt": "2026-07-04T22:33:52.644Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -3541,6 +3573,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1165024455",
       "firstSeenAt": "2026-07-02T11:36:27.183Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3587,7 +3620,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dietikon-KV-Lehrstelle-EFZ-2027-Generalagentur-Limmattal/1165022855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:35.308Z",
+      "crawledAt": "2026-07-04T22:33:51.814Z",
       "addressLocality": "Dietikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -3632,6 +3665,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:36:26.425Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3678,7 +3712,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Responsable-d'%C3%A9quipe-Souscription-PME-march%C3%A9-ouest-%28fhd%29/1164874655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:40:34.485Z",
+      "crawledAt": "2026-07-04T22:33:50.978Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3756,7 +3790,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BClach-Mitarbeiter-Kunden-und-Maklersupport-%28wmd%29-Generalagentur-B%C3%BClach/1164960855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:33.653Z",
+      "crawledAt": "2026-07-04T22:33:50.157Z",
       "addressLocality": "Bülach",
       "addressCountry": "CH",
       "country": "CH",
@@ -3835,7 +3869,7 @@
       "url": "https://jobs.mobiliar.ch/job/Meilen-Schadenspezialist-%28mwd%29-Generalagentur-Meilen/1164954255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:32.820Z",
+      "crawledAt": "2026-07-04T22:33:49.291Z",
       "addressLocality": "Meilen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3886,6 +3920,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:18:47.391Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3932,7 +3967,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialistin-Personenschaden-%28wmd%29/1164950155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:31.984Z",
+      "crawledAt": "2026-07-04T22:33:48.470Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3972,6 +4007,7 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:05:22.180Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4018,7 +4054,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-IT-Security-Architect-%28wmd%29/1164945355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:31.145Z",
+      "crawledAt": "2026-07-04T22:33:47.641Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4069,6 +4105,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:11:09.751Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -4115,7 +4152,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Leiter-Corporate-Resilience-Management-%28wmd%29/1164936255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:30.319Z",
+      "crawledAt": "2026-07-04T22:33:46.802Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4157,6 +4194,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:50:43.926Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4203,7 +4241,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BClach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-B%C3%BClach/1164931355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:29.461Z",
+      "crawledAt": "2026-07-04T22:33:45.974Z",
       "addressLocality": "Bülach",
       "addressCountry": "CH",
       "country": "CH",
@@ -4282,7 +4320,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Conseiller-%C3%A8re-en-assurances%2C-pr%C3%A9voyance-et-hypoth%C3%A8ques-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois/1163725955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:40:28.610Z",
+      "crawledAt": "2026-07-04T22:33:45.148Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4315,6 +4353,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:47:49.813Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4361,7 +4400,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Schadenspezialist-%28wm%29-Personensch%C3%A4den-UVGKrankentaggeld-Generalagentur-Burgdorf/1163707355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:27.680Z",
+      "crawledAt": "2026-07-04T22:33:44.318Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -4413,6 +4452,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:36.542Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4459,7 +4499,7 @@
       "url": "https://jobs.mobiliar.ch/job/Uster-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Uster/1163443155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:26.828Z",
+      "crawledAt": "2026-07-04T22:33:43.483Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -4493,6 +4533,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:28.286Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4538,7 +4579,7 @@
       "url": "https://jobs.mobiliar.ch/job/Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rheintal/1163417355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:25.985Z",
+      "crawledAt": "2026-07-04T22:33:42.656Z",
       "addressLocality": "Versicherungs",
       "addressCountry": "CH",
       "country": "CH",
@@ -4628,7 +4669,7 @@
       "url": "https://jobs.mobiliar.ch/job/Zug-KV-Lehrstelle-EFZ-2027-Generalagentur-Zug/940916774/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:25.135Z",
+      "crawledAt": "2026-07-04T22:33:41.824Z",
       "addressLocality": "Generalagentur Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -4722,7 +4763,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vaduz-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Vaduz/940913874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:24.169Z",
+      "crawledAt": "2026-07-04T22:33:40.998Z",
       "addressLocality": "237 65 51",
       "addressCountry": "CH",
       "country": "CH",
@@ -4813,7 +4854,7 @@
       "url": "https://jobs.mobiliar.ch/job/Affoltern-am-Albis-KV-Lehrstelle-EFZ-2027-Generalagentur-Affoltern-am-Albis/940912874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:23.329Z",
+      "crawledAt": "2026-07-04T22:33:40.173Z",
       "addressLocality": "Affoltern",
       "addressCountry": "CH",
       "country": "CH",
@@ -4860,6 +4901,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:47.640Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4906,7 +4948,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/940912074/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T11:40:22.499Z",
+      "crawledAt": "2026-07-04T22:33:39.330Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -4962,7 +5004,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "JU"
+      "addressRegion": "JU",
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-086bf87d50c6",
@@ -4995,7 +5038,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wil%2C-Region-Wil-und-Toggenburg/940908174/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:21.502Z",
+      "crawledAt": "2026-07-04T22:33:38.502Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -5043,6 +5086,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:00.008Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5089,7 +5133,7 @@
       "url": "https://jobs.mobiliar.ch/job/D%C3%BCdingen-Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-%28Profil-EM%29-Generalagentur-D%C3%BCdingen/1162909055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:20.674Z",
+      "crawledAt": "2026-07-04T22:33:37.676Z",
       "addressLocality": "Düdingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5123,6 +5167,7 @@
         ]
       },
       "firstSeenAt": "2026-05-14T22:31:28.120Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5168,7 +5213,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wetzikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wetzikon-Pf%C3%A4ffikon/1163375655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:19.844Z",
+      "crawledAt": "2026-07-04T22:33:36.849Z",
       "addressLocality": "Wetzikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -5201,6 +5246,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:03.271Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5247,7 +5293,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-KV-Lehrstelle-EFZ-2027-Generalagentur-Basel/1163321355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:18.991Z",
+      "crawledAt": "2026-07-04T22:33:36.025Z",
       "addressLocality": "Generalagentur Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5297,6 +5343,7 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:49:16.742Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -5342,7 +5389,7 @@
       "url": "https://jobs.mobiliar.ch/job/Muotathal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz%2C-Standort-Muotathal/1163186555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:18.018Z",
+      "crawledAt": "2026-07-04T22:33:35.200Z",
       "addressLocality": "Muotathal",
       "addressCountry": "CH",
       "country": "CH",
@@ -5377,6 +5424,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:54.704Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -5422,7 +5470,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-KV-Lehrstelle-EFZ-2027-Generalagentur-Luzern/1164429655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:17.167Z",
+      "crawledAt": "2026-07-04T22:33:34.373Z",
       "addressLocality": "Generalagentur Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5510,7 +5558,7 @@
       "url": "https://jobs.mobiliar.ch/job/Uster-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Uster/1164463655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:16.343Z",
+      "crawledAt": "2026-07-04T22:33:33.547Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -5559,6 +5607,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:54:48.437Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5604,7 +5653,7 @@
       "url": "https://jobs.mobiliar.ch/job/Winterthur-KV-Lehrstelle-EFZ-2027-Generalagentur-Winterthur/1164471155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:15.512Z",
+      "crawledAt": "2026-07-04T22:33:32.717Z",
       "addressLocality": "Generalagentur Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -5698,7 +5747,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Personenversicherungen-%28KTGUVGUVGZ%29-mit-Branchenverantwortung-%28wmd%29/1163846755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:14.504Z",
+      "crawledAt": "2026-07-04T22:33:31.885Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5747,6 +5796,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:41.273Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5793,7 +5843,7 @@
       "url": "https://jobs.mobiliar.ch/job/Eschenbach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rapperswil-Glarus/1163794755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:13.664Z",
+      "crawledAt": "2026-07-04T22:33:31.050Z",
       "addressLocality": "Eschenbach",
       "addressCountry": "CH",
       "country": "CH",
@@ -5887,7 +5937,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Biel/1164623355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:12.823Z",
+      "crawledAt": "2026-07-04T22:33:30.217Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5931,6 +5981,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:13.543Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5977,7 +6028,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Langenthal/1164609655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:11.992Z",
+      "crawledAt": "2026-07-04T22:33:29.389Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -6056,7 +6107,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Z%C3%BCrich/1164643255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:11.039Z",
+      "crawledAt": "2026-07-04T22:33:28.440Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6100,6 +6151,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:26.764Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6146,7 +6198,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Contact-Center-%28wmd%29/1164640755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:09.663Z",
+      "crawledAt": "2026-07-04T22:33:27.014Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6195,6 +6247,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:35:26.388Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6241,7 +6294,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Horgen/1164683655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:08.554Z",
+      "crawledAt": "2026-07-04T22:33:25.920Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6283,6 +6336,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:43.579Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6328,7 +6382,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schaffhausen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Schaffhausen/1164681355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:07.720Z",
+      "crawledAt": "2026-07-04T22:33:25.068Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6372,6 +6426,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -6418,7 +6473,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rorschach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Arbon-Rorschach/1164744055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:06.884Z",
+      "crawledAt": "2026-07-04T22:33:24.239Z",
       "addressLocality": "oder nach Vereinbarung",
       "addressCountry": "CH",
       "country": "CH",
@@ -6497,7 +6552,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sarnen-Schadenspezialist-%28wmd%29-Generalagentur-Obwalden-und-Nidwalden/1164700455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:06.030Z",
+      "crawledAt": "2026-07-04T22:33:23.377Z",
       "addressLocality": "Sarnen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6550,6 +6605,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:52.353Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -6595,7 +6651,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Generalagentur-Bern-Stadt/1164704655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:05.177Z",
+      "crawledAt": "2026-07-04T22:33:22.537Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6668,7 +6724,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Verantwortlicher-Immobilien-Transaktionen-Markt-Ost-%28wmd%29/1164752455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:04.337Z",
+      "crawledAt": "2026-07-04T22:33:21.701Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -6718,6 +6774,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:39:41.969Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6764,7 +6821,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rapperswil-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Rapperswil-Glarus/1164984555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:03.506Z",
+      "crawledAt": "2026-07-04T22:33:20.861Z",
       "addressLocality": "Rapperswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -6811,6 +6868,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:43:38.203Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -6857,7 +6915,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Vulnerability-Service-Manager-%28wmd%29/1164984355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:02.659Z",
+      "crawledAt": "2026-07-04T22:33:20.016Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6902,6 +6960,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:54.695Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -6948,7 +7007,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Mobiliar-Langenthal/1164981855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:01.512Z",
+      "crawledAt": "2026-07-04T22:33:18.852Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -6999,6 +7058,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T11:43:37.442Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7045,7 +7105,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Motorfahrzeug-Flotten-und-Privatkunden-%28wmd%29/1164973855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:40:00.687Z",
+      "crawledAt": "2026-07-04T22:33:18.020Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7091,6 +7151,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:58:11.189Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7137,7 +7198,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Mediamatik-Lehrstelle-EFZ-2027/1165000855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:39:59.832Z",
+      "crawledAt": "2026-07-04T22:33:17.170Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7184,6 +7245,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:52.316Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7230,7 +7292,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Lehrstelle-Entwickler-Digital-Business-EFZ-2027/1165000755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:39:58.973Z",
+      "crawledAt": "2026-07-04T22:33:16.335Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7275,6 +7337,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:51.520Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7321,7 +7384,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Lehre-und-Sport/1164999655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:39:58.134Z",
+      "crawledAt": "2026-07-04T22:33:15.506Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7365,6 +7428,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:49.928Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7411,7 +7475,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Lehrstelle-Fachfrau-Fachmann-Kundendialog-EFZ-2027/1164999555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:39:57.190Z",
+      "crawledAt": "2026-07-04T22:33:14.665Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7459,6 +7523,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:49.141Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7505,7 +7570,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027/1164999455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T11:39:56.239Z",
+      "crawledAt": "2026-07-04T22:33:13.713Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7547,6 +7612,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:26:50.730Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7561,102 +7627,6 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE"
-    },
-    {
-      "id": "mobiliar-d9d0f13d4e88",
-      "slug": "leiter-marktbearbeitung-personenversicherungen-m-w-d-die-mobiliar-zurich",
-      "slugByLocale": {
-        "it": "leiter-marktbearbeitung-personenversicherungen-m-w-d-die-mobiliar-zurich",
-        "en": "head-of-market-development-personal-insurance-f-m-d-die-mobiliar-zurich",
-        "de": "leiter-marktbearbeitung-personenversicherungen-w-m-d-mobiliar-ch",
-        "fr": "chef-du-developpement-du-marche-assurance-personnelle-f-m-d-die-mobiliar-zurich"
-      },
-      "company": "die Mobiliar",
-      "companyKey": "mobiliar",
-      "companyDomain": "mobiliar.ch",
-      "title": "Leiter Marktbearbeitung Personenversicherungen (w/m/d)",
-      "titleByLocale": {
-        "it": "Capo dello sviluppo del mercato Assicurazione personale (f/m/d)",
-        "en": "Head of Market Development Personal insurance (f/m/d)",
-        "de": "Leiter Marktbearbeitung Personenversicherungen (w/m/d)",
-        "fr": "Chef du développement du marché Assurance personnelle (f/m/d)"
-      },
-      "description": "Das erwartet dich:\nDie Direktion Maklergeschäft in Zürich ist als Marktbearbeitungseinheit der Mobiliar verantwortlich für die partnerschaftliche Zusammenarbeit mit unseren Direktionsmaklern. Für unsere Abteilung Marktbearbeitung Personenversicherung suchen wir eine im Fachgebiet Personenversicherung spezialisierte, erfahrene Führungsperson.\n\nDas bewirkst du bei uns:\nAls Leiter:in Marktbearbeitung Personenversicherungen führst du ein Team von sieben Mitarbeitenden und verantwortest die operative Marktbearbeitung in der Unfall- und Krankentaggeldversicherung. Dabei stellst du ein qualitativ hochwertiges Underwriting unter Einhaltung der geltenden Underwritingrichtlinien sicher, entwickelst kundenspezifische Versicherungslösungen und führst Verhandlungen mit Kunden sowie Maklern.\n\nZudem förderst du die fachliche Aus- und Weiterbildung der Underwriter und bringst dein Know-how aktiv in Fachgremien und Projekten ein.\n\nDas bringst du mit:\n• Langjährige, praktische Kenntnisse im Underwriting Personenversicherungen\n\n• Mehrjährige Führungserfahrung\n\n• Vertiefte Kenntnisse des Maklermarktes\n\n• Strategische und integrative Denkweise sowie Freude am persönlichen Kontakt mit unseren internen und externen Geschäftspartnern\n\n• Umsetzungsstarke und neugierige Persönlichkeit, welche auf Augenhöhe mit Steakholdern kommuniziert\n\n• Weiterbildung im Versicherungswesen (z.B. Fachausweis) und/oder Betriebswirtschaft\n\n• Muttersprache Deutsch, gute Kenntnisse in Französisch und/oder Englisch von Vorteil\n\nBei uns arbeiten:\nDas Arbeitspensum ist ab 80% verhandelbar und dein Arbeitsort ist Zürich-Oerlikon. Wir bieten Ihnen eine spannende und abwechslungsreiche Tätigkeit in einem motivierten und engagierten Team, in dem eine offene Kommunikationskultur eine wichtige Rolle spielt.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
-      "descriptionByLocale": {
-        "it": "Questo è ciò che vi aspetta: Come unità di sviluppo di mercato di Mobiliar, la Direzione di Brokerage Business di Zurigo è responsabile della partnership con i nostri Agenti di Gestione. Per il nostro reparto di assicurazione personale di sviluppo di mercato, stiamo cercando un manager esperto che si specializza in assicurazione personale. Questo è ciò che si fa con noi: Come Capo dello Sviluppo del Mercato Assicurazione personale, si guida un team di sette dipendenti e sono responsabili per la gestione del mercato operativo in caso di incidente e assicurazione malattia. In questo modo, si garantisce la scrittura di alta qualità in conformità con le linee guida di sottoscrizione applicabili, sviluppare soluzioni di assicurazione specifiche del cliente e negoziare con i clienti e broker. Inoltre, si promuove l'educazione professionale e la formazione di sottoscritti e contribuire attivamente il vostro know-how a comitati e progetti specializzati. Lo portate con voi:\n• Conoscenze a lungo termine e pratiche nel sottoscrivere l'assicurazione personale\n• Diversi anni di esperienza di gestione\n• Conoscenza approfondita del mercato dei broker\n• Pensiero strategico e integrativo, nonché il godimento del contatto personale con i nostri partner aziendali interni ed esterni\n• Personalità forte e curioso che comunica a livello degli occhi con i proprietari di bistecche\n• Formazione ulteriore nel settore assicurativo (ad esempio scheda professionale) e / o amministrazione aziendale\n• Lingua madre Tedesco, buona conoscenza inglese Il carico di lavoro è negoziabile dall'80% e il vostro posto di lavoro è Zurigo-Oerlikon. Vi offriamo un lavoro emozionante e vario in un team motivato e impegnato in cui una cultura della comunicazione aperta svolge un ruolo importante. Consentiamo modelli di lavoro flessibili e offriamo 20 settimane di congedo di maternità e 6 settimane di congedo di paternità, assegni familiari superiori alla media e un fondo pensionistico sostenibile. Offriamo una vasta gamma di corsi interni e la partecipazione a possibili programmi all'estero. Per la formazione professionale e esterna, partecipiamo generosamente. Sconti Vi offriamo fino al 25% di sconto, abbonamenti a mezza quota, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piatta e sconti agli eventi culturali. Ulteriori condizioni di lavoro vanno al link Manager per i cookie: Quando si visita un sito web, questo può memorizzare e recuperare le informazioni sul browser - di solito sotto forma di cookie. Dal momento che rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, il blocco di alcuni cookie può influenzare negativamente la tua esperienza sul Sito e sui servizi che offriamo. Biscotti necessari Questi cookie sono necessari per l'utilizzo di questo sito e non possono essere disattivati. Visualizza maggiori dettagli Provider Descrizione Attivato SAP come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito web:\n• \"route\" viene utilizzato per la sessione stickiness\n• \"careerSiteCompany Id\" viene utilizzato per inviare la richiesta al data center corretto\n• \"JSESSIONID\" viene posizionato sul dispositivo del visitatore durante la sessione in modo che il server possa identificare il visitatore\n• \"Scarica cookie bilanciatore\" (il nome del cookie effettivo può differire) impedisce al visitatore di saltare da un'istanza all'altra",
-        "en": "This is what awaits you: As a market development unit of Mobiliar, the Management of Brokerage Business in Zurich is responsible for the partnership with our management agents. For our market development personal insurance department, we are looking for an experienced manager who specializes in personal insurance. This is what you do with us: As Head: in Market Management Personal insurance you lead a team of seven employees and are responsible for operational market management in accident and medical day allowance insurance. In doing so, you ensure high-quality underwriting in compliance with the applicable underwriting guidelines, develop customer-specific insurance solutions and negotiate with customers and brokers. In addition, you promote the professional education and training of underwriters and actively contribute your know-how to specialist committees and projects. This is what you bring with you:\n• Long-term, practical knowledge of underwriting personal insurance\n• Several years of leadership experience\n• In-depth knowledge of the brokerage market\n• Strategic and integrative thinking as well as enjoyment of personal contact with our internal and external business partners\n• Implementation-strong and curious personality who communicates at eye level with steakholders\n• Further education in the insurance sector (e.g. professional card) and/or business administration\n• native German, good knowledge of French and/or English is advantageous Working with us: The workload is negotiable from 80% and your place of work is Zurich-Oerlikon. We offer you an exciting and varied job in a motivated and committed team in which an open communication culture plays an important role. This is what we offer: Compatibility We enable flexible working models and offer 20 weeks of maternity leave and 6 weeks of paternity leave, above-average family allowances and a sustainably financed pension fund. Training and development We offer a wide range of internal courses as well as participation in possible programs abroad. For job-relevant, external training, we participate generously. Advantages Among other things, we offer you up to 25% bonus discount, a half-tax subscription, discounts on mobile phones as well as free subscriptions with flat rate and discounts at cultural events. Present Further conditions of employment go to link Manager for Cookie Consent: When you visit a website, this information about your browser can be stored and retrieved - usually in the form of cookies. Since we respect your right to privacy, you may refuse certain cookies. However, blocking certain cookies may negatively affect your experience on the Site and the services we offer. Necessary cookies These cookies are necessary for the use of this website and cannot be deactivated. Show more details Providers Description Activated SAP as service provider We use the following session cookies, all of which are necessary for the functionality of the website:\n• \"route\" is used for session stickiness\n• \"careerSiteCompanyId\" is used to send the request to the correct data center\n• \"JSESSIONID\" is placed on the visitor's device during the session so that the server can identify the visitor\n• \"Load balancer cookie\" (actual cookie name may differ) prevents a visitor from jumping from one instance to another",
-        "de": "Das erwartet dich: Die Direktion Maklergeschäft in Zürich ist als Marktbearbeitungseinheit der Mobiliar verantwortlich für die partnerschaftliche Zusammenarbeit mit unseren Direktionsmaklern. Für unsere Abteilung Marktbearbeitung Personenversicherung suchen wir eine im Fachgebiet Personenversicherung spezialisierte, erfahrene Führungsperson. Das bewirkst du bei uns: Als Leiter:in Marktbearbeitung Personenversicherungen führst du ein Team von sieben Mitarbeitenden und verantwortest die operative Marktbearbeitung in der Unfall- und Krankentaggeldversicherung. Dabei stellst du ein qualitativ hochwertiges Underwriting unter Einhaltung der geltenden Underwritingrichtlinien sicher, entwickelst kundenspezifische Versicherungslösungen und führst Verhandlungen mit Kunden sowie Maklern. Zudem förderst du die fachliche Aus- und Weiterbildung der Underwriter und bringst dein Know-how aktiv in Fachgremien und Projekten ein. Das bringst du mit:\n• Langjährige, praktische Kenntnisse im Underwriting Personenversicherungen\n• Mehrjährige Führungserfahrung\n• Vertiefte Kenntnisse des Maklermarktes\n• Strategische und integrative Denkweise sowie Freude am persönlichen Kontakt mit unseren internen und externen Geschäftspartnern\n• Umsetzungsstarke und neugierige Persönlichkeit, welche auf Augenhöhe mit Steakholdern kommuniziert\n• Weiterbildung im Versicherungswesen (z.B. Fachausweis) und/oder Betriebswirtschaft\n• Muttersprache Deutsch, gute Kenntnisse in Französisch und/oder Englisch von Vorteil Bei uns arbeiten: Das Arbeitspensum ist ab 80% verhandelbar und dein Arbeitsort ist Zürich-Oerlikon. Wir bieten Ihnen eine spannende und abwechslungsreiche Tätigkeit in einem motivierten und engagierten Team, in dem eine offene Kommunikationskultur eine wichtige Rolle spielt. Das bieten wir: Vereinbarkeit Wir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse. Weiterbildung und Entwicklung Wir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig. Vergünstigungen Wir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen. present Weitere Anstellungsbedingungen go_to_link Manager für Cookie-Einwilligungen: Wenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken. Notwendige Cookies Diese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden. Notwendige Cookies Mehr Details anzeigen Notwendige Cookies Anbieter Beschreibung Aktiviert SAP as service provider Wir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n• \"route\" wird für Sitzungs-Stickiness verwendet\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
-        "fr": "Voilà ce qui vous attend : En tant qu'unité de développement du marché de Mobiliar, la direction de la maison de courtage à Zurich est responsable du partenariat avec nos agents de gestion. Pour notre service d'assurance personnelle de développement de marché, nous recherchons un gestionnaire expérimenté qui se spécialise dans l'assurance personnelle. C'est ce que vous faites avec nous : En tant que responsable du développement du marché Assurance personnelle, vous dirigez une équipe de sept employés et êtes responsable de la gestion opérationnelle du marché en assurance accidents et maladie. Ce faisant, vous assurez une souscription de haute qualité conformément aux lignes directrices applicables en matière de souscription, développez des solutions d'assurance spécifiques aux clients et négociez avec les clients et les courtiers. En outre, vous encouragez la formation et la formation professionnelles des souscripteurs et contribuez activement à votre savoir-faire dans les comités et projets spécialisés. Vous apportez ceci avec vous:\n• Connaissances pratiques à long terme dans la souscription d'assurances personnelles\n• Plusieurs années d'expérience en gestion\n• Connaissance approfondie du marché des courtiers\n• Pensée stratégique et intégrative ainsi que la jouissance d'un contact personnel avec nos partenaires commerciaux internes et externes\n• Personnalité forte et curieuse de mise en œuvre qui communique au niveau des yeux avec les amateurs de steaks\n• Formation continue dans le secteur de l'assurance (par exemple carte professionnelle) et / ou administration des affaires\n• Langue maternelle Allemand, bonne connaissance en français et / ou anglais d'avantage Travailler avec nous: La charge de travail est négociable à partir de 80% et votre lieu de travail est Zurich-Oerlikon. Nous vous offrons un travail passionnant et varié dans une équipe motivée et engagée dans laquelle une culture de communication ouverte joue un rôle important. Nous permettons des modèles de travail flexibles et offrons 20 semaines de congé de maternité et 6 semaines de congé de paternité, des allocations familiales supérieures à la moyenne et un fonds de pension financé de manière durable. Nous offrons un large éventail de cours internes ainsi que la participation à d'éventuels programmes à l'étranger. Pour une formation externe pertinente au travail, nous participons généreusement. Réductions Nous vous offrons jusqu'à 25% de réduction, un abonnement demi-taxe, des réductions sur les téléphones mobiles ainsi que des abonnements gratuits avec un tarif forfaitaire et des réductions lors d'événements culturels. D'autres conditions d'emploi vont à link Manager pour les consentements de cookies: Lorsque vous visitez un site Web, cela peut stocker et récupérer des informations sur votre navigateur - généralement sous forme de cookies. Puisque nous respectons votre droit à la vie privée, vous pouvez refuser certains cookies. Cependant, le blocage de certains cookies peut affecter négativement votre expérience sur le Site et les services que nous offrons. Cookies nécessaires Ces cookies sont nécessaires à l'utilisation de ce site et ne peuvent être désactivés. Voir plus de détails Fournisseur Description Activé SAP comme fournisseur de services Nous utilisons les cookies de session suivants, qui sont tous nécessaires pour la fonctionnalité du site:\n• \"route\" est utilisé pour la session collante\n• \"careerSiteCompany Id\" est utilisé pour envoyer la requête au centre de données correct\n• \"JSESSIONID\" est placé sur le périphérique du visiteur pendant la session afin que le serveur puisse identifier le visiteur\n• \"Cookie d'équilibreur de charge\" (le nom réel du cookie peut différer) empêche un visiteur de sauter d'une instance à une autre"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Leiter-Marktbearbeitung-Personenversicherungen-%28wmd%29/1164827755/",
-      "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:14:17.267Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-07",
-      "applyUrl": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Leiter-Marktbearbeitung-Personenversicherungen-%28wmd%29/1164827755/",
-      "pensum": "80%",
-      "requirements": [
-        "Langjährige, praktische Kenntnisse im Underwriting Personenversicherungen",
-        "Mehrjährige Führungserfahrung",
-        "Vertiefte Kenntnisse des Maklermarktes",
-        "Strategische und integrative Denkweise sowie Freude am persönlichen Kontakt mit unseren internen und externen Geschäftspartnern",
-        "Umsetzungsstarke und neugierige Persönlichkeit, welche auf Augenhöhe mit Steakholdern kommuniziert",
-        "Weiterbildung im Versicherungswesen (z.B. Fachausweis) und/oder Betriebswirtschaft",
-        "Muttersprache Deutsch, gute Kenntnisse in Französisch und/oder Englisch von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Langjährige, praktische Kenntnisse im Underwriting Personenversicherungen",
-          "Mehrjährige Führungserfahrung",
-          "Vertiefte Kenntnisse des Maklermarktes",
-          "Umsetzungsstarke und neugierige Persönlichkeit, welche auf Augenhöhe mit Steakholdern kommuniziert",
-          "Weiterbildung im Versicherungswesen (z.B. Fachausweis) und/oder Betriebswirtschaft",
-          "Muttersprache Deutsch, gute Kenntnisse in Französisch und/oder Englisch von Vorteil"
-        ]
-      },
-      "sfJobId": "1164827755",
-      "previousSlugs": [
-        "leiter-marktbearbeitung-personenversicherungen-w-m-d-mobiliar-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-marktbearbeitung-personenversicherungen-w-m-d-mobiliar-ch"
-        ],
-        "en": [
-          "leiter-marktbearbeitung-personenversicherungen-w-m-d-mobiliar-ch"
-        ],
-        "fr": [
-          "leiter-marktbearbeitung-personenversicherungen-w-m-d-mobiliar-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-07T22:17:07.126Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2
     }
   ]
 }
