@@ -125,9 +125,13 @@ function readJsonSafe(filePath) {
 }
 
 function extractSlugFromPath(urlPath) {
+  // Match case-insensitively (GSC may index a locale segment with drifted
+  // casing, e.g. `/EN/find-jobs-ticino/...`) — mirrors inferLocale() in
+  // build-plugins/searchConsoleCompat.ts.
+  const lowerPath = urlPath.toLowerCase();
   for (const prefix of ALL_PREFIXES) {
-    if (urlPath.startsWith(prefix)) {
-      const slug = urlPath.slice(prefix.length).replace(/\/$/, '');
+    if (lowerPath.startsWith(prefix)) {
+      const slug = lowerPath.slice(prefix.length).replace(/\/$/, '');
       if (slug && !slug.includes('/')) return slug;
     }
   }
@@ -135,9 +139,11 @@ function extractSlugFromPath(urlPath) {
 }
 
 function detectLocaleFromPath(urlPath) {
+  // Match case-insensitively — see extractSlugFromPath() above.
+  const lowerPath = urlPath.toLowerCase();
   for (const [locale, prefixes] of Object.entries(LOCALE_PREFIXES)) {
     for (const prefix of prefixes) {
-      if (urlPath.startsWith(prefix)) return locale;
+      if (lowerPath.startsWith(prefix)) return locale;
     }
   }
   return 'it';
@@ -1137,7 +1143,9 @@ async function main() {
     // canton itself is preserved verbatim via `o.path`, so we don't need to
     // resolve it here. Same downstream gate as before: prune-404-compat-paths
     // drops any path the resolver can't map.
-    const COMPAT_JOB_RE = /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|recherche-emploi|trouver-emploi|emplois)-[a-z-]+\/([^/]+)\/?$/;
+    // Case-insensitive: GSC may index a locale/section segment with drifted
+    // casing (e.g. `/EN/find-jobs-ticino/...`) — same class as detectLocaleFromPath().
+    const COMPAT_JOB_RE = /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|recherche-emploi|trouver-emploi|emplois)-[a-z-]+\/([^/]+)\/?$/i;
     const SKIP_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
     const existingSlugs = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
     let compatAdded = 0;
