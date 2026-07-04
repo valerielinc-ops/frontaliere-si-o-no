@@ -711,6 +711,14 @@ export const COMPANY_HQ = {
   // city-gated resolveAddress() that keeps this fallback scoped to a literal
   // "Lausanne" match only.
   'kiabi': { city: 'Lausanne', canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
+  // Josef Müller Gemüse AG HQ, Rothusstrasse 26, 6331 Hünenberg ZG — legal
+  // entity confirmed via Zefix/Moneyhouse/North Data (UID CHE-100.379.852,
+  // legal seat Hünenberg). Address cross-checked across THREE independent
+  // sources: jobs.ch company-profile JSON-LD, the company's own
+  // muellergemuese.com site footer, and North Data's Handelsregister
+  // mirror — all three agree exactly. City-gated in
+  // scripts/lib/josef-mueller-job-parser.mjs's `resolveAddress()`.
+  'josef-mueller': { city: 'Hünenberg', canton: 'ZG', postalCode: '6331', addressRegion: 'ZG' },
 };
 
 /**
