@@ -666,6 +666,21 @@ export const COMPANY_HQ = {
   // scripts/lib/orell-fuessli-thalia-job-parser.mjs (gate matches Zürich only,
   // never canton alone); this HQ entry is only the generic fallback.
   'orell-fuessli-thalia': { city: 'Zürich', canton: 'ZH', postalCode: '8003', addressRegion: 'ZH' },
+  // Swisslog AG / Swisslog Holding AG registered legal seat is "Buchs (AG)"
+  // per Zefix (Swiss commercial register, uid CHE-116.033.187) — Webereiweg
+  // 3, 5033 Buchs, confirmed independently via Moneyhouse and the company's
+  // own de-de career-page Organization JSON-LD. The GitHub issue #3337
+  // backlog row said "Buchs ZH", which is WRONG: Buchs ZH (postal 8107, near
+  // Regensdorf) is a different town in a different canton from Swisslog's
+  // actual HQ, Buchs AG (canton Aargau, postal 5033, near Aarau/Baden) —
+  // there is also a third unrelated "Buchs SG" (St. Gallen). Postal code
+  // 5033 confirms Aargau, not Zürich or St. Gallen. IMPORTANT for any
+  // consumer: `inferSwissTargetCanton('Buchs')` alone would misroute to 'SG'
+  // because SWISS_CANTONS.SG's curated `names` list includes the generic
+  // town token 'buchs' (for Buchs SG) with no canton disambiguation — the
+  // Swisslog parser's own resolveCanton() gates on the city text BEFORE
+  // calling inferSwissTargetCanton, forcing 'AG' for this company.
+  'swisslog': { city: 'Buchs', canton: 'AG', postalCode: '5033', addressRegion: 'AG' },
 };
 
 /**
