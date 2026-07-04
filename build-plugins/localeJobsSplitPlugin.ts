@@ -8,6 +8,9 @@ import {
  firstPageIndexFileName,
  type JobEntry,
 } from './shared/slimJobIndex';
+// Relative import (no `@/` alias): this file is in the vite.config plugin
+// graph, where alias VALUE imports fail at config load time.
+import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -146,6 +149,29 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  'utf-8',
  );
 
+ // Sharded slug map (issue #3526): the monolith above is ~12 MB raw /
+ // ~1.5 MB br and the SPA used to fetch it on effectively every page view.
+ // Emit data/jobs-slug-map/{00..ff}.json shards keyed by lookup slug
+ // (current slugs + previousSlugs* aliases) so the router can fetch only
+ // the ~16 KB br shard covering one slug (ensureJobSlugEntriesLoaded).
+ // The monolith stays: old cached SPA chunks still fetch it, and
+ // corpus-wide consumers (UserProfile, stats leader links) still need it.
+ // Shard hashing + record shape live in services/jobSlugShards.ts, shared
+ // with the router by construction. All shard files are written (empty
+ // shards as {}), so an unknown slug gets a 200 + miss (confirmed absent)
+ // instead of a 404 (which the router treats as "shards unavailable" and
+ // falls back to the monolith).
+ const shardDir = path.resolve(dataDir, 'jobs-slug-map');
+ if (!fs.existsSync(shardDir)) fs.mkdirSync(shardDir, { recursive: true });
+ const shards = buildJobSlugShards(slugMap as SlugMapJobEntry[]);
+ for (const [shardKey, shard] of Object.entries(shards)) {
+ fs.writeFileSync(
+ path.resolve(shardDir, `${shardKey}.json`),
+ JSON.stringify(shard),
+ 'utf-8',
+ );
+ }
+
  // Per-job detail files: ~15KB each vs 11MB full locale file (FRO-detail-split)
  const detailDir = path.resolve(dataDir, 'job-detail');
  if (!fs.existsSync(detailDir)) fs.mkdirSync(detailDir, { recursive: true });
@@ -175,7 +201,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const distDir = path.resolve(rootDir, 'dist');
  const count = generateFiles(distDir);
  if (count > 0) {
- console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + slug map + ${count} detail files (${count} jobs)`);
+ console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
  }
  },
  configureServer(server) {

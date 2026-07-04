@@ -16,7 +16,7 @@ import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import { Analytics } from '@/services/analytics';
 import { fetchJobBoardStats, type JobBoardLeader, type JobBoardStatsData } from '@/services/jobBoardStatsService';
 import type { Locale } from '@/services/i18n';
-import { buildPath, pushRoute } from '@/services/router';
+import { buildPath, ensureJobSlugMapLoaded, pushRoute } from '@/services/router';
 
 const COPY_BY_LOCALE: Record<Locale, {
  title: string;
@@ -313,6 +313,12 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  };
 
  useEffect(() => {
+ // Leader links may point at real job slugs: buildPath resolves their
+ // canton + localized slug via the job slug map (by-construction
+ // canton-correct links). The map is no longer idle-loaded on every route
+ // (issue #3526), so this corpus-wide consumer loads the monolith on
+ // demand, on this route only.
+ void ensureJobSlugMapLoaded().catch(() => { /* non-critical: links degrade to legacy TI base, clicks still bridge */ });
  void load(false);
  }, []);
 

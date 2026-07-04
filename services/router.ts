@@ -16,6 +16,7 @@
 
 import { getLocale, type Locale } from './i18n';
 import { cdnDataUrl } from './cdnDataBase';
+import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
 import {
  CITY_HUB_KEYS,
  CITY_HUB_DISPLAY_NAME,
@@ -1636,52 +1637,59 @@ export type JobSlugMapRecord = Record<string, string> & {
 
 let _jobSlugMap: Map<string, JobSlugMapRecord> | null = null;
 let _jobSlugMapPromise: Promise<void> | null = null;
+// True only after the FULL monolith (/data/jobs-slug-map.json) has loaded.
+// Shard loads and registerJobSlugMap merges leave this false so corpus-wide
+// consumers (UserProfile applied-jobs links, stats-page leader links) can
+// still request the whole map via ensureJobSlugMapLoaded().
+let _jobSlugMapFull = false;
+// Shard keys ("00".."ff") whose /data/jobs-slug-map/<key>.json file has been
+// fetched and merged — powers per-slug readiness (isJobSlugReady).
+const _loadedJobSlugShards = new Set<string>();
+const _jobSlugShardPromises = new Map<string, Promise<void>>();
 
-/** Register the job slug map so the router can translate job slugs across locales. */
+/** Merge one lookup record into the in-memory map. Field-level merge: newer
+ * values win, older extra fields survive (a full record loaded from a shard
+ * can enrich one registered from slim listing jobs, and vice versa). */
+function mergeJobSlugRecord(map: Map<string, JobSlugMapRecord>, key: string, record: JobSlugMapRecord): void {
+ const existing = map.get(key);
+ map.set(key, existing && existing !== record ? { ...existing, ...record } : record);
+}
+
+/**
+ * Register job slug records so the router can translate job slugs across
+ * locales and resolve bridge metadata. Record building lives in
+ * services/jobSlugShards.ts (buildJobSlugRecord) — shared with the build-time
+ * shard emitter (localeJobsSplitPlugin) so the two cannot drift; meta is
+ * stored under reserved keys (record._id = job.id, record._canton) to avoid
+ * colliding with locale keys.
+ *
+ * MERGES into the existing map (never replaces): the map is fed from multiple
+ * partial sources — the full monolith, on-demand shards
+ * (ensureJobSlugEntriesLoaded) and JobBoard's loaded jobs — so a later partial
+ * registration must not wipe earlier entries. (The historic replace semantics
+ * meant a slim `/data/jobs-${locale}-index.json` payload could wipe the full
+ * map and break cross-canton bridge resolution — e.g.
+ * /cerca-lavoro-ticino/<SZ-job-slug>/ rendered JobOrphanView even though the
+ * job was alive in another canton. Merging keeps that fix by construction,
+ * and slim jobs — which carry slug/previousSlugs but no slugByLocale — now
+ * additionally CONTRIBUTE their id + canton meta instead of being skipped.)
+ */
 export function registerJobSlugMap(jobs: Array<{ id?: string; canton?: string; slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>): void {
- const map = new Map<string, JobSlugMapRecord>();
+ if (!Array.isArray(jobs) || jobs.length === 0) return;
+ const map = _jobSlugMap ?? new Map<string, JobSlugMapRecord>();
  for (const job of jobs) {
- const byLocale = job.slugByLocale;
- if (!byLocale) continue;
- const record: JobSlugMapRecord = {};
- for (const [loc, s] of Object.entries(byLocale)) {
- if (s) record[loc] = s;
+ const built = buildJobSlugRecord(job);
+ if (!built) continue;
+ // Current slugs (every locale slug + default slug) always (over)write.
+ for (const key of built.primaryKeys) {
+ mergeJobSlugRecord(map, key, built.record);
  }
- // Also include the default slug
- if (job.slug) record['_default'] = job.slug;
- if (job.id) record._id = job.id;
- if (job.canton) record._canton = String(job.canton).toUpperCase();
- // Index by every locale slug + default slug (skip underscore-prefixed meta keys)
- for (const [k, s] of Object.entries(record)) {
- if (!k.startsWith('_') || k === '_default') {
- if (s) map.set(s, record);
+ // Legacy slug aliases only fill gaps so old URLs resolve to the current
+ // job without ever shadowing another job's live slug.
+ for (const alias of built.aliasKeys) {
+ if (!map.has(alias)) map.set(alias, built.record);
  }
  }
- // Index legacy slug aliases so old URLs resolve to current job
- if (Array.isArray(job.previousSlugs)) {
- for (const alias of job.previousSlugs) {
- if (alias && !map.has(alias)) map.set(alias, record);
- }
- }
- // Index locale-aware previous slugs
- if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
- for (const arr of Object.values(job.previousSlugsByLocale)) {
- if (Array.isArray(arr)) {
- for (const alias of arr) {
- if (alias && !map.has(alias)) map.set(alias, record);
- }
- }
- }
- }
- }
- // Skip overwrite when the new map is empty. The slim job-index payload
- // (`/data/jobs-${locale}-index.json`) was size-trimmed to drop
- // `slugByLocale`, so calling this with slim jobs produces an empty map
- // and was wiping out the full map previously loaded from
- // `/data/jobs-slug-map.json` — breaking cross-canton bridge resolution
- // (e.g. /cerca-lavoro-ticino/<SZ-job-slug>/ rendered JobOrphanView even
- // though the job is alive in another canton).
- if (map.size === 0 && _jobSlugMap && _jobSlugMap.size > 0) return;
  _jobSlugMap = map;
 
  // Do NOT rewrite the browser URL when the slug belongs to a different
@@ -1722,13 +1730,22 @@ export function getJobMetaForSlug(slug: string): { id?: string; canton?: string;
  return { id: record._id, canton: record._canton, canonicalSlug: record['_default'] };
 }
 
+/**
+ * Load the FULL slug-map monolith (/data/jobs-slug-map.json, ~12 MB raw /
+ * ~1.5 MB br). Only for corpus-wide consumers that need arbitrary slugs
+ * resolvable synchronously afterwards (UserProfile applied-jobs links,
+ * stats-page leader links). Per-slug consumers (bridge resolution, locale
+ * switch on a job page) should use ensureJobSlugEntriesLoaded instead —
+ * it fetches a ~16 KB br shard (issue #3526).
+ */
 export async function ensureJobSlugMapLoaded(): Promise<void> {
- if (_jobSlugMap) return;
+ if (_jobSlugMapFull) return;
  if (!_jobSlugMapPromise) {
  _jobSlugMapPromise = fetch(cdnDataUrl('/data/jobs-slug-map.json'))
  .then(r => r.ok ? r.json() : Promise.reject(r.status))
  .then((data: Array<{ id?: string; canton?: string; slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
  registerJobSlugMap(data);
+ _jobSlugMapFull = true;
  })
  .finally(() => {
  _jobSlugMapPromise = null;
@@ -1737,63 +1754,146 @@ export async function ensureJobSlugMapLoaded(): Promise<void> {
  await _jobSlugMapPromise;
 }
 
-/** Returns true once the job slug map has been loaded into memory. */
+/** Fetch + merge one shard file, deduping in-flight requests per shard. */
+function loadJobSlugShard(shardKey: string): Promise<void> {
+ const inFlight = _jobSlugShardPromises.get(shardKey);
+ if (inFlight) return inFlight;
+ const promise = fetch(cdnDataUrl(jobSlugShardPath(shardKey)))
+ .then(r => r.ok ? r.json() : Promise.reject(r.status))
+ .then((data: Record<string, JobSlugMapRecord>) => {
+ const map = _jobSlugMap ?? new Map<string, JobSlugMapRecord>();
+ for (const [key, record] of Object.entries(data)) {
+ if (record && typeof record === 'object') mergeJobSlugRecord(map, key, record);
+ }
+ _jobSlugMap = map;
+ _loadedJobSlugShards.add(shardKey);
+ })
+ .finally(() => {
+ _jobSlugShardPromises.delete(shardKey);
+ });
+ _jobSlugShardPromises.set(shardKey, promise);
+ return promise;
+}
+
+/**
+ * Ensure the given slugs are resolvable via the slug map by fetching only the
+ * shard files (/data/jobs-slug-map/<key>.json, ~16 KB br each) that cover
+ * them — instead of the ~1.5 MB br monolith (issue #3526). Aliases
+ * (previousSlugs / previousSlugsByLocale) are shard keys too, so every slug
+ * that resolved through the monolith resolves through its shard.
+ *
+ * Zero-loss fallback: if any shard fetch fails (older deploy without shards,
+ * CDN propagation lag), the full monolith is loaded exactly as before.
+ */
+export async function ensureJobSlugEntriesLoaded(slugs: ReadonlyArray<string>): Promise<void> {
+ if (_jobSlugMapFull) return;
+ const wanted = new Set<string>();
+ for (const raw of slugs) {
+ const slug = typeof raw === 'string' ? raw.trim() : '';
+ if (slug) wanted.add(jobSlugShardKey(slug));
+ }
+ const missing = [...wanted].filter(k => !_loadedJobSlugShards.has(k));
+ if (missing.length === 0) return;
+ try {
+ await Promise.all(missing.map(loadJobSlugShard));
+ } catch {
+ await ensureJobSlugMapLoaded();
+ }
+}
+
+/** Returns true once the job slug map has been loaded into memory.
+ * NB: true means "some records are available", not "the full corpus is" —
+ * partial sources (shards, JobBoard registrations) also flip it. */
 export function isJobSlugMapReady(): boolean {
  return _jobSlugMap !== null;
 }
 
-// Defer job slug map loading — only preload when user navigates to job-board tab.
-// The JobBoard component will trigger loading via registerJobSlugMap().
-// This saves ~800ms of main-thread blocking on initial page load.
+/**
+ * Per-slug readiness: true when the map can AUTHORITATIVELY answer for this
+ * slug — either the slug's shard (or the full monolith) has been loaded, so
+ * a miss means the slug really is unknown (orphan), or the slug is already
+ * present in the map from a partial registration. Used by the JobBoard
+ * bridge-in-flight guard to show a skeleton instead of flashing
+ * JobOrphanView while resolution is still possible.
+ */
+export function isJobSlugReady(slug: string): boolean {
+ if (_jobSlugMapFull) return true;
+ if (_jobSlugMap?.has(slug)) return true;
+ return _loadedJobSlugShards.has(jobSlugShardKey(slug));
+}
+
+/**
+ * Ensure the slug map covers the job slug of the given (default: current)
+ * URL, if any. Cheap per-slug shard fetch used before locale switches
+ * (LanguageSelector) so updatePathForLocale / getLocalizedJobSlug can
+ * translate the current job slug without downloading the monolith.
+ */
+export async function ensureJobSlugMapForPath(pathname?: string): Promise<void> {
+ try {
+ const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '');
+ if (!path) return;
+ const { route } = parsePath(path);
+ if (route.jobSlug) await ensureJobSlugEntriesLoaded([route.jobSlug]);
+ } catch {
+ // Non-critical: translation falls back to the untranslated slug, exactly
+ // as when the map has not loaded yet.
+ }
+}
+
+// Job slug map loading policy (issue #3526): NO route pays a blanket
+// per-pageview slug-map download. Job-detail URLs eagerly fetch only the
+// ~16 KB br shard covering the URL's slug; every other route loads nothing —
+// per-slug consumers (bridge resolution, locale switch, applied-jobs links,
+// stats leader links) ensure what they need on demand via
+// ensureJobSlugEntriesLoaded / ensureJobSlugMapLoaded. The previous
+// idle-time full-monolith load made the SPA transfer ~1.5 MB br (12+ MB
+// JSON.parse) on effectively every page view, homepage included.
 if (typeof window !== 'undefined') {
- // Job-detail URLs (e.g. /cerca-lavoro-ticino/<slug>/) need the slug map
+ // Job-detail URLs (e.g. /cerca-lavoro-ticino/<slug>/) need the slug's shard
  // eagerly to resolve cross-canton bridges before render. Without it, the
  // SPA flashes JobOrphanView ("Questo annuncio non è più disponibile") for
  // the few hundred ms between hydration and bridge fetch — see
  // JobBoard.tsx bridge-in-flight guard. Detect via path shape: any segment
  // matching a known job-board slug prefix followed by another non-empty
- // segment is a candidate detail page.
- const isJobDetailUrl = (): boolean => {
+ // segment is a candidate detail page; return that candidate slug.
+ const jobDetailSlugFromLocation = (): string | null => {
  try {
  const segments = window.location.pathname.split('/').filter(Boolean);
- if (segments.length < 2) return false;
+ if (segments.length < 2) return null;
  // Strip optional locale prefix
  const start = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
  const candidate = segments[start];
- if (!candidate) return false;
+ if (!candidate) return null;
  // Match "cerca-lavoro-*" (IT), "find-jobs-*" (EN), "jobs-in-*" (DE),
  // "trouver-emploi-*" (FR) — see SLUG_TABLES and getJobBoardSlug.
- if (!/^(cerca-lavoro|find-jobs|jobs-in|trouver-emploi)/.test(candidate)) return false;
+ if (!/^(cerca-lavoro|find-jobs|jobs-in|trouver-emploi)/.test(candidate)) return null;
  // Must have at least one more segment (the job slug or city/sector)
- if (segments.length <= start + 1) return false;
+ if (segments.length <= start + 1) return null;
  // Static SEO families under the job-board hub are NOT job-detail pages:
  // related-search clusters (ricerca-/search-/suche-/recherche-, ~517k pages),
  // company hubs (azienda-/company-/unternehmen-/entreprise-), category
  // listings (categoria-/category-/kategorie-/categorie-) and pagination
  // (pagina-N/page-N/seite-N). None of them renders a single job detail, so
- // the eager slug-map fetch (~1.1 MB gzip) only competes with the SPA
- // chunks for bandwidth on those landings — measured +3s to JobBoard
- // chunk arrival on /fr/.../recherche-* pages. Fall through to the
- // idle-time load instead; worst case (a real job slug starting with one
- // of these prefixes) degrades softly: JobBoard registers the map later
- // and the bridge-in-flight guard covers the gap.
+ // even the small shard fetch is skipped; worst case (a real job slug
+ // starting with one of these prefixes) degrades softly: the JobBoard
+ // bridge effect ensures the slug's shard on demand and the
+ // bridge-in-flight guard covers the gap.
  const second = segments[start + 1];
- if (/^(ricerca|search|suche|recherche|azienda|company|unternehmen|entreprise|categoria|category|kategorie|categorie|pagina|page|seite)-/.test(second)) return false;
- return true;
+ if (/^(ricerca|search|suche|recherche|azienda|company|unternehmen|entreprise|categoria|category|kategorie|categorie|pagina|page|seite)-/.test(second)) return null;
+ try {
+ return decodeURIComponent(second);
  } catch {
- return false;
+ return second;
+ }
+ } catch {
+ return null;
  }
  };
- if (isJobDetailUrl()) {
- // Eager: kick the fetch right away. Cheap parallel work; the network is
- // mostly idle while the JS bundle parses.
- ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
- } else {
- // Use requestIdleCallback (or setTimeout fallback) so it doesn't block LCP
- const deferLoad = typeof requestIdleCallback === 'function' ? requestIdleCallback : (cb: () => void) => setTimeout(cb, 4000);
- deferLoad(() => {
- ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
- });
+ const eagerSlug = jobDetailSlugFromLocation();
+ if (eagerSlug) {
+ // Eager: kick the shard fetch right away. Cheap parallel work; the
+ // network is mostly idle while the JS bundle parses.
+ ensureJobSlugEntriesLoaded([eagerSlug]).catch(() => { /* non-critical — the JobBoard bridge effect retries on demand */ });
  }
 }
 
