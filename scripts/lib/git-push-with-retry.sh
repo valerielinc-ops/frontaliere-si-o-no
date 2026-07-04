@@ -4,7 +4,7 @@
 #
 # Usage:
 #   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 5] \
-#     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."]
+#     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."] [--stash-dirty]
 #
 # Examples:
 #   bash scripts/lib/git-push-with-retry.sh
@@ -13,10 +13,21 @@
 #     --regenerate-cmd "node scripts/generate-keyword-pages-config.mjs"
 #   bash scripts/lib/git-push-with-retry.sh \
 #     --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+#   bash scripts/lib/git-push-with-retry.sh --stash-dirty
 #
 # Behaviour:
 #   - Pushes HEAD to origin/<branch>; on rejection, fetches + rebases + retries
 #     with linear backoff (attempt * 2 seconds).
+#   - Before each rebase, the working tree must be clean or rebase refuses to
+#     start ("cannot rebase: You have unstaged changes"). Default: discard any
+#     leftover dirty/untracked state with `git reset --hard HEAD` (safe when
+#     the caller has already committed everything it cares about, or provides
+#     --regenerate-cmd/--in-place-resolver-cmd to recreate it). Pass
+#     --stash-dirty instead when a LATER step in the same job still needs
+#     files a mid-job checkpoint commit didn't stage (e.g. crawl-events.yml's
+#     persist-caches step runs before the tio-agenda per-source slice gets
+#     committed) — this stashes the leftover state before rebasing and pops
+#     it back right after, instead of discarding it.
 #   - On rebase conflict, in priority order:
 #       1. If --in-place-resolver-cmd is provided: run it INSIDE the rebase
 #          (no abort). The command is expected to resolve all conflicts and
@@ -49,6 +60,7 @@ BRANCH="main"
 MAX_ATTEMPTS=5
 REGENERATE_CMD=""
 IN_PLACE_RESOLVER_CMD=""
+STASH_DIRTY=""
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -56,6 +68,7 @@ while [ $# -gt 0 ]; do
     --max-attempts) MAX_ATTEMPTS="$2"; shift 2 ;;
     --regenerate-cmd) REGENERATE_CMD="$2"; shift 2 ;;
     --in-place-resolver-cmd) IN_PLACE_RESOLVER_CMD="$2"; shift 2 ;;
+    --stash-dirty) STASH_DIRTY="1"; shift 1 ;;
     *) echo "::error::Unknown arg: $1"; exit 2 ;;
   esac
 done
@@ -68,14 +81,30 @@ until git push origin "HEAD:${BRANCH}"; do
   fi
   echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS); rebasing onto origin/${BRANCH}..."
   git fetch origin "$BRANCH"
-  # Defensive: drop any unstaged changes left behind by pre-commit scripts
-  # (assemble-jobs-dataset.mjs and similar produce untracked/working-tree
-  # state). The commit we want to push is already in HEAD, so working-tree
-  # state is garbage. Without this, `git rebase` aborts BEFORE starting with
-  # "cannot rebase: You have unstaged changes" — and then `git rebase --abort`
-  # in the regen branch errors with "no rebase in progress" (run 25308928460).
-  git reset --hard HEAD
+  stashed=0
+  if [ -n "$STASH_DIRTY" ]; then
+    # Preserve leftover dirty/untracked state instead of discarding it — a
+    # later step in this same job still needs it (see --stash-dirty doc
+    # above). Only meant for the no-conflict-resolver path; --regenerate-cmd/
+    # --in-place-resolver-cmd already have their own recovery story.
+    if [ -n "$(git status --porcelain)" ]; then
+      git stash push -u -m "git-push-with-retry-wip"
+      stashed=1
+    fi
+  else
+    # Defensive: drop any unstaged changes left behind by pre-commit scripts
+    # (assemble-jobs-dataset.mjs and similar produce untracked/working-tree
+    # state). The commit we want to push is already in HEAD, so working-tree
+    # state is garbage. Without this, `git rebase` aborts BEFORE starting with
+    # "cannot rebase: You have unstaged changes" — and then `git rebase --abort`
+    # in the regen branch errors with "no rebase in progress" (run 25308928460).
+    git reset --hard HEAD
+  fi
   if ! git rebase "origin/${BRANCH}"; then
+    if [ "$stashed" = "1" ]; then
+      echo "::warning::Rebase conflict with --stash-dirty active — restoring stashed changes before aborting"
+      git stash pop || echo "::error::Failed to restore stash after aborted rebase; stash left in stack for manual recovery"
+    fi
     if [ -n "$IN_PLACE_RESOLVER_CMD" ]; then
       echo "Rebase conflict; resolving in place via: $IN_PLACE_RESOLVER_CMD"
       # GIT_EDITOR=: stops `git rebase --continue` from spawning an editor
@@ -109,6 +138,12 @@ until git push origin "HEAD:${BRANCH}"; do
     else
       echo "::error::Rebase conflict and no resolver provided"
       git rebase --abort 2>/dev/null || true
+      exit 1
+    fi
+  elif [ "$stashed" = "1" ]; then
+    # Rebase succeeded cleanly — restore the leftover state for later steps.
+    if ! git stash pop; then
+      echo "::error::Rebase succeeded but restoring stashed changes failed (conflict with rebased tree); stash left in stack for manual recovery"
       exit 1
     fi
   fi
