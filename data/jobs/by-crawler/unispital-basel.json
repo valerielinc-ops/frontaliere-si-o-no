@@ -65,7 +65,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -146,7 +145,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -222,7 +220,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -550,7 +547,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -695,12 +691,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -713,7 +711,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1364,7 +1361,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1521,7 +1517,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1601,7 +1596,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1696,7 +1690,6 @@
         "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2020,7 +2013,6 @@
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2347,7 +2339,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2508,7 +2499,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2794,14 +2784,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3016,7 +3007,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeute-universitatsspital-basel-basel"
+        "ergotherapeute-universitatsspital-basel-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3027,7 +3019,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3104,7 +3095,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3813,9 +3803,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-angiologie-unispital-basel-ch",
         "medico-senior-brustklinik-universitatsspital-basel-basel",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
         "senior-physician-brustklinik-universitatsspital-basel-basel",
@@ -3830,7 +3818,11 @@
         "senior-physician-cardiology-universitatsspital-basel-basel",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
         "medecin-principal-cardiologie-universitatsspital-basel-basel",
-        "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+        "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "medecin-principal-angiologie-universitatsspital-basel-basel",
+        "medico-senior-ambulatorio-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4143,7 +4135,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:48:28.529Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4348,7 +4339,6 @@
       "previousSlugs": [
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "assistant-sante-et-affaires-sociales-ags-universitatsspital-basel-basel",
@@ -4359,7 +4349,10 @@
         "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4686,7 +4679,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.537Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4763,7 +4755,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4837,7 +4828,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5227,7 +5217,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5308,7 +5297,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5544,7 +5532,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6147,7 +6134,6 @@
       "previousSlugs": [
         "arztsekretar-in-unispital-basel-ch",
         "assistente-di-medico-universitatsspital-basel-basel",
-        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
         "medical-secretary-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel",
         "arztsekretar-in-unispital-basel-ch-2",
@@ -6158,7 +6144,11 @@
         "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
-        "secretaire-medical-e-universitatsspital-basel-basel-1122f1"
+        "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-universitatsspital-basel-basel",
+        "segretario-del-dottore-in-universitatsspital-basel-basel",
+        "assistente-di-medico-universitatsspital-basel-basel-a8oetd",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.320Z",
       "salaryMin": 62000,
@@ -6241,7 +6231,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T12:18:08.636Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6376,27 +6365,27 @@
       "previousSlugs": [
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-radiologie-unispital-basel-ch",
           "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
         ],
         "en": [
           "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6551,7 +6540,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.965Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6630,7 +6618,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.973Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6704,7 +6691,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.843Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -7075,8 +7061,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "medico-senior-angiologia-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
@@ -7092,7 +7076,11 @@
         "chief-physician-in-cardiology-universitatsspital-basel-basel",
         "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel",
         "medecin-en-chef-en-cardiologie-universitatsspital-basel-basel",
-        "chefarztsekretar-in-kardiologie-unispital-basel-ch"
+        "chefarztsekretar-in-kardiologie-unispital-basel-ch",
+        "medecin-principal-cardiologie-universitatsspital-basel-basel",
+        "senior-physician-cardiology-universitatsspital-basel-basel",
+        "medico-senior-cardiologia-universitatsspital-basel-basel",
+        "medico-senior-ambulatorio-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7186,7 +7174,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.829Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "baseSalary": {
@@ -7333,7 +7320,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7488,7 +7474,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:27:28.546Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -8153,7 +8138,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:46:13.904Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8183,15 +8167,15 @@
       "titleByLocale": {
         "de": "Mitarbeiter*in Bautechnik Schreiner*in",
         "it": "Collaboratore/trice*in Bautechnik Schreiner*in",
-        "en": "Mitarbeiter*in Bautechnik Schreiner*in",
-        "fr": "Mitarbeiter*in Bautechnik Schreiner*in"
+        "en": "Employee* of Bautechnik Schreiner*",
+        "fr": "Employé* de Bautechnik Schreiner*"
       },
       "description": "Aufgaben:\n• Ausführung von Unterhalts-, Instandsetzungs-, Wartungs- und Reparaturarbeiten an Gebäuden und Einrichtungen im gesamten Spitalbetrieb\n\n• Selbstständige Planung und Ausführung von Schreinerarbeiten aller Art\n\n• Mitarbeit bei Umbau-, Sanierungs- und Instandsetzungsarbeiten im laufenden Spitalbetrieb\n\n• Zustandsbeurteilung von Gebäuden, Einrichtungen und Bauteilen sowie Einleitung geeigneter Massnahmen\n\n• Koordination und Überwachung externer Handwerksfirmen\n\n• Dokumentation der ausgeführten Arbeiten im CAFM-System (Waveware)\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Schreiner*in oder eine vergleichbare Ausbildung\n\n• Mehrjährige Berufserfahrung im Unterhalt, in der Instandhaltung oder im Service von Vorteil\n\n• Selbstständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Freude an abwechslungsreichen Aufgaben und direktem Kundenkontakt\n\n• Gute Deutschkenntnisse in Wort und Schrift sowie gute IT-Kenntnisse\n\n• Bereitschaft zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Ausführung von Unterhalts-, Instandsetzungs-, Wartungs- und Reparaturarbeiten an Gebäuden und Einrichtungen im gesamten Spitalbetrieb\n\n• Selbstständige Planung und Ausführung von Schreinerarbeiten aller Art\n\n• Mitarbeit bei Umbau-, Sanierungs- und Instandsetzungsarbeiten im laufenden Spitalbetrieb\n\n• Zustandsbeurteilung von Gebäuden, Einrichtungen und Bauteilen sowie Einleitung geeigneter Massnahmen\n\n• Koordination und Überwachung externer Handwerksfirmen\n\n• Dokumentation der ausgeführten Arbeiten im CAFM-System (Waveware)\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Schreiner*in oder eine vergleichbare Ausbildung\n\n• Mehrjährige Berufserfahrung im Unterhalt, in der Instandhaltung oder im Service von Vorteil\n\n• Selbstständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Freude an abwechslungsreichen Aufgaben und direktem Kundenkontakt\n\n• Gute Deutschkenntnisse in Wort und Schrift sowie gute IT-Kenntnisse\n\n• Bereitschaft zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Ausführung von Unterhalts-, Instandsetzungs-, Wartungs- und Reparaturarbeiten an Gebäuden und Einrichtungen im gesamten Spitalbetrieb\n\n• Selbstständige Planung und Ausführung von Schreinerarbeiten aller Art\n\n• Mitarbeit bei Umbau-, Sanierungs- und Instandsetzungsarbeiten im laufenden Spitalbetrieb\n\n• Zustandsbeurteilung von Gebäuden, Einrichtungen und Bauteilen sowie Einleitung geeigneter Massnahmen\n\n• Koordination und Überwachung externer Handwerksfirmen\n\n• Dokumentation der ausgeführten Arbeiten im CAFM-System (Waveware)\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Schreiner*in oder eine vergleichbare Ausbildung\n\n• Mehrjährige Berufserfahrung im Unterhalt, in der Instandhaltung oder im Service von Vorteil\n\n• Selbstständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Freude an abwechslungsreichen Aufgaben und direktem Kundenkontakt\n\n• Gute Deutschkenntnisse in Wort und Schrift sowie gute IT-Kenntnisse\n\n• Bereitschaft zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Ausführung von Unterhalts-, Instandsetzungs-, Wartungs- und Reparaturarbeiten an Gebäuden und Einrichtungen im gesamten Spitalbetrieb\n\n• Selbstständige Planung und Ausführung von Schreinerarbeiten aller Art\n\n• Mitarbeit bei Umbau-, Sanierungs- und Instandsetzungsarbeiten im laufenden Spitalbetrieb\n\n• Zustandsbeurteilung von Gebäuden, Einrichtungen und Bauteilen sowie Einleitung geeigneter Massnahmen\n\n• Koordination und Überwachung externer Handwerksfirmen\n\n• Dokumentation der ausgeführten Arbeiten im CAFM-System (Waveware)\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Schreiner*in oder eine vergleichbare Ausbildung\n\n• Mehrjährige Berufserfahrung im Unterhalt, in der Instandhaltung oder im Service von Vorteil\n\n• Selbstständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Freude an abwechslungsreichen Aufgaben und direktem Kundenkontakt\n\n• Gute Deutschkenntnisse in Wort und Schrift sowie gute IT-Kenntnisse\n\n• Bereitschaft zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Ausführung von Unterhalts-, Instandsetzungs-, Wartungs- und Reparaturarbeiten an Gebäuden und Einrichtungen im gesamten Spitalbetrieb\n\n• Selbstständige Planung und Ausführung von Schreinerarbeiten aller Art\n\n• Mitarbeit bei Umbau-, Sanierungs- und Instandsetzungsarbeiten im laufenden Spitalbetrieb\n\n• Zustandsbeurteilung von Gebäuden, Einrichtungen und Bauteilen sowie Einleitung geeigneter Massnahmen\n\n• Koordination und Überwachung externer Handwerksfirmen\n\n• Dokumentation der ausgeführten Arbeiten im CAFM-System (Waveware)\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Schreiner*in oder eine vergleichbare Ausbildung\n\n• Mehrjährige Berufserfahrung im Unterhalt, in der Instandhaltung oder im Service von Vorteil\n\n• Selbstständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Freude an abwechslungsreichen Aufgaben und direktem Kundenkontakt\n\n• Gute Deutschkenntnisse in Wort und Schrift sowie gute IT-Kenntnisse\n\n• Bereitschaft zu gelegentlichen Einsätzen ausserhalb der regulären Arbeitszeiten\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Eseguire lavori di manutenzione, riparazione, manutenzione e riparazione su edifici e strutture durante l'operazione ospedaliera\n\n• Progettazione indipendente e esecuzione di lavori di carpenteria di tutti i tipi\n\n• Cooperazione nella ristrutturazione, ristrutturazione e riparazione dell'attuale operazione ospedaliera\n\n• Valutazione delle condizioni degli edifici, degli impianti e dei componenti e avvio di misure appropriate\n\n• Coordinamento e supervisione delle imprese artigianali esterne\n\n• Documentazione dei lavori effettuati nel sistema CAFM (Waveware)\n\nRequisiti\n• Formazione professionale completa come falegname o formazione comparabile\n\n• Diversi anni di esperienza professionale in manutenzione, manutenzione o servizio\n\n• Metodo di lavoro indipendente, affidabile e orientato alla soluzione\n\n• Divertimento di varie attività e contatto diretto del cliente\n\n• Buone competenze tedesche in parole e scrittura così come buone competenze IT\n\n• Prontezza per incarichi occasionali al di fuori delle ore di lavoro regolari\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Carry out maintenance, repair, maintenance and repair work on buildings and facilities throughout the hospital operation\n\n• Independent planning and execution of carpentry work of all kinds\n\n• Cooperation in renovation, renovation and repair work in the current hospital operation\n\n• Condition assessment of buildings, installations and components and initiation of appropriate measures\n\n• Coordination and supervision of external craft companies\n\n• Documentation of the work carried out in the CAFM (Waveware) system\n\nRequirements\n• Completed vocational training as carpenter or comparable training\n\n• Several years of professional experience in maintenance, maintenance or service\n\n• Independent, reliable and solution-oriented working method\n\n• Enjoying varied tasks and direct customer contact\n\n• Good German skills in words and writing as well as good IT skills\n\n• Readiness for occasional assignments outside regular working hours\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Effectuer des travaux d'entretien, de réparation, d'entretien et de réparation des bâtiments et des installations tout au long de l'exploitation de l'hôpital\n\n• Planification et exécution indépendantes de travaux de menuiserie de toutes sortes\n\n• Coopération dans les travaux de rénovation et de réparation dans le cadre de l'opération hospitalière actuelle\n\n• Évaluation de l'état des bâtiments, installations et composants et lancement de mesures appropriées\n\n• Coordination et supervision des entreprises artisanales extérieures\n\n• Documentation des travaux effectués dans le système CAFM (Waveware)\n\nExigences\n• Formation professionnelle complétée en menuisier ou formation comparable\n\n• Plusieurs années d'expérience professionnelle en maintenance, maintenance ou service\n\n• Méthode de travail indépendante, fiable et orientée vers la solution\n\n• Profitez de tâches variées et contact direct avec le client\n\n• Bonnes compétences en allemand en mots et en écriture ainsi qu'en informatique\n\n• Préparation aux affectations occasionnelles en dehors des heures normales de travail\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8217,7 +8201,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bautechnik-schreiner-in-unispital-basel-ch"
@@ -8325,16 +8308,16 @@
       "title": "Medizincodiererin / Medizincodierer",
       "titleByLocale": {
         "de": "Medizincodiererin / Medizincodierer",
-        "it": "Medizincodiererin / Medizincodierer",
-        "en": "Medizincodiererin / Medizincodierer",
-        "fr": "Medizincodiererin / Medizincodierer"
+        "it": "Coder medico / coder medico",
+        "en": "Medical coder/medical coder",
+        "fr": "Codeur médical/codeur médical"
       },
       "description": "Aufgaben:\n• Sie verantworten die selbstständige, korrekte, vollständige, revisionssichere und termingerechte Kodierung stationärer Fälle anhand der medizinischen Primärdokumentation\n\n• Sie überprüfen die ärztliche und pflegerische Dokumentation auf Plausibilität und Vollständigkeit\n\n• Sie bringen sich aktiv in spannende Zusatzaufgaben rund um die medizinische Kodierung ein – beispielsweise in Projekten oder im Prüf- und Rückweisungsmanagement\n\n• Sie halten Ihr Fachwissen stets auf dem neuesten Stand und entwickeln sich kontinuierlich weiter, sowohl im medizinischen Bereich als auch in Bezug auf Kodier- und Tarifreglemente sowie aktuelle Neuerungen\n\nAnforderungen:\n• Mindestens zwei Jahre Erfahrung in der medizinischen Kodierung nach SwissDRG, mit einem Hintergrund als Ärztin/Arzt oder als Pflegefachperson mit fundierter klinischer Erfahrung in der Patientenversorgung\n\n• Eidg. Fachausweis als medizinische*r Codierer*in von Vorteil\n\n• Kenntnisse in Klinikinformationssystemen sowie ein sicherer Umgang mit MS Office\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift werden vorausgesetzt\n\n• Teamfähige und dienstleistungsorientierte Persönlichkeit mit einer selbstständigen, effizienten und lösungsorientierten Arbeitsweise\n\n• Bereitschaft, sich laufend entsprechend den Anforderungen des medizinischen Fortschritts und des DRG-Systems weiterzubilden und weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Sie verantworten die selbstständige, korrekte, vollständige, revisionssichere und termingerechte Kodierung stationärer Fälle anhand der medizinischen Primärdokumentation\n\n• Sie überprüfen die ärztliche und pflegerische Dokumentation auf Plausibilität und Vollständigkeit\n\n• Sie bringen sich aktiv in spannende Zusatzaufgaben rund um die medizinische Kodierung ein – beispielsweise in Projekten oder im Prüf- und Rückweisungsmanagement\n\n• Sie halten Ihr Fachwissen stets auf dem neuesten Stand und entwickeln sich kontinuierlich weiter, sowohl im medizinischen Bereich als auch in Bezug auf Kodier- und Tarifreglemente sowie aktuelle Neuerungen\n\nAnforderungen:\n• Mindestens zwei Jahre Erfahrung in der medizinischen Kodierung nach SwissDRG, mit einem Hintergrund als Ärztin/Arzt oder als Pflegefachperson mit fundierter klinischer Erfahrung in der Patientenversorgung\n\n• Eidg. Fachausweis als medizinische*r Codierer*in von Vorteil\n\n• Kenntnisse in Klinikinformationssystemen sowie ein sicherer Umgang mit MS Office\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift werden vorausgesetzt\n\n• Teamfähige und dienstleistungsorientierte Persönlichkeit mit einer selbstständigen, effizienten und lösungsorientierten Arbeitsweise\n\n• Bereitschaft, sich laufend entsprechend den Anforderungen des medizinischen Fortschritts und des DRG-Systems weiterzubilden und weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Sie verantworten die selbstständige, korrekte, vollständige, revisionssichere und termingerechte Kodierung stationärer Fälle anhand der medizinischen Primärdokumentation\n\n• Sie überprüfen die ärztliche und pflegerische Dokumentation auf Plausibilität und Vollständigkeit\n\n• Sie bringen sich aktiv in spannende Zusatzaufgaben rund um die medizinische Kodierung ein – beispielsweise in Projekten oder im Prüf- und Rückweisungsmanagement\n\n• Sie halten Ihr Fachwissen stets auf dem neuesten Stand und entwickeln sich kontinuierlich weiter, sowohl im medizinischen Bereich als auch in Bezug auf Kodier- und Tarifreglemente sowie aktuelle Neuerungen\n\nAnforderungen:\n• Mindestens zwei Jahre Erfahrung in der medizinischen Kodierung nach SwissDRG, mit einem Hintergrund als Ärztin/Arzt oder als Pflegefachperson mit fundierter klinischer Erfahrung in der Patientenversorgung\n\n• Eidg. Fachausweis als medizinische*r Codierer*in von Vorteil\n\n• Kenntnisse in Klinikinformationssystemen sowie ein sicherer Umgang mit MS Office\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift werden vorausgesetzt\n\n• Teamfähige und dienstleistungsorientierte Persönlichkeit mit einer selbstständigen, effizienten und lösungsorientierten Arbeitsweise\n\n• Bereitschaft, sich laufend entsprechend den Anforderungen des medizinischen Fortschritts und des DRG-Systems weiterzubilden und weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Sie verantworten die selbstständige, korrekte, vollständige, revisionssichere und termingerechte Kodierung stationärer Fälle anhand der medizinischen Primärdokumentation\n\n• Sie überprüfen die ärztliche und pflegerische Dokumentation auf Plausibilität und Vollständigkeit\n\n• Sie bringen sich aktiv in spannende Zusatzaufgaben rund um die medizinische Kodierung ein – beispielsweise in Projekten oder im Prüf- und Rückweisungsmanagement\n\n• Sie halten Ihr Fachwissen stets auf dem neuesten Stand und entwickeln sich kontinuierlich weiter, sowohl im medizinischen Bereich als auch in Bezug auf Kodier- und Tarifreglemente sowie aktuelle Neuerungen\n\nAnforderungen:\n• Mindestens zwei Jahre Erfahrung in der medizinischen Kodierung nach SwissDRG, mit einem Hintergrund als Ärztin/Arzt oder als Pflegefachperson mit fundierter klinischer Erfahrung in der Patientenversorgung\n\n• Eidg. Fachausweis als medizinische*r Codierer*in von Vorteil\n\n• Kenntnisse in Klinikinformationssystemen sowie ein sicherer Umgang mit MS Office\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift werden vorausgesetzt\n\n• Teamfähige und dienstleistungsorientierte Persönlichkeit mit einer selbstständigen, effizienten und lösungsorientierten Arbeitsweise\n\n• Bereitschaft, sich laufend entsprechend den Anforderungen des medizinischen Fortschritts und des DRG-Systems weiterzubilden und weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Sie verantworten die selbstständige, korrekte, vollständige, revisionssichere und termingerechte Kodierung stationärer Fälle anhand der medizinischen Primärdokumentation\n\n• Sie überprüfen die ärztliche und pflegerische Dokumentation auf Plausibilität und Vollständigkeit\n\n• Sie bringen sich aktiv in spannende Zusatzaufgaben rund um die medizinische Kodierung ein – beispielsweise in Projekten oder im Prüf- und Rückweisungsmanagement\n\n• Sie halten Ihr Fachwissen stets auf dem neuesten Stand und entwickeln sich kontinuierlich weiter, sowohl im medizinischen Bereich als auch in Bezug auf Kodier- und Tarifreglemente sowie aktuelle Neuerungen\n\nAnforderungen:\n• Mindestens zwei Jahre Erfahrung in der medizinischen Kodierung nach SwissDRG, mit einem Hintergrund als Ärztin/Arzt oder als Pflegefachperson mit fundierter klinischer Erfahrung in der Patientenversorgung\n\n• Eidg. Fachausweis als medizinische*r Codierer*in von Vorteil\n\n• Kenntnisse in Klinikinformationssystemen sowie ein sicherer Umgang mit MS Office\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift werden vorausgesetzt\n\n• Teamfähige und dienstleistungsorientierte Persönlichkeit mit einer selbstständigen, effizienten und lösungsorientierten Arbeitsweise\n\n• Bereitschaft, sich laufend entsprechend den Anforderungen des medizinischen Fortschritts und des DRG-Systems weiterzubilden und weiterzuentwickeln\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Lei è responsabile della codifica indipendente, corretta, completa, a prova di audit e tempestiva dei casi inpatici basati sulla documentazione medica primaria\n\n• Controllate la documentazione medica e infermieristica per plausibilità e completezza\n\n• Sei attivamente coinvolto in attività aggiuntive interessanti legate alla codifica medica – ad esempio nei progetti o nella gestione dei test e dei rifiuti\n\n• Mantenete le vostre competenze aggiornate e in continua evoluzione, sia in campo medico che in termini di codifica e regolamenti tariffari, nonché le innovazioni attuali\n\nRequisiti\n• Almeno due anni di esperienza nella codifica medica secondo SwissDRG, con un background come medico o infermiera con un'esperienza clinica approfondita nella cura dei pazienti\n\n• Eidg. ID professionale come codificatore medico*in un vantaggio\n\n• Conoscenza dei sistemi di informazione clinica e gestione sicura di MS Office\n\n• Molto buona conoscenza del tedesco in parola e la scrittura è richiesta\n\n• Personalità qualificata e orientata al servizio con un metodo di lavoro indipendente, efficiente e orientato alla soluzione\n\n• Prontezza per continuare a formare e sviluppare in conformità con i requisiti del progresso medico e del sistema DRG\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• You are responsible for the independent, correct, complete, audit-proof and timely coding of inpatient cases based on the primary medical documentation\n\n• You check the medical and nursing documentation for plausibility and completeness\n\n• You are actively involved in exciting additional tasks related to medical coding – for example in projects or in test and rejection management\n\n• You keep your expertise up-to-date and continuously evolving, both in the medical field and in terms of coding and tariff regulations as well as current innovations\n\nRequirements\n• At least two years of experience in medical coding according to SwissDRG, with a background as a doctor or nurse with in-depth clinical experience in patient care\n\n• Eidg. Professional ID as a medical coder*in an advantage\n\n• Knowledge of clinic information systems and safe handling of MS Office\n\n• Very good knowledge of German in word and writing is required\n\n• Team-capable and service-oriented personality with an independent, efficient and solution-oriented working method\n\n• Readiness to continue to train and develop in accordance with the requirements of medical progress and the DRG system\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Vous êtes responsable du codage indépendant, correct, complet, à l'épreuve de la vérification et en temps opportun des cas d'hospitalisation basé sur la documentation médicale principale\n\n• Vous vérifiez la plausibilité et l'exhaustivité des documents médicaux et infirmiers\n\n• Vous participez activement à des tâches supplémentaires passionnantes liées au codage médical – par exemple dans les projets ou dans la gestion des tests et des rejets\n\n• Vous maintenez votre expertise à jour et en constante évolution, tant dans le domaine médical que sur le plan du codage et des règlements tarifaires, ainsi que des innovations actuelles\n\nExigences\n• Au moins deux ans d'expérience dans le codage médical selon SwissDRG, avec une expérience en tant que médecin ou infirmière ayant une expérience clinique approfondie dans les soins aux patients\n\n• Oui. ID professionnel comme codeur médical*dans un avantage\n\n• Connaissance des systèmes d'information des cliniques et gestion sécuritaire du bureau de la SP\n\n• Une très bonne connaissance de l'allemand en paroles et en écriture est requise\n\n• Personnalité apte à l'équipe et orientée vers le service avec une méthode de travail indépendante, efficace et orientée vers la solution\n\n• Préparation à poursuivre la formation et le développement conformément aux exigences du progrès médical et du système DRG\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8360,7 +8343,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "medizincodiererin-medizincodierer-unispital-basel-ch"
@@ -8398,16 +8380,16 @@
       "title": "Hauptverantwortliche*r Berufsbildung Pflege (HVBB)",
       "titleByLocale": {
         "de": "Hauptverantwortliche*r Berufsbildung Pflege (HVBB)",
-        "it": "Hauptverantwortliche*r Berufsbildung Pflege (HVBB)",
-        "en": "Hauptverantwortliche*r Berufsbildung Pflege (HVBB)",
-        "fr": "Hauptverantwortliche*r Berufsbildung Pflege (HVBB)"
+        "it": "Responsabile principale*r Formazione Professionale (HVBB)",
+        "en": "Main responsible*r Vocational Training Care (HVBB)",
+        "fr": "Responsable principal des soins de formation professionnelle (HVBB)"
       },
       "description": "Aufgaben:\n• Sie betreuen und beraten unsere Patientinnen und Patienten sowie deren Angehörige professionell und mit hoher Pflegequalität und stellen einen qualitativ hochwertigen Pflegeprozess sicher\n\n• Sie organisieren Ihren Arbeitsbereich selbstständig und übernehmen bei Bedarf die Tagesverantwortung\n\n• Sie übernehmen die pädagogische Führung der Lerninsel und begleiten Auszubildende in ihrer fachlichen und persönlichen Entwicklung\n\n• Sie gestalten den Ausbildungsalltag aktiv mit – von der Planung über die Umsetzung bis hin zur Reflexion und Qualitätssicherung der Lernprozesse – und koordinieren die Ausbildung auf der Station inklusive Rekrutierung von Lernenden\n\n• Sie arbeiten eng mit der Berufsbildungsverantwortlichen, den Berufsbildnerinnen und Berufsbildnern sowie den Führungspersonen zusammen, setzen gemeinsame Projekte um und coachen die Berufsbildenden im Team\n\n• Sie arbeiten im 3-Schicht-Betrieb in einem engagierten Leadership- und Pflegeteam und tragen Verantwortung für die Sicherheit der Patientinnen und Patienten sowie für die Qualität der Ausbildung und Pflege\n\nAnforderungen:\n• Diplom HF oder Bachelor FH in Pflege sowie eine pädagogische Weiterbildung (mindestens SVEB 1)\n\n• Erfahrung als Berufsbildner/in, idealerweise in einer hauptverantwortlichen Funktion\n\n• Freude an der Förderung und Begleitung von Lernenden sowie ausgeprägte pädagogische Kompetenzen\n\n• Eine patientenorientierte, verantwortungsbewusste und qualitätsorientierte Arbeitsweise mit unternehmerischem Denken\n\n• Organisationsgeschick, Führungskompetenz sowie eine hohe Team- und Dienstleistungsorientierung\n\n• Bereitschaft zur kontinuierlichen Fort- und Weiterbildung im Bereich Berufsbildung\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Sie betreuen und beraten unsere Patientinnen und Patienten sowie deren Angehörige professionell und mit hoher Pflegequalität und stellen einen qualitativ hochwertigen Pflegeprozess sicher\n\n• Sie organisieren Ihren Arbeitsbereich selbstständig und übernehmen bei Bedarf die Tagesverantwortung\n\n• Sie übernehmen die pädagogische Führung der Lerninsel und begleiten Auszubildende in ihrer fachlichen und persönlichen Entwicklung\n\n• Sie gestalten den Ausbildungsalltag aktiv mit – von der Planung über die Umsetzung bis hin zur Reflexion und Qualitätssicherung der Lernprozesse – und koordinieren die Ausbildung auf der Station inklusive Rekrutierung von Lernenden\n\n• Sie arbeiten eng mit der Berufsbildungsverantwortlichen, den Berufsbildnerinnen und Berufsbildnern sowie den Führungspersonen zusammen, setzen gemeinsame Projekte um und coachen die Berufsbildenden im Team\n\n• Sie arbeiten im 3-Schicht-Betrieb in einem engagierten Leadership- und Pflegeteam und tragen Verantwortung für die Sicherheit der Patientinnen und Patienten sowie für die Qualität der Ausbildung und Pflege\n\nAnforderungen:\n• Diplom HF oder Bachelor FH in Pflege sowie eine pädagogische Weiterbildung (mindestens SVEB 1)\n\n• Erfahrung als Berufsbildner/in, idealerweise in einer hauptverantwortlichen Funktion\n\n• Freude an der Förderung und Begleitung von Lernenden sowie ausgeprägte pädagogische Kompetenzen\n\n• Eine patientenorientierte, verantwortungsbewusste und qualitätsorientierte Arbeitsweise mit unternehmerischem Denken\n\n• Organisationsgeschick, Führungskompetenz sowie eine hohe Team- und Dienstleistungsorientierung\n\n• Bereitschaft zur kontinuierlichen Fort- und Weiterbildung im Bereich Berufsbildung\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Sie betreuen und beraten unsere Patientinnen und Patienten sowie deren Angehörige professionell und mit hoher Pflegequalität und stellen einen qualitativ hochwertigen Pflegeprozess sicher\n\n• Sie organisieren Ihren Arbeitsbereich selbstständig und übernehmen bei Bedarf die Tagesverantwortung\n\n• Sie übernehmen die pädagogische Führung der Lerninsel und begleiten Auszubildende in ihrer fachlichen und persönlichen Entwicklung\n\n• Sie gestalten den Ausbildungsalltag aktiv mit – von der Planung über die Umsetzung bis hin zur Reflexion und Qualitätssicherung der Lernprozesse – und koordinieren die Ausbildung auf der Station inklusive Rekrutierung von Lernenden\n\n• Sie arbeiten eng mit der Berufsbildungsverantwortlichen, den Berufsbildnerinnen und Berufsbildnern sowie den Führungspersonen zusammen, setzen gemeinsame Projekte um und coachen die Berufsbildenden im Team\n\n• Sie arbeiten im 3-Schicht-Betrieb in einem engagierten Leadership- und Pflegeteam und tragen Verantwortung für die Sicherheit der Patientinnen und Patienten sowie für die Qualität der Ausbildung und Pflege\n\nAnforderungen:\n• Diplom HF oder Bachelor FH in Pflege sowie eine pädagogische Weiterbildung (mindestens SVEB 1)\n\n• Erfahrung als Berufsbildner/in, idealerweise in einer hauptverantwortlichen Funktion\n\n• Freude an der Förderung und Begleitung von Lernenden sowie ausgeprägte pädagogische Kompetenzen\n\n• Eine patientenorientierte, verantwortungsbewusste und qualitätsorientierte Arbeitsweise mit unternehmerischem Denken\n\n• Organisationsgeschick, Führungskompetenz sowie eine hohe Team- und Dienstleistungsorientierung\n\n• Bereitschaft zur kontinuierlichen Fort- und Weiterbildung im Bereich Berufsbildung\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Sie betreuen und beraten unsere Patientinnen und Patienten sowie deren Angehörige professionell und mit hoher Pflegequalität und stellen einen qualitativ hochwertigen Pflegeprozess sicher\n\n• Sie organisieren Ihren Arbeitsbereich selbstständig und übernehmen bei Bedarf die Tagesverantwortung\n\n• Sie übernehmen die pädagogische Führung der Lerninsel und begleiten Auszubildende in ihrer fachlichen und persönlichen Entwicklung\n\n• Sie gestalten den Ausbildungsalltag aktiv mit – von der Planung über die Umsetzung bis hin zur Reflexion und Qualitätssicherung der Lernprozesse – und koordinieren die Ausbildung auf der Station inklusive Rekrutierung von Lernenden\n\n• Sie arbeiten eng mit der Berufsbildungsverantwortlichen, den Berufsbildnerinnen und Berufsbildnern sowie den Führungspersonen zusammen, setzen gemeinsame Projekte um und coachen die Berufsbildenden im Team\n\n• Sie arbeiten im 3-Schicht-Betrieb in einem engagierten Leadership- und Pflegeteam und tragen Verantwortung für die Sicherheit der Patientinnen und Patienten sowie für die Qualität der Ausbildung und Pflege\n\nAnforderungen:\n• Diplom HF oder Bachelor FH in Pflege sowie eine pädagogische Weiterbildung (mindestens SVEB 1)\n\n• Erfahrung als Berufsbildner/in, idealerweise in einer hauptverantwortlichen Funktion\n\n• Freude an der Förderung und Begleitung von Lernenden sowie ausgeprägte pädagogische Kompetenzen\n\n• Eine patientenorientierte, verantwortungsbewusste und qualitätsorientierte Arbeitsweise mit unternehmerischem Denken\n\n• Organisationsgeschick, Führungskompetenz sowie eine hohe Team- und Dienstleistungsorientierung\n\n• Bereitschaft zur kontinuierlichen Fort- und Weiterbildung im Bereich Berufsbildung\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Sie betreuen und beraten unsere Patientinnen und Patienten sowie deren Angehörige professionell und mit hoher Pflegequalität und stellen einen qualitativ hochwertigen Pflegeprozess sicher\n\n• Sie organisieren Ihren Arbeitsbereich selbstständig und übernehmen bei Bedarf die Tagesverantwortung\n\n• Sie übernehmen die pädagogische Führung der Lerninsel und begleiten Auszubildende in ihrer fachlichen und persönlichen Entwicklung\n\n• Sie gestalten den Ausbildungsalltag aktiv mit – von der Planung über die Umsetzung bis hin zur Reflexion und Qualitätssicherung der Lernprozesse – und koordinieren die Ausbildung auf der Station inklusive Rekrutierung von Lernenden\n\n• Sie arbeiten eng mit der Berufsbildungsverantwortlichen, den Berufsbildnerinnen und Berufsbildnern sowie den Führungspersonen zusammen, setzen gemeinsame Projekte um und coachen die Berufsbildenden im Team\n\n• Sie arbeiten im 3-Schicht-Betrieb in einem engagierten Leadership- und Pflegeteam und tragen Verantwortung für die Sicherheit der Patientinnen und Patienten sowie für die Qualität der Ausbildung und Pflege\n\nAnforderungen:\n• Diplom HF oder Bachelor FH in Pflege sowie eine pädagogische Weiterbildung (mindestens SVEB 1)\n\n• Erfahrung als Berufsbildner/in, idealerweise in einer hauptverantwortlichen Funktion\n\n• Freude an der Förderung und Begleitung von Lernenden sowie ausgeprägte pädagogische Kompetenzen\n\n• Eine patientenorientierte, verantwortungsbewusste und qualitätsorientierte Arbeitsweise mit unternehmerischem Denken\n\n• Organisationsgeschick, Führungskompetenz sowie eine hohe Team- und Dienstleistungsorientierung\n\n• Bereitschaft zur kontinuierlichen Fort- und Weiterbildung im Bereich Berufsbildung\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Si prendono cura e consigliano i nostri pazienti e i loro parenti professionalmente e con alta qualità di cura e garantiscono un processo di cura di alta qualità\n\n• Si organizza il vostro spazio di lavoro in modo indipendente e si assume responsabilità quotidiana se necessario\n\n• Assumono la leadership educativa dell'isola di apprendimento e accompagnano i tirocinanti nel loro sviluppo professionale e personale\n\n• Essi svolgono un ruolo attivo nella formazione quotidiana – dalla pianificazione e dall'implementazione alla riflessione e all'assicurazione della qualità dei processi di apprendimento – e coordinano la formazione sulla stazione, incluso il reclutamento degli studenti.\n\n• Lavorano a stretto contatto con i responsabili della formazione professionale, i formatori professionali e i dirigenti, realizzano progetti congiunti e istruiscono i tirocinanti professionali del team\n\n• Lavorano in un'operazione a 3 turni in un team di leadership e assistenza impegnato e si assumono la responsabilità per la sicurezza dei pazienti, nonché per la qualità della formazione e della cura.\n\nRequisiti\n• Diploma HF o Bachelor FH in allattamento e ulteriore istruzione (almeno SVEB 1)\n\n• Esperienza come formatore professionale, idealmente in una funzione principale responsabile\n\n• Il godimento nella promozione e il sostegno degli studenti e le forti competenze pedagogiche\n\n• Un modo di lavorare con il pensiero imprenditoriale orientato al paziente, responsabile e orientato alla qualità\n\n• AbilitÃ organizzative, capacitÃ di leadership e un alto livello di team e orientamento di servizio\n\n• Prontezza della formazione continua nella formazione professionale\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• They look after and advise our patients and their relatives professionally and with high care quality and ensure a high-quality care process\n\n• You organize your workspace independently and take on daily responsibility if necessary\n\n• They take over the educational leadership of the learning island and accompany trainees in their professional and personal development\n\n• They play an active role in shaping the day-to-day training – from planning and implementation to reflection and quality assurance of learning processes – and coordinate training on the station, including recruitment of learners.\n\n• They work closely with the vocational training managers, the vocational trainers and the managers, implement joint projects and coach the vocational trainees in the team\n\n• They work in a 3-shift operation in a committed leadership and care team and bear responsibility for the safety of patients as well as for the quality of training and care.\n\nRequirements\n• Diploma HF or Bachelor FH in nursing and further education (at least SVEB 1)\n\n• Experience as a vocational trainer, ideally in a main responsible function\n\n• Enjoyment in the promotion and support of learners as well as strong pedagogical skills\n\n• A patient-oriented, responsible and quality-oriented way of working with entrepreneurial thinking\n\n• Organizational skills, leadership skills and a high level of team and service orientation\n\n• Readiness for continuous training in vocational training\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Ils s'occupent et conseillent nos patients et leurs proches professionnellement et avec des soins de haute qualité et assurent un processus de soins de haute qualité\n\n• Vous organisez votre espace de travail indépendamment et assumez la responsabilité quotidienne si nécessaire\n\n• Ils prennent en charge le leadership éducatif de l'île apprenante et accompagnent les stagiaires dans leur développement professionnel et personnel\n\n• Ils jouent un rôle actif dans la formation quotidienne – de la planification et de la mise en œuvre à la réflexion et à l'assurance de la qualité des processus d'apprentissage – et coordonnent la formation sur la station, y compris le recrutement des apprenants.\n\n• Ils travaillent en étroite collaboration avec les responsables de la formation professionnelle, les formateurs professionnels et les gestionnaires, mettent en œuvre des projets conjoints et coachent les stagiaires professionnels dans l'équipe\n\n• Ils travaillent en 3 équipes au sein d'une équipe de direction et de soins dévoués et assument la responsabilité de la sécurité des patients ainsi que de la qualité de la formation et des soins.\n\nExigences\n• Diplôme HF ou baccalauréat FH en sciences infirmières et en formation continue (au moins SVEB 1)\n\n• Expérience en tant que formateur professionnel, idéalement dans une fonction principale responsable\n\n• Appréciation de la promotion et du soutien des apprenants ainsi que des compétences pédagogiques fortes\n\n• Une façon de travailler avec la pensée entrepreneuriale axée sur le patient, responsable et axée sur la qualité\n\n• Compétences organisationnelles, compétences en leadership et grande orientation de l'équipe et des services\n\n• Préparation à la formation continue en formation professionnelle\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8433,7 +8415,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hauptverantwortliche-r-berufsbildung-pflege-hvbb-unispital-basel-ch"

@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-18T02:14:12.552Z",
-    "label": "after",
-    "total": 17302,
-    "needsRetranslation": 5093,
-    "suppressed": 720,
-    "incomplete": 3329,
-    "complete": 13973,
-    "missingByLocale": {
-      "it": 1909,
-      "en": 1612,
-      "de": 1325,
-      "fr": 1503
-    },
-    "topPending": [
-      {
-        "company": "Fust | Swiss Household Services AG",
-        "pending": 1492
-      },
-      {
-        "company": "Fresh Food & Beverage Group",
-        "pending": 644
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "PostAuto",
-        "pending": 97
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 80
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 70
-      },
-      {
-        "company": "Roche",
-        "pending": 70
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 58
-      },
-      {
-        "company": "Implenia",
-        "pending": 55
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-18T04:54:26.448Z",
-    "label": "before",
-    "total": 17367,
-    "needsRetranslation": 4700,
-    "suppressed": 720,
-    "incomplete": 2947,
-    "complete": 14420,
-    "missingByLocale": {
-      "it": 1833,
-      "en": 1548,
-      "de": 969,
-      "fr": 1377
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1222
-      },
-      {
-        "company": "Fresh Food & Beverage Group",
-        "pending": 643
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "PostAuto",
-        "pending": 97
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 80
-      },
-      {
-        "company": "Bell Deutschland GmbH & Co. KG",
-        "pending": 70
-      },
-      {
-        "company": "Roche",
-        "pending": 70
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 58
-      },
-      {
-        "company": "Implenia",
-        "pending": 55
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-18T08:33:13.339Z",
     "label": "after",
     "total": 17367,
@@ -11396,6 +11282,120 @@
       {
         "company": "IKEA",
         "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-04T06:23:40.718Z",
+    "label": "before",
+    "total": 19874,
+    "needsRetranslation": 4557,
+    "suppressed": 385,
+    "incomplete": 1016,
+    "complete": 18858,
+    "missingByLocale": {
+      "it": 610,
+      "en": 424,
+      "de": 401,
+      "fr": 298
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 730
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Zürcher Kantonalbank",
+        "pending": 53
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 19
+      },
+      {
+        "company": "Thermo Fisher Scientific (Schweiz) AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 9
+      },
+      {
+        "company": "FELFEL",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-04T06:25:24.752Z",
+    "label": "after",
+    "total": 19874,
+    "needsRetranslation": 2442,
+    "suppressed": 384,
+    "incomplete": 1014,
+    "complete": 18860,
+    "missingByLocale": {
+      "it": 609,
+      "en": 423,
+      "de": 400,
+      "fr": 297
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 728
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 61
+      },
+      {
+        "company": "Zürcher Kantonalbank",
+        "pending": 53
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "Manor AG",
+        "pending": 21
+      },
+      {
+        "company": "Julius Baer",
+        "pending": 19
+      },
+      {
+        "company": "Thermo Fisher Scientific (Schweiz) AG",
+        "pending": 15
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 14
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 9
+      },
+      {
+        "company": "FELFEL",
+        "pending": 8
       }
     ]
   }

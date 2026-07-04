@@ -278628,8 +278628,8 @@
     "slugByLocale": {
       "de": "leiter-in-pflege-herzzentrum-unispital-basel-ch",
       "it": "capo-infermieristica-centro-cardiaco-universitatsspital-basel-basel",
-      "en": "leiter-in-pflege-herzzentrum-unispital-basel-ch",
-      "fr": "leiter-in-pflege-herzzentrum-unispital-basel-ch"
+      "en": "head-of-care-heart-center-universitatsspital-basel-basel",
+      "fr": "chef-des-soins-centre-cardiaque-universitatsspital-basel-basel"
     },
     "createdAt": "2026-07-02",
     "canton": "BS"
@@ -290946,10 +290946,10 @@
   "id|coopjobs.ch|43325c5a-4221-4f79-a459-6083325456a2": {
     "canonicalSlug": "verkaufer-in-food-coop-steinhausen-zug",
     "slugByLocale": {
-      "it": "verkaufer-in-food-coop-steinhausen-zug-jwxbyu",
-      "en": "verkaufer-in-food-coop-steinhausen-zug-jwxbyu",
+      "it": "venditore-in-food-coop-genossenschaft-steinhausen",
+      "en": "seller-in-food-coop-genossenschaft-steinhausen",
       "de": "verkaufer-in-food-coop-steinhausen-zug-jwxbyu",
-      "fr": "verkaufer-in-food-coop-steinhausen-zug-jwxbyu"
+      "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-steinhausen"
     },
     "createdAt": "2026-07-04",
     "canton": "ZG"
@@ -291646,5 +291646,863 @@
     },
     "createdAt": "2026-07-04",
     "canton": "SG"
+  },
+  "id|coopjobs.ch|4b56e83e-05da-4fbb-9c4a-5748a0a88737": {
+    "canonicalSlug": "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich",
+    "slugByLocale": {
+      "it": "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich-bup22x",
+      "en": "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich-bup22x",
+      "de": "immobilienbewirtschafter-in-coop-immobilien-dietikon",
+      "fr": "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich-bup22x"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|ed57bcb8-5c65-4a59-af09-eda494314861": {
+    "canonicalSlug": "mitarbeiter-in-gastronomie-coop-genossenschaft-dietlikon-zurich",
+    "slugByLocale": {
+      "it": "collaboratore-trice-gastronomie-coop-genossenschaft-dietlikon-zurich-3re66d",
+      "en": "associate-gastronomie-coop-genossenschaft-dietlikon-zurich-3re66d",
+      "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-dietlikon-zurich-3re66d",
+      "fr": "collaborateur-trice-gastronomie-coop-genossenschaft-dietlikon-zurich-3re66d"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|83397e38-e9d4-4421-9f38-ba2e01e415f1": {
+    "canonicalSlug": "rayonleiter-in-wein-getranke-coop-basel-stadt",
+    "slugByLocale": {
+      "it": "rayonleiter-in-wein-getranke-coop-basel-stadt-ffe78l",
+      "en": "rayonleiter-in-wein-getranke-coop-basel-stadt-ffe78l",
+      "de": "rayonleiter-in-wein-getranke-coop-basel-stadt-ffe78l",
+      "fr": "rayonleiter-in-wein-getranke-coop-basel-stadt-ffe78l"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|cc75404b-6244-4aa9-86c0-676fcbbe368b": {
+    "canonicalSlug": "verkaufer-in-blumen-kiosk-coop-allschwil-basel-landschaft",
+    "slugByLocale": {
+      "it": "verkaufer-in-blumen-kiosk-coop-allschwil-basel-landschaft-8ciw6l",
+      "en": "verkaufer-in-blumen-kiosk-coop-allschwil-basel-landschaft-8ciw6l",
+      "de": "verkaufer-in-blumen-kiosk-coop-allschwil-basel-landschaft-8ciw6l",
+      "fr": "verkaufer-in-blumen-kiosk-coop-allschwil-basel-landschaft-8ciw6l"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BL"
+  },
+  "id|coopjobs.ch|3a96dd69-6879-47c1-971b-cb6127f7971e": {
+    "canonicalSlug": "verkaufer-in-food-getranke-coop-genossenschaft-basel-stadt",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-getranke-coop-genossenschaft-basel-stadt-53zznp",
+      "en": "verkaufer-in-food-getranke-coop-genossenschaft-basel-stadt-53zznp",
+      "de": "verkaufer-in-food-getranke-coop-genossenschaft-basel-stadt-53zznp",
+      "fr": "verkaufer-in-food-getranke-coop-genossenschaft-basel-stadt-53zznp"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|686eb3d2-d560-4167-984f-0bc0c1c5772f": {
+    "canonicalSlug": "verkaufer-in-food-studentenaushilfe-coop-zurich",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-studentenaushilfe-coop-zurich-h94o9a",
+      "en": "verkaufer-in-food-studentenaushilfe-coop-zurich-h94o9a",
+      "de": "verkaufer-in-food-studentenaushilfe-coop-zurich-h94o9a",
+      "fr": "verkaufer-in-food-studentenaushilfe-coop-zurich-h94o9a"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|0512deb1-b4cd-486b-ba1a-d7a927cbf59e": {
+    "canonicalSlug": "verkaufer-in-food-coop-wil-sg-sankt-gallen",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-wil-sg-sankt-gallen-eunluj",
+      "en": "verkaufer-in-food-coop-wil-sg-sankt-gallen-eunluj",
+      "de": "verkaufer-in-food-coop-genossenschaft-wil-sg-a11e31",
+      "fr": "verkaufer-in-food-coop-wil-sg-sankt-gallen-eunluj"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|a1d9e624-ad8b-4de6-b76b-b10ff28cf709": {
+    "canonicalSlug": "verkaufer-in-food-coop-langenthal-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-langenthal-bern-1f9702",
+      "en": "verkaufer-in-food-coop-langenthal-bern-1f9702",
+      "de": "verkaufer-in-food-coop-langenthal-bern-1f9702",
+      "fr": "verkaufer-in-food-coop-langenthal-bern-1f9702"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|a5cbeb90-34bd-4dcf-ac20-78080a4b9e8a": {
+    "canonicalSlug": "verkaufer-in-food-coop-genossenschaft-derendingen-solothurn",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-genossenschaft-derendingen-solothurn-5kdtlt",
+      "en": "verkaufer-in-food-coop-genossenschaft-derendingen-solothurn-5kdtlt",
+      "de": "verkaufer-in-food-coop-genossenschaft-derendingen-solothurn-5kdtlt",
+      "fr": "verkaufer-in-food-coop-genossenschaft-derendingen-solothurn-5kdtlt"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|4faf5904-9523-400f-9458-7db37ff5855b": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-st-gallen-sankt-gallen",
+    "slugByLocale": {
+      "it": "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-st-gallen-sankt-gallen-8guuzb",
+      "en": "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-st-gallen-sankt-gallen-8guuzb",
+      "de": "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-st-gallen-sankt-gallen-8guuzb",
+      "fr": "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-st-gallen-sankt-gallen-8guuzb"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|2bd0361e-0f01-4b06-bb63-d2016bc32c7b": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-birsfelden-basel-landschaft",
+    "slugByLocale": {
+      "it": "verkaufer-in-kassen-services-coop-birsfelden-basel-landschaft-68jrll",
+      "en": "verkaufer-in-kassen-services-coop-birsfelden-basel-landschaft-68jrll",
+      "de": "verkaufer-in-kassen-services-coop-birsfelden-basel-landschaft-68jrll",
+      "fr": "verkaufer-in-kassen-services-coop-birsfelden-basel-landschaft-68jrll"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BL"
+  },
+  "id|coopjobs.ch|ba60315f-1bc8-4dbc-aef5-6d327127ae55": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-biberist-solothurn",
+    "slugByLocale": {
+      "it": "verkaufer-in-kassen-services-coop-biberist-solothurn-2h2a8t",
+      "en": "verkaufer-in-kassen-services-coop-biberist-solothurn-2h2a8t",
+      "de": "verkaufer-in-kassen-services-coop-biberist-solothurn-2h2a8t",
+      "fr": "verkaufer-in-kassen-services-coop-biberist-solothurn-2h2a8t"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|d205a261-09ec-4eed-8260-5314503bb1d2": {
+    "canonicalSlug": "verkaufer-in-nonfood-coop-basel-stadt",
+    "slugByLocale": {
+      "it": "verkaufer-in-nonfood-coop-basel-stadt-745o95",
+      "en": "verkaufer-in-nonfood-coop-basel-stadt-745o95",
+      "de": "verkaufer-in-nonfood-coop-basel-stadt-745o95",
+      "fr": "verkaufer-in-nonfood-coop-basel-stadt-745o95"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|0421c549-860d-4401-b8a1-b680dbc8dc87": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aadorf-thurgau",
+    "slugByLocale": {
+      "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aadorf-thurgau-8892st",
+      "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aadorf-thurgau-8892st",
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aadorf-thurgau-8892st",
+      "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aadorf-thurgau-8892st"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "TG"
+  },
+  "id|coopjobs.ch|92ac23c1-7f55-4f02-aa0b-bdeb2156786a": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-zurich",
+    "slugByLocale": {
+      "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-zurich-jwet11",
+      "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-zurich-jwet11",
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-zurich-jwet11",
+      "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-zurich-jwet11"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|924859ae-9a99-48ff-9b75-5343026bebe7": {
+    "canonicalSlug": "verkaufsberater-in-jumbo-huntwangen-zurich",
+    "slugByLocale": {
+      "it": "verkaufsberater-in-jumbo-huntwangen-zurich-4xatab",
+      "en": "sales-consultant-in-jumbo-division-der-coop-genossenschaft-huntwangen",
+      "de": "verkaufsberater-in-jumbo-division-der-coop-genossenschaft-huntwangen",
+      "fr": "consultant-en-ventes-jumbo-division-der-coop-genossenschaft-huntwangen"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|945003fd-cfc4-4716-ab44-7af914b5c9b0": {
+    "canonicalSlug": "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau",
+    "slugByLocale": {
+      "it": "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by",
+      "en": "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by",
+      "de": "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by",
+      "fr": "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "TG"
+  },
+  "id|fust.ch|8c59c6d7-4869-45ee-a87e-59a9a6f8aaeb": {
+    "canonicalSlug": "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis",
+    "slugByLocale": {
+      "it": "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4",
+      "en": "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4",
+      "de": "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4",
+      "fr": "sanitarmonteur-in-kuchen-bader-fust-steg-hohtenn-wallis-h26um4"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "VS"
+  },
+  "url|https://apply.refline.ch/792841/11263/pub/1": {
+    "canonicalSlug": "collaboratore-trice-empfang-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-empfang-zkb-zurich",
+      "it": "collaboratore-trice-empfang-zurcher-kantonalbank-zurich",
+      "en": "associate-empfang-zurcher-kantonalbank-zurich",
+      "fr": "collaborateur-trice-empfang-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11244/pub/3": {
+    "canonicalSlug": "junior-data-scientist-analytics-non-financial-risks-w-m-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "junior-data-scientist-analytics-non-financial-risks-w-m-d-zkb-zurich",
+      "it": "junior-data-scientist-analytics-non-financial-risks-w-m-d-zkb-zurich",
+      "en": "junior-data-scientist-analytics-non-financial-risks-w-m-d-zkb-zurich",
+      "fr": "junior-data-scientist-analytics-non-financial-risks-w-m-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11260/pub/1": {
+    "canonicalSlug": "junior-business-engineer-im-asset-management-w-m-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "junior-business-engineer-im-asset-management-w-m-d-zkb-zurich",
+      "it": "junior-business-engineer-im-asset-management-w-m-d-zkb-zurich",
+      "en": "junior-business-engineer-im-asset-management-w-m-d-zurcher-kantonalbank-zurich",
+      "fr": "junior-business-engineer-im-asset-management-w-m-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11251/pub/3": {
+    "canonicalSlug": "risorse-umane-business-consulente-w-m-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "hr-business-advisor-w-m-d-zkb-zurich",
+      "it": "risorse-umane-business-consulente-w-m-d-zurcher-kantonalbank-zurich",
+      "en": "hr-business-advisor-w-m-d-zurcher-kantonalbank-zurich",
+      "fr": "ressources-humaines-business-conseiller-w-m-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11258/pub/1": {
+    "canonicalSlug": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zkb-zurich",
+      "it": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich",
+      "en": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich",
+      "fr": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11257/pub/1": {
+    "canonicalSlug": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-und-vorsorgegesch-u00e4ft-zkb",
+      "it": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich",
+      "en": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-und-vorsorgegesch-u00e4ft-zkb",
+      "fr": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-und-vorsorgegesch-u00e4ft-zkb"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11256/pub/1": {
+    "canonicalSlug": "collaboratore-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-wertschriftenertr-u00e4ge-zkb-zurich",
+      "it": "collaboratore-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
+      "en": "mitarbeiter-in-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
+      "fr": "collaborateur-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11255/pub/1": {
+    "canonicalSlug": "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich",
+      "it": "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich",
+      "en": "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich",
+      "fr": "devops-engineer-digital-assets-scrum-master-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11252/pub/1": {
+    "canonicalSlug": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-adliswil",
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-affluent-zkb-adliswil",
+      "it": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-adliswil",
+      "en": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-adliswil",
+      "fr": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-adliswil"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11254/pub/1": {
+    "canonicalSlug": "kundenberater-in-privatkunden-zurcher-kantonalbank-adliswil",
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-zkb-adliswil",
+      "it": "kundenberater-in-privatkunden-zurcher-kantonalbank-adliswil",
+      "en": "kundenberater-in-privatkunden-zurcher-kantonalbank-adliswil",
+      "fr": "kundenberater-in-privatkunden-zurcher-kantonalbank-adliswil"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/10937/pub/6": {
+    "canonicalSlug": "security-specialist-trust-management-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "security-specialist-trust-management-m-w-d-zkb-zurich",
+      "it": "security-specialist-trust-management-m-w-d-zkb-zurich",
+      "en": "security-specialist-trust-management-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "security-specialist-trust-management-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11239/pub/2": {
+    "canonicalSlug": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich",
+      "it": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich",
+      "en": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich",
+      "fr": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11105/pub/3": {
+    "canonicalSlug": "kundenberater-in-privatkunden-zurcher-kantonalbank-witikon",
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-zkb-witikon",
+      "it": "kundenberater-in-privatkunden-zurcher-kantonalbank-witikon",
+      "en": "kundenberater-in-privatkunden-zurcher-kantonalbank-witikon",
+      "fr": "kundenberater-in-privatkunden-zurcher-kantonalbank-witikon"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11245/pub/1": {
+    "canonicalSlug": "senior-business-engineer-digitales-banking-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "senior-business-engineer-digitales-banking-m-w-d-zkb-zurich",
+      "it": "senior-business-engineer-digitales-banking-m-w-d-zkb-zurich",
+      "en": "senior-business-engineer-digitales-banking-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "senior-business-engineer-digitales-banking-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11242/pub/1": {
+    "canonicalSlug": "produkt-u2013-e-projektmanager-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "produkt-u2013-und-projektmanager-m-w-d-zkb-zurich",
+      "it": "produkt-u2013-e-projektmanager-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "produkt-u2013-und-projektmanager-m-w-d-zkb-zurich",
+      "fr": "produkt-u2013-und-projektmanager-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11235/pub/3": {
+    "canonicalSlug": "responsabile-operative-compliance-digital-assets-fcc-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "leiter-in-operative-compliance-digital-assets-fcc-zkb-zurich",
+      "it": "responsabile-operative-compliance-digital-assets-fcc-zurcher-kantonalbank-zurich",
+      "en": "leiter-in-operative-compliance-digital-assets-fcc-zkb-zurich",
+      "fr": "leiter-in-operative-compliance-digital-assets-fcc-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11241/pub/1": {
+    "canonicalSlug": "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "fullstack-devops-engineer-m-w-d-zkb-zurich",
+      "it": "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "fullstack-devops-engineer-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11234/pub/1": {
+    "canonicalSlug": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "senior-spezialist-in-dokumentargesch-u00e4ft-zkb-zurich",
+      "it": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich",
+      "en": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich",
+      "fr": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/10989/pub/3": {
+    "canonicalSlug": "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "business-engineer-ai-genai-w-m-d-zkb-zurich",
+      "it": "business-ingegnere-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+      "en": "business-engineer-ai-genai-w-m-d-zurcher-kantonalbank-zurich",
+      "fr": "business-engineer-ai-genai-w-m-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11227/pub/1": {
+    "canonicalSlug": "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "sap-s-4hana-developer-m-w-d-zkb-zurich",
+      "it": "sap-s-4hana-sviluppatore-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "sap-s-4hana-developer-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "sap-s-4hana-developpeur-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11223/pub/3": {
+    "canonicalSlug": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich",
+      "it": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich",
+      "en": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11224/pub/1": {
+    "canonicalSlug": "relationship-manager-key-clients-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "relationship-manager-key-clients-m-w-d-zkb-zurich",
+      "it": "relationship-manager-key-clients-m-w-d-zkb-zurich",
+      "en": "relationship-manager-key-clients-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "relationship-manager-key-clients-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11222/pub/1": {
+    "canonicalSlug": "business-engineer-billing-payments-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "business-engineer-billing-payments-m-w-d-zkb-zurich",
+      "it": "business-engineer-billing-payments-m-w-d-zkb-zurich",
+      "en": "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "business-engineer-billing-payments-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11214/pub/1": {
+    "canonicalSlug": "assistent-in-private-banking-key-clients-zkb-zurich",
+    "slugByLocale": {
+      "de": "assistent-in-private-banking-key-clients-zkb-zurich",
+      "it": "assistent-in-private-banking-key-clients-zkb-zurich",
+      "en": "assistent-in-private-banking-key-clients-zurcher-kantonalbank-zurich",
+      "fr": "assistent-in-private-banking-key-clients-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11217/pub/1": {
+    "canonicalSlug": "spezialist-in-versicherungen-private-zkb-zurich",
+    "slugByLocale": {
+      "de": "spezialist-in-versicherungen-private-zkb-zurich",
+      "it": "spezialist-in-versicherungen-private-zkb-zurich",
+      "en": "spezialist-in-versicherungen-private-zkb-zurich",
+      "fr": "spezialist-in-versicherungen-private-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11218/pub/1": {
+    "canonicalSlug": "senior-contabile-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "senior-accountant-zkb-zurich",
+      "it": "senior-contabile-zurcher-kantonalbank-zurich",
+      "en": "senior-accountant-zkb-zurich",
+      "fr": "senior-accountant-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11219/pub/1": {
+    "canonicalSlug": "projektmanager-in-real-estate-zkb-zurich",
+    "slugByLocale": {
+      "de": "projektmanager-in-real-estate-zkb-zurich",
+      "it": "projektmanager-in-real-estate-zkb-zurich",
+      "en": "projektmanager-in-real-estate-zkb-zurich",
+      "fr": "projektmanager-in-real-estate-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11216/pub/1": {
+    "canonicalSlug": "kundenberater-in-privatkunden-mit-standortverantwortung-zurcher-kantonalbank-zumikon",
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-mit-standortverantwortung-zkb-zumikon",
+      "it": "kundenberater-in-privatkunden-mit-standortverantwortung-zurcher-kantonalbank-zumikon",
+      "en": "kundenberater-in-privatkunden-mit-standortverantwortung-zurcher-kantonalbank-zumikon",
+      "fr": "kundenberater-in-privatkunden-mit-standortverantwortung-zurcher-kantonalbank-zumikon"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11026/pub/8": {
+    "canonicalSlug": "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "business-engineer-erp-m-w-d-zkb-zurich",
+      "it": "business-ingegnere-erp-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "business-engineer-erp-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "business-engineer-erp-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11207/pub/1": {
+    "canonicalSlug": "senior-engineer-storage-backup-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "senior-engineer-storage-backup-m-w-d-zkb-zurich",
+      "it": "senior-engineer-storage-backup-m-w-d-zkb-zurich",
+      "en": "senior-engineer-storage-backup-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "senior-engineer-storage-backup-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11205/pub/1": {
+    "canonicalSlug": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dietikon",
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-affluent-zkb-dietikon",
+      "it": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dietikon",
+      "en": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dietikon",
+      "fr": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-dietikon"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/10967/pub/3": {
+    "canonicalSlug": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich",
+      "it": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
+      "en": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
+      "fr": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/10968/pub/3": {
+    "canonicalSlug": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich",
+      "it": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
+      "en": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
+      "fr": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11204/pub/1": {
+    "canonicalSlug": "devops-engineer-governance-compliance-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "devops-engineer-governance-compliance-m-w-d-zkb-zurich",
+      "it": "devops-engineer-governance-compliance-m-w-d-zkb-zurich",
+      "en": "devops-engineer-governance-compliance-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "devops-engineer-governance-compliance-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11077/pub/5": {
+    "canonicalSlug": "software-engineer-in-asset-management-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "software-engineer-in-asset-management-m-w-d-zkb-zurich",
+      "it": "software-engineer-in-asset-management-m-w-d-zkb-zurich",
+      "en": "software-engineer-in-asset-management-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "software-engineer-in-asset-management-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11202/pub/1": {
+    "canonicalSlug": "spezialist-in-finanzierungen-private-banking-hnwi-zkb-zurich",
+    "slugByLocale": {
+      "de": "spezialist-in-finanzierungen-private-banking-hnwi-zkb-zurich",
+      "it": "spezialist-in-finanzierungen-private-banking-hnwi-zkb-zurich",
+      "en": "spezialist-in-finanzierungen-private-banking-hnwi-zurcher-kantonalbank-zurich",
+      "fr": "spezialist-in-finanzierungen-private-banking-hnwi-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11201/pub/1": {
+    "canonicalSlug": "teamleiter-in-hr-business-advisory-operations-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "teamleiter-in-hr-business-advisory-operations-m-w-d-zkb-zurich",
+      "it": "teamleiter-in-hr-business-advisory-operations-m-w-d-zkb-zurich",
+      "en": "teamleiter-in-hr-business-advisory-operations-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "teamleiter-in-hr-business-advisory-operations-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11195/pub/1": {
+    "canonicalSlug": "relationship-manager-hnwi-markt-deutschland-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "relationship-manager-hnwi-markt-deutschland-m-w-d-zkb-zurich",
+      "it": "relationship-manager-hnwi-markt-deutschland-m-w-d-zkb-zurich",
+      "en": "relationship-manager-hnwi-markt-deutschland-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "relationship-manager-hnwi-markt-deutschland-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/9565/pub/34": {
+    "canonicalSlug": "spezialist-in-finanzierungen-zkb-zurich",
+    "slugByLocale": {
+      "de": "spezialist-in-finanzierungen-zkb-zurich",
+      "it": "spezialist-in-finanzierungen-zkb-zurich",
+      "en": "spezialist-in-finanzierungen-zkb-zurich",
+      "fr": "spezialist-in-finanzierungen-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11194/pub/1": {
+    "canonicalSlug": "devops-engineer-network-security-communication-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "devops-engineer-network-security-communication-m-w-d-zkb-zurich",
+      "it": "devops-engineer-network-security-communication-m-w-d-zkb-zurich",
+      "en": "devops-engineer-network-security-communication-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "devops-engineer-network-security-communication-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11188/pub/1": {
+    "canonicalSlug": "iam-specialist-u2013-security-automation-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "iam-specialist-u2013-security-automation-m-w-d-zkb-zurich",
+      "it": "iam-specialist-u2013-security-automation-m-w-d-zkb-zurich",
+      "en": "iam-specialist-u2013-security-automation-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "iam-specialist-u2013-security-automation-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11184/pub/1": {
+    "canonicalSlug": "entra-id-security-specialista-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "entra-id-security-specialist-m-w-d-zkb-zurich",
+      "it": "entra-id-security-specialista-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "entra-id-security-specialist-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "entra-id-security-specialiste-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11170/pub/1": {
+    "canonicalSlug": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-altstetten",
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-affluent-zkb-altstetten",
+      "it": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-altstetten",
+      "en": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-altstetten",
+      "fr": "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-altstetten"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/10931/pub/3": {
+    "canonicalSlug": "kundenberater-in-privatkunden-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "kundenberater-in-privatkunden-zkb-zurich",
+      "it": "kundenberater-in-privatkunden-zurcher-kantonalbank-zurich",
+      "en": "kundenberater-in-privatkunden-zurcher-kantonalbank-zurich",
+      "fr": "kundenberater-in-privatkunden-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/10813/pub/5": {
+    "canonicalSlug": "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich",
+      "it": "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich",
+      "en": "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich",
+      "fr": "senior-business-analyst-customer-identity-access-management-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11149/pub/1": {
+    "canonicalSlug": "enterprise-architect-ai-data-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "enterprise-architect-ai-data-m-w-d-zkb-zurich",
+      "it": "enterprise-architect-ai-data-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "enterprise-architect-ai-data-m-w-d-zkb-zurich",
+      "fr": "enterprise-architecte-ai-data-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11139/pub/1": {
+    "canonicalSlug": "enterprise-application-architect-data-analytics-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "enterprise-application-architect-data-analytics-m-w-d-zkb-zurich",
+      "it": "enterprise-application-architect-data-analytics-m-w-d-zkb-zurich",
+      "en": "enterprise-application-architect-data-analytics-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "enterprise-application-architect-data-analytics-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/10830/pub/7": {
+    "canonicalSlug": "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+      "it": "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+      "en": "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+      "fr": "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11111/pub/1": {
+    "canonicalSlug": "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "devops-engineer-fullstack-m-w-d-zkb-zurich",
+      "it": "devops-ingegnere-fullstack-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "devops-engineer-fullstack-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "devops-engineer-fullstack-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11036/pub/1": {
+    "canonicalSlug": "enterprise-it-technology-architect-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "de": "enterprise-it-technology-architect-m-w-d-zkb-zurich",
+      "it": "enterprise-it-technology-architect-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "enterprise-it-technology-architect-m-w-d-zkb-zurich",
+      "fr": "enterprise-it-technology-architecte-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11001/pub/1": {
+    "canonicalSlug": "devops-engineer-sap-papm-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "devops-engineer-sap-papm-m-w-d-zkb-zurich",
+      "it": "devops-engineer-sap-papm-m-w-d-zkb-zurich",
+      "en": "devops-engineer-sap-papm-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "devops-engineer-sap-papm-m-w-d-zkb-zurich"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "ZH"
+  },
+  "id|unispital-basel.ch|e507f298-ef0e-4e2e-ab94-27a8e4e88374": {
+    "canonicalSlug": "stv-stationsleiter-in-orthopala-traumatologie-universitatsspital-basel-basel",
+    "slugByLocale": {
+      "it": "stv-stationsleiter-in-orthopala-traumatologie-universitatsspital-basel-basel",
+      "en": "stv-station-manager-orthopedics-traumatology-universitatsspital-basel-basel",
+      "de": "stv-stationsleiter-in-orthopadie-amp-traumatologie-unispital-basel-ch",
+      "fr": "directeur-de-station-stv-orthopedie-et-traumatologie-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|85140bdb-8f7b-46a5-94a2-5fff154d8b90": {
+    "canonicalSlug": "collaboratore-trice-in-intervention-universitatsspital-basel",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-intervention-universitatsspital-basel",
+      "en": "employee-in-intervention-universitatsspital-basel-basel",
+      "de": "mitarbeiter-in-intervention-unispital-basel-ch",
+      "fr": "employe-en-intervention-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|a170b995-1d39-4647-9bc3-742e0ca62ee7": {
+    "canonicalSlug": "assistenza-agli-studenti-universitatsspital-basel-basel",
+    "slugByLocale": {
+      "it": "assistenza-agli-studenti-universitatsspital-basel-basel",
+      "en": "student-assistance-universitatsspital-basel-basel",
+      "de": "studentische-aushilfe-unispital-basel-ch",
+      "fr": "aide-aux-etudiants-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|cd20a623-cbf5-41b0-b674-1be00a142238": {
+    "canonicalSlug": "kaderarztin-kaderarzt-orthopala-e-traumatologie-universitatsspital-basel",
+    "slugByLocale": {
+      "it": "kaderarztin-kaderarzt-orthopala-e-traumatologie-universitatsspital-basel",
+      "en": "cadre-doctor-orthopedics-and-traumatology-universitatsspital-basel-basel",
+      "de": "kaderarztin-kaderarzt-orthopadie-und-traumatologie-unispital-basel-ch",
+      "fr": "doctorat-orthopedie-et-traumatologie-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|cf1a0f3a-0c56-441a-afb0-5a7dd3b91c76": {
+    "canonicalSlug": "mpa-medizinische-r-praxisassistent-in-ambulante-plattform-mit-administrativem-schwerpunkt",
+    "slugByLocale": {
+      "it": "mpa-medizinische-r-praxisassistent-in-ambulante-plattform-mit-administrativem-schwerpunkt",
+      "en": "mpa-medical-practice-assistant-outpatient-platform-with-administrative-focus-universitatsspital-basel-basel",
+      "de": "mpa-medizinische-r-praxisassistent-in-ambulante-plattform-mit-administrativem-schwerpunkt",
+      "fr": "mpa-assistant-de-pratique-medicale-plate-forme-externe-axee-sur-l-administration-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|402493a8-c2dc-456c-8931-9fee87cc5cb9": {
+    "canonicalSlug": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-specialista-hf-fh-medicina-acuta-universitatsspital-basel-basel",
+      "en": "dipl-nursing-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|b76236e3-f7e1-4d63-b15f-8532e15393cd": {
+    "canonicalSlug": "collaboratore-trice-in-bautechnik-schreiner-in-universitatsspital-basel",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-bautechnik-schreiner-in-unispital-basel-ch",
+      "it": "collaboratore-trice-in-bautechnik-schreiner-in-universitatsspital-basel",
+      "en": "mitarbeiter-in-bautechnik-schreiner-in-universitatsspital-basel-basel",
+      "fr": "mitarbeiter-in-bautechnik-schreiner-in-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|8a2c6b92-cb93-4614-922f-72f4293888af": {
+    "canonicalSlug": "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
+    "slugByLocale": {
+      "de": "medizincodiererin-medizincodierer-unispital-basel-ch",
+      "it": "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
+      "en": "medizincodiererin-medizincodierer-universitatsspital-basel-basel",
+      "fr": "medizincodiererin-medizincodierer-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|9e39762b-159e-4157-95e3-f70c25c8d30b": {
+    "canonicalSlug": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel",
+    "slugByLocale": {
+      "de": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-unispital-basel-ch",
+      "it": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel",
+      "en": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel",
+      "fr": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-07-04",
+    "canton": "BS"
   }
 }
