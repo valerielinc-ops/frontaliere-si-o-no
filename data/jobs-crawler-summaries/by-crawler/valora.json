@@ -1,18 +1,19 @@
 {
   "key": "valora",
   "label": "Valora Group",
-  "generatedAt": "2026-07-04T12:43:16.536Z",
+  "generatedAt": "2026-07-04T23:38:23.251Z",
   "total": 53,
-  "newCount": 53,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 53,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27651,
-  "avgDurationMs": 27651,
+  "durationMs": 24431,
+  "avgDurationMs": 24431,
   "durationHistory": [
-    27651
+    24431
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "valora-9f060ef633aa",
       "slug": "verkauferin-verkaufer-avec-12-std-valora-liebefeld",
@@ -25,7 +26,7 @@
       "url": "https://career.valora.com/en/job/6070/verkauferin-verkaufer-avec-12-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.412Z",
+      "crawledAt": "2026-07-04T23:38:20.516Z",
       "addressLocality": "Liebefeld",
       "addressRegion": "Bern",
       "streetAddress": "Schwarzenburgstrasse 112",
@@ -42,11 +43,13 @@
       "postedDate": "2026-06-30",
       "applyUrl": "https://career.valora.com/en/job/6070/verkauferin-verkaufer-avec-12-std",
       "jobReqId": "20997",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.412Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -62,7 +65,7 @@
       "url": "https://career.valora.com/en/job/6037/supply-chain-coordinator-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.413Z",
+      "crawledAt": "2026-07-04T23:38:20.518Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -79,11 +82,13 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://career.valora.com/en/job/6037/supply-chain-coordinator-w-m-d",
       "jobReqId": "21366",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:43:13.413Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -99,7 +104,7 @@
       "url": "https://career.valora.com/en/job/6066/immobilienbewirtschafter-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.414Z",
+      "crawledAt": "2026-07-04T23:38:20.518Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -116,11 +121,13 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://career.valora.com/en/job/6066/immobilienbewirtschafter-w-m-d",
       "jobReqId": "19994",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.414Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -136,7 +143,7 @@
       "url": "https://career.valora.com/en/job/6067/manager-betreibermodelle-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.415Z",
+      "crawledAt": "2026-07-04T23:38:20.519Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -153,11 +160,13 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://career.valora.com/en/job/6067/manager-betreibermodelle-w-m-d",
       "jobReqId": "21342",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.415Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -173,7 +182,7 @@
       "url": "https://career.valora.com/en/job/6019/barista-caffe-spettacolo-24-std-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.416Z",
+      "crawledAt": "2026-07-04T23:38:20.520Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Dornacherstrasse 48",
@@ -190,11 +199,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://career.valora.com/en/job/6019/barista-caffe-spettacolo-24-std-w-m-d",
       "jobReqId": "21225",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.416Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -210,7 +221,7 @@
       "url": "https://career.valora.com/en/job/6020/barista-caffe-spettacolo-32-std-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.416Z",
+      "crawledAt": "2026-07-04T23:38:20.521Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Dornacherstrasse 48",
@@ -227,11 +238,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://career.valora.com/en/job/6020/barista-caffe-spettacolo-32-std-w-m-d",
       "jobReqId": "21236",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.416Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -247,7 +260,7 @@
       "url": "https://career.valora.com/en/job/6029/sachbearbeiter-facility-management-100-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.418Z",
+      "crawledAt": "2026-07-04T23:38:20.523Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -264,11 +277,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://career.valora.com/en/job/6029/sachbearbeiter-facility-management-100-w-m-d",
       "jobReqId": "21268",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.418Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -284,7 +299,7 @@
       "url": "https://career.valora.com/en/job/6030/category-field-manager-non-food-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.419Z",
+      "crawledAt": "2026-07-04T23:38:20.524Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -301,11 +316,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://career.valora.com/en/job/6030/category-field-manager-non-food-w-m-d",
       "jobReqId": "21364",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.419Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -321,7 +338,7 @@
       "url": "https://career.valora.com/en/job/6031/hr-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.420Z",
+      "crawledAt": "2026-07-04T23:38:20.525Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -338,11 +355,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://career.valora.com/en/job/6031/hr-specialist-w-m-d",
       "jobReqId": "21377",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:43:13.420Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -358,7 +377,7 @@
       "url": "https://career.valora.com/en/job/5560/sap-employee-central-payroll-ecp-consultant-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.421Z",
+      "crawledAt": "2026-07-04T23:38:20.525Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -375,11 +394,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://career.valora.com/en/job/5560/sap-employee-central-payroll-ecp-consultant-w-m-d",
       "jobReqId": "20684",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:43:13.421Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -395,7 +416,7 @@
       "url": "https://career.valora.com/en/job/5600/verkauferin-verkaufer-k-kiosk-8-std-woche",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.421Z",
+      "crawledAt": "2026-07-04T23:38:20.525Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Monbijoustrasse 75",
@@ -412,11 +433,13 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://career.valora.com/en/job/5600/verkauferin-verkaufer-k-kiosk-8-std-woche",
       "jobReqId": "18243",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.421Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -432,7 +455,7 @@
       "url": "https://career.valora.com/en/job/6003/management-project-assistant-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.422Z",
+      "crawledAt": "2026-07-04T23:38:20.526Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -449,11 +472,13 @@
       "postedDate": "2026-06-23",
       "applyUrl": "https://career.valora.com/en/job/6003/management-project-assistant-w-m-d",
       "jobReqId": "21371",
-      "_qualityScore": 62,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:43:13.422Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -469,7 +494,7 @@
       "url": "https://career.valora.com/en/job/5728/manager-integration-services-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.423Z",
+      "crawledAt": "2026-07-04T23:38:20.527Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -486,17 +511,19 @@
       "postedDate": "2026-06-22",
       "applyUrl": "https://career.valora.com/en/job/5728/manager-integration-services-w-m-d",
       "jobReqId": "20950",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.423Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
     {
       "id": "valora-a3b60fc49f5b",
-      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
+      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-4",
       "company": "Valora Group",
       "companyKey": "valora",
       "companyDomain": "valora.com",
@@ -506,7 +533,7 @@
       "url": "https://career.valora.com/en/job/6001/barista-caffe-spettacolo-16-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:43:13.423Z",
+      "crawledAt": "2026-07-04T23:38:20.527Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Waadt",
       "streetAddress": "Rue des Terreaux 25",
@@ -523,17 +550,19 @@
       "postedDate": "2026-06-22",
       "applyUrl": "https://career.valora.com/en/job/6001/barista-caffe-spettacolo-16-4-h-h-f-x",
       "jobReqId": "21267",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.423Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
     {
       "id": "valora-a82733abdd4b",
-      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
+      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-3",
       "company": "Valora Group",
       "companyKey": "valora",
       "companyDomain": "valora.com",
@@ -543,7 +572,7 @@
       "url": "https://career.valora.com/en/job/6002/barista-caffe-spettacolo-16-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:43:13.424Z",
+      "crawledAt": "2026-07-04T23:38:20.528Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Waadt",
       "streetAddress": "Rue des Terreaux 25",
@@ -560,11 +589,13 @@
       "postedDate": "2026-06-22",
       "applyUrl": "https://career.valora.com/en/job/6002/barista-caffe-spettacolo-16-4-h-h-f-x",
       "jobReqId": "21226",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.424Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -580,7 +611,7 @@
       "url": "https://career.valora.com/en/job/5772/manager-integration-services-f-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:43:13.426Z",
+      "crawledAt": "2026-07-04T23:38:20.528Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -597,17 +628,19 @@
       "postedDate": "2026-06-22",
       "applyUrl": "https://career.valora.com/en/job/5772/manager-integration-services-f-m-d",
       "jobReqId": "21063",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.426Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
     {
       "id": "valora-f7847d5e9bd7",
-      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
+      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-2",
       "company": "Valora Group",
       "companyKey": "valora",
       "companyDomain": "valora.com",
@@ -617,7 +650,7 @@
       "url": "https://career.valora.com/en/job/5996/barista-caffe-spettacolo-16-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:43:13.426Z",
+      "crawledAt": "2026-07-04T23:38:20.529Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Waadt",
       "streetAddress": "Rue des Terreaux 25",
@@ -634,11 +667,13 @@
       "postedDate": "2026-06-19",
       "applyUrl": "https://career.valora.com/en/job/5996/barista-caffe-spettacolo-16-4-h-h-f-x",
       "jobReqId": "21301",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.426Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -654,7 +689,7 @@
       "url": "https://career.valora.com/en/job/5997/barista-caffe-spettacolo-16-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:43:13.427Z",
+      "crawledAt": "2026-07-04T23:38:20.529Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Waadt",
       "streetAddress": "Rue des Terreaux 25",
@@ -671,11 +706,13 @@
       "postedDate": "2026-06-19",
       "applyUrl": "https://career.valora.com/en/job/5997/barista-caffe-spettacolo-16-4-h-h-f-x",
       "jobReqId": "21299",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.427Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -691,7 +728,7 @@
       "url": "https://career.valora.com/en/job/5941/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.433Z",
+      "crawledAt": "2026-07-04T23:38:20.534Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -708,11 +745,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5941/verkauferin-verkaufer-k-kiosk-10-std",
       "jobReqId": "21039",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.433Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -728,7 +767,7 @@
       "url": "https://career.valora.com/en/job/5942/verkauferin-verkaufer-k-kiosk-60",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.433Z",
+      "crawledAt": "2026-07-04T23:38:20.536Z",
       "addressLocality": "Brig",
       "addressRegion": "Wallis",
       "streetAddress": "Bahnhofstrasse 12",
@@ -745,11 +784,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5942/verkauferin-verkaufer-k-kiosk-60",
       "jobReqId": "20905",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.433Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -765,7 +806,7 @@
       "url": "https://career.valora.com/en/job/5635/verkauferin-verkaufer-k-kiosk-13-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.440Z",
+      "crawledAt": "2026-07-04T23:38:20.543Z",
       "addressLocality": "Derendingen",
       "addressRegion": "Solothurn",
       "streetAddress": "Hauptstrasse 22",
@@ -782,17 +823,19 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5635/verkauferin-verkaufer-k-kiosk-13-std",
       "jobReqId": "20293",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.440Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
     {
       "id": "valora-78eb59e80539",
-      "slug": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
+      "slug": "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
       "company": "Valora Group",
       "companyKey": "valora",
       "companyDomain": "valora.com",
@@ -802,7 +845,7 @@
       "url": "https://career.valora.com/en/job/5939/verkauferin-verkaufer-k-kiosk-13-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.441Z",
+      "crawledAt": "2026-07-04T23:38:20.544Z",
       "addressLocality": "Biberist",
       "addressRegion": "Solothurn",
       "streetAddress": "Bahnhofstrasse 10",
@@ -819,11 +862,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5939/verkauferin-verkaufer-k-kiosk-13-std",
       "jobReqId": "21256",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.441Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -839,7 +884,7 @@
       "url": "https://career.valora.com/en/job/5943/verkauferin-verkaufer-k-kiosk-13-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.442Z",
+      "crawledAt": "2026-07-04T23:38:20.545Z",
       "addressLocality": "Biberist",
       "addressRegion": "Solothurn",
       "streetAddress": "Bahnhofstrasse 10",
@@ -856,17 +901,19 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5943/verkauferin-verkaufer-k-kiosk-13-std",
       "jobReqId": "21248",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.442Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
     {
       "id": "valora-e13884067eb6",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
+      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-bern-2",
       "company": "Valora Group",
       "companyKey": "valora",
       "companyDomain": "valora.com",
@@ -876,7 +923,7 @@
       "url": "https://career.valora.com/en/job/5944/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.442Z",
+      "crawledAt": "2026-07-04T23:38:20.546Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Max-Daetwyler-Platz 4",
@@ -893,11 +940,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5944/verkauferin-verkaufer-k-kiosk-10-std",
       "jobReqId": "21290",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.442Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -913,7 +962,7 @@
       "url": "https://career.valora.com/en/job/5945/verkauferin-verkaufer-k-kiosk-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.443Z",
+      "crawledAt": "2026-07-04T23:38:20.546Z",
       "addressLocality": "Brig",
       "addressRegion": "Wallis",
       "streetAddress": "Belapstrasse 12",
@@ -930,11 +979,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5945/verkauferin-verkaufer-k-kiosk-21-5-std",
       "jobReqId": "21346",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -950,7 +1001,7 @@
       "url": "https://career.valora.com/en/job/5948/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.443Z",
+      "crawledAt": "2026-07-04T23:38:20.546Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Muehledofstr. 20",
@@ -967,11 +1018,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5948/verkauferin-verkaufer-k-kiosk-10-std",
       "jobReqId": "21250",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -987,7 +1040,7 @@
       "url": "https://career.valora.com/en/job/5950/verkauferin-verkaufer-k-kiosk-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.443Z",
+      "crawledAt": "2026-07-04T23:38:20.547Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Murtenstrasse 1",
@@ -1004,11 +1057,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5950/verkauferin-verkaufer-k-kiosk-6-std",
       "jobReqId": "21148",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -1024,7 +1079,7 @@
       "url": "https://career.valora.com/en/job/5951/verkauferin-verkaufer-k-kiosk-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.443Z",
+      "crawledAt": "2026-07-04T23:38:20.547Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Breitenrainplatz",
@@ -1041,11 +1096,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5951/verkauferin-verkaufer-k-kiosk-20-std",
       "jobReqId": "21247",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.443Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -1061,7 +1118,7 @@
       "url": "https://career.valora.com/en/job/6017/verkauferin-verkauferin-avec-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.453Z",
+      "crawledAt": "2026-07-04T23:38:20.557Z",
       "addressLocality": "Wangen a.d.Aare",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofallee 4",
@@ -1078,11 +1135,13 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/6017/verkauferin-verkauferin-avec-20-std",
       "jobReqId": "20999",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.453Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -1098,7 +1157,7 @@
       "url": "https://career.valora.com/en/job/5765/geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-04T12:43:13.455Z",
+      "crawledAt": "2026-07-04T23:38:20.559Z",
       "addressLocality": "Oberhofen",
       "addressRegion": "Bern",
       "streetAddress": "Staatsstrasse 4",
@@ -1115,16 +1174,17 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://career.valora.com/en/job/5765/geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-80-100",
       "jobReqId": "21000",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:43:13.455Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
