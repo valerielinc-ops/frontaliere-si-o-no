@@ -261,25 +261,80 @@ export const SkeletonInputCard: React.FC = () => (
  </div>
 );
 
-/** Mobile calc layout skeleton — matches MobileCalcLayout compact input card */
+/**
+ * Mirror of MobileCalcLayout's SECTION 2 "Instant Result Card" (verdict banner
+ * + 2-col CH/IT comparison + action buttons) with the same paddings and box
+ * heights (~240px @375px). Used both inside SkeletonMobileCalc (Suspense
+ * fallback for the whole layout) and by MobileCalcLayout itself as the
+ * pre-result placeholder, so the idle auto-calc fills already-reserved space
+ * instead of growing the page mid-flow (CLS fix #3529).
+ */
+export const SkeletonMobileResultCard: React.FC = () => (
+ <div aria-hidden="true" className="rounded-2xl shadow-lg border border-edge bg-surface overflow-hidden">
+ {/* Verdict banner (px-4 py-3 + two text-sm/xs lines ≈ 60px) */}
+ <div className={`${pulse} h-[60px] !rounded-none`} />
+ <div className="p-4">
+ {/* CH / IT side-by-side cards (p-3 + label + value + sub ≈ 84px) */}
+ <div className="grid grid-cols-2 gap-3">
+ <div className={`h-[84px] ${pulse} rounded-xl`} />
+ <div className={`h-[84px] ${pulse} rounded-xl`} />
+ </div>
+ {/* Action buttons row */}
+ <div className="flex gap-2 mt-3">
+ <div className={`flex-1 min-h-[44px] ${pulse} rounded-xl`} />
+ <div className={`w-[52px] min-h-[44px] ${pulse} rounded-xl`} />
+ </div>
+ </div>
+ </div>
+);
+
+/**
+ * Mobile calc layout skeleton — dimensionally mirrors MobileCalcLayout's
+ * PRE-INTERACTION render: compact input card (salary label + stepper + quick
+ * pills, frontier-type label + 2-col toggle + distance-zone toggle) followed
+ * by the reserved instant-result slot.
+ *
+ * CLS fix (#3529): the previous compact version (~222px) was ~93px shorter
+ * than the real input card (~315px @375px) and reserved nothing for the
+ * result card, so everything below (mobile home-widgets block) shifted twice
+ * — when the mobile-calc chunk arrived and again when the auto-calc result
+ * mounted. Keep every literal padding/height in sync with
+ * components/calculator/MobileCalcLayout.tsx.
+ */
 export const SkeletonMobileCalc: React.FC = () => (
  <div className="space-y-4 pb-3">
- <div className="bg-surface rounded-2xl shadow-lg border border-edge p-4 space-y-3">
- {/* Salary label + stepper */}
- <SkeletonLine width="w-20" height="h-3" />
+ <div className="bg-surface rounded-2xl shadow-lg border border-edge overflow-hidden">
+ {/* Salary section — mirrors p-4 pb-3.5 */}
+ <div className="p-4 pb-3.5">
+ <SkeletonLine width="w-24" height="h-4" className="mb-2" />
  <div className="flex items-stretch gap-2">
- <div className={`w-12 h-14 ${pulse} rounded-xl`} />
- <div className={`flex-1 h-14 ${pulse} rounded-xl`} />
- <div className={`w-12 h-14 ${pulse} rounded-xl`} />
+ <div className={`w-12 ${pulse} rounded-xl`} />
+ {/* Real input: py-3.5 + text-2xl + border-2 ≈ 64px */}
+ <div className={`flex-1 h-16 ${pulse} rounded-xl`} />
+ <div className={`w-12 ${pulse} rounded-xl`} />
  </div>
- {/* Quick salary pills */}
- <div className="flex gap-1.5">
+ {/* Quick salary pills — mirrors mt-2.5 + max-h-[28px] + pb-0.5 */}
+ <div className="flex flex-wrap gap-1.5 mt-2.5 pb-0.5 max-h-[28px] overflow-hidden">
  {Array.from({ length: 7 }).map((_, i) => (
  <div key={i} className={`${pulse} h-7 w-10 shrink-0 rounded-lg`} />
  ))}
  </div>
- {/* Frontier type selector */}
- <div className={`h-14 ${pulse} rounded-xl mt-2`} />
+ </div>
+ {/* Frontier type section — mirrors px-4 pb-4 */}
+ <div className="px-4 pb-4">
+ <SkeletonLine width="w-28" height="h-4" className="mb-2" />
+ {/* NEW/OLD toggle: p-2.5 + border-2 + two text-sm lines ≈ 66px */}
+ <div className="grid grid-cols-2 gap-2.5">
+ <div className={`h-[66px] ${pulse} rounded-xl`} />
+ <div className={`h-[66px] ${pulse} rounded-xl`} />
+ </div>
+ {/* Distance-zone toggle (default frontierWorkerType is NEW) */}
+ <div className={`h-[46px] ${pulse} rounded-xl mt-2.5`} />
+ </div>
+ </div>
+ {/* Reserved instant-result slot — mirrors MobileCalcLayout's pre-result placeholder */}
+ <div className="min-h-[240px]">
+ <SkeletonMobileResultCard />
  </div>
  </div>
 );

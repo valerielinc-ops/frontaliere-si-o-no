@@ -6,13 +6,14 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
 import { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
+import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
+import { SkeletonMobileResultCard } from '@/components/shared/Skeletons';
 import InlineNetDeltaBadge from './InlineNetDeltaBadge';
 
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
 const SubscriptionCTA = lazyRetry(() => import('@/components/shared/SubscriptionCTA'));
 
 const NEWSLETTER_GATE_DISMISSED_KEY = 'newsletter_gate_dismissed';
-const SUBSCRIBED_KEY = 'newsletter_subscribed';
 
 interface Props {
  inputs: SimulationInputs;
@@ -79,6 +80,10 @@ const MobileCalcLayout: React.FC<Props> = ({
  const [pendingFocusField, setPendingFocusField] = useState<'age' | 'maritalStatus' | 'children' | null>(null);
  const [focusRequestId, setFocusRequestId] = useState(0);
  const [showNewsletterGate, setShowNewsletterGate] = useState(false);
+ // CLS fix (#3529): decide synchronously (localStorage) whether the
+ // post-result newsletter CTA will render, so its ~700px slot is reserved
+ // from first paint only for visitors who will actually see it.
+ const [newsletterCtaEligible] = useState(isNewsletterCtaEligible);
  const [gateEmail, setGateEmail] = useState('');
  const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
  const pendingAnalysisAction = useRef<(() => void) | null>(null);
@@ -366,6 +371,15 @@ const MobileCalcLayout: React.FC<Props> = ({
  </div>
 
  {/* ─── SECTION 2: Instant Result Card ─── */}
+ {/* CLS fix (#3529): always-reserved slot. The card mounts at the deferred
+     idle auto-calc (~1–2.5s), well after first paint; without a reserved
+     slot the mount pushed the home-widgets block and everything below it
+     down ~240px mid-viewport (counted fully as CLS — scroll never sets
+     hadRecentInput). The min-h wrapper + dimensionally-identical skeleton
+     make the swap geometry-neutral. Keep min-h in sync with the real card
+     height (~236px @375px, measured). */}
+ <div className="min-h-[240px]">
+ {!result && <SkeletonMobileResultCard />}
  {result && (
  <div className={`rounded-2xl shadow-lg border overflow-hidden transition-colors duration-300 ${
  isBetterIT
@@ -474,9 +488,14 @@ const MobileCalcLayout: React.FC<Props> = ({
  </div>
  </div>
  )}
+ </div>
 
- {/* Customize hint (when no sheet open and no full results) */}
- {result && !showFullResults && !sheetOpen && (
+ {/* Customize hint (when no sheet open and no full results) — reserved
+     32px slot from first paint (CLS fix #3529): only the button's
+     visibility is result-gated, the box never appears/disappears. */}
+ {!showFullResults && !sheetOpen && (
+ <div className="min-h-[32px]">
+ {result && (
  <button
  onClick={openSheet}
  className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-muted hover:text-body transition-colors"
@@ -485,11 +504,24 @@ const MobileCalcLayout: React.FC<Props> = ({
  {t('mobileCalc.adjustParams')}
  </button>
  )}
+ </div>
+ )}
 
- {/* Shareable result card + Newsletter CTA (only when full results are collapsed) */}
- {result && !showFullResults && (
+ {/* Shareable result card + Newsletter CTA (only when full results are
+     collapsed). CLS fix (#3529): both live in always-present reserved
+     slots sized to their real post-mount heights (measured @375px), with
+     dimensionally-identical pulse placeholders pre-result, so neither the
+     idle auto-calc mount nor the lazy-chunk resolution moves the content
+     below. The newsletter slot is reserved only when the CTA will actually
+     render (synchronous localStorage check shared with SubscriptionCTA via
+     services/newsletterCtaState) — reserving it for subscribed/dismissed
+     visitors would leave a ~700px blank hole instead. */}
+ {!showFullResults && (
  <>
- <Suspense fallback={<div className="min-h-[120px]" />}>
+ <div className="min-h-[70px]">
+ {!result && <div aria-hidden="true" className="mt-6 h-[46px] animate-pulse bg-surface-raised rounded-xl" />}
+ {result && (
+ <Suspense fallback={<div aria-hidden="true" className="mt-6 h-[46px] animate-pulse bg-surface-raised rounded-xl" />}>
  <ShareableResultCard
  title={t('results.shareTitle') || 'Simulazione Stipendio Netto'}
  subtitle={`${inputs.annualIncomeCHF?.toLocaleString('it-IT') || '0'} CHF/anno`}
@@ -503,9 +535,18 @@ const MobileCalcLayout: React.FC<Props> = ({
  context="salary-simulation-mobile"
  />
  </Suspense>
- <Suspense fallback={<div className="min-h-[60px]" />}>
+ )}
+ </div>
+ {newsletterCtaEligible && (
+ <div className="min-h-[707px]">
+ {!result && <div aria-hidden="true" className="mt-6 min-h-[683px] animate-pulse bg-surface-raised rounded-2xl" />}
+ {result && (
+ <Suspense fallback={<div aria-hidden="true" className="mt-6 min-h-[683px] animate-pulse bg-surface-raised rounded-2xl" />}>
  <SubscriptionCTA />
  </Suspense>
+ )}
+ </div>
+ )}
  </>
  )}
 

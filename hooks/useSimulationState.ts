@@ -140,31 +140,38 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  }
  }, [activeTab, seoLanding]);
 
- // Deferred initial auto-calculation: triggered by first user interaction
+ // Deferred initial auto-calculation: fired at first IDLE after boot, NOT on
+ // first user interaction.
+ // CLS fix (#3529): the previous trigger was the first pointerdown/keydown/
+ // scroll/touchstart. `scroll` never sets `hadRecentInput`, so mounting the
+ // result card + newsletter CTA (~1.1k px on mobile, ResultsView column on
+ // desktop) exactly while the user was scrolling counted fully as CLS — the
+ // reason field p75 CLS was 0.26 (mobile) / 0.30 (desktop) while the lab,
+ // which never scrolls, measured 0.012–0.18. Worse, the window listener used
+ // capture:true, so the consent dialog's internal scroll event fired it at
+ // ~2.5s anyway for every first-visit EEA session (boot-path deferral was
+ // already moot for those). Firing at idle (~1–2.5s, still after LCP/boot
+ // work) mounts the result area while the user is still at the top in the
+ // vast majority of sessions, so the growth happens below the fold where
+ // layout shifts don't count.
  useEffect(() => {
+ let idleId: number | undefined;
+ let fallbackTimer: number | undefined;
  const runInitialCalc = () => {
  if (initialCalcDone.current) return;
  initialCalcDone.current = true;
- for (const evt of interactionEvents) {
- window.removeEventListener(evt, onInteract, { capture: true } as EventListenerOptions);
- }
- // Not user-initiated — fires on first scroll/click on any page, even
- // when the visitor never touched a calculator input.
+ // Not user-initiated — fires at idle on any page, even when the
+ // visitor never touched a calculator input.
  handleCalculate(false);
  };
- const interactionEvents = ['pointerdown', 'keydown', 'scroll', 'touchstart'] as const;
- const onInteract = () => {
- setTimeout(runInitialCalc, 50);
- };
- for (const evt of interactionEvents) {
- window.addEventListener(evt, onInteract, { capture: true, passive: true, once: true } as AddEventListenerOptions);
+ if (typeof requestIdleCallback === 'function') {
+ idleId = requestIdleCallback(runInitialCalc, { timeout: 2500 });
+ } else {
+ fallbackTimer = window.setTimeout(runInitialCalc, 2000);
  }
- const fallback = setTimeout(runInitialCalc, 30000);
  return () => {
- clearTimeout(fallback);
- for (const evt of interactionEvents) {
- window.removeEventListener(evt, onInteract, { capture: true } as EventListenerOptions);
- }
+ if (idleId !== undefined && typeof cancelIdleCallback === 'function') cancelIdleCallback(idleId);
+ if (fallbackTimer !== undefined) clearTimeout(fallbackTimer);
  };
  }, []);
 
