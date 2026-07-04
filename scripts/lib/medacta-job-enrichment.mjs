@@ -1,3 +1,5 @@
+import { workloadPercent } from './dedicated-crawler-common.mjs';
+
 const CATEGORY_BY_KEY = {
   production: 'engineering',
   engineering: 'engineering',
@@ -76,7 +78,14 @@ export function inferMedactaContract({ rawContract = '', title = '', description
   const text = `${String(rawContract || '')} ${String(title || '')} ${String(description || '')} ${String(jobCategory || '')}`;
   const norm = normalizeText(text);
 
-  const percent = Number((text.match(/\b(\d{1,3})\s*%/)?.[1] || ''));
+  // Same class as #3482: range-aware, source-precedence workload extraction
+  // (shared helper) — a marketing percent in the description must never
+  // override an explicit workload in rawContract/title.
+  let percent = NaN;
+  for (const source of [rawContract, title, description, jobCategory]) {
+    percent = workloadPercent(String(source || ''));
+    if (Number.isFinite(percent)) break;
+  }
   if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
 
   if (/(thesis|intern|internship|stage|tirocin|apprendist|praktikum)/.test(norm)) return 'internship';
