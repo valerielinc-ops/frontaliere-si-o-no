@@ -205,7 +205,7 @@ async function fetchDebiopharmDetail(shortcode) {
   return fetchJson(`${DEBIOPHARM_WORKABLE_DETAIL_API_BASE}/${encodeURIComponent(shortcode)}`, Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
 }
 
-function buildDebiopharmJob(listing, detail) {
+export function buildDebiopharmJob(listing, detail) {
   const parsed = parseDebiopharmJobDetailPayload(detail);
   const title = parsed.title || String(listing?.title || '').trim();
   const city = parsed.city || 'Lausanne';
@@ -217,7 +217,14 @@ function buildDebiopharmJob(listing, detail) {
   const detailUrl = buildDebiopharmDetailUrl(listing.shortcode);
   const applyUrl = buildDebiopharmApplyUrl(listing.shortcode);
   const publishedDate = toIsoDate(parsed.publishedDate);
-  const canton = inferAnyCanton(city) || parsed.inferredCanton;
+  // Trust parsed.inferredCanton as-is: it was already derived from the RAW
+  // (pre-HQ-default) city/region inside parseDebiopharmJobDetailPayload().
+  // Re-deriving from `city` here is wrong — `city` is `parsed.city`, which is
+  // ITSELF already HQ-defaulted to 'Lausanne' when the raw city was empty, so
+  // inferAnyCanton(city) would trivially resolve to 'VD' and short-circuit
+  // before ever consulting the real null-skip signal (e.g. empty city + a
+  // genuinely unresolvable region would wrongly publish as Lausanne/VD).
+  const canton = parsed.inferredCanton;
   if (canton === null) {
     console.warn(`     ⚠️  Skipping unresolvable location "${city}" (${title})`);
     return null;
@@ -505,4 +512,9 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Debiopharm'));
+// Guard top-level execution so the module can be imported by tests (e.g.
+// buildDebiopharmJob's skip-guard wiring test) without triggering a live
+// crawl. Run only when invoked directly via `node scripts/update-debiopharm-jobs.mjs`.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => exitCrawlerOnError(err, 'Debiopharm'));
+}
