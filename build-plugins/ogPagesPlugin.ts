@@ -602,7 +602,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
  .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
- const LOC_TAG: Record<string, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
+ const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
  const assetsDir = np.join(distDir, 'assets');
  // Race-free SPA bundle hash extraction. See spaBundleResolver.ts.
@@ -1028,7 +1028,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="675">
  <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
- <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
+ <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
  <meta property="fb:app_id" content="891036063797338">

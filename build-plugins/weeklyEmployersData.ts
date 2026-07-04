@@ -107,10 +107,10 @@ export const WEEKLY_EMPLOYERS_ARCHIVE_PREFIX: Record<WeeklyEmployersLocale, stri
 };
 
 export const WEEKLY_EMPLOYERS_OG_LOCALE: Record<WeeklyEmployersLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 /** Maximum number of past weeks that remain `index,follow`. Older archives go noindex. */

@@ -77,10 +77,10 @@ const MAX_EMBEDDED_JOBS = 30;
 const SECTOR_PAGE_HARD_BUDGET_BYTES = 195 * 1024; // 195 KB (5 KB safety margin under 200 KB).
 
 const LOCALE_OG: Record<JobBoardLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 const SECTION_NAME: Record<JobBoardLocale, string> = {

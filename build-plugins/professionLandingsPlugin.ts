@@ -146,10 +146,10 @@ function inlineFormat(s: string): string {
 }
 
 const OG_LOCALE: Record<ProfessionLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 const RELATED_LINKS: Record<ProfessionLocale, Array<{ href: string; label: string }>> = {

@@ -101,7 +101,7 @@ const ENTRIES: ReadonlyArray<LegacyAliasEntry> = [
       { q: 'Ist der 13. Monatslohn enthalten?', a: 'Ja — der verwendete Bruttolohn enthält bereits den 13. Monatslohn, soweit vertraglich vorgesehen, und AHV/ALV/UV/KTG/BVG werden auf derselben Basis abgezogen. Ein 14. Monat ist in der Schweiz selten und gilt als diskretionärer Bonus.' },
       { q: 'Kann ich das vorausgefüllte Szenario teilen?', a: 'Ja — kopieren Sie nach Eingabe der Werte die URL aus der Adressleiste. Der Query-String kodiert alle Parameter, sodass die empfangende Person dasselbe Szenario direkt vorgeführt bekommt.' },
     ],
-    ogLocale: 'de_DE',
+    ogLocale: 'de_CH',
   },
   {
     locale: 'fr',
@@ -116,7 +116,7 @@ const ENTRIES: ReadonlyArray<LegacyAliasEntry> = [
       { q: 'Le 13ème mois est-il inclus ?', a: 'Oui — le brut utilisé inclut le 13ème mois lorsque prévu au contrat, et AVS/AC/LAA/IJM/LPP sont déduits sur la même base. Un 14ème mois est rare en Suisse et traité comme bonus discrétionnaire, pas intégré au scénario par défaut.' },
       { q: 'Puis-je partager le scénario pré-rempli ?', a: 'Oui — copiez l\'URL depuis la barre d\'adresse après avoir ajusté les entrées. La query string encode tous les paramètres, le destinataire ouvre exactement le même scénario sans le re-saisir.' },
     ],
-    ogLocale: 'fr_FR',
+    ogLocale: 'fr_CH',
   },
 ];
 

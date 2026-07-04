@@ -2070,7 +2070,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
  .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
- const LOC_TAG: Record<string, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
+ const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
  // ── Locale-aware SEO fallback ─────────────────────────────
  // When no explicit locale SEO entry exists (which is the case for nearly all
@@ -4557,7 +4557,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
+ <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -4682,7 +4682,7 @@ ${hubChromeSplit.bodyHtml}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
+ <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">
 ${hrefTags}
@@ -4722,7 +4722,7 @@ ${hrefTags}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
+ <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">
 ${hrefTags}

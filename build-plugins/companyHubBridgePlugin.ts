@@ -56,7 +56,7 @@ const COMP_PREFIX: Record<Locale, string> = COMPANY_ROUTE_PREFIX;
 const COMPANY_SEGMENT_PREFIXES = new Set(['azienda', 'company', 'unternehmen', 'firma', 'entreprise', 'societe']);
 
 const LOCALE_PREFIX: Record<Locale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
-const OG_LOCALE: Record<Locale, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
+const OG_LOCALE: Record<Locale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
 // Switzerland-wide aggregator hub used as canonical target for unmatched
 // (`Azienda non più attiva`) bridges. The aggregator covers every canton,

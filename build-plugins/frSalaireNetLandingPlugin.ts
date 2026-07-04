@@ -81,7 +81,7 @@ import {
 const URL_PATH = '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/';
 const CALCULATOR_PATH = '/fr/calculer-salaire/';
 const LOCALE = 'fr' as const;
-const OG_LOCALE = 'fr_FR';
+const OG_LOCALE = 'fr_CH';
 const TITLE = 'Calcul salaire net frontalier Suisse 2026 | Frontaliere Ticino';
 const META_DESCRIPTION =
   'Calcul salaire net frontalier Suisse 2026: barème détaillé des cotisations AVS/AI/AC, LPP, impôt à la source. Salaire moyen 6 500 CHF brut, ~5 200 CHF net.';

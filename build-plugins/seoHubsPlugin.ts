@@ -58,10 +58,10 @@ import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from '
 import { buildDayStampIso } from './shared/buildDayStamp';
 
 const LOCALE_OG: Record<HubLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 const SECTION_LABEL: Record<HubLocale, { jobBoard: string; companies: string; articles: string }> = {

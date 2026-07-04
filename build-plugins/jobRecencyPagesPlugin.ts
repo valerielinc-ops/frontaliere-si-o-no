@@ -63,10 +63,10 @@ const LOCALE_PREFIX: Record<JobLandingLocale, string> = {
 };
 
 const LOCALE_OG: Record<JobLandingLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 const SECTION_NAME: Record<JobLandingLocale, string> = {

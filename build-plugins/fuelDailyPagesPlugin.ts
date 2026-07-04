@@ -731,10 +731,10 @@ interface PageInputs {
 }
 
 const LOCALE_OG: Record<FuelDailyLocale, string> = {
-  it: 'it_IT',
+  it: 'it_CH',
   en: 'en_US',
-  de: 'de_DE',
-  fr: 'fr_FR',
+  de: 'de_CH',
+  fr: 'fr_CH',
 };
 
 const FUEL_PRODUCT_IMAGE_URL = `${BASE_URL}/og-image.png`;
