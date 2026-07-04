@@ -171,6 +171,10 @@ export function parseDebiopharmJobDetailPayload(detail = {}) {
     employmentType: normalizeDebiopharmEmploymentType(detail.type || ''),
     sourceLanguage: String(detail.language || 'en').trim() || 'en',
     publishedDate: String(detail.published || '').trim(),
-    inferredCanton: inferAnyCanton(city) || inferAnyCanton(region) || 'VD',
+    // null means "real location text present but unresolvable to any Swiss
+    // canton" — the caller must skip the job rather than fabricate the
+    // Lausanne HQ canton (AGENTS.md Non-Negotiable #3). Only default to 'VD'
+    // when there was no real city/region text at all.
+    inferredCanton: inferAnyCanton(city) || inferAnyCanton(region) || ((city || region) ? null : 'VD'),
   };
 }

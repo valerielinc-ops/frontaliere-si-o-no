@@ -199,13 +199,21 @@ const HQ_CITY_RX = /\bbuchs\b/i;
 // correct 'AG' without guessing a street/postal HQ fallback for it.
 const SECONDARY_AG_CITY_RX = /\bm[äa]genwil\b/i;
 
-function resolveCanton(cityText = '', region = '') {
+/**
+ * Resolve the canton for a job, or signal (via null) that it should be
+ * skipped. The crawl is Switzerland-wide (not restricted to Buchs/Mägenwil),
+ * so a real city text that doesn't resolve to any known Swiss canton must
+ * never fabricate the Buchs HQ canton (AG) for a job that isn't positively
+ * there (AGENTS.md Non-Negotiable #3, mirrors clariant-job-parser.mjs).
+ *
+ * @param {string} realCityText - city text as scraped, BEFORE resolveAddress's HQ.city fallback
+ */
+export function resolveCanton(cityText = '', region = '', realCityText = cityText) {
   if (HQ_CITY_RX.test(cityText) || SECONDARY_AG_CITY_RX.test(cityText)) return 'AG';
-  return (
-    inferSwissTargetCanton(cityText) ||
-    inferSwissTargetCanton(`${cityText} ${region}`) ||
-    HQ.canton
-  );
+  const inferredCanton = inferSwissTargetCanton(cityText) || inferSwissTargetCanton(`${cityText} ${region}`);
+  if (inferredCanton) return inferredCanton;
+  if (normalizeSpace(realCityText)) return null;
+  return HQ.canton;
 }
 
 function resolveAddress(rawLoc = {}) {
@@ -366,7 +374,12 @@ export async function fetchAllSwisslogJobs() {
       address: listing.rawAddress?.streetAddress || '',
     });
     const location = normalizeSpace(listing.locationLabel || city || HQ.city);
-    const canton = resolveCanton(city, region);
+    const realCityText = normalizeSpace(listing.cityRaw || listing.locationLabel || '');
+    const canton = resolveCanton(city, region, realCityText);
+    if (canton === null) {
+      console.warn(` ⚠️ Swisslog: skipping unresolvable location "${realCityText}" (${title})`);
+      continue;
+    }
 
     const descriptionCore = stripHtml(listing.descriptionHtml || '');
     const descriptionParts = [descriptionCore, listing.boilerplate].filter(Boolean);

@@ -256,6 +256,7 @@ export async function fetchAllStaubliJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
+      needsRetranslation: true,
       location,
       canton,
       url: publicUrl,

@@ -6,6 +6,7 @@ import {
   isKomaxJob,
   isTrustedDomain,
   resolveAddress,
+  resolveKomaxCanton,
 } from '../scripts/lib/komax-group-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -230,6 +231,33 @@ describe('Komax crawler parser', () => {
       expect(result.city).toBe('Dierikon');
       expect(result.postalCode).toBe('6036');
       expect(result.streetAddress).toBe('Industriestrasse 6');
+    });
+  });
+
+  // ── resolveKomaxCanton (unresolved-canton skip guard — isSwissLocation()
+  // filters on the ", CH," country segment, NOT on Dierikon/Thun, so a real
+  // but unrecognized city must never fabricate the Dierikon HQ canton,
+  // task-critical) ──
+  describe('resolveKomaxCanton', () => {
+    it('resolves the HQ cities directly, bypassing generic inference', () => {
+      expect(resolveKomaxCanton('Dierikon')).toBe('LU');
+      expect(resolveKomaxCanton('Thun')).toBe('BE');
+    });
+
+    it('resolves a known Swiss city outside the two hardcoded cities via generic inference', () => {
+      expect(resolveKomaxCanton('Bern')).toBe('BE');
+    });
+
+    it('falls back to the Dierikon HQ canton when no city text was scraped at all', () => {
+      expect(resolveKomaxCanton('')).toBe('LU');
+    });
+
+    it('returns null (skip) when city text is present but unresolvable — never fabricates the HQ canton', () => {
+      expect(resolveKomaxCanton('Nonexistentburg')).toBeNull();
+    });
+
+    it('does NOT fabricate LU for the negative-control case (Bern, not LU)', () => {
+      expect(resolveKomaxCanton('Bern')).not.toBe('LU');
     });
   });
 });

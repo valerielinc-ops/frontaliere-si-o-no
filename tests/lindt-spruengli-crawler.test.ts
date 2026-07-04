@@ -5,6 +5,7 @@ import {
   isLindtSpruengliJob,
   isTrustedDomain,
   extractCityFromLocationText,
+  resolveLindtSpruengliCanton,
 } from '../scripts/lib/lindt-spruengli-job-parser.mjs';
 import {
   SPRUENGLI_KEY,
@@ -119,6 +120,30 @@ describe('Lindt & Sprüngli crawler parser', () => {
     it('returns empty for blank input', () => {
       expect(extractCityFromLocationText('')).toBe('');
       expect(extractCityFromLocationText(undefined as unknown as string)).toBe('');
+    });
+  });
+
+  // ── resolveLindtSpruengliCanton (unresolved-canton skip guard — the board
+  // spans ZH/SZ/SO/LU/BE+, so a real-but-unrecognized city must never
+  // fabricate the Kilchberg HQ canton, task-critical) ──
+  describe('resolveLindtSpruengliCanton', () => {
+    it('resolves a known Swiss city to its canton', () => {
+      expect(resolveLindtSpruengliCanton('Kilchberg')).toBe('ZH');
+      expect(resolveLindtSpruengliCanton('Altendorf')).toBe('SZ');
+    });
+
+    it('returns null (skip) when the city text is present but unresolvable — never fabricates the HQ canton', () => {
+      expect(resolveLindtSpruengliCanton('Nonexistentburg')).toBeNull();
+    });
+
+    it('does NOT fabricate ZH for the negative-control case (Altendorf, not ZH)', () => {
+      expect(resolveLindtSpruengliCanton('Altendorf')).not.toBe('ZH');
+    });
+
+    it('surfaces the comma-split extractCityFromLocationText gap: an unresolvable city is still extracted, and must be caught downstream by this guard, not silently defaulted', () => {
+      const city = extractCityFromLocationText('Nonexistentburg, Switzerland');
+      expect(city).toBe('Nonexistentburg');
+      expect(resolveLindtSpruengliCanton(city)).toBeNull();
     });
   });
 

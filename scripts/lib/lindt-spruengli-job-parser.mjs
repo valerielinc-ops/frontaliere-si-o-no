@@ -221,6 +221,25 @@ export function extractCityFromLocationText(raw = '') {
 }
 
 /**
+ * Resolve the canton for a job's already-extracted city, or signal (via
+ * null) that it should be skipped.
+ *
+ * extractCityFromLocationText()'s comma-split branch returns the raw text
+ * before the first comma UNCONDITIONALLY (only its dash-split fallback
+ * branch checks inferAnyCanton()) — so `city` here can be a real, present
+ * location string that still fails to resolve to any known Swiss canton.
+ * Given the board spans ZH/SZ/SO/LU/BE and more (see file header), never
+ * fabricate the Kilchberg HQ canton (ZH) for a job that isn't positively
+ * there (AGENTS.md Non-Negotiable #3, mirrors clariant-job-parser.mjs /
+ * swisslog-job-parser.mjs). Callers only reach this after already
+ * confirming `city` is non-empty, so there is no separate "no real text"
+ * branch here.
+ */
+export function resolveLindtSpruengliCanton(city = '') {
+  return inferAnyCanton(city) || null;
+}
+
+/**
  * Pick city / postal code / street address for a job, falling back to the
  * documented HQ address (Kilchberg ZH) ONLY when the job's own resolved
  * city text actually matches Kilchberg — never by canton alone (Lindt &
@@ -308,7 +327,11 @@ export async function fetchAllLindtSpruengliJobs() {
       continue;
     }
 
-    const canton = inferAnyCanton(city) || HQ.canton;
+    const canton = resolveLindtSpruengliCanton(city);
+    if (canton === null) {
+      console.warn(`   ⚠️ Skipping unresolvable location "${city}" (${title})`);
+      continue;
+    }
     const { postalCode, streetAddress } = resolveAddress(city);
 
     const publicUrl = listing.url || CAREER_URL;

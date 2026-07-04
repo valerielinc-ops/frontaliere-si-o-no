@@ -278,6 +278,7 @@ export async function fetchAllSmgSwissMarketplaceGroupJobs() {
         titleByLocale: { [sourceLang]: title },
         description: descriptionText || `${title} — SMG Swiss Marketplace Group`,
         descriptionByLocale: { [sourceLang]: descriptionText || `${title} — SMG Swiss Marketplace Group` },
+        needsRetranslation: true,
         location,
         canton,
         url: publicUrl,
