@@ -1,16 +1,57 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-07-03T22:00:33.879Z",
-  "total": 0,
+  "generatedAt": "2026-07-04T10:47:56.868Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 50997,
+  "avgDurationMs": 50997,
+  "durationHistory": [
+    50997
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "galderma-09b2bf38ae6c",
+      "slug": "global-head-of-consumer-dermatological-skincare-global-consumer-skincare-marketing-head",
+      "company": "Galderma",
+      "companyKey": "galderma",
+      "companyDomain": "galderma.com",
+      "title": "Global Head of Consumer Dermatological Skincare (Global Consumer Skincare Marketing Head)",
+      "needsRetranslation": false,
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
+      "source": "Galderma Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-04T10:47:53.666Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Pharma / Dermatologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-24",
+      "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
+      "jobReqId": "JR018459",
+      "firstSeenAt": "2026-06-23T11:48:35.920Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 14
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
