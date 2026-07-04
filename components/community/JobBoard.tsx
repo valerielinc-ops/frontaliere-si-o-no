@@ -94,7 +94,7 @@ import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
-import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, isJobSlugMapReady, preloadBlogData, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugEntriesLoaded, isJobSlugReady, preloadBlogData, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
@@ -435,7 +435,7 @@ function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
 async function fetchJobDetailResilient(jobId: string, slug?: string | null): Promise<Partial<JobListing>> {
  const primary = await fetchJobDetail(jobId);
  if (Object.keys(primary).length > 0 || !slug) return primary;
- await ensureJobSlugMapLoaded();
+ await ensureJobSlugEntriesLoaded([slug]);
  const liveId = getJobMetaForSlug(slug)?.id;
  if (!liveId || liveId === jobId) return primary;
  return fetchJobDetail(liveId);
@@ -2613,7 +2613,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
  (async () => {
  try {
- await ensureJobSlugMapLoaded();
+ await ensureJobSlugEntriesLoaded([targetSlug]);
  if (cancelled) return;
  const meta = getJobMetaForSlug(targetSlug);
  if (!meta?.canton || !meta?.id) return;
@@ -6474,16 +6474,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // ("Questo annuncio non è più disponibile") during the resolution window.
  // Two cases:
  //   (a) Map loaded, slug is a real job → bridge fetch still in flight.
- //   (b) Map not yet loaded → can't confirm orphan status yet. This covers
- //       slugs whose prefix (recherche-, page-, …) caused isJobDetailUrl()
- //       to return false, deferring the slug-map to idle-load. Without this
- //       branch the guard was blind: getJobMetaForSlug returned undefined
- //       and JobOrphanView flashed before the bridge effect could resolve.
- // In both cases bridgeFetchAttempted being set (finally block) will flip
- // !isJobSlugMapReady() to false after the map loads, clearing the skeleton.
+ //   (b) The slug's shard (or the full map) not yet loaded → can't confirm
+ //       orphan status yet. This covers slugs whose prefix (recherche-,
+ //       page-, …) made the router boot skip the eager shard fetch. Without
+ //       this branch the guard was blind: getJobMetaForSlug returned
+ //       undefined and JobOrphanView flashed before the bridge effect could
+ //       resolve.
+ // In both cases bridgeFetchAttempted being set (finally block) clears the
+ // skeleton after the bridge effect has ensured the slug's shard.
  const bridgeTargetForRender = bridgeTargetSlug || initialJobSlug;
  const bridgeMeta = getJobMetaForSlug(bridgeTargetForRender);
- if ((bridgeMeta?.id || !isJobSlugMapReady()) && bridgeFetchAttempted !== bridgeTargetForRender) {
+ if ((bridgeMeta?.id || !isJobSlugReady(bridgeTargetForRender)) && bridgeFetchAttempted !== bridgeTargetForRender) {
  return <SkeletonJobDetail />;
  }
  // Expired: slug found in expired-jobs.json — show metadata + sign-in + related

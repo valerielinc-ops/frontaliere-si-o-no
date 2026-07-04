@@ -21,9 +21,11 @@ const root = path.resolve(__dirname, '..');
  *      (getJobMetaForSlug returns an id) and the bridge fallback effect
  *      has not yet attempted for the current targetSlug, render a skeleton
  *      instead of Orphan.
- *   2. router.ts module init: for job-detail URLs, fire
- *      ensureJobSlugMapLoaded() eagerly instead of in requestIdleCallback,
- *      so the slug-map is in memory by the time the render guard runs.
+ *   2. router.ts module init: for job-detail URLs, fire the slug-map fetch
+ *      eagerly instead of in requestIdleCallback, so the slug-map is in
+ *      memory by the time the render guard runs. (Since #3526 the eager
+ *      fetch is the URL slug's ~16 KB br shard — ensureJobSlugEntriesLoaded
+ *      — and non-job routes load nothing at all.)
  */
 describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
   const jobBoardSrc = fs.readFileSync(
@@ -46,7 +48,9 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
       // Pattern: if (slug-map knows this slug OR map not yet loaded) AND
       // bridgeFetchAttempted !== bridgeTargetForRender, render skeleton.
       expect(jobBoardSrc).toMatch(
-        /if \(\(bridgeMeta\?\.id \|\| !isJobSlugMapReady\(\)\) && bridgeFetchAttempted !== bridgeTargetForRender\) \{[\s\S]{0,200}return <SkeletonJobDetail \/>;[\s\S]{0,40}\}/,
+        // #3526: per-slug readiness — the guard asks whether THIS slug's
+        // shard (or the full map) has loaded, not whether some map exists.
+        /if \(\(bridgeMeta\?\.id \|\| !isJobSlugReady\(bridgeTargetForRender\)\) && bridgeFetchAttempted !== bridgeTargetForRender\) \{[\s\S]{0,200}return <SkeletonJobDetail \/>;[\s\S]{0,40}\}/,
       );
     });
 
@@ -103,8 +107,10 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
   });
 
   describe('router eager slug-map preload', () => {
-    it('defines an isJobDetailUrl predicate that matches cerca-lavoro / find-jobs / jobs-in / trouver-emploi prefixes', () => {
-      expect(routerSrc).toContain('const isJobDetailUrl');
+    it('defines a job-detail-slug extractor that matches cerca-lavoro / find-jobs / jobs-in / trouver-emploi prefixes', () => {
+      // #3526: the boolean predicate became a slug extractor so the boot path
+      // can fetch exactly the URL slug's shard.
+      expect(routerSrc).toContain('const jobDetailSlugFromLocation');
       // Must cover all four locale job-board prefixes.
       expect(routerSrc).toMatch(/cerca-lavoro\|find-jobs\|jobs-in\|trouver-emploi/);
     });
@@ -115,7 +121,7 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
 
     it('requires at least two segments after locale stripping (board + job-slug-or-city)', () => {
       // A bare /cerca-lavoro-ticino/ is the LISTING, not a detail page.
-      expect(routerSrc).toMatch(/segments\.length <= start \+ 1\) return false/);
+      expect(routerSrc).toMatch(/segments\.length <= start \+ 1\) return null/);
     });
 
     it('excludes static SEO families (search clusters, company hubs, categories, pagination) from the eager load', () => {
@@ -128,24 +134,28 @@ describe('Bridge orphan-flicker guard (2026-05-22 regression)', () => {
       );
     });
 
-    it('fires ensureJobSlugMapLoaded eagerly (NOT through requestIdleCallback) when on a job-detail URL', () => {
+    it('fires the per-slug shard fetch eagerly (NOT through requestIdleCallback) when on a job-detail URL', () => {
+      // #3526: the eager boot path fetches only the URL slug's shard
+      // (~16 KB br) via ensureJobSlugEntriesLoaded instead of the monolith.
       // Locate the eager branch and confirm it does not wrap in deferLoad.
       const eagerBranch = routerSrc.match(
-        /if \(isJobDetailUrl\(\)\) \{[\s\S]{0,400}\} else \{/,
+        /if \(eagerSlug\) \{[\s\S]{0,400}\}/,
       );
       expect(eagerBranch).not.toBeNull();
-      expect(eagerBranch![0]).toContain('ensureJobSlugMapLoaded()');
+      expect(eagerBranch![0]).toContain('ensureJobSlugEntriesLoaded([eagerSlug])');
       expect(eagerBranch![0]).not.toContain('requestIdleCallback');
       expect(eagerBranch![0]).not.toContain('deferLoad');
+      // The full monolith must never be fetched from the boot path.
+      expect(eagerBranch![0]).not.toContain('ensureJobSlugMapLoaded');
     });
 
-    it('keeps the requestIdleCallback path for non-job-detail URLs (LCP-preserving default)', () => {
-      // The else branch must still defer to keep the original LCP win on
-      // calc/landing/blog pages. This is the regression boundary: don't
-      // accidentally eager-load on every page.
-      expect(routerSrc).toMatch(
-        /\} else \{[\s\S]{0,400}deferLoad\([\s\S]{0,200}ensureJobSlugMapLoaded/,
-      );
+    it('loads NOTHING on non-job-detail URLs (no idle-time monolith load)', () => {
+      // #3526 hardening of the original LCP boundary: non-job routes used to
+      // idle-load the full 1.5 MB br monolith on every page view (homepage
+      // included). Now they load nothing — per-slug consumers ensure their
+      // own shard on demand. Don't reintroduce a blanket idle load.
+      expect(routerSrc).not.toMatch(/deferLoad\([\s\S]{0,200}ensureJobSlugMap/);
+      expect(routerSrc).not.toMatch(/requestIdleCallback[\s\S]{0,200}ensureJobSlugMap/);
     });
   });
 });
