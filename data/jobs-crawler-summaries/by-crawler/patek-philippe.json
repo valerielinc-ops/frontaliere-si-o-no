@@ -1,18 +1,19 @@
 {
   "key": "patek-philippe",
   "label": "Patek Philippe",
-  "generatedAt": "2026-07-04T12:12:19.036Z",
+  "generatedAt": "2026-07-04T22:41:58.548Z",
   "total": 13,
-  "newCount": 13,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13314,
-  "avgDurationMs": 13314,
+  "durationMs": 13081,
+  "avgDurationMs": 13081,
   "durationHistory": [
-    13314
+    13081
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "patek-philippe-15f6ed9a1583",
       "slug": "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
@@ -25,7 +26,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:08.354Z",
+      "crawledAt": "2026-07-04T22:41:48.133Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -40,11 +41,13 @@
       "postedDate": "2026-07-03",
       "applyUrl": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "jobReqId": "1359382355",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:08.354Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Prototypes-%28HF%29/1359260155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:09.145Z",
+      "crawledAt": "2026-07-04T22:41:48.771Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -75,11 +78,13 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Prototypes-%28HF%29/1359260155/",
       "jobReqId": "1359260155",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:09.145Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -95,7 +100,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Microm%C3%A9canicien-%28HF%29/1359072755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:09.782Z",
+      "crawledAt": "2026-07-04T22:41:49.403Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -110,11 +115,13 @@
       "postedDate": "2026-07-01",
       "applyUrl": "https://careers.patek.com/job/Saint-Imier-Microm%C3%A9canicien-%28HF%29/1359072755/",
       "jobReqId": "1359072755",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:09.782Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -130,7 +137,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Ligne-Nautilus-%28HF%29/1358759455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:10.436Z",
+      "crawledAt": "2026-07-04T22:41:50.041Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -147,11 +154,13 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Ligne-Nautilus-%28HF%29/1358759455/",
       "jobReqId": "1358759455",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:10.436Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -167,7 +176,7 @@
       "url": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:11.082Z",
+      "crawledAt": "2026-07-04T22:41:50.674Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Genève",
       "addressRegion": "Genève",
@@ -182,17 +191,19 @@
       "postedDate": "2026-06-29",
       "applyUrl": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes-%28HF%29/1358754555/",
       "jobReqId": "1358754555",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:11.082Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
     {
       "id": "patek-philippe-f6a05088a487",
-      "slug": "gestionnaire-systemes-d-informations-h-f-patek-philippe-saint-imier",
+      "slug": "gestionnaire-systemes-d-informations-m-w-d-patek-philippe-saint-imier",
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
@@ -202,7 +213,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Gestionnaire-Syst%C3%A8mes-d'Informations-%28HF%29/1358617755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:11.734Z",
+      "crawledAt": "2026-07-04T22:41:51.307Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -217,11 +228,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://careers.patek.com/job/Saint-Imier-Gestionnaire-Syst%C3%A8mes-d'Informations-%28HF%29/1358617755/",
       "jobReqId": "1358617755",
-      "_qualityScore": 63,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:11.734Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -237,7 +250,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1356655355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:12.395Z",
+      "crawledAt": "2026-07-04T22:41:51.936Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -254,11 +267,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1356655355/",
       "jobReqId": "1356655355",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:12.395Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -274,7 +289,7 @@
       "url": "https://careers.patek.com/job/Gen%C3%A8ve-Assistant-%C3%A9v%C3%A8nementiel-et-administratif-%28HF%29/1358584955/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:13.036Z",
+      "crawledAt": "2026-07-04T22:41:52.577Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Genève",
       "addressRegion": "Genève",
@@ -289,11 +304,13 @@
       "postedDate": "2026-06-26",
       "applyUrl": "https://careers.patek.com/job/Gen%C3%A8ve-Assistant-%C3%A9v%C3%A8nementiel-et-administratif-%28HF%29/1358584955/",
       "jobReqId": "1358584955",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:13.036Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -309,7 +326,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1356532255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:13.675Z",
+      "crawledAt": "2026-07-04T22:41:53.209Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -324,11 +341,13 @@
       "postedDate": "2026-06-25",
       "applyUrl": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1356532255/",
       "jobReqId": "1356532255",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:13.675Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -344,7 +363,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-d'Industrialisation-Montre-%28HF%29/1346313355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:14.332Z",
+      "crawledAt": "2026-07-04T22:41:53.841Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -361,11 +380,13 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-d'Industrialisation-Montre-%28HF%29/1346313355/",
       "jobReqId": "1346313355",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:12:14.332Z",
+      "_qualityScore": 55,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 20
       }
     },
@@ -381,7 +402,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur-R%C3%A9gleur-%28HF%29/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:14.967Z",
+      "crawledAt": "2026-07-04T22:41:54.476Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -398,11 +419,13 @@
       "postedDate": "2026-06-06",
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur-R%C3%A9gleur-%28HF%29/1351663055/",
       "jobReqId": "1351663055",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:14.967Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -418,7 +441,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Constructeur-Mouvement-%28HF%29/1351681155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:15.606Z",
+      "crawledAt": "2026-07-04T22:41:55.108Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -435,11 +458,13 @@
       "postedDate": "2026-06-06",
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Constructeur-Mouvement-%28HF%29/1351681155/",
       "jobReqId": "1351681155",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:15.606Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -455,7 +480,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Dessinateur-%28HF%29/1351586455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-04T12:12:16.261Z",
+      "crawledAt": "2026-07-04T22:41:55.742Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -472,16 +497,17 @@
       "postedDate": "2026-06-06",
       "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Dessinateur-%28HF%29/1351586455/",
       "jobReqId": "1351586455",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-04T12:12:16.261Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
