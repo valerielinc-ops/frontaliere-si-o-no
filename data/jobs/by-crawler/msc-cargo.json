@@ -364,7 +364,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:20:35.514Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "baseSalary": {
@@ -428,7 +427,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-02T12:20:37.389Z",
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "baseSalary": {
@@ -884,8 +882,7 @@
         }
       },
       "postalCode": "1204",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
@@ -951,8 +948,7 @@
       },
       "postalCode": "1204",
       "firstSeenAt": "2026-07-03T22:25:02.704Z",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-34edcb3499ec",

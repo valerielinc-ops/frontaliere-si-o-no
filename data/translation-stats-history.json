@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-18T14:14:49.658Z",
-    "label": "before",
-    "total": 17168,
-    "needsRetranslation": 8948,
-    "suppressed": 690,
-    "incomplete": 2189,
-    "complete": 14979,
-    "missingByLocale": {
-      "it": 1106,
-      "en": 844,
-      "de": 983,
-      "fr": 774
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 957
-      },
-      {
-        "company": "Genossenschaft Migros Luzern",
-        "pending": 132
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Cartier",
-        "pending": 106
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 97
-      },
-      {
-        "company": "Roche",
-        "pending": 70
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 42
-      },
-      {
-        "company": "Sika",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 27
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-18T16:11:17.760Z",
-    "label": "after",
-    "total": 17168,
-    "needsRetranslation": 3738,
-    "suppressed": 690,
-    "incomplete": 1921,
-    "complete": 15247,
-    "missingByLocale": {
-      "it": 901,
-      "en": 663,
-      "de": 941,
-      "fr": 574
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 957
-      },
-      {
-        "company": "Manor AG",
-        "pending": 118
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 97
-      },
-      {
-        "company": "Roche",
-        "pending": 70
-      },
-      {
-        "company": "UBS",
-        "pending": 50
-      },
-      {
-        "company": "Genossenschaft Migros Luzern",
-        "pending": 47
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 42
-      },
-      {
-        "company": "Sika",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 27
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-18T18:43:15.931Z",
     "label": "before",
     "total": 17318,
@@ -11396,6 +11282,120 @@
       {
         "company": "Roche",
         "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-04T15:19:07.495Z",
+    "label": "before",
+    "total": 22138,
+    "needsRetranslation": 8280,
+    "suppressed": 300,
+    "incomplete": 3074,
+    "complete": 19064,
+    "missingByLocale": {
+      "it": 2655,
+      "en": 2343,
+      "de": 693,
+      "fr": 2166
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 518
+      },
+      {
+        "company": "Kanton Aargau",
+        "pending": 427
+      },
+      {
+        "company": "OTTO'S AG",
+        "pending": 162
+      },
+      {
+        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+        "pending": 145
+      },
+      {
+        "company": "Kantonale Verwaltung Zürich",
+        "pending": 138
+      },
+      {
+        "company": "Medbase",
+        "pending": 130
+      },
+      {
+        "company": "Etat de Fribourg",
+        "pending": 118
+      },
+      {
+        "company": "Manor AG",
+        "pending": 104
+      },
+      {
+        "company": "ETAVIS Arnold",
+        "pending": 85
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 81
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-04T15:21:52.328Z",
+    "label": "after",
+    "total": 22138,
+    "needsRetranslation": 4544,
+    "suppressed": 300,
+    "incomplete": 3074,
+    "complete": 19064,
+    "missingByLocale": {
+      "it": 2655,
+      "en": 2343,
+      "de": 693,
+      "fr": 2166
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 518
+      },
+      {
+        "company": "Kanton Aargau",
+        "pending": 427
+      },
+      {
+        "company": "OTTO'S AG",
+        "pending": 162
+      },
+      {
+        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+        "pending": 145
+      },
+      {
+        "company": "Kantonale Verwaltung Zürich",
+        "pending": 138
+      },
+      {
+        "company": "Medbase",
+        "pending": 130
+      },
+      {
+        "company": "Etat de Fribourg",
+        "pending": 118
+      },
+      {
+        "company": "Manor AG",
+        "pending": 104
+      },
+      {
+        "company": "ETAVIS Arnold",
+        "pending": 85
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 81
       }
     ]
   }
