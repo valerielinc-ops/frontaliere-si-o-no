@@ -223,7 +223,7 @@ export function detectHealthcareCategory(text = '', fallback = 'Sanità / Ospeda
   const t = normalize(text);
   if (/pfleg|infirm|cure|soin|aide.soignant|asa|asse|fage|spitex|nachtwache|geburts|hebamme|levatrice|ostetric/.test(t)) return 'Sanità / Ospedali';
   if (/arzt|ärztin|oberarzt|chefarzt|leitend|medizin|medic|chirurg|anästhes|onkolog|kardiolog|neurolog|pädiatr|gynäk|psichiatr|geriatr|m[ée]decin/.test(t)) return 'Sanità / Ospedali';
-  if (/labor|laborant|biomedizin|analyse|radiolog|röntgen|mtra|mrt|physiother|ergo|logopäd|fisioterap|riabilit|rehabilit|apothek|farmac|farmacist/.test(t)) return 'Sanità / Ospedali';
+  if (/\blabor|biomedizin|analyse|radiolog|röntgen|mtra|mrt|physiother|ergo|logopäd|fisioterap|riabilit|rehabilit|apothek|farmac|farmacist/.test(t)) return 'Sanità / Ospedali';
   if (/techni|haustechni|facility|wartung|maintenan|manutenz|impianti/.test(t)) return 'Tecnica';
   if (/it\b|informatik|software|develop|programm|system|applikation/.test(t)) return 'IT';
   if (/admin|sekret|segret|buchhalt|sachbearbeit|finanz|controll|account|compta|amministra/.test(t)) return 'Amministrazione';

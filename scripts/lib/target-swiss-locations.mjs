@@ -72,6 +72,23 @@ export const AMBIGUOUS_LOCATION_WORD_TOKENS = new Set([
   'court',   // Court (BE)
 ]);
 
+// BFS disambiguates same-name municipalities across cantons with a trailing
+// "(XX)" canton-code suffix (e.g. "Villeneuve (VD)" — a homonym exists
+// elsewhere). normalizeToken() strips the parens but keeps the letters, so
+// only the two-word disambiguated form ("villeneuve vd") is ever registered —
+// a location string carrying just the bare city name ("Villeneuve", no canton
+// suffix) silently fails findSwissCityInText/isKnownSwissCity. ~150 BFS
+// entries share this "(XX)"-suffix pattern; most (Roche, Berg, Stein, Au, Mex,
+// Muri, Wil, Grub, ...) collide with common EN/FR/DE/IT words or well-known
+// Swiss company names (Roche) and would reopen the exact false-positive class
+// AMBIGUOUS_LOCATION_WORD_TOKENS was built to close (Swatch Group "Sâles"
+// leak) — so they are NOT blanket-registered. Only hand-vetted, low-collision
+// bare forms go here, one at a time, same discipline as
+// AMBIGUOUS_LOCATION_WORD_TOKENS above.
+const DISAMBIGUATED_BARE_CITY_ALIASES = new Set([
+  'villeneuve', // Villeneuve (VD) — distinctive proper noun, negligible collision risk
+]);
+
 /**
  * Get all city tokens (municipalities + aliases) for a canton.
  * Cached per canton code for performance.
@@ -85,12 +102,22 @@ function getCantonCityTokens(cantonCode) {
   const municipalities = entry?.municipalities || [];
   const aliases = entry?.aliases || [];
   const all = [...new Set([...municipalities, ...aliases])];
-  const tokens = all
-    .map((city) => normalizeToken(city))
-    .filter((token) => token && !AMBIGUOUS_LOCATION_WORD_TOKENS.has(token));
+  const tokens = new Set();
+  for (const city of all) {
+    const token = normalizeToken(city);
+    if (!token || AMBIGUOUS_LOCATION_WORD_TOKENS.has(token)) continue;
+    tokens.add(token);
 
-  _cantonCityTokensCache.set(cantonCode, tokens);
-  return tokens;
+    const disambiguated = city.match(/^(.+?)\s*\([a-z]{2}\)$/i);
+    if (disambiguated) {
+      const bareToken = normalizeToken(disambiguated[1]);
+      if (bareToken && DISAMBIGUATED_BARE_CITY_ALIASES.has(bareToken)) tokens.add(bareToken);
+    }
+  }
+
+  const result = [...tokens];
+  _cantonCityTokensCache.set(cantonCode, result);
+  return result;
 }
 
 // ─── Backward-compatible exports (used by existing tests) ──────────────────

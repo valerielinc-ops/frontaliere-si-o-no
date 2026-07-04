@@ -359,7 +359,7 @@ export async function fetchAllEtavisJobs(options = {}) {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title, row.jobCategory),
-      contract: 'full-time',
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Impiantistica elettrica', // Electrical / building-technology installation

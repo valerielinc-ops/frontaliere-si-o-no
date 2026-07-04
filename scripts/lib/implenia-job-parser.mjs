@@ -36,11 +36,14 @@ const BROWSER_UA =
 const PAGE_SIZE = 10; // RMK listing page size (confirmed live)
 
 // HQ fallback (recon): Implenia HQ — Glattpark (Opfikon), ZH, 8152.
+// streetAddress confirmed live in RMK jobLocationShort address-form samples
+// (see parseLocation docstring below).
 const HQ = {
   city: 'Glattpark (Opfikon)',
   canton: 'ZH',
   postalCode: '8152',
   addressRegion: 'Zürich',
+  streetAddress: 'Thurgauerstrasse 101A',
 };
 
 const SECTOR =
@@ -240,7 +243,7 @@ async function fetchJobListings() {
         ? `https://jobs.implenia.com/job/${urlTitle}/${id}-de_DE`
         : `https://jobs.implenia.com/job/${id}-de_DE`;
 
-      const { location, postalCode } = parseLocation(r.jobLocationShort);
+      const { location, postalCode, streetAddress } = parseLocation(r.jobLocationShort);
       const jobFunction = Array.isArray(r.cust_JobFunction) ? r.cust_JobFunction[0] : '';
       const contractType = Array.isArray(r.cust_contractType) ? r.cust_contractType[0] : '';
 
@@ -250,6 +253,7 @@ async function fetchJobListings() {
         url,
         location,
         postalCode,
+        streetAddress,
         jobFunction: normalizeSpace(jobFunction || ''),
         contractType: normalizeSpace(contractType || ''),
         postedAt: parseStartDate(r.unifiedStandardStart),
@@ -279,25 +283,30 @@ async function fetchJobListings() {
 function parseLocation(jobLocationShort) {
   const arr = Array.isArray(jobLocationShort) ? jobLocationShort : [jobLocationShort];
   const raw = normalizeSpace(stripHtml(String(arr[0] || '')));
-  if (!raw || /^CHE,?\s*$/i.test(raw)) return { location: '', postalCode: '' };
+  if (!raw || /^CHE,?\s*$/i.test(raw)) return { location: '', postalCode: '', streetAddress: '' };
 
   // Comma-delimited form: "City[, REGION], CHE[, PLZ]". The first segment is the
   // city; CHE / 2-letter region codes are noise; a trailing 4-digit group is the plz.
+  // No street is present in this form.
   if (raw.includes(',')) {
     const segs = raw.split(',').map((s) => normalizeSpace(s)).filter(Boolean);
     const plz = (raw.match(/\b(\d{4})\b/) || [])[1] || '';
     const city = segs.find((s) => !/^CHE$/i.test(s) && !/^[A-Z]{2}$/.test(s) && !/^\d{4}$/.test(s)) || '';
-    if (city) return { location: city, postalCode: plz };
+    if (city) return { location: city, postalCode: plz, streetAddress: '' };
   }
 
-  // Address form: "... 8152 City" — a 4-digit postal code followed by the city name.
-  // Guard against "Postfach-6002" (PO box): require the plz to be preceded by a space.
+  // Address form: "Street 8152 City" — a 4-digit postal code followed by the city
+  // name, with a real street address preceding it. Guard against "Postfach-6002"
+  // (PO box): require the plz to be preceded by a space.
   const inline = raw.match(/(?:^|\s)(\d{4})\s+([^\d].*?)\s*$/);
-  if (inline) return { location: normalizeSpace(inline[2]), postalCode: inline[1] };
+  if (inline) {
+    const streetAddress = normalizeSpace(raw.slice(0, inline.index));
+    return { location: normalizeSpace(inline[2]), postalCode: inline[1], streetAddress };
+  }
 
   // Bare 4-digit postal code anywhere, city unknown → keep raw as location.
   const plzOnly = raw.match(/(?:^|\s)(\d{4})(?:\s|$)/);
-  return { location: raw, postalCode: plzOnly ? plzOnly[1] : '' };
+  return { location: raw, postalCode: plzOnly ? plzOnly[1] : '', streetAddress: '' };
 }
 
 /**
@@ -363,6 +372,7 @@ export async function fetchAllImpleniaJobs() {
     const location = normalizeSpace(listing.location || '') || HQ.city;
     const canton = inferSwissTargetCanton(location) || HQ.canton;
     const postalCode = listing.postalCode || (location === HQ.city ? HQ.postalCode : '');
+    const streetAddress = listing.streetAddress || (location === HQ.city ? HQ.streetAddress : '');
     const addressRegion = canton === HQ.canton ? HQ.addressRegion : canton;
 
     // The RMK listing API carries no description body. Fetch the REAL job body
@@ -406,6 +416,7 @@ export async function fetchAllImpleniaJobs() {
       // ── Recommended fields ──
       addressLocality: location,
       postalCode,
+      streetAddress,
       addressRegion,
       addressCountry: 'CH',
       country: 'CH',

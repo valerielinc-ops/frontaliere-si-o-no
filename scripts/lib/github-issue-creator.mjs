@@ -21,8 +21,7 @@
  * Actions) or local `gh auth login`. Repo is auto-detected from the working
  * directory; override with $GH_REPO if needed.
  *
- * Priority → label mapping (kept compatible with the Linear 1-4 scale so
- * call sites don't change):
+ * Priority → label mapping (1-4 scale so call sites don't need to change):
  *   1 → priority:urgent
  *   2 → priority:high
  *   3 → priority:medium (default)
@@ -30,7 +29,7 @@
  *
  * De-duplication: searches for OPEN issues whose title shares the first
  * 60 chars of the new title; if found, posts a comment with the new context
- * instead of creating a duplicate. Mirrors the Linear de-dup behavior.
+ * instead of creating a duplicate.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -322,8 +321,8 @@ export async function createGithubIssue({
   consecutiveGate = 0,
   gateWindowHours = DEFAULT_CRAWLER_GATE_WINDOW_HOURS,
   // `project` accepted for backward compatibility but not used (GH issues
-  // don't have a free-form project field comparable to Linear's; the
-  // workflow name is preserved in the body for grouping).
+  // don't have a free-form project field; the workflow name is preserved
+  // in the body for grouping instead).
 } = {}) {
   if (process.env.ENABLE_FAILURE_REPORT === 'false') {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping');

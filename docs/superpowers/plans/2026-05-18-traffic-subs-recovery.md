@@ -28,7 +28,7 @@ Every phase ends with a metric re-check against these numbers. A phase passes on
 - Create: `data/recovery-2026-05-18/baseline.json` (tracked — `reports/` is gitignored)
 - Phase 1+ output goes to `data/recovery-2026-05-18/*.json` so it lives in the repo
 
-- [ ] **Step 1: Open Linear master issue**
+- [ ] **Step 1: Open GitHub master issue**
 
 Run:
 ```bash
@@ -1280,7 +1280,7 @@ node scripts/diagnose-app-errors.mjs
 - …
 ```
 
-- [x] **Step 4: Close master Linear issue if all 7 metrics pass**
+- [x] **Step 4: Close master GitHub issue if all 7 metrics pass**
 
 ```bash
 gh issue close $RECOVERY_ISSUE_NUMBER --comment "All 7 pass criteria met. See data/recovery-2026-05-18/final.md."

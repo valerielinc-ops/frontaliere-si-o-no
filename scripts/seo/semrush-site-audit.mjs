@@ -12,7 +12,7 @@
  *   • errors > baseline (previous snapshot errors count)
  * Regressions are logged to stderr and emitted in the diff report.
  * The script still exits 0 so the overall workflow keeps running; upstream
- * alerting (GitHub issue, Linear, Slack) is handled by F.2 separately.
+ * alerting (GitHub issue, Slack) is handled by F.2 separately.
  *
  * Usage:
  *   node scripts/seo/semrush-site-audit.mjs              # API
