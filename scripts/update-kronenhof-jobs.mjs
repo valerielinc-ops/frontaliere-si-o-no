@@ -44,6 +44,7 @@ import {
   normalizeKey,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -362,7 +363,7 @@ function mergeJobs(discoveredJobs) {
       prev.slug && prev.slug !== job.slug && !prevPreviousSlugs.includes(prev.slug)
         ? [...prevPreviousSlugs, prev.slug]
         : prevPreviousSlugs;
-    return {
+    const merged = {
       ...prev,
       ...job,
       previousSlugs,
@@ -370,6 +371,8 @@ function mergeJobs(discoveredJobs) {
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
