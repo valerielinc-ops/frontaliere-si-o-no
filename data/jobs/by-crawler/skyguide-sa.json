@@ -1,6 +1,6 @@
 {
   "crawlerKey": "skyguide-sa",
-  "assembledAt": "2026-07-04T12:20:27.870Z",
+  "assembledAt": "2026-07-04T22:47:44.212Z",
   "jobs": [
     {
       "title": "IT Application Solutions Lead (80-100%)",
@@ -336,16 +336,13 @@
       },
       "slugByLocale": {
         "it": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno",
-        "en": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
-        "de": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
-        "fr": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36"
+        "en": "air-traffic-controller-training-lugano-skyguide-lugano-agno",
+        "de": "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
+        "fr": "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
       },
       "previousSlugs": [
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
-        "fluglotsenausbildung-lugano-skyguide-lugano-agno",
-        "air-traffic-controller-training-lugano-skyguide-lugano-agno",
-        "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
-        "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
+        "fluglotsenausbildung-lugano-skyguide-lugano-agno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -369,6 +366,7 @@
         ],
         "en": [
           "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
+          "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
           "air-traffic-controller-training-lugano-skyguide-lugano-agno"
         ],
         "de": [
@@ -419,17 +417,14 @@
       },
       "slugByLocale": {
         "it": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno",
-        "en": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
-        "de": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
-        "fr": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp"
+        "en": "air-traffic-controller-training-locarno-skyguide-locarno",
+        "de": "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
+        "fr": "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno"
       },
       "previousSlugs": [
         "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
         "fluglotsenausbildung-locarno-skyguide-locarno",
-        "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno",
-        "air-traffic-controller-training-locarno-skyguide-locarno",
-        "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
-        "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno"
+        "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -444,8 +439,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Aeroporto",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "6600",
       "id": "skyguide-sa-338538f51d4a",
       "previousSlugsByLocale": {
         "it": [
@@ -453,6 +448,7 @@
         ],
         "en": [
           "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
+          "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
           "air-traffic-controller-training-locarno-skyguide-locarno"
         ],
         "de": [
