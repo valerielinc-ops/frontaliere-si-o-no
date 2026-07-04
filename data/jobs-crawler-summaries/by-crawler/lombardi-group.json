@@ -1,49 +1,18 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-07-03T12:31:53.832Z",
+  "generatedAt": "2026-07-03T22:57:08.696Z",
   "total": 8,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 21053,
-  "avgDurationMs": 21053,
+  "unchangedCount": 1,
+  "durationMs": 15449,
+  "avgDurationMs": 15449,
   "durationHistory": [
-    21053
+    15449
   ],
-  "newJobs": [
-    {
-      "title": "Ingegnere RVCS M/F/X",
-      "slug": "ingegnere-rvcs-m-f-x-lombardi-giubiasco",
-      "url": "https://lombardi.group/eng/careers/job?id=143228",
-      "applyUrl": "https://lombardi.group/eng/careers/job?id=143228",
-      "company": "Lombardi Group",
-      "companyKey": "lombardi-group",
-      "companyDomain": "lombardi.group",
-      "location": "Giubiasco",
-      "addressLocality": "Giubiasco",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria civile",
-      "source": "lombardi-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-03",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Junior Electrical Engineer (in Giubiasco or Rotkreuz or Lausanne/Fribourg)",
@@ -313,5 +282,44 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Ingegnere RVCS M/F/X",
+      "slug": "ingegnere-rvcs-m-f-x-lombardi-giubiasco",
+      "url": "https://lombardi.group/eng/careers/job?id=143228",
+      "applyUrl": "https://lombardi.group/eng/careers/job?id=143228",
+      "company": "Lombardi Group",
+      "companyKey": "lombardi-group",
+      "companyDomain": "lombardi.group",
+      "location": "Giubiasco",
+      "addressLocality": "Giubiasco",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria civile",
+      "source": "lombardi-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-03",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "lombardi-group-28c819852acb",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Arch. Frizzi 15",
+      "postalCode": "6648",
+      "firstSeenAt": "2026-07-03T12:31:53.830Z",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }

@@ -87,17 +87,25 @@ function addSlugToLocale(job, locale, slug) {
 
 function syncLegacyFlat(job) {
   const all = new Set();
+  // Existing unattributed legacy entries FIRST, so freshly-captured
+  // locale-aware entries (added second, below) land at the TAIL of the
+  // union — required for `.slice(-CAP)` below to keep the newest entries
+  // instead of the oldest (see dedicated-crawler-common.mjs
+  // syncLegacyPreviousSlugs for the same fix + full rationale).
+  if (Array.isArray(job.previousSlugs)) {
+    for (const s of job.previousSlugs) all.add(s);
+  }
   if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
     for (const arr of Object.values(job.previousSlugsByLocale)) {
       if (Array.isArray(arr)) for (const s of arr) all.add(s);
     }
   }
-  // Also keep any existing unattributed legacy entries
-  if (Array.isArray(job.previousSlugs)) {
-    for (const s of job.previousSlugs) all.add(s);
-  }
   if (all.size > 0) {
-    job.previousSlugs = [...all].slice(0, CAP);
+    // Keep the NEWEST CAP entries (matches the per-locale cap at line 84
+    // above, and the fix for issue #3377 — `.slice(0, CAP)` here kept the
+    // OLDEST entries, an inverted LRU that silently dropped freshly
+    // captured slugs once a job's history exceeded CAP).
+    job.previousSlugs = [...all].slice(-CAP);
   } else {
     delete job.previousSlugs;
   }

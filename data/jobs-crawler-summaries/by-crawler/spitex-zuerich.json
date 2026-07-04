@@ -1,16 +1,16 @@
 {
   "key": "spitex-zuerich",
   "label": "Spitex Zürich",
-  "generatedAt": "2026-07-03T12:39:18.728Z",
-  "total": 10,
-  "newCount": 2,
-  "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 14142,
-  "avgDurationMs": 14142,
+  "generatedAt": "2026-07-03T23:42:09.188Z",
+  "total": 9,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 13346,
+  "avgDurationMs": 13346,
   "durationHistory": [
-    14142
+    13346
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/8ppyds219vjmye1fory75j5tt413uy7",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:13.999Z",
+      "crawledAt": "2026-07-03T23:42:04.710Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,7 +48,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "spitex-zuerich-185526464b2a",
       "slug": "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zuerich-zurich",
@@ -56,13 +58,13 @@
       "companyKey": "spitex-zuerich",
       "companyDomain": "spitex-zuerich.ch",
       "title": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 20-80% (a)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/dydz9op8m3siff0rexrqjqgljybmwei",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:16.716Z",
+      "crawledAt": "2026-07-03T23:42:07.200Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/dydz9op8m3siff0rexrqjqgljybmwei",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-07-03T12:39:16.716Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "spitex-zuerich-802f5210ab68",
       "slug": "fachfrau-mann-gesundheit-fage-somatik-o-demenz-40-90-a-spitex-zurich",
@@ -100,7 +101,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/8py3fp47kmu9qgsundvik7gfkhkkbit",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:15.625Z",
+      "crawledAt": "2026-07-03T23:42:06.377Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +138,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/y1021j9fob6lxa62gi6xmosqiof8itr",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:14.811Z",
+      "crawledAt": "2026-07-03T23:42:05.570Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,7 +175,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/uxnd9n2w77zl0spdig5tk7verwaggef",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:07.665Z",
+      "crawledAt": "2026-07-03T23:41:58.555Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -211,7 +212,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/wr557vv4v1xzvpakrhpkueo4p88kupo",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:08.783Z",
+      "crawledAt": "2026-07-03T23:41:59.707Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -248,7 +249,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/m6pttk2bqih13nqd4pbab9zfy4ntcpd",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:09.975Z",
+      "crawledAt": "2026-07-03T23:42:00.580Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,7 +286,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/h5ckt43pibs9l71bqg0t16niag5z31f",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:10.840Z",
+      "crawledAt": "2026-07-03T23:42:01.694Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -322,7 +323,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/sqzbxsh68m08holyxet8qzjku4e3905",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:11.732Z",
+      "crawledAt": "2026-07-03T23:42:02.806Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -359,7 +360,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0hvcablla6m534814uijakia2tl33cc",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-03T12:39:12.926Z",
+      "crawledAt": "2026-07-03T23:42:03.623Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -384,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "spitex-zuerich-ae5670f0d5b9",
       "slug": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich",
@@ -426,5 +426,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

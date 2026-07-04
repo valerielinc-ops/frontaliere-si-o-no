@@ -318,7 +318,7 @@ export async function enrichEventsWithTranslations(events, cache, translateFn = 
       continue;
     }
     let entry = cache[key];
-    if (!entry) {
+    if (!entry || Object.keys(entry).length < TRANSLATE_LOCALES.length) {
       entry = {};
       for (const locale of TRANSLATE_LOCALES) {
         const translated = await translateFn({
