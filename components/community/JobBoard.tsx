@@ -4101,7 +4101,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const toValidThrough = (postedRaw?: string): string => {
  const posted = new Date(toIsoDateTime(postedRaw));
  posted.setUTCDate(posted.getUTCDate() + 60);
- return posted.toISOString();
+ // Floor to now+30d (#3505): these are ACTIVE listings — a stale postedDate
+ // must not emit an already-past validThrough (Google drops it as expired).
+ const floor = new Date();
+ floor.setUTCDate(floor.getUTCDate() + 30);
+ return (posted.getTime() < floor.getTime() ? floor : posted).toISOString();
  };
 
  const jobsForSchema = selectedJob ? [selectedJob] : pagedJobs;

@@ -252,6 +252,18 @@ function todayIso(): string {
   return new Date().toISOString();
 }
 
+/** Floor a derived `validThrough` to at least now+30d (#3505): derived windows
+ * (crawledAt+60d / datePosted+90d) feed ACTIVE emissions — a stale timestamp
+ * would emit an already-past validThrough on a live page, which Google treats
+ * as an expired posting (dropped from Google Jobs). Explicit source-provided
+ * `validThrough` values are NOT floored: they are source truth (real
+ * deadlines), and the expired soft-landing deliberately passes a past one. */
+function floorToFuture(computed: Date): string {
+  const floor = new Date();
+  floor.setUTCDate(floor.getUTCDate() + 30);
+  return (computed.getTime() < floor.getTime() ? floor : computed).toISOString();
+}
+
 /** Compute a future `validThrough` given a `datePosted` ISO string. */
 function computeValidThrough(
   explicit: string | null | undefined,
@@ -265,14 +277,14 @@ function computeValidThrough(
   if (crawledIso) {
     const out = new Date(crawledIso);
     out.setUTCDate(out.getUTCDate() + 60);
-    return out.toISOString();
+    return floorToFuture(out);
   }
 
   const posted = new Date(datePosted);
   if (!Number.isNaN(posted.getTime())) {
     const out = new Date(posted);
     out.setUTCDate(out.getUTCDate() + 90);
-    return out.toISOString();
+    return floorToFuture(out);
   }
 
   const fallback = new Date();

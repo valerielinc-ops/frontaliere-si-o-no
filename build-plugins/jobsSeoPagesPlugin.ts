@@ -1546,7 +1546,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  const result = new Date(base);
  result.setUTCDate(result.getUTCDate() + (crawledAt ? 60 : 90));
- return result.toISOString();
+ // Floor to now+30d (#3505): this helper feeds ACTIVE job emissions only —
+ // the expired soft-landing derives its own, deliberately-past validThrough.
+ // A stale crawledAt/postedDate would otherwise emit validThrough < now on a
+ // live "Apply now" page → GSC "Job posting has expired" and the posting is
+ // dropped from Google Jobs while still indexed as active.
+ const floor = new Date();
+ floor.setUTCDate(floor.getUTCDate() + 30);
+ return (result.getTime() < floor.getTime() ? floor : result).toISOString();
  };
  const contractMap: Record<string, string> = {
  'full-time': 'FULL_TIME',
