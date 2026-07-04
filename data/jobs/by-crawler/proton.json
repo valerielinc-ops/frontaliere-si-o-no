@@ -1,6 +1,6 @@
 {
   "crawlerKey": "proton",
-  "assembledAt": "2026-07-04T12:07:00.441Z",
+  "assembledAt": "2026-07-04T23:25:37.961Z",
   "jobs": [
     {
       "id": "proton-11f0ca12984d",
@@ -33,7 +33,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4653905101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:56.963Z",
+      "crawledAt": "2026-07-04T23:25:34.788Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,10 +48,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4653905101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:35.226Z",
+      "previousSlugs": [
+        "staff-qa-automation-engineer-android-ios-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-qa-automation-engineer-android-ios-proton-ch"
+          "staff-qa-automation-engineer-android-ios-proton-ch",
+          "staff-qa-automation-ingegnere-android-ios-proton-paris-geneva"
         ],
         "de": [
           "staff-qa-automation-engineer-android-ios-proton-ch"
@@ -60,9 +63,7 @@
           "staff-qa-automation-engineer-android-ios-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "staff-qa-automation-engineer-android-ios-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:35.226Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -109,7 +110,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:56.660Z",
+      "crawledAt": "2026-07-04T23:25:34.485Z",
       "addressLocality": "London UK, Geneva CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -124,10 +125,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:34.925Z",
+      "previousSlugs": [
+        "software-engineer-linux-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-linux-proton-ch"
+          "software-engineer-linux-proton-ch",
+          "software-ingegnere-linux-proton-london-uk-geneva-ch"
         ],
         "de": [
           "software-engineer-linux-proton-ch"
@@ -136,9 +140,7 @@
           "software-engineer-linux-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-linux-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:34.925Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -185,7 +187,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:56.358Z",
+      "crawledAt": "2026-07-04T23:25:34.182Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,10 +202,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:34.622Z",
+      "previousSlugs": [
+        "software-engineer-back-end-storage-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-back-end-storage-proton-ch"
+          "software-engineer-back-end-storage-proton-ch",
+          "software-ingegnere-back-end-storage-proton-geneva-paris"
         ],
         "de": [
           "software-engineer-back-end-storage-proton-ch"
@@ -212,9 +217,8 @@
           "software-engineer-back-end-storage-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-back-end-storage-proton-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:16:34.622Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -261,7 +265,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:56.055Z",
+      "crawledAt": "2026-07-04T23:25:33.880Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -276,10 +280,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:34.320Z",
+      "previousSlugs": [
+        "site-reliability-engineer-observability-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "site-reliability-engineer-observability-proton-ch"
+          "site-reliability-engineer-observability-proton-ch",
+          "site-reliability-ingegnere-observability-proton-geneva-paris"
         ],
         "de": [
           "site-reliability-engineer-observability-proton-ch"
@@ -288,9 +295,8 @@
           "site-reliability-engineer-observability-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "site-reliability-engineer-observability-proton-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:16:34.320Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -337,7 +343,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:55.752Z",
+      "crawledAt": "2026-07-04T23:25:33.578Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -352,10 +358,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:34.020Z",
+      "previousSlugs": [
+        "site-reliability-engineer-infrastructure-systems-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "site-reliability-engineer-infrastructure-systems-proton-ch"
+          "site-reliability-engineer-infrastructure-systems-proton-ch",
+          "site-reliability-ingegnere-infrastructure-systems-proton-geneva-paris"
         ],
         "de": [
           "site-reliability-engineer-infrastructure-systems-proton-ch"
@@ -364,9 +373,8 @@
           "site-reliability-engineer-infrastructure-systems-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "site-reliability-engineer-infrastructure-systems-proton-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:16:34.020Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -413,7 +421,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4612377101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:55.449Z",
+      "crawledAt": "2026-07-04T23:25:33.275Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -428,10 +436,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4612377101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:33.718Z",
+      "previousSlugs": [
+        "site-reliability-engineer-application-edge-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "site-reliability-engineer-application-edge-proton-ch"
+          "site-reliability-engineer-application-edge-proton-ch",
+          "site-reliability-ingegnere-application-edge-proton-geneva-paris"
         ],
         "de": [
           "site-reliability-engineer-application-edge-proton-ch"
@@ -440,9 +451,7 @@
           "site-reliability-engineer-application-edge-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "site-reliability-engineer-application-edge-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:33.718Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -456,7 +465,8 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-388def4c9118",
@@ -489,7 +499,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:55.146Z",
+      "crawledAt": "2026-07-04T23:25:32.972Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -504,10 +514,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:33.415Z",
+      "previousSlugs": [
+        "senior-tax-specialist-direct-indirect-taxes-multi-jurisdiction-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-tax-specialist-direct-indirect-taxes-multi-jurisdiction-proton-ch"
+          "senior-tax-specialist-direct-indirect-taxes-multi-jurisdiction-proton-ch",
+          "senior-tax-specialista-direct-indirect-taxes-multi-jurisdiction-proton-geneva"
         ],
         "de": [
           "senior-tax-specialist-direct-indirect-taxes-multi-jurisdiction-proton-ch"
@@ -516,9 +529,7 @@
           "senior-tax-specialist-direct-indirect-taxes-multi-jurisdiction-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-tax-specialist-direct-indirect-taxes-multi-jurisdiction-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:33.415Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -532,7 +543,8 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-45018d9aa734",
@@ -565,7 +577,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4588886101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:54.844Z",
+      "crawledAt": "2026-07-04T23:25:32.669Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -580,10 +592,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4588886101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:33.114Z",
+      "previousSlugs": [
+        "senior-systems-reliability-engineer-vpn-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-systems-reliability-engineer-vpn-proton-ch"
+          "senior-systems-reliability-engineer-vpn-proton-ch",
+          "senior-systems-reliability-ingegnere-vpn-proton-barcelona-geneva"
         ],
         "de": [
           "senior-systems-reliability-engineer-vpn-proton-ch"
@@ -592,9 +607,8 @@
           "senior-systems-reliability-engineer-vpn-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-systems-reliability-engineer-vpn-proton-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:16:33.114Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -641,7 +655,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:54.542Z",
+      "crawledAt": "2026-07-04T23:25:32.367Z",
       "addressLocality": "Vilnius",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,10 +670,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:32.812Z",
+      "previousSlugs": [
+        "senior-software-engineer-windows-drive-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-windows-drive-proton-ch"
+          "senior-software-engineer-windows-drive-proton-ch",
+          "senior-software-ingegnere-windows-drive-proton-vilnius-geneva"
         ],
         "de": [
           "senior-software-engineer-windows-drive-proton-ch"
@@ -668,9 +685,7 @@
           "senior-software-engineer-windows-drive-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-software-engineer-windows-drive-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:32.812Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -684,7 +699,8 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-548fc6c7342d",
@@ -717,7 +733,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:54.240Z",
+      "crawledAt": "2026-07-04T23:25:32.065Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -732,10 +748,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:32.511Z",
+      "previousSlugs": [
+        "senior-software-engineer-inbox-desktop-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-inbox-desktop-proton-ch"
+          "senior-software-engineer-inbox-desktop-proton-ch",
+          "senior-software-ingegnere-inbox-desktop-proton-london-geneva"
         ],
         "de": [
           "senior-software-engineer-inbox-desktop-proton-ch"
@@ -744,9 +763,7 @@
           "senior-software-engineer-inbox-desktop-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-software-engineer-inbox-desktop-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:32.511Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -793,7 +810,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4725157101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:53.937Z",
+      "crawledAt": "2026-07-04T23:25:31.762Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -870,7 +887,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:53.636Z",
+      "crawledAt": "2026-07-04T23:25:31.460Z",
       "addressLocality": "Geneva, Switzerland, Paris, France",
       "addressCountry": "CH",
       "country": "CH",
@@ -947,7 +964,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4877317101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:53.334Z",
+      "crawledAt": "2026-07-04T23:25:31.158Z",
       "addressLocality": "Geneva, Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -962,15 +979,17 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4877317101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:31.606Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-product-designer-proton-ch"
-        ]
-      },
       "previousSlugs": [
         "senior-product-designer-proton-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-designer-proton-ch",
+          "designer-di-prodotti-senior-proton-geneva-paris"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:16:31.606Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1017,7 +1036,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:53.032Z",
+      "crawledAt": "2026-07-04T23:25:30.856Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1032,10 +1051,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:31.304Z",
+      "previousSlugs": [
+        "senior-ios-software-engineer-geneva-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ios-software-engineer-geneva-proton-ch"
+          "senior-ios-software-engineer-geneva-proton-ch",
+          "senior-ios-software-ingegnere-geneva-proton-geneva"
         ],
         "de": [
           "senior-ios-software-engineer-geneva-proton-ch"
@@ -1044,9 +1066,7 @@
           "senior-ios-software-engineer-geneva-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-ios-software-engineer-geneva-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:31.304Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1093,7 +1113,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4849865101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:52.730Z",
+      "crawledAt": "2026-07-04T23:25:30.554Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1108,6 +1128,7 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4849865101",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:16:31.002Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1155,7 +1176,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4899457101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:52.428Z",
+      "crawledAt": "2026-07-04T23:25:30.251Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1170,10 +1191,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4899457101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:30.700Z",
+      "previousSlugs": [
+        "senior-front-end-engineer-docs-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-front-end-engineer-docs-proton-ch"
+          "senior-front-end-engineer-docs-proton-ch",
+          "senior-front-end-ingegnere-docs-proton-london-geneva"
         ],
         "de": [
           "senior-front-end-engineer-docs-proton-ch"
@@ -1182,9 +1206,7 @@
           "senior-front-end-engineer-docs-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-front-end-engineer-docs-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:30.700Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1231,7 +1253,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4659882101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:52.126Z",
+      "crawledAt": "2026-07-04T23:25:29.948Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1308,7 +1330,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4183145101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:51.823Z",
+      "crawledAt": "2026-07-04T23:25:29.647Z",
       "addressLocality": "Paris, Geneva, London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1335,6 +1357,7 @@
           "product-marketing-lead-b2b-proton-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:16:30.096Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
@@ -1382,7 +1405,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4903325101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:51.521Z",
+      "crawledAt": "2026-07-04T23:25:29.344Z",
       "addressLocality": "Paris, Geneva, London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1409,6 +1432,7 @@
           "product-marketing-lead-proton-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:16:29.794Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
@@ -1456,7 +1480,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:51.219Z",
+      "crawledAt": "2026-07-04T23:25:29.042Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1471,10 +1495,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:29.492Z",
+      "previousSlugs": [
+        "machine-learning-engineer-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "machine-learning-engineer-proton-ch"
+          "machine-learning-engineer-proton-ch",
+          "machine-learning-ingegnere-proton-geneva-taipei"
         ],
         "de": [
           "machine-learning-engineer-proton-ch"
@@ -1483,9 +1510,8 @@
           "machine-learning-engineer-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "machine-learning-engineer-proton-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:16:29.492Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1532,7 +1558,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4839343101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:50.916Z",
+      "crawledAt": "2026-07-04T23:25:28.739Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1609,7 +1635,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:50.614Z",
+      "crawledAt": "2026-07-04T23:25:28.438Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1624,10 +1650,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:28.888Z",
+      "previousSlugs": [
+        "fullstack-software-engineer-email-security-anti-abuse-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fullstack-software-engineer-email-security-anti-abuse-proton-ch"
+          "fullstack-software-engineer-email-security-anti-abuse-proton-ch",
+          "fullstack-software-ingegnere-email-security-anti-abuse-proton-geneva-taipei-skopje"
         ],
         "de": [
           "fullstack-software-engineer-email-security-anti-abuse-proton-ch"
@@ -1636,9 +1665,7 @@
           "fullstack-software-engineer-email-security-anti-abuse-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "fullstack-software-engineer-email-security-anti-abuse-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:28.888Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1685,7 +1712,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4857528101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:50.311Z",
+      "crawledAt": "2026-07-04T23:25:28.134Z",
       "addressLocality": "Taipei",
       "addressCountry": "CH",
       "country": "CH",
@@ -1700,10 +1727,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4857528101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:28.587Z",
+      "previousSlugs": [
+        "frontend-engineer-real-time-streaming-platform-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "frontend-engineer-real-time-streaming-platform-proton-ch"
+          "frontend-engineer-real-time-streaming-platform-proton-ch",
+          "frontend-ingegnere-real-time-streaming-platform-proton-taipei-geneva"
         ],
         "de": [
           "frontend-engineer-real-time-streaming-platform-proton-ch"
@@ -1712,9 +1742,7 @@
           "frontend-engineer-real-time-streaming-platform-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "frontend-engineer-real-time-streaming-platform-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:28.587Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1761,7 +1789,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4660027101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:50.008Z",
+      "crawledAt": "2026-07-04T23:25:27.831Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1776,10 +1804,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4660027101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:28.285Z",
+      "previousSlugs": [
+        "frontend-engineer-lumo-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "frontend-engineer-lumo-proton-ch"
+          "frontend-engineer-lumo-proton-ch",
+          "frontend-ingegnere-lumo-proton-geneva-taipei"
         ],
         "de": [
           "frontend-engineer-lumo-proton-ch"
@@ -1788,9 +1819,7 @@
           "frontend-engineer-lumo-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "frontend-engineer-lumo-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:28.285Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1827,7 +1856,7 @@
       },
       "description": "<p><strong>Join Proton and build a better internet where privacy is the default</strong></p>\n<p>At Proton, we believe that privacy is a fundamental human right and the cornerstone of democracy. Since our inception in 2014, founded by a team of scientists from CERN, we have dedicated ourselves to providing free and open-source technology to millions worldwide, ensuring access to privacy, security, and freedom online.</p>\n<p>Our journey began with Proton Mail, the largest secure email service globally, and has since expanded to include Proton VPN, Proton Calendar, Proton Drive, and Proton Pass. These tools empower individuals and organizations to take control of their personal data, break away from Big Tech’s invasive practices, and defeat censorship. Our work impacts hundreds of millions of lives, from activists on the front lines defending freedom to leaders in governments protecting sensitive information. In some cases, Proton’s services have even been instrumental in saving lives by enabling secure and private communications in high-risk situations.</p>\n<p>Proton today supports over 100 million user accounts with a growing team of over 500 people from over 50 different countries, from the world's top companies and universities. We value intelligence, learning potential, and ambition in our hiring process. Adaptability is key as we navigate uncharted territories and redefine how business is conducted online. We believe smaller teams of exceptional talent will always prevail over larger teams with lower talent density. Proton has become profitable and reached scale without relying upon VC funding, largely due to superior talent that allows us to do things faster, more creatively, and more efficiently.</p>\n<p>We have a global mindset and big ambitions but remain a start-up at heart. We value empowerment and flexibility and keep our structure flat to keep moving fast and avoid unnecessary politics. Tired of blending into the crowd? Join us and do work you can truly be proud of. <span class=\"TextRun SCXP96911575 BCX0\"><span class=\"NormalTextRun SCXP96911575 BCX0\"><span class=\"inline-comment-marker\" data-ref=\"df41d9b1-a4e5-469e-b94c-9c31cb38a786\">Check our <strong>social media pages</strong> to learn more about us: <a class=\"external-link\" href=\"https://x.com/ProtonPrivacy\">Twitter</a>, <a class=\"external-link\" href=\"https://www.reddit.com/r/ProtonMail/\">Reddit</a>, <a class=\"external-link\" href=\"https://www.instagram.com/protonprivacy/\">Instagram</a>.</span></span></span></p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team:</strong></strong></p>\n<p class=\"Lexical__paragraph\">As a Frontend Engineer on the Inbox team, you will play a crucial role in developing Proton's most vital services, including Mail and Calendar. We expect you to be customer-centric, continuously learning, passionate about technology and usability. You are an adept at turning technical complexities into seamless user experiences. Effective teamwork, collaboration with Product, Design, APIs, and your team, and data-driven decision-making are essential aspects of this role.</p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Key responsibilities:</strong></strong></p>\n• <p> </p>\n• <ul class=\"Lexical__ul Lexical__ul--depth-1\">\n<li class=\"Lexical__listItem\" value=\"1\">Take end-to-end ownership of mobile application development projects: you'll be comfortable with scoping projects, walking back from deadlines and being able to discern the important from the superfluous</li>\n<li class=\"Lexical__listItem\" value=\"2\">Foster a culture of innovation by exploring new technologies, methodologies and approaches to web development – we tackle complex engineering challenges with creativity and ingenuity</li>\n<li class=\"Lexical__listItem\" value=\"3\">Design for scalability, considering factors such as data caching, network bandwidth and server load</li>\n<li class=\"Lexical__listItem\" value=\"4\">Implement solutions to monitor and alert the team regarding the state of Inbox web clients</li>\n<li class=\"Lexical__listItem\" value=\"5\">Prioritize customer satisfaction by maintaining a customer-centric mindset throughout the development process, continuously seeking feedback and iterating to improve the user experience</li>\n</ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Tech Stack and Tools:</strong></strong></p>\n• <p> </p>\n• <p class=\"Lexical__paragraph\">Javascript, TypeScript, React, Symfony, Rust</p>\n• <ul class=\"Lexical__ul Lexical__ul--depth-1\">\n<li class=\"Lexical__listItem\" value=\"1\">Every Proton clients codebase are open source, <a class=\"Lexical__link\" href=\"https://github.com/ProtonMail/WebClients\" target=\"_blank\">Check it out here.</a></li>\n<li class=\"Lexical__listItem\" value=\"2\">Encryption brings unique challenges to front-end development. A trivial search functionality becomes much more interesting to implement when the email body is fully encrypted.</li>\n</ul>\n• <p> </p>\n• <p><strong><strong class=\"Lexical__textBold\">What you will do</strong></strong></p>\n• <p> </p>\n• <ul class=\"Lexical__ul Lexical__ul--depth-1\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Develop new features</strong></strong>: Developing, deploying and supporting high-quality user experiences, including feature development and implementation.</li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Drive adoption and user retention: </strong></strong>you will contribute to the user onboarding and delivering a delightful experience to retain</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Collaboration: </strong></strong>Work closely with backend, product owners, designers, QA, and other engineers to take initiatives from ideation to completion.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Code review and optimization:</strong></strong> Conduct code reviews and provide constructive feedback to ensure code quality, maintainability, and performance optimization.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Testing</strong></strong>: Develop and implement comprehensive testing strategies, on all test layers to ensure reliability and future ease of development.</li>\n</ul>\n• <p> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Job requirements</strong></strong></p>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\">While we prefer candidates who cover the entire skillset, don't hesitate to apply if you're not an exact match, as we're willing to help you grow in certain areas.</p>\n• <ul class=\"Lexical__ul Lexical__ul--depth-1\">\n• <li class=\"Lexical__listItem\" value=\"1\">Extensive experience of professional software development using JavaScript or TypeScript.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Experience with React or 2+ similar frameworks, developing performant and reusable components.</li>\n• <li class=\"Lexical__listItem\" value=\"3\">Experience contributing to an API codebase, bonus points if in PHP</li>\n• <li class=\"Lexical__listItem\" value=\"4\">Experience writing tests at scale</li>\n• <li class=\"Lexical__listItem\" value=\"5\">Familiarity with other best practices for ensuring code quality, including CI/CD.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Nice to have: </strong></strong></p>\n• <ul>\n• <li class=\"Lexical__paragraph\">Experience with monitoring and observability tools</li>\n• <li class=\"Lexical__paragraph\">Experience working in a distributed team</li>\n• <li class=\"Lexical__paragraph\">Awareness of common security issues in client-side development, such as those in the OWASP top ten, and how to mitigate them</li>\n• <li class=\"Lexical__paragraph\">Familiarity with UX, accessibility, internationalization, and localization concerns and solutions</li>\n• </ul>\n• <p>Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p>\n• <p> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p>\n• <ul class=\"Lexical__ul Lexical__ul--depth-1\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office. </li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li>\n<li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li>\n<li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li>\n<li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li>\n</ul>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Check our social media to learn more about Proton: </strong></strong></p>\n<p class=\"Lexical__paragraph\"><a class=\"Lexical__link\" href=\"https://www.linkedin.com/company/protonprivacy/\"><strong><strong class=\"Lexical__textBold\">LinkedIn</strong></strong></a><strong><strong class=\"Lexical__textBold\"> ,</strong></strong><a class=\"Lexical__link\" href=\"https://www.reddit.com/r/ProtonMail/\"><strong><strong class=\"Lexical__textBold\">Reddit</strong></strong></a><strong><strong class=\"Lexical__textBold\"> ,</strong></strong><a class=\"Lexical__link\" href=\"https://x.com/intent/user?screen_name=ProtonPrivacy\"><strong><strong class=\"Lexical__textBold\">X</strong></strong></a><strong><strong class=\"Lexical__textBold\">, </strong></strong><a class=\"Lexical__link\" href=\"https://www.youtube.com/@ProtonAG\"><strong><strong class=\"Lexical__textBold\">YouTube</strong></strong></a></p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p>\n<p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p>\n<p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p>\n<p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p>\n<p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">#LinkedIn-Onsite</em></em></p>",
       "descriptionByLocale": {
-        "it": "<p> ̧strong>Join Proton e costruire un Internet migliore dove la privacy è il predefinito <p>A Proton, crediamo che la privacy sia un diritto umano fondamentale e la pietra angolare della democrazia. Fin dalla nostra nascita nel 2014, fondata da un team di scienziati del CERN, ci siamo dedicati a fornire tecnologia gratuita e open source a milioni di persone in tutto il mondo, garantendo l'accesso alla privacy, alla sicurezza e alla libertà online. <p> Il nostro viaggio è iniziato con Proton Mail, il più grande servizio di posta elettronica sicuro a livello globale, e da allora ha ampliato per includere Proton VPN, Proton Calendar, Proton Drive e Proton Pass. Questi strumenti consentono agli individui e alle organizzazioni di prendere il controllo dei propri dati personali, di allontanarsi dalle pratiche invasive di Big Tech e di sconfiggere la censura. Il nostro lavoro colpisce centinaia di milioni di vite, dagli attivisti sulle prime linee di difesa della libertà ai leader nei governi che proteggono le informazioni sensibili. In alcuni casi, i servizi di Proton sono stati anche strumentali nel salvare vite, consentendo comunicazioni sicure e private in situazioni ad alto rischio. <p>Proton oggi supporta oltre 100 milioni di account utente con un team in crescita di oltre 500 persone provenienti da oltre 50 paesi diversi, dalle migliori aziende e università del mondo. Apprezziamo l'intelligenza, il potenziale di apprendimento e l'ambizione nel nostro processo di assunzione. L'adattabilità è fondamentale mentre navighiamo su territori inesplorati e ridefiniamo come il business è condotto online. Crediamo che le squadre più piccole di talento eccezionale prevarranno sempre su squadre più grandi con densità di talento inferiore. Proton è diventato redditizio e ha raggiunto la scala senza contare sul finanziamento VC, in gran parte a causa di talento superiore che ci permette di fare le cose più velocemente, più creativamente, e più efficientemente. <p> Abbiamo una mentalità globale e grandi ambizioni, ma rimangono un inizio a cuore. Apprezziamo l'empowerment e la flessibilità e teniamo la nostra struttura piana per continuare a muoversi velocemente ed evitare politiche inutili. Stanco di unire la folla? Unisciti a noi e fai il lavoro di cui puoi essere veramente orgoglioso. <span class=\"TextRun SCXP96911575 BCX0\"> Per saperne di più su di noi: <a classe=\"Link esterno\" href=\"https://x.com/ProtonPrivacy\"> Twitter </a>, <a class=\"Link esterno\" href=\"https://www.reddit.com/r/ProtonMail/\">Reddit </a>, <a class=\"external-link\" href=\"https://www.instagram.com/protonprivacy/\">Instagram Traduzione: > Come Ingegnere Frontend sul team Inbox, si svolgerà un ruolo cruciale nello sviluppo dei servizi più vitali di Proton, tra cui Mail e Calendar. Ci aspettiamo di essere cliente-centrico, apprendimento continuo, appassionato di tecnologia e usabilità. Sei un adept a trasformare le complessità tecniche in esperienze utente senza soluzione di continuità. Il lavoro di squadra efficace, la collaborazione con Prodotto, Design, API e il vostro team e il processo decisionale basato sui dati sono aspetti essenziali di questo ruolo.\n• Traduzione:\n• < > < >\n• Traduzione: Traduzione: Voce principale:\"1\"> Prendere la proprietà end-to-end di progetti di sviluppo di applicazioni mobili: sarete a vostro agio con progetti di scoping, a piedi indietro dalle scadenze e di essere in grado di discernere l'importante dal superfluo Traduzione: Voce principale:\"2\"> Promuovere una cultura dell'innovazione esplorando nuove tecnologie, metodologie e approcci allo sviluppo web – affrontiamo complesse sfide ingegneristiche con creatività e ingegnosità Traduzione: Voce principale:\"3\"> Design per la scalabilità, considerando fattori come la cache dei dati, la larghezza di banda di rete e il carico del server Traduzione: Voce principale: \"4\" Soluzioni di implementazione per monitorare e avvisare il team per quanto riguarda lo stato dei clienti web di Inbox Traduzione: Voce principale:\"5\"> Priorizzare la soddisfazione del cliente mantenendo una mentalità orientata al cliente durante tutto il processo di sviluppo, cercando continuamente feedback e iterating per migliorare l'esperienza utente < >\n• Traduzione:\n• < > < >\n• <p class=\"Lexical paragraph\">Javascript, TypeScript, React, Symfony, Rust\n• Traduzione: Traduzione: Voce principale:\"1\"> Tutti i client Proton codebase sono open source, <a class=\"Lexical link\" href=\"https://github.com/ProtonMail/WebClients\" target=\" blank\"> Guarda qui. Traduzione: Voce principale:\"2\"> Crittografia porta sfide uniche per lo sviluppo front-end. Una funzionalità di ricerca banale diventa molto più interessante da implementare quando il corpo e-mail è completamente crittografato. < >\n• < > < >\n• Traduzione: Che cosa farete\n• < > < >\n• Traduzione: Traduzione: Valore dell'oggetto=\"1\"> <strong> < <strong class=\"Lexical textBold\">Sviluppare nuove funzionalità: Sviluppare, distribuire e supportare esperienze utente di alta qualità, tra cui sviluppo e implementazione delle funzionalità. Traduzione: Voce principale: \"\"2\"> Adozione dell'unità e fidelizzazione dell'utente: </strong> Traduzione: Voce principale:\"3\"> > < > < > > > > > > > > > > > > > > > > > > > > > Collaborazione: </strong> Lavorare a stretto contatto con backend, proprietari di prodotti, designer, QA e altri ingegneri per prendere iniziative da ideazione a completamento. Traduzione: Voce principale: \"4\" > > ιstrong> Revisione del codice e ottimizzazione: Condurre le recensioni dei codici e fornire feedback costruttivi per garantire la qualità del codice, la manutenzione e l'ottimizzazione delle prestazioni. Traduzione: Voce principale:\"5\"> > < > < > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Testare </strong> </strong>: Sviluppare e implementare strategie di test complete, su tutti gli strati di prova per garantire affidabilità e futuro facilità di sviluppo. < >\n• < > < >\n• <p class=\"Lexical paragraph\">\n• <p class=\"Lexical paragraph\"> </p>\n• > Mentre preferiamo i candidati che coprono l'intero skillet, non esitate ad applicare se non siete una corrispondenza esatta, come siamo disposti ad aiutarvi a crescere in determinate aree.\n• Traduzione:\n• Traduzione: Voce principale:\"1\"> Ampia esperienza di sviluppo software professionale utilizzando JavaScript o TypeScript.\n• Traduzione: Voce principale:\"2\"> Esperienza con strutture simili React o 2+, sviluppo di componenti performanti e riutilizzabili.\n• Traduzione: Voce principale:\"3\"> Esperienza contribuendo a una base di codice API, punti bonus se in PHP\n• Traduzione: Voce principale: \"4\" Esperienza di test di scrittura in scala\n• Traduzione: Voce principale:\"5\"> Familiarità con altre migliori pratiche per garantire la qualità del codice, tra cui CI/CD.\n• < >\n• <p class=\"Lexical paragraph\"> </p>\n• Traduzione: Buono ad avere: </strong>\n• >\n• Traduzione: Esperienza con strumenti di monitoraggio e osservabilità\n• Traduzione: Esperienza di lavoro in un team distribuito\n• Traduzione: Consapevolezza dei problemi di sicurezza comuni nello sviluppo del cliente, come quelli della OWASP top ten, e come mitigarli\n• Traduzione: Familiarità con UX, accessibilità, internazionalizzazione e problemi di localizzazione e soluzioni\n• < >\n• <p> Anche se non soddisfate tutti i requisiti sopra elencati, ma ritenete che si potrebbe ancora essere una grande misura, si prega di applicare ancora.\n• < > < >\n• <p class=\"Lexical paragraph\">\n• Traduzione: Traduzione: Voce principale: > > > ι > ι > ι > > > > ι > > > > ι > > > ι > > ι > > > > ι > > > > > > > > > ι > > ι > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > La collaborazione è più facile e più efficace di persona, per questo abbiamo uffici a Ginevra, Zurigo, Praga, Barcellona, Parigi, Londra, Vilnius, Skopje e Taipei. Si può anche godere di lavorare da casa fino al 30% del tempo, mentre godendo grande compagnia durante i nostri tre giorni fondamentali in ufficio. < > Traduzione: Voce principale: \"\"2\"> Tecnologia: Forniamo tutti i dispositivi e il software di cui hai bisogno per eccellere nel tuo ruolo, assicurandoti di avere i migliori strumenti a disposizione per raggiungere i tuoi obiettivi. Traduzione: Valore dell'articolo=\"3\"> Pranzo e spuntini sono forniti da Proton ogni giorno presso i nostri uffici. Traduzione: Voce principale: \"4\" > > ιstrong> Trasporti: </strong> Sosterremo sempre i nostri dipendenti con i costi di trasporto attraverso il sovvenzionamento dei trasporti pubblici, delle indennità di bicicletta o dei parcheggi in base alla vostra posizione di ufficio. Traduzione: Voce del valore=\"5\"> < > < > < > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > ι > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > A Proton, siamo tutti proprietari della società e si ottiene stock opzioni quando si uniscono a noi. Traduzione: Voce principale: \"6\"> > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Lavoro flessibile: </strong> È possibile definire le proprie ore di lavoro fino a quando funziona con incontri di squadra. Traduzione: Voce del valore=\"7\"> <strong> classe di assunzione=\"Lexical textBold\">Learning and Development: Siamo impegnati nella vostra crescita professionale. Proton offre diverse opportunità di apprendimento, tra cui programmi di formazione, conferenze ed eventi, e apprendimento continuo. Traduzione: Valore dell'articolo=\"8\"> > ιstrong> Piani di assicurazione sanitaria completi, opzioni di risparmio di pensione competitiva, vacanza generosa e lasciare politiche, e programmi di benessere. Traduzione: Voce principale:\"9\"> > ιstrong> Lavorare che Matters: Proton è una prima organizzazione comunitaria, iniziata con il supporto di una campagna di crowdfunding e costruita con l'ingresso della comunità. Ad oggi, l'unica fonte di reddito di Proton è gli abbonamenti degli utenti. Oltre 100 milioni di persone si fidano e sostengono Proton, e mettiamo i nostri utenti e la nostra comunità prima in tutto ciò che facciamo. Per saperne di più sul nostro impatto: \"Lexical link\" href=\"https://proton.me/impact\"> qui < > Traduzione: Controlla i nostri social media per saperne di più su Proton: </strong> > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > <p class=\"Lexical paragraph\"> > A Proton, crediamo che la diversità spinge l'innovazione e rafforza la nostra missione di fornire la privacy come un default per tutti. Ci impegniamo a promuovere un ambiente inclusivo in cui tutti gli individui, indipendentemente dalla razza, dall'etnia, dal sesso, dall'età, dall'orientamento sessuale, dalla capacità fisica o dallo sfondo socio-economico, si sentono valorizzati e potenziati. Ci sforziamo di creare pari opportunità, promuovere il dialogo aperto e sostenere l'apprendimento continuo per garantire che ogni voce sia ascoltata e rispettata. > Se avete bisogno di un supporto supplementare o di aggiustamenti ragionevoli durante il processo di assunzione, si prega di informare il vostro partner di talento. <p class=\"Lexical paragraph\"> > Quando si applica una posizione, si rinvia un candidato, o sono considerati per un ruolo alla Proton Technologies AG (Proton, noi, o la nostra), le informazioni vengono memorizzate in serra, in conformità con la loro classe <a=\"Lexical link\" href=\"https://www.greenhouse.com/privacy-policy\"> Informativa sulla privacy del servizio. Queste informazioni vengono utilizzate per valutare l'idoneità per la posizione postata. Conserviamo anche queste informazioni per la considerazione per i ruoli futuri che si possono richiedere o che crediamo possano allineare con il tuo background e le tue competenze. > Se non abbiamo più un business legittimo bisogno di elaborare le tue informazioni, ne cancelleremo o anonimizzare. Se avete domande su come utilizziamo o gestiamo le vostre informazioni, o se desiderate accedere, correggere o eliminare i vostri dati, vi preghiamo di contattare il nostro team di privacy all'indirizzo careers@proton.ch. Traduzione: Proton non accetta curriculum non sollecitati da fonti diverse da quelle direttamente dai candidati. Non pagheremo una tassa per qualsiasi collocamento derivante da un'offerta non richiesta, anche se il candidato viene successivamente assunto da Proton. Per saperne di più sulla nostra politica sulla privacy, si prega di visitare </em> *\n\nLinkedIn-Onsite",
+        "it": "<p> ̧strong>Join Proton e costruire un Internet migliore dove la privacy è il predefinito <p>A Proton, crediamo che la privacy sia un diritto umano fondamentale e la pietra angolare della democrazia. Fin dalla nostra nascita nel 2014, fondata da un team di scienziati del CERN, ci siamo dedicati a fornire tecnologia gratuita e open source a milioni di persone in tutto il mondo, garantendo l'accesso alla privacy, alla sicurezza e alla libertà online. <p> Il nostro viaggio è iniziato con Proton Mail, il più grande servizio di posta elettronica sicuro a livello globale, e da allora ha ampliato per includere Proton VPN, Proton Calendar, Proton Drive e Proton Pass. Questi strumenti consentono agli individui e alle organizzazioni di prendere il controllo dei propri dati personali, di allontanarsi dalle pratiche invasive di Big Tech e di sconfiggere la censura. Il nostro lavoro colpisce centinaia di milioni di vite, dagli attivisti sulle prime linee di difesa della libertà ai leader nei governi che proteggono le informazioni sensibili. In alcuni casi, i servizi di Proton sono stati anche strumentali nel salvare vite, consentendo comunicazioni sicure e private in situazioni ad alto rischio. <p>Proton oggi supporta oltre 100 milioni di account utente con un team in crescita di oltre 500 persone provenienti da oltre 50 paesi diversi, dalle migliori aziende e università del mondo. Apprezziamo l'intelligenza, il potenziale di apprendimento e l'ambizione nel nostro processo di assunzione. L'adattabilità è fondamentale mentre navighiamo su territori inesplorati e ridefiniamo come il business è condotto online. Crediamo che le squadre più piccole di talento eccezionale prevarranno sempre su squadre più grandi con densità di talento inferiore. Proton è diventato redditizio e ha raggiunto la scala senza contare sul finanziamento VC, in gran parte a causa di talento superiore che ci permette di fare le cose più velocemente, più creativamente, e più efficientemente. <p> Abbiamo una mentalità globale e grandi ambizioni, ma rimangono un inizio a cuore. Apprezziamo l'empowerment e la flessibilità e teniamo la nostra struttura piana per continuare a muoversi velocemente ed evitare politiche inutili. Stanco di unire la folla? Unisciti a noi e fai il lavoro di cui puoi essere veramente orgoglioso. <span class=\"TextRun SCXP96911575 BCX0\"> Per saperne di più su di noi: <a classe=\"Link esterno\" href=\"https://x.com/ProtonPrivacy\"> Twitter </a>, <a class=\"Link esterno\" href=\"https://www.reddit.com/r/ProtonMail/\">Reddit </a>, <a class=\"external-link\" href=\"https://www.instagram.com/protonprivacy/\">Instagram Traduzione: > Come Ingegnere Frontend sul team Inbox, si svolgerà un ruolo cruciale nello sviluppo dei servizi più vitali di Proton, tra cui Mail e Calendar. Ci aspettiamo di essere cliente-centrico, apprendimento continuo, appassionato di tecnologia e usabilità. Sei un adept a trasformare le complessità tecniche in esperienze utente senza soluzione di continuità. Il lavoro di squadra efficace, la collaborazione con Prodotto, Design, API e il vostro team e il processo decisionale basato sui dati sono aspetti essenziali di questo ruolo.\n• Traduzione:\n• < > < >\n• Traduzione: Traduzione: Voce principale:\"1\"> Prendere la proprietà end-to-end di progetti di sviluppo di applicazioni mobili: sarete a vostro agio con progetti di scoping, a piedi indietro dalle scadenze e di essere in grado di discernere l'importante dal superfluo Traduzione: Voce principale:\"2\"> Promuovere una cultura dell'innovazione esplorando nuove tecnologie, metodologie e approcci allo sviluppo web – affrontiamo complesse sfide ingegneristiche con creatività e ingegnosità Traduzione: Voce principale:\"3\"> Design per la scalabilità, considerando fattori come la cache dei dati, la larghezza di banda di rete e il carico del server Traduzione: Voce principale: \"4\" Soluzioni di implementazione per monitorare e avvisare il team per quanto riguarda lo stato dei clienti web di Inbox Traduzione: Voce principale:\"5\"> Priorizzare la soddisfazione del cliente mantenendo una mentalità orientata al cliente durante tutto il processo di sviluppo, cercando continuamente feedback e iterating per migliorare l'esperienza utente < >\n• Traduzione:\n• < > < >\n• <p class=\"Lexical paragraph\">Javascript, TypeScript, React, Symfony, Rust\n• Traduzione: Traduzione: Voce principale:\"1\"> Tutti i client Proton codebase sono open source, <a class=\"Lexical link\" href=\"https://github.com/ProtonMail/WebClients\" target=\" blank\"> Guarda qui. Traduzione: Voce principale:\"2\"> Crittografia porta sfide uniche per lo sviluppo front-end. Una funzionalità di ricerca banale diventa molto più interessante da implementare quando il corpo e-mail è completamente crittografato. < >\n• < > < >\n• Traduzione: Che cosa farete\n• < > < >\n• Traduzione: Traduzione: Valore dell'oggetto=\"1\"> <strong> < <strong class=\"Lexical textBold\">Sviluppare nuove funzionalità: Sviluppare, distribuire e supportare esperienze utente di alta qualità, tra cui sviluppo e implementazione delle funzionalità. Traduzione: Voce principale: \"\"2\"> Adozione dell'unità e fidelizzazione dell'utente: </strong> Traduzione: Voce principale:\"3\"> > < > < > > > > > > > > > > > > > > > > > > > > > Collaborazione: </strong> Lavorare a stretto contatto con backend, proprietari di prodotti, designer, QA e altri ingegneri per prendere iniziative da ideazione a completamento. Traduzione: Voce principale: \"4\" > > ιstrong> Revisione del codice e ottimizzazione: Condurre le recensioni dei codici e fornire feedback costruttivi per garantire la qualità del codice, la manutenzione e l'ottimizzazione delle prestazioni. Traduzione: Voce principale:\"5\"> > < > < > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Testare </strong> </strong>: Sviluppare e implementare strategie di test complete, su tutti gli strati di prova per garantire affidabilità e futuro facilità di sviluppo. < >\n• < > < >\n• <p class=\"Lexical paragraph\">\n• <p class=\"Lexical paragraph\"> </p>\n• > Mentre preferiamo i candidati che coprono l'intero skillet, non esitate ad applicare se non siete una corrispondenza esatta, come siamo disposti ad aiutarvi a crescere in determinate aree.\n• Traduzione:\n• Traduzione: Voce principale:\"1\"> Ampia esperienza di sviluppo software professionale utilizzando JavaScript o TypeScript.\n• Traduzione: Voce principale:\"2\"> Esperienza con strutture simili React o 2+, sviluppo di componenti performanti e riutilizzabili.\n• Traduzione: Voce principale:\"3\"> Esperienza contribuendo a una base di codice API, punti bonus se in PHP\n• Traduzione: Voce principale: \"4\" Esperienza di test di scrittura in scala\n• Traduzione: Voce principale:\"5\"> Familiarità con altre migliori pratiche per garantire la qualità del codice, tra cui CI/CD.\n• < >\n• <p class=\"Lexical paragraph\"> </p>\n• Traduzione: Buono ad avere: </strong>\n• >\n• Traduzione: Esperienza con strumenti di monitoraggio e osservabilità\n• Traduzione: Esperienza di lavoro in un team distribuito\n• Traduzione: Consapevolezza dei problemi di sicurezza comuni nello sviluppo del cliente, come quelli della OWASP top ten, e come mitigarli\n• Traduzione: Familiarità con UX, accessibilità, internazionalizzazione e problemi di localizzazione e soluzioni\n• < >\n• <p> Anche se non soddisfate tutti i requisiti sopra elencati, ma ritenete che si potrebbe ancora essere una grande misura, si prega di applicare ancora.\n• < > < >\n• <p class=\"Lexical paragraph\">\n• Traduzione: Traduzione: Voce principale: > > > ι > ι > ι > > > > ι > > > > ι > > > ι > > ι > > > > ι > > > > > > > > > ι > > ι > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > La collaborazione è più facile e più efficace di persona, per questo abbiamo uffici a Ginevra, Zurigo, Praga, Barcellona, Parigi, Londra, Vilnius, Skopje e Taipei. Si può anche godere di lavorare da casa fino al 30% del tempo, mentre godendo grande compagnia durante i nostri tre giorni fondamentali in ufficio. < > Traduzione: Voce principale: \"\"2\"> Tecnologia: Forniamo tutti i dispositivi e il software di cui hai bisogno per eccellere nel tuo ruolo, assicurandoti di avere i migliori strumenti a disposizione per raggiungere i tuoi obiettivi. Traduzione: Valore dell'articolo=\"3\"> Pranzo e spuntini sono forniti da Proton ogni giorno presso i nostri uffici. Traduzione: Voce principale: \"4\" > > ιstrong> Trasporti: </strong> Sosterremo sempre i nostri dipendenti con i costi di trasporto attraverso il sovvenzionamento dei trasporti pubblici, delle indennità di bicicletta o dei parcheggi in base alla vostra posizione di ufficio. Traduzione: Voce del valore=\"5\"> < > < > < > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > ι > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > A Proton, siamo tutti proprietari della società e si ottiene stock opzioni quando si uniscono a noi. Traduzione: Voce principale: \"6\"> > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Lavoro flessibile: </strong> È possibile definire le proprie ore di lavoro fino a quando funziona con incontri di squadra. Traduzione: Voce del valore=\"7\"> <strong> classe di assunzione=\"Lexical textBold\">Learning and Development: Siamo impegnati nella vostra crescita professionale. Proton offre diverse opportunità di apprendimento, tra cui programmi di formazione, conferenze ed eventi, e apprendimento continuo. Traduzione: Valore dell'articolo=\"8\"> > ιstrong> Piani di assicurazione sanitaria completi, opzioni di risparmio di pensione competitiva, vacanza generosa e lasciare politiche, e programmi di benessere. Traduzione: Voce principale:\"9\"> > ιstrong> Lavorare che Matters: Proton è una prima organizzazione comunitaria, iniziata con il supporto di una campagna di crowdfunding e costruita con l'ingresso della comunità. Ad oggi, l'unica fonte di reddito di Proton è gli abbonamenti degli utenti. Oltre 100 milioni di persone si fidano e sostengono Proton, e mettiamo i nostri utenti e la nostra comunità prima in tutto ciò che facciamo. Per saperne di più sul nostro impatto: \"Lexical link\" href=\"https://proton.me/impact\"> qui < > Traduzione: Controlla i nostri social media per saperne di più su Proton: </strong> > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > <p class=\"Lexical paragraph\"> > A Proton, crediamo che la diversità spinge l'innovazione e rafforza la nostra missione di fornire la privacy come un default per tutti. Ci impegniamo a promuovere un ambiente inclusivo in cui tutti gli individui, indipendentemente dalla razza, dall'etnia, dal sesso, dall'età, dall'orientamento sessuale, dalla capacità fisica o dallo sfondo socio-economico, si sentono valorizzati e potenziati. Ci sforziamo di creare pari opportunità, promuovere il dialogo aperto e sostenere l'apprendimento continuo per garantire che ogni voce sia ascoltata e rispettata. > Se avete bisogno di un supporto supplementare o di aggiustamenti ragionevoli durante il processo di assunzione, si prega di informare il vostro partner di talento. <p class=\"Lexical paragraph\"> > Quando si applica una posizione, si rinvia un candidato, o sono considerati per un ruolo alla Proton Technologies AG (Proton, noi, o la nostra), le informazioni vengono memorizzate in serra, in conformità con la loro classe <a=\"Lexical link\" href=\"https://www.greenhouse.com/privacy-policy\"> Informativa sulla privacy del servizio. Queste informazioni vengono utilizzate per valutare l'idoneità per la posizione postata. Conserviamo anche queste informazioni per la considerazione per i ruoli futuri che si possono richiedere o che crediamo possano allineare con il tuo background e le tue competenze. > Se non abbiamo più un business legittimo bisogno di elaborare le tue informazioni, ne cancelleremo o anonimizzare. Se avete domande su come utilizziamo o gestiamo le vostre informazioni, o se desiderate accedere, correggere o eliminare i vostri dati, vi preghiamo di contattare il nostro team di privacy all'indirizzo careers@proton.ch. Traduzione: Proton non accetta curriculum non sollecitati da fonti diverse da quelle direttamente dai candidati. Non pagheremo una tassa per qualsiasi collocamento derivante da un'offerta non richiesta, anche se il candidato viene successivamente assunto da Proton. Per saperne di più sulla nostra politica sulla privacy, si prega di visitare </em> * LinkedIn-Onsite",
         "en": "<p><strong>Join Proton and build a better internet where privacy is the default</strong></p> <p>At Proton, we believe that privacy is a fundamental human right and the cornerstone of democracy. Since our inception in 2014, founded by a team of scientists from CERN, we have dedicated ourselves to providing free and open-source technology to millions worldwide, ensuring access to privacy, security, and freedom online.</p> <p>Our journey began with Proton Mail, the largest secure email service globally, and has since expanded to include Proton VPN, Proton Calendar, Proton Drive, and Proton Pass. These tools empower individuals and organizations to take control of their personal data, break away from Big Tech’s invasive practices, and defeat censorship. Our work impacts hundreds of millions of lives, from activists on the front lines defending freedom to leaders in governments protecting sensitive information. In some cases, Proton’s services have even been instrumental in saving lives by enabling secure and private communications in high-risk situations.</p> <p>Proton today supports over 100 million user accounts with a growing team of over 500 people from over 50 different countries, from the world's top companies and universities. We value intelligence, learning potential, and ambition in our hiring process. Adaptability is key as we navigate uncharted territories and redefine how business is conducted online. We believe smaller teams of exceptional talent will always prevail over larger teams with lower talent density. Proton has become profitable and reached scale without relying upon VC funding, largely due to superior talent that allows us to do things faster, more creatively, and more efficiently.</p> <p>We have a global mindset and big ambitions but remain a start-up at heart. We value empowerment and flexibility and keep our structure flat to keep moving fast and avoid unnecessary politics. Tired of blending into the crowd? Join us and do work you can truly be proud of. <span class=\"TextRun SCXP96911575 BCX0\"><span class=\"NormalTextRun SCXP96911575 BCX0\"><span class=\"inline-comment-marker\" data-ref=\"df41d9b1-a4e5-469e-b94c-9c31cb38a786\">Check our <strong>social media pages</strong> to learn more about us: <a class=\"external-link\" href=\"https://x.com/ProtonPrivacy\">Twitter</a>, <a class=\"external-link\" href=\"https://www.reddit.com/r/ProtonMail/\">Reddit</a>, <a class=\"external-link\" href=\"https://www.instagram.com/protonprivacy/\">Instagram</a>.</span></span></span></p> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team:</strong></strong></p> <p class=\"Lexical__paragraph\">As a Frontend Engineer on the Inbox team, you will play a crucial role in developing Proton's most vital services, including Mail and Calendar. We expect you to be customer-centric, continuously learning, passionate about technology and usability. You are an adept at turning technical complexities into seamless user experiences. Effective teamwork, collaboration with Product, Design, APIs, and your team, and data-driven decision-making are essential aspects of this role.</p> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Key responsibilities:</strong></strong></p> <p> </p> <ul class=\"Lexical__ul Lexical__ul--depth-1\"> <li class=\"Lexical__listItem\" value=\"1\">Take end-to-end ownership of mobile application development projects: you'll be comfortable with scoping projects, walking back from deadlines and being able to discern the important from the superfluous</li> <li class=\"Lexical__listItem\" value=\"2\">Foster a culture of innovation by exploring new technologies, methodologies and approaches to web development – we tackle complex engineering challenges with creativity and ingenuity</li> <li class=\"Lexical__listItem\" value=\"3\">Design for scalability, considering factors such as data caching, network bandwidth and server load</li> <li class=\"Lexical__listItem\" value=\"4\">Implement solutions to monitor and alert the team regarding the state of Inbox web clients</li> <li class=\"Lexical__listItem\" value=\"5\">Prioritize customer satisfaction by maintaining a customer-centric mindset throughout the development process, continuously seeking feedback and iterating to improve the user experience</li> </ul> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Tech Stack and Tools:</strong></strong></p> <p> </p> <p class=\"Lexical__paragraph\">Javascript, TypeScript, React, Symfony, Rust</p> <ul class=\"Lexical__ul Lexical__ul--depth-1\"> <li class=\"Lexical__listItem\" value=\"1\">Every Proton clients codebase are open source, <a class=\"Lexical__link\" href=\"https://github.com/ProtonMail/WebClients\" target=\"_blank\">Check it out here.</a></li> <li class=\"Lexical__listItem\" value=\"2\">Encryption brings unique challenges to front-end development. A trivial search functionality becomes much more interesting to implement when the email body is fully encrypted.</li> </ul> <p> </p> <p><strong><strong class=\"Lexical__textBold\">What you will do</strong></strong></p> <p> </p> <ul class=\"Lexical__ul Lexical__ul--depth-1\"> <li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Develop new features</strong></strong>: Developing, deploying and supporting high-quality user experiences, including feature development and implementation.</li> <li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Drive adoption and user retention: </strong></strong>you will contribute to the user onboarding and delivering a delightful experience to retain</li> <li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Collaboration: </strong></strong>Work closely with backend, product owners, designers, QA, and other engineers to take initiatives from ideation to completion.</li> <li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Code review and optimization:</strong></strong> Conduct code reviews and provide constructive feedback to ensure code quality, maintainability, and performance optimization.</li> <li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Testing</strong></strong>: Develop and implement comprehensive testing strategies, on all test layers to ensure reliability and future ease of development.</li> </ul> <p> </p> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Job requirements</strong></strong></p> <p class=\"Lexical__paragraph\"> </p> <p class=\"Lexical__paragraph\">While we prefer candidates who cover the entire skillset, don't hesitate to apply if you're not an exact match, as we're willing to help you grow in certain areas.</p> <ul class=\"Lexical__ul Lexical__ul--depth-1\"> <li class=\"Lexical__listItem\" value=\"1\">Extensive experience of professional software development using JavaScript or TypeScript.</li> <li class=\"Lexical__listItem\" value=\"2\">Experience with React or 2+ similar frameworks, developing performant and reusable components.</li> <li class=\"Lexical__listItem\" value=\"3\">Experience contributing to an API codebase, bonus points if in PHP</li> <li class=\"Lexical__listItem\" value=\"4\">Experience writing tests at scale</li> <li class=\"Lexical__listItem\" value=\"5\">Familiarity with other best practices for ensuring code quality, including CI/CD.</li> </ul> <p class=\"Lexical__paragraph\"> </p> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Nice to have: </strong></strong></p> <ul> <li class=\"Lexical__paragraph\">Experience with monitoring and observability tools</li> <li class=\"Lexical__paragraph\">Experience working in a distributed team</li> <li class=\"Lexical__paragraph\">Awareness of common security issues in client-side development, such as those in the OWASP top ten, and how to mitigate them</li> <li class=\"Lexical__paragraph\">Familiarity with UX, accessibility, internationalization, and localization concerns and solutions</li> </ul> <p>Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p> <p> </p> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p> <ul class=\"Lexical__ul Lexical__ul--depth-1\"> <li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office. </li> <li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li> <li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li> <li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li> <li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li> <li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li> <li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li> <li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li> <li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li> </ul> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Check our social media to learn more about Proton: </strong></strong></p> <p class=\"Lexical__paragraph\"><a class=\"Lexical__link\" href=\"https://www.linkedin.com/company/protonprivacy/\"><strong><strong class=\"Lexical__textBold\">LinkedIn</strong></strong></a><strong><strong class=\"Lexical__textBold\"> ,</strong></strong><a class=\"Lexical__link\" href=\"https://www.reddit.com/r/ProtonMail/\"><strong><strong class=\"Lexical__textBold\">Reddit</strong></strong></a><strong><strong class=\"Lexical__textBold\"> ,</strong></strong><a class=\"Lexical__link\" href=\"https://x.com/intent/user?screen_name=ProtonPrivacy\"><strong><strong class=\"Lexical__textBold\">X</strong></strong></a><strong><strong class=\"Lexical__textBold\">, </strong></strong><a class=\"Lexical__link\" href=\"https://www.youtube.com/@ProtonAG\"><strong><strong class=\"Lexical__textBold\">YouTube</strong></strong></a></p> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p> <p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p> <p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p> <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p> <p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p> <p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p> <p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p> <p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p> <p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">#LinkedIn-Onsite</em></em></p>",
         "de": "<p><strong>Gehen Sie Proton bei und bauen Sie ein besseres Internet auf, in dem Privatsphäre standardmäßig ist</strong></p> Bei Proton glauben wir, dass Privatsphäre ein grundlegendes Menschenrecht und der Eckpfeiler der Demokratie ist. Seit unserer Gründung im Jahr 2014, gegründet von einem Team von Wissenschaftlern des CERN, haben wir uns der Bereitstellung von freien und Open-Source-Technologien für Millionen von Menschen weltweit verschrieben, um den Zugang zu Privatsphäre, Sicherheit und Freiheit online zu gewährleisten. Unsere Reise begann mit Proton Mail, dem weltweit größten sicheren E-Mail-Dienst, und wurde seitdem um Proton VPN, Proton Kalender, Proton Drive und Proton Pass erweitert. Diese Tools ermöglichen es Einzelpersonen und Organisationen, die Kontrolle über ihre persönlichen Daten zu übernehmen, sich von den invasiven Praktiken von Big Tech zu lösen und die Zensur zu besiegen. Unsere Arbeit beeinflusst Hunderte von Millionen von Leben, von Aktivisten an vorderster Front, die die Freiheit verteidigen, bis hin zu Führern in Regierungen, die sensible Informationen schützen. In einigen Fällen haben die Dienste von Proton sogar dazu beigetragen, Leben zu retten, indem sie sichere und private Kommunikation in Hochrisikosituationen ermöglichten.</p> Proton unterstützt heute über 100 Millionen Benutzerkonten mit einem wachsenden Team von über 500 Mitarbeitern aus über 50 verschiedenen Ländern, von den weltweit führenden Unternehmen und Universitäten. Wir schätzen Intelligenz, Lernpotenzial und Ehrgeiz in unserem Einstellungsprozess. Anpassungsfähigkeit ist der Schlüssel, wenn wir unerforschte Gebiete navigieren und neu definieren, wie Geschäfte online abgewickelt werden. Wir glauben, dass kleinere Teams mit außergewöhnlichen Talenten sich immer gegen größere Teams mit geringerer Talentdichte durchsetzen werden. Proton ist profitabel geworden und hat eine Größenordnung erreicht, ohne auf VC-Finanzierung angewiesen zu sein, hauptsächlich aufgrund überlegener Talente, die es uns ermöglichen, Dinge schneller, kreativer und effizienter zu erledigen. Wir haben eine globale Denkweise und große Ambitionen, bleiben aber ein Start-up im Herzen. Wir schätzen Empowerment und Flexibilität und halten unsere Struktur flach, um schnell zu bleiben und unnötige Politik zu vermeiden. Müde vom Mischen in die Menge? Begleiten Sie uns und machen Sie Arbeit, auf die Sie wirklich stolz sein können. <span class=\"TextRun SCXP96911575 BCX0\"><span class=\"NormalTextRun SCXP96911575 BCX0\"><span class=\"inline-comment-marker\" data-ref=\"df41d9b1-a4e5-469e-b94c-9c31cb38a786\"> Sehen Sie sich unsere <strong>social media pages</strong> an, um mehr über uns zu erfahren: <a class=\"external-link\" href=\"https://x.com/ProtonPrivacy\"> Twitter</a>, <a class=\"external-link\" href=\"https://www.reddit.com/r/ProtonMail/\">Reddit</a>, <a class=\"external-link\" href=\"https://www.instagram.com/protonprivacy/\">Instagram</a>.</span></span></span></span></p> <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Das Team:</strong></strong></p> <p class=\"Lexical paragraph\"> Als Frontend Engineer im Inbox-Team spielen Sie eine entscheidende Rolle bei der Entwicklung der wichtigsten Dienste von Proton, einschließlich Mail und Kalender. Wir erwarten von Ihnen, dass Sie kundenorientiert sind, kontinuierlich lernen, sich für Technologie und Usability begeistern. Sie sind ein Meister darin, technische Komplexität in nahtlose Benutzererfahrungen umzuwandeln. Effektive Teamarbeit, die Zusammenarbeit mit Produkt, Design, APIs und Ihrem Team sowie datengesteuerte Entscheidungen sind wesentliche Aspekte dieser Rolle.</p>\n• <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Schlüsselverantwortlichkeiten:</strong></strong></p>\n• <p> </p>\n• <ul class=\"Lexical ul Lexical ul-depth-1\"> <li class=\"Lexical list\" Item\" value=\"1\"> Übernehmen Sie End-to-End-Besitz von Entwicklungsprojekten für mobile Anwendungen: Sie werden es sich bequem machen, Projekte zu erfassen, von Fristen zurückzukommen und das Wichtige vom Überflüssigen zu unterscheiden</li> <li class=\"Lexical list\" Item\" value=\"2\"> Förderung einer Innovationskultur durch die Erforschung neuer Technologien, Methoden und Ansätze zur Webentwicklung – wir gehen komplexe technische Herausforderungen mit Kreativität und Einfallsreichtum an <li class=\"Lexical list\" Item\" value=\"3\"> Design für Skalierbarkeit unter Berücksichtigung von Faktoren wie Datencaching, Netzwerkbandbreite und Serverlast</li> <li class=\"Lexical list\" Item\" value=\"4\"> Implementieren Sie Lösungen zur Überwachung und Alarmierung des Teams hinsichtlich des Status von Inbox-Webclients</li> <li class=\"Lexical list\" Item\" value=\"5\"> Priorisieren Sie die Kundenzufriedenheit, indem Sie während des gesamten Entwicklungsprozesses eine kundenorientierte Denkweise beibehalten, kontinuierlich Feedback suchen und iterieren, um die Benutzererfahrung zu verbessern. </ul>\n• <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Tech Stack and Tools:</strong></strong></p>\n• <p> </p>\n• <p class=\"Lexical paragraph\">Javascript, TypeScript, React, Symfony, Rust</p>\n• <ul class=\"Lexical ul Lexical ul-depth-1\"> <li class=\"Lexical list\" Item\" value=\"1\"> Jede Proton-Client-Codebasis ist Open Source, <a class=\"Lexical link\" href=\"https://github.com/ProtonMail/WebClients\" target=\" blank\"> Schau es dir hier an.</a></li> <li class=\"Lexical list\" Item\" value=\"2\"> Verschlüsselung bringt einzigartige Herausforderungen für die Front-End-Entwicklung. Eine triviale Suchfunktionalität wird viel interessanter zu implementieren, wenn der E-Mail-Body vollständig verschlüsselt ist.</li> </ul>\n• <p> </p>\n• <p><strong><strong class=\"Lexical textBold\"> Was Sie tun werden</strong></strong></p>\n• <p> </p>\n• <ul class=\"Lexical ul Lexical ul-depth-1\"> <li class=\"Lexical list\" Item\" value=\"1\"><strong><strong class=\"Lexical textBold\">Neue Funktionen entwickeln</strong></strong>: Entwicklung, Bereitstellung und Unterstützung hochwertiger Benutzererfahrungen, einschließlich Feature-Entwicklung und Implementierung.</li> <li class=\"Lexical list\" Item\" value=\"2\"><strong><strong class=\"Lexical textBold\"> Drive-Adoption und Benutzerbindung: </strong></strong>Sie tragen zum Onboarding des Benutzers bei und bieten ein angenehmes Erlebnis, um es zu behalten</li> <li class=\"Lexical list\" Item\" value=\"3\"><strong><strong class=\"Lexical textBold\"> Zusammenarbeit: </strong></strong> Arbeiten Sie eng mit Backend, Produktbesitzern, Designern, QA und anderen Ingenieuren zusammen, um Initiativen von der Idee bis zur Fertigstellung zu ergreifen.</li> <li class=\"Lexical list\" Item\" value=\"4\"><strong><strong class=\"Lexical textBold\"> Code Review und Optimierung:</strong></strong> Führen Sie Code-Reviews durch und geben Sie konstruktives Feedback, um die Codequalität, Wartbarkeit und Leistungsoptimierung sicherzustellen.</li> <li class=\"Lexical list\" Item\" value=\"5\"><strong><strong class=\"Lexical textBold\"> Testen</strong></strong>: Entwickeln und implementieren Sie umfassende Teststrategien auf allen Testebenen, um die Zuverlässigkeit und zukünftige Leichtigkeit der Entwicklung zu gewährleisten.</li> </ul>\n• <p> </p>\n• <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Job requirements</strong></strong></p>\n• <p class=\"Lexical paragraph\"> </p>\n• <p class=\"Lexical paragraph\"> Während wir Kandidaten bevorzugen, die das gesamte Skillset abdecken, zögern Sie nicht, sich zu bewerben, wenn Sie nicht genau übereinstimmen, da wir bereit sind, Ihnen zu helfen, in bestimmten Bereichen zu wachsen.</p>\n• <ul class=\"Lexical ul Lexical ul-depth-1\">\n• <li class=\"Lexical list\" Item\" value=\"1\"> Umfangreiche Erfahrung in der professionellen Softwareentwicklung mit JavaScript oder TypeScript.</li>\n• <li class=\"Lexical list\" Item\" value=\"2\"> Erfahrung mit React oder 2+ ähnlichen Frameworks, Entwicklung performanter und wiederverwendbarer Komponenten.</li>\n• <li class=\"Lexical list\" Item\" value=\"3\"> Erfahrung beim Beitragen zu einer API-Codebasis, Bonuspunkte in PHP</li>\n• <li class=\"Lexical list\" Item\" value=\"4\"> Erfahrung beim Schreiben von Tests im Maßstab</li>\n• <li class=\"Lexical list\" Item\" value=\"5\"> Vertrautheit mit anderen Best Practices zur Sicherstellung der Codequalität, einschließlich CI/CD.</li>\n• </ul>\n• <p class=\"Lexical paragraph\"> </p>\n• <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\"> Schön zu haben: </strong></strong></p>\n• <ul>\n• <li class=\"Lexical paragraph\"> Erfahrung mit Monitoring und Observability Tools</li>\n• <li class=\"Lexical paragraph\"> Erfahrung in einem verteilten Team</li>\n• <li class=\"Lexical paragraph\"> Bewusstsein für häufige Sicherheitsprobleme in der clientseitigen Entwicklung, wie z. B. in den OWASP Top Ten, und wie man sie mildern kann</li>\n• <li class=\"Lexical paragraph\"> Vertrautheit mit UX, Zugänglichkeit, Internationalisierung und Lokalisierung Bedenken und Lösungen</li>\n• </ul>\n• <p>Auch wenn Sie nicht alle oben aufgeführten Anforderungen erfüllen, aber das Gefühl haben, dass Sie trotzdem gut passen könnten, bewerben Sie sich bitte.</p>\n• <p> </p>\n• <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Was wir anbieten</strong></strong></p>\n• <ul class=\"Lexical ul Lexical ul-depth-1\"> <li class=\"Lexical list\" Item\" value=\"1\"><strong><strong class=\"Lexical textBold\">Office First:</strong></strong> Die Zusammenarbeit ist persönlich einfacher und effektiver, weshalb wir Büros in Genf, Zürich, Prag, Barcelona, Paris, London, Vilnius, Skopje und Taipeh haben. Sie können auch bis zu 30% der Zeit von zu Hause aus arbeiten und während unserer drei Kerntage im Büro eine großartige Gesellschaft genießen. </li> <li class=\"Lexical list\" Item\" value=\"2\"><strong><strong class=\"Lexical textBold\"> Technologie:</strong></strong> Wir bieten alle Geräte und Software, die Sie benötigen, um Ihre Rolle zu übertreffen, und stellen sicher, dass Sie über die besten Werkzeuge verfügen, um Ihre Ziele zu erreichen.</li> <li class=\"Lexical list\" Item\" value=\"3\"><strong><strong class=\"Lexical textBold\">Food:</strong></strong> Mittagessen und Snacks werden von Proton jeden Tag in unseren Büros zur Verfügung gestellt.</li> <li class=\"Lexical list\" Item\" value=\"4\"><strong><strong class=\"Lexical textBold\"> Transport: </strong></strong> Wir unterstützen unsere Mitarbeiter immer bei den Transportkosten durch die Subventionierung von öffentlichen Verkehrsmitteln, Fahrradzulagen oder Parkplätzen basierend auf Ihrem Bürostandort.</li> <li class=\"Lexical list\" Item\" value=\"5\"><strong><strong class=\"Lexical textBold\">Stock Options:</strong></strong> Bei Proton sind wir alle Eigentümer des Unternehmens und Sie erhalten Aktienoptionen, wenn Sie sich uns anschließen.</li> <li class=\"Lexical list\" Item\" value=\"6\"><strong><strong class=\"Lexical textBold\"> Flexibles Arbeiten: </strong></strong> Sie können Ihre eigenen Arbeitszeiten festlegen, solange sie mit Teambesprechungen funktionieren.</li> <li class=\"Lexical list\" Item\" value=\"7\"><strong><strong class=\"Lexical textBold\">Lernen und Entwicklung:</strong></strong> Wir setzen uns für Ihr berufliches Wachstum ein. Proton bietet verschiedene Lernmöglichkeiten, darunter Schulungsprogramme, Konferenzen und Veranstaltungen sowie kontinuierliches Lernen.</li> <li class=\"Lexical list\" Item\" value=\"8\"><strong><strong class=\"Lexical textBold\">Mitarbeiterleistungen:</strong></strong> Umfassende Krankenversicherungen, wettbewerbsfähige Altersvorsorgeoptionen, großzügige Urlaubs- und Urlaubspolicen und Wellnessprogramme.</li> <li class=\"Lexical list\" Item\" value=\"9\"><strong><strong class=\"Lexical textBold\"> Arbeit, die wichtig ist:</strong></strong> Proton ist eine Community-First-Organisation, die mit der Unterstützung einer Crowdfunding-Kampagne gestartet und mit Community-Input aufgebaut wurde. Bis heute ist die einzige Einnahmequelle von Proton Benutzerabonnements. Über 100 millionen menschen vertrauen und unterstützen proton, und wir stellen unsere nutzer und unsere community an die erste stelle bei allem, was wir tun. Lesen Sie mehr über unsere Wirkung<a class=\"Lexical link\" href=\"https://proton.me/impact\"> hier</a>.</li> </ul> <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\"> Überprüfen Sie unsere Social Media, um mehr über Proton zu erfahren: </strong></strong></p> <p class=\"Lexical paragraph\"><a class=\"Lexical link\" href=\"https=\"Lexical textBold\"><strong><strong></strong></strong><strong>=\"Lexical textBold\">,</strong></strong></strongclass=\"Lexical textBold\">,</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>=\"Lexical textBold\">,</strong></strong></strong>=\"Lexical textBold\"></strong></strong></strong></strong></strong></strong></strong>=\"Lexical textBold\">,</strong <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Unser Engagement für Vielfalt und Inklusion</strong></strong></p> <p class=\"Lexical paragraph\"> Bei Proton glauben wir, dass Vielfalt Innovationen vorantreibt und unsere Mission stärkt, Privatsphäre als Standard für alle zu bieten. Wir setzen uns für ein integratives Umfeld ein, in dem sich alle Menschen unabhängig von Rasse, Ethnie, Geschlecht, Alter, sexueller Orientierung, körperlichen Fähigkeiten oder sozioökonomischem Hintergrund geschätzt und befähigt fühlen. Wir bemühen uns, Chancengleichheit zu schaffen, einen offenen Dialog zu fördern und kontinuierliches Lernen zu unterstützen, um sicherzustellen, dass jede Stimme gehört und respektiert wird. <p class=\"Lexical paragraph\"> Wenn Sie zusätzliche Unterstützung oder angemessene Anpassungen während des Einstellungsprozesses benötigen, lassen Sie es bitte Ihren Talentpartner wissen.</p> <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Datenschutzerklärung des Bewerbers</strong></strong></p> <p class=\"Lexical paragraph\"> Wenn Sie sich für eine Stelle bewerben, einen Kandidaten verweisen oder für eine Stelle bei Proton Technologies AG (Proton, wir, uns oder unsere) in Betracht gezogen werden, werden Ihre Daten in Greenhouse gemäß deren <a class=\"Lexical link\" href=\"https://www.greenhouse.com/privacy-policy\"> gespeichert. Service Privacy Policy.</a> Diese Informationen werden verwendet, um Ihre Eignung für die gebuchte Position zu bewerten. Wir speichern diese Informationen auch zur Berücksichtigung zukünftiger Rollen, für die Sie sich möglicherweise bewerben oder von denen wir glauben, dass sie mit Ihrem Hintergrund und Ihren Fähigkeiten übereinstimmen könnten.</p> <p class=\"Lexical paragraph\"> Wenn wir keinen legitimen Geschäftsbedarf mehr haben, Ihre Daten zu verarbeiten, werden wir sie entweder löschen oder anonymisieren. Sollten Sie Fragen dazu haben, wie wir Ihre Daten verwenden oder verwalten, oder wenn Sie auf Ihre Daten zugreifen, sie korrigieren oder löschen möchten, wenden Sie sich bitte an unser Datenschutzteam unter careers@proton.ch.</p> <p class=\"Lexical paragraph\"><em><em class=\"Lexical textItalic\"> Proton akzeptiert keine unerwünschten lebensläufe aus anderen quellen als direkt von kandidaten. Wir zahlen keine Gebühr für eine Platzierung, die sich aus einem unaufgeforderten Angebot ergibt, auch wenn der Kandidat anschließend von Proton eingestellt wird.</em></em></p> <p class=\"Lexical paragraph\"><em><em class=\"Lexical textItalic\">Um mehr über unsere Datenschutzrichtlinie zu erfahren, besuchen Sie bitte </em></em><a class=\"Lexical link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em><em class=\"Lexical textItalic\">unsere Datenschutzrichtlinienseite</em></em></em></a><em><em><em><em></em><em><em></em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>< <p class=\"Lexical paragraph\"><em><em class=\"Lexical textItalic\">#LinkedIn-Onsite</em></em></p>",
         "fr": "<p><strong>Rejoignez Proton et construisez un meilleur Internet où la confidentialité est la valeur par défaut</strong></p> Chez Proton, nous croyons que la vie privée est un droit fondamental de la personne et la pierre angulaire de la démocratie. Depuis notre création en 2014, fondée par une équipe de scientifiques du CERN, nous nous sommes engagés à fournir une technologie gratuite et ouverte à des millions de personnes dans le monde entier, assurant l'accès à la vie privée, à la sécurité et à la liberté en ligne.</p> <p>Notre voyage a commencé avec Proton Mail, le plus grand service d'email sécurisé au monde, et s'est étendu depuis pour inclure Proton VPN, Proton Calendar, Proton Drive et Proton Pass. Ces outils permettent aux individus et aux organisations de prendre le contrôle de leurs données personnelles, de rompre avec les pratiques invasives de Big Tech et de vaincre la censure. Notre travail a des répercussions sur des centaines de millions de vies, des militants en première ligne qui défendent la liberté aux dirigeants des gouvernements qui protègent des informations sensibles. Dans certains cas, les services de Proton ont même contribué à sauver des vies en permettant des communications sécurisées et privées dans des situations à haut risque.</p> <p>Proton soutient aujourd'hui plus de 100 millions de comptes d'utilisateurs avec une équipe croissante de plus de 500 personnes provenant de plus de 50 pays différents, des meilleures entreprises et universités du monde. Nous valorisons l'intelligence, le potentiel d'apprentissage et l'ambition dans notre processus d'embauche. L'adaptabilité est essentielle alors que nous naviguons dans des territoires inexplorés et redéfinissons la façon dont les affaires sont menées en ligne. Nous croyons que les équipes plus petites de talent exceptionnel prévaudront toujours sur les équipes plus grandes avec une densité de talent inférieure. Proton est devenu rentable et a atteint l'échelle sans compter sur le financement du CR, en grande partie grâce à un talent supérieur qui nous permet de faire les choses plus rapidement, plus créativement et plus efficacement.</p> <p>Nous avons un état d'esprit global et de grandes ambitions mais restons une start-up au cœur. Nous valorisons l'autonomisation et la flexibilité et maintenons notre structure à plat pour continuer à avancer rapidement et éviter les politiques inutiles. Fatigué de se fondre dans la foule ? Rejoignez-nous et faites du travail dont vous pouvez vraiment être fier. <span class=\"TextRun SCXP96911575 BCX0\"><span class=\"NormalTextRun SCXP96911575 BCX0\"><span class=\"inline-comment-marker\" data-ref=\"df41d9b1-a4e5-469e-b94c-9c31cb38a786\"> Consultez nos pages de médias sociaux </strong> pour en savoir plus sur nous : <a class=\"external-link\" href=\"https://x.com/ProtonPrivacy\"> Twitter</a>, <a class=\"external-link\" href=\"https://www.reddit.com/r/ProtonMail/\">Reddit</a>, <a class=\"external-link\" href=\"https://www.instagram.com/protonprivacy/\">Instagram</a>.</span></span></span></p> L'équipe :</strong></strong></p> <p class=\"Lexical paragraphe\"> En tant qu'ingénieur Frontend de l'équipe Inbox, vous jouerez un rôle crucial dans le développement des services les plus essentiels de Proton, y compris le courrier et le calendrier. Nous nous attendons à ce que vous soyez axé sur le client, l'apprentissage continu, passionné par la technologie et la facilité d'utilisation. Vous êtes un expert pour transformer les complexités techniques en expériences utilisateur sans faille. Un travail d'équipe efficace, la collaboration avec le produit, la conception, les API et votre équipe, et la prise de décisions axée sur les données sont des aspects essentiels de ce rôle.</p>\n• <p class=\"Lexical paragraphe\"><strong><strong class=\"Lexical textBold\">Responsabilités clés:</strong></strong></p>\n• <p> </p>\n• <ul class=\"Lexical ul Lexical ul--profondeur-1\"> <li class=\"Lexical list Poste\" valeur\"1\"> Prendre en main de bout en bout les projets de développement d'applications mobiles : vous serez à l'aise avec les projets de cadrage, en revenant des échéances et en étant capable de discerner l'importance du superflu</li> <li class=\"Lexical list Poste\" valeur\"2\"> Favoriser une culture de l'innovation en explorant les nouvelles technologies, méthodologies et approches du développement web – nous nous attaquons aux défis complexes de l'ingénierie avec créativité et ingéniosité</li> <li class=\"Lexical list Poste\" valeur\"3\"> Conception de l'évolutivité, en tenant compte de facteurs tels que la mise en cache des données, la bande passante du réseau et la charge du serveur</li> <li class=\"Lexical list Poste\" valeur\"4\"> Mettre en oeuvre des solutions pour surveiller et alerter l'équipe concernant l'état des clients Web de la boîte de réception</li> <li class=\"Lexical list Poste\" valeur\"5\"> Prioriser la satisfaction de la clientèle en maintenant un état d'esprit axé sur la clientèle tout au long du processus de développement, en cherchant continuellement des commentaires et en itérant pour améliorer l'expérience utilisateur</li> </ul>\n• <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Stack technologique et outils:</strong></strong></p>\n• <p> </p>\n• <p class=\"Lexical parame\">Javascript, TypeScript, Réaction, Symfony, Rust</p>\n• <ul class=\"Lexical ul Lexical ul--profondeur-1\"> <li class=\"Lexical list Poste\" valeur\"1\"> Chaque base de codes clients Proton sont open source, <a class=\"Lexical link\" href=\"https://github.com/ProtonMail/WebClients\" cible=\" blank\"> Regardez ici.</a></li> <li class=\"Lexical list Poste\" valeur\"2\"> Le chiffrement pose des défis uniques au développement de première ligne. Une fonctionnalité de recherche insignifiante devient beaucoup plus intéressante à implémenter lorsque le corps du courriel est entièrement chiffré.</li> </ul>\n• <p> </p>\n• <p><strong><strong class=\"Lexical textBold\"> Ce que vous ferez</strong></strong></p>\n• <p> </p>\n• <ul class=\"Lexical ul Lexical ul--profondeur-1\"> <li class=\"Lexical list Item\" value=\"1\"><strong><strong class=\"Lexical textBold\">Développer de nouvelles fonctionnalités</strong></strong>: Développer, déployer et soutenir des expériences utilisateur de haute qualité, y compris le développement et la mise en oeuvre de fonctionnalités.</li> <li class=\"Lexical list Item\" value=\"2\"><strong><strong class=\"Lexical textBold\"> Conduire l'adoption et la rétention de l'utilisateur: </strong></strong>Vous contribuerez à l'utilisateur à bord et offrirez une expérience délicieuse à retenir</li> <li class=\"Lexical list Item\" value=\"3\"><strong><strong class=\"Lexical textBold\"> Collaboration : </strong></strong> Travailler en étroite collaboration avec les propriétaires de produits, les concepteurs, l'AQ et d'autres ingénieurs pour prendre des initiatives de l'idée à l'achèvement.</li> <li class=\"Lexical list Item\" value=\"4\"><strong><strong class=\"Lexical textBold\"> Révision et optimisation du code :</strong></strong> Effectuer des examens du code et fournir une rétroaction constructive pour assurer la qualité du code, sa maintenance et l'optimisation du rendement.</li> <li class=\"Lexical list Élément\" valeur\"5\"><strong><strong class\"Lexical textBold\"> Essais</strong></strong> : Élaborer et mettre en oeuvre des stratégies d'essai exhaustives sur toutes les couches d'essai pour assurer la fiabilité et la facilité de développement future.</li> </ul>\n• <p> </p>\n• <p class=\"Lexical paragraphe\"><strong><strong class=\"Lexical textBold\"> Exigences relatives à l'emploi</strong></strong></p>\n• <p class=\"Lexical alum\"> </p>\n• <p class=\"Lexical paragraphe\"> Bien que nous préférions les candidats qui couvrent l'ensemble des compétences, n'hésitez pas à postuler si vous n'êtes pas une correspondance exacte, car nous sommes prêts à vous aider à grandir dans certains domaines.</p>\n• <ul class=\"Lexical ul Lexical ul--profondeur-1\">\n• <li class=\"Lexical list Poste\" valeur\"1\"> Expérience approfondie du développement de logiciels professionnels en utilisant JavaScript ou TypeScript.</li>\n• <li class=\"Lexical list Poste\" valeur\"2\"> Expérience avec des cadres similaires React ou 2+, en développant des composants performants et réutilisables.</li>\n• <li class=\"Lexical list Poste\" valeur\"3\"> Expérience contribuant à une base de code API, points bonus si en PHP</li>\n• <li class=\"Lexical list Poste\" valeur\"4\"> Expérience des tests d'écriture à l'échelle</li>\n• <li class=\"Lexical list Poste\" valeur\"5\"> Connaissance d'autres pratiques exemplaires pour assurer la qualité du code, y compris le CI/CD.</li>\n• </ul>\n• <p class=\"Lexical alum\"> </p>\n• <p class=\"Lexical paragraphe\"><strong><strong class=\"Lexical textBold\"> Sympa d'avoir: </strong></strong></p>\n• <ul>\n• <li class=\"Lexical paragraphe\"> Expérience des outils de surveillance et d'observation</li>\n• <li class=\"Lexical paragraphe\"> Expérience dans une équipe distribuée</li>\n• <li class=\"Lexical paragraphe\"> Sensibilisation aux problèmes de sécurité communs dans le développement du côté des clients, comme ceux qui figurent dans le top 10 du PSAO, et comment les atténuer</li>\n• <li class=\"Lexical paragraphe\"> Connaissance des questions et des solutions relatives à l'UX, à l'accessibilité, à l'internationalisation et à la localisation</li>\n• </ul>\n• <p>Même si vous ne répondez pas à toutes les exigences énumérées ci-dessus, mais pensez que vous pourriez encore être un bon ajustement, veuillez toujours postuler.</p>\n• <p> </p>\n• <p class=\"Lexical paragraphe\"><strong><strong class=\"Lexical textBold\">Ce que nous offrons</strong></strong></p>\n• <ul class=\"Lexical ul Lexical ul--profondeur-1\"> <li class=\"Lexical list Item\" value=\"1\"><strong><strong class=\"Lexical textBold\">Office First:</strong></strong> La collaboration est plus facile et plus efficace en personne, c'est pourquoi nous avons des bureaux à Genève, Zurich, Prague, Barcelone, Paris, Londres, Vilnius, Skopje et Taipei. Vous pouvez également profiter de travailler de la maison jusqu'à 30% du temps, tout en profitant d'une grande entreprise pendant nos trois jours de base dans le bureau. </li> <li class=\"Lexical list Item\" value=\"2\"><strong><strong class=\"Lexical textBold\"> Technologie :</strong></strong> Nous fournissons tous les appareils et les logiciels dont vous avez besoin pour exceller dans votre rôle, vous assurant d'avoir les meilleurs outils à votre disposition pour atteindre vos objectifs.</li> <li class=\"Lexical list Item\" value=\"3\"><strong><strong class=\"Lexical textBold\">Food:</strong></strong> Le déjeuner et les collations sont fournis par Proton tous les jours dans nos bureaux.</li> <li class=\"Lexical list Item\" value=\"4\"><strong><strong class=\"Lexical textBold\"> Transports : </strong></strong> Nous soutiendrons toujours nos employés avec des frais de transport en subventionnant les transports en commun, les allocations de vélos ou les places de stationnement en fonction de l'emplacement de votre bureau.</li> <li class=\"Lexical list Item\" value=\"5\"><strong><strong class=\"Lexical textBold\">Options de réserve:</strong></strong> Chez Proton, nous sommes tous propriétaires de l'entreprise et vous obtenez des options d'achat d'actions lorsque vous vous joignez à nous.</li> <li class=\"Lexical list Item\" value=\"6\"><strong><strong class=\"Lexical textBold\"> Travail flexible : </strong></strong> Vous pouvez définir vos propres heures de travail aussi longtemps que cela fonctionne avec les réunions d'équipe.</li> <li class=\"Lexical list Item\" value=\"7\"><strong><strong class=\"Lexical textBold\">Apprendre et développer:</strong></strong> Nous sommes engagés dans votre développement professionnel. Proton offre diverses possibilités d'apprentissage, notamment des programmes de formation, des conférences et des événements, et un apprentissage continu. <li class=\"Lexical list Item\" value\"8\"><strong><strong class\"Lexical textBold\">Prestations aux employés:</strong></strong> Régimes complets d'assurance-maladie, options concurrentielles d'épargne-retraite, politiques généreuses en matière de congés annuels et de programmes de mieux-être.</li> <li class=\"Lexical list Item\" value=\"9\"><strong><strong class=\"Lexical textBold\"> Travail qui compte :</strong></strong> Proton est un organisme communautaire d'abord, a commencé avec le soutien d'une campagne de financement participatif et construit avec l'apport de la communauté. À ce jour, la seule source de revenus de Proton est les abonnements utilisateurs. Plus de 100 millions de personnes font confiance et soutiennent Proton, et nous mettons nos utilisateurs et notre communauté en premier dans tout ce que nous faisons. En savoir plus sur notre impact<a class=\"Lexical link\" href=\"https://proton.me/impact\"> ici</a>.</li> </ul> <p class=\"Lexical paragraphe\"><strong><strong class=\"Lexical textBold\"> Consultez nos médias sociaux pour en savoir plus sur Proton : </strong></strong></p> <p class=\"Lexical parum\"><a class=\"Lexical link\" href=\"https://www.linkedin.com/company/protonprivacy/\"><strong><strong><strong><strong><strong><strong><s://www.reddit.com/r/ProtonMail/\"><strong><strong><strong=\"Lexical textBold\"></strong></strong><une classe=\"Lexical link\" href=\"https://www.reddit.com/r/ProtonMail/\"><strong><strong><strong=\"Lexical textBold\">Reddit</strong></strong></strong=\"Lexical link <p class=\"Lexical paragraph\"><strong><strong class=\"Lexical textBold\">Notre engagement envers la diversité et l'inclusion</strong></strong></p> <p class=\"Lexical paragraphe\"> Chez Proton, nous croyons que la diversité stimule l'innovation et renforce notre mission de fournir la vie privée comme un défaut pour tous. Nous nous engageons à favoriser un environnement inclusif où tous les individus, sans distinction de race, d'origine ethnique, de sexe, d'âge, d'orientation sexuelle, de capacité physique ou de contexte socioéconomique, se sentent valorisés et habilités. Nous nous efforçons de créer l'égalité des chances, de promouvoir un dialogue ouvert et d'appuyer l'apprentissage continu pour faire en sorte que chaque voix soit entendue et respectée.</p> <p class=\"Lexical paragraphe\"> Si vous avez besoin d'un soutien supplémentaire ou d'ajustements raisonnables pendant le processus d'embauche, veuillez en informer votre partenaire talentueux.</p> <p class=\"Lexical parament\"><strong><strong class=\"Lexical textBold\">Avis de confidentialité obligatoire</strong></strong></p> <p class=\"Lexical paragraphe\"> Lorsque vous postulez à un poste, que vous soumettez un candidat ou que vous êtes considéré pour un rôle à Proton Technologies AG (Proton, nous, nous, ou notre), vos informations sont stockées à Greenhouse, conformément à leur <une classe=\"Lexical link\" href=\"https://www.greenhouse.com/privacy-policy\"> Politique de confidentialité du service.</a> Ces renseignements servent à évaluer votre aptitude au poste affiché. Nous conservons également cette information pour tenir compte des rôles futurs que vous pourriez postuler ou qui, selon nous, pourraient correspondre à vos antécédents et compétences.</p> <p class=\"Lexical paragraphe\"> Si nous n'avons plus besoin d'une entreprise légitime pour traiter vos informations, nous les supprimerons ou les anonymiserons. Si vous avez des questions sur la façon dont nous utilisons ou gérons vos informations, ou si vous souhaitez accéder, corriger ou supprimer vos données, veuillez contacter notre équipe de confidentialité à carriees@proton.ch.</p> <p class=\"Lexical paragraphe\"><em><em class=\"Lexical textItalic\"> Proton n'accepte pas les curriculum vitae non sollicités provenant d'autres sources que directement des candidats. Nous ne paierons pas de frais pour tout placement résultant d'une offre non sollicitée, même si le candidat est par la suite embauché par Proton.</em></em></p> <p class=\"Lexical alum\"><em><em class=\"Lexical textItalic\">Pour en savoir plus sur notre politique de confidentialité, veuillez visiter </em></em><a class=\"Lexical link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical textItalic\">notre page de politique de confidentialité</em></em></a><em><em class=\"Lexical textItalic\">.</em></em></p> <p class=\"Lexical parame\"><em><em class=\"Lexical textItalic\">#LinkedIn-Onsite</em></em></p>"
@@ -1837,7 +1866,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4767553101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:49.704Z",
+      "crawledAt": "2026-07-04T23:25:27.527Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1852,10 +1881,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4767553101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:27.983Z",
+      "previousSlugs": [
+        "frontend-engineer-inbox-web-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "frontend-engineer-inbox-web-proton-ch"
+          "frontend-engineer-inbox-web-proton-ch",
+          "frontend-ingegnere-inbox-web-proton-paris-geneva"
         ],
         "de": [
           "frontend-engineer-inbox-web-proton-ch"
@@ -1864,9 +1896,7 @@
           "frontend-engineer-inbox-web-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "frontend-engineer-inbox-web-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:27.983Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1913,7 +1943,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4814505101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:49.401Z",
+      "crawledAt": "2026-07-04T23:25:27.224Z",
       "addressLocality": "Taipei",
       "addressCountry": "CH",
       "country": "CH",
@@ -1928,10 +1958,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4814505101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:27.680Z",
+      "previousSlugs": [
+        "frontend-engineer-b2b-products-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "frontend-engineer-b2b-products-proton-ch"
+          "frontend-engineer-b2b-products-proton-ch",
+          "frontend-ingegnere-b2b-products-proton-taipei-geneva-skopje"
         ],
         "de": [
           "frontend-engineer-b2b-products-proton-ch"
@@ -1940,9 +1973,7 @@
           "frontend-engineer-b2b-products-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "frontend-engineer-b2b-products-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:27.680Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1989,7 +2020,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766473101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:49.099Z",
+      "crawledAt": "2026-07-04T23:25:26.921Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -2004,10 +2035,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4766473101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:27.378Z",
+      "previousSlugs": [
+        "frontend-engineer-accounts-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "frontend-engineer-accounts-proton-ch"
+          "frontend-engineer-accounts-proton-ch",
+          "frontend-ingegnere-accounts-proton-paris-geneva"
         ],
         "de": [
           "frontend-engineer-accounts-proton-ch"
@@ -2016,9 +2050,7 @@
           "frontend-engineer-accounts-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "frontend-engineer-accounts-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:27.378Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2065,7 +2097,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4914620101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:48.795Z",
+      "crawledAt": "2026-07-04T23:25:26.618Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2127,7 +2159,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4715670101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:48.492Z",
+      "crawledAt": "2026-07-04T23:25:26.314Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -2204,7 +2236,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4540771101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-04T12:06:48.186Z",
+      "crawledAt": "2026-07-04T23:25:26.010Z",
       "addressLocality": "Taipei",
       "addressCountry": "CH",
       "country": "CH",
@@ -2219,10 +2251,13 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4540771101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:26.469Z",
+      "previousSlugs": [
+        "backend-engineer-b2b-products-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "backend-engineer-b2b-products-proton-ch"
+          "backend-engineer-b2b-products-proton-ch",
+          "backend-ingegnere-b2b-products-proton-taipei-geneva-skopje"
         ],
         "de": [
           "backend-engineer-b2b-products-proton-ch"
@@ -2231,9 +2266,7 @@
           "backend-engineer-b2b-products-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "backend-engineer-b2b-products-proton-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:16:26.469Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
