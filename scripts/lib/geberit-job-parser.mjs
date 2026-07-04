@@ -272,8 +272,21 @@ export async function fetchAllGeberitJobs() {
     // from a foreign address and mis-tag a foreign job as CH/SG.
     const addrs = Array.isArray(rec.addresses) ? rec.addresses : [];
     const addr = addrs.find((a) => a && a.country === 'Schweiz') || addrs[0] || {};
-    const location = normalizeSpace(addr.city || HQ.city);
-    const canton = inferSwissTargetCanton(`${location} ${addr.postalCode || ''}`) || HQ.canton;
+    // Unresolved-canton skip guard: infer from the real (pre-HQ-default) city/
+    // postal text, never from a fallback already defaulted to HQ.city — else
+    // real-but-unresolvable location text would trivially resolve through
+    // HQ.city and silently fabricate the HQ canton for a job that isn't
+    // positively there (AGENTS.md Non-Negotiable #3). No text at all still
+    // defaults to HQ.
+    const realCity = normalizeSpace(addr.city || '');
+    const realPostal = normalizeSpace(addr.postalCode || '');
+    const inferredCanton = inferSwissTargetCanton(`${realCity} ${realPostal}`.trim()) || null;
+    if ((realCity || realPostal) && !inferredCanton) {
+      console.warn(`  ⚠️ Geberit: skipping unresolvable location "${realCity || realPostal}" (${title})`);
+      continue;
+    }
+    const location = realCity || HQ.city;
+    const canton = inferredCanton || HQ.canton;
 
     const description = htmlToMarkdown(rec.description || '');
     if (!description || description.length < 30) continue; // skip empties → never synthesise
