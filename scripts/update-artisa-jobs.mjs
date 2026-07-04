@@ -26,6 +26,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseArtisaCareerPage,
@@ -197,13 +198,15 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
-    return {
+    const merged = {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];

@@ -30,6 +30,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   htmlToMarkdown,
@@ -435,13 +436,15 @@ function mergeJobs(discoveredJobs) {
 
     const prevLocaleDescs = descChanged ? {} : (prev.descriptionByLocale || {});
 
-    merged.push({
+    const mergedJob = {
       ...prev,
       ...discovered,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prevLocaleDescs, discovered.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, discovered.slugByLocale, 3),
-    });
+    };
+    captureLostSlugs(mergedJob, prev.slugByLocale, prev.slug, 20);
+    merged.push(mergedJob);
   }
 
   // Count removed (existing jobs not in new crawl)

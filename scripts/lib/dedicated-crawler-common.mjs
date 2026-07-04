@@ -22,7 +22,7 @@ import {
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { WORKDAY_HOST_RE, workdayReqFromLeaf } from './job-url-key.mjs';
-import { recordSlugMutation } from './slug-history-journal.mjs';
+import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
 import { isAcceptableTranslation, hasConcatenatedWords } from './translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 
@@ -5643,15 +5643,10 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         const freshArr = Array.isArray(fresh.previousSlugsByLocale?.[locale]) ? fresh.previousSlugsByLocale[locale] : [];
         const merged = [...new Set([...oldArr, ...freshArr])];
         if (merged.length > 0) {
-          const capped = merged.slice(0, 20);
-          if (merged.length > capped.length) {
-            recordSlugMutation({
-              jobId: fresh.id, locale, slug: '<oldest>', action: 'cap-trim',
-              source: 'dedicated-crawler-common.mergePreserveLocaleData',
-              reason: `cap=20, trimmed=${merged.length - capped.length}`,
-            });
-          }
-          fresh.previousSlugsByLocale[locale] = capped;
+          fresh.previousSlugsByLocale[locale] = capSlugArray(merged, 20, {
+            jobId: fresh.id, locale,
+            source: 'dedicated-crawler-common.mergePreserveLocaleData',
+          });
         }
       }
     }
@@ -6069,29 +6064,33 @@ export function cleanPreviousSlugsPerLocale(job) {
  */
 function syncLegacyPreviousSlugs(job, cap = 20) {
   const all = new Set();
-  // Include locale-aware entries
+  // Preserve existing legacy entries FIRST (pre-migration or unattributed) so
+  // they occupy the front of the union. Locale-aware entries are added
+  // SECOND, below — that's where a slug freshly captured by THIS call lands
+  // (addPreviousSlugForLocale pushes to the end of the per-locale array
+  // before calling this function). capSlugArray below caps by keeping the
+  // TAIL of the union (newest), so this ordering matters: swapping it (as an
+  // earlier version of this fix did) put freshly-captured slugs at the
+  // FRONT and the cap dropped them instead of the stale legacy entries —
+  // the exact inversion issue #3377 was filed against, just relocated.
+  if (Array.isArray(job.previousSlugs)) {
+    for (const s of job.previousSlugs) all.add(s);
+  }
+  // Include locale-aware entries (may re-add slugs already present above;
+  // Set dedup keeps the FIRST-seen position, so a slug already counted from
+  // the legacy array above is not moved to the tail by this pass).
   if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
     for (const arr of Object.values(job.previousSlugsByLocale)) {
       if (Array.isArray(arr)) for (const s of arr) all.add(s);
     }
   }
-  // Preserve existing legacy entries (pre-migration or unattributed)
-  if (Array.isArray(job.previousSlugs)) {
-    for (const s of job.previousSlugs) all.add(s);
-  }
   if (all.size === 0) {
     delete job.previousSlugs;
   } else {
     const union = [...all];
-    const capped = union.slice(0, cap);
-    if (union.length > capped.length) {
-      recordSlugMutation({
-        jobId: job.id, locale: null, slug: '<oldest>', action: 'cap-trim',
-        source: 'dedicated-crawler-common.syncLegacyPreviousSlugs',
-        reason: `cap=${cap}, trimmed=${union.length - capped.length}`,
-      });
-    }
-    job.previousSlugs = capped;
+    job.previousSlugs = capSlugArray(union, cap, {
+      jobId: job.id, source: 'dedicated-crawler-common.syncLegacyPreviousSlugs',
+    });
   }
 }
 
@@ -6105,14 +6104,9 @@ function mergePreviousSlugsByLocale(a, b, jobId = null, source = 'mergePreviousS
     const aArr = (a && Array.isArray(a[locale])) ? a[locale] : [];
     const bArr = (b && Array.isArray(b[locale])) ? b[locale] : [];
     const union = [...new Set([...aArr, ...bArr])];
-    const merged = union.slice(0, 20);
-    if (jobId && union.length > merged.length) {
-      recordSlugMutation({
-        jobId, locale, slug: '<oldest>', action: 'cap-trim',
-        source: `dedicated-crawler-common.${source}`,
-        reason: `cap=20, trimmed=${union.length - merged.length}`,
-      });
-    }
+    const merged = capSlugArray(union, 20, {
+      jobId, locale, source: `dedicated-crawler-common.${source}`,
+    });
     if (merged.length > 0) result[locale] = merged;
   }
   return Object.keys(result).length > 0 ? result : undefined;
@@ -6155,14 +6149,9 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
       ...(Array.isArray(b.previousSlugs) ? b.previousSlugs : []),
     ]),
   ];
-  const mergedPreviousSlugs = previousSlugsUnion.slice(0, 20);
-  if (previousSlugsUnion.length > mergedPreviousSlugs.length) {
-    recordSlugMutation({
-      jobId, locale: null, slug: '<oldest>', action: 'cap-trim',
-      source: 'dedicated-crawler-common.mergeDuplicateJobPreservingSlugHistory',
-      reason: `cap=20, trimmed=${previousSlugsUnion.length - mergedPreviousSlugs.length}`,
-    });
-  }
+  const mergedPreviousSlugs = capSlugArray(previousSlugsUnion, 20, {
+    jobId, source: 'dedicated-crawler-common.mergeDuplicateJobPreservingSlugHistory',
+  });
   const mergedPreviousSlugsByLocale = mergePreviousSlugsByLocale(
     a.previousSlugsByLocale, b.previousSlugsByLocale, jobId, 'mergeDuplicateJobPreservingSlugHistory',
   );
@@ -6281,14 +6270,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
       ])
     ];
-    const mergedPreviousSlugsCapped = previousSlugsUnion.slice(0, 20);
-    if (previousSlugsUnion.length > mergedPreviousSlugsCapped.length) {
-      recordSlugMutation({
-        jobId: mergeJobId, locale: null, slug: '<oldest>', action: 'cap-trim',
-        source: 'dedicated-crawler-common.mergeAndDeduplicate',
-        reason: `cap=20, trimmed=${previousSlugsUnion.length - mergedPreviousSlugsCapped.length}`,
-      });
-    }
+    const mergedPreviousSlugsCapped = capSlugArray(previousSlugsUnion, 20, {
+      jobId: mergeJobId, source: 'dedicated-crawler-common.mergeAndDeduplicate',
+    });
     const best = {
       ...prev,
       ...next,

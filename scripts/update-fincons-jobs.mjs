@@ -24,6 +24,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseFinconsListingsPage,
@@ -187,7 +188,7 @@ function mergeJobs(discoveredJobs) {
   const mergedTarget = discoveredJobs.map((job) => {
     const prev = existingByKey.get(jobMatchKey(job));
     if (!prev) return job;
-    return {
+    const merged = {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
@@ -195,6 +196,8 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
       metadata: { ...(prev.metadata || {}), ...(job.metadata || {}) },
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];

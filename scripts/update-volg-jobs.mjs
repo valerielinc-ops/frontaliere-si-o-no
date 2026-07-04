@@ -55,6 +55,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
   ensureMinimumDescriptionWordCount,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
@@ -838,6 +839,7 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
       needsRetranslation: job._enrichedFromDetail ? true : (prev.needsRetranslation || false),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
     delete merged._enrichedFromDetail;
     return merged;
   });

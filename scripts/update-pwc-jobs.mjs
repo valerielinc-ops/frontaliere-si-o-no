@@ -38,7 +38,9 @@ import {
   detectLang,
   mergeLocaleTextMap,
   isLocationExplicitlyForeign,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { capSlugArray } from './lib/slug-history-journal.mjs';
 import {
   parsePwcJobs,
   inferPwcCategory,
@@ -242,7 +244,7 @@ function mergeJobs(discoveredJobs) {
     // stable-id matchKey above, then record every previously-emitted slug
     // value so the build pipeline emits a bridge page (301 via canonical)
     // instead of a thin "expired" soft-landing at the old URL.
-    const previousSlugs = Array.from(new Set([
+    const previousSlugsUnion = Array.from(new Set([
       ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),
       ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
       ...(prev.slug && prev.slug !== job.slug ? [prev.slug] : []),
@@ -251,8 +253,11 @@ function mergeJobs(discoveredJobs) {
         const newL = mergedSlugByLocale?.[l];
         return oldL && oldL !== newL ? [oldL] : [];
       }),
-    ])).filter(Boolean).slice(0, 20);
-    return {
+    ])).filter(Boolean);
+    const previousSlugs = capSlugArray(previousSlugsUnion, 20, {
+      jobId: prev.id || job.id, source: 'update-pwc-jobs.mergeJobs',
+    });
+    const merged = {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
@@ -260,6 +265,8 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergedSlugByLocale,
       ...(previousSlugs.length > 0 ? { previousSlugs } : {}),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];

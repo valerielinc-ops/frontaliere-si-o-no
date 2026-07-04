@@ -44,6 +44,7 @@ import {
   normalize,
   normalizeKey,
 mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, buildJob, buildFallbackDescription, stripHtml } from './lib/ferrovia-retica-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -165,7 +166,7 @@ function mergeJobs(discoveredJobs) {
     }
     updated += 1;
     // Preserve existing translations and slugs from prior runs
-    return {
+    const merged = {
       ...prev,
       ...job,
       // Keep existing postedDate if discovered one is missing
@@ -181,6 +182,8 @@ function mergeJobs(discoveredJobs) {
       // Only set needsRetranslation if prev had it, not on every merge
       needsRetranslation: prev.needsRetranslation ?? job.needsRetranslation,
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];

@@ -35,6 +35,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   fetchRelewantJobs,
@@ -182,6 +183,7 @@ async function mergeJobs(discoveredJobs) {
       descriptionByLocale: mergedDescByLocale,
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
+    captureLostSlugs(updatedJob, prev.slugByLocale, prev.slug, 20);
     return updatedJob;
   });
 

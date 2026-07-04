@@ -35,6 +35,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseLombardiListingPage,
@@ -219,6 +220,7 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
       needsRetranslation: job._enrichedFromDetail ? true : (prev.needsRetranslation || false),
     };
+    captureLostSlugs(clean, prev.slugByLocale, prev.slug, 20);
     delete clean._enrichedFromDetail;
     return clean;
   });

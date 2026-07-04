@@ -26,6 +26,7 @@ import {
   translateMissingJobLocales,
   detectLang,
   mergeLocaleTextMap,
+  captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseRuagListingLinks,
@@ -292,13 +293,15 @@ function mergeJobs(discoveredJobs) {
       return nextJob;
     }
     updated += 1;
-    return {
+    const merged = {
       ...prev,
       ...nextJob,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, nextJob.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, nextJob.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, nextJob.slugByLocale, 3),
     };
+    captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    return merged;
   });
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];

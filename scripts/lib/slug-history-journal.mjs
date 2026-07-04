@@ -53,6 +53,34 @@ export function getEvents() {
 }
 
 /**
+ * Cap an already-deduplicated slug array, keeping the NEWEST `cap` entries
+ * and journaling any overflow as a 'cap-trim' mutation instead of silently
+ * dropping it. This is the single shared primitive every previousSlugs cap
+ * site must delegate to (issue #3377: every one of the ~6 independent
+ * `.slice(0, cap)` call sites across the codebase — including the original
+ * `mergePreviousSlugsCapped` below — kept the OLDEST `cap` entries instead
+ * of the newest. Once a job's accumulated slug history exceeded `cap`
+ * (default 20), every subsequent capture silently discarded the NEWEST
+ * slug instead of the oldest: an inverted LRU. Low-churn jobs never notice;
+ * high-churn jobs (frequent title/translation regen) cross the threshold
+ * and start losing freshly-captured slugs, which is exactly the "4193
+ * losses in 24h" spike the issue reported — many jobs crossing the
+ * 20-entry mark around the same time due to ongoing churn). Single shared
+ * implementation so the direction can't drift back out of sync per-site.
+ */
+export function capSlugArray(union, cap, { jobId, locale = null, source } = {}) {
+  const list = Array.isArray(union) ? union : [];
+  const capped = list.length > cap ? list.slice(-cap) : list;
+  if (list.length > capped.length) {
+    recordSlugMutation({
+      jobId, locale, slug: '<oldest>', action: 'cap-trim',
+      source, reason: `cap=${cap}, trimmed=${list.length - capped.length}`,
+    });
+  }
+  return capped;
+}
+
+/**
  * Union two previousSlugs arrays and cap the result, journaling any overflow
  * as a 'cap-trim' mutation instead of silently dropping it (issue class
  * #3284/#3313/#3314: bare `.slice(0, cap)` calls scattered across
@@ -63,14 +91,7 @@ export function getEvents() {
  */
 export function mergePreviousSlugsCapped(oldSlugs, newSlugs, { jobId, source, cap = 20 } = {}) {
   const union = [...new Set([...(Array.isArray(oldSlugs) ? oldSlugs : []), ...(Array.isArray(newSlugs) ? newSlugs : [])])];
-  const capped = union.slice(0, cap);
-  if (union.length > capped.length) {
-    recordSlugMutation({
-      jobId, locale: null, slug: '<oldest>', action: 'cap-trim',
-      source, reason: `cap=${cap}, trimmed=${union.length - capped.length}`,
-    });
-  }
-  return capped;
+  return capSlugArray(union, cap, { jobId, source });
 }
 
 /** Reset the journal. Tests only. */

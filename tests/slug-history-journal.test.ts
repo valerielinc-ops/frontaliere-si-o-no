@@ -6,6 +6,7 @@ import {
   formatSummary,
   clear,
   mergePreviousSlugsCapped,
+  capSlugArray,
 } from '../scripts/lib/slug-history-journal.mjs';
 import {
   addPreviousSlugForLocale,
@@ -44,6 +45,43 @@ describe('slug-history-journal', () => {
 
   it('mergePreviousSlugsCapped journals nothing when the union stays under cap', () => {
     const result = mergePreviousSlugsCapped(['a', 'b'], ['b', 'c'], { jobId: 'company-job-2', source: 'update-guess-jobs.mjs' });
+    expect(result).toEqual(['a', 'b', 'c']);
+    expect(getEvents()).toHaveLength(0);
+  });
+
+  // Regression test for issue #3377: "previousSlugs writer regression: 4193
+  // losses in 24 hours". Root cause was `.slice(0, cap)` at ~6 cap-trim call
+  // sites across the codebase — all kept the OLDEST `cap` entries instead of
+  // the NEWEST, an inverted LRU that silently dropped freshly-captured
+  // slugs (not stale ones) once a job's accumulated history crossed the
+  // 20-entry threshold. `mergePreviousSlugsCapped` is the canonical shared
+  // helper — this asserts the newest (`newSlugs`) entries survive the trim
+  // and the oldest (`oldSlugs`) entries are the ones dropped.
+  it('mergePreviousSlugsCapped keeps the NEWEST entries on overflow, not the oldest (#3377)', () => {
+    const oldSlugs = Array.from({ length: 15 }, (_, i) => `old-slug-${i}`);
+    const newSlugs = Array.from({ length: 10 }, (_, i) => `new-slug-${i}`);
+    const result = mergePreviousSlugsCapped(oldSlugs, newSlugs, { jobId: 'company-job-3', source: 'update-guess-jobs.mjs' });
+    // All 10 freshly-captured entries must survive.
+    for (const s of newSlugs) expect(result).toContain(s);
+    // The 5 oldest entries (old-slug-0..4) must be the ones trimmed.
+    for (let i = 0; i < 5; i++) expect(result).not.toContain(`old-slug-${i}`);
+    // The 10 most-recent "old" entries survive alongside the 10 new ones.
+    for (let i = 5; i < 15; i++) expect(result).toContain(`old-slug-${i}`);
+  });
+
+  it('capSlugArray keeps the tail (newest) `cap` entries and journals the trimmed count (#3377)', () => {
+    const union = Array.from({ length: 25 }, (_, i) => `slug-${i}`);
+    const result = capSlugArray(union, 20, { jobId: 'company-job-4', source: 'test-source' });
+    expect(result).toHaveLength(20);
+    expect(result[0]).toBe('slug-5');
+    expect(result[19]).toBe('slug-24');
+    expect(getEvents()).toHaveLength(1);
+    expect(getEvents()[0]).toMatchObject({ jobId: 'company-job-4', action: 'cap-trim', source: 'test-source', reason: 'cap=20, trimmed=5' });
+  });
+
+  it('capSlugArray is a no-op (no journal entry) when the array is already within cap', () => {
+    const union = ['a', 'b', 'c'];
+    const result = capSlugArray(union, 20, { jobId: 'company-job-5', source: 'test-source' });
     expect(result).toEqual(['a', 'b', 'c']);
     expect(getEvents()).toHaveLength(0);
   });
